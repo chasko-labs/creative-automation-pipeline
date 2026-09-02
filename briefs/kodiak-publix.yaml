@@ -1,0 +1,12 @@
+campaign_name: "Frontier Breakfast — Publix Southeast Family"
+brand: "KODIAK"
+target_region: "US"
+target_market: "US-SE-PUBLIX"
+target_audience: "Southeast families 28-45, Publix shoppers, porch-breakfast, kids + cubs, warm family"
+campaign_message: "Protein-packed whole grains for your family’s frontier."
+language: "en"
+brand_colors: ["#3B2316", "#E8530E", "#1A3C34"]
+products:
+  - {id: power-cakes, name: "Buttermilk Power Cakes", description: "14g protein flapjack mix — heirloom whole grain"}
+  - {id: bear-bites, name: "Bear Bites Graham Crackers", description: "Protein graham crackers for cubs — lunchbox ready"}
+  - {id: oatmeal-cup, name: "Protein Oatmeal Cup", description: "On-the-go maple & brown sugar — trail to table"}

@@ -1,0 +1,12 @@
+campaign_name: "Frontier Breakfast — Costco Bulk Family"
+brand: "KODIAK"
+target_region: "US"
+target_market: "US-W-COSTCO"
+target_audience: "Bulk family shoppers 30-50, Costco members, value + protein, weekend stack"
+campaign_message: "Stock the frontier — protein-packed whole grains for every morning."
+language: "en"
+brand_colors: ["#3B2316", "#E8530E", "#1A3C34"]
+products:
+  - {id: power-cakes, name: "Buttermilk Power Cakes", description: "Family-size whole grain flapjack mix"}
+  - {id: bear-bites, name: "Bear Bites Graham Crackers", description: "Shareable protein graham crackers for cubs"}
+  - {id: oatmeal-cup, name: "Protein Oatmeal Cup", description: "12-pack high protein oatmeal — pantry staple"}

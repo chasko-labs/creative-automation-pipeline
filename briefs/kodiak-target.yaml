@@ -1,0 +1,12 @@
+campaign_name: "Frontier Breakfast — Target Midwest Gen Z"
+brand: "KODIAK"
+target_region: "US"
+target_market: "US-MW-TARGET"
+target_audience: "Gen Z and millennial health seekers 22-34, Target shoppers, clean label, active"
+campaign_message: "Fuel your frontier — 14g protein, 100% whole grains."
+language: "en"
+brand_colors: ["#3B2316", "#E8530E", "#1A3C34"]
+products:
+  - {id: power-cakes, name: "Buttermilk Power Cakes", description: "High-protein whole grain flapjack mix"}
+  - {id: bear-bites, name: "Bear Bites Graham Crackers", description: "Protein-packed graham snack — cinnamon & honey"}
+  - {id: oatmeal-cup, name: "Protein Oatmeal Cup", description: "On-the-go high protein oatmeal"}
