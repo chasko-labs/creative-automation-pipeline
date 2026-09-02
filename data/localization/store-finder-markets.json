@@ -1,15 +1,17 @@
 {
   "metadata": {
-    "generated": "2026-09-02T00:00:00Z",
+    "generated": "2026-09-02T21:30:00Z",
     "source": "data/raw-ingest/kodiakcakes/pages/005_pages_store-locator.html + synthesized frontier coverage",
     "note": "Store locator page uses dynamic JS locator; synthesized markets extend 18 seeded regions from localization-table-seed.json to ~68 for frontier gap coverage. Find store locator data or synthesize store-finder-markets.json with ~50 markets plus 18 existing.",
     "counts": {
       "seeded_regions": 18,
       "synthesized_new": 50,
-      "total_markets": 69
+      "total_markets": 72,
+      "bay_area_frontier_added": 1,
+      "total": 71
     },
     "locator_url": "https://kodiakcakes.com/pages/store-locator",
-    "total_markets": 69
+    "total_markets": 72
   },
   "markets": [
     {
@@ -20,7 +22,11 @@
       "cue": "Farmers Market at Park City Mountain Resort Wed 11-5 \u2014 Jensen Farms peaches, Copper Moose rhubarb, Tagges preserves, Ballerina butter",
       "retailer": "Target (Kimball Junction), Walmart (Kimball Junction), Smith's Food & Drug (Park City)",
       "zip": "84098",
-      "brand": "KODIAK"
+      "brand": "KODIAK",
+      "coordinates": {
+        "lat": 40.6461,
+        "lon": -111.498
+      }
     },
     {
       "market": "US-MW-WASATCH",
@@ -30,7 +36,11 @@
       "cue": "Wasatch alpenglow, pine, boulder, snow at dawn",
       "retailer": "Target, Walmart",
       "zip": "84060",
-      "brand": "KODIAK"
+      "brand": "KODIAK",
+      "coordinates": {
+        "lat": 40.6461,
+        "lon": -111.498
+      }
     },
     {
       "market": "US-SW-LASCRUCES",
@@ -40,7 +50,11 @@
       "cue": "Roasted Hatch green chile in flapjacks, Organ Mountains bench, trail bench",
       "retailer": "Target, Walmart, Albertsons",
       "zip": "88001",
-      "brand": "KODIAK"
+      "brand": "KODIAK",
+      "coordinates": {
+        "lat": 32.3199,
+        "lon": -106.7637
+      }
     },
     {
       "market": "US-SW-ALBQ",
@@ -50,7 +64,11 @@
       "cue": "Red chile and pi\u00f1on, enamel mug on portal",
       "retailer": "Target, Walmart, Smith's",
       "zip": "87101",
-      "brand": "KODIAK"
+      "brand": "KODIAK",
+      "coordinates": {
+        "lat": 35.0844,
+        "lon": -106.6504
+      }
     },
     {
       "market": "US-SC-AUSTIN",
@@ -125,12 +143,21 @@
     {
       "market": "US-W-SEA",
       "place": "Seattle, Washington",
-      "audience": "Bulk families, rain-mornings",
-      "message": "Evergreen frontier \u2014 protein-packed whole grains for gray mornings",
-      "cue": "Coffee beside flapjacks, evergreen",
-      "retailer": "Costco (home), Target",
+      "audience": "Seattle Costco bulk shoppers \u2014 bulk Family Size, rain-morning tech families (South Lake Union / Ballard / Capitol Hill), Target + Costco halo, evergreen frontier",
+      "message": "Evergreen frontier \u2014 protein-packed whole grains for gray mornings \u2014 bulk Costco + urban frontier awareness",
+      "cue": "Coffee beside KODIAK\u00ae flapjacks, evergreen, rain-morning griddle, bulk Costco Family Size \u2014 and Neah Bay frontier representation for Washington state awareness",
+      "retailer": "Costco (home \u2014 Seattle/SODO/Issaquah warehouses), Target, Amazon Subscribe & Save",
       "zip": "98101",
-      "brand": "KODIAK"
+      "brand": "KODIAK",
+      "seattle_awareness": {
+        "shopper_profile": "Seattle Costco shoppers: bulk Family Size buyers, rain-morning griddle ritual, tech families (Amazon/Microsoft), Target halo for mid-week fill, SODO warehouse Saturday stock-up",
+        "what_seattle_sees": "Bulk Evergreen frontier creative \u2014 coffee + evergreen, 14g protein, Family Size bag \u2014 the urban bulk Washington voice",
+        "what_neah_bay_sees": "Frontier DTC creative \u2014 Washburn's General Store dusty box vs subscription & Amazon.com, huckleberry compote (Aug) / savory smoked salmon + chives, 70mi to Port Angeles grocer, 4-5hr incl ferry",
+        "why_both_visible": "If Washington state location is noted on app open (no zip filter), both US-W-SEA and US-WA-NEAHBAY are Washington \u2014 subscription & amazon.com ads for Neah Bay appear alongside Seattle bulk Evergreen ads. Intentional: training ensures urban model sees frontier, not bulk-only isolation.",
+        "training_data_rule": "Vector search for 'Seattle', 'Washington', 'Costco', or '98101' must also retrieve Neah Bay frontier representation \u2014 ensures urban folks see frontier representation in embeddings",
+        "fulfillment_contrast": "Seattle: shelf bulk (Costco next door). Neah Bay: DTC subscription + Amazon.com where nearest full grocer is 70mi away. Both are Washington \u2014 state view teaches contrast."
+      },
+      "urban_frontier_link": "US-WA-NEAHBAY \u2014 Seattle training includes Neah Bay frontier so urban embeddings see frontier"
     },
     {
       "market": "US-W-PDX",
@@ -213,7 +240,11 @@
       "brand": "KODIAK",
       "frontier": true,
       "subscriber_variant": true,
-      "cross_promo": "pinonnuts.com \u2014 Pi\u00f1\u00f3n Seeds"
+      "cross_promo": "pinonnuts.com \u2014 Pi\u00f1\u00f3n Seeds",
+      "coordinates": {
+        "lat": 32.6376,
+        "lon": -105.6947
+      }
     },
     {
       "market": "US-MW-WASATCH-SLC",
@@ -273,7 +304,11 @@
       "audience": "Border families, Franklin Mountains hikers",
       "message": "Franklin frontier \u2014 pi\u00f1on & green chile flapjacks",
       "cue": "Franklin Mountains, border sunrise, green chile",
-      "brand": "KODIAK"
+      "brand": "KODIAK",
+      "coordinates": {
+        "lat": 31.7619,
+        "lon": -106.485
+      }
     },
     {
       "market": "US-SC-DALLAS",
@@ -633,7 +668,11 @@
       "audience": "Sacramento Mountains families, ski Cloudcroft",
       "message": "Sacramento frontier \u2014 pi\u00f1on flapjacks for mountain mornings",
       "cue": "Mountain pines, pi\u00f1on, ski lodge",
-      "brand": "KODIAK"
+      "brand": "KODIAK",
+      "coordinates": {
+        "lat": 32.3199,
+        "lon": -106.7637
+      }
     },
     {
       "market": "US-SW-ROSWELL",
@@ -704,6 +743,64 @@
       "message": "Flatiron frontier \u2014 protein for alpine mornings",
       "cue": "Flatirons alpenglow, trailhead stack",
       "brand": "KODIAK"
+    },
+    {
+      "market": "US-CA-PESCADERO",
+      "place": "Pescadero, California 94060 \u2014 San Mateo Coast",
+      "zip": "94060",
+      "retailer": "Arcangeli Grocery Co. (Norm's Market), Half Moon Bay Safeway (14 mi), Costco Redwood City (30 mi halo)",
+      "audience": "Bay Area urban frontier households \u2014 San Francisco/Oakland hinterland seekers, coastal trail fitness households, San Mateo Coast farm families",
+      "message": "KODIAK\u00ae frontier for Bay Area urban folks to see their hinterland \u2014 protein-packed whole grains for your Pescadero coast. Nourishment for Today's Frontier",
+      "cue": "Pescadero Marsh boardwalk, Half Moon Bay Coastal Trail, Stage Road farm stands \u2014 Castroville artichokes Mar-Jun centerfold April, Fifth Crow strawberries May-Sep, Harley Farms goat cheese spring peak, olive oil, Brussels sprouts",
+      "brand": "KODIAK",
+      "frontier": true,
+      "subscriber_variant": true,
+      "fulfillment": "direct",
+      "cross_promo": "Harley Farms Goat Dairy + Fifth Crow Farm",
+      "county": "San Mateo County",
+      "state": "CA",
+      "coordinates": {
+        "lat": 37.2534,
+        "lon": -122.3806
+      },
+      "population": 2000,
+      "distance_from_sf_mi": 35,
+      "seasonality": "Artichokes Mar-Jun (peak April), strawberries May-Sep, goat cheese year-round spring peak, olive oil Nov press, Brussels sprouts Sep-Feb"
+    },
+    {
+      "market": "US-WA-NEAHBAY",
+      "place": "Neah Bay, WA 98357 \u2014 northwestern tip of Olympic Peninsula, Makah Tribe",
+      "audience": "Makah families, Neah Bay mini-mart regulars, Port Angeles commuters, Seattle workers who want to see what their Washington frontier sees \u2014 Seattle Costco shoppers see bulk, Neah Bay sees subscription & Amazon.com",
+      "message": "KODIAK\u00ae Neah Bay frontier \u2014 huckleberry compote over Buttermilk Power Cakes, Makah water meets Wasatch grain",
+      "cue": "Neah Bay harbor at dawn, Makah cedar canoe, Kodiak box on Washburn's porch with huckleberry compote, Olympic Peninsula fog, 70mi road sign to Port Angeles",
+      "retailer": "Washburn's General Store (Neah Bay), Port Angeles Safeway / Walmart (70mi), Costco Seattle / Sequim area (4-5hr)",
+      "zip": "98357",
+      "brand": "KODIAK",
+      "frontier": true,
+      "subscriber_variant": true,
+      "coordinates": {
+        "lat": 48.36,
+        "lon": -124.62
+      },
+      "elevation_ft": 75,
+      "seattle_awareness": {
+        "note": "Seattle urban awareness link \u2014 Seattle Costco shoppers (bulk, rain-morning, tech families) see this Neah Bay frontier when Washington state is noted; Neah Bay sees DTC instead of bulk"
+      }
+    },
+    {
+      "market": "US-SW-TULAROSA",
+      "place": "Tularosa, NM 88352 \u2014 Tularosa Basin, provider edge",
+      "audience": "Tularosa Basin families \u2014 provider edge, White Sands",
+      "message": "KODIAK\u00ae Keep It Wild \u2014 protein-packed whole grains for your Tularosa frontier. Nourishment for Today's Frontier",
+      "cue": "White Sands, Sacramento Mountains, Tularosa Basin",
+      "retailer": "Walmart Alamogordo, Lowe's Supermarket Tularosa",
+      "zip": "88352",
+      "brand": "KODIAK",
+      "coordinates": {
+        "lat": 33.0581,
+        "lon": -106.0228
+      },
+      "frontier": false
     }
   ]
 }

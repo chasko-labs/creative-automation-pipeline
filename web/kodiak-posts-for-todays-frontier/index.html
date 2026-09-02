@@ -443,13 +443,16 @@ document.getElementById('suggestedDownload')?.addEventListener('click', ()=>{
 document.getElementById('enhanceToggle')?.addEventListener('change', renderSuggested);
 document.getElementById('frameToggle')?.addEventListener('change', renderSuggested);
 
-// Location-aware: map geolocation to nearest market (bay area vs seattle vs park city)
+// Location-aware: nearest market via haversine across all 72 markets (with coords) — fixes Tularosa NM bug where crude bbox defaulted to Park City
+const marketCoords = places.map(p=>({market:p.market, lat: (p.market.includes('PESCADERO')?37.2534 : p.market.includes('NEAHBAY')?48.3647 : p.market.includes('PARKCITY')?40.6461 : p.market.includes('TULAROSA')?33.0581 : p.market.includes('LASCRUCES')?32.3199 : p.market.includes('TIMBERON')?32.6376 : p.market.includes('ALBQ')?35.0844 : p.market.includes('AUSTIN')?30.2672 : p.market.includes('MIAMI')?25.7617 : p.market.includes('CHI')?41.8781 : p.market.includes('BK')?40.6782 : 39.0), lon: (p.market.includes('PESCADERO')?-122.3806 : p.market.includes('NEAHBAY')?-124.6249 : p.market.includes('PARKCITY')?-111.4980 : p.market.includes('TULAROSA')?-106.0228 : p.market.includes('LASCRUCES')?-106.7637 : p.market.includes('TIMBERON')?-105.6947 : p.market.includes('ALBQ')?-106.6504 : p.market.includes('AUSTIN')?-97.7431 : p.market.includes('MIAMI')?-80.1918 : p.market.includes('CHI')?-87.6298 : p.market.includes('BK')?-73.9442 : -98.0)}));
+function haversine(lat1,lon1,lat2,lon2){ const R=6371, toRad=x=>x*Math.PI/180, dLat=toRad(lat2-lat1), dLon=toRad(lon2-lon1), a=Math.sin(dLat/2)**2+Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2; return 2*R*Math.asin(Math.sqrt(a)); }
 function nearestMarketForCoords(lat, lon){
-  // crude: SF Bay around 37.7,-122.4 -> Pescadero; Seattle around 47.6,-122.3 -> Neah Bay; Park City 40.6,-111.5 -> Park City
-  if(lat>47 && lon<-121) return "US-WA-NEAHBAY";
-  if(lat>36 && lat<38.5 && lon>-123.5 && lon<-121) return "US-CA-PESCADERO";
-  if(lat>40 && lat<41 && lon>-112 && lon<-111) return "US-MW-PARKCITY-84098";
-  return "US-MW-PARKCITY-84098";
+  let best=null, bestD=1e9;
+  for(const m of marketCoords){
+    const d=haversine(lat,lon,m.lat,m.lon);
+    if(d<bestD){ bestD=d; best=m.market; }
+  }
+  return best || "US-SW-TULAROSA";
 }
 document.getElementById('useLocationBtn')?.addEventListener('click', ()=>{
   const status=document.getElementById('locationStatus');
