@@ -4,7 +4,7 @@
 
 **This is not a generic social pipeline.** Every line, every photo cue, every color in here comes from Kodiak — the red wagon in 1982, the Wasatch Mountains, 14 grams of protein, Keep It Wild with Vital Ground. The system exists so Maya in Park City can write one line and Diego in the Southwest can share it that afternoon without waiting on an agency.
 
-View the brand the way marketing sees it: [Human story — Kodiak explained](docs/kodiak-brand-explained.md) · [Visual brand page](docs/kodiak-brand-view.html) · [Who runs this and how they win](docs/ux-persona-kodiak.md) · [Every town we already know](docs/regional-cultural-database.md)
+View the brand the way marketing sees it: [Human story](docs/kodiak-brand-explained.md) · [Visual page](docs/kodiak-brand-view.html) · [Who runs this](docs/ux-persona-kodiak.md) · [Every town](docs/regional-cultural-database.md) · [AgentCore + RAG architecture](docs/bedrock-agentcore-architecture.md)
 
 ---
 
