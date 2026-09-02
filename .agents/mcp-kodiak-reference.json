@@ -1,0 +1,36 @@
+{
+  "mcpServers": {
+    "kodiak-reference": {
+      "command": "uv",
+      "args": ["run", "python", "-m", "creative_automation.reference_api"],
+      "env": { "BEDROCK_REGION": "us-east-1" },
+      "tools": [
+        {
+          "name": "kodiak_reference_search",
+          "description": "Search Kodiak reference library (design, reference images, training wins) by meaning using Nova multimodal embeddings. Query like 'What worked for green chile families?' or 'porch breakfast' — returns top-k past wins with market, audience, message, cue, zip.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "q": { "type": "string", "description": "Natural language query — place, audience, or message" },
+              "k": { "type": "integer", "default": 5 },
+              "type": { "type": "string", "enum": ["text", "image", "multimodal"], "description": "Filter by indexed type" }
+            },
+            "required": ["q"]
+          }
+        },
+        {
+          "name": "kodiak_reference_embed",
+          "description": "Embed text or text+image via Nova multimodal for ad-hoc RAG — returns 1024-dim vector preview (Titan fallback when multimodal not enabled).",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "text": { "type": "string" },
+              "image_path": { "type": "string", "description": "Local path under data/raw-ingest/kodiakcakes/images/" }
+            },
+            "required": ["text"]
+          }
+        }
+      ]
+    }
+  }
+}

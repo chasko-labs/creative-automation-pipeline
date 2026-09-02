@@ -4,7 +4,7 @@
 
 **This is not a generic social pipeline.** Every line, every photo cue, every color in here comes from Kodiak — the red wagon in 1982, the Wasatch Mountains, 14 grams of protein, Keep It Wild with Vital Ground. The system exists so Maya in Park City can write one line and Diego in the Southwest can share it that afternoon without waiting on an agency.
 
-View the brand the way marketing sees it: [Human story](docs/kodiak-brand-explained.md) · [Visual page](docs/kodiak-brand-view.html) · [Who runs this](docs/ux-persona-kodiak.md) · [Every town](docs/regional-cultural-database.md) · [AgentCore + RAG architecture](docs/bedrock-agentcore-architecture.md)
+View the brand the way marketing sees it: [Human story](docs/kodiak-brand-explained.md) · [Visual page](docs/kodiak-brand-view.html) · [Who runs this](docs/ux-persona-kodiak.md) · [Every town](docs/regional-cultural-database.md) · [AgentCore + RAG architecture](docs/bedrock-agentcore-architecture.md) · [Training process — Nova multimodal](docs/training-process.md)
 
 ---
 
@@ -84,7 +84,7 @@ One pull request is one town or one channel. Keep it under 500 lines so Maya can
 
 ## For the team that wants the tech too
 
-Photo library and style live in cloud storage mirrored to `input_assets/` and `references/`. Regional memory lives queryable in two forms that stay in sync — a simple lookup table by market (`data/localization/localization-table-seed.json`) and searchable knowledge file (`data/localization/localization-training-data.jsonl`) ready for vector search and the regional database doc. Visual checks run headless across 1080 by 1080, 1080 by 1920, 1920 by 1080 and block the handoff to the store if the bear, the bar, or the legibility fails (`scripts/nova-act-check.py`, docs at `docs/nova-act-runbook.md`).
+Photo library and style live in cloud storage mirrored to `input_assets/` and `references/`. Regional memory lives queryable in two forms that stay in sync — a simple lookup table by market (`data/localization/localization-table-seed.json`) and searchable knowledge file (`data/localization/localization-training-data.jsonl`) ready for vector search and the regional database doc. Background agents run Nova multimodal embeddings (`amazon.nova-2-multimodal-embeddings-v1:0`, 1024 dims, Titan fallback) over design tokens, pack shots, and every training row, write `data/vectors/kodiak-embeddings.jsonl`, sync to `s3://.../brands/kodiak/vectors/` (S3 Vectors, dedicated vector bucket), and are searchable via the agent-friendly API (`uv run python -m creative_automation.reference_api` → `GET /search?q=green%20chile` or MCP tool `kodiak_reference_search`) — details and runnable code at `docs/training-process.md` and `docs/bedrock-agentcore-architecture.md`. Visual checks run headless across 1080 by 1080, 1080 by 1920, 1920 by 1080 and block the handoff to the store if the bear, the bar, or the legibility fails (`scripts/nova-act-check.py`, docs at `docs/nova-act-runbook.md`).
 
 ## Strongest Examples — Real Ads, Real Frontier Flavor
 
