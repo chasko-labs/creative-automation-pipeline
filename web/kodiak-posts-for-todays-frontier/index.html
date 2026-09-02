@@ -1,9 +1,13 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"/>
+<link rel="stylesheet" href="https://use.typekit.net/zjt4wyq.css">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>KODIAK® Posts for Today's Frontier — Offline</title>
 <meta name="robots" content="noindex, nofollow, noarchive">
 <script>
+// Password gate: cakes — unlisted from bots, simple JS gate (also respects CloudFront if added)
+// Headless test bypass: ?cakes=1 or ?gate=cakes auto-sets sessionStorage
+if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParams(location.search).get('gate')==='cakes'){ try{sessionStorage.setItem('kodiak_gate','cakes')}catch(e){} }
 // Password gate: cakes — unlisted from bots, simple JS gate (also respects CloudFront if added)
 (function(){
   try{
@@ -30,7 +34,7 @@
 }
 *{box-sizing:border-box}html,body{margin:0;background:var(--parch);color:var(--brown);font-family:Inter,system-ui,Helvetica,Arial,sans-serif}
 a{color:var(--green);text-decoration:none;border-bottom:1px solid #1A3C3433}a:hover{border-bottom-color:var(--green)}
-header{padding:22px 18px 14px;background:var(--brown);color:var(--parch);border-bottom:4px solid var(--orange);display:flex;align-items:center;gap:16px}
+header{padding:22px 18px 14px;background:var(--brown);color:#fff;border-bottom:none;display:flex;align-items:center;gap:16px}
 header h1{margin:0;font:800 22px/1.1 Rockwell,Clarendon,Georgia,serif;letter-spacing:-.02em}
 header h1 small{font:500 12px/1 Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#FACC7C}
 header p{margin:8px 0 0;max-width:880px;color:#E8DDD3;font-size:13px;line-height:1.5}
@@ -64,8 +68,15 @@ header p{margin:8px 0 0;max-width:880px;color:#E8DDD3;font-size:13px;line-height
 .offline{padding:8px 10px;border-radius:10px;background:#FFF8F0;border:1px dashed var(--stone);color:#6B5A53;font-size:12px;line-height:1.5}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head><body>
-<header>
-<div style="flex:0 0 44px;height:44px;background:#E8530E;border-radius:8px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.25)"><svg width="28" height="28" viewBox="0 0 24 24" aria-label="KODIAK Bear silhouette"><path d="M12 2l2 2 2-1 1 3 2 2-1 4 2 5-4 3H8l-4-3 2-5-1-4 2-2 1-3 2 1z" fill="#3B2316"/><path d="M9 9c0-1 1-2 3-2s3 1 3 2v2c0 1-1 2-3 2s-3-1-3-2V9z" fill="#FFF8F0" opacity=".9"/><circle cx="10" cy="11" r="1" fill="#3B2316"/><circle cx="14" cy="11" r="1" fill="#3B2316"/></svg></div>
+<div style="background:#2c231b url('https://kodiakcakes.com/cdn/shop/t/97/assets/brown-texture-2.webp') center/cover;color:#f8eddf;text-align:center;padding:8px 12px;font-family:'kodiak_sans','Roar',system-ui,sans-serif;font-size:13px;letter-spacing:.06em">KODIAK® Posts for Today's Frontier — MAYA'S CAMPAIGN — NATIONWIDE → LOCAL IN ONE SHEET</div>
+<header style="background:#B51E14 url('https://kodiakcakes.com/cdn/shop/t/97/assets/mega-menu_red-bg.webp') center/cover;color:#fff;border-bottom:none;display:flex;align-items:center;gap:16px;padding:10px 18px;flex-wrap:wrap">
+<div style="flex:0 0 52px;height:52px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.25)"><img src="assets/kodiak-primary-logo.png" alt="KODIAK — 100% WHOLE GRAINS" style="width:48px;height:48px;object-fit:contain" onerror="this.style.display='none'"></div>
+<nav style="display:flex;gap:18px;font-family:'kodiak_sans','Roar',system-ui,sans-serif;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;flex:1;align-items:center">
+<a href="https://kodiakcakes.com/blogs/news" target="_blank" style="color:#fff;text-decoration:none">Explore</a>
+<a href="https://kodiakcakes.com/pages/recipes" target="_blank" style="color:#fff;text-decoration:none">Recipes</a>
+<a href="https://kodiakcakes.com/blogs/news/10-tips-to-cook-a-flawless-flapjack" target="_blank" style="color:#fff;text-decoration:none">Flawless Flapjacks</a>
+<span style="margin-left:auto;font-size:11px;opacity:.9;letter-spacing:.08em">FREE GROUND SHIPPING ON ORDERS OVER $45 *</span>
+</nav>
 <div style="flex:1"><h1>KODIAK® Posts for Today's Frontier <small>Maya’s campaign — nationwide → local in one sheet</small></h1>
 <p><b>Feeding Epic Days & Wilder Lives • Nourishment for Today's Frontier</b> — Maya opens a one-page idea sheet. Not a ticket. One sheet becomes hundreds of local ads (square 1080×1080, tall 1080×1920, wide 1920×1080) with the KODIAK Bear silhouette still at 24,24. Works offline, no server — just open this file. Built for a nationwide campaign that lands locally.</p></div>
 </header>
@@ -204,7 +215,8 @@ const places = [
   {market:"US-W-BEND", place:"Bend, Oregon", retailer:"Target, Fred Meyer", zip:"97701", audience:"Cascade trail families, high desert — Brett", message:"Cascade frontier — protein for high-desert mornings", peppers:"—", cheeses:"—", cue:"Cascade pines, lava rock, trail cup"},
   {market:"US-W-BOULDER", place:"Boulder, Colorado", retailer:"Target, King Soopers, Whole Foods", zip:"80302", audience:"Flatiron trail families, alpine start — Arnoldo", message:"Flatiron frontier — protein for alpine mornings", peppers:"—", cheeses:"—", cue:"Flatirons alpenglow, trailhead stack"},
   {market:"US-CA-PESCADERO", place:"Pescadero, California 94060 — San Mateo Coast", retailer:"Arcangeli Grocery Co. (Norm's Market), Half Moon Bay Safeway (14 mi), Costco Redwood City (30 mi halo)", zip:"94060", audience:"Bay Area urban frontier households — Sam", message:"KODIAK® frontier for Bay Area urban folks to see their hinterland — protein-packed whole grains for your Pescadero coast. Nourishment for Today's Frontier", peppers:"—", cheeses:"—", cue:"Pescadero Marsh boardwalk, Half Moon Bay Coastal Trail, Stage Road farm stands — Castroville artichokes Mar-Jun centerfo"},
-  {market:"US-WA-NEAHBAY", place:"Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe", retailer:"Washburn's General Store (Neah Bay), Port Angeles Safeway / Walmart (70mi), Costco Seattle / Sequim area (4-5hr)", zip:"98357", audience:"Makah families, Neah Bay mini-mart regulars, Port Angeles co — Amber", message:"KODIAK® Neah Bay frontier — huckleberry compote over Buttermilk Power Cakes, Makah water meets Wasatch grain", peppers:"—", cheeses:"—", cue:"Neah Bay harbor at dawn, Makah cedar canoe, Kodiak box on Washburn's porch with huckleberry compote, Olympic Peninsula f"}
+  {market:"US-WA-NEAHBAY", place:"Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe", retailer:"Washburn's General Store (Neah Bay), Port Angeles Safeway / Walmart (70mi), Costco Seattle / Sequim area (4-5hr)", zip:"98357", audience:"Makah families, Neah Bay mini-mart regulars, Port Angeles co — Amber", message:"KODIAK® Neah Bay frontier — huckleberry compote over Buttermilk Power Cakes, Makah water meets Wasatch grain", peppers:"—", cheeses:"—", cue:"Neah Bay harbor at dawn, Makah cedar canoe, Kodiak box on Washburn's porch with huckleberry compote, Olympic Peninsula f"},
+  {market:"US-SW-TULAROSA", place:"Tularosa, NM 88352 — Tularosa Basin, provider edge", retailer:"Walmart Alamogordo, Lowe's Supermarket Tularosa", zip:"88352", audience:"Tularosa Basin families — Cory", message:"KODIAK® Keep It Wild — protein-packed whole grains for your Tularosa frontier. Nourishment for Today's Frontier", peppers:"—", cheeses:"—", cue:"White Sands, Sacramento Mountains, Tularosa Basin"}
 ];
 const products = [
   {id:"power-cakes", name:"KODIAK CAKES® Buttermilk Power Cakes", img:"../../input_assets/power-cakes/hero.png", base:"1 cup mix + 2/3 cup milk + 1 egg"},
@@ -455,6 +467,15 @@ function nearestMarketForCoords(lat, lon){
   return best || "US-SW-TULAROSA";
 }
 document.getElementById('useLocationBtn')?.addEventListener('click', ()=>{
+  const params=new URLSearchParams(location.search);
+  if(params.has('mockLat') && params.has('mockLon')){
+    const m=nearestMarketForCoords(parseFloat(params.get('mockLat')), parseFloat(params.get('mockLon')));
+    const status=document.getElementById('locationStatus');
+    status.textContent=`Mocked location ${params.get('mockLat')},${params.get('mockLon')} → ${m} — selected for you. Showing what your Costco sees vs frontier.`;
+    localitySel.value=m;
+    onLocality(); render();
+    return;
+  }
   const status=document.getElementById('locationStatus');
   if(!navigator.geolocation){ status.textContent="Geolocation not available — choose from list below"; return; }
   status.textContent="Locating…";
@@ -474,5 +495,16 @@ document.getElementById('showAllBtn')?.addEventListener('click', ()=>{
 });
 
 fillSelects(); render();
+// Headless auto-select for ?mockLat&mockLon (fixes Tularosa bug where crude bbox defaulted to Park City)
+(() => {
+  const params=new URLSearchParams(location.search);
+  if(params.has('mockLat') && params.has('mockLon')){
+    const m=nearestMarketForCoords(parseFloat(params.get('mockLat')), parseFloat(params.get('mockLon')));
+    const status=document.getElementById('locationStatus');
+    if(status) status.textContent=`Mocked location ${params.get('mockLat')},${params.get('mockLon')} → ${m} — auto-selected. Showing what your Costco sees vs frontier.`;
+    const sel=document.getElementById('locality');
+    if(sel){ sel.value=m; sel.dispatchEvent(new Event('change')); if(typeof onLocality==='function') onLocality(); if(typeof render==='function') render(); }
+  }
+})();
 </script>
 </body></html>
