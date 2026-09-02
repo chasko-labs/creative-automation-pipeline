@@ -12,3 +12,6 @@ output_*/
 *.tfstate
 *.tfstate.backup
 .terraform.lock.hcl
+data/raw-ingest/*
+!data/raw-ingest/kodiakcakes/*.json
+!data/raw-ingest/kodiakcakes/brand-lore/

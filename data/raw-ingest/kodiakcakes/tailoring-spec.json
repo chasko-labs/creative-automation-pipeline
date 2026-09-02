@@ -1,0 +1,41 @@
+{
+  "visual_patterns": [
+    "brown kraft box with growling bear (#382316 Black Marlin, #B51E14 Thunderbird, #FACC7C Goldenrod from Brandfetch)",
+    "steam stack on cast iron",
+    "cubs with Bear Bites on trail bench",
+    "oatmeal cup on rocky overlook at sunrise",
+    "enamel mug and wood scoop of whole grains"
+  ],
+  "copy_patterns": [
+    "real food for real adventures",
+    "feeding epic days & wilder lives",
+    "14g protein 100% whole grains",
+    "Keep It Wild \u2014 Vital Ground",
+    "On the go never tasted so good \u2014 5g protein",
+    "Protein-packed whole grains for your family's frontier (Publix)",
+    "Fuel your frontier (Target)",
+    "Stock the frontier (Costco)"
+  ],
+  "mapping": {
+    "kodiak-keepitwild": {
+      "prompt": "Wasatch dawn alpenglow, pine/boulder, sky negative space",
+      "headline": "Protein-packed whole grains for today's frontier",
+      "market": "US-MW"
+    },
+    "kodiak-publix": {
+      "prompt": "Warm porch family table, kids and cubs together",
+      "headline": "Protein-packed whole grains for your family's frontier",
+      "market": "US-SE-PUBLIX"
+    },
+    "kodiak-on-the-go": {
+      "prompt": "Oatmeal cup on subway platform / trail bench, backpack",
+      "headline": "On the go never tasted so good",
+      "market": "US-NATIONAL-ON-THE-GO"
+    },
+    "green-chile Las Cruces": {
+      "prompt": "Roasted Hatch green chile in batter, Organ Mountains bench",
+      "headline": "Green chile meets grizzly",
+      "market": "US-SW-LASCRUCES"
+    }
+  }
+}
