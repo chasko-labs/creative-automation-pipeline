@@ -1,8 +1,8 @@
-# Kodiak — Real Food for Real Adventures. Built for the Frontier.
+# KODIAK® — Nourishment for Today's Frontier. Feeding Epic Days & Wilder Lives.
 
-> A custom creative system for Kodiak Cakes. One brand, one photo library, one idea sheet — and hundreds of local ads that still look like Kodiak whether they run at a Walmart in Alamogordo, a Target in Las Cruces, or the diner on Route 70 that flips griddle cakes on Saturday.
+> Since a red wagon rolled out of Park City in 1982, KODIAK® has fed the frontier — 100% whole grains, protein-packed, the bear on every box. From the Wasatch Mountains to every porch, trailhead, and town, Keep It Wild still guides every bite. One brief, one photo library, one idea sheet — hundreds of local ads that still look and feel like KODIAK®.
 
-**This is not a generic social pipeline.** Every line, every photo cue, every color in here comes from Kodiak — the red wagon in 1982, the Wasatch Mountains, 14 grams of protein, Keep It Wild with Vital Ground. The system exists so Maya in Park City can write one line and Diego in the Southwest can share it that afternoon without waiting on an agency.
+**This is not a generic social pipeline.** Every line, every photo cue, every color in here comes from Kodiak — the red wagon in 1982, the Wasatch front, 14 grams of protein and 100% whole grains, Keep It Wild with Vital Ground, and the bear that watches over breakfast. The system exists so Maya in Park City can write one line and Diego in the Southwest can share it that afternoon without waiting on an agency.
 
 View the brand the way marketing sees it: [Human story](docs/kodiak-brand-explained.md) · [Visual page](docs/kodiak-brand-view.html) · [Who runs this — 3 quick cards](docs/ux-persona-kodiak.md) · [Every persona — 23 cards for every sprint](docs/ux-personas-kodiak-complete.md) · [Every town](docs/regional-cultural-database.md) · [Naming & brand marks](docs/iso-naming-conventions.md) · [AgentCore + RAG architecture](docs/bedrock-agentcore-architecture.md) · [Training process — Nova multimodal](docs/training-process.md) · [Technical integration — living Swagger is the product](docs/ux-personas-technical-integration.md) · [Live Swagger `GET /docs`](src/creative_automation/api.py)
 
@@ -15,8 +15,8 @@ View the brand the way marketing sees it: [Human story](docs/kodiak-brand-explai
 
 Maya opens a one-page idea sheet. Not a ticket. Just:
 
-- **Where** — Las Cruces plus Alamogordo, New Mexico, or Publix country in Savannah, or the national on-the-go crowd of students and commuters
-- **Who** — Green chile families 28 to 45, or Target Gen Z who reads the ingredient list, or the diner regulars who ask for the Bear Bites side
+- **Where** — Las Cruces plus Alamogordo, New Mexico, or Publix country in Savannah, or the national on-the-go crowd of trailheads and porches
+- **Who** — Park City mountain locals, Publix porch families in Savannah, Target clean-label families who flip the box for 100% whole grains, Costco bulk stock-up families, Amazon Subscribe & Save pantries, or rural cabin subscribers who need delivery — and for Las Cruces, Hatch green chile households who roast by the bushel
 - **One line** — "Green chile meets grizzly — protein for your Las Cruces frontier" or "On the go never tasted so good — 5 grams for busy mornings"
 
 She presses run. In ten minutes she has three finished ads for every product — square for the feed, tall for stories, wide for the menu board — each with the bear at 24,24, the warm orange 8-point bar at the bottom, and her line centered over the soft dark band. Green pass badges mean the bear is present and the frontier colors are right. She picks where each goes: Publix southeast, Target Midwest, Costco bulk west, that small independent in Alamogordo, or the diner. One map, one post, every town sees its own store name and its own Get Directions button.
@@ -32,7 +32,7 @@ uv run python -m creative_automation.cli --brief briefs/kodiak.yaml --assets inp
 open /tmp/kodiak-parks/preview.html
 ```
 
-That is Park City, Wasatch Mountains — Keep It Wild, protein-packed whole grains for today's frontier. Power Cakes reuses a real photo, Bear Bites and oatmeal cup are made new with the frontier palette.
+That is Park City, UT 84098 — Keep It Wild from the Farmers Market at the base of Park City Mountain Resort. Wednesdays 11–5, Jensen Farms peaches diced thin with cinnamon, Copper Moose rhubarb compote, Tagges preserves, Ballerina butter in Kamas. Same box, mountain summer on a griddle. Power Cakes reuses a real photo, Bear Bites and oatmeal cup are made new with the frontier palette.
 
 **Then try the local flex you asked for — Las Cruces green chile:**
 
@@ -114,7 +114,7 @@ Warm light, family table, kids and cubs together. Same flapjacks and bites, but 
 ### 3. Frontier Breakfast — Target Midwest
 *Fuel your frontier — 14 grams of protein, 100 percent whole grains.*
 
-Clean, bright, and label-forward for Target guests who turn the box over. Built for Gen Z and young families who care what is inside as much as how it tastes.
+Clean, bright, and label-forward for Target guests who flip the box for 100% whole grains. Built for Target clean-label families who care what is inside as much as how it tastes — Feeding Epic Days & Wilder Lives.
 
 ![Target Midwest — square preview](docs/assets/previews/kodiak-target-1x1.png)
 

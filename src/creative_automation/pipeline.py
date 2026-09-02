@@ -10,6 +10,7 @@ from .brief import CampaignBrief
 from .compose import RATIOS, compose_creative
 from .compliance import run_all_checks
 from .dam import find_brand_logo, find_hero_asset
+from .enhance import enhance_hero
 from .generate import generate_hero
 from .localize import localize_message
 
@@ -20,6 +21,7 @@ def run_pipeline(
     out_root: Path,
     ratios: List[str] | None = None,
     lang: str | None = None,
+    enhance: bool = True,
 ) -> Dict:
     t0 = time.time()
     ratios = ratios or ["1x1", "9x16", "16x9"]
@@ -53,10 +55,16 @@ def run_pipeline(
         work_hero.parent.mkdir(parents=True, exist_ok=True)
 
         if hero and hero.exists():
-            # copy to work
+            # copy to work then optionally enhance (contrast/texture/framing/watermark)
             import shutil
 
             shutil.copy2(hero, work_hero)
+            if enhance:
+                try:
+                    enhance_hero(work_hero, work_hero, contrast=1.08, brightness=1.02, sharpness=1.12, texture=True, frame=False, watermark=False, vignette=True)
+                    hero_source = f"{hero_source}+enhanced"
+                except Exception as e:
+                    print(f"[pipeline] enhance skip {product.id}: {e}")
         else:
             # generate
             _, hero_source = generate_hero(

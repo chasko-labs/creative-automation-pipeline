@@ -1,23 +1,31 @@
-# Regional cultural database — where Kodiak shows up differently
+# Regional cultural database — where KODIAK® shows up differently
 
-Marketing teams pick a place and the system already knows what matters there. No research sprint. The database remembers.
+> Frontier voice, Wasatch roots, Keep It Wild. Since the red wagon in 1982, one promise — 100% whole grains, the bear on every box, Nourishment for Today's Frontier, Feeding Epic Days & Wilder Lives — tuned for every porch, trailhead, and town.
+
+Marketing teams pick a place and the system already knows what matters there. No research sprint. The database remembers, and the bear stays consistent.
 
 ## The three anchor store groups you asked for, plus how far they reach
 
 ### 1. The friendly southern supermarkets (Publix-style)
 **Core foothold:** Southeast — Florida, Georgia, Alabama, Tennessee, the Carolinas, Virginia. Publix alone is ~1,400 stores, and Kodiak's southern voice is "porch breakfast, kids and cubs, warm family."
 
-**How far this cultural feel reaches:** This voice works beyond Publix into other southern and family-anchored chains (Winn-Dixie, Harris Teeter, Ingles) and independents in the same towns. The culture is humidity, front porches, Sunday mornings, Bear Bites in lunchboxes. Message that wins here: "Protein-packed whole grains for your family's frontier."
+**Who it feeds:** Publix southeast porch families — Sunday mornings on the porch, kids and cubs together, Bear Bites in lunchboxes.
+
+**How far this cultural feel reaches:** This voice works beyond Publix into other southern and family-anchored chains (Winn-Dixie, Harris Teeter, Ingles) and independents in the same towns. The culture is humidity, front porches, and whole-grain fuel before church or the field. Message that wins here: "Protein-packed whole grains for your family's frontier. Nourishment for Today's Frontier."
 
 ### 2. The style-forward national chain (Target-style)
-**Core foothold:** Midwest and national — Minnesota home base, 2,000 stores, strong in Chicago, the Twin Cities, Denver, and every college town. Target shopper is younger, ingredient-aware, "clean label, active."
+**Core foothold:** Midwest and national — Minnesota home base, 2,000 stores, strong in Chicago, the Twin Cities, Denver, and every college town.
 
-**How far this cultural feel reaches:** This voice travels to Whole Foods, Sprouts, Meijer, and urban natural channels anywhere the shopper reads the ingredient list first. The culture is crisp morning light, enamel mugs, 14 grams of protein up front. Message that wins here: "Fuel your frontier — 14 grams of protein, 100 percent whole grains."
+**Who it feeds:** Target clean-label families — they flip the box for 100% whole grains and 14 grams of protein, then taste the frontier.
+
+**How far this cultural feel reaches:** This voice travels to Whole Foods, Sprouts, Meijer, and urban natural channels where the shopper reads the label first. The culture is crisp morning light, enamel mugs, and Feeding Epic Days & Wilder Lives on the go. Message that wins here: "Fuel your frontier — 14 grams of protein, 100 percent whole grains."
 
 ### 3. The big membership stores (Costco-style)
-**Core foothold:** West and national — Seattle home, 500-plus warehouses, plus Sam's and BJ's. Bulk family, weekend stacks, pantry stocking.
+**Core foothold:** West and national — Seattle home, 500-plus warehouses, plus Sam's and BJ's.
 
-**How far this cultural feel reaches:** This voice fits any bulk channel and the family-size bag. The culture is Saturday morning, big griddle, big family. Message that wins here: "Stock the frontier — protein-packed whole grains for every morning."
+**Who it feeds:** Costco bulk stock-up families — Saturday morning griddle, big pantry, food for every morning of a wilder week.
+
+**How far this cultural feel reaches:** This voice fits any bulk channel and the family-size bag — plus Amazon Subscribe & Save pantries and rural cabin subscribers who need delivery when the nearest store is an hour out. The culture is the Wasatch front at dawn, cast iron, and Keep It Wild stocked for the trail. Message that wins here: "Stock the frontier — protein-packed whole grains for every morning."
 
 ## The star example you named — Las Cruces, New Mexico — and why it matters so much
 
@@ -26,8 +34,8 @@ You said: Target in Las Cruces puts green chile in everything, and we could do g
 You are right, and this is the perfect flex for the pipeline because it is hyper-local within the national footprint:
 
 - **Store:** Target on the north side of Las Cruces plus the Walmart and the two Albertsons in Alamogordo (15,000-person town, 1 hour northeast) — you saw both Walmart and Albertsons carry Kodiak there via the store locator.
-- **Culture:** Hatch green chile. Roasted, smoky, in everything from breakfast burritos to pancakes. Late August roast season is a town-wide event. Families buy it by the bushel and freeze it.
-- **Campaign idea that writes itself:** "Green Chile Frontier — try Bear Bites with roasted Hatch" with a photo of Bear Bites next to a small bowl of chopped green chile on a trail bench at Organ Mountains. Audience: New Mexico families 28-45, green chile households. Message: "Green chile meets grizzly — protein-packed whole grains for your Las Cruces frontier."
+- **Culture:** Hatch green chile. Roasted, smoky, in everything from breakfast burritos to pancakes. Late August roast season is a town-wide event — the 1982 red wagon spirit, frontier flavor with the bear close by. Families buy it by the bushel and freeze it for the frontier pantry.
+- **Campaign idea that writes itself:** "Green Chile Frontier — try Bear Bites with roasted Hatch" with a photo of Bear Bites next to a small bowl of chopped green chile on a trail bench at Organ Mountains. Audience: Hatch green chile households — Las Cruces and Alamogordo families who roast by the bushel. Message: "Green chile meets grizzly — protein-packed whole grains for your Las Cruces frontier. Nourishment for Today's Frontier."
 - **Why it proves the pipeline:** The same three Kodiak products exist nationally, but the Las Cruces ad has a different story, a different flavor cue, and a different store map than the same ad in Minneapolis. One creative template, two totally local feelings. That difference is stored and learns.
 
 ## How many regions we can actually run — starter database of 18
@@ -36,24 +44,24 @@ We don't need to guess. We seed the database with places where Kodiak already ha
 
 | Place we store | Store groups that live there | Audience that matters there | Green chile–style cue we remember | Message we suggest there first |
 |---|---|---|---|---|
-| Park City, Wasatch Mountains | Target, Walmart, whole region halo | Outdoor families, ski and hike households | Wasatch alpenglow, pine, boulder, snow at dawn | Keep It Wild — protein-packed whole grains for today's frontier |
-| Las Cruces + Alamogordo, New Mexico | Target, Walmart, Albertsons | Green chile families, Hatch roast households | Roasted Hatch green chile in flapjacks, Organ Mountains bench | Green chile meets grizzly — protein for your Las Cruces frontier |
-| Albuquerque, New Mexico | Target, Walmart, Smith's | High desert families, adobe morning | Red chile and piñon, enamel mug on portal | Desert dawn flapjacks — 14 grams for your high desert day |
-| Austin, Texas | Target, Whole Foods, H-E-B | Breakfast taco families, keep-it-weird hosts | Salsa over flapjacks, food truck corner | Breakfast tacos meet flapjacks — whole grains that keep up |
-| Miami + Orlando, Florida | Publix, Target | Cuban and Puerto Rican families, porch breakfasts | Guava and café con leche beside the stack | Family frontier — protein for your Florida morning |
-| Savannah + Charleston, Coastal Southeast | Publix, Harris Teeter | Porch families, Gullah seasonality | Peach and pecan on the side | Southern porch stack — protein-packed whole grains for your family |
-| Atlanta, Georgia | Publix, Target | Urban families, Sunday brunch | Pecan praline drizzle | Georgia pecan frontier — 14 grams to start your day |
-| Chicago, Illinois | Target, Jewel-Osco, Meijer | City families, lake effect winters | Deep dish adjacency, but warm maple oatmeal cup on the L | Fuel your city frontier — 14 grams, 100 percent whole grains |
-| Twin Cities, Minnesota | Target (home), Cub Foods | Midwest hearty families | Maple, wild rice, snow boots at the door | Stock the frontier — every morning, hearty and whole grain |
-| Denver, Colorado | Target, King Soopers, Whole Foods | Mountain families, trailheads | Cast iron at trailhead, 14k mornings | Cast-iron frontier — protein for your Colorado morning |
-| Seattle, Washington | Costco (home), Target | Bulk families, rain-mornings | Coffee beside flapjacks, evergreen light | Evergreen frontier — protein-packed whole grains for gray mornings |
-| Portland, Oregon | Target, Fred Meyer | Trail families, forest | Berries and hazelnut beside Bear Bites | Forest trail fuel — protein for your cubs |
-| Los Angeles, California | Target, Whole Foods | Active, ingredient-aware, diverse | Almond milk pour, trail cup on overlook | Fuel your trail — protein oatmeal for today's frontier |
-| Nashville, Tennessee | Publix, Target | Music city families, biscuit country | Honey beside graham Bear Bites | Honey frontier — protein for your Nashville morning |
-| Louisville, Kentucky | Target, Kroger | Derby families, bourbon-maple adjacency (without bourbon) | Maple and brown sugar oatmeal | Brown sugar frontier — protein for your Kentucky morning |
-| Boston + Portland ME, New England | Target, Market Basket | Leaf-peep families, maple country | Pure maple syrup over Power Cakes | Maple frontier — 14 grams, whole grain, New England |
-| Phoenix, Arizona | Target, Walmart, Fry's | Desert families, early hot mornings | Prickly pear and citrus beside the stack | Desert frontier — protein that holds up in the heat |
-| Brooklyn + Manhattan, New York | Target, Whole Foods | City-active, bodega-adjacent | Bodega coffee, oatmeal cup on the subway platform | City frontier — protein-packed whole grains for the hustle |
+| Park City, Wasatch Mountains | Target, Walmart, whole region halo | Park City mountain locals — outdoor families who earn breakfast on the Wasatch | Wasatch alpenglow, pine, boulder, snow at dawn | Keep It Wild — protein-packed whole grains for today's frontier. Nourishment for Today's Frontier |
+| Las Cruces + Alamogordo, New Mexico | Target, Walmart, Albertsons | Hatch green chile households — families who roast Hatch by the bushel | Roasted Hatch green chile in flapjacks, Organ Mountains bench | Green chile meets grizzly — protein-packed whole grains for your Las Cruces frontier |
+| Albuquerque, New Mexico | Target, Walmart, Smith's | High desert families — adobe mornings, early heat | Red chile and piñon, enamel mug on portal | Desert dawn flapjacks — 14 grams for your high desert day |
+| Austin, Texas | Target, Whole Foods, H-E-B | Target clean-label families — breakfast taco hosts who check 100% whole grains | Salsa over flapjacks, food truck corner | Breakfast tacos meet flapjacks — whole grains that keep up |
+| Miami + Orlando, Florida | Publix, Target | Publix southeast porch families — Cuban and Puerto Rican porch breakfasts | Guava and café con leche beside the stack | Family frontier — protein for your Florida morning |
+| Savannah + Charleston, Coastal Southeast | Publix, Harris Teeter | Publix southeast porch families — Gullah seasonality, porch light | Peach and pecan on the side | Southern porch stack — protein-packed whole grains for your family |
+| Atlanta, Georgia | Publix, Target | Publix southeast porch families — urban porch, Sunday brunch | Pecan praline drizzle | Georgia pecan frontier — 14 grams to start your day |
+| Chicago, Illinois | Target, Jewel-Osco, Meijer | Target clean-label families — city families who flip for 100% whole grains | Deep dish adjacency, but warm maple oatmeal cup on the L | Fuel your city frontier — 14 grams, 100 percent whole grains |
+| Twin Cities, Minnesota | Target (home), Cub Foods | Target clean-label families — Midwest hearty families who stock the pantry | Maple, wild rice, snow boots at the door | Stock the frontier — every morning, hearty and whole grain |
+| Denver, Colorado | Target, King Soopers, Whole Foods | Park City mountain locals — mountain families, trailheads, plus rural cabin subscribers who need delivery at elevation | Cast iron at trailhead, 14k mornings | Cast-iron frontier — protein for your Colorado morning |
+| Seattle, Washington | Costco (home), Target | Costco bulk stock-up families — rain-morning pantry stock-up | Coffee beside flapjacks, evergreen light | Evergreen frontier — protein-packed whole grains for gray mornings |
+| Portland, Oregon | Target, Fred Meyer | Trail families — forest, plus rural cabin subscribers who need delivery beyond town | Berries and hazelnut beside Bear Bites | Forest trail fuel — protein for your cubs |
+| Los Angeles, California | Target, Whole Foods | Target clean-label families and Amazon Subscribe & Save pantries — active, ingredient-aware, diverse | Almond milk pour, trail cup on overlook | Fuel your trail — protein oatmeal for today's frontier |
+| Nashville, Tennessee | Publix, Target | Publix southeast porch families — music city, biscuit country | Honey beside graham Bear Bites | Honey frontier — protein for your Nashville morning |
+| Louisville, Kentucky | Target, Kroger | Costco bulk stock-up families — derby, bourbon-maple adjacency without bourbon | Maple and brown sugar oatmeal | Brown sugar frontier — protein for your Kentucky morning |
+| Boston + Portland ME, New England | Target, Market Basket | Target clean-label families — leaf-peep, maple country | Pure maple syrup over Power Cakes | Maple frontier — 14 grams, whole grain, New England |
+| Phoenix, Arizona | Target, Walmart, Fry's | Desert families — early hot mornings, Amazon Subscribe & Save pantries in the heat | Prickly pear and citrus beside the stack | Desert frontier — protein that holds up in the heat |
+| Brooklyn + Manhattan, New York | Target, Whole Foods | Amazon Subscribe & Save pantries and Target clean-label families — city-active, bodega-adjacent | Bodega coffee, oatmeal cup on subway platform | City frontier — protein-packed whole grains for the hustle |
 
 Seed this first, then let every campaign that runs add its own learning: which place + audience + message got direction taps, saves, and subscription joins. That growing table is the training data you asked for.
 
@@ -69,9 +77,9 @@ You saw Alamogordo has Walmart and Albertsons. Add the small independents the lo
 Every time Maya, Diego, or Priya runs a campaign, we save one row per creative in a single growing table that is easy to search by place, audience, or message:
 
 - Place: market like US-SE-PUBLIX, city Las Cruces, zip 88001, store set Publix or Las Cruces Target, plus small store name and diner name when relevant.
-- Audience: plain words — "green chile families 28-45" or "Target Gen Z clean label 22-34."
-- Message: the single line — "Green chile meets grizzly…" and which flavor or recipe cue went with it.
+- Audience: plain words — "Costco bulk stock-up families" or "Target clean-label families who check 100% whole grains" or "Publix southeast porch families in Savannah" or "Park City mountain locals" or "Amazon Subscribe & Save pantries" or "rural cabin subscribers who need delivery" — and for Las Cruces, "Hatch green chile households who roast by the bushel."
+- Message: the single line — "Green chile meets grizzly — protein-packed whole grains for your Las Cruces frontier" and which flavor or recipe cue went with it.
 - Photo cue: which of the 8 Nova prompts was used (kodiak-04 bear-bites-cubs, etc.) and whether the hero was a real photo or generated.
 - Outcome: direction taps, saves, subscription joins per place, stored later once paid media reports back.
 
-That table lives queryable so a future question like "what worked for Las Cruces families?" returns the last winning message, audience, and photo cue without anyone remembering.
+That table lives queryable so a future question like "what worked for Las Cruces Hatch households?" returns the last winning message, audience, and photo cue without anyone remembering.

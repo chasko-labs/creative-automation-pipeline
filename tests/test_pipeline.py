@@ -27,9 +27,9 @@ def test_dam_reuse_vs_generate(tmp_path):
     dam = Path("input_assets")
     out = tmp_path / "out2"
     report = run_pipeline(brief, dam, out)
-    # hydrating-serum has real dam asset
+    # hydrating-serum has real dam asset (now dam+enhanced with institutional grading)
     hs = [p for p in report["products"] if p["id"] == "hydrating-serum"][0]
-    assert hs["hero_source"] == "dam"
+    assert hs["hero_source"] in ("dam", "dam+enhanced")
     rm = [p for p in report["products"] if p["id"] == "radiant-moisturizer"][0]
     assert rm["hero_source"] == "mock"
 

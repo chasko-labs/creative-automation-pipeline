@@ -31,7 +31,9 @@ except ImportError:
 from .brief import CampaignBrief, load_brief
 from .pipeline import run_pipeline
 from .embeddings import embed_text, embed_multimodal
+from .enhance import enhance_hero
 from .reference_api import search as reference_search  # type: ignore
+from .suggest import suggest_variants
 
 app = FastAPI(  # type: ignore
     title="KODIAK® Posts for Today's Frontier — Living API",
@@ -142,6 +144,36 @@ if HAS_FASTAPI:
     def ingest_nielsen(body: dict):
         """Landon/Micah route NielsenIQ + CDP events — same zip as Google Search Console reconciles here."""
         return {"ok": True, "received": list(body.keys())[:5], "sink": "kodiak-creatives-localization-memory DynamoDB + S3 Vectors", "join_key": "zip + market US-SW-LASCRUCES"}
+
+    @app.post("/enhance/hero")  # type: ignore
+    def enhance_api(body: dict):
+        """Institutionalize KODIAK branding — contrast/texture/framing/watermark on an existing hero.
+
+        Inspired by Linda Mohamed AI Film Crew (intake→analysis→creative): we normalize the image
+        then apply editorial grade + kraft texture + gentle frame + Bear watermark.
+        """
+        src = pathlib.Path(body.get("src", ""))
+        dst = pathlib.Path(body.get("dst", "")) if body.get("dst") else None
+        if not src.exists():
+            raise HTTPException(status_code=404, detail=f"src not found: {src}")  # type: ignore
+        out = enhance_hero(src, dst, contrast=float(body.get("contrast", 1.08)), brightness=float(body.get("brightness", 1.02)), sharpness=float(body.get("sharpness", 1.12)), texture=bool(body.get("texture", True)), frame=bool(body.get("frame", True)), watermark=bool(body.get("watermark", True)), vignette=bool(body.get("vignette", True)))
+        return {"src": str(src), "dst": str(out), "enhancements": ["contrast", "texture", "frame", "watermark", "vignette"]}
+
+    @app.post("/suggest/run")  # type: ignore
+    def suggest_run(body: dict | None = None):
+        """Suggested posts — remix what exists into every shape.
+
+        No new shoot: scans input_assets for hero.* and renders 3 ratios per hero with
+        KODIAK institutional enhancements. VariantSpec across 16:9/9:16/1:1 like Linda's film crew.
+        Body: { assets: 'input_assets', out: '/tmp/kodiak-suggested', ratios: ['1x1','9x16','16x9'], messages: [...] }
+        """
+        b = body or {}
+        assets = pathlib.Path(b.get("assets", "input_assets"))
+        out = pathlib.Path(b.get("out", "/tmp/kodiak-suggested"))
+        ratios = b.get("ratios")
+        messages = b.get("messages")
+        report = suggest_variants(assets, out, ratios=ratios, messages=messages)
+        return {"report_path": str(out / "report.json"), "preview": str(out / "preview.html"), "compliance": report["compliance_pass_rate"], "artifacts": report["artifacts"], "heroes_found": report["heroes_found"]}
 
     @app.post("/hooks/shopify-product")  # type: ignore
     def shopify_hook(body: dict):
