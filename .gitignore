@@ -6,3 +6,9 @@ output_*/
 *.log
 .DS_Store
 .env
+
+# terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl

@@ -53,10 +53,23 @@ resource "aws_s3_bucket_lifecycle_configuration" "dam" {
     id     = "renders-archive"
     status = "Enabled"
     filter { prefix = "brands/kodiak/renders/" }
-    transition { days = 90, storage_class = "STANDARD_IA" }
-    transition { days = 180, storage_class = "GLACIER" }
-    transition { days = 365, storage_class = "DEEP_ARCHIVE" }
-    noncurrent_version_transition { newer_noncurrent_versions = 2, noncurrent_days = 30, storage_class = "STANDARD_IA" }
+    transition {
+      days          = 90
+      storage_class = "STANDARD_IA"
+    }
+    transition {
+      days          = 180
+      storage_class = "GLACIER"
+    }
+    transition {
+      days          = 365
+      storage_class = "DEEP_ARCHIVE"
+    }
+    noncurrent_version_transition {
+      newer_noncurrent_versions = 2
+      noncurrent_days           = 30
+      storage_class             = "STANDARD_IA"
+    }
   }
 }
 
