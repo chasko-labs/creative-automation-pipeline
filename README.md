@@ -41,9 +41,19 @@ open /tmp/kodiak-on-the-go/preview.html
 
 On-the-go replaces the old back-to-school idea — oatmeal cups and Bear Bites for students and commuters, "5 grams for busy mornings," from your mini bars and training guide. Always useful, not just August.
 
-Every output is organized by product and size: `output_kodiak/power-cakes/1x1/power-cakes_1x1.png` plus a report that members can read (`output_kodiak/report.json`, `report.jsonl` per creative per place) and a green pass board (`preview.html`).
+Every output is organized by product and size: `docs/assets/previews/kodiak-keepitwild-1x1.png` plus a report that members can read (`output_kodiak/report.json`, `report.jsonl` per creative per place) and a green pass board (`preview.html`).
 
-Look inside the style library that makes this look like Kodiak everywhere: colors Bear Brown #3B2316 Blaze Orange #E8530E Frontier Green #1A3C34 at `design/tokens/kodiak.json`, photo directions at `references/keep-it-wild/`, six-piece template at `references/templates/social-3ratio.json`, and all of it mirrored to cloud storage at `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/`.
+Look inside the style library that makes this look like Kodiak everywhere:
+
+<p align="center">
+  <img src="docs/assets/swatches/bear-brown-3B2316.png" width="140" alt="Bear Brown #3B2316" />
+  <img src="docs/assets/swatches/blaze-orange-E8530E.png" width="140" alt="Blaze Orange #E8530E" />
+  <img src="docs/assets/swatches/frontier-green-1A3C34.png" width="140" alt="Frontier Green #1A3C34" />
+  <img src="docs/assets/swatches/parchment-FFF8F0.png" width="140" alt="Parchment #FFF8F0" />
+  <img src="docs/assets/swatches/stone-D9CFC6.png" width="140" alt="Stone #D9CFC6" />
+</p>
+<p align="center"><em>Bear Brown #3B2316 · Blaze Orange #E8530E · Frontier Green #1A3C34 · Parchment #FFF8F0 · Stone #D9CFC6</em></p>
+ colors Bear Brown #3B2316 Blaze Orange #E8530E Frontier Green #1A3C34 at `design/tokens/kodiak.json`, photo directions at `references/keep-it-wild/`, six-piece template at `references/templates/social-3ratio.json`, and all of it mirrored to cloud storage at `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/`.
 
 ## The campaigns we actually plan to run — all Kodiak, all local
 
@@ -85,63 +95,63 @@ Every campaign below starts from the same Kodiak look — the bear in the corner
 
 The original. Park City at dawn, built for active families who want a hearty start before the trail. This is the cleanest expression of the brand: wilderness, whole grains, and the bear watching over breakfast.
 
-![Keep It Wild — Frontier Breakfast — square preview](output_kodiak/power-cakes/1x1/power-cakes_1x1.png)
+![Keep It Wild — Frontier Breakfast — square preview](docs/assets/previews/kodiak-keepitwild-1x1.png)
 
-[Open full preview — all sizes and products](output_kodiak/preview.html)
+[Open full preview — all sizes and products](docs/assets/previews/kodiak/preview.html)
 
 ### 2. Frontier Breakfast — Publix Southeast Family
 *Protein-packed whole grains for your family's frontier — the porch breakfast for Savannah and the Southeast.*
 
 Warm light, family table, kids and cubs together. Same flapjacks and bites, but the message leans into home and togetherness for Publix neighborhoods.
 
-![Publix Southeast Family — square preview](output_kodiak-publix/power-cakes/1x1/power-cakes_1x1.png)
+![Publix Southeast Family — square preview](docs/assets/previews/kodiak-publix-1x1.png)
 
-[Open full preview — all sizes and products](output_kodiak-publix/preview.html)
+[Open full preview — all sizes and products](docs/assets/previews/kodiak-publix/preview.html)
 
 ### 3. Frontier Breakfast — Target Midwest
 *Fuel your frontier — 14 grams of protein, 100 percent whole grains.*
 
 Clean, bright, and label-forward for Target guests who turn the box over. Built for Gen Z and young families who care what is inside as much as how it tastes.
 
-![Target Midwest — square preview](output_kodiak-target/power-cakes/1x1/power-cakes_1x1.png)
+![Target Midwest — square preview](docs/assets/previews/kodiak-target-1x1.png)
 
-[Open full preview — all sizes and products](output_kodiak-target/preview.html)
+[Open full preview — all sizes and products](docs/assets/previews/kodiak-target/preview.html)
 
 ### 4. Frontier Breakfast — Costco Bulk Family
 *Stock the frontier — protein-packed whole grains for every morning.*
 
 Big family, big pantry, big stack. The Costco take is generous and weekend-ready — enough Power Cakes for the whole house, all week long.
 
-![Costco Bulk Family — square preview](output_kodiak-costco/power-cakes/1x1/power-cakes_1x1.png)
+![Costco Bulk Family — square preview](docs/assets/previews/kodiak-costco-1x1.png)
 
-[Open full preview — all sizes and products](output_kodiak-costco/preview.html)
+[Open full preview — all sizes and products](docs/assets/previews/kodiak-costco/preview.html)
 
 ### 5. On the Go — Students and Commuters
 *On the go never tasted so good — 5 grams of protein for busy mornings.*
 
 For backpacks, bus rides, and early classes. Oatmeal cups and Bear Bites that travel as well as you do — quick, warm, and ready before the day gets busy.
 
-![On the Go — square preview](output_kodiak-on-the-go/oatmeal-cup/1x1/oatmeal-cup_1x1.png)
+![On the Go — square preview](docs/assets/previews/kodiak-onthego-1x1.png)
 
-[Open full preview — all sizes and products](output_kodiak-on-the-go/preview.html)
+[Open full preview — all sizes and products](docs/assets/previews/kodiak-on-the-go/preview.html)
 
 ### 6. Trail Season — Oatmeal on the Overlook
 *Fuel your trail — protein oatmeal for today's frontier.*
 
 Sunrise over red rock, oatmeal cup on the edge of the overlook. Made for hikers, campers, and anyone who eats breakfast with a view.
 
-![Trail Season — square preview](output_kodiak-trail/oatmeal-cup/1x1/oatmeal-cup_1x1.png)
+![Trail Season — square preview](docs/assets/previews/kodiak-trail-1x1.png)
 
-[Open full preview — all sizes and products](output_kodiak-trail/preview.html)
+[Open full preview — all sizes and products](docs/assets/previews/kodiak-trail/preview.html)
 
 ### 7. Holiday Frontier — Cast-Iron Mornings
 *Gather round the frontier — cast-iron Power Cakes for holiday mornings.*
 
 The cabin table at the holidays. Cast iron, warm cabin light, and a stack worth gathering for — cozy, timeless, and made to share.
 
-![Holiday Frontier — square preview](output_kodiak-holiday/power-cakes/1x1/power-cakes_1x1.png)
+![Holiday Frontier — square preview](docs/assets/previews/kodiak-holiday-1x1.png)
 
-[Open full preview — all sizes and products](output_kodiak-holiday/preview.html)
+[Open full preview — all sizes and products](docs/assets/previews/kodiak-holiday/preview.html)
 
 ---
 

@@ -18,15 +18,15 @@ Preview pages are full HTML boards (`preview.html`) — dark header, 9 cards in 
 
 | # | Brief | Campaign | Output preview | Region | Audience shorthand |
 |---|-------|----------|---------------|--------|-------------------|
-| 1 | `briefs/kodiak.yaml` | Keep It Wild — Frontier Breakfast | [Open preview](../output_kodiak/preview.html) | US-MW | Active families, outdoor, protein-forward |
-| 2 | `briefs/kodiak-publix.yaml` | Frontier Breakfast — Publix Southeast Family | [Open preview](../output_kodiak-publix/preview.html) | US-SE-PUBLIX | Southeast families, porch breakfast, cubs |
-| 3 | `briefs/kodiak-target.yaml` | Frontier Breakfast — Target Midwest Gen Z | [Open preview](../output_kodiak-target/preview.html) | US-MW-TARGET | Gen Z + millennial, clean label, active |
-| 4 | `briefs/kodiak-costco.yaml` | Frontier Breakfast — Costco Bulk Family | [Open preview](../output_kodiak-costco/preview.html) | US-W-COSTCO | Bulk families, value + protein, weekend stack |
-| 5 | `briefs/kodiak-on-the-go.yaml` | Kodiak — On the Go Frontier | [Open preview](../output_kodiak-on-the-go/preview.html) | US-NATIONAL-ON-THE-GO | Students, commuters, trail families 18-34 |
-| 6 | `briefs/kodiak-trail.yaml` | Kodiak — Trail Season Oatmeal | [Open preview](../output_kodiak-trail/preview.html) | US-W | Trail hikers, Wasatch, on-the-go protein |
-| 7 | `briefs/kodiak-holiday.yaml` | Kodiak — Holiday Frontier Cast-Iron | [Open preview](../output_kodiak-holiday/preview.html) | US | Holiday hosts, cabin gatherers 28-50 |
-| 8 | `briefs/kodiak-diner.yaml` | Kodiak — Diner Flip | [Open preview](../output_kodiak-diner/preview.html) | US-SW-DINER | Diner regulars, Las Cruces & Alamogordo brunch |
-| 9 | `briefs/kodiak-subscription.yaml` | Kodiak — Subscribe and Save Home Delivery | [Open preview](../output_kodiak-subscription/preview.html) | US-NATIONAL-DTC | Home pantry, subscribe & save 25-50 |
+| 1 | `briefs/kodiak.yaml` | Keep It Wild — Frontier Breakfast | [Open preview](assets/previews/kodiak/preview.html) | US-MW | Active families, outdoor, protein-forward |
+| 2 | `briefs/kodiak-publix.yaml` | Frontier Breakfast — Publix Southeast Family | [Open preview](assets/previews/kodiak-publix/preview.html) | US-SE-PUBLIX | Southeast families, porch breakfast, cubs |
+| 3 | `briefs/kodiak-target.yaml` | Frontier Breakfast — Target Midwest Gen Z | [Open preview](assets/previews/kodiak-target/preview.html) | US-MW-TARGET | Gen Z + millennial, clean label, active |
+| 4 | `briefs/kodiak-costco.yaml` | Frontier Breakfast — Costco Bulk Family | [Open preview](assets/previews/kodiak-costco/preview.html) | US-W-COSTCO | Bulk families, value + protein, weekend stack |
+| 5 | `briefs/kodiak-on-the-go.yaml` | Kodiak — On the Go Frontier | [Open preview](assets/previews/kodiak-on-the-go/preview.html) | US-NATIONAL-ON-THE-GO | Students, commuters, trail families 18-34 |
+| 6 | `briefs/kodiak-trail.yaml` | Kodiak — Trail Season Oatmeal | [Open preview](assets/previews/kodiak-trail/preview.html) | US-W | Trail hikers, Wasatch, on-the-go protein |
+| 7 | `briefs/kodiak-holiday.yaml` | Kodiak — Holiday Frontier Cast-Iron | [Open preview](assets/previews/kodiak-holiday/preview.html) | US | Holiday hosts, cabin gatherers 28-50 |
+| 8 | `briefs/kodiak-diner.yaml` | Kodiak — Diner Flip | [Open preview](assets/previews/kodiak-diner/preview.html) | US-SW-DINER | Diner regulars, Las Cruces & Alamogordo brunch |
+| 9 | `briefs/kodiak-subscription.yaml` | Kodiak — Subscribe and Save Home Delivery | [Open preview](assets/previews/kodiak-subscription/preview.html) | US-NATIONAL-DTC | Home pantry, subscribe & save 25-50 |
 
 All nine render **9 creatives each** (3 products × 3 ratios: 1x1 square 1080×1080, 9x16 story 1080×1920, 16x9 wide 1920×1080). Every creative in the current outputs passes brand checks (logo present, palette probe, legal gate) — look for the green `PASS` badge in the preview.
 
@@ -34,7 +34,7 @@ All nine render **9 creatives each** (3 products × 3 ratios: 1x1 square 1080×1
 
 ## 1. Keep It Wild — Frontier Breakfast
 
-**Brief:** [`briefs/kodiak.yaml`](../briefs/kodiak.yaml) · **Preview:** [Open full board →](../output_kodiak/preview.html) · **Output folder:** `output_kodiak/`
+**Brief:** [`briefs/kodiak.yaml`](../briefs/kodiak.yaml) · **Preview:** [Open full board →](assets/previews/kodiak/preview.html) · **Output folder:** `output_kodiak/`
 
 This is the master brand campaign — the always-on Kodiak story. Born from the red wagon in Park City in 1982, now in 26,000 doors, still saying *Nourishment for Today's Frontier* and *Keep It Wild*. It's the template every other campaign copies: Wasatch dawn, protein you can feel, bear that means something.
 
@@ -50,16 +50,16 @@ This is the master brand campaign — the always-on Kodiak story. Born from the 
 
 | Power Cakes (DAM hero) | Bear Bites (generated) | Oatmeal Cup (generated) |
 |---|---|---|
-| ![Kodiak Frontier — Power Cakes 1x1](../output_kodiak/power-cakes/1x1/power-cakes_1x1.png) | ![Kodiak Frontier — Bear Bites 1x1](../output_kodiak/bear-bites/1x1/bear-bites_1x1.png) | ![Kodiak Frontier — Oatmeal 1x1](../output_kodiak/oatmeal-cup/1x1/oatmeal-cup_1x1.png) |
+| ![Kodiak Frontier — Power Cakes 1x1](assets/previews/kodiak/power-cakes/1x1/power-cakes_1x1.png) | ![Kodiak Frontier — Bear Bites 1x1](assets/previews/kodiak/bear-bites/1x1/bear-bites_1x1.png) | ![Kodiak Frontier — Oatmeal 1x1](assets/previews/kodiak/oatmeal-cup/1x1/oatmeal-cup_1x1.png) |
 | `power-cakes/1x1` · 1080×1080 | `bear-bites/1x1` | `oatmeal-cup/1x1` |
 
-> Also in [9x16 stories](../output_kodiak/power-cakes/9x16/power-cakes_9x16.png) and [16x9 wide](../output_kodiak/power-cakes/16x9/power-cakes_16x9.png) — same headline, different crop. Full board: [preview.html](../output_kodiak/preview.html)
+> Also in [9x16 stories](assets/previews/kodiak/power-cakes/9x16/power-cakes_9x16.png) and [16x9 wide](assets/previews/kodiak/power-cakes/16x9/power-cakes_16x9.png) — same headline, different crop. Full board: [preview.html](assets/previews/kodiak/preview.html)
 
 ---
 
 ## 2. Frontier Breakfast — Publix Southeast Family
 
-**Brief:** [`briefs/kodiak-publix.yaml`](../briefs/kodiak-publix.yaml) · **Preview:** [Open full board →](../output_kodiak-publix/preview.html) · **Output folder:** `output_kodiak-publix/`
+**Brief:** [`briefs/kodiak-publix.yaml`](../briefs/kodiak-publix.yaml) · **Preview:** [Open full board →](assets/previews/kodiak-publix/preview.html) · **Output folder:** `output_kodiak-publix/`
 
 Same frontier promise, tuned for the porch. This is how the same Power Cakes feel different in Savannah than in Salt Lake — warm humidity-green light, family breakfast, cubs with lunchboxes.
 
@@ -73,15 +73,15 @@ Same frontier promise, tuned for the porch. This is how the same Power Cakes fee
 
 | Power Cakes | Bear Bites | Oatmeal Cup |
 |---|---|---|
-| ![Publix — Power Cakes 1x1](../output_kodiak-publix/power-cakes/1x1/power-cakes_1x1.png) | ![Publix — Bear Bites 1x1](../output_kodiak-publix/bear-bites/1x1/bear-bites_1x1.png) | ![Publix — Oatmeal 1x1](../output_kodiak-publix/oatmeal-cup/1x1/oatmeal-cup_1x1.png) |
+| ![Publix — Power Cakes 1x1](assets/previews/kodiak-publix/power-cakes/1x1/power-cakes_1x1.png) | ![Publix — Bear Bites 1x1](assets/previews/kodiak-publix/bear-bites/1x1/bear-bites_1x1.png) | ![Publix — Oatmeal 1x1](assets/previews/kodiak-publix/oatmeal-cup/1x1/oatmeal-cup_1x1.png) |
 
-> See all three ratios in the [preview board](../output_kodiak-publix/preview.html). Ideal if you're briefing Publix or any southeast porch-family placement.
+> See all three ratios in the [preview board](assets/previews/kodiak-publix/preview.html). Ideal if you're briefing Publix or any southeast porch-family placement.
 
 ---
 
 ## 3. Frontier Breakfast — Target Midwest Gen Z
 
-**Brief:** [`briefs/kodiak-target.yaml`](../briefs/kodiak-target.yaml) · **Preview:** [Open full board →](../output_kodiak-target/preview.html) · **Output folder:** `output_kodiak-target/`
+**Brief:** [`briefs/kodiak-target.yaml`](../briefs/kodiak-target.yaml) · **Preview:** [Open full board →](assets/previews/kodiak-target/preview.html) · **Output folder:** `output_kodiak-target/`
 
 Clean light, clean label. For the shopper who reads the ingredient list at Target before she puts it in the cart.
 
@@ -95,15 +95,15 @@ Clean light, clean label. For the shopper who reads the ingredient list at Targe
 
 | Power Cakes | Bear Bites | Oatmeal Cup |
 |---|---|---|
-| ![Target — Power Cakes 1x1](../output_kodiak-target/power-cakes/1x1/power-cakes_1x1.png) | ![Target — Bear Bites 1x1](../output_kodiak-target/bear-bites/1x1/bear-bites_1x1.png) | ![Target — Oatmeal 1x1](../output_kodiak-target/oatmeal-cup/1x1/oatmeal-cup_1x1.png) |
+| ![Target — Power Cakes 1x1](assets/previews/kodiak-target/power-cakes/1x1/power-cakes_1x1.png) | ![Target — Bear Bites 1x1](assets/previews/kodiak-target/bear-bites/1x1/bear-bites_1x1.png) | ![Target — Oatmeal 1x1](assets/previews/kodiak-target/oatmeal-cup/1x1/oatmeal-cup_1x1.png) |
 
-> Best for Target, clean-label retail, or any young active feed. Full grid: [preview.html](../output_kodiak-target/preview.html)
+> Best for Target, clean-label retail, or any young active feed. Full grid: [preview.html](assets/previews/kodiak-target/preview.html)
 
 ---
 
 ## 4. Frontier Breakfast — Costco Bulk Family
 
-**Brief:** [`briefs/kodiak-costco.yaml`](../briefs/kodiak-costco.yaml) · **Preview:** [Open full board →](../output_kodiak-costco/preview.html) · **Output folder:** `output_kodiak-costco/`
+**Brief:** [`briefs/kodiak-costco.yaml`](../briefs/kodiak-costco.yaml) · **Preview:** [Open full board →](assets/previews/kodiak-costco/preview.html) · **Output folder:** `output_kodiak-costco/`
 
 The weekend stack, family-size. Value without losing the wild.
 
@@ -117,15 +117,15 @@ The weekend stack, family-size. Value without losing the wild.
 
 | Power Cakes | Bear Bites | Oatmeal Cup |
 |---|---|---|
-| ![Costco — Power Cakes 1x1](../output_kodiak-costco/power-cakes/1x1/power-cakes_1x1.png) | ![Costco — Bear Bites 1x1](../output_kodiak-costco/bear-bites/1x1/bear-bites_1x1.png) | ![Costco — Oatmeal 1x1](../output_kodiak-costco/oatmeal-cup/1x1/oatmeal-cup_1x1.png) |
+| ![Costco — Power Cakes 1x1](assets/previews/kodiak-costco/power-cakes/1x1/power-cakes_1x1.png) | ![Costco — Bear Bites 1x1](assets/previews/kodiak-costco/bear-bites/1x1/bear-bites_1x1.png) | ![Costco — Oatmeal 1x1](assets/previews/kodiak-costco/oatmeal-cup/1x1/oatmeal-cup_1x1.png) |
 
-> Show this when you need "stock the pantry" energy. [All 9 creatives →](../output_kodiak-costco/preview.html)
+> Show this when you need "stock the pantry" energy. [All 9 creatives →](assets/previews/kodiak-costco/preview.html)
 
 ---
 
 ## 5. On the Go Frontier
 
-**Brief:** [`briefs/kodiak-on-the-go.yaml`](../briefs/kodiak-on-the-go.yaml) · **Preview:** [Open full board →](../output_kodiak-on-the-go/preview.html) · **Output folder:** `output_kodiak-on-the-go/`
+**Brief:** [`briefs/kodiak-on-the-go.yaml`](../briefs/kodiak-on-the-go.yaml) · **Preview:** [Open full board →](assets/previews/kodiak-on-the-go/preview.html) · **Output folder:** `output_kodiak-on-the-go/`
 
 For the bus, the trailhead, the dorm — protein that travels. This replaced the old back-to-school idea because students and commuters need fuel year-round, not just in August.
 
@@ -139,15 +139,15 @@ For the bus, the trailhead, the dorm — protein that travels. This replaced the
 
 | Oatmeal Cup | Bear Bites | Power Cakes |
 |---|---|---|
-| ![On the Go — Oatmeal 1x1](../output_kodiak-on-the-go/oatmeal-cup/1x1/oatmeal-cup_1x1.png) | ![On the Go — Bear Bites 1x1](../output_kodiak-on-the-go/bear-bites/1x1/bear-bites_1x1.png) | ![On the Go — Power Cakes 1x1](../output_kodiak-on-the-go/power-cakes/1x1/power-cakes_1x1.png) |
+| ![On the Go — Oatmeal 1x1](assets/previews/kodiak-on-the-go/oatmeal-cup/1x1/oatmeal-cup_1x1.png) | ![On the Go — Bear Bites 1x1](assets/previews/kodiak-on-the-go/bear-bites/1x1/bear-bites_1x1.png) | ![On the Go — Power Cakes 1x1](assets/previews/kodiak-on-the-go/power-cakes/1x1/power-cakes_1x1.png) |
 
-> Tall 9x16 is the hero here — think bus-stop story. [Full preview →](../output_kodiak-on-the-go/preview.html)
+> Tall 9x16 is the hero here — think bus-stop story. [Full preview →](assets/previews/kodiak-on-the-go/preview.html)
 
 ---
 
 ## 6. Trail Season Oatmeal
 
-**Brief:** [`briefs/kodiak-trail.yaml`](../briefs/kodiak-trail.yaml) · **Preview:** [Open full board →](../output_kodiak-trail/preview.html) · **Output folder:** `output_kodiak-trail/`
+**Brief:** [`briefs/kodiak-trail.yaml`](../briefs/kodiak-trail.yaml) · **Preview:** [Open full board →](assets/previews/kodiak-trail/preview.html) · **Output folder:** `output_kodiak-trail/`
 
 Wasatch at sunrise. Rocky overlook, steaming cup, cubs on a trail bench. The most outdoorsy board we have.
 
@@ -161,15 +161,15 @@ Wasatch at sunrise. Rocky overlook, steaming cup, cubs on a trail bench. The mos
 
 | Oatmeal Cup | Bear Bites | Power Cakes |
 |---|---|---|
-| ![Trail — Oatmeal 1x1](../output_kodiak-trail/oatmeal-cup/1x1/oatmeal-cup_1x1.png) | ![Trail — Bear Bites 1x1](../output_kodiak-trail/bear-bites/1x1/bear-bites_1x1.png) | ![Trail — Power Cakes 1x1](../output_kodiak-trail/power-cakes/1x1/power-cakes_1x1.png) |
+| ![Trail — Oatmeal 1x1](assets/previews/kodiak-trail/oatmeal-cup/1x1/oatmeal-cup_1x1.png) | ![Trail — Bear Bites 1x1](assets/previews/kodiak-trail/bear-bites/1x1/bear-bites_1x1.png) | ![Trail — Power Cakes 1x1](assets/previews/kodiak-trail/power-cakes/1x1/power-cakes_1x1.png) |
 
-> If your buyer loves the Keep It Wild photography direction, start here. [All 9 →](../output_kodiak-trail/preview.html)
+> If your buyer loves the Keep It Wild photography direction, start here. [All 9 →](assets/previews/kodiak-trail/preview.html)
 
 ---
 
 ## 7. Holiday Frontier Cast-Iron
 
-**Brief:** [`briefs/kodiak-holiday.yaml`](../briefs/kodiak-holiday.yaml) · **Preview:** [Open full board →](../output_kodiak-holiday/preview.html) · **Output folder:** `output_kodiak-holiday/`
+**Brief:** [`briefs/kodiak-holiday.yaml`](../briefs/kodiak-holiday.yaml) · **Preview:** [Open full board →](assets/previews/kodiak-holiday/preview.html) · **Output folder:** `output_kodiak-holiday/`
 
 Cozy cabin, cast iron, steam on rustic wood. The holiday table where the stack is the centerpiece.
 
@@ -183,15 +183,15 @@ Cozy cabin, cast iron, steam on rustic wood. The holiday table where the stack i
 
 | Power Cakes | Bear Bites | Oatmeal Cup |
 |---|---|---|
-| ![Holiday — Power Cakes 1x1](../output_kodiak-holiday/power-cakes/1x1/power-cakes_1x1.png) | ![Holiday — Bear Bites 1x1](../output_kodiak-holiday/bear-bites/1x1/bear-bites_1x1.png) | ![Holiday — Oatmeal 1x1](../output_kodiak-holiday/oatmeal-cup/1x1/oatmeal-cup_1x1.png) |
+| ![Holiday — Power Cakes 1x1](assets/previews/kodiak-holiday/power-cakes/1x1/power-cakes_1x1.png) | ![Holiday — Bear Bites 1x1](assets/previews/kodiak-holiday/bear-bites/1x1/bear-bites_1x1.png) | ![Holiday — Oatmeal 1x1](assets/previews/kodiak-holiday/oatmeal-cup/1x1/oatmeal-cup_1x1.png) |
 
-> Square 1x1 shines for the holiday feed. [Full holiday board →](../output_kodiak-holiday/preview.html)
+> Square 1x1 shines for the holiday feed. [Full holiday board →](assets/previews/kodiak-holiday/preview.html)
 
 ---
 
 ## 8. Diner Flip
 
-**Brief:** [`briefs/kodiak-diner.yaml`](../briefs/kodiak-diner.yaml) · **Preview:** [Open full board →](../output_kodiak-diner/preview.html) · **Output folder:** `output_kodiak-diner/`
+**Brief:** [`briefs/kodiak-diner.yaml`](../briefs/kodiak-diner.yaml) · **Preview:** [Open full board →](assets/previews/kodiak-diner/preview.html) · **Output folder:** `output_kodiak-diner/`
 
 The smallest footprint, the closest to the customer — the diner griddle in Las Cruces and Alamogordo that now flips Kodiak cakes on Saturday morning. Same template, now a printable table tent and menu board (square for the table, wide for the board).
 
@@ -205,15 +205,15 @@ The smallest footprint, the closest to the customer — the diner griddle in Las
 
 | Power Cakes | Bear Bites |
 |---|---|
-| ![Diner — Power Cakes 1x1](../output_kodiak-diner/power-cakes/1x1/power-cakes_1x1.png) | ![Diner — Bear Bites 1x1](../output_kodiak-diner/bear-bites/1x1/bear-bites_1x1.png) |
+| ![Diner — Power Cakes 1x1](assets/previews/kodiak-diner/power-cakes/1x1/power-cakes_1x1.png) | ![Diner — Bear Bites 1x1](assets/previews/kodiak-diner/bear-bites/1x1/bear-bites_1x1.png) |
 
-> Only two products here — that's intentional (it's a diner menu, not a grocery aisle). [See both ratios →](../output_kodiak-diner/preview.html) — 16x9 is the menu board.
+> Only two products here — that's intentional (it's a diner menu, not a grocery aisle). [See both ratios →](assets/previews/kodiak-diner/preview.html) — 16x9 is the menu board.
 
 ---
 
 ## 9. Subscribe and Save Home Delivery
 
-**Brief:** [`briefs/kodiak-subscription.yaml`](../briefs/kodiak-subscription.yaml) · **Preview:** [Open full board →](../output_kodiak-subscription/preview.html) · **Output folder:** `output_kodiak-subscription/`
+**Brief:** [`briefs/kodiak-subscription.yaml`](../briefs/kodiak-subscription.yaml) · **Preview:** [Open full board →](assets/previews/kodiak-subscription/preview.html) · **Output folder:** `output_kodiak-subscription/`
 
 Direct to the front door. No retailer, no aisle — just the pantry refilling itself every month. The clearest value prop we have.
 
@@ -227,9 +227,9 @@ Direct to the front door. No retailer, no aisle — just the pantry refilling it
 
 | Power Cakes | Oatmeal Cup |
 |---|---|
-| ![Subscription — Power Cakes 1x1](../output_kodiak-subscription/power-cakes/1x1/power-cakes_1x1.png) | ![Subscription — Oatmeal 1x1](../output_kodiak-subscription/oatmeal-cup/1x1/oatmeal-cup_1x1.png) |
+| ![Subscription — Power Cakes 1x1](assets/previews/kodiak-subscription/power-cakes/1x1/power-cakes_1x1.png) | ![Subscription — Oatmeal 1x1](assets/previews/kodiak-subscription/oatmeal-cup/1x1/oatmeal-cup_1x1.png) |
 
-> Two-product DTC board — the simplest to launch. [Full preview →](../output_kodiak-subscription/preview.html)
+> Two-product DTC board — the simplest to launch. [Full preview →](assets/previews/kodiak-subscription/preview.html)
 
 ---
 
@@ -290,9 +290,9 @@ flowchart LR
 
 ### Quick picker — if you only have time for one example per persona
 
-- **Frontier?** Open [Keep It Wild →](../output_kodiak/preview.html) — Wasatch dawn, 14g, Vital Ground co-badge in the footer.
-- **Family?** Open [Publix Family →](../output_kodiak-publix/preview.html) — warm, cub-forward, "for your family's frontier."
-- **On-the-Go?** Open [On the Go →](../output_kodiak-on-the-go/preview.html) — 9x16-first, oatmeal cup, 5 grams that travels.
+- **Frontier?** Open [Keep It Wild →](assets/previews/kodiak/preview.html) — Wasatch dawn, 14g, Vital Ground co-badge in the footer.
+- **Family?** Open [Publix Family →](assets/previews/kodiak-publix/preview.html) — warm, cub-forward, "for your family's frontier."
+- **On-the-Go?** Open [On the Go →](assets/previews/kodiak-on-the-go/preview.html) — 9x16-first, oatmeal cup, 5 grams that travels.
 
 ---
 
