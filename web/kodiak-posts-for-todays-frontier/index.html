@@ -30,7 +30,7 @@
 }
 *{box-sizing:border-box}html,body{margin:0;background:var(--parch);color:var(--brown);font-family:Inter,system-ui,Helvetica,Arial,sans-serif}
 a{color:var(--green);text-decoration:none;border-bottom:1px solid #1A3C3433}a:hover{border-bottom-color:var(--green)}
-header{padding:22px 18px 14px;background:var(--brown) var(--bear-mark) 18px 18px/24px no-repeat;color:var(--parch);border-bottom:4px solid var(--orange);padding-left:56px}
+header{padding:22px 18px 14px;background:var(--brown);color:var(--parch);border-bottom:4px solid var(--orange);display:flex;align-items:center;gap:16px}
 header h1{margin:0;font:800 22px/1.1 Rockwell,Clarendon,Georgia,serif;letter-spacing:-.02em}
 header h1 small{font:500 12px/1 Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#FACC7C}
 header p{margin:8px 0 0;max-width:880px;color:#E8DDD3;font-size:13px;line-height:1.5}
@@ -65,8 +65,9 @@ header p{margin:8px 0 0;max-width:880px;color:#E8DDD3;font-size:13px;line-height
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head><body>
 <header>
-<h1>KODIAK® Posts for Today's Frontier <small>Maya’s campaign — nationwide → local in one sheet</small></h1>
-<p><b>Feeding Epic Days & Wilder Lives • Nourishment for Today's Frontier</b> — Maya opens a one-page idea sheet. Not a ticket. One sheet becomes hundreds of local ads (square 1080×1080, tall 1080×1920, wide 1920×1080) with the KODIAK Bear silhouette still at 24,24. Works offline, no server — just open this file. Built for a nationwide campaign that lands locally.</p>
+<div style="flex:0 0 44px;height:44px;background:#E8530E;border-radius:8px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.25)"><svg width="28" height="28" viewBox="0 0 24 24" aria-label="KODIAK Bear silhouette"><path d="M12 2l2 2 2-1 1 3 2 2-1 4 2 5-4 3H8l-4-3 2-5-1-4 2-2 1-3 2 1z" fill="#3B2316"/><path d="M9 9c0-1 1-2 3-2s3 1 3 2v2c0 1-1 2-3 2s-3-1-3-2V9z" fill="#FFF8F0" opacity=".9"/><circle cx="10" cy="11" r="1" fill="#3B2316"/><circle cx="14" cy="11" r="1" fill="#3B2316"/></svg></div>
+<div style="flex:1"><h1>KODIAK® Posts for Today's Frontier <small>Maya’s campaign — nationwide → local in one sheet</small></h1>
+<p><b>Feeding Epic Days & Wilder Lives • Nourishment for Today's Frontier</b> — Maya opens a one-page idea sheet. Not a ticket. One sheet becomes hundreds of local ads (square 1080×1080, tall 1080×1920, wide 1920×1080) with the KODIAK Bear silhouette still at 24,24. Works offline, no server — just open this file. Built for a nationwide campaign that lands locally.</p></div>
 </header>
 <div class="wrap">
 <div class="card" style="border-left:4px solid #E8530E"><div class="hd"><h2>See what your Bay Area or Seattle shoppers see — and the frontier around them <span class="badge">new — location aware</span></h2><p>Workers in San Francisco see Pescadero artichokes 35mi away. Workers in Seattle see Neah Bay 70mi past Port Angeles. Use your location or pick a place below to see campaign prototypes as that market's Costco and frontier would.</p></div><div class="body">
@@ -133,12 +134,77 @@ Pick any place, any product from the full Kodiak catalog, see the bear stay the 
 <script>
 // Inline data — so this page is truly offline (no fetch to a server). Keep a small seed of hundreds-scale places and recipes here; full tables live at ../../data/
 const places = [
-  {market:"US-MW-PARKCITY-84098", place:"Park City, Utah 84098 — Wasatch Back (primary smoke test)", retailer:"Target (Kimball Junction), Walmart (Kimball Junction), Smith's", zip:"84098", audience:"Mountain families, Wasatch trail households, resort staff", message:"KODIAK® Keep It Wild — protein-packed whole grains for your Park City frontier. Nourishment for Today's Frontier", peppers:"—", cheeses:"—", cue:"Wasatch alpenglow + Park City Farmers Market base of Park City Mountain Resort Wed 11-5 through mid-Oct Jensen Farms/Smith Orchards peaches + cinnamon tip; Copper Moose Farm Stand 84098 biodynamic Tue/Thu 12-6 Sat 9-3 June-Oct rhubarb compote with orange juice; Tagges SR-224 Canyons Village daily through Sept preserves; Ballerina Farm Kamas butter/honey"},{market:"US-MW-WASATCH-84098", place:"Park City, Utah 84098 — Wasatch Back (alias)", retailer:"Target (Kimball Junction), Walmart (Kimball Junction)", zip:"84098", audience:"Mountain families, Wasatch trail households, resort staff", message:"KODIAK® Keep It Wild — protein-packed whole grains for your Park City frontier. Nourishment for Today's Frontier", peppers:"—", cheeses:"—", cue:"Wasatch alpenglow + farmers market crates, rhubarb-orange compote"},{market:"US-SW-LASCRUCES", place:"Las Cruces + Alamogordo, New Mexico", retailer:"Target, Walmart, Albertsons", zip:"88001", audience:"Hatch chile households — roast by the bushel, freeze for winter", message:"KODIAK® Green chile meets grizzly — protein flapjacks for your Las Cruces frontier. Feeding Epic Days & Wilder Lives", peppers:"Hatch green chile roasted, diced", cheeses:"Oaxaca crumble", cue:"Organ Mountains bench, trail bench"},
-  {market:"US-MW-WASATCH", place:"Park City, Wasatch Mountains", retailer:"Target, Walmart", zip:"84060", audience:"Wasatch mountain locals — ski before work, trail after", message:"KODIAK® Keep It Wild — protein-packed whole grains for today's frontier. Nourishment for Today's Frontier", peppers:"—", cheeses:"—", cue:"Wasatch alpenglow, pine, boulder, snow at dawn"},
-  {market:"US-TX-AUSTIN", place:"Austin, Texas", retailer:"Target, Whole Foods, H-E-B", zip:"78701", audience:"Austin families — breakfast tacos and food trucks", message:"KODIAK® Breakfast tacos meet flapjacks — whole grains that keep up", peppers:"Jalapeño", cheeses:"Pepper jack", cue:"Salsa over flapjacks"},
-  {market:"US-FL-MIAMI", place:"Miami, Florida", retailer:"Publix, Target", zip:"33101", audience:"Florida porches — cafecito and guava with the stack", message:"KODIAK® Family frontier — protein for your Florida morning", peppers:"Chipotle", cheeses:"Queso fresco", cue:"Guava and café con leche"},
-  {market:"US-IL-CHI", place:"Chicago, Illinois", retailer:"Target, Jewel-Osco, Meijer", zip:"60601", audience:"Midwest city families — stock the pantry for lake-effect mornings", message:"KODIAK® Fuel your city frontier — 14 grams, 100 percent whole grains", peppers:"Jalapeño", cheeses:"Cheddar", cue:"Maple oatmeal cup on the L"},
-  {market:"US-NY-BK", place:"Brooklyn, New York", retailer:"Target, Whole Foods", zip:"11201", audience:"New York hustle — bodega coffee and subway oatmeal cups", message:"KODIAK® City frontier — protein-packed whole grains for the hustle", peppers:"Poblano", cheeses:"Oaxaca", cue:"Bodega coffee, oatmeal cup on subway platform"}
+  {market:"US-MW-PARKCITY-84098", place:"Park City, Utah 84098", retailer:"Target (Kimball Junction), Walmart (Kimball Junction), Smith's Food & Drug (Park City)", zip:"84098", audience:"Mountain families, Wasatch trail households, resort staff — Aaron", message:"Keep It Wild — protein-packed whole grains for your Wasatch frontier. Nourishment for Today's Frontier", peppers:"—", cheeses:"—", cue:"Farmers Market at Park City Mountain Resort Wed 11-5 — Jensen Farms peaches, Copper Moose rhubarb, Tagges preserves, Bal"},
+  {market:"US-MW-WASATCH", place:"Park City, Wasatch Mountains", retailer:"Target, Walmart", zip:"84060", audience:"Outdoor families, ski and hike households — Madison", message:"Keep It Wild — protein-packed whole grains for today's frontier", peppers:"—", cheeses:"—", cue:"Wasatch alpenglow, pine, boulder, snow at dawn"},
+  {market:"US-SW-LASCRUCES", place:"Las Cruces + Alamogordo, New Mexico", retailer:"Target, Walmart, Albertsons", zip:"88001", audience:"Green chile families, Hatch roast households 28-45 — Eli", message:"Green chile meets grizzly — protein for your Las Cruces frontier", peppers:"—", cheeses:"—", cue:"Roasted Hatch green chile in flapjacks, Organ Mountains bench, trail bench"},
+  {market:"US-SW-ALBQ", place:"Albuquerque, New Mexico", retailer:"Target, Walmart, Smith's", zip:"87101", audience:"High desert families, adobe morning — Sarah", message:"Desert dawn flapjacks — 14 grams for your high desert day", peppers:"—", cheeses:"—", cue:"Red chile and piñon, enamel mug on portal"},
+  {market:"US-SC-AUSTIN", place:"Austin, Texas", retailer:"Target, Whole Foods, H-E-B", zip:"78701", audience:"Breakfast taco families, keep-it-weird hosts — Emily", message:"Breakfast tacos meet flapjacks — whole grains that keep up", peppers:"—", cheeses:"—", cue:"Salsa over flapjacks, food truck corner"},
+  {market:"US-SE-FL", place:"Miami + Orlando, Florida", retailer:"Publix, Target", zip:"33101", audience:"Cuban and Puerto Rican families, porch breakfasts — Elizabeth", message:"Family frontier — protein for your Florida morning", peppers:"—", cheeses:"—", cue:"Guava and café con leche beside stack"},
+  {market:"US-SE-COAST", place:"Savannah + Charleston, Coastal Southeast", retailer:"Publix, Harris Teeter", zip:"29401", audience:"Porch families, Gullah seasonality — Nina", message:"Southern porch stack — protein-packed whole grains for your family", peppers:"—", cheeses:"—", cue:"Peach and pecan"},
+  {market:"US-SE-ATL", place:"Atlanta, Georgia", retailer:"Publix, Target", zip:"30301", audience:"Urban families, Sunday brunch — Brett", message:"Georgia pecan frontier — 14 grams to start your day", peppers:"—", cheeses:"—", cue:"Pecan praline drizzle"},
+  {market:"US-MW-CHI", place:"Chicago, Illinois", retailer:"Target, Jewel-Osco, Meijer", zip:"60601", audience:"City families, lake effect winters — Arnoldo", message:"Fuel your city frontier — 14 grams, 100 percent whole grains", peppers:"—", cheeses:"—", cue:"Maple oatmeal cup on the L"},
+  {market:"US-MW-TC", place:"Twin Cities, Minnesota", retailer:"Target (home), Cub Foods", zip:"55401", audience:"Midwest hearty families — Sam", message:"Stock the frontier — every morning, hearty and whole grain", peppers:"—", cheeses:"—", cue:"Maple, wild rice, snow boots"},
+  {market:"US-MW-DEN", place:"Denver, Colorado", retailer:"Target, King Soopers, Whole Foods", zip:"80202", audience:"Mountain families, trailheads — Amber", message:"Cast-iron frontier — protein for your Colorado morning", peppers:"—", cheeses:"—", cue:"Cast iron at trailhead"},
+  {market:"US-W-SEA", place:"Seattle, Washington", retailer:"Costco (home — Seattle/SODO/Issaquah warehouses), Target, Amazon Subscribe & Save", zip:"98101", audience:"Seattle Costco bulk shoppers — Cory", message:"Evergreen frontier — protein-packed whole grains for gray mornings — bulk Costco + urban frontier awareness", peppers:"—", cheeses:"—", cue:"Coffee beside KODIAK® flapjacks, evergreen, rain-morning griddle, bulk Costco Family Size — and Neah Bay frontier repres"},
+  {market:"US-W-PDX", place:"Portland, Oregon", retailer:"Target, Fred Meyer", zip:"97201", audience:"Trail families, forest — Aaron", message:"Forest trail fuel — protein for your cubs", peppers:"—", cheeses:"—", cue:"Berries and hazelnut beside Bear Bites"},
+  {market:"US-W-LA", place:"Los Angeles, California", retailer:"Target, Whole Foods", zip:"90001", audience:"Active, ingredient-aware, diverse — Madison", message:"Fuel your trail — protein oatmeal for today's frontier", peppers:"—", cheeses:"—", cue:"Almond milk pour, trail cup on overlook"},
+  {market:"US-SE-NASH", place:"Nashville, Tennessee", retailer:"Publix, Target", zip:"37201", audience:"Music city families, biscuit country — Eli", message:"Honey frontier — protein for your Nashville morning", peppers:"—", cheeses:"—", cue:"Honey beside graham Bear Bites"},
+  {market:"US-SE-LOU", place:"Louisville, Kentucky", retailer:"Target, Kroger", zip:"40202", audience:"Derby families, bourbon-maple adjacency — Sarah", message:"Brown sugar frontier — protein for your Kentucky morning", peppers:"—", cheeses:"—", cue:"Maple and brown sugar oatmeal"},
+  {market:"US-NE-BOS", place:"Boston + Portland ME, New England", retailer:"Target, Market Basket", zip:"02108", audience:"Leaf-peep families, maple country — Emily", message:"Maple frontier — 14 grams, whole grain, New England", peppers:"—", cheeses:"—", cue:"Pure maple syrup over Power Cakes"},
+  {market:"US-SW-PHX", place:"Phoenix, Arizona", retailer:"Target, Walmart, Fry's", zip:"85001", audience:"Desert families, early hot mornings — Elizabeth", message:"Desert frontier — protein that holds up in the heat", peppers:"—", cheeses:"—", cue:"Prickly pear and citrus"},
+  {market:"US-NE-NYC", place:"Brooklyn + Manhattan, New York", retailer:"Target, Whole Foods", zip:"11201", audience:"City-active, bodega-adjacent — Nina", message:"City frontier — protein-packed whole grains for the hustle", peppers:"—", cheeses:"—", cue:"Bodega coffee, oatmeal cup on subway platform"},
+  {market:"US-SW-TIMBERON", place:"Timberon, New Mexico", retailer:"Timberon General Store, Cloudcroft Mercantile, Alamogordo Walmart", zip:"88350", audience:"Piñon harvest families, Sacramento Mountains homesteaders, h — Brett", message:"Piñon frontier — protein with piñon seeds from pinonnuts.com", peppers:"—", cheeses:"—", cue:"Piñon pines, Sacramento Mountains, enamel mug on piñon harvest table, Timberon pines"},
+  {market:"US-MW-WASATCH-SLC", place:"Salt Lake City, Utah", retailer:"Target, Walmart, Smith's", zip:"84101", audience:"Ski families, Wasatch trailheads — Arnoldo", message:"Wasatch fuel — 14g for slope mornings", peppers:"—", cheeses:"—", cue:"Snow-capped Wasatch, ski lodge flapjacks"},
+  {market:"US-W-SF", place:"San Francisco Bay Area, California", retailer:"Target, Whole Foods, Safeway", zip:"94102", audience:"Tech families, fog-morning hikers — Sam", message:"Bay frontier — whole grains for bridge mornings", peppers:"—", cheeses:"—", cue:"Golden Gate fog, sourdough-adjacent stack"},
+  {market:"US-W-SD", place:"San Diego, California", retailer:"Target, Vons, Whole Foods", zip:"92101", audience:"Surf families, canyon trail runners — Amber", message:"Surf frontier — protein for wave mornings", peppers:"—", cheeses:"—", cue:"Surfboard wax and maple, coastal stack"},
+  {market:"US-W-VEGAS", place:"Las Vegas, Nevada", retailer:"Target, Walmart, Smith's", zip:"89101", audience:"Desert neon families, Red Rock hikers — Cory", message:"Red Rock fuel — power your Vegas frontier", peppers:"—", cheeses:"—", cue:"Red Rock canyon, desert light"},
+  {market:"US-MW-PHX2", place:"Tucson, Arizona", retailer:"Target, Walmart, Fry's", zip:"85701", audience:"Sonoran families, saguaro mornings — Aaron", message:"Saguaro stack — protein for your desert frontier", peppers:"—", cheeses:"—", cue:"Saguaro, prickly pear, desert sunrise"},
+  {market:"US-SW-EL PASO", place:"El Paso, Texas", retailer:"Target, Walmart, Albertsons", zip:"79901", audience:"Border families, Franklin Mountains hikers — Madison", message:"Franklin frontier — piñon & green chile flapjacks", peppers:"—", cheeses:"—", cue:"Franklin Mountains, border sunrise, green chile"},
+  {market:"US-SC-DALLAS", place:"Dallas, Texas", retailer:"Target, Walmart, H-E-B", zip:"75201", audience:"Lone Star brunch families — Eli", message:"Texas frontier — hearty whole grains for big mornings", peppers:"—", cheeses:"—", cue:"Bluebonnet field, cast iron"},
+  {market:"US-SC-HOUSTON", place:"Houston, Texas", retailer:"Target, Walmart, H-E-B", zip:"77002", audience:"Gulf coast families, rodeo weekends — Sarah", message:"Gulf frontier — protein for humid mornings", peppers:"—", cheeses:"—", cue:"Pecan, humidity, porch stack"},
+  {market:"US-SC-SANANTONIO", place:"San Antonio, Texas", retailer:"Target, H-E-B, Walmart", zip:"78201", audience:"Alamo families, breakfast taco households — Emily", message:"Alamo frontier — whole grains meet breakfast tacos", peppers:"—", cheeses:"—", cue:"Breakfast taco fusion, salsa drizzle"},
+  {market:"US-MW-KC", place:"Kansas City, Missouri/Kansas", retailer:"Target, Walmart, Hy-Vee", zip:"64108", audience:"BBQ families, heartland mornings — Elizabeth", message:"Heartland frontier — whole grains, 14g smoke & maple", peppers:"—", cheeses:"—", cue:"Smoke & maple, BBQ brunch"},
+  {market:"US-MW-STL", place:"St. Louis, Missouri", retailer:"Target, Walmart, Schnucks", zip:"63101", audience:"Gateway families, riverfront picnics — Nina", message:"Gateway frontier — fuel your river morning", peppers:"—", cheeses:"—", cue:"Arch backdrop, maple stack"},
+  {market:"US-MW-OMAHA", place:"Omaha, Nebraska", retailer:"Target, Hy-Vee", zip:"68102", audience:"Prairie families, corn country — Brett", message:"Prairie frontier — whole grains for harvest mornings", peppers:"—", cheeses:"—", cue:"Cornfield light, farm table"},
+  {market:"US-MW-DESMOINES", place:"Des Moines, Iowa", retailer:"Target, Hy-Vee, Walmart", zip:"50309", audience:"Farm families, state fair households — Arnoldo", message:"Field frontier — hearty oats for Iowa mornings", peppers:"—", cheeses:"—", cue:"Field sunrise, butter & maple"},
+  {market:"US-MW-MILWAUKEE", place:"Milwaukee, Wisconsin", retailer:"Target, Pick 'n Save", zip:"53202", audience:"Cheese country families, lake mornings — Sam", message:"Lake frontier — protein for cold mornings", peppers:"—", cheeses:"—", cue:"Cheddar, maple, lake snow"},
+  {market:"US-MW-DETROIT", place:"Detroit, Michigan", retailer:"Target, Meijer, Kroger", zip:"48201", audience:"Motor City families, Great Lakes weekends — Amber", message:"Great Lakes frontier — fuel your Motor City morning", peppers:"—", cheeses:"—", cue:"Lakeside, maple syrup"},
+  {market:"US-MW-CLEVELAND", place:"Cleveland, Ohio", retailer:"Target, Giant Eagle", zip:"44101", audience:"Lake Erie families, steel mornings — Cory", message:"Steel frontier — 14g for cold mornings", peppers:"—", cheeses:"—", cue:"Snow, steel, maple oatmeal"},
+  {market:"US-MW-INDY", place:"Indianapolis, Indiana", retailer:"Target, Kroger, Meijer", zip:"46204", audience:"Race families, heartland brunch — Aaron", message:"Speedway frontier — hearty flapjacks for race day", peppers:"—", cheeses:"—", cue:"Checkered flag brunch"},
+  {market:"US-NE-PHILLY", place:"Philadelphia, Pennsylvania", retailer:"Target, Acme, Whole Foods", zip:"19102", audience:"Liberty families, cheesesteak-adjacent brunch — Madison", message:"Liberty frontier — protein for Philly mornings", peppers:"—", cheeses:"—", cue:"Soft pretzel & maple nod"},
+  {market:"US-NE-DC", place:"Washington, DC + NoVA", retailer:"Target, Giant, Whole Foods", zip:"20001", audience:"Capitol families, monument mornings — Eli", message:"Capital frontier — whole grains for the hustle", peppers:"—", cheeses:"—", cue:"Monument dawn, coffee & stack"},
+  {market:"US-NE-BALTIMORE", place:"Baltimore, Maryland", retailer:"Target, Giant", zip:"21201", audience:"Chesapeake families, Old Bay mornings — Sarah", message:"Chesapeake frontier — savory flapjacks for bay mornings", peppers:"—", cheeses:"—", cue:"Bay crab & corn nod"},
+  {market:"US-NE-RALEIGH", place:"Raleigh-Durham, North Carolina", retailer:"Publix, Target, Harris Teeter", zip:"27601", audience:"Research Triangle families, porch science — Emily", message:"Triangle frontier — protein for porch mornings", peppers:"—", cheeses:"—", cue:"Pine, peach, porch stack"},
+  {market:"US-SE-CHARLOTTE", place:"Charlotte, North Carolina", retailer:"Publix, Target, Harris Teeter", zip:"28202", audience:"Queen City families, NASCAR weekends — Elizabeth", message:"Queen City frontier — hearty stack for race mornings", peppers:"—", cheeses:"—", cue:"Pecan, maple, trackside"},
+  {market:"US-SE-JAX", place:"Jacksonville, Florida", retailer:"Publix, Target", zip:"32202", audience:"Beach families, St. Johns river mornings — Nina", message:"River frontier — protein for Florida beach mornings", peppers:"—", cheeses:"—", cue:"Beach, citrus, porch"},
+  {market:"US-SE-TAMPA", place:"Tampa, Florida", retailer:"Publix, Target, Winn-Dixie", zip:"33602", audience:"Gulf families, Cuban nod — Brett", message:"Gulf frontier — guava and flapjacks", peppers:"—", cheeses:"—", cue:"Citrus, guava, café con leche"},
+  {market:"US-SE-NOLA", place:"New Orleans, Louisiana", retailer:"Target, Rouses", zip:"70112", audience:"Creole families, beignet mornings — Arnoldo", message:"Bayou frontier — protein meets beignet country", peppers:"—", cheeses:"—", cue:"Beignet powder, praline drizzle"},
+  {market:"US-SE-MEMPHIS", place:"Memphis, Tennessee", retailer:"Kroger, Target", zip:"38103", audience:"Blues families, BBQ brunch — Sam", message:"River frontier — maple & BBQ fusion", peppers:"—", cheeses:"—", cue:"Smoky maple, blues porch"},
+  {market:"US-SE-BIRMINGHAM", place:"Birmingham, Alabama", retailer:"Publix, Target, Piggly Wiggly", zip:"35201", audience:"Iron City families, porch suppers — Amber", message:"Iron frontier — hearty whole grains", peppers:"—", cheeses:"—", cue:"Peach, pecan, cast iron"},
+  {market:"US-SE-JACKSON", place:"Jackson, Mississippi", retailer:"Kroger, Target", zip:"39201", audience:"Delta families, porch culture — Cory", message:"Delta frontier — protein for slow mornings", peppers:"—", cheeses:"—", cue:"Delta maple, porch light"},
+  {market:"US-SW-OKC", place:"Oklahoma City, Oklahoma", retailer:"Target, Walmart, Homeland", zip:"73102", audience:"Sooner families, prairie wind — Aaron", message:"Prairie frontier — whole grains for windy mornings", peppers:"—", cheeses:"—", cue:"Wind, wheat, maple"},
+  {market:"US-MW-BOISE", place:"Boise, Idaho", retailer:"Target, Albertsons, Winfield", zip:"83702", audience:"Idaho wheat families, river trail — Madison", message:"Wheat frontier — Idaho grains for Idaho mornings", peppers:"—", cheeses:"—", cue:"Wheat field, river, whole grains"},
+  {market:"US-W-YAKIMA", place:"Yakima + Tri-Cities, Washington", retailer:"Costco, Target, WinCo", zip:"98901", audience:"Apple country families, hop fields — Eli", message:"Apple frontier — protein for orchard mornings", peppers:"—", cheeses:"—", cue:"Apple orchard, flapjacks & cider"},
+  {market:"US-W-SPOKANE", place:"Spokane, Washington", retailer:"Costco (home), Target", zip:"99201", audience:"Inland Northwest families, pine trail — Sarah", message:"Pine frontier — trail fuel for Inland days", peppers:"—", cheeses:"—", cue:"Pine, river gorge, oatmeal cup"},
+  {market:"US-MW-MISSOULA", place:"Missoula, Montana", retailer:"Target, Albertsons", zip:"59801", audience:"Big Sky families, Grizzly habitat — Emily", message:"Keep It Wild — Big Sky frontier flapjacks", peppers:"—", cheeses:"—", cue:"Glacier, grizzly corridor, wild meadow"},
+  {market:"US-W-RENO", place:"Reno + Tahoe, Nevada/California", retailer:"Target, Raley's", zip:"89501", audience:"Sierra families, lake Tahoe weekends — Elizabeth", message:"Sierra frontier — protein for altitude mornings", peppers:"—", cheeses:"—", cue:"Tahoe alpine, pine, snow"},
+  {market:"US-W-SACRAMENTO", place:"Sacramento, California", retailer:"Target, Raley's, Safeway", zip:"95814", audience:"Valley farm families, delta mornings — Nina", message:"Valley frontier — whole grains for farm mornings", peppers:"—", cheeses:"—", cue:"Valley orchard, farm table"},
+  {market:"US-MW-MINNEAPOLIS2", place:"Duluth, Minnesota", retailer:"Target, Cub Foods", zip:"55802", audience:"Superior families, lake snow — Brett", message:"Superior frontier — hearty oats for cold mornings", peppers:"—", cheeses:"—", cue:"Lake Superior ice, maple"},
+  {market:"US-MW-FARGO", place:"Fargo, North Dakota", retailer:"Target, Hornbacher's", zip:"58102", audience:"Prairie families, extreme cold — Arnoldo", message:"Prairie frontier — protein that holds winter", peppers:"—", cheeses:"—", cue:"Snow, wheat, hot stack"},
+  {market:"US-NE-BURLINGTON", place:"Burlington, Vermont", retailer:"Target, Hannaford", zip:"05401", audience:"Maple families, Green Mountain trail — Sam", message:"Maple frontier — Vermont whole grains", peppers:"—", cheeses:"—", cue:"Maple syrup pour, Green Mountains"},
+  {market:"US-NE-HARTFORD", place:"Hartford, Connecticut", retailer:"Target, Stop & Shop", zip:"06103", audience:"New England leaf-peep families — Amber", message:"Leaf-peep frontier — protein for autumn mornings", peppers:"—", cheeses:"—", cue:"Fall foliage, maple stack"},
+  {market:"US-NE-PROVIDENCE", place:"Providence, Rhode Island", retailer:"Target, Stop & Shop", zip:"02903", audience:"Ocean State families, coastal fog — Cory", message:"Ocean frontier — whole grains for coastal mornings", peppers:"—", cheeses:"—", cue:"Coastal fog, harbor stack"},
+  {market:"US-SW-SANTA FE", place:"Santa Fe, New Mexico", retailer:"Target, Smith's, Albertsons", zip:"87501", audience:"High desert adobe families, piñon roast — Aaron", message:"Piñon & chile frontier — Santa Fe protein flapjacks", peppers:"—", cheeses:"—", cue:"Piñon smoke, red chile ristras, adobe portal"},
+  {market:"US-SW-CLOUDCROFT", place:"Cloudcroft + Alamogordo, New Mexico", retailer:"Cloudcroft Mercantile, Alamogordo Walmart", zip:"88317", audience:"Sacramento Mountains families, ski Cloudcroft — Madison", message:"Sacramento frontier — piñon flapjacks for mountain mornings", peppers:"—", cheeses:"—", cue:"Mountain pines, piñon, ski lodge"},
+  {market:"US-SW-ROSWELL", place:"Roswell + Carlsbad, New Mexico", retailer:"Walmart, Albertsons", zip:"88201", audience:"Pecos Valley families, alien-country roadtrip — Eli", message:"Pecos frontier — protein for desert highway", peppers:"—", cheeses:"—", cue:"Desert highway, pecos valley light"},
+  {market:"US-W-ANCHORAGE", place:"Anchorage, Alaska", retailer:"Target, Fred Meyer, Costco", zip:"99501", audience:"Grizzly country families, frontier cabins — Sarah", message:"Last frontier — Keep It Wild Kodiak stack", peppers:"—", cheeses:"—", cue:"Denali light, grizzly corridor, cabin"},
+  {market:"US-W-HONOLULU", place:"Honolulu, Hawaii", retailer:"Target, Costco, Safeway", zip:"96813", audience:"Island families, surf-and-trail — Emily", message:"Island frontier — protein for island mornings", peppers:"—", cheeses:"—", cue:"Tropic fruit, volcanic stack"},
+  {market:"US-SE-ASHEVILLE", place:"Asheville, North Carolina", retailer:"Publix, Ingles, Target", zip:"28801", audience:"Blue Ridge families, Appalachian trail — Elizabeth", message:"Blue Ridge frontier — trail fuel for mountain mornings", peppers:"—", cheeses:"—", cue:"Blue Ridge mist, trail bench"},
+  {market:"US-MW-JACKSONHOLE", place:"Jackson Hole, Wyoming", retailer:"Albertsons, Target", zip:"83001", audience:"Teton grizzly families, elk corridor — Nina", message:"Teton frontier — Keep It Wild protein", peppers:"—", cheeses:"—", cue:"Teton alpenglow, elk meadow"},
+  {market:"US-W-BEND", place:"Bend, Oregon", retailer:"Target, Fred Meyer", zip:"97701", audience:"Cascade trail families, high desert — Brett", message:"Cascade frontier — protein for high-desert mornings", peppers:"—", cheeses:"—", cue:"Cascade pines, lava rock, trail cup"},
+  {market:"US-W-BOULDER", place:"Boulder, Colorado", retailer:"Target, King Soopers, Whole Foods", zip:"80302", audience:"Flatiron trail families, alpine start — Arnoldo", message:"Flatiron frontier — protein for alpine mornings", peppers:"—", cheeses:"—", cue:"Flatirons alpenglow, trailhead stack"},
+  {market:"US-CA-PESCADERO", place:"Pescadero, California 94060 — San Mateo Coast", retailer:"Arcangeli Grocery Co. (Norm's Market), Half Moon Bay Safeway (14 mi), Costco Redwood City (30 mi halo)", zip:"94060", audience:"Bay Area urban frontier households — Sam", message:"KODIAK® frontier for Bay Area urban folks to see their hinterland — protein-packed whole grains for your Pescadero coast. Nourishment for Today's Frontier", peppers:"—", cheeses:"—", cue:"Pescadero Marsh boardwalk, Half Moon Bay Coastal Trail, Stage Road farm stands — Castroville artichokes Mar-Jun centerfo"},
+  {market:"US-WA-NEAHBAY", place:"Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe", retailer:"Washburn's General Store (Neah Bay), Port Angeles Safeway / Walmart (70mi), Costco Seattle / Sequim area (4-5hr)", zip:"98357", audience:"Makah families, Neah Bay mini-mart regulars, Port Angeles co — Amber", message:"KODIAK® Neah Bay frontier — huckleberry compote over Buttermilk Power Cakes, Makah water meets Wasatch grain", peppers:"—", cheeses:"—", cue:"Neah Bay harbor at dawn, Makah cedar canoe, Kodiak box on Washburn's porch with huckleberry compote, Olympic Peninsula f"}
 ];
 const products = [
   {id:"power-cakes", name:"KODIAK CAKES® Buttermilk Power Cakes", img:"../../input_assets/power-cakes/hero.png", base:"1 cup mix + 2/3 cup milk + 1 egg"},
@@ -205,7 +271,8 @@ function render(){
     img.src = prod.img;
     tile.appendChild(c);
     const meta=document.createElement('div'); meta.className='meta';
-    meta.innerHTML=`<b>KODIAK CAKES® ${prod.id} — ${r.k}</b><div class=small>${r.w}×${r.h} · ${headline.slice(0,60)} · KODIAK Bear at 24,24 · 8px Blaze Orange</div>`;
+    const cue = places.find(p=>p.market===locality)? places.find(p=>p.market===locality).cue.slice(0,50) : '';
+    meta.innerHTML=`<b>KODIAK® ${prod.id} — ${r.k}</b><div class=small>${r.w}×${r.h} · ${headline.slice(0,55)} · ${cue} · Bear at 24,24 · 8px Blaze</div>`;
     tile.appendChild(meta);
     previewEl.appendChild(tile);
     canvases.push({canvas:c,ratio:r.k,product:prod.id});
@@ -247,7 +314,24 @@ function drawAd(ctx,W,H,headline,prod,heroImg){
   ctx.fillText('KODIAK® • kodiakcakes.com • Keep It Wild  •  Nourishment for Today\'s Frontier', W/2, H-18);
   // orange bar
   ctx.fillStyle='#E8530E'; ctx.fillRect(0,H-8,W,8);
-  // bear mark at 24,24 — simple circle proxy
+  // bear mark at 24,24 — KODIAK Bear silhouette lockup (brand compliant: Blaze Orange badge, Bear Brown bear)
+  // per docs/kodiak-brand-explained.md: bear silhouette does visual lifting at 24,24
+  ctx.save();
+  ctx.fillStyle='#E8530E'; ctx.beginPath(); ctx.roundRect(24-4,24-4,36,36,8); ctx.fill();
+  // bear silhouette path scaled to badge
+  ctx.translate(24+14, 24+14);
+  ctx.scale(1.2,1.2);
+  ctx.fillStyle='#3B2316';
+  ctx.beginPath();
+  ctx.moveTo(-6,-8); ctx.lineTo(-4,-10); ctx.lineTo(-2,-9); ctx.lineTo(0,-10); ctx.lineTo(2,-9); ctx.lineTo(4,-10); ctx.lineTo(6,-8);
+  ctx.lineTo(7,-5); ctx.lineTo(5,-2); ctx.lineTo(4,4); ctx.lineTo(2,6); ctx.lineTo(-2,6); ctx.lineTo(-4,4); ctx.lineTo(-5,-2); ctx.lineTo(-7,-5);
+  ctx.closePath(); ctx.fill();
+  // eyes
+  ctx.fillStyle='#FFF8F0'; ctx.beginPath(); ctx.arc(-2,-2,1,0,Math.PI*2); ctx.arc(2,-2,1,0,Math.PI*2); ctx.fill();
+  ctx.restore();
+  // KODIAK wordmark beside bear
+  ctx.fillStyle='#3B2316'; ctx.font='800 10px Rockwell,Georgia,serif'; ctx.textAlign='left'; ctx.fillText('KODIAK®', 24+40, 24+10);
+  ctx.fillStyle='#8C7A70'; ctx.font='600 7px Inter,sans-serif'; ctx.fillText('Keep It Wild', 24+40, 24+20);
   ctx.fillStyle='#E8530E'; ctx.beginPath(); ctx.arc(24+18,24+18,14,0,Math.PI*2); ctx.fill();
   ctx.fillStyle='#3B2316'; ctx.font=`700 9px Inter,sans-serif`; ctx.textAlign='center'; ctx.fillText('BEAR', 42, 46);
 }
@@ -329,7 +413,24 @@ function drawAdSuggested(ctx,W,H,headline,prod,heroImg,enhance,frame){
   // framing
   if(frame){ ctx.strokeStyle='#D9CFC6'; ctx.lineWidth=1; ctx.strokeRect(0.5,0.5,W-1,H-1); ctx.strokeStyle='#3B2316'; ctx.lineWidth=6; ctx.strokeRect(3,3,W-6,H-6); ctx.fillStyle='#E8530E'; ctx.fillRect(0,H-2,W,2); }
   else { ctx.fillStyle='#E8530E'; ctx.fillRect(0,H-8,W,8); }
-  // bear watermark at 24,24
+  // bear watermark at 24,24 — KODIAK Bear lockup (brand compliant: Blaze Orange badge, Bear Brown bear)
+  // per docs/kodiak-brand-explained.md: bear silhouette does visual lifting at 24,24
+  ctx.save();
+  ctx.fillStyle='#E8530E'; ctx.beginPath(); ctx.roundRect(24-4,24-4,36,36,8); ctx.fill();
+  // bear silhouette path scaled to badge
+  ctx.translate(24+14, 24+14);
+  ctx.scale(1.2,1.2);
+  ctx.fillStyle='#3B2316';
+  ctx.beginPath();
+  ctx.moveTo(-6,-8); ctx.lineTo(-4,-10); ctx.lineTo(-2,-9); ctx.lineTo(0,-10); ctx.lineTo(2,-9); ctx.lineTo(4,-10); ctx.lineTo(6,-8);
+  ctx.lineTo(7,-5); ctx.lineTo(5,-2); ctx.lineTo(4,4); ctx.lineTo(2,6); ctx.lineTo(-2,6); ctx.lineTo(-4,4); ctx.lineTo(-5,-2); ctx.lineTo(-7,-5);
+  ctx.closePath(); ctx.fill();
+  // eyes
+  ctx.fillStyle='#FFF8F0'; ctx.beginPath(); ctx.arc(-2,-2,1,0,Math.PI*2); ctx.arc(2,-2,1,0,Math.PI*2); ctx.fill();
+  ctx.restore();
+  // KODIAK wordmark beside bear
+  ctx.fillStyle='#3B2316'; ctx.font='800 10px Rockwell,Georgia,serif'; ctx.textAlign='left'; ctx.fillText('KODIAK®', 24+40, 24+10);
+  ctx.fillStyle='#8C7A70'; ctx.font='600 7px Inter,sans-serif'; ctx.fillText('Keep It Wild', 24+40, 24+20);
   if(frame){ ctx.fillStyle='#E8530E'; ctx.beginPath(); ctx.arc(24+18,24+18,14,0,Math.PI*2); ctx.fill(); ctx.fillStyle='#3B2316'; ctx.font=`700 9px Inter,sans-serif`; ctx.textAlign='center'; ctx.fillText('BEAR', 42, 46); }
 }
 document.getElementById('suggestedBtn')?.addEventListener('click', renderSuggested);
