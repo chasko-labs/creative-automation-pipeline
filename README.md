@@ -76,4 +76,73 @@ One pull request is one town or one channel. Keep it under 500 lines so Maya can
 
 Photo library and style live in cloud storage mirrored to `input_assets/` and `references/`. Regional memory lives queryable in two forms that stay in sync — a simple lookup table by market (`data/localization/localization-table-seed.json`) and searchable knowledge file (`data/localization/localization-training-data.jsonl`) ready for vector search and the regional database doc. Visual checks run headless across 1080 by 1080, 1080 by 1920, 1920 by 1080 and block the handoff to the store if the bear, the bar, or the legibility fails (`scripts/nova-act-check.py`, docs at `docs/nova-act-runbook.md`).
 
+## Strongest Examples — Real Ads, Real Frontier Flavor
+
+Every campaign below starts from the same Kodiak look — the bear in the corner, the warm orange bar, the frontier colors — but the words and the feeling change by place and moment. Each square is the hero preview for that campaign. Open the full preview to see all three sizes and all three products.
+
+### 1. Keep It Wild — Frontier Breakfast
+*Mornings on the Wasatch front — protein-packed whole grains for today's frontier.*
+
+The original. Park City at dawn, built for active families who want a hearty start before the trail. This is the cleanest expression of the brand: wilderness, whole grains, and the bear watching over breakfast.
+
+![Keep It Wild — Frontier Breakfast — square preview](output_kodiak/power-cakes/1x1/power-cakes_1x1.png)
+
+[Open full preview — all sizes and products](output_kodiak/preview.html)
+
+### 2. Frontier Breakfast — Publix Southeast Family
+*Protein-packed whole grains for your family's frontier — the porch breakfast for Savannah and the Southeast.*
+
+Warm light, family table, kids and cubs together. Same flapjacks and bites, but the message leans into home and togetherness for Publix neighborhoods.
+
+![Publix Southeast Family — square preview](output_kodiak-publix/power-cakes/1x1/power-cakes_1x1.png)
+
+[Open full preview — all sizes and products](output_kodiak-publix/preview.html)
+
+### 3. Frontier Breakfast — Target Midwest
+*Fuel your frontier — 14 grams of protein, 100 percent whole grains.*
+
+Clean, bright, and label-forward for Target guests who turn the box over. Built for Gen Z and young families who care what is inside as much as how it tastes.
+
+![Target Midwest — square preview](output_kodiak-target/power-cakes/1x1/power-cakes_1x1.png)
+
+[Open full preview — all sizes and products](output_kodiak-target/preview.html)
+
+### 4. Frontier Breakfast — Costco Bulk Family
+*Stock the frontier — protein-packed whole grains for every morning.*
+
+Big family, big pantry, big stack. The Costco take is generous and weekend-ready — enough Power Cakes for the whole house, all week long.
+
+![Costco Bulk Family — square preview](output_kodiak-costco/power-cakes/1x1/power-cakes_1x1.png)
+
+[Open full preview — all sizes and products](output_kodiak-costco/preview.html)
+
+### 5. On the Go — Students and Commuters
+*On the go never tasted so good — 5 grams of protein for busy mornings.*
+
+For backpacks, bus rides, and early classes. Oatmeal cups and Bear Bites that travel as well as you do — quick, warm, and ready before the day gets busy.
+
+![On the Go — square preview](output_kodiak-on-the-go/oatmeal-cup/1x1/oatmeal-cup_1x1.png)
+
+[Open full preview — all sizes and products](output_kodiak-on-the-go/preview.html)
+
+### 6. Trail Season — Oatmeal on the Overlook
+*Fuel your trail — protein oatmeal for today's frontier.*
+
+Sunrise over red rock, oatmeal cup on the edge of the overlook. Made for hikers, campers, and anyone who eats breakfast with a view.
+
+![Trail Season — square preview](output_kodiak-trail/oatmeal-cup/1x1/oatmeal-cup_1x1.png)
+
+[Open full preview — all sizes and products](output_kodiak-trail/preview.html)
+
+### 7. Holiday Frontier — Cast-Iron Mornings
+*Gather round the frontier — cast-iron Power Cakes for holiday mornings.*
+
+The cabin table at the holidays. Cast iron, warm cabin light, and a stack worth gathering for — cozy, timeless, and made to share.
+
+![Holiday Frontier — square preview](output_kodiak-holiday/power-cakes/1x1/power-cakes_1x1.png)
+
+[Open full preview — all sizes and products](output_kodiak-holiday/preview.html)
+
+---
+
 Questions — open an issue with place, store group, and the line you want to try.

@@ -150,30 +150,54 @@ def run_pipeline(
 
 def _write_preview(report: Dict, out_root: Path):
     html = """<!doctype html>
-<html><head><meta charset="utf-8"><title>Creative Automation — Preview</title>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Creative Automation \u2014 Preview</title>
 <style>
-body{font-family:system-ui,-apple-system,sans-serif;margin:0;background:#0B1220;color:#E6EDF3}
-header{padding:28px 24px;border-bottom:1px solid #1F2A44}
-h1{margin:0;font-size:22px}
-.meta{color:#9AA4B2;font-size:13px;margin-top:6px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;padding:20px}
-.card{background:#111B2F;border:1px solid #1F2A44;border-radius:14px;overflow:hidden}
-.card img{width:100%;display:block;background:#0B1220}
-.card .body{padding:12px 14px}
-.badge{display:inline-block;font-size:11px;padding:3px 8px;border-radius:999px;margin-right:6px}
-.pass{background:#065F46;color:#A7F3D0}
+:root{--bear:#3B2316;--blaze:#E8530E;--forest:#1A3C34;--parchment:#FFF8F0;--oatmeal:#F4EDE6;--stone:#D9CFC6;--stone-light:#E8DDD3;--canyon:#6B5A53;--taupe:#8C7A70;--ink:#1A1110}
+*{box-sizing:border-box}
+body{margin:0;background:var(--parchment);color:var(--bear);font-family:Inter,"Helvetica Neue",Arial,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+header{background:var(--bear);color:var(--parchment);padding:36px 28px 28px;position:relative;border-bottom:6px solid var(--blaze);overflow:hidden}
+header::after{content:"";position:absolute;inset:0;opacity:0.045;background:repeating-linear-gradient(90deg,transparent,transparent 44px,rgba(255,255,255,0.9) 44px,rgba(255,255,255,0.9) 45px);pointer-events:none}
+header>*{position:relative}
+.eyebrow{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--blaze);font-weight:800;margin:0 0 8px}
+h1{margin:0;font-family:Rockwell,Clarendon,"American Typewriter",Georgia,serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;line-height:1.08}
+.meta{color:rgba(255,248,240,0.84);font-size:13px;margin-top:10px;line-height:1.5}
+.meta strong{color:var(--parchment);font-weight:700}
+.header-accent{margin-top:14px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--blaze);display:inline-block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:22px;padding:28px;max-width:1440px;margin:0 auto}
+.card{background:#fff;border:1px solid var(--stone);border-radius:16px;overflow:hidden;box-shadow:0 2px 8px rgba(26,17,16,0.07),0 12px 28px rgba(59,35,22,0.08);transition:transform 0.18s ease,box-shadow 0.18s ease;display:flex;flex-direction:column;position:relative}
+.card::before{content:"";height:3px;background:var(--blaze);display:block}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(26,17,16,0.13),0 18px 42px rgba(59,35,22,0.11)}
+.card img{width:100%;display:block;background:var(--oatmeal);object-fit:cover;border-bottom:1px solid var(--stone-light)}
+.card .body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:10px}
+.top-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;line-height:1}
+.pass{background:var(--forest);color:#FFF8F0;border:1px solid rgba(255,255,255,0.14)}
 .fail{background:#7F1D1D;color:#FECACA}
-.muted{color:#9AA4B2;font-size:12px}
+.muted{color:var(--canyon);font-size:11px;letter-spacing:0.04em;text-transform:uppercase;font-weight:700}
+.ratio-chip{display:inline-flex;align-items:center;font-size:10px;font-weight:800;letter-spacing:0.06em;padding:4px 9px;border-radius:999px;background:var(--oatmeal);color:var(--bear);border:1px solid var(--stone-light)}
+.dims{color:var(--taupe);font-size:11px;font-weight:500;letter-spacing:0.02em}
+.message{font-family:Rockwell,Clarendon,Georgia,serif;font-weight:700;font-size:15.5px;line-height:1.35;color:var(--bear);letter-spacing:-0.01em}
+.card-footer{margin-top:auto;padding-top:10px;border-top:1px dashed var(--stone-light);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.hero-src{font-size:11px;color:var(--taupe)}
+.hero-src strong{color:var(--canyon);text-transform:uppercase;letter-spacing:0.05em;font-size:10px}
+footer.page{max-width:1440px;margin:0 auto;padding:0 28px 28px;color:var(--taupe);font-size:11px;letter-spacing:0.04em}
+footer.page span{color:var(--blaze);font-weight:800}
+@media(max-width:640px){h1{font-size:22px}.grid{padding:18px;grid-template-columns:1fr}}
 </style></head><body>
 <header>
-<h1>__CAMPAIGN__ — __REGION__</h1>
-<div class="meta">brand __BRAND__ · audience __AUDIENCE__ · lang __LANG__ · __COUNT__ creatives · __PASS__ pass</div>
+<p class="eyebrow">Kodiak \u2014 Keep It Wild &bull; Frontier Breakfast</p>
+<h1>__CAMPAIGN__ \u2014 __REGION__</h1>
+<div class="meta"><strong>__BRAND__</strong> &middot; __AUDIENCE__ &middot; lang __LANG__ &middot; __COUNT__ creatives &middot; <span style="color:#A7F3D0;font-weight:800">__PASS__ pass</span></div>
+<div class="header-accent"><span class="dot"></span><span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,248,240,0.7);font-weight:700">Parchment &amp; Bear Brown \u2014 Blaze Orange Frontier System</span></div>
 </header>
 <div class="grid">
 __CARDS__
 </div>
+<footer class="page">Built with Kodiak tokens &mdash; <span>Bear Brown #3B2316</span> &middot; <span>Blaze Orange #E8530E</span> &middot; <span>Frontier Green #1A3C34</span> &middot; Parchment #FFF8F0 &middot; 3 products &times; 3 ratios = 9 cards</footer>
 </body></html>
 """
+    dims_map = {"1x1": "1080&times;1080", "9x16": "1080&times;1920", "16x9": "1920&times;1080"}
     cards = []
     for a in report["artifacts"]:
         prod = a["product"]
@@ -183,12 +207,15 @@ __CARDS__
         passed = a["compliance_passed"]
         badge = '<span class="badge pass">PASS</span>' if passed else '<span class="badge fail">FAIL</span>'
         src = a["hero_source"]
+        dims = dims_map.get(ratio, ratio)
         cards.append(f"""
 <div class="card">
-<img src="{path}" alt="{prod} {ratio}">
+<img src="{path}" alt="{prod} {ratio} \u2014 {dims}" loading="lazy">
 <div class="body">
-<div>{badge}<span class="muted">{prod} · {ratio} · hero:{src}</span></div>
-<div style="margin-top:8px;font-weight:600;">{msg}</div>
+<div class="top-row">{badge}<span class="ratio-chip">{ratio}</span><span class="dims">{dims}</span></div>
+<div class="muted">{prod} &middot; hero:{src}</div>
+<div class="message">{msg}</div>
+<div class="card-footer"><span class="hero-src">source <strong>{src}</strong></span><span class="dims">{ratio}</span></div>
 </div>
 </div>""")
 
