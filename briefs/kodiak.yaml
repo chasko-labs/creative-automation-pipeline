@@ -1,0 +1,22 @@
+# Kodiak as use case — american founded/run, local footprint via retailer/region
+campaign_name: "Keep It Wild — Frontier Breakfast"
+brand: "KODIAK"
+target_region: "US"
+target_market: "US-MW"
+target_audience: "Active families and outdoor enthusiasts, 25-45, midwest + mountain west, protein-forward breakfast seekers"
+campaign_message: "Protein-packed whole grains for today's frontier."
+language: "en"
+brand_colors:
+  - "#3B2316"
+  - "#E8530E"
+  - "#1A3C34"
+products:
+  - id: power-cakes
+    name: "Buttermilk Power Cakes"
+    description: "100% whole grain protein flapjack & waffle mix — 14g protein per serving"
+  - id: bear-bites
+    name: "Bear Bites Graham Crackers"
+    description: "Protein-packed graham crackers for cubs — cinnamon & honey"
+  - id: oatmeal-cup
+    name: "Protein Oatmeal Cup"
+    description: "On-the-go high protein oatmeal — maple & brown sugar"

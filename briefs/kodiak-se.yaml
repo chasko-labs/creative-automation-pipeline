@@ -1,0 +1,12 @@
+campaign_name: "Keep It Wild — Frontier Breakfast"
+brand: "KODIAK"
+target_region: "US"
+target_market: "US-SE"
+target_audience: "Active families, 28-45, southeast, publix shoppers, protein breakfast seekers"
+campaign_message: "Protein-packed whole grains for today's frontier."
+language: "en"
+brand_colors: ["#3B2316", "#E8530E", "#1A3C34"]
+products:
+  - {id: power-cakes, name: "Buttermilk Power Cakes", description: "14g protein flapjack mix"}
+  - {id: bear-bites, name: "Bear Bites Graham Crackers", description: "Protein graham crackers for cubs"}
+  - {id: oatmeal-cup, name: "Protein Oatmeal Cup", description: "On-the-go high protein oatmeal"}
