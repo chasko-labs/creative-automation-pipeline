@@ -203,6 +203,13 @@ Shared role, two owners — both run parallel sprints for different retail clust
 
 ---
 
+
+---
+
+## Technical Integration — The Living Swagger Is the Product (Offline Page Is the Picture)
+
+> If a line isn't callable here, it isn't shippable. See the four cards at `docs/ux-personas-technical-integration.md` — **John Oja** (Director of eCommerce, Shopify Plus and site speed owner who approves any interface that touches checkout), **Landon Ruud or Micah Anderson** (Senior eCommerce and Digital Marketing, customer data platform plus NielsenIQ plus Attentive), **Arnoldo Romo** (Design Director, Canto plus Adobe Creative Cloud asset sync), **External Agency Partners** (Shopify Plus agency that writes the webhooks, handles `Authorization: Bearer` and `X-Shopify-Hmac-SHA256`, maintains endpoints). The offline page's *Render 3 local ads* button is a thin `fetch()` to `POST /pipeline/run` with the same JSON that `uv run python -m creative_automation.cli --brief briefs/kodiak-green-chile.yaml` writes locally — the Swagger at `src/creative_automation/api.py` → `GET /docs` is the source of truth, the managed control plane server at `.agents/mcp-kodiak-reference.json` exposes `kodiak_pipeline_run`, `kodiak_reference_search`, `kodiak_retail_stores`, `kodiak_asset_hero` with the same report and preview.
+
 ## How the sprint reads these cards
 
 Planning at `README.md` links here: `[Who runs this — 23 persona cards](docs/ux-personas-kodiak-complete.md)`. Before a sprint, product marketing picks one or two cards — for example **Las Cruces green chile = Diego + Madison/Rebecka + Sarah** — and the board shows those names next to the scope so the person and the place stay tied. After a sprint, the preview at `output_kodiak-green-chile/preview.html` plus `nova-act-report.json` carry the PASS badge that the bear, bar, and legibility for that persona passed at `REG-001` before the retail handoff. If a card's experience is missing from the plan, the missing persona is named before the board closes.
