@@ -1,0 +1,25 @@
+{
+  "campaign_name": "Hydra Glow — Summer 2026",
+  "brand": "AURA",
+  "target_region": "FR",
+  "target_market": "FR",
+  "target_audience": "Gen Z skincare enthusiasts, 18-27, urban, social-first",
+  "campaign_message": "Hydrate your glow, wherever you are.",
+  "language": "fr",
+  "brand_colors": ["#0A2540", "#00D4AA"],
+  "localized_messages": {
+    "FR": "Hydratez votre éclat, où que vous soyez."
+  },
+  "products": [
+    {
+      "id": "hydrating-serum",
+      "name": "Hydrating Serum",
+      "description": "Lightweight hyaluronic serum"
+    },
+    {
+      "id": "radiant-moisturizer",
+      "name": "Radiant Moisturizer",
+      "description": "Cloud-cream moisturizer"
+    }
+  ]
+}

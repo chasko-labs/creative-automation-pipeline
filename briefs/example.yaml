@@ -1,0 +1,21 @@
+# Example campaign brief — satisfies "at least two products" + region/audience/message
+campaign_name: "Hydra Glow — Summer 2026"
+brand: "AURA"
+target_region: "US"
+target_market: "US"
+target_audience: "Gen Z skincare enthusiasts, 18-27, urban, social-first"
+campaign_message: "Hydrate your glow, wherever you are."
+language: "en"
+brand_colors:
+  - "#0A2540"
+  - "#00D4AA"
+products:
+  - id: hydrating-serum
+    name: "Hydrating Serum"
+    description: "Lightweight hyaluronic serum for daily glow"
+  - id: radiant-moisturizer
+    name: "Radiant Moisturizer"
+    description: "Cloud-cream moisturizer with niacinamide"
+  - id: glow-mist
+    name: "Glow Mist"
+    description: "On-the-go refreshing mist"

@@ -1,0 +1,30 @@
+[project]
+name = "creative-automation-pipeline"
+version = "0.1.0"
+description = "Creative automation pipeline for localized social ad campaigns — Bedrock Nova + AgentCore ready"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "boto3>=1.34",
+  "botocore>=1.34",
+  "pillow>=10.0",
+  "pyyaml>=6.0",
+  "pydantic>=2.0",
+  "jinja2>=3.0",
+]
+
+[project.scripts]
+creative-auto = "creative_automation.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/creative_automation"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
