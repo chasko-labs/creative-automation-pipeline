@@ -1,7 +1,7 @@
 [project]
 name = "creative-automation-pipeline"
 version = "0.1.0"
-description = "Creative automation pipeline for localized social ad campaigns — Bedrock Nova + AgentCore ready"
+description = "Kodiak Cakes — real food for real adventures. Frontier creative system that turns one Kodiak brief into hundreds of local ads (Bear Brown #3B2316, Wasatch, Keep It Wild)"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [

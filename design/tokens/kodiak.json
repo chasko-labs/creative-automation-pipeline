@@ -449,7 +449,7 @@
         }
       },
       "caption": {
-        "$description": "Caption / footer / legal — small sans, upper + tracked. Maps to compose.py footer 'AURA • aura.example.com' at 34px (56-22).",
+        "$description": "Caption / footer / legal — small sans, upper + tracked. Maps to compose.py footer 'KODIAK • kodiakcakes.com • Keep It Wild' at 22/24 uppercase."
         "1x1": {
           "$type": "typography",
           "$value": {
