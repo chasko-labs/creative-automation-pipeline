@@ -1,0 +1,18 @@
+campaign_name: "Kodiak — Trail Season Oatmeal"
+brand: "KODIAK"
+target_region: "US"
+target_market: "US-W"
+target_audience: "Active families and trail hikers 25-45, mountain west + Wasatch, on-the-go protein seekers"
+campaign_message: "Fuel your trail — protein oatmeal for today's frontier."
+language: "en"
+brand_colors: ["#3B2316", "#E8530E", "#1A3C34"]
+products:
+  - id: oatmeal-cup
+    name: "Protein Oatmeal Cup"
+    description: "Maple & brown sugar protein oatmeal cup — 14g protein, rocky overlook ready, steaming trail fuel"
+  - id: bear-bites
+    name: "Bear Bites Graham Crackers"
+    description: "Protein-packed cinnamon honey bear-shaped graham crackers — trail bench snack for cubs"
+  - id: power-cakes
+    name: "Buttermilk Power Cakes"
+    description: "100% whole grain flapjack mix — 14g protein basecamp breakfast before the climb"

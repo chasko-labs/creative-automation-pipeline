@@ -1,0 +1,18 @@
+campaign_name: "Kodiak — Holiday Frontier Cast-Iron"
+brand: "KODIAK"
+target_region: "US"
+target_market: "US"
+target_audience: "Families 28-50, holiday hosts and cozy cabin gatherers, cast-iron breakfast ritual seekers"
+campaign_message: "Gather 'round the frontier — cast-iron Power Cakes for holiday mornings."
+language: "en"
+brand_colors: ["#3B2316", "#E8530E", "#1A3C34"]
+products:
+  - id: power-cakes
+    name: "Buttermilk Power Cakes"
+    description: "Holiday cast-iron stack — heirloom whole grain Power Cakes on rustic wood, steam rising, family breakfast hero"
+  - id: bear-bites
+    name: "Bear Bites Graham Crackers"
+    description: "Protein graham crackers for cubs — holiday table shareable, cinnamon & honey"
+  - id: oatmeal-cup
+    name: "Protein Oatmeal Cup"
+    description: "Maple & brown sugar oatmeal — warm holiday on-the-go option for guests"
