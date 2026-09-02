@@ -1,0 +1,12 @@
+campaign_name: "Green Chile Frontier — Las Cruces"
+brand: "KODIAK"
+target_region: "US"
+target_market: "US-SW-LASCRUCES"
+target_audience: "Green chile families 28-45, Las Cruces NM Target + Alamogordo Walmart and Albertsons"
+campaign_message: "Green chile meets grizzly — protein flapjacks for your Las Cruces frontier. Hatch green chile + sharp cheddar, 14 grams protein."
+language: "en"
+brand_colors: ["#3B2316", "#E8530E", "#1A3C34"]
+products:
+  - {id: power-cakes, name: "Buttermilk Power Cakes", description: "Green chile cheddar flapjacks — Hatch green chile + Oaxaca"}
+  - {id: protein-biscuits, name: "Cheddar Jalapeno Drop Biscuits", description: "Drop biscuits with Hatch green chile"}
+  - {id: savory-waffles, name: "Savory Waffles — Hatch Green Chile & Cheddar", description: "Savory waffles: Hatch green chile + pepper jack"}
