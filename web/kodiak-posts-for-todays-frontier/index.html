@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>KODIAK® Posts for Today's Frontier — Offline</title>
+<meta name="description" content="KODIAK® Posts for Today's Frontier — make local KODIAK CAKES® ads that still look like the brown box. Works offline, no server."/>
+<style>
+:root{
+  /* Kodiak base + shading ramps — brown stays iconic, orange never exceeds 18% except 8px bar */
+  --brown:#3B2316;--brown-t10:#4F382C;--brown-t20:#624E42;--brown-t70:#C4B8AF;--brown-s10:#382115;--brown-s30:#311E14;
+  --orange:#E8530E;--orange-t20:#ED743B;--orange-warm:#FF8A3D;--orange-peach:#FFB07A;--orange-ember:#AA3F0F;
+  --green:#1A3C34;--green-t30:#5F746C;--green-t50:#8C9A92;--green-haze:#DCE8E0;--green-deep:#12302A;
+  --parch:#FFF8F0;--stone:#D9CFC6;--ink:#1A1110;
+  --glow:rgba(232,83,14,0.18);
+  --kraft:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M0 10h60M0 50h60' stroke='%23624E42' stroke-opacity='.06' stroke-width='.8'/%3E%3C/svg%3E");
+  --bear-mark:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l2 2 2-1 1 3 2 2-1 4 2 5-4 3H8l-4-3 2-5-1-4 2-2 1-3 2 1z' fill='%23C4B8AF' fill-opacity='.12'/%3E%3C/svg%3E");
+  --mountain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0 38 L120 8 L260 32 L380 4 L520 30 L640 10 L760 34 L880 6 L1000 28 L1120 12 L1200 36 L1200 48 L0 48Z' fill='%231A2F29'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box}html,body{margin:0;background:var(--parch);color:var(--brown);font-family:Inter,system-ui,Helvetica,Arial,sans-serif}
+a{color:var(--green);text-decoration:none;border-bottom:1px solid #1A3C3433}a:hover{border-bottom-color:var(--green)}
+header{padding:22px 18px 14px;background:var(--brown) var(--bear-mark) 18px 18px/24px no-repeat;color:var(--parch);border-bottom:4px solid var(--orange);padding-left:56px}
+header h1{margin:0;font:800 22px/1.1 Rockwell,Clarendon,Georgia,serif;letter-spacing:-.02em}
+header h1 small{font:500 12px/1 Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#FACC7C}
+header p{margin:8px 0 0;max-width:880px;color:#E8DDD3;font-size:13px;line-height:1.5}
+.wrap{max-width:1100px;margin:0 auto;padding:18px}
+.card{background:#fff;border:1px solid var(--stone);border-radius:14px;overflow:hidden;margin:14px 0}
+.card .hd{padding:14px 16px 10px;background:#FFFBF6 var(--kraft);border-bottom:1px solid #F4EDE6}
+.card .hd h2{margin:0;font:800 14px/1.2 Rockwell,Georgia,serif}
+.card .hd p{margin:6px 0 0;color:#6B5A53;font-size:12px;line-height:1.5}
+.body{padding:14px 16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+.field label{display:block;font:700 11px/1 Inter,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#6B5A53;margin:10px 0 6px}
+.field input,.field select,.field textarea{width:100%;padding:10px 12px;border:1px solid var(--stone);background:#fff var(--kraft);border-radius:10px;background:#fff;font:500 13px/1.4 Inter,sans-serif;color:var(--brown)}
+.field textarea{min-height:72px;resize:vertical}
+.hint{color:#8C7A70;font-size:11px;line-height:1.5;margin-top:6px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid var(--brown);background:var(--brown);color:var(--parch);font:700 12px/1 Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.btn.orange{background:var(--orange);border-color:var(--orange);color:#fff}
+.btn.ghost{background:#fff;color:var(--brown)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.kbd{font:500 11px/1 JetBrains Mono,Menlo,monospace;background:#F4EDE6;border:1px solid var(--stone);padding:2px 6px;border-radius:6px}
+.preview{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.tile{border:1px solid var(--stone);border-radius:12px;overflow:hidden;background:#fff}
+.tile canvas{width:100%;display:block;background:#3B2316;box-shadow:0 8px 24px rgba(49,30,20,0.20), 0 0 0 1px #C4B8AF14}
+.tile .meta{padding:10px 12px}
+.tile .meta b{font:700 12px/1 Inter,sans-serif}
+.tile .meta .small{color:#8C7A70;font-size:11px;line-height:1.4;margin-top:4px}
+.swatch{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.swatch span{width:48px;height:28px;border-radius:6px;border:1px solid var(--stone);display:inline-block}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#1A3C34;color:#FACC7C;font:700 10px/1 Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.offline{padding:8px 10px;border-radius:10px;background:#FFF8F0;border:1px dashed var(--stone);color:#6B5A53;font-size:12px;line-height:1.5}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header>
+<h1>KODIAK® Posts for Today's Frontier <small>Offline — KODIAK CAKES®</small></h1>
+<p><b>Feeding Epic Days & Wilder Lives • Nourishment for Today's Frontier</b> — one idea sheet becomes three real ads (square 1080×1080, tall 1080×1920, wide 1920×1080) with the KODIAK Bear silhouette still at 24,24. Works offline. All files you need are right in this folder — no server, just open this file.</p>
+</header>
+<div class="wrap">
+
+<div class="card"><div class="hd"><h2>Make a local KODIAK CAKES® ad — marketing owns this, no short forms</h2><p>Green chile in Las Cruces was one variant among hundreds. Pick any place, any product from the recipe database, see the bear stay the bear. Brand names are always written with ® as in <span class="kbd">KODIAK®</span> <span class="kbd">KODIAK CAKES®</span> <span class="kbd">KODIAK POWER CUPS®</span>. Every file name follows <span class="kbd">KODIAK-CAKES-{PRODUCT}-{REGION}-{LOCALITY}-{CHANNEL}-{RATIO}-{DATE}-v01.png</span> — year first, per international write date.</p></div>
+<div class="body">
+<div class="grid">
+<div>
+<div class="field"><label>Place — market and locality (hundreds scale)</label><select id="locality"></select><div class="hint">18 places seeded, scale to hundreds — same 7 fields every time. See <a href="../../docs/regional-cultural-database.md">Every town</a>. Example: Las Cruces NM Target is one green chile variant, Brooklyn Navy Yard is another.</div></div>
+<div class="field"><label>Product — from the recipe database</label><select id="product"></select><div class="hint">Recipe database built from 345 recipe pages plus your list — flapjacks, muffins, quick breads, scones, donuts, crepes, pancake bites, protein cookies, brownies, blondies, cobbler topping, mug cakes, energy balls, waffle ice cream sandwiches, protein biscuits, chicken strips breading, savory waffles with regional peppers and cheeses, cornbread substitute, pizza crust, bagels. Base formula pulled from kodiakcakes.com.</div></div>
+<div class="field"><label>Regional peppers and cheeses — the local flex</label><div class="row"><select id="peppers" style="flex:1"></select><select id="cheeses" style="flex:1"></select></div><div class="hint">Savory waffles carry Hatch green chile (Las Cruces), jalapeño (Austin), chipotle (Miami), poblano (Albuquerque) and cheddar, pepper jack, oaxaca, cotija, gruyère — choose any pair, pipeline retrieves the last winning pair for that market by meaning.</div></div>
+</div>
+<div>
+<div class="field"><label>Audience — who you talk to in this place</label><input id="audience" placeholder="Green chile families 28-45"/></div>
+<div class="field"><label>Headline — single line, slogan fixed, brand mark enforced</label><textarea id="headline" placeholder="KODIAK® Green chile meets grizzly — protein flapjacks for your Las Cruces frontier. Feeding Epic Days & Wilder Lives"></textarea><div class="hint">Headlines are checked for <span class="kbd">KODIAK®</span> with ®, slogans <span class="kbd">Feeding Epic Days & Wilder Lives</span> and <span class="kbd">Nourishment for Today's Frontier</span> with exact punctuation, and for the bear silhouette not stretched. Copy <span class="kbd">KODIAK® • kodiakcakes.com • Keep It Wild</span> is stamped in every footer.</div></div>
+<div class="field"><label>Channel — where this ad lives</label><select id="channel"><option>instagram</option><option>facebook</option><option>display</option><option>diner-board</option><option>table-tent</option><option>subscription-email</option><option>in-store-endcap</option></select></div>
+<div class="row" style="margin-top:12px">
+<button class="btn orange" id="renderBtn">Render 3 local ads</button>
+<button class="btn ghost" id="downloadBrief">Download idea sheet (.yaml)</button>
+<button class="btn ghost" id="downloadAll">Download all 3 pngs</button>
+</div>
+<div class="offline" style="margin-top:12px"><b>Offline — all files you need are here.</b> This page has no outside link. Images are the real brown box pack shots at <span class="kbd">../../input_assets/power-cakes/hero.png</span> etc., swatches are <span class="kbd">../../docs/assets/swatches/</span>, recipes are <span class="kbd">../../data/recipes/kodiak-recipes.json</span> (21KB) — open this file via <span class="kbd">file://</span> and it still renders. For the full pipeline run that also pushes to cloud storage, use <span class="kbd">uv run python -m creative_automation.cli --brief briefs/kodiak-green-chile.yaml --assets input_assets --out output_kodiak-green-chile</span> in a terminal with <span class="kbd">AWS_PROFILE=bryanchasko-kiro</span>.</div>
+</div>
+</div>
+<div class="swatch"><span style="background:#3B2316" title="Bear Brown #3B2316"></span><span style="background:#E8530E" title="Blaze Orange #E8530E"></span><span style="background:#1A3C34" title="Frontier Green #1A3C34"></span><span style="background:#FFF8F0;border:1px solid #D9CFC6" title="Parchment #FFF8F0"></span><span style="background:#D9CFC6" title="Stone #D9CFC6"></span> <span class="kbd">Bear Brown #3B2316 · Blaze Orange #E8530E · Frontier Green #1A3C34</span></div>
+</div></div>
+
+<div style="height:48px;background:var(--mountain) no-repeat center/100% 48px;margin:6px 0 0" aria-hidden="true" title="Wasatch ridge — Frontier Green S30 #1A2F29"></div>
+
+<div class="card"><div class="hd"><h2>Preview — three real ads, same 6-piece frontier template <span class="badge">Bear at 24,24</span></h2><p>Square 1080×1080, tall 1080×1920, wide 1920×1080 — blurred Wasatch cover + 0.18 scrim, hero contain, message bar 32% at 68%, slab 56/64/72, orange 8-point bar, KODIAK Bear silhouette.</p></div>
+<div class="body"><div class="preview" id="preview"></div><div class="hint" id="fileNames" style="margin-top:10px"></div></div></div>
+
+<div class="card"><div class="hd"><h2>Procedural check — international write date, versioning</h2><p>Every file the pipeline writes is <span class="kbd">KODIAK-CAKES-{PRODUCT}-{REGION}-{LOCALITY}-{CHANNEL}-{RATIO}-{YYYYMMDD}-v01.png</span> — year first per <span class="kbd">ISO 8601</span>, lower case product, hyphens, version zero-padded. Headers carry <span class="kbd">YYYY-MM-DD</span> and <span class="kbd">BCP 47</span> language tags like <span class="kbd">en-US</span>. Details at <span class="kbd">docs/iso-naming-conventions.md</span>.</p></div><div class="body"><div class="row"><span class="kbd">KODIAK-CAKES-savory-waffles-US-NM-las-cruces-target-instagram-9x16-20250902-v01.png</span> <span class="badge">example among hundreds</span></div></div></div>
+
+</div>
+<script>
+// Inline data — so this page is truly offline (no fetch to a server). Keep a small seed of hundreds-scale places and recipes here; full tables live at ../../data/
+const places = [
+  {market:"US-SW-LASCRUCES", place:"Las Cruces + Alamogordo, New Mexico", retailer:"Target, Walmart, Albertsons", zip:"88001", audience:"Green chile families, Hatch roast households 28-45", message:"KODIAK® Green chile meets grizzly — protein flapjacks for your Las Cruces frontier. Feeding Epic Days & Wilder Lives", peppers:"Hatch green chile roasted, diced", cheeses:"Oaxaca crumble", cue:"Organ Mountains bench, trail bench"},
+  {market:"US-MW-WASATCH", place:"Park City, Wasatch Mountains", retailer:"Target, Walmart", zip:"84060", audience:"Outdoor families, ski and hike households", message:"KODIAK® Keep It Wild — protein-packed whole grains for today's frontier. Nourishment for Today's Frontier", peppers:"—", cheeses:"—", cue:"Wasatch alpenglow, pine, boulder, snow at dawn"},
+  {market:"US-TX-AUSTIN", place:"Austin, Texas", retailer:"Target, Whole Foods, H-E-B", zip:"78701", audience:"Breakfast taco families", message:"KODIAK® Breakfast tacos meet flapjacks — whole grains that keep up", peppers:"Jalapeño", cheeses:"Pepper jack", cue:"Salsa over flapjacks"},
+  {market:"US-FL-MIAMI", place:"Miami, Florida", retailer:"Publix, Target", zip:"33101", audience:"Cuban and Puerto Rican families, porch breakfasts", message:"KODIAK® Family frontier — protein for your Florida morning", peppers:"Chipotle", cheeses:"Queso fresco", cue:"Guava and café con leche"},
+  {market:"US-IL-CHI", place:"Chicago, Illinois", retailer:"Target, Jewel-Osco, Meijer", zip:"60601", audience:"City families, lake effect winters", message:"KODIAK® Fuel your city frontier — 14 grams, 100 percent whole grains", peppers:"Jalapeño", cheeses:"Cheddar", cue:"Maple oatmeal cup on the L"},
+  {market:"US-NY-BK", place:"Brooklyn, New York", retailer:"Target, Whole Foods", zip:"11201", audience:"City-active, bodega-adjacent", message:"KODIAK® City frontier — protein-packed whole grains for the hustle", peppers:"Poblano", cheeses:"Oaxaca", cue:"Bodega coffee, oatmeal cup on subway platform"}
+];
+const products = [
+  {id:"power-cakes", name:"KODIAK CAKES® Buttermilk Power Cakes", img:"../../input_assets/power-cakes/hero.png", base:"1 cup mix + 2/3 cup milk + 1 egg"},
+  {id:"protein-biscuits", name:"KODIAK CAKES® Cheddar Jalapeno Drop Biscuits", img:"../../input_assets/bear-bites/hero.png", base:"2 cups mix + cold butter + cheddar + jalapeno, drop bake 14 min"},
+  {id:"savory-waffles", name:"KODIAK CAKES® Savory Waffles — Regional", img:"../../input_assets/power-cakes/hero.png", base:"1 cup mix + 2 eggs + milk + 1/2 cup cheese + 1/4 cup roasted peppers, waffle iron 3 min"},
+  {id:"oatmeal-cup", name:"KODIAK POWER CUPS® Protein Oatmeal Cup", img:"../../input_assets/oatmeal-cup/hero.png", base:"1 Power Cup + water, 5 min"},
+  {id:"muffin", name:"KODIAK CAKES® Chocolate Chip Muffins", img:"../../input_assets/power-cakes/hero.png", base:"1 box Muffin Mix + 2 eggs + milk + oil"},
+  {id:"waffle-icecream-sandwiches", name:"KODIAK CAKES® Waffle Ice Cream Sandwiches", img:"../../input_assets/power-cakes/hero.png", base:"Toast 2 Power Waffles, sandwich ice cream"}
+];
+const peppersList = ["Hatch green chile roasted, diced","Red chile","Jalapeño","Chipotle","Poblano","—"];
+const cheesesList = ["Oaxaca crumble","Sharp cheddar","Pepper jack","Cotija","Oaxaca","Gruyère","Queso fresco","—"];
+
+const localitySel = document.getElementById('locality');
+const productSel = document.getElementById('product');
+const peppersSel = document.getElementById('peppers');
+const cheesesSel = document.getElementById('cheeses');
+const audienceEl = document.getElementById('audience');
+const headlineEl = document.getElementById('headline');
+const channelSel = document.getElementById('channel');
+const previewEl = document.getElementById('preview');
+const fileNamesEl = document.getElementById('fileNames');
+
+function fillSelects(){
+  places.forEach(p=>{ const o=document.createElement('option'); o.value=p.market; o.textContent=`${p.place} — ${p.market} (${p.retailer.split(',')[0]})`; localitySel.appendChild(o); });
+  products.forEach(p=>{ const o=document.createElement('option'); o.value=p.id; o.textContent=p.name; productSel.appendChild(o); });
+  peppersList.forEach(v=>{ const o=document.createElement('option'); o.value=v; o.textContent=v; peppersSel.appendChild(o); });
+  cheesesList.forEach(v=>{ const o=document.createElement('option'); o.value=v; o.textContent=v; cheesesSel.appendChild(o); });
+  localitySel.value="US-SW-LASCRUCES"; productSel.value="savory-waffles"; peppersSel.value="Hatch green chile roasted, diced"; cheesesSel.value="Oaxaca crumble";
+  onLocality();
+}
+function onLocality(){
+  const p = places.find(x=>x.market===localitySel.value);
+  if(!p) return;
+  audienceEl.value=p.audience;
+  headlineEl.value=p.message;
+  peppersSel.value=p.peppers||"—";
+  cheesesSel.value=p.cheeses||"—";
+}
+localitySel.addEventListener('change', onLocality);
+let canvases=[];
+function render(){
+  const prod = products.find(x=>x.id===productSel.value);
+  const headline = headlineEl.value.trim();
+  const needsMark = !headline.includes('®') || !headline.includes('KODIAK');
+  // enforce brand marks preview hint
+  headlineEl.style.borderColor = needsMark ? '#E8530E' : '#D9CFC6';
+  const ratios = [{k:"1x1",w:1080,h:1080},{k:"9x16",w:1080,h:1920},{k:"16x9",w:1920,h:1080}];
+  previewEl.innerHTML="";
+  canvases=[];
+  const date = new Date().toISOString().slice(0,10).replace(/-/g,"");
+  const localitySlug = places.find(x=>x.market===localitySel.value).place.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,28);
+  const channel = channelSel.value;
+  const files=[];
+  ratios.forEach(r=>{
+    const tile=document.createElement('div'); tile.className='tile';
+    const c=document.createElement('canvas'); c.width=r.w; c.height=r.h; c.style.maxWidth='100%'; c.style.height='auto';
+    const ctx=c.getContext('2d');
+    // parchment bg then brown box proxy hero (real image if loads)
+    ctx.fillStyle='#FFF8F0'; ctx.fillRect(0,0,r.w,r.h);
+    // Try to draw real hero image (offline file) - if fails, fallback to brown kraft with bear proxy
+    const img = new Image();
+    img.onload = ()=>{ drawAd(ctx, r.w, r.h, headline, prod, img); };
+    img.onerror = ()=>{ drawAd(ctx, r.w, r.h, headline, prod, null); };
+    img.src = prod.img;
+    tile.appendChild(c);
+    const meta=document.createElement('div'); meta.className='meta';
+    meta.innerHTML=`<b>KODIAK CAKES® ${prod.id} — ${r.k}</b><div class=small>${r.w}×${r.h} · ${headline.slice(0,60)} · KODIAK Bear at 24,24 · 8px Blaze Orange</div>`;
+    tile.appendChild(meta);
+    previewEl.appendChild(tile);
+    canvases.push({canvas:c,ratio:r.k,product:prod.id});
+    const humanName=`KODIAK-CAKES-${prod.id}-US-NM-${localitySlug}-${channel}-${r.k}-${date}-v01.png`;
+    files.push(humanName);
+  });
+  fileNamesEl.innerHTML = files.map(f=>`<span class=kbd>${f}</span>`).join(' ');
+}
+function drawAd(ctx,W,H,headline,prod,heroImg){
+  // blurred cover emulation: brown kraft cover
+  ctx.fillStyle='#3B2316'; ctx.fillRect(0,0,W,H);
+  // hero contain at 8% down, ~82% width
+  const scale = Math.min(W*0.82/400, H*0.58/400);
+  const fw=400*scale, fh=400*scale, fx=(W-fw)/2, fy=H*0.08;
+  if(heroImg){
+    // contain mimic
+    ctx.drawImage(heroImg, fx, fy, fw, fh);
+  } else {
+    ctx.fillStyle='#D9CFC6'; ctx.fillRect(fx,fy,fw,fh);
+    ctx.fillStyle='#1A1110'; ctx.font=`${Math.round(fw*0.08)}px Rockwell,Georgia,serif`; ctx.textAlign='center';
+    ctx.fillText('KODIAK®', W/2, fy+fh*0.45);
+    ctx.font=`12px Inter,sans-serif`; ctx.fillText('real brown box hero missing — mock', W/2, fy+fh*0.55);
+  }
+  // scrim band 32% at 68%
+  const barTop=H*0.68; ctx.fillStyle='rgba(26,17,16,0.80)'; ctx.fillRect(0,barTop,W,H-barTop);
+  // headline — slab style, centered, 3-line clamp
+  const pad=48, maxW=W-pad*2;
+  ctx.fillStyle='#FFFFFF'; ctx.textAlign='center';
+  const size = W>=1920? 52 : W>=1080 && H>=1920? 46 : 38;
+  ctx.font=`800 ${size}px Rockwell,Georgia,serif`;
+  // wrap to 3 lines
+  const words=headline.split(' '); let lines=[], cur="";
+  for(const w of words){ const test=cur?cur+" "+w:w; if(ctx.measureText(test).width<=maxW) cur=test; else {lines.push(cur); cur=w; if(lines.length===2) break;} }
+  if(cur) lines.push(cur); lines=lines.slice(0,3);
+  let y=barTop+46;
+  for(const line of lines){ ctx.fillText(line, W/2, y); y+= size*1.08; }
+  // footer
+  ctx.font=`500 11px Inter,sans-serif`; ctx.fillStyle='rgba(255,248,240,0.85)';
+  ctx.fillText('KODIAK® • kodiakcakes.com • Keep It Wild  •  Nourishment for Today\'s Frontier', W/2, H-18);
+  // orange bar
+  ctx.fillStyle='#E8530E'; ctx.fillRect(0,H-8,W,8);
+  // bear mark at 24,24 — simple circle proxy
+  ctx.fillStyle='#E8530E'; ctx.beginPath(); ctx.arc(24+18,24+18,14,0,Math.PI*2); ctx.fill();
+  ctx.fillStyle='#3B2316'; ctx.font=`700 9px Inter,sans-serif`; ctx.textAlign='center'; ctx.fillText('BEAR', 42, 46);
+}
+
+document.getElementById('renderBtn').addEventListener('click', render);
+document.getElementById('downloadBrief').addEventListener('click', ()=>{
+  const prod = products.find(x=>x.id===productSel.value);
+  const place = places.find(x=>x.market===localitySel.value);
+  const yaml = `campaign_name: "KODIAK® ${place.place} — ${prod.name}"\nbrand: "KODIAK®"\ntarget_region: "${place.market.split('-')[0]}"\ntarget_market: "${place.market}"\ntarget_audience: "${audienceEl.value}"\ncampaign_message: "${headlineEl.value.replace(/"/g,'\\"')}"\nlanguage: "en-US"\nbrand_colors: ["#3B2316", "#E8530E", "#1A3C34"]\nproducts:\n  - {id: ${prod.id}, name: "${prod.name}", description: "${prod.base}"}\n`;
+  const blob=new Blob([yaml],{type:'text/yaml'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`KODIAK-CAKES-${prod.id}-${place.market.toLowerCase()}-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-v01.yaml`; a.click();
+});
+document.getElementById('downloadAll').addEventListener('click', ()=>{
+  canvases.forEach(({canvas,ratio,product})=>{
+    const place = places.find(x=>x.market===localitySel.value);
+    const localitySlug = place.place.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,28);
+    const date = new Date().toISOString().slice(0,10).replace(/-/g,"");
+    const name=`KODIAK-CAKES-${product}-US-NM-${localitySlug}-${channelSel.value}-${ratio}-${date}-v01.png`;
+    const a=document.createElement('a'); a.href=canvas.toDataURL('image/png'); a.download=name; a.click();
+  });
+});
+
+fillSelects(); render();
+</script>
+</body></html>

@@ -1,0 +1,413 @@
+{
+  "brand": "KODIAK",
+  "generated": "2026-09-02",
+  "sourceTokens": "design/tokens/kodiak.json / docs/kodiak-style-guide.md / docs/kodiak-brand-view.html",
+  "bases": {
+    "parchment": {
+      "name": "Parchment",
+      "hex": "#FFF8F0",
+      "usage": "Page bg, kraft bag \u2014 tint anchor"
+    },
+    "ink": {
+      "name": "Ink",
+      "hex": "#1A1110",
+      "usage": "Scrim anchor #1A1110CC (80%), near-black warm \u2014 shade anchor"
+    },
+    "bearBrown": {
+      "name": "Bear Brown",
+      "base": "#3B2316",
+      "rgb": "rgb(59, 35, 22)",
+      "tints": [
+        {
+          "mix": "tint 10%",
+          "weight": 10,
+          "mixWith": "#FFF8F0",
+          "hex": "#4F382C",
+          "rgb": "rgb(79, 56, 44)",
+          "usage": "Subtle lift on parchment \u2014 card bg, kraft border, disabled bear-brown"
+        },
+        {
+          "mix": "tint 20%",
+          "weight": 20,
+          "mixWith": "#FFF8F0",
+          "hex": "#624E42",
+          "rgb": "rgb(98, 78, 66)",
+          "usage": "Secondary panel, oatmeal card, stone divider replacement"
+        },
+        {
+          "mix": "tint 30%",
+          "weight": 30,
+          "mixWith": "#FFF8F0",
+          "hex": "#766357",
+          "rgb": "rgb(118, 99, 87)",
+          "usage": "Muted heading / secondary text on parchment, warm taupe"
+        },
+        {
+          "mix": "tint 40%",
+          "weight": 40,
+          "mixWith": "#FFF8F0",
+          "hex": "#89786D",
+          "rgb": "rgb(137, 120, 109)",
+          "usage": "Canyon text alternative, placeholder on light"
+        },
+        {
+          "mix": "tint 50%",
+          "weight": 50,
+          "mixWith": "#FFF8F0",
+          "hex": "#9D8E83",
+          "rgb": "rgb(157, 142, 131)",
+          "usage": "Mid-warm neutral, driftwood hover"
+        },
+        {
+          "mix": "tint 70%",
+          "weight": 70,
+          "mixWith": "#FFF8F0",
+          "hex": "#C4B8AF",
+          "rgb": "rgb(196, 184, 175)",
+          "usage": "Pale kraft wash, section bg, keeps brown box iconic by never replacing #3B2316 as primary"
+        }
+      ],
+      "shades": [
+        {
+          "mix": "shade 10%",
+          "weight": 10,
+          "mixWith": "#1A1110",
+          "hex": "#382115",
+          "rgb": "rgb(56, 33, 21)",
+          "usage": "Hover for Bear Brown button / header depth"
+        },
+        {
+          "mix": "shade 20%",
+          "weight": 20,
+          "mixWith": "#1A1110",
+          "hex": "#341F15",
+          "rgb": "rgb(52, 31, 21)",
+          "usage": "Active/pressed Bear Brown, inverse footer depth"
+        },
+        {
+          "mix": "shade 30%",
+          "weight": 30,
+          "mixWith": "#1A1110",
+          "hex": "#311E14",
+          "rgb": "rgb(49, 30, 20)",
+          "usage": "Scrim-adjacent dark, message-bar shadow"
+        },
+        {
+          "mix": "shade 40%",
+          "weight": 40,
+          "mixWith": "#1A1110",
+          "hex": "#2E1C14",
+          "rgb": "rgb(46, 28, 20)",
+          "usage": "Near-ink text, logo reversal backdrop when extra depth needed"
+        },
+        {
+          "mix": "shade 50%",
+          "weight": 50,
+          "mixWith": "#1A1110",
+          "hex": "#2A1A13",
+          "rgb": "rgb(42, 26, 19)",
+          "usage": "50% ink blend \u2014 near-black warm"
+        },
+        {
+          "mix": "shade 70%",
+          "weight": 70,
+          "mixWith": "#1A1110",
+          "hex": "#241612",
+          "rgb": "rgb(36, 22, 18)",
+          "usage": "Close to Ink #1A1110, text on parchment max contrast"
+        }
+      ]
+    },
+    "blazeOrange": {
+      "name": "Blaze Orange",
+      "base": "#E8530E",
+      "rgb": "rgb(232, 83, 14)",
+      "tints": [
+        {
+          "mix": "tint 10%",
+          "weight": 10,
+          "mixWith": "#FFF8F0",
+          "hex": "#EA6425",
+          "rgb": "rgb(234, 100, 37)",
+          "usage": "Blaze Orange tint 10% \u2014 CTA hover, warm glow edge"
+        },
+        {
+          "mix": "tint 20%",
+          "weight": 20,
+          "mixWith": "#FFF8F0",
+          "hex": "#ED743B",
+          "rgb": "rgb(237, 116, 59)",
+          "usage": "Tint 20% \u2014 soft protein badge bg, keeps orange high-contrast"
+        },
+        {
+          "mix": "tint 30%",
+          "weight": 30,
+          "mixWith": "#FFF8F0",
+          "hex": "#EF8452",
+          "rgb": "rgb(239, 132, 82)",
+          "usage": "Tint 30% \u2014 warm amber highlight, Wasatch glow accent"
+        },
+        {
+          "mix": "tint 40%",
+          "weight": 40,
+          "mixWith": "#FFF8F0",
+          "hex": "#F19568",
+          "rgb": "rgb(241, 149, 104)",
+          "usage": "Tint 40% \u2014 peachy glow for illustration, not for CTA text"
+        },
+        {
+          "mix": "tint 50%",
+          "weight": 50,
+          "mixWith": "#FFF8F0",
+          "hex": "#F4A67F",
+          "rgb": "rgb(244, 166, 127)",
+          "usage": "Tint 50% \u2014 pale peach, bokeh / sky reflection accent"
+        },
+        {
+          "mix": "tint 70%",
+          "weight": 70,
+          "mixWith": "#FFF8F0",
+          "hex": "#F8C6AC",
+          "rgb": "rgb(248, 198, 172)",
+          "usage": "Tint 70% \u2014 very pale warm wash, only as bg tint"
+        }
+      ],
+      "shades": [
+        {
+          "mix": "shade 10%",
+          "weight": 10,
+          "mixWith": "#1A1110",
+          "hex": "#D34C0E",
+          "rgb": "rgb(211, 76, 14)",
+          "usage": "Shade 10% \u2014 CTA pressed, 8px bar hover"
+        },
+        {
+          "mix": "shade 20%",
+          "weight": 20,
+          "mixWith": "#1A1110",
+          "hex": "#BF460E",
+          "rgb": "rgb(191, 70, 14)",
+          "usage": "Shade 20% \u2014 deep orange, active CTA"
+        },
+        {
+          "mix": "shade 30%",
+          "weight": 30,
+          "mixWith": "#1A1110",
+          "hex": "#AA3F0F",
+          "rgb": "rgb(170, 63, 15)",
+          "usage": "Shade 30% \u2014 burnt orange, border on green"
+        },
+        {
+          "mix": "shade 40%",
+          "weight": 40,
+          "mixWith": "#1A1110",
+          "hex": "#96390F",
+          "rgb": "rgb(150, 57, 15)",
+          "usage": "Shade 40% \u2014 terracotta, complementary to Bear Brown box"
+        },
+        {
+          "mix": "shade 50%",
+          "weight": 50,
+          "mixWith": "#1A1110",
+          "hex": "#81320F",
+          "rgb": "rgb(129, 50, 15)",
+          "usage": "Shade 50% \u2014 dark terracotta, icon fill"
+        },
+        {
+          "mix": "shade 70%",
+          "weight": 70,
+          "mixWith": "#1A1110",
+          "hex": "#58250F",
+          "rgb": "rgb(88, 37, 15)",
+          "usage": "Shade 70% \u2014 near-brown orange, ties orange back to Bear Brown so box stays iconic"
+        }
+      ]
+    },
+    "frontierGreen": {
+      "name": "Frontier Green",
+      "base": "#1A3C34",
+      "rgb": "rgb(26, 60, 52)",
+      "tints": [
+        {
+          "mix": "tint 10%",
+          "weight": 10,
+          "mixWith": "#FFF8F0",
+          "hex": "#314F47",
+          "rgb": "rgb(49, 79, 71)",
+          "usage": "Frontier Green tint 10% \u2014 hover for green secondary button"
+        },
+        {
+          "mix": "tint 20%",
+          "weight": 20,
+          "mixWith": "#FFF8F0",
+          "hex": "#48625A",
+          "rgb": "rgb(72, 98, 90)",
+          "usage": "Tint 20% \u2014 evergreen panel, humidity-green for SE localization"
+        },
+        {
+          "mix": "tint 30%",
+          "weight": 30,
+          "mixWith": "#FFF8F0",
+          "hex": "#5F746C",
+          "rgb": "rgb(95, 116, 108)",
+          "usage": "Tint 30% \u2014 sage, border / chip bg"
+        },
+        {
+          "mix": "tint 40%",
+          "weight": 40,
+          "mixWith": "#FFF8F0",
+          "hex": "#76877F",
+          "rgb": "rgb(118, 135, 127)",
+          "usage": "Tint 40% \u2014 mist green, card bg on parchment"
+        },
+        {
+          "mix": "tint 50%",
+          "weight": 50,
+          "mixWith": "#FFF8F0",
+          "hex": "#8C9A92",
+          "rgb": "rgb(140, 154, 146)",
+          "usage": "Tint 50% \u2014 muted sage, divider on green"
+        },
+        {
+          "mix": "tint 70%",
+          "weight": 70,
+          "mixWith": "#FFF8F0",
+          "hex": "#BAC0B8",
+          "rgb": "rgb(186, 192, 184)",
+          "usage": "Tint 70% \u2014 pale forest wash, section bg"
+        }
+      ],
+      "shades": [
+        {
+          "mix": "shade 10%",
+          "weight": 10,
+          "mixWith": "#1A1110",
+          "hex": "#1A3830",
+          "rgb": "rgb(26, 56, 48)",
+          "usage": "Shade 10% \u2014 pressed green button"
+        },
+        {
+          "mix": "shade 20%",
+          "weight": 20,
+          "mixWith": "#1A1110",
+          "hex": "#1A332D",
+          "rgb": "rgb(26, 51, 45)",
+          "usage": "Shade 20% \u2014 deep forest, inverse header alt"
+        },
+        {
+          "mix": "shade 30%",
+          "weight": 30,
+          "mixWith": "#1A1110",
+          "hex": "#1A2F29",
+          "rgb": "rgb(26, 47, 41)",
+          "usage": "Shade 30% \u2014 near-black green, text on parchment alternative"
+        },
+        {
+          "mix": "shade 40%",
+          "weight": 40,
+          "mixWith": "#1A1110",
+          "hex": "#1A2B26",
+          "rgb": "rgb(26, 43, 38)",
+          "usage": "Shade 40% \u2014 ink-green blend, scrim companion"
+        },
+        {
+          "mix": "shade 50%",
+          "weight": 50,
+          "mixWith": "#1A1110",
+          "hex": "#1A2622",
+          "rgb": "rgb(26, 38, 34)",
+          "usage": "Shade 50% \u2014 almost ink, legibility layer"
+        },
+        {
+          "mix": "shade 70%",
+          "weight": 70,
+          "mixWith": "#1A1110",
+          "hex": "#1A1E1B",
+          "rgb": "rgb(26, 30, 27)",
+          "usage": "Shade 70% \u2014 closest to Ink #1A1110, max depth"
+        }
+      ]
+    }
+  },
+  "complementaryAccents": {
+    "warmOrangeGlows": [
+      {
+        "name": "Wasatch Glow 18%",
+        "hex": "rgba(232,83,14,0.18)",
+        "css": "rgba(232,83,14,0.18)",
+        "usage": "Blurred Wasatch cover radial gradient (brand-view header) \u2014 never replaces 8px Blaze bar",
+        "solidFallback": "#FBDAC7"
+      },
+      {
+        "name": "Warm Amber Glow",
+        "hex": "#FF8A3D",
+        "rgb": "rgb(255,138,61)",
+        "derivation": "Blaze Orange +12% lightness",
+        "usage": "Protein callout halo, 14g badge glow, CTA focus ring \u2014 warm orange that leans peach, not brown"
+      },
+      {
+        "name": "Blaze Peach",
+        "hex": "#FFB07A",
+        "rgb": "rgb(255,176,122)",
+        "derivation": "Blaze tint ~35% to Parchment",
+        "usage": "Illustration highlight, steam glow on oatmeal cup, sky reflection \u2014 soft, keeps brown box primary"
+      },
+      {
+        "name": "Ember Terracotta",
+        "hex": "#AA3F0F",
+        "rgb": "rgb(170,63,15)",
+        "derivation": "Blaze shade 30% to Ink",
+        "usage": "Terracotta border that ties orange back to Bear Brown, footer accent on green \u2014 not for large fills"
+      }
+    ],
+    "forestGreens": [
+      {
+        "name": "Deep Teal",
+        "hex": "#12302A",
+        "rgb": "rgb(18,48,42)",
+        "derivation": "Frontier shade 15% + Ink",
+        "usage": "Inverse header alternative to Bear Brown, keeps brown box iconic by rotating background, not logo"
+      },
+      {
+        "name": "Pine Mist",
+        "hex": "#5F746C",
+        "rgb": "rgb(95,116,108)",
+        "derivation": "Frontier tint 30%",
+        "usage": "SE humidity-green, Publix porch accent, chip / tag bg"
+      },
+      {
+        "name": "Moss Sage",
+        "hex": "#8C9A92",
+        "rgb": "rgb(140,154,146)",
+        "derivation": "Frontier tint 50%",
+        "usage": "Divider on green, soft evergreen card bg on parchment"
+      },
+      {
+        "name": "Alpine Haze",
+        "hex": "#DCE8E0",
+        "rgb": "rgb(220,232,224)",
+        "derivation": "Frontier tint 85%+Parchment blend (very pale)",
+        "usage": "Page section wash, Wasatch dawn sky copy \u2014 subtle green without competing with Bear Brown box"
+      }
+    ],
+    "principle": "Brown box with growling bear stays iconic: Bear Brown #3B2316 is ALWAYS primary bg/text/logo-backdrop. Orange is ONLY 8px bar, CTA, protein callout, glow overlay (\u226418% opacity or tint \u226530% for soft fills). Green is secondary/evergreen \u2014 borders, panels, wasatch dawn \u2014 never large enough to outshine brown pack. Use tints for backgrounds/cards, shades for hover/pressed/depth. Test contrast: Bear Brown on Parchment 10.2:1, White on Bear Brown 11:1, Blaze on Parchment 3.1:1 \u2014 use Blaze only for large text/CTAs, not body."
+  },
+  "usageRules": {
+    "tintFormula": "linear sRGB mix: tint(p) = base*(1-p) + Parchment(#FFF8F0)*p ; p=weight%",
+    "shadeFormula": "linear sRGB mix: shade(p) = base*(1-p) + Ink(#1A1110)*p",
+    "iconicBox": [
+      "Keep pack hero centered, no tint overlays on pack itself \u2014 tints only for surrounding UI",
+      "Logo reversal only on Bear Brown, Frontier Green, Ink, Black \u2014 never on Blaze Orange or tint washes without scrim #1A1110CC",
+      "8px Blaze bar is brand signature \u2014 use solid #E8530E, not tint, at bottom edge",
+      "Warm glows at 12-18% opacity so brown stays dominant in thumbnail",
+      "Forest greens desaturated (tint 30-70%) for backgrounds so brown contrast pops"
+    ]
+  },
+  "wcagNotes": {
+    "bearBrownOnParchment": "10.2:1 AAA",
+    "parchmentOnBearBrown": "11:1 AAA",
+    "blazeOnParchment": "3.1:1 \u2014 large text/CTA only (needs 3:1 for large, fails 4.5:1 for body)",
+    "frontierOnParchment": "12.1:1 AAA",
+    "recommendation": "Body text on Parchment = Bear Brown or Frontier Green; never Blaze Orange for body"
+  }
+}
