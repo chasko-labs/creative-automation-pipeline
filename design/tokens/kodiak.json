@@ -1,0 +1,723 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "kodiak": {
+    "$description": "Kodiak Cakes / Kodiak style library — Wilderness frontier palette. Bear Brown #3B2316, Blaze Orange #E8530E, Frontier Green #1A3C34. W3C Design Tokens Format (DTFM) + Style Dictionary compatible.",
+    "color": {
+      "$description": "Brand and neutral palettes",
+      "brand": {
+        "bearBrown": {
+          "$type": "color",
+          "$value": "#3B2316",
+          "$description": "Bear Brown — primary. Deep roasted brown, kraft/parchment contrast. Use for headings, backgrounds, bear logo backdrop.",
+          "$extensions": {
+            "org.kodiak": {
+              "name": "Bear Brown",
+              "usage": "primary / text / background"
+            }
+          }
+        },
+        "blazeOrange": {
+          "$type": "color",
+          "$value": "#E8530E",
+          "$description": "Blaze Orange — accent/CTA. High-contrast signal for buttons, accent bar, protein callouts.",
+          "$extensions": {
+            "org.kodiak": {
+              "name": "Blaze Orange",
+              "usage": "accent / CTA / alert"
+            }
+          }
+        },
+        "frontierGreen": {
+          "$type": "color",
+          "$value": "#1A3C34",
+          "$description": "Frontier Green — secondary/evergreen. Forest/trail balance to orange. Use for secondary buttons, borders, outdoor narrative.",
+          "$extensions": {
+            "org.kodiak": {
+              "name": "Frontier Green",
+              "usage": "secondary / evergreen / nature"
+            }
+          }
+        }
+      },
+      "neutral": {
+        "$description": "Warm neutrals derived from Bear Brown + kraft parchment. 0=white, 1000=black.",
+        "0": {
+          "$type": "color",
+          "$value": "#FFFFFF",
+          "$description": "White"
+        },
+        "50": {
+          "$type": "color",
+          "$value": "#FFF8F0",
+          "$description": "Parchment — warm paper, primary page background"
+        },
+        "100": {
+          "$type": "color",
+          "$value": "#F4EDE6",
+          "$description": "Oatmeal — card / kraft bag"
+        },
+        "200": {
+          "$type": "color",
+          "$value": "#E8DDD3",
+          "$description": "Stone Light — subtle section divider"
+        },
+        "300": {
+          "$type": "color",
+          "$value": "#D9CFC6",
+          "$description": "Stone — border, disabled"
+        },
+        "400": {
+          "$type": "color",
+          "$value": "#B8A99E",
+          "$description": "Driftwood — placeholder, secondary border"
+        },
+        "500": {
+          "$type": "color",
+          "$value": "#8C7A70",
+          "$description": "Taupe — secondary text on light"
+        },
+        "600": {
+          "$type": "color",
+          "$value": "#6B5A53",
+          "$description": "Canyon — muted body on parchment"
+        },
+        "700": {
+          "$type": "color",
+          "$value": "#5A4A42",
+          "$description": "Espresso — body text alternative to bear brown"
+        },
+        "800": {
+          "$type": "color",
+          "$value": "#2E1D14",
+          "$description": "Burnt Umber — near-primary darker variant"
+        },
+        "900": {
+          "$type": "color",
+          "$value": "#1A1110",
+          "$description": "Ink — darkest text, near-black with brown warmth"
+        },
+        "1000": {
+          "$type": "color",
+          "$value": "#000000",
+          "$description": "Black"
+        }
+      },
+      "semantic": {
+        "background": {
+          "default": {
+            "$type": "color",
+            "$value": "{kodiak.color.neutral.50}",
+            "$description": "Page background → parchment"
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{kodiak.color.brand.bearBrown}",
+            "$description": "Inverse background → bear brown"
+          },
+          "accent": {
+            "$type": "color",
+            "$value": "{kodiak.color.brand.blazeOrange}",
+            "$description": "Accent background → blaze orange"
+          },
+          "nature": {
+            "$type": "color",
+            "$value": "{kodiak.color.brand.frontierGreen}",
+            "$description": "Nature background → frontier green"
+          }
+        },
+        "foreground": {
+          "default": {
+            "$type": "color",
+            "$value": "{kodiak.color.brand.bearBrown}",
+            "$description": "Default text on light → bear brown"
+          },
+          "muted": {
+            "$type": "color",
+            "$value": "{kodiak.color.neutral.600}",
+            "$description": "Muted text → canyon"
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{kodiak.color.neutral.50}",
+            "$description": "Text on dark → parchment"
+          },
+          "accent": {
+            "$type": "color",
+            "$value": "{kodiak.color.brand.blazeOrange}",
+            "$description": "Accent text / links → blaze orange"
+          }
+        },
+        "border": {
+          "default": {
+            "$type": "color",
+            "$value": "{kodiak.color.neutral.300}",
+            "$description": "Default border → stone"
+          },
+          "strong": {
+            "$type": "color",
+            "$value": "{kodiak.color.brand.bearBrown}",
+            "$description": "Strong border → bear brown"
+          },
+          "accent": {
+            "$type": "color",
+            "$value": "{kodiak.color.brand.blazeOrange}",
+            "$description": "Accent border → blaze orange"
+          }
+        },
+        "overlay": {
+          "scrim": {
+            "$type": "color",
+            "$value": "#1A1110CC",
+            "$description": "Scrim 80% ink for text legibility over hero (used as bottom message bar fill: rgba 0,0,0 140/255 ≈ #0000008C, here warmer #1A1110CC)"
+          },
+          "scrimAlt": {
+            "$type": "color",
+            "$value": "#0000008C",
+            "$description": "Exact compose.py bar: rgba(0,0,0,0.55) ≈ #0000008C — matches legacy overlay"
+          }
+        }
+      }
+    },
+    "brand": {
+      "$description": "Multi-format brand color definitions — single source of truth for cross-media (digital, print, spot). CMYK/pantone are approximate.",
+      "bearBrown": {
+        "hex": {
+          "$type": "color",
+          "$value": "#3B2316",
+          "$description": "Bear Brown hex"
+        },
+        "rgb": {
+          "$type": "color",
+          "$value": "#3B2316",
+          "$description": "Bear Brown sRGB — rgb(59,35,22)",
+          "$extensions": {
+            "org.kodiak": {
+              "rgb": "rgb(59 35 22)",
+              "rgbString": "rgb(59, 35, 22)",
+              "r": 59,
+              "g": 35,
+              "b": 22
+            }
+          }
+        },
+        "cmyk": {
+          "$type": "string",
+          "$value": "0% 41% 63% 77%",
+          "$description": "Bear Brown CMYK approx (US Web Coated SWOP v2) — C0 M41 Y63 K77"
+        },
+        "pantone": {
+          "$type": "string",
+          "$value": "Pantone 4975 C (≈ 19-0712 TCX Seal Brown)",
+          "$description": "Closest Pantone spot approximate — verify with coated swatch"
+        },
+        "hsl": {
+          "$type": "string",
+          "$value": "hsl(23 46% 16%)",
+          "$description": "Bear Brown HSL"
+        }
+      },
+      "blazeOrange": {
+        "hex": {
+          "$type": "color",
+          "$value": "#E8530E",
+          "$description": "Blaze Orange hex"
+        },
+        "rgb": {
+          "$type": "color",
+          "$value": "#E8530E",
+          "$description": "Blaze Orange sRGB — rgb(232,83,14)",
+          "$extensions": {
+            "org.kodiak": {
+              "rgb": "rgb(232 83 14)",
+              "rgbString": "rgb(232, 83, 14)",
+              "r": 232,
+              "g": 83,
+              "b": 14
+            }
+          }
+        },
+        "cmyk": {
+          "$type": "string",
+          "$value": "0% 64% 94% 9%",
+          "$description": "Blaze Orange CMYK approx — C0 M64 Y94 K9"
+        },
+        "pantone": {
+          "$type": "string",
+          "$value": "Pantone 1655 C (≈ 16-1364 TCX Vibrant Orange)",
+          "$description": "Closest Pantone spot approximate"
+        },
+        "hsl": {
+          "$type": "string",
+          "$value": "hsl(19 88% 48%)",
+          "$description": "Blaze Orange HSL"
+        }
+      },
+      "frontierGreen": {
+        "hex": {
+          "$type": "color",
+          "$value": "#1A3C34",
+          "$description": "Frontier Green hex"
+        },
+        "rgb": {
+          "$type": "color",
+          "$value": "#1A3C34",
+          "$description": "Frontier Green sRGB — rgb(26,60,52)",
+          "$extensions": {
+            "org.kodiak": {
+              "rgb": "rgb(26 60 52)",
+              "rgbString": "rgb(26, 60, 52)",
+              "r": 26,
+              "g": 60,
+              "b": 52
+            }
+          }
+        },
+        "cmyk": {
+          "$type": "string",
+          "$value": "57% 0% 13% 76%",
+          "$description": "Frontier Green CMYK approx — C57 M0 Y13 K76"
+        },
+        "pantone": {
+          "$type": "string",
+          "$value": "Pantone 5463 C (≈ 19-5420 TCX Deep Teal / Balsam Green)",
+          "$description": "Closest Pantone spot approximate"
+        },
+        "hsl": {
+          "$type": "string",
+          "$value": "hsl(169 40% 17%)",
+          "$description": "Frontier Green HSL"
+        }
+      }
+    },
+    "typography": {
+      "$description": "Kodiak type scale — headline: rugged slab/serif (Rockwell/National Park/Clarendon), body/caption: humanist sans (Inter). Sizes tuned per ratio to preserve hierarchy on distinct canvases.",
+      "fontFamily": {
+        "headline": {
+          "$type": "fontFamily",
+          "$value": ["Rockwell", "Clarendon", "American Typewriter", "Georgia", "serif"],
+          "$description": "Headline — slab serif, frontier/rugged. Style-Dictionary: array → CSS stack."
+        },
+        "body": {
+          "$type": "fontFamily",
+          "$value": ["Inter", "Helvetica Neue", "Arial", "sans-serif"],
+          "$description": "Body — humanist sans, protein/field notes legibility"
+        },
+        "caption": {
+          "$type": "fontFamily",
+          "$value": ["Inter", "Helvetica Neue", "Arial", "sans-serif"],
+          "$description": "Caption — same as body, smaller + tracked"
+        },
+        "mono": {
+          "$type": "fontFamily",
+          "$value": ["JetBrains Mono", "Menlo", "monospace"],
+          "$description": "Mono for nutritional facts / SKU badges"
+        }
+      },
+      "fontWeight": {
+        "regular": {
+          "$type": "fontWeight",
+          "$value": 400
+        },
+        "medium": {
+          "$type": "fontWeight",
+          "$value": 500
+        },
+        "bold": {
+          "$type": "fontWeight",
+          "$value": 700
+        },
+        "extraBold": {
+          "$type": "fontWeight",
+          "$value": 800
+        }
+      },
+      "headline": {
+        "$description": "Headline / campaign message — extraBold slab, tight leading, slight negative tracking. 3-line clamp in compose.",
+        "1x1": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{kodiak.typography.fontFamily.headline}",
+            "fontWeight": 800,
+            "fontSize": "56px",
+            "lineHeight": "1.05",
+            "letterSpacing": "-0.02em",
+            "textTransform": "none"
+          },
+          "$description": "Square 1080×1080 — primary. Matches compose.py 56px baseline.",
+          "$extensions": {
+            "org.kodiak": {
+              "ratio": "1x1",
+              "canvas": "1080x1080",
+              "maxLines": 3,
+              "textAlign": "center",
+              "fontSizePx": 56
+            }
+          }
+        },
+        "9x16": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{kodiak.typography.fontFamily.headline}",
+            "fontWeight": 800,
+            "fontSize": "64px",
+            "lineHeight": "1.06",
+            "letterSpacing": "-0.02em",
+            "textTransform": "none"
+          },
+          "$description": "Vertical 1080×1920 — taller safe area allows larger headline, same strokeWidth 2 in compose.",
+          "$extensions": {
+            "org.kodiak": {
+              "ratio": "9x16",
+              "canvas": "1080x1920",
+              "maxLines": 3,
+              "textAlign": "center",
+              "fontSizePx": 64
+            }
+          }
+        },
+        "16x9": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{kodiak.typography.fontFamily.headline}",
+            "fontWeight": 800,
+            "fontSize": "72px",
+            "lineHeight": "1.08",
+            "letterSpacing": "-0.015em",
+            "textTransform": "none"
+          },
+          "$description": "Horizontal 1920×1080 — widest canvas, headline scales to 72px, barTop 68% → ample width.",
+          "$extensions": {
+            "org.kodiak": {
+              "ratio": "16x9",
+              "canvas": "1920x1080",
+              "maxLines": 2,
+              "textAlign": "center",
+              "fontSizePx": 72
+            }
+          }
+        }
+      },
+      "body": {
+        "$description": "Body / product description — regular sans, comfortable reading. Used for secondary message or product detail in stories.",
+        "1x1": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{kodiak.typography.fontFamily.body}",
+            "fontWeight": 400,
+            "fontSize": "28px",
+            "lineHeight": "1.5",
+            "letterSpacing": "0em"
+          },
+          "$extensions": {
+            "org.kodiak": {
+              "ratio": "1x1",
+              "fontSizePx": 28
+            }
+          }
+        },
+        "9x16": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{kodiak.typography.fontFamily.body}",
+            "fontWeight": 400,
+            "fontSize": "30px",
+            "lineHeight": "1.5",
+            "letterSpacing": "0em"
+          },
+          "$extensions": {
+            "org.kodiak": {
+              "ratio": "9x16",
+              "fontSizePx": 30
+            }
+          }
+        },
+        "16x9": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{kodiak.typography.fontFamily.body}",
+            "fontWeight": 400,
+            "fontSize": "32px",
+            "lineHeight": "1.5",
+            "letterSpacing": "0em"
+          },
+          "$extensions": {
+            "org.kodiak": {
+              "ratio": "16x9",
+              "fontSizePx": 32
+            }
+          }
+        }
+      },
+      "caption": {
+        "$description": "Caption / footer / legal — small sans, upper + tracked. Maps to compose.py footer 'AURA • aura.example.com' at 34px (56-22).",
+        "1x1": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{kodiak.typography.fontFamily.caption}",
+            "fontWeight": 500,
+            "fontSize": "22px",
+            "lineHeight": "1.4",
+            "letterSpacing": "0.06em",
+            "textTransform": "uppercase"
+          },
+          "$extensions": {
+            "org.kodiak": {
+              "ratio": "1x1",
+              "fontSizePx": 22
+            }
+          }
+        },
+        "9x16": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{kodiak.typography.fontFamily.caption}",
+            "fontWeight": 500,
+            "fontSize": "24px",
+            "lineHeight": "1.4",
+            "letterSpacing": "0.06em",
+            "textTransform": "uppercase"
+          },
+          "$extensions": {
+            "org.kodiak": {
+              "ratio": "9x16",
+              "fontSizePx": 24
+            }
+          }
+        },
+        "16x9": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{kodiak.typography.fontFamily.caption}",
+            "fontWeight": 500,
+            "fontSize": "24px",
+            "lineHeight": "1.4",
+            "letterSpacing": "0.06em",
+            "textTransform": "uppercase"
+          },
+          "$extensions": {
+            "org.kodiak": {
+              "ratio": "16x9",
+              "fontSizePx": 24
+            }
+          }
+        }
+      }
+    },
+    "spacing": {
+      "$description": "8pt base scale + semantic aliases for creative composition. Canvas padding in compose.py is 48px → maps to xl (32) + lg (24) composition.",
+      "0": {
+        "$type": "dimension",
+        "$value": "0px"
+      },
+      "xs": {
+        "$type": "dimension",
+        "$value": "4px",
+        "$description": "4 — hair gap"
+      },
+      "sm": {
+        "$type": "dimension",
+        "$value": "8px",
+        "$description": "8 — tight"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "16px",
+        "$description": "16 — default"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "24px",
+        "$description": "24 — logo offset, card gap"
+      },
+      "xl": {
+        "$type": "dimension",
+        "$value": "32px",
+        "$description": "32 — section"
+      },
+      "2xl": {
+        "$type": "dimension",
+        "$value": "48px",
+        "$description": "48 — canvas side pad (compose.py pad=48)"
+      },
+      "3xl": {
+        "$type": "dimension",
+        "$value": "64px",
+        "$description": "64 — stacked sections"
+      },
+      "4xl": {
+        "$type": "dimension",
+        "$value": "96px",
+        "$description": "96 — hero breathing room"
+      },
+      "5xl": {
+        "$type": "dimension",
+        "$value": "128px",
+        "$description": "128 — billboard"
+      },
+      "semantic": {
+        "canvasPad": {
+          "$type": "dimension",
+          "$value": "{kodiak.spacing.2xl}",
+          "$description": "Canvas side padding → 48px on 1080w (4.4%)"
+        },
+        "messageBarTop": {
+          "$type": "dimension",
+          "$value": "68%",
+          "$description": "Bottom message scrim starts at 68% H"
+        },
+        "logoOffset": {
+          "$type": "dimension",
+          "$value": "{kodiak.spacing.lg}",
+          "$description": "Logo top-left → 24px"
+        },
+        "accentBarHeight": {
+          "$type": "dimension",
+          "$value": "8px",
+          "$description": "Bottom blaze-orange accent bar height"
+        }
+      }
+    },
+    "radius": {
+      "$description": "Border radius scale — Kodiak kraft is mostly straight-cut, soft rounding for digital cards.",
+      "none": {
+        "$type": "dimension",
+        "$value": "0px",
+        "$description": "Sharp — default creative edge (hero covers full bleed)"
+      },
+      "sm": {
+        "$type": "dimension",
+        "$value": "4px"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "8px",
+        "$description": "Card"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "16px",
+        "$description": "Button / chip"
+      },
+      "xl": {
+        "$type": "dimension",
+        "$value": "24px"
+      },
+      "2xl": {
+        "$type": "dimension",
+        "$value": "32px"
+      },
+      "pill": {
+        "$type": "dimension",
+        "$value": "999px",
+        "$description": "Pill — protein badge"
+      }
+    },
+    "shadow": {
+      "$description": "Shadow levels — neutral + brand-tinted warm shadow for kraft depth.",
+      "none": {
+        "$type": "shadow",
+        "$value": {
+          "color": "#00000000",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "0px",
+          "spread": "0px"
+        }
+      },
+      "sm": {
+        "$type": "shadow",
+        "$value": {
+          "color": "#1A111026",
+          "offsetX": "0px",
+          "offsetY": "2px",
+          "blur": "8px",
+          "spread": "0px"
+        },
+        "$description": "Subtle lift — card"
+      },
+      "md": {
+        "$type": "shadow",
+        "$value": {
+          "color": "#1A111033",
+          "offsetX": "0px",
+          "offsetY": "8px",
+          "blur": "24px",
+          "spread": "0px"
+        },
+        "$description": "Default — hero / modal"
+      },
+      "lg": {
+        "$type": "shadow",
+        "$value": {
+          "color": "#1A111040",
+          "offsetX": "0px",
+          "offsetY": "16px",
+          "blur": "48px",
+          "spread": "0px"
+        },
+        "$description": "Strong — billboard"
+      },
+      "bear": {
+        "$type": "shadow",
+        "$value": {
+          "color": "#3B231633",
+          "offsetX": "0px",
+          "offsetY": "12px",
+          "blur": "32px",
+          "spread": "0px"
+        },
+        "$description": "Warm bear-brown tinted shadow"
+      },
+      "text": {
+        "$type": "shadow",
+        "$value": {
+          "color": "#000000CC",
+          "offsetX": "0px",
+          "offsetY": "2px",
+          "blur": "4px",
+          "spread": "0px"
+        },
+        "$description": "Text stroke alternative — compose uses stroke_width 2 + shadow for legibility"
+      }
+    },
+    "dimension": {
+      "$description": "Canvas dimensions — mirrors compose.RATIOS",
+      "canvas": {
+        "1x1": {
+          "$type": "dimension",
+          "$value": "1080px",
+          "$description": "Square — 1080×1080. $extensions holds both axes.",
+          "$extensions": {
+            "org.kodiak": {
+              "width": 1080,
+              "height": 1080,
+              "ratio": "1:1"
+            }
+          }
+        },
+        "9x16": {
+          "$type": "dimension",
+          "$value": "1080px",
+          "$extensions": {
+            "org.kodiak": {
+              "width": 1080,
+              "height": 1920,
+              "ratio": "9:16"
+            }
+          }
+        },
+        "16x9": {
+          "$type": "dimension",
+          "$value": "1920px",
+          "$extensions": {
+            "org.kodiak": {
+              "width": 1920,
+              "height": 1080,
+              "ratio": "16:9"
+            }
+          }
+        }
+      }
+    }
+  }
+}

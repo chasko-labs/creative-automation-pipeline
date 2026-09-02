@@ -20,13 +20,25 @@ except ImportError:
 NOVA_CANVAS_MODEL = os.getenv("BEDROCK_NOVA_CANVAS_MODEL", "amazon.nova-canvas-v1:0")
 BEDROCK_REGION = os.getenv("BEDROCK_REGION", os.getenv("AWS_REGION", "us-east-1"))
 
-# Simple palette per product for mock
-MOCK_PALETTES = [
-    ("#0A2540", "#00D4AA"),
-    ("#7C3AED", "#F59E0B"),
-    ("#BE123C", "#FDE68A"),
-    ("#065F46", "#6EE7B7"),
-]
+# Palette from S3-backed tokens (fallback to Kodiak frontier)
+try:
+    from .token_loader import get_brand_colors, load_tokens  # type: ignore
+
+    _tok = load_tokens()
+    _brand = get_brand_colors(_tok)
+    MOCK_PALETTES = [
+        (_brand[0], _brand[1]),
+        (_brand[2] if len(_brand) > 2 else _brand[0], _brand[1]),
+        (_brand[0], _brand[2] if len(_brand) > 2 else _brand[0]),
+        (_brand[1], _brand[0]),
+    ]
+except Exception:
+    MOCK_PALETTES = [
+        ("#3B2316", "#E8530E"),
+        ("#1A3C34", "#E8530E"),
+        ("#3B2316", "#1A3C34"),
+        ("#E8530E", "#3B2316"),
+    ]
 
 
 def _mock_hero(product_name: str, brief_msg: str, region: str, out_path: Path, idx: int = 0) -> Path:

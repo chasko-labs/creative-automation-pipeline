@@ -1,0 +1,7 @@
+{
+  "adventurous": "Verbs-forward, trail-ready invites: 'Fuel your frontier', 'Blaze your morning trail', 'Epic days start here'. Second-person, active, outdoor imperatives. Keep It Wild as call to explore.",
+  "nourishing": "Whole-grain honesty + protein purpose (14g). 'Heirloom recipe, 100% whole grains' \u2014 warm parental, never diet jargon. Real food tradition.",
+  "rugged": "Wasatch-born grit, honest, unpolished but not gruff. Short sentences, light frontier idioms ('keep it wild', 'wilder lives') without cowboy cosplay. #3B2316 brown/ #1A3C34 green anchors trust; #E8530E pop for energy.",
+  "guardrails": "Use approved claim 'Protein-packed whole grains for today's frontier.' Avoid unsubstantiated % claims (17% class action precedent). Legal/compliance via compliance.py: logo_overlay true, palette probe, prohibited_terms.",
+  "localization": "US-MW: mountain/snow/trailing haze Wasatch; US-SE: family breakfast, Publix porch, humidity-green, home-anchored. Both rugged but distinct \u2014 see briefs/kodiak.yaml vs kodiak-se.yaml."
+}

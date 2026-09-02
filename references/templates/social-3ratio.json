@@ -1,0 +1,97 @@
+{
+  "schema": "kodiak/social-3ratio@v1",
+  "tokens_ref": "design/tokens/kodiak.json",
+  "ratios": {
+    "1x1": {
+      "canvas": [
+        1080,
+        1080
+      ],
+      "hero": {
+        "scale": "min(W*0.82/hw, H*0.58/hh)",
+        "pos": "(W-fw)/2, H*0.08",
+        "box": [
+          885,
+          626
+        ]
+      },
+      "safe": {
+        "pad": 48,
+        "logoOffset": 24,
+        "accentBar": 8,
+        "messageBarTop": "68%"
+      }
+    },
+    "9x16": {
+      "canvas": [
+        1080,
+        1920
+      ],
+      "hero": {
+        "scale": "min(W*0.82/hw, H*0.58/hh)",
+        "pos": "(W-fw)/2, H*0.08",
+        "box": [
+          885,
+          1113
+        ]
+      },
+      "safe": {
+        "pad": 48,
+        "logoOffset": 24,
+        "accentBar": 8,
+        "safeInset": "5%"
+      }
+    },
+    "16x9": {
+      "canvas": [
+        1920,
+        1080
+      ],
+      "hero": {
+        "scale": "min(W*0.82/hw, H*0.58/hh)",
+        "pos": "(W-fw)/2, H*0.08",
+        "box": [
+          1574,
+          626
+        ]
+      },
+      "safe": {
+        "pad": 48,
+        "logoOffset": 24,
+        "accentBar": 8
+      }
+    }
+  },
+  "components": [
+    {
+      "id": "C01",
+      "name": "Blurred cover bg",
+      "spec": "ImageOps.fit cover BICUBIC + Image.blend 0.18 scrim (tokens kodiak.color.semantic.overlay.scrim)"
+    },
+    {
+      "id": "C02",
+      "name": "Hero contain",
+      "spec": "contain scale above, pasted upper 8% \u2014 preserves hero identity"
+    },
+    {
+      "id": "C03",
+      "name": "Safe area",
+      "spec": "48px canvas pad, 24px logo offset, 8px accent bar, 5% inset 9x16"
+    },
+    {
+      "id": "C04",
+      "name": "Message bar",
+      "spec": "32% height @68% top, rgba scrim, centered headline max 3 lines, stroke 2"
+    },
+    {
+      "id": "C05",
+      "name": "Logo overlay",
+      "spec": "140w @24,24 clearSpace 0.25x, min 32h/80w, reversal on dark"
+    },
+    {
+      "id": "C06",
+      "name": "Type hierarchy",
+      "spec": "headline slab 56/64/72 per ratio, caption 22/24 uppercase 0.06em"
+    }
+  ]
+}

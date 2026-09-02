@@ -1,0 +1,116 @@
+{
+  "prompts": [
+    {
+      "id": "kodiak-01-wasatch-dawn-hero",
+      "product": "power-cakes",
+      "prompt": "Wide Wasatch Mountains at dawn, Park City Utah, snow-dusted peaks in soft alpenglow, pine and boulder foreground, authentic alpine morning light, subtle mist, clean sky negative space at top for text overlay, rugged but warm, photorealistic, 8k, no text, no logo, no people",
+      "negativePrompt": "oversaturated sunset, tropical, desert, city skyline, text, logo, watermark",
+      "settings": {
+        "width": 1024,
+        "height": 1024,
+        "cfgScale": 7.5,
+        "seed": 42
+      },
+      "use": "cover background (blurred in compose.py) + S3 reference seed"
+    },
+    {
+      "id": "kodiak-02-cast-iron-frontier",
+      "product": "power-cakes",
+      "prompt": "Premium studio hero of Kodiak Buttermilk Power Cakes stack on rustic wood table with cast iron skillet background, steam rising, enamel camping mug, morning window light, whole grain texture visible, centered product, soft shadow, clean background, photorealistic, high detail, no text, no logo",
+      "negativePrompt": "text, logo, clutter, plastic, artificial colors",
+      "settings": {
+        "width": 1024,
+        "height": 1024,
+        "cfgScale": 7.5,
+        "seed": 43
+      },
+      "use": "hero generation (dam fallback) for power-cakes"
+    },
+    {
+      "id": "kodiak-03-rugged-pioneer-family",
+      "product": "power-cakes",
+      "prompt": "Active family 30s parents + two kids (cubs) in flannel and beanies flipping flapjacks together in cozy mountain cabin kitchen, Wasatch view window, red wagon toy in corner, warm natural light, hands in motion, authentic rugged pioneer modern family, diverse, joyful, nourishing, photorealistic, negative space for overlay",
+      "negativePrompt": "costume, cowboy hat, studio backdrop, text, logo, overly posed",
+      "settings": {
+        "width": 1024,
+        "height": 1024,
+        "cfgScale": 7.5,
+        "seed": 44
+      },
+      "use": "lifestyle hero / MW variant"
+    },
+    {
+      "id": "kodiak-04-bear-bites-cubs",
+      "product": "bear-bites",
+      "prompt": "Protein-packed Bear Bites graham crackers for kids, cinnamon honey bear-shaped crackers scattered on wood trail bench, kid hands reaching, sunny trailhead, backpack and pine forest bokeh, high-protein snack, wholesome, centered product with lifestyle context, photorealistic, no text, no logo",
+      "negativePrompt": "text, logo, candy, chocolate overload, dark lighting",
+      "settings": {
+        "width": 1024,
+        "height": 1024,
+        "cfgScale": 7.5,
+        "seed": 45
+      },
+      "use": "bear-bites hero \u2014 S3 seed replaces mock"
+    },
+    {
+      "id": "kodiak-05-oatmeal-trail-cup",
+      "product": "oatmeal-cup",
+      "prompt": "Kodiak Protein Oatmeal Cup maple brown sugar on rocky overlook at sunrise, steam, hiker hands holding cup, Wasatch ridge background soft blur, on-the-go high protein breakfast, rugged trail fuel, photorealistic, centered product, natural light, no text, no logo",
+      "negativePrompt": "text, logo, office, kitchen clutter",
+      "settings": {
+        "width": 1024,
+        "height": 1024,
+        "cfgScale": 7.5,
+        "seed": 46
+      },
+      "use": "oatmeal-cup hero \u2014 S3 seed replaces mock"
+    },
+    {
+      "id": "kodiak-06-grizzly-wild-corridor",
+      "product": "keep-it-wild",
+      "prompt": "Wild grizzly bear at safe distance grazing in lush meadow with river, Wasatch wilderness backdrop, conservation habitat corridor, morning light, respectful wildlife photography, no human interaction, serene wild, photorealistic, no text, no logo",
+      "negativePrompt": "captive bear, zoo, close-up attack, text, logo, people touching bear",
+      "settings": {
+        "width": 1024,
+        "height": 1024,
+        "cfgScale": 7.5,
+        "seed": 47
+      },
+      "use": "Keep It Wild / Vital Ground story tile"
+    },
+    {
+      "id": "kodiak-07-southeast-family-breakfast",
+      "product": "power-cakes",
+      "prompt": "Active southeast family breakfast on sunny porch, Publix-style suburban home but rugged natural touches, Kodiak Power Cakes stack, maple syrup, Bear Bites for kids, warm humidity-green garden light, protein-packed whole grains for today's frontier vibe, photorealistic, inviting, negative space top",
+      "negativePrompt": "snow, mountains, text, logo",
+      "settings": {
+        "width": 1024,
+        "height": 1024,
+        "cfgScale": 7.5,
+        "seed": 48
+      },
+      "use": "US-SE localization variant"
+    },
+    {
+      "id": "kodiak-08-red-wagon-heirloom",
+      "product": "power-cakes",
+      "prompt": "Heirloom whole wheat flapjack ingredients on vintage red wagon: burlap sack of wheat, eggs, milk, Kodiak Power Cakes box centered, Park City frontier heritage, soft studio light, 1982 callback, rustic but premium, photorealistic, empty sky negative space, no text beyond packaging, no added logo",
+      "negativePrompt": "text, logo, modern grocery aisle",
+      "settings": {
+        "width": 1024,
+        "height": 1024,
+        "cfgScale": 7.5,
+        "seed": 49
+      },
+      "use": "heritage / founder story tile"
+    }
+  ],
+  "s3_seeding": {
+    "intended_store": "S3Vectors (mcp__s3vectors.store) \u2014 FAILED no credentials at runtime, fallback to local file + Valkey",
+    "fallback_paths": [
+      "docs/kodiak-nova-canvas-references.json",
+      "valkey hash kodiak:references"
+    ],
+    "generate_py_integration": "generate_hero() in src/creative_automation/generate.py currently builds prompt as: Premium studio hero for '{product_name}' ({product_id}), audience {audience}, region {region}, vibe {brief_msg} + clean background soft studio light. Replace/augment with prompts above per product_id when AWS creds available: use NOVA_CANVAS_MODEL amazon.nova-canvas-v1:0, BEDROCK_REGION us-east-1, cfgScale 7.5, seed 42-49."
+  }
+}

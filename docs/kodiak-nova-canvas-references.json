@@ -1,0 +1,94 @@
+{
+  "brand": "KODIAK",
+  "campaign": "Keep It Wild — Frontier Breakfast",
+  "taglines": ["Nourishment for Today's Frontier", "Keep It Wild", "Feeding epic days and wilder lives"],
+  "origin": "Park City UT, Wasatch Mountains — 1982 Joel Clark red wagon heirloom whole wheat flapjack recipe; 1995 incorporation; 2014 Shark Tank; Vital Ground Foundation grizzly habitat partner; Zac Efron Chief Brand Officer since 2022; Keep It Wild trademark 98397901",
+  "photography_direction": {
+    "wasatch_mountains": "Snow-dusted Wasatch Range at dawn / alpenglow, pine/boulder foreground, wide authentic alpine — not oversaturated stock Rockies. Use as blurred cover background with sky negative space for text overlay. Palette: cool rock + warm sunrise vs #3B2316/#E8530E/#1A3C34 accent.",
+    "rugged_pioneers": "Modern pioneers, not costume — denim/flannel/beanies/canvas tote with red-wagon callback. Diverse cast 25-45 + cubs. Actions: flipping flapjacks on cast iron over campfire, trailhead prep, ski-cabin porch. Grit + warmth, honest hands, movement blur; not luxury wellness.",
+    "grizzly_keep_it_wild": "Wild grizzly at safe distance in meadow/river or subtle cues (tracks, silhouette, steam bear shape). No captive bear close-up (avoid PETA 2022 controversy). Habitat connectivity: Six Lower-48 recovery zones, One Landscape Initiative. Vital Ground co-badge small.",
+    "high_protein_active_families": "Post-hike kitchen table: steam, stack of Buttermilk Power Cakes (14g protein per serving), Bear Bites graham for cubs, maple oatmeal cup on trail. Natural light, wood table, enamel mug, protein cues visible. Fuel, not indulgence.",
+    "product_hero": "Premium studio hero — centered product on clean light background, soft shadow, 1024x1024, photorealistic, no text/no logo (logo overlaid in compose.py). DAM reuse for power-cakes/hero.png; Nova Canvas for bear-bites/oatmeal-cup."
+  },
+  "voice_tone": {
+    "adventurous": "Verbs-forward, trail-ready invites: 'Fuel your frontier', 'Blaze your morning trail', 'Epic days start here'. Second-person, active, outdoor imperatives. Keep It Wild as call to explore.",
+    "nourishing": "Whole-grain honesty + protein purpose (14g). 'Heirloom recipe, 100% whole grains' — warm parental, never diet jargon. Real food tradition.",
+    "rugged": "Wasatch-born grit, honest, unpolished but not gruff. Short sentences, light frontier idioms ('keep it wild', 'wilder lives') without cowboy cosplay. #3B2316 brown/ #1A3C34 green anchors trust; #E8530E pop for energy.",
+    "guardrails": "Use approved claim 'Protein-packed whole grains for today's frontier.' Avoid unsubstantiated % claims (17% class action precedent). Legal/compliance via compliance.py: logo_overlay true, palette probe, prohibited_terms.",
+    "localization": "US-MW: mountain/snow/trailing haze Wasatch; US-SE: family breakfast, Publix porch, humidity-green, home-anchored. Both rugged but distinct — see briefs/kodiak.yaml vs kodiak-se.yaml."
+  },
+  "mood_keywords": [
+    "frontier", "wild", "rugged", "nourishing", "heirloom", "whole-grain", "protein-packed", "Wasatch", "alpine", "alpenglow", "campfire", "cast-iron", "trailhead", "grizzly-safe", "Vital Ground", "red-wagon", "Park City", "active-family", "cubs", "outdoor", "honest", "epic-days", "keep-it-wild", "high-protein", "cabin", "enamel-mug", "pine", "boulder", "dawn", "frontier-breakfast"
+  ],
+  "nova_canvas_prompts": [
+    {
+      "id": "kodiak-01-wasatch-dawn-hero",
+      "product": "power-cakes",
+      "prompt": "Wide Wasatch Mountains at dawn, Park City Utah, snow-dusted peaks in soft alpenglow, pine and boulder foreground, authentic alpine morning light, subtle mist, clean sky negative space at top for text overlay, rugged but warm, photorealistic, 8k, no text, no logo, no people",
+      "negativePrompt": "oversaturated sunset, tropical, desert, city skyline, text, logo, watermark",
+      "settings": {"width": 1024, "height": 1024, "cfgScale": 7.5, "seed": 42},
+      "use": "cover background (blurred in compose.py) + S3 reference seed"
+    },
+    {
+      "id": "kodiak-02-cast-iron-frontier",
+      "product": "power-cakes",
+      "prompt": "Premium studio hero of Kodiak Buttermilk Power Cakes stack on rustic wood table with cast iron skillet background, steam rising, enamel camping mug, morning window light, whole grain texture visible, centered product, soft shadow, clean background, photorealistic, high detail, no text, no logo",
+      "negativePrompt": "text, logo, clutter, plastic, artificial colors",
+      "settings": {"width": 1024, "height": 1024, "cfgScale": 7.5, "seed": 43},
+      "use": "hero generation (dam fallback) for power-cakes"
+    },
+    {
+      "id": "kodiak-03-rugged-pioneer-family",
+      "product": "power-cakes",
+      "prompt": "Active family 30s parents + two kids (cubs) in flannel and beanies flipping flapjacks together in cozy mountain cabin kitchen, Wasatch view window, red wagon toy in corner, warm natural light, hands in motion, authentic rugged pioneer modern family, diverse, joyful, nourishing, photorealistic, negative space for overlay",
+      "negativePrompt": "costume, cowboy hat, studio backdrop, text, logo, overly posed",
+      "settings": {"width": 1024, "height": 1024, "cfgScale": 7.5, "seed": 44},
+      "use": "lifestyle hero / MW variant"
+    },
+    {
+      "id": "kodiak-04-bear-bites-cubs",
+      "product": "bear-bites",
+      "prompt": "Protein-packed Bear Bites graham crackers for kids, cinnamon honey bear-shaped crackers scattered on wood trail bench, kid hands reaching, sunny trailhead, backpack and pine forest bokeh, high-protein snack, wholesome, centered product with lifestyle context, photorealistic, no text, no logo",
+      "negativePrompt": "text, logo, candy, chocolate overload, dark lighting",
+      "settings": {"width": 1024, "height": 1024, "cfgScale": 7.5, "seed": 45},
+      "use": "bear-bites hero — S3 seed replaces mock"
+    },
+    {
+      "id": "kodiak-05-oatmeal-trail-cup",
+      "product": "oatmeal-cup",
+      "prompt": "Kodiak Protein Oatmeal Cup maple brown sugar on rocky overlook at sunrise, steam, hiker hands holding cup, Wasatch ridge background soft blur, on-the-go high protein breakfast, rugged trail fuel, photorealistic, centered product, natural light, no text, no logo",
+      "negativePrompt": "text, logo, office, kitchen clutter",
+      "settings": {"width": 1024, "height": 1024, "cfgScale": 7.5, "seed": 46},
+      "use": "oatmeal-cup hero — S3 seed replaces mock"
+    },
+    {
+      "id": "kodiak-06-grizzly-wild-corridor",
+      "product": "keep-it-wild",
+      "prompt": "Wild grizzly bear at safe distance grazing in lush meadow with river, Wasatch wilderness backdrop, conservation habitat corridor, morning light, respectful wildlife photography, no human interaction, serene wild, photorealistic, no text, no logo",
+      "negativePrompt": "captive bear, zoo, close-up attack, text, logo, people touching bear",
+      "settings": {"width": 1024, "height": 1024, "cfgScale": 7.5, "seed": 47},
+      "use": "Keep It Wild / Vital Ground story tile"
+    },
+    {
+      "id": "kodiak-07-southeast-family-breakfast",
+      "product": "power-cakes",
+      "prompt": "Active southeast family breakfast on sunny porch, Publix-style suburban home but rugged natural touches, Kodiak Power Cakes stack, maple syrup, Bear Bites for kids, warm humidity-green garden light, protein-packed whole grains for today's frontier vibe, photorealistic, inviting, negative space top",
+      "negativePrompt": "snow, mountains, text, logo",
+      "settings": {"width": 1024, "height": 1024, "cfgScale": 7.5, "seed": 48},
+      "use": "US-SE localization variant"
+    },
+    {
+      "id": "kodiak-08-red-wagon-heirloom",
+      "product": "power-cakes",
+      "prompt": "Heirloom whole wheat flapjack ingredients on vintage red wagon: burlap sack of wheat, eggs, milk, Kodiak Power Cakes box centered, Park City frontier heritage, soft studio light, 1982 callback, rustic but premium, photorealistic, empty sky negative space, no text beyond packaging, no added logo",
+      "negativePrompt": "text, logo, modern grocery aisle",
+      "settings": {"width": 1024, "height": 1024, "cfgScale": 7.5, "seed": 49},
+      "use": "heritage / founder story tile"
+    }
+  ],
+  "s3_seeding": {
+    "intended_store": "S3Vectors (mcp__s3vectors.store) — FAILED no credentials at runtime, fallback to local file + Valkey",
+    "fallback_paths": ["docs/kodiak-nova-canvas-references.json", "valkey hash kodiak:references"],
+    "generate_py_integration": "generate_hero() in src/creative_automation/generate.py currently builds prompt as: Premium studio hero for '{product_name}' ({product_id}), audience {audience}, region {region}, vibe {brief_msg} + clean background soft studio light. Replace/augment with prompts above per product_id when AWS creds available: use NOVA_CANVAS_MODEL amazon.nova-canvas-v1:0, BEDROCK_REGION us-east-1, cfgScale 7.5, seed 42-49."
+  }
+}

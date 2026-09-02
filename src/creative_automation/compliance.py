@@ -16,7 +16,12 @@ PROHIBITED_WORDS = [
     "FDA approved",  # flag unless verified
 ]
 
-DEFAULT_BRAND_COLORS = ["#0A2540", "#00D4AA"]
+try:
+    from .token_loader import get_brand_colors  # type: ignore
+
+    DEFAULT_BRAND_COLORS = get_brand_colors()
+except Exception:
+    DEFAULT_BRAND_COLORS = ["#3B2316", "#E8530E", "#1A3C34"]
 
 
 def check_legal(message: str) -> Dict:
