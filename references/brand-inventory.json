@@ -1,68 +1,13 @@
 {
-  "source": "kodiakcakes.com and amazon.com brand stores",
-  "fetched_at": "2026-09-02",
-  "collections": [
-    {
-      "product": "Buttermilk Power Cakes",
-      "collection": "Flapjack & Waffle Mix",
-      "url": "https://kodiakcakes.com/collections/flapjack-waffle-mix",
-      "image": "https://kodiakcakes.com/cdn/shop/files/705599011627_FlapjackMix_Buttermilk_Front_1.png"
-    },
-    {
-      "product": "Maple Pecan Overnight Oats",
-      "collection": "Overnight Oats",
-      "url": "https://kodiakcakes.com/collections/overnight-oats",
-      "image": "https://kodiakcakes.com/cdn/shop/files/705599020797-Kodiak_Cakes-Maple_Pecan-Overnight_Oats-Pouch.png"
-    },
-    {
-      "product": "Maple Brown Sugar Peak Oatmeal Packets",
-      "collection": "Oatmeal",
-      "url": "https://kodiakcakes.com/collections/oatmeal",
-      "image": "https://kodiakcakes.com/cdn/shop/files/705599018770-Kodiak-MBS-Peak-Oatmeal--Front_Shadow.png"
-    },
-    {
-      "product": "Snack Bars - Brown Sugar Cinnamon Mini Bars",
-      "collection": "Snack Bars",
-      "url": "https://kodiakcakes.com/collections/granola-bars",
-      "image": "kodiakcakes.com snack bars"
-    },
-    {
-      "product": "Kodiak Cups",
-      "collection": "Kodiak Cups",
-      "url": "https://kodiakcakes.com/collections/kodiak-cups"
-    },
-    {
-      "product": "Granola",
-      "collection": "Granola",
-      "url": "https://kodiakcakes.com/collections/granola"
-    },
-    {
-      "product": "Baking Mixes",
-      "collection": "Baking Mixes",
-      "url": "https://kodiakcakes.com/collections/baking-mixes"
-    },
-    {
-      "product": "Frozen Breakfast",
-      "collection": "Frozen Breakfast",
-      "url": "https://kodiakcakes.com/collections/toaster-waffles-flapjacks"
-    }
-  ],
-  "amazon_store_url": "https://www.amazon.com/stores/page/19CF7868-DF80-4939-932A-6FD69C6E5A1E",
-  "amazon_store_notes": "Amazon brand store \u2014 same collections, mirrored for shoppers searching Amazon. Copy images and copy text mirror kodiakcakes.com but optimized for Amazon search.",
-  "brand_colors_from_store": {
-    "brandfetch": {
-      "Thunderbird": "#B51E14",
-      "Goldenrod": "#FACC7C",
-      "Black Marlin": "#382316"
-    },
-    "tokens": {
-      "bearBrown": "#3B2316",
-      "blazeOrange": "#E8530E",
-      "frontierGreen": "#1A3C34"
-    },
-    "note": "Brandfetch shows older red/gold, tokens use frontier palette from Wasatch story \u2014 tokens are authoritative for pipeline"
-  },
-  "ingredients_page": "https://kodiakcakes.com/pages/ingredients \u2014 real food for real adventures, 100 percent whole grains, protein, non genetically modified, no artificial flavors, real fruit, nuts and seeds, colors from natural sources",
-  "subscription_page": "https://kodiakcakes.com/pages/subscriptions \u2014 subscribe and save 15 percent, free ground shipping over 45 dollars, start and stop any time, management portal",
-  "store_locator": "https://kodiakcakes.com/pages/store-locator \u2014 example Alamogordo New Mexico: Walmart and Albertsons carry Kodiak, plus Target in Las Cruces. Small independents surfaced by zip."
+  "brand": "Kodiak Cakes",
+  "source": "full dump from kodiakcakes.com sitemaps + brand store",
+  "sitemap_urls": 728,
+  "images_total": 736,
+  "pages_total": 77,
+  "s3_raw_prefix": "s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/raw-ingest/kodiakcakes/",
+  "collections": 65,
+  "products": 88,
+  "pages": 36,
+  "blogs": 538,
+  "note": "This is the foundation \u2014 not a mock. Every future ad now pulls the real brown box, real pack shots, real ingredient copy, real Keep It Wild voice from here. Ready for Titanium embedding into S3 Vectors knowledge base as training data."
 }
