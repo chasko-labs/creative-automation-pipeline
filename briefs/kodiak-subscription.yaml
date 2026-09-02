@@ -1,0 +1,15 @@
+campaign_name: "Kodiak — Subscribe and Save Home Delivery"
+brand: "KODIAK"
+target_region: "US"
+target_market: "US-NATIONAL-DTC"
+target_audience: "Home pantry shoppers 25-50, subscribe and save, free shipping over 45 dollars"
+campaign_message: "Subscribe and save — 15 percent off plus free shipping over 45 dollars, real food for real adventures."
+language: "en"
+brand_colors: ["#3B2316", "#E8530E", "#1A3C34"]
+products:
+  - id: power-cakes
+    name: "Buttermilk Power Cakes"
+    description: "Subscribe: Power Cakes front door every month"
+  - id: oatmeal-cup
+    name: "Protein Oatmeal Cup"
+    description: "Subscribe: Oatmeal cups delivered, start and stop any time"

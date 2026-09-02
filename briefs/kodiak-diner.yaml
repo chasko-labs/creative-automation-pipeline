@@ -1,0 +1,15 @@
+campaign_name: "Kodiak — Diner Flip"
+brand: "KODIAK"
+target_region: "US"
+target_market: "US-SW-DINER"
+target_audience: "Diner regulars and families near Las Cruces and Alamogordo, weekend brunch"
+campaign_message: "Now flipping Kodiak Cakes at your diner — protein-packed whole grains for your frontier."
+language: "en"
+brand_colors: ["#3B2316", "#E8530E", "#1A3C34"]
+products:
+  - id: power-cakes
+    name: "Buttermilk Power Cakes"
+    description: "Diner flapjack — Kodiak Power Cakes on the griddle, 14 grams protein"
+  - id: bear-bites
+    name: "Bear Bites Graham Crackers"
+    description: "Kids side — Bear Bites graham for cubs"

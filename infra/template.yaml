@@ -1,0 +1,162 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Kodiak creative pipeline - one cloud setup for style library, localization memory, and retail network. Retains buckets on delete.
+Parameters:
+  ProjectName:
+    Type: String
+    Default: kodiak-creatives
+  BucketName:
+    Type: String
+    Default: chasko-creative-dam-946179428633-us-east-1
+    Description: Cloud storage bucket name - must be globally unique. Current live bucket is chasko-creative-dam-946179428633-us-east-1 in us-east-1. Change only if you need a second environment.
+
+Resources:
+  # Cloud storage for style and photos - versioned, private, encrypted
+  StyleLibraryBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BucketName: !Ref BucketName
+      VersioningConfiguration:
+        Status: Enabled
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: aws:kms
+            BucketKeyEnabled: true
+      LifecycleConfiguration:
+        Rules:
+          - Id: abort-multipart
+            Status: Enabled
+            AbortIncompleteMultipartUpload:
+              DaysAfterInitiation: 7
+          - Id: renders-archive
+            Status: Enabled
+            Transitions:
+              - StorageClass: STANDARD_IA
+                TransitionInDays: 90
+              - StorageClass: GLACIER
+                TransitionInDays: 180
+              - StorageClass: DEEP_ARCHIVE
+                TransitionInDays: 365
+            NoncurrentVersionTransitions:
+              - StorageClass: STANDARD_IA
+                TransitionInDays: 30
+                NewerNoncurrentVersions: 2
+      Tags:
+        - Key: project
+          Value: !Ref ProjectName
+        - Key: brand
+          Value: kodiak
+
+  StyleLibraryBucketPolicyTLSOnly:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref StyleLibraryBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: DenyInsecureTransport
+            Effect: Deny
+            Principal: '*'
+            Action: s3:*
+            Resource:
+              - !Sub ${StyleLibraryBucket.Arn}
+              - !Sub ${StyleLibraryBucket.Arn}/*
+            Condition:
+              Bool:
+                aws:SecureTransport: false
+
+  # Table that remembers what worked per place - one row per creative per place
+  LocalizationMemoryTable:
+    Type: AWS::DynamoDB::Table
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      TableName: !Sub ${ProjectName}-localization-memory
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: market
+          AttributeType: S
+        - AttributeName: place_message_id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: market
+          KeyType: HASH
+        - AttributeName: place_message_id
+          KeyType: RANGE
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
+      Tags:
+        - Key: project
+          Value: !Ref ProjectName
+
+  # Retail network - every store that carries Kodiak, one row per storefront
+  RetailNetworkTable:
+    Type: AWS::DynamoDB::Table
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      TableName: !Sub ${ProjectName}-retail-network
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: store_id
+          AttributeType: S
+        - AttributeName: market
+          AttributeType: S
+      KeySchema:
+        - AttributeName: store_id
+          KeyType: HASH
+      GlobalSecondaryIndexes:
+        - IndexName: byMarket
+          KeySchema:
+            - AttributeName: market
+              KeyType: HASH
+          Projection:
+            ProjectionType: ALL
+      Tags:
+        - Key: project
+          Value: !Ref ProjectName
+
+  # Searchable knowledge - place, audience, message, photo cue - via vector storage
+  # Using S3 Vectors (managed, no servers) with S3VectorsConfiguration for the knowledge base
+  # See docs at https://docs.aws.amazon.com/bedrock/latest/userguide/kb-permissions.html for full policy
+
+  CreativePipelineLogBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BucketName: !Sub ${ProjectName}-logs-${AWS::AccountId}-${AWS::Region}
+      VersioningConfiguration:
+        Status: Enabled
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: aws:kms
+            BucketKeyEnabled: true
+
+Outputs:
+  StyleLibraryBucketName:
+    Value: !Ref StyleLibraryBucket
+    Description: Cloud storage bucket - use as DAM_S3_BUCKET with prefix brands/kodiak/
+  StyleLibraryPrefix:
+    Value: brands/kodiak/
+  LocalizationMemoryTableName:
+    Value: !Ref LocalizationMemoryTable
+  RetailNetworkTableName:
+    Value: !Ref RetailNetworkTable
+  LogBucketName:
+    Value: !Ref CreativePipelineLogBucket
+  NextSteps:
+    Value: !Sub 'export DAM_S3_BUCKET=${StyleLibraryBucket} DAM_S3_PREFIX=brands/kodiak/ && ./scripts/sync-dam.sh push'

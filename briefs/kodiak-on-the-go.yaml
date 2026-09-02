@@ -1,0 +1,18 @@
+campaign_name: "Kodiak — On the Go Frontier"
+brand: "KODIAK"
+target_region: "US"
+target_market: "US-NATIONAL-ON-THE-GO"
+target_audience: "Busy students, commuters, and trail families 18-34, need quick protein that travels"
+campaign_message: "On the go never tasted so good — 5 grams of protein for busy mornings."
+language: "en"
+brand_colors: ["#3B2316", "#E8530E", "#1A3C34"]
+products:
+  - id: oatmeal-cup
+    name: "Protein Oatmeal Cup"
+    description: "Maple brown sugar protein oatmeal cup — just add water, 5 minutes"
+  - id: bear-bites
+    name: "Bear Bites Graham Crackers"
+    description: "Cinnamon graham Bear Bites — 100 calorie anytime fuel, 5 grams protein"
+  - id: power-cakes
+    name: "Buttermilk Power Cakes"
+    description: "Power Cakes flapjack mix — make ahead, reheat, go"
