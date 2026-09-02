@@ -87,6 +87,7 @@ def compose_creative(
     ratio_key: str,
     brand_logo: Path | None = None,
     brand_colors: list[str] | None = None,
+    retailer_logo: Path | None = None,
 ) -> Path:
     """Produce a social creative at the requested ratio with message overlay."""
     key = CANONICAL.get(ratio_key, ratio_key)
@@ -162,7 +163,7 @@ def compose_creative(
     tw = bbox[2] - bbox[0]
     draw.text(((W - tw) / 2, H - 44), footer, fill=(255, 255, 255, 200), font=small_font)
 
-    # logo overlay if available — token clearSpace
+    # logo overlay if available — token clearSpace (KODIAK Bear top-left)
     if brand_logo and brand_logo.exists():
         try:
             logo = Image.open(brand_logo).convert("RGBA")
@@ -177,6 +178,27 @@ def compose_creative(
             bg.paste(logo, (logo_offset, logo_offset), logo)
         except Exception as e:
             print(f"[compose] logo overlay failed: {e}")
+
+    # retailer logo — channel partner badge (Costco, Target etc) — bottom-right, small, only when not direct/subscriber variant
+    if retailer_logo and retailer_logo.exists():
+        try:
+            rlogo = Image.open(retailer_logo).convert("RGBA")
+            # scale to ~18% width, bottom-right with 24px padding
+            rw = int(W * 0.18)
+            rh = int(rlogo.height * (rw / rlogo.width))
+            # don't obscure message bar: place just above orange bar
+            rx = W - rw - 24
+            ry = H - rh - 24
+            # ensure not overlapping scrim text: keep inside bar_top..H-8
+            if ry < bar_top + 20:
+                ry = bar_top + 20
+            # subtle white backing for retailer mark
+            pad = 6
+            bg2 = Image.new("RGBA", (rw + pad*2, rh + pad*2), (255, 255, 255, 220))
+            bg.paste(bg2, (rx - pad, ry - pad), bg2)
+            bg.paste(rlogo.resize((rw, rh), Image.BICUBIC), (rx, ry), rlogo.resize((rw, rh), Image.BICUBIC))
+        except Exception as e:
+            print(f"[compose] retailer logo failed: {e}")
 
     # brand color accent bar — token-driven
     colors = brand_colors or _default_brand
