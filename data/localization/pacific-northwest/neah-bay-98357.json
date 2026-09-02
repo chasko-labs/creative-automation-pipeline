@@ -1,0 +1,286 @@
+{
+  "$schema": "https://kodiakcakes.com/schema/locality-v1.json",
+  "generated": "2026-09-02",
+  "updated_at": "2026-09-02T21:05:00Z",
+  "market": "US-WA-NEAHBAY",
+  "place": "Neah Bay, Washington 98357 — farthest northwestern tip Olympic Peninsula, Makah Tribe",
+  "zip": "98357",
+  "county": "Clallam County",
+  "region": "Olympic Peninsula — Makah Nation, northwestern tip",
+  "state": "WA",
+  "coordinates": {
+    "lat": 48.36,
+    "lon": -124.62
+  },
+  "elevation_ft": 75,
+  "elevation_m": 23,
+  "population": 1500,
+  "classification": "Frontier — farthest northwestern tip of Olympic Peninsula, Makah Tribe reservation, outermost Washington",
+  "frontier": true,
+  "subscriber_variant": true,
+  "retail_gap": "Only mini-marts and Washburn's General Store in Neah Bay (est. 1889, limited dusty-box SKU). Nearest full grocer is Port Angeles Safeway / Walmart — 70 miles of winding 2-lane SR-112 / US-101 through Clallam Bay and Sekiu. 4–5 hours to Seattle including Puget Sound ferry (Edmonds–Kingston 30-min crossing or Bainbridge Island). No full-line grocery chain within the village.",
+  "fulfillment": "DTC subscription & Amazon.com — subscription & amazon.com ads would be seen alongside Seattle if Washington state location is noted on app open (Washington state targeting collapses Seattle + Neah Bay into one state audience). Urban Seattle bulk-Costco creative and Neah Bay frontier DTC creative share the same Washington view unless zip/market filter is applied. Training data ensures urban representation includes frontier.",
+  "retailer": "Washburn's General Store (Neah Bay), Makah Mini Mart, Port Angeles Safeway / Walmart (70mi), Costco Sequim / Seattle (4–5hr incl. ferry)",
+  "retailer_detail": {
+    "Washburns": "Washburn's General Store — Neah Bay village only full general store, Makah Bay dock road, limited grocery SKU, frontier price point",
+    "Makah_Mini_Mart": "Makah Mini Mart + village convenience — snacks, staples, no fresh full aisle",
+    "Port_Angeles": "Port Angeles Safeway / Walmart Supercenter — 70mi east via SR-112, 90–110 min drive, nearest full-line grocer",
+    "Costco": "Costco Wholesale Sequim (closest warehouse) & Seattle metro warehouses — 4–5hr with ferry, bulk stock-up for Seattle side",
+    "halo": [
+      "Forks Outfitters (Forks, 65mi south)",
+      "Clallam Bay Grocery (Clallam Bay, 15mi southeast — small, seasonal)"
+    ]
+  },
+  "audience": "Makah families, Neah Bay village regulars, Olympic Peninsula frontier homesteaders, Seattle Costco shoppers who see Washington frontier representation",
+  "audience_segments": [
+    {
+      "segment": "makah families",
+      "label": "Makah families",
+      "description": "Makah Tribe families — treaty fishery, cedar, longhouse, Cape Flattery. Kids called cubs, salmon on cedar, huckleberries in late summer. Protein that honors the water. Subscription where the store is 70 miles away.",
+      "cues": [
+        "cedar canoe",
+        "Cape Flattery trail",
+        "salmon on cedar plank",
+        "huckleberry basket",
+        "enamel mug at harbor"
+      ]
+    },
+    {
+      "segment": "frontier homesteaders",
+      "label": "Olympic Peninsula frontier homesteaders & fishers",
+      "description": "Fishers, lodge hosts, and families living at the tip — Neah Bay to Sekiu. Early boat launch, 14g protein before the Strait, mini-mart after. Kodiak fills pantry when the road is long.",
+      "cues": [
+        "dawn harbor launch",
+        "Washburn's porch",
+        "70mi road sign",
+        "fog over Strait of Juan de Fuca",
+        "cast iron at cabin"
+      ]
+    },
+    {
+      "segment": "seattle urban aware",
+      "label": "Seattle urban-aware (Seattle Costco bulk shoppers who see frontier)",
+      "description": "Seattle Costco shoppers — bulk Family Size, rain-morning tech families (South Lake Union, Ballard, Capitol Hill), Target + Costco halo. Training data ensures these urban families ALSO see Neah Bay frontier creative when Washington state is noted, not just their bulk evergreen stack — so the model learns Washington is both bulk city and outermost frontier.",
+      "cues": [
+        "bulk Costco cart in SODO",
+        "rain-morning griddle",
+        "tech family kitchen",
+        "laptop beside Bear Bites",
+        "evergreen + harbor dual cue"
+      ]
+    }
+  ],
+  "message": "Keep It Wild — protein-packed whole grains for your Neah Bay frontier. Nourishment for Today's Frontier",
+  "message_variants": [
+    "Keep It Wild — protein-packed whole grains for your Neah Bay frontier. Nourishment for Today's Frontier",
+    "Makah water meets Wasatch grain — 14g protein where Washington ends and the water begins",
+    "Frontier still makes breakfast — 70 miles from the grocer, Neah Bay still flips Kodiak",
+    "Feeding Epic Days & Wilder Lives — from Cape Flattery to Port Angeles, 100% whole grains"
+  ],
+  "cue": "Neah Bay harbor at dawn, Makah cedar canoe, Washburn's porch, Olympic Peninsula fog, huckleberry compote on cast iron, salmon + chives savory stack",
+  "photo_cue_detail": "Olympic Peninsula fog at dawn with Strait of Juan de Fuca negative sky at top for text (brand token C01). Foreground: cast-iron stack on Washburn's General Store porch or harbor dock — small bowl of huckleberry compote (deep purple, Aug) and alternate savory build with smoked salmon + chives. Cedar canoe edge, Cape Flattery rock negative space. Bear silhouette at 24,24, 8px Blaze Orange bar, 0.18 scrim band at 68%. No costume grizzlies — respectful distance, Makah cultural respect, no appropriation of cedar ceremony.",
+  "hyper_local_sources": [
+    {
+      "name": "Washburn's General Store",
+      "location": "Neah Bay, WA 98357 — Bayview Ave, Makah Reservation",
+      "schedule": "Daily, village hours — only full general store in Neah Bay",
+      "season": "Year-round, limited SKU",
+      "kodiak_tie": "Dusty box on shelf cue — if Washburn's has one box, subscription fills the pantry. KODIAK® Power Cakes beside huckleberry jar.",
+      "notes": "Since 1889 — frontier general store. Photo anchor: Washburn's porch, road sign Port Angeles 70mi. Cross-promo staging for Makah fishery."
+    },
+    {
+      "name": "Makah Tribal Fishery / Makah Seafood",
+      "location": "Neah Bay dock — Strait of Juan de Fuca, Makah Nation",
+      "schedule": "Salmon May–Sep (sockeye peak Jun, coho Aug), Halibut Mar–Jun (peak Apr–May)",
+      "season": "Salmon May–Sep; Halibut Mar–Jun",
+      "kodiak_tie": "Cold-smoked salmon + chives savory Kodiak — fold flaked cedar-smoked salmon + fresh chives into Buttermilk Power Cakes savory waffle batter; 14g protein + omega-3.",
+      "notes": "Respect Makah treaty fishery. Potential cross_promo partner: Makah Tribal fishery — cedar-smoked salmon as topping, not batter mix-in brand."
+    },
+    {
+      "name": "Olympic Peninsula Huckleberry Forage",
+      "location": "Hoh Rainforest edge, Cape Flattery trail, Makah gathering",
+      "schedule": "Huckleberries late Jul–Sep (peak Aug), salal Aug–Sep",
+      "season": "Late Jul–Sep, peak Aug",
+      "kodiak_tie": "Huckleberry compote sweet stack — simmer huckleberries + honey + lemon, spoon over Buttermilk Power Cakes. Neah Bay summer on a griddle. Tart forest-bright cuts hearty grain.",
+      "notes": "Peak Aug — same window as salmon coho. Photo: small bowl of purple compote beside stack, fog behind."
+    },
+    {
+      "name": "Coastal Seaweed & Cedar Gathering",
+      "location": "Makah coastal gathering — Strait & Pacific beaches",
+      "schedule": "Spring gathering",
+      "season": "Spring",
+      "kodiak_tie": "Mineral finishing salt — sprinkle finely as seasoning, not in batter. Respect traditional food — Kodiak stays whole, frontiersfolks elevate it.",
+      "notes": "Honor Makah foodways — ask, don't appropriate. Cedar is cultural, not ingredient. Use as photo cue only."
+    }
+  ],
+  "recipe_pairings": [
+    {
+      "kodiak_sku": "Buttermilk Power Cakes — savory",
+      "pairing": "Cedar-smoked salmon + chives",
+      "build": "1 cup KODIAK® Buttermilk Power Cakes + 2/3 cup milk + 1 egg, fold 1/4 cup flaked cold-smoked Makah salmon + 2 Tbsp snipped chives, griddle in light oil, finish with lemon-dill crème. 14g protein + omega-3. Source: Makah Tribal fishery May–Sep.",
+      "source": "Makah Tribal fishery — Neah Bay dock, salmon May–Sep, halibut Mar–Jun"
+    },
+    {
+      "kodiak_sku": "Buttermilk Power Cakes — sweet",
+      "pairing": "Olympic huckleberry compote with honey-lemon",
+      "build": "Simmer 1 cup huckleberries + 1 Tbsp honey + 1 tsp lemon 10 min, spoon warm over Power Cakes stack, dust smoked salt. Peak Aug. Source: Hoh/Cape Flattery forage Jul–Sep.",
+      "source": "Olympic Peninsula huckleberries Aug (late Jul–Sep)"
+    },
+    {
+      "kodiak_sku": "Power Waffles / Bear Bites",
+      "pairing": "Seaweed finishing salt + cedar photo cue",
+      "build": "Toast Power Waffle, sprinkle micro seaweed salt after cook, serve with huckleberry compote side. Not in batter — respects Makah traditional food.",
+      "source": "Makah coastal gathering — spring seaweed, elder guidance"
+    }
+  ],
+  "tags": [
+    "#NeahBay",
+    "#Makah",
+    "#MakahTribe",
+    "#OlympicPeninsula",
+    "#CapeFlattery",
+    "#98357",
+    "#WashburnsGeneralStore",
+    "#KeepItWild",
+    "#FrontierBreakfast",
+    "#HuckleberryCompote",
+    "#SmokedSalmon",
+    "#CedarSalmon",
+    "#StraitOfJuanDeFuca",
+    "#WashingtonFrontier",
+    "#ClallamCounty"
+  ],
+  "primary_tags": [
+    "#NeahBay",
+    "#Makah",
+    "#98357"
+  ],
+  "search_text": "Neah Bay WA 98357 farthest northwestern tip Olympic Peninsula Makah Tribe 1500 Washburn's General Store mini-marts Port Angeles 70mi winding 2-lane SR-112 4-5hr to Seattle incl ferry Edmonds-Kingston elevation 75ft coordinates 48.36 -124.62 salmon May-Sep halibut Mar-Jun huckleberries Aug seaweed cedar smoked salmon chives savory Kodiak huckleberry compote sweet frontier subscriber_variant cross_promo Makah Tribal fishery subscription amazon.com ads alongside Seattle if Washington state location noted",
+  "platform_bundles": {
+    "instagram": "#KodiakCakes #KeepItWild #NeahBay #Makah #98357 #OlympicPeninsula #CapeFlattery",
+    "tiktok": "#KodiakCakes #NeahBay #Makah #FrontierBreakfast",
+    "facebook": "#KodiakCakes #KeepItWild #NeahBay #Makah #OlympicPeninsula",
+    "x": "#KodiakCakes #NeahBay #Makah",
+    "pinterest": "#KodiakCakes (titles carry 'Neah Bay Huckleberry — Olympic Peninsula')",
+    "youtube": "#KodiakCakes #KeepItWild #NeahBay #Makah #Shorts (Shorts only)",
+    "linkedin": "#KodiakCakes #KeepItWild"
+  },
+  "caption_bundles": {
+    "instagram_1x1": "Keep It Wild — Neah Bay frontier stack. Makah water meets Wasatch grain. Huckleberry compote (Aug peak) over KODIAK® Buttermilk Power Cakes, or fold cedar-smoked salmon + chives for savory — 14g protein + 100% whole grains where Washington ends. Find us at Washburn's General Store or ship via subscription & Amazon.com when the road is 70mi. #KodiakCakes #KeepItWild #NeahBay #Makah #98357 #OlympicPeninsula #CapeFlattery",
+    "tiktok_9x16": "Neah Bay flapjacks — farthest frontier. Huckleberry compote or smoked salmon + chives, fog over the Strait. 4hr to Seattle, still Kodiak. #KodiakCakes #NeahBay #Makah",
+    "facebook_1x1": "Neah Bay frontier — farthest northwestern tip. Makah salmon May–Sep, halibut Mar–Jun, huckleberries Aug on Kodiak Power Cakes. Washburn's porch at 48.36,-124.62, Port Angeles 70mi away. Ship it where the store is far: subscription & Amazon.com. #KodiakCakes #KeepItWild #NeahBay",
+    "pinterest_2x3": "Neah Bay Huckleberry Compote Flapjacks — Olympic Peninsula | 14g Protein, 100% Whole Grains | KODIAK® | 98357",
+    "youtube_shorts": "Neah Bay frontier — huckleberry compote or salmon + chives on Kodiak | 70mi to grocer, still 14g protein #KodiakCakes #KeepItWild #Shorts",
+    "in_store_endcap": "KODIAK® Keep It Wild — Neah Bay frontier, 14g protein. Find us at Washburn's General Store — or stock the frontier via subscription & Amazon.com when Port Angeles is 70mi away.",
+    "table_tent": "KODIAK® at your Neah Bay table — protein-packed whole grains for the outermost frontier. Ask for the huckleberry compote or salmon + chives savory stack."
+  },
+  "families_quick": {
+    "brand": [
+      "#KodiakCakes"
+    ],
+    "campaign": [
+      "#KeepItWild"
+    ],
+    "product_example": [
+      "#ProteinPacked",
+      "#14gProtein",
+      "#100PercentWholeGrains"
+    ],
+    "community_example": [
+      "#BearBites",
+      "#FrontierBreakfast",
+      "#MakahFrontier"
+    ]
+  },
+  "voice_guardrails": {
+    "authentic_segments_only": [
+      "Makah families",
+      "Olympic Peninsula frontier homesteaders & fishers",
+      "Seattle urban-aware"
+    ],
+    "avoid": [
+      "cringe persona",
+      "stereotyped fisher caricature",
+      "appropriated Makah ceremony language",
+      "tech-bro frontier slang",
+      "fabricated local slang"
+    ],
+    "tone": "adventurous, nourishing, rugged — short Olympic sentences, verbs-forward Fuel your frontier, cedar and fog and enamel mugs. Protect the bear; no captive bear close-ups. Honor Makah sovereignty and treaty fishery.",
+    "brand_marks": [
+      "KODIAK®",
+      "KODIAK CAKES®",
+      "KODIAK POWER CUPS®",
+      "Feeding Epic Days & Wilder Lives",
+      "Nourishment for Today's Frontier"
+    ],
+    "compliance": "KODIAK Brown #3B2316 dominant 60-70%, Blaze Orange #E8530E ≤18% except 8px bar, bear at 24,24"
+  },
+  "seasonality": {
+    "salmon_window": "May–Sep (sockeye peak Jun, coho Aug) — Makah tribal fishery",
+    "halibut_window": "Mar–Jun (peak Apr–May) — Strait of Juan de Fuca",
+    "huckleberry_window": "Late Jul–Sep, peak Aug — Olympic Peninsula/Cape Flattery",
+    "seaweed_window": "Spring gathering — coastal, Makah tradition",
+    "cedar_window": "Year-round cultural cue — photo only, not ingredient"
+  },
+  "store_halo": "Olympic Peninsula halo — same voice travels to Forks, Clallam Bay, Sekiu, Port Angeles commuters; bulk Family Size via Costco Sequim/Seattle halo; Washburn's for village fill, Port Angeles for weekly stock, DTC subscription for frontier.",
+  "seasonal_local": [
+    {
+      "name": "Makah Salmon & Halibut",
+      "where": "Neah Bay — Makah tribal fishery, Strait of Juan de Fuca",
+      "when": "Salmon May–Sep (sockeye Jun, coho Aug), halibut Mar–Jun (peak Apr–May)",
+      "flavor": "Wild, clean, cedar-smoked",
+      "pancake_tip": "Fold flaked cedar-smoked salmon + chives into Kodiak savory waffle batter, or keep sweet: huckleberry compote over Buttermilk Power Cakes with smoked salt. Protein-forward, Washington's protein from the water meets protein from the grain. Lean omega-3 + 14g whole grain.",
+      "cultural_note": "Makah Tribe — respect treaty fishery, seasonal harvest, elevate frontiersfolks who make breakfast possible",
+      "rating": "5.0 Makah fishery — seasonal"
+    },
+    {
+      "name": "Huckleberries & Salal Berries",
+      "where": "Olympic Peninsula — Hoh rainforest edge, Cape Flattery trail",
+      "when": "Huckleberries late Jul–Sep (peak Aug), salal Aug–Sep",
+      "flavor": "Tart, forest-bright",
+      "pancake_tip": "Simmer huckleberries with honey + lemon into compote that cuts hearty grain. Neah Bay summer on a griddle.",
+      "rating": "4.9 Forage — Aug peak"
+    },
+    {
+      "name": "Seaweed & Cedar",
+      "where": "Makah coastal gathering",
+      "when": "Spring gathering",
+      "flavor": "Mineral, umami — sprinkle finely as seasoning not batter",
+      "pancake_tip": "Use as finishing salt, not in batter — respect traditional food. Keep Kodiak whole, let frontiersfolks elevate it.",
+      "cultural_note": "Honor Makah foodways — ask, don't appropriate",
+      "rating": "Cultural — photo cue only"
+    }
+  ],
+  "where_extended": "Neah Bay plus the Strait — Cape Flattery, Clallam Bay, Sekiu, Forks corridor, Port Angeles commuters",
+  "who_extended": {
+    "primary": "Makah families and Neah Bay fishers who launch before dawn and forage huckleberries in Aug — frontiersfolks at Washington's tip",
+    "costco": "Seattle bulk stock-up families — but training ensures they ALSO see Neah Bay frontier representation when Washington state is noted",
+    "amazon_subscriber": "Frontier subscribers — 70mi to grocer, DTC + Amazon Subscribe & Save where the store is far, quarterly smoked-salmon season drop",
+    "port_angeles": "Port Angeles commuters — weekly 70mi stock run, Washburn's porch mid-week fill"
+  },
+  "one_line_options_extended": [
+    "Keep It Wild — protein-packed whole grains for your Neah Bay frontier. Nourishment for Today's Frontier",
+    "Feeding Epic Days & Wilder Lives — from Cape Flattery at 48.36,-124.62 to Port Angeles, 70 miles of frontier",
+    "Makah water meets Wasatch grain — cedar-smoked salmon + chives or huckleberry compote on Kodiak"
+  ],
+  "cross_promo": {
+    "partner": "Makah Tribal fishery — Makah Seafood (potential)",
+    "partner_name": "Makah Tribal Fishery",
+    "url": "https://makah.com/fisheries (tribal fisheries — confirm before activation)",
+    "product": "Makah cedar-smoked salmon — seasonal Strait of Juan de Fuca catch",
+    "activation": "KODIAK® × Makah Fishery frontier bundle: Neah Bay Savory Salmon Power Cakes — Buttermilk Power Cakes + flaked cedar-smoked salmon + chives, huckleberry compote sweet variant",
+    "recipe_localization": "Neah Bay Savory Salmon Pancakes: 1 cup KODIAK® Buttermilk Power Cakes + 1/4 cup flaked cedar-smoked salmon + chives folded in, lemon-dill crème, or Huckleberry Compote Pancakes: Power Cakes + huckleberry compote with honey-lemon, Cape Flattery fog cue",
+    "status": "maybe — honor sovereignty, propose only with tribal consent, no appropriation"
+  },
+  "seattle_awareness": {
+    "seattle_shoppers": "Seattle Costco shoppers — bulk Family Size, rain-morning griddle, tech families (South Lake Union / Ballard / Capitol Hill), Target + Costco halo, evergreen frontier #Seattle #CostcoFinds",
+    "what_seattle_sees": "Bulk Evergreen frontier — protein for gray mornings, coffee beside flapjacks, Family Size bag, rain-morning stock-up. ALSO sees Neah Bay frontier representation when Washington state location is noted — so urban training data is not bulk-only.",
+    "what_neah_bay_sees": "Frontier DTC — subscription & Amazon.com, Washburn's dusty box vs shipped frontier bundle, huckleberry compote / salmon + chives savory, 70mi to grocer, ferry to city.",
+    "why_together": "If Washington state location is noted (app open 'use your location' or state filter), both Seattle (US-W-SEA) and Neah Bay (US-WA-NEAHBAY) ads are eligible for the same Washington audience. Training ensures Seattle vectors also retrieve Neah Bay — urban model sees frontier, not just bulk. Without zip/market filter, state-level collapses city + frontier; intentional to teach representation.",
+    "subscription_explanation": "Seattle has Costco next door (bulk). Neah Bay has no chain grocer — DTC subscription & Amazon.com is the pantry. Ads for subscription & amazon.com would be seen alongside Seattle Evergreen bulk ads if Washington state location is noted — frontier fulfillment is the story, Seattle fulfillment is bulk shelf. Both are Washington.",
+    "training_data_implication": "Ensure localization-training-data.jsonl and store-finder-markets.json both contain US-W-SEA and US-WA-NEAHBAY so vector search for 'Seattle' or 'Washington' retrieves both Washington voices and the model learns urban + frontier are both Washington."
+  },
+  "subscription_explanation": "Subscription & Amazon.com ads would be seen alongside Seattle Evergreen bulk ads if Washington state location is noted on app open — state targeting elides zip distinction. Use your location (zip-level) or market chooser to see prototypes: Seattle bulk vs Neah Bay DTC. Frontier subscriber_variant true = DTC-primary where the nearest grocer is 70mi away.",
+  "is_default_demo": false,
+  "smoke_test": "Frontier smoke test — validates 98357 frontier gap alongside Park City 84098 demo"
+}

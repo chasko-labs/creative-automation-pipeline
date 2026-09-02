@@ -6,12 +6,12 @@
     "counts": {
       "seeded_regions": 18,
       "synthesized_new": 50,
-      "total_markets": 72,
+      "total_markets": 73,
       "bay_area_frontier_added": 1,
       "total": 71
     },
     "locator_url": "https://kodiakcakes.com/pages/store-locator",
-    "total_markets": 72
+    "total_markets": 73
   },
   "markets": [
     {
@@ -801,6 +801,21 @@
         "lon": -106.0228
       },
       "frontier": false
+    },
+    {
+      "market": "US-UT-KAMASVALLEY",
+      "place": "Kamas Valley, UT 84036 \u2014 Peoa, Oakley, Kamas, pure ranching country",
+      "audience": "Peoa ranch families on acreage, Oakley Rodeo Grounds neighbors, Kamas backyard growers, Summit County Arts Council listeners",
+      "message": "KODIAK\u00ae Kamas Valley \u2014 Oakley Rodeo Grounds to your griddle. Ranch neighbors, mountain produce, 14g protein.",
+      "cue": "Peoa river valley at dawn, Oakley Rodeo Grounds with folding tables of grass-fed meats, Kodiak box with mountain greens, acoustic guitar in background, no downtown in sight",
+      "retailer": "Oakley Farmers Market (bi-weekly, Rodeo Grounds), Kamas Valley Market (monthly), No commercial retail \u2014 direct from ranchers",
+      "zip": "84036",
+      "brand": "KODIAK",
+      "frontier": true,
+      "coordinates": {
+        "lat": 40.642,
+        "lon": -111.281
+      }
     }
   ]
 }

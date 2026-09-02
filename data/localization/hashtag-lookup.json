@@ -1,0 +1,1310 @@
+{
+  "$schema": "https://kodiakcakes.com/schema/hashtag-lookup-v1.json",
+  "generated": "2026-09-02",
+  "updated_at": "2026-09-02T21:06:00Z",
+  "description": "Lookup by market/zip for pipeline compose — same bundles as data/recipes/hashtags.json but keyed for O(1) pull during POST /pipeline/run and GET /search. Powers {{store.city}} dynamic and per-market hashtag injection.",
+  "philosophy": "Power gloves: one lookup, no redirect. Pipeline reads market US-SW-LASCRUCES → returns tags + caption bundle + platform bundles.",
+  "by_market": {
+    "US-SW-LASCRUCES": {
+      "market": "US-SW-LASCRUCES",
+      "place": "Las Cruces + Alamogordo, New Mexico",
+      "zip": "88001",
+      "retailer": "Target, Walmart, Albertsons",
+      "audience": "Green chile families, Hatch roast households 28-45",
+      "message": "Green chile meets grizzly — protein for your Las Cruces frontier",
+      "cue": "Roasted Hatch green chile in flapjacks, Organ Mountains bench, trail bench",
+      "tags": [
+        "#HatchGreenChile",
+        "#GreenChile",
+        "#HatchChile",
+        "#RoastedHatch",
+        "#GreenChileFlapjacks",
+        "#GreenChileMeetsGrizzly",
+        "#LasCrucesGreenChile",
+        "#HatchChileFlapjacks",
+        "#NewMexicoGreenChile",
+        "#ChileRoast"
+      ],
+      "green_chile_variants": [
+        {
+          "tag": "#HatchGreenChile",
+          "variant": "canonical Hatch",
+          "use": "Default Las Cruces tag; always include",
+          "product": "all savory SKUs"
+        },
+        {
+          "tag": "#GreenChile",
+          "variant": "short",
+          "use": "TikTok short-caption safe (5 tags max), pairs with #LasCruces"
+        },
+        {
+          "tag": "#HatchChile",
+          "variant": "Hatch short",
+          "use": "AB test vs #HatchGreenChile on IG Reels cover"
+        },
+        {
+          "tag": "#RoastedHatch",
+          "variant": "roast season",
+          "use": "Late Aug roast season tentpole — busheled & frozen"
+        },
+        {
+          "tag": "#GreenChileFlapjacks",
+          "variant": "recipe",
+          "use": "Recipe SKU tie — flapjacks-buttermilk + Hatch + Oaxaca crumble"
+        },
+        {
+          "tag": "#GreenChileMeetsGrizzly",
+          "variant": "campaign",
+          "use": "Campaign slogan hashtag — matches message line"
+        },
+        {
+          "tag": "#LasCrucesGreenChile",
+          "variant": "city + chile",
+          "use": "City-qualified for search 'Las Cruces green chile' RAG hit"
+        },
+        {
+          "tag": "#HatchChileFlapjacks",
+          "variant": "alt recipe",
+          "use": "Alternate recipe surface for embedding recall"
+        },
+        {
+          "tag": "#NewMexicoGreenChile",
+          "variant": "state",
+          "use": "State broad — Albuquerque cross-post"
+        },
+        {
+          "tag": "#ChileRoast",
+          "variant": "seasonal",
+          "use": "August roast house cue — partner diner cross-post"
+        }
+      ],
+      "platform_bundles": {
+        "instagram": "#KodiakCakes #KeepItWild #HatchGreenChile #LasCruces #GreenChileFlapjacks",
+        "tiktok": "#KodiakCakes #GreenChile #LasCruces #TrailFuel",
+        "facebook": "#KodiakCakes #HatchGreenChile #LasCruces",
+        "x": "#KodiakCakes #HatchGreenChile",
+        "pinterest": "#KodiakCakes (titles carry 'Hatch Green Chile Flapjacks — Las Cruces')",
+        "youtube": "#KodiakCakes #KeepItWild #HatchGreenChile #GreenChileFlapjacks #Shorts (Shorts only)",
+        "linkedin": "#KodiakCakes #KeepItWild"
+      },
+      "caption_bundles": {
+        "instagram_1x1": "Green chile meets grizzly — protein for your Las Cruces frontier. Hatch roasted this morning, flipped on cast iron, 14g protein + 100% whole grains. Find us at Target Las Cruces. #KodiakCakes #KeepItWild #HatchGreenChile #LasCruces #GreenChileFlapjacks",
+        "tiktok_9x16": "Green chile flapjacks — Las Cruces style. Hatch in the batter, Organ Mountains behind. #KodiakCakes #GreenChile #LasCruces",
+        "facebook_1x1": "Green chile meets grizzly — Las Cruces frontier flapjacks. Roasted Hatch + Oaxaca on the trail bench. Find us today in Las Cruces! #KodiakCakes #HatchGreenChile",
+        "pinterest_2x3": "Hatch Green Chile Flapjacks — Las Cruces Frontier | 14g Protein, 100% Whole Grains | Kodiak Cakes",
+        "youtube_shorts": "Green chile flapjacks — Las Cruces style | Kodiak Hacks #KodiakCakes #KeepItWild #Shorts"
+      },
+      "primary_tags": [
+        "#HatchGreenChile",
+        "#LasCruces",
+        "#GreenChileFlapjacks"
+      ],
+      "search_text": "Las Cruces green chile Hatch Green Chile flapjacks Organ Mountains 88001",
+      "families_quick": {
+        "brand": [
+          "#KodiakCakes"
+        ],
+        "campaign": [
+          "#KeepItWild"
+        ],
+        "product_example": [
+          "#ProteinPacked",
+          "#14gProtein",
+          "#100PercentWholeGrains"
+        ],
+        "community_example": [
+          "#OnTheGo",
+          "#BearBites"
+        ]
+      }
+    },
+    "US-MW-WASATCH": {
+      "market": "US-MW-WASATCH",
+      "place": "Park City, Wasatch Mountains",
+      "zip": "84060",
+      "retailer": "Target, Walmart",
+      "audience": "Outdoor families, ski and hike households",
+      "message": "Keep It Wild — protein-packed whole grains for today's frontier",
+      "cue": "Wasatch alpenglow, pine, boulder, snow at dawn",
+      "tags": [
+        "#Wasatch",
+        "#ParkCity",
+        "#KeepItWild",
+        "#FrontierBreakfast",
+        "#Alpenglow"
+      ],
+      "platform_bundle": "#KodiakCakes #KeepItWild #Wasatch #ParkCity",
+      "caption": "Keep It Wild — protein-packed whole grains for today's frontier. Wasatch alpenglow, cast-iron stack, 14g protein. #KodiakCakes #KeepItWild #Wasatch #ParkCity",
+      "primary_tags": [
+        "#Wasatch",
+        "#ParkCity"
+      ],
+      "search_text": "Park City, Wasatch Mountains Keep It Wild — protein-packed whole grains for today's frontier #Wasatch #ParkCity #KeepItWild #FrontierBreakfast #Alpenglow",
+      "families_quick": {
+        "brand": [
+          "#KodiakCakes"
+        ],
+        "campaign": [
+          "#KeepItWild"
+        ],
+        "product_example": [
+          "#ProteinPacked",
+          "#14gProtein",
+          "#100PercentWholeGrains"
+        ],
+        "community_example": [
+          "#OnTheGo",
+          "#BearBites"
+        ]
+      }
+    },
+    "US-SW-ALBQ": {
+      "market": "US-SW-ALBQ",
+      "place": "Albuquerque, New Mexico",
+      "zip": "87101",
+      "retailer": "Target, Walmart, Smith's",
+      "audience": "High desert families, adobe morning",
+      "message": "Desert dawn flapjacks — 14 grams for your high desert day",
+      "cue": "Red chile and piñon, enamel mug on portal",
+      "tags": [
+        "#Albuquerque",
+        "#Burque",
+        "#RedChile",
+        "#Pinon",
+        "#DesertDawn",
+        "#NewMexicoTrue"
+      ],
+      "platform_bundle": "#KodiakCakes #RedChile #Albuquerque #NewMexicoTrue",
+      "caption": "Desert dawn flapjacks — 14 grams for your high desert day. Red chile + piñon at sunrise. #KodiakCakes #RedChile #Albuquerque",
+      "primary_tags": [
+        "#Albuquerque",
+        "#Burque"
+      ],
+      "search_text": "Albuquerque, New Mexico Desert dawn flapjacks — 14 grams for your high desert day #Albuquerque #Burque #RedChile #Pinon #DesertDawn #NewMexicoTrue",
+      "families_quick": {
+        "brand": [
+          "#KodiakCakes"
+        ],
+        "campaign": [
+          "#KeepItWild"
+        ],
+        "product_example": [
+          "#ProteinPacked",
+          "#14gProtein",
+          "#100PercentWholeGrains"
+        ],
+        "community_example": [
+          "#OnTheGo",
+          "#BearBites"
+        ]
+      }
+    },
+    "US-SC-AUSTIN": {
+      "market": "US-SC-AUSTIN",
+      "place": "Austin, Texas",
+      "zip": "78701",
+      "retailer": "Target, Whole Foods, H-E-B",
+      "audience": "Breakfast taco families, keep-it-weird hosts",
+      "message": "Breakfast tacos meet flapjacks — whole grains that keep up",
+      "cue": "Salsa over flapjacks, food truck corner",
+      "tags": [
+        "#AustinTexas",
+        "#ATX",
+        "#KeepAustinWeird",
+        "#BreakfastTacos",
+        "#Jalapeno",
+        "#SalsaVerde"
+      ],
+      "platform_bundle": "#KodiakCakes #AustinTexas #BreakfastTacos #Jalapeno",
+      "caption": "Breakfast tacos meet flapjacks — whole grains that keep up. Jalapeno + pepper jack on the food truck corner. #KodiakCakes #AustinTexas #BreakfastTacos",
+      "primary_tags": [
+        "#AustinTexas",
+        "#ATX"
+      ],
+      "search_text": "Austin, Texas Breakfast tacos meet flapjacks — whole grains that keep up #AustinTexas #ATX #KeepAustinWeird #BreakfastTacos #Jalapeno #SalsaVerde",
+      "families_quick": {
+        "brand": [
+          "#KodiakCakes"
+        ],
+        "campaign": [
+          "#KeepItWild"
+        ],
+        "product_example": [
+          "#ProteinPacked",
+          "#14gProtein",
+          "#100PercentWholeGrains"
+        ],
+        "community_example": [
+          "#OnTheGo",
+          "#BearBites"
+        ]
+      }
+    },
+    "US-SE-FL": {
+      "market": "US-SE-FL",
+      "place": "Miami + Orlando, Florida",
+      "zip": "33101",
+      "retailer": "Publix, Target",
+      "audience": "Cuban and Puerto Rican families, porch breakfasts",
+      "message": "Family frontier — protein for your Florida morning",
+      "cue": "Guava and café con leche beside stack",
+      "tags": [
+        "#Miami",
+        "#Orlando",
+        "#Publix",
+        "#CafeConLeche",
+        "#Guava",
+        "#FloridaBreakfast"
+      ],
+      "platform_bundle": "#KodiakCakes #Miami #Publix #FamilyFrontier",
+      "caption": "Family frontier — protein for your Florida morning. Guava + café con leche beside the stack. #KodiakCakes #Miami #Publix",
+      "primary_tags": [
+        "#Miami",
+        "#Orlando"
+      ],
+      "search_text": "Miami + Orlando, Florida Family frontier — protein for your Florida morning #Miami #Orlando #Publix #CafeConLeche #Guava #FloridaBreakfast",
+      "families_quick": {
+        "brand": [
+          "#KodiakCakes"
+        ],
+        "campaign": [
+          "#KeepItWild"
+        ],
+        "product_example": [
+          "#ProteinPacked",
+          "#14gProtein",
+          "#100PercentWholeGrains"
+        ],
+        "community_example": [
+          "#OnTheGo",
+          "#BearBites"
+        ]
+      }
+    },
+    "US-SE-COAST": {
+      "market": "US-SE-COAST",
+      "place": "Savannah + Charleston, Coastal Southeast",
+      "zip": "29401",
+      "retailer": "Publix, Harris Teeter",
+      "audience": "Porch families, Gullah seasonality",
+      "message": "Southern porch stack — protein-packed whole grains for your family",
+      "cue": "Peach and pecan",
+      "tags": [
+        "#Savannah",
+        "#Charleston",
+        "#Lowcountry",
+        "#PeachAndPecan",
+        "#PorchBreakfast",
+        "#SouthernFrontier"
+      ],
+      "platform_bundle": "#KodiakCakes #Savannah #PorchBreakfast #SouthernFrontier",
+      "caption": "Southern porch stack — protein-packed whole grains for your family. Peach + pecan, porch light. #KodiakCakes #Savannah #PorchBreakfast",
+      "primary_tags": [
+        "#Savannah",
+        "#Charleston"
+      ],
+      "search_text": "Savannah + Charleston, Coastal Southeast Southern porch stack — protein-packed whole grains for your family #Savannah #Charleston #Lowcountry #PeachAndPecan #PorchBreakfast #SouthernFrontier",
+      "families_quick": {
+        "brand": [
+          "#KodiakCakes"
+        ],
+        "campaign": [
+          "#KeepItWild"
+        ],
+        "product_example": [
+          "#ProteinPacked",
+          "#14gProtein",
+          "#100PercentWholeGrains"
+        ],
+        "community_example": [
+          "#OnTheGo",
+          "#BearBites"
+        ]
+      }
+    },
+    "US-SE-ATL": {
+      "market": "US-SE-ATL",
+      "place": "Atlanta, Georgia",
+      "zip": "30301",
+      "retailer": "Publix, Target",
+      "audience": "Urban families, Sunday brunch",
+      "message": "Georgia pecan frontier — 14 grams to start your day",
+      "cue": "Pecan praline drizzle",
+      "tags": [
+        "#Atlanta",
+        "#ATL",
+        "#GeorgiaPecan",
+        "#PecanPraline",
+        "#SundayBrunch"
+      ],
+      "platform_bundle": "#KodiakCakes #Atlanta #GeorgiaPecan #SundayBrunch",
+      "caption": "Georgia pecan frontier — 14 grams to start your day. Pecan praline drizzle, Sunday brunch. #KodiakCakes #Atlanta #GeorgiaPecan",
+      "primary_tags": [
+        "#Atlanta",
+        "#ATL"
+      ],
+      "search_text": "Atlanta, Georgia Georgia pecan frontier — 14 grams to start your day #Atlanta #ATL #GeorgiaPecan #PecanPraline #SundayBrunch",
+      "families_quick": {
+        "brand": [
+          "#KodiakCakes"
+        ],
+        "campaign": [
+          "#KeepItWild"
+        ],
+        "product_example": [
+          "#ProteinPacked",
+          "#14gProtein",
+          "#100PercentWholeGrains"
+        ],
+        "community_example": [
+          "#OnTheGo",
+          "#BearBites"
+        ]
+      }
+    },
+    "US-MW-CHI": {
+      "market": "US-MW-CHI",
+      "place": "Chicago, Illinois",
+      "zip": "60601",
+      "retailer": "Target, Jewel-Osco, Meijer",
+      "audience": "City families, lake effect winters",
+      "message": "Fuel your city frontier — 14 grams, 100 percent whole grains",
+      "cue": "Maple oatmeal cup on the L",
+      "tags": [
+        "#Chicago",
+        "#ChiTown",
+        "#TargetFinds",
+        "#CityFrontier",
+        "#MapleOatmeal",
+        "#LakeEffect"
+      ],
+      "platform_bundle": "#KodiakCakes #Chicago #CityFrontier #TargetFinds",
+      "caption": "Fuel your city frontier — 14 grams, 100 percent whole grains. Maple oatmeal on the L. #KodiakCakes #Chicago #CityFrontier",
+      "primary_tags": [
+        "#Chicago",
+        "#ChiTown"
+      ],
+      "search_text": "Chicago, Illinois Fuel your city frontier — 14 grams, 100 percent whole grains #Chicago #ChiTown #TargetFinds #CityFrontier #MapleOatmeal #LakeEffect",
+      "families_quick": {
+        "brand": [
+          "#KodiakCakes"
+        ],
+        "campaign": [
+          "#KeepItWild"
+        ],
+        "product_example": [
+          "#ProteinPacked",
+          "#14gProtein",
+          "#100PercentWholeGrains"
+        ],
+        "community_example": [
+          "#OnTheGo",
+          "#BearBites"
+        ]
+      }
+    },
+    "US-MW-DEN": {
+      "market": "US-MW-DEN",
+      "place": "Denver, Colorado",
+      "zip": "80202",
+      "retailer": "Target, King Soopers, Whole Foods",
+      "audience": "Mountain families, trailheads",
+      "message": "Cast-iron frontier — protein for your Colorado morning",
+      "cue": "Cast iron at trailhead",
+      "tags": [
+        "#Denver",
+        "#Colorado",
+        "#14kMornings",
+        "#CastIron",
+        "#KingSoopers",
+        "#MileHighFrontier"
+      ],
+      "platform_bundle": "#KodiakCakes #Denver #CastIron #MileHighFrontier",
+      "caption": "Cast-iron frontier — protein for your Colorado morning. 14k mornings start here. #KodiakCakes #Denver #CastIron",
+      "primary_tags": [
+        "#Denver",
+        "#Colorado"
+      ],
+      "search_text": "Denver, Colorado Cast-iron frontier — protein for your Colorado morning #Denver #Colorado #14kMornings #CastIron #KingSoopers #MileHighFrontier",
+      "families_quick": {
+        "brand": [
+          "#KodiakCakes"
+        ],
+        "campaign": [
+          "#KeepItWild"
+        ],
+        "product_example": [
+          "#ProteinPacked",
+          "#14gProtein",
+          "#100PercentWholeGrains"
+        ],
+        "community_example": [
+          "#OnTheGo",
+          "#BearBites"
+        ]
+      }
+    },
+    "US-W-SEA": {
+      "market": "US-W-SEA",
+      "place": "Seattle, Washington",
+      "zip": "98101",
+      "retailer": "Costco (home — Seattle/SODO/Issaquah warehouses), Target, Amazon Subscribe & Save",
+      "audience": "Seattle Costco bulk shoppers — bulk Family Size, rain-morning tech families (South Lake Union / Ballard / Capitol Hill), Target + Costco halo, evergreen frontier — sees Washington frontier via Neah Bay",
+      "message": "Evergreen frontier — protein-packed whole grains for gray mornings — bulk Costco + urban frontier awareness",
+      "cue": "Coffee beside KODIAK® flapjacks, evergreen, rain-morning griddle, bulk Costco Family Size — and Neah Bay frontier representation (harbor fog, cedar canoe, huckleberry compote at Washburn's porch 48.36,-124.62) for Washington state awareness",
+      "tags": [
+        "#Seattle",
+        "#CostcoFinds",
+        "#EvergreenFrontier",
+        "#RainMornings",
+        "#PNWBreakfast"
+      ],
+      "platform_bundle": "#KodiakCakes #Seattle #CostcoFinds #EvergreenFrontier",
+      "caption": "Evergreen frontier — protein-packed whole grains for gray mornings. Coffee + evergreen. #KodiakCakes #Seattle #CostcoFinds",
+      "primary_tags": [
+        "#Seattle",
+        "#CostcoFinds"
+      ],
+      "search_text": "Seattle, Washington Evergreen frontier — protein-packed whole grains for gray mornings #Seattle #CostcoFinds #EvergreenFrontier #RainMornings #PNWBreakfast",
+      "families_quick": {
+        "brand": [
+          "#KodiakCakes"
+        ],
+        "campaign": [
+          "#KeepItWild"
+        ],
+        "product_example": [
+          "#ProteinPacked",
+          "#14gProtein",
+          "#100PercentWholeGrains"
+        ],
+        "community_example": [
+          "#OnTheGo",
+          "#BearBites"
+        ]
+      },
+      "seattle_awareness": {
+        "shopper_profile": "Seattle Costco shoppers: bulk Family Size, rain-morning griddle, tech families (Amazon/Microsoft), Target halo for mid-week fill, SODO warehouse Saturday stock-up",
+        "what_seattle_sees": "Bulk Evergreen frontier — coffee + evergreen, Family Size bag, rain-morning stock-up — urban bulk Washington voice",
+        "what_neah_bay_sees": "Frontier DTC — Washburn's General Store dusty box vs subscription & Amazon.com, huckleberry compote / salmon + chives savory, 70mi to Port Angeles, 4-5hr incl ferry",
+        "why_both_visible": "If Washington state location is noted (no zip filter), both US-W-SEA and US-WA-NEAHBAY are Washington — subscription & amazon.com Neah Bay ads appear alongside Seattle bulk. Intentional: training ensures urban model sees frontier, not bulk-only.",
+        "training_rule": "Vector search for 'Seattle'/'Washington'/'Costco'/'98101' must also retrieve Neah Bay frontier — urban folks see frontier representation",
+        "fulfillment_contrast": "Seattle: shelf bulk (Costco next door). Neah Bay: DTC subscription + Amazon.com where nearest grocer is 70mi away."
+      },
+      "urban_frontier_link": "US-WA-NEAHBAY — co-retrieved for Washington"
+    },
+    "US-W-PDX": {
+      "market": "US-W-PDX",
+      "place": "Portland, Oregon",
+      "zip": "97201",
+      "retailer": "Target, Fred Meyer",
+      "audience": "Trail families, forest",
+      "message": "Forest trail fuel — protein for your cubs",
+      "cue": "Berries and hazelnut beside Bear Bites",
+      "tags": [
+        "#Portland",
+        "#PDX",
+        "#ForestFuel",
+        "#TrailFuel",
+        "#Hazelnut",
+        "#BearBitesTrail"
+      ],
+      "platform_bundle": "#KodiakCakes #Portland #TrailFuel #BearBites",
+      "caption": "Forest trail fuel — protein for your cubs. Berries + hazelnut beside Bear Bites. #KodiakCakes #Portland #TrailFuel #BearBites",
+      "primary_tags": [
+        "#Portland",
+        "#PDX"
+      ],
+      "search_text": "Portland, Oregon Forest trail fuel — protein for your cubs #Portland #PDX #ForestFuel #TrailFuel #Hazelnut #BearBitesTrail",
+      "families_quick": {
+        "brand": [
+          "#KodiakCakes"
+        ],
+        "campaign": [
+          "#KeepItWild"
+        ],
+        "product_example": [
+          "#ProteinPacked",
+          "#14gProtein",
+          "#100PercentWholeGrains"
+        ],
+        "community_example": [
+          "#OnTheGo",
+          "#BearBites"
+        ]
+      }
+    },
+    "US-MW-PARKCITY-84098": {
+      "market": "US-MW-PARKCITY-84098",
+      "place": "Park City, Utah 84098",
+      "zip": "84098",
+      "retailer": "Target (Kimball Junction), Walmart (Kimball Junction), Smith's Food & Drug (Park City)",
+      "audience": "Mountain families, Wasatch trail households, resort staff",
+      "message": "Keep It Wild — protein-packed whole grains for your Park City frontier. Nourishment for Today's Frontier",
+      "cue": "Wasatch alpenglow, pine, boulder, snow at dawn — farmers market crates from Park City Mountain base, rhubarb-orange compote, peach preserves on cast iron",
+      "tags": [
+        "#ParkCity",
+        "#WasatchBack",
+        "#Wasatch",
+        "#84098",
+        "#ParkCityFarmersMarket",
+        "#CopperMooseFarm",
+        "#TaggesFruit",
+        "#BallerinaFarm",
+        "#KeepItWild",
+        "#FrontierBreakfast",
+        "#Alpenglow",
+        "#TrailFuel",
+        "#MountainFamilies"
+      ],
+      "primary_tags": [
+        "#ParkCity",
+        "#WasatchBack",
+        "#84098"
+      ],
+      "search_text": "Park City Utah 84098 Wasatch Back Park City Farmers Market base of Park City Mountain Resort Wednesday 11-5 Jensen Farms Smith Orchards peaches cinnamon Copper Moose Farm Stand biodynamic Tue Thu 12-6 Sat 9-3 rhubarb compote orange juice Tagges Fruit SR-224 Canyons Village daily through Sept preserves Ballerina Farm Kamas butter honey",
+      "hyper_local_sources": [
+        {
+          "name": "Park City Farmers Market",
+          "location": "Base of Park City Mountain Resort, Park City, UT 84098",
+          "schedule": "Wednesday 11am–5pm, through mid-October",
+          "season": "June through mid-October",
+          "vendors": [
+            "Jensen Farms",
+            "Smith Orchards"
+          ],
+          "kodiak_tie": "Jensen Farms / Smith Orchards peaches — peach compote with cinnamon tip on Buttermilk Power Cakes. Stack with peach preserve, dust of cinnamon, photo on market crate.",
+          "notes": "Primary smoke test locality. Weekly, base-area, family foot traffic — mountain families + resort staff + visitors. Cinnamon tip: light cinnamon fold-in or sprinkle with peaches — not cinnamon-sugar overload."
+        },
+        {
+          "name": "Copper Moose Farm Stand",
+          "location": "84098 — Wasatch Back biodynamic stand",
+          "schedule": "Tuesday/Thursday 12pm–6pm, Saturday 9am–3pm; June–October",
+          "season": "June–October",
+          "practice": "biodynamic",
+          "kodiak_tie": "Rhubarb compote with orange juice — tart rhubarb + orange juice brightened compote spooned over Power Cakes waffles. Autumn trail-tart, Kodiak 14g protein balances acidity.",
+          "notes": "Biodynamic — matches Kodiak whole-grain/keep-it-wild ethos. Saturday 9-3 is peak. Compote recipe: rhubarb, orange juice, light honey."
+        },
+        {
+          "name": "Tagges Fruit Stand",
+          "location": "SR-224 near Canyons Village, Park City UT",
+          "schedule": "Daily, through September",
+          "season": "Summer through September",
+          "kodiak_tie": "Preserves — peach and mixed-fruit preserves jar beside stack. Shelf-stable take-home cue for Wasatch families stocking pantry.",
+          "notes": "SR-224 corridor — commuter visible. Daily through Sept. Preserves = pantry stocking message: Stock the frontier."
+        },
+        {
+          "name": "Ballerina Farm Stand",
+          "location": "Kamas, UT — Wasatch Back (Kamas Valley, Summit County)",
+          "schedule": "Farm stand, seasonal — check stand hours",
+          "season": "Through fall",
+          "kodiak_tie": "Butter + honey — brown butter + Ballerina Farm honey drizzle on Power Cakes. Dairy-rich Wasatch valley tie, honey frontier variant.",
+          "notes": "Kamas Valley farm — complementary to 84098 Wasatch Back story. Butter/honey = kid-friendly Bear Bites variant: honey frontier."
+        }
+      ],
+      "recipe_pairings": [
+        {
+          "kodiak_sku": "Buttermilk Power Cakes",
+          "pairing": "Jensen Farms / Smith Orchards peach compote with cinnamon",
+          "build": "1 cup Power Cakes mix + 2/3 cup milk + 1 egg, fold diced peach, pinch cinnamon; top with warm peach preserve spoon",
+          "source": "Park City Farmers Market — Wed 11-5"
+        },
+        {
+          "kodiak_sku": "Power Waffles / Power Cakes waffles",
+          "pairing": "Copper Moose rhubarb compote with orange juice",
+          "build": "Rhubarb + orange juice + honey simmer 12 min, spoon over toasted Power Waffle or fresh waffle iron cake",
+          "source": "Copper Moose Farm Stand Tue/Thu 12-6 Sat 9-3"
+        },
+        {
+          "kodiak_sku": "Bear Bites / Power Cakes",
+          "pairing": "Tagges preserves + Ballerina Farm honey-butter",
+          "build": "Warm stack, Tagges peach preserve + Ballerina Farm honey whisked into brown butter",
+          "source": "SR-224 Tagges daily through Sept; Kamas Ballerina Farm"
+        }
+      ],
+      "platform_bundles": {
+        "instagram": "#KodiakCakes #KeepItWild #ParkCity #WasatchBack #84098 #ParkCityFarmersMarket",
+        "tiktok": "#KodiakCakes #ParkCity #WasatchBack #TrailFuel",
+        "facebook": "#KodiakCakes #KeepItWild #ParkCity #WasatchBack",
+        "x": "#KodiakCakes #ParkCity",
+        "pinterest": "#KodiakCakes (titles carry 'Park City Farmers Market Peach — Wasatch Back')",
+        "youtube": "#KodiakCakes #KeepItWild #ParkCity #WasatchBack #Shorts (Shorts only)",
+        "linkedin": "#KodiakCakes #KeepItWild"
+      },
+      "caption_bundles": {
+        "instagram_1x1": "Keep It Wild — Park City frontier stack. Jensen Farms peaches with a cinnamon whisper, flipped on cast iron, 14g protein + 100% whole grains. Find us at Target Kimball Junction + Walmart. Wed 11-5 at the base of Park City Mountain Resort through mid-Oct. #KodiakCakes #KeepItWild #ParkCity #WasatchBack #84098 #ParkCityFarmersMarket",
+        "tiktok_9x16": "Park City flapjacks — Wasatch style. Peach + cinnamon at the farmers market, Wasatch alpenglow behind. #KodiakCakes #ParkCity #WasatchBack",
+        "facebook_1x1": "Park City frontier flapjacks — Wasatch alpenglow + rhubarb-orange compote from Copper Moose (Tue/Thu 12-6 Sat 9-3) and peach preserves from Tagges SR-224. Find us at Kimball Junction today! #KodiakCakes #KeepItWild #ParkCity",
+        "pinterest_2x3": "Park City Farmers Market Peach Flapjacks — Wasatch Back | 14g Protein, 100% Whole Grains | Kodiak Cakes | 84098",
+        "youtube_shorts": "Park City flapjacks — farmers market peach + rhubarb-orange | Kodiak Hacks #KodiakCakes #KeepItWild #Shorts",
+        "in_store_endcap": "KODIAK® Keep It Wild — Wasatch alpenglow, 14g protein. Find us at Target & Walmart Kimball Junction. Peach + rhubarb compotes from Park City market stands.",
+        "table_tent": "KODIAK® at your Park City table — protein-packed whole grains for today's frontier. Ask for the Bear Bites side with honey."
+      },
+      "families_quick": {
+        "brand": [
+          "#KodiakCakes"
+        ],
+        "campaign": [
+          "#KeepItWild"
+        ],
+        "product_example": [
+          "#ProteinPacked",
+          "#14gProtein",
+          "#100PercentWholeGrains"
+        ],
+        "community_example": [
+          "#BearBites",
+          "#TrailFuel",
+          "#FrontierBreakfast"
+        ]
+      },
+      "audience_segments": [
+        {
+          "segment": "mountain families",
+          "label": "Mountain families",
+          "age": "30-48",
+          "description": "Multi-generational Wasatch Back households — kids called cubs, beanies at the door, weekend stacks before school or ski. Bulk Family Size from Costco halo plus mid-week Target Kimball Junction run. Value protein that still reads clean label.",
+          "cues": [
+            "weekend griddle",
+            "Bear Bites in lunchboxes",
+            "cast iron at cabin",
+            "enamel mugs"
+          ]
+        },
+        {
+          "segment": "wasatch trail households",
+          "label": "Wasatch trail households",
+          "age": "27-45",
+          "description": "Trail runners, MTB and hikers on Mid Mountain, Armstrong, Spiro and 1000-Acre. Sunrise alpenglow start, 14g protein before 7am trailhead. Kodiak as trail fuel, not desk snack.",
+          "cues": [
+            "alpenglow pine/boulder",
+            "trail bench stack",
+            "headlamp-off at dawn",
+            "Bear Bites in pack"
+          ]
+        },
+        {
+          "segment": "resort staff",
+          "label": "Resort staff",
+          "age": "20-34",
+          "description": "Park City Mountain Resort and Deer Valley seasonal staff — lifties, instructors, kitchen, lodging. Early shift, on-the-go oatmeal cup + flapjack on break, protein that holds through a double.",
+          "cues": [
+            "base-area break room",
+            "oatmeal cup on lift shack",
+            "post-shift griddle"
+          ]
+        }
+      ],
+      "seasonality": {
+        "peach_window": "July–September, peak at market through mid-Oct",
+        "rhubarb_window": "June–October Copper Moose",
+        "preserves_window": "Daily through September Tagges; preserves pantry year-round cue",
+        "market_window": "Farmers Market Wed 11-5 through mid-October"
+      }
+    },
+    "US-WA-NEAHBAY": {
+      "market": "US-WA-NEAHBAY",
+      "place": "Neah Bay, WA 98357 — farthest northwestern tip Olympic Peninsula, Makah Tribe",
+      "zip": "98357",
+      "county": "Clallam County",
+      "state": "WA",
+      "coordinates": {
+        "lat": 48.36,
+        "lon": -124.62
+      },
+      "elevation_ft": 75,
+      "population": 1500,
+      "classification": "Frontier — Makah Reservation, outermost Washington",
+      "frontier": true,
+      "subscriber_variant": true,
+      "retailer": "Washburn's General Store (Neah Bay), Makah Mini Mart, Port Angeles Safeway / Walmart (70mi), Costco Seattle/Sequim (4-5hr incl ferry)",
+      "audience": "Makah families, Neah Bay mini-mart regulars, Port Angeles commuters, Seattle workers who want to see what their Washington frontier sees — Seattle Costco bulk vs Neah Bay subscription & Amazon.com",
+      "message": "KODIAK® Neah Bay frontier — huckleberry compote over Buttermilk Power Cakes, Makah water meets Wasatch grain — Nourishment for Today's Frontier",
+      "cue": "Neah Bay harbor at dawn, Makah cedar canoe, Kodiak box on Washburn's porch with huckleberry compote, Olympic Peninsula fog, 70mi road sign to Port Angeles",
+      "tags": [
+        "#NeahBay",
+        "#Makah",
+        "#MakahTribe",
+        "#OlympicPeninsula",
+        "#CapeFlattery",
+        "#98357",
+        "#WashburnsGeneralStore",
+        "#KeepItWild",
+        "#FrontierBreakfast",
+        "#HuckleberryCompote",
+        "#SmokedSalmon",
+        "#CedarSalmon",
+        "#StraitOfJuanDeFuca",
+        "#WashingtonFrontier",
+        "#ClallamCounty"
+      ],
+      "primary_tags": [
+        "#NeahBay",
+        "#Makah",
+        "#98357"
+      ],
+      "platform_bundle": "#KodiakCakes #KeepItWild #NeahBay #Makah #98357 #OlympicPeninsula #CapeFlattery",
+      "platform_bundles": {
+        "instagram": "#KodiakCakes #KeepItWild #NeahBay #Makah #98357 #OlympicPeninsula #CapeFlattery",
+        "tiktok": "#KodiakCakes #NeahBay #Makah #FrontierBreakfast",
+        "facebook": "#KodiakCakes #KeepItWild #NeahBay #Makah #OlympicPeninsula",
+        "x": "#KodiakCakes #NeahBay #Makah",
+        "pinterest": "#KodiakCakes (titles carry 'Neah Bay Huckleberry — Olympic Peninsula')",
+        "youtube": "#KodiakCakes #KeepItWild #NeahBay #Makah #Shorts",
+        "linkedin": "#KodiakCakes #KeepItWild"
+      },
+      "caption": "Keep It Wild — Neah Bay frontier stack. Makah water meets Wasatch grain. Huckleberry compote (Aug peak) over KODIAK® Buttermilk Power Cakes, or fold cedar-smoked salmon + chives for savory — 14g protein where Washington ends. Washburn's porch at 48.36,-124.62, Port Angeles 70mi away. #KodiakCakes #KeepItWild #NeahBay #Makah #98357",
+      "search_text": "Neah Bay WA 98357 farthest northwestern tip Olympic Peninsula Makah Tribe 1500 Washburn's General Store mini-marts Port Angeles 70mi winding 2-lane SR-112 4-5hr to Seattle incl ferry Edmonds-Kingston elevation 75ft coordinates 48.36 -124.62 salmon May-Sep halibut Mar-Jun huckleberries Aug seaweed cedar smoked salmon chives savory Kodiak huckleberry compote sweet frontier subscriber_variant cross_promo Makah Tribal fishery subscription amazon.com ads alongside Seattle if Washington state location noted",
+      "seasonal_local": [
+        {
+          "name": "Makah Salmon & Halibut",
+          "when": "Salmon May-Sep, halibut Mar-Jun",
+          "tip": "fold smoked salmon + chives into savory Kodiak"
+        },
+        {
+          "name": "Huckleberries",
+          "when": "late Jul-Sep peak Aug",
+          "tip": "huckleberry compote sweet"
+        },
+        {
+          "name": "Seaweed & Cedar",
+          "when": "Spring gathering",
+          "tip": "finishing salt, cedar photo cue only"
+        }
+      ],
+      "cross_promo": {
+        "partner": "Makah Tribal fishery maybe",
+        "product": "cedar-smoked salmon",
+        "url": "https://makah.com/fisheries",
+        "status": "maybe — with tribal consent"
+      },
+      "seattle_awareness": {
+        "note": "Seattle Costco bulk shoppers see this Neah Bay frontier when Washington state is noted — subscription & amazon.com DTC vs Seattle bulk; urban training sees frontier representation",
+        "what_seattle_sees": "Bulk Evergreen bulk, Family Size, rain-morning",
+        "what_neah_bay_sees": "Frontier DTC, Washburn's dusty box, 70mi grocer",
+        "why_together": "Washington state targeting merges Seattle + Neah Bay"
+      },
+      "subscription_explanation": "Subscription & Amazon.com ads seen alongside Seattle if Washington state location noted — state targeting elides zip.",
+      "families_quick": {
+        "brand": [
+          "#KodiakCakes"
+        ],
+        "campaign": [
+          "#KeepItWild"
+        ],
+        "product_example": [
+          "#ProteinPacked",
+          "#14gProtein",
+          "#100PercentWholeGrains"
+        ],
+        "community_example": [
+          "#BearBites",
+          "#FrontierBreakfast",
+          "#MakahFrontier"
+        ]
+      },
+      "brand": "KODIAK"
+    }
+  },
+  "by_zip": {
+    "88001": {
+      "market": "US-SW-LASCRUCES",
+      "place": "Las Cruces + Alamogordo, New Mexico",
+      "tags": [
+        "#HatchGreenChile",
+        "#GreenChile",
+        "#HatchChile",
+        "#RoastedHatch",
+        "#GreenChileFlapjacks",
+        "#GreenChileMeetsGrizzly",
+        "#LasCrucesGreenChile",
+        "#HatchChileFlapjacks",
+        "#NewMexicoGreenChile",
+        "#ChileRoast"
+      ],
+      "zip": "88001"
+    },
+    "84060": {
+      "market": "US-MW-WASATCH",
+      "place": "Park City, Wasatch Mountains",
+      "tags": [
+        "#Wasatch",
+        "#ParkCity",
+        "#KeepItWild",
+        "#FrontierBreakfast",
+        "#Alpenglow"
+      ],
+      "zip": "84060"
+    },
+    "87101": {
+      "market": "US-SW-ALBQ",
+      "place": "Albuquerque, New Mexico",
+      "tags": [
+        "#Albuquerque",
+        "#Burque",
+        "#RedChile",
+        "#Pinon",
+        "#DesertDawn",
+        "#NewMexicoTrue"
+      ],
+      "zip": "87101"
+    },
+    "78701": {
+      "market": "US-SC-AUSTIN",
+      "place": "Austin, Texas",
+      "tags": [
+        "#AustinTexas",
+        "#ATX",
+        "#KeepAustinWeird",
+        "#BreakfastTacos",
+        "#Jalapeno",
+        "#SalsaVerde"
+      ],
+      "zip": "78701"
+    },
+    "33101": {
+      "market": "US-SE-FL",
+      "place": "Miami + Orlando, Florida",
+      "tags": [
+        "#Miami",
+        "#Orlando",
+        "#Publix",
+        "#CafeConLeche",
+        "#Guava",
+        "#FloridaBreakfast"
+      ],
+      "zip": "33101"
+    },
+    "29401": {
+      "market": "US-SE-COAST",
+      "place": "Savannah + Charleston, Coastal Southeast",
+      "tags": [
+        "#Savannah",
+        "#Charleston",
+        "#Lowcountry",
+        "#PeachAndPecan",
+        "#PorchBreakfast",
+        "#SouthernFrontier"
+      ],
+      "zip": "29401"
+    },
+    "30301": {
+      "market": "US-SE-ATL",
+      "place": "Atlanta, Georgia",
+      "tags": [
+        "#Atlanta",
+        "#ATL",
+        "#GeorgiaPecan",
+        "#PecanPraline",
+        "#SundayBrunch"
+      ],
+      "zip": "30301"
+    },
+    "60601": {
+      "market": "US-MW-CHI",
+      "place": "Chicago, Illinois",
+      "tags": [
+        "#Chicago",
+        "#ChiTown",
+        "#TargetFinds",
+        "#CityFrontier",
+        "#MapleOatmeal",
+        "#LakeEffect"
+      ],
+      "zip": "60601"
+    },
+    "80202": {
+      "market": "US-MW-DEN",
+      "place": "Denver, Colorado",
+      "tags": [
+        "#Denver",
+        "#Colorado",
+        "#14kMornings",
+        "#CastIron",
+        "#KingSoopers",
+        "#MileHighFrontier"
+      ],
+      "zip": "80202"
+    },
+    "98101": {
+      "market": "US-W-SEA",
+      "place": "Seattle, Washington",
+      "zip": "98101",
+      "retailer": "Costco (home — Seattle/SODO/Issaquah warehouses), Target, Amazon Subscribe & Save",
+      "audience": "Seattle Costco bulk shoppers — bulk Family Size, rain-morning tech families (South Lake Union / Ballard / Capitol Hill), Target + Costco halo, evergreen frontier — sees Washington frontier via Neah Bay",
+      "message": "Evergreen frontier — protein-packed whole grains for gray mornings — bulk Costco + urban frontier awareness",
+      "cue": "Coffee beside KODIAK® flapjacks, evergreen, rain-morning griddle, bulk Costco Family Size — and Neah Bay frontier representation (harbor fog, cedar canoe, huckleberry compote at Washburn's porch 48.36,-124.62) for Washington state awareness",
+      "tags": [
+        "#Seattle",
+        "#CostcoFinds",
+        "#EvergreenFrontier",
+        "#RainMornings",
+        "#PNWBreakfast"
+      ],
+      "platform_bundle": "#KodiakCakes #Seattle #CostcoFinds #EvergreenFrontier",
+      "caption": "Evergreen frontier — protein-packed whole grains for gray mornings. Coffee + evergreen. #KodiakCakes #Seattle #CostcoFinds",
+      "primary_tags": [
+        "#Seattle",
+        "#CostcoFinds"
+      ],
+      "search_text": "Seattle, Washington Evergreen frontier — protein-packed whole grains for gray mornings #Seattle #CostcoFinds #EvergreenFrontier #RainMornings #PNWBreakfast",
+      "families_quick": {
+        "brand": [
+          "#KodiakCakes"
+        ],
+        "campaign": [
+          "#KeepItWild"
+        ],
+        "product_example": [
+          "#ProteinPacked",
+          "#14gProtein",
+          "#100PercentWholeGrains"
+        ],
+        "community_example": [
+          "#OnTheGo",
+          "#BearBites"
+        ]
+      },
+      "seattle_awareness": {
+        "shopper_profile": "Seattle Costco shoppers: bulk Family Size, rain-morning griddle, tech families (Amazon/Microsoft), Target halo for mid-week fill, SODO warehouse Saturday stock-up",
+        "what_seattle_sees": "Bulk Evergreen frontier — coffee + evergreen, Family Size bag, rain-morning stock-up — urban bulk Washington voice",
+        "what_neah_bay_sees": "Frontier DTC — Washburn's General Store dusty box vs subscription & Amazon.com, huckleberry compote / salmon + chives savory, 70mi to Port Angeles, 4-5hr incl ferry",
+        "why_both_visible": "If Washington state location is noted (no zip filter), both US-W-SEA and US-WA-NEAHBAY are Washington — subscription & amazon.com Neah Bay ads appear alongside Seattle bulk. Intentional: training ensures urban model sees frontier, not bulk-only.",
+        "training_rule": "Vector search for 'Seattle'/'Washington'/'Costco'/'98101' must also retrieve Neah Bay frontier — urban folks see frontier representation",
+        "fulfillment_contrast": "Seattle: shelf bulk (Costco next door). Neah Bay: DTC subscription + Amazon.com where nearest grocer is 70mi away."
+      },
+      "urban_frontier_link": "US-WA-NEAHBAY — co-retrieved for Washington"
+    },
+    "97201": {
+      "market": "US-W-PDX",
+      "place": "Portland, Oregon",
+      "tags": [
+        "#Portland",
+        "#PDX",
+        "#ForestFuel",
+        "#TrailFuel",
+        "#Hazelnut",
+        "#BearBitesTrail"
+      ],
+      "zip": "97201"
+    },
+    "84098": {
+      "market": "US-MW-PARKCITY-84098",
+      "place": "Park City, Utah 84098",
+      "tags": [
+        "#ParkCity",
+        "#WasatchBack",
+        "#Wasatch",
+        "#84098",
+        "#ParkCityFarmersMarket",
+        "#CopperMooseFarm",
+        "#TaggesFruit",
+        "#BallerinaFarm",
+        "#KeepItWild",
+        "#FrontierBreakfast",
+        "#Alpenglow",
+        "#TrailFuel",
+        "#MountainFamilies"
+      ],
+      "zip": "84098"
+    },
+    "98357": {
+      "market": "US-WA-NEAHBAY",
+      "place": "Neah Bay, WA 98357 — farthest northwestern tip Olympic Peninsula, Makah Tribe",
+      "zip": "98357",
+      "county": "Clallam County",
+      "state": "WA",
+      "coordinates": {
+        "lat": 48.36,
+        "lon": -124.62
+      },
+      "elevation_ft": 75,
+      "population": 1500,
+      "classification": "Frontier — Makah Reservation, outermost Washington",
+      "frontier": true,
+      "subscriber_variant": true,
+      "retailer": "Washburn's General Store (Neah Bay), Makah Mini Mart, Port Angeles Safeway / Walmart (70mi), Costco Seattle/Sequim (4-5hr incl ferry)",
+      "audience": "Makah families, Neah Bay mini-mart regulars, Port Angeles commuters, Seattle workers who want to see what their Washington frontier sees — Seattle Costco bulk vs Neah Bay subscription & Amazon.com",
+      "message": "KODIAK® Neah Bay frontier — huckleberry compote over Buttermilk Power Cakes, Makah water meets Wasatch grain — Nourishment for Today's Frontier",
+      "cue": "Neah Bay harbor at dawn, Makah cedar canoe, Kodiak box on Washburn's porch with huckleberry compote, Olympic Peninsula fog, 70mi road sign to Port Angeles",
+      "tags": [
+        "#NeahBay",
+        "#Makah",
+        "#MakahTribe",
+        "#OlympicPeninsula",
+        "#CapeFlattery",
+        "#98357",
+        "#WashburnsGeneralStore",
+        "#KeepItWild",
+        "#FrontierBreakfast",
+        "#HuckleberryCompote",
+        "#SmokedSalmon",
+        "#CedarSalmon",
+        "#StraitOfJuanDeFuca",
+        "#WashingtonFrontier",
+        "#ClallamCounty"
+      ],
+      "primary_tags": [
+        "#NeahBay",
+        "#Makah",
+        "#98357"
+      ],
+      "platform_bundle": "#KodiakCakes #KeepItWild #NeahBay #Makah #98357 #OlympicPeninsula #CapeFlattery",
+      "platform_bundles": {
+        "instagram": "#KodiakCakes #KeepItWild #NeahBay #Makah #98357 #OlympicPeninsula #CapeFlattery",
+        "tiktok": "#KodiakCakes #NeahBay #Makah #FrontierBreakfast",
+        "facebook": "#KodiakCakes #KeepItWild #NeahBay #Makah #OlympicPeninsula",
+        "x": "#KodiakCakes #NeahBay #Makah",
+        "pinterest": "#KodiakCakes (titles carry 'Neah Bay Huckleberry — Olympic Peninsula')",
+        "youtube": "#KodiakCakes #KeepItWild #NeahBay #Makah #Shorts",
+        "linkedin": "#KodiakCakes #KeepItWild"
+      },
+      "caption": "Keep It Wild — Neah Bay frontier stack. Makah water meets Wasatch grain. Huckleberry compote (Aug peak) over KODIAK® Buttermilk Power Cakes, or fold cedar-smoked salmon + chives for savory — 14g protein where Washington ends. Washburn's porch at 48.36,-124.62, Port Angeles 70mi away. #KodiakCakes #KeepItWild #NeahBay #Makah #98357",
+      "search_text": "Neah Bay WA 98357 farthest northwestern tip Olympic Peninsula Makah Tribe 1500 Washburn's General Store mini-marts Port Angeles 70mi winding 2-lane SR-112 4-5hr to Seattle incl ferry Edmonds-Kingston elevation 75ft coordinates 48.36 -124.62 salmon May-Sep halibut Mar-Jun huckleberries Aug seaweed cedar smoked salmon chives savory Kodiak huckleberry compote sweet frontier subscriber_variant cross_promo Makah Tribal fishery subscription amazon.com ads alongside Seattle if Washington state location noted",
+      "seasonal_local": [
+        {
+          "name": "Makah Salmon & Halibut",
+          "when": "Salmon May-Sep, halibut Mar-Jun",
+          "tip": "fold smoked salmon + chives into savory Kodiak"
+        },
+        {
+          "name": "Huckleberries",
+          "when": "late Jul-Sep peak Aug",
+          "tip": "huckleberry compote sweet"
+        },
+        {
+          "name": "Seaweed & Cedar",
+          "when": "Spring gathering",
+          "tip": "finishing salt, cedar photo cue only"
+        }
+      ],
+      "cross_promo": {
+        "partner": "Makah Tribal fishery maybe",
+        "product": "cedar-smoked salmon",
+        "url": "https://makah.com/fisheries",
+        "status": "maybe — with tribal consent"
+      },
+      "seattle_awareness": {
+        "note": "Seattle Costco bulk shoppers see this Neah Bay frontier when Washington state is noted — subscription & amazon.com DTC vs Seattle bulk; urban training sees frontier representation",
+        "what_seattle_sees": "Bulk Evergreen bulk, Family Size, rain-morning",
+        "what_neah_bay_sees": "Frontier DTC, Washburn's dusty box, 70mi grocer",
+        "why_together": "Washington state targeting merges Seattle + Neah Bay"
+      },
+      "subscription_explanation": "Subscription & Amazon.com ads seen alongside Seattle if Washington state location noted — state targeting elides zip.",
+      "families_quick": {
+        "brand": [
+          "#KodiakCakes"
+        ],
+        "campaign": [
+          "#KeepItWild"
+        ],
+        "product_example": [
+          "#ProteinPacked",
+          "#14gProtein",
+          "#100PercentWholeGrains"
+        ],
+        "community_example": [
+          "#BearBites",
+          "#FrontierBreakfast",
+          "#MakahFrontier"
+        ]
+      },
+      "brand": "KODIAK"
+    }
+  },
+  "search_text": "green chile hashtags Las Cruces Hatch lookup market zip",
+  "all_tags_flat": [
+    "#HatchGreenChile",
+    "#GreenChile",
+    "#HatchChile",
+    "#RoastedHatch",
+    "#GreenChileFlapjacks",
+    "#GreenChileMeetsGrizzly",
+    "#LasCrucesGreenChile",
+    "#HatchChileFlapjacks",
+    "#NewMexicoGreenChile",
+    "#ChileRoast",
+    "#Wasatch",
+    "#ParkCity",
+    "#KeepItWild",
+    "#FrontierBreakfast",
+    "#Alpenglow",
+    "#Albuquerque",
+    "#Burque",
+    "#RedChile",
+    "#Pinon",
+    "#DesertDawn",
+    "#NewMexicoTrue",
+    "#AustinTexas",
+    "#ATX",
+    "#KeepAustinWeird",
+    "#BreakfastTacos",
+    "#Jalapeno",
+    "#SalsaVerde",
+    "#Miami",
+    "#Orlando",
+    "#Publix",
+    "#CafeConLeche",
+    "#Guava",
+    "#FloridaBreakfast",
+    "#Savannah",
+    "#Charleston",
+    "#Lowcountry",
+    "#PeachAndPecan",
+    "#PorchBreakfast",
+    "#SouthernFrontier",
+    "#Atlanta",
+    "#ATL",
+    "#GeorgiaPecan",
+    "#PecanPraline",
+    "#SundayBrunch",
+    "#Chicago",
+    "#ChiTown",
+    "#TargetFinds",
+    "#CityFrontier",
+    "#MapleOatmeal",
+    "#LakeEffect",
+    "#Denver",
+    "#Colorado",
+    "#14kMornings",
+    "#CastIron",
+    "#KingSoopers",
+    "#MileHighFrontier",
+    "#Seattle",
+    "#CostcoFinds",
+    "#EvergreenFrontier",
+    "#RainMornings",
+    "#PNWBreakfast",
+    "#Portland",
+    "#PDX",
+    "#ForestFuel",
+    "#TrailFuel",
+    "#Hazelnut",
+    "#BearBitesTrail"
+  ],
+  "api": "GET /search?q=green chile hashtags → reference_api fallback grep checks this file line-contains query",
+  "families": {
+    "brand": {
+      "tags": [
+        "#KodiakCakes",
+        "#Kodiak",
+        "#KodiakCakesPartner",
+        "#KodiakPartner",
+        "#KodiaksFindTheGood",
+        "#KodiakCakesFamily"
+      ],
+      "primary": [
+        "#KodiakCakes"
+      ]
+    },
+    "campaign": {
+      "tags": [
+        "#KeepItWild",
+        "#VitalGround",
+        "#WilderLives",
+        "#FeedingEpicDays",
+        "#FeedYourWildAdventures",
+        "#NourishmentForTodaysFrontier",
+        "#Oatober",
+        "#KodiHacks",
+        "#FeedingEpicDaysAndWilderLives"
+      ],
+      "primary": [
+        "#KeepItWild"
+      ]
+    },
+    "product": {
+      "tags": [
+        "#ProteinPacked",
+        "#14gProtein",
+        "#100PercentWholeGrains",
+        "#WholeGrainsTasteBetter",
+        "#PowerCakes",
+        "#BearBites",
+        "#PeakOatmeal",
+        "#PowerCups",
+        "#PowerWaffles",
+        "#MightyOat",
+        "#OnTheGoOatmeal",
+        "#MinuteMuffin"
+      ],
+      "primary": [
+        "#ProteinPacked",
+        "#BearBites"
+      ]
+    },
+    "local": {
+      "tags": [
+        "#LasCruces",
+        "#HatchGreenChile",
+        "#OrganMountains",
+        "#Wasatch",
+        "#ParkCity",
+        "#Albuquerque",
+        "#AustinTexas",
+        "#Miami",
+        "#Savannah",
+        "#Atlanta",
+        "#Chicago",
+        "#Denver",
+        "#Seattle",
+        "#PortlandOregon",
+        "#PhoenixAZ",
+        "#NewMexicoTrue",
+        "#NMTrue",
+        "#LasCrucesNM"
+      ],
+      "primary": [
+        "#LasCruces",
+        "#HatchGreenChile"
+      ]
+    },
+    "community": {
+      "tags": [
+        "#OnTheGo",
+        "#BearBites",
+        "#Lunchbox",
+        "#TrailFuel",
+        "#Campfire",
+        "#FrontierBreakfast",
+        "#FlapjackFriday",
+        "#WaffleWednesday",
+        "#Brunch",
+        "#BreakfastClub",
+        "#BackToSchool",
+        "#TrailMix",
+        "#HikerFuel",
+        "#FamilyBreakfast",
+        "#CubsWhoCook",
+        "#FuelYourTrail",
+        "#KeepTrailWild"
+      ],
+      "primary": [
+        "#OnTheGo",
+        "#TrailFuel"
+      ]
+    }
+  },
+  "las_cruces_green_chile_tags": [
+    "#HatchGreenChile",
+    "#GreenChile",
+    "#HatchChile",
+    "#RoastedHatch",
+    "#GreenChileFlapjacks",
+    "#GreenChileMeetsGrizzly",
+    "#LasCrucesGreenChile",
+    "#HatchChileFlapjacks",
+    "#NewMexicoGreenChile",
+    "#ChileRoast"
+  ],
+  "counts": {
+    "families": 5,
+    "localities": 12,
+    "las_cruces_variants": 10,
+    "flat_tags": 80,
+    "unique": 74
+  },
+  "default_demo": "US-MW-PARKCITY-84098",
+  "default_demo_zip": "84098",
+  "smoke_test": "Park City 84098 primary — search green chile vs Park City both resolve, but Park City is default demo"
+}

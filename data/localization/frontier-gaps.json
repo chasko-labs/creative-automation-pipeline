@@ -1,0 +1,312 @@
+{
+  "metadata": {
+    "generated": "2026-09-02T00:00:00Z",
+    "purpose": "Frontier market gaps: underserved rural/remote markets where Kodiak subscription + retail gap exists. Timberon NM pi\u00f1on cross-promo with pinonnuts.com.",
+    "counts": {
+      "total": 9,
+      "cross_promo_pinonnuts": 6
+    }
+  },
+  "gaps": [
+    {
+      "market": "US-SW-TIMBERON",
+      "place": "Timberon, New Mexico",
+      "zip": "88350",
+      "county": "Otero County",
+      "state": "NM",
+      "coordinates": {
+        "lat": 32.634,
+        "lon": -105.71
+      },
+      "elevation_ft": 6900,
+      "population": 350,
+      "classification": "frontier rural village, Sacramento Mountains",
+      "frontier": true,
+      "subscriber_variant": true,
+      "retail_gap": "No grocery chain; nearest full grocer 45min (Alamogordo). Cloudcroft Mercantile / Timberon General Store limited SKU.",
+      "kodiak_opportunity": "Subscription-DTC frontier bundle: pi\u00f1on-seasonal flapjack mix + pinonnuts.com Pi\u00f1\u00f3n Seeds topping",
+      "cross_promo": {
+        "partner": "pinonnuts.com",
+        "partner_name": "Pi\u00f1on Nuts (Sacramento Mountains pi\u00f1on)",
+        "url": "https://pinonnuts.com",
+        "product": "Pi\u00f1\u00f3n Seeds \u2014 roasted Sacramento Mountains pi\u00f1on nuts",
+        "activation": "KODIAK x Pi\u00f1on Nuts bundle: Timberon Pi\u00f1\u00f3n Seeds pancake \u2014 Buttermilk Power Cakes + pinonnuts.com pi\u00f1on seeds + pi\u00f1on honey drizzle",
+        "recipe_localization": "Timberon Pi\u00f1\u00f3n Seeds Pancakes: 1 cup Kodiak Buttermilk Power Cakes + 1/4 cup pinonnuts.com pi\u00f1on seeds folded in, honey-pi\u00f1on drizzle, Sacramento Mountains pine cue"
+      },
+      "localization": {
+        "peppers": "Hatch green chile optional",
+        "cheeses": "Cotija crumble",
+        "fruit": "Pi\u00f1on seeds (not fruit \u2014 frontiers nut)",
+        "photo_cue": "Pi\u00f1on pines at 6900 ft, Sacramento Mountains, Timberon cabin porch, enamel mug",
+        "message": "Pi\u00f1on frontier \u2014 Timberon protein for mountain mornings",
+        "audience": "Pi\u00f1on harvest families, Sacramento Mountains homesteaders"
+      },
+      "fulfillment": "DTC subscription only; rural free shipping threshold; quarterly pi\u00f1on harvest drop"
+    },
+    {
+      "market": "US-SW-CLOUDCROFT-GAP",
+      "place": "Cloudcroft, New Mexico",
+      "zip": "88317",
+      "county": "Otero County",
+      "state": "NM",
+      "coordinates": {
+        "lat": 32.955,
+        "lon": -105.74
+      },
+      "elevation_ft": 8600,
+      "population": 750,
+      "classification": "Mountain frontier, Lincoln NF",
+      "frontier": true,
+      "subscriber_variant": true,
+      "retail_gap": "Single small grocer; 30min to Alamogordo Walmart; seasonal tourism swings",
+      "kodiak_opportunity": "Frontier subscriber + lodge cross-promo: Cloudcroft lodge breakfast bundle",
+      "cross_promo": {
+        "partner": "pinonnuts.com",
+        "partner_name": "Pi\u00f1on Nuts",
+        "url": "https://pinonnuts.com",
+        "product": "Pi\u00f1\u00f3n Seeds",
+        "activation": "Cloudcroft Pi\u00f1on Lodge Stack \u2014 Kodiak Power Cakes + pinonnuts.com, ski-season subscription",
+        "recipe_localization": "Cloudcroft Pi\u00f1on Lodge Pancakes: fold pinonnuts.com pi\u00f1on seeds into Buttermilk Power Cakes, top with maple-pi\u00f1on butter"
+      },
+      "localization": {
+        "peppers": "None \u2014 mountain lodge sweet",
+        "cheeses": "Cream cheese drizzle",
+        "photo_cue": "Cloudcroft pines, ski lodge deck, 8600ft alpenglow",
+        "message": "Mountain frontier \u2014 Cloudcroft lodge protein",
+        "audience": "Ski families, lodge hosts"
+      },
+      "fulfillment": "DTC subscription; Cloudcroft Mercantile consignment"
+    },
+    {
+      "market": "US-SW-RESERVE",
+      "place": "Reserve, New Mexico",
+      "zip": "87830",
+      "county": "Catron County",
+      "state": "NM",
+      "coordinates": {
+        "lat": 33.71,
+        "lon": -108.76
+      },
+      "elevation_ft": 5800,
+      "population": 290,
+      "classification": "Frontier, Gila National Forest gateway",
+      "frontier": true,
+      "subscriber_variant": true,
+      "retail_gap": "One general store; 90min to nearest Walmart (Silver City); Catron is least-dense county in NM",
+      "kodiak_opportunity": "Ultra-frontier subscription \u2014 Gila Wilder bundle",
+      "cross_promo": {
+        "partner": "pinonnuts.com",
+        "partner_name": "Pi\u00f1on Nuts",
+        "url": "https://pinonnuts.com",
+        "product": "Pi\u00f1\u00f3n Seeds",
+        "activation": "Gila Pi\u00f1on Wilder Stack \u2014 Reserve frontier flapjacks + pinonnuts.com pi\u00f1on brittle crumble",
+        "recipe_localization": "Reserve Gila Pi\u00f1on Wilder Pancakes: Power Cakes + pinonnuts.com pi\u00f1on brittle crumble, honey drizzle, Gila river cue"
+      },
+      "localization": {
+        "peppers": "Gila green chile dry ristras",
+        "cheeses": "None \u2014 nut-forward",
+        "photo_cue": "Gila National Forest, elk meadow, frontier cabin",
+        "message": "Gila frontier \u2014 Keep It Wild in Catron",
+        "audience": "Gila homesteaders, elk hunters"
+      },
+      "fulfillment": "DTC only; quarterly frontier box"
+    },
+    {
+      "market": "US-SW-QUEMADO",
+      "place": "Quemado, New Mexico",
+      "zip": "87829",
+      "county": "Catron County",
+      "state": "NM",
+      "coordinates": {
+        "lat": 34.35,
+        "lon": -108.5
+      },
+      "elevation_ft": 6900,
+      "population": 230,
+      "classification": "High desert frontier, Pie Town corridor",
+      "frontier": true,
+      "subscriber_variant": true,
+      "retail_gap": "Pie Town cafe + single gas store; 80min to Springerville AZ grocer",
+      "kodiak_opportunity": "Frontier pie-country breakfast: pi\u00f1on-pie flapjacks",
+      "cross_promo": {
+        "partner": "pinonnuts.com",
+        "partner_name": "Pi\u00f1on Nuts",
+        "url": "https://pinonnuts.com",
+        "product": "Pi\u00f1\u00f3n Seeds",
+        "activation": "Quemado Pi\u00f1on Pie Stack \u2014 Kodiak Power Cakes + pinonnuts.com toasted pi\u00f1on + peach-pi\u00f1on compote",
+        "recipe_localization": "Quemado Pi\u00f1on Peach Pancakes: Buttermilk Power Cakes + pinonnuts.com toasted pi\u00f1on, peach compote, Pie Town cue"
+      },
+      "localization": {
+        "peppers": "None \u2014 fruit & nut sweet",
+        "cheeses": "Mascarpone dollop",
+        "photo_cue": "High desert pie country, Very Large Array horizon, pi\u00f1on-juniper",
+        "message": "Pie Town frontier \u2014 pi\u00f1on & peach protein",
+        "audience": "High desert pie-country families, VLA roadtrip"
+      },
+      "fulfillment": "DTC subscription; Pie Town festival pop-up"
+    },
+    {
+      "market": "US-W-ELY",
+      "place": "Ely, Nevada",
+      "zip": "89301",
+      "county": "White Pine County",
+      "state": "NV",
+      "coordinates": {
+        "lat": 39.25,
+        "lon": -114.87
+      },
+      "elevation_ft": 6400,
+      "population": 4000,
+      "classification": "Great Basin frontier, Pi\u00f1on-Juniper belt",
+      "frontier": true,
+      "subscriber_variant": true,
+      "retail_gap": "Nearest Costco 240mi (Las Vegas); single Smith's serves vast basin; Great Basin pi\u00f1on harvest zone",
+      "kodiak_opportunity": "Great Basin pi\u00f1on frontier: Nevada pi\u00f1on meets Kodiak",
+      "cross_promo": {
+        "partner": "pinonnuts.com",
+        "partner_name": "Pi\u00f1on Nuts",
+        "url": "https://pinonnuts.com",
+        "product": "Pi\u00f1\u00f3n Seeds",
+        "activation": "Ely Great Basin Pi\u00f1on Stack \u2014 Kodiak Power Cakes + pinonnuts.com single-leaf pi\u00f1on (NV), sage-honey drizzle",
+        "recipe_localization": "Ely Great Basin Pi\u00f1on Pancakes: Power Cakes + pinonnuts.com Great Basin pi\u00f1on, sage honey, basin & range cue"
+      },
+      "localization": {
+        "peppers": "None \u2014 sage & honey sweet",
+        "cheeses": "None \u2014 nut-forward",
+        "photo_cue": "Great Basin sage, pi\u00f1on-juniper, basin and range alpenglow",
+        "message": "Great Basin frontier \u2014 pi\u00f1on protein for basin mornings",
+        "audience": "Basin ranch families, pi\u00f1on harvest camps"
+      },
+      "fulfillment": "DTC frontier subscription; Ely Farmers Market drop"
+    },
+    {
+      "market": "US-W-LOA",
+      "place": "Loa + Fremont, Utah",
+      "zip": "84747",
+      "county": "Wayne County",
+      "state": "UT",
+      "coordinates": {
+        "lat": 38.4,
+        "lon": -111.64
+      },
+      "elevation_ft": 7100,
+      "population": 560,
+      "classification": "Colorado Plateau frontier, Capitol Reef gateway",
+      "frontier": true,
+      "subscriber_variant": true,
+      "retail_gap": "One grocery for 38mi radius; 90mi to Richfield Walmart; Capitol Reef frontier",
+      "kodiak_opportunity": "Plateau frontier DTC: Capitol Reef adventure flapjacks",
+      "cross_promo": {
+        "partner": "pinonnuts.com",
+        "partner_name": "Pi\u00f1on Nuts",
+        "url": "https://pinonnuts.com",
+        "product": "Pi\u00f1\u00f3n Seeds",
+        "activation": "Loa Plateau Pi\u00f1on Stack \u2014 Kodiak Power Cakes + pinonnuts.com pi\u00f1on seeds + Utah honey",
+        "recipe_localization": "Loa Capitol Reef Pi\u00f1on Pancakes: Buttermilk Power Cakes + pinonnuts.com pi\u00f1on, Capitol Reef red rock cue, Utah honey drizzle"
+      },
+      "localization": {
+        "peppers": "None \u2014 plateau honey nut",
+        "cheeses": "None \u2014 honey-nut sweet",
+        "photo_cue": "Capitol Reef red cliffs, pi\u00f1on-juniper, Fremont river porch",
+        "message": "Plateau frontier \u2014 Keep It Wild at Capitol Reef",
+        "audience": "Plateau ranch families, Capitol Reef adventurers"
+      },
+      "fulfillment": "DTC only; Capitol Reef lodge pop-up"
+    },
+    {
+      "market": "US-CA-PESCADERO",
+      "place": "Pescadero, CA 94060 \u2014 San Mateo County coast, 35mi south of San Francisco",
+      "zip": "94060",
+      "county": "San Mateo County",
+      "state": "CA",
+      "coordinates": {
+        "lat": 37.255,
+        "lon": -122.383
+      },
+      "population": 2100,
+      "classification": "Coastal frontier \u2014 artichoke + strawberry belt, nearest no-retailer spot to Bay Area",
+      "frontier": true,
+      "subscriber_variant": true,
+      "retail_gap": "No chain grocer in town; Arcangeli Grocery (Pescadero) + tiny farm stands only. Nearest full grocer 18mi (Half Moon Bay Safeway) and Costco 30mi (South SF / Redwood City). One winding two-lane road in.",
+      "kodiak_opportunity": "KODIAK\u00ae \u00d7 Pescadero \u2014 artichoke + Marin goat cheese savory flapjacks. Nourishment for the Bay's frontier",
+      "cross_promo": {
+        "partner": "local farm",
+        "url": "https://kodiakcakes.com/pages/store-locator",
+        "activation": "KODIAK\u00ae \u00d7 Pescadero \u2014 artichoke + Marin goat cheese savory flapjacks. Nourishment for the Bay's frontier"
+      },
+      "localization": {
+        "message": "KODIAK\u00ae \u00d7 Pescadero \u2014 artichoke + Marin goat cheese savory flapjacks. Nourishment for the Bay's frontier",
+        "audience": "Bay Area urban families who want to see their frontier \u2014 SF/Oakland/San Jose Costco shoppers, Half Moon Bay trail families, Pescadero homesteaders and Harley Farms regulars",
+        "photo_cue": "Pescadero artichoke field at dawn, Arcangeli General Store porch, Kodiak box with artichoke hearts + goat cheese on wood board, Half Moon Bay fog behind"
+      },
+      "fulfillment": "DTC subscription where the road turns to two lanes \u2014 ships to Pescadero, Half Moon Bay, and SF. Amazon.com ads seen alongside Seattle if Washington noted \u2014 same for Bay Area: use your location or choose from list to see what your Costco sees."
+    },
+    {
+      "market": "US-WA-NEAHBAY",
+      "place": "Neah Bay, WA 98357 \u2014 northwestern tip of Olympic Peninsula, Makah Tribe",
+      "zip": "98357",
+      "county": "Clallam County",
+      "state": "WA",
+      "coordinates": {
+        "lat": 48.36,
+        "lon": -124.62
+      },
+      "population": 1500,
+      "classification": "Frontier \u2014 farthest northwestern tip Olympic Peninsula, Makah Tribe, outermost Washington",
+      "frontier": true,
+      "subscriber_variant": true,
+      "retail_gap": "Only mini-marts and Washburn's General Store in Neah Bay (limited SKU). Nearest full grocer Port Angeles Safeway / Walmart \u2014 70mi winding 2-lane SR-112 / US-101. 4\u20135hr to Seattle including Puget Sound ferry (Edmonds\u2013Kingston or Bainbridge).",
+      "kodiak_opportunity": "Frontier DTC frontier bundle: Neah Bay huckleberry + savory salmon Power Cakes \u2014 subscription where grocer is 70mi",
+      "cross_promo": {
+        "partner": "makah-tribal-fishery",
+        "partner_name": "Makah Tribal Fishery (potential)",
+        "url": "https://makah.com/fisheries",
+        "product": "Makah cedar-smoked salmon \u2014 seasonal Strait of Juan de Fuca catch",
+        "activation": "KODIAK\u00ae \u00d7 Makah Fishery: Neah Bay Savory Salmon Power Cakes \u2014 Buttermilk Power Cakes + flaked cedar-smoked salmon + chives, huckleberry compote sweet variant \u2014 maybe, with tribal consent",
+        "recipe_localization": "Neah Bay Savory Salmon Pancakes: 1 cup KODIAK\u00ae Buttermilk Power Cakes + 1/4 cup flaked cedar-smoked salmon + chives folded in, lemon-dill cr\u00e8me; Sweet: huckleberry compote (Aug) over Power Cakes with honey-lemon",
+        "status": "maybe \u2014 honor Makah sovereignty, propose only with consent"
+      },
+      "localization": {
+        "salmon": "Salmon May-Sep (sockeye Jun, coho Aug)",
+        "halibut": "Halibut Mar-Jun (peak Apr-May)",
+        "huckleberries": "Huckleberries late Jul-Sep peak Aug",
+        "seaweed": "Seaweed spring gathering \u2014 mineral finishing salt",
+        "cedar": "Cedar \u2014 cultural cue, photo only, not ingredient",
+        "pancake_tip_savory": "Fold flaked cold-smoked salmon + chives into savory Kodiak Buttermilk Power Cakes batter",
+        "pancake_tip_sweet": "Huckleberry compote (Aug) with honey + lemon spooned over Power Cakes",
+        "photo_cue": "Neah Bay harbor dawn, Makah cedar canoe, Washburn's porch, huckleberry compote on cast iron, 70mi road sign to Port Angeles, Olympic fog",
+        "message": "KODIAK\u00ae Neah Bay frontier \u2014 huckleberry compote over Buttermilk Power Cakes, Makah water meets Wasatch grain. Nourishment for Today's Frontier",
+        "audience": "Makah families, Neah Bay mini-mart regulars, Port Angeles commuters, Seattle urban-aware frontier representation"
+      },
+      "fulfillment": "DTC subscription & Amazon.com where store is 70mi away \u2014 subscription & amazon.com ads would be seen alongside Seattle if Washington state location is noted on app open (Washington state collapses Seattle + Neah Bay). Zip/market filter separates them.",
+      "elevation_ft": 75,
+      "subscription_explanation": "If Washington state location is noted (use your location on app open), both Seattle Costco bulk creative and Neah Bay frontier DTC creative are eligible for the same Washington audience \u2014 intentional to teach that urban folks see frontier representation."
+    },
+    {
+      "market": "US-UT-KAMASVALLEY",
+      "place": "Kamas Valley, UT 84036 \u2014 Peoa, Oakley, Kamas, pure ranching country",
+      "zip": "84036",
+      "county": "Summit County",
+      "state": "UT",
+      "coordinates": {
+        "lat": 40.642,
+        "lon": -111.281
+      },
+      "frontier": true,
+      "subscriber_variant": true,
+      "retail_gap": "Zero commercial retail or downtown \u2014 Peoa river valleys on acreage, only Oakley Farmers Market bi-weekly and Kamas Valley Market monthly",
+      "kodiak_opportunity": "KODIAK\u00ae Kamas Valley \u2014 Oakley Rodeo Grounds to your griddle. Ranch neighbors, mountain produce, 14g protein.",
+      "cross_promo": {
+        "partner": "Summit County Arts Council",
+        "url": "https://kodiakcakes.com/blogs/news",
+        "activation": "Free live acoustic while you flip"
+      },
+      "localization": {
+        "message": "KODIAK\u00ae Kamas Valley \u2014 Oakley Rodeo Grounds to your griddle. Ranch neighbors, mountain produce, 14g protein.",
+        "audience": "Peoa ranch families on acreage, Oakley Rodeo Grounds neighbors, Kamas backyard growers, Summit County Arts Council listeners",
+        "photo_cue": "Peoa river valley at dawn, Oakley Rodeo Grounds with folding tables of grass-fed meats, Kodiak box with mountain greens, acoustic guitar in background, no downtown in sight"
+      },
+      "fulfillment": "Where there is zero retail, we ship \u2014 DTC subscription + Amazon.com, same as Neah Bay and Pescadero. Kamas Valley learns what Park City farmers market shoppers see."
+    }
+  ]
+}

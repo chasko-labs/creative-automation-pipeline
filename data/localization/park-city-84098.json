@@ -1,0 +1,266 @@
+{
+  "$schema": "https://kodiakcakes.com/schema/locality-v1.json",
+  "generated": "2026-09-02",
+  "updated_at": "2026-09-02T20:57:01.923170Z",
+  "market": "US-MW-PARKCITY-84098",
+  "legacy_market": "US-MW-WASATCH",
+  "place": "Park City, Utah 84098",
+  "zip": "84098",
+  "county": "Summit County",
+  "region": "Wasatch Back",
+  "state": "UT",
+  "coordinates": {
+    "lat": 40.6461,
+    "lon": -111.498
+  },
+  "retailer": "Target (Kimball Junction), Walmart (Kimball Junction), Smith's Food & Drug (Park City)",
+  "retailer_detail": {
+    "Target": "Kimball Junction — UT-224, anchor for Wasatch Back",
+    "Walmart": "Kimball Junction Supercenter — UT-224",
+    "Smiths": "Smith's Food & Drug Park City — UT-224 / Kearns Blvd",
+    "halo": [
+      "Whole Foods-adjacent natural channel Wasatch Back",
+      "Lee's Market Park City",
+      "Natural grocers Heber/Kamas corridor"
+    ]
+  },
+  "audience": "Mountain families, Wasatch trail households, resort staff",
+  "audience_segments": [
+    {
+      "segment": "mountain families",
+      "label": "Mountain families",
+      "age": "30-48",
+      "description": "Multi-generational Wasatch Back households — kids called cubs, beanies at the door, weekend stacks before school or ski. Bulk Family Size from Costco halo plus mid-week Target Kimball Junction run. Value protein that still reads clean label.",
+      "cues": [
+        "weekend griddle",
+        "Bear Bites in lunchboxes",
+        "cast iron at cabin",
+        "enamel mugs"
+      ]
+    },
+    {
+      "segment": "wasatch trail households",
+      "label": "Wasatch trail households",
+      "age": "27-45",
+      "description": "Trail runners, MTB and hikers on Mid Mountain, Armstrong, Spiro and 1000-Acre. Sunrise alpenglow start, 14g protein before 7am trailhead. Kodiak as trail fuel, not desk snack.",
+      "cues": [
+        "alpenglow pine/boulder",
+        "trail bench stack",
+        "headlamp-off at dawn",
+        "Bear Bites in pack"
+      ]
+    },
+    {
+      "segment": "resort staff",
+      "label": "Resort staff",
+      "age": "20-34",
+      "description": "Park City Mountain Resort and Deer Valley seasonal staff — lifties, instructors, kitchen, lodging. Early shift, on-the-go oatmeal cup + flapjack on break, protein that holds through a double.",
+      "cues": [
+        "base-area break room",
+        "oatmeal cup on lift shack",
+        "post-shift griddle"
+      ]
+    }
+  ],
+  "message": "Keep It Wild — protein-packed whole grains for your Park City frontier. Nourishment for Today's Frontier",
+  "message_variants": [
+    "Keep It Wild — protein-packed whole grains for your Park City frontier",
+    "Wasatch alpenglow flapjacks — 14g protein, 100% whole grains for today's frontier",
+    "Trailhead flapjacks — 14g protein before the Wasatch wakes up"
+  ],
+  "cue": "Wasatch alpenglow, pine, boulder, snow at dawn — farmers market crates from Park City Mountain base, rhubarb-orange compote, peach preserves on cast iron",
+  "photo_cue_detail": "Wasatch alpenglow at dawn with sky negative space at top for text (brand token C01). Foreground: cast-iron stack on trail bench or cabin table, small bowl of peach preserve or rhubarb-orange compote, pine/boulder negative space. Bear silhouette at 24,24, 8px Blaze Orange bar, 0.18 scrim band at 68%. No costume grizzlies — respectful distance or tracks only.",
+  "hyper_local_sources": [
+    {
+      "name": "Park City Farmers Market",
+      "location": "Base of Park City Mountain Resort, Park City, UT 84098",
+      "schedule": "Wednesday 11am–5pm, through mid-October",
+      "season": "June through mid-October",
+      "vendors": [
+        "Jensen Farms",
+        "Smith Orchards"
+      ],
+      "kodiak_tie": "Jensen Farms / Smith Orchards peaches — peach compote with cinnamon tip on Buttermilk Power Cakes. Stack with peach preserve, dust of cinnamon, photo on market crate.",
+      "notes": "Primary smoke test locality. Weekly, base-area, family foot traffic — mountain families + resort staff + visitors. Cinnamon tip: light cinnamon fold-in or sprinkle with peaches — not cinnamon-sugar overload."
+    },
+    {
+      "name": "Copper Moose Farm Stand",
+      "location": "84098 — Wasatch Back biodynamic stand",
+      "schedule": "Tuesday/Thursday 12pm–6pm, Saturday 9am–3pm; June–October",
+      "season": "June–October",
+      "practice": "biodynamic",
+      "kodiak_tie": "Rhubarb compote with orange juice — tart rhubarb + orange juice brightened compote spooned over Power Cakes waffles. Autumn trail-tart, Kodiak 14g protein balances acidity.",
+      "notes": "Biodynamic — matches Kodiak whole-grain/keep-it-wild ethos. Saturday 9-3 is peak. Compote recipe: rhubarb, orange juice, light honey."
+    },
+    {
+      "name": "Tagges Fruit Stand",
+      "location": "SR-224 near Canyons Village, Park City UT",
+      "schedule": "Daily, through September",
+      "season": "Summer through September",
+      "kodiak_tie": "Preserves — peach and mixed-fruit preserves jar beside stack. Shelf-stable take-home cue for Wasatch families stocking pantry.",
+      "notes": "SR-224 corridor — commuter visible. Daily through Sept. Preserves = pantry stocking message: Stock the frontier."
+    },
+    {
+      "name": "Ballerina Farm Stand",
+      "location": "Kamas, UT — Wasatch Back (Kamas Valley, Summit County)",
+      "schedule": "Farm stand, seasonal — check stand hours",
+      "season": "Through fall",
+      "kodiak_tie": "Butter + honey — brown butter + Ballerina Farm honey drizzle on Power Cakes. Dairy-rich Wasatch valley tie, honey frontier variant.",
+      "notes": "Kamas Valley farm — complementary to 84098 Wasatch Back story. Butter/honey = kid-friendly Bear Bites variant: honey frontier."
+    }
+  ],
+  "recipe_pairings": [
+    {
+      "kodiak_sku": "Buttermilk Power Cakes",
+      "pairing": "Jensen Farms / Smith Orchards peach compote with cinnamon",
+      "build": "1 cup Power Cakes mix + 2/3 cup milk + 1 egg, fold diced peach, pinch cinnamon; top with warm peach preserve spoon",
+      "source": "Park City Farmers Market — Wed 11-5"
+    },
+    {
+      "kodiak_sku": "Power Waffles / Power Cakes waffles",
+      "pairing": "Copper Moose rhubarb compote with orange juice",
+      "build": "Rhubarb + orange juice + honey simmer 12 min, spoon over toasted Power Waffle or fresh waffle iron cake",
+      "source": "Copper Moose Farm Stand Tue/Thu 12-6 Sat 9-3"
+    },
+    {
+      "kodiak_sku": "Bear Bites / Power Cakes",
+      "pairing": "Tagges preserves + Ballerina Farm honey-butter",
+      "build": "Warm stack, Tagges peach preserve + Ballerina Farm honey whisked into brown butter",
+      "source": "SR-224 Tagges daily through Sept; Kamas Ballerina Farm"
+    }
+  ],
+  "tags": [
+    "#ParkCity",
+    "#WasatchBack",
+    "#Wasatch",
+    "#84098",
+    "#ParkCityFarmersMarket",
+    "#CopperMooseFarm",
+    "#TaggesFruit",
+    "#BallerinaFarm",
+    "#KeepItWild",
+    "#FrontierBreakfast",
+    "#Alpenglow",
+    "#TrailFuel",
+    "#MountainFamilies"
+  ],
+  "primary_tags": [
+    "#ParkCity",
+    "#WasatchBack",
+    "#84098"
+  ],
+  "search_text": "Park City Utah 84098 Wasatch Back Park City Farmers Market base of Park City Mountain Resort Wednesday 11-5 Jensen Farms Smith Orchards peaches cinnamon Copper Moose Farm Stand biodynamic Tue Thu 12-6 Sat 9-3 rhubarb compote orange juice Tagges Fruit SR-224 Canyons Village daily through Sept preserves Ballerina Farm Kamas butter honey",
+  "platform_bundles": {
+    "instagram": "#KodiakCakes #KeepItWild #ParkCity #WasatchBack #84098 #ParkCityFarmersMarket",
+    "tiktok": "#KodiakCakes #ParkCity #WasatchBack #TrailFuel",
+    "facebook": "#KodiakCakes #KeepItWild #ParkCity #WasatchBack",
+    "x": "#KodiakCakes #ParkCity",
+    "pinterest": "#KodiakCakes (titles carry 'Park City Farmers Market Peach — Wasatch Back')",
+    "youtube": "#KodiakCakes #KeepItWild #ParkCity #WasatchBack #Shorts (Shorts only)",
+    "linkedin": "#KodiakCakes #KeepItWild"
+  },
+  "caption_bundles": {
+    "instagram_1x1": "Keep It Wild — Park City frontier stack. Jensen Farms peaches with a cinnamon whisper, flipped on cast iron, 14g protein + 100% whole grains. Find us at Target Kimball Junction + Walmart. Wed 11-5 at the base of Park City Mountain Resort through mid-Oct. #KodiakCakes #KeepItWild #ParkCity #WasatchBack #84098 #ParkCityFarmersMarket",
+    "tiktok_9x16": "Park City flapjacks — Wasatch style. Peach + cinnamon at the farmers market, Wasatch alpenglow behind. #KodiakCakes #ParkCity #WasatchBack",
+    "facebook_1x1": "Park City frontier flapjacks — Wasatch alpenglow + rhubarb-orange compote from Copper Moose (Tue/Thu 12-6 Sat 9-3) and peach preserves from Tagges SR-224. Find us at Kimball Junction today! #KodiakCakes #KeepItWild #ParkCity",
+    "pinterest_2x3": "Park City Farmers Market Peach Flapjacks — Wasatch Back | 14g Protein, 100% Whole Grains | Kodiak Cakes | 84098",
+    "youtube_shorts": "Park City flapjacks — farmers market peach + rhubarb-orange | Kodiak Hacks #KodiakCakes #KeepItWild #Shorts",
+    "in_store_endcap": "KODIAK® Keep It Wild — Wasatch alpenglow, 14g protein. Find us at Target & Walmart Kimball Junction. Peach + rhubarb compotes from Park City market stands.",
+    "table_tent": "KODIAK® at your Park City table — protein-packed whole grains for today's frontier. Ask for the Bear Bites side with honey."
+  },
+  "families_quick": {
+    "brand": [
+      "#KodiakCakes"
+    ],
+    "campaign": [
+      "#KeepItWild"
+    ],
+    "product_example": [
+      "#ProteinPacked",
+      "#14gProtein",
+      "#100PercentWholeGrains"
+    ],
+    "community_example": [
+      "#BearBites",
+      "#TrailFuel",
+      "#FrontierBreakfast"
+    ]
+  },
+  "voice_guardrails": {
+    "authentic_segments_only": [
+      "mountain families",
+      "Wasatch trail households",
+      "resort staff"
+    ],
+    "avoid": [
+      "cringe persona",
+      "stereotyped ski-bum / trustafarian / apres-ski caricature",
+      "tech-bro mountain slang",
+      "fabricated local slang"
+    ],
+    "tone": "adventurous, nourishing, rugged — short Wasatch sentences, verbs-forward Fuel your frontier, enamel mugs and cast iron. Protect the bear; no captive bear close-ups.",
+    "brand_marks": [
+      "KODIAK®",
+      "KODIAK CAKES®",
+      "KODIAK POWER CUPS®",
+      "Feeding Epic Days & Wilder Lives",
+      "Nourishment for Today's Frontier"
+    ],
+    "compliance": "KODIAK Brown #3B2316 dominant 60-70%, Blaze Orange #E8530E ≤18% except 8px bar, bear at 24,24"
+  },
+  "seasonality": {
+    "peach_window": "July–September, peak at market through mid-Oct",
+    "rhubarb_window": "June–October Copper Moose",
+    "preserves_window": "Daily through September Tagges; preserves pantry year-round cue",
+    "market_window": "Farmers Market Wed 11-5 through mid-October"
+  },
+  "store_halo": "Wasatch Back halo — same voice travels to Heber, Kamas, Midway natural/independent doors; bulk Family Size via Costco halo; Smith's Park City for everyday fill.",
+  "is_default_demo": true,
+  "smoke_test": "Primary smoke test locality — docs/regional-cultural-database.md, data/localization/localization-training-data.jsonl, hashtag-lookup.json, web demo default",
+  "seasonal_local": [
+    {
+      "name": "Park City Farmers Market",
+      "where": "Base of Park City Mountain Resort",
+      "when": "Wednesdays 11:00 AM – 5:00 PM, through mid-October",
+      "flavor": "Late-summer raspberries, blackberries, first Utah peaches, artisanal syrups, local honey",
+      "pancake_tip": "Look for Jensen Farms or Smith Orchards tents — grab fresh peaches, dice thin, fold into batter with a dash of cinnamon",
+      "rating": "4.8 Farmers' market"
+    },
+    {
+      "name": "Copper Moose Farm Stand",
+      "where": "84098 ZIP — biodynamic farm, organic greens and root veggies",
+      "when": "Tuesdays and Thursdays 12:00–6:00 PM, Saturdays 9:00 AM–3:00 PM, June through October",
+      "flavor": "Seasonal Utah tree fruits, mountain honey, small-batch preserves",
+      "pancake_tip": "Grab early-season rhubarb — dice and simmer with sugar + splash of orange juice for a tart bright compote that cuts the hearty grain",
+      "rating": "4.8 Grocery store"
+    },
+    {
+      "name": "Tagges Fruit Stand",
+      "where": "SR-224 near Canyons Village — roadside, direct-from-orchard",
+      "when": "Open daily peak summer and autumn harvest (typically through September)",
+      "flavor": "Utah peaches, jarred preserves and fruit jams",
+      "pancake_tip": "If you miss raw fruit windows, grab a jar of homemade preserves to swirl into batter before flipping",
+      "rating": "4.5 Farm"
+    },
+    {
+      "name": "Ballerina Farm Stand",
+      "where": "15 min east over the pass — Kamas, UT",
+      "when": "Open daily, closes 8 PM",
+      "flavor": "Scratch-made dairy, mountain pantry, fresh farm butter, raw unfiltered Utah honey",
+      "pancake_tip": "Skip supermarket butter — melt fresh farm butter over the stack with a drizzle of raw Utah honey",
+      "rating": "4.3 Grocery store"
+    }
+  ],
+  "where_extended": "Park City plus the Wasatch Back — Old Town, Prospector, Kimball Junction, Jeremy Ranch",
+  "who_extended": {
+    "primary": "Mountain families who ski before work and trail after — Wasatch locals, resort staff, parents packing Bear Bites for the hill",
+    "costco": "Bulk stock-up families — pantry fill, weekend griddle for the house",
+    "amazon_subscriber": "Rural and cabin subscribers — off Highway 224, Uinta cabins, Subscribe & Save where the store is 40 minutes away",
+    "target": "Clean-label families — read the box, 14g protein, whole grains first"
+  },
+  "one_line_options_extended": [
+    "Keep It Wild — protein-packed whole grains for your Wasatch frontier. Nourishment for Today's Frontier",
+    "Feeding Epic Days & Wilder Lives — right here in 84098, from resort base to ranch",
+    "Fresh peaches from Jensen Farms, folded into Kodiak — Park City summer on a griddle"
+  ]
+}

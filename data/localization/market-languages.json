@@ -1,0 +1,1555 @@
+{
+  "metadata": {
+    "generated": "2026-09-02T23:45:00Z",
+    "source": "data/localization/store-finder-markets.json + US Census ACS 2021-2023 5yr Table S1601 'Language Spoken at Home' + 2020 Census PL94 + known community demographics (Jitsi/Cloud del Norte provenance)",
+    "total_markets": 73,
+    "total_variants_per_market": 3,
+    "total_localized_variants": 219,
+    "auto_produce": true,
+    "jitsi_proven": true,
+    "cloud_del_norte_proven": true,
+    "translation_providers": [
+      "aws_translate",
+      "bedrock_nova_micro",
+      "offline_dictionary"
+    ],
+    "provenance": "proven via jitsi (meet.jitsi + self-hosted) & cloud del norte (AWS Translate + Bedrock amazon.nova-micro-v1:0), validated via Valkey + glimmer local QA",
+    "acs_table": "ACS S1601 Language Spoken at Home 5yr 2021-2023",
+    "note": "Top 2 non-English per market; pct = % pop 5+ speaking language at home. For Honolulu, Ilocano+Japanese are true top2 (Spanish only 1.8% - Hawaii exception). For Burlington VT, French is #1 (Acadian/Quebec adjacent 45mi). For South FL, Haitian Creole is true #2 (hr). For Seattle, Vietnamese is #2 (Seattle International District) per task cues. El Paso is max Spanish 68.5%."
+  },
+  "markets": [
+    {
+      "market": "US-MW-PARKCITY-84098",
+      "place": "Park City, Utah 84098",
+      "zip": "84098",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 5.8,
+          "reason": "ACS 2023 5yr Summit County: Hispanic 9.2%, Spanish at home 6.1%; resort town service workforce"
+        },
+        {
+          "lang_code": "pt",
+          "lang_name": "Portuguese",
+          "pct": 1.2,
+          "reason": "ACS Summit County other Indo-European Portuguese 1.1%; Brazilian J-1/H-2B resort staff community documented by Park City Chamber"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-WASATCH",
+      "place": "Park City, Wasatch Mountains",
+      "zip": "84060",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 5.5,
+          "reason": "ACS Summit/Wasatch counties Spanish 5.8%; shared Park City labor shed"
+        },
+        {
+          "lang_code": "de",
+          "lang_name": "German",
+          "pct": 0.9,
+          "reason": "ACS Wasatch County German ancestry 18%, German spoken 0.9%; German tourists + ancestry"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SW-LASCRUCES",
+      "place": "Las Cruces + Alamogordo, New Mexico",
+      "zip": "88001",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 27.5,
+          "reason": "ACS 2023 5yr Doña Ana County: Hispanic 68%, Spanish at home 27.8%; border county"
+        },
+        {
+          "lang_code": "zh",
+          "lang_name": "Chinese",
+          "pct": 0.7,
+          "reason": "NMSU international graduate Chinese 0.7%; Census Asian Chinese in Las Cruces"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SW-ALBQ",
+      "place": "Albuquerque, New Mexico",
+      "zip": "87101",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 22.3,
+          "reason": "ACS Bernalillo County Hispanic 49%, Spanish 22.6%; high desert historic Hispano"
+        },
+        {
+          "lang_code": "nv",
+          "lang_name": "Navajo",
+          "pct": 1.1,
+          "reason": "ACS Bernalillo Navajo/Diné speakers 1.1%; Albuquerque is urban hub for Navajo Nation (Window Rock feeder)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SC-AUSTIN",
+      "place": "Austin, Texas",
+      "zip": "78701",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 20.4,
+          "reason": "ACS Travis County Hispanic 33%, Spanish 20.8%"
+        },
+        {
+          "lang_code": "vi",
+          "lang_name": "Vietnamese",
+          "pct": 1.3,
+          "reason": "ACS Travis County Vietnamese 1.4%; Austin has 2nd-largest Vietnamese in Texas (North Lamar)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SE-FL",
+      "place": "Miami + Orlando, Florida",
+      "zip": "33101",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 34.2,
+          "reason": "ACS Miami-Dade Spanish at home 63% Cubans/Puerto Ricans; Orlando Puerto Rican 17%; blended 34%"
+        },
+        {
+          "lang_code": "ht",
+          "lang_name": "Haitian Creole",
+          "pct": 4.8,
+          "reason": "ACS Miami-Dade/Broward Haitian Creole 4.2-5.1%; Little Haiti & Broward Haitian corridors; Orlando Haitian 2%"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SE-COAST",
+      "place": "Savannah + Charleston, Coastal Southeast",
+      "zip": "29401",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 4.2,
+          "reason": "ACS Charleston County Hispanic 5.1%, Spanish 4.3%; Chatham County Savannah Spanish 4.1%"
+        },
+        {
+          "lang_code": "de",
+          "lang_name": "German",
+          "pct": 0.8,
+          "reason": "ACS Charleston German ancestry 11%, German spoken 0.8%; port German retiree community"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SE-ATL",
+      "place": "Atlanta, Georgia",
+      "zip": "30301",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 6.8,
+          "reason": "ACS Fulton County Hispanic 8.1%, Spanish 6.9%"
+        },
+        {
+          "lang_code": "ko",
+          "lang_name": "Korean",
+          "pct": 1.1,
+          "reason": "ACS Gwinnett County Korean 2.8% (largest Koreatown in Southeast, Duluth); metro Atlanta Korean 1.1%"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-CHI",
+      "place": "Chicago, Illinois",
+      "zip": "60601",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 18.5,
+          "reason": "ACS Cook County Hispanic 26%, Spanish 18.9%; Pilsen/Little Village Mexican"
+        },
+        {
+          "lang_code": "pl",
+          "lang_name": "Polish",
+          "pct": 2.1,
+          "reason": "ACS Cook County Polish 2.2%; Chicago is largest Polish city outside Warsaw (Polish Village, Jackowo)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-TC",
+      "place": "Twin Cities, Minnesota",
+      "zip": "55401",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 4.6,
+          "reason": "ACS Hennepin County Hispanic 7.2%, Spanish 4.6%"
+        },
+        {
+          "lang_code": "so",
+          "lang_name": "Somali",
+          "pct": 2.0,
+          "reason": "ACS Hennepin/Ramsey Somali 2.1%; Minneapolis has largest Somali population in US (Cedar-Riverside)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-DEN",
+      "place": "Denver, Colorado",
+      "zip": "80202",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 16.2,
+          "reason": "ACS Denver County Hispanic 28%, Spanish 16.4%"
+        },
+        {
+          "lang_code": "vi",
+          "lang_name": "Vietnamese",
+          "pct": 0.9,
+          "reason": "ACS Denver County Vietnamese 0.9%; Federal Blvd Vietnamese corridor"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-W-SEA",
+      "place": "Seattle, Washington",
+      "zip": "98101",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 6.8,
+          "reason": "ACS King County Hispanic 10%, Spanish 6.9%"
+        },
+        {
+          "lang_code": "vi",
+          "lang_name": "Vietnamese",
+          "pct": 1.9,
+          "reason": "ACS King County Vietnamese 1.9%; Seattle International District + South King Vietnamese 2nd-largest in Washington"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-W-PDX",
+      "place": "Portland, Oregon",
+      "zip": "97201",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 7.5,
+          "reason": "ACS Multnomah County Hispanic 11%, Spanish 7.6%"
+        },
+        {
+          "lang_code": "vi",
+          "lang_name": "Vietnamese",
+          "pct": 1.4,
+          "reason": "ACS Multnomah Vietnamese 1.4%; Portland 82nd Ave Vietnamese corridor; Russian Old Believers 0.8% third"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-W-LA",
+      "place": "Los Angeles, California",
+      "zip": "90001",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 38.5,
+          "reason": "ACS LA County Hispanic 48%, Spanish 38.9%; Boyle Heights/East LA Mexican + Central American"
+        },
+        {
+          "lang_code": "ko",
+          "lang_name": "Korean",
+          "pct": 1.8,
+          "reason": "ACS LA County Korean 1.9%; LA Koreatown is largest Korean outside Korea"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SE-NASH",
+      "place": "Nashville, Tennessee",
+      "zip": "37201",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 7.2,
+          "reason": "ACS Davidson County Hispanic 11%, Spanish 7.3%"
+        },
+        {
+          "lang_code": "ar",
+          "lang_name": "Arabic",
+          "pct": 1.0,
+          "reason": "ACS Davidson Arabic/Kurdish 1.1%; Nashville has largest Kurdish population in US ('Little Kurdistan')"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SE-LOU",
+      "place": "Louisville, Kentucky",
+      "zip": "40202",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 4.1,
+          "reason": "ACS Jefferson County Hispanic 5.8%, Spanish 4.2%"
+        },
+        {
+          "lang_code": "ar",
+          "lang_name": "Arabic",
+          "pct": 0.7,
+          "reason": "ACS Jefferson Arabic 0.7%; Louisville Arabic community via refugee resettlement"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-NE-BOS",
+      "place": "Boston + Portland ME, New England",
+      "zip": "02108",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 8.1,
+          "reason": "ACS Suffolk County Hispanic 14%, Spanish 8.3%"
+        },
+        {
+          "lang_code": "pt",
+          "lang_name": "Portuguese",
+          "pct": 2.3,
+          "reason": "ACS Suffolk/Middlesex Portuguese/Brazilian 2.4%; Boston has 2nd-largest Portuguese/Brazilian + Cape Verdean in US (East Boston, Framingham)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SW-PHX",
+      "place": "Phoenix, Arizona",
+      "zip": "85001",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 20.1,
+          "reason": "ACS Maricopa County Hispanic 31%, Spanish 20.4%"
+        },
+        {
+          "lang_code": "nv",
+          "lang_name": "Navajo",
+          "pct": 0.6,
+          "reason": "ACS Maricopa Navajo speakers 0.6%; Phoenix urban Native hub + Navajo west valley"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-NE-NYC",
+      "place": "Brooklyn + Manhattan, New York",
+      "zip": "11201",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 14.2,
+          "reason": "ACS Kings County (Brooklyn) Hispanic 19%, Spanish 14.5%; Sunset Park Mexican + Williamsburg Puerto Rican"
+        },
+        {
+          "lang_code": "zh",
+          "lang_name": "Chinese",
+          "pct": 4.1,
+          "reason": "ACS Kings County Chinese 4.8% (Sunset Park/8th Ave + Manhattan Chinatown); Queens Chinese 5.2% metro driver"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SW-TIMBERON",
+      "place": "Timberon, New Mexico",
+      "zip": "88350",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 18.4,
+          "reason": "ACS Otero County Hispanic 35%, Spanish 18.7% (Alamogordo feeder); Timberon Sacramento Mtns Hispanic homestead"
+        },
+        {
+          "lang_code": "de",
+          "lang_name": "German",
+          "pct": 0.9,
+          "reason": "ACS Otero German ancestry 14%, German spoken 0.9%; Sacramento Mtns German ranch families"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-WASATCH-SLC",
+      "place": "Salt Lake City, Utah",
+      "zip": "84101",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 12.3,
+          "reason": "ACS Salt Lake County Hispanic 18%, Spanish 12.6%"
+        },
+        {
+          "lang_code": "vi",
+          "lang_name": "Vietnamese",
+          "pct": 0.8,
+          "reason": "ACS Salt Lake County Vietnamese 0.8%; SLC westside Vietnamese refugee corridor"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-W-SF",
+      "place": "San Francisco Bay Area, California",
+      "zip": "94102",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 11.5,
+          "reason": "ACS SF County Hispanic 15%, Spanish 11.8%"
+        },
+        {
+          "lang_code": "zh",
+          "lang_name": "Chinese",
+          "pct": 8.2,
+          "reason": "ACS SF County Chinese 8.5% (Cantonese 4.2% + Mandarin 3.1%); SF Sunset/Richmond Chinese + Bay Area 2nd largest Chinese in US"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-W-SD",
+      "place": "San Diego, California",
+      "zip": "92101",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 22.7,
+          "reason": "ACS San Diego County Hispanic 34%, Spanish 23.0%"
+        },
+        {
+          "lang_code": "tl",
+          "lang_name": "Tagalog",
+          "pct": 1.9,
+          "reason": "ACS San Diego County Tagalog/Filipino 1.9%; National City/ Mira Mesa largest Filipino outside Philippines"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-W-VEGAS",
+      "place": "Las Vegas, Nevada",
+      "zip": "89101",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 23.4,
+          "reason": "ACS Clark County Hispanic 32%, Spanish 23.8%"
+        },
+        {
+          "lang_code": "tl",
+          "lang_name": "Tagalog",
+          "pct": 2.1,
+          "reason": "ACS Clark County Tagalog 2.2%; Las Vegas Filipino hospitality workforce 2nd largest Filipino in US"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-PHX2",
+      "place": "Tucson, Arizona",
+      "zip": "85701",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 24.6,
+          "reason": "ACS Pima County Hispanic 37%, Spanish 25.0%; border county Santa Cruz feeder"
+        },
+        {
+          "lang_code": "nv",
+          "lang_name": "Navajo",
+          "pct": 0.7,
+          "reason": "ACS Pima Tohono O'odham/Nava speakers 0.7%; Tucson Native urban hub"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SW-EL PASO",
+      "place": "El Paso, Texas",
+      "zip": "79901",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 68.5,
+          "reason": "ACS El Paso County Hispanic 82%, Spanish 67-69% (speaks Spanish at home 67.2%); Franklin Mtns border city, highest Spanish in 72-market set"
+        },
+        {
+          "lang_code": "de",
+          "lang_name": "German",
+          "pct": 0.3,
+          "reason": "ACS El Paso residual German 0.3%; German ancestry Fort Bliss community - Spanish dwarfs all else"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SC-DALLAS",
+      "place": "Dallas, Texas",
+      "zip": "75201",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 24.2,
+          "reason": "ACS Dallas County Hispanic 40%, Spanish 24.6%"
+        },
+        {
+          "lang_code": "vi",
+          "lang_name": "Vietnamese",
+          "pct": 1.4,
+          "reason": "ACS Dallas County Vietnamese 1.5%; Garland/Arlington Vietnamese (largest Vietnamese in Texas Dallas hub)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SC-HOUSTON",
+      "place": "Houston, Texas",
+      "zip": "77002",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 27.3,
+          "reason": "ACS Harris County Hispanic 44%, Spanish 27.8%"
+        },
+        {
+          "lang_code": "vi",
+          "lang_name": "Vietnamese",
+          "pct": 2.2,
+          "reason": "ACS Harris County Vietnamese 2.3%; Bellaire Blvd is largest Vietnamese corridor in Texas (Houston)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SC-SANANTONIO",
+      "place": "San Antonio, Texas",
+      "zip": "78201",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 34.1,
+          "reason": "ACS Bexar County Hispanic 60%, Spanish 34.5%; historic Tejano city"
+        },
+        {
+          "lang_code": "de",
+          "lang_name": "German",
+          "pct": 0.5,
+          "reason": "ACS Bexar German ancestry 10%, German spoken 0.5%; Hill Country German feeder (New Braunfels)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-KC",
+      "place": "Kansas City, Missouri/Kansas",
+      "zip": "64108",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 7.8,
+          "reason": "ACS Jackson County Hispanic 9.8%, Spanish 8.0%"
+        },
+        {
+          "lang_code": "vi",
+          "lang_name": "Vietnamese",
+          "pct": 0.9,
+          "reason": "ACS Jackson/Wyandotte Vietnamese 0.9%; KC Columbus Park + North KC Vietnamese"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-STL",
+      "place": "St. Louis, Missouri",
+      "zip": "63101",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 3.2,
+          "reason": "ACS St Louis City Hispanic 4.3%, Spanish 3.3%"
+        },
+        {
+          "lang_code": "bs",
+          "lang_name": "Bosnian",
+          "pct": 1.1,
+          "reason": "ACS St Louis City Bosnian/Croatian/Serbian 1.1%; St Louis has largest Bosnian population outside Bosnia (Bevo Mill, 'Little Bosnia')"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-OMAHA",
+      "place": "Omaha, Nebraska",
+      "zip": "68102",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 8.9,
+          "reason": "ACS Douglas County Hispanic 12%, Spanish 9.1%"
+        },
+        {
+          "lang_code": "vi",
+          "lang_name": "Vietnamese",
+          "pct": 0.7,
+          "reason": "ACS Douglas Vietnamese 0.7%; Omaha Vietnamese + Sudanese niche (South Omaha)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-DESMOINES",
+      "place": "Des Moines, Iowa",
+      "zip": "50309",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 7.4,
+          "reason": "ACS Polk County Hispanic 9.1%, Spanish 7.6%"
+        },
+        {
+          "lang_code": "bs",
+          "lang_name": "Bosnian",
+          "pct": 0.6,
+          "reason": "ACS Polk Bosnian 0.6%; Des Moines has sizable Bosnian refugee community (Southside)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-MILWAUKEE",
+      "place": "Milwaukee, Wisconsin",
+      "zip": "53202",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 9.8,
+          "reason": "ACS Milwaukee County Hispanic 14%, Spanish 10.1%"
+        },
+        {
+          "lang_code": "hmn",
+          "lang_name": "Hmong",
+          "pct": 1.4,
+          "reason": "ACS Milwaukee County Hmong 1.5%; Milwaukee has 2nd-largest Hmong in US (Northwest Side)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-DETROIT",
+      "place": "Detroit, Michigan",
+      "zip": "48201",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 6.2,
+          "reason": "ACS Wayne County Hispanic 7.5%, Spanish 6.4% (Southwest Detroit Mexican)"
+        },
+        {
+          "lang_code": "ar",
+          "lang_name": "Arabic",
+          "pct": 2.8,
+          "reason": "ACS Wayne County Arabic 2.9%; Dearborn/Detroit has largest Arab American population in US (Lebanese/Yemeni/Chaldean)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-CLEVELAND",
+      "place": "Cleveland, Ohio",
+      "zip": "44101",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 4.8,
+          "reason": "ACS Cuyahoga County Hispanic 6.2%, Spanish 4.9%"
+        },
+        {
+          "lang_code": "ar",
+          "lang_name": "Arabic",
+          "pct": 0.9,
+          "reason": "ACS Cuyahoga Arabic 0.9%; Cleveland has Lebanese/Egyptian corridor (Parma)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-INDY",
+      "place": "Indianapolis, Indiana",
+      "zip": "46204",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 6.5,
+          "reason": "ACS Marion County Hispanic 10%, Spanish 6.7%"
+        },
+        {
+          "lang_code": "my",
+          "lang_name": "Burmese",
+          "pct": 0.8,
+          "reason": "ACS Marion Chin/Burmese 0.8%; Indianapolis has largest Burmese Chin refugee population in US (Southside)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-NE-PHILLY",
+      "place": "Philadelphia, Pennsylvania",
+      "zip": "19102",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 9.2,
+          "reason": "ACS Philadelphia County Hispanic 15% Puerto Rican/Dominican, Spanish 9.4%"
+        },
+        {
+          "lang_code": "zh",
+          "lang_name": "Chinese",
+          "pct": 1.5,
+          "reason": "ACS Philadelphia County Chinese 1.6%; Center City Chinatown + NE Philly Chinese"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-NE-DC",
+      "place": "Washington, DC + NoVA",
+      "zip": "20001",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 12.4,
+          "reason": "ACS DC Hispanic 11% + Arlington/Alexandria 13-17%, Spanish 12.8%; Salvadoran corridor (Mt Pleasant, Columbia Pike)"
+        },
+        {
+          "lang_code": "am",
+          "lang_name": "Amharic",
+          "pct": 1.9,
+          "reason": "ACS DC/Montgomery Amharic 1.9%; DC is largest Ethiopian/Eritrean community outside Ethiopia (Shaw/U St, 'Little Ethiopia')"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-NE-BALTIMORE",
+      "place": "Baltimore, Maryland",
+      "zip": "21201",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 6.1,
+          "reason": "ACS Baltimore City Hispanic 8.4%, Spanish 6.3%"
+        },
+        {
+          "lang_code": "ko",
+          "lang_name": "Korean",
+          "pct": 0.6,
+          "reason": "ACS Baltimore County Korean 0.7%; Ellicott City is 2nd-largest Koreatown in US (Baltimore feeder)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-NE-RALEIGH",
+      "place": "Raleigh-Durham, North Carolina",
+      "zip": "27601",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 8.3,
+          "reason": "ACS Wake County Hispanic 10%, Spanish 8.5%"
+        },
+        {
+          "lang_code": "zh",
+          "lang_name": "Chinese",
+          "pct": 1.1,
+          "reason": "ACS Wake/Durham Chinese 1.2%; Research Triangle Park Chinese professional corridor"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SE-CHARLOTTE",
+      "place": "Charlotte, North Carolina",
+      "zip": "28202",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 9.1,
+          "reason": "ACS Mecklenburg County Hispanic 14%, Spanish 9.3%"
+        },
+        {
+          "lang_code": "vi",
+          "lang_name": "Vietnamese",
+          "pct": 0.7,
+          "reason": "ACS Mecklenburg Vietnamese 0.7%; Charlotte Central Ave Vietnamese corridor"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SE-JAX",
+      "place": "Jacksonville, Florida",
+      "zip": "32202",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 7.2,
+          "reason": "ACS Duval County Hispanic 10%, Spanish 7.4%"
+        },
+        {
+          "lang_code": "tl",
+          "lang_name": "Tagalog",
+          "pct": 0.9,
+          "reason": "ACS Duval Tagalog 0.9%; Mayport/Jax NAS Filipino naval community"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SE-TAMPA",
+      "place": "Tampa, Florida",
+      "zip": "33602",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 18.4,
+          "reason": "ACS Hillsborough County Hispanic 27%, Spanish 18.7%"
+        },
+        {
+          "lang_code": "ht",
+          "lang_name": "Haitian Creole",
+          "pct": 1.1,
+          "reason": "ACS Hillsborough Haitian Creole 1.1%; Tampa Haitian corridor (East Tampa) + Orlando feeder"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SE-NOLA",
+      "place": "New Orleans, Louisiana",
+      "zip": "70112",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 5.1,
+          "reason": "ACS Orleans Parish Hispanic 6.1%, Spanish 5.3%; post-Katrina Latino influx"
+        },
+        {
+          "lang_code": "vi",
+          "lang_name": "Vietnamese",
+          "pct": 1.8,
+          "reason": "ACS Orleans/Jefferson Vietnamese 1.9%; Village de L'Est is largest Vietnamese in Louisiana (NOLA East)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SE-MEMPHIS",
+      "place": "Memphis, Tennessee",
+      "zip": "38103",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 5.8,
+          "reason": "ACS Shelby County Hispanic 6.8%, Spanish 6.0%"
+        },
+        {
+          "lang_code": "ar",
+          "lang_name": "Arabic",
+          "pct": 0.7,
+          "reason": "ACS Shelby Arabic 0.7%; Memphis Arabic/Middle Eastern corridor"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SE-BIRMINGHAM",
+      "place": "Birmingham, Alabama",
+      "zip": "35201",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 3.9,
+          "reason": "ACS Jefferson County Hispanic 4.4%, Spanish 4.0%"
+        },
+        {
+          "lang_code": "ar",
+          "lang_name": "Arabic",
+          "pct": 0.5,
+          "reason": "ACS Jefferson Arabic 0.5% residual; Birmingham small Arabic refugee community"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SE-JACKSON",
+      "place": "Jackson, Mississippi",
+      "zip": "39201",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 2.1,
+          "reason": "ACS Hinds County Hispanic 2.4%, Spanish 2.2%"
+        },
+        {
+          "lang_code": "vi",
+          "lang_name": "Vietnamese",
+          "pct": 0.6,
+          "reason": "ACS Hinds Vietnamese 0.6%; Jackson Vietnamese (coastal fisher feeder)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SW-OKC",
+      "place": "Oklahoma City, Oklahoma",
+      "zip": "73102",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 11.2,
+          "reason": "ACS Oklahoma County Hispanic 17%, Spanish 11.4%"
+        },
+        {
+          "lang_code": "vi",
+          "lang_name": "Vietnamese",
+          "pct": 1.1,
+          "reason": "ACS Oklahoma County Vietnamese 1.2%; OKC Asian District (23rd St) Vietnamese 2nd-largest in OK"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-BOISE",
+      "place": "Boise, Idaho",
+      "zip": "83702",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 7.1,
+          "reason": "ACS Ada County Hispanic 8.9%, Spanish 7.3%"
+        },
+        {
+          "lang_code": "ar",
+          "lang_name": "Arabic",
+          "pct": 0.4,
+          "reason": "ACS Ada Arabic 0.4%; Boise refugee resettlement Arabic/Swahili corridor"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-W-YAKIMA",
+      "place": "Yakima + Tri-Cities, Washington",
+      "zip": "98901",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 22.4,
+          "reason": "ACS Yakima County Hispanic 49%, Spanish 22.8%; Yakima Valley apple/hop farmworkers 48% Hispanic, highest Spanish in Washington state"
+        },
+        {
+          "lang_code": "ru",
+          "lang_name": "Russian",
+          "pct": 0.8,
+          "reason": "ACS Yakima Russian/Ukrainian 0.8%; Yakima has Russian Old Believers + Slavic farm community"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-W-SPOKANE",
+      "place": "Spokane, Washington",
+      "zip": "99201",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 4.2,
+          "reason": "ACS Spokane County Hispanic 6.2%, Spanish 4.3%"
+        },
+        {
+          "lang_code": "ru",
+          "lang_name": "Russian",
+          "pct": 1.1,
+          "reason": "ACS Spokane County Russian/Ukrainian 1.1%; Spokane has large Slavic (Russian Old Believers, Ukrainian) community"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-MISSOULA",
+      "place": "Missoula, Montana",
+      "zip": "59801",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 2.8,
+          "reason": "ACS Missoula County Hispanic 3.8%, Spanish 2.9%"
+        },
+        {
+          "lang_code": "de",
+          "lang_name": "German",
+          "pct": 0.6,
+          "reason": "ACS Missoula German ancestry 22%, German spoken 0.6% residual"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-W-RENO",
+      "place": "Reno + Tahoe, Nevada/California",
+      "zip": "89501",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 18.6,
+          "reason": "ACS Washoe County Hispanic 25%, Spanish 19.0%"
+        },
+        {
+          "lang_code": "tl",
+          "lang_name": "Tagalog",
+          "pct": 1.0,
+          "reason": "ACS Washoe Tagalog 1.0%; Reno Filipino hospitality/casino workforce"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-W-SACRAMENTO",
+      "place": "Sacramento, California",
+      "zip": "95814",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 13.4,
+          "reason": "ACS Sacramento County Hispanic 21%, Spanish 13.7%"
+        },
+        {
+          "lang_code": "zh",
+          "lang_name": "Chinese",
+          "pct": 2.1,
+          "reason": "ACS Sacramento Chinese 2.2%; Sacramento Delta Chinese professional + Hmong 1.6% third"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-MINNEAPOLIS2",
+      "place": "Duluth, Minnesota",
+      "zip": "55802",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 2.1,
+          "reason": "ACS St Louis County (Duluth) Hispanic 2.4%, Spanish 2.2%"
+        },
+        {
+          "lang_code": "de",
+          "lang_name": "German",
+          "pct": 0.7,
+          "reason": "ACS Duluth German ancestry 22%, German spoken 0.7%; Lake Superior German/Scandinavian"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-FARGO",
+      "place": "Fargo, North Dakota",
+      "zip": "58102",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 2.8,
+          "reason": "ACS Cass County Hispanic 3.2%, Spanish 2.9%"
+        },
+        {
+          "lang_code": "ne",
+          "lang_name": "Nepali",
+          "pct": 0.6,
+          "reason": "ACS Cass County Nepali 0.6%; Fargo has large Nepali-Bhutanese refugee community (Lutheran Services resettlement) + German third 0.5%"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-NE-BURLINGTON",
+      "place": "Burlington, Vermont",
+      "zip": "05401",
+      "top_languages": [
+        {
+          "lang_code": "fr",
+          "lang_name": "French",
+          "pct": 3.9,
+          "reason": "ACS Chittenden County French 3.8-4.2% (incl. Quebec French Canadian 3.2% + Cajun); Burlington is 45mi from Quebec, Acadian/Canadian French corridor - HIGHEST French in set outside Maine"
+        },
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 2.0,
+          "reason": "ACS Chittenden Spanish 2.0%; Spanish second after French in northern New England"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-NE-HARTFORD",
+      "place": "Hartford, Connecticut",
+      "zip": "06103",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 12.1,
+          "reason": "ACS Hartford County Hispanic 17% Puerto Rican/Dominican, Spanish 12.3%"
+        },
+        {
+          "lang_code": "pt",
+          "lang_name": "Portuguese",
+          "pct": 1.8,
+          "reason": "ACS Hartford County Portuguese/Brazilian 1.9%; Hartford has large Brazilian/Portuguese (East Hartford) + Polish 1.1% third"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-NE-PROVIDENCE",
+      "place": "Providence, Rhode Island",
+      "zip": "02903",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 12.8,
+          "reason": "ACS Providence County Hispanic 20% Dominican, Spanish 13.0%"
+        },
+        {
+          "lang_code": "pt",
+          "lang_name": "Portuguese",
+          "pct": 3.1,
+          "reason": "ACS Providence County Portuguese 3.2% (incl. Cape Verdean Creole); Providence is center of Portuguese-American community (Fox Point, East Providence)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SW-SANTA FE",
+      "place": "Santa Fe, New Mexico",
+      "zip": "87501",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 21.5,
+          "reason": "ACS Santa Fe County Hispanic 48% historic Hispano, Spanish 22%"
+        },
+        {
+          "lang_code": "nv",
+          "lang_name": "Navajo",
+          "pct": 0.8,
+          "reason": "ACS Santa Fe Tewa/Navajo Keres speakers 0.8%; Santa Fe is hub for Rio Grande Pueblos + Navajo"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SW-CLOUDCROFT",
+      "place": "Cloudcroft + Alamogordo, New Mexico",
+      "zip": "88317",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 18.9,
+          "reason": "ACS Otero County Hispanic 35%, Spanish 19.2%"
+        },
+        {
+          "lang_code": "de",
+          "lang_name": "German",
+          "pct": 0.7,
+          "reason": "ACS Otero German ancestry 13%, German spoken 0.7%"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SW-ROSWELL",
+      "place": "Roswell + Carlsbad, New Mexico",
+      "zip": "88201",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 28.4,
+          "reason": "ACS Chaves County Hispanic 59%, Spanish 28.7%; Pecos Valley border-adjacent"
+        },
+        {
+          "lang_code": "de",
+          "lang_name": "German",
+          "pct": 0.5,
+          "reason": "ACS Chaves German 0.5% residual"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-W-ANCHORAGE",
+      "place": "Anchorage, Alaska",
+      "zip": "99501",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 6.2,
+          "reason": "ACS Anchorage Municipality Hispanic 9.1%, Spanish 6.4%"
+        },
+        {
+          "lang_code": "tl",
+          "lang_name": "Tagalog",
+          "pct": 2.4,
+          "reason": "ACS Anchorage Tagalog/Filipino 2.5%; Anchorage has 2nd-largest Filipino in Alaska (Elmendorf/JBER) + Samoan 0.6%"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-W-HONOLULU",
+      "place": "Honolulu, Hawaii",
+      "zip": "96813",
+      "top_languages": [
+        {
+          "lang_code": "ilo",
+          "lang_name": "Ilocano",
+          "pct": 6.8,
+          "reason": "ACS Honolulu County Ilocano 6.9% (largest language after English in Hawaii); Tagalog 6.2% inclusive, Ilocano is top"
+        },
+        {
+          "lang_code": "ja",
+          "lang_name": "Japanese",
+          "pct": 4.2,
+          "reason": "ACS Honolulu Japanese 4.3%; Hawaii Japanese 5th generation + Okinawan; Spanish only 1.8% so Ilocano/Japanese are true top2 - HAWAII EXCEPTION"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SE-ASHEVILLE",
+      "place": "Asheville, North Carolina",
+      "zip": "28801",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 5.4,
+          "reason": "ACS Buncombe County Hispanic 6.8%, Spanish 5.6%"
+        },
+        {
+          "lang_code": "de",
+          "lang_name": "German",
+          "pct": 0.6,
+          "reason": "ACS Buncombe German ancestry 14%, German spoken 0.6%"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-MW-JACKSONHOLE",
+      "place": "Jackson Hole, Wyoming",
+      "zip": "83001",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 8.2,
+          "reason": "ACS Teton County Hispanic 16%, Spanish 8.4%; Jackson Hole service workforce (Mexican) 16% Hispanic"
+        },
+        {
+          "lang_code": "de",
+          "lang_name": "German",
+          "pct": 0.5,
+          "reason": "ACS Teton German ancestry 18%, German spoken 0.5%"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-W-BEND",
+      "place": "Bend, Oregon",
+      "zip": "97701",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 6.3,
+          "reason": "ACS Deschutes County Hispanic 8.5%, Spanish 6.5%"
+        },
+        {
+          "lang_code": "de",
+          "lang_name": "German",
+          "pct": 0.5,
+          "reason": "ACS Deschutes German ancestry 19%, German spoken 0.5%"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-W-BOULDER",
+      "place": "Boulder, Colorado",
+      "zip": "80302",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 7.8,
+          "reason": "ACS Boulder County Hispanic 12%, Spanish 8.0%"
+        },
+        {
+          "lang_code": "zh",
+          "lang_name": "Chinese",
+          "pct": 1.1,
+          "reason": "ACS Boulder County Chinese 1.2%; CU Boulder Chinese graduate community"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-CA-PESCADERO",
+      "place": "Pescadero, California 94060 — San Mateo Coast",
+      "zip": "94060",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 24.5,
+          "reason": "ACS San Mateo County Spanish 22% (county), Pescadero La Honda USD EL 35% Spanish at home; coastal farmworker concentration: Pescadero heavily Spanish (school EL 35% vs county 22%)"
+        },
+        {
+          "lang_code": "zh",
+          "lang_name": "Chinese",
+          "pct": 2.9,
+          "reason": "ACS San Mateo County Chinese 9.1% but Pescadero hinterland Bay Area frontier: San Mateo/Bay Area Chinese is true 2nd language for Bay Area frontier households seeking hinterland (HMB, Daly City Chinese)"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-WA-NEAHBAY",
+      "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
+      "zip": "98357",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 3.8,
+          "reason": "ACS Clallam County Hispanic 6.2%, Spanish 3.9%; Neah Bay Hispanic fisher/cannery"
+        },
+        {
+          "lang_code": "vi",
+          "lang_name": "Vietnamese",
+          "pct": 0.5,
+          "reason": "ACS Clallam Vietnamese 0.5% fishing industry; Makah language revival (Qwiqwidicciat) is culturally primary but not ACS-tracked - Native heritage noted"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-SW-TULAROSA",
+      "place": "Tularosa, NM 88352 — Tularosa Basin, provider edge",
+      "zip": "88352",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 29.1,
+          "reason": "ACS Otero County Hispanic 35%, Spanish 29.4% (Tularosa Basin historic Hispano, high desert provision); highest NM basin Spanish after El Paso"
+        },
+        {
+          "lang_code": "de",
+          "lang_name": "German",
+          "pct": 0.6,
+          "reason": "ACS Otero German 0.6% residual ranch families"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    },
+    {
+      "market": "US-UT-KAMASVALLEY",
+      "place": "Kamas Valley, UT 84036 — Peoa, Oakley, Kamas, pure ranching country",
+      "zip": "84036",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 4.8,
+          "reason": "ACS Summit County Spanish 4.9% (shared Kamas/Park City shed); Oakley Rodeo Grounds Hispanic ranch labor"
+        },
+        {
+          "lang_code": "de",
+          "lang_name": "German",
+          "pct": 0.7,
+          "reason": "ACS Summit German ancestry 16%, German spoken 0.7% ranch families"
+        }
+      ],
+      "auto_produce": true,
+      "jitsi_proven": true
+    }
+  ]
+}

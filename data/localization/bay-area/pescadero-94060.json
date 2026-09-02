@@ -1,0 +1,374 @@
+{
+  "$schema": "https://kodiakcakes.com/schema/locality-v1.json",
+  "generated": "2026-09-02",
+  "updated_at": "2026-09-02T21:30:00Z",
+  "market": "US-CA-PESCADERO",
+  "legacy_market": "US-W-SF",
+  "place": "Pescadero, California 94060",
+  "zip": "94060",
+  "county": "San Mateo County",
+  "region": "San Mateo Coast",
+  "state": "CA",
+  "coordinates": {
+    "lat": 37.2534,
+    "lon": -122.3806
+  },
+  "elevation_ft": 26,
+  "population": 2000,
+  "population_note": "CDP ~685; greater Pescadero / San Mateo Coast community ~2,000",
+  "classification": "Coastal frontier gap — nearest no-retailer spot to San Francisco/Oakland",
+  "frontier": true,
+  "subscriber_variant": true,
+  "fulfillment": "direct",
+  "distance_from_sf_mi": 35,
+  "direction_from_sf": "35 miles south of San Francisco via Highway 1 / Highway 92",
+  "retail_gap": "No chain grocer in Pescadero; nearest full-service grocer 14 mi north (Half Moon Bay) or 18 mi south (Santa Cruz corridor). Nearest Costco 30 mi (Redwood City / South San Francisco). Single independent: Arcangeli Grocery Co. (Norm's Market) — Pescadero's only general store since 1929.",
+  "retailer": "Arcangeli Grocery Co. (Pescadero, 1890s general store / deli), Half Moon Bay Safeway (14 mi), Half Moon Bay Whole Foods / New Leaf (16 mi halo), Costco Redwood City / South San Francisco (30 mi halo)",
+  "retailer_detail": {
+    "Arcangeli": "Arcangeli Grocery Co. — Pescadero's historic general store and deli, 287 Stage Road, Pescadero CA 94060 — limited SKU, artichoke bread, local produce, no KODIAK® depth. Frontier pin.",
+    "HalfMoonBay": "Half Moon Bay Safeway / Whole Foods / New Leaf — 14-16 mi north on Highway 1 — nearest chain halo",
+    "Costco": "Costco Wholesale Redwood City (30 mi NE) / South San Francisco (32 mi N) — bulk frontier stock-up for Bay Area coast families",
+    "halo": [
+      "Half Moon Bay Farmers Market (Half Moon Bay, Saturdays)",
+      "Pescadero Farmers / Farm Stands — Harley Farms, Fifth Crow Farm, Blue House Farm, Harley Farms Goat Dairy",
+      "Pescadero Country Store (Stage Road) — companion general mercantile"
+    ]
+  },
+  "audience": "Bay Area urban frontier households — San Francisco/Oakland families seeking hinterland weekends, coastal trail fitness households, Pescadero farm families",
+  "audience_segments": [
+    {
+      "segment": "bay area urban escape",
+      "label": "Bay Area urban escape families",
+      "age": "28-45",
+      "description": "San Francisco / Oakland / Peninsula households 35 mi north who drive Highway 1 for Pescadero weekends — fog-morning escape, Pescadero Marsh walk, Pescadero State Beach, farm-stand loop. KODIAK® is frontier pantry you bring with you and Subscribe & Save where no chain stocks deep. Clean-label parents reading 100% whole grains, 14g protein before the trail.",
+      "cues": [
+        "Highway 1 fog at dawn",
+        "Pescadero Marsh boardwalk",
+        "farm-stand loop off Stage Road",
+        "cast-iron stack on tailgate or marsh bench"
+      ]
+    },
+    {
+      "segment": "coastal trail fitness",
+      "label": "Coastal trail fitness households",
+      "age": "27-45",
+      "description": "Half Moon Bay Coastal Trail runners, Pescadero Marsh birders, Butano State Park hikers, Bean Hollow surfers. Pre-trail protein at sunrise, Bear Bites in pack, oatmeal cup post-surf. Fitness lifestyle mapped to Pescadero Marsh Natural Preserve and Half Moon Bay Coastal Trail.",
+      "cues": [
+        "Half Moon Bay Coastal Trail at sunrise",
+        "Pescadero Marsh Natural Preserve boardwalk",
+        "Butano State Park redwoods",
+        "trail bench flapjack stack, enamel mugs"
+      ]
+    },
+    {
+      "segment": "san mateo coast farm families",
+      "label": "San Mateo Coast farm families",
+      "age": "30-55",
+      "description": "Pescadero / La Honda / San Gregorio multi-generational coastal farm families — artichoke, strawberry, Brussels sprout growers, olive oil makers, Harley Farms goat dairy network. Rooted frontier, school-lunch Bear Bites, weekend griddle after harvest.",
+      "cues": [
+        "artichoke fields on Cloverdale Road",
+        "strawberry flats in season",
+        "Fifth Crow Farm CSA boxes",
+        "Harley Farms goat dairy barn"
+      ]
+    }
+  ],
+  "message": "KODIAK® frontier for Bay Area urban folks to see their hinterland — protein-packed whole grains for your Pescadero coast. Nourishment for Today's Frontier",
+  "message_variants": [
+    "KODIAK® frontier for Bay Area urban folks to see their hinterland — protein-packed whole grains for your Pescadero coast",
+    "Coastal frontier flapjacks — 14g protein + 100% whole grains, 35 miles from the bridge to the marsh",
+    "From fog to farm stand: Keep It Wild on the San Mateo Coast",
+    "Pescadero frontier — where the Coast meets the City, protein for the trail and the marsh"
+  ],
+  "cue": "San Mateo Coast fog at dawn, Pescadero Marsh boardwalk and lagoon, Half Moon Bay Coastal Trail, Stage Road farm stands — artichoke crates, strawberry flats, Harley Farms goat cheese, Fifth Crow Farm Brussels sprouts and olive oil on a cast-iron stack",
+  "photo_cue_detail": "San Mateo Coast fog breaking over Pescadero Marsh at dawn with sky negative space at top for text (brand token C01). Foreground: cast-iron stack on weathered farm-stand crate or trail bench, small bowls of sliced strawberries, steamed artichoke hearts, crumbled Marin chevre, drizzle of local olive oil. Coastal dune grass and marsh reeds lateral. Bear silhouette at 24,24, 8px Blaze Orange bar, 0.18 scrim band at 68%. No costume bears — respectful distance, bear tracks only if used.",
+  "hyper_local_sources": [
+    {
+      "name": "Arcangeli Grocery Co. (Norm's Market)",
+      "location": "287 Stage Road, Pescadero, CA 94060 — heart of town",
+      "schedule": "Daily 8am–6pm (winter 8am–5pm)",
+      "season": "Year-round — frontier general store since 1929",
+      "kodiak_tie": "Artichoke bread companion — KODIAK® savory artichoke-chevre waffle beside Arcangeli artichoke bread. Frontier breadbasket tie.",
+      "vendors": [
+        "Arcangeli family"
+      ],
+      "notes": "Historic general store — limited SKU depth proves frontier gap. Deli, artichoke bread, local jams. Nearest chain is Half Moon Bay 14 mi.",
+      "type": "frontier general store"
+    },
+    {
+      "name": "Harley Farms Goat Dairy",
+      "location": "205 North Street, Pescadero, CA 94060 — 2 mi north of downtown Pescadero, San Mateo Coast",
+      "schedule": "Farm shop seasonal; tours by appointment; farm stand year-round via Pescadero markets",
+      "season": "Goat cheese year-round, spring peak (kidding season Mar-May, fresh chevre Mar-Jun)",
+      "practice": "American Humane Certified, pasture-grazed",
+      "kodiak_tie": "Marin/Sonoma-adjacent fresh chevre crumbled into savory KODIAK® Power Cakes waffles with steamed artichoke hearts — Castroville artichokes Mar-Jun + Harley Farms chevre spring peak. Cross-promo: KODIAK x Harley Farms.",
+      "vendors": [
+        "Harley Farms"
+      ],
+      "notes": "Award-winning goat dairy — anchor cross-promo for Pescadero frontier. 1910 restored dairy barn. Goat cheese year-round; spring peak matches Castroville artichoke April centerfold.",
+      "cross_promo": true,
+      "partner": "Harley Farms Goat Dairy"
+    },
+    {
+      "name": "Fifth Crow Farm",
+      "location": "Pescadero, CA — Cloverdale Road farm + Pescadero farm stand",
+      "schedule": "Farm stand / CSA seasonal; farmers market presence (Menlo Park, Palo Alto)",
+      "season": "Brussels sprouts peak Sep-Feb (centerfold Oct-Dec), strawberries May-Sep, olive oil fall press (Nov), seasonal artichokes Mar-Jun companion",
+      "practice": "Organic, diversified coastal farm",
+      "kodiak_tie": "Brussels sprout + olive oil savory stack — roasted Fifth Crow Brussels sprouts + olive oil drizzle over KODIAK® Power Cakes savory waffle. Strawberry compote variant May-Sep. Cross-promo: KODIAK x Fifth Crow Farm.",
+      "vendors": [
+        "Fifth Crow Farm"
+      ],
+      "notes": "Organic community farm — Brussels sprouts are Pescadero's winter frontier crop. Olive oil from estate olives fall press, year-round pantry cue. Cross-promo second anchor.",
+      "cross_promo": true,
+      "partner": "Fifth Crow Farm"
+    },
+    {
+      "name": "Pescadero Marsh Natural Preserve",
+      "location": "Pescadero Marsh, Pescadero State Beach, Highway 1 — mouth of Pescadero Creek",
+      "schedule": "Dawn to dusk daily, year-round",
+      "season": "Year-round — peak birding/migration fall and spring",
+      "kodiak_tie": "Trail fuel cue — KODIAK® Bear Bites and oatmeal cups on the Marsh boardwalk. Fitness lifestyle: Pescadero Marsh loop before brunch.",
+      "notes": "218-acre marsh — largest coastal wetland between San Francisco Bay and Monterey. Bay Area urban folks hinterland destination. Fitness lifestyle anchor alongside Half Moon Bay Coastal Trail.",
+      "type": "preserve / trail"
+    },
+    {
+      "name": "Half Moon Bay Coastal Trail",
+      "location": "Half Moon Bay, CA — 14 mi north of Pescadero via Highway 1",
+      "schedule": "Open daily, dawn to dusk",
+      "season": "Year-round coastal trail",
+      "kodiak_tie": "Trailhead flapjacks — KODIAK® Power Cakes 14g protein before the Half Moon Bay trail run, post-trail oatmeal cup. Bay Area fitness lifestyle connector.",
+      "notes": "Paved coastal bluff trail — Bay Area urban trail households' front door to Pescadero hinterland. Links urban Bay Area to Pescadero frontier gap.",
+      "type": "trail"
+    }
+  ],
+  "recipe_pairings": [
+    {
+      "kodiak_sku": "Buttermilk Power Cakes / Power Waffles",
+      "pairing": "Castroville steamed artichoke hearts + Harley Farms Marin/Sonoma-style chevre savory waffle",
+      "build": "1 cup KODIAK® Power Cakes mix + 2/3 cup milk + 1 egg, fold 1/2 cup chopped steamed Castroville artichoke hearts; ladle to waffle iron, top warm with crumbled Harley Farms chevre and olive oil drizzle",
+      "source": "Castroville peak Mar-Jun (centerfold April) + Harley Farms spring peak Mar-May — see bay-area/castroville-artichoke-season.json",
+      "pancake_tip": "Fold chopped steamed artichoke hearts + Marin chevre into savory KODIAK® waffles — savory brunch frontier",
+      "season": "Mar-Jun, centerfold April"
+    },
+    {
+      "kodiak_sku": "Power Cakes / Power Waffles",
+      "pairing": "Fifth Crow Farm strawberry compote (May-Sep)",
+      "build": "Simmer 2 cups sliced strawberries + 1 tbsp honey + squeeze lemon 10 min; spoon warm over KODIAK® stack or swirl into batter before griddle",
+      "source": "Fifth Crow Farm / Pescadero strawberry flats May-Sep",
+      "season": "May-Sep"
+    },
+    {
+      "kodiak_sku": "Power Cakes (savory)",
+      "pairing": "Fifth Crow Farm roasted Brussels sprouts + olive oil",
+      "build": "Roast halved Brussels sprouts in Fifth Crow olive oil, chop and fold into savory KODIAK® waffle or scatter over stack with olive oil + sea salt, optional chevre",
+      "source": "Fifth Crow Farm Brussels sprouts Sep-Feb, olive oil fall press Nov year-round",
+      "season": "Sep-Feb peak Oct-Dec; olive oil year-round"
+    },
+    {
+      "kodiak_sku": "Bear Bites / Oatmeal Cups",
+      "pairing": "Trail pack — Pescadero Marsh / Half Moon Bay Coastal Trail",
+      "build": "Bear Bites + Power Cakes trail stack on marsh bench — 14g protein before the boardwalk loop, oatmeal cup for post-trail",
+      "source": "Pescadero Marsh Natural Preserve + Half Moon Bay Coastal Trail",
+      "season": "Year-round"
+    }
+  ],
+  "seasonal_matrix": {
+    "artichokes": {
+      "origin": "Castroville, California — 'Artichoke Center of the World'",
+      "window": "March–June",
+      "peak": "April (centerfold)",
+      "pancake_tip": "Fold chopped steamed artichoke hearts + Marin chevre into savory KODIAK® waffles",
+      "detail": "See bay-area/castroville-artichoke-season.json"
+    },
+    "strawberries": {
+      "origin": "Pescadero / San Mateo Coast (Fifth Crow Farm, coastal flats)",
+      "window": "May–September",
+      "peak": "June–July",
+      "pancake_tip": "Fresh sliced or simmered compote over KODIAK® Power Cakes"
+    },
+    "goat_cheese": {
+      "origin": "Harley Farms Goat Dairy (Pescadero) + Marin/Sonoma (regional halo)",
+      "window": "Year-round, spring peak",
+      "peak": "March–May kidding flush; fresh chevre Mar–Jun centerfold",
+      "pancake_tip": "Crumble fresh chevre warm over savory artichoke waffle; honey-chevre drizzle variant",
+      "detail": "See bay-area/castroville-artichoke-season.json"
+    },
+    "olive_oil": {
+      "origin": "Fifth Crow Farm estate press + San Mateo Coast groves",
+      "window": "Fall press November; year-round pantry",
+      "pancake_tip": "Drizzle over savory waffle with sea salt; roast Brussels sprouts in olive oil"
+    },
+    "brussels_sprouts": {
+      "origin": "Fifth Crow Farm / Pescadero coast",
+      "window": "September–February",
+      "peak": "October–December (centerfold)",
+      "pancake_tip": "Roast halved sprouts in olive oil, scatter over savory KODIAK® waffle"
+    }
+  },
+  "cross_promo": [
+    {
+      "partner": "Harley Farms Goat Dairy",
+      "location": "205 North Street, Pescadero, CA 94060",
+      "product": "Fresh goat cheese (chevre) — spring peak Mar-May",
+      "url": "https://harleyfarms.com",
+      "activation": "KODIAK® x Harley Farms — Savory Artichoke-Chevre Power Waffles: Castroville hearts + Pescadero chevre on KODIAK® Power Cakes, olive oil marsh brunch",
+      "recipe_localization": "Savory Artichoke-Chevre Waffles: fold chopped steamed Castroville artichoke hearts into KODIAK® Power Cakes, waffle, top with Harley Farms chevre crumbles",
+      "season": "Mar-Jun artichoke overlay; year-round chevre"
+    },
+    {
+      "partner": "Fifth Crow Farm",
+      "location": "Pescadero, CA — Cloverdale Road",
+      "product": "Organic strawberries (May-Sep), Brussels sprouts (Sep-Feb), estate olive oil (Nov press)",
+      "url": "https://fifthcrowfarm.com",
+      "activation": "KODIAK® x Fifth Crow Farm — Strawberry Compote Stack (summer) + Brussels & Olive Oil Savory Waffle (winter) — coastal frontier seasons",
+      "recipe_localization": "Strawberry Compote Power Cakes (May-Sep): Fifth Crow berries simmered with honey over stack; Winter Brussels Waffle (Oct-Dec): roasted Fifth Crow sprouts + olive oil over savory KODIAK® waffle",
+      "season": "May-Sep strawberries; Sep-Feb Brussels; Nov olive oil"
+    }
+  ],
+  "tags": [
+    "#Pescadero",
+    "#94060",
+    "#SanMateoCoast",
+    "#HalfMoonBayTrail",
+    "#PescaderoMarsh",
+    "#Arcangeli",
+    "#HarleyFarms",
+    "#FifthCrowFarm",
+    "#CastrovilleArtichokes",
+    "#MarinGoatCheese",
+    "#Strawberries",
+    "#BrusselsSprouts",
+    "#OliveOil",
+    "#KeepItWild",
+    "#FrontierBreakfast",
+    "#BayAreaHinterland",
+    "#CoastalFrontier",
+    "#SavoryWaffles",
+    "#TrailFuel"
+  ],
+  "primary_tags": [
+    "#Pescadero",
+    "#SanMateoCoast",
+    "#94060"
+  ],
+  "search_text": "Pescadero California 94060 San Mateo Coast 35 miles south of San Francisco frontier gap no retailer Arcangeli Grocery Co Norm's Market nearest Costco 30mi Redwood City Harley Farms Goat Dairy Fifth Crow Farm Pescadero Marsh Half Moon Bay Coastal Trail Castroville artichokes March June centerfold April strawberries May September Marin Sonoma goat cheese year-round spring peak olive oil Brussels sprouts coastal frontier Bay Area urban hinterland fitness lifestyle",
+  "platform_bundles": {
+    "instagram": "#KodiakCakes #KeepItWild #Pescadero #SanMateoCoast #94060 #HarleyFarms #FifthCrowFarm",
+    "tiktok": "#KodiakCakes #Pescadero #SanMateoCoast #TrailFuel",
+    "facebook": "#KodiakCakes #KeepItWild #Pescadero #SanMateoCoast",
+    "x": "#KodiakCakes #Pescadero",
+    "pinterest": "#KodiakCakes (titles carry 'Pescadero Artichoke-Chevre — San Mateo Coast')",
+    "youtube": "#KodiakCakes #KeepItWild #Pescadero #SanMateoCoast #Shorts (Shorts only)",
+    "linkedin": "#KodiakCakes #KeepItWild"
+  },
+  "caption_bundles": {
+    "instagram_1x1": "KODIAK® frontier 35 miles from the bridge — Pescadero, CA 94060. Coastal fog over Pescadero Marsh, Half Moon Bay Trail at sunrise, Stage Road farm stands. Fold chopped steamed Castroville artichoke hearts + Harley Farms chevre into savory KODIAK® Power Waffles — artichokes peak Mar-Jun (centerfold April), chevre spring flush Mar-May. Year-round: Fifth Crow strawberries May-Sep, Brussels + olive oil Sep-Feb. No chain in town — Arcangeli Grocery Co. is the general store, nearest Costco 30 mi — stock the frontier direct. #KodiakCakes #KeepItWild #Pescadero #SanMateoCoast #94060 #HarleyFarms #FifthCrowFarm",
+    "tiktok_9x16": "Pescadero frontier flapjacks — 35 mi from SF to the marsh. Artichoke + chevre savory waffles, Harley Farms spring peak. #KodiakCakes #Pescadero #SanMateoCoast",
+    "facebook_1x1": "Pescadero frontier — KODIAK® Keep It Wild 35 miles south of San Francisco. Pescadero Marsh morning, Half Moon Bay Trail fuel, farm-stand seasons: Castroville artichokes Mar-Jun (centerfold April) + Harley Farms chevre into savory waffles, Fifth Crow strawberries & Brussels sprouts. Frontier gap: Arcangeli Grocery Co. is the only store — nearest Costco 30 mi. Direct fulfillment, Subscribe & Save. #KodiakCakes #KeepItWild #Pescadero",
+    "pinterest_2x3": "Pescadero Artichoke-Chevre Savory Waffles — San Mateo Coast | 14g Protein, 100% Whole Grains | KODIAK® | 94060",
+    "youtube_shorts": "Pescadero artichoke-chevre waffles — Castroville hearts + Harley Farms chevre | KODIAK® Hacks #KodiakCakes #KeepItWild #Shorts",
+    "in_store_endcap": "KODIAK® Keep It Wild — San Mateo Coast frontier, 14g protein. Pescadero Marsh mornings, artichoke-chevre savory waffles. When the frontier has one store (Arcangeli, 30 mi to Costco), stock KODIAK® direct.",
+    "table_tent": "KODIAK® at your Pescadero table — protein-packed whole grains for the coastal frontier. Try the savory artichoke-chevre waffle with Harley Farms chevre."
+  },
+  "families_quick": {
+    "brand": [
+      "#KodiakCakes"
+    ],
+    "campaign": [
+      "#KeepItWild"
+    ],
+    "product_example": [
+      "#ProteinPacked",
+      "#14gProtein",
+      "#100PercentWholeGrains"
+    ],
+    "community_example": [
+      "#BearBites",
+      "#TrailFuel",
+      "#FrontierBreakfast"
+    ]
+  },
+  "voice_guardrails": {
+    "authentic_segments_only": [
+      "bay area urban escape families",
+      "coastal trail fitness households",
+      "san mateo coast farm families"
+    ],
+    "avoid": [
+      "cringe persona",
+      "tech-bro surf slang",
+      "fabricated coastal slang",
+      "stereotyped farm caricature",
+      "Bay Area cost-of-living jokes"
+    ],
+    "tone": "adventurous, nourishing, rugged — short coastal sentences, verbs-forward Fuel your coast, enamel mugs on a marsh bench. Protect the bear; no captive bear close-ups.",
+    "brand_marks": [
+      "KODIAK®",
+      "KODIAK CAKES®",
+      "KODIAK POWER CAKES®",
+      "KODIAK POWER WAFFLES®",
+      "Feeding Epic Days & Wilder Lives",
+      "Nourishment for Today's Frontier"
+    ],
+    "compliance": "KODIAK Brown #3B2316 dominant 60-70%, Blaze Orange #E8530E ≤18% except 8px bar, bear at 24,24, low-sodium savory cue compliant (chevre + artichoke hearts, no added cured meats)"
+  },
+  "seasonality": {
+    "artichokes": "March–June, peak April — Castroville centerfold, steamed hearts",
+    "strawberries": "May–September, peak June–July — Pescadero / Fifth Crow flats",
+    "goat_cheese": "Year-round, spring peak March–June — Harley Farms kidding flush + Marin/Sonoma halo",
+    "olive_oil": "Fall press November, year-round drizzle/pantry",
+    "brussels_sprouts": "September–February, peak October–December — Fifth Crow winter stack",
+    "market_window": "Pescadero farm stands year-round; Marsh and Half Moon Bay Trail year-round"
+  },
+  "store_halo": "San Mateo Coast halo — same voice travels to Half Moon Bay, San Gregorio, La Honda, Santa Cruz north coast natural doors; Pescadero direct subscriber fulfills where Arcangeli cannot stock deep; Costco halo at 30 mi for bulk Bay Area pantry.",
+  "is_default_demo": false,
+  "smoke_test": "Bay Area frontier gap research — complementary to 84098 primary",
+  "seasonal_local": [
+    {
+      "name": "Arcangeli Grocery Co. (Norm's Market)",
+      "where": "287 Stage Road, Pescadero, CA 94060 — historic general store",
+      "when": "Daily 8am–6pm (seasonal)",
+      "flavor": "Artichoke bread, local jams, small-produce, deli — frontier general store since 1929",
+      "pancake_tip": "Pair a slice of Arcangeli artichoke bread beside KODIAK® savory artichoke-chevre waffle — double artichoke frontier",
+      "rating": "4.6 General store"
+    },
+    {
+      "name": "Harley Farms Goat Dairy",
+      "where": "205 North Street, Pescadero — 2 mi north of town, 1910 dairy barn",
+      "when": "Farm shop seasonal; goat cheese year-round, spring peak Mar-May",
+      "flavor": "Fresh chevre, fromage blanc, ricotta — American Humane Certified",
+      "pancake_tip": "Fold chopped steamed Castroville artichoke hearts + crumbled Harley Farms chevre into savory KODIAK® waffles — drizzle olive oil",
+      "rating": "4.7 Dairy farm"
+    },
+    {
+      "name": "Fifth Crow Farm",
+      "where": "Pescadero, Cloverdale Road — organic coastal farm + CSA",
+      "when": "Farm stand / CSA seasonal — strawberries May-Sep, Brussels Sep-Feb, olive oil Nov press",
+      "flavor": "Organic strawberries, winter Brussels sprouts, estate olive oil",
+      "pancake_tip": "Summer: simmer Fifth Crow strawberries with honey for compote over KODIAK® stack. Winter: roast Brussels in olive oil for savory waffle topper",
+      "rating": "4.8 Farm"
+    },
+    {
+      "name": "Pescadero Marsh Natural Preserve + Half Moon Bay Coastal Trail",
+      "where": "Pescadero State Beach marsh + Half Moon Bay bluff trail (14 mi north)",
+      "when": "Daily dawn-dusk, year-round — Bay Area hinterland fitness loop",
+      "flavor": "Coastal fog, dune grass, boardwalk birding, bluff running, surf adjacency",
+      "pancake_tip": "Trail fuel: Bear Bites in pack for the marsh loop, KODIAK® oatmeal cup at the Half Moon Bay trailhead — 14g before the fog burns off",
+      "rating": "4.8 Nature preserve / Trail"
+    }
+  ],
+  "where_extended": "Pescadero plus the San Mateo Coast — San Gregorio, La Honda, Half Moon Bay, Santa Cruz north coast; 35 mi south of San Francisco, the nearest no-retailer spot to SF/Oakland",
+  "who_extended": {
+    "primary": "Bay Area urban folks seeking their hinterland — SF/Oakland/Berkeley/Peninsula families who weekend on the San Mateo Coast, forage farm stands, and walk the Marsh",
+    "coastal_fitness": "Half Moon Bay trail + Pescadero Marsh fitness households — runners, birders, surfers, Butano hikers; 14g protein before the coastal fog lifts",
+    "farm": "San Mateo Coast farm families — artichoke, strawberry, Brussels and olive oil growers plus Harley Farms dairy network",
+    "subscriber": "Frontier-gap subscribers — where Arcangeli cannot stock deep and Costco is 30 mi, Subscribe & Save direct (frontier true, subscriber_variant true, fulfillment direct)"
+  },
+  "one_line_options_extended": [
+    "KODIAK® frontier for Bay Area urban folks to see their hinterland — 35 miles from the bridge to the marsh, protein-packed for the San Mateo Coast",
+    "Pescadero frontier — 14g protein where the coast is the frontier and the frontier is 30 miles to Costco",
+    "From Castroville artichokes in April to Harley Farms chevre in spring — savory KODIAK® waffles on the San Mateo Coast"
+  ],
+  "kodiak_frontier_narrative": "Bay Area urban folks drive 35 miles to find a town with one grocery store — Pescadero, population ~2k on the San Mateo Coast, where Stage Road ends at the Marsh. The nearest Costco is 30 miles away in Redwood City; the only store in town is Arcangeli Grocery Co., since 1929, where the artichoke bread still steams. Here KODIAK® is the frontier pantry: protein-packed whole grains you stock direct (frontier true, subscriber_variant true, fulfillment direct) because the frontier has no chain. On the Marsh boardwalk and the Half Moon Bay Trail, it is fitness fuel — 14g before the fog burns off, Bear Bites in the pack. At the farm stands it is seasons — Castroville artichokes Mar-Jun (centerfold April) folded with Harley Farms spring chevre into savory Power Waffles, Fifth Crow strawberries May-Sep simmered to compote, estate olive oil from the fall press, and Brussels sprouts Sep-Feb roasted for winter stacks. KODIAK® Nourishment for Today's Frontier meets the Bay Area hinterland: Feed the city, find the coast."
+}

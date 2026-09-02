@@ -1,0 +1,30 @@
+# KODIAK Posts for Today's Frontier — llms.txt
+> Offline frontier creative automation — AgentCore + Nova Canvas/Micro + Amazon Translate (jitsi/cloud del norte) + S3 DAM + CloudFront d37333alc7ojpl.cloudfront.net
+
+## Version
+0.4.1-28d0c98-20260902 — see [data-testid="app-version"] in header, window.KODIAK_VERSION in console, footer [data-mcp="footer.version"]
+
+## Console demo (open DevTools)
+KODIAK_VERSION
+KODIAK_WEBMCP
+document.querySelectorAll('[data-mcp]')
+fetch('webmcp.json').then(r=>r.json()).then(console.log)
+fetch('data/localization/market-languages.json').then(r=>r.json()).then(d=>console.table(d.markets.slice(0,3)))
+
+## WebMCP islands (agent-friendly)
+- places: [data-mcp="places"] — 73 markets (store-finder-markets.json)
+- products: [data-mcp="products"] — KODIAK catalog
+- market-languages: #lang-chips — top 2 outside English per market (ACS 2022) — market-languages.json
+- preview.compose: [data-mcp="preview.compose"] — message overlay on final posts (EN + localized)
+- brief-yaml: #brief — copyable campaign brief
+- webmcp.json — manifest; application/ld+json WebApplication in footer
+
+## Pipeline (local, zero CodeBuild)
+brief (JSON/YAML) -> DAM reuse or Nova Canvas hero -> enhance -> compose 1:1/9:16/16:9 -> compliance -> report.json + preview.html
+translate: Nova Micro -> Amazon Translate -> offline dict -> tagged — auto per market (El Paso ES, Burlington FR, SF Pescadero ZH)
+storage: s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/ + s3://frontier-bryanchasko-com/
+
+## Links
+- Live: https://d37333alc7ojpl.cloudfront.net/
+- GitHub: https://github.com/chasko-labs/creative-automation-pipeline
+- Hosted frontier: frontier.bryanchasko.com (password: cakes) is alias to same CloudFront

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://kodiakcakes.com/schema/locality-v1.json",
+  "market": "US-UT-KAMASVALLEY",
+  "place": "Kamas Valley, UT 84036 — Peoa, Oakley, Kamas, pure ranching country",
+  "zip": "84036",
+  "county": "Summit County",
+  "state": "UT",
+  "coordinates": {"lat": 40.6420, "lon": -111.2810},
+  "classification": "Hyper-local community assembly — no commercial retail, no downtown",
+  "frontier": true,
+  "subscriber_variant": true,
+  "vibe": "Pure, quiet ranching country. Places like Peoa feature spectacular river valleys and single-family properties on massive acreage, but have strictly zero commercial retail or downtown stores.",
+  "market_detail": "The communities here run the bi-weekly Oakley Farmers Market (hosted at the nearby Oakley Rodeo Grounds) and the monthly Kamas Valley Market. It functions purely as a hyper-local community assembly rather than a commercial tourist trap. Local ranchers sell grass-fed meats directly to neighbors, local backyard growers bring seasonal mountain produce, and the Summit County Arts Council frequently sets up free live acoustic.",
+  "seasonal_local": [
+    {
+      "name": "Oakley Farmers Market",
+      "where": "Oakley Rodeo Grounds",
+      "when": "Bi-weekly summer (every other Saturday), June–September",
+      "flavor": "Grass-fed meats from ranch neighbors, backyard mountain produce, river valley greens",
+      "pancake_tip": "Grab grass-fed breakfast sausage from a Peoa rancher, crumble into Kodiak savory waffle batter with aged cheddar — ranch hands' breakfast, keep it hearty for fencing at dawn.",
+      "community": "Summit County Arts Council free live acoustic — community assembly, not tourist trap"
+    },
+    {
+      "name": "Kamas Valley Market",
+      "where": "Kamas, UT — monthly",
+      "when": "Monthly summer, June–September",
+      "flavor": "Backyard growers seasonal mountain produce, small-batch preserves",
+      "pancake_tip": "Fold diced mountain greens and early peas into batter with a dash of cream — Kamas backyard to griddle.",
+      "community": "Hyper-local, neighbors selling to neighbors"
+    }
+  ],
+  "one_line_options": [
+    "KODIAK® Kamas Valley — Oakley Rodeo Grounds to your griddle. Ranch neighbors, mountain produce, 14g protein.",
+    "KODIAK® Peoa quiet — no store, no downtown, just river valley and a hot griddle. Nourishment for Today's Frontier",
+    "Kamas Valley Market monthly — backyard growers to Bear box, Summit County acoustic in the air"
+  ],
+  "audience": "Peoa ranch families on acreage, Oakley Rodeo Grounds neighbors, Kamas backyard growers, Summit County Arts Council listeners",
+  "photo_cue": "Peoa river valley at dawn, Oakley Rodeo Grounds with folding tables of grass-fed meats, Kodiak box with mountain greens, acoustic guitar in background, no downtown in sight",
+  "retailers": ["Oakley Farmers Market (bi-weekly, Rodeo Grounds)", "Kamas Valley Market (monthly)", "No commercial retail — direct from ranchers"],
+  "fulfillment": "Where there is zero retail, we ship — DTC subscription + Amazon.com, same as Neah Bay and Pescadero. Kamas Valley learns what Park City farmers market shoppers see.",
+  "message_enforcement": "Must contain KODIAK® with ® and Nourishment for Today's Frontier or Feeding Epic Days & Wilder Lives, Bear at 24,24"
+}

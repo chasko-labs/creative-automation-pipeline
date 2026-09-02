@@ -1,0 +1,138 @@
+{
+  "$schema": "https://kodiakcakes.com/schema/seasonality-v1.json",
+  "generated": "2026-09-02",
+  "updated_at": "2026-09-02T21:30:00Z",
+  "region": "California Central Coast + Bay Area halo",
+  "market": "US-CA-PESCADERO",
+  "companion_market": "US-CA-CASTROVILLE",
+  "place": "Castroville, California + Marin/Sonoma + Pescadero San Mateo Coast",
+  "title": "Castroville Artichoke + Marin/Sonoma Goat Cheese — KODIAK® Seasonality Database",
+  "brand_marks": [
+    "KODIAK®",
+    "KODIAK CAKES®",
+    "KODIAK POWER CAKES®",
+    "KODIAK POWER WAFFLES®"
+  ],
+  "seasonality": [
+    {
+      "ingredient": "Artichokes — Castroville, California ('Artichoke Center of the World')",
+      "variety": "Green Globe, Desert Globe, Big Heart — Castroville/Monterey County",
+      "origin": "Castroville, Monterey County, CA — 75 miles south of Pescadero via Highway 1; Monterey County grows ~99% of US commercial artichokes",
+      "zip": "95012",
+      "season_window": "March–June",
+      "peak": "April (centerfold)",
+      "availability_detail": {
+        "early": "March — first thornless buds, tender hearts",
+        "peak": "April — centerfold: peak volume, largest hearts, best price, Castroville Artichoke Festival window (late May–early June shoulder)",
+        "late": "May–June — late flush, smaller chokes but sweeter",
+        "off_season": "Limited fall secondary flush Oct–Nov (not frontier-priced); California year-round thinned supply Dec–Feb"
+      },
+      "peak_flag": "April is the centerfold — Castroville peak Mar-Jun, centerfold April",
+      "storage": "Refrigerate 5–7 days; steamed hearts freeze well for savory waffle fold-in year-round",
+      "kodiak_pancake_tip": "Fold chopped steamed artichoke hearts + Marin chevre into savory KODIAK® waffles",
+      "kodiak_build": "1 cup KODIAK® Power Cakes mix + 2/3 cup milk + 1 egg, fold 1/2 cup chopped steamed Castroville artichoke hearts; waffle hard, top with crumbled Marin/Sonoma chevre (Harley Farms spring chevre preferred for Pescadero tie) and olive oil drizzle + cracked pepper",
+      "alternative_build": "Savory Artichoke-Chevre Power Cakes griddle: same batter to griddle, top with warm chevre dollop and lemon-olive oil",
+      "pairing_rationale": "14g protein + whole grains balances artichoke earthiness; chevre acid cuts richness; savory brunch frontier for Bay Area hinterland households",
+      "cross_promo_sources": [
+        "Ocean Mist Farms (Castroville)",
+        "Pezzini Farms (Castroville farm stand, Highway 1)",
+        "Harley Farms Goat Dairy (Pescadero halo for Marin-style chevre)"
+      ],
+      "photo_cue": "Castroville artichoke crates on Highway 1 farm stand, steamed hearts fanned beside savory KODIAK® waffle, crumbled white chevre, olive oil sheen"
+    },
+    {
+      "ingredient": "Goat cheese — Marin/Sonoma (halo) + Harley Farms Pescadero (San Mateo Coast anchor)",
+      "variety": "Fresh chevre, fromage blanc, aged chevre — pasture-grazed",
+      "origin": "Marin County (Point Reyes, Nicasio, Tomales) + Sonoma County + San Mateo Coast anchor: Harley Farms Goat Dairy, 205 North Street, Pescadero, CA 94060",
+      "zip": "94901 (Marin halo) / 94060 (Pescadero anchor)",
+      "season_window": "Year-round, spring peak",
+      "peak": "March–June (spring kidding flush; fresh chevre Mar-May centerfold)",
+      "availability_detail": {
+        "spring_peak": "March–May — kidding season flush, highest milk volume, freshest chevre, softest texture, best fold-in for waffles",
+        "summer": "June–August — steady summer milk, fresh + aged chevre, good availability",
+        "fall_winter": "September–February — reduced fresh volume, aged/hard chevre focus; still year-round but spring is centerfold",
+        "year_round_flag": "Year-round but spring peak — mirrors Pescadero seasonal_matrix"
+      },
+      "peak_flag": "Marin/Sonoma year-round spring peak — fresh chevre Mar-Jun, kidding flush Mar-May",
+      "storage": "Fresh chevre refrigerate 7–14 days; freeze crumbles for batter fold-in (texture softens, flavor holds)",
+      "kodiak_pancake_tip": "Fold chopped steamed artichoke hearts + Marin chevre into savory KODIAK® waffles — crumble chevre warm so it softens but does not fully melt",
+      "kodiak_build": "Same savory base as artichoke: 1 cup KODIAK® Power Cakes + artichoke hearts; reserve 2 tbsp chevre for batter, crumble remainder on the hot waffle so it warms through; finish with olive oil + chive",
+      "alternative_build": "Strawberry-chevre sweet variant (May-Sep): KODIAK® Power Cakes + sliced Fifth Crow strawberries + chevre dollop + honey drizzle",
+      "pairing_rationale": "Chevre tang + artichoke nuttiness + KODIAK® whole grains = savory frontier brunch; goat dairy halo keeps Pescadero tie local (Harley Farms) while Marin/Sonoma is the regional name Bay Area shoppers recognize",
+      "cross_promo_sources": [
+        "Harley Farms Goat Dairy (Pescadero, 94060 — primary)",
+        "Point Reyes Farmstead / Nicasio Valley Cheese (Marin halo)",
+        "Redwood Hill Farm (Sonoma halo)"
+      ],
+      "photo_cue": "White chevre crumbles on savory golden KODIAK® waffle with artichoke hearts visible, olive oil drizzle, chive on a marsh-bench plate"
+    }
+  ],
+  "combined_seasonality_matrix": {
+    "overlap_centerfold": "April — both Castroville artichokes (peak) and Marin/Sonoma goat cheese (spring flush) overlap; the savory KODIAK® artichoke-chevre waffle is a true April centerfold",
+    "full_span": "March–June both at peak; savory waffle best Mar-Jun, good year-round if freezing artichoke hearts and chevre crumbles",
+    "companion_seasons": {
+      "strawberries": "May-Sep — sweet chevre-strawberry compote variant bridges spring into summer",
+      "olive_oil": "November press — year-round drizzle for savory waffle; fall/winter frontier",
+      "brussels_sprouts": "Sep-Feb (peak Oct-Dec) — winter savory waffle with Brussels + olive oil + chevre replaces artichoke in off-months"
+    }
+  },
+  "kodiak_recipe_card": {
+    "title": "Savory Castroville Artichoke + Marin Chevre KODIAK® Waffles",
+    "sku": "KODIAK® Power Cakes / Power Waffles",
+    "season": "March–June (centerfold April)",
+    "yield": "4 waffles",
+    "ingredients": [
+      "1 cup KODIAK® Power Cakes mix",
+      "2/3 cup milk (or unsweetened almond milk)",
+      "1 egg",
+      "1/2 cup chopped steamed Castroville artichoke hearts (cooled, drained)",
+      "2–3 tbsp crumbled Marin chevre / Harley Farms fresh chevre (plus more for topping)",
+      "1 tsp olive oil (plus drizzle to finish)",
+      "Pinch sea salt + cracked pepper; optional chive"
+    ],
+    "steps": [
+      "Steam Castroville artichoke hearts until tender, chop to 1/2-inch, cool and drain.",
+      "Whisk KODIAK® mix, milk, egg, 1 tsp olive oil; fold in chopped hearts and 2 tbsp chevre crumbles — do not overmix.",
+      "Waffle on hot iron per mix directions; top each hot waffle with remaining chevre so it softens, drizzle olive oil, cracked pepper, chive.",
+      "Serve beside Arcangeli artichoke bread or Fifth Crow strawberry compote if in May-Sep crossover."
+    ],
+    "pancake_tip": "Fold chopped steamed artichoke hearts + Marin chevre into savory KODIAK® waffles — savory, not sweet; olive oil not syrup",
+    "nutrition_cue": "14g protein + 100% whole grains per serving (per KODIAK® Power Cakes) — savory frontier protein where the artichoke is the vegetable",
+    "photo_plate": "Savory waffle on a weathered crate, artichoke hearts visible in the grid, white chevre crumble, olive oil sheen, Pescadero Marsh fog behind"
+  },
+  "pancake_tips_by_month": {
+    "March": "Early artichokes arrive — steam hearts small, fold tender with early spring chevre, light hand",
+    "April": "Centerfold — Castroville peak + Harley Farms/Marin spring chevre flush; savory artichoke-chevre KODIAK® waffles as featured brunch",
+    "May": "Late artichokes + first strawberries — dual stack: savory artichoke-chevre waffle + sweet strawberry-chevre waffle side-by-side",
+    "June": "Late artichokes, peak strawberries — transition to strawberry-chevre compote over KODIAK® Power Cakes; freeze artichoke hearts for off-season savory waffles",
+    "July_September": "Strawberry compote KODIAK® season (May-Sep) — store frozen artichoke hearts for occasional savory waffle",
+    "October_February": "Brussels sprouts + olive oil savory waffle replaces artichoke; chevre year-round — Fifth Crow winter frontier",
+    "Year_round": "Chevre year-round; artichokes limited off-season — freeze April peak hearts for year-round savvy"
+  },
+  "frontier_tie": {
+    "market": "US-CA-PESCADERO",
+    "place": "Pescadero, California 94060 — 35 mi south of San Francisco, nearest no-retailer spot to SF/Oakland",
+    "fulfillment": "direct",
+    "frontier": true,
+    "subscriber_variant": true,
+    "narrative": "Castroville artichokes (Mar-Jun, centerfold April) and Marin/Sonoma goat cheese (year-round, spring peak) are the two coastal seasons that make Pescadero frontier savory — 35 miles from the bridge, one grocery store (Arcangeli), 30 miles to Costco, so the seasons must travel as KODIAK® direct."
+  },
+  "sources": [
+    "Castroville Artichoke Festival + Monterey County Crop Reports (artichoke peak Mar-Jun, April centerfold)",
+    "Marin/Sonoma goat dairy seasonal flush (spring kidding Mar-May, fresh chevre Mar-Jun)",
+    "Harley Farms Goat Dairy, Pescadero CA 94060 (American Humane Certified, spring peak)",
+    "Fifth Crow Farm, Pescadero (strawberries May-Sep, Brussels Sep-Feb, olive oil Nov press)"
+  ],
+  "search_text": "Castroville artichokes March June peak April centerfold fold chopped steamed artichoke hearts + Marin chevre into savory KODIAK waffles Harley Farms goat dairy Pescadero Marin Sonoma year-round spring peak Fifth Crow Farm strawberries May September olive oil Brussels sprouts seasonality database US-CA-PESCADERO",
+  "tags": [
+    "#Castroville",
+    "#ArtichokeSeason",
+    "#MarinGoatCheese",
+    "#HarleyFarms",
+    "#SavoryWaffles",
+    "#KODIAKCakes",
+    "#KeepItWild",
+    "#Pescadero",
+    "#94060"
+  ]
+}

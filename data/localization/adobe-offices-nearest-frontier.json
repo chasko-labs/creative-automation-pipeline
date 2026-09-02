@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "generated": "2026-09-02",
+    "source": "https://www.adobe.com/about-adobe/contact/offices.html (fallback knowledge when fetch fails with HTTP2 INTERNAL_ERROR) — Adobe HQ San Jose 345 Park Ave, SF 601 Townsend, Seattle 8005 34th Ave S, Lehi UT, NYC, Austin etc. Nearest no-retailer spot chosen per office.",
+    "purpose": "Show workers what their local Costco shoppers see vs what frontier folks see, elevate frontiersfolks who make breakfast yummy while staying right for fitness lifestyle"
+  },
+  "mappings": [
+    {
+      "office": "Adobe HQ — San Jose, CA",
+      "address": "345 Park Ave, San Jose, CA 95110",
+      "nearest_frontier": "US-CA-PESCADERO",
+      "place": "Pescadero, CA 94060",
+      "distance_mi": 38,
+      "drive_min": 55,
+      "retailer_gap": "Arcangeli Grocery only; nearest Costco 30mi (South SF). Winding Hwy 1 / 84.",
+      "seasonal_flavor": "Castroville artichokes (peak Mar–Jun, April centerfold) + Marin County goat cheese (fresh chèvre Feb–Jun, peak spring) — Pescadero winter-to-summer",
+      "ad_example_message": "KODIAK® × Pescadero — artichoke + Marin chèvre savory flapjacks. 35mi from your office, still farms your breakfast. Half Moon Bay near.",
+      "ad_example_visual": "Artichoke field at dawn, Harley Farms goat dairy, Kodiak box with artichoke hearts + chèvre on wood board, Hwy 1 fog",
+      "fitness_angle": "Urban SF workers see Pescadero frontier to understand hinterland — protein that stays lean for Half Moon Bay trail, not heavy brunch. Elevate the Pescadero farmers who keep the Bay fed.",
+      "what_costco_shoppers_see": "Costco South SF / Redwood City bulk families see 'Stock the frontier — every morning' with big griddle; Pescadero sees subscription & Amazon.com small-batch artichoke + chèvre"
+    },
+    {
+      "office": "Adobe San Francisco",
+      "address": "601 Townsend St, San Francisco, CA 94107",
+      "nearest_frontier": "US-CA-PESCADERO",
+      "place": "Pescadero, CA 94060",
+      "distance_mi": 35,
+      "drive_min": 50,
+      "retailer_gap": "Same as above — 35mi, one farm road, no chain grocer",
+      "seasonal_flavor": "Same artichoke + Marin goat cheese — spring workforce helps SF see frontier around them",
+      "ad_example_message": "KODIAK® Pescadero frontier — Castroville artichokes meet Marin chèvre, 14g protein, Half Moon Bay near",
+      "fitness_angle": "Help urban folks see representation of the frontier around them — SF fitness is trail, not brunch",
+      "what_costco_shoppers_see": "SF Costco shoppers see 30-bulk, Pescadero sees farm-stand direct"
+    },
+    {
+      "office": "Adobe Seattle",
+      "address": "8005 34th Ave S, Seattle, WA 98108",
+      "nearest_frontier": "US-WA-NEAHBAY",
+      "place": "Neah Bay, WA 98357 — Makah Tribe",
+      "distance_mi": 168,
+      "drive_min": 240,
+      "retailer_gap": "Only Washburn's General Store; true grocer Port Angeles 70mi winding two-lane; 4-5hr to Seattle incl ferry",
+      "seasonal_flavor": "Makah salmon May–Sep, halibut Mar–Jun, huckleberries Aug — Washington water + Washington grain",
+      "ad_example_message": "KODIAK® Neah Bay frontier — huckleberry compote over Buttermilk Power Cakes, Makah water meets Wasatch grain. Where Washburn's has the dusty box, we ship.",
+      "ad_example_visual": "Neah Bay harbor, Makah cedar canoe, Kodiak box on Washburn's porch, 70mi sign to Port Angeles",
+      "fitness_angle": "Seattle rain-morning bulk vs Neah Bay trail/harbor — same Washington state, different frontier. Subscription & amazon.com ads seen alongside Seattle if Washington noted on app open — ask use your location or choose from list.",
+      "what_costco_shoppers_see": "Seattle Costco (home) bulk families see 'Evergreen frontier — protein-packed whole grains for gray mornings'; Neah Bay sees subscription huckleberry + smoked salmon savory, elevating Makah frontiersfolks"
+    },
+    {
+      "office": "Adobe Lehi, UT",
+      "address": "3900 Adobe Way, Lehi, UT 84043",
+      "nearest_frontier": "US-MW-PARKCITY-84098",
+      "place": "Park City, UT 84098",
+      "distance_mi": 32,
+      "drive_min": 40,
+      "retailer_gap": "Target Kimball Junction is nearby but Loa 84747 / Pescadero analogues are farther; Park City Farmers Market Wed 11-5 is local frontier flavor",
+      "seasonal_flavor": "Jensen Farms peaches diced thin + cinnamon, Copper Moose rhubarb compote orange juice, Tagges preserves, Ballerina butter Kamas — Utah summer",
+      "ad_example_message": "KODIAK® Park City 84098 — Keep It Wild from Farmers Market at base of Park City Mountain Resort. Jensen Farms peaches + Ballerina butter.",
+      "fitness_angle": "Lehi tech + Park City trail — Wasatch fitness is ski before work, trail after",
+      "what_costco_shoppers_see": "Lehi Costco shoppers see Utah bulk; Park City sees market-direct peach + butter"
+    }
+  ]
+}
