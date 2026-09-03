@@ -70,6 +70,7 @@ When you want to add a new channel (for example, a diner menu board or a subscri
 
 - Work on the main branch is continuous — we commit small and push often to the private repository at https://github.com/chasko-labs/creative-automation-pipeline .
 - The cloud bucket `chasko-creative-dam-946179428633-us-east-1` always holds the latest approved style tokens, references, and renders under `brands/kodiak/`. Pull before you branch, push after your change is approved.
+- worktrees: three teams share one clone — see [docs/architecture/worktree-workflow.md](docs/architecture/worktree-workflow.md)
 
 ## Three teams, one repo — how we avoid collisions
 
