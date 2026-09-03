@@ -195,6 +195,20 @@ export default defineConfig({
             value: "0px 2px 4px 0px #000000CC",
           },
         },
+        gradients: {
+          "kraft.surface": {
+            value:
+              "repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.03) 0px, rgba(59, 35, 22, 0.03) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 6px), linear-gradient(#FFF8F0, #FFF8F0)",
+          },
+          "kraft.background": {
+            value:
+              "repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.04) 0px, rgba(59, 35, 22, 0.04) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 7px), repeating-linear-gradient(45deg, rgba(59, 35, 22, 0.03) 0px, rgba(59, 35, 22, 0.03) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 7px), radial-gradient(120% 120% at 50% 40%, rgba(59, 35, 22, 0.05) 0%, rgba(59, 35, 22, 0) 60%), linear-gradient(#F4EDE6, #F4EDE6)",
+          },
+          "kraft.surfaceHover": {
+            value:
+              "radial-gradient(90% 90% at 100% 0%, rgba(232, 83, 14, 0.05) 0%, rgba(232, 83, 14, 0) 55%), repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.03) 0px, rgba(59, 35, 22, 0.03) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 6px), linear-gradient(#FFF8F0, #FFF8F0)",
+          },
+        },
       },
       semanticTokens: {
         colors: {
