@@ -1,0 +1,109 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  Kodiak DAM bucket + TLS policy - phase-1 IMPORT template (mirrors live
+  terraform-created bucket exactly so CloudFormation can adopt it). After import,
+  the main infra/template.yaml UPDATE transitions tags to the standard strategy
+  and adds the rest of the stack.
+
+# ---------------------------------------------------------------------------
+# PHASE 1 - IMPORT ONLY.
+# CloudFormation import requires every modeled property to MATCH the live
+# resource, and every resource in the template to carry a DeletionPolicy.
+# This template therefore mirrors the live terraform-created bucket byte-for-byte
+# on the properties CloudFormation reads during import:
+#   - VersioningConfiguration Enabled
+#   - BucketEncryption aws:kms + BucketKeyEnabled true
+#   - PublicAccessBlockConfiguration all four true
+#   - LifecycleConfiguration two rules with the live Filter prefixes
+#   - Tags = the LIVE terraform tag set (project / brand / managed=terraform)
+# The tag set here is DELIBERATELY the terraform set, not the CloudFormation
+# standard set. Import must mirror live; the tag transition to the
+# CloudFormation-managed set happens in the phase-2 update (infra/template.yaml).
+# ---------------------------------------------------------------------------
+
+Parameters:
+  BucketName:
+    Type: String
+    Default: chasko-creative-dam-946179428633-us-east-1
+    Description: >-
+      Live DAM bucket name (us-east-1, acct 946179428633). Must equal the
+      existing bucket exactly - this is the resource being imported.
+
+Resources:
+  # Imported resource. DeletionPolicy Retain is MANDATORY for import.
+  # Properties below match the live bucket verified in us-east-1 acct 946179428633.
+  StyleLibraryBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BucketName: !Ref BucketName
+      VersioningConfiguration:
+        Status: Enabled
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: aws:kms
+            BucketKeyEnabled: true
+      LifecycleConfiguration:
+        Rules:
+          # Live rule: Filter Prefix "" (empty), abort incomplete multipart at 7 days.
+          # CloudFormation models the S3 filter prefix as the rule-level Prefix property;
+          # Prefix "" serializes to the live Filter{Prefix:""} shape that import compares against.
+          - Id: abort-multipart
+            Status: Enabled
+            Prefix: ""
+            AbortIncompleteMultipartUpload:
+              DaysAfterInitiation: 7
+          # Live rule: scoped to brands/kodiak/renders/ - tiering applies to renders only.
+          # Rule-level Prefix serializes to live Filter{Prefix:"brands/kodiak/renders/"}.
+          - Id: renders-archive
+            Status: Enabled
+            Prefix: brands/kodiak/renders/
+            Transitions:
+              - StorageClass: STANDARD_IA
+                TransitionInDays: 90
+              - StorageClass: GLACIER
+                TransitionInDays: 180
+              - StorageClass: DEEP_ARCHIVE
+                TransitionInDays: 365
+            NoncurrentVersionTransitions:
+              - StorageClass: STANDARD_IA
+                TransitionInDays: 30
+                NewerNoncurrentVersions: 2
+      # LIVE terraform tag set - must mirror live for import to validate.
+      # The transition to the CloudFormation standard tag set is phase 2.
+      Tags:
+        - Key: project
+          Value: creative-automation-pipeline
+        - Key: brand
+          Value: kodiak
+        - Key: managed
+          Value: terraform
+
+  # Imported alongside the bucket. S3::BucketPolicy has no Tags property.
+  # Body matches the live DenyInsecureTransport statement exactly.
+  StyleLibraryBucketPolicyTLSOnly:
+    Type: AWS::S3::BucketPolicy
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      Bucket: !Ref StyleLibraryBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: DenyInsecureTransport
+            Effect: Deny
+            Principal: "*"
+            Action: s3:*
+            Resource:
+              - !Sub ${StyleLibraryBucket.Arn}
+              - !Sub ${StyleLibraryBucket.Arn}/*
+            Condition:
+              Bool:
+                aws:SecureTransport: false
