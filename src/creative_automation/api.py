@@ -17,7 +17,6 @@ from __future__ import annotations
 
 import json
 import pathlib
-from typing import Literal
 
 try:
     from fastapi import FastAPI, Query, HTTPException  # type: ignore
@@ -28,7 +27,7 @@ try:
 except ImportError:
     HAS_FASTAPI = False  # fallback still allows import for tests without FastAPI
 
-from .brief import CampaignBrief, load_brief
+from .brief import CampaignBrief
 from .pipeline import run_pipeline
 from .embeddings import embed_text, embed_multimodal
 from .enhance import enhance_hero
@@ -262,7 +261,11 @@ if HAS_FASTAPI:
         Runs as background dispatch; returns job_id. Poll GET /campaigns/job/{id} for status.
         When input assets exist in input_assets/* or s3://chasko-creative-dam-.../brands/kodiak/ they are reused; when missing, Nova Canvas mock is generated (GenAI). Adobe Express MCP mocks are fanned as background jobs — see src/creative_automation/adobe_express.py.
         """
-        import uuid, threading, time, pathlib, json as _json
+        import uuid
+        import threading
+        import time
+        import pathlib
+        import json as _json
         b = body or {}
         # brief is optional — if missing, use every product + every market as "every conceivable"
         markets_path = pathlib.Path("data/localization/store-finder-markets.json")
@@ -315,7 +318,8 @@ if HAS_FASTAPI:
 
     @app.get("/campaigns/job/{job_id}")  # type: ignore
     def campaigns_job(job_id: str):
-        import pathlib, json as _json
+        import pathlib
+        import json as _json
         for base in pathlib.Path("/tmp").glob(f"kodiak-fanned-{job_id}*"):
             sp = base / "status.json"
             if sp.exists():

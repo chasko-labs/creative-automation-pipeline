@@ -59,30 +59,102 @@ def _cosine(a: list[float], b: list[float]) -> float:
     return dot / (na * nb)
 
 
+def _keyword_fallback(query: str, k: int) -> list[dict]:
+    """Keyword grep fallback that covers hashtags + localization + recipes — power gloves, not a redirect."""
+    fallbacks: list[dict] = []
+    # 1) localization jsonl (existing training data + hashtag-lookup.jsonl)
+    for p in pathlib.Path("data/localization").glob("*.jsonl"):
+        if not p.exists():
+            continue
+        for line in p.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            tokens = [t for t in query.lower().split() if len(t) > 2]
+            if all(t in line.lower() for t in tokens) or query.lower() in line.lower():
+                try:
+                    j = json.loads(line)
+                except Exception:
+                    continue
+                fallbacks.append({"id": j.get("text", "")[:80] or p.name, "type": "text", "source": j.get("text", "")[:400], "score": 0.92, "matched_file": str(p)})
+                if len(fallbacks) >= k:
+                    break
+        if len(fallbacks) >= k:
+            break
+    # 2) recipes hashtags json + jsonl
+    if len(fallbacks) < k:
+        for p in [pathlib.Path("data/recipes/hashtags.json"), pathlib.Path("data/recipes/hashtags.jsonl"), pathlib.Path("data/localization/hashtag-lookup.json")]:
+            if not p.exists():
+                continue
+            text = p.read_text(encoding="utf-8")
+            tokens2 = [t for t in query.lower().split() if len(t) > 2]
+            if all(t in text.lower() for t in tokens2) or query.lower() in text.lower():
+                # slice around first hit for source
+                low = text.lower()
+                idx = low.find(query.lower().split()[0])
+                snippet = text[max(0, idx-200): idx+600][:400].replace("\n", " ")
+                fallbacks.append({"id": f"hashtags:{p.name}", "type": "text", "source": snippet, "score": 0.91, "matched_file": str(p)})
+                if len(fallbacks) >= k:
+                    break
+    # 3) direct recipes jsonl
+    if len(fallbacks) < k:
+        for p in pathlib.Path("data/recipes").glob("*.jsonl"):
+            for line in p.read_text(encoding="utf-8").splitlines():
+                tokens = [t for t in query.lower().split() if len(t) > 2]
+            if all(t in line.lower() for t in tokens) or query.lower() in line.lower():
+                    j = json.loads(line)
+                    fallbacks.append({"id": j.get("text", "")[:80], "type": "text", "source": j.get("text", "")[:400], "score": 0.90, "matched_file": str(p)})
+                    if len(fallbacks) >= k:
+                        break
+            if len(fallbacks) >= k:
+                break
+    return fallbacks[:k]
+
+
 def search(query: str, k: int = 5, type_filter: Literal["text", "image", "multimodal"] | None = None) -> list[dict]:
     """Agent-friendly search — returns top-k hits with scores, queryable via API or MCP."""
     qvec, _ = embed_text(query)
     vecs = _load_vectors()
     if not vecs:
-        # fallback to plain localization jsonl grep when vectors not yet built
-        fallbacks = []
-        for p in pathlib.Path("data/localization").glob("*.jsonl"):
-            for line in p.read_text(encoding="utf-8").splitlines():
-                if query.lower() in line.lower():
-                    j = json.loads(line)
-                    fallbacks.append({"id": j.get("text", "")[:80], "type": "text", "source": j.get("text", "")[:200], "score": 0.9})
-                    if len(fallbacks) >= k:
-                        break
-        return fallbacks[:k]
+        return _keyword_fallback(query, k)
 
-    scored = []
+    scored: list[dict] = []
     for v in vecs:
         if type_filter and v.get("type") != type_filter:
             continue
         s = _cosine(qvec, v["vector"])
         scored.append({**v, "score": s})
     scored.sort(key=lambda x: x["score"], reverse=True)
-    return scored[:k]
+    top = scored[:k]
+    # supplement with keyword hits when query is hashtag/green chile specific and vector recall is weak
+    # power gloves: guarantee green chile hashtags returns actionable bundles even if embedding mock
+    ql = query.lower()
+    needs_keyword = ("hashtag" in ql or "green chile" in ql or "las cruces" in ql or "hatch" in ql)
+    if needs_keyword:
+        kw = _keyword_fallback(query, k)
+        if kw:
+            # power gloves: keyword hits are ground truth for hashtag queries — always prioritize
+            # merge kw first, then top up to k
+            seen = set()
+            merged = []
+            for h in kw:
+                key = h.get("source", "")[:80]
+                if key not in seen:
+                    merged.append(h)
+                    seen.add(key)
+            for h in top:
+                key = h.get("source", "")[:80]
+                if key not in seen:
+                    merged.append(h)
+                    seen.add(key)
+                if len(merged) >= k:
+                    break
+            top = merged[:k]
+            # if kw alone fills k, just return kw (highest relevance)
+            if max((h.get("score", 0) for h in kw), default=0) >= 0.9:
+                # ensure at least first hit is keyword
+                if top and "hashtag" not in top[0].get("source","").lower() and "green chile" not in top[0].get("source","").lower():
+                    top = (kw + top)[:k]
+    return top[:k]
 
 
 if HAS_FASTAPI:

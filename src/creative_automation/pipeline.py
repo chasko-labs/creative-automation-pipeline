@@ -80,7 +80,7 @@ def run_pipeline(
             languages = auto
             # if brief lang differs from en, ensure included
             if lang not in languages:
-                languages = [lang] + [l for l in languages if l != lang]
+                languages = [lang] + [lc for lc in languages if lc != lang]
         else:
             languages = [lang]
     elif languages is None:
@@ -88,10 +88,10 @@ def run_pipeline(
     # dedup preserve order
     seen: set[str] = set()
     _langs: List[str] = []
-    for l in languages:
-        if l not in seen:
-            seen.add(l)
-            _langs.append(l)
+    for lc2 in languages:
+        if lc2 not in seen:
+            seen.add(lc2)
+            _langs.append(lc2)
     languages = _langs
     out_root.mkdir(parents=True, exist_ok=True)
 

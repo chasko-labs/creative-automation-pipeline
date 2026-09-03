@@ -95,8 +95,8 @@ def main():
     print(f"[embed] total {len(items)} -> model {EMBED_MODEL} dim {args.dim} out {args.out}")
     jsonl = embed_batch(items, out_dir=args.out, dim=args.dim)
     print(f"[embed] wrote {jsonl} ({jsonl.stat().st_size} bytes) manifest {pathlib.Path(args.out)/'manifest.json'}")
-    print(f"[embed] S3 Vectors note: dedicated vector bucket, not regular S3 — see https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_S3VectorsConfiguration.html")
-    print(f"[embed] Next: retrieve via S3 Vectors QueryVectors or Bedrock Knowledge Base retrieve — see docs/training-process.md")
+    print("[embed] S3 Vectors note: dedicated vector bucket, not regular S3 — see https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_S3VectorsConfiguration.html")
+    print("[embed] Next: retrieve via S3 Vectors QueryVectors or Bedrock Knowledge Base retrieve — see docs/training-process.md")
 
 
 if __name__ == "__main__":

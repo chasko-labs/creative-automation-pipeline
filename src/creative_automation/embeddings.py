@@ -20,7 +20,6 @@ import json
 import hashlib
 import os
 from pathlib import Path
-from typing import Literal
 
 EMBED_MODEL = os.getenv("BEDROCK_EMBED_MODEL", "amazon.nova-2-multimodal-embeddings-v1:0")
 EMBED_DIM = int(os.getenv("BEDROCK_EMBED_DIM", "1024"))

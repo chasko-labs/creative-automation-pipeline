@@ -174,7 +174,10 @@ def compose_creative(
             except Exception:
                 logo_offset, default_w, min_w = 24, 140, 80
             lw = max(min_w, default_w)
-            lh = int(logo.height * (lw / logo.width))
+            # scale logo to token width, preserve aspect
+            if logo.width != lw:
+                lh = int(logo.height * (lw / logo.width))
+                logo = logo.resize((lw, lh), Image.BICUBIC)
             bg.paste(logo, (logo_offset, logo_offset), logo)
         except Exception as e:
             print(f"[compose] logo overlay failed: {e}")
