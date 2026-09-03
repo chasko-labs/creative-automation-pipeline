@@ -23,6 +23,7 @@ this module.
 from __future__ import annotations
 
 import os
+import sys
 
 from . import safety
 from .context_pack import build_context_pack
@@ -97,7 +98,7 @@ def _try_nova_rewrite(prompt: str) -> str | None:
         out = resp["output"]["message"]["content"][0]["text"].strip().strip('"').strip("'")
         return out or None
     except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — documented fallback
-        print(f"[text_rewriter] Nova Micro rewrite fallback: {e}")
+        print(f"[text_rewriter] Nova Micro rewrite fallback: {e}", file=sys.stderr)
         return None
 
 
