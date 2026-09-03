@@ -1,0 +1,89 @@
+"""Local flavor lookup — locale + month resolves to in-season produce + source."""
+import pytest
+
+from creative_automation.local_flavor import (
+    MarketFlavor,
+    load_flavors,
+    local_flavor_for,
+    resolve_flavor,
+)
+
+
+def test_known_market_in_season_month():
+    # Hatch green chile is Aug-Sep; September (9) is in-season
+    got = local_flavor_for("US-SW-LASCRUCES", month=9)
+    assert got["matched"] is True
+    assert got["market"] == "US-SW-LASCRUCES"
+    assert got["month"] == 9
+    assert "Hatch green chile" in got["produce"]
+    assert "Albertsons Las Cruces" in got["source"]
+
+
+def test_known_market_out_of_season_month():
+    # January (1) is outside the Hatch green chile Aug-Sep window
+    got = local_flavor_for("US-SW-LASCRUCES", month=1)
+    assert got["matched"] is True
+    assert got["produce"] == []
+    # source + months still resolve so the UI can render the sourcing line
+    assert got["source"]
+    assert got["months"] == [8, 9]
+
+
+def test_default_fallback_for_unknown_market():
+    got = local_flavor_for("US-XX-NOWHERE", month=6)
+    assert got["matched"] is False
+    assert got["market"] == "_default"
+    assert got["produce"] == ["seasonal frontier flavor"]
+
+
+def test_pescadero_artichokes_spring_window():
+    # Castroville artichokes Mar-Jun — April (4) in season, July (7) out
+    apr = local_flavor_for("US-CA-PESCADERO", month=4)
+    assert "Castroville artichokes" in apr["produce"]
+    jul = local_flavor_for("US-CA-PESCADERO", month=7)
+    assert "Castroville artichokes" not in jul["produce"]
+    # strawberries carry July instead
+    assert "strawberries" in jul["produce"]
+
+
+def test_kamas_valley_year_round():
+    # grass-fed beef is year-round — in season every month
+    for month in (1, 6, 12):
+        got = local_flavor_for("US-UT-KAMASVALLEY", month=month)
+        assert "Oakley grass-fed beef" in got["produce"]
+
+
+def test_neah_bay_huckleberry_single_month():
+    aug = local_flavor_for("US-WA-NEAHBAY", month=8)
+    assert "huckleberry" in aug["produce"]
+    assert "Makah salmon" in aug["produce"]
+    jul = local_flavor_for("US-WA-NEAHBAY", month=7)
+    assert "huckleberry" not in jul["produce"]
+    assert "Makah salmon" in jul["produce"]
+
+
+def test_invalid_month_raises():
+    with pytest.raises(ValueError):
+        local_flavor_for("US-SW-LASCRUCES", month=0)
+    with pytest.raises(ValueError):
+        local_flavor_for("US-SW-LASCRUCES", month=13)
+
+
+def test_resolve_flavor_returns_dataclass():
+    flavor = resolve_flavor("US-MW-PARKCITY-84098")
+    assert isinstance(flavor, MarketFlavor)
+    assert flavor.place.startswith("Park City")
+    assert any(p.name == "Jensen Farms peaches" for p in flavor.produce)
+
+
+def test_load_flavors_includes_default_and_all_seeds():
+    flavors = load_flavors()
+    for key in (
+        "US-CA-PESCADERO",
+        "US-WA-NEAHBAY",
+        "US-MW-PARKCITY-84098",
+        "US-SW-LASCRUCES",
+        "US-UT-KAMASVALLEY",
+        "_default",
+    ):
+        assert key in flavors

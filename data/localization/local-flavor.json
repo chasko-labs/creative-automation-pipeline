@@ -1,0 +1,66 @@
+{
+  "$schema": "https://kodiakcakes.com/schema/local-flavor-v1.json",
+  "metadata": {
+    "generated": "2026-09-03",
+    "purpose": "Canonical locale -> season -> local produce/source lookup for the 'Local flavor' island. Month-aware: each market lists produce entries with an inclusive month window (1-12). local_flavor_for(market_code, month) returns the in-season entries for that month plus the sourcing string. Seeded from the frontend flavorMap so the DATA layer is authoritative and the UI can fetch this file instead of hardcoding JS.",
+    "month_convention": "months are integers 1-12 (January=1). Windows are inclusive and may wrap the year end (e.g. start 11, end 2 spans Nov-Feb). year_round entries use months 1-12.",
+    "consumed_by": "src/creative_automation/local_flavor.py :: local_flavor_for(market_code, month) -> {produce, source, months, in_season}"
+  },
+  "markets": {
+    "US-CA-PESCADERO": {
+      "place": "Pescadero, CA 94060",
+      "source": "Pescadero farm stands + Half Moon Bay / Santa Cruz stands",
+      "produce": [
+        { "name": "Castroville artichokes", "months": [3, 4, 5, 6], "peak": 4 },
+        { "name": "Marin goat cheese", "months": [2, 3, 4, 5, 6] },
+        { "name": "strawberries", "months": [5, 6, 7, 8, 9] },
+        { "name": "Brussels sprouts", "months": [9, 10, 11, 12, 1, 2] }
+      ]
+    },
+    "US-WA-NEAHBAY": {
+      "place": "Neah Bay, WA 98357",
+      "source": "Neah Bay harbor, Washburn's General Store & Makah Days",
+      "produce": [
+        { "name": "Makah salmon", "months": [5, 6, 7, 8, 9] },
+        { "name": "huckleberry", "months": [8] }
+      ]
+    },
+    "US-MW-PARKCITY-84098": {
+      "place": "Park City, Utah 84098 (Wasatch Back)",
+      "source": "Park City Farmers Market (Canyons Village)",
+      "produce": [
+        { "name": "Jensen Farms peaches", "months": [6, 7, 8, 9] },
+        { "name": "Copper Moose rhubarb", "months": [6, 7, 8, 9] }
+      ]
+    },
+    "US-SW-LASCRUCES": {
+      "place": "Las Cruces + Alamogordo, New Mexico",
+      "source": "roasted by the bushel, Organ Mountains bench, Albertsons Las Cruces",
+      "produce": [{ "name": "Hatch green chile", "months": [8, 9], "peak": 9 }]
+    },
+    "US-UT-KAMASVALLEY": {
+      "place": "Kamas Valley — Peoa / Oakley, UT 84036 (Wasatch Back rural)",
+      "source": "Oakley Rodeo Grounds market",
+      "produce": [
+        {
+          "name": "Oakley grass-fed beef",
+          "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        },
+        {
+          "name": "Ballerina Farm butter",
+          "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        }
+      ]
+    },
+    "_default": {
+      "place": "Today's Frontier",
+      "source": "local harvest — source determined by locale to drive engagement & conversion",
+      "produce": [
+        {
+          "name": "seasonal frontier flavor",
+          "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        }
+      ]
+    }
+  }
+}
