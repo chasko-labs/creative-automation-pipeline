@@ -294,7 +294,13 @@
       "fontFamily": {
         "headline": {
           "$type": "fontFamily",
-          "$value": ["Rockwell", "Clarendon", "American Typewriter", "Georgia", "serif"],
+          "$value": [
+            "Rockwell",
+            "Clarendon",
+            "American Typewriter",
+            "Georgia",
+            "serif"
+          ],
           "$description": "Headline — slab serif, frontier/rugged. Style-Dictionary: array → CSS stack."
         },
         "body": {
@@ -678,6 +684,27 @@
           "spread": "0px"
         },
         "$description": "Text stroke alternative — compose uses stroke_width 2 + shadow for legibility"
+      }
+    },
+    "gradient": {
+      "$description": "CSS-gradient kraft textures — resolution-independent, zero rasters (cloud-del-norte precedent). Fiber via repeating-linear-gradient, wash/bloom via radial-gradient. All alphas 0.02–0.06 so bearBrown #3B2316 body text on these surfaces holds ~11:1 contrast (well above WCAG AA). No backdrop-filter (Safari text-blur bug).",
+      "kraft": {
+        "$description": "Layered kraft-paper texture set — replaces the stretched raster kodiakcakes CDN .webp background with pure CSS.",
+        "surface": {
+          "$type": "gradient",
+          "$value": "repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.03) 0px, rgba(59, 35, 22, 0.03) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 6px), linear-gradient(#FFF8F0, #FFF8F0)",
+          "$description": "CSS-gradient kraft texture — subtle single-direction paper fiber (135deg thin brown stripes at 0.03 alpha) over parchment #FFF8F0. Intended surface: cards. Reads as a clean kraft card."
+        },
+        "background": {
+          "$type": "gradient",
+          "$value": "repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.04) 0px, rgba(59, 35, 22, 0.04) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 7px), repeating-linear-gradient(45deg, rgba(59, 35, 22, 0.03) 0px, rgba(59, 35, 22, 0.03) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 7px), radial-gradient(120% 120% at 50% 40%, rgba(59, 35, 22, 0.05) 0%, rgba(59, 35, 22, 0) 60%), linear-gradient(#F4EDE6, #F4EDE6)",
+          "$description": "CSS-gradient kraft texture — stronger crossed paper fiber (135deg + 45deg brown stripes at 0.04/0.03 alpha) plus a soft warm radial wash toward center, over oatmeal #F4EDE6. Intended surface: page background. Reads as a full cardboard-box surface without a raster."
+        },
+        "surfaceHover": {
+          "$type": "gradient",
+          "$value": "radial-gradient(90% 90% at 100% 0%, rgba(232, 83, 14, 0.05) 0%, rgba(232, 83, 14, 0) 55%), repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.03) 0px, rgba(59, 35, 22, 0.03) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 6px), linear-gradient(#FFF8F0, #FFF8F0)",
+          "$description": "CSS-gradient kraft texture — interactive variant of surface with a faint blaze-orange #E8530E radial bloom (0.05 alpha, top-right corner, ambient only) over the parchment fiber. Intended surface: hovered/active cards."
+        }
       }
     },
     "dimension": {

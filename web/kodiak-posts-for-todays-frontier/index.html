@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"/>
 <link rel="stylesheet" href="https://use.typekit.net/zjt4wyq.css">
+<link rel="stylesheet" href="design/styles.css">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>KODIAK® Posts for Today's Frontier — v0.4.1-28d0c98-20260902</title>
 <meta name="kodiak-version" content="0.4.1-28d0c98-20260902">
@@ -43,12 +44,8 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
   --adobe-10:#A779571A;
   --section-space-lg:1.25rem;
   --section-space-xl:1.75rem;
-  /* texture tokens — paper first, fallback second */
-  --kc-paper:url("https://kodiakcakes.com/cdn/shop/t/97/assets/kc-paper-bg.webp");
-  --kc-paper-fallback:url("https://kodiakcakes.com/cdn/shop/t/97/assets/brown-texture-2.webp");
-  --red-grit:url("https://kodiakcakes.com/cdn/shop/t/97/assets/mega-menu_red-bg.webp");
-  --hero-product-card-bg:url("https://kodiakcakes.com/cdn/shop/t/97/assets/brown-texture-2.webp");
-  /* kraft hairlines for subtle paper fiber — layered over base kc-paper */
+  /* texture tokens — CDN .webp rasters removed; kraft procedural gradients now live in design/styles.css (--gradients-kraft.*) */
+  /* kraft hairlines for subtle paper fiber — inline svg data-uri, not a raster */
   --kraft:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M0 10h60M0 50h60' stroke='%23624E42' stroke-opacity='.05' stroke-width='.8'/%3E%3C/svg%3E");
   --wood:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M0 60 Q30 55 60 60 T120 60' stroke='%23a77957' stroke-opacity='.07' stroke-width='1' fill='none'/%3E%3C/svg%3E");
   --mountain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0 38 L120 8 L260 32 L380 4 L520 30 L640 10 L760 34 L880 6 L1000 28 L1120 12 L1200 36 L1200 48 L0 48Z' fill='%231A2F29'/%3E%3C/svg%3E");
@@ -58,11 +55,10 @@ html,body{margin:0;color:var(--chocolate);font-family:"museo-sans",system-ui,-ap
 html{background:var(--parchment)}
 body{
   background-color:var(--parchment);
-  /* base kc-paper-bg.webp repeat — fallback brown-texture-2.webp */
-  background-image:var(--kc-paper), var(--kc-paper-fallback);
-  background-repeat:repeat, repeat;
-  background-size:auto, auto;
-  /* paper texture layers: base kc-paper + kraft hairlines + subtle wood canvas on sections via ::before */
+  /* kraft procedural background — replaces kodiakcakes.com CDN .webp rasters (kc-paper / kc-paper-fallback removed) */
+  background-image:var(--gradients-kraft\.background);
+  background-repeat:repeat;
+  background-size:auto;
   position:relative;
 }
 /* paper texture layers — base kc-paper declared on body; secondary canvas on .wrap via layered gradient */
@@ -87,19 +83,20 @@ body,.body,p,label,input,select,textarea{font-family:"museo-sans",system-ui,Helv
 em.roar,strong.roar,.roar{font-family:"Roar", "kodiak_sans", "museo-sans", sans-serif;font-weight:700;letter-spacing:.04em;font-style:normal}
 /* Kodiak Sans UI — nav, buttons, badges */
 nav,.btn,.badge,.kbd,.ui{font-family:"kodiak_sans","Roar","museo-sans",system-ui,sans-serif}
-header{padding:0;background:var(--red) var(--red-grit) repeat;color:#FFF8F0;border-bottom:4px solid var(--chocolate);position:relative;overflow:hidden;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-header::before{content:"";position:absolute;inset:0;background:var(--red-grit) repeat;opacity:.55;mix-blend-mode:multiply;pointer-events:none}
+header{padding:0;background:var(--brown-kodiak);color:#FFF8F0;border-bottom:4px solid var(--chocolate);position:relative;overflow:hidden;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+header::before{content:"";position:absolute;inset:0;background:var(--gradients-kraft\.surface);opacity:.14;mix-blend-mode:multiply;pointer-events:none}
 header::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(26,17,16,.08), rgba(26,17,16,.18));pointer-events:none}
-/* header inner — red grit texture layer */
-.header__inner{position:relative;z-index:1;display:flex;align-items:center;gap:16px;width:100%;padding:10px 18px;background:var(--red) var(--red-grit) repeat;background-blend-mode:multiply}
+/* header inner — brown + kraft gradient layer (red-bg raster removed) */
+.header__inner{position:relative;z-index:1;display:flex;align-items:center;gap:16px;width:100%;padding:10px 18px;background:var(--brown-kodiak)}
 header h1{margin:0;font:800 22px/1 gin,"kodiak_sans",Rockwell,Georgia,serif;letter-spacing:.04em;text-transform:uppercase;color:#FFF8F0}
 header h1 small{font:700 11px/1 "museo-sans","kodiak_sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#FFDCC3;display:block;margin-top:4px}
 header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-sans",sans-serif}
 .wrap{max-width:1100px;margin:0 auto;padding:18px;position:relative}
 /* product hero-product-card-bg — wood/canvas texture */
 .hero-product-card-bg{background:var(--parchment) var(--wood) repeat; border:1px solid var(--stone)}
-.card{background:var(--parchment) var(--kc-paper) repeat; border:1px solid var(--stone); border-radius:4px; overflow:hidden; margin:10px 0; box-shadow:0 1px 0 rgba(56,35,22,.06), 0 8px 24px rgba(56,35,22,.06); position:relative}
+.card{background:var(--gradients-kraft\.surface); border:1px solid var(--stone); border-radius:4px; overflow:hidden; margin:10px 0; box-shadow:0 1px 0 rgba(56,35,22,.06), 0 8px 24px rgba(56,35,22,.06); position:relative}
 .card::before{content:"";position:absolute;inset:0;background:var(--wood) repeat;opacity:.06;pointer-events:none}
+.card:hover{background:var(--gradients-kraft\.surface-hover)}
 .card .hd{padding:16px 16px 12px;background:#FFFBF6 var(--kraft);border-bottom:1px solid #E8DDD3;position:relative}
 .card .hd h2{margin:0;font:800 14px/1.2 gin,"museo-sans",Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate)}
 .card .hd p{margin:6px 0 0;color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
@@ -117,7 +114,7 @@ header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-s
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .kbd{font:500 11px/1 JetBrains Mono,Menlo,monospace;background:var(--oat);border:1px solid var(--stone);padding:2px 6px;border-radius:3px;color:var(--chocolate)}
 .preview{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-.tile{border:1px solid var(--stone);border-radius:2px;overflow:hidden;background:var(--parchment) var(--hero-product-card-bg) repeat;position:relative}
+.tile{border:1px solid var(--stone);border-radius:2px;overflow:hidden;background:var(--gradients-kraft\.surface);position:relative}
 .tile canvas{width:100%;display:block;background:var(--chocolate);box-shadow:0 8px 24px rgba(49,30,20,0.18)}
 .tile .meta{padding:10px 12px;background:var(--parchment)}
 .tile .meta b{font:700 12px/1 "museo-sans",sans-serif;color:var(--chocolate)}
@@ -125,7 +122,7 @@ header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-s
 .swatch{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .swatch span{width:48px;height:28px;border-radius:2px;border:1px solid var(--stone);display:inline-block}
 .badge{display:inline-block;padding:3px 8px;border-radius:2px;background:var(--chocolate);color:#FFDCC3;font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase}
-.offline{padding:10px 12px;border-radius:2px;background:var(--parchment) var(--kc-paper) repeat;border:1px dashed var(--stone);color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
+.offline{padding:10px 12px;border-radius:2px;background:var(--gradients-kraft\.surface);border:1px dashed var(--stone);color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 /* spacing sections — use semantic vars */
 section{padding:var(--section-space-lg) 0}
@@ -151,9 +148,29 @@ section.xl{padding:var(--section-space-xl) 0}
 .kodiak-cart-drawer[open]{transform:translateX(0)}
 .kodiak-cart-drawer__hd{padding:16px;border-bottom:1px solid #F4EDE6;display:flex;align-items:center;justify-content:space-between;font:800 12px/1 "museo-sans","kodiak_sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#3B2316}
 @media(prefers-reduced-motion:reduce){.kodiak-marquee__track{animation:none!important}}
+
+/* === Firefly-inspired prompt bar — "Create a Kodiak campaign" === */
+.ff-prompt{background:var(--gradients-kraft\.surface-hover);border:1px solid var(--stone);border-radius:16px;padding:18px;box-shadow:var(--shadows-md, 0 8px 24px rgba(26,17,16,.12))}
+.ff-prompt h2{margin:0 0 4px;font:800 20px/1.1 gin,"kodiak_sans",Rockwell,Georgia,serif;letter-spacing:.03em;text-transform:none;color:var(--chocolate)}
+.ff-prompt .ff-sub{margin:0 0 14px;color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
+/* the big input row — textarea + inline upload + generate, google-simple */
+.ff-inputwrap{display:flex;align-items:flex-end;gap:10px;background:#fff;border:1px solid var(--stone);border-radius:14px;padding:10px 10px 10px 14px;transition:border-color .15s,box-shadow .15s}
+.ff-inputwrap:focus-within{border-color:var(--orange, #E8530E);box-shadow:0 0 0 3px rgba(232,83,14,.12)}
+.ff-inputwrap textarea{flex:1;border:none;outline:none;resize:none;min-height:28px;max-height:160px;background:transparent;font:500 15px/1.5 "museo-sans",sans-serif;color:var(--chocolate);padding:4px 0}
+.ff-iconbtn{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--stone);background:#fff;color:var(--chocolate);cursor:pointer;font-size:18px;line-height:1}
+.ff-iconbtn:hover{background:var(--oat)}
+.ff-go{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:40px;padding:0 16px;border-radius:10px;border:1px solid var(--orange, #E8530E);background:var(--orange, #E8530E);color:#fff;font:700 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.ff-go:disabled{opacity:.5;cursor:not-allowed}
+/* suggestion chips — quick-start pills that populate the prompt */
+.ff-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.ff-chip{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;border:1px solid var(--stone);background:#fff;color:var(--chocolate);font:600 12px/1 "museo-sans",sans-serif;cursor:pointer;transition:background .15s,border-color .15s}
+.ff-chip:hover{background:var(--oat);border-color:var(--brown-kodiak)}
+.ff-chip[aria-pressed="true"]{background:var(--brown-kodiak);color:var(--parchment);border-color:var(--brown-kodiak)}
+.ff-chip .ff-dot{width:6px;height:6px;border-radius:50%;background:var(--orange, #E8530E)}
+@media(max-width:860px){.ff-inputwrap{flex-wrap:wrap}.ff-inputwrap textarea{flex:1 1 100%}.ff-go{flex:1}}
 </style></head><body>
-<div style="background:#2c231b url('https://kodiakcakes.com/cdn/shop/t/97/assets/brown-texture-2.webp') center/cover;color:#f8eddf;text-align:center;padding:8px 12px;font-family:'kodiak_sans','Roar',system-ui,sans-serif;font-size:13px;letter-spacing:.06em"><img src="https://kodiakcakes.com/cdn/shop/files/Logo.svg" alt="KODIAK" style="height:1.1em;vertical-align:middle;margin-right:6px"> Posts for Today's Frontier — Nourishment for Today's Frontier</div>
-<header class="kodiak-header" style="background:#B51E14 url('https://kodiakcakes.com/cdn/shop/t/97/assets/mega-menu_red-bg.webp') center/cover;color:#fff;border-bottom:none;display:flex;align-items:center;gap:16px;padding:10px 18px;flex-wrap:wrap"><div class="header__inner">
+<div style="background:var(--brown-kodiak);color:#f8eddf;text-align:center;padding:8px 12px;font-family:'kodiak_sans','Roar',system-ui,sans-serif;font-size:13px;letter-spacing:.06em"><img src="https://kodiakcakes.com/cdn/shop/files/Logo.svg" alt="KODIAK" style="height:1.1em;vertical-align:middle;margin-right:6px"> Posts for Today's Frontier — Nourishment for Today's Frontier</div>
+<header class="kodiak-header" style="background:var(--brown-kodiak);color:#FFF8F0;border-bottom:none;display:flex;align-items:center;gap:16px;padding:10px 18px;flex-wrap:wrap"><div class="header__inner">
 <div class="kodiak-header__logos" style="flex:0 0 52px;height:52px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.25);position:relative"><img class="kodiak-header__logo--primary" src="assets/kodiak-primary-logo_optimized.png" alt="KODIAK — 100% WHOLE GRAINS" style="width:48px;height:48px;object-fit:contain" onerror="this.onerror=null;this.src='assets/kodiak-primary-logo.png'"><img class="kodiak-header__logo--secondary" src="https://kodiakcakes.com/cdn/shop/files/Logo.svg" alt="KODIAK" style="width:44px;height:44px;object-fit:contain;opacity:0"></div>
 <nav style="display:flex;gap:18px;font-family:'kodiak_sans','Roar',system-ui,sans-serif;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;flex:1;align-items:center">
 
@@ -161,8 +178,8 @@ section.xl{padding:var(--section-space-xl) 0}
 
 <span style="margin-left:auto;font-size:11px;opacity:.9;letter-spacing:.08em"><span style="display:inline-flex;align-items:center;gap:8px"><span data-testid="app-version" style="background:#E8530E;color:#fff;padding:2px 8px;border-radius:999px;font:800 10px/1 Inter,sans-serif;letter-spacing:.08em">v0.4.1-28d0c98-20260902 • offline</span> <span style="font-size:11px;opacity:.9;letter-spacing:.08em">KODIAK CAKES® • 100% Whole Grains • Protein-Packed</span></span></span>
 </nav>
-<div style="flex:1"><h1><img src="https://kodiakcakes.com/cdn/shop/files/Logo.svg" alt="KODIAK" style="height:1.1em;vertical-align:middle;margin-right:6px"> Creative Automation Pipeline <small>Prompt → Campaigns • 88 SKUs • 73 Markets • 3 Ratios</small></h1>
-<p>Tool: one prompt generates hundreds of localized ads — square 1080×1080, tall 1080×1920, wide 1920×1080 — bear at 24,24, DAM + Nova Canvas. No consumer copy here — output carries the slogans.</p></div>
+<div style="flex:1"><h1 style="color:#FFF8F0"><img src="https://kodiakcakes.com/cdn/shop/files/Logo.svg" alt="KODIAK" style="height:1.1em;vertical-align:middle;margin-right:6px"> Nourishing Today's Frontier: Kodiak Cakes Creative Automation Pipeline</h1>
+<p style="color:#FFF8F0">craft images and recipes for blogs, newsletters, and social campaigns with content exported for facebook, rss, costco, target &amp; publix. 16 Frontier urban markets — coincidentally where Adobe offices are — with language support for 3 most commonly spoken languages and one sister rural frontier site where Kodiak's subscription service offers unique positioning. Image generation includes square 1080×1080, tall 1080×1920, wide 1920×1080 — when using the KODIAK Bear it appears at 24,24.</p></div>
 </div>
 </header>
 
@@ -188,22 +205,59 @@ section.xl{padding:var(--section-space-xl) 0}
 </div>
 </div></div>
 
-<div class="card" data-mcp="campaign-brief" data-mcp-description="Tool: prompt → campaigns"><div class="hd"><h2>Campaign brief — one prompt → campaigns</h2><p>Tool generates. Input a prompt, pick up to 3 SKUs, pick channels — output is 3 ratios × localized variants. Consumer slogans live in output only.</p></div><div class="body">
-<div class="field" data-mcp="campaign-brief.prompt"><label>Campaign brief — one prompt (optional — test without typing)</label><textarea id="campaignBrief" placeholder="e.g. Green chile meets grizzly for Hatch season — protein that loves the Organ Mountains. Keep It Wild.
-Or: Fall protein for porch families — 14g, 100% whole grains — Nourishment for Today's Frontier" style="min-height:88px"></textarea><div class="hint">Type or paste a brief — products below autocomplete as you type. Or leave blank and hit Generate to quick-test with images.</div></div>
-<div class="field" data-mcp="assets" data-mcp-description="Upload campaign assets — images, brief docs — reused or generated hero"><label>Assets — drag & drop images or brief docs (optional)</label><input type="file" id="assetFiles" multiple accept="image/*,.pdf,.docx,.yaml,.yml,.json" style="padding:8px"><div id="assetPreview" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"></div><div class="hint">Drop hero images, pack shots, or brief docs. Reuses DAM when present, else generates via Nova Canvas (unlimited). Shows in preview as hero.</div></div>
-<div class="field" data-mcp="products" data-mcp-description="Real KODIAK SKUs — 88 from amazon.com + subscriptions, autocomplete as you type, images visible"><label>Products — 88 from the KODIAK catalog — type in brief to autocomplete, or choose up to 3</label><input type="text" id="productSearch" placeholder="Search 88 SKUs — e.g. flapjack, blueberry, power cakes, muffin, oatmeal, cup, waffle, bar, granola…" style="margin-bottom:8px"><div id="productChooser" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;max-height:320px;overflow:auto;padding:2px"></div><div class="row" style="margin-top:8px"><button class="btn ghost" id="randomProducts">🎲 Random 3</button><span class="hint" id="skuHint">0 / 3 selected — empty = random 3 on generate</span></div><div class="hint">Type in the brief or the search above — products filter live (name, handle, category) and show pack images from <code>kodiak-full-catalog.json</code>.</div></div>
-<div class="field" data-mcp="channels" data-mcp-description="Channel categories — distinct: retailers vs etailers vs eateries vs subscription vs newsletter vs office"><label>Use case — channel categories (distinct)</label><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-<label style="display:flex;gap:8px;align-items:center;font-size:12px;border:1px solid var(--stone);border-radius:8px;padding:8px;background:#fff"><input type="checkbox" value="retailers" class="channel-check" checked> Retailers — Target, Walmart, Publix, Costco, Grocery</label>
-<label style="display:flex;gap:8px;align-items:center;font-size:12px;border:1px solid var(--stone);border-radius:8px;padding:8px;background:#fff"><input type="checkbox" value="etailers" class="channel-check"> Etailers — Amazon.com (pages of products, not same as subscription)</label>
-<label style="display:flex;gap:8px;align-items:center;font-size:12px;border:1px solid var(--stone);border-radius:8px;padding:8px;background:#fff"><input type="checkbox" value="eateries" class="channel-check"> Eateries — diners, cafes, foodservice</label>
-<label style="display:flex;gap:8px;align-items:center;font-size:12px;border:1px solid var(--stone);border-radius:8px;padding:8px;background:#fff"><input type="checkbox" value="subscription" class="channel-check"> Subscription — Subscribe & Save</label>
-<label style="display:flex;gap:8px;align-items:center;font-size:12px;border:1px solid var(--stone);border-radius:8px;padding:8px;background:#fff"><input type="checkbox" value="newsletter" class="channel-check"> Newsletter — email / CRM (localized variant per market)</label>
-<label style="display:flex;gap:8px;align-items:center;font-size:12px;border:1px solid var(--stone);border-radius:8px;padding:8px;background:#fff"><input type="checkbox" value="office" class="channel-check"> Office party / internal — breakroom, sampling</label>
-</div><div class="hint">Check any combo — Generate fans to <b>every selected category</b> across all 73 locals + all formats (1:1, 9:16, 16:9). Newsletter gets a localized variant per market.</div></div>
-<div class="field" data-mcp="audience-guide" data-mcp-description="Linked design guide — audience informs UX, not form input"><label>Audience — informs UX discussions & decisions</label><div style="padding:10px 12px;border:1px solid var(--stone);border-radius:10px;background:#FFFBF6 var(--kraft)"><div style="font-size:12px;color:var(--brown)">Decisions reference real Kodiak team members — see <a href="https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/ux-personas-kodiak-complete.md" target="_blank" style="font-weight:700">Design Guide → UX Profiles</a> (23 cards — Park City, Salt Lake City, Chicago, Minneapolis, Denver) and <a href="https://github.com/chasko-labs/creative-automation-pipeline/blob/main/design/tokens/kodiak.json" target="_blank">Tokens</a>.</div><div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap"><span class="kbd">Aaron Robinson — Senior Director Brand — Park City</span><span class="kbd">Madison Roberts — Director Brand — Park City</span><span class="kbd">Eli Curtis — Brand Manager</span><span class="kbd">Ali Fluke — Shopper Marketing — Chicago</span><span class="kbd">Ashley La Barbera — VP Sales — Minneapolis</span><a href="https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/ux-personas-kodiak-complete.md" target="_blank" class="btn ghost" style="padding:4px 10px;font-size:11px">Open 23 profiles</a></div></div></div>
-<div id="localFlavor" style="padding:10px 12px;border:1px solid var(--stone);border-radius:10px;background:#FFFBF6 var(--kraft);margin-top:10px" data-mcp="local-flavor" data-mcp-description="Local flavor per season & source — derived, not selectable"><b style="font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#6B5A53">Local flavor — by season & source (determined by locale)</b><div id="localFlavorText" style="font-size:12px;margin-top:6px;color:#3B2316">Pick a place in the frontier island above — we show what’s in season and where to get it (e.g. Pescadero: Castroville artichokes Mar–Jun at Pescadero farm stands; Neah Bay: Makah salmon May–Sep at Neah Bay harbor).</div></div>
-<div class="row" style="margin-top:14px"><button class="btn orange" id="generateCampaign" style="flex:1;justify-content:center;padding:14px 18px;font-size:13px" data-mcp="generate" data-mcp-description="Single button — fans to ALL formats/platforms/locals, shows sample + nearest Frontier + newsletter variant, then gates to full dispatch">Generate Kodiak campaign</button></div><div class="hint" id="generateHint" style="margin-top:6px">Returns sample: your selected location <b>+ nearest Frontier</b> (Pescadero for SF, Neah Bay for Seattle) and a localized newsletter variant per — then unlock full per-retailer dispatch across all 73 markets. <span id="sampleStatus" style="color:#6B5A53"></span></div>
+<div class="card" data-mcp="campaign-brief" data-mcp-description="Park City Utah demo — one prompt drives the campaign"><div class="hd"><h2>Park City Utah campaign <span class="badge" id="seeNearYouBtn" style="cursor:pointer" role="button" tabindex="0" title="Reveal the location-aware frontier picker">or see near you</span></h2><p>One brief drives the whole thing. Build from existing assets, add your own, or let it auto-suggest useful changes. Output is 3 ratios (1:1, 9:16, 16:9) with EN + localized variants.</p></div><div class="body">
+
+<!-- PRIMARY: Firefly-inspired prompt bar — dominates the card -->
+<div class="ff-prompt" data-mcp="campaign-brief.prompt">
+  <h2>Create a Kodiak campaign</h2>
+  <p class="ff-sub">Describe it in a line, tap a starting point, or upload an image or document. Defaults to Park City, Utah.</p>
+  <div class="ff-inputwrap">
+    <textarea id="campaignBrief" rows="1" placeholder="Type a campaign idea — e.g. Wasatch Back morning fuel for Park City families, feature the savory waffle. Keep It Wild."></textarea>
+    <button type="button" class="ff-iconbtn" id="promptUpload" aria-label="Upload an image or document" title="Upload an image or document">+</button>
+    <button class="ff-go" id="generateCampaign" data-mcp="generate" data-mcp-description="Single button — fans to all formats + localized variants, shows sample">Create</button>
+  </div>
+  <div class="ff-chips" id="promptChips" role="group" aria-label="Campaign starting points">
+    <button type="button" class="ff-chip" data-brief="Recipe cards for Park City families — protein-packed whole grain recipes styled as shareable cards. Keep It Wild."><span class="ff-dot"></span>Recipe cards</button>
+    <button type="button" class="ff-chip" data-brief="Localized Costco campaign — bulk Family Size value for the warehouse aisle, Park City / Wasatch Back framing."><span class="ff-dot"></span>Localized Costco</button>
+    <button type="button" class="ff-chip" data-brief="Riff on past content — remix our existing heroes into fresh variants across all three ratios."><span class="ff-dot"></span>Riff on past content</button>
+    <button type="button" class="ff-chip" data-brief="Zac Efron athletic-morning energy — high-protein pre-trail fuel, aspirational active lifestyle. Keep It Wild."><span class="ff-dot"></span>Zac Efron</button>
+    <button type="button" class="ff-chip" data-brief="Bears + Keep It Wild — lean into the KODIAK Bear, wild frontier tone, protein for epic days."><span class="ff-dot"></span>Bears</button>
+    <button type="button" class="ff-chip" data-brief="Keep It Wild program — brand campaign tying protein-packed whole grains to the outdoor frontier lifestyle."><span class="ff-dot"></span>Keep It Wild program</button>
+    <button type="button" class="ff-chip" id="chipUpload"><span class="ff-dot"></span>Upload an image or document</button>
+  </div>
+</div>
+
+<!-- THREE campaign paths — compact segmented control -->
+<div class="field" style="margin-top:14px"><label>How to build it</label>
+<div class="row" id="campaignPaths" role="tablist" style="gap:8px">
+<button type="button" class="btn ghost" id="pathExisting" aria-pressed="true">Use existing assets</button>
+<button type="button" class="btn ghost" id="pathAdd" aria-pressed="false">Add new assets</button>
+<button type="button" class="btn ghost" id="pathAuto" aria-pressed="false">Auto-suggest</button>
+</div>
+<div class="hint" id="pathHint">Use existing assets — pick from the Kodiak catalog below.</div>
+</div>
+
+<!-- Path: Use existing assets — product chooser (protected IDs kept, collapsed under this path) -->
+<div class="field" id="existingAssets" data-mcp="products" data-mcp-description="Real KODIAK SKUs — choose up to 3, autocomplete as you type"><label>Products — choose up to 3 from the KODIAK catalog</label><input type="text" id="productSearch" placeholder="Search SKUs — flapjack, blueberry, power cakes, muffin, oatmeal, cup, waffle, bar…" style="margin-bottom:8px"><div id="productChooser" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;max-height:240px;overflow:auto;padding:2px"></div><div class="row" style="margin-top:8px"><button class="btn ghost" id="randomProducts">Random 3</button><span class="hint" id="skuHint">0 / 3 selected — empty = random 3 on generate</span></div></div>
+
+<!-- Path: Add new assets — file input (protected #assetFiles kept, hidden until path chosen) -->
+<div class="field" id="addAssets" data-mcp="assets" data-mcp-description="Upload campaign assets — images, brief docs" style="display:none"><label>Add assets — drag &amp; drop images or brief docs</label><input type="file" id="assetFiles" multiple accept="image/*,.pdf,.docx,.yaml,.yml,.json" style="padding:8px"><div id="assetPreview" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"></div><div class="hint">Reuses the DAM when a match exists, else generates a hero via Nova Canvas.</div></div>
+
+<!-- Path: Auto-suggest — note (uses the Suggested posts remix below) -->
+<div class="field" id="autoAssets" style="display:none"><div class="offline">Auto-suggest scans existing heroes and proposes useful variants across all three ratios — results appear in <b>Suggested posts</b> below after you Generate.</div></div>
+
+<!-- Product-in-picture default -->
+<div class="field"><label style="display:flex;gap:8px;align-items:center;text-transform:none;letter-spacing:normal;font-weight:500;color:var(--chocolate)"><input type="checkbox" id="productInPicture" checked> Feature product in the pictures</label></div>
+
+<!-- Download asset pack (Create/Generate now lives in the prompt bar above) -->
+<div class="row" style="margin-top:14px;gap:10px"><button class="btn ghost" id="downloadPack" style="justify-content:center;padding:12px 18px;font-size:13px" data-mcp="download-pack" data-mcp-description="Download the campaign assets as an ISO-labeled zip from S3">Download asset pack</button></div>
+<div class="hint" id="generateHint" style="margin-top:6px">Park City default with a localized variant. <span id="sampleStatus" style="color:#6B5A53"></span></div>
+
+<!-- HIDDEN: single retailers channel default so generate JS never null-crashes (.channel-check never read by JS, kept for safety) -->
+<input type="checkbox" value="retailers" class="channel-check" checked hidden aria-hidden="true">
+
+<!-- HIDDEN: local-flavor block kept in DOM (updateLocalFlavor reads #localFlavorText) — not a prominent field per simplification -->
+<div id="localFlavor" style="display:none" data-mcp="local-flavor" data-mcp-description="Local flavor per season & source — derived, not selectable"><b>Local flavor</b><div id="localFlavorText">Park City: Wasatch Back — Jensen Farms peaches + Copper Moose rhubarb Jun–Sep at Park City Farmers Market.</div></div>
 </div></div>
 
 <!-- no second consumer marquee — removed for tool focus (single PROMPT→CAMPAIGNS marquee above is enough) -->
@@ -258,7 +312,7 @@ function renderLangChips(){
   if(!el){
     el=document.createElement('div');
     el.id='lang-chips';
-    el.style.cssText='margin:10px 0 8px;padding:10px 12px;border:1px solid #D9CFC6;border-radius:10px;background:#FFF8F0 url(\"https://kodiakcakes.com/cdn/shop/t/97/assets/brown-texture-2.webp\") repeat;display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12px;line-height:1.4';
+    el.style.cssText='margin:10px 0 8px;padding:10px 12px;border:1px solid #D9CFC6;border-radius:10px;background:var(--gradients-kraft\\.surface);display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12px;line-height:1.4';
     const preview=document.getElementById('preview');
     if(preview && preview.parentNode) preview.parentNode.insertBefore(el, preview);
     else if(sel && sel.parentNode) sel.parentNode.insertBefore(el, sel.nextSibling);
@@ -1130,6 +1184,103 @@ if(!customElements.get('shop-cart-sync')) customElements.define('shop-cart-sync'
 if(!customElements.get('csm-cookie-consent')) customElements.define('csm-cookie-consent', CsmCookieConsent);
 // cart drawer toggle — expose for manual test: window.KODIAK_CART.open()
 window.KODIAK_CART={open:()=>{const d=document.getElementById('kodiak-cart-drawer');d.setAttribute('open','');d.setAttribute('aria-hidden','false')},close:()=>{const d=document.getElementById('kodiak-cart-drawer');d.removeAttribute('open');d.setAttribute('aria-hidden','true')}};
+</script>
+<script>
+// --- Simplified Park City demo wiring: three campaign paths, "or see near you" reveal, download asset pack stub ---
+(function(){
+  // Three campaign paths — reveal existing / add / auto sections
+  var existing = document.getElementById('existingAssets');
+  var add = document.getElementById('addAssets');
+  var auto = document.getElementById('autoAssets');
+  var hintEl = document.getElementById('pathHint');
+  var paths = {
+    pathExisting: {el: existing, hint: 'Use existing assets — pick from the Kodiak catalog below.'},
+    pathAdd: {el: add, hint: 'Add new assets — drop images or brief docs to fold into the campaign.'},
+    pathAuto: {el: auto, hint: 'Auto-suggest — let the pipeline propose useful variants; see Suggested posts below.'}
+  };
+  function selectPath(id){
+    Object.keys(paths).forEach(function(k){
+      var btn = document.getElementById(k);
+      var active = (k === id);
+      if(btn){ btn.setAttribute('aria-pressed', active ? 'true' : 'false'); btn.classList.toggle('orange', active); }
+      if(paths[k].el) paths[k].el.style.display = active ? '' : 'none';
+    });
+    if(hintEl && paths[id]) hintEl.textContent = paths[id].hint;
+  }
+  Object.keys(paths).forEach(function(k){
+    document.getElementById(k)?.addEventListener('click', function(){ selectPath(k); });
+  });
+  selectPath('pathExisting'); // default
+
+  // Firefly-style suggestion chips — populate the prompt, mark active
+  var briefEl = document.getElementById('campaignBrief');
+  var chipWrap = document.getElementById('promptChips');
+  if(chipWrap && briefEl){
+    chipWrap.querySelectorAll('.ff-chip[data-brief]').forEach(function(chip){
+      chip.addEventListener('click', function(){
+        briefEl.value = chip.getAttribute('data-brief');
+        briefEl.dispatchEvent(new Event('input', {bubbles:true}));
+        chipWrap.querySelectorAll('.ff-chip').forEach(function(c){ c.setAttribute('aria-pressed', c===chip ? 'true':'false'); });
+        // "riff on past content" nudges toward auto-suggest; others use existing assets
+        if(/riff on past content/i.test(chip.textContent)) selectPath('pathAuto');
+        briefEl.focus();
+      });
+    });
+  }
+
+  // Upload affordances — the + icon and the upload chip both open the Add-assets path + file picker
+  function openUpload(){
+    selectPath('pathAdd');
+    var f = document.getElementById('assetFiles');
+    if(f){ try{ f.click(); }catch(e){} f.focus(); }
+  }
+  document.getElementById('promptUpload')?.addEventListener('click', openUpload);
+  document.getElementById('chipUpload')?.addEventListener('click', openUpload);
+
+  // auto-grow the prompt textarea (google/firefly feel)
+  if(briefEl){
+    var grow = function(){ briefEl.style.height='auto'; briefEl.style.height=Math.min(briefEl.scrollHeight,160)+'px'; };
+    briefEl.addEventListener('input', grow); setTimeout(grow, 100);
+  }
+
+  // "or see near you" — reveal the hidden location-aware frontier toggle card
+  function revealNearYou(){
+    var card = document.getElementById('frontierToggleCard');
+    if(card){ card.style.display=''; card.scrollIntoView({behavior:'smooth', block:'nearest'}); }
+    var status = document.getElementById('locationStatus');
+    if(status) status.style.display='';
+  }
+  var seeBtn = document.getElementById('seeNearYouBtn');
+  if(seeBtn){
+    seeBtn.addEventListener('click', revealNearYou);
+    seeBtn.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); revealNearYou(); } });
+  }
+
+  // Download asset pack — S3 wiring stub.
+  // TODO(S3): replace this stub with a real call that requests a presigned S3 URL for the
+  // zipped asset pack and triggers the download. The zip + each PNG inside must be named per the
+  // ISO 8601 filename contract:
+  //   KODIAK-CAKES-{PRODUCT}-{REGION}-{LOCALITY}-{CHANNEL}-{RATIO}-{YYYYMMDD}-v01
+  //   (year-first date, lowercase product, hyphen-separated, version zero-padded; ratio one of 1x1|9x16|16x9)
+  // Suggested shape: window.downloadAssetPack({product, region, locality, channel, date}) ->
+  //   fetch presigned URL from the asset-pack service, then set location.href / anchor download.
+  window.downloadAssetPack = function(opts){
+    opts = opts || {};
+    var date = new Date().toISOString().slice(0,10).replace(/-/g,'');
+    // Park City demo defaults — the S3 agent will source real values from selection state.
+    var product = opts.product || 'savory-waffles';
+    var region = opts.region || 'US-UT';
+    var locality = opts.locality || 'park-city-84098';
+    var channel = opts.channel || 'retailers';
+    var ratio = opts.ratio || 'pack'; // whole-pack zip spans all ratios
+    var packName = 'KODIAK-CAKES-' + product + '-' + region + '-' + locality + '-' + channel + '-' + ratio + '-' + date + '-v01.zip';
+    console.warn('[downloadAssetPack] S3 wiring pending — would download ISO-labeled pack: ' + packName);
+    var status = document.getElementById('sampleStatus');
+    if(status) status.textContent = 'Asset pack ' + packName + ' — S3 zip wiring pending.';
+    return packName;
+  };
+  document.getElementById('downloadPack')?.addEventListener('click', function(){ window.downloadAssetPack(); });
+})();
 </script>
   <script src="glimmer-proxy.js"></script>
 </body></html>

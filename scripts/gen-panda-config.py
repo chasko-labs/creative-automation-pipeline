@@ -38,6 +38,10 @@ _ALIAS_RE = re.compile(r"^\{kodiak\.(.+)\}$")
 # prettier -- unquoting them would change meaning or is not identifier-safe.
 _JS_IDENT_RE = re.compile(r"^[A-Za-z_$][A-Za-z0-9_$]*$")
 
+# prettier default printWidth (no .prettierrc in repo). a scalar member line longer
+# than this wraps: value drops to a continuation line indented one level deeper.
+_PRETTIER_PRINT_WIDTH = 80
+
 # maps the leading kodiak.<segment> to the panda token-category root used in refs
 _CATEGORY_ROOT = {
     "color": "colors",
@@ -177,6 +181,25 @@ def _walk_shadows(shadow: dict) -> dict:
     return out
 
 
+def _walk_gradients(gradient: dict) -> dict:
+    """Flatten kodiak.gradient.<group>.<variant> string tokens into
+    `<group>.<variant>` keys for Panda's `gradients` token category.
+
+    Gradient $value is already a raw CSS gradient string (repeating-linear /
+    radial), so it passes through verbatim -- consumable via token('gradients.x.y')
+    in backgroundImage. Skips $meta keys and nested $description nodes."""
+    out: dict = {}
+    for group, members in gradient.items():
+        if group.startswith("$") or not isinstance(members, dict):
+            continue
+        for variant, node in members.items():
+            if variant.startswith("$"):
+                continue
+            if _is_token(node):
+                out[f"{group}.{variant}"] = {"value": node["$value"]}
+    return out
+
+
 def build_theme(tokens: dict) -> dict:
     kodiak = tokens["kodiak"]
     color = kodiak["color"]
@@ -194,6 +217,9 @@ def build_theme(tokens: dict) -> dict:
         "radii": _walk_dimension_scale(radius),
         "shadows": _walk_shadows(shadow),
     }
+    gradients = _walk_gradients(kodiak.get("gradient", {}))
+    if gradients:
+        theme_tokens["gradients"] = gradients
     semantic_tokens = {
         "colors": _walk_semantic_colors(color["semantic"]),
         "spacing": _walk_semantic_spacing(spacing),
@@ -216,7 +242,12 @@ def _ts_object(node, indent: int) -> str:
     """Serialize a dict/scalar into a prettier-conformant TS object literal:
     unquoted identifier keys, double-quoted values, trailing comma on every
     member, 2-space indent. Emits the exact bytes prettier would produce so the
-    generated file never needs a follow-up format pass."""
+    generated file never needs a follow-up format pass.
+
+    prettier default printWidth is 80 (no .prettierrc in repo). when a scalar
+    member line `<pad>key: "value",` would exceed 80 columns, prettier breaks
+    after the colon and drops the value onto a continuation line indented one
+    level deeper -- long CSS gradient strings hit this. mirror that here."""
     if not isinstance(node, dict):
         return _ts_scalar(node)
     pad = "  " * indent
@@ -224,7 +255,13 @@ def _ts_object(node, indent: int) -> str:
     lines = ["{"]
     for key, child in node.items():
         rendered = _ts_object(child, indent + 1)
-        lines.append(f"{inner_pad}{_ts_key(key)}: {rendered},")
+        member = f"{inner_pad}{_ts_key(key)}: {rendered},"
+        # only scalar leaves wrap; dict renders are already multi-line
+        if not isinstance(child, dict) and len(member) > _PRETTIER_PRINT_WIDTH:
+            lines.append(f"{inner_pad}{_ts_key(key)}:")
+            lines.append(f"{inner_pad}  {rendered},")
+        else:
+            lines.append(member)
     lines.append(f"{pad}}}")
     return "\n".join(lines)
 
