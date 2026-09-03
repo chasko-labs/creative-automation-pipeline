@@ -334,8 +334,11 @@ def test_render_false_leaves_assets_planned(tmp_path):
 
 
 def test_render_true_produces_real_iso_named_pngs_offline(tmp_path):
-    # render=True, offline (no creds) -> real PNGs via the mock hero path, iso-named,
-    # each asset flips generated=True with hero_source="mock"
+    # render=True, offline (no creds) -> real iso-named PNGs, each asset flips
+    # generated=True. offline yields either a real Nova Pro composite (product with a
+    # located source asset composes for real even when the caption call is denied) or
+    # mock (product with no located asset). no Bedrock generation call is required, so
+    # CI stays deterministic.
     result = run_campaign(
         _tiny_render_brief(),
         out_dir=tmp_path,
@@ -348,7 +351,7 @@ def test_render_true_produces_real_iso_named_pngs_offline(tmp_path):
     assert result["assets"]
     for a in result["assets"]:
         assert a["generated"] is True, f"asset not flipped generated: {a['iso_name']}"
-        assert a["hero_source"] == "mock", f"expected mock offline, got {a['hero_source']}"
+        assert a["hero_source"] in ("mock", "bedrock:nova-pro"), f"unexpected hero_source: {a['hero_source']}"
         # the recorded file path is the iso-named PNG and it exists on disk
         fp = Path(a["file_path"])
         assert fp.exists(), f"rendered png missing: {fp}"

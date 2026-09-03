@@ -1,4 +1,4 @@
-"""Lambda Function-URL handler: prompt-to-image via Bedrock Nova Canvas with mock fallback."""
+"""Lambda Function-URL handler: brief-to-hero via Nova Pro asset composition (mock fallback)."""
 from __future__ import annotations
 
 import json
@@ -10,7 +10,7 @@ from uuid import uuid4
 import boto3
 from botocore.config import Config
 
-from .generate import _mock_hero, _try_bedrock_nova_canvas
+from .generate import generate_hero
 
 DAM_S3_BUCKET = os.getenv("DAM_S3_BUCKET", "chasko-creative-dam-946179428633-us-east-1")
 CORS_HEADERS = {
@@ -43,7 +43,7 @@ def _response(status: int, payload: dict[str, Any]) -> dict[str, Any]:
 
 
 def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
-    """Generate an image from a prompt, upload to the DAM bucket, return a presigned URL."""
+    """Compose a hero from real source assets driven by a brief, upload it, return a presigned URL."""
     if _is_options(event):
         return {"statusCode": 200, "headers": CORS_HEADERS, "body": ""}
     try:
@@ -51,17 +51,20 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
         prompt = data.get("prompt")
         if not prompt:
             return _response(400, {"ok": False, "error": "missing required field: prompt"})
-        width = int(data.get("width", 1024))
-        height = int(data.get("height", 1024))
         product = data.get("product", "power-cakes")
 
         out_path = Path(f"/tmp/{uuid4().hex}.png")  # noqa: S108 — Lambda only allows /tmp writes
-        result = _try_bedrock_nova_canvas(prompt, out_path, width, height)
-        if result is not None and result.exists():
-            source = "bedrock:nova-canvas"
-        else:
-            result = _mock_hero(product, prompt, "us", out_path, 0)
-            source = "mock"
+        # "prompt" is the campaign brief/vibe now, not a generation seed. generate_hero
+        # composes over a real product asset via Nova Pro vision, or falls back to a mock.
+        result, source = generate_hero(
+            product_id=product,
+            product_name=product.replace("-", " ").title(),
+            brief_msg=prompt,
+            region=data.get("region", "us"),
+            audience=data.get("audience", "active families"),
+            out_path=out_path,
+            idx=0,
+        )
 
         key = f"brands/kodiak/renders/{uuid4().hex}.png"
         # SigV4 + explicit region: session-token (ASIA) creds require SigV4 presigns;

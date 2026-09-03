@@ -4,13 +4,13 @@
 
 ## What exists today (research)
 
-| Retailer dir | `preview.html` | Creatives | Pass | Notes |
-|---|---|---|---|---|
-| `output_kodiak/` | ✅ `output_kodiak/preview.html` | 9 (power-cakes dam + bear-bites/oatmeal-cup mock) | 9/9 | US-MW baseline — Keep It Wild · Frontier Breakfast |
-| `output_kodiak-target/` | ✅ `output_kodiak-target/preview.html` | 9 | 9/9 | Target Midwest Gen Z — same template, localized audience |
-| `output_kodiak-costco/` | ✅ `output_kodiak-costco/preview.html` | 9 | 9/9 | Costco bulk variant |
-| `output_kodiak-publix/` | ✅ `output_kodiak-publix/preview.html` | 9 | 9/9 | Publix SE |
-| `output_kodiak_se/` | ✅ `output_kodiak_se/preview.html` | 9 | 9/9 | `briefs/kodiak-se.yaml` — southern porch localization |
+| Retailer dir            | `preview.html`                         | Creatives                                         | Pass | Notes                                                    |
+| ----------------------- | -------------------------------------- | ------------------------------------------------- | ---- | -------------------------------------------------------- |
+| `output_kodiak/`        | ✅ `output_kodiak/preview.html`        | 9 (power-cakes dam + bear-bites/oatmeal-cup mock) | 9/9  | US-MW baseline — Keep It Wild · Frontier Breakfast       |
+| `output_kodiak-target/` | ✅ `output_kodiak-target/preview.html` | 9                                                 | 9/9  | Target Midwest Gen Z — same template, localized audience |
+| `output_kodiak-costco/` | ✅ `output_kodiak-costco/preview.html` | 9                                                 | 9/9  | Costco bulk variant                                      |
+| `output_kodiak-publix/` | ✅ `output_kodiak-publix/preview.html` | 9                                                 | 9/9  | Publix SE                                                |
+| `output_kodiak_se/`     | ✅ `output_kodiak_se/preview.html`     | 9                                                 | 9/9  | `briefs/kodiak-se.yaml` — southern porch localization    |
 
 All previews share the same 6-piece template (`references/templates/social-3ratio.json` via `design/tokens/kodiak.json`): blurred Wasatch cover + hero `contain @ (W-fw)/2, 8%` + scrim bar `@ 68% H` + logo `140w @ 24,24` + footer + 8px Blaze Orange bar. 1:1 = 1080×1080, 9:16 = 1080×1920 (Stories), 16:9 = 1920×1080 (landscape feed).
 
@@ -73,27 +73,27 @@ Brand source of truth: `design/tokens/kodiak.json` + `docs/kodiak-style-guide.md
 
 ### Viewports — why these 3
 
-| Label | W×H | Maps to | Use |
-|---|---|---|---|
-| `1080x1080` | 1080×1080 | 1:1 square | Instagram feed, Kodiak product grid |
-| `1080x1920` | 1080×1920 | 9:16 story | Reels/Stories — taller bar, 64px headline |
-| `1920x1080` | 1920×1080 | 16:9 wide | Landscape feed / video thumb — 72px headline |
+| Label       | W×H       | Maps to    | Use                                          |
+| ----------- | --------- | ---------- | -------------------------------------------- |
+| `1080x1080` | 1080×1080 | 1:1 square | Instagram feed, Kodiak product grid          |
+| `1080x1920` | 1080×1920 | 9:16 story | Reels/Stories — taller bar, 64px headline    |
+| `1920x1080` | 1920×1080 | 16:9 wide  | Landscape feed / video thumb — 72px headline |
 
 Responsive `preview.html` uses `grid-template-columns: repeat(auto-fill, minmax(320px,1fr))` so the 3 viewports visibly reflow; Nova Act re-opens at each size to catch truncation or logo overlap that pixel-only checks would miss.
 
 ### Checks in detail
 
-| # | Check | Expected | How verified |
-|---|---|---|---|
-| 1 | **Logo presence** | `input_assets/brand/logo.png` composited at `24,24`, `140w` (min `80w`) | Crop top-left `24,24 → 164, ~87`; variance `>28` ⇒ logo present, not flat bg |
-| 2 | **Logo clearSpace** | `0.25×` logo width = `35px` on all sides (style guide §2) | Ring `35px` around logo bbox not clipped at canvas edge |
-| 3 | **Accent bar** | `8px` Blaze Orange `#E8530E` full-width at `H-8 … H` | Bottom 12px strip: `>45%` pixels within `Δ90` of `#E8530E` |
-| 4 | **Palette Bear Brown** | `#3B2316` present somewhere in creative | Downsample `64×64`, sample every 8th pixel within `Δ180` |
-| 5 | **Palette Frontier Green** | `#1A3C34` present | Same probe |
-| 6 | **Scrim** | `#1A1110CC` (≈80% ink) fills `0, 68%H → W, H` | Center scrim sample avg brightness `<95` |
-| 7 | **Headline legibility** | White headline `56/64/72px`, `stroke 2`, center, `≤3` lines, on scrim | Text-area brightness range `delta>80` and `max>150` |
-| 8 | **Preview structure** | 9 cards, 9/9 `PASS` badges, 9 PNGs exist | HTML parse: `.card` count, `.badge pass/fail`, `img src` existence |
-| 9 | **Dims** | PNG matches ratio: `1080×1080 / 1080×1920 / 1920×1080` | PIL `Image.size` vs `RATIO_DIMS` |
+| #   | Check                      | Expected                                                                | How verified                                                                 |
+| --- | -------------------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| 1   | **Logo presence**          | `input_assets/brand/logo.png` composited at `24,24`, `140w` (min `80w`) | Crop top-left `24,24 → 164, ~87`; variance `>28` ⇒ logo present, not flat bg |
+| 2   | **Logo clearSpace**        | `0.25×` logo width = `35px` on all sides (style guide §2)               | Ring `35px` around logo bbox not clipped at canvas edge                      |
+| 3   | **Accent bar**             | `8px` Blaze Orange `#E8530E` full-width at `H-8 … H`                    | Bottom 12px strip: `>45%` pixels within `Δ90` of `#E8530E`                   |
+| 4   | **Palette Bear Brown**     | `#3B2316` present somewhere in creative                                 | Downsample `64×64`, sample every 8th pixel within `Δ180`                     |
+| 5   | **Palette Frontier Green** | `#1A3C34` present                                                       | Same probe                                                                   |
+| 6   | **Scrim**                  | `#1A1110CC` (≈80% ink) fills `0, 68%H → W, H`                           | Center scrim sample avg brightness `<95`                                     |
+| 7   | **Headline legibility**    | White headline `56/64/72px`, `stroke 2`, center, `≤3` lines, on scrim   | Text-area brightness range `delta>80` and `max>150`                          |
+| 8   | **Preview structure**      | 9 cards, 9/9 `PASS` badges, 9 PNGs exist                                | HTML parse: `.card` count, `.badge pass/fail`, `img src` existence           |
+| 9   | **Dims**                   | PNG matches ratio: `1080×1080 / 1080×1920 / 1920×1080`                  | PIL `Image.size` vs `RATIO_DIMS`                                             |
 
 `overall_passed` for a retailer = every viewport's structure passes **and** every creative passes every pixel check. A single failing creative fails the retailer, which blocks promotion.
 
@@ -138,14 +138,14 @@ The report JSON includes `summary.overall_passed`, `summary.gates_brand_complian
 Live path uses the `bryanchasko-kiro` SSO profile (which has Bedrock + AgentCore + DAM S3 access). The mock fallback still passes locally, but with creds the script attempts Nova Act first and records screenshots.
 
 ```bash
-# 1. Ensure profile + region (us-east-1 holds Nova Canvas + AgentCore Browser)
+# 1. Ensure profile + region (us-east-1 holds Nova Pro + Nova Micro + AgentCore Browser)
 export AWS_PROFILE=bryanchasko-kiro
 export BEDROCK_REGION=us-east-1
 export DAM_S3_BUCKET=chasko-creative-dam-946179428633-us-east-1
 export DAM_S3_PREFIX=brands/kodiak/
 
-# 2. Verify Bedrock access (Nova Canvas + Nova Micro must be enabled)
-aws bedrock list-foundation-models --region us-east-1 | grep -E "nova-canvas|nova-micro"
+# 2. Verify Bedrock access (Nova Pro for hero composition + Nova Micro for localize)
+aws bedrock list-foundation-models --region us-east-1 | grep -E "nova-pro|nova-micro"
 aws sts get-caller-identity --profile bryanchasko-kiro   # sanity
 
 # 3. Pull style library (optional — check is local, but parity matters)

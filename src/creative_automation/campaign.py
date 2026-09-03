@@ -505,7 +505,7 @@ def _render_asset(
         cohesion = _cohesion_check(iso_path, pack)
         return {
             "generated": True,
-            "hero_source": "mock" if hero_source.startswith("mock") else "bedrock:nova-canvas",
+            "hero_source": "mock" if hero_source.startswith("mock") else "bedrock:nova-pro",
             "hero_source_detail": hero_source,
             "file_path": str(iso_path),
             "cohesion": cohesion,
@@ -533,10 +533,10 @@ def run_campaign(
             for the STANDARD_PLATFORMS set (instagram 1x1/9x16, blog 16x9).
         languages: explicit language list, or None for EN + the market's top-N.
         render: when False (default) assets stay planned copy+naming (generated=False)
-            and NO Nova Canvas call is made — CI stays green offline. When True each
+            and NO Bedrock call is made — CI stays green offline. When True each
             planned asset is rendered to a real PNG at its iso_name via generate_hero
-            (Nova Canvas, mock fallback) -> enhance -> compose, the asset flips
-            generated=True and records its file_path + hero_source (bedrock:nova-canvas
+            (Nova Pro, mock fallback) -> enhance -> compose, the asset flips
+            generated=True and records its file_path + hero_source (bedrock:nova-pro
             or mock). A post-render cohesion check (cr-3) runs when creds are present and
             is skipped-with-a-note offline, never faked.
 
