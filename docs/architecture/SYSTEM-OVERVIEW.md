@@ -2,7 +2,7 @@
 
 > CIO-level explainer for the whole system: what it does, how it is built, where the data lives, how it is secured, and how it ships. One page to open first — every claim here is drawn from the code and infrastructure-as-code on `main`, not from intent. Deeper docs are linked at each section. Amazon-first: the product uses only Amazon models (Nova family for text and image, Titan Embed for vectors) — no third-party models.
 
-Audience: an executive or architect who needs the full picture in one read. Rendered diagram images live under `docs/architecture/assets/` for viewers that do not render mermaid; the fenced mermaid source is kept inline so the diagrams stay version-controlled and editable.
+Audience: an executive or architect who needs the full picture in one read. For the literal parts — actual button IDs, token hex values, endpoint signatures, and live AWS resource identifiers with console deep-links — see the companion [LITERAL-INVENTORY.md](LITERAL-INVENTORY.md). Rendered diagram images live under `docs/architecture/assets/`.
 
 - Account: `946179428633` (bryanchasko-kiro), region `us-east-1`
 - Repo: `chasko-labs/creative-automation-pipeline` (private)
