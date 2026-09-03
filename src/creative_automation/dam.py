@@ -148,6 +148,56 @@ def _s3_try_fetch_product_asset(product_id: str, dam_root: Path, explicit: Optio
     return None
 
 
+# Heroes live at a fixed brand path in the DAM, independent of the generic
+# DAM_S3_PREFIX used for the dam/ style library. api.py, generate_lambda.py and
+# the web mcp all cite s3://<bucket>/brands/kodiak/heroes/<product>/hero.png .
+# Overridable for other brands / test buckets via DAM_HEROES_PREFIX.
+def _heroes_prefix() -> str:
+    prefix = os.getenv("DAM_HEROES_PREFIX", "brands/kodiak/heroes/").strip()
+    if prefix and not prefix.endswith("/"):
+        prefix += "/"
+    return prefix
+
+
+def fetch_hero_to_tmp(product_id: str, cache_root: Path = Path("/tmp/kodiak-assets")) -> Optional[Path]:  # noqa: S108 — Lambda only allows /tmp writes
+    """Materialize a product hero from the S3 DAM into a Lambda-safe /tmp cache.
+
+    Resolves s3://<DAM bucket>/<heroes prefix><product_id>/hero-real.png first
+    (the retouched real asset), then hero.png. Downloads the first hit to
+    cache_root/<product_id>/<name> and returns that local Path.
+
+    Offline-safe: returns None when S3 is disabled (DAM_S3_BUCKET unset or boto3
+    missing), when the client cannot init, or when neither key is present. Never
+    raises — mirrors the graceful guards the rest of this module uses so local dev
+    and CI (no S3 configured) fall through to the caller's local / mock path.
+    """
+    if not _s3_enabled():
+        return None
+    bucket, _ = _s3_bucket_and_prefix()
+    if not bucket:
+        return None
+    base_prefix = f"{_heroes_prefix()}{product_id}/"
+    # hero-real preferred over hero — matches _find_source_asset's local order
+    for name in ("hero-real", "hero"):
+        for ext in ASSET_EXTS:
+            fname = f"{name}{ext}"
+            key = f"{base_prefix}{fname}"
+            dest = cache_root / product_id / fname
+            if dest.exists() and dest.stat().st_size > 0:
+                return dest
+            if _s3_download(bucket, key, dest):
+                print(f"[dam] hero s3 hit s3://{bucket}/{key} -> {dest}")
+                return dest
+            # _s3_download only creates the file on success, but guard against a
+            # zero-byte partial from an interrupted transfer.
+            if dest.exists() and dest.stat().st_size == 0:
+                try:
+                    dest.unlink()
+                except Exception:
+                    pass
+    return None
+
+
 def _s3_try_fetch_brand_logo(dam_root: Path) -> Optional[Path]:
     if not _s3_enabled():
         return None

@@ -95,10 +95,11 @@ def _mock_hero(product_name: str, brief_msg: str, region: str, out_path: Path, i
 
 
 def _find_source_asset(product_id: str, product_name: str) -> Optional[Path]:
-    """Locate a real source image for the product on disk.
+    """Locate a real source image for the product.
 
     Order: input_assets/<product_id>/hero-real.png, then hero.png, then any image
-    in that product dir, then a name-matching glob across the asset roots.
+    in that product dir, then a name-matching glob across the asset roots, then an
+    S3 DAM fallback (fetch_hero_to_tmp) for Lambda where no assets are baked in.
     """
     # 1) canonical per-product location, hero-real preferred over hero
     prod_dir = Path("input_assets") / product_id
@@ -124,6 +125,22 @@ def _find_source_asset(product_id: str, product_name: str) -> Optional[Path]:
                 stem = cand.stem.lower()
                 if any(tok and tok in stem for tok in tokens):
                     return cand
+
+    # 3) S3 DAM fallback — the Lambda container ships with NO assets baked in, so
+    # the real heroes live only in S3 (s3://<DAM bucket>/brands/kodiak/heroes/
+    # <product>/hero-real.png|hero.png). Materialize into /tmp (Lambda's only
+    # writable path) and return the local copy so the existing Nova Pro compose
+    # flow runs on the real asset. Offline-safe: fetch_hero_to_tmp returns None
+    # when S3 is disabled / boto3 missing / key absent, so local dev and CI keep
+    # falling through to mock without raising.
+    try:
+        from .dam import fetch_hero_to_tmp  # local import — keeps offline path import-light
+
+        s3_hit = fetch_hero_to_tmp(product_id)
+        if s3_hit is not None and s3_hit.exists():
+            return s3_hit
+    except Exception as e:  # noqa: BLE001 — S3 discovery never breaks the mock fallback
+        print(f"[generate] S3 hero discovery skipped: {e}", file=sys.stderr)
     return None
 
 
