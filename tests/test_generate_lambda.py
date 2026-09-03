@@ -1,4 +1,4 @@
-"""Tests for the prompt-to-image Lambda handler — no real AWS."""
+"""Tests for the brief-to-hero Lambda handler — no real AWS."""
 from __future__ import annotations
 
 import json
@@ -18,26 +18,23 @@ class _FakeS3:
         return f"https://presigned.example/{Params['Key']}?exp={ExpiresIn}"
 
 
-def _patch_deps(monkeypatch, tmp_path: Path) -> None:
+def test_handler_returns_200_with_image_url(monkeypatch, tmp_path: Path) -> None:
     fake_png = tmp_path / "fake.png"
     fake_png.write_bytes(b"\x89PNG\r\n")
     monkeypatch.setattr(
         generate_lambda,
-        "_try_bedrock_nova_canvas",
-        lambda prompt, out_path, width, height: fake_png,
+        "generate_hero",
+        lambda **kwargs: (fake_png, "bedrock:nova-pro"),
     )
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
 
-
-def test_handler_returns_200_with_image_url(monkeypatch, tmp_path: Path) -> None:
-    _patch_deps(monkeypatch, tmp_path)
     event = {"body": json.dumps({"prompt": "a bear eating pancakes"})}
     resp = generate_lambda.handler(event, None)
     assert resp["statusCode"] == 200
     body = json.loads(resp["body"])
     assert body["ok"] is True
     assert body["image_url"].startswith("https://presigned.example/")
-    assert body["source"] == "bedrock:nova-canvas"
+    assert body["source"] == "bedrock:nova-pro"
     assert body["prompt"] == "a bear eating pancakes"
 
 
@@ -46,15 +43,11 @@ def test_handler_falls_back_to_mock(monkeypatch, tmp_path: Path) -> None:
     fake_png.write_bytes(b"\x89PNG\r\n")
     monkeypatch.setattr(
         generate_lambda,
-        "_try_bedrock_nova_canvas",
-        lambda prompt, out_path, width, height: None,
-    )
-    monkeypatch.setattr(
-        generate_lambda,
-        "_mock_hero",
-        lambda product, prompt, region, out_path, idx: fake_png,
+        "generate_hero",
+        lambda **kwargs: (fake_png, "mock"),
     )
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+
     resp = generate_lambda.handler({"prompt": "x"}, None)
     body = json.loads(resp["body"])
     assert resp["statusCode"] == 200
