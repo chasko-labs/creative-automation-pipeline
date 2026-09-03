@@ -33,6 +33,14 @@ from .embeddings import embed_text, embed_multimodal
 from .enhance import enhance_hero
 from .reference_api import search as reference_search  # type: ignore
 from .suggest import suggest_variants
+from . import dam
+from .asset_pack import (
+    build_asset_pack_zip,
+    build_pack_name,
+    market_language_tags,
+    market_retailers,
+    pack_tempdir,
+)
 
 app = FastAPI(  # type: ignore
     title="KODIAK® Posts for Today's Frontier — Living API",
@@ -251,6 +259,91 @@ if HAS_FASTAPI:
         q = campaigns(market=market, retailer=retailer)
         # reuse campaigns logic for preview html stub
         return {"market": market, "retailer": retailer, "preview_assets": q["assets"][:6], "retailer_logo": f"input_assets/retailer-logos/{retailer.lower().replace(' ','-')}.png", "note": "Retailer logo embedded at 24,24 offset mirror for channel folders — Costco bulk badge shown"}
+
+    @app.get("/assets/pack/{market}")  # type: ignore
+    def asset_pack(
+        market: str,
+        product: str = Query("savory-waffles", description="Product slug, e.g. savory-waffles / power-cakes"),
+        retailer: str | None = Query(None, description="Optional retailer filter (costco/publix/target)"),
+        ratio: str | None = Query(None, description="Optional single ratio 1x1|9x16|16x9; default all three"),
+    ):
+        """Build a retailer asset-pack zip for a market, upload to the S3 DAM, return a download url.
+
+        The frontend (issue #30) hits this to replace the 'S3 zip wiring pending' stub. The
+        pack bundles this market's creatives + a manifest.json (market, product, retailers,
+        BCP-47 language tags, ISO names of contents, generated timestamp) named
+        KODIAK-CAKES-{product}-{REGION}-{locality}-retailers-pack-{YYYYMMDD}-v01.zip .
+
+        S3 path (DAM_S3_BUCKET set): uploads under the DAM 'packs/' prefix and returns a
+        presigned {url, key, filename, expires_in, asset_count}. Offline / CI path (no S3):
+        returns the same shape with url=null plus local_path + a note so the endpoint still
+        works with no boto3 / no creds — mirrors dam.py's graceful S3-disabled fallback.
+        """
+        # asset list — compose the existing campaigns() builder, do not duplicate its logic
+        camp = campaigns(market=market, retailer=retailer, ratio=ratio)
+        assets = camp.get("assets", [])
+
+        # market record drives locality + retailer list (store-finder first, then languages file)
+        store_path = pathlib.Path("data/localization/store-finder-markets.json")
+        record: dict = {}
+        if store_path.exists():
+            try:
+                for m in json.loads(store_path.read_text()).get("markets", []):
+                    if m.get("market") == market or m.get("zip") == market:
+                        record = m
+                        break
+            except Exception:
+                record = {}
+
+        place = record.get("place") or market
+        zip_code = record.get("zip") or ""
+        locality = "-".join(p for p in (place, zip_code) if p) or market
+        # region: trailing hyphen segments of the market code minus a trailing zip
+        region = market
+
+        retailers = [retailer] if (retailer and market_retailers(retailer)) else market_retailers(record.get("retailer"))
+        language_tags = market_language_tags(market)
+
+        pack_name = build_pack_name(product, region, locality)
+
+        staging = pack_tempdir()
+        zip_path, manifest = build_asset_pack_zip(
+            market=market,
+            product=product,
+            assets=assets,
+            retailers=retailers,
+            language_tags=language_tags,
+            dest_dir=staging,
+            pack_name=pack_name,
+        )
+
+        key = f"packs/{pack_name}"
+        expires_in = 3600
+        url = dam.s3_upload_and_presign(zip_path, key, expires=expires_in)
+        if url is not None:
+            return {
+                "url": url,
+                "key": key,
+                "filename": pack_name,
+                "expires_in": expires_in,
+                "asset_count": manifest["asset_count"],
+                "retailers": retailers,
+                "language_tags": language_tags,
+                "manifest": manifest,
+            }
+        # offline / CI fallback — S3 disabled; hand back the local artifact
+        return {
+            "url": None,
+            "key": key,
+            "filename": pack_name,
+            "expires_in": expires_in,
+            "asset_count": manifest["asset_count"],
+            "retailers": retailers,
+            "language_tags": language_tags,
+            "local_path": str(zip_path),
+            "manifest": manifest,
+            "note": "S3 DAM not configured (DAM_S3_BUCKET unset or boto3 missing) — returning local pack path. Set DAM_S3_BUCKET to get a presigned download url.",
+        }
 
     @app.post("/campaigns/run-fanned")  # type: ignore
     def campaigns_run_fanned(body: dict | None = None):
