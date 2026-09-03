@@ -6,7 +6,7 @@ import json
 
 FILES = [
     "web/kodiak-posts-for-todays-frontier/data/localization/market-languages.json",
-    "web/kodiak-posts-for-todays-frontier/data/products/market-languages.json",
+    "data/localization/market-languages.json",
 ]
 
 for path in FILES:
