@@ -89,12 +89,34 @@ One pull request is one town or one channel. Keep it under 500 lines so Maya can
 
 Photo library and style live in cloud storage mirrored to `input_assets/` and `references/`. Regional memory lives queryable in two forms that stay in sync — a simple lookup table by market (`data/localization/localization-table-seed.json`) and searchable knowledge file (`data/localization/localization-training-data.jsonl`) ready for vector search and the regional database doc. Background agents run Nova multimodal embeddings (`amazon.nova-2-multimodal-embeddings-v1:0`, 1024 dims, Titan fallback) over design tokens, pack shots, and every training row, write `data/vectors/kodiak-embeddings.jsonl`, sync to `s3://.../brands/kodiak/vectors/` (S3 Vectors, dedicated vector bucket), and are searchable via the agent-friendly API (`uv run python -m creative_automation.reference_api` → `GET /search?q=green%20chile` or MCP tool `kodiak_reference_search`) — details and runnable code at `docs/training-process.md` and `docs/bedrock-agentcore-architecture.md`. Visual checks run headless across 1080 by 1080, 1080 by 1920, 1920 by 1080 and block the handoff to the store if the bear, the bar, or the legibility fails (`scripts/nova-act-check.py`, docs at `docs/nova-act-runbook.md`).
 
+## Bring your own asset — the library you build a campaign off of
+
+Add a photo, logo, brand-guide PDF, or a scrap of reference copy and it lands in the shared library the moment you hand it over — no separate publish step. Drop a `.png .jpg .jpeg .webp` hero, a `.svg` mark, a `.pdf` brief, or `.txt/.md` voice notes, and the tool files it under `s3://.../brands/kodiak/library/<asset_id>/` with a metadata sidecar, dedupes by content hash so the same file never lands twice, and hands back a stable reference. Later you browse the library, pick one, and build or riff a campaign off it — square, tall, and wide, same bear and frontier colors as always.
+
+The backend is the `AssetLibrary` service (`src/creative_automation/asset_library.py`) plus its API + agent surface (`uv run python -m creative_automation.asset_api`):
+
+```bash
+# add an asset — it is in the library as a side effect of adding it
+curl -X POST --data-binary @wasatch-dawn.png \
+  'http://127.0.0.1:8183/library/assets?filename=wasatch-dawn.png&tags=hero,keep-it-wild'
+# browse the library, pick one to build off of
+curl 'http://127.0.0.1:8183/library/assets?kind=raster'
+curl -X POST 'http://127.0.0.1:8183/library/assets/<asset_id>/select'
+```
+
+These are the hooks the frontend team wires the upload widget and library browser to — the UI is tracked separately, the contract (the `AssetRef`) is stable and documented at `docs/architecture/asset-library-and-observability.md`.
+
+## Seeing what happened — logs and traces in the console
+
+Every asset added, browsed, or selected emits a structured JSON log line and opens an AWS X-Ray trace, so results show up in the AWS console as a searchable log and a service map. When there is no cloud (offline, on your laptop) the logs still print to the terminal and the tool never blocks on being watched. The api teams read a stable log schema and X-Ray annotations; a live tail of recent activity is one call away at `GET /library/report` (also surfaced to the web console via webmcp). All three ways to look — the MCP tools agents use, the `aws` CLI, and the console click-path — sit side by side for the same operation in `docs/observability-runbook.md`. Turn tracing on with the optional extra `uv sync --extra observability` (it auto-detects and no-ops when absent, so CI stays green).
+
 ## Strongest Examples — Real Ads, Real Frontier Flavor
 
 Every campaign below starts from the same Kodiak look — the bear in the corner, the warm orange bar, the frontier colors — but the words and the feeling change by place and moment. Each square is the hero preview for that campaign. Open the full preview to see all three sizes and all three products.
 
 ### 1. Keep It Wild — Frontier Breakfast
-*Mornings on the Wasatch front — protein-packed whole grains for today's frontier.*
+
+_Mornings on the Wasatch front — protein-packed whole grains for today's frontier._
 
 The original. Park City at dawn, built for active families who want a hearty start before the trail. This is the cleanest expression of the brand: wilderness, whole grains, and the bear watching over breakfast.
 
@@ -103,7 +125,8 @@ The original. Park City at dawn, built for active families who want a hearty sta
 [Open full preview — all sizes and products](docs/assets/previews/kodiak/preview.html)
 
 ### 2. Frontier Breakfast — Publix Southeast Family
-*Protein-packed whole grains for your family's frontier — the porch breakfast for Savannah and the Southeast.*
+
+_Protein-packed whole grains for your family's frontier — the porch breakfast for Savannah and the Southeast._
 
 Warm light, family table, kids and cubs together. Same flapjacks and bites, but the message leans into home and togetherness for Publix neighborhoods.
 
@@ -112,7 +135,8 @@ Warm light, family table, kids and cubs together. Same flapjacks and bites, but 
 [Open full preview — all sizes and products](docs/assets/previews/kodiak-publix/preview.html)
 
 ### 3. Frontier Breakfast — Target Midwest
-*Fuel your frontier — 14 grams of protein, 100 percent whole grains.*
+
+_Fuel your frontier — 14 grams of protein, 100 percent whole grains._
 
 Clean, bright, and label-forward for Target guests who flip the box for 100% whole grains. Built for Target clean-label families who care what is inside as much as how it tastes — Feeding Epic Days & Wilder Lives.
 
@@ -121,7 +145,8 @@ Clean, bright, and label-forward for Target guests who flip the box for 100% who
 [Open full preview — all sizes and products](docs/assets/previews/kodiak-target/preview.html)
 
 ### 4. Frontier Breakfast — Costco Bulk Family
-*Stock the frontier — protein-packed whole grains for every morning.*
+
+_Stock the frontier — protein-packed whole grains for every morning._
 
 Big family, big pantry, big stack. The Costco take is generous and weekend-ready — enough Power Cakes for the whole house, all week long.
 
@@ -130,7 +155,8 @@ Big family, big pantry, big stack. The Costco take is generous and weekend-ready
 [Open full preview — all sizes and products](docs/assets/previews/kodiak-costco/preview.html)
 
 ### 5. On the Go — Students and Commuters
-*On the go never tasted so good — 5 grams of protein for busy mornings.*
+
+_On the go never tasted so good — 5 grams of protein for busy mornings._
 
 For backpacks, bus rides, and early classes. Oatmeal cups and Bear Bites that travel as well as you do — quick, warm, and ready before the day gets busy.
 
@@ -139,7 +165,8 @@ For backpacks, bus rides, and early classes. Oatmeal cups and Bear Bites that tr
 [Open full preview — all sizes and products](docs/assets/previews/kodiak-on-the-go/preview.html)
 
 ### 6. Trail Season — Oatmeal on the Overlook
-*Fuel your trail — protein oatmeal for today's frontier.*
+
+_Fuel your trail — protein oatmeal for today's frontier._
 
 Sunrise over red rock, oatmeal cup on the edge of the overlook. Made for hikers, campers, and anyone who eats breakfast with a view.
 
@@ -148,7 +175,8 @@ Sunrise over red rock, oatmeal cup on the edge of the overlook. Made for hikers,
 [Open full preview — all sizes and products](docs/assets/previews/kodiak-trail/preview.html)
 
 ### 7. Holiday Frontier — Cast-Iron Mornings
-*Gather round the frontier — cast-iron Power Cakes for holiday mornings.*
+
+_Gather round the frontier — cast-iron Power Cakes for holiday mornings._
 
 The cabin table at the holidays. Cast iron, warm cabin light, and a stack worth gathering for — cozy, timeless, and made to share.
 

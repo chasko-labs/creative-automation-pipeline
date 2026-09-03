@@ -7,12 +7,53 @@
   "github": "https://github.com/chasko-labs/creative-automation-pipeline",
   "mcp": "enabled",
   "islands": [
-    {"id": "places", "selector": "[data-mcp='places']", "description": "73 markets — El Paso ES, Burlington FR, SF ZH — haversine Use my location", "source": "data/localization/store-finder-markets.json"},
-    {"id": "products", "selector": "[data-mcp='products']", "description": "KODIAK CAKES catalog — power-cakes, flapjack, oatmeal-cup, power waffles", "source": "data/products/kodiak-full-catalog.json"},
-    {"id": "preview.compose", "selector": "[data-mcp='preview.compose']", "description": "Pipeline preview — displays campaign message in EN + localized on final posts (fanned dispatch)"},
-    {"id": "market-languages", "selector": "#lang-chips", "description": "Top 2 languages outside English per market (ACS 2022) — auto-produced EN + localized", "source": "data/localization/market-languages.json"},
-    {"id": "brief-yaml", "selector": "#brief", "description": "Campaign brief YAML — copy to pipeline"},
-    {"id": "footer.version", "selector": "[data-mcp='footer.version']", "description": "Version + architecture footer"}
+    {
+      "id": "places",
+      "selector": "[data-mcp='places']",
+      "description": "73 markets — El Paso ES, Burlington FR, SF ZH — haversine Use my location",
+      "source": "data/localization/store-finder-markets.json"
+    },
+    {
+      "id": "products",
+      "selector": "[data-mcp='products']",
+      "description": "KODIAK CAKES catalog — power-cakes, flapjack, oatmeal-cup, power waffles",
+      "source": "data/products/kodiak-full-catalog.json"
+    },
+    {
+      "id": "preview.compose",
+      "selector": "[data-mcp='preview.compose']",
+      "description": "Pipeline preview — displays campaign message in EN + localized on final posts (fanned dispatch)"
+    },
+    {
+      "id": "market-languages",
+      "selector": "#lang-chips",
+      "description": "Top 2 languages outside English per market (ACS 2022) — auto-produced EN + localized",
+      "source": "data/localization/market-languages.json"
+    },
+    {
+      "id": "brief-yaml",
+      "selector": "#brief",
+      "description": "Campaign brief YAML — copy to pipeline"
+    },
+    {
+      "id": "footer.version",
+      "selector": "[data-mcp='footer.version']",
+      "description": "Version + architecture footer"
+    },
+    {
+      "id": "library.browse",
+      "selector": "[data-mcp='library.browse']",
+      "description": "Asset library — browse user-added source assets (png/svg/jpg/pdf/copy), pick one to build or riff a campaign off of",
+      "source": "GET /library/assets",
+      "backend": "creative_automation.asset_api"
+    },
+    {
+      "id": "library.report",
+      "selector": "[data-mcp='library.report']",
+      "description": "Live tail of recent asset + pipeline activity (structured log ring buffer + event counts)",
+      "source": "GET /library/report",
+      "backend": "creative_automation.asset_api"
+    }
   ],
   "pipeline": {
     "flow": "brief -> DAM reuse or Nova Canvas hero -> enhance (contrast/texture/frame/watermark) -> compose 1:1/9:16/16:9 with message overlay -> compliance -> report.json + preview.html",
@@ -25,6 +66,11 @@
     "version_var": "KODIAK_VERSION",
     "webmcp_var": "KODIAK_WEBMCP",
     "motd": "Open console — bear ASCII + architecture + try KODIAK_VERSION, document.querySelectorAll('[data-mcp]'), fetch('webmcp.json')",
-    "inspect": ["[data-testid='app-version']", "[data-mcp]", "KODIAK_VERSION", "KODIAK_WEBMCP"]
+    "inspect": [
+      "[data-testid='app-version']",
+      "[data-mcp]",
+      "KODIAK_VERSION",
+      "KODIAK_WEBMCP"
+    ]
   }
 }
