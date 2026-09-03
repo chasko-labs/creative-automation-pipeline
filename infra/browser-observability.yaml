@@ -1,0 +1,214 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Kodiak creative pipeline - standalone browser + site-edge observability stack (CloudWatch RUM with X-Ray tracing + Cognito guest identity + CloudFront access-log bucket). Separate from the main kodiak-creatives stack and from kodiak-creatives-observability so browser telemetry stays decoupled.
+
+Parameters:
+  ProjectName:
+    Type: String
+    Default: kodiak-creatives
+  RumAppMonitorName:
+    Type: String
+    Default: kodiak-creatives-web
+    Description: RUM app monitor name - also embedded in the guest role arn scope
+  SiteDomain:
+    Type: String
+    Default: d37333alc7ojpl.cloudfront.net
+    Description: Live CloudFront domain serving the site (RUM Domain + web-client)
+
+Resources:
+  # Tagging strategy (this stack = kodiak-creatives-browser-observability):
+  #   project=kodiak-creatives (via !Ref ProjectName), team=platform,
+  #   managed-by=cloudformation, repo=chasko-labs/creative-automation-pipeline,
+  #   environment=production, stack=kodiak-creatives-browser-observability.
+
+  # Cognito guest identity pool - the RUM web client runs unauthenticated in the
+  # browser and needs temporary guest creds to call rum:PutRumEvents. No auth
+  # providers wired; unauthenticated identities only.
+  # NOTE: AWS::Cognito::IdentityPool does not support resource Tags - none applied.
+  RumIdentityPool:
+    Type: AWS::Cognito::IdentityPool
+    Properties:
+      IdentityPoolName: kodiak-creatives-rum
+      AllowUnauthenticatedIdentities: true
+
+  # Guest role assumed via Cognito web-identity federation. Trust is scoped to
+  # THIS identity pool (aud) and to unauthenticated callers only (amr).
+  # Inline policy grants ONLY rum:PutRumEvents on the app monitor arn below.
+  # Role is intentionally UNNAMED so deploy needs only CAPABILITY_IAM (not NAMED_IAM).
+  RumUnauthRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: cognito-identity.amazonaws.com
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                "cognito-identity.amazonaws.com:aud": !Ref RumIdentityPool
+              "ForAnyValue:StringLike":
+                "cognito-identity.amazonaws.com:amr": unauthenticated
+      Policies:
+        - PolicyName: rum-put-events
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: PutRumEvents
+                Effect: Allow
+                Action: rum:PutRumEvents
+                Resource: !Sub arn:aws:rum:${AWS::Region}:${AWS::AccountId}:appmonitor/${RumAppMonitorName}
+      Tags:
+        - Key: project
+          Value: !Ref ProjectName
+        - Key: team
+          Value: platform
+        - Key: managed-by
+          Value: cloudformation
+        - Key: repo
+          Value: chasko-labs/creative-automation-pipeline
+        - Key: environment
+          Value: production
+        - Key: stack
+          Value: kodiak-creatives-browser-observability
+
+  # Binds the identity pool's unauthenticated role slot to the guest role above.
+  RumIdentityPoolRoleAttachment:
+    Type: AWS::Cognito::IdentityPoolRoleAttachment
+    Properties:
+      IdentityPoolId: !Ref RumIdentityPool
+      Roles:
+        unauthenticated: !GetAtt RumUnauthRole.Arn
+
+  # Real user monitoring. EnableXRay makes browser sessions into X-Ray traces
+  # that stitch into the same service map as the backend. CwLogEnabled ships RUM
+  # events to CloudWatch Logs so they show alongside backend logs.
+  # cfn-lint 1.51.5 models AWS::RUM::AppMonitor Tags as a list of {Key,Value}
+  # (same shape as S3/Logs/IAM) - the key-value map shape fails E3012.
+  RumAppMonitor:
+    Type: AWS::RUM::AppMonitor
+    Properties:
+      Name: !Ref RumAppMonitorName
+      Domain: !Ref SiteDomain
+      CwLogEnabled: true
+      AppMonitorConfiguration:
+        AllowCookies: true
+        EnableXRay: true
+        # dev - capture every session. DROP THIS in prod (e.g. 0.1) to control
+        # RUM event volume and cost.
+        SessionSampleRate: 1.0
+        Telemetries:
+          - errors
+          - performance
+          - http
+        GuestRoleArn: !GetAtt RumUnauthRole.Arn
+        IdentityPoolId: !Ref RumIdentityPool
+      Tags:
+        - Key: project
+          Value: !Ref ProjectName
+        - Key: team
+          Value: platform
+        - Key: managed-by
+          Value: cloudformation
+        - Key: repo
+          Value: chasko-labs/creative-automation-pipeline
+        - Key: environment
+          Value: production
+        - Key: stack
+          Value: kodiak-creatives-browser-observability
+
+  # CloudFront access-log target bucket.
+  #
+  # The live distribution E3GEX8LSRX6OYS (domain d37333alc7ojpl.cloudfront.net,
+  # origin frontier-bryanchasko-com.s3-website-us-east-1.amazonaws.com) currently
+  # has logging DISABLED and is NOT CloudFormation-managed, so this template
+  # cannot flip its Logging block. Instead it provisions the destination bucket so
+  # enabling logging is a one-step follow-up.
+  #
+  # SSE-S3 (AES256) is REQUIRED: CloudFront standard logging cannot write to a
+  # bucket encrypted with a customer-managed KMS key. Do not switch to aws:kms.
+  #
+  # OwnershipControls BucketOwnerPreferred keeps ACLs enabled - CloudFront standard
+  # logging delivers via the awslogsdelivery account and needs the log-delivery ACL
+  # grant, which requires ACLs to be on.
+  #
+  # ENABLE STEP (run after this stack deploys - the distribution is not CFN-managed):
+  #   1. Grant the log-delivery ACL on this bucket (canonical id
+  #      c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0 -
+  #      the awslogsdelivery group) with WRITE + READ_ACP, e.g.
+  #        aws s3api put-bucket-acl --bucket <this-bucket> \
+  #          --grant-write   URI=http://acs.amazonaws.com/groups/s3/LogDelivery \
+  #          --grant-read-acp URI=http://acs.amazonaws.com/groups/s3/LogDelivery
+  #   2. Point the distribution at it:
+  #        aws cloudfront get-distribution-config --id E3GEX8LSRX6OYS  # capture ETag
+  #      then in the DistributionConfig set:
+  #        "Logging": {
+  #          "Enabled": true,
+  #          "IncludeCookies": false,
+  #          "Bucket": "<this-bucket>.s3.us-east-1.amazonaws.com",   # regional domain name
+  #          "Prefix": "cf/"
+  #        }
+  #      and:
+  #        aws cloudfront update-distribution --id E3GEX8LSRX6OYS \
+  #          --distribution-config file://config.json --if-match <ETag>
+  RumCloudFrontLogBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BucketName: kodiak-creatives-cf-logs-946179428633-us-east-1
+      VersioningConfiguration:
+        Status: Enabled
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerPreferred
+      Tags:
+        - Key: project
+          Value: !Ref ProjectName
+        - Key: team
+          Value: platform
+        - Key: managed-by
+          Value: cloudformation
+        - Key: repo
+          Value: chasko-labs/creative-automation-pipeline
+        - Key: environment
+          Value: production
+        - Key: stack
+          Value: kodiak-creatives-browser-observability
+
+Outputs:
+  RumAppMonitorName:
+    Value: !Ref RumAppMonitor
+    Description: RUM app monitor name (Ref returns the name)
+  RumAppMonitorId:
+    Value: !GetAtt RumAppMonitor.Id
+    Description: RUM app monitor id (GUID) - the web client's applicationId
+  RumIdentityPoolId:
+    Value: !Ref RumIdentityPool
+    Description: Cognito identity pool id for RUM guest creds
+  RumUnauthRoleArn:
+    Value: !GetAtt RumUnauthRole.Arn
+    Description: Guest role arn the RUM web client assumes
+  RumCloudFrontLogBucketName:
+    Value: !Ref RumCloudFrontLogBucket
+    Description: Destination bucket for CloudFront standard access logs
+  RumWebClientSnippet:
+    Description: >-
+      Frontend embed shape for index.html. Load aws-rum-web (cwr) and init with
+      region us-east-1, applicationId=RumAppMonitorId, guestRoleArn=RumUnauthRoleArn,
+      identityPoolId=RumIdentityPoolId, and enableXRay+sessionSampleRate matching
+      this stack. Fill APPLICATION_ID from the RumAppMonitorId output at deploy time.
+    Value: !Sub >-
+      cwr('init','APPLICATION_ID_FROM_RumAppMonitorId_output',{ sessionSampleRate:1.0,
+      guestRoleArn:'${RumUnauthRole.Arn}', identityPoolId:'${RumIdentityPool}',
+      endpoint:'https://dataplane.rum.${AWS::Region}.amazonaws.com',
+      telemetries:['errors','performance','http'], allowCookies:true, enableXRay:true });
