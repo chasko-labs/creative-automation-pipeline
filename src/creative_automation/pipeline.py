@@ -16,6 +16,7 @@ from .enhance import enhance_hero
 from .generate import generate_hero
 from .localize import localize_message
 from .naming import build_iso_name, derive_locality, today_utc
+from .safety import check_text, redact
 try:
     from .translate import attach_market_translations
     _HAS_TRANSLATE = True
@@ -154,8 +155,16 @@ def run_pipeline(
 
         # Build language variants upfront (EN + top 2 outside English for market) — displayed on final posts
         lang_variants: list[tuple[str, str, str]] = []  # (lang_code, message, source)
+        safety_findings: list[dict] = []
         for lc in languages:
             mv, src = localize_message(brief.campaign_message, lc, brief.region, brief.localized_messages)
+            # content-safety gate: no profanity/political/slur/off-brand-tone text
+            # reaches an emitted creative. flagged text is redacted, not silently
+            # emitted; the finding is recorded on the report for review.
+            check = check_text(mv)
+            if not check["clean"]:
+                mv = redact(mv)
+                safety_findings.append({"lang": lc, "flagged": check["flagged"]})
             lang_variants.append((lc, mv, src))
 
         product_entry = {
@@ -168,6 +177,7 @@ def run_pipeline(
             "variants": [
                 {"lang": lc, "message": mv, "source": src} for lc, mv, src in lang_variants
             ],
+            "safety_findings": safety_findings,
             "creatives": [],
         }
 
