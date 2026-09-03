@@ -1,0 +1,25 @@
+# Smoke-test fixture — Waffle Mac 'n Cheese Grilled Cheese, localized riff.
+#
+# Captures Bryan's background smoke run as a committed, repeatable brief: a
+# power-cakes lunch/dinner campaign in US-SW-LASCRUCES (Spanish 27.5%, the top
+# non-English language) so the es-SW dialect KB fires. The Spanish campaign_message
+# carries "panqueques" on purpose — the es-SW trap swaps the standard "panqueques"
+# for the local "hotcakes", the exact hotcakes/panqueques inversion the dialect KB
+# guards. Offline/mock path: no AWS creds, deterministic, CI-green.
+#
+# The real hero image (Kodiak_Waffle_Grilled_Cheese_Mac_n_Cheese_4.jpg) is NOT
+# committed — the recipe entry references the kodiakcakes.com URL; tests never fetch it.
+campaign_name: "Waffle Mac 'n Cheese — Las Cruces Frontier Riff"
+brand: "KODIAK"
+target_region: "US"
+target_market: "US-SW-LASCRUCES"
+target_audience: "Green chile families 28-45, Las Cruces + Alamogordo, back-to-school lunch/dinner"
+campaign_message: "Panqueques de proteína con chile verde para tu frontera de Las Cruces."
+brand_colors: ["#3B2316", "#E8530E", "#1A3C34"]
+products:
+  - id: power-cakes
+    name: "Buttermilk Power Cakes Flapjack & Waffle Mix"
+    description: "Waffle mac 'n cheese grilled cheese — mac and cheese griddled between crispy buttermilk waffles, Hatch green chile stirred in"
+  - id: savory-waffles
+    name: "Savory Waffles — Hatch Green Chile & Cheddar"
+    description: "Savory waffle iron riff — Hatch green chile + pepper jack, the lunch/dinner companion to the mac 'n cheese grilled cheese"
