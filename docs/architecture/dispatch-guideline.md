@@ -44,6 +44,7 @@ waiting on a slow agent round-trip just to discover a lint failure is wasted wal
 - no third-party image libs (no rembg, no remove.bg). amazon-first: nova canvas + rekognition, pillow fallback.
 - no text baked into generated imagery. the ONLY exception is a retailer logo lockup (e.g. costco logo + local store address) as an explicit separate op. brand signal: `in_image_text=false`.
 - iso naming: one regex in `naming.py`, imported everywhere. never a second pattern.
+- prettier / bash-gate deadlock (resolved 2026-09-03): the global pre-commit hook prettier-checks staged `.md`/`.json`/`.yaml`, while the kiro bash-gate blocks bare `npx prettier`. `ghost-orin-ci-cd` already has a full bash-gate exemption, but kiro #2365 makes the PreToolUse hook fire with the PARENT PO/anchor name on a dispatch, so a dispatched orin lint command was evaluated as the poltergeist parent and blocked. fix landed in haunting-kiro-cli (`hooks/harald-bash-gate.sh`, PR #2409): a carve-out — same shape as the existing aws/pytest/cdk #2365 exemptions — lets `npx prettier|markdownlint|biome|eslint|tsc` through when the parent is a PO/anchor. no workaround needed anymore; a poltergeist running lint OUTSIDE a dispatch is still blocked. the cleaner long-term root fix is upstream kiro (#2365, subagent-identity propagation).
 
 ## ci gate (fail fast)
 
