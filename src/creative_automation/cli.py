@@ -2,6 +2,7 @@
 
 Subcommands:
   generate    run the localized creative pipeline (default / legacy flag form)
+  campaign    run the D1 campaign fan-out (one brief -> full asset set)
   newsletter  render the Real Breakfast Club MJML + HTML newsletter
   scorecards  score generated creatives (brutal 12-card determinism)
   recipes     query the seeded Kodiak recipe DB
@@ -40,6 +41,14 @@ def build_parser() -> argparse.ArgumentParser:
 
     gen = sub.add_parser("generate", help="run the localized creative pipeline")
     _add_generate_args(gen)
+
+    camp = sub.add_parser("campaign", help="run the D1 campaign fan-out (one brief -> full asset set)")
+    camp_src = camp.add_mutually_exclusive_group(required=True)
+    camp_src.add_argument("--brief", help="path to brief YAML or JSON")
+    camp_src.add_argument("--market", help="bare market key e.g. US-SE-ATL")
+    camp.add_argument("--month", default=None, help="ISO YYYY-MM for the in-season ingredient")
+    camp.add_argument("--render", action="store_true", help="render planned assets to real PNGs (Nova Canvas + mock fallback)")
+    camp.add_argument("--out", default=None, help="output dir for rendered assets + recipe cards")
 
     nl = sub.add_parser("newsletter", help="render the Real Breakfast Club newsletter")
     nl.add_argument("--out", default="output/newsletter", help="output dir for .mjml + .html")
@@ -98,6 +107,37 @@ def cmd_generate(args: argparse.Namespace) -> int:
     print(f"[done] creatives={report['summary']['total_creatives']} pass={report['summary']['compliance_pass_rate']} elapsed={report['summary']['elapsed_sec']}s")
     print(f"[report] {out_root / 'report.json'}")
     print(f"[preview] {out_root / 'preview.html'} — open in browser")
+    return 0
+
+
+def cmd_campaign(args: argparse.Namespace) -> int:
+    from .campaign import run_campaign
+
+    # brief source: a loaded CampaignBrief from file, or a bare market key string
+    if args.brief:
+        brief = load_brief(args.brief)
+        label = getattr(brief, "campaign_name", args.brief)
+    else:
+        brief = args.market
+        label = args.market
+
+    out_dir = Path(args.out) if args.out else None
+    print(f"[campaign] {label} | month={args.month or 'current'} | render={args.render}")
+
+    result = run_campaign(brief, out_dir=out_dir, month=args.month, render=args.render)
+    summary = result["summary"]
+    campaign = result["campaign"]
+
+    print(f"[campaign] market={campaign['market']} ingredient={campaign['ingredient'] or '-'}")
+    print(f"[campaign] languages={campaign['languages']} platforms={summary['platforms']}")
+    print(
+        f"[campaign] assets={summary['asset_count']} "
+        f"(generated={summary['generated']['assets']} planned={summary['planned']['assets']}) "
+        f"recipe_cards={summary['recipe_card_count']} lockups={summary['lockup_count']}"
+    )
+    print(f"[campaign] safety_clean={summary['safety']['clean']} redactions={len(summary['safety_redactions'])}")
+    for w in summary["warnings"]:
+        print(f"[campaign] warning: {w}")
     return 0
 
 
@@ -235,6 +275,7 @@ def main(argv: list[str] | None = None) -> int:
 
     dispatch = {
         "generate": cmd_generate,
+        "campaign": cmd_campaign,
         "newsletter": cmd_newsletter,
         "scorecards": cmd_scorecards,
         "recipes": cmd_recipes,
