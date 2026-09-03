@@ -58,7 +58,7 @@
   "pipeline": {
     "flow": "brief -> DAM reuse or Nova Canvas hero -> enhance (contrast/texture/frame/watermark) -> compose 1:1/9:16/16:9 with message overlay -> compliance -> report.json + preview.html",
     "translate": "Nova Micro Converse maxTokens:256 -> Amazon Translate (proven jitsi & Cloud del Norte) -> offline dict -> tagged fallback",
-    "storage": "s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/ + s3://frontier-bryanchasko-com/ + CloudFront d37333alc7ojpl.cloudfront.net",
+    "storage": "DAM s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/ is private (aws s3 CLI/SDK only, not browser-fetchable); public access via CloudFront https://d37333alc7ojpl.cloudfront.net/",
     "ratios": ["1x1", "9x16", "16x9"],
     "naming": "KODIAK-CAKES-{PRODUCT}-{REGION}-{LOCALITY}-{CHANNEL}-{RATIO}-{YYYYMMDD}-v01.png (ISO 8601)"
   },

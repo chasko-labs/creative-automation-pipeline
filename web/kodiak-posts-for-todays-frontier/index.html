@@ -285,6 +285,7 @@ function renderLangChips(){
   const sel=document.getElementById('locality');
   const code= sel ? sel.value : (typeof places!=='undefined' && places[0] ? places[0].market : 'US-MW-PARKCITY-84098');
   const langs=marketLangsFor(code);
+  const codes=langs.filter(l=>l&&(l.translate_code||l.lang_code)).map(l=>(l.translate_code||l.lang_code).toUpperCase()).join(' + ');
   let el=document.getElementById('lang-chips');
   if(!el){
     el=document.createElement('div');
@@ -295,7 +296,7 @@ function renderLangChips(){
     else if(sel && sel.parentNode) sel.parentNode.insertBefore(el, sel.nextSibling);
   }
   const pct=l=> l.pct_home ? ' '+l.pct_home+'% home' : '';
-  el.innerHTML='<span style=\"font-weight:800;color:#B51E14;letter-spacing:.04em\">Auto-produce — Top 2 languages outside English (El Paso → ES, Burlington VT/Northern ME → FR):</span> '
+  el.innerHTML='<span style=\"font-weight:800;color:#B51E14;letter-spacing:.04em\">Auto-produce - EN + top languages for this market'+(codes?' ('+codes+')':'')+':</span> '
     +'<span style=\"display:inline-flex;align-items:center;background:#3B2316;color:#FFF8F0;padding:4px 10px;border-radius:999px;font-weight:800;font-size:11px\">EN English</span>'
     +langs.filter(l=>l&&l.translate_code).map(l=>'<span style="display:inline-flex;align-items:center;background:#E8530E;color:white;padding:4px 10px;border-radius:999px;font-weight:800;font-size:11px">'+(l.translate_code||'').toUpperCase()+' '+l.lang_name+'<span style=\"opacity:.9;font-weight:600\">'+pct(l)+'</span></span>').join(' ')
     +'<span style=\"color:#8C7A70;margin-left:6px\">• Pipeline renders campaign message in EN + localized on every final post (fanned dispatch). Proven via Nova (unlimited budget) (Amazon Translate + Nova Micro).</span>';
@@ -303,7 +304,7 @@ function renderLangChips(){
 setTimeout(renderLangChips, 600);
 document.addEventListener('change', e=>{ if(e.target && e.target.id==='locality') renderLangChips(); });
 // also fetch full 73-market file when online to upgrade offline seed — try multiple paths for local http.server 8099 vs S3
-(async()=>{ for(const url of ['data/localization/market-languages.json','../../data/localization/market-languages.json','./data/localization/market-languages.json']){ try{ const r=await fetch(url); if(r.ok){ const d=await r.json(); if(d.markets){ d.markets.forEach(m=>{ if(m.top_languages) marketLangsOffline[m.market]=m.top_languages; }); console.log('[langs] loaded',d.markets.length,'from',url); renderLangChips(); break; } } }catch(e){} }})();
+(async()=>{ for(const url of ['data/localization/market-languages.json','../../data/localization/market-languages.json','./data/localization/market-languages.json']){ try{ const r=await fetch(url); if(r.ok){ const d=await r.json(); if(d.markets){ d.markets.forEach(m=>{ if(m.top_languages) marketLangsOffline[m.market]=m.top_languages.map(t=>({...t, translate_code: t.translate_code||t.lang_code, pct_home: (t.pct_home!=null?t.pct_home:t.pct)})); }); console.log('[langs] loaded',d.markets.length,'from',url); renderLangChips(); break; } } }catch(e){} }})();
 // Inline data — so this page is truly offline (no fetch to a server). Keep a small seed of hundreds-scale places and recipes here; full tables live at ../../data/
 const places = [
   {market:"US-MW-PARKCITY-84098", place:"Park City, Utah 84098", retailer:"Target (Kimball Junction), Walmart (Kimball Junction), Smith's Food & Drug (Park City)", zip:"84098", audience:"Mountain families, Wasatch trail households, resort staff — Aaron", message:"Keep It Wild — protein-packed whole grains for your Wasatch frontier. Nourishment for Today's Frontier", peppers:"—", cheeses:"—", cue:"Farmers Market at Park City Mountain Resort Wed 11-5 — Jensen Farms peaches, Copper Moose rhubarb, Tagges preserves, Bal"},
