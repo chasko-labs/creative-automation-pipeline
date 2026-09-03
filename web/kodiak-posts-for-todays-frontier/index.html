@@ -113,7 +113,7 @@ Or: Fall protein for porch families — 14g, 100% whole grains — Nourishment f
 <label style="display:flex;gap:8px;align-items:center;font-size:12px;border:1px solid var(--stone);border-radius:8px;padding:8px;background:#fff"><input type="checkbox" value="newsletter" class="channel-check"> Newsletter — email / CRM (localized variant per market)</label>
 <label style="display:flex;gap:8px;align-items:center;font-size:12px;border:1px solid var(--stone);border-radius:8px;padding:8px;background:#fff"><input type="checkbox" value="office" class="channel-check"> Office party / internal — breakroom, sampling</label>
 </div><div class="hint">Check any combo — Generate fans to <b>every selected category</b> across all 73 locals + all formats (1:1, 9:16, 16:9). Newsletter gets a localized variant per market.</div></div>
-<div class="field" data-mcp="audience-guide" data-mcp-description="Linked design guide — audience informs UX, not form input"><label>Audience — informs UX discussions & decisions</label><div style="padding:10px 12px;border:1px solid var(--stone);border-radius:10px;background:#FFFBF6 var(--kraft)"><div style="font-size:12px;color:var(--brown)">Decisions reference real Kodiak team members — see <a href="../../docs/ux-personas-kodiak-complete.md" target="_blank" style="font-weight:700">Design Guide → UX Profiles</a> (23 cards — Park City, Salt Lake City, Chicago, Minneapolis, Denver) and <a href="../../design/tokens/kodiak.json" target="_blank">Tokens</a>.</div><div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap"><span class="kbd">Aaron Robinson — Senior Director Brand — Park City</span><span class="kbd">Madison Roberts — Director Brand — Park City</span><span class="kbd">Eli Curtis — Brand Manager</span><span class="kbd">Ali Fluke — Shopper Marketing — Chicago</span><span class="kbd">Ashley La Barbera — VP Sales — Minneapolis</span><a href="../../docs/ux-personas-kodiak-complete.md" target="_blank" class="btn ghost" style="padding:4px 10px;font-size:11px">Open 23 profiles</a></div></div></div>
+<div class="field" data-mcp="audience-guide" data-mcp-description="Linked design guide — audience informs UX, not form input"><label>Audience — informs UX discussions & decisions</label><div style="padding:10px 12px;border:1px solid var(--stone);border-radius:10px;background:#FFFBF6 var(--kraft)"><div style="font-size:12px;color:var(--brown)">Decisions reference real Kodiak team members — see <a href="https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/ux-personas-kodiak-complete.md" target="_blank" style="font-weight:700">Design Guide → UX Profiles</a> (23 cards — Park City, Salt Lake City, Chicago, Minneapolis, Denver) and <a href="https://github.com/chasko-labs/creative-automation-pipeline/blob/main/design/tokens/kodiak.json" target="_blank">Tokens</a>.</div><div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap"><span class="kbd">Aaron Robinson — Senior Director Brand — Park City</span><span class="kbd">Madison Roberts — Director Brand — Park City</span><span class="kbd">Eli Curtis — Brand Manager</span><span class="kbd">Ali Fluke — Shopper Marketing — Chicago</span><span class="kbd">Ashley La Barbera — VP Sales — Minneapolis</span><a href="https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/ux-personas-kodiak-complete.md" target="_blank" class="btn ghost" style="padding:4px 10px;font-size:11px">Open 23 profiles</a></div></div></div>
 <div id="localFlavor" style="padding:10px 12px;border:1px solid var(--stone);border-radius:10px;background:#FFFBF6 var(--kraft);margin-top:10px" data-mcp="local-flavor" data-mcp-description="Local flavor per season & source — derived, not selectable"><b style="font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#6B5A53">Local flavor — by season & source (determined by locale)</b><div id="localFlavorText" style="font-size:12px;margin-top:6px;color:#3B2316">Pick a place in the frontier island above — we show what’s in season and where to get it (e.g. Pescadero: Castroville artichokes Mar–Jun at Pescadero farm stands; Neah Bay: Makah salmon May–Sep at Neah Bay harbor).</div></div>
 <div class="row" style="margin-top:14px"><button class="btn orange" id="generateCampaign" style="flex:1;justify-content:center;padding:14px 18px;font-size:13px" data-mcp="generate" data-mcp-description="Single button — fans to ALL formats/platforms/locals, shows sample + nearest Frontier + newsletter variant, then gates to full dispatch">Generate Kodiak campaign</button></div><div class="hint" id="generateHint" style="margin-top:6px">Returns sample: your selected location <b>+ nearest Frontier</b> (Pescadero for SF, Neah Bay for Seattle) and a localized newsletter variant per — then unlock full per-retailer dispatch across all 73 markets. <span id="sampleStatus" style="color:#6B5A53"></span></div>
 </div></div>
@@ -151,7 +151,9 @@ const marketLangsOffline = {
   "US-MW-PARKCITY-84098": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":9},{"lang_code":"de","lang_name":"German","translate_code":"de","pct_home":0.6}],
   "_default": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":8},{"lang_code":"fr","lang_name":"French","translate_code":"fr","pct_home":0.5}]
 };
-function marketLangsFor(code){ return marketLangsOffline[code] || marketLangsOffline._default; }
+/** @param {string} code @returns {Array<{lang_code:string,lang_name:string,translate_code:string,pct_home:number}>} */
+function marketLangsFor(code){ return (marketLangsOffline[code] || marketLangsOffline._default || []).filter(Boolean); }
+/** @param {void} @returns {void} */
 function renderLangChips(){
   const sel=document.getElementById('locality');
   const code= sel ? sel.value : (typeof places!=='undefined' && places[0] ? places[0].market : 'US-MW-PARKCITY-84098');
@@ -168,13 +170,13 @@ function renderLangChips(){
   const pct=l=> l.pct_home ? ' '+l.pct_home+'% home' : '';
   el.innerHTML='<span style=\"font-weight:800;color:#B51E14;letter-spacing:.04em\">Auto-produce — Top 2 languages outside English (El Paso → ES, Burlington VT/Northern ME → FR):</span> '
     +'<span style=\"display:inline-flex;align-items:center;background:#3B2316;color:#FFF8F0;padding:4px 10px;border-radius:999px;font-weight:800;font-size:11px\">EN English</span>'
-    +langs.map(l=>'<span style=\"display:inline-flex;align-items:center;background:#E8530E;color:white;padding:4px 10px;border-radius:999px;font-weight:800;font-size:11px\">'+l.translate_code.toUpperCase()+' '+l.lang_name+'<span style=\"opacity:.9;font-weight:600\">'+pct(l)+'</span></span>').join(' ')
+    +langs.filter(l=>l&&l.translate_code).map(l=>'<span style="display:inline-flex;align-items:center;background:#E8530E;color:white;padding:4px 10px;border-radius:999px;font-weight:800;font-size:11px">'+(l.translate_code||'').toUpperCase()+' '+l.lang_name+'<span style=\"opacity:.9;font-weight:600\">'+pct(l)+'</span></span>').join(' ')
     +'<span style=\"color:#8C7A70;margin-left:6px\">• Pipeline renders campaign message in EN + localized on every final post (fanned dispatch). Proven via Nova (unlimited budget) (Amazon Translate + Nova Micro).</span>';
 }
 setTimeout(renderLangChips, 600);
 document.addEventListener('change', e=>{ if(e.target && e.target.id==='locality') renderLangChips(); });
 // also fetch full 73-market file when online to upgrade offline seed
-fetch('../../data/localization/market-languages.json').then(r=>r.json()).then(d=>{ d.markets.forEach(m=>marketLangsOffline[m.market]=m.top_languages); renderLangChips(); }).catch(()=>{});
+fetch('../../data/localization/market-languages.json').then(r=>r.json()).then(d=>{ d.markets.forEach(m=>{ if(m.top_languages) marketLangsOffline[m.market]=m.top_languages; }); renderLangChips(); }).catch(()=>{});
 // Inline data — so this page is truly offline (no fetch to a server). Keep a small seed of hundreds-scale places and recipes here; full tables live at ../../data/
 const places = [
   {market:"US-MW-PARKCITY-84098", place:"Park City, Utah 84098", retailer:"Target (Kimball Junction), Walmart (Kimball Junction), Smith's Food & Drug (Park City)", zip:"84098", audience:"Mountain families, Wasatch trail households, resort staff — Aaron", message:"Keep It Wild — protein-packed whole grains for your Wasatch frontier. Nourishment for Today's Frontier", peppers:"—", cheeses:"—", cue:"Farmers Market at Park City Mountain Resort Wed 11-5 — Jensen Farms peaches, Copper Moose rhubarb, Tagges preserves, Bal"},
@@ -261,7 +263,7 @@ const products = [
 const peppersList = ["Hatch green chile roasted, diced","Red chile","Jalapeño","Chipotle","Poblano","—"];
 const cheesesList = ["Oaxaca crumble","Sharp cheddar","Pepper jack","Cotija","Oaxaca","Gruyère","Queso fresco","—"];
 
-const localitySel = document.getElementById('locality');
+let localitySel = document.getElementById('locality'); // may be recreated above
 const productSel = document.getElementById('product'); // deprecated — now productChooser checkboxes
 const peppersSel = document.getElementById('peppers'); // deprecated — now localFlavor derived
 const cheesesSel = document.getElementById('cheeses');
@@ -272,8 +274,11 @@ const campaignBriefEl = document.getElementById('campaignBrief');
 const previewEl = document.getElementById('preview');
 const fileNamesEl = document.getElementById('fileNames');
 
+/** @param {void} @returns {void} */
 function fillSelects(){
-  places.forEach(p=>{ const o=document.createElement('option'); o.value=p.market; o.textContent=`${p.place} — ${p.market} (${p.retailer.split(',')[0]})`; localitySel.appendChild(o); });
+  if(!localitySel) { console.warn('localitySel missing — creating hidden fallback'); const sel=document.createElement('select'); sel.id='locality'; sel.style.display='none'; document.body.appendChild(sel); }
+  const ls=document.getElementById('locality');
+  if(ls) places.forEach(p=>{ const o=document.createElement('option'); o.value=p.market; o.textContent=`${p.place} — ${p.market} (${p.retailer.split(',')[0]})`; ls.appendChild(o); });
   if(productSel) products.forEach(p=>{ const o=document.createElement('option'); o.value=p.id; o.textContent=p.name; productSel.appendChild(o); });
   if(peppersSel) peppersList.forEach(v=>{ const o=document.createElement('option'); o.value=v; o.textContent=v; peppersSel.appendChild(o); });
   if(cheesesSel) cheesesList.forEach(v=>{ const o=document.createElement('option'); o.value=v; o.textContent=v; cheesesSel.appendChild(o); });
@@ -294,6 +299,7 @@ function onLocality(){
 }
 if(localitySel) localitySel.addEventListener('change', onLocality);
 let canvases=[];
+/** @returns {void} */
 function render(){
   const prod = products.find(x=>x.id===productSel.value);
   const headline = headlineEl.value.trim();
@@ -482,8 +488,8 @@ function drawAdSuggested(ctx,W,H,headline,prod,heroImg,enhance,frame){
   ctx.fillStyle='#8C7A70'; ctx.font='600 7px Inter,sans-serif'; ctx.fillText('Keep It Wild', 24+40, 24+20);
   if(frame){ ctx.fillStyle='#E8530E'; ctx.beginPath(); ctx.arc(24+18,24+18,14,0,Math.PI*2); ctx.fill(); ctx.fillStyle='#3B2316'; ctx.font=`700 9px Inter,sans-serif`; ctx.textAlign='center'; ctx.fillText('BEAR', 42, 46); }
 }
-document.getElementById('suggestedBtn')?.addEventListener('click', renderSuggested);
-document.getElementById('suggestedDownload')?.addEventListener('click', ()=>{
+document.getElementById('suggestedBtn')?.addEventListener('click', ()=>{ console.log('suggested click'); try{ renderSuggested(); }catch(e){ console.error(e); } });
+document.getElementById('suggestedDownload')?.addEventListener('click', ()=>{ console.log('suggested download');
   const date = new Date().toISOString().slice(0,10).replace(/-/g,"");
   suggestedCanvases.forEach(({canvas,ratio,product})=>{
     const a=document.createElement('a'); a.href=canvas.toDataURL('image/png'); a.download=`KODIAK-CAKES-${product}-suggested-${ratio}-${date}-v01.png`; a.click();
@@ -531,7 +537,7 @@ document.getElementById('showAllBtn')?.addEventListener('click', ()=>{
   document.getElementById('locationStatus').textContent="Choose any Where from the list — Bay Area sees Pescadero (artichoke + Marin goat cheese, fitness lean), Seattle sees Neah Bay (salmon + huckleberry), both see frontier representation.";
 });
 
-fillSelects(); render();
+try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn('fillSelects', e); } render();
 // Show images right away on load for Park City 84098 and nearby Kamas Valley (Peoa/Oakley) as demanded — not generic 6-piece template text
 (() => {
   try {
@@ -590,7 +596,7 @@ fillSelects(); render();
   window.KODIAK_VERSION = VER;
   window.KODIAK_BUILD = BUILD;
   window.KODIAK_WEBMCP = { version: VER, mcp: "enabled", manifest: "webmcp.json", tools: ["places","products","recipes","market-languages","brief-yaml","preview","compose","localize"], architecture: "offline-first static + Bedrock AgentCore + Nova Canvas/Micro + Amazon Translate (Nova unlimited budget)", origin: "https://d37333alc7ojpl.cloudfront.net/" };
-  const bear = "  /^--^\\     /^--^\\\n  \\____/     \\____/\n  /      \\___/      \\   KODIAK® — Keep It Wild\n  \\____/   \\____/\n";
+  const bear = "KODIAK Bear — Keep It Wild\n";
   const motd = `%c${bear}%cKODIAK Posts for Today's Frontier — v${VER} — ${BUILD}%c\n`+
     "Open: places / products / recipes / market-languages / brief-yaml — all offline, no server.\n"+
     "Pipeline: brief → DAM reuse or Nova Canvas hero → enhance (contrast/texture/frame/watermark) → compose 1:1/9:16/16:9 with message overlay → compliance → report.json + preview.html\n"+
@@ -705,7 +711,7 @@ let skuList = [
       const audience = 'KODIAK design guide audience — see UX Profiles (23 cards)';
       // Determine selected location and nearest Frontier (Pescadero for SF, Neah Bay for Seattle)
       let selectedLoc = null;
-      try{ selectedLoc = places.find(p=>p.market===(document.getElementById('locality')?.value)) || places[0]; }catch(e){ selectedLoc = {place:'Park City, Utah 84098', market:'US-MW-PARKCITY-84098'}; }
+      try{ const locVal=document.getElementById('locality')?.value || 'US-MW-PARKCITY-84098'; selectedLoc = places.find(p=>p.market===locVal) || places.find(p=>p.market==='US-MW-PARKCITY-84098') || places[0]; }catch(e){ selectedLoc = {place:'Park City, Utah 84098', market:'US-MW-PARKCITY-84098'}; }
       const frontierHint = selectedLoc.market.includes('US-W-SF') ? 'Pescadero 94060 (35mi) — Castroville artichokes + Marin goat cheese' :
                            selectedLoc.market.includes('US-W-SEA') ? 'Neah Bay 98357 (70mi) — Makah salmon + huckleberry' :
                            selectedLoc.market.includes('US-WA-NEAHBAY') ? 'Neah Bay harbor — Makah water meets Wasatch grain' :
@@ -723,6 +729,15 @@ let skuList = [
           note.style.cssText='margin:10px 0;padding:10px;border:1px solid #E8530E;border-radius:10px;background:#FFF8F0;font-size:12px';
           note.innerHTML = `<b>Sample — ${selectedLoc.place}</b> + <b>nearest Frontier: ${frontierHint}</b> • <b>Products:</b> ${products.join(', ')} • <b>Audience:</b> ${audience.split(' — ')[0]} • <b>Brief:</b> “${brief}”<br><span style="color:#6B5A53">Localized newsletter variant per: <em>${selectedLoc.place} edition — ${brief.slice(0,60)}</em> + <em>${frontierHint.split(' — ')[0]} edition</em> — Subscription & Amazon.com ads alongside Seattle/SF. Geometrically definable layers (masks/URB texture/fonts at 24,24) remain programmatic via <code>data-mcp-layer</code> — GenAI manipulates levers via WebMCP, not pixels.</span><br><button class="btn orange" style="margin-top:8px" onclick="alert('Gated: Full dispatch would fan to all 73 markets × per-retailer (Target/Walmart/Costco/Publix) × EN+top2 languages via pipeline.py — approve sample to dispatch')">Unlock full per-retailer dispatch →</button>`;
           preview.parentNode.insertBefore(note, preview);
+          // Also show Wasatch Back alongside Park City as requested
+          try{
+            const wasatch = places.find(p=>p.market==='US-MW-WASATCH');
+            if(wasatch && selectedLoc.market!=='US-MW-WASATCH'){
+              const note2=document.createElement('div'); note2.style.cssText='margin:10px 0;padding:10px;border:1px dashed #1A3C34;border-radius:10px;background:#FFFBF6;font-size:12px';
+              note2.innerHTML=`<b>Sample — ${wasatch.place} — Wasatch Back</b> • <b>Products:</b> ${products.join(', ')} • <b>Brief:</b> “${brief.slice(0,60)}”<br><span style="color:#6B5A53">Wasatch Back frontier — same campaign, different mountain light — fans to all formats</span>`;
+              preview.parentNode.insertBefore(note2, preview.nextSibling);
+            }
+          }catch(e){}
         }
         if(status) status.textContent = 'Sample ready — approve to dispatch full 73-market run';
         btn.disabled=false; btn.textContent='Generate Kodiak campaign';
