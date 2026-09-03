@@ -1,192 +1,482 @@
 [
   {
-    "caption": "Fuel your frontier with 14g protein and 100% whole grains. Wasatch mornings never tasted so good.",
+    "id": "scaffold_001_vp-02-cast-iron-stack",
+    "caption": "Fuel your frontier with 14g protein and 100% whole grains — Wasatch dawn, cast-iron stack on pine table.",
+    "media_type": "IMAGE",
+    "media_url": "001-05606-Kodiak_Cakes-Cups-Photoshop_Rework_Brownie-01_2c3938e5-63de-4af7-8e11-538bc87d1aef.jpg",
+    "image": "001-05606-Kodiak_Cakes-Cups-Photoshop_Rework_Brownie-01_2c3938e5-63de-4af7-8e11-538bc87d1aef.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
     "hashtags": [
       "#KeepItWild",
       "#KodiakCakes",
       "#ProteinPacked"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/2204/3207/files/705599011627_FlapjackMix_Buttermilk_Front_1.png",
-    "source": "kodiakcakes.com hero"
+    "source": "data/raw-ingest/kodiakcakes/images/001-05606-Kodiak_Cakes-Cups-Photoshop_Rework_Brownie-01_2c3938e5-63de-4af7-8e11-538bc87d1aef.jpg (licensed) + vp-02-cast-iron-stack :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "vp-02-cast-iron-stack"
   },
   {
-    "caption": "Bear Bites for cubs \u2014 lunchbox ready, 5g protein, real honey and cinnamon.",
+    "id": "scaffold_002_vp-03-bear-bites-cubs",
+    "caption": "Bear Bites for cubs — cinnamon honey graham bears on trail bench, lunchbox ready, 5g protein.",
+    "media_type": "IMAGE",
+    "media_url": "00313ed25c79--Kodiak-Zucchini-Oat-Muffin-2-693c3c_49d5c2.jpg",
+    "image": "00313ed25c79--Kodiak-Zucchini-Oat-Muffin-2-693c3c_49d5c2.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
     "hashtags": [
       "#BearBites",
       "#KodiakCakes",
       "#Lunchbox"
     ],
-    "image": "Kodiak_Protein_Graham_Crackers_4_9af6f8dd-3404-4ea7-a339-c9243294c485.jpg",
-    "source": "raw-ingest"
+    "source": "data/raw-ingest/kodiakcakes/images/00313ed25c79--Kodiak-Zucchini-Oat-Muffin-2-693c3c_49d5c2.jpg (licensed) + vp-03-bear-bites-cubs :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "vp-03-bear-bites-cubs"
   },
   {
-    "caption": "On the go never tasted so good \u2014 oatmeal cups that travel as well as you do.",
+    "id": "scaffold_003_vp-04-oatmeal-cup-rocky",
+    "caption": "On the go never tasted so good — oatmeal cup steaming on rocky overlook at sunrise, hiker hands.",
+    "media_type": "IMAGE",
+    "media_url": "00313ed25c79--Kodiak-Zucchini-Oat-Muffin-6-8a78a9_aae2b9.jpg",
+    "image": "00313ed25c79--Kodiak-Zucchini-Oat-Muffin-6-8a78a9_aae2b9.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
     "hashtags": [
       "#OnTheGo",
+      "#KodiakCakes",
+      "#TrailFuel"
+    ],
+    "source": "data/raw-ingest/kodiakcakes/images/00313ed25c79--Kodiak-Zucchini-Oat-Muffin-6-8a78a9_aae2b9.jpg (licensed) + vp-04-oatmeal-cup-rocky :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "vp-04-oatmeal-cup-rocky"
+  },
+  {
+    "id": "scaffold_004_vp-05-wasatch-dawn",
+    "caption": "Keep It Wild with Vital Ground — Wasatch wheat field alpenglow, grizzly corridor co-badge KODIAK · kodiakcakes.com · Keep It Wild.",
+    "media_type": "IMAGE",
+    "media_url": "00313ed25c79--Kodiak-Zucchini-Oat-Muffin-9-545ab0_280bcd.jpg",
+    "image": "00313ed25c79--Kodiak-Zucchini-Oat-Muffin-9-545ab0_280bcd.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
+    "hashtags": [
+      "#KeepItWild",
+      "#VitalGround",
+      "#FeedingEpicDays"
+    ],
+    "source": "data/raw-ingest/kodiakcakes/images/00313ed25c79--Kodiak-Zucchini-Oat-Muffin-9-545ab0_280bcd.jpg (licensed) + vp-05-wasatch-dawn :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "vp-05-wasatch-dawn"
+  },
+  {
+    "id": "scaffold_005_vp-01-kraft-bear-box",
+    "caption": "100% whole grains • Whole Grains Taste Better® — brown kraft bear box on parchment #FFF8F0, Blaze Orange 8px bar.",
+    "media_type": "IMAGE",
+    "media_url": "003fa9ea1e6f--Kodiak-Pumpkin-Chocolate-Chip-Muffin-Top-Cookie-1-c793b2_275320.jpg",
+    "image": "003fa9ea1e6f--Kodiak-Pumpkin-Chocolate-Chip-Muffin-Top-Cookie-1-c793b2_275320.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
+    "hashtags": [
+      "#KodiakCakes",
+      "#100PercentWholeGrains"
+    ],
+    "source": "data/raw-ingest/kodiakcakes/images/003fa9ea1e6f--Kodiak-Pumpkin-Chocolate-Chip-Muffin-Top-Cookie-1-c793b2_275320.jpg (licensed) + vp-01-kraft-bear-box :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "vp-01-kraft-bear-box"
+  },
+  {
+    "id": "scaffold_006_kodiak-07-las-cruces",
+    "caption": "Hatch green chile flapjacks — Las Cruces Organ Mountains bench, red chile roast house flavor, protein-packed.",
+    "media_type": "IMAGE",
+    "media_url": "003fa9ea1e6f--Kodiak-Pumpkin-Chocolate-Chip-Muffin-Top-Cookie-3-24df91_d1c780.jpg",
+    "image": "003fa9ea1e6f--Kodiak-Pumpkin-Chocolate-Chip-Muffin-Top-Cookie-3-24df91_d1c780.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
+    "hashtags": [
+      "#HatchGreenChile",
+      "#LasCruces",
       "#KodiakCakes"
     ],
-    "image": "2023-Peak-Oatmeal-Maple-Brown-Sugar-7701.jpg",
-    "source": "raw-ingest"
+    "source": "data/raw-ingest/kodiakcakes/images/003fa9ea1e6f--Kodiak-Pumpkin-Chocolate-Chip-Muffin-Top-Cookie-3-24df91_d1c780.jpg (licensed) + kodiak-07-las-cruces :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "kodiak-07-las-cruces"
   },
   {
-    "caption": "Keep It Wild with Vital Ground \u2014 every stack helps protect grizzly habitat.",
+    "id": "scaffold_007_kodiak-08-red-wagon",
+    "caption": "Feeding epic days — red wagon heirloom 1982 callback, hearty frontier breakfast, real food for real adventures.",
+    "media_type": "IMAGE",
+    "media_url": "003fa9ea1e6f--Kodiak-Pumpkin-Chocolate-Chip-Muffin-Top-Cookie-5-377840_cb47ea.jpg",
+    "image": "003fa9ea1e6f--Kodiak-Pumpkin-Chocolate-Chip-Muffin-Top-Cookie-5-377840_cb47ea.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
     "hashtags": [
-      "#KeepItWild",
-      "#VitalGround"
+      "#FeedingEpicDays",
+      "#KodiakCakes"
     ],
-    "image": "Keep It Wild campaign",
-    "source": "kodiakcakes.com/pages/keep-it-wild"
+    "source": "data/raw-ingest/kodiakcakes/images/003fa9ea1e6f--Kodiak-Pumpkin-Chocolate-Chip-Muffin-Top-Cookie-5-377840_cb47ea.jpg (licensed) + kodiak-08-red-wagon :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "kodiak-08-red-wagon"
   },
   {
-    "caption": "Fuel your frontier with 14g protein and 100% whole grains. Wasatch mornings never tasted so good. (5)",
+    "id": "scaffold_008_athlete-leadville",
+    "caption": "Trail dust and summit — Leadville 100 map, 3355m ascent, fuel your trail with oatmeal power cups.",
+    "media_type": "IMAGE",
+    "media_url": "00ed49a3920f--2-camping-granola-310498_962060.jpg",
+    "image": "00ed49a3920f--2-camping-granola-310498_962060.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
     "hashtags": [
-      "#KeepItWild",
-      "#KodiakCakes",
+      "#TrailFuel",
+      "#KeepItWild"
+    ],
+    "source": "data/raw-ingest/kodiakcakes/images/00ed49a3920f--2-camping-granola-310498_962060.jpg (licensed) + athlete-leadville :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "athlete-leadville"
+  },
+  {
+    "id": "scaffold_009_kodiak-03-rugged-family",
+    "caption": "Family cabin flannel — flipping together, steam over cast iron, Wasatch windowsill morning light.",
+    "media_type": "IMAGE",
+    "media_url": "00ed49a3920f--3-camping-granola-e4fa8d_53fe72.jpg",
+    "image": "00ed49a3920f--3-camping-granola-e4fa8d_53fe72.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
+    "hashtags": [
+      "#FrontierBreakfast",
+      "#KeepItWild"
+    ],
+    "source": "data/raw-ingest/kodiakcakes/images/00ed49a3920f--3-camping-granola-e4fa8d_53fe72.jpg (licensed) + kodiak-03-rugged-family :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "kodiak-03-rugged-family"
+  },
+  {
+    "id": "scaffold_010_ugc-haliealane9",
+    "caption": "Savory protein breakfast biscuits — 74k saves, @haliealane9 bagel-inspired, #KodiakPartner morning hack.",
+    "media_type": "IMAGE",
+    "media_url": "00ed49a3920f--4-camping-granola-de306b_82119c.jpg",
+    "image": "00ed49a3920f--4-camping-granola-de306b_82119c.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
+    "hashtags": [
+      "#KodiHacks",
       "#ProteinPacked"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/2204/3207/files/705599011627_FlapjackMix_Buttermilk_Front_1.png",
-    "source": "kodiakcakes.com hero"
+    "source": "data/raw-ingest/kodiakcakes/images/00ed49a3920f--4-camping-granola-de306b_82119c.jpg (licensed) + ugc-haliealane9 :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "ugc-haliealane9"
   },
   {
-    "caption": "Bear Bites for cubs \u2014 lunchbox ready, 5g protein, real honey and cinnamon. (6)",
+    "id": "scaffold_011_ugc-eatlizabeth",
+    "caption": "Blueberry muffin power cups — KodiHacks quick bake, 12g protein, brick session fuel w/ @eatlizabeth.",
+    "media_type": "IMAGE",
+    "media_url": "0100aea6ca6c--20240711-Kodiak-Baked-Pizza-Muffins-0223-d2f7c7_67240d.jpg",
+    "image": "0100aea6ca6c--20240711-Kodiak-Baked-Pizza-Muffins-0223-d2f7c7_67240d.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
+    "hashtags": [
+      "#KodiHacks",
+      "#KodiakCakes"
+    ],
+    "source": "data/raw-ingest/kodiakcakes/images/0100aea6ca6c--20240711-Kodiak-Baked-Pizza-Muffins-0223-d2f7c7_67240d.jpg (licensed) + ugc-eatlizabeth :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "ugc-eatlizabeth"
+  },
+  {
+    "id": "scaffold_012_vp-02-campfire-quiche",
+    "caption": "Campfire quiche with Kodiak — Dutch oven coals, morning window light, trailhead breakfast.",
+    "media_type": "IMAGE",
+    "media_url": "0100aea6ca6c--20240711-Kodiak-Baked-Pizza-Muffins-0251-5bad5c_9bb6bf.jpg",
+    "image": "0100aea6ca6c--20240711-Kodiak-Baked-Pizza-Muffins-0251-5bad5c_9bb6bf.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
+    "hashtags": [
+      "#Campfire",
+      "#KodiakCakes"
+    ],
+    "source": "data/raw-ingest/kodiakcakes/images/0100aea6ca6c--20240711-Kodiak-Baked-Pizza-Muffins-0251-5bad5c_9bb6bf.jpg (licensed) + vp-02-campfire-quiche :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "vp-02-campfire-quiche"
+  },
+  {
+    "id": "scaffold_013_reel-powdered-sugar",
+    "caption": "Powdered sugar pancakes — snowy Wasatch porch, kids reaching for stack, Keep It Wild morning.",
+    "media_type": "IMAGE",
+    "media_url": "0100aea6ca6c--20240711-Kodiak-Baked-Pizza-Muffins-0253-38a66c_c42c89.jpg",
+    "image": "0100aea6ca6c--20240711-Kodiak-Baked-Pizza-Muffins-0253-38a66c_c42c89.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
+    "hashtags": [
+      "#KeepItWild",
+      "#KodiakCakes"
+    ],
+    "source": "data/raw-ingest/kodiakcakes/images/0100aea6ca6c--20240711-Kodiak-Baked-Pizza-Muffins-0253-38a66c_c42c89.jpg (licensed) + reel-powdered-sugar :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "reel-powdered-sugar"
+  },
+  {
+    "id": "scaffold_014_carousel-salami",
+    "caption": "Salami charcuterie platter — protein-packed bites, Trail Fuel for afternoon, Vital Ground co-badge.",
+    "media_type": "IMAGE",
+    "media_url": "013-_kodiakCakes_gut_27ac10bf-3235-46bf-bdfa-d49d02a5ebc4.jpg",
+    "image": "013-_kodiakCakes_gut_27ac10bf-3235-46bf-bdfa-d49d02a5ebc4.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
+    "hashtags": [
+      "#TrailFuel",
+      "#KodiakCakes"
+    ],
+    "source": "data/raw-ingest/kodiakcakes/images/013-_kodiakCakes_gut_27ac10bf-3235-46bf-bdfa-d49d02a5ebc4.jpg (licensed) + carousel-salami :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "carousel-salami"
+  },
+  {
+    "id": "scaffold_015_vp-03-cubs-trail",
+    "caption": "Cubs adventure flapjacks — little hands, big mountains, 5g protein for tomorrow's trail.",
+    "media_type": "IMAGE",
+    "media_url": "01ab36da4a86--20240611-Kodiak-Cast-Iron-Pizza-0055-3c03ff_e853fb.jpg",
+    "image": "01ab36da4a86--20240611-Kodiak-Cast-Iron-Pizza-0055-3c03ff_e853fb.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
     "hashtags": [
       "#BearBites",
-      "#KodiakCakes",
-      "#Lunchbox"
+      "#FrontierBreakfast"
     ],
-    "image": "Kodiak_Protein_Graham_Crackers_4_9af6f8dd-3404-4ea7-a339-c9243294c485.jpg",
-    "source": "raw-ingest"
+    "source": "data/raw-ingest/kodiakcakes/images/01ab36da4a86--20240611-Kodiak-Cast-Iron-Pizza-0055-3c03ff_e853fb.jpg (licensed) + vp-03-cubs-trail :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "vp-03-cubs-trail"
   },
   {
-    "caption": "On the go never tasted so good \u2014 oatmeal cups that travel as well as you do. (7)",
+    "id": "scaffold_016_vp-04-peak-oatmeal",
+    "caption": "Peak oatmeal maple & brown sugar — Peak canister, pantry restock, Stock the frontier for every morning.",
+    "media_type": "IMAGE",
+    "media_url": "01ab36da4a86--20240611-Kodiak-Cast-Iron-Pizza-0095-b5d307_8a078e.jpg",
+    "image": "01ab36da4a86--20240611-Kodiak-Cast-Iron-Pizza-0095-b5d307_8a078e.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
     "hashtags": [
       "#OnTheGo",
       "#KodiakCakes"
     ],
-    "image": "2023-Peak-Oatmeal-Maple-Brown-Sugar-7701.jpg",
-    "source": "raw-ingest"
+    "source": "data/raw-ingest/kodiakcakes/images/01ab36da4a86--20240611-Kodiak-Cast-Iron-Pizza-0095-b5d307_8a078e.jpg (licensed) + vp-04-peak-oatmeal :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "vp-04-peak-oatmeal"
   },
   {
-    "caption": "Keep It Wild with Vital Ground \u2014 every stack helps protect grizzly habitat. (8)",
+    "id": "scaffold_017_holiday-muffin-top",
+    "caption": "Chocolate chip muffin top cookies — pumpkin spice edition, Kodiak bakery porch, holiday frontier.",
+    "media_type": "IMAGE",
+    "media_url": "01ab36da4a86--20240611-Kodiak-Cast-Iron-Pizza-0114-5c758b_8976eb.jpg",
+    "image": "01ab36da4a86--20240611-Kodiak-Cast-Iron-Pizza-0114-5c758b_8976eb.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
     "hashtags": [
-      "#KeepItWild",
-      "#VitalGround"
+      "#HolidayBaking",
+      "#KodiakCakes"
     ],
-    "image": "Keep It Wild campaign",
-    "source": "kodiakcakes.com/pages/keep-it-wild"
+    "source": "data/raw-ingest/kodiakcakes/images/01ab36da4a86--20240611-Kodiak-Cast-Iron-Pizza-0114-5c758b_8976eb.jpg (licensed) + holiday-muffin-top :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "holiday-muffin-top"
   },
   {
-    "caption": "Fuel your frontier with 14g protein and 100% whole grains. Wasatch mornings never tasted so good. (9)",
+    "id": "scaffold_018_pack-buttermilk-front",
+    "caption": "Buttermilk Power Cakes #705599011627 — front-of-pack kraft box, bear growl, 14g protein icon.",
+    "media_type": "IMAGE",
+    "media_url": "0272fd970269--1-97e43d_8af84c.jpg",
+    "image": "0272fd970269--1-97e43d_8af84c.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
+    "hashtags": [
+      "#KodiakCakes",
+      "#14gProtein"
+    ],
+    "source": "data/raw-ingest/kodiakcakes/images/0272fd970269--1-97e43d_8af84c.jpg (licensed) + pack-buttermilk-front :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "pack-buttermilk-front"
+  },
+  {
+    "id": "scaffold_019_retailer-costco-stack",
+    "caption": "Corner pocket pantry — membership bulk stack, Costco frontier family, enough for the whole week.",
+    "media_type": "IMAGE",
+    "media_url": "0272fd970269--2-09b132_e70c8e.jpg",
+    "image": "0272fd970269--2-09b132_e70c8e.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
+    "hashtags": [
+      "#FrontierBreakfast",
+      "#KodiakCakes"
+    ],
+    "source": "data/raw-ingest/kodiakcakes/images/0272fd970269--2-09b132_e70c8e.jpg (licensed) + retailer-costco-stack :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "retailer-costco-stack"
+  },
+  {
+    "id": "scaffold_020_retailer-publix-porch",
+    "caption": "Publix porch breakfast — Savannah family table, warm light, kids and cubs together, family's frontier.",
+    "media_type": "IMAGE",
+    "media_url": "0272fd970269--3-74d19e_a98f09.jpg",
+    "image": "0272fd970269--3-74d19e_a98f09.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
+    "hashtags": [
+      "#FrontierBreakfast",
+      "#KodiakCakes"
+    ],
+    "source": "data/raw-ingest/kodiakcakes/images/0272fd970269--3-74d19e_a98f09.jpg (licensed) + retailer-publix-porch :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "retailer-publix-porch"
+  },
+  {
+    "id": "scaffold_021_retailer-target-clean",
+    "caption": "Target clean label — Gen Z turns the box: 100% whole grains, non-GMO, 14g protein, frontier bright.",
+    "media_type": "IMAGE",
+    "media_url": "02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0351-3ef54f_4fc424.jpg",
+    "image": "02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0351-3ef54f_4fc424.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
     "hashtags": [
       "#KeepItWild",
-      "#KodiakCakes",
       "#ProteinPacked"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/2204/3207/files/705599011627_FlapjackMix_Buttermilk_Front_1.png",
-    "source": "kodiakcakes.com hero"
+    "source": "data/raw-ingest/kodiakcakes/images/02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0351-3ef54f_4fc424.jpg (licensed) + retailer-target-clean :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "retailer-target-clean"
   },
   {
-    "caption": "Bear Bites for cubs \u2014 lunchbox ready, 5g protein, real honey and cinnamon. (10)",
+    "id": "scaffold_022_seasonal-oatober",
+    "caption": "Oatober sunrise — oatmeal packets fanned over Wasatch granite, 30 days of frontier mornings.",
+    "media_type": "IMAGE",
+    "media_url": "02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0374-f85349_34aa27.jpg",
+    "image": "02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0374-f85349_34aa27.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
     "hashtags": [
-      "#BearBites",
-      "#KodiakCakes",
-      "#Lunchbox"
-    ],
-    "image": "Kodiak_Protein_Graham_Crackers_4_9af6f8dd-3404-4ea7-a339-c9243294c485.jpg",
-    "source": "raw-ingest"
-  },
-  {
-    "caption": "On the go never tasted so good \u2014 oatmeal cups that travel as well as you do. (11)",
-    "hashtags": [
-      "#OnTheGo",
+      "#Oatober",
       "#KodiakCakes"
     ],
-    "image": "2023-Peak-Oatmeal-Maple-Brown-Sugar-7701.jpg",
-    "source": "raw-ingest"
+    "source": "data/raw-ingest/kodiakcakes/images/02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0374-f85349_34aa27.jpg (licensed) + seasonal-oatober :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "seasonal-oatober"
   },
   {
-    "caption": "Keep It Wild with Vital Ground \u2014 every stack helps protect grizzly habitat. (12)",
+    "id": "scaffold_023_kodiak-06-grizzly-corridor",
+    "caption": "Vital Ground corridor — grizzly tracks in meadow, Keep It Wild conservation, every stack protects habitat.",
+    "media_type": "IMAGE",
+    "media_url": "02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0386-54847b_ac7233.jpg",
+    "image": "02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0386-54847b_ac7233.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
     "hashtags": [
       "#KeepItWild",
       "#VitalGround"
     ],
-    "image": "Keep It Wild campaign",
-    "source": "kodiakcakes.com/pages/keep-it-wild"
+    "source": "data/raw-ingest/kodiakcakes/images/02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0386-54847b_ac7233.jpg (licensed) + kodiak-06-grizzly-corridor :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "kodiak-06-grizzly-corridor"
   },
   {
-    "caption": "Fuel your frontier with 14g protein and 100% whole grains. Wasatch mornings never tasted so good. (13)",
+    "id": "scaffold_024_hack-flawless-flapjack",
+    "caption": "Frontier green apron — kitchen hack, 1/4 cup pour, flip when bubbles break, flawless flapjack.",
+    "media_type": "IMAGE",
+    "media_url": "030de2bb33a9--20240724-Kodiak-Cinnamon-Chocolate-Chip-Scones-0091-6ad4f0_5e97c3.jpg",
+    "image": "030de2bb33a9--20240724-Kodiak-Cinnamon-Chocolate-Chip-Scones-0091-6ad4f0_5e97c3.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
     "hashtags": [
-      "#KeepItWild",
-      "#KodiakCakes",
-      "#ProteinPacked"
-    ],
-    "image": "https://cdn.shopify.com/s/files/1/2204/3207/files/705599011627_FlapjackMix_Buttermilk_Front_1.png",
-    "source": "kodiakcakes.com hero"
-  },
-  {
-    "caption": "Bear Bites for cubs \u2014 lunchbox ready, 5g protein, real honey and cinnamon. (14)",
-    "hashtags": [
-      "#BearBites",
-      "#KodiakCakes",
-      "#Lunchbox"
-    ],
-    "image": "Kodiak_Protein_Graham_Crackers_4_9af6f8dd-3404-4ea7-a339-c9243294c485.jpg",
-    "source": "raw-ingest"
-  },
-  {
-    "caption": "On the go never tasted so good \u2014 oatmeal cups that travel as well as you do. (15)",
-    "hashtags": [
-      "#OnTheGo",
+      "#KodiHacks",
       "#KodiakCakes"
     ],
-    "image": "2023-Peak-Oatmeal-Maple-Brown-Sugar-7701.jpg",
-    "source": "raw-ingest"
+    "source": "data/raw-ingest/kodiakcakes/images/030de2bb33a9--20240724-Kodiak-Cinnamon-Chocolate-Chip-Scones-0091-6ad4f0_5e97c3.jpg (licensed) + hack-flawless-flapjack :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "hack-flawless-flapjack"
   },
   {
-    "caption": "Keep It Wild with Vital Ground \u2014 every stack helps protect grizzly habitat. (16)",
+    "id": "scaffold_025_holiday-cast-iron",
+    "caption": "Holiday cast-iron — cabin table, red wagon glow, gather round the frontier with Power Cakes.",
+    "media_type": "IMAGE",
+    "media_url": "030de2bb33a9--20240724-Kodiak-Cinnamon-Chocolate-Chip-Scones-0098-b1b30d_34c81a.jpg",
+    "image": "030de2bb33a9--20240724-Kodiak-Cinnamon-Chocolate-Chip-Scones-0098-b1b30d_34c81a.jpg",
+    "permalink": "https://www.instagram.com/kodiakcakes/",
+    "thumbnail_url": null,
+    "timestamp": "2026-09-02T07:00:00-06:00",
+    "username": "kodiakcakes",
     "hashtags": [
-      "#KeepItWild",
-      "#VitalGround"
+      "#HolidayBaking",
+      "#KeepItWild"
     ],
-    "image": "Keep It Wild campaign",
-    "source": "kodiakcakes.com/pages/keep-it-wild"
-  },
-  {
-    "caption": "Fuel your frontier with 14g protein and 100% whole grains. Wasatch mornings never tasted so good. (17)",
-    "hashtags": [
-      "#KeepItWild",
-      "#KodiakCakes",
-      "#ProteinPacked"
-    ],
-    "image": "https://cdn.shopify.com/s/files/1/2204/3207/files/705599011627_FlapjackMix_Buttermilk_Front_1.png",
-    "source": "kodiakcakes.com hero"
-  },
-  {
-    "caption": "Bear Bites for cubs \u2014 lunchbox ready, 5g protein, real honey and cinnamon. (18)",
-    "hashtags": [
-      "#BearBites",
-      "#KodiakCakes",
-      "#Lunchbox"
-    ],
-    "image": "Kodiak_Protein_Graham_Crackers_4_9af6f8dd-3404-4ea7-a339-c9243294c485.jpg",
-    "source": "raw-ingest"
-  },
-  {
-    "caption": "On the go never tasted so good \u2014 oatmeal cups that travel as well as you do. (19)",
-    "hashtags": [
-      "#OnTheGo",
-      "#KodiakCakes"
-    ],
-    "image": "2023-Peak-Oatmeal-Maple-Brown-Sugar-7701.jpg",
-    "source": "raw-ingest"
-  },
-  {
-    "caption": "Keep It Wild with Vital Ground \u2014 every stack helps protect grizzly habitat. (20)",
-    "hashtags": [
-      "#KeepItWild",
-      "#VitalGround"
-    ],
-    "image": "Keep It Wild campaign",
-    "source": "kodiakcakes.com/pages/keep-it-wild"
+    "source": "data/raw-ingest/kodiakcakes/images/030de2bb33a9--20240724-Kodiak-Cinnamon-Chocolate-Chip-Scones-0098-b1b30d_34c81a.jpg (licensed) + holiday-cast-iron :: not IG scrape",
+    "provenance": "scaffold_compliant_licensed_local_until_graph_auth",
+    "handle": "@kodiakcakes",
+    "cue": "holiday-cast-iron"
   }
 ]
