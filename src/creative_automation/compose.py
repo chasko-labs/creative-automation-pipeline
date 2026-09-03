@@ -1,6 +1,7 @@
 """Compose final creatives — S3-backed tokens + local fallback."""
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 from typing import Tuple
 
@@ -180,7 +181,7 @@ def compose_creative(
                 logo = logo.resize((lw, lh), Image.BICUBIC)
             bg.paste(logo, (logo_offset, logo_offset), logo)
         except Exception as e:
-            print(f"[compose] logo overlay failed: {e}")
+            print(f"[compose] logo overlay failed: {e}", file=sys.stderr)
 
     # retailer logo — channel partner badge (Costco, Target etc) — bottom-right, small, only when not direct/subscriber variant
     if retailer_logo and retailer_logo.exists():
@@ -201,7 +202,7 @@ def compose_creative(
             bg.paste(bg2, (rx - pad, ry - pad), bg2)
             bg.paste(rlogo.resize((rw, rh), Image.BICUBIC), (rx, ry), rlogo.resize((rw, rh), Image.BICUBIC))
         except Exception as e:
-            print(f"[compose] retailer logo failed: {e}")
+            print(f"[compose] retailer logo failed: {e}", file=sys.stderr)
 
     # brand color accent bar — token-driven
     colors = brand_colors or _default_brand

@@ -4,6 +4,7 @@ from __future__ import annotations
 import base64
 import json
 import os
+import sys
 from pathlib import Path
 from typing import Optional
 
@@ -127,7 +128,7 @@ def _try_bedrock_nova_canvas(prompt: str, out_path: Path, width: int = 1024, hei
         return out_path
     except (ClientError, BotoCoreError, Exception) as e:
         # silent fallback — caller logs
-        print(f"[generate] Bedrock Nova Canvas unavailable, falling back to mock: {e}")
+        print(f"[generate] Bedrock Nova Canvas unavailable, falling back to mock: {e}", file=sys.stderr)
         return None
 
 
