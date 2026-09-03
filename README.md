@@ -79,7 +79,7 @@ See the full 18-place memory with green chile at the top: `docs/regional-cultura
 
 - One cloud setup holds everything — described together in `infra/template.yaml` (currently live as `chasko-creative-dam-946179428633-us-east-1` in us-east-1, versioned, private, encrypted). It keeps the style library, the regional knowledge, the store list, and the logs together. Create the phone book once in Business Locations, organize store groups, turn advantage budget off so Las Cruces stays Las Cruces, make one post and reuse it with "Use Existing Post," let dynamic text `{{store.city}}` and the map card do the local swap, button to Get Directions — full plain steps at `docs/how-we-launch-in-every-town.md`.
 - Style tokens live in `design/tokens/kodiak.json` and mirror to cloud. The pipeline pulls them first from cloud when `DAM_S3_BUCKET` is set, otherwise from your laptop. No hard-coded colors.
-- When a photo is missing, the system builds a new frontier photo with the Wasatch palette (local fallback) or with Bedrock image generation when you turn on credentials. When a photo exists, it reuses it. Missed heroes are never blank.
+- When a photo is missing, the system builds a new frontier photo with the Wasatch palette (local fallback) or with Bedrock image generation when you turn on credentials. When a photo exists, it reuses it. Missed heroes are never blank. The prompt-to-image endpoint is live (PR #55); real AI image output is pending Nova Canvas access re-activation and currently returns a branded placeholder.
 
 ## How we keep building the right way
 

@@ -77,15 +77,15 @@ This is the heart of the system and already has a detailed, CIO-grade diagram �
 
 Retrieval and embedding facts, verified in code:
 
-| concern         | value                                                      | source                                                    |
-| --------------- | ---------------------------------------------------------- | --------------------------------------------------------- |
-| embedder        | Titan Embed Text v2:0 (only embedding model)               | `bedrock-agentcore-architecture.md`, `scripts/embed-*.py` |
-| embed dimension | 1024                                                       | `agentcore-backlog.md` A1, `reference_api.py`             |
-| vector store    | S3 Vectors (managed, no servers)                           | `infra/template.yaml` comments, KB config                 |
-| text model      | Nova Micro / Lite via Converse                             | `docs/agentcore.md` env                                   |
-| image model     | Nova Canvas via InvokeModel, seed-locked                   | `bedrock-agentcore-architecture.md`                       |
-| training corpus | `data/vectors/kodiak-embeddings.jsonl` (3144 real vectors) | `agentcore-backlog.md`                                    |
-| sample prompts  | `data/prompts/blog-sample-prompts.jsonl` (635 prompts)     | `agentcore-backlog.md`                                    |
+| concern         | value                                                                                                                                                                | source                                                    |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| embedder        | Titan Embed Text v2:0 (only embedding model)                                                                                                                         | `bedrock-agentcore-architecture.md`, `scripts/embed-*.py` |
+| embed dimension | 1024                                                                                                                                                                 | `agentcore-backlog.md` A1, `reference_api.py`             |
+| vector store    | S3 Vectors (managed, no servers)                                                                                                                                     | `infra/template.yaml` comments, KB config                 |
+| text model      | Nova Micro / Lite via Converse                                                                                                                                       | `docs/agentcore.md` env                                   |
+| image model     | Nova Canvas (amazon.nova-canvas-v1:0) via InvokeModel — LEGACY/idle-gated, returns mock placeholder until re-activated; only Amazon-first image model on the account | `bedrock-agentcore-architecture.md`, generate.py fallback |
+| training corpus | `data/vectors/kodiak-embeddings.jsonl` (3144 real vectors)                                                                                                           | `agentcore-backlog.md`                                    |
+| sample prompts  | `data/prompts/blog-sample-prompts.jsonl` (635 prompts)                                                                                                               | `agentcore-backlog.md`                                    |
 
 ---
 
@@ -356,19 +356,22 @@ The seams — shared contracts where lanes touch — are design tokens (`design/
 
 The maturity view a CIO wants up front. The local pipeline is the always-present fallback at every step — AgentCore wraps it, never replaces it.
 
-| capability                                                    | status                | evidence                                                         |
-| ------------------------------------------------------------- | --------------------- | ---------------------------------------------------------------- |
-| local `run_pipeline()` end to end                             | live                  | `tests/test_e2e.py`, README quickstart                           |
-| DAM on S3, KMS, versioned                                     | live                  | `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/` |
-| CloudFormation footprint (buckets, tables, CI, observability) | live                  | `infra/template.yaml`                                            |
-| CodeBuild CI gate                                             | live                  | `buildspec.yml`, `CreativePipelineCI`                            |
-| 7 AgentCore Gateway tools                                     | live (local dispatch) | `gateway.py`, PR #13                                             |
-| asset-library write path + observability substrate            | live                  | `asset_api.py`, `observability.py`, PR #10/#12                   |
-| RAG corpus (3144 vectors, 635 prompts)                        | live                  | `data/vectors/`, `data/prompts/`                                 |
-| AgentCore Runtime hosting wrap                                | planned               | `agentcore.md`, `agentcore-backlog.md` epic C                    |
-| AgentCore Memory (cross-session market wins)                  | planned               | backlog C3                                                       |
-| Nova Act visual QA in the loop                                | planned               | `nova-act-runbook.md`, backlog                                   |
-| runtime IAM role (attaches ObservabilityWritePolicy)          | planned               | template comment                                                 |
+| capability                                                    | status                                 | evidence                                                                          |
+| ------------------------------------------------------------- | -------------------------------------- | --------------------------------------------------------------------------------- |
+| local `run_pipeline()` end to end                             | live (compose/render); image step mock | `tests/test_e2e.py`, README quickstart                                            |
+| prompt->image generate endpoint (Lambda + Function URL)       | live (endpoint), image = mock          | PR #55, generate_lambda.py; Function URL 403s to browser pending CloudFront front |
+| real AI image generation (Nova Canvas)                        | blocked                                | nova-canvas is LEGACY/idle-gated; returns mock until console re-activation        |
+| per-market language chips (top-2 per market)                  | live                                   | PR #57, market-languages.json, deployed to kodiak.bryanchasko.com                 |
+| DAM on S3, KMS, versioned                                     | live                                   | `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/`                  |
+| CloudFormation footprint (buckets, tables, CI, observability) | live                                   | `infra/template.yaml`                                                             |
+| CodeBuild CI gate                                             | live                                   | `buildspec.yml`, `CreativePipelineCI`                                             |
+| 7 AgentCore Gateway tools                                     | live (local dispatch)                  | `gateway.py`, PR #13                                                              |
+| asset-library write path + observability substrate            | live                                   | `asset_api.py`, `observability.py`, PR #10/#12                                    |
+| RAG corpus (3144 vectors, 635 prompts)                        | live                                   | `data/vectors/`, `data/prompts/`                                                  |
+| AgentCore Runtime hosting wrap                                | planned                                | `agentcore.md`, `agentcore-backlog.md` epic C                                     |
+| AgentCore Memory (cross-session market wins)                  | planned                                | backlog C3                                                                        |
+| Nova Act visual QA in the loop                                | planned                                | `nova-act-runbook.md`, backlog                                                    |
+| runtime IAM role (attaches ObservabilityWritePolicy)          | planned                                | template comment                                                                  |
 
 ---
 
