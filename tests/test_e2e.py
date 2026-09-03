@@ -42,4 +42,4 @@ def test_localization_memory_seed():
     lines = data.read_text().strip().splitlines()
     assert len(lines) >= 18
     # Las Cruces green chile exemplar must be present
-    assert any("Las Cruces" in l and "green chile" in l.lower() for l in lines)
+    assert any("Las Cruces" in line and "green chile" in line.lower() for line in lines)
