@@ -20,6 +20,10 @@ BLOCKLIST_PATH = Path(__file__).parents[2] / "data" / "safety" / "blocklist.json
 
 CATEGORIES = ("profanity", "political", "slurs", "corporate_tone")
 
+# the string substituted for a flagged term by redact(); exported so callers can
+# detect that a redaction occurred without re-scanning (the returned text is clean).
+REDACTION_MARKER = "[redacted]"
+
 _SEED_MARKER = "__SEED_ONLY__"
 
 
@@ -64,7 +68,7 @@ def check_text(text: str, path: str | None = None) -> dict:
     return {"clean": len(flagged) == 0, "flagged": flagged}
 
 
-def redact(text: str, replacement: str = "[redacted]", path: str | None = None) -> str:
+def redact(text: str, replacement: str = REDACTION_MARKER, path: str | None = None) -> str:
     """Return text with every flagged term replaced by ``replacement``."""
     if not text:
         return text
