@@ -1,0 +1,159 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  Kodiak creatives - standalone Bedrock model-invocation logging stack
+  (kodiak-creatives-bedrock-logging). CloudFormation owns the two IaC-manageable
+  dependencies: the CloudWatch Logs log group that receives invocation logs, and
+  the IAM role Bedrock assumes to write into it. The account-level toggle that
+  actually points Bedrock at these resources
+  (bedrock put-model-invocation-logging-configuration) is NOT a CloudFormation
+  resource type - see the Metadata block and EnableLoggingCommand output for the
+  exact post-deploy CLI. This mirrors the CloudFront-logging-enable pattern we
+  already use for the non-CFN-managed distribution.
+
+Metadata:
+  # ------------------------------------------------------------------------
+  # WHY there is no logging-config resource in this template:
+  #
+  # As of cfn-lint 1.51.5 / current CloudFormation resource coverage, there is
+  # NO native AWS::Bedrock::* resource type for the account-level
+  # PutModelInvocationLoggingConfiguration API. Model-invocation logging is an
+  # account+region SINGLETON setting, not a taggable/addressable resource, so
+  # CloudFormation cannot model it natively. The AWS prescriptive-guidance
+  # pattern and the aws-samples/enable-bedrock-logging-using-cloudformation repo
+  # both enable it via a Lambda-backed AWS::CloudFormation::CustomResource.
+  #
+  # DECISION: documented post-deploy CLI (surfaced in EnableLoggingCommand
+  # output), NOT a custom resource. Rationale:
+  #   - the toggle is already LIVE (enabled by hand via CLI); this template
+  #     exists to make its two dependencies IaC/traceable, not to re-own a
+  #     singleton that a custom resource would fight over on every deploy
+  #   - a Lambda-backed custom resource adds a Lambda + its execution role +
+  #     bedrock:PutModelInvocationLoggingConfiguration permission just to flip
+  #     one account setting - more blast radius than the setting itself
+  #   - documented-CLI keeps the enable step deterministic, greppable, and
+  #     identical to the CloudFront-logging-enable precedent in this repo
+  #
+  # The log group + role ARE the real CloudFormation-managed dependencies; the
+  # account-level toggle that references them (LogGroupName + RoleArn) is applied
+  # by the single CLI call below after this stack reaches CREATE_COMPLETE.
+  #
+  # Exact enable call (also emitted, role arn substituted, as EnableLoggingCommand):
+  #   aws bedrock put-model-invocation-logging-configuration \
+  #     --region us-east-1 \
+  #     --logging-config '{
+  #       "cloudWatchConfig": {
+  #         "logGroupName": "/aws/bedrock/kodiak-model-invocations",
+  #         "roleArn": "<BedrockLoggingRole.Arn>"
+  #       },
+  #       "textDataDeliveryEnabled": true,
+  #       "imageDataDeliveryEnabled": true,
+  #       "embeddingDataDeliveryEnabled": true,
+  #       "videoDataDeliveryEnabled": true
+  #     }'
+  # ------------------------------------------------------------------------
+  DocumentedManualStep: >-
+    Account-level Bedrock model-invocation logging is enabled by the
+    EnableLoggingCommand output (bedrock put-model-invocation-logging-configuration),
+    not by a CloudFormation resource. CloudFormation owns the log group + role only.
+
+Resources:
+  # Tagging strategy (this stack = kodiak-creatives-bedrock-logging):
+  #   project=kodiak-creatives, team=platform, managed-by=cloudformation,
+  #   repo=chasko-labs/creative-automation-pipeline, environment=production,
+  #   stack=kodiak-creatives-bedrock-logging.
+  #
+  # cfn-lint 1.51.5 models AWS::Logs::LogGroup Tags AND AWS::IAM::Role Tags as a
+  # list of {Key,Value} (same shape as S3/DynamoDB), NOT a key-value map - the
+  # map shape fails E3012. Both taggable types below carry the full standard set.
+
+  # Destination log group Bedrock writes model-invocation records into.
+  # Name + retention match the LIVE resource enabled via CLI so a future
+  # deploy/import does not drift.
+  BedrockLoggingLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: /aws/bedrock/kodiak-model-invocations
+      RetentionInDays: 30
+      Tags:
+        - Key: project
+          Value: kodiak-creatives
+        - Key: team
+          Value: platform
+        - Key: managed-by
+          Value: cloudformation
+        - Key: repo
+          Value: chasko-labs/creative-automation-pipeline
+        - Key: environment
+          Value: production
+        - Key: stack
+          Value: kodiak-creatives-bedrock-logging
+
+  # Role Bedrock assumes to deliver logs to the group above.
+  # Explicit RoleName -> deploy MUST pass CAPABILITY_NAMED_IAM.
+  # The trust policy is confused-deputy hardened: SourceAccount pins this
+  # account, SourceArn pins the bedrock service arn space in this region+account.
+  BedrockLoggingRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: kodiak-bedrock-logging-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: BedrockAssumeForLogging
+            Effect: Allow
+            Principal:
+              Service: bedrock.amazonaws.com
+            Action: sts:AssumeRole
+            Condition:
+              StringEquals:
+                # Pin to THIS account - blocks a Bedrock principal in any other
+                # account from assuming this role (confused-deputy guard).
+                aws:SourceAccount: !Ref AWS::AccountId
+              ArnLike:
+                # Pin to the Bedrock service arn space in this region+account.
+                aws:SourceArn: !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:*
+      Policies:
+        - PolicyName: kodiak-bedrock-logging-cloudwatch-write
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              # Least-privilege: only the two write actions Bedrock needs, scoped
+              # to the model-invocation stream path inside THIS log group.
+              # Resource uses the log group arn + its :log-stream: child path.
+              - Sid: WriteBedrockInvocationLogs
+                Effect: Allow
+                Action:
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource:
+                  - !GetAtt BedrockLoggingLogGroup.Arn
+                  - !Sub ${BedrockLoggingLogGroup.Arn}:log-stream:aws/bedrock/modelinvocations
+      Tags:
+        - Key: project
+          Value: kodiak-creatives
+        - Key: team
+          Value: platform
+        - Key: managed-by
+          Value: cloudformation
+        - Key: repo
+          Value: chasko-labs/creative-automation-pipeline
+        - Key: environment
+          Value: production
+        - Key: stack
+          Value: kodiak-creatives-bedrock-logging
+
+Outputs:
+  BedrockLoggingLogGroupName:
+    Value: !Ref BedrockLoggingLogGroup
+    Description: CloudWatch log group receiving Bedrock model-invocation logs
+  BedrockLoggingRoleArn:
+    Value: !GetAtt BedrockLoggingRole.Arn
+    Description: IAM role arn Bedrock assumes to write invocation logs
+  EnableLoggingCommand:
+    Description: >-
+      Post-deploy CLI that enables the account-level model-invocation logging
+      toggle pointing Bedrock at the log group + role in this stack. Run once
+      after CREATE_COMPLETE; there is no native CloudFormation resource for it.
+    Value: !Sub >-
+      aws bedrock put-model-invocation-logging-configuration --region ${AWS::Region}
+      --logging-config '{"cloudWatchConfig":{"logGroupName":"/aws/bedrock/kodiak-model-invocations","roleArn":"${BedrockLoggingRole.Arn}"},"textDataDeliveryEnabled":true,"imageDataDeliveryEnabled":true,"embeddingDataDeliveryEnabled":true,"videoDataDeliveryEnabled":true}'
