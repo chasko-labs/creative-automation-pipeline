@@ -475,7 +475,7 @@ function render(){
   try{ prod = productSel && productSel.value ? products.find(x=>x.id===productSel.value) : null; }catch(e){}
   if(!prod) prod = products.find(x=>x.id==="savory-waffles") || products[0];
   let headline = "";
-  try{ headline = headlineEl && headlineEl.value ? headlineEl.value.trim() : ""; }catch(e){}
+  try{ const _b = document.getElementById('campaignBrief'); const _src = (_b && _b.value.trim()) ? _b : headlineEl; headline = _src && _src.value ? _src.value.trim() : ""; }catch(e){}
   if(!headline){
     try{ const p = localitySel && localitySel.value ? places.find(x=>x.market===localitySel.value) : places.find(x=>x.market==="US-MW-PARKCITY-84098"); headline = p ? p.message : "Keep It Wild — protein-packed whole grains for your Wasatch frontier. Nourishment for Today\u0027s Frontier"; }catch(e){ headline = "Keep It Wild — protein-packed whole grains for your Wasatch frontier. Nourishment for Today\u0027s Frontier"; }
   }
@@ -953,6 +953,7 @@ let skuList = [
           }catch(e){}
         }
         if(status) status.textContent = 'Sample ready — approve to dispatch full 73-market run';
+        try{ render(); }catch(e){ console.warn('render() failed on generate', e); }
         btn.disabled=false; btn.textContent='Generate Kodiak campaign';
         // Update local flavor with brief context
         const lf = document.getElementById('localFlavorText');
