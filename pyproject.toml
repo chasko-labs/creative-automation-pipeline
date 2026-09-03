@@ -16,6 +16,9 @@ dependencies = [
   "jinja2>=3.0",
 ]
 
+[project.optional-dependencies]
+rust = ["maturin>=1.5"]
+
 [project.scripts]
 creative-auto = "creative_automation.cli:main"
 
@@ -31,3 +34,9 @@ pythonpath = ["src"]
 
 [tool.ruff]
 line-length = 100
+
+[tool.maturin]
+bindings = "pyo3"
+manifest-path = "rust/kodiak-local/Cargo.toml"
+module-name = "creative_automation._kodiak_local"
+

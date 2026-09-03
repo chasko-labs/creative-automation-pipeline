@@ -9,6 +9,7 @@ All ops are Pillow-only, deterministic, offline. Toggleable via `enhance_hero`.
 """
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageEnhance, ImageOps
@@ -18,6 +19,29 @@ try:
     _tok = load_tokens()
 except Exception:
     _tok = None
+
+# Optional Rust accelerator (cargo build in rust/kodiak-local, maturin develop).
+# Falls back to pure-Python Pillow when extension is absent.
+# maturin installs the ext at the nested path when built from the workspace
+# pyproject ([tool.maturin] module-name), but at the bare _kodiak_local name when
+# built with `maturin develop -m rust/kodiak-local/Cargo.toml`. Accept either so
+# the Rust dispatch path is reachable regardless of build invocation.
+try:
+    import creative_automation._kodiak_local as _rust  # type: ignore
+except ImportError:
+    try:
+        import _kodiak_local as _rust  # type: ignore
+    except ImportError:
+        _rust = None  # type: ignore
+
+
+def _use_rust() -> bool:
+    """Opt-in Rust dispatch gate.
+
+    Requires BOTH the compiled extension present AND KODIAK_RUST=1. Default off so
+    CI (which runs pytest without the compiled ext) always takes the Pillow path.
+    """
+    return _rust is not None and os.getenv("KODIAK_RUST") == "1"
 
 BEAR_BROWN = "#3B2316"
 BLAZE_ORANGE = "#E8530E"
@@ -67,11 +91,16 @@ def enhance_hero(
     out = dst or src
     img = Image.open(src).convert("RGBA")
     # Auto-contrast normalize first (histogram stretch mild) — RGB only, preserve alpha
-    r, g, b, a = img.split()
-    rgb = Image.merge("RGB", (r, g, b))
-    rgb = ImageOps.autocontrast(rgb, cutoff=0.5)
-    r, g, b = rgb.split()
-    img = Image.merge("RGBA", (r, g, b, a))
+    if _use_rust():
+        w, h = img.size
+        buf = _rust.autocontrast(img.tobytes(), w, h, 0.5)
+        img = Image.frombytes("RGBA", (w, h), bytes(buf))
+    else:
+        r, g, b, a = img.split()
+        rgb = Image.merge("RGB", (r, g, b))
+        rgb = ImageOps.autocontrast(rgb, cutoff=0.5)
+        r, g, b = rgb.split()
+        img = Image.merge("RGBA", (r, g, b, a))
     # Enhance chain
     if contrast != 1.0:
         img = ImageEnhance.Contrast(img).enhance(contrast)
@@ -89,26 +118,36 @@ def enhance_hero(
 
     # Vignette — radial darken edges 6 percent
     if vignette:
-        w, h = img.size
-        vign = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-        vd = ImageDraw.Draw(vign)
-        # approximate vignette via concentric rects with increasing alpha
-        for i in range(12):
-            alpha = int(i * 1.2)  # max ~14
-            inset = i * (min(w, h) // 90)
-            vd.rectangle([inset, inset, w - inset, h - inset], outline=(0, 0, 0, alpha))
-        img = Image.alpha_composite(img, vign)
+        if _use_rust():
+            w, h = img.size
+            buf = _rust.vignette(img.tobytes(), w, h)
+            img = Image.frombytes("RGBA", (w, h), bytes(buf))
+        else:
+            w, h = img.size
+            vign = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+            vd = ImageDraw.Draw(vign)
+            # approximate vignette via concentric rects with increasing alpha
+            for i in range(12):
+                alpha = int(i * 1.2)  # max ~14
+                inset = i * (min(w, h) // 90)
+                vd.rectangle([inset, inset, w - inset, h - inset], outline=(0, 0, 0, alpha))
+            img = Image.alpha_composite(img, vign)
 
     # Framing — double border
     if frame:
-        # inner 1 px stone
-        img = ImageOps.expand(img, border=1, fill=_hex(STONE))
-        # outer 6 px bear brown
-        img = ImageOps.expand(img, border=6, fill=_hex(BEAR_BROWN))
-        # also add thin Blaze Orange hairline at bottom 2 px to echo accent bar
-        draw = ImageDraw.Draw(img)
-        w, h = img.size
-        draw.rectangle([0, h - 2, w, h], fill=_hex(BLAZE_ORANGE))
+        if _use_rust():
+            w, h = img.size
+            buf, fw, fh = _rust.framing(img.tobytes(), w, h)
+            img = Image.frombytes("RGBA", (fw, fh), bytes(buf))
+        else:
+            # inner 1 px stone
+            img = ImageOps.expand(img, border=1, fill=_hex(STONE))
+            # outer 6 px bear brown
+            img = ImageOps.expand(img, border=6, fill=_hex(BEAR_BROWN))
+            # also add thin Blaze Orange hairline at bottom 2 px to echo accent bar
+            draw = ImageDraw.Draw(img)
+            w, h = img.size
+            draw.rectangle([0, h - 2, w, h], fill=_hex(BLAZE_ORANGE))
 
     # Watermark — bear mark at 24,24 — same placement as compose template
     if watermark:
