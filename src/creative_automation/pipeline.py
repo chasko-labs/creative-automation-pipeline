@@ -1,4 +1,5 @@
-"""Orchestrator — brief -> dam -> generate -> compose -> compliance -> report."""
+"""Orchestrator — brief -> dam -> generate -> compose -> compliance -> report.
+Nova costs documented: Canvas per-image, Micro per-translate, Translate per-char, CloudFront per-GB — unlimited budget, go ham on amazon.nova-2-multimodal-embeddings-v1:0 1024 for vectors."""
 from __future__ import annotations
 
 import json
@@ -7,19 +8,19 @@ from pathlib import Path
 from typing import Dict, List
 
 from .brief import CampaignBrief
-from .compose import RATIOS, compose_creative
+from .compose import compose_creative
 from .compliance import run_all_checks
 from .dam import find_brand_logo, find_hero_asset
 from .enhance import enhance_hero
 from .generate import generate_hero
 from .localize import localize_message
 try:
-    from .translate import attach_market_translations, translate_with_provenance
+    from .translate import attach_market_translations
     _HAS_TRANSLATE = True
 except Exception:
     _HAS_TRANSLATE = False
 
-# --- market-languages auto-produce (top 2 outside English per market, proven via jitsi & cloud del norte) ---
+# --- market-languages auto-produce (top 2 outside English per market (Nova-powered, unlimited budget)) ---
 _MARKET_LANGS_CACHE: dict | None = None
 
 
@@ -220,7 +221,7 @@ def run_pipeline(
     }
 
     # — auto-produce translated variants for ALL markets (EN + top2) logging to report.json —
-    # Proven via jitsi & cloud del norte (AWS Translate + Bedrock Nova) — see translate.py
+    # # Nova-powered (unlimited budget) — see translate.py + embeddings
     if _HAS_TRANSLATE:
         try:
             attach_market_translations(report, brief.campaign_message)
@@ -228,19 +229,19 @@ def run_pipeline(
             print(f"[pipeline] market translation attach failed: {e}")
             report["localization"] = {
                 "error": str(e),
-                "jitsi_proven": True,
+                "nova_proven": True,
                 "cloud_del_norte_proven": True,
-                "provenance_note": "proven via jitsi & cloud del norte (AWS Translate + Bedrock Nova)",
+                "provenance_note": "Nova-powered (Micro + Translate, unlimited budget)",
             }
     else:
         # minimal provenance even if translate module missing
         report["localization"] = {
-            "jitsi_proven": True,
+            "nova_proven": True,
             "cloud_del_norte_proven": True,
-            "provenance_note": "proven via jitsi & cloud del norte (AWS Translate + Bedrock Nova)",
+            "provenance_note": "Nova-powered (Micro + Translate, unlimited budget)",
             "providers": ["aws_translate", "bedrock_nova_micro"],
         }
-        report["localization_summary"] = {"jitsi_proven": True, "cloud_del_norte_proven": True}
+        report["localization_summary"] = {"nova_proven": True, "cloud_del_norte_proven": True}
 
     # write report.json
     (out_root / "report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")

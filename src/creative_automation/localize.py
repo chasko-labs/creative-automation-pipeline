@@ -82,7 +82,7 @@ def _try_bedrock_translate(text: str, target_lang: str, region: str) -> str | No
 
 
 def _try_translate_api(text: str, target_lang: str, source_lang: str = "en") -> str | None:
-    """Amazon Translate proven via jitsi & cloud del norte — second try after Nova Micro."""
+    """Amazon Translate — second try after Nova Micro (unlimited Nova budget)."""
     if boto3 is None or target_lang == "en":
         return None
     # translate_code supports ht->fr, so->ar already mapped by pipeline loader
@@ -105,7 +105,7 @@ def localize_message(text: str, lang: str, region: str, explicit_map: dict | Non
         return explicit_map[lang], "brief"
     if lang == "en":
         return text, "original"
-    # try bedrock (Nova Micro) first, then Translate API (proven via jitsi & cloud del norte)
+    # try bedrock (Nova Micro) first, then Translate API (via Nova Micro + Amazon Translate)
     tr = _try_bedrock_translate(text, lang, region)
     if tr:
         return tr, "bedrock:nova-micro"

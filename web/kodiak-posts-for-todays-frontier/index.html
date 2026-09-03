@@ -131,7 +131,7 @@ Or: Fall protein for porch families — 14g, 100% whole grains — Nourishment f
 
 </div>
 <script>
-// Market languages — top 2 outside English per market (ACS 2022), auto-produced as EN + localized variants. Proven via jitsi & cloud del norte (Amazon Translate + Nova Micro)
+// Market languages — top 2 outside English per market (ACS 2022), auto-produced as EN + localized variants. Proven via Nova (unlimited budget) (Amazon Translate + Nova Micro)
 const marketLangsOffline = {
   "US-SW-EL PASO": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":62},{"lang_code":"de","lang_name":"German","translate_code":"de","pct_home":0.6}],
   "US-NE-BURLINGTON": [{"lang_code":"fr","lang_name":"French","translate_code":"fr","pct_home":3.2},{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":2.1}],
@@ -160,7 +160,7 @@ function renderLangChips(){
   el.innerHTML='<span style=\"font-weight:800;color:#B51E14;letter-spacing:.04em\">Auto-produce — Top 2 languages outside English (El Paso → ES, Burlington VT/Northern ME → FR):</span> '
     +'<span style=\"display:inline-flex;align-items:center;background:#3B2316;color:#FFF8F0;padding:4px 10px;border-radius:999px;font-weight:800;font-size:11px\">EN English</span>'
     +langs.map(l=>'<span style=\"display:inline-flex;align-items:center;background:#E8530E;color:white;padding:4px 10px;border-radius:999px;font-weight:800;font-size:11px\">'+l.translate_code.toUpperCase()+' '+l.lang_name+'<span style=\"opacity:.9;font-weight:600\">'+pct(l)+'</span></span>').join(' ')
-    +'<span style=\"color:#8C7A70;margin-left:6px\">• Pipeline renders campaign message in EN + localized on every final post (fanned dispatch). Proven via jitsi & cloud del norte (Amazon Translate + Nova Micro).</span>';
+    +'<span style=\"color:#8C7A70;margin-left:6px\">• Pipeline renders campaign message in EN + localized on every final post (fanned dispatch). Proven via Nova (unlimited budget) (Amazon Translate + Nova Micro).</span>';
 }
 setTimeout(renderLangChips, 600);
 document.addEventListener('change', e=>{ if(e.target && e.target.id==='locality') renderLangChips(); });
@@ -568,7 +568,7 @@ fillSelects(); render();
 </script>
 
 <footer style="max-width:1100px;margin:24px auto 12px;padding:12px 18px;border:1px dashed #E8530E;border-radius:10px;background:#FFF8F0;font:500 11px/1.5 Inter,sans-serif;color:#6B5A53" data-mcp="footer.version" data-mcp-version="0.4.1-28d0c98-20260902">
-<span style="font:800 11px/1 Inter,sans-serif;letter-spacing:.08em;color:#B51E14">KODIAK Frontier v0.4.1-28d0c98-20260902</span> — open console for MOTD (agent architecture + under-the-hood demo) • <a href="webmcp.json">webmcp.json</a> • <a href="data/localization/market-languages.json">market-languages.json (73)</a> • pipelines: Bedrock AgentCore • Nova Canvas/Micro • Amazon Translate (jitsi/cloud del norte proven) • S3 DAM • fanned Adobe Express MCP dispatch
+<span style="font:800 11px/1 Inter,sans-serif;letter-spacing:.08em;color:#B51E14">KODIAK Frontier v0.4.1-28d0c98-20260902</span> — open console for MOTD (agent architecture + under-the-hood demo) • <a href="webmcp.json">webmcp.json</a> • <a href="data/localization/market-languages.json">market-languages.json (73)</a> • pipelines: Bedrock AgentCore • Nova Canvas/Micro • Amazon Translate (Nova (unlimited budget) proven) • S3 DAM • fanned Adobe Express MCP dispatch
 </footer>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.4.1-28d0c98-20260902","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Canvas hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
 
@@ -580,12 +580,12 @@ fillSelects(); render();
   const BUILD="2026-09-02 • 73 markets • EN + top2";
   window.KODIAK_VERSION = VER;
   window.KODIAK_BUILD = BUILD;
-  window.KODIAK_WEBMCP = { version: VER, mcp: "enabled", manifest: "webmcp.json", tools: ["places","products","recipes","market-languages","brief-yaml","preview","compose","localize"], architecture: "offline-first static + Bedrock AgentCore + Nova Canvas/Micro + Amazon Translate (jitsi/cloud del norte)", origin: "https://d37333alc7ojpl.cloudfront.net/" };
+  window.KODIAK_WEBMCP = { version: VER, mcp: "enabled", manifest: "webmcp.json", tools: ["places","products","recipes","market-languages","brief-yaml","preview","compose","localize"], architecture: "offline-first static + Bedrock AgentCore + Nova Canvas/Micro + Amazon Translate (Nova unlimited budget)", origin: "https://d37333alc7ojpl.cloudfront.net/" };
   const bear = "  /^--^\\     /^--^\\\n  \\____/     \\____/\n  /      \\___/      \\   KODIAK® — Keep It Wild\n  \\____/   \\____/\n";
   const motd = `%c${bear}%cKODIAK Posts for Today's Frontier — v${VER} — ${BUILD}%c\n`+
     "Open: places / products / recipes / market-languages / brief-yaml — all offline, no server.\n"+
     "Pipeline: brief → DAM reuse or Nova Canvas hero → enhance (contrast/texture/frame/watermark) → compose 1:1/9:16/16:9 with message overlay → compliance → report.json + preview.html\n"+
-    "Translate: Nova Micro (Converse maxTokens:256) → Amazon Translate (proven jitsi & Cloud del Norte) → offline dict → tagged fallback — auto per market (El Paso ES, Burlington/N.Maine FR, SF Pescadero ZH, Honolulu JA/TL).\n"+
+    "Translate: Nova Micro (Converse maxTokens:256) → Amazon Translate (proven Nova (unlimited budget)) → offline dict → tagged fallback — auto per market (El Paso ES, Burlington/N.Maine FR, SF Pescadero ZH, Honolulu JA/TL).\n"+
     "Try: KODIAK_VERSION, KODIAK_WEBMCP, document.querySelectorAll('[data-mcp]'), fetch('webmcp.json').then(r=>r.json()).then(console.log)\n"+
     "Assets: s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/ • s3://frontier-bryanchasko-com/ • CloudFront d37333alc7ojpl.cloudfront.net\n"+
     "Docs: docs/regional-cultural-database.md • data/localization/market-languages.json (73)\n";

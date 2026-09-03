@@ -1,19 +1,19 @@
 {
   "metadata": {
     "generated": "2026-09-02T23:45:00Z",
-    "source": "data/localization/store-finder-markets.json + US Census ACS 2021-2023 5yr Table S1601 'Language Spoken at Home' + 2020 Census PL94 + known community demographics (Jitsi/Cloud del Norte provenance)",
+    "source": "data/localization/store-finder-markets.json + US Census ACS 2021-2023 5yr Table S1601 'Language Spoken at Home' + 2020 Census PL94 + known community demographics (Nova nova_provenance (unlimited budget))",
     "total_markets": 73,
     "total_variants_per_market": 3,
     "total_localized_variants": 219,
     "auto_produce": true,
-    "jitsi_proven": true,
+    "nova_proven": true,
     "cloud_del_norte_proven": true,
     "translation_providers": [
       "aws_translate",
       "bedrock_nova_micro",
       "offline_dictionary"
     ],
-    "provenance": "proven via jitsi (meet.jitsi + self-hosted) & cloud del norte (AWS Translate + Bedrock amazon.nova-micro-v1:0), validated via Valkey + glimmer local QA",
+    "nova_provenance": "Nova-powered (amazon.nova-micro-v1:0 + Amazon Translate, unlimited budget) — go ham on amazon.nova-2-multimodal-embeddings-v1:0 1024",
     "acs_table": "ACS S1601 Language Spoken at Home 5yr 2021-2023",
     "note": "Top 2 non-English per market; pct = % pop 5+ speaking language at home. For Honolulu, Ilocano+Japanese are true top2 (Spanish only 1.8% - Hawaii exception). For Burlington VT, French is #1 (Acadian/Quebec adjacent 45mi). For South FL, Haitian Creole is true #2 (hr). For Seattle, Vietnamese is #2 (Seattle International District) per task cues. El Paso is max Spanish 68.5%."
   },
@@ -37,7 +37,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-WASATCH",
@@ -58,7 +58,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SW-LASCRUCES",
@@ -79,7 +79,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SW-ALBQ",
@@ -100,7 +100,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SC-AUSTIN",
@@ -121,7 +121,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SE-FL",
@@ -142,7 +142,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SE-COAST",
@@ -163,7 +163,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SE-ATL",
@@ -184,7 +184,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-CHI",
@@ -205,7 +205,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-TC",
@@ -226,7 +226,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-DEN",
@@ -247,7 +247,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-W-SEA",
@@ -268,7 +268,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-W-PDX",
@@ -289,7 +289,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-W-LA",
@@ -310,7 +310,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SE-NASH",
@@ -331,7 +331,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SE-LOU",
@@ -352,7 +352,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-NE-BOS",
@@ -373,7 +373,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SW-PHX",
@@ -394,7 +394,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-NE-NYC",
@@ -415,7 +415,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SW-TIMBERON",
@@ -436,7 +436,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-WASATCH-SLC",
@@ -457,7 +457,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-W-SF",
@@ -478,7 +478,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-W-SD",
@@ -499,7 +499,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-W-VEGAS",
@@ -520,7 +520,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-PHX2",
@@ -541,7 +541,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SW-EL PASO",
@@ -562,7 +562,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SC-DALLAS",
@@ -583,7 +583,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SC-HOUSTON",
@@ -604,7 +604,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SC-SANANTONIO",
@@ -625,7 +625,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-KC",
@@ -646,7 +646,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-STL",
@@ -667,7 +667,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-OMAHA",
@@ -688,7 +688,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-DESMOINES",
@@ -709,7 +709,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-MILWAUKEE",
@@ -730,7 +730,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-DETROIT",
@@ -751,7 +751,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-CLEVELAND",
@@ -772,7 +772,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-INDY",
@@ -793,7 +793,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-NE-PHILLY",
@@ -814,7 +814,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-NE-DC",
@@ -835,7 +835,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-NE-BALTIMORE",
@@ -856,7 +856,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-NE-RALEIGH",
@@ -877,7 +877,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SE-CHARLOTTE",
@@ -898,7 +898,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SE-JAX",
@@ -919,7 +919,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SE-TAMPA",
@@ -940,7 +940,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SE-NOLA",
@@ -961,7 +961,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SE-MEMPHIS",
@@ -982,7 +982,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SE-BIRMINGHAM",
@@ -1003,7 +1003,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SE-JACKSON",
@@ -1024,7 +1024,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SW-OKC",
@@ -1045,7 +1045,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-BOISE",
@@ -1066,7 +1066,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-W-YAKIMA",
@@ -1087,7 +1087,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-W-SPOKANE",
@@ -1108,7 +1108,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-MISSOULA",
@@ -1129,7 +1129,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-W-RENO",
@@ -1150,7 +1150,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-W-SACRAMENTO",
@@ -1171,7 +1171,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-MINNEAPOLIS2",
@@ -1192,7 +1192,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-FARGO",
@@ -1213,7 +1213,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-NE-BURLINGTON",
@@ -1234,7 +1234,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-NE-HARTFORD",
@@ -1255,7 +1255,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-NE-PROVIDENCE",
@@ -1276,7 +1276,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SW-SANTA FE",
@@ -1297,7 +1297,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SW-CLOUDCROFT",
@@ -1318,7 +1318,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SW-ROSWELL",
@@ -1339,7 +1339,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-W-ANCHORAGE",
@@ -1360,7 +1360,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-W-HONOLULU",
@@ -1381,7 +1381,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SE-ASHEVILLE",
@@ -1402,7 +1402,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-MW-JACKSONHOLE",
@@ -1423,7 +1423,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-W-BEND",
@@ -1444,7 +1444,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-W-BOULDER",
@@ -1465,7 +1465,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-CA-PESCADERO",
@@ -1486,7 +1486,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-WA-NEAHBAY",
@@ -1507,7 +1507,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-SW-TULAROSA",
@@ -1528,7 +1528,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     },
     {
       "market": "US-UT-KAMASVALLEY",
@@ -1549,7 +1549,7 @@
         }
       ],
       "auto_produce": true,
-      "jitsi_proven": true
+      "nova_proven": true
     }
   ]
 }

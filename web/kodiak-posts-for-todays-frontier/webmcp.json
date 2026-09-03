@@ -3,6 +3,7 @@
   "version": "0.4.1-28d0c98-20260902",
   "description": "Offline-first frontier creative system — turn one KODIAK brief into hundreds of local ads (Bear Brown #3B2316, Keep It Wild).",
   "origin": "https://d37333alc7ojpl.cloudfront.net/",
+  "kodiak_alias": "https://kodiak.bryanchasko.com/ (you threw this out — will alias same CloudFront E3GEX8LSRX6OYS once cert validates)",
   "github": "https://github.com/chasko-labs/creative-automation-pipeline",
   "mcp": "enabled",
   "islands": [
