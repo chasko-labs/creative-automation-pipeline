@@ -1,0 +1,217 @@
+{
+  "metadata": {
+    "generated": "2026-09-02T00:00:00Z",
+    "purpose": "Frontier market gaps: underserved rural/remote markets where Kodiak subscription + retail gap exists. Timberon NM pi\u00f1on cross-promo with pinonnuts.com.",
+    "counts": {
+      "total": 6,
+      "cross_promo_pinonnuts": 6
+    }
+  },
+  "gaps": [
+    {
+      "market": "US-SW-TIMBERON",
+      "place": "Timberon, New Mexico",
+      "zip": "88350",
+      "county": "Otero County",
+      "state": "NM",
+      "coordinates": {
+        "lat": 32.634,
+        "lon": -105.71
+      },
+      "elevation_ft": 6900,
+      "population": 350,
+      "classification": "frontier rural village, Sacramento Mountains",
+      "frontier": true,
+      "subscriber_variant": true,
+      "retail_gap": "No grocery chain; nearest full grocer 45min (Alamogordo). Cloudcroft Mercantile / Timberon General Store limited SKU.",
+      "kodiak_opportunity": "Subscription-DTC frontier bundle: pi\u00f1on-seasonal flapjack mix + pinonnuts.com Pi\u00f1\u00f3n Seeds topping",
+      "cross_promo": {
+        "partner": "pinonnuts.com",
+        "partner_name": "Pi\u00f1on Nuts (Sacramento Mountains pi\u00f1on)",
+        "url": "https://pinonnuts.com",
+        "product": "Pi\u00f1\u00f3n Seeds \u2014 roasted Sacramento Mountains pi\u00f1on nuts",
+        "activation": "KODIAK x Pi\u00f1on Nuts bundle: Timberon Pi\u00f1\u00f3n Seeds pancake \u2014 Buttermilk Power Cakes + pinonnuts.com pi\u00f1on seeds + pi\u00f1on honey drizzle",
+        "recipe_localization": "Timberon Pi\u00f1\u00f3n Seeds Pancakes: 1 cup Kodiak Buttermilk Power Cakes + 1/4 cup pinonnuts.com pi\u00f1on seeds folded in, honey-pi\u00f1on drizzle, Sacramento Mountains pine cue"
+      },
+      "localization": {
+        "peppers": "Hatch green chile optional",
+        "cheeses": "Cotija crumble",
+        "fruit": "Pi\u00f1on seeds (not fruit \u2014 frontiers nut)",
+        "photo_cue": "Pi\u00f1on pines at 6900 ft, Sacramento Mountains, Timberon cabin porch, enamel mug",
+        "message": "Pi\u00f1on frontier \u2014 Timberon protein for mountain mornings",
+        "audience": "Pi\u00f1on harvest families, Sacramento Mountains homesteaders"
+      },
+      "fulfillment": "DTC subscription only; rural free shipping threshold; quarterly pi\u00f1on harvest drop"
+    },
+    {
+      "market": "US-SW-CLOUDCROFT-GAP",
+      "place": "Cloudcroft, New Mexico",
+      "zip": "88317",
+      "county": "Otero County",
+      "state": "NM",
+      "coordinates": {
+        "lat": 32.955,
+        "lon": -105.74
+      },
+      "elevation_ft": 8600,
+      "population": 750,
+      "classification": "Mountain frontier, Lincoln NF",
+      "frontier": true,
+      "subscriber_variant": true,
+      "retail_gap": "Single small grocer; 30min to Alamogordo Walmart; seasonal tourism swings",
+      "kodiak_opportunity": "Frontier subscriber + lodge cross-promo: Cloudcroft lodge breakfast bundle",
+      "cross_promo": {
+        "partner": "pinonnuts.com",
+        "partner_name": "Pi\u00f1on Nuts",
+        "url": "https://pinonnuts.com",
+        "product": "Pi\u00f1\u00f3n Seeds",
+        "activation": "Cloudcroft Pi\u00f1on Lodge Stack \u2014 Kodiak Power Cakes + pinonnuts.com, ski-season subscription",
+        "recipe_localization": "Cloudcroft Pi\u00f1on Lodge Pancakes: fold pinonnuts.com pi\u00f1on seeds into Buttermilk Power Cakes, top with maple-pi\u00f1on butter"
+      },
+      "localization": {
+        "peppers": "None \u2014 mountain lodge sweet",
+        "cheeses": "Cream cheese drizzle",
+        "photo_cue": "Cloudcroft pines, ski lodge deck, 8600ft alpenglow",
+        "message": "Mountain frontier \u2014 Cloudcroft lodge protein",
+        "audience": "Ski families, lodge hosts"
+      },
+      "fulfillment": "DTC subscription; Cloudcroft Mercantile consignment"
+    },
+    {
+      "market": "US-SW-RESERVE",
+      "place": "Reserve, New Mexico",
+      "zip": "87830",
+      "county": "Catron County",
+      "state": "NM",
+      "coordinates": {
+        "lat": 33.71,
+        "lon": -108.76
+      },
+      "elevation_ft": 5800,
+      "population": 290,
+      "classification": "Frontier, Gila National Forest gateway",
+      "frontier": true,
+      "subscriber_variant": true,
+      "retail_gap": "One general store; 90min to nearest Walmart (Silver City); Catron is least-dense county in NM",
+      "kodiak_opportunity": "Ultra-frontier subscription \u2014 Gila Wilder bundle",
+      "cross_promo": {
+        "partner": "pinonnuts.com",
+        "partner_name": "Pi\u00f1on Nuts",
+        "url": "https://pinonnuts.com",
+        "product": "Pi\u00f1\u00f3n Seeds",
+        "activation": "Gila Pi\u00f1on Wilder Stack \u2014 Reserve frontier flapjacks + pinonnuts.com pi\u00f1on brittle crumble",
+        "recipe_localization": "Reserve Gila Pi\u00f1on Wilder Pancakes: Power Cakes + pinonnuts.com pi\u00f1on brittle crumble, honey drizzle, Gila river cue"
+      },
+      "localization": {
+        "peppers": "Gila green chile dry ristras",
+        "cheeses": "None \u2014 nut-forward",
+        "photo_cue": "Gila National Forest, elk meadow, frontier cabin",
+        "message": "Gila frontier \u2014 Keep It Wild in Catron",
+        "audience": "Gila homesteaders, elk hunters"
+      },
+      "fulfillment": "DTC only; quarterly frontier box"
+    },
+    {
+      "market": "US-SW-QUEMADO",
+      "place": "Quemado, New Mexico",
+      "zip": "87829",
+      "county": "Catron County",
+      "state": "NM",
+      "coordinates": {
+        "lat": 34.35,
+        "lon": -108.5
+      },
+      "elevation_ft": 6900,
+      "population": 230,
+      "classification": "High desert frontier, Pie Town corridor",
+      "frontier": true,
+      "subscriber_variant": true,
+      "retail_gap": "Pie Town cafe + single gas store; 80min to Springerville AZ grocer",
+      "kodiak_opportunity": "Frontier pie-country breakfast: pi\u00f1on-pie flapjacks",
+      "cross_promo": {
+        "partner": "pinonnuts.com",
+        "partner_name": "Pi\u00f1on Nuts",
+        "url": "https://pinonnuts.com",
+        "product": "Pi\u00f1\u00f3n Seeds",
+        "activation": "Quemado Pi\u00f1on Pie Stack \u2014 Kodiak Power Cakes + pinonnuts.com toasted pi\u00f1on + peach-pi\u00f1on compote",
+        "recipe_localization": "Quemado Pi\u00f1on Peach Pancakes: Buttermilk Power Cakes + pinonnuts.com toasted pi\u00f1on, peach compote, Pie Town cue"
+      },
+      "localization": {
+        "peppers": "None \u2014 fruit & nut sweet",
+        "cheeses": "Mascarpone dollop",
+        "photo_cue": "High desert pie country, Very Large Array horizon, pi\u00f1on-juniper",
+        "message": "Pie Town frontier \u2014 pi\u00f1on & peach protein",
+        "audience": "High desert pie-country families, VLA roadtrip"
+      },
+      "fulfillment": "DTC subscription; Pie Town festival pop-up"
+    },
+    {
+      "market": "US-W-ELY",
+      "place": "Ely, Nevada",
+      "zip": "89301",
+      "county": "White Pine County",
+      "state": "NV",
+      "coordinates": {
+        "lat": 39.25,
+        "lon": -114.87
+      },
+      "elevation_ft": 6400,
+      "population": 4000,
+      "classification": "Great Basin frontier, Pi\u00f1on-Juniper belt",
+      "frontier": true,
+      "subscriber_variant": true,
+      "retail_gap": "Nearest Costco 240mi (Las Vegas); single Smith's serves vast basin; Great Basin pi\u00f1on harvest zone",
+      "kodiak_opportunity": "Great Basin pi\u00f1on frontier: Nevada pi\u00f1on meets Kodiak",
+      "cross_promo": {
+        "partner": "pinonnuts.com",
+        "partner_name": "Pi\u00f1on Nuts",
+        "url": "https://pinonnuts.com",
+        "product": "Pi\u00f1\u00f3n Seeds",
+        "activation": "Ely Great Basin Pi\u00f1on Stack \u2014 Kodiak Power Cakes + pinonnuts.com single-leaf pi\u00f1on (NV), sage-honey drizzle",
+        "recipe_localization": "Ely Great Basin Pi\u00f1on Pancakes: Power Cakes + pinonnuts.com Great Basin pi\u00f1on, sage honey, basin & range cue"
+      },
+      "localization": {
+        "peppers": "None \u2014 sage & honey sweet",
+        "cheeses": "None \u2014 nut-forward",
+        "photo_cue": "Great Basin sage, pi\u00f1on-juniper, basin and range alpenglow",
+        "message": "Great Basin frontier \u2014 pi\u00f1on protein for basin mornings",
+        "audience": "Basin ranch families, pi\u00f1on harvest camps"
+      },
+      "fulfillment": "DTC frontier subscription; Ely Farmers Market drop"
+    },
+    {
+      "market": "US-W-LOA",
+      "place": "Loa + Fremont, Utah",
+      "zip": "84747",
+      "county": "Wayne County",
+      "state": "UT",
+      "coordinates": {
+        "lat": 38.4,
+        "lon": -111.64
+      },
+      "elevation_ft": 7100,
+      "population": 560,
+      "classification": "Colorado Plateau frontier, Capitol Reef gateway",
+      "frontier": true,
+      "subscriber_variant": true,
+      "retail_gap": "One grocery for 38mi radius; 90mi to Richfield Walmart; Capitol Reef frontier",
+      "kodiak_opportunity": "Plateau frontier DTC: Capitol Reef adventure flapjacks",
+      "cross_promo": {
+        "partner": "pinonnuts.com",
+        "partner_name": "Pi\u00f1on Nuts",
+        "url": "https://pinonnuts.com",
+        "product": "Pi\u00f1\u00f3n Seeds",
+        "activation": "Loa Plateau Pi\u00f1on Stack \u2014 Kodiak Power Cakes + pinonnuts.com pi\u00f1on seeds + Utah honey",
+        "recipe_localization": "Loa Capitol Reef Pi\u00f1on Pancakes: Buttermilk Power Cakes + pinonnuts.com pi\u00f1on, Capitol Reef red rock cue, Utah honey drizzle"
+      },
+      "localization": {
+        "peppers": "None \u2014 plateau honey nut",
+        "cheeses": "None \u2014 honey-nut sweet",
+        "photo_cue": "Capitol Reef red cliffs, pi\u00f1on-juniper, Fremont river porch",
+        "message": "Plateau frontier \u2014 Keep It Wild at Capitol Reef",
+        "audience": "Plateau ranch families, Capitol Reef adventurers"
+      },
+      "fulfillment": "DTC only; Capitol Reef lodge pop-up"
+    }
+  ]
+}

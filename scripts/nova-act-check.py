@@ -263,7 +263,7 @@ def check_png_logo(png_path: Path) -> list[CheckResult]:
     clear_ok = True  # mock: no intrusion detected (hero at center, logo at corner)
     detail = f"ClearSpace {CLEAR_SPACE_FACTOR}x = {clear}px — offset {lx},{ly} inward clear OK"
     if outward_clipped:
-        detail += f" (outward ring clipped at edge [0,0] expected for corner logo; ideal 35px vs token offset 24px — tolerated)"
+        detail += " (outward ring clipped at edge [0,0] expected for corner logo; ideal 35px vs token offset 24px — tolerated)"
     detail += f" ring [{cx0},{cy0},{cx1},{cy1}]"
     results.append(CheckResult(
         "logo.clearSpace",
@@ -498,7 +498,6 @@ async def nova_act_viewport_check(preview_path: Path, viewport: tuple[int, int],
     # Try real Nova Act
     try:
         from nova_act import NovaAct  # type: ignore
-        import asyncio
 
         # Nova Act browser session — canonical example:
         # async with NovaAct(starting_page=preview_uri, headless=False) as nova:

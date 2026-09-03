@@ -1,0 +1,524 @@
+{
+  "$schema": "https://kodiakcakes.com/schema/hashtags-v1.json",
+  "generated": "2026-09-02",
+  "updated_at": "2026-09-02T20:51:02.488934Z",
+  "philosophy": "Power gloves, not a redirect — every tag here is copy-paste ready with caption bundles by platform. Maya picks a market, the pipeline pulls this file (or GET /search?q=green chile hashtags) and composes the right tags without a new brief.",
+  "sources": [
+    "data/raw-ingest/kodiakcakes/insta-deep.json 458K @kodiakcakes 5-7/week 7-10am MT 1:1+4:5+9:16",
+    "data/raw-ingest/kodiakcakes/tiktok-deep.json 9:16 1080x1920 FILE_UPLOAD",
+    "data/raw-ingest/kodiakcakes/x-deep.json 3903 tweets 2-4/week 16:9",
+    "data/raw-ingest/kodiakcakes/facebook-deep.json cross-post 1:1/4:5 + 9:16 + 1200x630",
+    "data/raw-ingest/kodiakcakes/linkedin-deep.json 37,765 followers org 10315847 1-2/week Tue-Thu 9-11am",
+    "data/raw-ingest/kodiakcakes/pinterest-deep.json kodiakflapjacks 14.7K 10M monthly Verified Merchant 22 boards 1400 pins",
+    "data/raw-ingest/kodiakcakes/youtube-deep.json 18K subs 473 videos Wasatch 32M hero + 7.6M Zac Efron",
+    "data/raw-ingest/kodiakcakes/web-deep.json sitemap 728 URLs 88 products 65 collections 36 pages 538 blogs 660 pages 90.7%",
+    "references/keep-it-wild/ + design/tokens/kodiak.json Bear Brown #3B2316 Blaze Orange #E8530E Frontier Green #1A3C34",
+    "docs/regional-cultural-database.md 18 seeded regions"
+  ],
+  "families": {
+    "brand": {
+      "name": "Brand — Always-on identity",
+      "description": "Required on every Kodiak creative. Cross-platform anchor from Instagram verified 458K, TikTok @kodiakcakes, X @KodiakCakes, Facebook, LinkedIn 37K, Pinterest Verified Merchant kodiakflapjacks 14.7K. Gives pipeline a one-tag identity that travels from Publix porch to Las Cruces green chile without rewrite.",
+      "tags": [
+        "#KodiakCakes",
+        "#Kodiak",
+        "#KodiakCakesPartner",
+        "#KodiakPartner",
+        "#KodiaksFindTheGood",
+        "#KodiakCakesFamily"
+      ],
+      "primary": ["#KodiakCakes"],
+      "required": true,
+      "use": "Append to every caption; partner/creator reposts must include #KodiakPartner + @KodiakCakes mention for duet discoverability. Instagram caption_style: 20-40 words + 3-5 hashtags appended never in-line; Handle @kodiakcakes.",
+      "volumes": {
+        "#KodiakCakes": 144450,
+        "#Kodiak": 217834,
+        "#KeepItWild": 6110898
+      },
+      "evidence": [
+        "insta-deep.json primary_brand 12/20 samples #KodiakCakes",
+        "tiktok-deep.json Brand_tag required mention",
+        "pinterest-deep.json Verified Merchant kodiakflapjacks 10M monthly views"
+      ],
+      "platform_notes": {
+        "instagram": "Always include #KodiakCakes; add #KodiakPartner on paid partner reposts (e.g. @zachcoen pancake casserole)",
+        "tiktok": "#KodiakCakes on every owned video; partner uses #KodiakPartner; @KodiakCakes mention for stitch",
+        "youtube": "Include in description + first comment; Shorts add #KodiakCakes below fold",
+        "pinterest": "Sparse — title carries SEO keywords; add #KodiakCakes only when present",
+        "linkedin": "1-3 hashtags max; use #KodiakCakes sparingly in commentary 80-150 words"
+      }
+    },
+    "campaign": {
+      "name": "Campaign — Keep It Wild & frontier story",
+      "description": "Conservation/trail/athlete tentpole voice from Park City Wasatch HQ. Use when creative cues wilderness, Vital Ground co-badge, athlete, trail, or frontier headline.",
+      "tags": [
+        "#KeepItWild",
+        "#VitalGround",
+        "#WilderLives",
+        "#FeedingEpicDays",
+        "#FeedYourWildAdventures",
+        "#NourishmentForTodaysFrontier",
+        "#Oatober",
+        "#KodiHacks",
+        "#FeedingEpicDaysAndWilderLives"
+      ],
+      "primary": ["#KeepItWild"],
+      "required": false,
+      "trademark": "98397901",
+      "use": "Every conservation/athlete/trail post, co-badge in footer KODIAK · kodiakcakes.com · Keep It Wild. Trademark 98397901 — allow Vital Ground co-badge tile kodiak-06. Instagram families.KeepItWild evidence 5/20 samples.",
+      "evidence": [
+        "insta-deep families.KeepItWild trademark 98397901",
+        "youtube-deep #KeepItWild #VitalGround 32M hero Feed Your Wild Adventures + 7.6M Zac Efron",
+        "tailoring-spec cp-01 Keep It Wild 310 hits across 77 pages"
+      ],
+      "platform_notes": {
+        "instagram": "Co-badge footer + #KeepItWild #VitalGround for trail/athlete; #Oatober daily surge Oct, #KodiHacks 81-video playlist",
+        "youtube": "Thumbnail accented Bear Brown #3B2316 + Blaze Orange #E8530E 8px bar; description chapters + product link + Keep It Wild footer; #Shorts for Shorts",
+        "facebook": "Mirrors IG 3-5/week cross-post; hashtags less boost — Page tags @KodiakCakes primary"
+      }
+    },
+    "product": {
+      "name": "Product — Protein & SKU proof",
+      "description": "Nutrition claim + SKU tags. Protein-packed proof reuses green chile pipeline chops: savory SKUs take pepper/cheese slots, sweet SKUs take fruit. Guardrail: use 14g absolute not % DV (class-action precedent).",
+      "tags": [
+        "#ProteinPacked",
+        "#14gProtein",
+        "#100PercentWholeGrains",
+        "#WholeGrainsTasteBetter",
+        "#PowerCakes",
+        "#BearBites",
+        "#PeakOatmeal",
+        "#PowerCups",
+        "#PowerWaffles",
+        "#MightyOat",
+        "#OnTheGoOatmeal",
+        "#MinuteMuffin"
+      ],
+      "primary": ["#ProteinPacked", "#BearBites"],
+      "use": "Nutrition claim posts: Buttermilk Power Cakes 14g, Oatmeal cups 5g; guardrail use 14g absolute not % DV. Pair SKU tag to product — #BearBites for cubs lunchbox (vp-03), #PowerCakes for cast-iron stack (vp-02), #PeakOatmeal/#OnTheGo for rocky overlook (vp-04).",
+      "sku_map": {
+        "power-cakes": ["#PowerCakes", "#ButtermilkPowerCakes", "#Flapjacks"],
+        "bear-bites": ["#BearBites", "#GrahamCrackers", "#CubsSnack"],
+        "oatmeal-cup": [
+          "#PeakOatmeal",
+          "#PowerCups",
+          "#OatmealCup",
+          "#OnTheGo"
+        ],
+        "waffles": ["#PowerWaffles", "#Waffles"],
+        "muffins": ["#MuffinMix", "#MinuteMuffin"],
+        "brownies": ["#BrownieMix", "#ProteinBrownie"]
+      },
+      "evidence": [
+        "insta-deep families.Protein_nutrition 14g claim",
+        "brand-lore amazon-store 14g + 100% whole grains 119 exact + 286 whole grain hits",
+        "pinterest Boards Muffins 173 + Flapjack Recipes 154 dominate saves"
+      ],
+      "platform_notes": {
+        "instagram": "Add #ProteinPacked + #14gProtein on stack hero; #BearBites + #Lunchbox for cubs bench; #OnTheGo for trail cup",
+        "tiktok": "Caption 1/4 cup flip tutorial + #KodiHacks #ProteinPacked; green chile batter + #GreenChile",
+        "pinterest": "Titles pair protein claim (14g) + occasion (brunch, kids, back-to-school) — validates cp-03 + cp-05; board Muffins/Oatmeal keywords"
+      }
+    },
+    "local": {
+      "name": "Local — Where the ad lives",
+      "description": "Geo tags that swap by {{store.city}} without new shoot. Powers Maya's one brief → hundreds of local ads: same bear at 24,24 but Las Cruces gets Hatch, Savannah gets peach. Power gloves — pipeline injects city tag from market zip.",
+      "tags": [
+        "#LasCruces",
+        "#HatchGreenChile",
+        "#OrganMountains",
+        "#Wasatch",
+        "#ParkCity",
+        "#Albuquerque",
+        "#AustinTexas",
+        "#Miami",
+        "#Savannah",
+        "#Atlanta",
+        "#Chicago",
+        "#Denver",
+        "#Seattle",
+        "#PortlandOregon",
+        "#PhoenixAZ",
+        "#NewMexicoTrue",
+        "#NMTrue",
+        "#LasCrucesNM"
+      ],
+      "primary": ["#LasCruces", "#HatchGreenChile"],
+      "use": "Las Cruces green chile flapjacks 88001, Wasatch dawn alpenglow 84060, holiday cast-iron — retailer_variants US-MW Wasatch vs US-SE Publix porch kodiak-07 geo switch. Local tag inserted via data/localization/hashtag-lookup.json by market/zip.",
+      "evidence": [
+        "regional-cultural-database Las Cruces star 88001 Hatch roast",
+        "tailoring-spec retailer_variants geo switch kodiak-01 vs kodiak-07",
+        "insta-deep Seasonal_local LasCruces Wasatch ParkCity"
+      ],
+      "platform_notes": {
+        "instagram": "Add #LasCruces + #HatchGreenChile on Las Cruces creative; #Wasatch #ParkCity for Wasatch alpenglow; location_id optional",
+        "facebook": "Feed targeting + attached_media {{store.city}} dynamic via Graph API scheduled_publish_time",
+        "tiktok": "Organ Mountains bench cue → #LasCruces #GreenChile #TrailFuel"
+      }
+    },
+    "community": {
+      "name": "Community — Use-case & routine",
+      "description": "How Kodiak fits the day — trail, lunchbox, brunch, back-to-school. Turns Pinterest 10M view discovery (recipe/occasion keywords) into post copy that saves.",
+      "tags": [
+        "#OnTheGo",
+        "#BearBites",
+        "#Lunchbox",
+        "#TrailFuel",
+        "#Campfire",
+        "#FrontierBreakfast",
+        "#FlapjackFriday",
+        "#WaffleWednesday",
+        "#Brunch",
+        "#BreakfastClub",
+        "#BackToSchool",
+        "#TrailMix",
+        "#HikerFuel",
+        "#FamilyBreakfast",
+        "#CubsWhoCook",
+        "#FuelYourTrail",
+        "#KeepTrailWild"
+      ],
+      "primary": ["#OnTheGo", "#TrailFuel"],
+      "use": "Oatmeal cup on rocky overlook (vp-04), cubs on trail bench (vp-03), cast-iron stack (vp-02) — maps to kodiak-on-the-go.yaml 5g busy mornings, kodiak-trail.yaml Fuel your trail, kodiak.yaml Keep It Wild porch vs frontier. Pinterest Boards: For the Kids 75, Breakfast & Brunch 92, Back to School 72.",
+      "evidence": [
+        "insta-deep families.Use_case_routine Oatmeal cup rocky overlook cubs trail bench",
+        "pinterest Boards For the Kids/Breakfast & Brunch/Back to School top_keywords",
+        "youtube KodiHacks 81-video how-to playlist"
+      ],
+      "platform_notes": {
+        "instagram": "Reels dominate 60% video + 30% Carousels — community tags #OnTheGo #TrailFuel boost save; #BearBites lunchbox",
+        "pinterest": "Idea Pins 3-5 frame walkthrough (mix, pour, flip, stack, bite) + keyword-rich title + 2-3 sentence description + kodiakcakes.com Rich Pin",
+        "youtube": "Kodiak Hacks playlist #KodiHacks + #Shorts for Shorts 0:07-0:18 vertical 9:16"
+      }
+    }
+  },
+  "local_variants": {
+    "US-SW-LASCRUCES": {
+      "market": "US-SW-LASCRUCES",
+      "place": "Las Cruces + Alamogordo, New Mexico",
+      "zip": "88001",
+      "retailer": "Target, Walmart, Albertsons",
+      "audience": "Green chile families, Hatch roast households 28-45",
+      "message": "Green chile meets grizzly — protein for your Las Cruces frontier",
+      "cue": "Roasted Hatch green chile in flapjacks, Organ Mountains bench, trail bench",
+      "green_chile_variants": [
+        {
+          "tag": "#HatchGreenChile",
+          "variant": "canonical Hatch",
+          "use": "Default Las Cruces tag; always include",
+          "product": "all savory SKUs"
+        },
+        {
+          "tag": "#GreenChile",
+          "variant": "short",
+          "use": "TikTok short-caption safe (5 tags max), pairs with #LasCruces"
+        },
+        {
+          "tag": "#HatchChile",
+          "variant": "Hatch short",
+          "use": "AB test vs #HatchGreenChile on IG Reels cover"
+        },
+        {
+          "tag": "#RoastedHatch",
+          "variant": "roast season",
+          "use": "Late Aug roast season tentpole — busheled & frozen"
+        },
+        {
+          "tag": "#GreenChileFlapjacks",
+          "variant": "recipe",
+          "use": "Recipe SKU tie — flapjacks-buttermilk + Hatch + Oaxaca crumble"
+        },
+        {
+          "tag": "#GreenChileMeetsGrizzly",
+          "variant": "campaign",
+          "use": "Campaign slogan hashtag — matches message line"
+        },
+        {
+          "tag": "#LasCrucesGreenChile",
+          "variant": "city + chile",
+          "use": "City-qualified for search 'Las Cruces green chile' RAG hit"
+        },
+        {
+          "tag": "#HatchChileFlapjacks",
+          "variant": "alt recipe",
+          "use": "Alternate recipe surface for embedding recall"
+        },
+        {
+          "tag": "#NewMexicoGreenChile",
+          "variant": "state",
+          "use": "State broad — Albuquerque cross-post"
+        },
+        {
+          "tag": "#ChileRoast",
+          "variant": "seasonal",
+          "use": "August roast house cue — partner diner cross-post"
+        }
+      ],
+      "platform_bundles": {
+        "instagram": "#KodiakCakes #KeepItWild #HatchGreenChile #LasCruces #GreenChileFlapjacks",
+        "tiktok": "#KodiakCakes #GreenChile #LasCruces #TrailFuel",
+        "facebook": "#KodiakCakes #HatchGreenChile #LasCruces",
+        "x": "#KodiakCakes #HatchGreenChile",
+        "pinterest": "#KodiakCakes (titles carry 'Hatch Green Chile Flapjacks — Las Cruces')",
+        "youtube": "#KodiakCakes #KeepItWild #HatchGreenChile #GreenChileFlapjacks #Shorts (Shorts only)",
+        "linkedin": "#KodiakCakes #KeepItWild"
+      },
+      "caption_bundles": {
+        "instagram_1x1": "Green chile meets grizzly — protein for your Las Cruces frontier. Hatch roasted this morning, flipped on cast iron, 14g protein + 100% whole grains. Find us at Target Las Cruces. #KodiakCakes #KeepItWild #HatchGreenChile #LasCruces #GreenChileFlapjacks",
+        "tiktok_9x16": "Green chile flapjacks — Las Cruces style. Hatch in the batter, Organ Mountains behind. #KodiakCakes #GreenChile #LasCruces",
+        "facebook_1x1": "Green chile meets grizzly — Las Cruces frontier flapjacks. Roasted Hatch + Oaxaca on the trail bench. Find us today in Las Cruces! #KodiakCakes #HatchGreenChile",
+        "pinterest_2x3": "Hatch Green Chile Flapjacks — Las Cruces Frontier | 14g Protein, 100% Whole Grains | Kodiak Cakes",
+        "youtube_shorts": "Green chile flapjacks — Las Cruces style | Kodiak Hacks #KodiakCakes #KeepItWild #Shorts"
+      }
+    },
+    "US-MW-WASATCH": {
+      "market": "US-MW-WASATCH",
+      "place": "Park City, Wasatch Mountains",
+      "zip": "84060",
+      "retailer": "Target, Walmart",
+      "audience": "Outdoor families, ski and hike households",
+      "message": "Keep It Wild — protein-packed whole grains for today's frontier",
+      "cue": "Wasatch alpenglow, pine, boulder, snow at dawn",
+      "tags": [
+        "#Wasatch",
+        "#ParkCity",
+        "#KeepItWild",
+        "#FrontierBreakfast",
+        "#Alpenglow"
+      ],
+      "platform_bundle": "#KodiakCakes #KeepItWild #Wasatch #ParkCity",
+      "caption": "Keep It Wild — protein-packed whole grains for today's frontier. Wasatch alpenglow, cast-iron stack, 14g protein. #KodiakCakes #KeepItWild #Wasatch #ParkCity"
+    },
+    "US-SW-ALBQ": {
+      "market": "US-SW-ALBQ",
+      "place": "Albuquerque, New Mexico",
+      "zip": "87101",
+      "retailer": "Target, Walmart, Smith's",
+      "audience": "High desert families, adobe morning",
+      "message": "Desert dawn flapjacks — 14 grams for your high desert day",
+      "cue": "Red chile and piñon, enamel mug on portal",
+      "tags": [
+        "#Albuquerque",
+        "#Burque",
+        "#RedChile",
+        "#Pinon",
+        "#DesertDawn",
+        "#NewMexicoTrue"
+      ],
+      "platform_bundle": "#KodiakCakes #RedChile #Albuquerque #NewMexicoTrue",
+      "caption": "Desert dawn flapjacks — 14 grams for your high desert day. Red chile + piñon at sunrise. #KodiakCakes #RedChile #Albuquerque"
+    },
+    "US-SC-AUSTIN": {
+      "market": "US-SC-AUSTIN",
+      "place": "Austin, Texas",
+      "zip": "78701",
+      "retailer": "Target, Whole Foods, H-E-B",
+      "audience": "Breakfast taco families, keep-it-weird hosts",
+      "message": "Breakfast tacos meet flapjacks — whole grains that keep up",
+      "cue": "Salsa over flapjacks, food truck corner",
+      "tags": [
+        "#AustinTexas",
+        "#ATX",
+        "#KeepAustinWeird",
+        "#BreakfastTacos",
+        "#Jalapeno",
+        "#SalsaVerde"
+      ],
+      "platform_bundle": "#KodiakCakes #AustinTexas #BreakfastTacos #Jalapeno",
+      "caption": "Breakfast tacos meet flapjacks — whole grains that keep up. Jalapeno + pepper jack on the food truck corner. #KodiakCakes #AustinTexas #BreakfastTacos"
+    },
+    "US-SE-FL": {
+      "market": "US-SE-FL",
+      "place": "Miami + Orlando, Florida",
+      "zip": "33101",
+      "retailer": "Publix, Target",
+      "audience": "Cuban and Puerto Rican families, porch breakfasts",
+      "message": "Family frontier — protein for your Florida morning",
+      "cue": "Guava and café con leche beside stack",
+      "tags": [
+        "#Miami",
+        "#Orlando",
+        "#Publix",
+        "#CafeConLeche",
+        "#Guava",
+        "#FloridaBreakfast"
+      ],
+      "platform_bundle": "#KodiakCakes #Miami #Publix #FamilyFrontier",
+      "caption": "Family frontier — protein for your Florida morning. Guava + café con leche beside the stack. #KodiakCakes #Miami #Publix"
+    },
+    "US-SE-COAST": {
+      "market": "US-SE-COAST",
+      "place": "Savannah + Charleston, Coastal Southeast",
+      "zip": "29401",
+      "retailer": "Publix, Harris Teeter",
+      "audience": "Porch families, Gullah seasonality",
+      "message": "Southern porch stack — protein-packed whole grains for your family",
+      "cue": "Peach and pecan",
+      "tags": [
+        "#Savannah",
+        "#Charleston",
+        "#Lowcountry",
+        "#PeachAndPecan",
+        "#PorchBreakfast",
+        "#SouthernFrontier"
+      ],
+      "platform_bundle": "#KodiakCakes #Savannah #PorchBreakfast #SouthernFrontier",
+      "caption": "Southern porch stack — protein-packed whole grains for your family. Peach + pecan, porch light. #KodiakCakes #Savannah #PorchBreakfast"
+    },
+    "US-SE-ATL": {
+      "market": "US-SE-ATL",
+      "place": "Atlanta, Georgia",
+      "zip": "30301",
+      "retailer": "Publix, Target",
+      "audience": "Urban families, Sunday brunch",
+      "message": "Georgia pecan frontier — 14 grams to start your day",
+      "cue": "Pecan praline drizzle",
+      "tags": [
+        "#Atlanta",
+        "#ATL",
+        "#GeorgiaPecan",
+        "#PecanPraline",
+        "#SundayBrunch"
+      ],
+      "platform_bundle": "#KodiakCakes #Atlanta #GeorgiaPecan #SundayBrunch",
+      "caption": "Georgia pecan frontier — 14 grams to start your day. Pecan praline drizzle, Sunday brunch. #KodiakCakes #Atlanta #GeorgiaPecan"
+    },
+    "US-MW-CHI": {
+      "market": "US-MW-CHI",
+      "place": "Chicago, Illinois",
+      "zip": "60601",
+      "retailer": "Target, Jewel-Osco, Meijer",
+      "audience": "City families, lake effect winters",
+      "message": "Fuel your city frontier — 14 grams, 100 percent whole grains",
+      "cue": "Maple oatmeal cup on the L",
+      "tags": [
+        "#Chicago",
+        "#ChiTown",
+        "#TargetFinds",
+        "#CityFrontier",
+        "#MapleOatmeal",
+        "#LakeEffect"
+      ],
+      "platform_bundle": "#KodiakCakes #Chicago #CityFrontier #TargetFinds",
+      "caption": "Fuel your city frontier — 14 grams, 100 percent whole grains. Maple oatmeal on the L. #KodiakCakes #Chicago #CityFrontier"
+    },
+    "US-MW-DEN": {
+      "market": "US-MW-DEN",
+      "place": "Denver, Colorado",
+      "zip": "80202",
+      "retailer": "Target, King Soopers, Whole Foods",
+      "audience": "Mountain families, trailheads",
+      "message": "Cast-iron frontier — protein for your Colorado morning",
+      "cue": "Cast iron at trailhead",
+      "tags": [
+        "#Denver",
+        "#Colorado",
+        "#14kMornings",
+        "#CastIron",
+        "#KingSoopers",
+        "#MileHighFrontier"
+      ],
+      "platform_bundle": "#KodiakCakes #Denver #CastIron #MileHighFrontier",
+      "caption": "Cast-iron frontier — protein for your Colorado morning. 14k mornings start here. #KodiakCakes #Denver #CastIron"
+    },
+    "US-W-SEA": {
+      "market": "US-W-SEA",
+      "place": "Seattle, Washington",
+      "zip": "98101",
+      "retailer": "Costco (home), Target",
+      "audience": "Bulk families, rain-mornings",
+      "message": "Evergreen frontier — protein-packed whole grains for gray mornings",
+      "cue": "Coffee beside flapjacks, evergreen",
+      "tags": [
+        "#Seattle",
+        "#CostcoFinds",
+        "#EvergreenFrontier",
+        "#RainMornings",
+        "#PNWBreakfast"
+      ],
+      "platform_bundle": "#KodiakCakes #Seattle #CostcoFinds #EvergreenFrontier",
+      "caption": "Evergreen frontier — protein-packed whole grains for gray mornings. Coffee + evergreen. #KodiakCakes #Seattle #CostcoFinds"
+    },
+    "US-W-PDX": {
+      "market": "US-W-PDX",
+      "place": "Portland, Oregon",
+      "zip": "97201",
+      "retailer": "Target, Fred Meyer",
+      "audience": "Trail families, forest",
+      "message": "Forest trail fuel — protein for your cubs",
+      "cue": "Berries and hazelnut beside Bear Bites",
+      "tags": [
+        "#Portland",
+        "#PDX",
+        "#ForestFuel",
+        "#TrailFuel",
+        "#Hazelnut",
+        "#BearBitesTrail"
+      ],
+      "platform_bundle": "#KodiakCakes #Portland #TrailFuel #BearBites",
+      "caption": "Forest trail fuel — protein for your cubs. Berries + hazelnut beside Bear Bites. #KodiakCakes #Portland #TrailFuel #BearBites"
+    }
+  },
+  "platform_map": {
+    "instagram": {
+      "aspect": "1:1 1080x1080 + 4:5 1080x1350 + 9:16 1080x1920 Reels",
+      "max_hashtags": 30,
+      "recommended": "3-5 appended never in-line, 20-40 words rugged+nourishing+adventurous",
+      "example": "#KodiakCakes #KeepItWild #HatchGreenChile #LasCruces #GreenChileFlapjacks"
+    },
+    "tiktok": {
+      "aspect": "9:16 1080x1920 MP4 H.264 <287MB",
+      "recommended": "Short title + 1-line desc + 3-5 tags",
+      "example": "#KodiakCakes #GreenChile #LasCruces #TrailFuel"
+    },
+    "facebook": {
+      "aspect": "1:1/4:5 feed + 9:16 Reels + 1200x630 link",
+      "recommended": "40-80 words + 2-3 tags + {{store.city}} dynamic + Get Directions",
+      "example": "#KodiakCakes #HatchGreenChile #LasCruces"
+    },
+    "x": {
+      "aspect": "16:9 1600x900 / 1:1",
+      "recommended": "240 chars (280 max) + 2-3 tags + link",
+      "example": "#KodiakCakes #HatchGreenChile"
+    },
+    "pinterest": {
+      "aspect": "2:3 1000x1500 vertical master + 9:16 1080x1920 Idea Pin",
+      "recommended": "SEO keyword + protein claim + occasion in title; hashtags sparse",
+      "example": "#KodiakCakes when present — titles carry 'Hatch Green Chile Flapjacks — Las Cruces'"
+    },
+    "youtube": {
+      "aspect": "16:9 1920x1080 + 9:16 1080x1920 Shorts <60s 7-18s + 1:1 community",
+      "recommended": "Hashtags bottom of description + first comment; #Shorts for Shorts",
+      "example": "#KodiakCakes #KeepItWild #HatchGreenChile #Shorts"
+    },
+    "linkedin": {
+      "aspect": "1200x628 / 1:1 document share",
+      "recommended": "80-150 words professional + 1-3 tags + @mention employees",
+      "example": "#KodiakCakes #KeepItWild"
+    }
+  },
+  "compose_rules": {
+    "caption_style": "Rugged + nourishing + adventurous; 3-5 hashtags appended never in-line; Handle @kodiakcakes + partner @mentions where relevant",
+    "max_per_platform": {
+      "instagram": 5,
+      "tiktok": 5,
+      "facebook": 3,
+      "x": 3,
+      "pinterest": 2,
+      "youtube": 5,
+      "linkedin": 3
+    },
+    "trademark_guardrail": "Keep It Wild 98397901 — allow Vital Ground co-badge tile; avoid captive bear close-up",
+    "protein_guardrail": "Use '14g protein per serving' absolute, not % DV",
+    "search_index_hint": "Query via GET /search?q=green chile hashtags or kodiak_reference_search — hits this file via data/vectors + localization fallback grep"
+  },
+  "search_text": "green chile hashtags Las Cruces Hatch Green Chile flapjacks Kodiak Cakes Keep It Wild Wasatch Park City Frontier Breakfast",
+  "power_gloves": {
+    "how_to_use": "Copy platform_bundle for your market into caption field; pipeline already knows aspect per platform — no extra research. One market = one bundle.",
+    "example_las_cruces_instagram": "Green chile meets grizzly — protein for your Las Cruces frontier. Hatch roasted this morning, flipped on cast iron, 14g protein + 100% whole grains. Find us at Target Las Cruces. #KodiakCakes #KeepItWild #HatchGreenChile #LasCruces #GreenChileFlapjacks",
+    "example_wasatch_instagram": "Keep It Wild — protein-packed whole grains for today's frontier. Wasatch alpenglow, cast-iron stack, 14g protein. #KodiakCakes #KeepItWild #Wasatch #ParkCity",
+    "example_publix_instagram": "Protein-packed whole grains for your family's frontier — porch light, kids and cubs. #KodiakCakes #KeepItWild #Savannah #PorchBreakfast",
+    "pipeline_pull": "GET /search?q=green chile hashtags → hits this file + data/localization/hashtag-lookup.json via reference_api fallback grep or S3 Vectors",
+    "note": "Give them power gloves, not a redirect — tags + caption ready, not a link to go learn hashtags elsewhere."
+  }
+}

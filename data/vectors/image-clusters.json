@@ -1,0 +1,484 @@
+{
+  "model": "amazon.nova-2-multimodal-embeddings-v1:0",
+  "dim": 1024,
+  "method": "spherical k-means (cosine), numpy-only, deterministic",
+  "k": 12,
+  "seed": 20260902,
+  "totals": {
+    "image_rows": 3048,
+    "dim": 1024,
+    "channel_counts": {
+      "catalog": 2332,
+      "blog": 644,
+      "amazon": 46,
+      "instagram": 25,
+      "tiktok": 1
+    },
+    "in_image_text": {
+      "false": 644,
+      "true": 0,
+      "absent": 2404
+    }
+  },
+  "note": "metadata-informed clustering, not pixel analysis. cohesion is mean cosine of members to centroid. in_image_text.absent = field not present on that row (only blog rows carry the flag).",
+  "clusters": {
+    "0": {
+      "size": 332,
+      "dominant_channel": "catalog",
+      "dominant_channel_share": 0.693,
+      "channel_mix": {
+        "catalog": 230,
+        "blog": 100,
+        "tiktok": 1,
+        "amazon": 1
+      },
+      "cohesion": 0.7656,
+      "in_image_text": {
+        "false": 100,
+        "true": 0,
+        "absent": 232
+      },
+      "common_terms": [
+        "pancakes",
+        "power",
+        "waffles",
+        "flapjack",
+        "waffle",
+        "protein",
+        "buttermilk",
+        "flapjacks",
+        "breakfast",
+        "easy",
+        "desserts",
+        "snacks"
+      ],
+      "sample_ids": [
+        "1_flawless_flapjacks_0d38cce2-c2f4-4eb1-b4a0-9143fe172007.jpg",
+        "0204-Fuel-that-Stacks-Up-Sale-Header.gif",
+        "0700ba5ad5d6--Kitchen-Gadgets-Non-Stick-Spatula-9fdc5b_9adb22.jpg",
+        "1-lemon_ricotta_waffles.jpg",
+        "1-pumpkin_spice_panckes_5583ec5e-a1f7-4125-befe-33dca89b3831.jpg",
+        "12d07a8298e1--2022-BB-Flapjacks-9_c3b7d6.jpg"
+      ]
+    },
+    "1": {
+      "size": 324,
+      "dominant_channel": "catalog",
+      "dominant_channel_share": 0.769,
+      "channel_mix": {
+        "catalog": 249,
+        "blog": 72,
+        "instagram": 3
+      },
+      "cohesion": 0.682,
+      "in_image_text": {
+        "false": 72,
+        "true": 0,
+        "absent": 252
+      },
+      "common_terms": [
+        "waffle",
+        "waffles",
+        "power",
+        "breakfast",
+        "buttermilk",
+        "2024",
+        "flapjack",
+        "protein",
+        "sandwich",
+        "easy",
+        "lunch",
+        "frontier"
+      ],
+      "sample_ids": [
+        "013-_kodiakCakes_gut_27ac10bf-3235-46bf-bdfa-d49d02a5ebc4.jpg",
+        "0272fd970269--2-09b132_e70c8e.jpg",
+        "0272fd970269--3-74d19e_a98f09.jpg",
+        "04803bf42d07--4-Kodiak-Baked-Chicken-Strips-3-ddedd7_f1af95.jpg",
+        "068508b6d761--Kodiak-Recipe-Breakfast-Kabobs-0625-0016-e1b76c_1d03c5.jpg",
+        "068508b6d761--Kodiak-Recipe-Breakfast-Kabobs-0625-0057-7795c2_9314fc.jpg"
+      ]
+    },
+    "2": {
+      "size": 305,
+      "dominant_channel": "catalog",
+      "dominant_channel_share": 0.849,
+      "channel_mix": {
+        "catalog": 259,
+        "amazon": 34,
+        "blog": 12
+      },
+      "cohesion": 0.7193,
+      "in_image_text": {
+        "false": 12,
+        "true": 0,
+        "absent": 293
+      },
+      "common_terms": [
+        "ingredients",
+        "power",
+        "chocolate",
+        "cup",
+        "oatmeal",
+        "mainimage",
+        "muffin",
+        "front",
+        "chip",
+        "blueberry",
+        "buttermilk",
+        "flapjack"
+      ],
+      "sample_ids": [
+        "09dc84221261--705599014147-Kodiak-Cakes-MBS-Oatmeal-NFP-Ingredients.jpg",
+        "09dc84221261--705599014147-Kodiak-Cakes-MBS-Oatmeal-NFP-Ingredients_cef969.jpg",
+        "0d13c46faafb--705599015403-Kodiak-Peanut-Butter-Crunchy-Granola-Bar-NFP-Ingredients.jpg",
+        "0d13c46faafb--705599015403-Kodiak-Peanut-Butter-Crunchy-Granola-Bar-NFP-Ingredients_d1e958.jpg",
+        "140b5101fc9e--705599014826-Blueberry-Thick-n-Fluffy-Power-Waffles-NFP-Ingredients.jpg",
+        "140b5101fc9e--705599014826-Blueberry-Thick-n-Fluffy-Power-Waffles-NFP-Ingredients_5bdcfe.jpg"
+      ]
+    },
+    "3": {
+      "size": 293,
+      "dominant_channel": "catalog",
+      "dominant_channel_share": 0.795,
+      "channel_mix": {
+        "catalog": 233,
+        "blog": 59,
+        "amazon": 1
+      },
+      "cohesion": 0.7262,
+      "in_image_text": {
+        "false": 59,
+        "true": 0,
+        "absent": 234
+      },
+      "common_terms": [
+        "oatmeal",
+        "granola",
+        "banana",
+        "breakfast",
+        "protein",
+        "parfait",
+        "waffle",
+        "flapjack",
+        "buttermilk",
+        "power",
+        "baked",
+        "yogurt"
+      ],
+      "sample_ids": [
+        "04895f0d577e--20240705-Kodiak-Acai-Bowl-0093-7dbce1_a84257.jpg",
+        "04895f0d577e--20240705-Kodiak-Acai-Bowl-0149-438cfa_8251ea.jpg",
+        "04895f0d577e--20240705-Kodiak-Acai-Bowl-0165-61f700_27b347.jpg",
+        "05a0aa78ca6b--Kodiak-Chocolate-Jelly-Donut-Baked-Oats-1-a66eb5_222295.jpg",
+        "06293badc721--3-Baked-Pumpkin-Oats-1-82bdb2_b163af.jpg",
+        "06293badc721--4-Baked-Pumpkin-Oats-4-6b0e68_e59a14.jpg"
+      ]
+    },
+    "4": {
+      "size": 265,
+      "dominant_channel": "catalog",
+      "dominant_channel_share": 0.743,
+      "channel_mix": {
+        "catalog": 197,
+        "blog": 61,
+        "instagram": 7
+      },
+      "cohesion": 0.6394,
+      "in_image_text": {
+        "false": 61,
+        "true": 0,
+        "absent": 204
+      },
+      "common_terms": [
+        "buttermilk",
+        "power",
+        "waffle",
+        "protein",
+        "flapjack",
+        "pizza",
+        "breakfast",
+        "dinner",
+        "chicken",
+        "desserts",
+        "prep",
+        "sides"
+      ],
+      "sample_ids": [
+        "0100aea6ca6c--20240711-Kodiak-Baked-Pizza-Muffins-0223-d2f7c7_67240d.jpg",
+        "0100aea6ca6c--20240711-Kodiak-Baked-Pizza-Muffins-0251-5bad5c_9bb6bf.jpg",
+        "0100aea6ca6c--20240711-Kodiak-Baked-Pizza-Muffins-0253-38a66c_c42c89.jpg",
+        "01ab36da4a86--20240611-Kodiak-Cast-Iron-Pizza-0055-3c03ff_e853fb.jpg",
+        "01ab36da4a86--20240611-Kodiak-Cast-Iron-Pizza-0095-b5d307_8a078e.jpg",
+        "01ab36da4a86--20240611-Kodiak-Cast-Iron-Pizza-0114-5c758b_8976eb.jpg"
+      ]
+    },
+    "5": {
+      "size": 235,
+      "dominant_channel": "catalog",
+      "dominant_channel_share": 0.796,
+      "channel_mix": {
+        "catalog": 187,
+        "blog": 46,
+        "instagram": 2
+      },
+      "cohesion": 0.7013,
+      "in_image_text": {
+        "false": 46,
+        "true": 0,
+        "absent": 189
+      },
+      "common_terms": [
+        "chocolate",
+        "brownie",
+        "waffle",
+        "power",
+        "cake",
+        "dip",
+        "flapjack",
+        "dark",
+        "brownies",
+        "buttermilk",
+        "double",
+        "protein"
+      ],
+      "sample_ids": [
+        "001-05606-Kodiak_Cakes-Cups-Photoshop_Rework_Brownie-01_2c3938e5-63de-4af7-8e11-538bc87d1aef.jpg",
+        "030de2bb33a9--20240724-Kodiak-Cinnamon-Chocolate-Chip-Scones-0091-6ad4f0_5e97c3.jpg",
+        "05a0aa78ca6b--Kodiak-Chocolate-Jelly-Donut-Baked-Oats-2-d94dc2_dd6e0d.jpg",
+        "05a0aa78ca6b--Kodiak-Chocolate-Jelly-Donut-Baked-Oats-6-b0e742_18296d.jpg",
+        "0e73c2eb4515--2-8f1388_80f1bb.jpg",
+        "1-_pancake_balls.jpg"
+      ]
+    },
+    "6": {
+      "size": 229,
+      "dominant_channel": "catalog",
+      "dominant_channel_share": 0.76,
+      "channel_mix": {
+        "catalog": 174,
+        "blog": 51,
+        "instagram": 3,
+        "amazon": 1
+      },
+      "cohesion": 0.6992,
+      "in_image_text": {
+        "false": 51,
+        "true": 0,
+        "absent": 178
+      },
+      "common_terms": [
+        "chocolate",
+        "cookies",
+        "chip",
+        "protein",
+        "banana",
+        "power",
+        "oatmeal",
+        "breakfast",
+        "waffle",
+        "flapjack",
+        "buttermilk",
+        "bars"
+      ],
+      "sample_ids": [
+        "003fa9ea1e6f--Kodiak-Pumpkin-Chocolate-Chip-Muffin-Top-Cookie-1-c793b2_275320.jpg",
+        "003fa9ea1e6f--Kodiak-Pumpkin-Chocolate-Chip-Muffin-Top-Cookie-3-24df91_d1c780.jpg",
+        "003fa9ea1e6f--Kodiak-Pumpkin-Chocolate-Chip-Muffin-Top-Cookie-5-377840_cb47ea.jpg",
+        "030de2bb33a9--20240724-Kodiak-Cinnamon-Chocolate-Chip-Scones-0108-22daab_6118ee.jpg",
+        "0O6A6281.png",
+        "0bc97cda3aea--Kodiak-Cakes-Oatmeal-Chocolate-Chip-Cookies-4-e0e83a_6f0c24.jpg"
+      ]
+    },
+    "7": {
+      "size": 225,
+      "dominant_channel": "catalog",
+      "dominant_channel_share": 0.764,
+      "channel_mix": {
+        "catalog": 172,
+        "blog": 53
+      },
+      "cohesion": 0.7149,
+      "in_image_text": {
+        "false": 53,
+        "true": 0,
+        "absent": 172
+      },
+      "common_terms": [
+        "blueberry",
+        "lemon",
+        "power",
+        "cake",
+        "waffle",
+        "buttermilk",
+        "raspberry",
+        "flapjack",
+        "bars",
+        "berry",
+        "desserts",
+        "prep"
+      ],
+      "sample_ids": [
+        "06ca7afee296--Web-Recipes-from-Social-Target-Spring-Mix-Recipe-Raspberry-Almond-Poppy-Seed-Cake-0226_0da51a59.jpg",
+        "06ca7afee296--Web-Recipes-from-Social-Target-Spring-Mix-Recipe-Raspberry-Almond-Poppy-Seed-Cake-0226_3fba1a60.jpg",
+        "06ca7afee296--Web-Recipes-from-Social-Target-Spring-Mix-Recipe-Raspberry-Almond-Poppy-Seed-Cake-0226_81cc6ef0.jpg",
+        "06ca7afee296--Web-Recipes-from-Social-Target-Spring-Mix-Recipe-Raspberry-Almond-Poppy-Seed-Cake-0226_a3a112da.jpg",
+        "06ca7afee296--Web-Recipes-from-Social-Target-Spring-Mix-Recipe-Raspberry-Almond-Poppy-Seed-Cake-0226_d8542322.jpg",
+        "0O6A3373_1.jpg"
+      ]
+    },
+    "8": {
+      "size": 221,
+      "dominant_channel": "catalog",
+      "dominant_channel_share": 0.769,
+      "channel_mix": {
+        "catalog": 170,
+        "blog": 48,
+        "instagram": 3
+      },
+      "cohesion": 0.6975,
+      "in_image_text": {
+        "false": 48,
+        "true": 0,
+        "absent": 173
+      },
+      "common_terms": [
+        "apple",
+        "cinnamon",
+        "power",
+        "flapjack",
+        "buttermilk",
+        "waffle",
+        "frontier",
+        "sitemap",
+        "pagination",
+        "cake",
+        "pie",
+        "baked"
+      ],
+      "sample_ids": [
+        "02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0351-3ef54f_4fc424.jpg",
+        "02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0374-f85349_34aa27.jpg",
+        "02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0386-54847b_ac7233.jpg",
+        "0700ba5ad5d6--Kitchen-Gadgets-Knife-440467_64ddad.jpg",
+        "0e73c2eb4515--4-cfe862_ea7688.jpg",
+        "0ec5b47a14c5--Kodiak-Orange-Sticky-buns-3-2cfe64_13794a.jpg"
+      ]
+    },
+    "9": {
+      "size": 219,
+      "dominant_channel": "catalog",
+      "dominant_channel_share": 0.753,
+      "channel_mix": {
+        "catalog": 165,
+        "blog": 43,
+        "amazon": 8,
+        "instagram": 3
+      },
+      "cohesion": 0.5707,
+      "in_image_text": {
+        "false": 43,
+        "true": 0,
+        "absent": 176
+      },
+      "common_terms": [
+        "news",
+        "0526",
+        "protein",
+        "blueberry",
+        "chocolate",
+        "athlete",
+        "power",
+        "flapjack",
+        "breakfast",
+        "maple",
+        "2022",
+        "oatmeal"
+      ],
+      "sample_ids": [
+        "00ed49a3920f--2-camping-granola-310498_962060.jpg",
+        "00ed49a3920f--3-camping-granola-e4fa8d_53fe72.jpg",
+        "00ed49a3920f--4-camping-granola-de306b_82119c.jpg",
+        "06b413ba4b74--Kodiak-Recipe-High-Protein-Maple-Sausage-Bites-0526-0035-04ecba_e808be.jpg",
+        "06b413ba4b74--Kodiak-Recipe-High-Protein-Maple-Sausage-Bites-0526-0042-6db533_373613.jpg",
+        "0700ba5ad5d6--Kitchen-Gadgets-Rubber-Spatula-84f4c5_0b7cca.jpg"
+      ]
+    },
+    "10": {
+      "size": 208,
+      "dominant_channel": "catalog",
+      "dominant_channel_share": 0.76,
+      "channel_mix": {
+        "catalog": 158,
+        "blog": 50
+      },
+      "cohesion": 0.6749,
+      "in_image_text": {
+        "false": 50,
+        "true": 0,
+        "absent": 158
+      },
+      "common_terms": [
+        "cookies",
+        "power",
+        "buttermilk",
+        "waffle",
+        "flapjack",
+        "chocolate",
+        "sugar",
+        "frontier",
+        "sitemap",
+        "pagination",
+        "donuts",
+        "peppermint"
+      ],
+      "sample_ids": [
+        "0cc7978c1c78--20240719-Kodiak-Toasted-Coconut-Pumpkin-Donuts-0194-305c29_ea7b64.jpg",
+        "0cc7978c1c78--20240719-Kodiak-Toasted-Coconut-Pumpkin-Donuts-0208-c99c38_12334a.jpg",
+        "0eae18f4986e--Kodiak-Colorful-Christmas-Crepes-1-059c80_746475.jpg",
+        "0eae18f4986e--Kodiak-Colorful-Christmas-Crepes-2-cc854f_e05c03.jpg",
+        "0eae18f4986e--Kodiak-Colorful-Christmas-Crepes-3-3a44fe_7ab581.jpg",
+        "0ec5b47a14c5--Kodiak-Orange-Sticky-buns-9-58a01c_f3bab7.jpg"
+      ]
+    },
+    "11": {
+      "size": 192,
+      "dominant_channel": "catalog",
+      "dominant_channel_share": 0.719,
+      "channel_mix": {
+        "catalog": 138,
+        "blog": 49,
+        "instagram": 4,
+        "amazon": 1
+      },
+      "cohesion": 0.7241,
+      "in_image_text": {
+        "false": 49,
+        "true": 0,
+        "absent": 143
+      },
+      "common_terms": [
+        "muffins",
+        "muffin",
+        "protein",
+        "desserts",
+        "prep",
+        "dinner",
+        "sides",
+        "lunch",
+        "easy",
+        "snacks",
+        "power",
+        "high"
+      ],
+      "sample_ids": [
+        "00313ed25c79--Kodiak-Zucchini-Oat-Muffin-2-693c3c_49d5c2.jpg",
+        "00313ed25c79--Kodiak-Zucchini-Oat-Muffin-6-8a78a9_aae2b9.jpg",
+        "00313ed25c79--Kodiak-Zucchini-Oat-Muffin-9-545ab0_280bcd.jpg",
+        "030de2bb33a9--20240724-Kodiak-Cinnamon-Chocolate-Chip-Scones-0098-b1b30d_34c81a.jpg",
+        "06b413ba4b74--Kodiak-Recipe-High-Protein-Maple-Sausage-Bites-0526-0050-fe55a8_ca1207.jpg",
+        "06b413ba4b74--Kodiak-Recipe-High-Protein-Maple-Sausage-Bites-0526-0059-cbd19c_17f8e9.jpg"
+      ]
+    }
+  }
+}

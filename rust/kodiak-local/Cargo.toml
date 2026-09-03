@@ -1,0 +1,27 @@
+[package]
+name = "kodiak-local"
+version = "0.1.0"
+edition = "2021"
+description = "Kodiak local Rust accelerators — autocontrast, vignette, framing (mirrors src/creative_automation/enhance.py + compose.py hotspots)"
+license = "MIT"
+readme = "README.md"
+keywords = ["image", "kodiak", "pyo3"]
+categories = ["multimedia::images"]
+
+[lib]
+name = "_kodiak_local"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+pyo3 = { version = "0.22", features = ["extension-module"] }
+image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
+rayon = { version = "1.10", optional = true }
+
+[features]
+default = []
+parallel = ["rayon"]
+
+[profile.release]
+lto = "thin"
+opt-level = 3
+codegen-units = 1

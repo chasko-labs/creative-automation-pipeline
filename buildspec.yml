@@ -1,0 +1,56 @@
+version: 0.2
+
+# fail-fast CI gate for the kodiak creative pipeline
+# ordering is cheap-to-expensive so a broken push dies in seconds, not minutes
+#   1. ruff        (lint, ~1s)        -- fastest signal, catches syntax + style first
+#   2. pytest -x   (16 unit tests)    -- stop on first failure
+#   3. cfn-lint    (template safety)  -- cheap, no aws calls
+# expensive/networked steps (nova image render, nova-act browser check, the full
+# ~2380-item embedding run, cloud e2e s3 sync) are NOT in the per-push gate.
+# they run only when RUN_SLOW=true (nightly / manual), guarded below.
+#
+# harness-first-ci: this pipeline runs env + install + gate commands only.
+# no inline service config, no third-party service administration.
+
+env:
+  variables:
+    UV_CACHE_DIR: /root/.cache/uv
+    RUN_SLOW: "false"
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - pip install --quiet uv
+      - uv sync --frozen || uv sync
+
+  build:
+    commands:
+      # gate 1 -- lint (cheapest, fails first)
+      - echo "gate 1/3 ruff"
+      - uv run ruff check .
+
+      # gate 2 -- unit tests, stop on first failure
+      - echo "gate 2/3 pytest -x"
+      - uv run pytest -x -q
+
+      # gate 3 -- cloudformation lint (no aws calls, cheap)
+      - echo "gate 3/3 cfn-lint"
+      - pip install --quiet cfn-lint && cfn-lint infra/template.yaml
+
+      # slow path -- only on explicit opt-in (nightly / manual RUN_SLOW=true)
+      - |
+        if [ "$RUN_SLOW" = "true" ]; then
+          echo "slow path: full render + nova-act + embedding corpus"
+          uv run python -m creative_automation.cli --brief briefs/kodiak.yaml --assets input_assets --out /tmp/verify-kodiak
+          uv run python scripts/nova-act-check.py --preview /tmp/verify-kodiak/preview.html --out /tmp/nova.json
+          AWS_PROFILE=bryanchasko-kiro uv run python scripts/embed-social-corpus.py --out data/vectors
+        else
+          echo "slow path skipped (set RUN_SLOW=true for nightly)"
+        fi
+
+cache:
+  paths:
+    - /root/.cache/uv/**/*
+    - .ruff_cache/**/*

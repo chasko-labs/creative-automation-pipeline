@@ -1,41 +1,235 @@
 {
+  "$schema": "https://kodiakcakes.com/schema/tailoring-spec-v1.json",
+  "generated": "2026-09-02",
+  "source": {
+    "ingest_root": "data/raw-ingest/kodiakcakes",
+    "counts": "data/raw-ingest/kodiakcakes/counts.json (736 images, 77 pages)",
+    "manifest": "data/raw-ingest/kodiakcakes/sitemap-manifest.json",
+    "brand_lore": "data/raw-ingest/kodiakcakes/brand-lore/",
+    "images_glob": "data/raw-ingest/kodiakcakes/images/*",
+    "pages_glob": "data/raw-ingest/kodiakcakes/pages/*.html"
+  },
+  "references": {
+    "keep_it_wild": "references/keep-it-wild/",
+    "mood_keywords": "references/keep-it-wild/mood-keywords.json",
+    "photography_direction": "references/keep-it-wild/photography-direction.json",
+    "voice_tone": "references/keep-it-wild/voice-tone.json",
+    "nova_canvas_prompts": "references/keep-it-wild/nova-canvas-prompts.json"
+  },
+  "design_tokens": "design/tokens/kodiak.json",
+  "palette": {
+    "bearBrown": "#3B2316",
+    "blazeOrange": "#E8530E",
+    "frontierGreen": "#1A3C34",
+    "parchment": "#FFF8F0",
+    "oatmeal": "#F4EDE6",
+    "note": "Tokens are DTFM + Style Dictionary compatible. compose.py reads kodiak.color.brand.* and kodiak.spacing.canvasPad/messageBarTop/logoOffset/accentBarHeight; generate.py mock palette derives from get_brand_colors()."
+  },
   "visual_patterns": [
-    "brown kraft box with growling bear (#382316 Black Marlin, #B51E14 Thunderbird, #FACC7C Goldenrod from Brandfetch)",
-    "steam stack on cast iron",
-    "cubs with Bear Bites on trail bench",
-    "oatmeal cup on rocky overlook at sunrise",
-    "enamel mug and wood scoop of whole grains"
+    {
+      "id": "vp-01-brown-kraft-bear-box",
+      "name": "Brown kraft box with growling bear",
+      "description": "Kodiak kraft parchment box (neutral 50 #FFF8F0 / 100 #F4EDE6 on Bear Brown #3B2316 backdrop) with growling grizzly/bear silhouette, Blaze Orange #E8530E accent bar, bear logo backdrop. Dominant packshot across 736 images (stack/packaging/tag overlays) and amazon-store.html / NFP ingredient panels.",
+      "evidence": {
+        "image_filenames_contain": "01_*, *Kodiak*Cakes*Cups*, *Breakfast-Bars*Packaging*Manipu*, brown-texture-2.webp + kodiak-primary-logo in 000_.html header",
+        "page_text_hits": "bear 89, wild 819, kraft-parchment implied via neutral palette; Brandfetch thunderbird/bear extract noted in prior spec",
+        "reference": "photography-direction.json:product_hero + design/tokens/kodiak.json kodiak.color.brand.bearBrown/blazeOrange"
+      },
+      "dominance_rank": 1,
+      "pipeline": {
+        "nova_canvas_prompt_id": "kodiak-08-red-wagon-heirloom",
+        "nova_canvas_alt": "kodiak-02-cast-iron-frontier",
+        "headline_slot": "compose.footer + hero_centered_product (DAM reuse power-cakes/hero.png fallback)",
+        "compose_token": "kodiak.color.brand.bearBrown as inverse background, blazeOrange accentBarHeight 8px",
+        "retailer_variant": "all (base); strongest in briefs/kodiak.yaml US-MW and briefs/kodiak-costco.yaml US-W-COSTCO family-size stack"
+      }
+    },
+    {
+      "id": "vp-02-steam-stack-cast-iron",
+      "name": "Steam stack on cast iron + enamel mug",
+      "description": "Tall flapjack/waffle stack with visible steam, whole-grain texture, cast-iron skillet background, rustic wood table, enamel camping mug, morning window light. Core appetizer hero; filenames dominated by waffle (80), pancake (47), stack (6), cast iron (2), Dutch Oven, Campfire Quiche.",
+      "evidence": {
+        "image_filenames_contain": "20240611_Kodiak_Cast_Iron_Pizza_0122, 20240619_Kodiak_Campfire_Quiche, 2022-Oatmeal_Canister-Recipes_*, flawless_flapjacks, stack/layers GIFs (0204-Fuel-that-Stacks-Up)",
+        "page_text_hits": "protein 5035, campfire 27, photography-direction: cast-iron + campfire",
+        "reference": "photography-direction.json: high_protein_active_families + product_hero"
+      },
+      "dominance_rank": 2,
+      "pipeline": {
+        "nova_canvas_prompt_id": "kodiak-02-cast-iron-frontier",
+        "nova_canvas_alt": "kodiak-01-wasatch-dawn-hero (blurred cover background in compose.py)",
+        "headline_slot": "compose.messageBar 1x1/9x16/16x9 headline (kodiak.typography.headline.* max 3 lines, fontSize 56/64/72, scrim #1A1110CC)",
+        "compose_token": "kodiak.spacing.messageBarTop 68%, kodiak.spacing.canvasPad 48px, kodiak.shadow.text stroke_width 2",
+        "retailer_variant": "briefs/kodiak.yaml US-MW (Wasatch + cast iron), briefs/kodiak-diner.yaml (diner stack variant)"
+      }
+    },
+    {
+      "id": "vp-03-cubs-trail-bear-bites",
+      "name": "Cubs (kids) with Bear Bites on trail bench",
+      "description": "Kids/cubs reaching for cinnamon honey bear-shaped Bear Bites graham crackers scattered on wood trail bench, sunny trailhead, backpack + pine forest bokeh, wholesome high-protein snack for families.",
+      "evidence": {
+        "image_filenames_contain": "1_-_granola_*, Kodiak_Cubs, *Trail_Mix*, 20240619_Kodiak_Crunchy_Bar_Trail_Mix_0188",
+        "page_text_hits": "cubs 9 (pages) / 141 (full sitemap raw), bear 83/89, trail 14/132, keep-it-wild 310 co-occurs with cubs narrative",
+        "reference": "photography-direction.json: rugged_pioneers + high_protein_active_families (cubs), voice-tone:nourishing"
+      },
+      "dominance_rank": 3,
+      "pipeline": {
+        "nova_canvas_prompt_id": "kodiak-04-bear-bites-cubs",
+        "nova_canvas_alt": "kodiak-03-rugged-pioneer-family (parents + cubs cabin variant)",
+        "headline_slot": "compose.messageBar product subhead + footer Keep It Wild; targets Bear Bites SKU",
+        "compose_token": "kodiak.typography.caption uppercase 22/24px for footer KODIAK • kodiakcakes.com • Keep It Wild",
+        "retailer_variant": "briefs/kodiak.yaml US-MW + briefs/kodiak-target.yaml US-MW-TARGET (Gen Z parents), briefs/kodiak-se.yaml US-SE porch variant uses kodiak-07"
+      }
+    },
+    {
+      "id": "vp-04-oatmeal-cup-rocky-overlook",
+      "name": "Oatmeal cup on rocky overlook at sunrise (on-the-go trail fuel)",
+      "description": "Protein Oatmeal Cup (maple & brown sugar) with steam, hiker hands holding cup on rocky overlook at sunrise, Wasatch ridge soft blur, rugged on-the-go high-protein breakfast. Second-largest image bucket.",
+      "evidence": {
+        "image_filenames_contain": "oat 77, oatmeal-cup 77, *Oatmeal-Power-Cup*, Peak Oatmeal canister, *MBS-KD-Oatmeal-Power-Cup* NFP",
+        "page_text_hits": "oatmeal collections 2, on-the-go implicit in cups/tutorial blogs; 736 images oatmeal dominates with waffle",
+        "reference": "nova-canvas kodiak-05 + photography-direction notes"
+      },
+      "dominance_rank": 4,
+      "pipeline": {
+        "nova_canvas_prompt_id": "kodiak-05-oatmeal-trail-cup",
+        "nova_canvas_alt": "kodiak-01-wasatch-dawn-hero for background only",
+        "headline_slot": "compose.messageBar short imperative (2-3 lines); pairs with copy pattern cp-04 on-the-go",
+        "compose_token": "kodiak.color.semantic.overlay.scrim #1A1110CC for legibility over sunrise sky",
+        "retailer_variant": "briefs/kodiak-trail.yaml US-W (Trail Season Oatmeal), briefs/kodiak-on-the-go.yaml US-NATIONAL-ON-THE-GO, briefs/kodiak-target.yaml (quick fuel)"
+      }
+    },
+    {
+      "id": "vp-05-wasatch-dawn-wheat-trail",
+      "name": "Wasatch dawn alpenglow + Idaho wheat fields + trail",
+      "description": "Wide Wasatch Mountains at dawn / snow-dusted alpenglow, Idaho wheat fields, pine/boulder foreground, subtle mist, authentic alpine morning light — wide environmental establishing shot used as blurred cover background with sky negative space for text.",
+      "evidence": {
+        "image_filenames_contain": "2020.8_Idaho_Wheat_Fields_00063/00268, 2023-Outdoor-Cooking-Family-Lifestyle-2051, Wasatch implicit in kodiak-01 use field",
+        "page_text_hits": "frontier 81/561, wild 310/819, wasatch 0 direct but heirloom/Park City narrative in photography-direction + brand-lore (Park City 1982 red wagon)",
+        "reference": "photography-direction.json:wasatch_mountains + grizzly_keep_it_wild (habitat corridor), nova kodiak-01"
+      },
+      "dominance_rank": 5,
+      "pipeline": {
+        "nova_canvas_prompt_id": "kodiak-01-wasatch-dawn-hero",
+        "nova_canvas_alt": "kodiak-06-grizzly-wild-corridor (meadow/river habitat for Keep It Wild story tile)",
+        "headline_slot": "compose.background (blurred S3 seed, compose.py bg = ImageOps.fit + blend 0.18 darken); messageBar overlays at 68% H",
+        "compose_token": "kodiak.color.semantic.background.default #FFF8F0 parchment vs frontierGreen #1A3C34 for nature story",
+        "retailer_variant": "briefs/kodiak.yaml US-MW (Wasatch/snow/alpine) vs briefs/kodiak-se.yaml US-SE (humidity-green porch, kodiak-07) — geo switch"
+      }
+    }
   ],
   "copy_patterns": [
-    "real food for real adventures",
-    "feeding epic days & wilder lives",
-    "14g protein 100% whole grains",
-    "Keep It Wild \u2014 Vital Ground",
-    "On the go never tasted so good \u2014 5g protein",
-    "Protein-packed whole grains for your family's frontier (Publix)",
-    "Fuel your frontier (Target)",
-    "Stock the frontier (Costco)"
-  ],
-  "mapping": {
-    "kodiak-keepitwild": {
-      "prompt": "Wasatch dawn alpenglow, pine/boulder, sky negative space",
-      "headline": "Protein-packed whole grains for today's frontier",
-      "market": "US-MW"
+    {
+      "id": "cp-01-keep-it-wild",
+      "text": "Keep It Wild",
+      "variants": ["Keep It Wild", "Keep It Wild — Frontier Breakfast", "Keep It Wild • Vital Ground"],
+      "evidence": "310 hits across 77 pages (top copy); mood-keywords taglines [Keep It Wild, Nourishment for Today's Frontier]; voice-tone rugged; photography-direction grizzly_keep_it_wild (Six recovery zones, Vital Ground co-badge small).",
+      "guardrail": "Trademark 98397901 — always allow small Vital Ground co-badge tile (kodiak-06). Avoid captive bear close-up.",
+      "pipeline": {
+        "nova_canvas_prompt_id": "kodiak-06-grizzly-wild-corridor (story tile) + kodiak-01-wasatch-dawn-hero (cover)",
+        "headline_slot": "compose.footer lockup KODIAK • kodiakcakes.com • Keep It Wild + optional campaign_message headline",
+        "compose_token": "kodiak.typography.caption 22/24px uppercase tracked 0.06em; blazeOrange accent bar",
+        "retailer_variant": "all — primary in briefs/kodiak.yaml (Keep It Wild — Frontier Breakfast) and briefs/kodiak-se.yaml"
+      }
     },
-    "kodiak-publix": {
-      "prompt": "Warm porch family table, kids and cubs together",
-      "headline": "Protein-packed whole grains for your family's frontier",
-      "market": "US-SE-PUBLIX"
+    {
+      "id": "cp-02-100-whole-grains",
+      "text": "100% whole grains",
+      "variants": ["100% whole grains", "100% whole grain", "Whole Grains Taste Better®", "Heirloom whole wheat"],
+      "evidence": "119 exact '100% whole grains' + 286 'whole grain' + 162 'whole grains' = dominant nutritional claim; mission page RESTORING THE REAL FOOD TRADITION + WHOLE GRAINS TASTE BETTER®; graphicpkg-case brand-lore.",
+      "guardrail": "Approved claim — use verbatim '100% whole grains' not invented %; compliance.py prohibited_terms gate.",
+      "pipeline": {
+        "nova_canvas_prompt_id": "kodiak-08-red-wagon-heirloom (burlap wheat, eggs, milk, heirloom callback 1982)",
+        "headline_slot": "product_description subhead + compliance footer; typographically body/caption not headline",
+        "compose_token": "kodiak.typography.body 28/30/32px regular sans; kodiak.color.foreground.muted #6B5A53 on parchment",
+        "retailer_variant": "briefs/kodiak.yaml / briefs/kodiak-costco.yaml / briefs/kodiak-trail.yaml (all carry 100% whole grain)"
+      }
     },
-    "kodiak-on-the-go": {
-      "prompt": "Oatmeal cup on subway platform / trail bench, backpack",
-      "headline": "On the go never tasted so good",
-      "market": "US-NATIONAL-ON-THE-GO"
+    {
+      "id": "cp-03-14g-protein-packed",
+      "text": "14g protein (Protein-packed)",
+      "variants": ["14g protein per serving", "Protein-packed", "14 grams protein", "Protein-packed whole grains"],
+      "evidence": "protein 5035 hits, protein-packed 42, 14 grams 11; PDP 008 Buttermilk Power Cakes lists 14g; avoid 17% class-action % precedent — use 14g absolute.",
+      "guardrail": "Use '14g protein per serving' — do not upscale to % DV without compliance.py check.",
+      "pipeline": {
+        "nova_canvas_prompt_id": "kodiak-02-cast-iron-frontier (stack protein cue) + kodiak-04-bear-bites-cubs (high-protein snack)",
+        "headline_slot": "campaign_message inline badge / headline suffix (Fuel your frontier — 14g protein, 100% whole grains.) + compose accent pill",
+        "compose_token": "kodiak.radius.pill 999px protein badge; kodiak.color.brand.blazeOrange #E8530E signal",
+        "retailer_variant": "briefs/kodiak-target.yaml (Fuel your frontier — 14g protein, 100% whole grains.) is canonical for this slot"
+      }
     },
-    "green-chile Las Cruces": {
-      "prompt": "Roasted Hatch green chile in batter, Organ Mountains bench",
-      "headline": "Green chile meets grizzly",
-      "market": "US-SW-LASCRUCES"
+    {
+      "id": "cp-04-todays-frontier-nourishment",
+      "text": "Protein-packed whole grains for today's frontier. / Nourishment for Today's Frontier",
+      "variants": ["Protein-packed whole grains for today's frontier.", "Nourishment for Today's Frontier", "Feeding epic days & wilder lives™"],
+      "evidence": "Nourishment for Today's Frontier 20 hits (meta), Feeding Epic Days & Wilder Lives 3 (title tag), frontier 81/561, campaign_message in kodiak.yaml + kodiak-se.yaml verbatim.",
+      "guardrail": "Campaign-level headline — keep under compose 3-line clamp (1x1 56px / 9x16 64px / 16x9 72px).",
+      "pipeline": {
+        "nova_canvas_prompt_id": "kodiak-01-wasatch-dawn-hero (frontier landscape) + kodiak-03-rugged-pioneer-family (pioneer lifestyle)",
+        "headline_slot": "PRIMARY headline — compose.messageBar message parameter (ratio-aware kodiak.typography.headline)",
+        "compose_token": "kodiak.typography.headline extraBold 800 slab Rockwell/Clarendon, lineHeight 1.05-1.08, -0.02em tracking",
+        "retailer_variant": "briefs/kodiak.yaml US-MW canonical; localize to briefs/kodiak-se.yaml US-SE same line (family frontier)"
+      }
+    },
+    {
+      "id": "cp-05-on-the-go-trail-fuel",
+      "text": "On the go / Trail fuel imperatives",
+      "variants": ["On the go never tasted so good", "Fuel your trail", "Fuel your frontier — 14g protein, 100% whole grains."],
+      "evidence": "Adventures/recipes for every adventure in 004_pages_recipes; trail 14/132 hits; voice-tone adventurous trail-ready imperatives (Fuel your frontier, Blaze your morning trail, Epic days start here).",
+      "guardrail": "Second-person active outdoors imperative; keep consistent with adventurous + rugged guardrails.",
+      "pipeline": {
+        "nova_canvas_prompt_id": "kodiak-05-oatmeal-trail-cup (hiker hands rocky overlook)",
+        "headline_slot": "SECONDARY headline for oatmeal-cup / on-the-go placements; falls back to PRIMARY if product_id == oatmeal-cup",
+        "compose_token": "same headline scale but shorter (8-12 words) to leave steam/product visible",
+        "retailer_variant": "briefs/kodiak-trail.yaml US-W (Fuel your trail — protein oatmeal), briefs/kodiak-on-the-go.yaml, briefs/kodiak-subscription.yaml (pantry staple)"
+      }
     }
+  ],
+  "pipeline_templates": {
+    "generate_py": {
+      "file": "src/creative_automation/generate.py",
+      "model": "amazon.nova-canvas-v1:0",
+      "region": "us-east-1",
+      "cfgScale": 7.5,
+      "seeds": "42-49 per prompt id",
+      "integration": "Replace generic generate_hero() prompt with references/keep-it-wild/nova-canvas-prompts.json per product_id when AWS creds available; mock fallback retains palette from design/tokens/kodiak.json via token_loader.get_brand_colors().",
+      "routing": {
+        "power-cakes": ["kodiak-02-cast-iron-frontier", "kodiak-01-wasatch-dawn-hero", "kodiak-08-red-wagon-heirloom", "kodiak-03-rugged-pioneer-family", "kodiak-07-southeast-family-breakfast"],
+        "bear-bites": ["kodiak-04-bear-bites-cubs", "kodiak-03-rugged-pioneer-family", "kodiak-01-wasatch-dawn-hero"],
+        "oatmeal-cup": ["kodiak-05-oatmeal-trail-cup", "kodiak-01-wasatch-dawn-hero", "kodiak-02-cast-iron-frontier"],
+        "keep-it-wild-story": ["kodiak-06-grizzly-wild-corridor", "kodiak-01-wasatch-dawn-hero"]
+      }
+    },
+    "compose_py": {
+      "file": "src/creative_automation/compose.py",
+      "ratios": ["1x1 1080x1080 56px", "9x16 1080x1920 64px", "16x9 1920x1080 72px"],
+      "tokens_in_use": ["kodiak.spacing.canvasPad 48px", "kodiak.spacing.messageBarTop 68%", "kodiak.spacing.accentBarHeight 8px", "kodiak.typography.headline", "kodiak.typography.caption", "kodiak.color.semantic.overlay.scrim #1A1110CC/#0000008C", "kodiak.brand.* hex/cmyk/pantone"],
+      "headline_slots": {
+        "PRIMARY_campaign": "Protein-packed whole grains for today's frontier. (cp-04) — wraps to max 3 lines per ratio",
+        "RETAILER_localized": {
+          "US-MW": "Protein-packed whole grains for today's frontier.",
+          "US-SE / PUBLIX": "Protein-packed whole grains for your family's frontier. (briefs/kodiak-se.yaml, kodiak-publix.yaml — uses kodiak-07 porch light)",
+          "US-MW-TARGET": "Fuel your frontier — 14g protein, 100% whole grains. (briefs/kodiak-target.yaml)",
+          "US-W-COSTCO": "Stock the frontier — protein-packed whole grains for every morning. (briefs/kodiak-costco.yaml)",
+          "US-W TRAIL / ON-THE-GO": "Fuel your trail — protein oatmeal for today's frontier. (briefs/kodiak-trail.yaml)",
+          "US-HOLIDAY": "Fuel epic holidays (briefs/kodiak-holiday.yaml + holiday-favorites images)",
+          "UNIVERSAL_footer": "KODIAK • kodiakcakes.com • Keep It Wild (cp-01) — kodiak.typography.caption"
+        },
+        "NUTRITION_subhead": "100% whole grains • 14g protein per serving (cp-02 + cp-03) — small pill/badge on parchment"
+      }
+    }
+  },
+  "retailer_variants": [
+    {"id": "US-MW", "brief": "briefs/kodiak.yaml", "market": "US-MW", "audience": "Active families 25-45, mountain west + midwest", "nova_primary": "kodiak-02-cast-iron-frontier", "nova_background": "kodiak-01-wasatch-dawn-hero", "headline": "Protein-packed whole grains for today's frontier."},
+    {"id": "US-SE", "brief": "briefs/kodiak-se.yaml", "market": "US-SE", "audience": "Active families 28-45, southeast / Publix", "nova_primary": "kodiak-07-southeast-family-breakfast", "nova_background": "kodiak-01-wasatch-dawn-hero (desaturated humidity-green variant)", "headline": "Protein-packed whole grains for your family's frontier."},
+    {"id": "US-MW-TARGET", "brief": "briefs/kodiak-target.yaml", "market": "US-MW-TARGET", "audience": "Gen Z/millennial 22-34, Target clean-label", "nova_primary": "kodiak-03-rugged-pioneer-family", "nova_alt": "kodiak-04-bear-bites-cubs", "headline": "Fuel your frontier — 14g protein, 100% whole grains."},
+    {"id": "US-W-COSTCO", "brief": "briefs/kodiak-costco.yaml", "market": "US-W-COSTCO", "audience": "Bulk family 30-50, Costco value + protein", "nova_primary": "kodiak-02-cast-iron-frontier (family-size stack)", "headline": "Stock the frontier — protein-packed whole grains for every morning."},
+    {"id": "US-W-TRAIL", "brief": "briefs/kodiak-trail.yaml", "market": "US-W", "audience": "Active families + trail hikers 25-45, Wasatch on-the-go", "nova_primary": "kodiak-05-oatmeal-trail-cup", "nova_alt": "kodiak-04-bear-bites-cubs", "headline": "Fuel your trail — protein oatmeal for today's frontier."},
+    {"id": "ON-THE-GO", "brief": "briefs/kodiak-on-the-go.yaml", "market": "US-NATIONAL", "audience": "Commuter / backpack trail fuel", "nova_primary": "kodiak-05-oatmeal-trail-cup", "headline": "On the go never tasted so good"},
+    {"id": "HOLIDAY", "brief": "briefs/kodiak-holiday.yaml", "market": "US-NATIONAL-HOLIDAY", "audience": "Holiday baking / fuel epic holidays", "nova_primary": "kodiak-02-cast-iron-frontier (pumpkin/holiday SKU variant)", "headline": "Fuel epic holidays"}
+  ],
+  "dominance_notes": {
+    "method": "Reconciled 736 images + 77 pages + counts.json + 8 Nova prompts + photography-direction + voice-tone + 9 briefs. Filenames quantified (waffle 80, oat 77, pancake 47, protein 43); page text concordance (keep it wild 310, whole grain 286, protein 5035, frontier 81/561, wild 819). Brown kraft/bear is infrastructural packshot (header texture + logo) rather than keyword literal, so ranked #1 by packaging frequency + design-token binding.",
+    "remove_bus_noise": "Discard 7-Eleven/Giorgio/Escort artifacts — not in Kodiak corpus (separate brand-lore) — keep only Wasatch/Park City/Vital Ground bear-human coexistence narrative (photography-direction grizzly_safe).",
+    "compliance": "All nutrition claims gated via compliance.py prohibited_terms + logo_overlay true + palette probe (Bear Brown sampled from hero when possible). 14g not 17%."
   }
 }

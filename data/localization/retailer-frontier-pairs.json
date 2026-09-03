@@ -1,0 +1,87 @@
+{
+  "$schema": "https://kodiakcakes.com/schema/retailer-frontier-pairs-v1.json",
+  "metadata": {
+    "generated": "2026-09-02",
+    "purpose": "Each retail metro location pairs with a frontier sister location. Every pair carries a retailer list and a monthly local ingredient sourced from a local farmers market. Drives seasonal recipe-card localization and retailer logo lockups.",
+    "monthly_ingredient_mechanism": "monthly_ingredients maps ISO month (YYYY-MM) -> in-season local ingredient for the frontier sister's farmers market. Populate the current month at seed time; the other 11 months are filled by a research dispatch (ghost research task) that resolves each frontier market's seasonal produce calendar from the linked farmers_market_url + regional extension-service crop calendars. Entries marked research_todo=true are placeholders awaiting that dispatch.",
+    "confirmed_pairs": 2
+  },
+  "pairs": [
+    {
+      "market": "US-SE-ATL",
+      "metro_location": {
+        "retailer": "Publix",
+        "name": "Publix Super Market at The Plaza Midtown",
+        "address": "950 W Peachtree St NW, Atlanta, GA 30309",
+        "hours": "6:45AM-10:00PM daily",
+        "phone": "(404) 253-3544"
+      },
+      "frontier_sister": {
+        "place": "Sandersville, GA",
+        "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+        "note": "Sandersville downtown farmers market — central Georgia (Washington County), kaolin-belt farm community; frontier gap sister to metro Atlanta Publix"
+      },
+      "retailers": ["Publix", "Walmart", "Kroger"],
+      "monthly_ingredients": {
+        "2026-09": "muscadine grapes",
+        "2026-10": null,
+        "2026-11": null,
+        "2026-12": null,
+        "2027-01": null,
+        "2027-02": null,
+        "2027-03": null,
+        "2027-04": null,
+        "2027-05": null,
+        "2027-06": null,
+        "2027-07": null,
+        "2027-08": null
+      },
+      "monthly_ingredient_notes": {
+        "2026-09": "Muscadine grapes peak Aug-Sep across central Georgia; Washington County / Sandersville-area farm stands carry them in September. Real in-season pick. Pancake tie: muscadine compote over KODIAK Power Cakes. Candidate follow-ons for the research dispatch: pecans (Oct-Nov), figs (late summer), sweet potatoes (Oct-Dec), collards (winter)."
+      },
+      "research_todo": false
+    },
+    {
+      "market": "US-CA-PESCADERO",
+      "legacy_market": "US-W-SF",
+      "metro_location": {
+        "retailer": "Costco",
+        "name": "Costco Wholesale (San Francisco / Redwood City halo for the Pescadero frontier gap)",
+        "address": "450 10th St, San Francisco, CA 94103",
+        "hours": "10:00AM-8:30PM Mon-Fri, 9:30AM-6:00PM Sat, 10:00AM-6:00PM Sun",
+        "phone": null,
+        "note": "phone left null pending confirmation; do not fabricate. SF/bay-area pair is confirmed present in repo as data/localization/bay-area/pescadero-94060.json (frontier=true, fulfillment=direct). Metro anchor is the nearest chain halo since Pescadero itself has only Arcangeli Grocery Co."
+      },
+      "frontier_sister": {
+        "place": "Pescadero, CA 94060",
+        "farmers_market_url": "https://www.harleyfarms.com",
+        "note": "Pescadero is itself the frontier gap (nearest no-retailer spot to SF/Oakland). Local sourcing runs through Pescadero farm stands: Harley Farms Goat Dairy, Fifth Crow Farm, plus Half Moon Bay Farmers Market (Saturdays). farmers_market_url points at Harley Farms as the anchor cross-promo; Half Moon Bay Farmers Market has no stable standalone URL confirmed \u2014 research dispatch to verify."
+      },
+      "retailers": [
+        "Costco",
+        "Safeway",
+        "Whole Foods",
+        "Arcangeli Grocery Co."
+      ],
+      "monthly_ingredients": {
+        "2026-09": "strawberries",
+        "2026-10": "brussels sprouts",
+        "2026-11": "olive oil (fall press)",
+        "2026-12": "brussels sprouts",
+        "2027-01": "brussels sprouts",
+        "2027-02": "brussels sprouts",
+        "2027-03": "artichokes",
+        "2027-04": "artichokes",
+        "2027-05": "artichokes",
+        "2027-06": "artichokes",
+        "2027-07": "strawberries",
+        "2027-08": "strawberries"
+      },
+      "monthly_ingredient_notes": {
+        "source": "Derived from confirmed seasonal_matrix in data/localization/bay-area/pescadero-94060.json: strawberries May-Sep (Fifth Crow), artichokes Mar-Jun centerfold April (Castroville), Brussels sprouts Sep-Feb peak Oct-Dec (Fifth Crow), olive oil Nov press. This is mapped from existing confirmed repo data, not fabricated.",
+        "2026-09": "strawberries May-Sep, still in window in September; September also opens the Brussels sprouts season (Sep-Feb). Strawberries chosen as the cleaner single September pick."
+      },
+      "research_todo": false
+    }
+  ]
+}

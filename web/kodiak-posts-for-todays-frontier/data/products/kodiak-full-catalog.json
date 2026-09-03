@@ -1,0 +1,1896 @@
+{
+  "metadata": {
+    "generated": "2026-09-02T00:00:00Z",
+    "brand": "KODIAK",
+    "sources": {
+      "sitemap_manifest": "data/raw-ingest/kodiakcakes/sitemap-manifest.json",
+      "pages_glob": "data/raw-ingest/kodiakcakes/pages/*.html",
+      "amazon": "data/raw-ingest/kodiakcakes/amazon.json",
+      "brand_lore": "data/raw-ingest/kodiakcakes/brand-lore/",
+      "brand_lore_manifest": "data/raw-ingest/kodiakcakes/brand-lore/brand-lore-manifest.json"
+    },
+    "counts": {
+      "sitemap_product_urls": 88,
+      "sitemap_non_gift_products": 84,
+      "pages_product_html": 88,
+      "amazon_listings": 20,
+      "amazon_search_total_found": 51,
+      "brand_lore_files": 11,
+      "unique_catalog_products": 88
+    },
+    "category_counts": {
+      "flapjack-waffle-mix": 11,
+      "cups": 16,
+      "baking-mixes": 6,
+      "frozen": 17,
+      "oatmeal": 14,
+      "gift-card": 4,
+      "protein-balls": 2,
+      "bars": 13,
+      "granola": 5
+    },
+    "collections": [
+      "flapjack-waffle-mix",
+      "toaster-waffles-flapjacks",
+      "kodiak-cups",
+      "baking-mixes",
+      "oatmeal-packets",
+      "gluten-free",
+      "muffins",
+      "oatmeal",
+      "protein-balls",
+      "home-page",
+      "karissas-collection",
+      "emilys-collection",
+      "featured-prodcuts",
+      "sams-collection",
+      "courtneys-collection",
+      "chewy-bars",
+      "corees-collection",
+      "all",
+      "gift-cards",
+      "subscriptions-favorites",
+      "granola-bars",
+      "alexs-favorites",
+      "quinns-favorites",
+      "oatmeal-packets-1",
+      "oatmeal-cups",
+      "holiday-favorites",
+      "peak-oatmeal",
+      "breakfast-bars",
+      "keegans-favorites",
+      "megs-favorites",
+      "all-items-discount-code",
+      "french-toast-sticks",
+      "expertvoice",
+      "chewy-crunchy-bars",
+      "natalias-favorites",
+      "sam-watsons-favorites",
+      "pancake",
+      "25q1oatmeal",
+      "expertvoice-flash-deal",
+      "granola",
+      "25q2",
+      "new-trail-bars-and-brkfst-sandwich-in-stores",
+      "25q3-bars",
+      "25q3-portfolio",
+      "trail-bars",
+      "breakfast-sandwiches",
+      "power-waffles",
+      "labor-day-sale",
+      "pumpkin",
+      "fuel-epic-holidays",
+      "calebs-favorite-products",
+      "featured-items",
+      "holiday-sale",
+      "new-granola-flavors",
+      "goals-in-motion",
+      "overnight-oats",
+      "fuel-that-stacks-up-sale",
+      "kodiak-cakes-drizzled-mini-bars",
+      "loyalty-program",
+      "ev-deal-august-26",
+      "baking-cups",
+      "flapjack-cups",
+      "new-products",
+      "jennifers-collection",
+      "christophers-collection"
+    ],
+    "storefront_collections": [
+      {
+        "pageId": "19CF7868-DF80-4939-932A-6FD69C6E5A1E",
+        "title": "Home",
+        "href": "/stores/page/19CF7868-DF80-4939-932A-6FD69C6E5A1E"
+      },
+      {
+        "pageId": "A283B42A-8E4D-4D6D-9517-26C76A0890C3",
+        "title": "Pancake & Waffle Mixes",
+        "href": "/stores/page/A283B42A-8E4D-4D6D-9517-26C76A0890C3"
+      },
+      {
+        "pageId": "96180B9B-8B03-4C29-BBCC-76AA8CCA8D21",
+        "title": "Oatmeal",
+        "href": "/stores/page/96180B9B-8B03-4C29-BBCC-76AA8CCA8D21"
+      },
+      {
+        "pageId": "7B263957-2E1B-4EB8-87C0-49BA91828CE6",
+        "title": "Oatmeal Packets",
+        "href": "/stores/page/7B263957-2E1B-4EB8-87C0-49BA91828CE6"
+      },
+      {
+        "pageId": "20503268-6F36-493C-9769-9D5071370B8D",
+        "title": "Oatmeal Cups",
+        "href": "/stores/page/20503268-6F36-493C-9769-9D5071370B8D"
+      },
+      {
+        "pageId": "5660FAD5-0230-4D79-BFE6-7A78869611D7",
+        "title": "Cups",
+        "href": "/stores/page/5660FAD5-0230-4D79-BFE6-7A78869611D7"
+      },
+      {
+        "pageId": "5E6B50FB-628B-49CF-986F-26D380F5EE89",
+        "title": "Granola Bars",
+        "href": "/stores/page/5E6B50FB-628B-49CF-986F-26D380F5EE89"
+      },
+      {
+        "pageId": "BCE32E04-2435-478F-98D4-E9B5CABE51FA",
+        "title": "Variety Packs",
+        "href": "/stores/page/BCE32E04-2435-478F-98D4-E9B5CABE51FA"
+      },
+      {
+        "pageId": "DEF51617-7906-4532-A7A1-479E8F8E73CF",
+        "title": "Baking",
+        "href": "/stores/page/DEF51617-7906-4532-A7A1-479E8F8E73CF"
+      }
+    ]
+  },
+  "products": [
+    {
+      "handle": "banana-muffin-quick-bread-mix",
+      "name": "Banana Muffin and Quick Bread Mix",
+      "category": "baking-mixes",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599018848",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/banana-muffin-quick-bread-mix",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599018848.-Kodiak-Cakes_Banana_Muffin-MainImage.png?v=1686325357&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599018848-Kodiak-Cakes-Banana_Muffin-Baking_Mix-MainImageHero-ALT.png?v=1695100256&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599018848-Kodiak-Cakes-Banana_Muffin-Baking_Mix-Infographic.png?v=1695100257&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "blueberry-muffin-mix",
+      "name": "Blueberry Muffin Mix",
+      "category": "baking-mixes",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599013133",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/blueberry-muffin-mix",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599013133-Kodiak_Cakes-Blueberry-Muffin_Mix--Front_Shadow.png?v=1702402360&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013133_Kodiak-Cakes_Blueberry_Muffin-Mix-MainImageHero-ALT.png?v=1702402254&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013133_Kodiak-Cakes_Blueberry_Muffin-Mix-Infographic.png?v=1702402254&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "chocolate-chip-muffin-mix",
+      "name": "Chocolate Chip Muffin Mix",
+      "category": "baking-mixes",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599013119",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/chocolate-chip-muffin-mix",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599013119-Kodiak_Cakes-Chocolate_Chip-Muffin_Mix--Front_Shadow.png?v=1702404516&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013119-Kodiak_Cakes-Chocolate_chip-Muffin_Mix-MainImageHero-ALT.png?v=1702404403&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013119-Kodiak_Cakes-Chocolate_chip-Muffin_Mix-Infographic.png?v=1702404403&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "chocolate-fudge-brownie-mix",
+      "name": "Chocolate Fudge Brownie Mix",
+      "category": "baking-mixes",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599012945",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/chocolate-fudge-brownie-mix",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599012945-Kodiak_Cakes-Chocolate_Fudge-Brownie_Mix-MainImage.png?v=1695100271&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012945-Kodiak_Cakes-Chocolate_Fudge-Brownie_Mix-MainImageHero-ALT.png?v=1695100272&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/26e65a100b23--705599012945-Kodiak-Cakes-Chocolate-Fudge-Brownie-Mix-NFP-Ingredients.webp?v=1711469918&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "dark-chocolate-muffin-mix",
+      "name": "Double Dark Chocolate Muffin Mix",
+      "category": "baking-mixes",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599012334",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/dark-chocolate-muffin-mix",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599012334_Kodiak-Cakes_Double-Dark-Chocolate-Muffin_Mix-MainImage.png?v=1695100272&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012334_Kodiak-Cakes_Double-Dark-Chocolate-Muffin_Mix-MainImageHero-ALT.png?v=1695100273&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012334_Kodiak-Cakes_Double-Dark-Chocolate-Muffin_Mix-NFP_Ingredients.png?v=1695100271&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "kodiak-cakes-blueberry-lemon-muffin-mix",
+      "name": "Blueberry Lemon Muffin Mix",
+      "category": "baking-mixes",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599012310",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/kodiak-cakes-blueberry-lemon-muffin-mix",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599012310_Kodiak-Cakes_Blueberry-Lemon_Muffin-MainImage_1.png?v=1702402357&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012310_Kodiak-Cakes_Blueberry-Lemon_Muffin-MainImageHero-ALT.png?v=1702402323&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012310_Kodiak-Cakes_Blueberry-Lemon_Muffin-Infographic.png?v=1702402323&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "blueberry-lemon-drizzled-minis-bars",
+      "name": "Blueberry Lemon Drizzled Mini Bars",
+      "category": "bars",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599021084",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/blueberry-lemon-drizzled-minis-bars",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599021084_DrizzledMiniBars_BlueberryLemon_Mobile-Main.png?v=1774891940&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599021084_DrizzledMiniBars_BlueberryLemon_MainImageHero-ALT.png?v=1774891991&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599021084_DrizzledMiniBars_BlueberryLemon_Bars.png?v=1774892027&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "brown-sugar-cinnamon-drizzled-mini-bars",
+      "name": "Brown Sugar Cinnamon Drizzled Mini Bars",
+      "category": "bars",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599021114",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/brown-sugar-cinnamon-drizzled-mini-bars",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599021114_DrizzledMiniBars_BrownSugarCinnamon_Mobile.png?v=1774900970&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599021114_DrizzledMiniBars_BrownSugarCinnamon_MainImage-ALT.png?v=1774900994&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599021114_DrizzledMiniBars_BrownSugarCinnamon_Bars.png?v=1774901024&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "chocolate-almond-trail-bars-5-ct",
+      "name": "Chocolate Almond Trail Bars",
+      "category": "bars",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599020339",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/chocolate-almond-trail-bars-5-ct",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599019296-KDK-Bars-Trail-Chocolate_Almond-MainImage_1.png?v=1751991152&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599019296-KDK-Bars-Trail-Chocolate_Almond-MainImageHero-ALT_1.png?v=1751991152&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599019296-KDK-Bars-Trail-Chocolate_Almond-Secondary-BarPackets_1.jpg?v=1751991152&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "chocolate-chip-chewy-granola-bar-5-ct",
+      "name": "Chocolate Chip Chewy Bars",
+      "category": "bars",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599016288",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/chocolate-chip-chewy-granola-bar-5-ct",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599016288_ChewyGranolaBar_ChocolateChip_MainImage_1.png?v=1777925814&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599016288_ChewyGranolaBar_ChocolateChip_MainImageHeroALT.png?v=1777925820&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599016288_ChewyGranolaBar_ChocolateChip_LooseBars.png?v=1777925829&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "chocolate-chip-crunchy-granola-bars-6-ct",
+      "name": "Chocolate Chip Crunchy Bars",
+      "category": "bars",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599015373",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/chocolate-chip-crunchy-granola-bars-6-ct",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599015373_CrunchyGranolaBars_ChocolateChip_Front.png?v=1777927304&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599015373_CrunchyGranolaBars_ChocolateChip_MainImageHeroALT.png?v=1777927304&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599015373_CrunchyGranolaBars_ChocolateChip_LooseBars.png?v=1777927303&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "cinnamon-oat-apple-breakfast-bar",
+      "name": "Cinnamon Oat & Apple Breakfast Bars",
+      "category": "bars",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599018435",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/cinnamon-oat-apple-breakfast-bar",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599018435_BreakfastBar_CinnamonOatApple_MainImage.png?v=1770761978&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599018435_BreakfastBar_CinnamonOatApple_MainImageHero-ALT_1.png?v=1770762032&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599018435_BreakfastBar_CinnamonOatApple_Back.png?v=1770762032&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "cookie-butter-crunchy-granola-bars-6-ct",
+      "name": "Cookie Butter Crunchy Bars",
+      "category": "bars",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599016462",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/cookie-butter-crunchy-granola-bars-6-ct",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599016462_CrunchyGranolaBars_CookieButter_Front.png?v=1777927147&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599016462_CrunchyGranolaBars_CookieButter_MainImageHeroALT.png?v=1777927146&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599016462_CrunchyGranolaBars_CookieButter_LooseBars.png?v=1777927146&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "cranberry-chocolate-chip-trail-bars-5-ct",
+      "name": "Cranberry Chocolate Chip Trail Bars",
+      "category": "bars",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599019326",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/cranberry-chocolate-chip-trail-bars-5-ct",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599019296-KDK-Bars-Trail-CCC-MainImage_2.png?v=1751990989&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599019296-KDK-Bars-Trail-CCC-MainImageHero-ALT_1.png?v=1751990989&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599019296-KDK-Bars-Trail-CCC-Secondary-BarPackets_1.jpg?v=1751990989&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "kodiak-cakes-chewy-bar-double-chocolate-5-ct",
+      "name": "Double Chocolate Chewy Bars",
+      "category": "bars",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599016387",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/kodiak-cakes-chewy-bar-double-chocolate-5-ct",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599016387_ChewyGranolaBar_DoubleChocolate_Front_1.png?v=1777925976&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599016387_ChewyGranolaBar_DoubleChocolate_MainImageHeroALT.png?v=1777925982&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599016387_ChewyGranolaBar_DoubleChocolate_LooseBars.png?v=1777925988&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "odiak-cakes-blueberry-oat-breakfast-bar",
+      "name": "Blueberry Oat Breakfast Bars",
+      "category": "bars",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599018398",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/odiak-cakes-blueberry-oat-breakfast-bar",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599018398_BreakfastBar_BlueberryOat_MainImage.png?v=1770761666&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599018398_BreakfastBar_BlueberryOat_MainImageHero-ALT.png?v=1770761666&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599018398_BreakfastBar_BlueberryOat_Back.png?v=1770761666&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "peanut-butter-chocolate-chip-chewy-granola-bar-5-ct",
+      "name": "Peanut Butter Chocolate Chip Chewy Bars",
+      "category": "bars",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599017339",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/peanut-butter-chocolate-chip-chewy-granola-bar-5-ct",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599017339_ChewyGranolaBar_PeanutButterChocolateChip_Front.png?v=1777926102&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599017339_ChewyGranolaBar_PeanutButterChocolateChip_MainImageHeroALT.png?v=1777926102&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599017339_ChewyGranolaBar_PeanutButterChocolateChip_LooseBars.png?v=1777926102&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "peanut-butter-crunchy-granola-bars-6-ct",
+      "name": "Peanut Butter Crunchy Bars",
+      "category": "bars",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599015403",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/peanut-butter-crunchy-granola-bars-6-ct",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599015403_CrunchyGranolaBars_PeanutButter_Front.png?v=1777927490&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599015403_CrunchyGranolaBars_PeanutButter_MainImageHeroALT.png?v=1777927490&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599015403_CrunchyGranolaBars_PeanutButter_LooseBars.png?v=1777927490&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "smores-chewy-granola-bar-5-ct",
+      "name": "S\u2019mores Chewy Bars",
+      "category": "bars",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599016417",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/smores-chewy-granola-bar-5-ct",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599016417_ChewyGranolaBar_S_mores_Front.png?v=1777925443&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599016417_ChewyGranolaBar_S_mores_MainImageHeroALT.png?v=1777925450&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599016417_ChewyGranolaBar_S_mores_LooseBars.png?v=1777925455&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "blueberries-and-cream-oatmeal-power-cup",
+      "name": "Blueberries & Cream Oatmeal Cup",
+      "category": "cups",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599014963",
+      "price_usd": "2.7",
+      "url": "https://kodiakcakes.com/products/blueberries-and-cream-oatmeal-power-cup",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599014963_Kodiak_Cakes_Blueberries_Cream_Oatmeal-Power_Cup-Mobile.png?v=1769115642&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599014963_Kodiak_Cakes_Blueberries_Cream_Oatmeal-Power_Cup-MainImage-ALT_5b6efa91-ab09-4d8c-ae36-61df1c0aeda6.png?v=1769115642&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599014963-Kodiak-Blueberries_Cream-OatCup-2.12oz-Huhtamaki-CUP0003_1496_01-NFP.png?v=1770918483&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "blueberry-muffin-power-cup",
+      "name": "Blueberry Minute Muffin",
+      "category": "cups",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599011498",
+      "price_usd": "2.7",
+      "url": "https://kodiakcakes.com/products/blueberry-muffin-power-cup",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599011498_MuffinCup_Blueberry_Main-Image.png?v=1779123195&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599011498_MuffinCup_Blueberry_Main-Image-ALT.png?v=1779123195&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599011498_MuffinCup_Blueberry_Prep-Instructions.png?v=1779123195&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "buttermilk-maple-flapjack-power-cup",
+      "name": "Buttermilk & Maple Flapjack Cup",
+      "category": "cups",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599011955",
+      "price_usd": "2.7",
+      "url": "https://kodiakcakes.com/products/buttermilk-maple-flapjack-power-cup",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599011955_FlapjackCup_ButtermilkandMaple_Main-Image.png?v=1779122096&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599011955_FlapjackCup_ButtermilkandMaple_Main-Image-ALT.png?v=1779122096&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599011955_FlapjackCup_ButtermilkandMaple_Prep-Instructions.png?v=1779122096&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "chocolate-chip-maple-flapjack-power-cup",
+      "name": "Chocolate Chip & Maple Flapjack Cup",
+      "category": "cups",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599013393",
+      "price_usd": "2.7",
+      "url": "https://kodiakcakes.com/products/chocolate-chip-maple-flapjack-power-cup",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599013393_FlapjackCup_ChocolateChipandMaple_Main-Image.png?v=1779121474&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013393_FlapjackCup_ChocolateChipandMaple_MainImage-ALT.png?v=1779121475&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013393_FlapjackCup_ChocolateChipandMaple_Prep-Instructions.png?v=1779121474&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "chocolate-chip-minute-muffin-power-cup",
+      "name": "Chocolate Chip Minute Muffin",
+      "category": "cups",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599013522",
+      "price_usd": "2.7",
+      "url": "https://kodiakcakes.com/products/chocolate-chip-minute-muffin-power-cup",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599013522_MuffinCup_ChocolateChip_Main-Image.png?v=1779123866&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013522_MuffinCup_ChocolateChip_Main-Image-ALT.png?v=1779123864&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013522_MuffinCup_ChocolateChip_Prep-Instructions.png?v=1779123864&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "chocolate-chip-oatmeal-power-cup",
+      "name": "Chocolate Chip Oatmeal Cup",
+      "category": "cups",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599013416",
+      "price_usd": "2.7",
+      "url": "https://kodiakcakes.com/products/chocolate-chip-oatmeal-power-cup",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599013416-Kodiak_Cakes-Chocolate_Chip-Oatmeal-Power-Cup-Mobile.png?v=1769116585&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013416-Kodiak_Cakes-Chocolate_Chip-Oatmeal-Power-Cup-MainImage-ALT-KD.png?v=1769116585&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013416-Kodiak-ChocolateChip-OatCup-2.12oz-Huhtamaki-CUP0003_1341_01-NFP_2.png?v=1770918442&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "chocolate-fudge-brownie-power-cup",
+      "name": "Chocolate Fudge Brownie Cup",
+      "category": "cups",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599013287",
+      "price_usd": "2.7",
+      "url": "https://kodiakcakes.com/products/chocolate-fudge-brownie-power-cup",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599013287_BrownieCup_ChocolateFudge_Main-Image.png?v=1779124048&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013287_BrownieCup_ChocolateFudge_Main-Image-ALT.png?v=1779124047&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013287_BrownieCup_ChocolateFudge_Prep-Instructions.png?v=1779124047&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "chocolate-peanut-butter-flapjack-power-cup",
+      "name": "Chocolate Peanut Butter Flapjack Cup",
+      "category": "cups",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599012655",
+      "price_usd": "2.7",
+      "url": "https://kodiakcakes.com/products/chocolate-peanut-butter-flapjack-power-cup",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599012655_FlapjackCup_ChocolatePeanutButter_MainImage.png?v=1779122971&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012655_FlapjackCup_ChocolatePeanutButter_MainImageALT.png?v=1779122971&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012655_FlapjackCup_ChocolatePeanutButter_PrepInstructions.png?v=1779123012&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "cinnamon-maple-flapjack-power-cup",
+      "name": "Cinnamon & Maple Flapjack Cup",
+      "category": "cups",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599011917",
+      "price_usd": "2.7",
+      "url": "https://kodiakcakes.com/products/cinnamon-maple-flapjack-power-cup",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599011917_FlapjackCup_CinnamonandMaple_Main-Image.png?v=1779122509&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599011917_FlapjackCup_CinnamonandMaple_Main-Image-ALT.png?v=1779122509&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599011917_FlapjackCup_CinnamonandMaple_Infographic.png?v=1779122509&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "cinnamon-roll-muffin-power-cup",
+      "name": "Cinnamon Roll Minute Muffin",
+      "category": "cups",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599014550",
+      "price_usd": "2.7",
+      "url": "https://kodiakcakes.com/products/cinnamon-roll-muffin-power-cup",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599014550_MuffinCup_CinnamonRoll_Main-Image.png?v=1779123743&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599014550_MuffinCup_CinnamonRoll_Main-Image-ALT.png?v=1779123743&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599014550_MuffinCup_CinnamonRoll_Prep-Instructions.png?v=1779123743&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "double-dark-chocolate-muffin-cup",
+      "name": "Double Dark Chocolate Minute Muffin",
+      "category": "cups",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599011542",
+      "price_usd": "2.7",
+      "url": "https://kodiakcakes.com/products/double-dark-chocolate-muffin-cup",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599011542_MuffinCup_DoubleDarkChocolate_Main-Image.png?v=1779123485&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599011542_MuffinCup_DoubleDarkChocolate_Main-Image-ALT.png?v=1779123485&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599011542_MuffinCup_DoubleDarkChocolate_Prep-Instructions.png?v=1779123485&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "kodiak-cakes-blueberry-maple-flapjack-power-cup",
+      "name": "Blueberry & Maple Flapjack Cup",
+      "category": "cups",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599011931",
+      "price_usd": "2.7",
+      "url": "https://kodiakcakes.com/products/kodiak-cakes-blueberry-maple-flapjack-power-cup",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599011931_FlapjackCup_BlueberryandMaple_Main-Image.png?v=1779122694&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599011931_FlapjackCup_BlueberryandMaple_Main-Image-ALT.png?v=1779122694&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599011931_FlapjackCup_BlueberryandMaple_Prep-Instructions.png?v=1779122694&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "kodiak-cakes-pumpkin-chocolate-chip-muffin-cup",
+      "name": "Pumpkin Chocolate Chip Minute Muffin",
+      "category": "cups",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599011863",
+      "price_usd": "2.7",
+      "url": "https://kodiakcakes.com/products/kodiak-cakes-pumpkin-chocolate-chip-muffin-cup",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599011863-Kodiak_Cakes-Pumpkin_Chocolate_Chip-Muffin-Power_Cup-V-CUP-0001_1186_01-Front_2.png?v=1755174902&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599011863-KDK-Cups-Muffin-Pumpkin_Chocolate_Chip-MainImage-ALT.png?v=1755175065&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599011863-KDK-Cups-Muffin-Pumpkin_Chocolate_Chip-Infographic.jpg?v=1755175065&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "maple-brown-sugar-oatmeal-power-cup",
+      "name": "Maple & Brown Sugar Oatmeal Cup",
+      "category": "cups",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599013430",
+      "price_usd": "2.7",
+      "url": "https://kodiakcakes.com/products/maple-brown-sugar-oatmeal-power-cup",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599013430-Kodiak_Cakes-MBS-Oatmeal-Power_Cup-Mobile.png?v=1769116488&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013430-Kodiak_Cakes-MBS-Oatmeal-Power_Cup-MainImage-ALT-KD.png?v=1769116488&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013430-Kodiak-MapleBrownSugar-OatCup-2.12oz-Huhtamaki-CUP0003_1343_01-NFP.png?v=1770918507&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "peanut-butter-chocolate-chip-oatmeal-power-cup",
+      "name": "Peanut Butter Chocolate Chip Oatmeal Cup",
+      "category": "cups",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599013485",
+      "price_usd": "2.7",
+      "url": "https://kodiakcakes.com/products/peanut-butter-chocolate-chip-oatmeal-power-cup",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599013485_Kodiak_Cakes_PBCC_Oatmeal_Power_Cup-Mobile.png?v=1769116395&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013485_Kodiak_Cakes_PBCC_Oatmeal_Power_Cup-MainImage-ALT.png?v=1769116395&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013485-Kodiak-PeanutButterChocolateChip-OatCup-2.12oz-Huhtamaki-CUP0003_1348_01-NFP.png?v=1770918530&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "smores-flapjack-power-cup",
+      "name": "S'Mores Flapjack Cup",
+      "category": "cups",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599013928",
+      "price_usd": "2.7",
+      "url": "https://kodiakcakes.com/products/smores-flapjack-power-cup",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599013928_FlapjackCup_S_mores_Main-Image.png?v=1779122339&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013928_FlapjackCup_S_mores_Main-Image-ALT.png?v=1779122339&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013928_FlapjackCup_S_mores_Prep-Instructions.png?v=1779122340&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "birthday-cake-power-cakes",
+      "name": "Birthday Cake Power Cakes",
+      "category": "flapjack-waffle-mix",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599016431",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/birthday-cake-power-cakes",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599016431_FlapjackMix_BirthdayCake_MainImage.png?v=1777391772&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599016431_FlapjackMix_BirthdayCake_MainImageHeroALT.png?v=1777391779&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599016431_FlapjackMix_BirthdayCake_Infographic.png?v=1777391787&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "blueberry-power-cakes",
+      "name": "Blueberry Power Cakes",
+      "category": "flapjack-waffle-mix",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599013805",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/blueberry-power-cakes",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599013805_FlapjackMix_Blueberry_MainImage.png?v=1774460504&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013805_FlapjackMix_Blueberry_MainImageHeroALT.png?v=1774460504&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013805_FlapjackMix_Blueberry_NewPackaging.png?v=1774460504&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "buttermilk-honey-frontier-cakes-flapjack-and-waffle-mix",
+      "name": "Buttermilk & Honey Frontier Cakes",
+      "category": "flapjack-waffle-mix",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599011313",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/buttermilk-honey-frontier-cakes-flapjack-and-waffle-mix",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599011313_FlapjackMix_ButtermilkandHoney_MainImage.png?v=1777391646&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599011313_FlapjackMix_ButtermilkandHoney_MainImageHeroALT.png?v=1777391657&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599011313_FlapjackMix_ButtermilkandHoney_Infographic.png?v=1777391664&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "buttermilk-power-cakes-flapjack-waffle-mix",
+      "name": "Buttermilk Power Cakes",
+      "category": "flapjack-waffle-mix",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599011627",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/buttermilk-power-cakes-flapjack-waffle-mix",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599011627_FlapjackMix_Buttermilk_Front_1.png?v=1780005358&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599011627_FlapjackMix_Buttermilk_MainImageHeroALT.png?v=1774581803&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599011627_FlapjackMix_Buttermilk_NewPackaging.png?v=1774581803&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "chocolate-chip-power-cakes-flapjack-waffle-mix",
+      "name": "Chocolate Chip Power Cakes",
+      "category": "flapjack-waffle-mix",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599013379",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/chocolate-chip-power-cakes-flapjack-waffle-mix",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599013379_FlapjackMix_ChocolateChip_MainImage_1.png?v=1780064512&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013379_FlapjackMix_ChocolateChip_MainImageHero-ALT.png?v=1774582013&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013379_FlapjackMix_ChocolateChip_NewPackaging.png?v=1774582013&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "cinnamon-oat-power-cakes-flapjack-waffle-mix",
+      "name": "Cinnamon Oat Power Cakes",
+      "category": "flapjack-waffle-mix",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599012679",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/cinnamon-oat-power-cakes-flapjack-waffle-mix",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599012679_FlapjackMix_CinnamonOat_MainImage_1.png?v=1780064620&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012679_FlapjackMix_CinnamonOat_MainImageHero-ALT.png?v=1774582589&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012679_FlapjackMix_CinnamonOat_NewPackaging.png?v=1774582589&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "dark-chocolate-power-cakes-flapjack-waffle-mix",
+      "name": "Dark Chocolate Power Cakes",
+      "category": "flapjack-waffle-mix",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599012198",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/dark-chocolate-power-cakes-flapjack-waffle-mix",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599012198_FlapjackMix_DarkChocolate_MainImage_1.png?v=1780064434&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012198_FlapjackMIx_DarkChocolate_MainImageHero-ALT.png?v=1774582812&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012198_FlapjackMix_DarkChocolate_NewPackaging.png?v=1774582812&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "grizzly-size-buttermilk-power-cakes-mix",
+      "name": "Grizzly Size Buttermilk Power Cakes",
+      "category": "flapjack-waffle-mix",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599016219",
+      "price_usd": "10.7",
+      "url": "https://kodiakcakes.com/products/grizzly-size-buttermilk-power-cakes-mix",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599016219_FlapjackMix_Grizzly_Buttermilk_MainImage.png?v=1774581709&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599016219_FlapjackMix_Grizzly_Buttermilk_MainImageHeroALT.png?v=1774581709&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599016219_FlapjackMix_Grizzly_Buttermilk_NewPackaging.png?v=1774581709&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "kodiak-pumpkin-power-cakes-flapjack-and-waffle-mix",
+      "name": "Pumpkin Power Cakes",
+      "category": "flapjack-waffle-mix",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599012389",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/kodiak-pumpkin-power-cakes-flapjack-and-waffle-mix",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599012389_FlapjackMix_Pumpkin_MainImage_1.png?v=1787781488&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012389_FlapjackMix_MainImageALT_1.png?v=1787781489&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012389_FlapjackMix_Pumpkin_Infographic_1.png?v=1787781489&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "original-gluten-free-flapjack-waffle-mix",
+      "name": "Original Gluten-Free",
+      "category": "flapjack-waffle-mix",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599014635",
+      "price_usd": "7.65",
+      "url": "https://kodiakcakes.com/products/original-gluten-free-flapjack-waffle-mix",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599014635_FlapjackMix_Gluten-Free_MainImage.png?v=1777390769&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599014635_FlapjackMix_Gluten-Free_MainImageHeroALT.png?v=1777392143&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599014635_FlapjackMix_Gluten-Free_Infographic.png?v=1777390791&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "raspberry-lemon-power-cakes-flapjack-waffle-mix",
+      "name": "Raspberry Lemon Power Cakes",
+      "category": "flapjack-waffle-mix",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599017834",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/raspberry-lemon-power-cakes-flapjack-waffle-mix",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599017848_FlapjackMix_RaspberryLemon_MainImage_1.png?v=1780064328&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599017848_FlapjackMix_RaspberryLemon_MainImageHero-ALT_7260d449-67b3-431c-bde5-9d49006f59cc.png?v=1770918001&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599017848_FlapjackMix_RaspberryLemon_NewPackaging_1.png?v=1770918001&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "bacon-colby-cheese-breakfast-sandwich",
+      "name": "Bacon & Colby Jack Cheese Breakfast Sandwich",
+      "category": "frozen",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599020285",
+      "price_usd": "6.99",
+      "url": "https://kodiakcakes.com/products/bacon-colby-cheese-breakfast-sandwich",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599020285_FrozenMaplePancakeSandwich_UncuredBaconEggandColbyJackCheese_Mobile_51f71d66-fc50-4d07-9a51-fca7f5cf6882-2.png?v=1779991884&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020285_FrozenMaplePancakeSandwich_UncuredBaconEggandColbyJackCheese_MainImageHeroALT.png?v=1779119968&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020285_FrozenMaplePancakeSandwich_UncuredBaconEggandColbyJackCheese_Infographic.png?v=1779119975&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "blueberry-power-waffles",
+      "name": "Blueberry Power Waffles",
+      "category": "frozen",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599012150",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/blueberry-power-waffles",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599012150_PowerWaffle_Blueberry_Mobile.png?v=1774583566&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012150_PowerWaffle_Blueberry_MainImageHeroALT.png?v=1774583566&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012150_PowerWaffle_Blueberry_NewPackaging.png?v=1774583566&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "blueberry-thick-and-fluffy-power-waffles",
+      "name": "Blueberry Thick and Fluffy Power Waffles",
+      "category": "frozen",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599014826",
+      "price_usd": "6.3",
+      "url": "https://kodiakcakes.com/products/blueberry-thick-and-fluffy-power-waffles",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599014826_ThickandFluffyPowerWaffles_Blueberry_Front.png?v=1779121056&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599014826_ThickandFluffyPowerWaffles_Blueberry_MainImageHeroALT.png?v=1779121057&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599014826_ThickandFluffyPowerWaffles_Blueberry_PrepInstructions.png?v=1779121057&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "buttermilk-french-toast-sticks",
+      "name": "Buttermilk French Toast Sticks",
+      "category": "frozen",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599019500",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/buttermilk-french-toast-sticks",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599019500_FrenchToastSticks_Buttermilk_Mobile.png?v=1774583236&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599019500_FrenchToastSticks_Buttermilk_Main-Image-Hero-ALT.png?v=1774583236&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599019500_FrenchToastSticks_Buttermilk_New-Packaging.png?v=1774583236&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "buttermilk-power-flapjacks",
+      "name": "Buttermilk Power Flapjacks",
+      "category": "frozen",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599013225",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/buttermilk-power-flapjacks",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599013225-Kodiak-Buttermilk-FFJ-12ct-QUAD-CTN0051_1322_09-Front-NOSHADOW.png?v=1766432838&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013225-Kodiak-Frozen_FJ-Buttermilk-MainImageHero-ALT_2.png?v=1769454047&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013225-Kodiak-Buttermilk-FFJ_NewPackaging.png?v=1769454047&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "buttermilk-vanilla-flapjack-puffs",
+      "name": "Buttermilk & Vanilla Flapjack Puffs",
+      "category": "frozen",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599018176",
+      "price_usd": "6.7",
+      "url": "https://kodiakcakes.com/products/buttermilk-vanilla-flapjack-puffs",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/products/705599018186-Original-Flapjack_Puffs-Q-Rev-1-FRONT.png?v=1680553507&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599018186-Kodiak_Cakes-Buttermilk-Flapjack_Puffs-MainImageHero-ALT.png?v=1693848998&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599018186-Kodiak_Cakes-Buttermilk-Flapjack_Puffs-PrepInstructions.png?v=1699921321&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "buttermilk-vanilla-power-waffles",
+      "name": "Buttermilk & Vanilla Power Waffles",
+      "category": "frozen",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599012211",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/buttermilk-vanilla-power-waffles",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599012211_PowerWaffles_ButtermilkandVanilla_MainImage.png?v=1777391361&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012211_PowerWaffles_ButtermilkandVanilla_MainImageHeroALT.png?v=1777391373&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012211_PowerWaffles_ButtermilkandVanilla_Infographic.png?v=1777391398&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "buttermilk-vanilla-thick-and-fluffy-power-waffles",
+      "name": "Buttermilk & Vanilla Thick and Fluffy Power Waffles",
+      "category": "frozen",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599014802",
+      "price_usd": "6.3",
+      "url": "https://kodiakcakes.com/products/buttermilk-vanilla-thick-and-fluffy-power-waffles",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599014802_ThickandFluffyPowerWaffles_ButtermilkandVanilla_Front.png?v=1779120845&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599014802_ThickandFluffyPowerWaffles_ButtermilkandVanilla_MainImageHeroALT.png?v=1779120845&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599014802_ThickandFluffyPowerWaffles_ButtermilkandVanilla_PrepInstructions.png?v=1779120845&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "chocolate-chip-power-waffles",
+      "name": "Chocolate Chip Power Waffles",
+      "category": "frozen",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599013201",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/chocolate-chip-power-waffles",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599013201_PowerWaffles_ChocolateChip_MainImage.png?v=1777391182&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013201_PowerWaffles_ChocolateChip_MainImageHeroALT.png?v=1777391191&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599013201_PowerWaffles_ChocolateChip_Infographic.png?v=1777391200&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "chocolate-chip-thick-and-fluffy-power-waffles",
+      "name": "Chocolate Chip Thick & Fluffy Power Waffles",
+      "category": "frozen",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599015137",
+      "price_usd": "6.3",
+      "url": "https://kodiakcakes.com/products/chocolate-chip-thick-and-fluffy-power-waffles",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599015137_ThickandFluffyPowerWaffles_ChocolateChip_MainImage.png?v=1779120654&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599015137_ThickandFluffyPowerWaffles_ChocolateChip_MainImageHeroALT.png?v=1779120654&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599015137_ThickandFluffyPowerWaffles_ChocolateChip_PrepInstructions.png?v=1779120655&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "cinnamon-french-toast-sticks",
+      "name": "Cinnamon French Toast Sticks",
+      "category": "frozen",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599019487",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/cinnamon-french-toast-sticks",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599019487_FrenchToastSticks_Cinnamon_MainImage.png?v=1774583140&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599019487_FrenchToastSticks_Cinnamon_MainImageHero-ALT.png?v=1774583140&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599019487_FrenchToastSticks_Cinnamon_New-Packaging.png?v=1774583140&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "dark-chocolate-power-waffles",
+      "name": "Dark Chocolate Power Waffles",
+      "category": "frozen",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599012709",
+      "price_usd": "5.0",
+      "url": "https://kodiakcakes.com/products/dark-chocolate-power-waffles",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599012709_PowerWaffles_DarkChocolate_MainImage.png?v=1777390882&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012709_PowerWaffles_DarkChocolate_MainImageHeroALT.png?v=1777390904&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599012709_PowerWaffles_DarkChocolate_Infographic.png?v=1777390954&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "english-muffin-turkey-sausage-breakfast-sandwich",
+      "name": "English Muffin Turkey Sausage & Cheddar Breakfast Sandwich",
+      "category": "frozen",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599020759",
+      "price_usd": "6.99",
+      "url": "https://kodiakcakes.com/products/english-muffin-turkey-sausage-breakfast-sandwich",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599020759_FrozenEnglishMuffinSandwich_TurkeySausageEggandCheddarCheese_Front-2.png?v=1779992313&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020759_FrozenEnglishMuffinSandwich_TurkeySausageEggandCheddarCheese_MainImageHeroALT.png?v=1777044758&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020759_FrozenEnglishMuffinSandwich_TurkeySausageEggandCheddarCheese_Infographic.png?v=1777044801&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "gluten-free-frontier-oat-power-waffles",
+      "name": "Gluten-Free Frontier Oat Power Waffles",
+      "category": "frozen",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/gluten-free-frontier-oat-power-waffles",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599014765_PowerWaffle_Gluten-Free_Mobile.png?v=1774583621&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599014765_PowerWaffle_Gluten-Free_Main-Image-Hero-ALT.png?v=1774583621&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599014765_PowerWaffle_Gluten-Free_New-Packaging.png?v=1774583621&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "homestyle-power-waffles",
+      "name": "Homestyle Power Waffles",
+      "category": "frozen",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599021008",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/homestyle-power-waffles",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599021008_MainImage.png?v=1768882241&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599021008_MainImageHeroALT_1_535d27e0-ee0f-4cea-941e-c7abdf896137.png?v=1768882241&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599021008_NFP-Ingredients.png?v=1768882241&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "kodiak-cubs-adventure-flapjacks",
+      "name": "Kodiak Cubs Adventure Flapjacks",
+      "category": "frozen",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599018718",
+      "price_usd": "6.0",
+      "url": "https://kodiakcakes.com/products/kodiak-cubs-adventure-flapjacks",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599018718_CubsMiniFlapjacks_Buttermilk_MainImage.png?v=1779120448&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599018718_CubsMiniFlapjacks_Buttermilk_MainImageHeroALT.png?v=1779120445&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599018718_CubsMiniFlapjacks_Buttermilk_PrepInstructions.png?v=1779120445&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "sausage-cheddar-cheese-breakfast-sandwich",
+      "name": "Sausage & Cheddar Cheese Breakfast Sandwich",
+      "category": "frozen",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599020261",
+      "price_usd": "6.99",
+      "url": "https://kodiakcakes.com/products/sausage-cheddar-cheese-breakfast-sandwich",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599020261_Frozen_Maple_Pancake_Sandwich_Sausage_Egg_Cheddar_Cheese_Front_2.png?v=1779992770&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020261_FrozenMaplePancakeSandwich_SausageEggCheddarCheese_MainImageHeroALT.png?v=1779120222&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020261_FrozenMaplePancakeSandwich_SausageEggCheddarCheese_Infographic.png?v=1779120229&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "copy-of-gift-card-100",
+      "name": "Gift Card - $100",
+      "category": "gift-card",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "GCGENERIC",
+      "price_usd": "100.0",
+      "url": "https://kodiakcakes.com/products/copy-of-gift-card-100",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/KDK-24-Digital_Gift_Certificate-Front-R2_7c6e4442-4c54-494d-b98f-25a82b306572.png?v=1733871488&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/KDK-24-Digital_Gift_Certificate-Reverse_100-R2.png?v=1733871493&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "gift-card-40",
+      "name": "Gift Card - $40",
+      "category": "gift-card",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "GCGENERIC",
+      "price_usd": "40.0",
+      "url": "https://kodiakcakes.com/products/gift-card-40",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/KDK-24-Digital_Gift_Certificate-Front-R2_23263833-dff3-4204-b9a6-97465ae6dacf.png?v=1733871544&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/KDK-24-Digital_Gift_Certificate-Reverse_40-R2.png?v=1733871549&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "gift-card-50",
+      "name": "Gift Card - $50",
+      "category": "gift-card",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "GCGENERIC",
+      "price_usd": "50.0",
+      "url": "https://kodiakcakes.com/products/gift-card-50",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/KDK-24-Digital_Gift_Certificate-Front-R2_59d0e2d2-5b02-469e-b042-ddb1ba80848f.png?v=1733871579&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/KDK-24-Digital_Gift_Certificate-Reverse_50-R2.png?v=1733871582&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "gift-card-75",
+      "name": "Gift Card - $75",
+      "category": "gift-card",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "GCGENERIC",
+      "price_usd": "75.0",
+      "url": "https://kodiakcakes.com/products/gift-card-75",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/KDK-24-Digital_Gift_Certificate-Front-R2_7446a97f-7c3a-469d-b1d0-301407d0c6fa.png?v=1733871605&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/KDK-24-Digital_Gift_Certificate-Reverse_75-R2.png?v=1733871610&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "blueberry-vanilla-granola",
+      "name": "Blueberry Vanilla Granola",
+      "category": "granola",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599020735",
+      "price_usd": "6.5",
+      "url": "https://kodiakcakes.com/products/blueberry-vanilla-granola",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599020735-Kodiak-Blueberry_Vanilla-Granola-10oz-PCH0007_2073_1-FRONT.png?v=1764786810&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020735_MainImageALT.png?v=1767894669&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020735-Kodiak-Blueberry_Vanilla-Granola-10oz-PCH0007_2073_1-BACK.png?v=1767894669&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "chocolate-granola",
+      "name": "Chocolate Granola",
+      "category": "granola",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599019678",
+      "price_usd": "6.5",
+      "url": "https://kodiakcakes.com/products/chocolate-granola",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599019678-Kodiak-Granola-Chocolate-MainImage_2.png?v=1736973008&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599019678-Kodiak-Granola-Chocolate-MainImage-ALT.png?v=1738210038&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599019678-Kodiak-Chocolate-Granola-11oz-Bellmark-PCH0007_1967_01-MainImageBack.png?v=1738210038&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "cookie-butter-granola",
+      "name": "Cookie Butter Granola",
+      "category": "granola",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599020308",
+      "price_usd": "6.5",
+      "url": "https://kodiakcakes.com/products/cookie-butter-granola",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599020308-Kodiak-Granola-Cookie_Butter-MainImage_1.png?v=1736973850&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020308-Kodiak-Granola-Cookie_Butter-MainImage-ALT.png?v=1738210068&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020308-Kodiak-Cookie_Butter-Granola-11oz-Bellmark-PCH0007_2030_01-MainImageBack_6e0fa4a7-44c4-4da6-b4a8-021790cb401d.png?v=1738210068&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "honey-oat-granola",
+      "name": "Honey Oat Granola",
+      "category": "granola",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599019630",
+      "price_usd": "6.5",
+      "url": "https://kodiakcakes.com/products/honey-oat-granola",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599019630-Kodiak-Granola-Honey_Oat-MainImage_1.png?v=1736970800&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599019630-Kodiak-Granola-Honey_Oat-MainImage-ALT.png?v=1738210075&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599019630-Kodiak-Honey-Granola-11oz-Bellmark-PCH0007_1963_01-MainImageBack.png?v=1738210075&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "salted-caramel-granola",
+      "name": "Salted Caramel Granola",
+      "category": "granola",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599020698",
+      "price_usd": "6.5",
+      "url": "https://kodiakcakes.com/products/salted-caramel-granola",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599020698-Kodiak-Salted_Caramel-Granola-10oz-Belmark-PCH0007_2069_1-FRONT_1.png?v=1764787595&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020698_MainImageALT.png?v=1767894748&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020698-Kodiak-Salted_Caramel-Granola-10oz-Belmark-PCH0007_2069_1-BACK_1.png?v=1767894748&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "apple-cinnamon-oatmeal-packets",
+      "name": "Apple Cinnamon Oatmeal Packets",
+      "category": "oatmeal",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599018930",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/apple-cinnamon-oatmeal-packets",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599018930-KDK-Oatmeal_Packets-Apple_Cinnamon-MainImage.png?v=1737572184&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599018930-KDK-Oatmeal_Packets-Apple_Cinnamon-MainImageHero-ALT_1.png?v=1737572253&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599018930-KDK-Oatmeal_Packets-Apple_Cinnamon-Packet.jpg?v=1737572253&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "banana-nut-peak-oatmeal-packets",
+      "name": "Banana Nut Peak Oatmeal Packets",
+      "category": "oatmeal",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599018732",
+      "price_usd": "8.0",
+      "url": "https://kodiakcakes.com/products/banana-nut-peak-oatmeal-packets",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599018732-Kodiak-Banana_Nut-Peak-Oatmeal--Front_Shadow.png?v=1712946641&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599018732-Kodiak-Banana_Nut-Peak-Oatmeal-MainImageHero-ALT_232b5dc6-4e79-4109-a808-ac09df77b63f.png?v=1758803784&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599018732-Kodiak-Banana_Nut-Peak-Oatmeal-Packet.jpg?v=1758803652&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "berries-cream-peak-oatmeal-packets",
+      "name": "Berries & Cream Peak Oatmeal Packets",
+      "category": "oatmeal",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599018756",
+      "price_usd": "8.0",
+      "url": "https://kodiakcakes.com/products/berries-cream-peak-oatmeal-packets",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599018756-Kodiak-Berries___Cream-Peak-Oatmeal--Front.png?v=1743443484&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599018756-Kodiak-Berries___Cream-Peak-Oatmeal-MainImageHero-ALT.png?v=1758803998&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599018756-Kodiak-Berries___Cream-Peak-Oatmeal-Packet.jpg?v=1758803624&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "blueberries-cream-oatmeal-packets",
+      "name": "Blueberries & Cream Oatmeal Packets",
+      "category": "oatmeal",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599015519",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/blueberries-cream-oatmeal-packets",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599015519-KDK-Oatmeal_Packets-Blueberries_and_Cream-MainImage.png?v=1737571956&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599015519-KDK-Oatmeal_Packets-Blueberries_and_Cream-MainImageHero-ALT_1.png?v=1737572104&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599015519-KDK-Oatmeal_Packets-Blueberries_and_Cream-Infographic.jpg?v=1737572104&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "chocolate-chip-oatmeal-packets",
+      "name": "Chocolate Chip Oatmeal Packets",
+      "category": "oatmeal",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599014185",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/chocolate-chip-oatmeal-packets",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599014185-KDK-Oatmeal_Packets-Chocolate_Chip-MainImage.png?v=1737572467&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599014185-KDK-Oatmeal_Packets-Chocolate_Chip-MainImageHero-ALT.png?v=1737572467&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599014185-Kodiak_Cakes-Chocolate_Chip-Oatmeal-Packet.png?v=1737572467&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "classic-rolled-oats-oatmeal-canister",
+      "name": "Classic Rolled Oats Oatmeal Canister",
+      "category": "oatmeal",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599015533",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/classic-rolled-oats-oatmeal-canister",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599015533-KDK-Oatmeal-Canister-Classic_Rolled_Oats-MainImage.png?v=1741626087&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599015533-KDK-Oatmeal-Canister-Classic_Rolled_Oats-MainImageHero-ALT.png?v=1741626087&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599015533-KDK-Oatmeal-Canister-Classic_Rolled_Oats-Infographic.jpg?v=1741626087&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "cookie-butter-overnight-oats",
+      "name": "Cookie Butter Overnight Oats",
+      "category": "oatmeal",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599020810",
+      "price_usd": "3.79",
+      "url": "https://kodiakcakes.com/products/cookie-butter-overnight-oats",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599020810-Kodiak_Cakes-Cookie_Butter-Overnight_Oats-Pouch-PCH-00XX_2081_01-Pouch_Front.png?v=1767735435&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020810_MainImageALT_2.png?v=1768881616&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020810-Kodiak_Cakes-Cookie_Butter-Overnight_Oats-Pouch-PCH-00XX_2081_01-Pouch_Back.png?v=1768881616&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "dark-chocolate-overnight-oats",
+      "name": "Dark Chocolate Sea Salt Overnight Oats",
+      "category": "oatmeal",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599020834",
+      "price_usd": "3.79",
+      "url": "https://kodiakcakes.com/products/dark-chocolate-overnight-oats",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599020834-Kodiak_Cakes-Chocolate_Sea_Salt-Overnight_Oats-Pouch-PCH-00XX_2083_01-Piuch-Front.png?v=1767736704&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020834_MainImageALT_1.png?v=1768881550&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020834-Kodiak_Cakes-Chocolate_Sea_Salt-Overnight_Oats-Pouch-PCH-00XX_2083_01-Piuch-Back.png?v=1768881550&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "honey-oat-almond-overnight-oats",
+      "name": "Honey Oat & Almond Overnight Oats",
+      "category": "oatmeal",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599020872",
+      "price_usd": "3.79",
+      "url": "https://kodiakcakes.com/products/honey-oat-almond-overnight-oats",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599020872-Kodiak_Cakes-Honey_Oats_and_Almond-Overnight_Oats-Pouch-PCH-0012T_2087_01-Front_1.png?v=1767737473&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020872_OvernightOats_HoneyOatandAlmond_Main-Image-ALT_1.png?v=1780955487&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020872_OvernightOats_HoneyOatandAlmond_Prep-Instructions_1.png?v=1780955487&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "maple-and-brown-sugar-oatmeal-packets",
+      "name": "Maple & Brown Sugar Oatmeal Packets",
+      "category": "oatmeal",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599014147",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/maple-and-brown-sugar-oatmeal-packets",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599014147-Kodiak_Cakes-Maple_Brown_Sugar-Oatmeal-Box-Rev1-CTN-0010_12--HS--QUAD-2024-Front.png?v=1737571551&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599014147-KDK-Oatmeal_Packets-MBS-MainImageHero-ALT.png?v=1737571551&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599014147-KDK-Oatmeal_Packets-MBS-Packet.jpg?v=1737571551&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "maple-brown-sugar-peak-oatmeal-packets",
+      "name": "Maple Brown Sugar Peak Oatmeal Packets",
+      "category": "oatmeal",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599018770",
+      "price_usd": "8.0",
+      "url": "https://kodiakcakes.com/products/maple-brown-sugar-peak-oatmeal-packets",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599018770-Kodiak-MBS-Peak-Oatmeal--Front_Shadow.png?v=1743443158&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599018770-Kodiak-MBS-Peak-Oatmeal-MainImageHero-ALT.png?v=1758803855&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599018770-Kodiak-MBS-Peak-Oatmeal-Packet.jpg?v=1758803566&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "maple-pecan-overnight-oats",
+      "name": "Maple Pecan Overnight Oats",
+      "category": "oatmeal",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599020797",
+      "price_usd": "3.79",
+      "url": "https://kodiakcakes.com/products/maple-pecan-overnight-oats",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599020797-Kodiak_Cakes-Maple_Pecan-Overnight_Oats-Pouch-PCH-00XX_2079_01-Pouch_Front.png?v=1767730830&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020797_MainImageALT_1.png?v=1768881439&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020797-Kodiak_Cakes-Maple_Pecan-Overnight_Oats-Pouch-PCH-00XX_2079_01-Pouch_BAck.png?v=1768881439&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "oatmeal-variety-pack-1",
+      "name": "Oatmeal Packet Variety Pack",
+      "category": "oatmeal",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599019401",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/oatmeal-variety-pack-1",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599019401-KDK-Oatmeal_Packets-Variety_6pc-MBS_CC_APC-MainImage_1.png?v=1737572693&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599019401-KDK-Oatmeal_Packets-Variety_6pc-MBS_CC_APC-MainImageHero-ALT_1.png?v=1737572693&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599019401-KDK-Oatmeal_Packets-Variety_6pc-MBS_CC_APC-Packets.jpg?v=1737572693&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "peach-overnight-oats",
+      "name": "Peach Overnight Oats",
+      "category": "oatmeal",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599020858",
+      "price_usd": "3.79",
+      "url": "https://kodiakcakes.com/products/peach-overnight-oats",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599020858-Kodiak_Cakes-Peach-Overnight_Oats-Pouch-PCH-00XX_2085_01-Pouch_Front.png?v=1767737943&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020858_MainImageALT_1.png?v=1768881649&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599020858_PrepInstructions.png?v=1767737943&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "oatmeal-chocolate-chip-protein-balls",
+      "name": "Oatmeal Chocolate Chip Protein Balls",
+      "category": "protein-balls",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599015007",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/oatmeal-chocolate-chip-protein-balls",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599015007-Kodiak_Cakes-Oat_Chocolate_Chip-Protein_Balls-MainImage.png?v=1695100260&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599015007-Kodiak_Cakes-Oat_Chocolate_Chip-Protein_Balls-MainImageHero-ALT.png?v=1695100264&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599015007-Kodiak_Cakes-Oat_Chocolate_Chip-Protein_Balls-NFP_Ingredients.png?v=1695100260&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    },
+    {
+      "handle": "snickerdoodle-protein-balls",
+      "name": "Snickerdoodle Protein Balls",
+      "category": "protein-balls",
+      "description": "Used to get facts about the stores policies, products, or services.\nSome examples of questions you can ask are:\n  - What is your return policy?\n  - What is your shipping policy?\n  - What is your phone number?\n  - What are your hours of operation?\"",
+      "sku": "705599020193",
+      "price_usd": "6.45",
+      "url": "https://kodiakcakes.com/products/snickerdoodle-protein-balls",
+      "images": [
+        "https://kodiakcakes.com/cdn/shop/files/705599019487-Kodiak_Cakes-Protein_Balls-Snickerdoodle-MainImage.png?v=1733856148&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599019487-Kodiak_Cakes-Protein_Balls-Snickerdoodle-MainImageHero-ALT_1.png?v=1733856148&width=1024",
+        "https://kodiakcakes.com/cdn/shop/files/705599019487-Kodiak_Cakes-Protein_Balls-Snickerdoodle-Infographic.jpg?v=1733856148&width=1024"
+      ],
+      "source": "sitemap+pages",
+      "in_sitemap": true
+    }
+  ],
+  "amazon_listings": [
+    {
+      "asin": "B08KBZPZ4L",
+      "title": "Kodiak Crunchy Granola Bars,Variety Pack, High Protein, 4pk",
+      "price": "$29.03",
+      "url": "https://www.amazon.com/dp/B08KBZPZ4L",
+      "bullets": [
+        "Nourishment for today&#39;s frontier - bulk granola bars protein packed with 10g per serving, offering up a crispy, crunchy, and balanced alternative when it comes to snacks for hungry folks of all ages",
+        "Whole grains taste better - crafted with 100% whole grains, rich chocolate chips and wholesome peanutbutter, all with no artificial preservatives or additives, a good source of B vitamins and antioxidants",
+        "Best of both worlds snack bars - our peanut butter granola bars and chocolate bars variety pack is a delicious combo of protein bars and granola bars"
+      ],
+      "image_count": 12,
+      "aplus_image_count": 4,
+      "source": "amazon"
+    },
+    {
+      "asin": "B07Z6SPQ88",
+      "title": "Kodiak Cakes Protein Pancake On The Go Flapjack Cups Mix; Buttermilk, Chocolate Chip, ' S\u2019mores Variety Pack",
+      "price": "$32.99",
+      "url": "https://www.amazon.com/dp/B07Z6SPQ88",
+      "bullets": [
+        "Includes 12 Kodiak Cakes flapjack cups, featuring: Buttermilk (4), Chocolate Chip (4), and S&#39;mores (4)",
+        "Packed with 6 grams of protein per cup",
+        "Made with Non-GMO ingredients"
+      ],
+      "image_count": 12,
+      "aplus_image_count": 4,
+      "source": "amazon"
+    },
+    {
+      "asin": "B00LHVROIM",
+      "title": "Kodiak Cakes Protein Pancake Power Cakes, Flapjack and Waffle Baking Mix, Buttermilk, 20 Oz, (Pack of 6)",
+      "price": "$33.52",
+      "url": "https://www.amazon.com/dp/B00LHVROIM",
+      "bullets": [
+        "You will receive a Pack of (6) Kodiak Cakes Power Cakes, All Natural, Non GMO Protein Pancake, Flapjack and Waffle Mix, Buttermilk, 20 Ounce",
+        "Made with whole wheat and oat flours, and packed with 14g protein per serving",
+        "Made with Non-GMO ingredients"
+      ],
+      "image_count": 12,
+      "aplus_image_count": 4,
+      "source": "amazon"
+    },
+    {
+      "asin": "B00I471EVA",
+      "title": "Kodiak Cakes Minute Muffins, Mountain Blueberry, 2.29 Ounce (Pack of 12) (Packaging May Vary)",
+      "price": "$24.74",
+      "url": "https://www.amazon.com/dp/B00I471EVA",
+      "bullets": [
+        "You will receive a Pack of (12) Kodiak Cakes minute muffins, Mountain Blueberry, 2.29 Ounce",
+        "Made with Non-GMO ingredients",
+        "Made with 100% whole grains"
+      ],
+      "image_count": 12,
+      "aplus_image_count": 0,
+      "source": "amazon"
+    },
+    {
+      "asin": "B00I471G9K",
+      "title": "Kodiak Cakes Minute Muffins, Double Dark Chocolate, 2.36 Ounce (Pack of 12) (Packaging May Vary)",
+      "price": "$25.42",
+      "url": "https://www.amazon.com/dp/B00I471G9K",
+      "bullets": [
+        "You will receive a Pack of (12) Kodiak Cakes minute muffins, double Dark Chocolate, 2.36 Ounce",
+        "Made with Non-GMO Ingredients",
+        "Made with 100% whole grains"
+      ],
+      "image_count": 12,
+      "aplus_image_count": 0,
+      "source": "amazon"
+    },
+    {
+      "asin": "B07VLP8R16",
+      "title": "Kodiak Cakes Minute Muffins, Cinnamon Roll, 2.36 Oz (Pack of 12)",
+      "price": "$24.74",
+      "url": "https://www.amazon.com/dp/B07VLP8R16",
+      "bullets": [
+        "100% whole grains are a good source of essential nutrients and vitamins",
+        "Carefully crafted using all non-GMO ingredients",
+        "Ready to eat in just one minute\u2014just add water, stir, microwave, and enjoy!"
+      ],
+      "image_count": 12,
+      "aplus_image_count": 0,
+      "source": "amazon"
+    },
+    {
+      "asin": "B07C3579DW",
+      "title": "Kodiak Cakes Chocolate Fudge Brownie in a Cup, 2.36 Ounce (Pack of 12) (Packaging May Vary)",
+      "price": "$25.25",
+      "url": "https://www.amazon.com/dp/B07C3579DW",
+      "bullets": [
+        "You will receive a Pack of (12) Kodiak Cakes Chocolate Fudge Brownie in a Cup, 2.36 Ounce",
+        "Made with 100% whole grains, with no artificial ingredients",
+        "10 grams of high-quality protein per serving to keep you full"
+      ],
+      "image_count": 12,
+      "aplus_image_count": 0,
+      "source": "amazon"
+    },
+    {
+      "asin": "B014SFW8DE",
+      "title": "Kodiak Cakes Instant Pancake ' Flapjack Cups, Buttermilk ' Maple, High Protein, 100% Whole Grains, (Pack of 12)",
+      "price": "$23.88",
+      "url": "https://www.amazon.com/dp/B014SFW8DE",
+      "bullets": [
+        "You will receive a Pack of (12) Kodiak Cakes Power Flapjack On the Go Baking Mix, Unleashed Buttermilk and Maple, 2.15 Ounce",
+        "Non-GMO, and no preservatives with 10g protein and 3g fiber per serving",
+        "Made with 100% whole grains"
+      ],
+      "image_count": 12,
+      "aplus_image_count": 0,
+      "source": "amazon"
+    },
+    {
+      "asin": "B09KMJZ1Z3",
+      "title": "Kodiak Power Cakes, Blueberry, Pancake ' Waffle Mix, High Protein, 6pk",
+      "price": "$35.94",
+      "url": "https://www.amazon.com/dp/B09KMJZ1Z3",
+      "bullets": [
+        "Power cakes flapjack &amp; protein waffles mix - up to 18 grams of protein per serving if you use milk, 21 grams if you add milk and eggs to pancake batter",
+        "Easy to make - protein pancake mix just add water or milk for delicious meal ready in minutes, great for breakfast pancake, waffle &amp; baking mixes",
+        "Crafted with hearty 100% whole grains - pancake blue berry mix with a great source of B vitamins and antioxidants, zero artificial preservatives"
+      ],
+      "image_count": 12,
+      "aplus_image_count": 0,
+      "source": "amazon"
+    },
+    {
+      "asin": "B0BMN7DGH7",
+      "title": "Kodiak Muffin Cup Variety Pack, Whole Grain, High Protein Muffins,12pk",
+      "price": "$34.79",
+      "url": "https://www.amazon.com/dp/B0BMN7DGH7",
+      "bullets": [
+        "Three delicious flavors. A nourishing breakfast doesn\u2019t have to be boring. We\u2019re way past that! Indulge in Double Dark Chocolate, Blueberry and Cinnamon Roll.",
+        "Portable, balanced breakfast for everyday adventures. Take your warm muffins, crafted with 100% whole grains, on the go for a hearty start to your day.",
+        "Packed with protein because you\u2019ll need it. Leave the stomach growl behind with a satisfying breakfast made to keep you feeling fuller, longer."
+      ],
+      "image_count": 12,
+      "aplus_image_count": 0,
+      "source": "amazon"
+    },
+    {
+      "asin": "B07F44C5GG",
+      "title": "Kodiak Power Cakes Chocolate Chip Pancake ' Waffle Mix, High Protein, 6pk",
+      "price": "$32.64",
+      "url": "https://www.amazon.com/dp/B07F44C5GG",
+      "bullets": [
+        "You will receive a Pack of (6) Kodiak Cakes Protein Pancake Power Cakes, Flapjack and Waffle Mix, Chocolate Chip, 18 Ounce",
+        "14 grams of protein per serving keeps you full until lunch",
+        "100% whole grains provide antioxidants and fiber for a well-rounded diet, with Non-GMO ingredients and no preservatives or artificial additives"
+      ],
+      "image_count": 12,
+      "aplus_image_count": 4,
+      "source": "amazon"
+    },
+    {
+      "asin": "B014SFW8YI",
+      "title": "Kodiak Cakes Pancake On the Go, Blueberry and Maple, 2.16 Ounce (Pack of 12)",
+      "price": "$23.23",
+      "url": "https://www.amazon.com/dp/B014SFW8YI",
+      "bullets": [
+        "You will receive a Pack of (12) Kodiak Cakes Unleashed Flapjack On the Go Baking Mix, Blueberry and Maple, 2.18 Ounce",
+        "Non-GMO, and no preservatives with 6g protein and 5g fiber per serving",
+        "Made with 100% whole grains"
+      ],
+      "image_count": 12,
+      "aplus_image_count": 0,
+      "source": "amazon"
+    },
+    {
+      "asin": "B08P55514T",
+      "title": "Kodiak Power Cakes, Variety Pack, Protein Pancake and Waffle Mix, 3pk",
+      "price": "$22.00",
+      "url": "https://www.amazon.com/dp/B08P55514T",
+      "bullets": [
+        "Mix it up with Kodiak&#39;s Power Cakes Variety Pack. Get your fill of our Classic Buttermilk Power Cakes, and when you&#39;re craving a little bit of sweet in your mornings, mix up a batch of our Chocolate Chip Power Cakes.",
+        "Contains: 2 Buttermilk Pancake Mixes, 1 Chocolate Chip Pancake Mix",
+        "14g Protein Per Serving"
+      ],
+      "image_count": 12,
+      "aplus_image_count": 4,
+      "source": "amazon"
+    },
+    {
+      "asin": "B0FRMR5SMH",
+      "title": "Deluxe ' Bla Bla Dark Chocolate Rice Cakes,Kosher Certified Dairy Free,Gluten Free,Nuts Free,Vegan Snack (Dark Chocolate) Pack Of 3",
+      "price": "$14.99",
+      "url": "https://www.amazon.com/dp/B0FRMR5SMH",
+      "bullets": [
+        "HEALTHY SNACK: The rice cakes are delightfully crunchy and low in calories, totally satisfying but won&#39;t ruin your diet. No more unnecessary additives and ingredients, it&#39;s KOSHER-Certified.",
+        "NATURAL &amp; GLUTEN FREE: This race cakes are free from artificial colors and artificial preservatives. It&#39;s gluten free and soya free, for the whole family our rice cakes are delicious treats that can be enjoyed for lip-smacking, fun snacking!",
+        "CRUNCHY RICE CAKES: The same delicious flavor and goodness of classic brown rice in a cookie lightly coated, it&#39;s absolutely delicious flavor of lemon."
+      ],
+      "image_count": 12,
+      "aplus_image_count": 4,
+      "source": "amazon"
+    },
+    {
+      "asin": "B07RP3XWGR",
+      "title": "Kodiak Cakes Pancake On the Go, S'mores, 2.36 oz (Pack of 12)",
+      "price": "$23.88",
+      "url": "https://www.amazon.com/dp/B07RP3XWGR",
+      "bullets": [
+        "You will receive a Pack of (12) Kodiak Cakes pancake on the go high protein snack, s&#39;mores, 2.36 Ounce",
+        "12 grams of protein Make an Empowering breakfast or filling midday treat",
+        "100% whole grains are a good source of B vitamins and antioxidants"
+      ],
+      "image_count": 12,
+      "aplus_image_count": 0,
+      "source": "amazon"
+    },
+    {
+      "asin": "B01GQ32SPE",
+      "title": "Kodiak Cakes Protein Pancake Power Cakes, Flapjack and Waffle Baking Mix, Dark Chocolate, 18 Ounce (Pack of 6)",
+      "price": "$35.28",
+      "url": "https://www.amazon.com/dp/B01GQ32SPE",
+      "bullets": [
+        "You will receive a Pack of (6) Kodiak Cakes Power Cakes, Non GMO Protein Pancake, Flapjack and Waffle Mix, Dark Chocolate, 18 Ounce",
+        "Made with whole wheat and oat flours, and packed with 14g protein per serving",
+        "Made with Non-GMO ingredients"
+      ],
+      "image_count": 12,
+      "aplus_image_count": 4,
+      "source": "amazon"
+    },
+    {
+      "asin": "B07V4T3SL2",
+      "title": "Kodiak Cakes Minute Muffins, Chocolate Chip, 2.36 Ounce (Pack of 12)",
+      "price": "$26.89",
+      "url": "https://www.amazon.com/dp/B07V4T3SL2",
+      "bullets": [
+        "You will receive a Pack of (12) Kodiak Cakes minute muffins high protein snack, chocolate Chip, 2.29Oz",
+        "100% whole grains are a good source of B vitamins and antioxidants, with non-GMO ingredients and no artificial flavors or additives",
+        "Semisweet chocolate chips add a subtly sweet taste"
+      ],
+      "image_count": 12,
+      "aplus_image_count": 0,
+      "source": "amazon"
+    },
+    {
+      "asin": "B014SFW7XK",
+      "title": "Kodiak Cakes Pancake On the Go, Cinnamon and Maple, 2.26 Ounce (Pack of 12)",
+      "price": "$26.85",
+      "url": "https://www.amazon.com/dp/B014SFW7XK",
+      "bullets": [
+        "You will receive a Pack of (12) Kodiak Cakes Unleashed Flapjack On The Go Baking Mix, Cinnamon and Maple, 2.25 Ounce",
+        "Non-GMO, and no preservatives with 6g protein and 5g fiber per serving",
+        "Made with 100% whole grains. Just add \u00bc cup water or milk for extra protein"
+      ],
+      "image_count": 12,
+      "aplus_image_count": 0,
+      "source": "amazon"
+    },
+    {
+      "asin": "B07F4HPL3P",
+      "title": "Kodiak Cakes Pancake On The Go, Chocolate Chip ' Maple, 2.29 Oz (Pack Of 12)",
+      "price": "$23.88",
+      "url": "https://www.amazon.com/dp/B07F4HPL3P",
+      "bullets": [
+        "100% whole grains make for a filling, nourishing breakfast or snack",
+        "Made with real maple syrup complemented by rich semisweet chocolate chips",
+        "Non-gmo ingredients and no artificial flavors or additives"
+      ],
+      "image_count": 12,
+      "aplus_image_count": 0,
+      "source": "amazon"
+    },
+    {
+      "asin": "B07GDLYFK1",
+      "title": "Kodiak Cakes Instant Protein Maple ' Brown Sugar Oatmeal in a Cup, 2.12oz (Pack of 12)",
+      "price": "$23.88",
+      "url": "https://www.amazon.com/dp/B07GDLYFK1",
+      "bullets": [
+        "You will receive (12) Kodiak Cakes Instant protein maple &amp; Brown Sugar Oatmeal in a cup, 2.12 Ounce",
+        "100% whole grains and Non-GMO ingredients make for a wholesome, nutritious breakfast",
+        "Classic maple and brown sugar complements wholesome whole rolled oats"
+      ],
+      "image_count": 12,
+      "aplus_image_count": 4,
+      "source": "amazon"
+    }
+  ],
+  "brand_lore": {
+    "mission": "Keep It Wild \u2014 100% whole grains, 15g protein, Park City 1982 red wagon origin",
+    "files": [
+      {
+        "file": "Brand_Ambassador_Print_Guide.pdf",
+        "source_url": "https://cdn.shopify.com/s/files/1/2204/3207/files/Brand_Ambassador_Print_Guide.pdf",
+        "words": 1875
+      },
+      {
+        "file": "Kodiak-Cakes-Case-Study-06272023_EN.pdf",
+        "source_url": "https://www.graphicpkg.com/custom-content/uploads/2023/10/Kodiak-Cakes-Case-Study-06272023_EN.pdf",
+        "words": 670
+      },
+      {
+        "file": "amazon-store.html",
+        "source_url": "https://www.amazon.com/stores/page/19CF7868-DF80-4939-932A-6FD69C6E5A1E (reference)",
+        "words": 32
+      },
+      {
+        "file": "ba-training-tools.html",
+        "source_url": "https://kodiakcakes.com/pages/ba-training-tools",
+        "words": 312
+      },
+      {
+        "file": "forbes-platform-brand.html",
+        "source_url": "https://www.forbes.com/sites/daveknox/2020/11/05/how-kodiak-cakes-has-built-a-platform-brand-in-grocery-stores/",
+        "words": 3579
+      },
+      {
+        "file": "graphicpkg-case.html",
+        "source_url": "https://www.graphicpkg.com/resources/kodiak-cakes-packaging-helps-to-convey-the-companys-brand-values/",
+        "words": 610
+      },
+      {
+        "file": "graphicpkg-packaging-brand-values.html",
+        "source_url": "https://www.graphicpkg.com/resources/kodiak-cakes-packaging-helps-to-convey-the-companys-brand-values/",
+        "words": 610
+      },
+      {
+        "file": "keepitwild.html",
+        "source_url": "https://kodiakcakes.com/pages/keepitwild",
+        "words": 314
+      },
+      {
+        "file": "kirnani-product-positioning.html",
+        "source_url": "https://blog.kirnanitechnologies.com/kodiak-cakes-how-product-positioning-helped-win-retail-shelves/",
+        "words": 2379
+      },
+      {
+        "file": "kodiak-cakes-case-study.pdf",
+        "source_url": "https://www.graphicpkg.com/custom-content/uploads/2023/10/Kodiak-Cakes-Case-Study-06272023_EN.pdf",
+        "words": 670
+      },
+      {
+        "file": "our-mission.html",
+        "source_url": "https://kodiakcakes.com/pages/our-mission",
+        "words": 624
+      }
+    ],
+    "knowledge_base_chunks": 46
+  }
+}
