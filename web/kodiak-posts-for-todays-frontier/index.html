@@ -134,12 +134,7 @@ header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-s
 section{padding:var(--section-space-lg) 0}
 section.xl{padding:var(--section-space-xl) 0}
 
-/* === Kodiak kinetic marquee — low-stakes infinite scroll (kodiak.com shape) === */
-.kodiak-marquee{overflow:hidden;white-space:nowrap;background:#1A3C34;color:#FFF8F0;border-top:1px solid #12302A;border-bottom:1px solid #12302A;padding:10px 0;font:800 12px/1 'museo-sans','kodiak_sans',sans-serif;letter-spacing:.14em;text-transform:uppercase}
-.kodiak-marquee__track{display:inline-flex;align-items:center;gap:2.5rem;animation:kodiak-marquee 28s linear infinite;will-change:transform}
-.kodiak-marquee__item{display:inline-flex;align-items:center;gap:.6rem}
-.kodiak-marquee__dot{width:6px;height:6px;border-radius:50%;background:#E8530E;flex:0 0 6px}
-@keyframes kodiak-marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+/* === Kodiak kinetic marquee — removed (tool-focus declutter) === */
 /* tight tool spacing — 1.25/1.75rem, no wasteful 8/10rem consumer rhythm */
 .wide-track{margin:0}
 .wide-track + .wide-track{margin-top:10px}
@@ -153,7 +148,7 @@ section.xl{padding:var(--section-space-xl) 0}
 .kodiak-cart-drawer{position:fixed;inset:0 0 0 auto;width:380px;max-width:88vw;background:#FFF8F0;border-left:1px solid #D9CFC6;transform:translateX(100%);transition:transform .28s ease;z-index:999;box-shadow:-8px 0 24px rgba(59,35,22,.18);display:flex;flex-direction:column}
 .kodiak-cart-drawer[open]{transform:translateX(0)}
 .kodiak-cart-drawer__hd{padding:16px;border-bottom:1px solid #F4EDE6;display:flex;align-items:center;justify-content:space-between;font:800 12px/1 "museo-sans","kodiak_sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#3B2316}
-@media(prefers-reduced-motion:reduce){.kodiak-marquee__track{animation:none!important}}
+@media(prefers-reduced-motion:reduce){.kodiak-header.is-sticky .kodiak-header__logo--primary{transition:none}}
 
 /* === Firefly-inspired prompt bar — "Create a Kodiak campaign" === */
 .ff-prompt{background:var(--gradients-kraft\.surface-hover);border:1px solid var(--stone);border-radius:16px;padding:18px;box-shadow:var(--shadows-md, 0 8px 24px rgba(26,17,16,.12))}
@@ -182,7 +177,7 @@ section.xl{padding:var(--section-space-xl) 0}
 
 
 
-<span style="margin-left:auto;font-size:11px;opacity:.9;letter-spacing:.08em"><span style="display:inline-flex;align-items:center;gap:8px"><span data-testid="app-version" hidden aria-hidden="true" style="background:#E8530E;color:#fff;padding:2px 8px;border-radius:999px;font:800 10px/1 'museo-sans',sans-serif;letter-spacing:.08em">v0.4.1-28d0c98-20260902 • offline</span> <span style="font-size:21px;opacity:.9;letter-spacing:.08em">KODIAK CAKES® • 100% Whole Grains • Protein-Packed</span></span></span>
+<span style="margin-left:auto;font-size:11px;opacity:.9;letter-spacing:.08em"><span style="display:inline-flex;align-items:center;gap:8px"><span style="font-size:21px;opacity:.9;letter-spacing:.08em">KODIAK CAKES® • 100% Whole Grains • Protein-Packed</span></span></span>
 </nav>
 <div style="flex:1"><h1 style="color:#FFF8F0"><img src="assets/kodiak-primary-logo_optimized.png" alt="KODIAK" style="height:1.1em;vertical-align:middle;margin-right:6px" onerror="this.onerror=null;this.src='assets/kodiak-primary-logo.png'"> Nourishing Today's Frontier: Kodiak Cakes Creative Automation Pipeline</h1>
 <p style="color:#FFF8F0">craft images and recipes for blogs, newsletters, and social campaigns with content exported for facebook, rss, costco, target &amp; publix. 16 Frontier urban markets — coincidentally where Adobe offices are — with language support for 3 most commonly spoken languages and one sister rural frontier site where Kodiak's subscription service offers unique positioning. Image generation includes square 1080×1080, tall 1080×1920, wide 1920×1080 — when using the KODIAK Bear it appears at 24,24.</p></div>
@@ -192,15 +187,6 @@ section.xl{padding:var(--section-space-xl) 0}
 <!-- kodiak.com DOM stubs — static shape match -->
 <shop-cart-sync data-source="kodiak.com" data-testid="shop-cart-sync"></shop-cart-sync>
 <csm-cookie-consent data-testid="csm-cookie-consent"></csm-cookie-consent>
-<!-- tool marquee — pipeline function, not consumer -->
-<section class="kodiak-marquee" aria-label="Tool pipeline" data-testid="marquee-tool" style="padding:7px 0;font-size:10px">
-  <div class="kodiak-marquee__track" aria-hidden="true">
-    <span class="kodiak-marquee__item">PROMPT → CAMPAIGNS <span class="kodiak-marquee__dot"></span> 88 SKUs <span class="kodiak-marquee__dot"></span> 73 MARKETS <span class="kodiak-marquee__dot"></span> 3 RATIOS 1:1/9:16/16:9 <span class="kodiak-marquee__dot"></span> DAM REUSE + NOVA CANVAS <span class="kodiak-marquee__dot"></span> EN + TOP2 <span class="kodiak-marquee__dot"></span></span>
-    <span class="kodiak-marquee__item">COMPOSE • ENHANCE • LOCALIZE • COMPLIANCE <span class="kodiak-marquee__dot"></span> report.json + preview.html <span class="kodiak-marquee__dot"></span> OFFLINE SINGLE-FILE <span class="kodiak-marquee__dot"></span></span>
-    <span class="kodiak-marquee__item">PROMPT → CAMPAIGNS <span class="kodiak-marquee__dot"></span> 88 SKUs <span class="kodiak-marquee__dot"></span> 73 MARKETS <span class="kodiak-marquee__dot"></span> 3 RATIOS 1:1/9:16/16:9 <span class="kodiak-marquee__dot"></span> DAM REUSE + NOVA CANVAS <span class="kodiak-marquee__dot"></span> EN + TOP2 <span class="kodiak-marquee__dot"></span></span>
-    <span class="kodiak-marquee__item">COMPOSE • ENHANCE • LOCALIZE • COMPLIANCE <span class="kodiak-marquee__dot"></span> report.json + preview.html <span class="kodiak-marquee__dot"></span> OFFLINE SINGLE-FILE <span class="kodiak-marquee__dot"></span></span>
-  </div>
-</section>
 <div class="wrap">
 <!-- location-aware island kept — hidden frontier toggle, tool keeps prototype defaults Park City 84098 + Kamas Valley -->
 <div class="card" id="frontierToggleCard" style="border-left:3px solid #1A3C34;display:none"><div class="hd"><h2>Frontier prototype context <span class="badge">dev</span></h2><p>Defaults: Park City 84098 + Kamas Valley 84036 rural. Tool still location-aware but not consumer-facing.</p></div><div class="body">
@@ -249,8 +235,8 @@ section.xl{padding:var(--section-space-xl) 0}
 <!-- Path: Add new assets — file input (protected #assetFiles kept, hidden until path chosen) -->
 <div class="field" id="addAssets" data-mcp="assets" data-mcp-description="Upload campaign assets — images, brief docs" style="display:none"><label>Add assets — drag &amp; drop images or brief docs</label><input type="file" id="assetFiles" multiple accept="image/*,.pdf,.docx,.yaml,.yml,.json" style="padding:8px"><div id="assetPreview" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"></div><div class="hint">Reuses the DAM when a match exists, else generates a hero via Nova Canvas.</div></div>
 
-<!-- Path: Auto-suggest — note (uses the Suggested posts remix below) -->
-<div class="field" id="autoAssets" style="display:none"><div class="offline">Auto-suggest scans existing heroes and proposes useful variants across all three ratios — results appear in <b>Suggested posts</b> below after you Generate.</div></div>
+<!-- Path: Auto-suggest — results appear in the Preview -->
+<div class="field" id="autoAssets" style="display:none"><div class="offline">Auto-suggest scans existing heroes and proposes useful variants across all three ratios — results appear in the <b>Preview</b> after you Generate.</div></div>
 
 <!-- Product-in-picture default -->
 <div class="field"><label style="display:flex;gap:8px;align-items:center;text-transform:none;letter-spacing:normal;font-weight:500;color:var(--chocolate)"><input type="checkbox" id="productInPicture" checked> Feature product in the pictures</label></div>
@@ -271,21 +257,6 @@ section.xl{padding:var(--section-space-xl) 0}
 
 <div class="card wide-track"><div class="hd"><h2>Preview — three real ads, same 6-piece frontier template <span class="badge">Bear at 24,24</span></h2><p>Square 1080×1080, tall 1080×1920, wide 1920×1080 — blurred Wasatch cover + 0.18 scrim, hero contain, message bar 32% at 68%, slab 56/64/72, orange 8-point bar, KODIAK Bear silhouette.</p></div>
 <div class="body"><div class="preview" id="preview" data-mcp="preview.compose" data-mcp-description="Pipeline preview — displays campaign message in EN + localized on final posts"></div><div class="hint" id="fileNames" style="margin-top:10px"></div></div></div>
-
-<div class="card wide-track"><div class="hd"><h2>Suggested posts — remix what exists in every shape <span class="badge">New — Linda Film Crew pattern</span></h2><p>Like Linda Mohamed's <a href="https://builder.aws.com/content/3FuJ4dTDxJ6HQefCYfpqxOFmpQa/how-i-built-an-ai-film-crew-on-aws" target="_blank">AI Film Crew</a> VariantSpec (Director → 16:9 / 9:16 / 1:1), we scan <span class="kbd">input_assets/*/hero.*</span> and re-issue each existing hero across all three ratios — no new shoot. Turn any one brown box into a full frontier set.</p></div><div class="body">
-<div class="row" style="gap:10px;margin-bottom:10px">
-<button class="btn orange" id="suggestedBtn">Show suggested — remix every hero × 3</button>
-<button class="btn ghost" id="suggestedDownload">Download suggested 12 pngs</button>
-<label class="hint" style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="enhanceToggle" checked> enhance (contrast+texture+vignette)</label>
-<label class="hint" style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="frameToggle" checked> framing + watermark (bear at 24,24)</label>
-</div>
-<div class="hint" style="margin-bottom:8px">Institutional grading: auto-contrast + 1.08 contrast / 1.02 brightness / 1.12 sharpness, kraft hairline texture 6%, gentle vignette 0.06, double border (1px Stone + 6px Bear Brown + 2px Blaze Orange hairline), Bear watermark. See <span class="kbd">POST /enhance/hero</span> and <span class="kbd">POST /suggest/run</span> — same as <span class="kbd">src/creative_automation/enhance.py</span>.</div>
-<div class="preview" id="suggestedPreview"></div>
-<div class="hint" id="suggestedNames" style="margin-top:10px"></div>
-<div class="offline" style="margin-top:10px"><b>Linda pattern:</b> intake (validate hero exists) → analysis (histogram / kraft / vignette) → creative (VariantSpec across 3 ratios with compliance PASS) → output. Live API: <span class="kbd">curl -X POST http://127.0.0.1:8182/suggest/run -H 'Content-Type: application/json' -d '{"assets":"input_assets","out":"/tmp/kodiak-suggested"}'</span>. Offline: same JS canvas below, no server.</div>
-</div></div>
-
-<div class="card wide-track"><div class="hd"><h2>Procedural check — international write date, versioning</h2><p>Every file the pipeline writes is <span class="kbd">KODIAK-CAKES-{PRODUCT}-{REGION}-{LOCALITY}-{CHANNEL}-{RATIO}-{YYYYMMDD}-v01.png</span> — year first per <span class="kbd">ISO 8601</span>, lower case product, hyphens, version zero-padded. Headers carry <span class="kbd">YYYY-MM-DD</span> and <span class="kbd">BCP 47</span> language tags like <span class="kbd">en-US</span>. Details at <span class="kbd">docs/iso-naming-conventions.md</span>.</p></div><div class="body"><div class="row"><span class="kbd">KODIAK-CAKES-savory-waffles-US-NM-las-cruces-target-instagram-9x16-20250902-v01.png</span> <span class="badge">example among hundreds</span></div></div></div>
 
 <div class="card wide-track" data-mcp="design-system" id="design-system" data-mcp-description="Design System — scorecards evaluating app performance against tokens + style guide" style="display:none" aria-hidden="true"><div class="hd"><h2>Design System — Scorecards <span class="badge" id="score-overall-badge">live</span></h2><p>How we grade the Frontier app against <a href="../../design/tokens/kodiak.json" target="_blank">design/tokens/kodiak.json</a> + <a href="../../docs/kodiak-style-guide.md" target="_blank">style guide</a> + <a href="../../docs/kodiak-brand-explained.md" target="_blank">brand view</a>. Same tokens drive <span class="kbd">compose.py</span> <span class="kbd">enhance.py</span> <span class="kbd">compliance.py</span> <span class="kbd">suggest.py</span>. Scores update live after Generate / Show Suggested.</p></div><div class="body">
 <div class="row" style="gap:8px;margin-bottom:10px"><span class="hint">Overall: <b id="score-overall">—</b> • <span id="score-overall-detail" class="hint">evaluating…</span></span><button class="btn ghost" id="scoreRefresh" style="margin-left:auto;padding:6px 10px;font-size:11px">Re-score</button><span class="kbd" id="score-timestamp"></span></div>
@@ -586,97 +557,6 @@ document.getElementById('downloadAll')?.addEventListener('click', ()=>{
   });
 });
 
-let suggestedCanvases=[];
-/** @returns {void} */
-function renderSuggested(){ // typed: renders 3 samples (Park City & Wasatch Back) with 88 SKUs + images */
-  const enhance = document.getElementById('enhanceToggle').checked;
-  const frame = document.getElementById('frameToggle').checked;
-  const headline = headlineEl.value.trim() || "KODIAK® Feeding Epic Days & Wilder Lives — Nourishment for Today's Frontier";
-  const preview = document.getElementById('suggestedPreview');
-  const names = document.getElementById('suggestedNames');
-  preview.innerHTML=""; suggestedCanvases=[]; names.innerHTML="";
-  const date = new Date().toISOString().slice(0,10).replace(/-/g,"");
-  const ratios = [{k:"1x1",w:1080,h:1080},{k:"9x16",w:1080,h:1920},{k:"16x9",w:1920,h:1080}];
-  const files=[];
-  // Use all known products as proxy for input_assets heroes (offline can't list fs, so we reuse products[])
-  products.forEach(prod=>{
-    ratios.forEach(r=>{
-      const tile=document.createElement('div'); tile.className='tile';
-      const c=document.createElement('canvas'); c.width=r.w; c.height=r.h; c.style.maxWidth='100%'; c.style.height='auto';
-      const ctx=c.getContext('2d');
-      const img=new Image();
-      img.onload=()=>{ drawAdSuggested(ctx,r.w,r.h,headline,prod,img,enhance,frame); };
-      img.onerror=()=>{ drawAdSuggested(ctx,r.w,r.h,headline,prod,null,enhance,frame); };
-      img.src=prod.img;
-      tile.appendChild(c);
-      const meta=document.createElement('div'); meta.className='meta';
-      meta.innerHTML=`<b>KODIAK CAKES® ${prod.id} — ${r.k} suggested</b><div class=small>${r.w}×${r.h} · remix · ${enhance?'enhanced':'raw'} · ${frame?'framed+bear':''}</div>`;
-      tile.appendChild(meta);
-      preview.appendChild(tile);
-      suggestedCanvases.push({canvas:c,ratio:r.k,product:prod.id});
-      files.push(`KODIAK-CAKES-${prod.id}-suggested-${r.k}-${date}-v01.png`);
-    });
-  });
-  names.innerHTML = files.map(f=>`<span class=kbd>${f}</span>`).join(' ') + ` <span class=badge>${files.length} suggested</span>`;
-  // Try live API also if available (non-blocking)
-  fetch('/suggest/run', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({assets:'input_assets', out:'/tmp/kodiak-suggested', messages:[headline]})}).then(r=>r.json()).then(j=>{ if(j.artifacts) names.innerHTML+=' <span class=kbd>live: '+j.compliance+' via POST /suggest/run</span>'; }).catch(()=>{});
-}
-function drawAdSuggested(ctx,W,H,headline,prod,heroImg,enhance,frame){
-  // base
-  ctx.save();
-  if(enhance){ ctx.filter='contrast(1.08) brightness(1.02) saturate(1.04)'; }
-  ctx.fillStyle='#3B2316'; ctx.fillRect(0,0,W,H);
-  const scale = Math.min(W*0.82/400, H*0.58/400);
-  const fw=400*scale, fh=400*scale, fx=(W-fw)/2, fy=H*0.08;
-  if(heroImg){ ctx.drawImage(heroImg, fx, fy, fw, fh); } else { ctx.fillStyle='#D9CFC6'; ctx.fillRect(fx,fy,fw,fh); ctx.fillStyle='#1A1110'; ctx.font=`${Math.round(fw*0.08)}px Rockwell,Georgia,serif`; ctx.textAlign='center'; ctx.fillText('KODIAK®', W/2, fy+fh*0.45); }
-  ctx.restore();
-  // kraft texture 6% hairlines
-  if(enhance){ ctx.fillStyle='rgba(98,78,66,0.06)'; for(let y=0;y<H;y+=20){ ctx.fillRect(0,y,W,1); } }
-  // vignette
-  if(enhance){ const g=ctx.createRadialGradient(W/2,H/2, Math.min(W,H)*0.45, W/2,H/2, Math.min(W,H)*0.78); g.addColorStop(0,'rgba(0,0,0,0)'); g.addColorStop(1,'rgba(0,0,0,0.12)'); ctx.fillStyle=g; ctx.fillRect(0,0,W,H); }
-  // scrim
-  const barTop=H*0.68; ctx.fillStyle='rgba(26,17,16,0.80)'; ctx.fillRect(0,barTop,W,H-barTop);
-  const pad=48, maxW=W-pad*2; ctx.fillStyle='#FFFFFF'; ctx.textAlign='center';
-  const size = W>=1920? 52 : W>=1080 && H>=1920? 46 : 38;
-  ctx.font=`800 ${size}px Rockwell,Georgia,serif`;
-  const words=headline.split(' '); let lines=[], cur="";
-  for(const w of words){ const test=cur?cur+" "+w:w; if(ctx.measureText(test).width<=maxW) cur=test; else {lines.push(cur); cur=w; if(lines.length===2) break;} }
-  if(cur) lines.push(cur); lines=lines.slice(0,3);
-  let y=barTop+46; for(const line of lines){ ctx.fillText(line, W/2, y); y+= size*1.08; }
-  ctx.font=`500 11px Inter,sans-serif`; ctx.fillStyle='rgba(255,248,240,0.85)'; ctx.fillText("KODIAK® • kodiakcakes.com • Keep It Wild  •  Nourishment for Today's Frontier", W/2, H-18);
-  // framing
-  if(frame){ ctx.strokeStyle='#D9CFC6'; ctx.lineWidth=1; ctx.strokeRect(0.5,0.5,W-1,H-1); ctx.strokeStyle='#3B2316'; ctx.lineWidth=6; ctx.strokeRect(3,3,W-6,H-6); ctx.fillStyle='#E8530E'; ctx.fillRect(0,H-2,W,2); }
-  else { ctx.fillStyle='#E8530E'; ctx.fillRect(0,H-8,W,8); }
-  // bear watermark at 24,24 — KODIAK Bear lockup (brand compliant: Blaze Orange badge, Bear Brown bear)
-  // per docs/kodiak-brand-explained.md: bear silhouette does visual lifting at 24,24
-  ctx.save();
-  ctx.fillStyle='#E8530E'; ctx.beginPath(); ctx.roundRect(24-4,24-4,36,36,8); ctx.fill();
-  // bear silhouette path scaled to badge
-  ctx.translate(24+14, 24+14);
-  ctx.scale(1.2,1.2);
-  ctx.fillStyle='#3B2316';
-  ctx.beginPath();
-  ctx.moveTo(-6,-8); ctx.lineTo(-4,-10); ctx.lineTo(-2,-9); ctx.lineTo(0,-10); ctx.lineTo(2,-9); ctx.lineTo(4,-10); ctx.lineTo(6,-8);
-  ctx.lineTo(7,-5); ctx.lineTo(5,-2); ctx.lineTo(4,4); ctx.lineTo(2,6); ctx.lineTo(-2,6); ctx.lineTo(-4,4); ctx.lineTo(-5,-2); ctx.lineTo(-7,-5);
-  ctx.closePath(); ctx.fill();
-  // eyes
-  ctx.fillStyle='#FFF8F0'; ctx.beginPath(); ctx.arc(-2,-2,1,0,Math.PI*2); ctx.arc(2,-2,1,0,Math.PI*2); ctx.fill();
-  ctx.restore();
-  // KODIAK wordmark beside bear
-  ctx.fillStyle='#3B2316'; ctx.font='800 10px Rockwell,Georgia,serif'; ctx.textAlign='left'; ctx.fillText('KODIAK®', 24+40, 24+10);
-  ctx.fillStyle='#8C7A70'; ctx.font='600 7px Inter,sans-serif'; ctx.fillText('Keep It Wild', 24+40, 24+20);
-  if(frame){ ctx.fillStyle='#E8530E'; ctx.beginPath(); ctx.arc(24+18,24+18,14,0,Math.PI*2); ctx.fill(); ctx.fillStyle='#3B2316'; ctx.font=`700 9px Inter,sans-serif`; ctx.textAlign='center'; ctx.fillText('BEAR', 42, 46); }
-}
-document.getElementById('suggestedBtn')?.addEventListener('click', ()=>{ console.log('suggested click'); try{ renderSuggested(); }catch(e){ console.error(e); } });
-document.getElementById('suggestedDownload')?.addEventListener('click', ()=>{ console.log('suggested download'); const a=document.createElement('a'); a.href='data:text/plain,12 pngs would download here — Park City & Wasatch Back × 1:1/9:16/16:9'; a.download='suggested-12.txt'; a.click();
-  const date = new Date().toISOString().slice(0,10).replace(/-/g,"");
-  suggestedCanvases.forEach(({canvas,ratio,product})=>{
-    const a=document.createElement('a'); a.href=canvas.toDataURL('image/png'); a.download=`KODIAK-CAKES-${product}-suggested-${ratio}-${date}-v01.png`; a.click();
-  });
-});
-document.getElementById('enhanceToggle')?.addEventListener('change', renderSuggested);
-document.getElementById('frameToggle')?.addEventListener('change', renderSuggested);
-
 // Location-aware: nearest market via haversine across all 72 markets (with coords) — fixes Tularosa NM bug where crude bbox defaulted to Park City
 const marketCoords = places.map(p=>({market:p.market, lat: (p.market.includes('PESCADERO')?37.2534 : p.market.includes('NEAHBAY')?48.3647 : p.market.includes('PARKCITY')?40.6461 : p.market.includes('TULAROSA')?33.0581 : p.market.includes('LASCRUCES')?32.3199 : p.market.includes('TIMBERON')?32.6376 : p.market.includes('ALBQ')?35.0844 : p.market.includes('AUSTIN')?30.2672 : p.market.includes('MIAMI')?25.7617 : p.market.includes('CHI')?41.8781 : p.market.includes('BK')?40.6782 : 39.0), lon: (p.market.includes('PESCADERO')?-122.3806 : p.market.includes('NEAHBAY')?-124.6249 : p.market.includes('PARKCITY')?-111.4980 : p.market.includes('TULAROSA')?-106.0228 : p.market.includes('LASCRUCES')?-106.7637 : p.market.includes('TIMBERON')?-105.6947 : p.market.includes('ALBQ')?-106.6504 : p.market.includes('AUSTIN')?-97.7431 : p.market.includes('MIAMI')?-80.1918 : p.market.includes('CHI')?-87.6298 : p.market.includes('BK')?-73.9442 : -98.0)}));
 function haversine(lat1,lon1,lat2,lon2){ const R=6371, toRad=x=>x*Math.PI/180, dLat=toRad(lat2-lat1), dLon=toRad(lon2-lon1), a=Math.sin(dLat/2)**2+Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2; return 2*R*Math.asin(Math.sqrt(a)); }
@@ -793,37 +673,7 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
 })();
 </script>
 
-<footer style="max-width:1100px;margin:24px auto 12px;padding:12px 18px;border:1px dashed #E8530E;border-radius:10px;background:#FFF8F0;font:500 11px/1.5 Inter,sans-serif;color:#6B5A53" data-mcp="footer.version" data-mcp-version="0.4.1-28d0c98-20260902">
-<span style="font:800 11px/1 Inter,sans-serif;letter-spacing:.08em;color:#B51E14">KODIAK Frontier v0.4.1-28d0c98-20260902</span> — open console for MOTD (agent architecture + under-the-hood demo) • <a href="webmcp.json">webmcp.json</a> • <a href="data/localization/market-languages.json">market-languages.json (73)</a> • pipelines: Bedrock AgentCore • Nova Canvas/Micro • Amazon Translate (Nova (unlimited budget) proven) • S3 DAM • fanned Adobe Express MCP dispatch
-</footer>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.4.1-28d0c98-20260902","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Canvas hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
-
-
-<script>
-// KODIAK Frontier — console MOTD — demo how it works under the hood
-(function(){
-  const VER="0.4.1-28d0c98-20260902";
-  const BUILD="2026-09-02 • 73 markets • EN + top2";
-  window.KODIAK_VERSION = VER;
-  window.KODIAK_BUILD = BUILD;
-  window.KODIAK_WEBMCP = { version: VER, mcp: "enabled", manifest: "webmcp.json", tools: ["places","products","recipes","market-languages","brief-yaml","preview","compose","localize"], architecture: "offline-first static + Bedrock AgentCore + Nova Canvas/Micro + Amazon Translate (Nova unlimited budget)", origin: "https://d37333alc7ojpl.cloudfront.net/" };
-  const bear = "KODIAK Bear — Keep It Wild\n";
-  const motd = `%c${bear}%cKODIAK Posts for Today's Frontier — v${VER} — ${BUILD}%c\n`+
-    "Open: places / products / recipes / market-languages / brief-yaml — all offline, no server.\n"+
-    "Pipeline: brief → DAM reuse or Nova Canvas hero → enhance (contrast/texture/frame/watermark) → compose 1:1/9:16/16:9 with message overlay → compliance → report.json + preview.html\n"+
-    "Translate: Nova Micro (Converse maxTokens:256) → Amazon Translate (proven Nova (unlimited budget)) → offline dict → tagged fallback — auto per market (El Paso ES, Burlington/N.Maine FR, SF Pescadero ZH, Honolulu JA/TL).\n"+
-    "Try: KODIAK_VERSION, KODIAK_WEBMCP, document.querySelectorAll('[data-mcp]'), fetch('webmcp.json').then(r=>r.json()).then(console.log)\n"+
-    "Assets: s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/ • s3://frontier-bryanchasko-com/ • CloudFront d37333alc7ojpl.cloudfront.net\n"+
-    "Docs: docs/regional-cultural-database.md • data/localization/market-languages.json (73)\n";
-  // eslint-disable-next-line no-console
-  if(new URLSearchParams(location.search).get('debug')==='1'){
-  console.log(motd, "color:#E8530E;font-weight:800;font-family:monospace", "color:#3B2316;font-weight:800", "color:#6B5A53");
-  console.log("%c webmcp enabled — agent-friendly islands: ","background:#3B2316;color:#FFF8F0;padding:2px 6px;border-radius:6px", document.querySelectorAll("[data-mcp]"));
-  console.table(places.slice(0,5).map(p=>({market:p.market, place:p.place, retailer:p.retailer.split(',')[0], zip:p.zip})));
-  console.log("Try: copy(brief YAML) → pipeline run — see compose message on final posts in EN + localized (fanned dispatch). Version in DOM: [data-testid=app-version] + [data-mcp=footer.version]");
-  }
-})();
-</script>
 
 
 <script>
@@ -930,29 +780,11 @@ let skuList = [
                            selectedLoc.market.includes('US-WA-NEAHBAY') ? 'Neah Bay harbor — Makah water meets Wasatch grain' :
                            selectedLoc.market.includes('US-CA-PESCADERO') ? 'Pescadero Marsh boardwalk — Half Moon Bay Coastal Trail' : 'Nearest Frontier via haversine — same pipeline fans to all 73';
       const status = document.getElementById('sampleStatus');
-      if(status) status.textContent = 'Generating — fanning to 1:1 / 9:16 / 16:9 × Subscription + Amazon + retail (sample)…';
+      if(status) status.textContent = 'Generating campaign preview…';
       btn.disabled=true; btn.textContent='Generating…';
-      // Simulate sample render locally (no cloud build) — draw sample tiles if preview exists
+      // Render the customized preview images locally (no cloud build)
       setTimeout(()=>{
-        // Show sample badges in preview
-        const preview = document.getElementById('preview');
-        if(preview){
-          // Keep existing preview but add sample overlay note
-          const note = document.createElement('div');
-          note.style.cssText='margin:10px 0;padding:10px;border:1px solid #E8530E;border-radius:10px;background:#FFF8F0;font-size:12px';
-          note.innerHTML = `<b>Sample — ${selectedLoc.place}</b> + <b>nearest Frontier: ${frontierHint}</b> • <b>Products:</b> ${products.join(', ')} • <b>Audience:</b> ${audience.split(' — ')[0]} • <b>Brief:</b> “${brief}”<br><span style="color:#6B5A53">Localized newsletter variant per: <em>${selectedLoc.place} edition — ${brief.slice(0,60)}</em> + <em>${frontierHint.split(' — ')[0]} edition</em> — Subscription & Amazon.com ads alongside Seattle/SF. Geometrically definable layers (masks/URB texture/fonts at 24,24) remain programmatic via <code>data-mcp-layer</code> — GenAI manipulates levers via WebMCP, not pixels.</span><br><button class="btn orange" style="margin-top:8px" onclick="alert('Gated: Full dispatch would fan to all 73 markets × per-retailer (Target/Walmart/Costco/Publix) × EN+top2 languages via pipeline.py — approve sample to dispatch')">Unlock full per-retailer dispatch →</button>`;
-          preview.parentNode.insertBefore(note, preview);
-          // Also show Wasatch Back alongside Park City as requested
-          try{
-            const wasatch = places.find(p=>p.market==='US-MW-WASATCH');
-            if(wasatch && selectedLoc.market!=='US-MW-WASATCH'){
-              const note2=document.createElement('div'); note2.style.cssText='margin:10px 0;padding:10px;border:1px dashed #1A3C34;border-radius:10px;background:#FFFBF6;font-size:12px';
-              note2.innerHTML=`<b>Sample — ${wasatch.place} — Wasatch Back</b> • <b>Products:</b> ${products.join(', ')} • <b>Brief:</b> “${brief.slice(0,60)}”<br><span style="color:#6B5A53">Wasatch Back frontier — same campaign, different mountain light — fans to all formats</span>`;
-              preview.parentNode.insertBefore(note2, preview.nextSibling);
-            }
-          }catch(e){}
-        }
-        if(status) status.textContent = 'Sample ready — approve to dispatch full 73-market run';
+        if(status) status.textContent = 'Campaign preview ready';
         try{ render(); }catch(e){ console.warn('render() failed on generate', e); }
         btn.disabled=false; btn.textContent='Generate Kodiak campaign';
         // Update local flavor with brief context
@@ -1090,7 +922,7 @@ let skuList = [
       }},
     { id:'perf', title:'Performance FPS', weight:1.5, desc:'4 controls + generate + canvas 3 auto Park City + FPS probe >10', check: function(){
         const subs=[]; let s=0,m=4;
-        const ctrls=['generateCampaign','productSearch','suggestedBtn','useLocationBtn'].filter(id=>document.getElementById(id));
+        const ctrls=['generateCampaign','productSearch','useLocationBtn'].filter(id=>document.getElementById(id));
         if(ctrls.length===4){s++; subs.push('✓ 4 controls');} else subs.push('✗ '+ctrls.length+'/4');
         const canv=document.querySelectorAll('#preview canvas').length;
         if(canv===3){s++; subs.push('✓ 3 canvases auto');} else subs.push('✗ canvases '+canv+'≠3');
@@ -1171,7 +1003,7 @@ let skuList = [
   setTimeout(render, 1600);
   document.getElementById('scoreRefresh')?.addEventListener('click', render);
   // re-score after key actions
-  ['generateCampaign','suggestedBtn','randomProducts'].forEach(id=>{
+  ['generateCampaign','randomProducts'].forEach(id=>{
     document.getElementById(id)?.addEventListener('click', ()=>setTimeout(render, 1200));
   });
   // also re-score when skuCatalog loads
@@ -1205,7 +1037,7 @@ window.KODIAK_CART={open:()=>{const d=document.getElementById('kodiak-cart-drawe
   var paths = {
     pathExisting: {el: existing, hint: 'Use existing assets — pick from the Kodiak catalog below.'},
     pathAdd: {el: add, hint: 'Add new assets — drop images or brief docs to fold into the campaign.'},
-    pathAuto: {el: auto, hint: 'Auto-suggest — let the pipeline propose useful variants; see Suggested posts below.'}
+    pathAuto: {el: auto, hint: 'Auto-suggest — let the pipeline propose useful variants; results appear in the Preview.'}
   };
   function selectPath(id){
     Object.keys(paths).forEach(function(k){
