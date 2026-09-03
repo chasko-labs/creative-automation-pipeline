@@ -19,7 +19,7 @@ import json
 import pathlib
 
 try:
-    from fastapi import FastAPI, Query, HTTPException  # type: ignore
+    from fastapi import FastAPI, Query, HTTPException, UploadFile, File, Form  # type: ignore
     from fastapi.middleware.cors import CORSMiddleware  # type: ignore
     from pydantic import BaseModel, Field  # type: ignore
 
@@ -343,6 +343,104 @@ if HAS_FASTAPI:
             "local_path": str(zip_path),
             "manifest": manifest,
             "note": "S3 DAM not configured (DAM_S3_BUCKET unset or boto3 missing) — returning local pack path. Set DAM_S3_BUCKET to get a presigned download url.",
+        }
+
+    # content-type -> file extension: the only image types the pipeline hero slot accepts
+    _UPLOAD_EXT_BY_CT = {"image/jpeg": "jpg", "image/png": "png"}
+    # 15 MB cap — a hero photo is a still frame, not a video; anything larger is a mistake
+    _UPLOAD_MAX_BYTES = 15 * 1024 * 1024
+
+    def _input_assets_root() -> pathlib.Path:
+        """Repo-root input_assets, overridable via CAP_INPUT_ASSETS_ROOT (tests redirect here).
+
+        The other /assets routes use a bare cwd-relative 'input_assets/'. This endpoint
+        writes real bytes, so it resolves an absolute root (repo root, matching gateway.py
+        and retailers.py) and honours an env override so tests never touch the real dir.
+        """
+        import os
+        override = os.getenv("CAP_INPUT_ASSETS_ROOT", "").strip()
+        if override:
+            return pathlib.Path(override)
+        return pathlib.Path(__file__).resolve().parents[2] / "input_assets"
+
+    @app.post("/assets/upload")  # type: ignore
+    async def asset_upload(
+        file: UploadFile = File(..., description="Hero photo — image/jpeg or image/png, <= 15 MB"),
+        product: str = Form("power-cakes", description="Product slug the hero belongs to"),
+        market: str | None = Form(None, description="Optional market code, echoed for the caller's context"),
+    ):
+        """Ingest a browser-local photo INTO the pipeline as a product hero (issue #38).
+
+        POST /pipeline/run and /suggest/run take a filesystem PATH string, so a photo that
+        lives only in a browser (e.g. a macmini Downloads jpeg) can never enter. This
+        multipart endpoint closes that gap: it accepts the uploaded bytes, writes them to
+        input_assets/{product}/hero.{ext}, registers the copy in the S3 DAM, and returns the
+        asset id + a presigned url. It is the unblocker for #39 (from-photo orchestration).
+
+        Re-upload safety: the canonical hero.{ext} is overwritten so the pipeline always
+        finds the latest, but an id-suffixed hero-{asset_id}.{ext} copy is kept alongside so
+        an earlier upload is never the only casualty of a re-upload.
+
+        Offline / CI path (no S3): the local file is still written and the same shape returns
+        with presigned_url=null — mirrors dam.py's graceful S3-disabled fallback, so the
+        endpoint works with no boto3 / no creds.
+        """
+        content_type = (file.content_type or "").split(";", 1)[0].strip().lower()
+        ext = _UPLOAD_EXT_BY_CT.get(content_type)
+        if not content_type.startswith("image/") or ext is None:
+            raise HTTPException(  # type: ignore
+                status_code=400,
+                detail=f"unsupported content type {content_type!r}; upload image/jpeg or image/png",
+            )
+
+        # read with a hard cap: pull one byte past the limit to detect oversize without
+        # trusting a client-supplied Content-Length header
+        data = await file.read(_UPLOAD_MAX_BYTES + 1)
+        if len(data) > _UPLOAD_MAX_BYTES:
+            raise HTTPException(  # type: ignore
+                status_code=413,
+                detail=f"file exceeds {_UPLOAD_MAX_BYTES // (1024 * 1024)} MB cap",
+            )
+        if not data:
+            raise HTTPException(status_code=400, detail="empty file")  # type: ignore
+
+        from .naming import slugify, today_utc
+        import uuid
+
+        product_slug = slugify(product) or "power-cakes"
+        asset_id = f"{product_slug}-{today_utc()}-{uuid.uuid4().hex[:8]}"
+
+        product_dir = _input_assets_root() / product_slug
+        product_dir.mkdir(parents=True, exist_ok=True)
+        hero_path = product_dir / f"hero.{ext}"
+        # id-suffixed copy first so a re-upload never leaves zero recoverable heroes
+        archive_path = product_dir / f"hero-{asset_id}.{ext}"
+        archive_path.write_bytes(data)
+        hero_path.write_bytes(data)
+
+        key = f"uploads/{asset_id}/hero.{ext}"
+        presigned_url = dam.s3_upload_and_presign(hero_path, key)
+
+        # hand back repo-relative hero path when possible, else the absolute path
+        try:
+            hero_rel = str(hero_path.relative_to(pathlib.Path(__file__).resolve().parents[2]))
+        except ValueError:
+            hero_rel = str(hero_path)
+
+        return {
+            "asset_id": asset_id,
+            "hero_path": hero_rel,
+            "archive_path": str(archive_path),
+            "presigned_url": presigned_url,
+            "product": product_slug,
+            "market": market,
+            "content_type": content_type,
+            "bytes": len(data),
+            "note": (
+                None
+                if presigned_url is not None
+                else "S3 DAM not configured (DAM_S3_BUCKET unset or boto3 missing) — file written locally, presigned_url null. Set DAM_S3_BUCKET for a download url."
+            ),
         }
 
     @app.post("/campaigns/run-fanned")  # type: ignore
