@@ -9,6 +9,7 @@ We keep everything together. One cloud setup, one photo and style library, one g
 ### One cloud setup that holds it all
 
 We describe the whole system in a single cloud formation file at `infra/template.yaml`. That file creates:
+
 - the cloud storage buckets where style and photos live
 - the versioned style library (tokens, logos, photo directions)
 - the regional knowledge base (places, audiences, messages)
@@ -21,19 +22,23 @@ But our current live bucket was built with the earlier style library template at
 Every change must pass these checks:
 
 1. **Quick local checks** — from the project folder:
+
    ```
    uv run pytest -q
    uv run python -m creative_automation.cli --brief briefs/kodiak.yaml --assets input_assets --out /tmp/verify-kodiak
    uv run python scripts/nova-act-check.py --preview /tmp/verify-kodiak/preview.html --out /tmp/nova.json
    ```
+
    All should say pass.
 
 2. **End to end through the cloud** — with `AWS_PROFILE=bryanchasko-kiro` and `DAM_S3_BUCKET` set:
+
    ```
    ./scripts/sync-dam.sh pull
    DAM_S3_BUCKET=chasko-creative-dam-946179428633-us-east-1 uv run python -m creative_automation.cli --brief briefs/kodiak-on-the-go.yaml --assets input_assets --out output_kodiak-on-the-go
    ./scripts/sync-dam.sh push-renders output_kodiak-on-the-go
    ```
+
    Then check the style library loaded from cloud, not just your laptop.
 
 3. **Cloud formation safety** before any deploy:
@@ -65,6 +70,7 @@ When you want to add a new channel (for example, a diner menu board or a subscri
 
 - Work on the main branch is continuous — we commit small and push often to the private repository at https://github.com/chasko-labs/creative-automation-pipeline .
 - The cloud bucket `chasko-creative-dam-946179428633-us-east-1` always holds the latest approved style tokens, references, and renders under `brands/kodiak/`. Pull before you branch, push after your change is approved.
+- worktrees: three teams share one clone — see [docs/architecture/worktree-workflow.md](docs/architecture/worktree-workflow.md)
 
 ### Need help?
 
