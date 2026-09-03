@@ -55,6 +55,22 @@ def build_parser() -> argparse.ArgumentParser:
     rc.add_argument("--limit", type=int, default=20, help="max recipes to show")
     rc.add_argument("--json", action="store_true", help="emit machine-readable JSON")
 
+    sp = sub.add_parser("spin", help="free + re-spin real assets (bg / crop / grade)")
+    sp.add_argument("--src", required=True, help="source image (or dir/glob for --op crop)")
+    sp.add_argument(
+        "--op",
+        choices=["bg-transparent", "bg-solid", "bg-image", "crop", "grade", "chain"],
+        default="chain",
+        help="operation; default chain = free-subject -> crop -> grade",
+    )
+    sp.add_argument("--preset", default="kodiak-signature-gentle", help="color-grade preset")
+    sp.add_argument("--ratios", nargs="*", default=["1x1", "9x16", "16x9"], help="crop ratios")
+    sp.add_argument("--out", default="output/spin", help="output dir")
+    sp.add_argument("--fill", default="parchment", help="solid fill (bear-brown|frontier-green|parchment|blaze-orange|hex)")
+    sp.add_argument("--bg", default=None, help="background plate image for bg-image")
+    sp.add_argument("--retailer", default=None, help="retailer name for logo-lockup lookup (costco|publix|target)")
+    sp.add_argument("--store-address", default=None, help="local store address string for the retailer lockup")
+
     return p
 
 
@@ -133,6 +149,49 @@ def cmd_recipes(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_spin(args: argparse.Namespace) -> int:
+    from . import spin
+    from .retailers import resolve_retailer
+
+    src = Path(args.src)
+    out_dir = Path(args.out)
+
+    # retailer logo lockup — the only sanctioned text-in-image path, reported separately
+    if args.retailer:
+        r = resolve_retailer(args.retailer, store_address=args.store_address)
+        asset = r.asset_path
+        print(f"[spin] retailer={r.name} asset={asset or 'MISSING'} address={r.store_address or '-'}")
+        for note in r.notes:
+            print(f"[spin] retailer note: {note}")
+
+    op = args.op
+    if op == "crop":
+        written = spin.batch_crop(args.src, args.ratios, out_dir)
+        for w in written:
+            print(f"[spin] crop -> {w}")
+    elif op == "grade":
+        out = spin.color_grade(src, args.preset, out=out_dir / f"{src.stem}.{args.preset}.png")
+        print(f"[spin] grade({args.preset}) -> {out}")
+    elif op.startswith("bg-"):
+        mode = op.split("-", 1)[1]  # transparent|solid|image
+        bg_image = Path(args.bg) if args.bg else None
+        out = spin.remove_background(
+            src, mode, fill=args.fill, bg_image=bg_image, out=out_dir / f"{src.stem}.freed.png"
+        )
+        print(f"[spin] bg({mode}) -> {out}")
+    else:  # chain
+        for ratio in args.ratios:
+            out = spin.spin_asset(
+                src,
+                ratio=ratio,
+                preset=args.preset,
+                bg_image=Path(args.bg) if args.bg else None,
+                out_dir=out_dir,
+            )
+            print(f"[spin] chain {ratio} -> {out}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     argv = list(sys.argv[1:] if argv is None else argv)
     # legacy compatibility: bare flag form routes to `generate`
@@ -151,6 +210,7 @@ def main(argv: list[str] | None = None) -> int:
         "newsletter": cmd_newsletter,
         "scorecards": cmd_scorecards,
         "recipes": cmd_recipes,
+        "spin": cmd_spin,
     }
     return dispatch[args.command](args)
 
