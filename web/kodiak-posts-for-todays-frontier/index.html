@@ -9,7 +9,7 @@
 <meta name="mcp:server" content="kodiak-posts-frontier">
 <meta name="mcp:tools" content="places,products,recipes,market-languages,brief-yaml,preview,compose,localize">
 <link rel="mcp-manifest" href="webmcp.json">
-<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.4.1-28d0c98-20260902","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Canvas/Micro + S3 DAM","markets":73,"languages":"EN + top2 per market (ACS 2022)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
+<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.4.1-28d0c98-20260902","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":73,"languages":"EN + top2 per market (ACS 2022)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
 <meta name="robots" content="noindex, nofollow, noarchive">
 <script>
 // Password gate: cakes — unlisted from bots, simple JS gate (also respects CloudFront if added)
@@ -226,7 +226,7 @@ section.xl{padding:var(--section-space-xl) 0}
 <div class="field" id="existingAssets" data-mcp="products" data-mcp-description="Real KODIAK SKUs — choose up to 3, autocomplete as you type"><label>Products — choose up to 3 from the KODIAK catalog</label><input type="text" id="productSearch" placeholder="Search SKUs — flapjack, blueberry, power cakes, muffin, oatmeal, cup, waffle, bar…" style="margin-bottom:8px"><div id="productChooser" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;max-height:240px;overflow:auto;padding:2px"></div><div class="row" style="margin-top:8px"><button class="btn ghost" id="randomProducts">Random 3</button><span class="hint" id="skuHint">0 / 3 selected — empty = random 3 on generate</span></div></div>
 
 <!-- Path: Add new assets — file input (protected #assetFiles kept, hidden until path chosen) -->
-<div class="field" id="addAssets" data-mcp="assets" data-mcp-description="Upload campaign assets — images, brief docs" style="display:none"><label>Add assets — drag &amp; drop images or brief docs</label><input type="file" id="assetFiles" multiple accept="image/*,.pdf,.docx,.yaml,.yml,.json" style="padding:8px"><div id="assetPreview" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"></div><div class="hint">Reuses the DAM when a match exists, else generates a hero via Nova Canvas.</div></div>
+<div class="field" id="addAssets" data-mcp="assets" data-mcp-description="Upload campaign assets — images, brief docs" style="display:none"><label>Add assets — drag &amp; drop images or brief docs</label><input type="file" id="assetFiles" multiple accept="image/*,.pdf,.docx,.yaml,.yml,.json" style="padding:8px"><div id="assetPreview" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"></div><div class="hint">Reuses the DAM when a match exists, else generates a hero via Nova Pro.</div></div>
 
 <!-- Path: Auto-suggest — results appear in the Preview -->
 <div class="field" id="autoAssets" style="display:none"><div class="offline">Auto-suggest scans existing heroes and proposes useful variants across all three ratios — results appear in the <b>Preview</b> after you Generate.</div></div>
@@ -654,7 +654,7 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
 })();
 </script>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.4.1-28d0c98-20260902","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Canvas hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.4.1-28d0c98-20260902","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
 
 
 <script>
