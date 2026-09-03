@@ -52,6 +52,15 @@
         }
       ]
     },
+    "US-SE-SANDERSVILLE": {
+      "place": "Sandersville, GA 31082 (Washington County — kaolin-belt farm country, Atlanta's frontier sister)",
+      "source": "Sandersville downtown farmers market + Washington County farm stands, regional Publix",
+      "produce": [
+        { "name": "Georgia pecans", "months": [10, 11, 12], "peak": 11 },
+        { "name": "Georgia peaches", "months": [5, 6, 7, 8], "peak": 7 },
+        { "name": "sweet potatoes", "months": [9, 10, 11], "peak": 10 }
+      ]
+    },
     "_default": {
       "place": "Today's Frontier",
       "source": "local harvest — source determined by locale to drive engagement & conversion",

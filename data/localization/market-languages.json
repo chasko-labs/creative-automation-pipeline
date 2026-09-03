@@ -1550,6 +1550,27 @@
       ],
       "auto_produce": true,
       "nova_proven": true
+    },
+    {
+      "market": "US-SE-SANDERSVILLE",
+      "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+      "zip": "31082",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 3.4,
+          "reason": "SEED ESTIMATE (not ACS-confirmed at tract level): Washington County GA Hispanic ~3-4%, Spanish at home ~3.4%; rural central Georgia agricultural labor (pecan/peach/sweet-potato harvest); Sandersville rural sister to metro Atlanta US-SE-ATL"
+        },
+        {
+          "lang_code": "de",
+          "lang_name": "German",
+          "pct": 0.4,
+          "reason": "SEED ESTIMATE: Washington County residual German ancestry ~9%, German spoken ~0.4%; small-town Georgia legacy German farm families — Spanish dwarfs all non-English here"
+        }
+      ],
+      "auto_produce": true,
+      "nova_proven": true
     }
   ]
 }

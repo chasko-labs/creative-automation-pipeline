@@ -87,3 +87,45 @@ def test_load_flavors_includes_default_and_all_seeds():
         "_default",
     ):
         assert key in flavors
+
+
+def test_sandersville_pecans_in_season_november():
+    # Georgia pecans Oct-Dec — November (11) in season, resolves source + place
+    got = local_flavor_for("US-SE-SANDERSVILLE", month=11)
+    assert got["matched"] is True
+    assert got["market"] == "US-SE-SANDERSVILLE"
+    assert got["month"] == 11
+    assert "Georgia pecans" in got["produce"]
+    assert got["source"]
+    assert "Sandersville" in got["place"]
+    # peaches (May-Aug) are out of the November window
+    assert "Georgia peaches" not in got["produce"]
+
+
+def test_sandersville_seasonal_windows():
+    # peaches May-Aug: July (7) in, November (11) out
+    jul = local_flavor_for("US-SE-SANDERSVILLE", month=7)
+    assert "Georgia peaches" in jul["produce"]
+    assert "Georgia pecans" not in jul["produce"]
+    # sweet potatoes Sep-Nov: October (10) in season
+    oct_ = local_flavor_for("US-SE-SANDERSVILLE", month=10)
+    assert "sweet potatoes" in oct_["produce"]
+
+
+def test_sandersville_registered_wherever_atlanta_is():
+    # Atlanta's rural frontier sister must be a first-class market everywhere
+    # Atlanta is registered. Parity check across the canonical market registries.
+    import json
+    from pathlib import Path
+
+    data_dir = Path(__file__).parents[1] / "data" / "localization"
+    for fname in ("market-languages.json", "store-finder-markets.json"):
+        raw = json.loads((data_dir / fname).read_text(encoding="utf-8"))
+        codes = {m["market"] for m in raw["markets"]}
+        assert "US-SE-ATL" in codes, f"Atlanta missing from {fname}"
+        assert "US-SE-SANDERSVILLE" in codes, f"Sandersville missing from {fname}"
+    # local-flavor uses a keyed markets object
+    flavor = json.loads(
+        (data_dir / "local-flavor.json").read_text(encoding="utf-8")
+    )
+    assert "US-SE-SANDERSVILLE" in flavor["markets"]
