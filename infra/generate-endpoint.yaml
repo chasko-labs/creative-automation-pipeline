@@ -1,0 +1,166 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  Kodiak creatives - standalone prompt-to-image generation endpoint stack
+  (kodiak-creatives-generate). Container-image Lambda that runs Nova Canvas
+  (bedrock invoke_model) plus pillow, uploads the rendered PNG to the DAM S3
+  bucket under brands/kodiak/renders/, and returns a presigned url. Fronted by a
+  public (dev-open) Lambda Function URL that the site calls directly. The
+  container image must be built and pushed to ECR BEFORE deploy - its uri is
+  passed in via the ImageUri parameter. See the Metadata block for the exact
+  build+push recipe.
+
+Metadata:
+  # ------------------------------------------------------------------------
+  # WHY PackageType: Image (not Zip):
+  #   the handler pulls in the creative_automation package + pillow + boto3,
+  #   which exceeds the 250 MB unzipped Lambda zip limit. A container image
+  #   (10 GB limit) is the supported path. The image is built + pushed to ECR
+  #   first; CloudFormation only references it by uri (ImageUri parameter).
+  #
+  # CONTAINER BUILD RECIPE (run from repo root before deploying this stack):
+  #
+  #   Dockerfile (infra/generate.Dockerfile or repo root):
+  #     FROM public.ecr.aws/lambda/python:3.11
+  #     COPY pyproject.toml ./
+  #     COPY src/ ./src/
+  #     RUN pip install --no-cache-dir . pillow boto3
+  #     CMD ["creative_automation.generate_lambda.handler"]
+  #
+  #   build + create ECR repo + push (account 946179428633, us-east-1):
+  #     ACCOUNT=946179428633
+  #     REGION=us-east-1
+  #     REPO=kodiak-creatives-generate
+  #     TAG=latest
+  #     ECR=${ACCOUNT}.dkr.ecr.${REGION}.amazonaws.com
+  #
+  #     aws ecr describe-repositories --repository-names "$REPO" --region "$REGION" \
+  #       || aws ecr create-repository --repository-name "$REPO" --region "$REGION"
+  #
+  #     aws ecr get-login-password --region "$REGION" \
+  #       | docker login --username AWS --password-stdin "$ECR"
+  #
+  #     docker build -f infra/generate.Dockerfile -t "$REPO:$TAG" .
+  #     docker tag "$REPO:$TAG" "$ECR/$REPO:$TAG"
+  #     docker push "$ECR/$REPO:$TAG"
+  #
+  #   then deploy passing the pushed uri:
+  #     --parameter-overrides ImageUri=${ECR}/${REPO}:${TAG}
+  # ------------------------------------------------------------------------
+  DocumentedManualStep: >-
+    Build and push the container image to ECR repo kodiak-creatives-generate
+    BEFORE deploying this stack, then pass its uri as the ImageUri parameter.
+    See the build recipe comment above.
+
+Parameters:
+  ImageUri:
+    Type: String
+    Description: >-
+      ECR image uri for the generation Lambda container (build+push the container
+      first, e.g. 946179428633.dkr.ecr.us-east-1.amazonaws.com/kodiak-creatives-generate:latest).
+
+Resources:
+  # Tagging strategy (this stack = kodiak-creatives-generate):
+  GenerateLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: generate-lambda-inline
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: BedrockInvokeNovaCanvas
+                Effect: Allow
+                Action: bedrock:InvokeModel
+                Resource: arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-canvas-v1:0
+              - Sid: DamRendersReadWrite
+                Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:GetObject
+                Resource: arn:aws:s3:::chasko-creative-dam-946179428633-us-east-1/brands/kodiak/renders/*
+      Tags:
+        - Key: project
+          Value: kodiak-creatives
+        - Key: team
+          Value: platform
+        - Key: managed-by
+          Value: cloudformation
+        - Key: repo
+          Value: chasko-labs/creative-automation-pipeline
+        - Key: environment
+          Value: production
+        - Key: stack
+          Value: kodiak-creatives-generate
+
+  GenerateLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      PackageType: Image
+      Code:
+        ImageUri: !Ref ImageUri
+      Role: !GetAtt GenerateLambdaRole.Arn
+      Timeout: 60
+      MemorySize: 2048
+      Environment:
+        Variables:
+          DAM_S3_BUCKET: chasko-creative-dam-946179428633-us-east-1
+          AWS_XRAY_SDK_ENABLED: "false"
+      Tags:
+        - Key: project
+          Value: kodiak-creatives
+        - Key: team
+          Value: platform
+        - Key: managed-by
+          Value: cloudformation
+        - Key: repo
+          Value: chasko-labs/creative-automation-pipeline
+        - Key: environment
+          Value: production
+        - Key: stack
+          Value: kodiak-creatives-generate
+
+  # AuthType NONE: public, dev-open. The site calls this url directly with no
+  # signing. Tighten to AWS_IAM before any production/public exposure.
+  GenerateFunctionUrl:
+    Type: AWS::Lambda::Url
+    Properties:
+      TargetFunctionArn: !GetAtt GenerateLambda.Arn
+      AuthType: NONE
+      Cors:
+        AllowOrigins:
+          - "*"
+        # OPTIONS is not a valid AllowMethods enum value - Lambda Function URLs
+        # answer the CORS preflight (OPTIONS) automatically from this config, so
+        # only the real invocation method (POST) is listed.
+        AllowMethods:
+          - POST
+        AllowHeaders:
+          - content-type
+
+  GenerateFunctionUrlPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref GenerateLambda
+      Action: lambda:InvokeFunctionUrl
+      Principal: "*"
+      FunctionUrlAuthType: NONE
+
+Outputs:
+  FunctionUrl:
+    Description: Public HTTPS endpoint for prompt-to-image generation
+    Value: !GetAtt GenerateFunctionUrl.FunctionUrl
+  LambdaName:
+    Description: Name of the generation Lambda function
+    Value: !Ref GenerateLambda
+  LambdaRoleArn:
+    Description: ARN of the Lambda execution role
+    Value: !GetAtt GenerateLambdaRole.Arn
