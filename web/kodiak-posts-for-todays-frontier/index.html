@@ -744,7 +744,7 @@ let skuList = [
   const btn = document.getElementById('generateCampaign');
   if(btn){
     btn.addEventListener('click', async ()=>{
-      const brief = document.getElementById('campaignBrief')?.value.trim();
+      let brief = document.getElementById('campaignBrief')?.value.trim();
       if(!brief){ brief = 'Keep It Wild — Feeding Epic Days & Wilder Lives • Nourishment for Today\'s Frontier — 100% whole grains, 14g protein — quick-test'; }
       let selectedProducts = Array.from(document.querySelectorAll('#productChooser .sku-check:checked')).map(c=>c.value);
       // If local and glimmer up, let it rank SKUs intelligently (not random)
@@ -761,18 +761,79 @@ let skuList = [
                            selectedLoc.market.includes('US-WA-NEAHBAY') ? 'Neah Bay harbor — Makah water meets Wasatch grain' :
                            selectedLoc.market.includes('US-CA-PESCADERO') ? 'Pescadero Marsh boardwalk — Half Moon Bay Coastal Trail' : 'Nearest Frontier via haversine — same pipeline fans to all 73';
       const status = document.getElementById('sampleStatus');
-      if(status) status.textContent = 'Generating campaign preview…';
-      btn.disabled=true; btn.textContent='Generating…';
-      // Render the customized preview images locally (no cloud build)
-      setTimeout(()=>{
-        if(status) status.textContent = 'Campaign preview ready';
-        try{ render(); }catch(e){ console.warn('render() failed on generate', e); }
-        btn.disabled=false; btn.textContent='Generate Kodiak campaign';
-        // Update local flavor with brief context
+      const origLabel = 'Generate Kodiak campaign';
+      // slugify a product NAME -> API slug: prefer catalog .handle, else lowercase spaces->hyphens
+      const slugify = (name)=>{
+        try{
+          const cat = (window.skuCatalog || (typeof skuCatalog!=='undefined' ? skuCatalog : [])) || [];
+          const hit = cat.find(p=>p && p.name===name);
+          if(hit && hit.handle) return hit.handle;
+        }catch(e){}
+        return String(name||'').toLowerCase().trim().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+      };
+      const primarySlug = slugify(products[0]);
+      // Show real generation result: lay out the 3 ratio tiles via render(), then swap each tile's
+      // canvas for an <img> of the composed hero (one hero shown in all 3 frames via object-fit).
+      const showRealImage = (imageUrl, source)=>{
+        try{ render(); }catch(e){ console.warn('render() failed before image swap', e); }
+        const preview = document.getElementById('preview');
+        if(!preview) return;
+        const tiles = preview.querySelectorAll('.tile');
+        tiles.forEach(tile=>{
+          const c = tile.querySelector('canvas');
+          if(!c) return;
+          const img = document.createElement('img');
+          img.src = imageUrl;
+          img.alt = 'Nova Pro composed campaign hero';
+          img.crossOrigin = 'anonymous';
+          img.style.cssText = 'width:100%;height:auto;max-width:100%;display:block;object-fit:cover;border-radius:6px';
+          c.replaceWith(img);
+        });
+        // source badge: "Nova Pro" for real bedrock, "preview" for mock/fallback
+        const label = source==='bedrock:nova-pro' ? 'Nova Pro' : (source==='mock' ? 'preview' : (source||'preview'));
+        const bg = source==='bedrock:nova-pro' ? '#1A3C34' : '#8C7A70';
+        let badge = document.getElementById('genSourceBadge');
+        if(!badge){ badge=document.createElement('span'); badge.id='genSourceBadge'; badge.className='badge'; preview.parentNode?.insertBefore(badge, preview); }
+        badge.textContent = 'source: ' + label;
+        badge.style.cssText = `display:inline-block;margin:0 0 8px;padding:2px 8px;border-radius:6px;font-size:11px;color:#FFF8F0;background:${bg}`;
+      };
+      const finishCommon = ()=>{
+        // Update local flavor with brief context (runs after either path)
         const lf = document.getElementById('localFlavorText');
         if(lf) lf.innerHTML += `<br><span style="color:#1A3C34"><b>Brief applied:</b> “${brief}” — fans to all formats</span>`;
-        console.log('KODIAK generate — sample', {brief, products, audience, selectedLoc: selectedLoc.market, frontierHint});
-      }, 900);
+        console.log('KODIAK generate — sample', {brief, products, primarySlug, audience, selectedLoc: selectedLoc.market, frontierHint});
+      };
+      // Preserve local/offline behavior: file:// or localhost has no /generate — go straight to canvas.
+      const isLocal = (location.protocol==='file:') || ['127.0.0.1','localhost'].includes(location.hostname);
+      if(isLocal){
+        if(status) status.textContent = 'Campaign preview ready (local canvas)';
+        btn.disabled=true; btn.textContent='Generating…';
+        try{ render(); }catch(e){ console.warn('render() failed on generate (local)', e); }
+        finishCommon();
+        btn.disabled=false; btn.textContent=origLabel;
+        return;
+      }
+      // Hosted https path: call the real Nova Pro backend, canvas as graceful fallback.
+      if(status) status.textContent = 'Generating with Nova Pro…';
+      btn.disabled=true; btn.textContent='Generating with Nova Pro…';
+      const controller = new AbortController();
+      const timeoutId = setTimeout(()=>controller.abort(), 90000); // Nova Pro composition is slow (~90s)
+      try{
+        const resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({prompt: brief, market: selectedLoc.market, product: primarySlug}), signal: controller.signal});
+        if(!resp.ok) throw new Error('backend returned HTTP ' + resp.status);
+        const json = await resp.json();
+        if(!json || !json.image_url) throw new Error('response missing image_url');
+        showRealImage(json.image_url, json.source);
+        if(status) status.textContent = 'Campaign preview ready';
+      }catch(err){
+        console.warn('generate: real backend failed, falling back to canvas —', err && err.message ? err.message : err);
+        try{ render(); }catch(e){ console.warn('render() fallback also failed', e); }
+        if(status) status.textContent = 'Campaign preview ready (canvas fallback)';
+      }finally{
+        clearTimeout(timeoutId);
+        finishCommon();
+        btn.disabled=false; btn.textContent=origLabel;
+      }
     });
   }
 
