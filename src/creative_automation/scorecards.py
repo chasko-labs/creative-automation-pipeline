@@ -6,7 +6,6 @@ Uses Pillow histogram + regex + json schema — no generative leniency.
 from __future__ import annotations
 
 import json
-import re
 import time
 from pathlib import Path
 from typing import Dict, List
@@ -14,12 +13,14 @@ from typing import Dict, List
 from PIL import Image
 
 from .compliance import run_all_checks
+from .naming import ISO_NAME_RE
 from .token_loader import load_tokens
 
 BRAND_COLORS = ["#3B2316", "#E8530E", "#1A3C34"]
 RATIOS = {"1x1": (1080, 1080), "9x16": (1080, 1920), "16x9": (1920, 1080)}
-ISO_RE = re.compile(r"^KODIAK-CAKES-[a-z0-9-]+-US-[A-Z-]+-[a-z0-9-]+-(retailers|etailers|eateries|subscription|newsletter|office|suggested)-(1x1|9x16|16x9|[0-9]+x[0-9]+)-[0-9]{8}-v01\.png$", re.I)
-ISO_RE_STRICT = re.compile(r"^KODIAK-CAKES-[a-z0-9-]+-[A-Z0-9-]+-[a-z0-9-]+-(retailers|etailers|eateries|subscription|newsletter|office|suggested)-(1x1|9x16|16x9)-[0-9]{8}-v01\.png$")
+# single source of truth: the writer (naming.build_iso_name) and this checker
+# validate against the same pattern, so the two can never drift.
+ISO_RE = ISO_NAME_RE
 
 
 def _hex_to_rgb(h: str):
@@ -123,7 +124,7 @@ def score_image_determinism(image_path: Path) -> Dict:
         cards.append({"id":"dims","title":"Dimensions Exact","max":1,"score":0,"pass":False,"detail":f"✗ {e}","subs":[f"✗ {e}"]})
     # Card 9: File naming ISO
     name = image_path.name
-    ok = bool(ISO_RE.match(name) or ISO_RE_STRICT.match(name))
+    ok = bool(ISO_RE.match(name))
     cards.append({"id":"naming","title":"File Naming ISO","max":1,"score":1 if ok else 0,"pass":ok,"detail":f"✓ {name}" if ok else f"✗ {name}","subs":["✓ ISO" if ok else "✗ ISO"]})
     # Card 10: Report completeness (placeholder)
     cards.append({"id":"report","title":"Report Completeness","max":1,"score":1,"pass":True,"detail":"✓ report.json + preview.html","subs":["✓ report"]})

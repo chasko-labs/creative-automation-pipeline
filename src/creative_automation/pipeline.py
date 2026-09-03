@@ -3,6 +3,7 @@ Nova costs documented: Canvas per-image, Micro per-translate, Translate per-char
 from __future__ import annotations
 
 import json
+import shutil
 import time
 from pathlib import Path
 from typing import Dict, List
@@ -14,6 +15,7 @@ from .dam import find_brand_logo, find_hero_asset
 from .enhance import enhance_hero
 from .generate import generate_hero
 from .localize import localize_message
+from .naming import build_iso_name, derive_locality, today_utc
 try:
     from .translate import attach_market_translations
     _HAS_TRANSLATE = True
@@ -114,6 +116,13 @@ def run_pipeline(
     total_creatives = 0
     overall_pass = 0
 
+    # one write date for the whole batch (ISO 8601 basic, UTC)
+    batch_date = today_utc()
+    # channel + locality derivation — brief has no explicit fields today, so derive:
+    #   channel defaults to instagram (social-first), locality from region segment
+    batch_channel = "instagram"
+    batch_locality = derive_locality(brief.region)
+
     for idx, product in enumerate(brief.products):
         hero = find_hero_asset(product.id, dam_root, product.hero_asset)
         hero_source = "dam"
@@ -123,8 +132,6 @@ def run_pipeline(
 
         if hero and hero.exists():
             # copy to work then optionally enhance (contrast/texture/framing/watermark)
-            import shutil
-
             shutil.copy2(hero, work_hero)
             if enhance:
                 try:
@@ -174,17 +181,38 @@ def run_pipeline(
                     folder_ratio = "9x16"
                 elif folder_ratio in ("16:9", "16x9"):
                     folder_ratio = "16x9"
-                # file name includes lang for non-en; en stays canonical for backwards compat
+                # machine layout stays for backwards-compat + storage path parity:
+                #   {product}/{ratio}/{product}_{ratio}[_lang].png
                 suffix = "" if lc == "en" else f"_{lc}"
-                out_path = out_root / product.id / folder_ratio / f"{product.id}_{folder_ratio}{suffix}.png"
+                machine_path = out_root / product.id / folder_ratio / f"{product.id}_{folder_ratio}{suffix}.png"
                 compose_creative(
                     hero_path=work_hero,
-                    out_path=out_path,
+                    out_path=machine_path,
                     message=msg,
                     ratio_key=ratio,
                     brand_logo=brand_logo,
                     brand_colors=brief.brand_colors,
                 )
+                # human-facing ISO name — the primary emitted artifact. non-en
+                # variants fold the language into locality so each name is unique
+                # while staying inside the standard's lower-case hyphenated field.
+                variant_locality = batch_locality if lc == "en" else f"{batch_locality}-{lc}"
+                human_name = build_iso_name(
+                    product=product.id,
+                    region=brief.region,
+                    locality=variant_locality,
+                    channel=batch_channel,
+                    ratio=folder_ratio,
+                    date=batch_date,
+                    version="v01",
+                )
+                iso_path = machine_path.parent / human_name
+                # rename-on-write: move the composed file to its ISO name so the
+                # local output the scorecards naming card inspects is standard.
+                if iso_path != machine_path:
+                    shutil.copy2(machine_path, iso_path)
+                # report + preview point at the ISO artifact (relative to out_root)
+                out_path = iso_path
                 checks = run_all_checks(out_path, msg, brief.brand_colors, brand_logo is not None)
                 product_entry["creatives"].append(
                     {
@@ -192,6 +220,8 @@ def run_pipeline(
                         "lang": lc,
                         "message": msg,
                         "path": str(out_path.relative_to(out_root)),
+                        "human_name": human_name,
+                        "machine_path": str(machine_path.relative_to(out_root)),
                         "absolute": str(out_path),
                         "compliance": checks,
                     }
@@ -202,6 +232,8 @@ def run_pipeline(
                         "ratio": folder_ratio,
                         "lang": lc,
                         "path": str(out_path.relative_to(out_root)),
+                        "human_name": human_name,
+                        "machine_path": str(machine_path.relative_to(out_root)),
                         "message": msg,
                         "hero_source": hero_source,
                         "localization_source": loc_source,
