@@ -281,6 +281,40 @@ def find_brand_logo(dam_root: Path) -> Optional[Path]:
     return _local_find_brand(dam_root)
 
 
+def s3_upload_and_presign(local_path: Path, key: str, expires: int = 3600) -> Optional[str]:
+    """Upload local_path to the DAM bucket under <prefix><key>, return a presigned GET url.
+
+    Mirrors the module's graceful pattern: returns None when S3 is disabled (no
+    DAM_S3_BUCKET / boto3 missing / client init fails) so callers fall back to a
+    local path in offline / CI mode. The key is joined to the configured DAM prefix
+    (same prefix _s3_bucket_and_prefix resolves for reads), so a caller passing
+    "packs/foo.zip" lands at s3://<bucket>/<prefix>packs/foo.zip.
+    """
+    if not _s3_enabled():
+        return None
+    local_path = Path(local_path)
+    if not local_path.exists():
+        print(f"[dam] presign skipped — local artifact absent: {local_path}")
+        return None
+    bucket, prefix = _s3_bucket_and_prefix()
+    client = _s3_client()
+    if not bucket or client is None:
+        return None
+    full_key = f"{prefix}{key.lstrip('/')}"
+    try:
+        client.upload_file(str(local_path), bucket, full_key)
+        url = client.generate_presigned_url(
+            "get_object",
+            Params={"Bucket": bucket, "Key": full_key},
+            ExpiresIn=expires,
+        )
+        print(f"[dam] uploaded {local_path} -> s3://{bucket}/{full_key} (presigned {expires}s)")
+        return url
+    except (ClientError, BotoCoreError, Exception) as e:
+        print(f"[dam] upload/presign failed s3://{bucket}/{full_key}: {e}")
+        return None
+
+
 def sync_dam_from_s3(dam_root: Path, delete: bool = False) -> bool:
     """Optional helper: bulk sync S3 prefix -> local dam_root via boto3.
 
