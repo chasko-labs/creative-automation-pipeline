@@ -1,0 +1,92 @@
+<mjml>
+  <mj-head>
+    <mj-title>Welcome to the Real Breakfast Club</mj-title>
+    <mj-preview>Get 25% off your next order. Use code: BRKFSTCLUB</mj-preview>
+    <mj-attributes>
+      <mj-all font-family="kodiak_sans, Roar, Helvetica, Arial, sans-serif" />
+      <mj-text font-family="kodiak_sans, Roar, Helvetica, Arial, sans-serif" color="#2c231b" />
+      <mj-button font-family="kodiak_sans, Roar, Helvetica, Arial, sans-serif" />
+    </mj-attributes>
+    <mj-style>
+      .brown-texture { background-color:#2c231b; background-image:url('https://kodiakcakes.com/cdn/shop/t/97/assets/brown-texture-2.webp'); background-repeat:repeat; }
+      .red-texture { background-color:#C1272D; background-image:url('https://kodiakcakes.com/cdn/shop/t/97/assets/mega-menu_red-bg.webp'); background-repeat:repeat; background-size:cover; }
+      .hero-h1 { font-family: 'Roar','NOOMKC-Regular', Helvetica, Arial, sans-serif; color:#C8102E; font-size:32px; font-weight:800; line-height:1.1; text-transform: lowercase; }
+      .pill { background:#C1272D; color:#fff; border-radius:999px; padding:8px 18px; display:inline-block; font-family:Roar, Helvetica, Arial, sans-serif; font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:14px; }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#FFF8F0" width="600px">
+    <!-- Preheader -->
+    <mj-section background-color="#FFF8F0" padding="8px 0">
+      <mj-column>
+        <mj-text align="center" font-size="12px" color="#6B5A53" font-family="kodiak_sans, Helvetica, Arial, sans-serif">
+          Can't see this email? <a href="{{ view_in_browser_url | default('https://kodiakcakes.com') }}" style="color:#6B5A53; text-decoration:underline">View in Your Browser</a>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <!-- Free Shipping bar -->
+    <mj-section background-color="#C1272D" background-url="https://kodiakcakes.com/cdn/shop/t/97/assets/mega-menu_red-bg.webp" padding="10px 0">
+      <mj-column>
+        <mj-text align="center" color="#ffffff" font-size="12px" font-weight="700" letter-spacing="1.5px" text-transform="uppercase" font-family="kodiak_sans, Helvetica, Arial, sans-serif">
+          Free Shipping Over $45 to the Contiguous US
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <!-- Hero -->
+    <mj-section background-color="#ffffff" padding="32px 24px 16px 24px">
+      <mj-column>
+        <mj-image src="{{ logo_url | default('https://kodiakcakes.com/cdn/shop/files/Logo.svg') }}" alt="KODIAK — 100% WHOLE GRAINS" width="180px" align="center" />
+        <mj-text align="center" css-class="hero-h1" font-size="32px" color="#C8102E" font-weight="800" padding-top="16px" text-transform="lowercase">
+          welcome to the real breakfast club!
+        </mj-text>
+        <mj-text align="center" font-size="16px" color="#2c231b" font-family="kodiak_sans, Helvetica, Arial, sans-serif" padding-top="8px">
+          Get 25% off your next order.
+        </mj-text>
+        <mj-text align="center" padding-top="12px">
+          <span class="pill">use code: {{ discount_code | default('BRKFSTCLUB') }}</span>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <!-- CTAs — 3-up grid (mobile stacks) -->
+    <mj-section background-color="#ffffff" padding="16px">
+      {% for product in products %}
+      <mj-column>
+        <mj-image src="{{ product.image }}" alt="{{ product.name }}" width="400px" border-radius="12px" />
+        <mj-text align="center" font-size="13px" color="#2c231b" font-weight="600" padding-top="8px">buy now: {{ product.name | lower }}</mj-text>
+        <mj-button background-color="#C1272D" color="#ffffff" font-size="14px" font-weight="700" border-radius="999px" href="{{ product.url }}" padding-top="8px">Buy Now</mj-button>
+      </mj-column>
+      {% endfor %}
+    </mj-section>
+    <!-- Read More / Historically great articles -->
+    {% if articles and articles | length > 0 %}
+    <mj-section background-color="#FFF8F0" padding="16px 16px 8px 16px">
+      <mj-column>
+        <mj-text align="center" font-size="14px" font-weight="700" color="#2c231b" text-transform="uppercase" letter-spacing="0.08em">From the Frontier</mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#FFF8F0" padding="0 16px 16px 16px">
+      {% for article in articles %}
+      <mj-column>
+        <mj-text font-size="14px" font-weight="700" color="#C8102E"><a href="{{ article.url }}" style="color:#C8102E; text-decoration:none">{{ article.title }}</a></mj-text>
+        <mj-button background-color="#ffffff" color="#C1272D" border="1px solid #C1272D" border-radius="999px" font-size="12px" href="{{ article.url }}">Read More</mj-button>
+      </mj-column>
+      {% endfor %}
+    </mj-section>
+    {% endif %}
+    <!-- Footer -->
+    <mj-section background-color="#2c231b" background-url="https://kodiakcakes.com/cdn/shop/t/97/assets/brown-texture-2.webp" padding="24px 16px">
+      <mj-column>
+        <mj-text align="center" color="#F4EDE6" font-size="18px" font-style="italic" font-family="Roar, Helvetica, Arial, sans-serif">whole grain greatness</mj-text>
+        <mj-text align="center" color="#F4EDE6" font-size="13px" padding-top="8px">Join us on our adventure @kodiakcakes</mj-text>
+        <mj-text align="center" color="#B8A99E" font-size="12px" padding-top="12px">
+          <a href="https://kodiakcakes.com/policies/privacy-policy" style="color:#B8A99E; text-decoration:underline">Privacy Policy</a> | <a href="https://kodiakcakes.com" style="color:#B8A99E; text-decoration:underline">Manage Preferences</a>
+        </mj-text>
+        <mj-text align="center" color="#8C7A70" font-size="11px" padding-top="8px">
+          No longer want to receive these emails? <a href="{{ unsubscribe_url | default('https://kodiakcakes.com/unsubscribe') }}" style="color:#8C7A70; text-decoration:underline">Unsubscribe</a>
+        </mj-text>
+        <mj-text align="center" color="#8C7A70" font-size="11px" padding-top="8px">
+          8163 Gorgoza Pines Rd. Park City, Utah 84098 US
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
