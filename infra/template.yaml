@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: Kodiak creative pipeline - one cloud setup for style library, localization memory, and retail network. Retains buckets on delete.
+Description: Kodiak creative pipeline - main stack (kodiak-creatives). Style library DAM bucket (imported), localization memory, retail network, log bucket, and CI. Retains buckets/tables on delete.
 Parameters:
   ProjectName:
     Type: String
@@ -10,7 +10,21 @@ Parameters:
     Description: Cloud storage bucket name - must be globally unique. Current live bucket is chasko-creative-dam-946179428633-us-east-1 in us-east-1. Change only if you need a second environment.
 
 Resources:
-  # Cloud storage for style and photos - versioned, private, encrypted
+  # NOTE: Observability resources (log group, X-Ray sampling rule, write policy) live in
+  # infra/observability.yaml / stack kodiak-creatives-observability - deliberately separate
+  # to avoid the DAM-bucket import collision. Do not re-add them here.
+  #
+  # Tagging strategy (applied to every taggable resource in this template):
+  #   project=kodiak-creatives (via !Ref ProjectName), team=platform,
+  #   managed-by=cloudformation, repo=chasko-labs/creative-automation-pipeline,
+  #   environment=production, stack=kodiak-creatives.
+  # S3 / DynamoDB / IAM Role / CodeBuild all model Tags as a LIST of {Key,Value}.
+  # S3::BucketPolicy has no Tags property (omitted below).
+
+  # Cloud storage for style and photos - versioned, private, encrypted.
+  # IMPORTED resource: properties below MUST match the live bucket or import fails.
+  # Live config verified us-east-1 acct 946179428633: versioning Enabled,
+  # aws:kms + BucketKeyEnabled true, DenyInsecureTransport policy present.
   StyleLibraryBucket:
     Type: AWS::S3::Bucket
     DeletionPolicy: Retain
@@ -31,12 +45,17 @@ Resources:
             BucketKeyEnabled: true
       LifecycleConfiguration:
         Rules:
+          # Filter Prefix "" matches the live rule shape (applies bucket-wide).
+          # CloudFormation models the S3 filter prefix as the rule-level Prefix property.
           - Id: abort-multipart
             Status: Enabled
+            Prefix: ""
             AbortIncompleteMultipartUpload:
               DaysAfterInitiation: 7
+          # Scoped to brands/kodiak/renders/ - matches live; tiering applies to renders only
           - Id: renders-archive
             Status: Enabled
+            Prefix: brands/kodiak/renders/
             Transitions:
               - StorageClass: STANDARD_IA
                 TransitionInDays: 90
@@ -53,9 +72,23 @@ Resources:
           Value: !Ref ProjectName
         - Key: brand
           Value: kodiak
+        - Key: team
+          Value: platform
+        - Key: managed-by
+          Value: cloudformation
+        - Key: repo
+          Value: chasko-labs/creative-automation-pipeline
+        - Key: environment
+          Value: production
+        - Key: stack
+          Value: kodiak-creatives
 
+  # DeletionPolicy Retain so the bucket policy that already exists on the live bucket
+  # can be imported alongside the bucket. S3::BucketPolicy has no Tags property.
   StyleLibraryBucketPolicyTLSOnly:
     Type: AWS::S3::BucketPolicy
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
     Properties:
       Bucket: !Ref StyleLibraryBucket
       PolicyDocument:
@@ -95,6 +128,16 @@ Resources:
       Tags:
         - Key: project
           Value: !Ref ProjectName
+        - Key: team
+          Value: platform
+        - Key: managed-by
+          Value: cloudformation
+        - Key: repo
+          Value: chasko-labs/creative-automation-pipeline
+        - Key: environment
+          Value: production
+        - Key: stack
+          Value: kodiak-creatives
 
   # Retail network - every store that carries Kodiak, one row per storefront
   RetailNetworkTable:
@@ -122,6 +165,16 @@ Resources:
       Tags:
         - Key: project
           Value: !Ref ProjectName
+        - Key: team
+          Value: platform
+        - Key: managed-by
+          Value: cloudformation
+        - Key: repo
+          Value: chasko-labs/creative-automation-pipeline
+        - Key: environment
+          Value: production
+        - Key: stack
+          Value: kodiak-creatives
 
   # Searchable knowledge - place, audience, message, photo cue - via vector storage
   # Using S3 Vectors (managed, no servers) with S3VectorsConfiguration for the knowledge base
@@ -145,10 +198,24 @@ Resources:
           - ServerSideEncryptionByDefault:
               SSEAlgorithm: aws:kms
             BucketKeyEnabled: true
+      Tags:
+        - Key: project
+          Value: !Ref ProjectName
+        - Key: team
+          Value: platform
+        - Key: managed-by
+          Value: cloudformation
+        - Key: repo
+          Value: chasko-labs/creative-automation-pipeline
+        - Key: environment
+          Value: production
+        - Key: stack
+          Value: kodiak-creatives
 
   # CI service role - least privilege. The per-push gate is ruff + pytest + cfn-lint,
   # none of which make aws api calls (cfn-lint runs offline). So the only grant this
   # role needs is CloudWatch Logs to its own log group. No S3 / DynamoDB / Bedrock / SSM.
+  # Explicit RoleName (${ProjectName}-ci-role) means the deploy needs CAPABILITY_NAMED_IAM.
   CodeBuildServiceRole:
     Type: AWS::IAM::Role
     Properties:
@@ -177,10 +244,21 @@ Resources:
       Tags:
         - Key: project
           Value: !Ref ProjectName
+        - Key: team
+          Value: platform
+        - Key: managed-by
+          Value: cloudformation
+        - Key: repo
+          Value: chasko-labs/creative-automation-pipeline
+        - Key: environment
+          Value: production
+        - Key: stack
+          Value: kodiak-creatives
 
   # Fast per-push CI gate. Webhook fires on push and on PR create/update/reopen.
   # RUN_SLOW pinned false here so the slow path (render/nova-act/embedding) never
   # runs on the per-push gate - it belongs to nightly/manual runs only.
+  # GITHUB source + Webhook requires an account-level source credential imported first.
   CreativePipelineCI:
     Type: AWS::CodeBuild::Project
     Properties:
@@ -218,69 +296,16 @@ Resources:
       Tags:
         - Key: project
           Value: !Ref ProjectName
-
-  # Observability: structured app logs land here. cfn-lint 1.51.5 models
-  # AWS::Logs::LogGroup Tags as a list of {Key,Value} (same shape as S3/DynamoDB),
-  # NOT a key-value map - the map shape fails E3012.
-  CreativePipelineLogGroup:
-    Type: AWS::Logs::LogGroup
-    Properties:
-      LogGroupName: /kodiak/creative-pipeline
-      RetentionInDays: 30
-      Tags:
-        - Key: project
-          Value: !Ref ProjectName
-
-  # X-Ray sampling rule - captures kodiak traces above the 5% Default rule.
-  # Priority 9000 sits below Default (10000) so it is evaluated first.
-  # ServiceName wildcard suffix matches kodiak-creative and any suffixed variant.
-  KodiakSamplingRule:
-    Type: AWS::XRay::SamplingRule
-    Properties:
-      SamplingRule:
-        RuleName: kodiak-creative
-        Priority: 9000
-        ReservoirSize: 1
-        FixedRate: 0.10
-        ServiceName: "kodiak-creative*"
-        ServiceType: "*"
-        Host: "*"
-        HTTPMethod: "*"
-        URLPath: "*"
-        ResourceARN: "*"
-        Version: 1
-
-  # Standalone managed policy for a future app runtime role (Lambda/ECS/CodeBuild)
-  # to attach. The runtime role is not defined in this template yet.
-  ObservabilityWritePolicy:
-    Type: AWS::IAM::ManagedPolicy
-    Properties:
-      Description: Least-privilege write access for kodiak structured logs + X-Ray traces
-      PolicyDocument:
-        Version: "2012-10-17"
-        Statement:
-          - Sid: WriteStructuredLogs
-            Effect: Allow
-            Action:
-              - logs:CreateLogGroup
-              - logs:CreateLogStream
-              - logs:PutLogEvents
-            Resource:
-              - !GetAtt CreativePipelineLogGroup.Arn
-              - !Sub ${CreativePipelineLogGroup.Arn}:*
-          # X-Ray write actions do not support resource-level scoping - AWS
-          # requires Resource "*" for PutTraceSegments/PutTelemetryRecords.
-          # The sampling reads (Get*) are used by the SDK sampler and also
-          # only accept "*". This is an AWS service constraint, not a widening.
-          - Sid: WriteTracesAndReadSampling
-            Effect: Allow
-            Action:
-              - xray:PutTraceSegments
-              - xray:PutTelemetryRecords
-              - xray:GetSamplingRules
-              - xray:GetSamplingTargets
-              - xray:GetSamplingStatisticSummaries
-            Resource: "*"
+        - Key: team
+          Value: platform
+        - Key: managed-by
+          Value: cloudformation
+        - Key: repo
+          Value: chasko-labs/creative-automation-pipeline
+        - Key: environment
+          Value: production
+        - Key: stack
+          Value: kodiak-creatives
 
 Outputs:
   StyleLibraryBucketName:
@@ -294,12 +319,6 @@ Outputs:
     Value: !Ref RetailNetworkTable
   LogBucketName:
     Value: !Ref CreativePipelineLogBucket
-  CreativePipelineLogGroupName:
-    Value: !Ref CreativePipelineLogGroup
-    Description: CloudWatch log group for structured app logs
-  ObservabilityWritePolicyArn:
-    Value: !Ref ObservabilityWritePolicy
-    Description: Managed policy arn a future app runtime role attaches for logs + X-Ray writes
   CodeBuildProjectName:
     Value: !Ref CreativePipelineCI
     Description: Per-push CI gate project name

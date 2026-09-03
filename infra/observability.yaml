@@ -7,9 +7,18 @@ Parameters:
     Default: kodiak-creatives
 
 Resources:
-  # Observability: structured app logs land here. cfn-lint models
+  # Tagging strategy (this stack = kodiak-creatives-observability):
+  #   project=kodiak-creatives (via !Ref ProjectName), team=platform,
+  #   managed-by=cloudformation, repo=chasko-labs/creative-automation-pipeline,
+  #   environment=production, stack=kodiak-creatives-observability.
+  # Only the LogGroup is taggable here - the other two types below do not
+  # support resource Tags (noted inline).
+
+  # Observability: structured app logs land here. cfn-lint 1.51.5 models
   # AWS::Logs::LogGroup Tags as a list of {Key,Value} (same shape as S3/DynamoDB),
   # NOT a key-value map - the map shape fails E3012.
+  # This stack is already deployed; this tag set is a tag-only UPDATE that applies
+  # cleanly on the next change-set.
   CreativePipelineLogGroup:
     Type: AWS::Logs::LogGroup
     Properties:
@@ -18,10 +27,21 @@ Resources:
       Tags:
         - Key: project
           Value: !Ref ProjectName
+        - Key: team
+          Value: platform
+        - Key: managed-by
+          Value: cloudformation
+        - Key: repo
+          Value: chasko-labs/creative-automation-pipeline
+        - Key: environment
+          Value: production
+        - Key: stack
+          Value: kodiak-creatives-observability
 
   # X-Ray sampling rule - captures kodiak traces above the 5% Default rule.
   # Priority 9000 sits below Default (10000) so it is evaluated first.
   # ServiceName wildcard suffix matches kodiak-creative and any suffixed variant.
+  # NOTE: AWS::XRay::SamplingRule does not support resource Tags - none applied here.
   KodiakSamplingRule:
     Type: AWS::XRay::SamplingRule
     Properties:
@@ -40,6 +60,7 @@ Resources:
 
   # Standalone managed policy for a future app runtime role (Lambda/ECS/CodeBuild)
   # to attach. The runtime role is not defined in this template.
+  # NOTE: AWS::IAM::ManagedPolicy does not support resource Tags - none applied here.
   ObservabilityWritePolicy:
     Type: AWS::IAM::ManagedPolicy
     Properties:
