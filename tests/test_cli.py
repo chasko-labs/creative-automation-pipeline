@@ -69,3 +69,17 @@ def test_legacy_flag_form_routes_to_generate(tmp_path):
     rc = cli.main(["--brief", "briefs/kodiak-on-the-go.yaml", "--assets", "input_assets", "--out", str(out)])
     assert rc == 0
     assert (out / "report.json").exists()
+
+
+
+def test_campaign_subcommand_prints_counts_and_returns_zero(capsys):
+    # D1 campaign fan-out via the CLI, bare market key, offline (no render)
+    rc = cli.main(["campaign", "--market", "US-SE-ATL", "--month", "2026-09"])
+    assert rc == 0
+    out = capsys.readouterr().out
+    assert "[campaign]" in out
+    # prints asset + card + lockup counts
+    assert "assets=" in out
+    assert "recipe_cards=" in out
+    assert "lockups=" in out
+    assert "market=US-SE-ATL" in out

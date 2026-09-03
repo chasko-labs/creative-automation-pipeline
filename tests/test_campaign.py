@@ -298,3 +298,116 @@ def test_accepts_campaign_brief_object(tmp_path):
     assert result["campaign"]["market"] == "US-SE-ATL"
     assert result["summary"]["asset_count"] > 0
     assert result["campaign"]["ingredient"] == "muscadine grapes"
+
+
+
+# --------------------------------------------------------------------------- #
+# UNIT 1 — live render wiring (B2 hardening + D1 planned -> real pixels)
+# --------------------------------------------------------------------------- #
+def _tiny_render_brief() -> dict:
+    # one product, one platform/ratio, EN only -> a single asset so the offline mock
+    # render (nova mock + enhance + compose) stays fast enough for CI
+    return {
+        "market": "US-SE-ATL",
+        "campaign_message": "Protein-packed whole grains for your frontier.",
+        "products": [
+            {
+                "id": "power-cakes",
+                "name": "Buttermilk Power Cakes",
+                "description": "14g protein flapjack and waffle mix",
+            }
+        ],
+        "retailers": [],
+    }
+
+
+def test_render_false_leaves_assets_planned(tmp_path):
+    # default behavior: no render flag -> assets stay planned copy+naming, no PNGs
+    result = run_campaign(_atlanta_brief(), out_dir=tmp_path, month="2026-09")
+    assert result["summary"]["rendered"] is False
+    for a in result["assets"]:
+        assert a["generated"] is False
+        assert a["render_hint"] == "run_pipeline"
+        assert "file_path" not in a
+    assert result["summary"]["generated"]["assets"] == 0
+    assert result["summary"]["planned"]["assets"] == len(result["assets"])
+
+
+def test_render_true_produces_real_iso_named_pngs_offline(tmp_path):
+    # render=True, offline (no creds) -> real PNGs via the mock hero path, iso-named,
+    # each asset flips generated=True with hero_source="mock"
+    result = run_campaign(
+        _tiny_render_brief(),
+        out_dir=tmp_path,
+        month="2026-09",
+        platforms={"instagram": ["1x1"]},
+        languages=["en"],
+        render=True,
+    )
+    assert result["summary"]["rendered"] is True
+    assert result["assets"]
+    for a in result["assets"]:
+        assert a["generated"] is True, f"asset not flipped generated: {a['iso_name']}"
+        assert a["hero_source"] == "mock", f"expected mock offline, got {a['hero_source']}"
+        # the recorded file path is the iso-named PNG and it exists on disk
+        fp = Path(a["file_path"])
+        assert fp.exists(), f"rendered png missing: {fp}"
+        assert fp.name == a["iso_name"]
+        assert ISO_NAME_RE.match(fp.name), f"not iso-named: {fp.name}"
+    # summary counts mirror the flip
+    assert result["summary"]["generated"]["assets"] == len(result["assets"])
+    assert result["summary"]["planned"]["assets"] == 0
+
+
+def test_render_true_png_has_expected_ratio_dimensions(tmp_path):
+    from PIL import Image
+
+    result = run_campaign(
+        _tiny_render_brief(),
+        out_dir=tmp_path,
+        month="2026-09",
+        platforms={"instagram": ["1x1"]},
+        languages=["en"],
+        render=True,
+    )
+    a = result["assets"][0]
+    img = Image.open(a["file_path"])
+    assert img.size == (1080, 1080), f"{a['iso_name']} wrong size {img.size}"
+
+
+def test_render_true_cohesion_check_skipped_offline_not_faked(tmp_path):
+    # cr-3 cohesion re-embed needs bedrock; offline it must be skipped-with-a-reason,
+    # never a fabricated similarity verdict
+    result = run_campaign(
+        _tiny_render_brief(),
+        out_dir=tmp_path,
+        month="2026-09",
+        platforms={"instagram": ["1x1"]},
+        languages=["en"],
+        render=True,
+    )
+    for a in result["assets"]:
+        cohesion = a["cohesion"]
+        assert cohesion["checked"] is False
+        assert cohesion["skipped"] is True
+        assert "reason" in cohesion and cohesion["reason"]
+        # no faked score
+        assert "embed_norm" not in cohesion
+
+
+def test_render_true_keeps_headline_as_overlay_and_safety_clean(tmp_path):
+    # cr-1: the headline is overlay copy via compose, never the Nova prompt. The planned
+    # headline still travels on the asset (compose receives it) and the asset renders —
+    # the no-text-in-prompt guarantee lives in generate.py.
+    result = run_campaign(
+        _tiny_render_brief(),
+        out_dir=tmp_path,
+        month="2026-09",
+        platforms={"instagram": ["1x1"]},
+        languages=["en"],
+        render=True,
+    )
+    for a in result["assets"]:
+        assert a["headline"]
+        assert a["safety"]["clean"] is True
+        assert Path(a["file_path"]).exists()
