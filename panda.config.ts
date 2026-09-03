@@ -198,15 +198,15 @@ export default defineConfig({
         gradients: {
           "kraft.surface": {
             value:
-              "repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.03) 0px, rgba(59, 35, 22, 0.03) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 6px), linear-gradient(#FFF8F0, #FFF8F0)",
+              "repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.10) 0px, rgba(59, 35, 22, 0.10) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 4px), repeating-linear-gradient(45deg, rgba(59, 35, 22, 0.06) 0px, rgba(59, 35, 22, 0.06) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 5px), linear-gradient(#F0E4D4, #EAD9C4)",
           },
           "kraft.background": {
             value:
-              "repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.04) 0px, rgba(59, 35, 22, 0.04) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 7px), repeating-linear-gradient(45deg, rgba(59, 35, 22, 0.03) 0px, rgba(59, 35, 22, 0.03) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 7px), radial-gradient(120% 120% at 50% 40%, rgba(59, 35, 22, 0.05) 0%, rgba(59, 35, 22, 0) 60%), linear-gradient(#F4EDE6, #F4EDE6)",
+              "repeating-linear-gradient(90deg, rgba(59, 35, 22, 0.08) 0px, rgba(59, 35, 22, 0.02) 3px, rgba(59, 35, 22, 0.08) 6px), repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.06) 0px, rgba(59, 35, 22, 0.06) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 5px), radial-gradient(130% 130% at 50% 30%, rgba(59, 35, 22, 0.10) 0%, rgba(59, 35, 22, 0) 65%), linear-gradient(#E8D5BE, #DFC9AC)",
           },
           "kraft.surfaceHover": {
             value:
-              "radial-gradient(90% 90% at 100% 0%, rgba(232, 83, 14, 0.05) 0%, rgba(232, 83, 14, 0) 55%), repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.03) 0px, rgba(59, 35, 22, 0.03) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 6px), linear-gradient(#FFF8F0, #FFF8F0)",
+              "radial-gradient(90% 90% at 100% 0%, rgba(232, 83, 14, 0.12) 0%, rgba(232, 83, 14, 0) 55%), repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.10) 0px, rgba(59, 35, 22, 0.10) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 4px), repeating-linear-gradient(45deg, rgba(59, 35, 22, 0.06) 0px, rgba(59, 35, 22, 0.06) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 5px), linear-gradient(#F0E4D4, #F0E4D4)",
           },
         },
       },
