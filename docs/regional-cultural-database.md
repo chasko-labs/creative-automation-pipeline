@@ -117,3 +117,15 @@ Every time Maya, Diego, or Priya runs a campaign, we save one row per creative i
 - Outcome: direction taps, saves, subscription joins per place, stored later once paid media reports back.
 
 That table lives queryable so a future question like "what worked for Las Cruces Hatch households?" returns the last winning message, audience, and photo cue without anyone remembering.
+
+## The market-languages data contract — and the one rule that keeps it from drifting
+
+Every market also remembers the languages its neighbors speak, and that memory has a plain contract so the web page and the pipeline never disagree.
+
+**The field contract.** `data/localization/market-languages.json` holds `markets[].top_languages[]`, and each language entry carries two pairs. The authored pair — `lang_code`, `lang_name`, `pct`, and a plain `reason` (the ACS sourcing note) — is how the data is written by hand. The consumer-facing derived pair — `translate_code` (equal to `lang_code`, the Amazon Translate code) and `pct_home` (equal to `pct`, percent who speak it at home) — is what the frontier web page and the rewrite chain actually read.
+
+Both pairs exist for a real reason, learned the hard way. The frontend renderer filtered the chip row on `translate_code` and `pct_home` while the data was authored with only `lang_code` and `pct`. The mismatch meant no language passed the filter, so every market collapsed to an EN-only chip row. PR #57 fixed it by writing the derived fields into the data. The derived fields are the consumer contract — treat them as required, not optional.
+
+**The single-normalizer rule.** `scripts/normalize-market-langs.py` is the one canonical normalizer. It targets both copies of the file: the live web copy at `web/kodiak-posts-for-todays-frontier/data/localization/market-languages.json` and the python-source copy at `data/localization/market-languages.json` in the repo root. Run it after any edit to either copy so the two never drift apart. There used to be a dead third copy under `web/.../data/products/` — PR #58 deleted it. Do not recreate it.
+
+**Defensive derivation on the frontend.** The web page derives its own fallback — `index.html` reads `translate_code || lang_code` and only shows a chip when a code resolves — so a future file that slips through un-normalized degrades gracefully to the authored code instead of dropping back to EN-only. The normalizer is still the discipline; the fallback is the safety net, not a license to skip it.
