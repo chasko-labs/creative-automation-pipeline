@@ -1,0 +1,103 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Kodiak creative pipeline - standalone observability stack (CloudWatch log group + X-Ray sampling rule + write policy). Separate from the main kodiak-creatives stack to avoid the existing-DAM-bucket create collision.
+
+Parameters:
+  ProjectName:
+    Type: String
+    Default: kodiak-creatives
+
+Resources:
+  # Tagging strategy (this stack = kodiak-creatives-observability):
+  #   project=kodiak-creatives (via !Ref ProjectName), team=platform,
+  #   managed-by=cloudformation, repo=chasko-labs/creative-automation-pipeline,
+  #   environment=production, stack=kodiak-creatives-observability.
+  # Only the LogGroup is taggable here - the other two types below do not
+  # support resource Tags (noted inline).
+
+  # Observability: structured app logs land here. cfn-lint 1.51.5 models
+  # AWS::Logs::LogGroup Tags as a list of {Key,Value} (same shape as S3/DynamoDB),
+  # NOT a key-value map - the map shape fails E3012.
+  # This stack is already deployed; this tag set is a tag-only UPDATE that applies
+  # cleanly on the next change-set.
+  CreativePipelineLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: /kodiak/creative-pipeline
+      RetentionInDays: 30
+      Tags:
+        - Key: project
+          Value: !Ref ProjectName
+        - Key: team
+          Value: platform
+        - Key: managed-by
+          Value: cloudformation
+        - Key: repo
+          Value: chasko-labs/creative-automation-pipeline
+        - Key: environment
+          Value: production
+        - Key: stack
+          Value: kodiak-creatives-observability
+
+  # X-Ray sampling rule - captures kodiak traces above the 5% Default rule.
+  # Priority 9000 sits below Default (10000) so it is evaluated first.
+  # ServiceName wildcard suffix matches kodiak-creative and any suffixed variant.
+  # NOTE: AWS::XRay::SamplingRule does not support resource Tags - none applied here.
+  KodiakSamplingRule:
+    Type: AWS::XRay::SamplingRule
+    Properties:
+      SamplingRule:
+        RuleName: kodiak-creative
+        Priority: 9000
+        ReservoirSize: 1
+        FixedRate: 0.10
+        ServiceName: "kodiak-creative*"
+        ServiceType: "*"
+        Host: "*"
+        HTTPMethod: "*"
+        URLPath: "*"
+        ResourceARN: "*"
+        Version: 1
+
+  # Standalone managed policy for a future app runtime role (Lambda/ECS/CodeBuild)
+  # to attach. The runtime role is not defined in this template.
+  # NOTE: AWS::IAM::ManagedPolicy does not support resource Tags - none applied here.
+  ObservabilityWritePolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      Description: Least-privilege write access for kodiak structured logs + X-Ray traces
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: WriteStructuredLogs
+            Effect: Allow
+            Action:
+              - logs:CreateLogGroup
+              - logs:CreateLogStream
+              - logs:PutLogEvents
+            Resource:
+              - !GetAtt CreativePipelineLogGroup.Arn
+              - !Sub ${CreativePipelineLogGroup.Arn}:*
+          # X-Ray write actions do not support resource-level scoping - AWS
+          # requires Resource "*" for PutTraceSegments/PutTelemetryRecords.
+          # The sampling reads (Get*) are used by the SDK sampler and also
+          # only accept "*". This is an AWS service constraint, not a widening.
+          - Sid: WriteTracesAndReadSampling
+            Effect: Allow
+            Action:
+              - xray:PutTraceSegments
+              - xray:PutTelemetryRecords
+              - xray:GetSamplingRules
+              - xray:GetSamplingTargets
+              - xray:GetSamplingStatisticSummaries
+            Resource: "*"
+
+Outputs:
+  CreativePipelineLogGroupName:
+    Value: !Ref CreativePipelineLogGroup
+    Description: CloudWatch log group for structured app logs
+  KodiakSamplingRuleName:
+    Value: kodiak-creative
+    Description: X-Ray sampling rule name
+  ObservabilityWritePolicyArn:
+    Value: !Ref ObservabilityWritePolicy
+    Description: Managed policy arn a future app runtime role attaches for logs + X-Ray writes
