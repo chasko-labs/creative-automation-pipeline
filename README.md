@@ -29,6 +29,8 @@ Diego sees the Las Cruces green chile version on his phone the same morning and 
 
 That grow from one town to the next is saved — place, audience, line, photo cue — into the growing regional memory at `data/localization/` so the next Las Cruces run suggests green chile first because it already worked there.
 
+Every town also carries the languages its neighbors actually speak. Each market holds its top two non-English languages from the 2022 American Community Survey — El Paso speaks Spanish, Burlington Vermont speaks French, San Francisco speaks Spanish and Chinese — and the frontier web page shows an "EN plus the top languages for this market" chip row that changes as Maya picks a place. Under the chips the line is rewritten per language: Amazon Nova Micro carries the campaign line into each language, then a dialect swap fixes the regional variants so a French chip in Vermont says "bleuets" not "myrtilles" for blueberries, with Amazon Translate in the chain. The backend lives at `src/creative_automation/text_rewriter.py` (its `rewrite_all` returns one finished line per requested language) and the dialect fixes at `src/creative_automation/locales.py` (`resolve_dialect_terms`). The market table lives at `data/localization/market-languages.json` — 73 markets, top two each, every language entry carrying its `lang_code`, its `translate_code` (the Amazon Translate code), `pct_home` (percent who speak it at home), and a plain ACS sourcing reason. The chips show the localization coverage we plan to run — aspirational but honest, same as the rest of this page.
+
 ## Try Kodiak in 30 seconds
 
 ```bash
