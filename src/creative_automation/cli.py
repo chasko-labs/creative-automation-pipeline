@@ -71,6 +71,16 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--retailer", default=None, help="retailer name for logo-lockup lookup (costco|publix|target)")
     sp.add_argument("--store-address", default=None, help="local store address string for the retailer lockup")
 
+    lk = sub.add_parser(
+        "lockup",
+        help="retailer-lockup compositor — the ONE sanctioned text-in-image path (cr-1 carve-out)",
+    )
+    lk.add_argument("--src", required=True, help="base image to composite the lockup onto")
+    lk.add_argument("--retailer", required=True, help="retailer name (costco|publix|target)")
+    lk.add_argument("--store-address", default=None, help="local store address (else STORE_ADDRESS_SEEDS)")
+    lk.add_argument("--out", default=None, help="output path (default: iso-named beside --src)")
+    lk.add_argument("--position", choices=["bottom", "top"], default="bottom", help="band position")
+
     return p
 
 
@@ -192,6 +202,24 @@ def cmd_spin(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_lockup(args: argparse.Namespace) -> int:
+    from .lockup import compose_retailer_lockup
+
+    result = compose_retailer_lockup(
+        args.src,
+        args.retailer,
+        store_address=args.store_address,
+        out=args.out,
+        position=args.position,
+    )
+    print(f"[lockup] retailer={result['retailer']} logo_source={result['logo_source']}")
+    print(f"[lockup] store_address={result['store_address'] or '-'}")
+    print(f"[lockup] out={result['out_path']}")
+    for w in result["warnings"]:
+        print(f"[lockup] warning: {w}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     argv = list(sys.argv[1:] if argv is None else argv)
     # legacy compatibility: bare flag form routes to `generate`
@@ -211,6 +239,7 @@ def main(argv: list[str] | None = None) -> int:
         "scorecards": cmd_scorecards,
         "recipes": cmd_recipes,
         "spin": cmd_spin,
+        "lockup": cmd_lockup,
     }
     return dispatch[args.command](args)
 
