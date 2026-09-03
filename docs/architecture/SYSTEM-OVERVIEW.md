@@ -334,7 +334,7 @@ sequenceDiagram
     CB-->>GH: report build status
 ```
 
-The per-push gate pins `RUN_SLOW=false` so the expensive path (Nova image render, Nova Act browser check, the full embedding run, cloud e2e sync) never runs on a normal push — it belongs to nightly or manual runs. The build follows harness-first CI: install plus gate commands only, no inline service configuration.
+The per-push gate pins `RUN_SLOW=false` so the expensive path (Nova image render, a planned browser visual check (not yet built), the full embedding run, cloud e2e sync) never runs on a normal push — it belongs to nightly or manual runs. The build follows harness-first CI: install plus gate commands only, no inline service configuration.
 
 ---
 
@@ -352,26 +352,48 @@ The seams — shared contracts where lanes touch — are design tokens (`design/
 
 ---
 
+## Live service endpoints (verified)
+
+Every AWS resource the deployed pipeline touches, verified live in account 946179428633 / us-east-1.
+
+| layer        | resource                  | identifier                                                                                           | role                                                                                                                                                          |
+| ------------ | ------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CDN          | CloudFront distribution   | `E3GEX8LSRX6OYS` (d37333alc7ojpl.cloudfront.net)                                                     | edge delivery; aliases kodiak.bryanchasko.com, frontier.bryanchasko.com, adobechallenge.bryanchasko.com                                                       |
+| CDN behavior | `/generate*`              | -> origin ApiGw-generate                                                                             | routes browser generate calls to API Gateway                                                                                                                  |
+| CDN behavior | default `/*`              | -> origin S3 frontier-bryanchasko-com                                                                | static site + reviewer zip                                                                                                                                    |
+| API          | API Gateway HTTP API      | `kodiak-generate-api` id `mcaptnm7vh` (mcaptnm7vh.execute-api.us-east-1.amazonaws.com)               | fronts the generate Lambda (bypasses the account Function-URL public-access-block via IAM invoke)                                                             |
+| Compute      | Lambda (container image)  | `kodiak-creatives-generate-GenerateLambda-aXnlH2VlmxEM`                                              | prompt -> Nova Pro hero composition; also has a Function URL (ipswy2mfu25qebueq24346rm2u0mypjs.lambda-url.us-east-1.on.aws) fronted by CloudFront/API Gateway |
+| Model        | Amazon Bedrock Nova Pro   | `amazon.nova-pro-v1:0` (Converse, vision)                                                            | reads the real pack shot, writes on-brand headline + layout                                                                                                   |
+| Model        | Amazon Bedrock embeddings | `amazon.nova-2-multimodal-embeddings-v1:0` (1024-dim), Titan fallback `amazon.titan-embed-text-v2:0` | corpus + retrieval embeddings                                                                                                                                 |
+| Model        | Amazon Translate          | translate service                                                                                    | per-market localization (Nova Micro fallback)                                                                                                                 |
+| Storage      | S3 DAM                    | `chasko-creative-dam-946179428633-us-east-1`                                                         | source heroes (brands/kodiak/heroes/), renders, vectors, raw-ingest                                                                                           |
+| Storage      | S3 site + package         | `frontier-bryanchasko-com`                                                                           | hosted app + reviewer zip                                                                                                                                     |
+| Storage      | S3 logs                   | `kodiak-creatives-logs-946179428633-us-east-1`, `kodiak-creatives-cf-logs-946179428633-us-east-1`    | access + CloudFront logs                                                                                                                                      |
+| Data         | DynamoDB                  | `kodiak-creatives-localization-memory`, `kodiak-creatives-retail-network`                            | market memory + retail network                                                                                                                                |
+| CI           | CodeBuild                 | `kodiak-creatives-ci`                                                                                | quality gate on push/PR                                                                                                                                       |
+
+Note: this project deploys exactly ONE Lambda (`kodiak-creatives-generate`). The generate request path a browser hits is: kodiak.bryanchasko.com/generate -> CloudFront E3GEX8LSRX6OYS (/generate\* behavior) -> API Gateway mcaptnm7vh -> Lambda -> Bedrock Nova Pro -> render to S3 DAM -> presigned URL back.
+
 ## 10. Live today vs planned
 
 The maturity view a CIO wants up front. The local pipeline is the always-present fallback at every step — AgentCore wraps it, never replaces it.
 
-| capability                                                    | status                                 | evidence                                                                          |
-| ------------------------------------------------------------- | -------------------------------------- | --------------------------------------------------------------------------------- |
-| local `run_pipeline()` end to end                             | live (compose/render); image step mock | `tests/test_e2e.py`, README quickstart                                            |
-| prompt->image generate endpoint (Lambda + Function URL)       | live (endpoint), image = mock          | PR #55, generate_lambda.py; Function URL 403s to browser pending CloudFront front |
-| real AI image generation (Nova Canvas)                        | blocked                                | nova-canvas is LEGACY/idle-gated; returns mock until console re-activation        |
-| per-market language chips (top-2 per market)                  | live                                   | PR #57, market-languages.json, deployed to kodiak.bryanchasko.com                 |
-| DAM on S3, KMS, versioned                                     | live                                   | `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/`                  |
-| CloudFormation footprint (buckets, tables, CI, observability) | live                                   | `infra/template.yaml`                                                             |
-| CodeBuild CI gate                                             | live                                   | `buildspec.yml`, `CreativePipelineCI`                                             |
-| 7 AgentCore Gateway tools                                     | live (local dispatch)                  | `gateway.py`, PR #13                                                              |
-| asset-library write path + observability substrate            | live                                   | `asset_api.py`, `observability.py`, PR #10/#12                                    |
-| RAG corpus (3144 vectors, 635 prompts)                        | live                                   | `data/vectors/`, `data/prompts/`                                                  |
-| AgentCore Runtime hosting wrap                                | planned                                | `agentcore.md`, `agentcore-backlog.md` epic C                                     |
-| AgentCore Memory (cross-session market wins)                  | planned                                | backlog C3                                                                        |
-| Nova Act visual QA in the loop                                | planned                                | `nova-act-runbook.md`, backlog                                                    |
-| runtime IAM role (attaches ObservabilityWritePolicy)          | planned                                | template comment                                                                  |
+| capability                                                    | status                | evidence                                                                                                                                                                                                                      |
+| ------------------------------------------------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| local `run_pipeline()` end to end                             | live                  | compose/localize/render/compliance; hero via Nova Pro on real assets, mock only without a source asset                                                                                                                        |
+| prompt->image generate endpoint (browser-reachable)           | live                  | CloudFront /generate\* -> API Gateway mcaptnm7vh -> Lambda kodiak-creatives-generate -> Nova Pro; wired to the frontend button (PR #67) with the display-image CORS fix (PR #68)                                              |
+| real AI image generation (Nova Pro asset composition)         | live                  | generate.py composes real pack shots via Nova Pro Converse; source=bedrock:nova-pro for products with a DAM hero (power-cakes, bear-bites, oatmeal-cup); mock only when no source asset exists. Nova Canvas retired (Legacy). |
+| per-market language chips (top-2 per market)                  | live                  | PR #57, market-languages.json, deployed to kodiak.bryanchasko.com                                                                                                                                                             |
+| DAM on S3, KMS, versioned                                     | live                  | `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/`                                                                                                                                                              |
+| CloudFormation footprint (buckets, tables, CI, observability) | live                  | `infra/template.yaml`                                                                                                                                                                                                         |
+| CodeBuild CI gate                                             | live                  | `buildspec.yml`, `CreativePipelineCI`                                                                                                                                                                                         |
+| 7 AgentCore Gateway tools                                     | live (local dispatch) | `gateway.py`, PR #13                                                                                                                                                                                                          |
+| asset-library write path + observability substrate            | live                  | `asset_api.py`, `observability.py`, PR #10/#12                                                                                                                                                                                |
+| RAG corpus (3144 vectors, 635 prompts)                        | live                  | `data/vectors/`, `data/prompts/`                                                                                                                                                                                              |
+| AgentCore Runtime hosting wrap                                | planned               | `agentcore.md`, `agentcore-backlog.md` epic C                                                                                                                                                                                 |
+| AgentCore Memory (cross-session market wins)                  | planned               | backlog C3                                                                                                                                                                                                                    |
+| Nova Act visual QA in the loop                                | planned (not built)   | design idea only; NOT part of the current architecture — no Nova Act runtime deployed                                                                                                                                         |
+| runtime IAM role (attaches ObservabilityWritePolicy)          | planned               | template comment                                                                                                                                                                                                              |
 
 ---
 

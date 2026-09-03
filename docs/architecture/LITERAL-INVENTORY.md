@@ -245,20 +245,20 @@ AgentCore deployment status, live-checked: `ListGateways` = 0, `ListAgentRuntime
 
 ## 6. Status summary — what is live vs code vs planned
 
-| capability                                  | status         | evidence                                                |
-| ------------------------------------------- | -------------- | ------------------------------------------------------- |
-| frontend SPA (offline + hosted)             | `LIVE`         | CloudFront E3GEX8LSRX6OYS Deployed                      |
-| S3 DAM + logs + website + CF-logs buckets   | `LIVE`         | 4 buckets confirmed                                     |
-| DynamoDB tables (empty, seed at runtime)    | `LIVE`         | 2 tables, 0 rows (live-scanned)                         |
-| seeded localization corpus (6+ markets)     | `LIVE`         | S3 `localization-training-data.jsonl`, feeds Bedrock KB |
-| seeded photos + renders (296 DAM objects)   | `LIVE`         | `brands/kodiak/` heroes + renders + raw-ingest          |
-| CodeBuild CI gate                           | `LIVE`         | 31 builds, role since 18:42 UTC                         |
-| CloudWatch Logs + X-Ray                     | `LIVE`         | log group + rule + 1 real trace                         |
-| Bedrock Nova + Titan access                 | `LIVE`         | ListFoundationModels                                    |
-| local pipeline `run_pipeline()`             | `LIVE` (local) | `tests/test_e2e.py`                                     |
-| 7 gateway tools                             | `CODE`         | registered in gateway.py, no deployed gateway           |
-| AgentCore Gateway / Runtime / Bedrock Agent | `PLANNED`      | live check: 0 / 0 / 0                                   |
-| AgentCore Memory, Nova Act visual QA        | `PLANNED`      | design docs only                                        |
+| capability                                          | status              | evidence                                                       |
+| --------------------------------------------------- | ------------------- | -------------------------------------------------------------- |
+| frontend SPA (offline + hosted)                     | `LIVE`              | CloudFront E3GEX8LSRX6OYS Deployed                             |
+| S3 DAM + logs + website + CF-logs buckets           | `LIVE`              | 4 buckets confirmed                                            |
+| DynamoDB tables (empty, seed at runtime)            | `LIVE`              | 2 tables, 0 rows (live-scanned)                                |
+| seeded localization corpus (6+ markets)             | `LIVE`              | S3 `localization-training-data.jsonl`, feeds Bedrock KB        |
+| seeded photos + renders (296 DAM objects)           | `LIVE`              | `brands/kodiak/` heroes + renders + raw-ingest                 |
+| CodeBuild CI gate                                   | `LIVE`              | 31 builds, role since 18:42 UTC                                |
+| CloudWatch Logs + X-Ray                             | `LIVE`              | log group + rule + 1 real trace                                |
+| Bedrock Nova + Titan access                         | `LIVE`              | ListFoundationModels                                           |
+| local pipeline `run_pipeline()`                     | `LIVE` (local)      | `tests/test_e2e.py`                                            |
+| 7 gateway tools                                     | `CODE`              | registered in gateway.py, no deployed gateway                  |
+| AgentCore Gateway / Runtime / Bedrock Agent         | `PLANNED`           | live check: 0 / 0 / 0                                          |
+| AgentCore Memory; browser visual QA (Nova Act idea) | PLANNED (not built) | design docs only — not reflective of the deployed architecture |
 
 ---
 
