@@ -18,8 +18,9 @@
       },
       "frontier_sister": {
         "place": "Sandersville, GA",
+        "market": "US-SE-SANDERSVILLE",
         "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-        "note": "Sandersville downtown farmers market — central Georgia (Washington County), kaolin-belt farm community; frontier gap sister to metro Atlanta Publix"
+        "note": "Sandersville downtown farmers market — central Georgia (Washington County), kaolin-belt farm community; frontier gap sister to metro Atlanta Publix. Registered as first-class market US-SE-SANDERSVILLE in store-finder-markets.json + market-languages.json + local-flavor.json."
       },
       "retailers": ["Publix", "Walmart", "Kroger"],
       "monthly_ingredients": {

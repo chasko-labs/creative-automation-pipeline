@@ -816,6 +816,21 @@
         "lat": 40.642,
         "lon": -111.281
       }
+    },
+    {
+      "market": "US-SE-SANDERSVILLE",
+      "place": "Sandersville, GA 31082 \u2014 Washington County, kaolin-belt farm country, Atlanta's frontier sister",
+      "audience": "Washington County farm families, Sandersville downtown farmers market regulars, pecan/peach/sweet-potato growers, small-town central Georgia neighbors who see the same Publix shelf as metro Atlanta an hour up the road",
+      "message": "KODIAK\u00ae Sandersville frontier \u2014 Georgia pecans over Buttermilk Power Cakes, kaolin-belt farm stand to your griddle, 14g protein",
+      "cue": "central Georgia pecan orchard at dawn, Sandersville courthouse square, Kodiak box on a farm-stand table with pecans and sweet potatoes, red-clay field beyond, metro Atlanta skyline an hour off but out of frame",
+      "retailer": "Sandersville Downtown Farmers Market, Publix (regional), Walmart, Kroger \u2014 rural frontier sister to metro Atlanta Publix",
+      "zip": "31082",
+      "brand": "KODIAK",
+      "frontier": true,
+      "coordinates": {
+        "lat": 32.982,
+        "lon": -82.81
+      }
     }
   ]
 }
