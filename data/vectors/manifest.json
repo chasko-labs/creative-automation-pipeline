@@ -2,7 +2,7 @@
   "model": "amazon.nova-2-multimodal-embeddings-v1:0",
   "fallback": "amazon.titan-embed-text-v2:0",
   "dim": 1024,
-  "count": 67,
+  "count": 3146,
   "vector_bucket_note": "S3 Vectors uses a dedicated vector bucket (vectorBucketArn), not a regular S3 bucket \u2014 see https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_S3VectorsConfiguration.html",
   "output": "data/vectors/kodiak-embeddings.jsonl"
 }
