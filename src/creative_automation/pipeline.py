@@ -46,7 +46,7 @@ def _load_market_languages(region: str) -> list[str]:
         markets = _MARKET_LANGS_CACHE.get("markets", []) if isinstance(_MARKET_LANGS_CACHE, dict) else []
         for m in markets:
             if m.get("market") == region:
-                langs = [l.get("translate_code") or l.get("lang_code") for l in m.get("top_languages", [])][:2]
+                langs = [lang.get("translate_code") or lang.get("lang_code") for lang in m.get("top_languages", [])][:2]
                 # return en + top2 distinct, supported codes only
                 out = ["en"]
                 for lc in langs:

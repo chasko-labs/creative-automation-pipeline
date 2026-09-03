@@ -680,12 +680,17 @@ fillSelects(); render();
   document.addEventListener('change', e=>{ if(e.target?.id==='locality') updateLocalFlavor(); });
 
   // Single generate: fans to ALL formats/platforms/locals, returns sample + nearest Frontier + newsletter variant
+  // Dev: try GlimmerProxy (127.0.0.1:8181) for brief→SKU intelligence + diagnose, then Nova unlimited (hosted) — go ham on embeddings
   const btn = document.getElementById('generateCampaign');
   if(btn){
     btn.addEventListener('click', async ()=>{
       const brief = document.getElementById('campaignBrief')?.value.trim();
       if(!brief){ alert('Add a campaign brief — one line is enough (e.g. Green chile meets grizzly — Keep It Wild)'); return; }
-      const selectedProducts = Array.from(document.querySelectorAll('#productChooser .sku-check:checked')).map(c=>c.value);
+      let selectedProducts = Array.from(document.querySelectorAll('#productChooser .sku-check:checked')).map(c=>c.value);
+      // If local and glimmer up, let it rank SKUs intelligently (not random)
+      if(!selectedProducts.length && window.GlimmerProxy?.isLocal){
+        try{ const ranked = await window.GlimmerProxy.pickSkus(brief, skuList, 3); if(ranked) selectedProducts = ranked; }catch(e){}
+      }
       const products = selectedProducts.length ? selectedProducts : [...skuList].sort(()=>0.5-Math.random()).slice(0,3);
       const audience = document.getElementById('audienceSelect')?.value || employees[0];
       // Determine selected location and nearest Frontier (Pescadero for SF, Neah Bay for Seattle)
@@ -725,4 +730,5 @@ fillSelects(); render();
 })();
 </script>
 
+  <script src="glimmer-proxy.js"></script>
 </body></html>
