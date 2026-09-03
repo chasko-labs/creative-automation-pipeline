@@ -15,3 +15,14 @@ output_*/
 data/raw-ingest/*
 !data/raw-ingest/kodiakcakes/*.json
 !data/raw-ingest/kodiakcakes/brand-lore/
+
+
+# rust build artifacts (regenerable, ~115M)
+rust/**/target/
+*.rlib
+*.so
+*.pyd
+
+# large binaries hosted in S3 DAM (chasko-creative-dam-946179428633-us-east-1), not git
+input_assets/power-cakes/hero-real.png
+web/kodiak-posts-for-todays-frontier/input_assets/
