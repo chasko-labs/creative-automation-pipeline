@@ -41,6 +41,10 @@ from .asset_pack import (
     market_retailers,
     pack_tempdir,
 )
+from .from_photo import (
+    DEFAULT_MARKET,
+    build_image_from_photo,
+)
 
 app = FastAPI(  # type: ignore
     title="KODIAK® Posts for Today's Frontier — Living API",
@@ -465,6 +469,48 @@ if HAS_FASTAPI:
                 else "S3 DAM not configured (DAM_S3_BUCKET unset or boto3 missing) — file written locally, presigned_url null. Set DAM_S3_BUCKET for a download url."
             ),
         }
+
+    @app.post("/campaigns/from-photo")  # type: ignore
+    @app.post("/campaigns/from-prompt")  # type: ignore
+    def campaigns_from_photo(body: dict | None = None):
+        """Prompt/photo in -> customized branded image out (issue #39 core loop).
+
+        Body: { asset_id?, hero_path?, prompt?, market?, product? }
+
+        Resolution order: an uploaded photo (hero_path or asset_id, mapped to
+        input_assets/{product}/hero.* the way #38 wrote it) is used as the hero; if only a
+        prompt is supplied the hero is generated via Nova Canvas (offline mock fallback).
+        The hero is then framed into the branded 1x1 (and 9x16 / 16x9) creative through the
+        same compose path suggest.py uses.
+
+        market defaults to Atlanta (US-SE-ATL) when omitted. 400 if neither a resolvable
+        hero nor a prompt is given. Offline: local paths, no AWS / live Bedrock required.
+        """
+        import tempfile
+
+        b = body or {}
+        asset_id = b.get("asset_id")
+        hero_path = b.get("hero_path")
+        prompt = b.get("prompt")
+        market = (b.get("market") or "").strip() or DEFAULT_MARKET
+        product = b.get("product")
+
+        out_root = pathlib.Path(tempfile.mkdtemp(prefix="cap-from-photo-"))
+        result = build_image_from_photo(
+            asset_id=asset_id,
+            hero_path=hero_path,
+            prompt=prompt,
+            market=market,
+            product=product,
+            input_assets_root=_input_assets_root(),
+            out_root=out_root,
+        )
+        if result is None:
+            raise HTTPException(  # type: ignore
+                status_code=400,
+                detail="supply a prompt, or a hero_path / asset_id that resolves to an uploaded photo",
+            )
+        return result
 
     @app.post("/campaigns/run-fanned")  # type: ignore
     def campaigns_run_fanned(body: dict | None = None):
