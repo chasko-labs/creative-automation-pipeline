@@ -449,7 +449,7 @@
         }
       },
       "caption": {
-        "$description": "Caption / footer / legal — small sans, upper + tracked. Maps to compose.py footer 'KODIAK • kodiakcakes.com • Keep It Wild' at 22/24 uppercase."
+        "$description": "Caption / footer / legal — small sans, upper + tracked. Maps to compose.py footer 'KODIAK • kodiakcakes.com • Keep It Wild' at 22/24 uppercase.",
         "1x1": {
           "$type": "typography",
           "$value": {
