@@ -15,7 +15,7 @@ from .dam import find_brand_logo, find_hero_asset
 from .enhance import enhance_hero
 from .generate import generate_hero
 from .localize import localize_message
-from .naming import build_iso_name, derive_locality, today_utc
+from .naming import bcp47_tag, build_iso_name, derive_locality, today_utc
 from .safety import check_text, redact
 try:
     from .translate import attach_market_translations
@@ -107,6 +107,7 @@ def run_pipeline(
         "audience": brief.target_audience,
         "language": lang,
         "languages": languages,
+        "language_tags": [bcp47_tag(lc) for lc in languages],
         "auto_localized": len(languages) > 1,
         "ratios": ratios,
         "products": [],
@@ -175,7 +176,8 @@ def run_pipeline(
             "localized_message": lang_variants[0][1] if lang_variants else brief.campaign_message,
             "localization_source": lang_variants[0][2] if lang_variants else "original",
             "variants": [
-                {"lang": lc, "message": mv, "source": src} for lc, mv, src in lang_variants
+                {"lang": lc, "lang_tag": bcp47_tag(lc), "message": mv, "source": src}
+                for lc, mv, src in lang_variants
             ],
             "safety_findings": safety_findings,
             "creatives": [],
@@ -228,6 +230,7 @@ def run_pipeline(
                     {
                         "ratio": folder_ratio,
                         "lang": lc,
+                        "lang_tag": bcp47_tag(lc),
                         "message": msg,
                         "path": str(out_path.relative_to(out_root)),
                         "human_name": human_name,
@@ -241,6 +244,7 @@ def run_pipeline(
                         "product": product.id,
                         "ratio": folder_ratio,
                         "lang": lc,
+                        "lang_tag": bcp47_tag(lc),
                         "path": str(out_path.relative_to(out_root)),
                         "human_name": human_name,
                         "machine_path": str(machine_path.relative_to(out_root)),
