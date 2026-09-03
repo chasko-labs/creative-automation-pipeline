@@ -1,10 +1,14 @@
+<!-- image links use raw.githubusercontent (main); for anonymous rendering switch to the CloudFront host -->
+
 # KODIAK® — Nourishment for Today's Frontier. Feeding Epic Days & Wilder Lives.
 
 > Since a red wagon rolled out of Park City in 1982, KODIAK® has fed the frontier — 100% whole grains, protein-packed, the bear on every box. From the Wasatch Mountains to every porch, trailhead, and town, Keep It Wild still guides every bite. One brief, one photo library, one idea sheet — hundreds of local ads that still look and feel like KODIAK®.
 
 **This is not a generic social pipeline.** Every line, every photo cue, every color in here comes from Kodiak — the red wagon in 1982, the Wasatch front, 14 grams of protein and 100% whole grains, Keep It Wild with Vital Ground, and the bear that watches over breakfast. The system exists so Maya in Park City can write one line and Diego in the Southwest can share it that afternoon without waiting on an agency.
 
-View the brand the way marketing sees it: [Human story](docs/kodiak-brand-explained.md) · [Visual page](docs/kodiak-brand-view.html) · [Who runs this — 3 quick cards](docs/ux-persona-kodiak.md) · [Every persona — 23 cards for every sprint](docs/ux-personas-kodiak-complete.md) · [Every town](docs/regional-cultural-database.md) · [Naming & brand marks](docs/iso-naming-conventions.md) · [AgentCore + RAG architecture](docs/bedrock-agentcore-architecture.md) · [Training process — Nova multimodal](docs/training-process.md) · [Technical integration — living Swagger is the product](docs/ux-personas-technical-integration.md) · [Live Swagger `GET /docs`](src/creative_automation/api.py)
+View the brand the way marketing sees it: [Human story](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/kodiak-brand-explained.md) · [Visual page](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/kodiak-brand-view.html) · [Who runs this — 3 quick cards](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/ux-persona-kodiak.md) · [Every persona — 23 cards for every sprint](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/ux-personas-kodiak-complete.md) · [Every town](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/regional-cultural-database.md) · [Naming & brand marks](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/iso-naming-conventions.md) · [AgentCore + RAG architecture](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/bedrock-agentcore-architecture.md) · [Training process — Nova multimodal](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/training-process.md) · [Technical integration — living Swagger is the product](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/ux-personas-technical-integration.md) · [Live Swagger `GET /docs`](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/src/creative_automation/api.py)
+
+More docs: [Style guide](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/kodiak-style-guide.md) · [Use case](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/kodiak-usecase.md) · [Newsletter breakdown](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/newsletter-breakdown.md) · [Visual gallery](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/visual-gallery.md) · [Target clients](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/target-clients.md) · [Target clients — North America](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/target-clients-na.md) · [Target clients — US local](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/target-clients-us-local.md) · [Image standards](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/kodiak-image-standards.md) · [Context snapshot 2026-09-03](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/kodiak-context-2026-09-03.md)
 
 <p align="center"><a href="https://d37333alc7ojpl.cloudfront.net"><img src="https://img.shields.io/badge/KODIAK%C2%AE%20Posts%20for%20Today%27s%20Frontier-Click%20here%20to%20use%20(hosted%2C%20password%20cakes)-E8530E?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJsMiAyIDItMSAxIDMgMiAyLTEgNCAyIDUtNCAzSDhsLTQtMyAyLTUtMS00IDItMiAxLTMgMiAxeiIgZmlsbD0iI0ZGRjhGMC"/></a></p>
 <p align="center"><em>Offline — all files you need are right in this folder. Open <code>web/kodiak-posts-for-todays-frontier/index.html</code> via <code>file://</code> and it still renders. No server. Hosted playground (unlisted, password <code>cakes</code>, <code>noindex</code>) at <code>https://d37333alc7ojpl.cloudfront.net</code> and <code>http://frontier-bryanchasko-com.s3-website-us-east-1.amazonaws.com</code> — <code>frontier.bryanchasko.com</code> pending cert/DNS (CNAME to CloudFront).</em></p>
@@ -49,11 +53,11 @@ Every output is organized by product and size: `docs/assets/previews/kodiak-keep
 Look inside the style library that makes this look like Kodiak everywhere:
 
 <p align="center">
-  <img src="docs/assets/swatches/bear-brown-3B2316.png" width="140" alt="Bear Brown #3B2316" />
-  <img src="docs/assets/swatches/blaze-orange-E8530E.png" width="140" alt="Blaze Orange #E8530E" />
-  <img src="docs/assets/swatches/frontier-green-1A3C34.png" width="140" alt="Frontier Green #1A3C34" />
-  <img src="docs/assets/swatches/parchment-FFF8F0.png" width="140" alt="Parchment #FFF8F0" />
-  <img src="docs/assets/swatches/stone-D9CFC6.png" width="140" alt="Stone #D9CFC6" />
+  <img src="https://raw.githubusercontent.com/chasko-labs/creative-automation-pipeline/main/docs/assets/swatches/bear-brown-3B2316.png" width="140" alt="Bear Brown #3B2316" />
+  <img src="https://raw.githubusercontent.com/chasko-labs/creative-automation-pipeline/main/docs/assets/swatches/blaze-orange-E8530E.png" width="140" alt="Blaze Orange #E8530E" />
+  <img src="https://raw.githubusercontent.com/chasko-labs/creative-automation-pipeline/main/docs/assets/swatches/frontier-green-1A3C34.png" width="140" alt="Frontier Green #1A3C34" />
+  <img src="https://raw.githubusercontent.com/chasko-labs/creative-automation-pipeline/main/docs/assets/swatches/parchment-FFF8F0.png" width="140" alt="Parchment #FFF8F0" />
+  <img src="https://raw.githubusercontent.com/chasko-labs/creative-automation-pipeline/main/docs/assets/swatches/stone-D9CFC6.png" width="140" alt="Stone #D9CFC6" />
 </p>
 <p align="center"><em>Bear Brown #3B2316 · Blaze Orange #E8530E · Frontier Green #1A3C34 · Parchment #FFF8F0 · Stone #D9CFC6</em></p>
  colors Bear Brown #3B2316 Blaze Orange #E8530E Frontier Green #1A3C34 at `design/tokens/kodiak.json`, photo directions at `references/keep-it-wild/`, six-piece template at `references/templates/social-3ratio.json`, and all of it mirrored to cloud storage at `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/`.
@@ -68,7 +72,7 @@ Look inside the style library that makes this look like Kodiak everywhere:
 - **Subscribe and Save home delivery** — direct channel, 15 percent off plus free shipping over 45, "real food for real adventures" (`kodiak-subscription.yaml`).
 - **Small grocers and the Alamogordo–Las Cruces cluster** — Walmart and Albertsons kodiakcakes.com/store-locator already shows plus independents added by zip, all in the same phone book at `data/localization/` and the retail network table.
 
-See the full 18-place memory with green chile at the top: `docs/regional-cultural-database.md` — from Las Cruces to Chicago to Brooklyn.
+See the full 18-place memory with green chile at the top: [`docs/regional-cultural-database.md`](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/regional-cultural-database.md) — from Las Cruces to Chicago to Brooklyn.
 
 ## Channels — one creative, many doors
 
@@ -77,38 +81,19 @@ See the full 18-place memory with green chile at the top: `docs/regional-cultura
 
 ## How it works without the short forms
 
-- One cloud setup holds everything — described together in `infra/template.yaml` (currently live as `chasko-creative-dam-946179428633-us-east-1` in us-east-1, versioned, private, encrypted). It keeps the style library, the regional knowledge, the store list, and the logs together. Create the phone book once in Business Locations, organize store groups, turn advantage budget off so Las Cruces stays Las Cruces, make one post and reuse it with "Use Existing Post," let dynamic text `{{store.city}}` and the map card do the local swap, button to Get Directions — full plain steps at `docs/how-we-launch-in-every-town.md`.
+- One cloud setup holds everything — described together in `infra/template.yaml` (currently live as `chasko-creative-dam-946179428633-us-east-1` in us-east-1, versioned, private, encrypted). It keeps the style library, the regional knowledge, the store list, and the logs together. Create the phone book once in Business Locations, organize store groups, turn advantage budget off so Las Cruces stays Las Cruces, make one post and reuse it with "Use Existing Post," let dynamic text `{{store.city}}` and the map card do the local swap, button to Get Directions — full plain steps at [`docs/how-we-launch-in-every-town.md`](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/how-we-launch-in-every-town.md).
 - Style tokens live in `design/tokens/kodiak.json` and mirror to cloud. The pipeline pulls them first from cloud when `DAM_S3_BUCKET` is set, otherwise from your laptop. No hard-coded colors.
 - When a photo is missing, the system builds a new frontier photo with the Wasatch palette (local fallback) or with Bedrock image generation when you turn on credentials. When a photo exists, it reuses it. Missed heroes are never blank. The prompt-to-image endpoint is live (PR #55); real AI image output is pending Nova Canvas access re-activation and currently returns a branded placeholder.
 
 ## How we keep building the right way
 
-One pull request is one town or one channel. Keep it under 500 lines so Maya can read the words and the reviewer can see the three screenshots. Tests are plain: `uv run pytest -q` (now 6 checks), end to end `uv run python -m creative_automation.cli --brief briefs/kodiak-on-the-go.yaml --assets input_assets --out /tmp/verify`, visual gate `uv run python scripts/nova-act-check.py --preview /tmp/verify/preview.html`, cloud check `cfn-lint infra/template.yaml` and `aws cloudformation validate-template`. See `CONTRIBUTING.md` for the full flow — no hidden steps.
+One pull request is one town or one channel. Keep it under 500 lines so Maya can read the words and the reviewer can see the three screenshots. Tests are plain: `uv run pytest -q` (now 6 checks), end to end `uv run python -m creative_automation.cli --brief briefs/kodiak-on-the-go.yaml --assets input_assets --out /tmp/verify`, visual gate `uv run python scripts/nova-act-check.py --preview /tmp/verify/preview.html`, cloud check `cfn-lint infra/template.yaml` and `aws cloudformation validate-template`. See [`CONTRIBUTING.md`](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/CONTRIBUTING.md) for the full flow — no hidden steps.
 
 ## For the team that wants the tech too
 
-Photo library and style live in cloud storage mirrored to `input_assets/` and `references/`. Regional memory lives queryable in two forms that stay in sync — a simple lookup table by market (`data/localization/localization-table-seed.json`) and searchable knowledge file (`data/localization/localization-training-data.jsonl`) ready for vector search and the regional database doc. Background agents run Nova multimodal embeddings (`amazon.nova-2-multimodal-embeddings-v1:0`, 1024 dims, Titan fallback) over design tokens, pack shots, and every training row, write `data/vectors/kodiak-embeddings.jsonl`, sync to `s3://.../brands/kodiak/vectors/` (S3 Vectors, dedicated vector bucket), and are searchable via the agent-friendly API (`uv run python -m creative_automation.reference_api` → `GET /search?q=green%20chile` or MCP tool `kodiak_reference_search`) — details and runnable code at `docs/training-process.md` and `docs/bedrock-agentcore-architecture.md`. Visual checks run headless across 1080 by 1080, 1080 by 1920, 1920 by 1080 and block the handoff to the store if the bear, the bar, or the legibility fails (`scripts/nova-act-check.py`, docs at `docs/nova-act-runbook.md`).
+Photo library and style live in cloud storage mirrored to `input_assets/` and `references/`. Regional memory lives queryable in two forms that stay in sync — a simple lookup table by market (`data/localization/localization-table-seed.json`) and searchable knowledge file (`data/localization/localization-training-data.jsonl`) ready for vector search and the regional database doc. Background agents run Nova multimodal embeddings (`amazon.nova-2-multimodal-embeddings-v1:0`, 1024 dims, Titan fallback) over design tokens, pack shots, and every training row, write `data/vectors/kodiak-embeddings.jsonl`, sync to `s3://.../brands/kodiak/vectors/` (S3 Vectors, dedicated vector bucket), and are searchable via the agent-friendly API (`uv run python -m creative_automation.reference_api` → `GET /search?q=green%20chile` or MCP tool `kodiak_reference_search`) — details and runnable code at [`docs/training-process.md`](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/training-process.md) and [`docs/bedrock-agentcore-architecture.md`](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/bedrock-agentcore-architecture.md). Visual checks run headless across 1080 by 1080, 1080 by 1920, 1920 by 1080 and block the handoff to the store if the bear, the bar, or the legibility fails (`scripts/nova-act-check.py`, docs at [`docs/nova-act-runbook.md`](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/nova-act-runbook.md)).
 
-## Bring your own asset — the library you build a campaign off of
-
-Add a photo, logo, brand-guide PDF, or a scrap of reference copy and it lands in the shared library the moment you hand it over — no separate publish step. Drop a `.png .jpg .jpeg .webp` hero, a `.svg` mark, a `.pdf` brief, or `.txt/.md` voice notes, and the tool files it under `s3://.../brands/kodiak/library/<asset_id>/` with a metadata sidecar, dedupes by content hash so the same file never lands twice, and hands back a stable reference. Later you browse the library, pick one, and build or riff a campaign off it — square, tall, and wide, same bear and frontier colors as always.
-
-The backend is the `AssetLibrary` service (`src/creative_automation/asset_library.py`) plus its API + agent surface (`uv run python -m creative_automation.asset_api`):
-
-```bash
-# add an asset — it is in the library as a side effect of adding it
-curl -X POST --data-binary @wasatch-dawn.png \
-  'http://127.0.0.1:8183/library/assets?filename=wasatch-dawn.png&tags=hero,keep-it-wild'
-# browse the library, pick one to build off of
-curl 'http://127.0.0.1:8183/library/assets?kind=raster'
-curl -X POST 'http://127.0.0.1:8183/library/assets/<asset_id>/select'
-```
-
-These are the hooks the frontend team wires the upload widget and library browser to — the UI is tracked separately, the contract (the `AssetRef`) is stable and documented at `docs/architecture/asset-library-and-observability.md`.
-
-## Seeing what happened — logs and traces in the console
-
-Every asset added, browsed, or selected emits a structured JSON log line and opens an AWS X-Ray trace, so results show up in the AWS console as a searchable log and a service map. When there is no cloud (offline, on your laptop) the logs still print to the terminal and the tool never blocks on being watched. The api teams read a stable log schema and X-Ray annotations; a live tail of recent activity is one call away at `GET /library/report` (also surfaced to the web console via webmcp). All three ways to look — the MCP tools agents use, the `aws` CLI, and the console click-path — sit side by side for the same operation in `docs/observability-runbook.md`. Turn tracing on with the optional extra `uv sync --extra observability` (it auto-detects and no-ops when absent, so CI stays green).
+Runbooks: [AgentCore](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/agentcore.md) · [DAM runbook](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/dam-runbook.md) · [Observability runbook](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/observability-runbook.md) · [Linda Film Crew pattern](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/linda-film-crew-pattern.md)
 
 ## Strongest Examples — Real Ads, Real Frontier Flavor
 
@@ -120,9 +105,9 @@ _Mornings on the Wasatch front — protein-packed whole grains for today's front
 
 The original. Park City at dawn, built for active families who want a hearty start before the trail. This is the cleanest expression of the brand: wilderness, whole grains, and the bear watching over breakfast.
 
-![Keep It Wild — Frontier Breakfast — square preview](docs/assets/previews/kodiak-keepitwild-1x1.png)
+![Keep It Wild — Frontier Breakfast — square preview](https://raw.githubusercontent.com/chasko-labs/creative-automation-pipeline/main/docs/assets/previews/kodiak-keepitwild-1x1.png)
 
-[Open full preview — all sizes and products](docs/assets/previews/kodiak/preview.html)
+[Open full preview — all sizes and products](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/assets/previews/kodiak/preview.html)
 
 ### 2. Frontier Breakfast — Publix Southeast Family
 
@@ -130,9 +115,9 @@ _Protein-packed whole grains for your family's frontier — the porch breakfast 
 
 Warm light, family table, kids and cubs together. Same flapjacks and bites, but the message leans into home and togetherness for Publix neighborhoods.
 
-![Publix Southeast Family — square preview](docs/assets/previews/kodiak-publix-1x1.png)
+![Publix Southeast Family — square preview](https://raw.githubusercontent.com/chasko-labs/creative-automation-pipeline/main/docs/assets/previews/kodiak-publix-1x1.png)
 
-[Open full preview — all sizes and products](docs/assets/previews/kodiak-publix/preview.html)
+[Open full preview — all sizes and products](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/assets/previews/kodiak-publix/preview.html)
 
 ### 3. Frontier Breakfast — Target Midwest
 
@@ -140,9 +125,9 @@ _Fuel your frontier — 14 grams of protein, 100 percent whole grains._
 
 Clean, bright, and label-forward for Target guests who flip the box for 100% whole grains. Built for Target clean-label families who care what is inside as much as how it tastes — Feeding Epic Days & Wilder Lives.
 
-![Target Midwest — square preview](docs/assets/previews/kodiak-target-1x1.png)
+![Target Midwest — square preview](https://raw.githubusercontent.com/chasko-labs/creative-automation-pipeline/main/docs/assets/previews/kodiak-target-1x1.png)
 
-[Open full preview — all sizes and products](docs/assets/previews/kodiak-target/preview.html)
+[Open full preview — all sizes and products](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/assets/previews/kodiak-target/preview.html)
 
 ### 4. Frontier Breakfast — Costco Bulk Family
 
@@ -150,9 +135,9 @@ _Stock the frontier — protein-packed whole grains for every morning._
 
 Big family, big pantry, big stack. The Costco take is generous and weekend-ready — enough Power Cakes for the whole house, all week long.
 
-![Costco Bulk Family — square preview](docs/assets/previews/kodiak-costco-1x1.png)
+![Costco Bulk Family — square preview](https://raw.githubusercontent.com/chasko-labs/creative-automation-pipeline/main/docs/assets/previews/kodiak-costco-1x1.png)
 
-[Open full preview — all sizes and products](docs/assets/previews/kodiak-costco/preview.html)
+[Open full preview — all sizes and products](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/assets/previews/kodiak-costco/preview.html)
 
 ### 5. On the Go — Students and Commuters
 
@@ -160,9 +145,9 @@ _On the go never tasted so good — 5 grams of protein for busy mornings._
 
 For backpacks, bus rides, and early classes. Oatmeal cups and Bear Bites that travel as well as you do — quick, warm, and ready before the day gets busy.
 
-![On the Go — square preview](docs/assets/previews/kodiak-onthego-1x1.png)
+![On the Go — square preview](https://raw.githubusercontent.com/chasko-labs/creative-automation-pipeline/main/docs/assets/previews/kodiak-onthego-1x1.png)
 
-[Open full preview — all sizes and products](docs/assets/previews/kodiak-on-the-go/preview.html)
+[Open full preview — all sizes and products](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/assets/previews/kodiak-on-the-go/preview.html)
 
 ### 6. Trail Season — Oatmeal on the Overlook
 
@@ -170,9 +155,9 @@ _Fuel your trail — protein oatmeal for today's frontier._
 
 Sunrise over red rock, oatmeal cup on the edge of the overlook. Made for hikers, campers, and anyone who eats breakfast with a view.
 
-![Trail Season — square preview](docs/assets/previews/kodiak-trail-1x1.png)
+![Trail Season — square preview](https://raw.githubusercontent.com/chasko-labs/creative-automation-pipeline/main/docs/assets/previews/kodiak-trail-1x1.png)
 
-[Open full preview — all sizes and products](docs/assets/previews/kodiak-trail/preview.html)
+[Open full preview — all sizes and products](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/assets/previews/kodiak-trail/preview.html)
 
 ### 7. Holiday Frontier — Cast-Iron Mornings
 
@@ -180,9 +165,9 @@ _Gather round the frontier — cast-iron Power Cakes for holiday mornings._
 
 The cabin table at the holidays. Cast iron, warm cabin light, and a stack worth gathering for — cozy, timeless, and made to share.
 
-![Holiday Frontier — square preview](docs/assets/previews/kodiak-holiday-1x1.png)
+![Holiday Frontier — square preview](https://raw.githubusercontent.com/chasko-labs/creative-automation-pipeline/main/docs/assets/previews/kodiak-holiday-1x1.png)
 
-[Open full preview — all sizes and products](docs/assets/previews/kodiak-holiday/preview.html)
+[Open full preview — all sizes and products](https://github.com/chasko-labs/creative-automation-pipeline/blob/main/docs/assets/previews/kodiak-holiday/preview.html)
 
 ---
 
