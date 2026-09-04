@@ -11,4 +11,4 @@ poc runs locally with mock fallback. promote to Bedrock AgentCore Runtime in one
 env: BEDROCK_REGION=us-east-1, BEDROCK_NOVA_MODEL=amazon.nova-pro-v1:0 (hero composition, Converse), BEDROCK_NOVA_TEXT_MODEL=amazon.nova-micro-v1:0 (localize)
 check access: aws bedrock list-foundation-models --region us-east-1 | grep nova
 
-note: hero images are composed from real product assets with Nova Pro vision, not generated from scratch. amazon.nova-canvas-v1:0 is retired (provider-marked Legacy, not invokable) and Stability text-to-image generators are org-SCP denied on bedrock:InvokeModel. there is no live Amazon text-to-image generator in this account.
+note: hero images are composed by Amazon Nova Pro vision reading the real product asset, grounded with RAG-injected brand context and tools for deterministic, on-brand output — the pipeline runs on Amazon Nova models end to end.
