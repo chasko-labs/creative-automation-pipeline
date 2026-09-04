@@ -11,7 +11,7 @@ from uuid import uuid4
 import boto3
 from botocore.config import Config
 
-from .generate import generate_hero
+from .generate import _safe_prompt_text, generate_hero
 
 DAM_S3_BUCKET = os.getenv("DAM_S3_BUCKET", "chasko-creative-dam-946179428633-us-east-1")
 CORS_HEADERS = {
@@ -61,6 +61,9 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
         prompt = (data.get("prompt") or "").strip()
         if not prompt:
             prompt = "KODIAK - Nourishment for Today's Frontier. Keep It Wild."
+        # Strip any real celebrity name out of the client-built prompt BEFORE it becomes
+        # brief_msg — the raw name trips Stability's content filter otherwise.
+        prompt = _safe_prompt_text(prompt)
         product = data.get("product", "power-cakes")
         theme = data.get("theme")
 

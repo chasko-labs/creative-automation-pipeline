@@ -94,6 +94,38 @@ def test_options_preflight_returns_200(monkeypatch) -> None:
     assert resp["body"] == ""
 
 
+def test_handler_sanitizes_celebrity_name_before_brief_msg(monkeypatch, tmp_path: Path) -> None:
+    # a client-built prompt naming a real person must be rewritten name-free BEFORE it
+    # reaches generate_hero as brief_msg — that string drives every Nova Pro/Stability
+    # prompt, so the raw name must never flow past the handler.
+    fake_png = tmp_path / "sanitized.png"
+    fake_png.write_bytes(b"\x89PNG\r\n")
+    captured: dict = {}
+
+    def _capture(**kwargs):
+        captured.update(kwargs)
+        return (fake_png, "bedrock:nova-pro")
+
+    monkeypatch.setattr(generate_lambda, "generate_hero", _capture)
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+
+    event = {
+        "body": json.dumps(
+            {
+                "prompt": "Zac Efron athletic-morning energy — high-protein pre-trail fuel, "
+                "aspirational active lifestyle. Keep It Wild.",
+                "theme": "zac-efron",
+            }
+        )
+    }
+    resp = generate_lambda.handler(event, None)
+    assert resp["statusCode"] == 200
+    brief_msg = captured["brief_msg"]
+    assert "zac" not in brief_msg.lower()
+    assert "efron" not in brief_msg.lower()
+    assert "Keep It Wild." in brief_msg
+
+
 def test_presigned_url_signed_with_attachment_disposition(monkeypatch, tmp_path: Path) -> None:
     # cross-origin presigned GET must be signed with Content-Disposition: attachment
     # so the browser saves (not inline-opens) with a sensible .png filename.
