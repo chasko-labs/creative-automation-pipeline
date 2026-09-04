@@ -198,6 +198,37 @@ def fetch_hero_to_tmp(product_id: str, cache_root: Path = Path("/tmp/kodiak-asse
     return None
 
 
+def fetch_dam_key(key: str, dest: Path) -> Optional[Path]:
+    """Download an EXPLICIT full DAM key to dest. Returns dest if fetched, else None.
+
+    Unlike find_hero_asset / fetch_hero_to_tmp, the key is used VERBATIM against
+    DAM_S3_BUCKET with NO prefix join — the sku-photo-map ships full keys under
+    brands/kodiak/raw-ingest/... which are not under the dam/ DAM_S3_PREFIX. The
+    bucket is resolved from _s3_bucket_and_prefix (bucket half only; prefix ignored).
+
+    Offline-safe: returns None when S3 is disabled (DAM_S3_BUCKET unset or boto3
+    missing), when the client cannot init, or when the object is absent. Never
+    raises — mirrors the module's graceful guards so local dev / CI fall through.
+    """
+    if not key or not _s3_enabled():
+        return None
+    bucket, _ = _s3_bucket_and_prefix()
+    if not bucket:
+        return None
+    if dest.exists() and dest.stat().st_size > 0:
+        return dest
+    if _s3_download(bucket, key, dest):
+        print(f"[dam] key s3 hit s3://{bucket}/{key} -> {dest}")
+        return dest if dest.exists() else None
+    # guard against a zero-byte partial from an interrupted transfer
+    if dest.exists() and dest.stat().st_size == 0:
+        try:
+            dest.unlink()
+        except Exception:
+            pass
+    return None
+
+
 def _s3_try_fetch_brand_logo(dam_root: Path) -> Optional[Path]:
     if not _s3_enabled():
         return None

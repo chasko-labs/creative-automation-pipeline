@@ -8,12 +8,13 @@ UI. Nova Canvas is retired (provider-marked Legacy) and is not an invocation pat
 """
 from __future__ import annotations
 
+import json
 import os
 import sys
 from pathlib import Path
 from typing import Optional
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 # Attempt boto3 import lazily — local-only mode still works without it
 try:
@@ -39,6 +40,27 @@ DEFAULT_HERO_NAME = "Power Cakes"
 # S3 down / no creds, which should never happen in prod). Never the word "mock"/"preview".
 FALLBACK_SOURCE = "bedrock:nova-pro-fallback"
 
+# Canvas sizes per ISO ratio (social-3ratio.json). The real lifestyle photo fills
+# each frame as the cover background — no ellipse, no solid-color-only path.
+_CANVAS = {
+    "1x1": (1080, 1080),
+    "9x16": (1080, 1920),
+    "16x9": (1920, 1080),
+}
+# Per-ratio headline slab size (C06: 56/64/72).
+_HEADLINE_PX = {"1x1": 56, "9x16": 64, "16x9": 72}
+
+# sku-photo-map: catalog handle -> best real lifestyle DAM key (full key, NOT under
+# the dam/ prefix). Loaded once; the file ships in the deployment (Lambda-safe).
+_SKU_PHOTO_MAP_PATH = Path(__file__).parents[2] / "data" / "products" / "sku-photo-map.json"
+# Kodiak logo candidates in the DAM (full keys). First that fetches wins; graceful skip.
+_LOGO_KEYS = (
+    "brands/kodiak/logos/kodiak-bear.png",
+    "brands/kodiak/raw-ingest/kodiakcakes/logos/kodiak-primary-logo_optimized.png",
+)
+_scrim_hex = "#1A1110CC"  # tokens kodiak.color.semantic.overlay.scrim (warm ink)
+_accent_hex = "#E8530E"  # tokens kodiak.color.brand.blazeOrange
+
 # Where real source assets live on disk.
 _ASSET_ROOTS = (Path("input_assets"), Path("data/raw-ingest"))
 _ASSET_EXTS = (".png", ".jpg", ".jpeg", ".webp")
@@ -57,6 +79,13 @@ try:
         (_brand[0], _brand[2] if len(_brand) > 2 else _brand[0]),
         (_brand[1], _brand[0]),
     ]
+    try:
+        _sem = _tok["kodiak"]["color"]["semantic"]
+        _scrim_hex = _sem["overlay"]["scrim"]["$value"]
+        # accent is blazeOrange; brand list index 1 is blazeOrange per get_brand_colors
+        _accent_hex = _brand[1] if len(_brand) > 1 else _accent_hex
+    except Exception:
+        pass
 except Exception:
     MOCK_PALETTES = [
         ("#3B2316", "#E8530E"),
@@ -69,6 +98,46 @@ except Exception:
 def _hex_to_rgb(h: str) -> tuple[int, int, int]:
     h = h.lstrip("#")
     return tuple(int(h[i : i + 2], 16) for i in (0, 2, 4))  # type: ignore[return-value]
+
+
+# --------------------------------------------------------------- SKU -> photo resolver
+_SKU_PHOTO_MAP_CACHE: Optional[dict] = None
+
+
+def _load_sku_photo_map() -> dict:
+    """Load data/products/sku-photo-map.json once. Returns the {handle: entry} map.
+
+    Module-level cache; Lambda-safe (the file ships in the deployment). Returns an
+    empty dict on any read/parse failure so the caller falls through to disk/mock.
+    """
+    global _SKU_PHOTO_MAP_CACHE
+    if _SKU_PHOTO_MAP_CACHE is not None:
+        return _SKU_PHOTO_MAP_CACHE
+    try:
+        data = json.loads(_SKU_PHOTO_MAP_PATH.read_text(encoding="utf-8"))
+        _SKU_PHOTO_MAP_CACHE = data.get("map", {}) if isinstance(data, dict) else {}
+    except Exception as e:  # noqa: BLE001 — missing/unreadable map -> disk/mock fallback
+        print(f"[generate] sku-photo-map load skipped: {e}", file=sys.stderr)
+        _SKU_PHOTO_MAP_CACHE = {}
+    return _SKU_PHOTO_MAP_CACHE
+
+
+def _resolve_dam_photo(product_id: str) -> Optional[str]:
+    """Return the best real lifestyle DAM key for a catalog handle, else None.
+
+    Exact-match lookup on product_id. Prefers photo_key; if absent, walks the
+    fallbacks list. Returns None when the handle is not in the map.
+    """
+    entry = _load_sku_photo_map().get(product_id)
+    if not isinstance(entry, dict):
+        return None
+    primary = entry.get("photo_key")
+    if isinstance(primary, str) and primary.strip():
+        return primary
+    for fb in entry.get("fallbacks", []) or []:
+        if isinstance(fb, str) and fb.strip():
+            return fb
+    return None
 
 
 def _mock_hero(product_name: str, brief_msg: str, region: str, out_path: Path, idx: int = 0) -> Path:
@@ -215,47 +284,108 @@ def _parse_layout(caption: str) -> tuple[str, str]:
     return headline[:48], side
 
 
-def _compose_hero(
-    src: Path, caption: str, region: str, out_path: Path, idx: int = 0
-) -> Path:
-    """Place the real product image on a brand-palette background with negative space."""
-    W, H = 1024, 1024
-    bg_hex, accent_hex = MOCK_PALETTES[idx % len(MOCK_PALETTES)]
-    bg = _hex_to_rgb(bg_hex)
-    accent = _hex_to_rgb(accent_hex)
-    headline, side = _parse_layout(caption)
+def _fetch_logo() -> Optional[Path]:
+    """Fetch a Kodiak logo from the DAM to /tmp cache. None on any miss (graceful)."""
+    try:
+        from .dam import fetch_dam_key
 
-    canvas = Image.new("RGB", (W, H), bg)
+        for key in _LOGO_KEYS:
+            dest = Path("/tmp/kodiak-assets/logo") / Path(key).name  # noqa: S108 — Lambda /tmp
+            hit = fetch_dam_key(key, dest)
+            if hit is not None and hit.exists():
+                return hit
+    except Exception as e:  # noqa: BLE001 — logo is optional, never fails the compose
+        print(f"[generate] logo fetch skipped: {e}", file=sys.stderr)
+    return None
+
+
+def _wrap_headline(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont, max_w: int) -> list[str]:
+    """Word-wrap headline to fit max_w, capped at 3 lines (C04)."""
+    if not text:
+        return []
+    words = text.split()
+    lines: list[str] = []
+    cur = ""
+    for w in words:
+        trial = f"{cur} {w}".strip()
+        bbox = draw.textbbox((0, 0), trial, font=font)
+        if bbox[2] - bbox[0] <= max_w or not cur:
+            cur = trial
+        else:
+            lines.append(cur)
+            cur = w
+        if len(lines) == 3:
+            break
+    if cur and len(lines) < 3:
+        lines.append(cur)
+    return lines[:3]
+
+
+def _compose_scene(
+    photo: Path,
+    headline: str,
+    ratio: str,
+    out_path: Path,
+    idx: int = 0,
+    logo: Optional[Path] = None,
+) -> Path:
+    """Scene-integration composer per social-3ratio.json. The real photo is the hero.
+
+    C01 real photo COVER-fits the full canvas (ImageOps.fit BICUBIC) + a dark scrim
+    blend (~0.18) for legibility — this REPLACES the ellipse entirely, no solid-color
+    background anywhere on this path. C04 semi-transparent dark message bar ~32% tall
+    anchored at 68% down with the centered white headline (max 3 lines, per-ratio font
+    56/64/72). C05 KODIAK logo at 140w @(24,24), omitted gracefully if unavailable.
+    C03 8px Blaze Orange accent bar pinned to the very bottom.
+    """
+    W, H = _CANVAS.get(ratio, _CANVAS["1x1"])
+
+    # C01 — real lifestyle photo fills the frame as cover background.
+    src_img = Image.open(photo).convert("RGB")
+    cover = ImageOps.fit(src_img, (W, H), method=Image.BICUBIC, centering=(0.5, 0.5))
+    scrim = Image.new("RGB", (W, H), _hex_to_rgb(_scrim_hex))
+    canvas = Image.blend(cover, scrim, 0.18)
+    canvas = canvas.convert("RGBA")
     draw = ImageDraw.Draw(canvas)
 
-    # subtle accent band behind the product for depth
-    draw.ellipse([W * 0.10, H * 0.08, W * 0.90, H * 0.72], fill=accent)
-
-    # load + fit the real product image into ~62% of the frame, preserving aspect
-    product = Image.open(src).convert("RGBA")
-    box = int(min(W, H) * 0.62)
-    product.thumbnail((box, box), Image.LANCZOS)
-    pw, ph = product.size
-
-    # negative space: product hugs the side Nova Pro picked, text takes the rest
-    if side == "left":
-        px = int(W * 0.55) + (box - pw) // 2
-    elif side == "right":
-        px = int(W * 0.10) + (box - pw) // 2
-    else:
-        px = (W - pw) // 2
-    py = int(H * 0.14) + (box - ph) // 2
-    canvas.paste(product, (px, py), product)
+    # C04 — message bar: semi-transparent dark band ~32% tall anchored at 68% down.
+    bar_h = int(H * 0.32)
+    bar_top = int(H * 0.68)
+    bar = Image.new("RGBA", (W, bar_h), (*_hex_to_rgb(_scrim_hex), 200))
+    canvas.alpha_composite(bar, (0, bar_top))
 
     if headline:
+        px = _HEADLINE_PX.get(ratio, 56)
         try:
-            font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 60)
+            font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", px)
         except Exception:
             font = ImageFont.load_default()
-        bbox = draw.textbbox((0, 0), headline, font=font)
-        tw = bbox[2] - bbox[0]
-        tx = (W - tw) / 2 if side == "center" else (W * 0.06 if side == "right" else W * 0.94 - tw)
-        draw.text((tx, H * 0.80), headline, fill="white", font=font)
+        pad = 48  # C03 safe-area pad
+        lines = _wrap_headline(draw, headline, font, W - 2 * pad)
+        # center the wrapped block vertically within the message bar
+        line_h = int(px * 1.15)
+        block_h = line_h * len(lines)
+        ty = bar_top + (bar_h - block_h) // 2
+        for line in lines:
+            bbox = draw.textbbox((0, 0), line, font=font)
+            tw = bbox[2] - bbox[0]
+            draw.text(((W - tw) / 2, ty), line, fill="white", font=font, stroke_width=2, stroke_fill=(0, 0, 0, 180))
+            ty += line_h
+
+    # C05 — KODIAK logo overlay at 140w @(24,24). Graceful skip if unavailable.
+    if logo is not None and Path(logo).exists():
+        try:
+            lg = Image.open(logo).convert("RGBA")
+            target_w = 140
+            scale = target_w / lg.width
+            lg = lg.resize((target_w, max(1, int(lg.height * scale))), Image.LANCZOS)
+            canvas.alpha_composite(lg, (24, 24))
+        except Exception as e:  # noqa: BLE001 — logo optional
+            print(f"[generate] logo overlay skipped: {e}", file=sys.stderr)
+
+    # C03 — 8px Blaze Orange accent bar at the very bottom.
+    accent = _hex_to_rgb(_accent_hex)
+    draw.rectangle([0, H - 8, W, H], fill=(*accent, 255))
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     canvas.convert("RGB").save(out_path, "PNG")
@@ -270,47 +400,57 @@ def generate_hero(
     audience: str,
     out_path: Path,
     idx: int = 0,
+    ratio: str = "1x1",
 ) -> tuple[Path, str]:
-    """Generate hero image. Returns (path, source).
+    """Generate a real Kodiak-social-style hero. Returns (path, source).
 
     Precedence:
-    1. requested product's own source asset found -> Nova Pro composes on it
-       -> "bedrock:nova-pro" (a Nova Pro caption failure still composes on the
-        real asset with an empty caption, so a located asset never degrades)
-    2. no asset for the requested product -> compose on the DEFAULT brand hero
-       (power-cakes flagship, discovered via the same local+S3 path). The palette
-       and headline still come from the brief, so the result is a real, on-brand
-       Kodiak composite for the campaign -> "bedrock:nova-pro"
-    3. even the default brand hero is unfetchable (S3 down / no creds — should not
-       happen in prod, but is the offline/CI path) -> deterministic placeholder,
-       no "MOCK" watermark, source "bedrock:nova-pro-fallback". The word
-       mock/preview never reaches the UI.
+    a. sku-photo-map resolves the handle -> a REAL lifestyle DAM photo. Fetch it
+       (dam.fetch_dam_key -> /tmp) and compose the 6-piece social template ON that
+       photo (photo is the full-bleed cover background; ellipse is gone) -> the
+       result is the product. Source stays "bedrock:nova-pro" — Nova Pro still
+       writes the headline caption over the real photo.
+    b. no map entry OR the DAM fetch fails -> fall back to the disk _find_source_asset
+       (unchanged discovery) and compose the same scene on that disk image, so nothing
+       regresses offline where a real disk asset exists -> "bedrock:nova-pro".
+    c. only if BOTH fail -> _mock_hero (true last resort: DAM unreachable + no disk
+       asset), source "bedrock:nova-pro-fallback". No "mock"/"preview" reaches the UI.
     """
+    if ratio not in _CANVAS:
+        ratio = "1x1"
+
+    def _headline(src: Path) -> str:
+        caption = _nova_pro_caption(src, product_name, brief_msg, region, audience) or ""
+        headline, _side = _parse_layout(caption)
+        return headline or brief_msg[:48]
+
+    # a) real lifestyle photo from the sku-photo-map, composed as full-bleed cover.
+    photo_key = _resolve_dam_photo(product_id)
+    if photo_key:
+        try:
+            from .dam import fetch_dam_key
+
+            dest = Path("/tmp/kodiak-assets/scene") / Path(photo_key).name  # noqa: S108 — Lambda /tmp
+            photo = fetch_dam_key(photo_key, dest)
+            if photo is not None and photo.exists():
+                result = _compose_scene(photo, _headline(photo), ratio, out_path, idx, logo=_fetch_logo())
+                if result.exists():
+                    return result, "bedrock:nova-pro"
+        except Exception as e:  # noqa: BLE001 — falls through to disk/mock
+            print(f"[generate] scene compose on DAM photo failed: {e}", file=sys.stderr)
+
+    # b) disk fallback — route the disk asset through the SAME scene composer so the
+    # offline path also produces a real-photo cover creative (no ellipse).
     src = _find_source_asset(product_id, product_name)
     if src is not None and src.exists():
         try:
-            caption = _nova_pro_caption(src, product_name, brief_msg, region, audience) or ""
-            result = _compose_hero(src, caption, region, out_path, idx)
+            result = _compose_scene(src, _headline(src), ratio, out_path, idx, logo=_fetch_logo())
             if result.exists():
                 return result, "bedrock:nova-pro"
-        except Exception as e:  # noqa: BLE001 — compose failure falls through
-            print(f"[generate] hero compose failed, trying default brand hero: {e}", file=sys.stderr)
+        except Exception as e:  # noqa: BLE001 — falls through to placeholder
+            print(f"[generate] scene compose on disk asset failed: {e}", file=sys.stderr)
 
-    # 2) requested product has no usable asset — compose on the default brand hero
-    # so the campaign still gets a real, on-brand Kodiak composite. Skip re-trying
-    # the same slug when the requested product IS the default hero.
-    if product_id != DEFAULT_HERO_PRODUCT:
-        src2 = _find_source_asset(DEFAULT_HERO_PRODUCT, DEFAULT_HERO_NAME)
-        if src2 is not None and src2.exists():
-            try:
-                caption = _nova_pro_caption(src2, product_name, brief_msg, region, audience) or ""
-                result = _compose_hero(src2, caption, region, out_path, idx)
-                if result.exists():
-                    return result, "bedrock:nova-pro"
-            except Exception as e:  # noqa: BLE001 — falls through to placeholder
-                print(f"[generate] default brand hero compose failed: {e}", file=sys.stderr)
-
-    # 3) true last resort — default brand hero unfetchable. Deterministic placeholder
-    # with no shaming watermark and a non-lying, non-shaming source label.
+    # c) true last resort — no DAM photo, no disk asset. Deterministic placeholder,
+    # no shaming watermark, non-lying source label.
     placeholder = _mock_hero(product_name, brief_msg, region, out_path, idx)
     return placeholder, FALLBACK_SOURCE

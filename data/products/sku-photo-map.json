@@ -1,0 +1,1061 @@
+{
+  "map": {
+    "apple-cinnamon-oatmeal-packets": {
+      "caption": "Single-Serve Cinnamon Apple Crisp",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Apple_Cinnamon_Roll_5_6bb989ef-bed2-4d3c-946f-7e34e8fb97ef.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240704_Kodiak_Cinnamon_Apple_Cobbler_0036.jpg"
+      ],
+      "image_file": "Kodiak_Single-serve_Cinnamon_Apple_Crisp_6_c824a3c1-0ad5-4b26-9925-10b93bfbae89.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Single-serve_Cinnamon_Apple_Crisp_6_c824a3c1-0ad5-4b26-9925-10b93bfbae89.jpg",
+      "score": 129.0
+    },
+    "bacon-colby-cheese-breakfast-sandwich": {
+      "caption": "Breakfast Ice Cream Sandwich",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2024-Waffle-Sandwich-1241.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Grilled_Cheese_Waffle_Sandwich_c49120c9-3609-4387-849c-ef67341e7a74.jpg"
+      ],
+      "image_file": "Web_Recipes_from_Social_Breakfast_Ice_Cream_Sandwich_0226_0104_3546f686-db8e-4942-9b50-906f04b52d17.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Web_Recipes_from_Social_Breakfast_Ice_Cream_Sandwich_0226_0104_3546f686-db8e-4942-9b50-906f04b52d17.jpg",
+      "score": 94.5
+    },
+    "banana-muffin-quick-bread-mix": {
+      "caption": "Dark Chocolate Banana Bread",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Single_Serve_Chocolate_Chip_Banana_Protein_Muffin_5_5f9ec567-7c59-4369-8785-c7cf23882327.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240717_Kodiak_Double_Chocolate_Pumpkin_Quick_Bread_0409_303e1b55-deed-4247-8c3d-8e59e5478df7.jpg"
+      ],
+      "image_file": "20240625_Kodiak_Dark_Chocolate_Banana_Bread_0167.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/20240625_Kodiak_Dark_Chocolate_Banana_Bread_0167.jpg",
+      "score": 93.0
+    },
+    "banana-nut-peak-oatmeal-packets": {
+      "caption": "Berry Oatmeal Waffles",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Banana_Oatmeal_Pancakes_-_1.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Berry_Baked_Oatmeal_Bars_4_bf4b4c96-327d-43b0-8c89-2d1d420881be.jpg"
+      ],
+      "image_file": "Kodiak_Berry_Oatmeal_Waffles_5.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Berry_Oatmeal_Waffles_5.jpg",
+      "score": 99.0
+    },
+    "berries-cream-peak-oatmeal-packets": {
+      "caption": "Berry Oatmeal Waffles",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Berry_Baked_Oatmeal_Bars_4_bf4b4c96-327d-43b0-8c89-2d1d420881be.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Single_Serve_Blueberry_Cheesecake_Baked_Oats_5.jpg"
+      ],
+      "image_file": "Kodiak_Berry_Oatmeal_Waffles_5.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Berry_Oatmeal_Waffles_5.jpg",
+      "score": 133.5
+    },
+    "birthday-cake-power-cakes": {
+      "caption": "Power Waffle Breakfast Tacos",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1-Kodeiak_Avocado_Waffle_Toast_4.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1_Kodiak_Birthday_Mug_Cake_3_1_1d22c6d3-8fcf-416f-998c-9f6504d32866.jpg"
+      ],
+      "image_file": "Power_Waffle_Breakfast_Tacos_Frozen_Recipe_Reshoot_0526_0038.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Power_Waffle_Breakfast_Tacos_Frozen_Recipe_Reshoot_0526_0038.jpg",
+      "score": 97.5
+    },
+    "blueberries-and-cream-oatmeal-power-cup": {
+      "caption": "Nuts & Seeds Power Oatmeal",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2022-Oatmeal_Canister-Recipes_006.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2022-Oatmeal_Canister-Recipes_012.jpg"
+      ],
+      "image_file": "2022-Oatmeal_Canister-Recipes_001.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/2022-Oatmeal_Canister-Recipes_001.jpg",
+      "score": 88.5
+    },
+    "blueberries-cream-oatmeal-packets": {
+      "caption": "Berry Oatmeal Waffles",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Berry_Baked_Oatmeal_Bars_4_bf4b4c96-327d-43b0-8c89-2d1d420881be.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Single_Serve_Blueberry_Cheesecake_Baked_Oats_5.jpg"
+      ],
+      "image_file": "Kodiak_Berry_Oatmeal_Waffles_5.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Berry_Oatmeal_Waffles_5.jpg",
+      "score": 91.5
+    },
+    "blueberry-lemon-drizzled-minis-bars": {
+      "caption": "Lemon Blueberry Bars",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Raspberry_Lemon_Bars_7_126c166f-253a-4352-87ce-bf7208c635d5.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Recipe_Blueberry_Lemon_flapjacks_0725_0089_18bc2cd1-5e20-4ea0-9bdc-6c81b21a4163.jpg"
+      ],
+      "image_file": "Kodiak_Recipe_Blueberry_Lemon_Crumb_Bars_0725_0168_a598274b-46aa-4aec-9838-2bb9f69915f9.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Recipe_Blueberry_Lemon_Crumb_Bars_0725_0168_a598274b-46aa-4aec-9838-2bb9f69915f9.jpg",
+      "score": 139.5
+    },
+    "blueberry-muffin-mix": {
+      "caption": "Blueberry Flax Muffin",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_23.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Recipe_Blueberry_Lemon_Crumb_Bars_0725_0168_a598274b-46aa-4aec-9838-2bb9f69915f9.jpg"
+      ],
+      "image_file": "Kodiak_Single_Serve_Blueberry_Flax_Muffin_6_814f4ca4-f0af-467b-a6cf-55effa503005.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Single_Serve_Blueberry_Flax_Muffin_6_814f4ca4-f0af-467b-a6cf-55effa503005.jpg",
+      "score": 99.0
+    },
+    "blueberry-muffin-power-cup": {
+      "caption": "Blueberry Flax Muffin",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_23.jpg"
+      ],
+      "image_file": "Kodiak_Single_Serve_Blueberry_Flax_Muffin_6_814f4ca4-f0af-467b-a6cf-55effa503005.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Single_Serve_Blueberry_Flax_Muffin_6_814f4ca4-f0af-467b-a6cf-55effa503005.jpg",
+      "score": 129.0
+    },
+    "blueberry-power-cakes": {
+      "caption": "Blueberry Flapjack Bundt Cake",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Lemon_Blueberry_Waffle_Trifle_2_06d0c784-7174-4e49-a018-dfbaf7c8d9b1.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Power_Waffle_Breakfast_Tacos_Frozen_Recipe_Reshoot_0526_0038.jpg"
+      ],
+      "image_file": "20240705_Kodiak_Blueberry_Flapjack_Bundt_Cake_0280.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/20240705_Kodiak_Blueberry_Flapjack_Bundt_Cake_0280.jpg",
+      "score": 112.5
+    },
+    "blueberry-power-waffles": {
+      "caption": "Apple Brown Sugar Power Waffles",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1_Kodiak_Protein_Blueberry_Lemon_Waffles_5.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Lemon_Blueberry_Waffle_Trifle_2_06d0c784-7174-4e49-a018-dfbaf7c8d9b1.jpg"
+      ],
+      "image_file": "Recipe_Apple_Brown_Sugar_Power_Waffles_0225_0023_646297b8-ef0b-4879-a94c-e56dd3ec5533.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Recipe_Apple_Brown_Sugar_Power_Waffles_0225_0023_646297b8-ef0b-4879-a94c-e56dd3ec5533.jpg",
+      "score": 82.5
+    },
+    "blueberry-thick-and-fluffy-power-waffles": {
+      "caption": "Glazed Donut Waffles",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Recipe_Apple_Brown_Sugar_Power_Waffles_0225_0023_646297b8-ef0b-4879-a94c-e56dd3ec5533.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1_Kodiak_Protein_Blueberry_Lemon_Waffles_5.jpg"
+      ],
+      "image_file": "Kodiak_Glazed_Donut_Waffles_2_b3bdb614-2d67-44c7-862d-f528d4c8726d.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Glazed_Donut_Waffles_2_b3bdb614-2d67-44c7-862d-f528d4c8726d.jpg",
+      "score": 99.0
+    },
+    "blueberry-vanilla-granola": {
+      "caption": "Lemon Blueberry Coffee Cake",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Berry_Chia_Pudding_3_393eab55-111d-4fe1-9ce5-cbf0177b2133.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1-Kodiak_Single_Serve_Blueberry_Crisp_6_88ffd7f9-a1c7-43cf-b27b-1bcaefac5dc5.jpg"
+      ],
+      "image_file": "Kodiak_Single_Serve_Lemon_Blueberry_Coffee_Cake_2_b8060316-eb3a-41e1-8ba8-06e4fec9d567.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Single_Serve_Lemon_Blueberry_Coffee_Cake_2_b8060316-eb3a-41e1-8ba8-06e4fec9d567.jpg",
+      "score": 64.5
+    },
+    "brown-sugar-cinnamon-drizzled-mini-bars": {
+      "caption": "Single-Serve Maple Brown Sugar Oatmeal Muffin",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Recipe_Apple_Brown_Sugar_Power_Waffles_0225_0023_646297b8-ef0b-4879-a94c-e56dd3ec5533.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Brown_Sugar_Espresso_Oat_Muffins_5_3c61ae3b-9665-4d40-80be-5d97b86c9f48.jpg"
+      ],
+      "image_file": "Kodiak_Maple_Brown_Sugar_Muffin_2_718257e7-9085-4514-ae6f-056d42d223ea.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Maple_Brown_Sugar_Muffin_2_718257e7-9085-4514-ae6f-056d42d223ea.jpg",
+      "score": 102.0
+    },
+    "buttermilk-french-toast-sticks": {
+      "caption": "French Toast Sticks",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1-Kodiak_Overnight_French_Toast_Bake_8.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Carrot_Cake_French_Toast_Waffle_Bake_8.jpg"
+      ],
+      "image_file": "1-Kodiak_French_Toast_Sticks.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/1-Kodiak_French_Toast_Sticks.jpg",
+      "score": 138.0
+    },
+    "buttermilk-honey-frontier-cakes-flapjack-and-waffle-mix": {
+      "caption": "Buttermilk & Honey Whole Wheat Bread",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Waffle_Bites_w_Gouda_6_5af968ba-a180-473f-b1f3-9e6ff902b788.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1-Kodiak_Hot_Honey_Chicken___Waffle_Casserole_5_a295784f-bc5f-4c16-a6d1-eb91c647a717.jpg"
+      ],
+      "image_file": "20240710_Kodiak_Buttermilk_Honey_Whole_Wheat_Bread_0544_045486b4-5b60-406d-9a6f-66a86ee57338.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/20240710_Kodiak_Buttermilk_Honey_Whole_Wheat_Bread_0544_045486b4-5b60-406d-9a6f-66a86ee57338.jpg",
+      "score": 127.5
+    },
+    "buttermilk-maple-flapjack-power-cup": {
+      "caption": "Single-serve Lemon Ricotta Flapjack Cup",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240711_Kodiak_Maple_Nut_Flapjack_Cookies_0106.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_259.jpg"
+      ],
+      "image_file": "Cups_Graphics_Roadmap_Recipe_Shoot0326_167.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_167.jpg",
+      "score": 139.5
+    },
+    "buttermilk-power-cakes-flapjack-waffle-mix": {
+      "caption": "Power Waffle Breakfast Tacos",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Community_Kitchen_Protein_Supreme_Kodiak_Waffle_1025_0061_7ddc0574-0de5-42b4-aae8-70e9f1a0fa7b.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Web_Recipes_from_Social_Waffle_Pickles_0226_0070_7f43e113-dc84-4b5d-bf7c-ad588ad98c15.jpg"
+      ],
+      "image_file": "Power_Waffle_Breakfast_Tacos_Frozen_Recipe_Reshoot_0526_0038.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Power_Waffle_Breakfast_Tacos_Frozen_Recipe_Reshoot_0526_0038.jpg",
+      "score": 115.5
+    },
+    "buttermilk-power-flapjacks": {
+      "caption": "Monster Flapjacks",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Web_Recipes_from_Social_Q3_2025_0426_147_ff07404d-b6a8-4697-a08b-833e303f1b41.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240725_Kodiak_Pumpkin_Flapjacks_With_Whipped_Pumpkin_Maple_Butter_Cranberries_And_Walnuts_0377.jpg"
+      ],
+      "image_file": "20240725_Kodiak_Monster_Flapjacks_0172_3c906155-4a6f-4153-93ba-359e74046840.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/20240725_Kodiak_Monster_Flapjacks_0172_3c906155-4a6f-4153-93ba-359e74046840.jpg",
+      "score": 75.0
+    },
+    "buttermilk-vanilla-flapjack-puffs": {
+      "caption": "Chocolate Vanilla Marble Bundt Cake",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2024-Pancake-Bowl-2185.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_167.jpg"
+      ],
+      "image_file": "20240705_Kodiak_Chocolate_Vanilla_Marble_Bundt_Cake_0455.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/20240705_Kodiak_Chocolate_Vanilla_Marble_Bundt_Cake_0455.jpg",
+      "score": 69.0
+    },
+    "buttermilk-vanilla-power-waffles": {
+      "caption": "Glazed Donut Waffles",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Recipe_Apple_Brown_Sugar_Power_Waffles_0225_0023_646297b8-ef0b-4879-a94c-e56dd3ec5533.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Loaded_Waffles_1.jpg"
+      ],
+      "image_file": "Kodiak_Glazed_Donut_Waffles_2_b3bdb614-2d67-44c7-862d-f528d4c8726d.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Glazed_Donut_Waffles_2_b3bdb614-2d67-44c7-862d-f528d4c8726d.jpg",
+      "score": 99.0
+    },
+    "buttermilk-vanilla-thick-and-fluffy-power-waffles": {
+      "caption": "Glazed Donut Waffles",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1_Kodiak_Protein_Packed_Maple_Waffles_5.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Loaded_Waffles_1.jpg"
+      ],
+      "image_file": "Kodiak_Glazed_Donut_Waffles_2_b3bdb614-2d67-44c7-862d-f528d4c8726d.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Glazed_Donut_Waffles_2_b3bdb614-2d67-44c7-862d-f528d4c8726d.jpg",
+      "score": 132.0
+    },
+    "chocolate-almond-trail-bars-5-ct": {
+      "caption": "Chocolate Raspberry Frozen Yogurt Bars",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240703_Kodiak_Almond_Butter_Banana_Bars_0082_7e011488-4b05-44ff-b80c-d92c345d6412.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/CHOCOLATE_PEANUT_BUTTER_BARS_1_69b26ea2-2544-4b2c-8873-e3194c9caccc.jpg"
+      ],
+      "image_file": "Kodiak_Chocolate_Raspberry_Frozen_Yogurt_Bars_4_50f6ddba-aabf-48cf-830c-41b12fa7db73.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Raspberry_Frozen_Yogurt_Bars_4_50f6ddba-aabf-48cf-830c-41b12fa7db73.jpg",
+      "score": 102.0
+    },
+    "chocolate-chip-chewy-granola-bar-5-ct": {
+      "caption": "Chocolate Raspberry Frozen Yogurt Bars",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Dark_Chocolate_Cherry_Granola_Bars_6_aef631e9-8f0d-4bf1-a8e5-594d50ea889e.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg"
+      ],
+      "image_file": "Kodiak_Chocolate_Raspberry_Frozen_Yogurt_Bars_4_50f6ddba-aabf-48cf-830c-41b12fa7db73.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Raspberry_Frozen_Yogurt_Bars_4_50f6ddba-aabf-48cf-830c-41b12fa7db73.jpg",
+      "score": 129.0
+    },
+    "chocolate-chip-crunchy-granola-bars-6-ct": {
+      "caption": "Chocolate Raspberry Frozen Yogurt Bars",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Dark_Chocolate_Cherry_Granola_Bars_6_aef631e9-8f0d-4bf1-a8e5-594d50ea889e.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg"
+      ],
+      "image_file": "Kodiak_Chocolate_Raspberry_Frozen_Yogurt_Bars_4_50f6ddba-aabf-48cf-830c-41b12fa7db73.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Raspberry_Frozen_Yogurt_Bars_4_50f6ddba-aabf-48cf-830c-41b12fa7db73.jpg",
+      "score": 150.0
+    },
+    "chocolate-chip-maple-flapjack-power-cup": {
+      "caption": "Chocolate Chip Shortbread",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_167.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Single_Serve_Chocolate_Chip_Banana_Protein_Muffin_5_5f9ec567-7c59-4369-8785-c7cf23882327.jpg"
+      ],
+      "image_file": "Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg",
+      "score": 124.5
+    },
+    "chocolate-chip-minute-muffin-power-cup": {
+      "caption": "Chocolate Chip Banana Muffin",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Pumpkin_Chocolate_Chip_Muffin_Top_Cookie_6.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg"
+      ],
+      "image_file": "Single_Serve_Chocolate_Chip_Banana_Protein_Muffin_5_5f9ec567-7c59-4369-8785-c7cf23882327.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Single_Serve_Chocolate_Chip_Banana_Protein_Muffin_5_5f9ec567-7c59-4369-8785-c7cf23882327.jpg",
+      "score": 165.0
+    },
+    "chocolate-chip-muffin-mix": {
+      "caption": "Chocolate Chip Banana Muffin",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Pumpkin_Chocolate_Chip_Muffin_Top_Cookie_6.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg"
+      ],
+      "image_file": "Single_Serve_Chocolate_Chip_Banana_Protein_Muffin_5_5f9ec567-7c59-4369-8785-c7cf23882327.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Single_Serve_Chocolate_Chip_Banana_Protein_Muffin_5_5f9ec567-7c59-4369-8785-c7cf23882327.jpg",
+      "score": 148.5
+    },
+    "chocolate-chip-oatmeal-packets": {
+      "caption": "Oatmeal Chocolate Chip Cookies",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Single_Serve_Chocolate_Chip_Banana_Protein_Muffin_5_5f9ec567-7c59-4369-8785-c7cf23882327.jpg"
+      ],
+      "image_file": "2023-Chocolate-Chip-Cookies-7132_fa5af7b1-d9fe-45d8-aad9-20b4e890c021.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/2023-Chocolate-Chip-Cookies-7132_fa5af7b1-d9fe-45d8-aad9-20b4e890c021.jpg",
+      "score": 120.0
+    },
+    "chocolate-chip-oatmeal-power-cup": {
+      "caption": "Oatmeal Chocolate Chip Cookies",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Single_Serve_Chocolate_Chip_Banana_Protein_Muffin_5_5f9ec567-7c59-4369-8785-c7cf23882327.jpg"
+      ],
+      "image_file": "2023-Chocolate-Chip-Cookies-7132_fa5af7b1-d9fe-45d8-aad9-20b4e890c021.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/2023-Chocolate-Chip-Cookies-7132_fa5af7b1-d9fe-45d8-aad9-20b4e890c021.jpg",
+      "score": 129.0
+    },
+    "chocolate-chip-power-cakes-flapjack-waffle-mix": {
+      "caption": "Chocolate Chip Waffle Cookies",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Waffle_Icebox_Cake_1.jpg"
+      ],
+      "image_file": "Chocolate_Chip_Waffle_Cookies_1.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Chocolate_Chip_Waffle_Cookies_1.jpg",
+      "score": 138.0
+    },
+    "chocolate-chip-power-waffles": {
+      "caption": "Chocolate Chip Shortbread",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Raspberry_Frozen_Yogurt_Bars_4_50f6ddba-aabf-48cf-830c-41b12fa7db73.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1_Kodiak_Protein_Banana_Nut_Waffles_6.jpg"
+      ],
+      "image_file": "Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg",
+      "score": 115.5
+    },
+    "chocolate-chip-thick-and-fluffy-power-waffles": {
+      "caption": "Chocolate Chip Shortbread",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Raspberry_Frozen_Yogurt_Bars_4_50f6ddba-aabf-48cf-830c-41b12fa7db73.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1_Kodiak_Protein_Banana_Nut_Waffles_6.jpg"
+      ],
+      "image_file": "Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg",
+      "score": 115.5
+    },
+    "chocolate-fudge-brownie-mix": {
+      "caption": "Holiday Double Chocolate Peppermint Brownie Jar",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_500_0fa4668f-1a9b-4f2d-932f-8d598e0fa4da.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1_Kodiak_Brownie_Bar_7_a1c3af71-0f13-41f7-a82a-3ac1138f397f.jpg"
+      ],
+      "image_file": "20240719_Kodiak_Holiday_Double_Chocolate_Peppermint_Brownie_Jar_0134.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/20240719_Kodiak_Holiday_Double_Chocolate_Peppermint_Brownie_Jar_0134.jpg",
+      "score": 85.5
+    },
+    "chocolate-fudge-brownie-power-cup": {
+      "caption": "Chocolate Covered Strawberry Brownie Cup",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1_Kodiak_Brownie_Bar_7_a1c3af71-0f13-41f7-a82a-3ac1138f397f.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240719_Kodiak_Holiday_Double_Chocolate_Peppermint_Brownie_Jar_0134.jpg"
+      ],
+      "image_file": "Cups_Graphics_Roadmap_Recipe_Shoot0326_500_0fa4668f-1a9b-4f2d-932f-8d598e0fa4da.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_500_0fa4668f-1a9b-4f2d-932f-8d598e0fa4da.jpg",
+      "score": 123.0
+    },
+    "chocolate-granola": {
+      "caption": "Dark Chocolate Cherry Granola Bars",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Raspberry_Frozen_Yogurt_Bars_4_50f6ddba-aabf-48cf-830c-41b12fa7db73.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Dark_Chocolate_Banana_Bread_Mug_Cake_2_197d058a-43e9-4786-9f9e-ef6e2c7f9104.jpg"
+      ],
+      "image_file": "Kodiak_Dark_Chocolate_Cherry_Granola_Bars_6_aef631e9-8f0d-4bf1-a8e5-594d50ea889e.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Dark_Chocolate_Cherry_Granola_Bars_6_aef631e9-8f0d-4bf1-a8e5-594d50ea889e.jpg",
+      "score": 81.0
+    },
+    "chocolate-peanut-butter-flapjack-power-cup": {
+      "caption": "Chocolate Peanut Butter Cheesecake Dip",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/CHOCOLATE_PEANUT_BUTTER_BARS_1_69b26ea2-2544-4b2c-8873-e3194c9caccc.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Peanut_Butter_Mug_Cake_3.jpg"
+      ],
+      "image_file": "20240718_Kodiak_Chocolate_Peanut_Butter_Cheesecake_Dip_0092.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/20240718_Kodiak_Chocolate_Peanut_Butter_Cheesecake_Dip_0092.jpg",
+      "score": 139.5
+    },
+    "cinnamon-french-toast-sticks": {
+      "caption": "French Toast Sticks",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240827_Kodiak_Cinnamon_Pancake_French_Toast_0109_554f04bf-80c6-4a42-a0c4-adecfa8e8edb.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1-Kodiak_Overnight_French_Toast_Bake_8.jpg"
+      ],
+      "image_file": "1-Kodiak_French_Toast_Sticks.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/1-Kodiak_French_Toast_Sticks.jpg",
+      "score": 121.5
+    },
+    "cinnamon-maple-flapjack-power-cup": {
+      "caption": "Single-serve Lemon Ricotta Flapjack Cup",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240711_Kodiak_Apple_Cinnamon_Flapjack_Bake_0194_5adfbfab-eb16-4d7c-864a-a0ebf76475ed.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240711_Kodiak_Maple_Nut_Flapjack_Cookies_0106.jpg"
+      ],
+      "image_file": "Cups_Graphics_Roadmap_Recipe_Shoot0326_167.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_167.jpg",
+      "score": 123.0
+    },
+    "cinnamon-oat-apple-breakfast-bar": {
+      "caption": "Apple Cinnamon & Oat Muffins",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Single-serve_Cinnamon_Apple_Crisp_6_c824a3c1-0ad5-4b26-9925-10b93bfbae89.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240710_Kodiak_Apple_Cinnamon_Oat_Pecan_Sheet_Pan_Flapjack_0234_d3ff5db2-eae9-4cd4-814e-c788eef463c9.jpg"
+      ],
+      "image_file": "Kodiak_Apple_Muffin_3_0352f959-ce26-4b50-8dce-1de8f43395d7.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Apple_Muffin_3_0352f959-ce26-4b50-8dce-1de8f43395d7.jpg",
+      "score": 121.5
+    },
+    "cinnamon-oat-power-cakes-flapjack-waffle-mix": {
+      "caption": "Apple Cinnamon Sheet Pan Flapjack",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240711_Kodiak_Apple_Cinnamon_Flapjack_Bake_0194_5adfbfab-eb16-4d7c-864a-a0ebf76475ed.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2022-Oatmeal_Canister-Recipes_006.jpg"
+      ],
+      "image_file": "20240710_Kodiak_Apple_Cinnamon_Oat_Pecan_Sheet_Pan_Flapjack_0234_d3ff5db2-eae9-4cd4-814e-c788eef463c9.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/20240710_Kodiak_Apple_Cinnamon_Oat_Pecan_Sheet_Pan_Flapjack_0234_d3ff5db2-eae9-4cd4-814e-c788eef463c9.jpg",
+      "score": 129.0
+    },
+    "cinnamon-roll-muffin-power-cup": {
+      "caption": "Single-Serve Holiday Cinnamon Roll Muffin",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_108_ec214d8d-5bd5-4cce-871f-5254091f8034.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Single_Serve_French_Toast_Muffin_3_e55aa76d-e276-49e2-9d27-0bbd6040c4de.jpg"
+      ],
+      "image_file": "Cups_Graphics_Roadmap_Recipe_Shoot0326_459.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_459.jpg",
+      "score": 139.5
+    },
+    "classic-rolled-oats-oatmeal-canister": {
+      "caption": "Anti-Inflammatory Oatmeal",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Oatmeal_Recipe_Cottage_Cheese_Pancakes_1124_0143_1_71811fac-9bea-4ea4-85c9-4d81f028fd76.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1-Baked_Pumpkin_Oats_3.jpg"
+      ],
+      "image_file": "Kodiak_Anti-inflammatory_Oatmeal_3_8e01a09e-0729-4e3e-97ad-f6124c342e73.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Anti-inflammatory_Oatmeal_3_8e01a09e-0729-4e3e-97ad-f6124c342e73.jpg",
+      "score": 103.5
+    },
+    "cookie-butter-crunchy-granola-bars-6-ct": {
+      "caption": "Cookie Butter Cheesecake Cups",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Recipe_Chickpea_Cookie_Dough_Dip_0725_0055_e2bad75b-5b42-4597-b43e-d538aac516b3.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Dark_Chocolate_Cherry_Granola_Bars_6_aef631e9-8f0d-4bf1-a8e5-594d50ea889e.jpg"
+      ],
+      "image_file": "Kodiak_Cookie_Butter_Cheesecake_Bites_3_7499d68d-74cf-46f3-bb2c-84a39434a827.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Cookie_Butter_Cheesecake_Bites_3_7499d68d-74cf-46f3-bb2c-84a39434a827.jpg",
+      "score": 99.0
+    },
+    "cookie-butter-granola": {
+      "caption": "Cookie Butter Cheesecake Cups",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Recipe_Chickpea_Cookie_Dough_Dip_0725_0055_e2bad75b-5b42-4597-b43e-d538aac516b3.jpg"
+      ],
+      "image_file": "Kodiak_Cookie_Butter_Cheesecake_Bites_3_7499d68d-74cf-46f3-bb2c-84a39434a827.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Cookie_Butter_Cheesecake_Bites_3_7499d68d-74cf-46f3-bb2c-84a39434a827.jpg",
+      "score": 99.0
+    },
+    "cookie-butter-overnight-oats": {
+      "caption": "Cookie Butter Cheesecake Cups",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Maple_Pecan_Baked_Oatmeal_Squares_5_95973688-2b9a-443c-8b1f-0ea4d600e1d0.jpg"
+      ],
+      "image_file": "Kodiak_Cookie_Butter_Cheesecake_Bites_3_7499d68d-74cf-46f3-bb2c-84a39434a827.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Cookie_Butter_Cheesecake_Bites_3_7499d68d-74cf-46f3-bb2c-84a39434a827.jpg",
+      "score": 132.0
+    },
+    "copy-of-gift-card-100": {
+      "caption": "Inside the Mind of an Ultrarunner",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Portfolio_Power_Cakes_1025_0403.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Recipes_Smores_Waffles_0325_0008_902c22e4-9a64-423b-a3c0-346a2ec772c9.jpg"
+      ],
+      "image_file": "9Z7A2177_9c27b81c-4252-4779-9d4e-541aba6b639b.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/9Z7A2177_9c27b81c-4252-4779-9d4e-541aba6b639b.jpg",
+      "score": 25.5
+    },
+    "cranberry-chocolate-chip-trail-bars-5-ct": {
+      "caption": "Chocolate Raspberry Frozen Yogurt Bars",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Single_Serve_Chocolate_Chip_Banana_Protein_Muffin_5_5f9ec567-7c59-4369-8785-c7cf23882327.jpg"
+      ],
+      "image_file": "Kodiak_Chocolate_Raspberry_Frozen_Yogurt_Bars_4_50f6ddba-aabf-48cf-830c-41b12fa7db73.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Raspberry_Frozen_Yogurt_Bars_4_50f6ddba-aabf-48cf-830c-41b12fa7db73.jpg",
+      "score": 115.5
+    },
+    "dark-chocolate-muffin-mix": {
+      "caption": "Dark Chocolate Banana Bread",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Dark_Chocolate_Banana_Bread_Mug_Cake_2_197d058a-43e9-4786-9f9e-ef6e2c7f9104.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Recipe_Dark_Chocolate_Protein_Boost_Stack_0725_0070_bfdffbed-4f0a-4f8a-be56-05b2dfe6fe9c.jpg"
+      ],
+      "image_file": "20240625_Kodiak_Dark_Chocolate_Banana_Bread_0167.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/20240625_Kodiak_Dark_Chocolate_Banana_Bread_0167.jpg",
+      "score": 105.0
+    },
+    "dark-chocolate-overnight-oats": {
+      "caption": "Dark Chocolate Banana Bread Mug Cake",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Recipe_Dark_Chocolate_Protein_Boost_Stack_0725_0070_bfdffbed-4f0a-4f8a-be56-05b2dfe6fe9c.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2_e4515384-6e7d-4d60-ae20-3f006954f033.jpg"
+      ],
+      "image_file": "Dark_Chocolate_Banana_Bread_Mug_Cake_2_197d058a-43e9-4786-9f9e-ef6e2c7f9104.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Dark_Chocolate_Banana_Bread_Mug_Cake_2_197d058a-43e9-4786-9f9e-ef6e2c7f9104.jpg",
+      "score": 174.0
+    },
+    "dark-chocolate-power-cakes-flapjack-waffle-mix": {
+      "caption": "Dark Chocolate Protein Stack",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2_e4515384-6e7d-4d60-ae20-3f006954f033.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Banana_Peel_Muffins_6_17ea27ef-534a-4f3a-9937-cfc600dc2d77.jpg"
+      ],
+      "image_file": "Kodiak_Recipe_Dark_Chocolate_Protein_Boost_Stack_0725_0070_bfdffbed-4f0a-4f8a-be56-05b2dfe6fe9c.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Recipe_Dark_Chocolate_Protein_Boost_Stack_0725_0070_bfdffbed-4f0a-4f8a-be56-05b2dfe6fe9c.jpg",
+      "score": 136.5
+    },
+    "dark-chocolate-power-waffles": {
+      "caption": "Dark Chocolate Protein Stack",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2_e4515384-6e7d-4d60-ae20-3f006954f033.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Dark_Chocolate_Banana_Bread_Mug_Cake_2_197d058a-43e9-4786-9f9e-ef6e2c7f9104.jpg"
+      ],
+      "image_file": "Kodiak_Recipe_Dark_Chocolate_Protein_Boost_Stack_0725_0070_bfdffbed-4f0a-4f8a-be56-05b2dfe6fe9c.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Recipe_Dark_Chocolate_Protein_Boost_Stack_0725_0070_bfdffbed-4f0a-4f8a-be56-05b2dfe6fe9c.jpg",
+      "score": 115.5
+    },
+    "double-dark-chocolate-muffin-cup": {
+      "caption": "Chocolate Chip Banana Muffin",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Dark_Chocolate_Banana_Bread_Mug_Cake_2_197d058a-43e9-4786-9f9e-ef6e2c7f9104.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240625_Kodiak_Dark_Chocolate_Banana_Bread_0167.jpg"
+      ],
+      "image_file": "Single_Serve_Chocolate_Chip_Banana_Protein_Muffin_5_5f9ec567-7c59-4369-8785-c7cf23882327.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Single_Serve_Chocolate_Chip_Banana_Protein_Muffin_5_5f9ec567-7c59-4369-8785-c7cf23882327.jpg",
+      "score": 115.5
+    },
+    "english-muffin-turkey-sausage-breakfast-sandwich": {
+      "caption": "Breakfast Ice Cream Sandwich",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2024-Breakfast-Sausage-Dippers-0530_447d8809-988f-4134-b3d2-d17b867b5065.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2024-Waffle-Sandwich-1241.jpg"
+      ],
+      "image_file": "Web_Recipes_from_Social_Breakfast_Ice_Cream_Sandwich_0226_0104_3546f686-db8e-4942-9b50-906f04b52d17.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Web_Recipes_from_Social_Breakfast_Ice_Cream_Sandwich_0226_0104_3546f686-db8e-4942-9b50-906f04b52d17.jpg",
+      "score": 94.5
+    },
+    "gift-card-40": {
+      "caption": "Fuel your frontier with 14g protein and 100% whole grains — Wasatch dawn, cast-iron stack on pine table.",
+      "channel": "instagram",
+      "fallbacks": [],
+      "image_file": "001-05606-Kodiak_Cakes-Cups-Photoshop_Rework_Brownie-01_2c3938e5-63de-4af7-8e11-538bc87d1aef.jpg",
+      "matched": false,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/001-05606-Kodiak_Cakes-Cups-Photoshop_Rework_Brownie-01_2c3938e5-63de-4af7-8e11-538bc87d1aef.jpg",
+      "score": 0.0
+    },
+    "gift-card-50": {
+      "caption": "Fuel your frontier with 14g protein and 100% whole grains — Wasatch dawn, cast-iron stack on pine table.",
+      "channel": "instagram",
+      "fallbacks": [],
+      "image_file": "001-05606-Kodiak_Cakes-Cups-Photoshop_Rework_Brownie-01_2c3938e5-63de-4af7-8e11-538bc87d1aef.jpg",
+      "matched": false,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/001-05606-Kodiak_Cakes-Cups-Photoshop_Rework_Brownie-01_2c3938e5-63de-4af7-8e11-538bc87d1aef.jpg",
+      "score": 0.0
+    },
+    "gift-card-75": {
+      "caption": "Fuel your frontier with 14g protein and 100% whole grains — Wasatch dawn, cast-iron stack on pine table.",
+      "channel": "instagram",
+      "fallbacks": [],
+      "image_file": "001-05606-Kodiak_Cakes-Cups-Photoshop_Rework_Brownie-01_2c3938e5-63de-4af7-8e11-538bc87d1aef.jpg",
+      "matched": false,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/001-05606-Kodiak_Cakes-Cups-Photoshop_Rework_Brownie-01_2c3938e5-63de-4af7-8e11-538bc87d1aef.jpg",
+      "score": 0.0
+    },
+    "gluten-free-frontier-oat-power-waffles": {
+      "caption": "Gluten-Free Honey & Oat Bread",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Gluten-free_Waffle_Sliders_1.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Homemade_Cheese_Crackers_4_0375efa5-6597-4b8b-b0a0-684b5bdfb922.jpg"
+      ],
+      "image_file": "20240710_Kodiak_Gluten_Free_Honey_Oat_Bread_0460_95779575-7307-45ba-aff6-3f8669c15b05.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/20240710_Kodiak_Gluten_Free_Honey_Oat_Bread_0460_95779575-7307-45ba-aff6-3f8669c15b05.jpg",
+      "score": 139.5
+    },
+    "grizzly-size-buttermilk-power-cakes-mix": {
+      "caption": "Power Waffle Breakfast Tacos",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Community_Kitchen_Protein_Supreme_Kodiak_Waffle_1025_0061_7ddc0574-0de5-42b4-aae8-70e9f1a0fa7b.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Web_Recipes_from_Social_Waffle_Pickles_0226_0070_7f43e113-dc84-4b5d-bf7c-ad588ad98c15.jpg"
+      ],
+      "image_file": "Power_Waffle_Breakfast_Tacos_Frozen_Recipe_Reshoot_0526_0038.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Power_Waffle_Breakfast_Tacos_Frozen_Recipe_Reshoot_0526_0038.jpg",
+      "score": 115.5
+    },
+    "homestyle-power-waffles": {
+      "caption": "Apple Brown Sugar Power Waffles",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Glazed_Donut_Waffles_2_b3bdb614-2d67-44c7-862d-f528d4c8726d.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1_Kodiak_Protein_Banana_Nut_Waffles_6.jpg"
+      ],
+      "image_file": "Recipe_Apple_Brown_Sugar_Power_Waffles_0225_0023_646297b8-ef0b-4879-a94c-e56dd3ec5533.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Recipe_Apple_Brown_Sugar_Power_Waffles_0225_0023_646297b8-ef0b-4879-a94c-e56dd3ec5533.jpg",
+      "score": 82.5
+    },
+    "honey-oat-almond-overnight-oats": {
+      "caption": "Gluten-Free Honey & Oat Bread",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Maple_Pecan_Baked_Oatmeal_Squares_5_95973688-2b9a-443c-8b1f-0ea4d600e1d0.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Pumpkin_Oat_Energy_Bites_5_5c903881-39ad-4c72-a985-25cb80f9ea09.jpg"
+      ],
+      "image_file": "20240710_Kodiak_Gluten_Free_Honey_Oat_Bread_0460_95779575-7307-45ba-aff6-3f8669c15b05.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/20240710_Kodiak_Gluten_Free_Honey_Oat_Bread_0460_95779575-7307-45ba-aff6-3f8669c15b05.jpg",
+      "score": 81.0
+    },
+    "honey-oat-granola": {
+      "caption": "Gluten-Free Honey & Oat Bread",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Recipe_Caramelized_Banana_Yogurt_Granola_Bowl_0626_0036_4fc7c283-3349-4d05-a72d-f83a2f63a489.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Yogurt_Pie_4_5962169f-9b1d-40b5-a000-c2d361f2dfc2.jpg"
+      ],
+      "image_file": "20240710_Kodiak_Gluten_Free_Honey_Oat_Bread_0460_95779575-7307-45ba-aff6-3f8669c15b05.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/20240710_Kodiak_Gluten_Free_Honey_Oat_Bread_0460_95779575-7307-45ba-aff6-3f8669c15b05.jpg",
+      "score": 81.0
+    },
+    "kodiak-cakes-blueberry-lemon-muffin-mix": {
+      "caption": "Single-Serve Lemon Poppy Seed Blueberry Muffin",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Recipe_Blueberry_Lemon_Crumb_Bars_0725_0168_a598274b-46aa-4aec-9838-2bb9f69915f9.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Single_Serve_Blueberry_Flax_Muffin_6_814f4ca4-f0af-467b-a6cf-55effa503005.jpg"
+      ],
+      "image_file": "Cups_Graphics_Roadmap_Recipe_Shoot0326_23.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_23.jpg",
+      "score": 117.0
+    },
+    "kodiak-cakes-blueberry-maple-flapjack-power-cup": {
+      "caption": "Single-serve Lemon Ricotta Flapjack Cup",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240705_Kodiak_Blueberry_Flapjack_Bundt_Cake_0280.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240711_Kodiak_Maple_Nut_Flapjack_Cookies_0106.jpg"
+      ],
+      "image_file": "Cups_Graphics_Roadmap_Recipe_Shoot0326_167.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_167.jpg",
+      "score": 123.0
+    },
+    "kodiak-cakes-chewy-bar-double-chocolate-5-ct": {
+      "caption": "Double Chocolate Brownie Bars",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chewy_Double_Chocolate_Peppermint_3.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Raspberry_Frozen_Yogurt_Bars_4_50f6ddba-aabf-48cf-830c-41b12fa7db73.jpg"
+      ],
+      "image_file": "1_Kodiak_Brownie_Bar_7_a1c3af71-0f13-41f7-a82a-3ac1138f397f.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/1_Kodiak_Brownie_Bar_7_a1c3af71-0f13-41f7-a82a-3ac1138f397f.jpg",
+      "score": 126.0
+    },
+    "kodiak-cakes-pumpkin-chocolate-chip-muffin-cup": {
+      "caption": "Chocolate Chip Banana Muffin",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Pumpkin_Chocolate_Chip_Muffin_Top_Cookie_6.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg"
+      ],
+      "image_file": "Single_Serve_Chocolate_Chip_Banana_Protein_Muffin_5_5f9ec567-7c59-4369-8785-c7cf23882327.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Single_Serve_Chocolate_Chip_Banana_Protein_Muffin_5_5f9ec567-7c59-4369-8785-c7cf23882327.jpg",
+      "score": 165.0
+    },
+    "kodiak-cubs-adventure-flapjacks": {
+      "caption": "Lemon Poppy Flapjacks",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240725_Kodiak_Gingerbread_Flapjacks_0233_520x500_8714cc0a-a9e2-42eb-850f-4132eed343fd.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240725_Kodiak_Monster_Flapjacks_0172_3c906155-4a6f-4153-93ba-359e74046840.jpg"
+      ],
+      "image_file": "20240626_Kodiak_Lemon_Poppy_Flapjacks_0199.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/20240626_Kodiak_Lemon_Poppy_Flapjacks_0199.jpg",
+      "score": 40.5
+    },
+    "kodiak-pumpkin-power-cakes-flapjack-and-waffle-mix": {
+      "caption": "Power Waffle Breakfast Tacos",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240725_Kodiak_Pumpkin_Flapjacks_With_Whipped_Pumpkin_Maple_Butter_Cranberries_And_Walnuts_0377.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Web_Recipes_from_Social_Pumpkin_Protein_Balls_0226_0052_4668d2bf-939c-4e3a-80d2-8662a17f5a53.jpg"
+      ],
+      "image_file": "Power_Waffle_Breakfast_Tacos_Frozen_Recipe_Reshoot_0526_0038.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Power_Waffle_Breakfast_Tacos_Frozen_Recipe_Reshoot_0526_0038.jpg",
+      "score": 97.5
+    },
+    "maple-and-brown-sugar-oatmeal-packets": {
+      "caption": "Single-Serve Maple Brown Sugar Oatmeal Muffin",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Maple_Pecan_Muffin_5_066698e0-e74b-4170-93cd-92d9426966f2.jpg"
+      ],
+      "image_file": "Kodiak_Maple_Brown_Sugar_Muffin_2_718257e7-9085-4514-ae6f-056d42d223ea.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Maple_Brown_Sugar_Muffin_2_718257e7-9085-4514-ae6f-056d42d223ea.jpg",
+      "score": 192.0
+    },
+    "maple-brown-sugar-oatmeal-power-cup": {
+      "caption": "Single-Serve Maple Brown Sugar Oatmeal Muffin",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_259.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Recipe_Apple_Brown_Sugar_Power_Waffles_0225_0023_646297b8-ef0b-4879-a94c-e56dd3ec5533.jpg"
+      ],
+      "image_file": "Kodiak_Maple_Brown_Sugar_Muffin_2_718257e7-9085-4514-ae6f-056d42d223ea.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Maple_Brown_Sugar_Muffin_2_718257e7-9085-4514-ae6f-056d42d223ea.jpg",
+      "score": 205.5
+    },
+    "maple-brown-sugar-peak-oatmeal-packets": {
+      "caption": "Single-Serve Maple Brown Sugar Oatmeal Muffin",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Maple_Pecan_Muffin_5_066698e0-e74b-4170-93cd-92d9426966f2.jpg"
+      ],
+      "image_file": "Kodiak_Maple_Brown_Sugar_Muffin_2_718257e7-9085-4514-ae6f-056d42d223ea.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Maple_Brown_Sugar_Muffin_2_718257e7-9085-4514-ae6f-056d42d223ea.jpg",
+      "score": 192.0
+    },
+    "maple-pecan-overnight-oats": {
+      "caption": "Maple Pecan Baked Oatmeal Squares",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Maple_Pecan_Muffin_5_066698e0-e74b-4170-93cd-92d9426966f2.jpg"
+      ],
+      "image_file": "Maple_Pecan_Baked_Oatmeal_Squares_5_95973688-2b9a-443c-8b1f-0ea4d600e1d0.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Maple_Pecan_Baked_Oatmeal_Squares_5_95973688-2b9a-443c-8b1f-0ea4d600e1d0.jpg",
+      "score": 172.5
+    },
+    "oatmeal-chocolate-chip-protein-balls": {
+      "caption": "Oatmeal Chocolate Chip Cookies",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240620_Kodiak_Chocolate_Oatmeal_Protein_Bar_0306_eeda22a4-7ffa-42f9-97ab-d8c2f0bcb1eb.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Single_Serve_Chocolate_Chip_Banana_Protein_Muffin_5_5f9ec567-7c59-4369-8785-c7cf23882327.jpg"
+      ],
+      "image_file": "2023-Chocolate-Chip-Cookies-7132_fa5af7b1-d9fe-45d8-aad9-20b4e890c021.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/2023-Chocolate-Chip-Cookies-7132_fa5af7b1-d9fe-45d8-aad9-20b4e890c021.jpg",
+      "score": 120.0
+    },
+    "oatmeal-variety-pack-1": {
+      "caption": "Berry Baked Oatmeal Bars",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Berry_Oatmeal_Waffles_5.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Maple_Brown_Sugar_Muffin_2_718257e7-9085-4514-ae6f-056d42d223ea.jpg"
+      ],
+      "image_file": "Kodiak_Berry_Baked_Oatmeal_Bars_4_bf4b4c96-327d-43b0-8c89-2d1d420881be.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Berry_Baked_Oatmeal_Bars_4_bf4b4c96-327d-43b0-8c89-2d1d420881be.jpg",
+      "score": 49.5
+    },
+    "odiak-cakes-blueberry-oat-breakfast-bar": {
+      "caption": "Lemon Blueberry Bars",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Recipe_Fiber-Packed_Banana_Oat_Breakfast_Cookies__0526_0068_8efd9185-1689-45e8-9301-dee61f9958d5.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1-Banana_Oat_Breakfast_Cookies_920e13a8-9ea2-40f3-b610-f814ecabe15d.jpg"
+      ],
+      "image_file": "Kodiak_Recipe_Blueberry_Lemon_Crumb_Bars_0725_0168_a598274b-46aa-4aec-9838-2bb9f69915f9.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Recipe_Blueberry_Lemon_Crumb_Bars_0725_0168_a598274b-46aa-4aec-9838-2bb9f69915f9.jpg",
+      "score": 93.0
+    },
+    "original-gluten-free-flapjack-waffle-mix": {
+      "caption": "Gluten-Free Waffle Sliders",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Cinnamon_Sugar_Donut_5_cc796694-8920-400d-92bf-e7c9f58618fd.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Homemade_Cheese_Crackers_4_0375efa5-6597-4b8b-b0a0-684b5bdfb922.jpg"
+      ],
+      "image_file": "Kodiak_Gluten-free_Waffle_Sliders_1.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Gluten-free_Waffle_Sliders_1.jpg",
+      "score": 133.5
+    },
+    "peach-overnight-oats": {
+      "caption": "Single-Serve Peach Pie Baked Oats",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Maple_Pecan_Baked_Oatmeal_Squares_5_95973688-2b9a-443c-8b1f-0ea4d600e1d0.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Anti-inflammatory_Oatmeal_3_8e01a09e-0729-4e3e-97ad-f6124c342e73.jpg"
+      ],
+      "image_file": "Kodiak_Peach_Pie_Baked_Oats_4_399fc359-4c94-4f92-8289-88c82d9e7ac5.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Peach_Pie_Baked_Oats_4_399fc359-4c94-4f92-8289-88c82d9e7ac5.jpg",
+      "score": 97.5
+    },
+    "peanut-butter-chocolate-chip-chewy-granola-bar-5-ct": {
+      "caption": "Chocolate Peanut Butter Bars",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Raspberry_Frozen_Yogurt_Bars_4_50f6ddba-aabf-48cf-830c-41b12fa7db73.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240718_Kodiak_Chocolate_Peanut_Butter_Cheesecake_Dip_0092.jpg"
+      ],
+      "image_file": "CHOCOLATE_PEANUT_BUTTER_BARS_1_69b26ea2-2544-4b2c-8873-e3194c9caccc.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/CHOCOLATE_PEANUT_BUTTER_BARS_1_69b26ea2-2544-4b2c-8873-e3194c9caccc.jpg",
+      "score": 162.0
+    },
+    "peanut-butter-chocolate-chip-oatmeal-power-cup": {
+      "caption": "Chocolate Peanut Butter Cheesecake Dip",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/CHOCOLATE_PEANUT_BUTTER_BARS_1_69b26ea2-2544-4b2c-8873-e3194c9caccc.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2023-Chocolate-Chip-Cookies-7132_fa5af7b1-d9fe-45d8-aad9-20b4e890c021.jpg"
+      ],
+      "image_file": "20240718_Kodiak_Chocolate_Peanut_Butter_Cheesecake_Dip_0092.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/20240718_Kodiak_Chocolate_Peanut_Butter_Cheesecake_Dip_0092.jpg",
+      "score": 135.0
+    },
+    "peanut-butter-crunchy-granola-bars-6-ct": {
+      "caption": "Chocolate Peanut Butter Bars",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240718_Kodiak_Chocolate_Peanut_Butter_Cheesecake_Dip_0092.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Dark_Chocolate_Cherry_Granola_Bars_6_aef631e9-8f0d-4bf1-a8e5-594d50ea889e.jpg"
+      ],
+      "image_file": "CHOCOLATE_PEANUT_BUTTER_BARS_1_69b26ea2-2544-4b2c-8873-e3194c9caccc.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/CHOCOLATE_PEANUT_BUTTER_BARS_1_69b26ea2-2544-4b2c-8873-e3194c9caccc.jpg",
+      "score": 121.5
+    },
+    "raspberry-lemon-power-cakes-flapjack-waffle-mix": {
+      "caption": "Raspberry Lemon Bars",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Raspberry_Lemon_Scones_5_75e879ab-db0c-47bb-9e36-94ab1f54ffb1.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1_-_lemon_rasp_ricotta_cakes_3263094a-3273-4781-b0b3-e59eb30f666a.jpg"
+      ],
+      "image_file": "Kodiak_Raspberry_Lemon_Bars_7_126c166f-253a-4352-87ce-bf7208c635d5.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Raspberry_Lemon_Bars_7_126c166f-253a-4352-87ce-bf7208c635d5.jpg",
+      "score": 130.5
+    },
+    "salted-caramel-granola": {
+      "caption": "Salted Caramel Cupcakes",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/salted_caramel_brownie_1_d5afcfe1-4a12-4935-a65b-1a80dde6e092.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Recipe_Caramelized_Banana_Yogurt_Granola_Bowl_0626_0036_4fc7c283-3349-4d05-a72d-f83a2f63a489.jpg"
+      ],
+      "image_file": "SALTED_CARAMEL_CUPCAKES_1_6c19c12e-de04-4013-bb3a-c1aed354c22a.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/SALTED_CARAMEL_CUPCAKES_1_6c19c12e-de04-4013-bb3a-c1aed354c22a.jpg",
+      "score": 81.0
+    },
+    "sausage-cheddar-cheese-breakfast-sandwich": {
+      "caption": "Breakfast Ice Cream Sandwich",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2024-Breakfast-Sausage-Dippers-0530_447d8809-988f-4134-b3d2-d17b867b5065.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Grilled_Cheese_Waffle_Sandwich_c49120c9-3609-4387-849c-ef67341e7a74.jpg"
+      ],
+      "image_file": "Web_Recipes_from_Social_Breakfast_Ice_Cream_Sandwich_0226_0104_3546f686-db8e-4942-9b50-906f04b52d17.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Web_Recipes_from_Social_Breakfast_Ice_Cream_Sandwich_0226_0104_3546f686-db8e-4942-9b50-906f04b52d17.jpg",
+      "score": 94.5
+    },
+    "smores-chewy-granola-bar-5-ct": {
+      "caption": "Dark Chocolate Cherry Granola Bars",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240726_Kodiak_Mummy_Granola_Bars_0091_b03fd690-ea07-449e-9cca-d9e2895ccdc7.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Raspberry_Frozen_Yogurt_Bars_4_50f6ddba-aabf-48cf-830c-41b12fa7db73.jpg"
+      ],
+      "image_file": "Kodiak_Dark_Chocolate_Cherry_Granola_Bars_6_aef631e9-8f0d-4bf1-a8e5-594d50ea889e.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Dark_Chocolate_Cherry_Granola_Bars_6_aef631e9-8f0d-4bf1-a8e5-594d50ea889e.jpg",
+      "score": 84.0
+    },
+    "smores-flapjack-power-cup": {
+      "caption": "Single-serve Lemon Ricotta Flapjack Cup",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_370.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2024-Pancake-Bowl-2185.jpg"
+      ],
+      "image_file": "Cups_Graphics_Roadmap_Recipe_Shoot0326_167.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_167.jpg",
+      "score": 106.5
+    },
+    "snickerdoodle-protein-balls": {
+      "caption": "Pumpkin Protein Balls",
+      "channel": "blog",
+      "fallbacks": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1-Matcha_Protein_Balls_f9a88529-fb66-4edf-819b-3437d23bc3a0.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240712_Kodiak_Football_Protein_Balls7494_67e7d0af-39cf-47ab-92de-6a4f1d597a95.jpg"
+      ],
+      "image_file": "Web_Recipes_from_Social_Pumpkin_Protein_Balls_0226_0052_4668d2bf-939c-4e3a-80d2-8662a17f5a53.jpg",
+      "matched": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Web_Recipes_from_Social_Pumpkin_Protein_Balls_0226_0052_4668d2bf-939c-4e3a-80d2-8662a17f5a53.jpg",
+      "score": 84.0
+    }
+  },
+  "metadata": {
+    "channel_distribution": {
+      "blog": 85,
+      "instagram": 3
+    },
+    "generated": "deterministic",
+    "match_threshold": 2.0,
+    "matched": 85,
+    "model_note": "deterministic keyword+metadata overlap scoring (no vector cosine); channel-weighted toward blog/instagram lifestyle scenes over catalog pack-shots",
+    "reconciled_to_real_keys": true,
+    "source": {
+      "catalog": "data/products/kodiak-full-catalog.json",
+      "embeddings": "data/vectors/kodiak-embeddings.jsonl"
+    },
+    "total_skus": 88
+  }
+}
