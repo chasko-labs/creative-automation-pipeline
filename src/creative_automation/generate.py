@@ -52,6 +52,10 @@ _HEADLINE_PX = {"1x1": 56, "9x16": 64, "16x9": 72}
 
 # sku-photo-map: catalog handle -> best real lifestyle DAM key (full key, NOT under
 # the dam/ prefix). Loaded once; the file ships in the deployment (Lambda-safe).
+# Default (repo-checkout) location. _resolve_map_path() picks the first candidate
+# that actually exists at runtime — the install layout differs between local dev
+# (parents[2] IS the repo root with data/) and the Lambda image (pip install .
+# lands the module under site-packages, where parents[2]/data does not exist).
 _SKU_PHOTO_MAP_PATH = Path(__file__).parents[2] / "data" / "products" / "sku-photo-map.json"
 # Kodiak logo candidates in the DAM (full keys). First that fetches wins; graceful skip.
 _LOGO_KEYS = (
@@ -104,17 +108,40 @@ def _hex_to_rgb(h: str) -> tuple[int, int, int]:
 _SKU_PHOTO_MAP_CACHE: Optional[dict] = None
 
 
-def _load_sku_photo_map() -> dict:
-    """Load data/products/sku-photo-map.json once. Returns the {handle: entry} map.
+def _resolve_map_path() -> Path:
+    """Pick the sku-photo-map path that exists under the current install layout.
 
-    Module-level cache; Lambda-safe (the file ships in the deployment). Returns an
-    empty dict on any read/parse failure so the caller falls through to disk/mock.
+    Candidate order (first existing wins):
+      a. $SKU_PHOTO_MAP_PATH (Lambda points this at the shipped copy in /var/task)
+      b. Path(__file__).parents[2]/data/products/sku-photo-map.json (repo checkout)
+      c. Path(__file__).parent/data/sku-photo-map.json (map packaged with the module)
+    Falls back to the parents[2] default even if absent, so a load failure names a
+    sensible path in its error message.
+    """
+    candidates: list[Path] = []
+    env = os.getenv("SKU_PHOTO_MAP_PATH")
+    if env:
+        candidates.append(Path(env))
+    candidates.append(_SKU_PHOTO_MAP_PATH)
+    candidates.append(Path(__file__).parent / "data" / "sku-photo-map.json")
+    for c in candidates:
+        if c.exists():
+            return c
+    return _SKU_PHOTO_MAP_PATH
+
+
+def _load_sku_photo_map() -> dict:
+    """Load the sku-photo-map once. Returns the {handle: entry} map.
+
+    Path resolved by _resolve_map_path() so it works both in local dev and in the
+    Lambda image. Module-level cache. Returns an empty dict on any read/parse
+    failure so the caller falls through to disk/mock.
     """
     global _SKU_PHOTO_MAP_CACHE
     if _SKU_PHOTO_MAP_CACHE is not None:
         return _SKU_PHOTO_MAP_CACHE
     try:
-        data = json.loads(_SKU_PHOTO_MAP_PATH.read_text(encoding="utf-8"))
+        data = json.loads(_resolve_map_path().read_text(encoding="utf-8"))
         _SKU_PHOTO_MAP_CACHE = data.get("map", {}) if isinstance(data, dict) else {}
     except Exception as e:  # noqa: BLE001 — missing/unreadable map -> disk/mock fallback
         print(f"[generate] sku-photo-map load skipped: {e}", file=sys.stderr)

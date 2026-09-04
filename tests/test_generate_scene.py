@@ -5,6 +5,7 @@ and the scene composer is fed a small local temp PNG as the "real photo".
 """
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 from PIL import Image
@@ -76,3 +77,34 @@ def test_generate_hero_dam_disabled_falls_back_gracefully(tmp_path: Path, monkey
     # DAM + disk both unavailable -> true last-resort placeholder label
     assert source == generate.FALLBACK_SOURCE
     assert "mock" not in source
+
+
+def test_resolve_map_path_env_override(tmp_path: Path, monkeypatch) -> None:
+    # env var points at a shipped copy -> _resolve_map_path returns it AND the
+    # resolver reads that map (mirrors the Lambda /var/task layout).
+    map_file = tmp_path / "sku-photo-map.json"
+    map_file.write_text(
+        json.dumps(
+            {
+                "map": {
+                    "x-sku": {
+                        "photo_key": "brands/kodiak/raw-ingest/x.jpg",
+                        "image_file": "x.jpg",
+                        "channel": "blog",
+                        "caption": "c",
+                        "score": 1,
+                        "fallbacks": [],
+                        "matched": True,
+                    }
+                }
+            }
+        ),
+        encoding="utf-8",
+    )
+    monkeypatch.setenv("SKU_PHOTO_MAP_PATH", str(map_file))
+    generate._SKU_PHOTO_MAP_CACHE = None
+    try:
+        assert generate._resolve_map_path() == map_file
+        assert generate._resolve_dam_photo("x-sku") == "brands/kodiak/raw-ingest/x.jpg"
+    finally:
+        generate._SKU_PHOTO_MAP_CACHE = None
