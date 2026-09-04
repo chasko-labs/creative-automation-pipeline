@@ -182,7 +182,7 @@ section.xl{padding:var(--section-space-xl) 0}
 .render-tile .render-cap{padding:9px 11px;background:var(--gradients-kraft\.surface)}
 .render-tile .render-cap b{font:700 12px/1.2 "museo-sans",sans-serif;color:var(--chocolate);display:block}
 /* #6B5A53 on the parchment/kraft surface = ~5.3:1 (AA normal) */
-.render-tile .render-cap .dims{color:#6B5A53;font:500 11px/1.4 "museo-sans",sans-serif;margin-top:3px}
+.render-tile .render-cap .dims{color:var(--colors-neutral-600);font:500 11px/1.4 "museo-sans",sans-serif;margin-top:3px}
 
 /* === Provenance transparency panel — native <details>/<summary> disclosure === */
 .provenance{margin-top:14px;border:1px solid var(--stone);border-radius:6px;background:var(--gradients-kraft\.surface);overflow:hidden}
@@ -196,7 +196,7 @@ section.xl{padding:var(--section-space-xl) 0}
 .provenance .prov-group>h4{margin:0 0 6px;font:700 11px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--red)}
 .provenance dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px}
 /* #5A4A43 on parchment = ~6.4:1 (AA normal) — labels */
-.provenance dt{font:700 11px/1.5 "museo-sans",sans-serif;color:#5A4A43;white-space:nowrap}
+.provenance dt{font:700 11px/1.5 "museo-sans",sans-serif;color:var(--colors-neutral-700);white-space:nowrap}
 /* #3B2316 chocolate on parchment = ~11.7:1 — values */
 .provenance dd{margin:0;font:500 12px/1.5 "museo-sans",sans-serif;color:var(--brown-kodiak);word-break:break-word}
 .provenance .prov-pill{display:inline-block;padding:1px 7px;border-radius:999px;font:700 10px/1.6 "museo-sans",sans-serif;letter-spacing:.03em}
@@ -223,18 +223,86 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* the grain sits above content; ensure card surfaces + header stack cleanly beneath it */
 .wrap,header,.kodiak-topstrip{position:relative;z-index:1}
 /* contrast bump for previously-faint muted greys used as body/hint text on parchment */
-.hint{color:#6B5A53}
+.hint{color:var(--colors-neutral-600)}
 /* #8C7A70 (~3.9:1) fails AA for normal text on parchment — lift to #6B5A53 (~6.1:1) */
-.tile .meta .small{color:#6B5A53}
-#buildStamp{color:#6B5A53}
+.tile .meta .small{color:var(--colors-neutral-600)}
+#buildStamp{color:var(--colors-neutral-600)}
+
+/* === Wave2 redesign (A–G) — token-driven, single source of truth = design/tokens/kodiak.json === */
+/* A. simplified header — headline always full-width of its container, fluid clamp() type.
+   top strip removed from DOM; header is now just logo + full-bleed headline plate. */
+.kodiak-header .header__inner{width:100%}
+.kodiak-headline-plate{flex:1 1 100%;min-width:0;background:var(--colors-background-nature);border-radius:var(--radii-md);padding:var(--spacing-sm) var(--spacing-md);box-shadow:var(--shadows-sm)}
+.kodiak-headline-plate h1{margin:0;width:100%;color:var(--colors-foreground-inverse);font-family:"gin",Rockwell,Clarendon,Georgia,serif;font-weight:800;line-height:1.05;letter-spacing:.02em;text-transform:none;
+  /* fluid + full width: scales 20px→38px across viewport, spans the plate at every breakpoint */
+  font-size:clamp(20px, 4.2vw, 38px)}
+
+/* C+D+E+F. control row — [market button] [seasonal menu] [featured-frontier + languages inline], one responsive row */
+.ff-controlrow{display:flex;flex-wrap:wrap;align-items:stretch;gap:var(--spacing-sm);margin-top:var(--spacing-md)}
+.ff-controlrow .ff-detail{flex:1 1 220px;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:2px;padding:var(--spacing-xs) var(--spacing-sm);
+  background:var(--colors-neutral-100);border:1px solid var(--colors-border-default);border-radius:var(--radii-lg)}
+.ff-controlrow .ff-featured{font:600 12px/1.35 "museo-sans",sans-serif;color:var(--colors-foreground-default);white-space:normal;overflow:hidden;text-overflow:ellipsis}
+.ff-controlrow .ff-langs{font:500 11px/1.35 "museo-sans",sans-serif;color:var(--colors-foreground-muted)}
+.ff-controlrow .ff-langs b{color:var(--colors-foreground-default);font-weight:700}
+
+/* C. market selector as a rizzy disclosure button (native <details> styled as a button) */
+.ff-market{position:relative;flex:0 0 auto}
+.ff-market>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;height:100%;min-height:40px;padding:0 14px;
+  border:1px solid var(--colors-brand-frontier-green);border-radius:var(--radii-lg);
+  background:var(--colors-background-nature);color:var(--colors-foreground-inverse);
+  font:700 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;box-shadow:var(--shadows-sm)}
+.ff-market>summary::-webkit-details-marker{display:none}
+.ff-market>summary .ff-market-name{text-transform:none;letter-spacing:0;font-weight:800;font-size:13px}
+/* the "spin" caret — token-free transform micro-animation, respects reduced-motion */
+.ff-market>summary .ff-caret{display:inline-block;font-size:11px;transition:transform .28s cubic-bezier(.34,1.56,.64,1)}
+.ff-market[open]>summary .ff-caret{transform:rotate(180deg)}
+.ff-market[open]>summary{background:var(--colors-brand-bear-brown);border-color:var(--colors-brand-bear-brown)}
+/* the disclosure panel — accessible listbox of the 73 markets */
+.ff-market-panel{position:absolute;z-index:60;top:calc(100% + 6px);left:0;min-width:280px;max-width:min(92vw,420px);max-height:340px;overflow:auto;
+  background:var(--colors-neutral-50);border:1px solid var(--colors-border-strong);border-radius:var(--radii-lg);box-shadow:var(--shadows-md);padding:var(--spacing-xs);
+  transform-origin:top left;animation:ff-market-spin .22s cubic-bezier(.34,1.56,.64,1)}
+@keyframes ff-market-spin{from{opacity:0;transform:scale(.96) translateY(-4px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.ff-market-panel [role="option"]{display:block;width:100%;text-align:left;padding:8px 10px;border:none;background:transparent;border-radius:var(--radii-sm);
+  font:500 12px/1.4 "museo-sans",sans-serif;color:var(--colors-foreground-default);cursor:pointer}
+.ff-market-panel [role="option"]:hover,.ff-market-panel [role="option"].is-active{background:var(--colors-neutral-100)}
+.ff-market-panel [role="option"][aria-selected="true"]{background:var(--colors-brand-frontier-green);color:var(--colors-foreground-inverse);font-weight:700}
+.ff-market-panel [role="option"] .ff-opt-sub{display:block;font-size:10px;color:var(--colors-foreground-muted);margin-top:1px}
+.ff-market-panel [role="option"][aria-selected="true"] .ff-opt-sub{color:var(--colors-neutral-200)}
+
+/* D. seasonal menu — token-styled native <select> shaped like the market button */
+.ff-season{flex:0 0 auto;display:inline-flex}
+.ff-season select{height:100%;min-height:40px;padding:0 12px;border:1px solid var(--colors-brand-blaze-orange);border-radius:var(--radii-lg);
+  background:var(--colors-neutral-50);color:var(--colors-foreground-default);
+  font:700 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.04em;cursor:pointer;box-shadow:var(--shadows-sm)}
+.ff-season select:hover{background:var(--colors-neutral-100)}
+
+/* respect reduced-motion for every wave2 micro-animation */
+@media(prefers-reduced-motion:reduce){
+  .ff-market>summary .ff-caret{transition:none}
+  .ff-market-panel{animation:none}
+}
+@media(max-width:640px){
+  .ff-controlrow{flex-direction:column}
+  .ff-market>summary,.ff-season select{width:100%;justify-content:space-between}
+  .ff-market-panel{left:0;right:0}
+}
+
+/* G. theme chips regrouped INTO the create-campaign surface — a labeled section, not a floating block */
+.ff-optiongroup{margin-top:var(--spacing-md);padding-top:var(--spacing-md);border-top:1px dashed var(--colors-border-default)}
+.ff-optiongroup>.ff-optiongroup-label{display:block;margin:0 0 var(--spacing-sm);font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted)}
+
+/* B. subtitle promoted to the prominent guiding line, full-width responsive */
+.ff-prompt h2.ff-sublead{margin:0 0 var(--spacing-md);width:100%;color:var(--colors-foreground-default);
+  font-family:"museo-sans",system-ui,Helvetica,Arial,sans-serif;font-weight:700;text-transform:none;letter-spacing:0;line-height:1.35;
+  font-size:clamp(15px, 2.2vw, 20px)}
 </style></head><body>
 <!-- Decorative overlays — aria-hidden, pointer-events:none so they never intercept clicks/focus/scroll -->
 <div id="paperGrain" aria-hidden="true"></div>
 <div id="edgeVignette" aria-hidden="true"></div>
-<div class="kodiak-topstrip" style="background:#382316;color:#f8eddf;text-align:center;padding:8px 12px;font-family:'kodiak_sans','Roar',system-ui,sans-serif;font-size:13px;letter-spacing:.06em;margin:0"><img src="assets/kodiak-primary-logo_optimized.png" alt="KODIAK" style="height:1.1em;vertical-align:middle;margin-right:6px" onerror="this.onerror=null;this.src='assets/kodiak-primary-logo.png'"> Posts for Today's Frontier — Nourishment for Today's Frontier</div>
-<header class="kodiak-header" style="background:#382316;color:#FFF8F0;border-bottom:none;display:flex;align-items:center;gap:16px;padding:10px 18px;flex-wrap:wrap;margin:0"><div class="header__inner">
-<div class="kodiak-header__logos" style="flex:0 0 52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.25);position:relative"><img class="kodiak-header__logo--primary" src="assets/kodiak-primary-logo_optimized.png" alt="KODIAK — 100% WHOLE GRAINS" style="width:48px;height:48px;object-fit:contain" onerror="this.onerror=null;this.src='assets/kodiak-primary-logo.png'"><span class="kodiak-header__logo--secondary" style="display:flex;align-items:center;justify-content:center;font-family:gin,'kodiak_sans',Rockwell,Georgia,serif;font-weight:800;font-size:13px;letter-spacing:.06em;color:#FFF8F0">KODIAK</span></div>
-<div style="flex:1;background:#B51E14;border-radius:6px;padding:8px 14px"><h1 style="color:#FFF8F0;font-size:clamp(16px,3.2vw,26px)">Nourishing Today's Frontier: Kodiak Cakes Creative Automation Pipeline</h1></div>
+<div class="kodiak-topstrip" style="display:none" aria-hidden="true"></div>
+<header class="kodiak-header" style="border-bottom:none;display:flex;align-items:center;gap:16px;padding:10px 18px;flex-wrap:wrap;margin:0"><div class="header__inner">
+<div class="kodiak-header__logos" style="flex:0 0 52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:var(--shadows-sm);position:relative"><img class="kodiak-header__logo--primary" src="assets/kodiak-primary-logo_optimized.png" alt="KODIAK — 100% WHOLE GRAINS" style="width:48px;height:48px;object-fit:contain" onerror="this.onerror=null;this.src='assets/kodiak-primary-logo.png'"><span class="kodiak-header__logo--secondary" style="display:flex;align-items:center;justify-content:center;font-family:gin,'kodiak_sans',Rockwell,Georgia,serif;font-weight:800;font-size:13px;letter-spacing:.06em;color:var(--colors-foreground-inverse)">KODIAK</span></div>
+<div class="kodiak-headline-plate"><h1>Nourishing Today's Frontier: Kodiak Cakes Creative Automation Pipeline</h1></div>
 </div>
 </header>
 
@@ -243,24 +311,50 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <csm-cookie-consent data-testid="csm-cookie-consent"></csm-cookie-consent>
 <div class="wrap">
 <!-- location-aware island + design-system scorecards moved to details.html (Design system + details link below) -->
-<div class="card" data-mcp="campaign-brief" data-mcp-description="Park City Utah demo — one prompt drives the campaign"><div class="hd"><h2>Park City Utah campaign</h2></div><div class="body">
+<div class="card" data-mcp="campaign-brief" data-mcp-description="Park City Utah demo — one prompt drives the campaign"><div class="hd"><h2>Create a Kodiak Cakes social campaign</h2></div><div class="body">
 
 <!-- PRIMARY: Firefly-inspired prompt bar — dominates the card -->
 <div class="ff-prompt" data-mcp="campaign-brief.prompt">
-  <h2>Create a Kodiak campaign</h2>
-  <p class="ff-sub">Describe it in a line, tap a starting point, or upload an image or document. Defaults to Park City, Utah.</p>
+  <h2 class="ff-sublead">Describe it in a line, tap a starting point, or upload an image or document. Defaults to Park City, Utah.</h2>
   <div class="ff-inputwrap">
     <textarea id="campaignBrief" rows="1" aria-label="Campaign idea — describe your Kodiak campaign in a line" placeholder="Type a campaign idea — e.g. Wasatch Back morning fuel for Park City families, feature the savory waffle. Keep It Wild."></textarea>
     <button type="button" class="ff-iconbtn" id="promptUpload" aria-label="Upload an image or document" title="Upload an image or document">+</button>
     <button class="ff-go" id="generateCampaign" data-mcp="generate" data-mcp-description="Single button — fans to all formats + localized variants, shows sample">Create</button>
   </div>
-  <div class="ff-chips" id="promptChips" role="group" aria-label="Campaign starting points">
-    <button type="button" class="ff-chip" data-theme="recipe-cards" data-brief="Recipe cards for Park City families — protein-packed whole grain recipes styled as shareable cards. Keep It Wild."><span class="ff-dot"></span>Recipe cards</button>
-    <button type="button" class="ff-chip" data-theme="localized-costco" data-brief="Localized Costco campaign — bulk Family Size value for the warehouse aisle, Park City / Wasatch Back framing."><span class="ff-dot"></span>Localized Costco</button>
-    <button type="button" class="ff-chip" data-theme="riff-on-past-content" data-brief="Riff on past content — remix our existing heroes into fresh variants across all three ratios."><span class="ff-dot"></span>Riff on past content</button>
-    <button type="button" class="ff-chip" data-theme="zac-efron" data-brief="Zac Efron athletic-morning energy — high-protein pre-trail fuel, aspirational active lifestyle. Keep It Wild."><span class="ff-dot"></span>Zac Efron</button>
-    <button type="button" class="ff-chip" data-theme="bears" data-brief="Bears + Keep It Wild — lean into the KODIAK Bear, wild frontier tone, protein for epic days."><span class="ff-dot"></span>Bears</button>
-    <button type="button" class="ff-chip" data-theme="keep-it-wild-program" data-brief="Keep It Wild program — brand campaign tying protein-packed whole grains to the outdoor frontier lifestyle."><span class="ff-dot"></span>Keep It Wild program</button>
+
+  <!-- C+D+E+F. control row: market disclosure button + seasonal menu + inline featured-frontier & languages, single responsive row -->
+  <div class="ff-controlrow" role="group" aria-label="Campaign market and season">
+    <details class="ff-market" id="marketDisclosure">
+      <summary aria-haspopup="listbox" aria-expanded="false" aria-controls="marketListbox" aria-label="Choose market — currently Park City, Utah">
+        <span class="ff-market-name" id="marketButtonLabel">Park City, Utah</span>
+        <span class="ff-caret" aria-hidden="true">&#9662;</span>
+      </summary>
+      <div class="ff-market-panel">
+        <div id="marketListbox" role="listbox" aria-label="Localized markets" tabindex="-1"></div>
+      </div>
+    </details>
+    <div class="ff-season" data-mcp="seasonal-context">
+      <select id="seasonalSelect" aria-label="Seasonal context (optional) — month, season, or holiday">
+        <option value="">Season: any</option>
+      </select>
+    </div>
+    <div class="ff-detail">
+      <div class="ff-featured" id="featuredFrontier" aria-live="polite"></div>
+      <div class="ff-langs" id="marketLangLine" aria-live="polite">localized in languages: <b>English, Spanish, Portuguese</b></div>
+    </div>
+  </div>
+
+  <!-- G. campaign-creation options — the theme chips, regrouped INTO this create surface (not a floating block) -->
+  <div class="ff-optiongroup">
+    <span class="ff-optiongroup-label" id="promptChipsLabel">Or start from a campaign option</span>
+    <div class="ff-chips" id="promptChips" role="group" aria-labelledby="promptChipsLabel">
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="recipe-cards" data-brief="Recipe cards for Park City families — protein-packed whole grain recipes styled as shareable cards. Keep It Wild."><span class="ff-dot"></span>Recipe cards</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-costco" data-brief="Localized Costco campaign — bulk Family Size value for the warehouse aisle, Park City / Wasatch Back framing."><span class="ff-dot"></span>Localized Costco</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="riff-on-past-content" data-brief="Riff on past content — remix our existing heroes into fresh variants across all three ratios."><span class="ff-dot"></span>Riff on past content</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="zac-efron" data-brief="Zac Efron athletic-morning energy — high-protein pre-trail fuel, aspirational active lifestyle. Keep It Wild."><span class="ff-dot"></span>Zac Efron</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="bears" data-brief="Bears + Keep It Wild — lean into the KODIAK Bear, wild frontier tone, protein for epic days."><span class="ff-dot"></span>Bears</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="keep-it-wild-program" data-brief="Keep It Wild program — brand campaign tying protein-packed whole grains to the outdoor frontier lifestyle."><span class="ff-dot"></span>Keep It Wild program</button>
+    </div>
   </div>
 </div>
 
@@ -776,6 +870,12 @@ let skuList = [
     btn.addEventListener('click', async ()=>{
       let brief = document.getElementById('campaignBrief')?.value.trim();
       if(!brief){ brief = 'Keep It Wild — Feeding Epic Days & Wilder Lives • Nourishment for Today\'s Frontier — 100% whole grains, 14g protein — quick-test'; }
+      // D. seasonal context — optional. If a season/month/holiday is chosen, fold a hint into the brief
+      // that /generate receives (empty selection adds nothing). Matches how activeTheme threads context.
+      const activeSeason = window.__activeSeason || null;
+      if(activeSeason && !new RegExp('season:\\s*'+activeSeason.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i').test(brief)){
+        brief = brief + ' — season: ' + activeSeason;
+      }
       let selectedProducts = Array.from(document.querySelectorAll('#productChooser .sku-check:checked')).map(c=>c.value);
       const hadExplicitSelection = selectedProducts.length > 0;
       // If local and glimmer up, let it rank SKUs intelligently (not random)
@@ -1221,6 +1321,169 @@ window.KODIAK_CART={open:()=>{const d=document.getElementById('kodiak-cart-drawe
     return name;
   };
   document.getElementById('downloadPack')?.addEventListener('click', function(){ window.downloadAssetPack(); });
+})();
+</script>
+  <script>
+// --- Wave2 (C/D/E/F): rizzy market disclosure + seasonal menu + inline featured-frontier & language line ---
+(function(){
+  var details = document.getElementById('marketDisclosure');
+  var summary = details ? details.querySelector('summary') : null;
+  var label   = document.getElementById('marketButtonLabel');
+  var listbox = document.getElementById('marketListbox');
+  var featuredEl = document.getElementById('featuredFrontier');
+  var langLine   = document.getElementById('marketLangLine');
+  if(!details || !summary || !listbox){ return; }
+
+  // top-3 languages for a market, default EN/ES/PT when a market lists fewer non-English langs.
+  // marketLangsOffline holds top-2 non-English; English is always first.
+  function topThreeLangsFor(market){
+    var extra = (typeof marketLangsFor==='function') ? marketLangsFor(market) : [];
+    var names = ['English'];
+    (extra||[]).forEach(function(l){ if(l && l.lang_name && names.indexOf(l.lang_name)===-1) names.push(l.lang_name); });
+    var defaults = ['English','Spanish','Portuguese'];
+    for(var i=0; names.length<3 && i<defaults.length; i++){ if(names.indexOf(defaults[i])===-1) names.push(defaults[i]); }
+    return names.slice(0,3);
+  }
+
+  function placeFor(market){
+    try{ return (typeof places!=='undefined') ? places.find(function(p){return p.market===market;}) : null; }catch(e){ return null; }
+  }
+
+  // update the three derived lines (button label, featured frontier, language line) for a market
+  function reflectMarket(market){
+    var p = placeFor(market);
+    if(label && p) label.textContent = (p.place || market);
+    if(summary && p) summary.setAttribute('aria-label', 'Choose market — currently ' + (p.place || market));
+    if(featuredEl){
+      var cue = p && p.cue ? p.cue : '';
+      featuredEl.textContent = cue ? ('Featured frontier: ' + cue) : '';
+    }
+    if(langLine){
+      var names = topThreeLangsFor(market);
+      langLine.innerHTML = 'localized in languages: <b>' + names.join(', ') + '</b>';
+    }
+  }
+
+  // keep the hidden #locality select (the value generate() reads) in sync, firing change so
+  // onLocality + updateLocalFlavor + any listeners run exactly as before.
+  function selectMarket(market, opts){
+    opts = opts || {};
+    var sel = document.getElementById('locality');
+    if(sel){
+      if(!Array.prototype.some.call(sel.options, function(o){return o.value===market;})){
+        // ensure the option exists (fillSelects builds them from places[])
+        var o=document.createElement('option'); o.value=market; o.textContent=market; sel.appendChild(o);
+      }
+      sel.value = market;
+      sel.dispatchEvent(new Event('change', {bubbles:true}));
+    }
+    reflectMarket(market);
+    // mark aria-selected in the listbox
+    Array.prototype.forEach.call(listbox.querySelectorAll('[role="option"]'), function(el){
+      el.setAttribute('aria-selected', el.dataset.market===market ? 'true':'false');
+    });
+    if(!opts.keepOpen){ closePanel(); summary.focus(); }
+  }
+
+  function buildOptions(){
+    if(typeof places==='undefined' || !places.length) return;
+    listbox.innerHTML = '';
+    places.forEach(function(p){
+      var opt = document.createElement('button');
+      opt.type='button';
+      opt.setAttribute('role','option');
+      opt.dataset.market = p.market;
+      opt.setAttribute('aria-selected','false');
+      opt.innerHTML = '<span>'+ (p.place||p.market) +'</span><span class="ff-opt-sub">'+ p.market +'</span>';
+      opt.addEventListener('click', function(){ selectMarket(p.market); });
+      listbox.appendChild(opt);
+    });
+  }
+
+  // ---- disclosure open/close + aria-expanded ----
+  function openPanel(){ if(!details.open){ details.open = true; } summary.setAttribute('aria-expanded','true'); }
+  function closePanel(){ if(details.open){ details.open = false; } summary.setAttribute('aria-expanded','false'); }
+  // native <details> toggles on summary click; mirror the state into aria-expanded
+  details.addEventListener('toggle', function(){
+    summary.setAttribute('aria-expanded', details.open ? 'true':'false');
+    if(details.open){ focusActiveOption(); }
+  });
+
+  function optionEls(){ return Array.prototype.slice.call(listbox.querySelectorAll('[role="option"]')); }
+  function focusActiveOption(){
+    var opts = optionEls(); if(!opts.length) return;
+    var active = opts.find(function(o){return o.getAttribute('aria-selected')==='true';}) || opts[0];
+    setActive(active);
+    active.focus();
+  }
+  function setActive(el){
+    optionEls().forEach(function(o){ o.classList.toggle('is-active', o===el); });
+  }
+
+  // keyboard: Enter/Space/Down opens; Arrow keys move; Enter selects; Esc closes.
+  summary.addEventListener('keydown', function(e){
+    if(e.key==='ArrowDown' || e.key==='Enter' || e.key===' '){
+      // let Space/Enter also do the native toggle, but ensure open + focus
+      if(!details.open){ e.preventDefault(); openPanel(); setTimeout(focusActiveOption, 0); }
+    } else if(e.key==='Escape'){ closePanel(); }
+  });
+  listbox.addEventListener('keydown', function(e){
+    var opts = optionEls(); if(!opts.length) return;
+    var idx = opts.findIndex(function(o){return o.classList.contains('is-active');});
+    if(idx<0) idx = opts.findIndex(function(o){return o===document.activeElement;});
+    if(e.key==='ArrowDown'){ e.preventDefault(); var n=opts[Math.min(opts.length-1, idx+1)]||opts[0]; setActive(n); n.focus(); }
+    else if(e.key==='ArrowUp'){ e.preventDefault(); var pr=opts[Math.max(0, idx-1)]||opts[0]; setActive(pr); pr.focus(); }
+    else if(e.key==='Home'){ e.preventDefault(); setActive(opts[0]); opts[0].focus(); }
+    else if(e.key==='End'){ e.preventDefault(); setActive(opts[opts.length-1]); opts[opts.length-1].focus(); }
+    else if(e.key==='Enter' || e.key===' '){ e.preventDefault(); var cur=opts[idx>=0?idx:0]; if(cur) selectMarket(cur.dataset.market); }
+    else if(e.key==='Escape'){ e.preventDefault(); closePanel(); summary.focus(); }
+  });
+  // click outside closes the panel
+  document.addEventListener('click', function(e){ if(details.open && !details.contains(e.target)) closePanel(); });
+
+  // if #locality changes elsewhere (haversine/mockLat, Kamas dual-preview, fillSelects default),
+  // reflect it into the button + derived lines so the UI never drifts from the real value.
+  document.addEventListener('change', function(e){
+    if(e.target && e.target.id==='locality'){ reflectMarket(e.target.value); }
+  });
+
+  // ---- D. seasonal menu ----
+  var seasonSel = document.getElementById('seasonalSelect');
+  if(seasonSel){
+    var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var seasons = ['Spring','Summer','Fall','Winter'];
+    var holidays = ['New Year','Valentine\u2019s Day','Easter','Memorial Day','Fourth of July','Labor Day','Halloween','Thanksgiving','Christmas','Holiday season'];
+    function optGroup(labelTxt, items){
+      var g=document.createElement('optgroup'); g.label=labelTxt;
+      items.forEach(function(v){ var o=document.createElement('option'); o.value=v; o.textContent=v; g.appendChild(o); });
+      return g;
+    }
+    seasonSel.appendChild(optGroup('Months', months));
+    seasonSel.appendChild(optGroup('Seasons', seasons));
+    seasonSel.appendChild(optGroup('Holidays', holidays));
+    // thread selection into the campaign context. window.__activeSeason is read by generate();
+    // empty selection = no seasonal hint (optional).
+    window.__activeSeason = null;
+    seasonSel.addEventListener('change', function(){
+      window.__activeSeason = seasonSel.value || null;
+    });
+  }
+
+  // ---- init ----
+  function init(){
+    buildOptions();
+    var current = (document.getElementById('locality') && document.getElementById('locality').value) || 'US-MW-PARKCITY-84098';
+    reflectMarket(current);
+    Array.prototype.forEach.call(listbox.querySelectorAll('[role="option"]'), function(el){
+      el.setAttribute('aria-selected', el.dataset.market===current ? 'true':'false');
+    });
+    summary.setAttribute('aria-expanded','false');
+  }
+  // places[] + #locality exist by the time DOM is parsed (scripts above are inline, synchronous).
+  // rebuild once the async 73-market file may have upgraded marketLangsOffline (language line only reads it live).
+  init();
+  // rebuild options again shortly in case fillSelects/default ran after us
+  setTimeout(function(){ if(!listbox.querySelector('[role="option"]')) buildOptions(); reflectMarket((document.getElementById('locality')||{}).value || 'US-MW-PARKCITY-84098'); }, 500);
 })();
 </script>
   <script>
