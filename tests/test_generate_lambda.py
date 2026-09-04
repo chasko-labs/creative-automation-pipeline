@@ -38,6 +38,34 @@ def test_handler_returns_200_with_image_url(monkeypatch, tmp_path: Path) -> None
     assert body["prompt"] == "a bear eating pancakes"
 
 
+def test_handler_empty_prompt_defaults_to_brand_tagline(monkeypatch, tmp_path: Path) -> None:
+    # empty or missing prompt must never 400 — it defaults to the brand tagline
+    # and generation proceeds normally, always producing a real hero.
+    fake_png = tmp_path / "default.png"
+    fake_png.write_bytes(b"\x89PNG\r\n")
+    monkeypatch.setattr(
+        generate_lambda,
+        "generate_hero",
+        lambda **kwargs: (fake_png, "bedrock:nova-pro"),
+    )
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+
+    # missing prompt entirely
+    resp = generate_lambda.handler({"body": json.dumps({})}, None)
+    assert resp["statusCode"] == 200
+    body = json.loads(resp["body"])
+    assert body["ok"] is True
+    assert body["image_url"].startswith("https://presigned.example/")
+    assert body["source"] == "bedrock:nova-pro"
+    assert body["prompt"] == "KODIAK - Nourishment for Today's Frontier. Keep It Wild."
+
+    # empty/whitespace prompt
+    resp = generate_lambda.handler({"body": json.dumps({"prompt": "   "})}, None)
+    assert resp["statusCode"] == 200
+    body = json.loads(resp["body"])
+    assert body["prompt"] == "KODIAK - Nourishment for Today's Frontier. Keep It Wild."
+
+
 def test_handler_falls_back_to_default_hero_label(monkeypatch, tmp_path: Path) -> None:
     # true last-resort path: generate_hero never returns "mock"/"preview" — the
     # non-shaming fallback label is what reaches the handler and the UI.

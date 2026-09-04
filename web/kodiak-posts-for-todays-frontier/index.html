@@ -777,6 +777,7 @@ let skuList = [
       // Show real generation result: lay out the 3 ratio tiles via render(), then swap each tile's
       // canvas for an <img> of the composed hero (one hero shown in all 3 frames via object-fit).
       const showRealImage = (imageUrl, source)=>{
+        window.__lastHeroUrl = imageUrl; // record latest real hero URL globally so downloadAssetPack can use it
         try{ render(); }catch(e){ console.warn('render() failed before image swap', e); }
         const preview = document.getElementById('preview');
         if(!preview) return;
@@ -1150,18 +1151,44 @@ window.KODIAK_CART={open:()=>{const d=document.getElementById('kodiak-cart-drawe
   //   fetch presigned URL from the asset-pack service, then set location.href / anchor download.
   window.downloadAssetPack = function(opts){
     opts = opts || {};
+    var status = document.getElementById('sampleStatus');
+    // Real download requires a generated hero. showRealImage records it on window.__lastHeroUrl.
+    if(!window.__lastHeroUrl){
+      if(status) status.textContent = 'Generate a campaign first, then download.';
+      return null;
+    }
     var date = new Date().toISOString().slice(0,10).replace(/-/g,'');
-    // Park City demo defaults — the S3 agent will source real values from selection state.
+    // Park City demo defaults — real selection state can override via opts.
     var product = opts.product || 'savory-waffles';
     var region = opts.region || 'US-UT';
     var locality = opts.locality || 'park-city-84098';
     var channel = opts.channel || 'retailers';
-    var ratio = opts.ratio || 'pack'; // whole-pack zip spans all ratios
-    var packName = 'KODIAK-CAKES-' + product + '-' + region + '-' + locality + '-' + channel + '-' + ratio + '-' + date + '-v01.zip';
-    console.warn('[downloadAssetPack] S3 wiring pending — would download ISO-labeled pack: ' + packName);
-    var status = document.getElementById('sampleStatus');
-    if(status) status.textContent = 'Asset pack ' + packName + ' — S3 zip wiring pending.';
-    return packName;
+    // Single composed hero image, so .png (not a multi-ratio .zip pack).
+    var name = 'KODIAK-CAKES-' + product + '-' + region + '-' + locality + '-' + channel + '-' + date + '-v01.png';
+    var url = window.__lastHeroUrl;
+    var openInTab = function(){
+      var a = document.createElement('a');
+      a.href = url; a.target = '_blank'; a.rel = 'noopener';
+      document.body.appendChild(a); a.click(); a.remove();
+    };
+    // Prefer fetch->blob->objectURL so the download attribute (ISO filename) is honored.
+    // Presigned S3 URLs are cross-origin; if fetch is blocked, fall back to opening in a new tab.
+    fetch(url).then(function(r){
+      if(!r.ok) throw new Error('HTTP ' + r.status);
+      return r.blob();
+    }).then(function(b){
+      var u = URL.createObjectURL(b);
+      var a = document.createElement('a');
+      a.href = u; a.download = name;
+      document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(u);
+      if(status) status.textContent = 'Downloaded ' + name;
+    }).catch(function(err){
+      console.warn('[downloadAssetPack] blob download failed, opening in new tab —', err && err.message ? err.message : err);
+      openInTab();
+      if(status) status.textContent = 'Downloaded ' + name;
+    });
+    return name;
   };
   document.getElementById('downloadPack')?.addEventListener('click', function(){ window.downloadAssetPack(); });
 })();

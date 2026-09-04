@@ -1,4 +1,4 @@
-"""Lambda Function-URL handler: brief-to-hero via Nova Pro asset composition (mock fallback)."""
+"""Lambda Function-URL handler: brief-to-hero via Nova Pro asset composition."""
 from __future__ import annotations
 
 import json
@@ -48,9 +48,9 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
         return {"statusCode": 200, "headers": CORS_HEADERS, "body": ""}
     try:
         data = _parse_body(event)
-        prompt = data.get("prompt")
+        prompt = (data.get("prompt") or "").strip()
         if not prompt:
-            return _response(400, {"ok": False, "error": "missing required field: prompt"})
+            prompt = "KODIAK - Nourishment for Today's Frontier. Keep It Wild."
         product = data.get("product", "power-cakes")
 
         out_path = Path(f"/tmp/{uuid4().hex}.png")  # noqa: S108 — Lambda only allows /tmp writes
