@@ -7,5 +7,7 @@ COPY src/ ./src/
 # var points _resolve_map_path() at this stable /var/task (LAMBDA_TASK_ROOT) location.
 COPY data/products/sku-photo-map.json /var/task/data/products/sku-photo-map.json
 ENV SKU_PHOTO_MAP_PATH=/var/task/data/products/sku-photo-map.json
+COPY data/products/theme-asset-map.json /var/task/data/products/theme-asset-map.json
+ENV THEME_ASSET_MAP_PATH=/var/task/data/products/theme-asset-map.json
 RUN pip install --no-cache-dir --only-binary=:all: "pillow==10.4.0" && pip install --no-cache-dir . boto3
 CMD ["creative_automation.generate_lambda.handler"]
