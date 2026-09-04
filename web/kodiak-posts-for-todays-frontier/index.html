@@ -405,6 +405,54 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-prompt h2.ff-sublead{margin:0 0 var(--spacing-md);width:100%;color:var(--colors-foreground-default);
   font-family:"museo-sans",system-ui,Helvetica,Arial,sans-serif;font-weight:700;text-transform:none;letter-spacing:0;line-height:1.35;
   font-size:clamp(15px, 2.2vw, 20px)}
+
+/* === H. Consolidated create surface — product chooser folded into the prompt card as a closed disclosure,
+   shared selection tray for staged uploads + selected SKUs, upload lives as the "+" icon in the prompt row.
+   Resting cost of the whole product area = one summary line, so the surface fits one viewport at rest. === */
+
+/* shared selection tray — staged uploads + selected SKUs render here as removable chips.
+   zero-height when empty (no empty box); :empty collapses gap+margin entirely. */
+.ff-tray{display:flex;flex-wrap:wrap;gap:var(--spacing-sm);margin-top:var(--spacing-sm)}
+.ff-tray:empty{display:none}
+
+/* product chooser as a native <details> — CLOSED by default (guarantees one-screen fit at rest) */
+.ff-products{margin-top:var(--spacing-sm)}
+.ff-products>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:var(--spacing-xs);
+  padding:var(--spacing-xs) var(--spacing-sm);border:1px solid var(--colors-border-default);border-radius:var(--radii-lg);
+  background:var(--colors-neutral-100);color:var(--colors-foreground-default);
+  font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase}
+.ff-products>summary::-webkit-details-marker{display:none}
+.ff-products>summary::before{content:"\25B8";font-size:11px;color:var(--colors-brand-signal-red);transition:transform .15s;flex:0 0 auto}
+.ff-products[open]>summary::before{transform:rotate(90deg)}
+.ff-products>summary:hover{background:var(--colors-neutral-200)}
+.ff-products>summary:focus-visible{outline:2px solid var(--colors-brand-signal-red);outline-offset:2px}
+/* open panel — combobox input + Random 3 + a compact results popover; not a giant grid */
+.ff-products .ff-products-panel{margin-top:var(--spacing-sm);display:flex;flex-direction:column;gap:var(--spacing-sm)}
+.ff-products .ff-products-row{display:flex;flex-wrap:wrap;gap:var(--spacing-sm);align-items:center}
+.ff-products .ff-products-search{position:relative;flex:1 1 220px;min-width:0}
+.ff-products .ff-products-search input{width:100%;padding:8px 12px;border:1px solid var(--colors-border-default);border-radius:var(--radii-md);
+  background:var(--colors-neutral-0);color:var(--colors-foreground-default);font:500 13px/1.4 "museo-sans",sans-serif}
+/* compact results popover — reuses the market-panel treatment (shadows-md, radii-lg, capped height) */
+.ff-products .ff-products-results{position:absolute;z-index:60;top:calc(100% + var(--spacing-xs));left:0;right:0;
+  max-height:240px;overflow:auto;background:var(--colors-neutral-50);border:1px solid var(--colors-border-strong);
+  border-radius:var(--radii-lg);box-shadow:var(--shadows-md);padding:var(--spacing-xs)}
+.ff-products .ff-products-results:empty,.ff-products .ff-products-results[hidden]{display:none}
+.ff-products .ff-products-results [role="option"]{display:flex;align-items:center;gap:var(--spacing-sm);width:100%;text-align:left;
+  padding:8px 10px;border:none;background:transparent;border-radius:var(--radii-sm);
+  font:500 12px/1.4 "museo-sans",sans-serif;color:var(--colors-foreground-default);cursor:pointer}
+.ff-products .ff-products-results [role="option"]:hover,.ff-products .ff-products-results [role="option"].is-active{background:var(--colors-neutral-100)}
+.ff-products .ff-products-results [role="option"][aria-selected="true"]{background:var(--colors-brand-frontier-green);color:var(--colors-foreground-inverse);font-weight:700}
+.ff-products .ff-products-results [role="option"] .ff-opt-thumb{width:24px;height:24px;flex:0 0 auto;object-fit:cover;border-radius:var(--radii-sm);background:var(--colors-neutral-200)}
+.ff-products .ff-products-random{flex:0 0 auto;padding:8px 12px;border:1px solid var(--colors-border-default);border-radius:var(--radii-md);
+  background:var(--colors-neutral-50);color:var(--colors-foreground-default);
+  font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;cursor:pointer}
+.ff-products .ff-products-random:hover{background:var(--colors-neutral-100);border-color:var(--colors-border-strong)}
+.ff-products .ff-products-hint{flex:1 1 100%;color:var(--colors-foreground-muted);font:500 11px/1.5 "museo-sans",sans-serif}
+@media(max-width:520px){
+  .ff-products .ff-products-results{position:fixed;left:var(--spacing-sm);right:var(--spacing-sm)}
+  .ff-products .ff-products-search{flex:1 1 100%}
+  .ff-products .ff-products-random{flex:1 1 100%}
+}
 </style></head><body>
 <!-- Decorative overlays — aria-hidden, pointer-events:none so they never intercept clicks/focus/scroll -->
 <div id="paperGrain" aria-hidden="true"></div>
@@ -426,6 +474,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <div class="ff-inputwrap">
     <textarea id="campaignBrief" rows="1" aria-label="Campaign idea — describe your Kodiak campaign in a line" placeholder="Type a campaign idea — e.g. Wasatch Back morning fuel for Park City families, feature the savory waffle. Keep It Wild."></textarea>
     <button type="button" class="ff-iconbtn" id="promptUpload" aria-label="Upload an image or document" title="Upload an image or document">+</button>
+    <!-- D4. add-your-own-asset file input — visually-hidden, triggered by the "+" icon above. FRONTEND STAGING ONLY (no DAM upload backend); staged client-side, marker threaded into the brief via window.__userAssets. -->
+    <input type="file" id="addAssetInput" class="ff-addasset-input" accept="image/*,.pdf,.docx,.yaml,.yml,.json" aria-label="Add your own image asset to this campaign">
     <button class="ff-go" id="generateCampaign" data-mcp="generate" data-mcp-description="Single button — fans to all formats + localized variants, shows sample">Create</button>
   </div>
 
@@ -465,6 +515,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </div>
   </div>
 
+  <!-- Shared selection tray — staged uploads + selected SKUs render here as removable chips. Zero-height when empty. -->
+  <div class="ff-tray" id="selectionTray" role="group" aria-label="Selected products and staged assets"></div>
+
+  <!-- Product chooser folded into the prompt card as a CLOSED disclosure — one summary line at rest.
+       FRONTEND STAGING for uploads only (no DAM upload backend); marker threaded into the brief via window.__userAssets. -->
+  <details class="ff-products" id="existingAssets" data-mcp="products" data-mcp-description="Real KODIAK SKUs — choose up to 3, autocomplete as you type">
+    <summary aria-label="Add products — optional, up to 3">Add products (optional — up to 3)</summary>
+    <div class="ff-products-panel">
+      <div class="ff-products-row">
+        <div class="ff-products-search">
+          <input type="text" id="productSearch" role="combobox" aria-expanded="false" aria-autocomplete="list"
+                 aria-controls="productResults" aria-label="Search KODIAK products by name" autocomplete="off"
+                 placeholder="Search SKUs — flapjack, blueberry, power cakes, muffin, oatmeal, cup, waffle, bar…">
+          <div id="productResults" class="ff-products-results" role="listbox" aria-label="KODIAK product matches" hidden></div>
+        </div>
+        <button type="button" class="ff-products-random" id="randomProducts" aria-label="Pick 3 random products">Random 3</button>
+        <span class="ff-products-hint" id="skuHint">Pick up to 3, or leave empty — Create uses your brief/theme.</span>
+      </div>
+      <!-- hidden host for the SKU checkboxes — the change-delegation handlers + Random 3 still bind here; the tray mirrors the checked state -->
+      <div id="productChooser" role="group" aria-label="KODIAK product choices" hidden></div>
+    </div>
+  </details>
+
   <!-- G. campaign-creation options — the theme chips, regrouped INTO this create surface (not a floating block) -->
   <div class="ff-optiongroup">
     <span class="ff-optiongroup-label" id="promptChipsLabel">Or start from a campaign option</span>
@@ -485,17 +558,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 
-<!-- Product chooser — optional, up to 3 from the KODIAK catalog (protected IDs kept) -->
-<div class="field" id="existingAssets" data-mcp="products" data-mcp-description="Real KODIAK SKUs — choose up to 3, autocomplete as you type"><label for="productSearch">Products (optional — up to 3)</label><input type="text" id="productSearch" aria-label="Search KODIAK products by name" placeholder="Search SKUs — flapjack, blueberry, power cakes, muffin, oatmeal, cup, waffle, bar…" style="margin-bottom:8px"><div id="productChooser" role="group" aria-label="KODIAK product choices" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;max-height:180px;overflow:auto;padding:2px"></div><div class="row" style="margin-top:8px;gap:10px;align-items:center"><button class="btn ghost" id="randomProducts" aria-label="Pick 3 random products">Random 3</button><span class="hint" id="skuHint" style="margin-top:0">Pick up to 3, or leave empty — Create uses your brief/theme.</span></div>
-<!-- D4. add-your-own-asset — FRONTEND STAGING ONLY. TODO: server DAM-upload endpoint for user assets — frontend staging only for now (no upload-to-DAM backend exists; file is staged client-side and a marker is threaded into the brief). -->
-<div class="ff-addasset" data-mcp="user-asset" data-mcp-description="Stage a user-supplied image — frontend only, no DAM upload">
-  <label class="ff-addasset-label" for="addAssetInput">
-    <svg class="ff-geo-pin" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="fill:var(--colors-foreground-muted)"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg>
-    <span>Add your own asset</span>
-    <input type="file" id="addAssetInput" class="ff-addasset-input" accept="image/*" aria-label="Add your own image asset to this campaign">
-  </label>
-  <div class="ff-pending" id="pendingAssets" role="group" aria-label="Your staged assets"></div>
-</div></div>
+<!-- Product chooser + upload affordance consolidated into the prompt card above (closed <details> + shared tray + "+" icon). -->
 
 <!-- Download asset pack hidden by default; primary/secondary download actions injected under the preview after generation -->
 <div class="row" style="margin-top:14px;gap:10px"><button class="btn ghost" id="downloadPack" style="display:none;justify-content:center;padding:12px 18px;font-size:13px" data-mcp="download-pack" data-mcp-description="Download the campaign assets as an ISO-labeled zip from S3">Download asset pack</button></div>
@@ -1203,6 +1266,17 @@ let skuList = [
           primary.setAttribute('aria-label', 'Download the composed campaign image');
           primary.addEventListener('click', function(){ window.downloadAssetPack(); });
           row.appendChild(primary);
+          // SECONDARY — the localized campaign asset pack (all ratios x platform x retailer x localized languages).
+          // Real primary action tied to #downloadPack's handler (window.downloadAssetPack). No coming-soon gate.
+          const pack = document.createElement('button');
+          pack.type = 'button';
+          pack.id = 'downloadPackBtn';
+          pack.className = 'btn ghost';
+          pack.style.cssText = 'justify-content:center;padding:12px 18px;font-size:13px';
+          pack.textContent = 'Download asset pack';
+          pack.setAttribute('aria-label', 'Download the full localized campaign asset pack — all ratios, platforms, retailers, languages');
+          pack.addEventListener('click', function(){ window.downloadAssetPack({pack:true}); });
+          row.appendChild(pack);
           preview.parentNode?.insertBefore(row, preview.nextSibling);
         }
         row.style.display = 'flex';
@@ -1482,6 +1556,110 @@ let skuList = [
   console.log('KODIAK campaign UI — single brief + up to 3 SKUs + real team + local flavor derived + single generate (fans to ALL)');
 })();
 </script>
+
+<script>
+// --- Product combobox + shared selection tray ---
+// The product grid is folded into a closed <details>; #productChooser is now a HIDDEN checkbox host that
+// stays the source of truth (the generate path + Random 3 + change-delegation all read it unchanged).
+// This wiring: (1) mirrors the hidden checkboxes into #productResults as combobox options, (2) reflects
+// checked SKUs as removable chips in the shared #selectionTray, (3) toggles checkboxes from the popover/chips.
+(function(){
+  var search  = document.getElementById('productSearch');
+  var results = document.getElementById('productResults');
+  var chooser = document.getElementById('productChooser');
+  var tray    = document.getElementById('selectionTray');
+  var details = document.getElementById('existingAssets');
+  if(!search || !results || !chooser || !tray) return;
+
+  function boxes(){ return Array.prototype.slice.call(chooser.querySelectorAll('.sku-check')); }
+  function checkedBoxes(){ return boxes().filter(function(b){ return b.checked; }); }
+  function boxFor(value){ return boxes().find(function(b){ return b.value===value; }) || null; }
+
+  // reflect the combobox expanded state for assistive tech
+  function setExpanded(open){ search.setAttribute('aria-expanded', open ? 'true' : 'false'); results.hidden = !open; }
+
+  // render up to 12 matching SKUs into the popover as role=option rows (thumb reused from the hidden host)
+  function renderResults(){
+    var q = (search.value || '').toLowerCase().trim();
+    var all = boxes();
+    var matched = all.filter(function(b){ return !q || b.value.toLowerCase().indexOf(q) !== -1; }).slice(0, 12);
+    if(!matched.length){ setExpanded(false); results.innerHTML = ''; return; }
+    results.innerHTML = '';
+    matched.forEach(function(b){
+      var opt = document.createElement('button');
+      opt.type = 'button';
+      opt.setAttribute('role', 'option');
+      opt.setAttribute('aria-selected', b.checked ? 'true' : 'false');
+      opt.dataset.value = b.value;
+      // reuse the thumbnail painted into the hidden host, if any
+      var hostImg = b.parentNode ? b.parentNode.querySelector('img') : null;
+      var thumbHtml = (hostImg && hostImg.src) ? '<img class="ff-opt-thumb" src="' + hostImg.src + '" alt="" onerror="this.style.display=\'none\'">' : '';
+      opt.innerHTML = thumbHtml + '<span>' + b.value + '</span>';
+      opt.addEventListener('click', function(){ toggleSku(b.value); search.focus(); });
+      results.appendChild(opt);
+    });
+    setExpanded(true);
+  }
+
+  // toggle a SKU via its hidden checkbox so the existing change-delegation (3-cap, hint) runs unchanged
+  function toggleSku(value){
+    var b = boxFor(value);
+    if(!b) return;
+    if(!b.checked && checkedBoxes().length >= 3){
+      var hint = document.getElementById('skuHint');
+      if(hint){ hint.textContent = 'Max 3 — remove one first'; }
+      return;
+    }
+    b.checked = !b.checked;
+    b.dispatchEvent(new Event('change', {bubbles:true}));
+    syncSkuChips();
+    renderResults();
+  }
+
+  // render one removable chip per selected SKU into the SHARED tray (same treatment as staged uploads)
+  function syncSkuChips(){
+    // clear only SKU chips; upload chips (.ff-pending-chip with an id starting pending-asset-) stay put
+    Array.prototype.slice.call(tray.querySelectorAll('.ff-pending-chip[data-sku]')).forEach(function(c){ c.remove(); });
+    checkedBoxes().forEach(function(b){
+      var chip = document.createElement('div');
+      chip.className = 'ff-pending-chip';
+      chip.dataset.sku = b.value;
+      var nm = document.createElement('span');
+      nm.className = 'ff-pending-name';
+      nm.textContent = b.value;
+      var rm = document.createElement('button');
+      rm.type = 'button';
+      rm.className = 'ff-pending-remove';
+      rm.setAttribute('aria-label', 'Remove product ' + b.value);
+      rm.textContent = '\u00d7';
+      rm.addEventListener('click', function(){ toggleSku(b.value); });
+      chip.appendChild(nm); chip.appendChild(rm);
+      tray.appendChild(chip);
+    });
+  }
+
+  // combobox interactions
+  search.addEventListener('input', renderResults);
+  search.addEventListener('focus', function(){ if(search.value) renderResults(); });
+  search.addEventListener('keydown', function(e){
+    var opts = Array.prototype.slice.call(results.querySelectorAll('[role="option"]'));
+    if(e.key === 'Escape'){ setExpanded(false); return; }
+    if(!opts.length) return;
+    var idx = opts.findIndex(function(o){ return o.classList.contains('is-active'); });
+    if(e.key === 'ArrowDown'){ e.preventDefault(); var n = opts[Math.min(opts.length-1, idx+1)] || opts[0]; opts.forEach(function(o){ o.classList.remove('is-active'); }); n.classList.add('is-active'); n.focus(); }
+    else if(e.key === 'ArrowUp'){ e.preventDefault(); var p = opts[Math.max(0, idx-1)] || opts[0]; opts.forEach(function(o){ o.classList.remove('is-active'); }); p.classList.add('is-active'); p.focus(); }
+    else if(e.key === 'Enter'){ if(idx >= 0){ e.preventDefault(); toggleSku(opts[idx].dataset.value); } }
+  });
+  // click outside the disclosure closes the popover
+  document.addEventListener('click', function(e){ if(details && !details.contains(e.target)) setExpanded(false); });
+
+  // keep tray chips in sync whenever the hidden host changes (Random 3, catalog re-render, clear-theme, etc.)
+  chooser.addEventListener('change', function(e){ if(e.target && e.target.classList && e.target.classList.contains('sku-check')) syncSkuChips(); });
+  document.getElementById('randomProducts')?.addEventListener('click', function(){ setTimeout(syncSkuChips, 0); });
+  // catalog fetch re-paints the hidden host asynchronously — resync chips shortly after load
+  setTimeout(syncSkuChips, 900);
+})();
+</script>
 <!-- Design System Scorecards script moved to details.html (window.KODIAK_SCORECARDS defined there; catalog render guards with if(window.KODIAK_SCORECARDS)) -->
 <script>
 // --- Simplified Park City demo wiring: prompt chips, upload affordance, textarea auto-grow ---
@@ -1530,21 +1708,12 @@ let skuList = [
     if(e.target && e.target.classList && e.target.classList.contains('sku-check')) window.__clearActiveTheme();
   });
 
-  // Upload affordance — the + icon opens a file picker (transient input; path chooser removed)
-  function openUpload(){
-    var f = document.createElement('input');
-    f.type = 'file';
-    f.accept = 'image/*,.pdf,.docx,.yaml,.yml,.json';
-    f.style.display = 'none';
-    document.body.appendChild(f);
-    f.addEventListener('change', function(){
-      var status = document.getElementById('sampleStatus');
-      if(status && f.files && f.files.length){ status.textContent = 'Attached ' + f.files[0].name + ' — folds into the next campaign.'; }
-      f.remove();
-    });
-    try{ f.click(); }catch(e){ f.remove(); }
-  }
-  document.getElementById('promptUpload')?.addEventListener('click', openUpload);
+  // Upload affordance — the + icon triggers the real staging file input (#addAssetInput),
+  // whose change handler stages a removable chip in the shared selection tray + threads window.__userAssets.
+  document.getElementById('promptUpload')?.addEventListener('click', function(){
+    var input = document.getElementById('addAssetInput');
+    if(input){ try{ input.click(); }catch(e){} }
+  });
 
   // auto-grow the prompt textarea (google/firefly feel)
   if(briefEl){
@@ -1844,7 +2013,7 @@ let skuList = [
   // ---- 4. add-your-own-asset (frontend staging only, no DAM upload) ----
   // stages a pending asset chip and threads a marker into the brief so the generate path can read it.
   var addAssetInput = document.getElementById('addAssetInput');
-  var pendingWrap = document.getElementById('pendingAssets');
+  var pendingWrap = document.getElementById('selectionTray');
   var pendingSeq = 0;
   window.__userAssets = window.__userAssets || [];
   function refreshUserAssetMarker(){
