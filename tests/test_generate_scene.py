@@ -63,7 +63,7 @@ def test_generate_hero_dam_disabled_falls_back_gracefully(tmp_path: Path, monkey
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: None)
 
     out = tmp_path / "hero.png"
-    result, source = generate.generate_hero(
+    result, source, _prov = generate.generate_hero(
         product_id="blueberry-muffin-mix",
         product_name="Blueberry Muffin Mix",
         brief_msg="wild mornings",
@@ -133,7 +133,7 @@ def test_generate_hero_theme_dam_disabled_falls_back_gracefully(tmp_path: Path, 
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: None)
 
     out = tmp_path / "hero-theme.png"
-    result, source = generate.generate_hero(
+    result, source, _prov = generate.generate_hero(
         product_id="power-cakes",
         product_name="Power Cakes",
         brief_msg="athletic mornings",
@@ -162,7 +162,7 @@ def test_generate_hero_theme_composes_on_fetched_photo(tmp_path: Path, monkeypat
     monkeypatch.setattr(generate, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
 
     out = tmp_path / "hero-theme-ok.png"
-    result, source = generate.generate_hero(
+    result, source, _prov = generate.generate_hero(
         product_id="power-cakes",
         product_name="Power Cakes",
         brief_msg="athletic mornings",
@@ -206,7 +206,7 @@ def test_generate_hero_theme_none_preserves_product_path(tmp_path: Path, monkeyp
     monkeypatch.setattr(generate, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
 
     out = tmp_path / "hero-product.png"
-    result, source = generate.generate_hero(
+    result, source, _prov = generate.generate_hero(
         product_id="power-cakes",
         product_name="Power Cakes",
         brief_msg="wild mornings",

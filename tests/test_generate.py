@@ -170,7 +170,9 @@ def test_generate_hero_stability_primary_on_disk_seed(tmp_path: Path, monkeypatc
     monkeypatch.setattr(generate.boto3, "client", lambda *a, **k: fake)
 
     out = tmp_path / "hero.png"
-    result, source = generate.generate_hero(
+    # overlays OFF here so the written hero is the verbatim decoded Stability image —
+    # PART C/D (brand + kraft) are covered separately in test_generate_multisize.py.
+    result, source, _prov = generate.generate_hero(
         product_id="power-cakes",
         product_name="Power Cakes",
         brief_msg="wild mornings",
@@ -178,6 +180,8 @@ def test_generate_hero_stability_primary_on_disk_seed(tmp_path: Path, monkeypatc
         audience="active families",
         out_path=out,
         idx=0,
+        brand_overlay=False,
+        paper_overlay=False,
     )
     assert result.exists()
     assert source == generate.STABILITY_SOURCE
@@ -200,7 +204,7 @@ def test_generate_hero_falls_back_to_compose_when_stability_fails(tmp_path: Path
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
 
     out = tmp_path / "hero.png"
-    result, source = generate.generate_hero(
+    result, source, _prov = generate.generate_hero(
         product_id="power-cakes",
         product_name="Power Cakes",
         brief_msg="wild mornings",
@@ -225,7 +229,7 @@ def test_generate_hero_no_seed_returns_placeholder(tmp_path: Path, monkeypatch) 
     )
 
     out = tmp_path / "hero.png"
-    result, source = generate.generate_hero(
+    result, source, _prov = generate.generate_hero(
         product_id="nonexistent-sku",
         product_name="Nonexistent",
         brief_msg="x",
@@ -254,7 +258,7 @@ def test_generate_hero_theme_seed_wins_and_conditions(tmp_path: Path, monkeypatc
     monkeypatch.setattr(generate.boto3, "client", lambda *a, **k: fake)
 
     out = tmp_path / "hero.png"
-    result, source = generate.generate_hero(
+    result, source, _prov = generate.generate_hero(
         product_id="power-cakes",
         product_name="Power Cakes",
         brief_msg="athletic mornings",

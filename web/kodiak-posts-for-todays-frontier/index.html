@@ -169,7 +169,68 @@ section.xl{padding:var(--section-space-xl) 0}
 .ff-chip[aria-pressed="true"]{background:var(--brown-kodiak);color:var(--parchment);border-color:var(--brown-kodiak)}
 .ff-chip .ff-dot{width:6px;height:6px;border-radius:50%;background:var(--orange, #E8530E)}
 @media(max-width:860px){.ff-inputwrap{flex-wrap:wrap}.ff-inputwrap textarea{flex:1 1 100%}.ff-go{flex:1}}
+
+/* === Multi-size render set — three labeled tiles, one per ratio, real aspect ratio via aspect-ratio CSS === */
+.render-set{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;align-items:start}
+.render-tile{border:1px solid var(--stone);border-radius:4px;overflow:hidden;background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-sm);display:flex;flex-direction:column}
+.render-tile .render-frame{width:100%;display:flex;align-items:center;justify-content:center;background:var(--chocolate)}
+/* each frame preserves the render's real aspect ratio; img fills it */
+.render-tile.r-1x1 .render-frame{aspect-ratio:1/1}
+.render-tile.r-4x5 .render-frame{aspect-ratio:4/5}
+.render-tile.r-2x3 .render-frame{aspect-ratio:2/3}
+.render-tile .render-frame img{width:100%;height:100%;object-fit:cover;display:block}
+.render-tile .render-cap{padding:9px 11px;background:var(--gradients-kraft\.surface)}
+.render-tile .render-cap b{font:700 12px/1.2 "museo-sans",sans-serif;color:var(--chocolate);display:block}
+/* #6B5A53 on the parchment/kraft surface = ~5.3:1 (AA normal) */
+.render-tile .render-cap .dims{color:#6B5A53;font:500 11px/1.4 "museo-sans",sans-serif;margin-top:3px}
+
+/* === Provenance transparency panel — native <details>/<summary> disclosure === */
+.provenance{margin-top:14px;border:1px solid var(--stone);border-radius:6px;background:var(--gradients-kraft\.surface);overflow:hidden}
+.provenance>summary{list-style:none;cursor:pointer;padding:12px 14px;font:800 12px/1.2 gin,"museo-sans",Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate);display:flex;align-items:center;gap:8px}
+.provenance>summary::-webkit-details-marker{display:none}
+.provenance>summary::before{content:"\25B8";font-size:11px;color:var(--red);transition:transform .15s}
+.provenance[open]>summary::before{transform:rotate(90deg)}
+.provenance>summary:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.provenance .prov-body{padding:4px 14px 14px}
+.provenance .prov-group{margin-top:12px}
+.provenance .prov-group>h4{margin:0 0 6px;font:700 11px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--red)}
+.provenance dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px}
+/* #5A4A43 on parchment = ~6.4:1 (AA normal) — labels */
+.provenance dt{font:700 11px/1.5 "museo-sans",sans-serif;color:#5A4A43;white-space:nowrap}
+/* #3B2316 chocolate on parchment = ~11.7:1 — values */
+.provenance dd{margin:0;font:500 12px/1.5 "museo-sans",sans-serif;color:var(--brown-kodiak);word-break:break-word}
+.provenance .prov-pill{display:inline-block;padding:1px 7px;border-radius:999px;font:700 10px/1.6 "museo-sans",sans-serif;letter-spacing:.03em}
+.provenance .prov-pill.primary{background:var(--brown-kodiak);color:var(--parchment)}
+.provenance .prov-pill.outpaint{background:var(--oat);color:var(--brown-kodiak);border:1px solid var(--stone)}
+.provenance .prov-pill.on{background:#1A3C34;color:#EAF5F0}
+.provenance .prov-pill.off{background:var(--oat);color:#6B5A53;border:1px solid var(--stone)}
+@media(max-width:520px){.provenance dl{grid-template-columns:1fr}.provenance dt{white-space:normal}}
+
+/* === Decorative overlays — never intercept events (pointer-events:none is mandatory) === */
+/* 2% brown-paper-bag kraft grain over the whole viewport, tiled seamlessly */
+#paperGrain{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:900;background-image:url(assets/kraft-paper-texture.png);background-repeat:repeat;background-size:256px 256px;opacity:.025;mix-blend-mode:multiply}
+/* very mild edge vignette — subtle radial darkening at the far corners only */
+#edgeVignette{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:901;background:radial-gradient(ellipse 130% 110% at 50% 45%, transparent 62%, rgba(26,17,16,.10) 100%)}
+@media(prefers-reduced-motion:reduce){#paperGrain,#edgeVignette{will-change:auto}}
+
+/* === WCAG 2.1 AA focus + contrast polish === */
+/* visible focus indicator on every interactive control — replaces any UA outline removal */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:2px}
+/* slight global contrast increase — mild polish, keeps brand palette + WCAG.
+   applied to content containers (not html/body) so it never establishes a
+   containing block for the fixed decorative overlays (the classic filter-breaks-fixed trap). */
+.kodiak-topstrip,header.kodiak-header,.wrap{filter:contrast(1.03)}
+/* the grain sits above content; ensure card surfaces + header stack cleanly beneath it */
+.wrap,header,.kodiak-topstrip{position:relative;z-index:1}
+/* contrast bump for previously-faint muted greys used as body/hint text on parchment */
+.hint{color:#6B5A53}
+/* #8C7A70 (~3.9:1) fails AA for normal text on parchment — lift to #6B5A53 (~6.1:1) */
+.tile .meta .small{color:#6B5A53}
+#buildStamp{color:#6B5A53}
 </style></head><body>
+<!-- Decorative overlays — aria-hidden, pointer-events:none so they never intercept clicks/focus/scroll -->
+<div id="paperGrain" aria-hidden="true"></div>
+<div id="edgeVignette" aria-hidden="true"></div>
 <div class="kodiak-topstrip" style="background:#382316;color:#f8eddf;text-align:center;padding:8px 12px;font-family:'kodiak_sans','Roar',system-ui,sans-serif;font-size:13px;letter-spacing:.06em;margin:0"><img src="assets/kodiak-primary-logo_optimized.png" alt="KODIAK" style="height:1.1em;vertical-align:middle;margin-right:6px" onerror="this.onerror=null;this.src='assets/kodiak-primary-logo.png'"> Posts for Today's Frontier — Nourishment for Today's Frontier</div>
 <header class="kodiak-header" style="background:#382316;color:#FFF8F0;border-bottom:none;display:flex;align-items:center;gap:16px;padding:10px 18px;flex-wrap:wrap;margin:0"><div class="header__inner">
 <div class="kodiak-header__logos" style="flex:0 0 52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.25);position:relative"><img class="kodiak-header__logo--primary" src="assets/kodiak-primary-logo_optimized.png" alt="KODIAK — 100% WHOLE GRAINS" style="width:48px;height:48px;object-fit:contain" onerror="this.onerror=null;this.src='assets/kodiak-primary-logo.png'"><span class="kodiak-header__logo--secondary" style="display:flex;align-items:center;justify-content:center;font-family:gin,'kodiak_sans',Rockwell,Georgia,serif;font-weight:800;font-size:13px;letter-spacing:.06em;color:#FFF8F0">KODIAK</span></div>
@@ -189,7 +250,7 @@ section.xl{padding:var(--section-space-xl) 0}
   <h2>Create a Kodiak campaign</h2>
   <p class="ff-sub">Describe it in a line, tap a starting point, or upload an image or document. Defaults to Park City, Utah.</p>
   <div class="ff-inputwrap">
-    <textarea id="campaignBrief" rows="1" placeholder="Type a campaign idea — e.g. Wasatch Back morning fuel for Park City families, feature the savory waffle. Keep It Wild."></textarea>
+    <textarea id="campaignBrief" rows="1" aria-label="Campaign idea — describe your Kodiak campaign in a line" placeholder="Type a campaign idea — e.g. Wasatch Back morning fuel for Park City families, feature the savory waffle. Keep It Wild."></textarea>
     <button type="button" class="ff-iconbtn" id="promptUpload" aria-label="Upload an image or document" title="Upload an image or document">+</button>
     <button class="ff-go" id="generateCampaign" data-mcp="generate" data-mcp-description="Single button — fans to all formats + localized variants, shows sample">Create</button>
   </div>
@@ -204,11 +265,11 @@ section.xl{padding:var(--section-space-xl) 0}
 </div>
 
 <!-- Product chooser — optional, up to 3 from the KODIAK catalog (protected IDs kept) -->
-<div class="field" id="existingAssets" data-mcp="products" data-mcp-description="Real KODIAK SKUs — choose up to 3, autocomplete as you type"><label>Products (optional — up to 3)</label><input type="text" id="productSearch" placeholder="Search SKUs — flapjack, blueberry, power cakes, muffin, oatmeal, cup, waffle, bar…" style="margin-bottom:8px"><div id="productChooser" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;max-height:180px;overflow:auto;padding:2px"></div><div class="row" style="margin-top:8px;gap:10px;align-items:center"><button class="btn ghost" id="randomProducts">Random 3</button><span class="hint" id="skuHint" style="margin-top:0">Pick up to 3, or leave empty — Create uses your brief/theme.</span></div></div>
+<div class="field" id="existingAssets" data-mcp="products" data-mcp-description="Real KODIAK SKUs — choose up to 3, autocomplete as you type"><label for="productSearch">Products (optional — up to 3)</label><input type="text" id="productSearch" aria-label="Search KODIAK products by name" placeholder="Search SKUs — flapjack, blueberry, power cakes, muffin, oatmeal, cup, waffle, bar…" style="margin-bottom:8px"><div id="productChooser" role="group" aria-label="KODIAK product choices" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;max-height:180px;overflow:auto;padding:2px"></div><div class="row" style="margin-top:8px;gap:10px;align-items:center"><button class="btn ghost" id="randomProducts" aria-label="Pick 3 random products">Random 3</button><span class="hint" id="skuHint" style="margin-top:0">Pick up to 3, or leave empty — Create uses your brief/theme.</span></div></div>
 
 <!-- Download asset pack hidden by default; primary/secondary download actions injected under the preview after generation -->
 <div class="row" style="margin-top:14px;gap:10px"><button class="btn ghost" id="downloadPack" style="display:none;justify-content:center;padding:12px 18px;font-size:13px" data-mcp="download-pack" data-mcp-description="Download the campaign assets as an ISO-labeled zip from S3">Download asset pack</button></div>
-<div class="hint" id="generateHint" style="margin-top:6px">Park City default with a localized variant. <span id="sampleStatus" style="color:#6B5A53"></span></div>
+<div class="hint" id="generateHint" style="margin-top:6px">Park City default with a localized variant. <span id="sampleStatus" role="status" aria-live="polite" style="color:#6B5A53"></span></div>
 
 <!-- HIDDEN: single retailers channel default so generate JS never null-crashes (.channel-check never read by JS, kept for safety) -->
 <input type="checkbox" value="retailers" class="channel-check" checked hidden aria-hidden="true">
@@ -221,7 +282,7 @@ section.xl{padding:var(--section-space-xl) 0}
 <div style="height:48px;background:var(--mountain) no-repeat center/100% 48px;margin:6px 0 0" aria-hidden="true" title="Wasatch ridge — Frontier Green S30 #1A2F29"></div>
 
 <div class="card wide-track"><div class="hd"><h2>Preview <span class="badge">3 sizes</span></h2><p>Your campaign, three sizes.</p></div>
-<div class="body"><div class="preview" id="preview" data-mcp="preview.compose" data-mcp-description="Pipeline preview — displays campaign message in EN + localized on final posts"></div><div class="hint" id="fileNames" style="margin-top:10px;display:none"></div></div></div>
+<div class="body"><div class="preview" id="preview" role="region" aria-label="Campaign preview — three sizes" data-mcp="preview.compose" data-mcp-description="Pipeline preview — displays campaign message in EN + localized on final posts"></div><div class="hint" id="fileNames" style="margin-top:10px;display:none"></div></div></div>
 
 <!-- Design system + Frontier prototype context moved to details.html -->
 <div class="row" style="margin:6px 0 4px"><a href="details.html" style="font:700 11px/1 'kodiak_sans','museo-sans',sans-serif;letter-spacing:.06em;text-transform:uppercase">Design system + details &rarr;</a></div>
@@ -770,6 +831,7 @@ let skuList = [
           primary.className = 'btn orange';
           primary.style.cssText = 'justify-content:center;padding:12px 18px;font-size:13px';
           primary.textContent = 'Download image';
+          primary.setAttribute('aria-label', 'Download the composed campaign image');
           primary.addEventListener('click', function(){ window.downloadAssetPack(); });
           // SECONDARY — the full localized campaign asset pack (async build; marked coming)
           const secondary = document.createElement('button');
@@ -779,6 +841,7 @@ let skuList = [
           secondary.style.cssText = 'justify-content:center;padding:10px 16px;font-size:12px;opacity:.85';
           secondary.title = 'async pack — in progress';
           secondary.textContent = 'Download localized campaign asset pack';
+          secondary.setAttribute('aria-label', 'Download the full localized campaign asset pack');
           secondary.addEventListener('click', function(){
             const s = document.getElementById('sampleStatus');
             if(s) s.textContent = 'Full localized pack — coming in the async build';
@@ -822,6 +885,105 @@ let skuList = [
         badge.textContent = opts.theme ? ('source: ' + label + ' · theme: ' + (opts.themeLabel || opts.theme)) : ('source: ' + label);
         badge.style.cssText = 'display:inline-block;margin:0 0 8px;padding:2px 8px;border-radius:6px;font-size:11px;color:#FFF8F0;background:#1A3C34';
         revealDownloadActions();
+      };
+      // Human labels for the render ratios and the engine.
+      const RATIO_LABELS = {
+        '1x1': {name:'Feed', cls:'r-1x1'},
+        '4x5': {name:'Portrait', cls:'r-4x5'},
+        '2x3': {name:'Story', cls:'r-2x3'}
+      };
+      const ENGINE_LABELS = {
+        'stability-control-structure':'Control-structure restyle (Stability)',
+        'pillow-compose':'Pillow compose (brand overlay)'
+      };
+      const escapeHtml = (s)=> String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      // TASK 1 — render THREE labeled tiles (one per ratio) at real aspect ratio; records the 1x1 as the hero.
+      const showRenderSet = (renders, opts)=>{
+        opts = opts || {};
+        const preview = document.getElementById('preview');
+        if(!preview) return;
+        preview.innerHTML = '';
+        const set = document.createElement('div');
+        set.className = 'render-set';
+        const themeBit = opts.themeLabel ? (', ' + opts.themeLabel + ' theme') : '';
+        renders.forEach((r, i)=>{
+          const meta = RATIO_LABELS[r.ratio] || {name:r.ratio, cls:''};
+          const tile = document.createElement('div');
+          tile.className = 'render-tile ' + meta.cls;
+          const frame = document.createElement('div');
+          frame.className = 'render-frame';
+          const img = document.createElement('img');
+          img.src = r.image_url;
+          img.alt = 'KODIAK campaign hero, ' + r.ratio.replace('x',':') + ' ' + meta.name + themeBit;
+          img.loading = i === 0 ? 'eager' : 'lazy';
+          frame.appendChild(img);
+          tile.appendChild(frame);
+          const cap = document.createElement('div');
+          cap.className = 'render-cap';
+          const ratioColon = r.ratio.replace('x',':');
+          cap.innerHTML = '<b>' + escapeHtml(ratioColon + ' ' + meta.name) + '</b><span class="dims">' + escapeHtml((r.w||'') + '\u00D7' + (r.h||'')) + '</span>';
+          tile.appendChild(cap);
+          set.appendChild(tile);
+        });
+        preview.appendChild(set);
+        // hero download targets the 1x1 (primary) render
+        const primary = renders.find(r=>r.ratio==='1x1') || renders[0];
+        if(primary) window.__lastHeroUrl = primary.image_url;
+        // source badge above the preview
+        const label = (opts.source && String(opts.source).toLowerCase().includes('bedrock')) ? 'Nova Pro' : (opts.source || 'Nova Pro');
+        let badge = document.getElementById('genSourceBadge');
+        if(!badge){ badge=document.createElement('span'); badge.id='genSourceBadge'; badge.className='badge'; preview.parentNode?.insertBefore(badge, preview); }
+        badge.textContent = opts.themeLabel ? ('source: ' + label + ' · theme: ' + opts.themeLabel) : ('source: ' + label);
+        badge.style.cssText = 'display:inline-block;margin:0 0 8px;padding:2px 8px;border-radius:6px;font-size:11px;color:#FFF8F0;background:#1A3C34';
+        revealDownloadActions();
+      };
+      // TASK 2 — collapsible provenance panel: what you provided vs what we did.
+      const renderProvenancePanel = (prov, ctx)=>{
+        ctx = ctx || {};
+        const preview = document.getElementById('preview');
+        if(!preview || !prov) return;
+        // remove a prior panel so re-generate replaces cleanly
+        const old = document.getElementById('provenancePanel');
+        if(old) old.remove();
+        const engineLabel = ENGINE_LABELS[prov.engine] || prov.engine || '—';
+        const ratios = prov.ratios || {};
+        const ratioPills = Object.keys(ratios).map(k=>{
+          const role = ratios[k];
+          const cls = /primary/i.test(role) ? 'primary' : 'outpaint';
+          return '<span class="prov-pill ' + cls + '">' + escapeHtml(k.replace('x',':')) + ' ' + escapeHtml(role) + '</span>';
+        }).join(' ');
+        const onoff = (v)=> v ? '<span class="prov-pill on">applied</span>' : '<span class="prov-pill off">not applied</span>';
+        const rows = (pairs)=> pairs.filter(p=>p[1]!=null && p[1]!=='').map(p=>'<dt>' + escapeHtml(p[0]) + '</dt><dd>' + p[1] + '</dd>').join('');
+        const provided = rows([
+          ['Prompt', escapeHtml(prov.incoming_prompt || ctx.brief || '—')],
+          ['Headline', escapeHtml(prov.headline)],
+          ['Theme', escapeHtml(ctx.themeLabel || ctx.theme)],
+          ['Market', escapeHtml(ctx.market)],
+          ['Product', escapeHtml(ctx.product)]
+        ]);
+        const did = rows([
+          ['Engine', escapeHtml(engineLabel)],
+          ['Model', escapeHtml(prov.model)],
+          ['Seed source', escapeHtml(prov.seed_source)],
+          ['Seed selection', escapeHtml(prov.seed_selection)],
+          ['Art-director scene', escapeHtml(prov.scene_prompt)],
+          ['Control strength', prov.control_strength!=null ? escapeHtml(prov.control_strength) : null],
+          ['Ratios', ratioPills || null],
+          ['Brand overlay', onoff(prov.overlay_applied)],
+          ['Paper texture', onoff(prov.paper_overlay)]
+        ]);
+        const panel = document.createElement('details');
+        panel.className = 'provenance';
+        panel.id = 'provenancePanel';
+        panel.innerHTML =
+          '<summary>How this was made</summary>' +
+          '<div class="prov-body">' +
+            '<div class="prov-group"><h4>You provided</h4><dl>' + provided + '</dl></div>' +
+            '<div class="prov-group"><h4>What we did</h4><dl>' + did + '</dl></div>' +
+          '</div>';
+        // place directly under the preview (after any download row if present)
+        const anchor = document.getElementById('previewDownloadRow') || preview;
+        anchor.parentNode?.insertBefore(panel, anchor.nextSibling);
       };
       const finishCommon = ()=>{
         // Update local flavor with brief context (runs after either path)
@@ -888,9 +1050,22 @@ let skuList = [
         if(doThemedOrSingle){
           // Single request (themed if a chip is active, else default product).
           const json = await oneGenerate(primarySlug, activeTheme || undefined);
-          showRealImage(json.image_url, json.source, {theme: json.theme || activeTheme || null, themeLabel: json.theme ? (THEME_LABELS[json.theme] || json.theme) : themeLabel});
-          const readyTheme = (json.theme || activeTheme) ? (' · theme: ' + (THEME_LABELS[json.theme] || themeLabel)) : '';
-          if(status) status.textContent = 'Campaign preview ready — one real composed hero from ' + (json.source || 'Nova Pro') + readyTheme;
+          const readyThemeLabel = json.theme ? (THEME_LABELS[json.theme] || themeLabel) : (activeTheme ? themeLabel : null);
+          const readyTheme = (json.theme || activeTheme) ? (' · theme: ' + readyThemeLabel) : '';
+          if(Array.isArray(json.renders) && json.renders.length){
+            // NEW backend: three real sizes — render all three labeled tiles.
+            showRenderSet(json.renders, {source: json.source, themeLabel: readyThemeLabel});
+            const n = json.renders.length;
+            if(status) status.textContent = 'Campaign preview ready — ' + n + ' sizes composed from ' + (json.source || 'Nova Pro') + readyTheme;
+          } else {
+            // OLDER backend (no renders array): fall back to the single-hero behavior.
+            showRealImage(json.image_url, json.source, {theme: json.theme || activeTheme || null, themeLabel: json.theme ? (THEME_LABELS[json.theme] || json.theme) : themeLabel});
+            if(status) status.textContent = 'Campaign preview ready — one real composed hero from ' + (json.source || 'Nova Pro') + readyTheme;
+          }
+          // provenance transparency panel (renders whenever the backend supplies it)
+          if(json.provenance){
+            renderProvenancePanel(json.provenance, {brief, theme: json.theme || activeTheme, themeLabel: readyThemeLabel, market: selectedLoc.market, product: primarySlug});
+          }
         } else {
           // Multi-product fan-out: one themed-less request per selected product; render each tile as it returns.
           if(preview) preview.innerHTML = '';

@@ -143,7 +143,7 @@ def run_pipeline(
                     print(f"[pipeline] enhance skip {product.id}: {e}")
         else:
             # generate
-            _, hero_source = generate_hero(
+            _, hero_source, _hero_prov = generate_hero(
                 product_id=product.id,
                 product_name=product.name,
                 brief_msg=brief.campaign_message,
