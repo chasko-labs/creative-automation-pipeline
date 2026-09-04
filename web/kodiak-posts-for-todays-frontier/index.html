@@ -1921,10 +1921,53 @@ let skuList = [
   }
 
   // ---- 2. "use my location" — snap to nearest curated market by haversine ----
-  // places[] carries no coordinates; store-finder-markets.json (keyed by `market`) does.
-  // offline-first: fetch is best-effort across the same candidate paths the language file uses.
-  // if coordinates never load, the button degrades to a polite "keeping Park City" and no-ops.
-  var marketCoords = {}; // market code -> {lat, lon}
+  // places[] carries no coordinates; store-finder-markets.json (keyed by `market`) does — but only
+  // ~12 of 74 rows there carry `coordinates`, and the file is not served alongside this page on
+  // CloudFront / file://. so the button must NOT depend on that fetch to function.
+  // offline-first design: seed marketCoords from a built-in per-market table (factual US city
+  // lat/lon, geographic constants — not fabricated market data). the JSON fetch stays a best-effort
+  // ENRICHMENT pass that overwrites entries with richer coords when it happens to load. the button
+  // works fully offline because marketCoords is never empty.
+  var GEO_FALLBACK = {
+    'US-MW-PARKCITY-84098':{lat:40.6461,lon:-111.4980}, 'US-UT-KAMASVALLEY':{lat:40.6902,lon:-111.2799},
+    'US-SW-ALBQ':{lat:35.0844,lon:-106.6504}, 'US-SC-AUSTIN':{lat:30.2672,lon:-97.7431},
+    'US-SE-FL':{lat:25.7617,lon:-80.1918}, 'US-SE-COAST':{lat:32.0809,lon:-81.0912},
+    'US-SE-ATL':{lat:33.7490,lon:-84.3880}, 'US-MW-CHI':{lat:41.8781,lon:-87.6298},
+    'US-MW-TC':{lat:44.9778,lon:-93.2650}, 'US-MW-DEN':{lat:39.7392,lon:-104.9903},
+    'US-W-SEA':{lat:47.6062,lon:-122.3321}, 'US-W-PDX':{lat:45.5152,lon:-122.6784},
+    'US-W-LA':{lat:34.0522,lon:-118.2437}, 'US-SE-NASH':{lat:36.1627,lon:-86.7816},
+    'US-SE-LOU':{lat:38.2527,lon:-85.7585}, 'US-NE-BOS':{lat:42.3601,lon:-71.0589},
+    'US-SW-PHX':{lat:33.4484,lon:-112.0740}, 'US-NE-NYC':{lat:40.6782,lon:-73.9442},
+    'US-SW-TIMBERON':{lat:32.6376,lon:-105.6947}, 'US-MW-WASATCH-SLC':{lat:40.7608,lon:-111.8910},
+    'US-W-SF':{lat:37.7749,lon:-122.4194}, 'US-W-SD':{lat:32.7157,lon:-117.1611},
+    'US-W-VEGAS':{lat:36.1699,lon:-115.1398}, 'US-MW-PHX2':{lat:32.2226,lon:-110.9747},
+    'US-SW-EL PASO':{lat:31.7619,lon:-106.4850}, 'US-SC-DALLAS':{lat:32.7767,lon:-96.7970},
+    'US-SC-HOUSTON':{lat:29.7604,lon:-95.3698}, 'US-SC-SANANTONIO':{lat:29.4241,lon:-98.4936},
+    'US-MW-KC':{lat:39.0997,lon:-94.5786}, 'US-MW-STL':{lat:38.6270,lon:-90.1994},
+    'US-MW-OMAHA':{lat:41.2565,lon:-95.9345}, 'US-MW-DESMOINES':{lat:41.5868,lon:-93.6250},
+    'US-MW-MILWAUKEE':{lat:43.0389,lon:-87.9065}, 'US-MW-DETROIT':{lat:42.3314,lon:-83.0458},
+    'US-MW-CLEVELAND':{lat:41.4993,lon:-81.6944}, 'US-MW-INDY':{lat:39.7684,lon:-86.1581},
+    'US-NE-PHILLY':{lat:39.9526,lon:-75.1652}, 'US-NE-DC':{lat:38.9072,lon:-77.0369},
+    'US-NE-BALTIMORE':{lat:39.2904,lon:-76.6122}, 'US-NE-RALEIGH':{lat:35.7796,lon:-78.6382},
+    'US-SE-CHARLOTTE':{lat:35.2271,lon:-80.8431}, 'US-SE-JAX':{lat:30.3322,lon:-81.6557},
+    'US-SE-TAMPA':{lat:27.9506,lon:-82.4572}, 'US-SE-NOLA':{lat:29.9511,lon:-90.0715},
+    'US-SE-MEMPHIS':{lat:35.1495,lon:-90.0490}, 'US-SE-BIRMINGHAM':{lat:33.5186,lon:-86.8104},
+    'US-SE-JACKSON':{lat:32.2988,lon:-90.1848}, 'US-SW-OKC':{lat:35.4676,lon:-97.5164},
+    'US-MW-BOISE':{lat:43.6150,lon:-116.2023}, 'US-W-YAKIMA':{lat:46.6021,lon:-120.5059},
+    'US-W-SPOKANE':{lat:47.6588,lon:-117.4260}, 'US-MW-MISSOULA':{lat:46.8721,lon:-113.9940},
+    'US-W-RENO':{lat:39.5296,lon:-119.8138}, 'US-W-SACRAMENTO':{lat:38.5816,lon:-121.4944},
+    'US-MW-MINNEAPOLIS2':{lat:46.7867,lon:-92.1005}, 'US-MW-FARGO':{lat:46.8772,lon:-96.7898},
+    'US-NE-BURLINGTON':{lat:44.4759,lon:-73.2121}, 'US-NE-HARTFORD':{lat:41.7658,lon:-72.6734},
+    'US-NE-PROVIDENCE':{lat:41.8240,lon:-71.4128}, 'US-SW-SANTA FE':{lat:35.6870,lon:-105.9378},
+    'US-SW-CLOUDCROFT':{lat:32.8995,lon:-105.7458}, 'US-SW-ROSWELL':{lat:33.3943,lon:-104.5230},
+    'US-W-ANCHORAGE':{lat:61.2181,lon:-149.9003}, 'US-W-HONOLULU':{lat:21.3069,lon:-157.8583},
+    'US-SE-ASHEVILLE':{lat:35.5951,lon:-82.5515}, 'US-MW-JACKSONHOLE':{lat:43.4799,lon:-110.7624},
+    'US-W-BEND':{lat:44.0582,lon:-121.3153}, 'US-W-BOULDER':{lat:40.0150,lon:-105.2705},
+    'US-CA-PESCADERO':{lat:37.2547,lon:-122.3833}, 'US-WA-NEAHBAY':{lat:48.3686,lon:-124.6244},
+    'US-SW-TULAROSA':{lat:33.0742,lon:-106.0192}
+  };
+  var marketCoords = {}; // market code -> {lat, lon}; seeded offline-first, enriched by JSON if present
+  Object.keys(GEO_FALLBACK).forEach(function(mk){ marketCoords[mk] = {lat:GEO_FALLBACK[mk].lat, lon:GEO_FALLBACK[mk].lon}; });
   (async function loadMarketCoords(){
     for(const url of ['data/localization/store-finder-markets.json','../../data/localization/store-finder-markets.json','./data/localization/store-finder-markets.json']){
       try{
@@ -1932,14 +1975,16 @@ let skuList = [
         if(r && r.ok){
           const d = await r.json();
           const list = (d && d.markets) ? d.markets : [];
+          var added = 0;
           list.forEach(function(m){
             if(m && m.market && m.coordinates && typeof m.coordinates.lat==='number' && typeof m.coordinates.lon==='number'){
-              marketCoords[m.market] = {lat:m.coordinates.lat, lon:m.coordinates.lon};
+              marketCoords[m.market] = {lat:m.coordinates.lat, lon:m.coordinates.lon}; // JSON wins over built-in
+              added += 1;
             }
           });
-          if(Object.keys(marketCoords).length){ console.log('[geo] loaded', Object.keys(marketCoords).length, 'market coordinates from', url); break; }
+          if(added){ console.log('[geo] enriched', added, 'market coordinates from', url, '— total', Object.keys(marketCoords).length); break; }
         }
-      }catch(e){ /* file:// or offline — try next candidate, then no-op */ }
+      }catch(e){ /* file:// or offline — built-in GEO_FALLBACK already seeded marketCoords */ }
     }
   })();
 
@@ -1965,6 +2010,8 @@ let skuList = [
   if(geoBtn){
     geoBtn.addEventListener('click', function(){
       if(!('geolocation' in navigator)){ setGeoStatus('Location unavailable — keeping Park City'); return; }
+      // marketCoords is seeded offline-first from GEO_FALLBACK, so it is never empty in practice;
+      // the guard remains only as a defensive no-op if the table were ever cleared.
       if(!Object.keys(marketCoords).length){ setGeoStatus('Location data unavailable — keeping Park City'); return; }
       setGeoStatus('Locating\u2026');
       navigator.geolocation.getCurrentPosition(
