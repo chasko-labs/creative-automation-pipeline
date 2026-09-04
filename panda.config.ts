@@ -208,6 +208,10 @@ export default defineConfig({
             value:
               "radial-gradient(90% 90% at 100% 0%, rgba(232, 83, 14, 0.12) 0%, rgba(232, 83, 14, 0) 55%), repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.10) 0px, rgba(59, 35, 22, 0.10) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 4px), repeating-linear-gradient(45deg, rgba(59, 35, 22, 0.06) 0px, rgba(59, 35, 22, 0.06) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 5px), linear-gradient(#F0E4D4, #F0E4D4)",
           },
+          "kraft.sheen": {
+            value:
+              "linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.14) 18%, rgba(255, 255, 255, 0) 44%, rgba(59, 35, 22, 0.05) 82%, rgba(59, 35, 22, 0.10) 100%)",
+          },
         },
       },
       semanticTokens: {

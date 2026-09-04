@@ -172,17 +172,74 @@ section.xl{padding:var(--section-space-xl) 0}
 
 /* === Multi-size render set — three labeled tiles, one per ratio, real aspect ratio via aspect-ratio CSS === */
 .render-set{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;align-items:start}
-.render-tile{border:1px solid var(--stone);border-radius:4px;overflow:hidden;background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-sm);display:flex;flex-direction:column}
+/* textured + lit tile — kraft surface + drop shadow + warm bear shadow, so the tile has real depth not flat parchment */
+.render-tile{border:1px solid var(--stone);border-radius:var(--radii-md);overflow:hidden;background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-sm),var(--shadows-bear);display:flex;flex-direction:column}
 .render-tile .render-frame{width:100%;display:flex;align-items:center;justify-content:center;background:var(--chocolate)}
 /* each frame preserves the render's real aspect ratio; img fills it */
 .render-tile.r-1x1 .render-frame{aspect-ratio:1/1}
 .render-tile.r-4x5 .render-frame{aspect-ratio:4/5}
 .render-tile.r-2x3 .render-frame{aspect-ratio:2/3}
+.render-tile.r-9x16 .render-frame{aspect-ratio:9/16}
+.render-tile.r-16x9 .render-frame{aspect-ratio:16/9}
 .render-tile .render-frame img{width:100%;height:100%;object-fit:cover;display:block}
-.render-tile .render-cap{padding:9px 11px;background:var(--gradients-kraft\.surface)}
-.render-tile .render-cap b{font:700 12px/1.2 "museo-sans",sans-serif;color:var(--chocolate);display:block}
-/* #6B5A53 on the parchment/kraft surface = ~5.3:1 (AA normal) */
-.render-tile .render-cap .dims{color:var(--colors-neutral-600);font:500 11px/1.4 "museo-sans",sans-serif;margin-top:3px}
+/* lit caption surface — kraft sheen (top-light) composited OVER the kraft fiber, plus an inner shadow so text sits on a lit, shaded surface.
+   sheen white highlight rolls off the top; caption text lives in the lower warm-tan band, so bearBrown / neutral-600 hold WCAG AA. */
+.render-tile .render-cap{padding:9px 11px;position:relative;background-image:var(--gradients-kraft\.sheen),var(--gradients-kraft\.surface);box-shadow:var(--shadows-inset-sm)}
+.render-tile .render-cap b{font:700 12px/1.2 "museo-sans",sans-serif;color:var(--chocolate);display:block;position:relative}
+/* #3B2316 chocolate on the lit kraft-tan lower band = >=7:1 (AA/AAA) */
+.render-tile .render-cap .dims{color:var(--colors-neutral-700);font:600 11px/1.4 "museo-sans",sans-serif;margin-top:3px;position:relative}
+/* per-tile platform legend — which social platforms this ratio serves */
+.render-tile .render-cap .rt-platforms{display:block;margin-top:4px;color:var(--colors-neutral-600);font:500 10px/1.4 "museo-sans",sans-serif;letter-spacing:.02em;position:relative}
+
+/* === Preview as native <details> — collapsed by default, summary styled as the card header (matches #aboutTool) === */
+.preview-card>summary{list-style:none;cursor:pointer;padding:16px 16px 12px;background-image:var(--gradients-kraft\.sheen),var(--gradients-kraft\.surface);border-bottom:1px solid var(--colors-neutral-200);
+  font:800 14px/1.2 gin,"museo-sans",Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate);
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.preview-card>summary::-webkit-details-marker{display:none}
+.preview-card>summary::before{content:"\25B8";font-size:11px;color:var(--red);transition:transform .15s;flex:0 0 auto}
+.preview-card[open]>summary::before{transform:rotate(90deg)}
+.preview-card>summary:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.preview-card>summary .badge{margin-left:2px}
+.preview-card>summary .preview-sub{flex:1 1 100%;margin:6px 0 0;color:var(--colors-neutral-600);font:500 12px/1.5 "museo-sans",sans-serif;text-transform:none;letter-spacing:0}
+@media(prefers-reduced-motion:reduce){.preview-card>summary::before{transition:none}}
+
+/* === Platform -> ratio -> dimension matrix — token-styled explainer shown in the preview === */
+.platform-matrix{margin:0 0 14px;border:1px solid var(--colors-border-default);border-radius:var(--radii-md);overflow:hidden;background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-sm)}
+.platform-matrix .pm-head{padding:10px 12px;background-image:var(--gradients-kraft\.sheen),var(--gradients-kraft\.surface);border-bottom:1px solid var(--colors-border-default)}
+.platform-matrix .pm-head b{font:800 12px/1.2 gin,"museo-sans",Georgia,serif;letter-spacing:.05em;text-transform:uppercase;color:var(--chocolate)}
+.platform-matrix .pm-head .pm-sub{display:block;margin-top:3px;color:var(--colors-neutral-600);font:500 11px/1.4 "museo-sans",sans-serif}
+.platform-matrix table{width:100%;border-collapse:collapse;font:500 12px/1.4 "museo-sans",sans-serif}
+.platform-matrix th,.platform-matrix td{text-align:left;padding:8px 12px;border-top:1px solid var(--colors-border-default);vertical-align:top}
+.platform-matrix thead th{font:700 10px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-neutral-700);border-top:none;background:var(--colors-neutral-100)}
+/* ratio cell — chocolate on kraft-tan = >=7:1 */
+.platform-matrix td.pm-ratio b{color:var(--chocolate);font-weight:800}
+.platform-matrix td.pm-ratio .pm-role{display:block;color:var(--colors-neutral-600);font-size:10px;margin-top:2px}
+.platform-matrix td.pm-dims{color:var(--colors-neutral-700);font-family:"JetBrains Mono",Menlo,monospace;font-weight:600;white-space:nowrap}
+.platform-matrix .pm-plat{display:inline-block;margin:2px 4px 2px 0;padding:2px 8px;border-radius:var(--radii-pill);
+  background:var(--colors-neutral-100);border:1px solid var(--colors-border-default);color:var(--colors-foreground-default);
+  font:600 10px/1.5 "museo-sans",sans-serif}
+@media(max-width:520px){.platform-matrix thead{display:none}.platform-matrix td{display:block;border-top:none;padding:4px 12px}.platform-matrix tr{border-top:1px solid var(--colors-border-default);padding:6px 0;display:block}}
+
+/* === Per-platform messaging copy — accordion of native <details>, one per platform === */
+.platform-copy{margin-top:14px;border:1px solid var(--colors-border-default);border-radius:var(--radii-md);overflow:hidden;background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-sm)}
+.platform-copy>.pc-head{padding:10px 12px;background-image:var(--gradients-kraft\.sheen),var(--gradients-kraft\.surface);border-bottom:1px solid var(--colors-border-default);
+  font:800 12px/1.2 gin,"museo-sans",Georgia,serif;letter-spacing:.05em;text-transform:uppercase;color:var(--chocolate)}
+.platform-copy details{border-top:1px solid var(--colors-border-default)}
+.platform-copy details:first-of-type{border-top:none}
+.platform-copy summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;padding:9px 12px;
+  font:700 12px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.03em;color:var(--chocolate)}
+.platform-copy summary::-webkit-details-marker{display:none}
+.platform-copy summary::before{content:"\25B8";font-size:10px;color:var(--red);transition:transform .15s;flex:0 0 auto}
+.platform-copy details[open]>summary::before{transform:rotate(90deg)}
+.platform-copy summary:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.platform-copy .pc-src{margin-left:auto;padding:1px 7px;border-radius:var(--radii-pill);font:700 9px/1.6 "museo-sans",sans-serif;letter-spacing:.03em;text-transform:uppercase}
+.platform-copy .pc-src.generated{background:var(--colors-brand-frontier-green);color:var(--colors-foreground-inverse)}
+.platform-copy .pc-src.fallback{background:var(--colors-neutral-100);color:var(--colors-neutral-600);border:1px solid var(--colors-border-default)}
+.platform-copy .pc-body{padding:0 12px 12px 30px}
+.platform-copy .pc-title{margin:0 0 4px;font:700 12px/1.4 "museo-sans",sans-serif;color:var(--chocolate)}
+/* #5A4A42 neutral-700 on kraft-tan = >=6:1 (AA) */
+.platform-copy .pc-text{margin:0;font:500 12px/1.55 "museo-sans",sans-serif;color:var(--colors-neutral-700);white-space:pre-wrap;word-break:break-word}
+.platform-copy .pc-tags{margin:6px 0 0;color:var(--colors-foreground-accent);font:600 11px/1.5 "museo-sans",sans-serif;word-break:break-word}
 
 /* === Provenance transparency panel — native <details>/<summary> disclosure === */
 .provenance{margin-top:14px;border:1px solid var(--stone);border-radius:6px;background:var(--gradients-kraft\.surface);overflow:hidden}
@@ -354,6 +411,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <button type="button" class="ff-chip" aria-pressed="false" data-theme="zac-efron" data-brief="Zac Efron athletic-morning energy — high-protein pre-trail fuel, aspirational active lifestyle. Keep It Wild."><span class="ff-dot"></span>Zac Efron</button>
       <button type="button" class="ff-chip" aria-pressed="false" data-theme="bears" data-brief="Bears + Keep It Wild — lean into the KODIAK Bear, wild frontier tone, protein for epic days."><span class="ff-dot"></span>Bears</button>
       <button type="button" class="ff-chip" aria-pressed="false" data-theme="keep-it-wild-program" data-brief="Keep It Wild program — brand campaign tying protein-packed whole grains to the outdoor frontier lifestyle."><span class="ff-dot"></span>Keep It Wild program</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="us-ski-snowboard" data-brief="US Ski & Snowboard partner campaign — Milano Cortina 2026, Park City athlete fuel, whole-grain protein for world-class winter athletes, alpine dawn. Keep It Wild."><span class="ff-dot"></span>US Ski &amp; Snowboard</button>
+    </div>
+    <!-- partner mark — shown only when the US Ski & Snowboard chip is active (partner logo committed at assets/partners/) -->
+    <div id="ussPartnerMark" role="img" aria-label="U.S. Ski &amp; Snowboard — Kodiak partner" hidden style="margin-top:var(--spacing-sm);display:none;align-items:center;gap:8px">
+      <img src="assets/partners/us-ski-snowboard-kodiak.png" alt="" width="94" height="63" style="height:auto;max-width:94px;display:block;border-radius:var(--radii-sm)" onerror="this.style.display='none'">
+      <span style="font:600 11px/1.35 'museo-sans',sans-serif;color:var(--colors-foreground-muted)">Official partner mark</span>
     </div>
   </div>
 </div>
@@ -375,8 +438,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <!-- no second consumer marquee — removed for tool focus (single PROMPT→CAMPAIGNS marquee above is enough) -->
 <div style="height:48px;background:var(--mountain) no-repeat center/100% 48px;margin:6px 0 0" aria-hidden="true" title="Wasatch ridge — Frontier Green S30 #1A2F29"></div>
 
-<div class="card wide-track"><div class="hd"><h2>Preview <span class="badge">3 sizes</span></h2><p>Your campaign, three sizes.</p></div>
-<div class="body"><div class="preview" id="preview" role="region" aria-label="Campaign preview — three sizes" data-mcp="preview.compose" data-mcp-description="Pipeline preview — displays campaign message in EN + localized on final posts"></div><div class="hint" id="fileNames" style="margin-top:10px;display:none"></div></div></div>
+<details class="card wide-track preview-card" id="previewCard"><summary><span>Preview</span> <span class="badge">3 sizes</span><span class="preview-sub">Your campaign previewed in three sizes: 1x1, 9x16, 16x9 — one brief, generated for every platform below.</span></summary>
+<div class="body"><div class="preview" id="preview" role="region" aria-label="Campaign preview — three sizes" data-mcp="preview.compose" data-mcp-description="Pipeline preview — displays campaign message in EN + localized on final posts"></div><div class="hint" id="fileNames" style="margin-top:10px;display:none"></div></div></details>
 
 <!-- Design system + Frontier prototype context moved to details.html -->
 <div class="row" style="margin:6px 0 4px"><a href="details.html" style="font:700 11px/1 'kodiak_sans','museo-sans',sans-serif;letter-spacing:.06em;text-transform:uppercase">Design system + details &rarr;</a></div>
@@ -582,8 +645,7 @@ function render(){
     img.src = prod.img;
     tile.appendChild(c);
     const meta=document.createElement('div'); meta.className='meta';
-    const cue = places.find(p=>p.market===locality)? places.find(p=>p.market===locality).cue.slice(0,50) : '';
-    meta.innerHTML=`<b>KODIAK® ${prod.id} — ${r.k}</b><div class=small>${r.w}×${r.h} · ${headline.slice(0,55)} · ${cue} · Bear at 24,24 · 8px Blaze</div>`;
+    meta.innerHTML=`<b>KODIAK® ${prod.id} — ${r.k}</b><div class=small>${r.w}×${r.h}</div>`;
     tile.appendChild(meta);
     previewEl.appendChild(tile);
     canvases.push({canvas:c,ratio:r.k,product:prod.id});
@@ -591,6 +653,8 @@ function render(){
     files.push(humanName);
   });
   fileNamesEl.innerHTML = files.map(f=>`<span class=kbd>${f}</span>`).join(' ');
+  // re-insert the platform-matrix explainer above the canvas tiles (render() cleared #preview above).
+  try{ if(window.__renderPlatformMatrix) window.__renderPlatformMatrix(); }catch(e){}
 }
 function drawAd(ctx,W,H,headline,prod,heroImg){
   // blurred cover emulation: brown kraft cover
@@ -725,7 +789,7 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
                 img.src=heroSrc;
                 tile.appendChild(c);
                 const meta=document.createElement('div'); meta.className='meta';
-                meta.innerHTML=`<b>KODIAK® ${kamasProd?kamasProd.id:'savory-waffles'} — ${r.k} — Kamas Valley rural</b><div class=small>${r.w}×${r.h} · ${kamasMsg.slice(0,62)} · Bear at 24,24 · 8px Blaze · hero input_assets or CDN</div>`;
+                meta.innerHTML=`<b>KODIAK® ${kamasProd?kamasProd.id:'savory-waffles'} — ${r.k} — Kamas Valley rural</b><div class=small>${r.w}×${r.h}</div>`;
                 tile.appendChild(meta);
                 if(kamasPreview) kamasPreview.appendChild(tile);
               });
@@ -863,6 +927,129 @@ let skuList = [
   setTimeout(updateLocalFlavor, 800);
   document.addEventListener('change', e=>{ if(e.target?.id==='locality') updateLocalFlavor(); });
 
+  // === Platform -> ratio -> dimension matrix ===
+  // Authoritative source: data/platforms/platform-matrix.json (offline-tolerant multi-path fetch,
+  // same pattern as market-languages.json). Inline fallback below keeps it working file:// offline.
+  // module-scoped escape — used by the matrix + platform-copy renderers (the click-handler has its own local one too)
+  const escapeHtml = (s)=> String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const PLATFORM_LABELS = {
+    facebook:'Facebook', instagram:'Instagram', linkedin:'LinkedIn',
+    pinterest:'Pinterest', tiktok:'TikTok', x:'X', youtube:'YouTube'
+  };
+  // Inline fallback — ratio order matches the summary copy (1x1, then portrait, then vertical, then landscape).
+  const PLATFORM_MATRIX_FALLBACK = {
+    '1x1':  {label:'Square',    w:1080, h:1080, platforms:['facebook','instagram','x','linkedin','pinterest']},
+    '4x5':  {label:'Portrait',  w:1080, h:1350, platforms:['instagram','facebook']},
+    '9x16': {label:'Vertical',  w:1080, h:1920, platforms:['instagram','facebook','tiktok','youtube','pinterest']},
+    '16x9': {label:'Landscape', w:1920, h:1080, platforms:['youtube','linkedin','x','facebook']}
+  };
+  // live matrix — starts as the fallback, upgraded by the fetched JSON when reachable.
+  let platformMatrix = PLATFORM_MATRIX_FALLBACK;
+  const platformNames = (slugs)=> (slugs||[]).map(s=>PLATFORM_LABELS[s] || s);
+  (async ()=>{
+    for(const url of ['data/platforms/platform-matrix.json','../../data/platforms/platform-matrix.json','./data/platforms/platform-matrix.json']){
+      try{
+        const r = await fetch(url);
+        if(r.ok){
+          const d = await r.json();
+          if(d && d.ratios && Object.keys(d.ratios).length){
+            platformMatrix = d.ratios;
+            console.log('[platform-matrix] loaded', Object.keys(d.ratios).length, 'ratios from', url);
+            // if the matrix explainer is already on-screen, refresh it in place
+            try{ renderPlatformMatrix(); }catch(e){}
+            break;
+          }
+        }
+      }catch(e){}
+    }
+  })();
+  // clean per-tile platform legend for a ratio slug (e.g. "1x1" -> "Facebook · Instagram · X · LinkedIn · Pinterest")
+  function platformsForRatio(ratio){
+    const row = platformMatrix[ratio];
+    return row ? platformNames(row.platforms) : [];
+  }
+  // Render the "when you hit Create we generate these sizes for these platforms" explainer into the preview.
+  // Idempotent: replaces any existing matrix so re-render never stacks.
+  function renderPlatformMatrix(){
+    const preview = document.getElementById('preview');
+    if(!preview) return;
+    const old = document.getElementById('platformMatrix');
+    if(old) old.remove();
+    // ratio display order — square, portrait, vertical, landscape (whatever the matrix provides)
+    const order = ['1x1','4x5','9x16','16x9'];
+    const keys = order.filter(k=>platformMatrix[k]).concat(Object.keys(platformMatrix).filter(k=>order.indexOf(k)<0));
+    const rows = keys.map(k=>{
+      const row = platformMatrix[k];
+      const colon = k.replace('x',':');
+      const plats = platformNames(row.platforms).map(p=>'<span class="pm-plat">'+escapeHtml(p)+'</span>').join('');
+      return '<tr>'+
+        '<td class="pm-ratio"><b>'+escapeHtml(colon)+'</b><span class="pm-role">'+escapeHtml(row.label||'')+'</span></td>'+
+        '<td class="pm-dims">'+escapeHtml((row.w||'')+'\u00D7'+(row.h||''))+'</td>'+
+        '<td class="pm-plats">'+plats+'</td>'+
+        '</tr>';
+    }).join('');
+    const wrap = document.createElement('div');
+    wrap.className = 'platform-matrix';
+    wrap.id = 'platformMatrix';
+    wrap.innerHTML =
+      '<div class="pm-head"><b>When you hit Create, we generate these sizes for these platforms</b>'+
+      '<span class="pm-sub">One brief, every ratio, every platform in scope.</span></div>'+
+      '<table><thead><tr><th scope="col">Ratio</th><th scope="col">Dimensions</th><th scope="col">Platforms</th></tr></thead>'+
+      '<tbody>'+rows+'</tbody></table>';
+    // matrix leads the preview (explainer sits above the render tiles)
+    preview.insertBefore(wrap, preview.firstChild);
+  }
+  // expose so the offline canvas render() (defined in the earlier script scope) can re-insert
+  // the matrix after it clears #preview, keeping the explainer visible on every redraw.
+  window.__renderPlatformMatrix = renderPlatformMatrix;
+  // show the matrix as the default preview content on load (before any campaign is generated)
+  try{ renderPlatformMatrix(); }catch(e){}
+
+  // Open the collapsible Preview card so freshly-generated output is visible immediately.
+  function openPreviewCard(){
+    const card = document.getElementById('previewCard');
+    if(card && !card.open){ card.open = true; }
+  }
+
+  // Render per-platform messaging copy — an accordion of native <details>, one per platform.
+  // Consumes /generate response `platform_copy` = { platform: {headline|title, body|description, hashtags, source} }.
+  // Idempotent + offline-graceful: absent platform_copy simply skips.
+  function renderPlatformCopy(platformCopy){
+    const preview = document.getElementById('preview');
+    if(!preview) return;
+    const old = document.getElementById('platformCopyPanel');
+    if(old) old.remove();
+    if(!platformCopy || typeof platformCopy!=='object') return;
+    // stable ordering: known scope first, then any extras the backend adds
+    const scope = ['x','linkedin','instagram','tiktok','facebook','pinterest','youtube'];
+    const keys = scope.filter(k=>platformCopy[k]).concat(Object.keys(platformCopy).filter(k=>scope.indexOf(k)<0));
+    if(!keys.length) return;
+    const items = keys.map(k=>{
+      const c = platformCopy[k] || {};
+      const name = PLATFORM_LABELS[k] || k;
+      const title = c.headline!=null ? c.headline : (c.title!=null ? c.title : '');
+      const bodyTxt = c.body!=null ? c.body : (c.description!=null ? c.description : '');
+      const tags = Array.isArray(c.hashtags) ? c.hashtags.join(' ') : (c.hashtags!=null ? c.hashtags : '');
+      const src = String(c.source||'').toLowerCase()==='generated' ? 'generated' : (c.source ? 'fallback' : '');
+      const srcPill = src ? '<span class="pc-src '+src+'">source: '+escapeHtml(src)+'</span>' : '';
+      return '<details>'+
+        '<summary>'+escapeHtml(name)+srcPill+'</summary>'+
+        '<div class="pc-body">'+
+          (title? '<p class="pc-title">'+escapeHtml(title)+'</p>':'')+
+          (bodyTxt? '<p class="pc-text">'+escapeHtml(bodyTxt)+'</p>':'')+
+          (tags? '<p class="pc-tags">'+escapeHtml(tags)+'</p>':'')+
+        '</div>'+
+      '</details>';
+    }).join('');
+    const panel = document.createElement('div');
+    panel.className = 'platform-copy';
+    panel.id = 'platformCopyPanel';
+    panel.innerHTML = '<div class="pc-head">Per-platform messaging</div>' + items;
+    // place after the provenance panel / download row / preview, whichever is last
+    const anchor = document.getElementById('provenancePanel') || document.getElementById('previewDownloadRow') || preview;
+    anchor.parentNode?.insertBefore(panel, anchor.nextSibling);
+  }
+
   // Single generate: fans to ALL formats/platforms/locals, returns sample + nearest Frontier + newsletter variant
   // Dev: try GlimmerProxy (127.0.0.1:8181) for brief→SKU intelligence + diagnose, then Nova unlimited (hosted) — go ham on embeddings
   const btn = document.getElementById('generateCampaign');
@@ -910,7 +1097,8 @@ let skuList = [
       const THEME_LABELS = {
         'recipe-cards':'Recipe cards','localized-costco':'Localized Costco',
         'riff-on-past-content':'Riff on past content','zac-efron':'Zac Efron',
-        'bears':'Bears','keep-it-wild-program':'Keep It Wild program'
+        'bears':'Bears','keep-it-wild-program':'Keep It Wild program',
+        'us-ski-snowboard':'US Ski & Snowboard'
       };
       const themeLabel = activeTheme ? (THEME_LABELS[activeTheme] || activeTheme) : null;
       // Reveal the primary "Download image" + secondary "Download localized campaign asset pack"
@@ -990,6 +1178,8 @@ let skuList = [
       const RATIO_LABELS = {
         '1x1': {name:'Feed', cls:'r-1x1'},
         '4x5': {name:'Portrait', cls:'r-4x5'},
+        '9x16': {name:'Vertical', cls:'r-9x16'},
+        '16x9': {name:'Landscape', cls:'r-16x9'},
         '2x3': {name:'Story', cls:'r-2x3'}
       };
       const ENGINE_LABELS = {
@@ -1003,11 +1193,13 @@ let skuList = [
         const preview = document.getElementById('preview');
         if(!preview) return;
         preview.innerHTML = '';
+        // keep the platform explainer at the top of the preview even after a generate
+        try{ renderPlatformMatrix(); }catch(e){}
         const set = document.createElement('div');
         set.className = 'render-set';
         const themeBit = opts.themeLabel ? (', ' + opts.themeLabel + ' theme') : '';
         renders.forEach((r, i)=>{
-          const meta = RATIO_LABELS[r.ratio] || {name:r.ratio, cls:''};
+          const meta = RATIO_LABELS[r.ratio] || {name:r.ratio, cls:'r-'+String(r.ratio||'').replace(/[^0-9x]/g,'')};
           const tile = document.createElement('div');
           tile.className = 'render-tile ' + meta.cls;
           const frame = document.createElement('div');
@@ -1021,11 +1213,16 @@ let skuList = [
           const cap = document.createElement('div');
           cap.className = 'render-cap';
           const ratioColon = r.ratio.replace('x',':');
-          cap.innerHTML = '<b>' + escapeHtml(ratioColon + ' ' + meta.name) + '</b><span class="dims">' + escapeHtml((r.w||'') + '\u00D7' + (r.h||'')) + '</span>';
+          // clean caption: "1:1 Feed · 1080×1080" + the platforms this ratio serves (no engineering noise)
+          const plats = platformsForRatio(r.ratio);
+          const platLine = plats.length ? '<span class="rt-platforms">' + escapeHtml(plats.join(' \u00B7 ')) + '</span>' : '';
+          cap.innerHTML = '<b>' + escapeHtml(ratioColon + ' ' + meta.name) + '</b>' +
+            '<span class="dims">' + escapeHtml((r.w||'') + '\u00D7' + (r.h||'')) + '</span>' + platLine;
           tile.appendChild(cap);
           set.appendChild(tile);
         });
         preview.appendChild(set);
+        openPreviewCard();
         // hero download targets the 1x1 (primary) render
         const primary = renders.find(r=>r.ratio==='1x1') || renders[0];
         if(primary) window.__lastHeroUrl = primary.image_url;
@@ -1104,6 +1301,7 @@ let skuList = [
         if(status) status.textContent = 'Campaign preview ready (local canvas)';
         btn.disabled=true; btn.textContent='Generating…';
         try{ render(); }catch(e){ console.warn('render() failed on generate (local)', e); }
+        openPreviewCard();
         finishCommon();
         btn.disabled=false; btn.textContent=origLabel;
         return;
@@ -1166,6 +1364,10 @@ let skuList = [
           if(json.provenance){
             renderProvenancePanel(json.provenance, {brief, theme: json.theme || activeTheme, themeLabel: readyThemeLabel, market: selectedLoc.market, product: primarySlug});
           }
+          // per-platform messaging copy panel (renders when the backend supplies platform_copy; skips gracefully otherwise)
+          renderPlatformCopy(json.platform_copy);
+          // auto-open the collapsed Preview card so the user sees the freshly-composed output
+          openPreviewCard();
         } else {
           // Multi-product fan-out: one themed-less request per selected product; render each tile as it returns.
           if(preview) preview.innerHTML = '';
@@ -1187,6 +1389,7 @@ let skuList = [
           }));
           if(status) status.textContent = okCount ? ('Campaign preview ready — ' + okCount + ' of ' + products.length + ' product variants composed') : 'Generation failed — showing local preview';
           if(!okCount){ try{ render(); }catch(e){} }
+          openPreviewCard();
         }
       }catch(err){
         console.warn('generate: real backend failed, falling back to canvas —', err && err.message ? err.message : err);
@@ -1238,13 +1441,23 @@ window.KODIAK_CART={open:()=>{const d=document.getElementById('kodiak-cart-drawe
   window.__clearActiveTheme = function(){
     window.__activeTheme = null;
     if(chipWrap) chipWrap.querySelectorAll('.ff-chip').forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+    togglePartnerMark(null);
   };
+  // partner mark visibility — only for the US Ski & Snowboard chip; tasteful, not overused.
+  function togglePartnerMark(theme){
+    var mark = document.getElementById('ussPartnerMark');
+    if(!mark) return;
+    var on = theme === 'us-ski-snowboard';
+    mark.hidden = !on;
+    mark.style.display = on ? 'flex' : 'none';
+  }
   if(chipWrap && briefEl){
     chipWrap.querySelectorAll('.ff-chip[data-brief]').forEach(function(chip){
       chip.addEventListener('click', function(){
         briefEl.value = chip.getAttribute('data-brief');
         // Chip is the active starting point: expose its theme slug for the generate IIFE.
         window.__activeTheme = chip.getAttribute('data-theme') || null;
+        togglePartnerMark(window.__activeTheme);
         // dispatch input AFTER setting theme, and guard the input handler so the chip's own
         // programmatic input event does not immediately clear the theme it just set.
         window.__chipSettingBrief = true;
