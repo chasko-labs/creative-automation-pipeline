@@ -15,6 +15,7 @@ class _FakeS3:
         return {}
 
     def generate_presigned_url(self, op, Params, ExpiresIn) -> str:  # noqa: N803 — boto3 kwarg name
+        self.last_presign_params = Params
         return f"https://presigned.example/{Params['Key']}?exp={ExpiresIn}"
 
 
@@ -91,3 +92,37 @@ def test_options_preflight_returns_200(monkeypatch) -> None:
     assert resp["statusCode"] == 200
     assert resp["headers"]["Access-Control-Allow-Origin"] == "*"
     assert resp["body"] == ""
+
+
+def test_presigned_url_signed_with_attachment_disposition(monkeypatch, tmp_path: Path) -> None:
+    # cross-origin presigned GET must be signed with Content-Disposition: attachment
+    # so the browser saves (not inline-opens) with a sensible .png filename.
+    fake_png = tmp_path / "hero.png"
+    fake_png.write_bytes(b"\x89PNG\r\n")
+    fake_s3 = _FakeS3()
+    monkeypatch.setattr(
+        generate_lambda,
+        "generate_hero",
+        lambda **kwargs: (fake_png, "bedrock:nova-pro"),
+    )
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: fake_s3)
+
+    event = {"body": json.dumps({"product": "power-cakes", "region": "us"})}
+    resp = generate_lambda.handler(event, None)
+    assert resp["statusCode"] == 200
+
+    disposition = fake_s3.last_presign_params["ResponseContentDisposition"]
+    assert disposition.startswith("attachment; filename=")
+    assert disposition.endswith('.png"')
+
+
+def test_download_filename_sanitizes_and_falls_back() -> None:
+    assert generate_lambda._download_filename("power-cakes", "us", None) == (
+        "KODIAK-CAKES-POWER-CAKES-US.png"
+    )
+    # theme wins over product for the image, so it also names the download
+    assert generate_lambda._download_filename("power-cakes", "us", "green chile") == (
+        "KODIAK-CAKES-GREEN-CHILE-US.png"
+    )
+    # empty inputs still yield a stable, safe name
+    assert generate_lambda._download_filename("", "", None) == "KODIAK-CAKES-CAMPAIGN-ASSET.png"
