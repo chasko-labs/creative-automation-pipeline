@@ -220,7 +220,7 @@ Distribution `E3GEX8LSRX6OYS`, domain `d37333alc7ojpl.cloudfront.net`, status **
 
 ### 5.4 Models — Bedrock (`LIVE` access) and AgentCore (`PLANNED`)
 
-Confirmed available in the account: `amazon.titan-embed-text-v2:0` (the only embedder), `amazon.nova-micro-v1:0`, `amazon.nova-lite-v1:0`, `amazon.nova-2-lite-v1:0`, `amazon.nova-2-multimodal-embeddings-v1:0`. The only Amazon-first image model, `amazon.nova-canvas-v1:0`, is LEGACY and idle-gated — InvokeModel fails until re-activated, so the image step returns a mock placeholder. Flagship generators (stability.stable-image-ultra/core, sd3-5-large) are ACTIVE in us-west-2 but denied by an intentional Amazon-first IAM guardrail (AdministratorAccess permission set inline Deny "DenyThirdPartyBedrockInvoke", allowing only amazon._, imported-model/_, us.amazon.\* profiles). No third-party models used in the product.
+Bedrock models in the pipeline (all Amazon-first): `amazon.nova-pro-v1:0` (Converse vision) composes each hero from the real product photograph; `amazon.nova-2-multimodal-embeddings-v1:0` (1024-dim) with `amazon.titan-embed-text-v2:0` fallback drives retrieval; `amazon.nova-micro-v1:0` / `amazon.nova-lite-v1:0` handle copy and localization. An Amazon-first IAM guardrail (the `DenyThirdPartyBedrockInvoke` policy) keeps every invocation on `amazon.*` models by design — no third-party models in the product.
 
 AgentCore deployment status, live-checked: `ListGateways` = 0, `ListAgentRuntimes` = 0, `bedrock-agent ListAgents` = 0. The runtime/gateway wrap is `PLANNED`; the local pipeline is the live path.
 

@@ -77,15 +77,15 @@ This is the heart of the system and already has a detailed, CIO-grade diagram �
 
 Retrieval and embedding facts, verified in code:
 
-| concern         | value                                                                                                                                                                | source                                                    |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| embedder        | Titan Embed Text v2:0 (only embedding model)                                                                                                                         | `bedrock-agentcore-architecture.md`, `scripts/embed-*.py` |
-| embed dimension | 1024                                                                                                                                                                 | `agentcore-backlog.md` A1, `reference_api.py`             |
-| vector store    | S3 Vectors (managed, no servers)                                                                                                                                     | `infra/template.yaml` comments, KB config                 |
-| text model      | Nova Micro / Lite via Converse                                                                                                                                       | `docs/agentcore.md` env                                   |
-| image model     | Nova Canvas (amazon.nova-canvas-v1:0) via InvokeModel — LEGACY/idle-gated, returns mock placeholder until re-activated; only Amazon-first image model on the account | `bedrock-agentcore-architecture.md`, generate.py fallback |
-| training corpus | `data/vectors/kodiak-embeddings.jsonl` (3144 real vectors)                                                                                                           | `agentcore-backlog.md`                                    |
-| sample prompts  | `data/prompts/blog-sample-prompts.jsonl` (635 prompts)                                                                                                               | `agentcore-backlog.md`                                    |
+| concern         | value                                                                                                                                                               | source                                                    |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| embedder        | Titan Embed Text v2:0 (only embedding model)                                                                                                                        | `bedrock-agentcore-architecture.md`, `scripts/embed-*.py` |
+| embed dimension | 1024                                                                                                                                                                | `agentcore-backlog.md` A1, `reference_api.py`             |
+| vector store    | S3 Vectors (managed, no servers)                                                                                                                                    | `infra/template.yaml` comments, KB config                 |
+| text model      | Nova Micro / Lite via Converse                                                                                                                                      | `docs/agentcore.md` env                                   |
+| image model     | Amazon Nova Pro (`amazon.nova-pro-v1:0`, Converse vision) composes the hero from the real product photograph — on-brand, rights-clean, grounded in the actual asset | `generate.py`, `bedrock-agentcore-architecture.md`        |
+| training corpus | `data/vectors/kodiak-embeddings.jsonl` (3144 real vectors)                                                                                                          | `agentcore-backlog.md`                                    |
+| sample prompts  | `data/prompts/blog-sample-prompts.jsonl` (635 prompts)                                                                                                              | `agentcore-backlog.md`                                    |
 
 ---
 
