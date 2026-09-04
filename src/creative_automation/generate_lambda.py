@@ -15,6 +15,8 @@ from botocore.config import Config
 from . import text_rewriter
 from .generate import _safe_prompt_text, generate_hero_set
 from .locales import resolve_target_languages
+from .platform_copy import generate_platform_copy
+from .platforms import PLATFORMS
 
 DAM_S3_BUCKET = os.getenv("DAM_S3_BUCKET", "chasko-creative-dam-946179428633-us-east-1")
 CORS_HEADERS = {
@@ -187,6 +189,25 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
         if isinstance(provenance, dict):
             provenance["languages"] = languages
 
+        # Per-platform campaign copy (additive): tailor the campaign message to each
+        # social network's tone/length rules. Client may pass "platforms": [...] to
+        # scope the set; default is all seven sanctioned platforms. Offline-safe — the
+        # copy degrades to a deterministic on-brand template tagged source="fallback"
+        # when no live Nova backend, exactly like the localization path.
+        req_platforms = data.get("platforms")
+        if not isinstance(req_platforms, list) or not req_platforms:
+            req_platforms = list(PLATFORMS)
+        product_name = product.replace("-", " ").title()
+        try:
+            platform_copy = generate_platform_copy(
+                headline, product_name, market, platforms=req_platforms
+            )
+        except Exception as e:  # noqa: BLE001 — copy must never sink the generate call
+            print(f"[generate_lambda] platform_copy fallback: {e}", file=sys.stderr)
+            platform_copy = {}
+        if isinstance(provenance, dict):
+            provenance["platforms"] = list(platform_copy.keys())
+
         return _response(
             200,
             {
@@ -199,6 +220,7 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
                 "renders": response_renders,
                 "provenance": provenance,
                 "localizations": localizations,
+                "platform_copy": platform_copy,
             },
         )
     except Exception as e:  # noqa: BLE001 — surface any failure as a 500 JSON body

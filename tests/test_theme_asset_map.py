@@ -1,7 +1,7 @@
 """Offline validation of the theme-asset-map artifact.
 
 No network. Asserts the committed data/products/theme-asset-map.json is
-well-formed, covers all 6 chip themes, resolves only real DAM keys, and that
+well-formed, covers all chip themes, resolves only real DAM keys, and that
 the thematic routing landed on-theme (zac-efron -> athlete/lifestyle set;
 bears -> not an obvious captive-bear close-up).
 """
@@ -27,6 +27,7 @@ EXPECTED_THEMES = {
     "localized-costco",
     "riff-on-past-content",
     "keep-it-wild-program",
+    "us-ski-snowboard",
 }
 
 # on-theme evidence tokens for the zac-efron chip (real athlete/lifestyle set)
@@ -65,7 +66,7 @@ def test_json_loads_and_has_map():
     assert "metadata" in data
 
 
-def test_all_six_theme_slugs_present():
+def test_all_theme_slugs_present():
     data = _load_map()
     assert set(data["map"].keys()) == EXPECTED_THEMES
 
@@ -105,13 +106,14 @@ def test_every_pool_entry_is_a_real_dam_path():
         assert entry["photo_key"] == pool[0], f"{slug}: photo_key is not pool[0]"
 
 
-def test_all_six_primaries_are_distinct_photo_keys():
+def test_all_primaries_are_distinct_photo_keys():
     # FLAG 2 de-dup guarantee: no two themes may share the same primary
     # photo_key. Pools may overlap; primaries must be globally unique.
     data = _load_map()
     primaries = [entry["photo_key"] for entry in data["map"].values()]
-    assert len(primaries) == 6, f"expected 6 primaries, got {len(primaries)}"
-    assert len(set(primaries)) == 6, (
+    expected = len(EXPECTED_THEMES)
+    assert len(primaries) == expected, f"expected {expected} primaries, got {len(primaries)}"
+    assert len(set(primaries)) == expected, (
         f"primary photo_keys are not all distinct: {sorted(primaries)}"
     )
 

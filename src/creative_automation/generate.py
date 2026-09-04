@@ -116,6 +116,22 @@ _THEME_PERSONA_MAP: dict[str, str] = {
     "zac-efron": "energetic athletic young man, morning-fitness lifestyle vibe",
 }
 
+# Per-theme scene guidance for the Nova Pro control-structure restyle prompt. When a
+# theme has an entry here, its vivid scene description is folded into the art-director
+# prompt AND the deterministic fallback prompt so the restyle lands on-theme even with
+# no live Nova Pro. Entries stay GENERIC — no real person's name or likeness. For the
+# US Ski & Snowboard partner campaign this honors the real partnership (Milano Cortina
+# 2026, Park City, Kodiak Kitchen at the USANA Center of Excellence) without naming or
+# implying endorsement by any individual athlete.
+_THEME_SCENE_HINT: dict[str, str] = {
+    "us-ski-snowboard": (
+        "winter Wasatch alpine dawn, fresh snow and pine ridgeline above Park City, "
+        "cast-iron protein stack as athlete fuel before the training day, crisp cold "
+        "light, podium-energy mood, generic active winter athletes only (no faces, no "
+        "real person), on-brand Kodiak"
+    ),
+}
+
 
 def _safe_theme_text(theme_slug: str) -> str:
     """Return prompt-safe descriptive text for a theme slug.
@@ -457,8 +473,12 @@ def _nova_pro_scene_prompt(
     prompt on any Nova Pro failure so the Stability call always has a usable prompt.
     """
     theme_hint = f" Theme: {_safe_theme_text(theme)}." if theme else ""
+    scene_hint = _THEME_SCENE_HINT.get(theme or "", "")
+    if scene_hint:
+        theme_hint += f" Scene direction: {scene_hint}."
     default_prompt = (
-        f"{product_name} product photo restyled for {_safe_theme_text(theme) if theme else brief_msg}, "
+        f"{product_name} product photo restyled for "
+        f"{scene_hint or (_safe_theme_text(theme) if theme else brief_msg)}, "
         f"{region} {audience}, on-brand Kodiak lifestyle scene, natural light, high detail"
     ).strip()
     if boto3 is None:
@@ -1025,6 +1045,7 @@ def generate_hero(
         "control_strength": None,
         "model": None,
         "incoming_prompt": brief_msg,
+        "theme": theme,
         "headline": None,
         "overlay_applied": False,
         "paper_overlay": False,
