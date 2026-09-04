@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import sys
 from pathlib import Path
 from typing import Any
 from uuid import uuid4
@@ -11,7 +12,9 @@ from uuid import uuid4
 import boto3
 from botocore.config import Config
 
+from . import text_rewriter
 from .generate import _safe_prompt_text, generate_hero_set
+from .locales import resolve_target_languages
 
 DAM_S3_BUCKET = os.getenv("DAM_S3_BUCKET", "chasko-creative-dam-946179428633-us-east-1")
 CORS_HEADERS = {
@@ -41,6 +44,51 @@ def _is_options(event: dict[str, Any]) -> bool:
 def _response(status: int, payload: dict[str, Any]) -> dict[str, Any]:
     """Shape a Function-URL response with CORS headers and a JSON string body."""
     return {"statusCode": status, "headers": CORS_HEADERS, "body": json.dumps(payload)}
+
+
+def _build_localizations(headline: str, market: str | None) -> tuple[list[dict], list[str]]:
+    """Localize a headline into a market's top-3 languages (English + market top-2).
+
+    Server-side localization: resolve the target languages for `market` (EN/ES/PT default
+    when unknown), then run the headline through the rewrite/translate seam
+    (text_rewriter.rewrite_all -> Nova Micro rewrite -> dialect swap -> Amazon Translate,
+    per the README chain). Offline/no-creds is a documented path, never a crash: a rewrite
+    that could not reach a live backend comes back tagged source="mock", which surfaces
+    here as source="rewrite-fallback" (the original line per language). A live rewrite
+    surfaces as source="translated".
+
+    Returns (localizations, languages):
+      localizations: [{lang_code, translate_code, headline, source}, ...] in target order
+      languages:     [lang_code, ...] for the provenance object
+    """
+    targets = resolve_target_languages(market)
+    langs = [t["lang_code"] for t in targets]
+    translate_codes = {t["lang_code"]: t.get("translate_code", t["lang_code"]) for t in targets}
+
+    localizations: list[dict] = []
+    try:
+        results = text_rewriter.rewrite_all(headline, market or "us", langs)
+    except Exception as e:  # noqa: BLE001 — localization must never sink the generate call
+        print(f"[generate_lambda] localization fallback: {e}", file=sys.stderr)
+        results = [
+            {"lang_code": code, "text": headline, "source": "rewrite-fallback"}
+            for code in langs
+        ]
+
+    for res in results:
+        code = res["lang_code"]
+        # "translated" only when a live backend produced the text; mock/offline/error
+        # all read as the graceful fallback so the UI can label them honestly.
+        source = "translated" if res.get("source") == "bedrock:nova-micro" else "rewrite-fallback"
+        localizations.append(
+            {
+                "lang_code": code,
+                "translate_code": translate_codes.get(code, code),
+                "headline": res.get("text", headline),
+                "source": source,
+            }
+        )
+    return localizations, langs
 
 
 def _download_filename(product: str, region: str, theme: str | None) -> str:
@@ -129,6 +177,16 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
         if primary_url is None:
             primary_url = primary["image_url"]
 
+        # Server-side localization (additive): deliver the campaign headline in the
+        # market's top-3 languages (English + market top-2, EN/ES/PT default when the
+        # market is unknown). The headline is the Nova Pro line when present, else the
+        # incoming prompt. Offline-safe — never crashes the generate call.
+        market = data.get("market") or data.get("region", "us")
+        headline = (provenance or {}).get("headline") or prompt
+        localizations, languages = _build_localizations(headline, market)
+        if isinstance(provenance, dict):
+            provenance["languages"] = languages
+
         return _response(
             200,
             {
@@ -140,6 +198,7 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
                 "theme": theme,
                 "renders": response_renders,
                 "provenance": provenance,
+                "localizations": localizations,
             },
         )
     except Exception as e:  # noqa: BLE001 — surface any failure as a 500 JSON body

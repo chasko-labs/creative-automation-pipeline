@@ -256,3 +256,116 @@ def test_apply_paper_overlay_heavier_opacity_shifts_more() -> None:
         return t / (len(bp) * 3)
 
     assert _mean_delta(heavy) > _mean_delta(light)
+
+
+
+# ------------------------------------------------- recipe-card template (deterministic)
+def _make_hero(path: Path, size: tuple[int, int] = (1080, 1080)) -> Path:
+    # a non-uniform hero so the image-slot content is detectably present after composing.
+    path.parent.mkdir(parents=True, exist_ok=True)
+    img = Image.new("RGB", size, (30, 90, 160))
+    for x in range(0, size[0], 8):
+        for y in range(0, size[1], 8):
+            img.putpixel((x, y), (220, 140, 40))
+    img.save(path, "PNG")
+    return path
+
+
+def test_compose_recipe_card_deterministic_same_bytes(tmp_path: Path) -> None:
+    # same inputs -> byte-identical card (fixed fonts + palette, no randomness here).
+    hero = _make_hero(tmp_path / "hero.png")
+    fields = {"ingredients": ["2 cups mix", "1 cup milk"], "steps": ["whisk", "cook"]}
+    a = generate._compose_recipe_card(hero, "Trail Stack", "4x5", tmp_path / "a.png", fields)
+    b = generate._compose_recipe_card(hero, "Trail Stack", "4x5", tmp_path / "b.png", fields)
+    assert a.read_bytes() == b.read_bytes()
+
+
+def test_compose_recipe_card_dims_and_hero_slot_present(tmp_path: Path) -> None:
+    # the card is at the requested _CANVAS ratio dims and the GenAI hero region (top slot)
+    # carries non-uniform pixels — the generative image is really placed in the slot.
+    hero = _make_hero(tmp_path / "hero.png")
+    out = generate._compose_recipe_card(hero, "Wild Protein Stack", "2x3", tmp_path / "card.png")
+    w, h = generate._CANVAS["2x3"]
+    with Image.open(out) as im:
+        assert im.size == (w, h)
+        rgb = im.convert("RGB")
+        # sample the top-slot image region (~top 40% is inside the 55% hero slot)
+        samples = {
+            rgb.getpixel((x, y))
+            for x in range(0, w, w // 8)
+            for y in range(0, int(h * 0.40), max(1, int(h * 0.40) // 8))
+        }
+        assert len(samples) > 1  # non-uniform -> the hero is present, not a flat fill
+        # C03 Blaze Orange accent bar pinned to the bottom row
+        accent = generate._hex_to_rgb(generate._accent_hex)
+        bottom = rgb.getpixel((w // 2, h - 1))
+        assert abs(bottom[0] - accent[0]) < 30 and abs(bottom[1] - accent[1]) < 30
+
+
+def _seeded_hero_set(tmp_path: Path, monkeypatch) -> None:
+    """Wire generate_hero_set so a stability hero is produced offline (no AWS)."""
+    seed = _make_seed(tmp_path / "seed.png")
+    monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
+
+    def _fake_control(seed_path, prompt, out):
+        out.write_bytes(_png_bytes())
+        return out
+
+    monkeypatch.setattr(generate, "_stability_control_hero", _fake_control)
+    monkeypatch.setattr(generate, "_stability_outpaint", lambda *a, **k: None)
+    monkeypatch.setattr(generate, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
+    monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: "Keep It Wild\nLAYOUT: center")
+
+
+def test_recipe_cards_theme_runs_card_template(tmp_path: Path, monkeypatch) -> None:
+    # theme "recipe-cards" -> the card template runs; provenance marks card_template True
+    # and each ratio engine notes the recipe-card-template step.
+    _seeded_hero_set(tmp_path, monkeypatch)
+    called: list[str] = []
+    real_card = generate._compose_recipe_card
+
+    def _spy(hero, title, ratio, out, recipe_fields=None):
+        called.append(ratio)
+        return real_card(hero, title, ratio, out, recipe_fields)
+
+    monkeypatch.setattr(generate, "_compose_recipe_card", _spy)
+
+    renders, _source, prov = generate.generate_hero_set(
+        product_id="power-cakes",
+        product_name="Power Cakes",
+        brief_msg="wild mornings",
+        region="us",
+        audience="active families",
+        out_dir=tmp_path / "set",
+        theme="recipe-cards",
+    )
+    assert prov.get("card_template") is True
+    assert set(called) == {"1x1", "4x5", "2x3"}
+    assert all("recipe-card-template" in prov["ratios"][r] for r in ("1x1", "4x5", "2x3"))
+    dims = {r["ratio"]: (r["w"], r["h"]) for r in renders}
+    assert dims == {"1x1": (1080, 1080), "4x5": (1080, 1350), "2x3": (1000, 1500)}
+
+
+def test_non_recipe_theme_skips_card_template(tmp_path: Path, monkeypatch) -> None:
+    # a non-recipe theme keeps the plain brand-overlay path — the card template never runs.
+    _seeded_hero_set(tmp_path, monkeypatch)
+    called: list[str] = []
+    monkeypatch.setattr(
+        generate, "_compose_recipe_card",
+        lambda *a, **k: called.append("x"),  # would record if wrongly invoked
+    )
+
+    _renders, _source, prov = generate.generate_hero_set(
+        product_id="power-cakes",
+        product_name="Power Cakes",
+        brief_msg="wild",
+        region="us",
+        audience="families",
+        out_dir=tmp_path / "set",
+        theme="green-chile",
+    )
+    assert called == []
+    assert "card_template" not in prov
+    assert all("recipe-card-template" not in prov["ratios"][r] for r in ("1x1", "4x5", "2x3"))

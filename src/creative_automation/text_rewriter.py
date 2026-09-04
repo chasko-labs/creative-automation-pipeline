@@ -205,6 +205,64 @@ def rewrite_headline(
     }
 
 
+def rewrite_all(
+    base_message: str,
+    market,
+    langs: list[str],
+    *,
+    product: dict | None = None,
+    month: str | None = None,
+    region: str | None = None,
+) -> list[dict]:
+    """Return one finished, safety-gated headline per requested language (README contract).
+
+    This is the localization seam the handler drives: given a base headline and a list
+    of target language codes, it runs each through rewrite_headline (Nova Micro rewrite
+    -> dialect swap for non-English -> safety gate) and returns a flat list in the same
+    order as `langs`. Each entry carries the produced text plus its source so callers can
+    mark "translated" vs the offline fallback.
+
+    A failing/absent backend is a documented path, not an exception: rewrite_headline
+    already returns source="mock" (base message unchanged) when no creds/no Nova, and any
+    unexpected error per language degrades to the base message tagged
+    source="rewrite-fallback" so a single bad language never sinks the whole set.
+
+    Returns: [{lang_code, text, source, dialect_applied, safety}, ...] in `langs` order.
+    """
+    out: list[dict] = []
+    for lang in langs:
+        try:
+            res = rewrite_headline(
+                base_message,
+                market,
+                product=product,
+                lang=lang,
+                month=month,
+                region=region,
+            )
+            out.append(
+                {
+                    "lang_code": lang,
+                    "text": res["text"],
+                    "source": res["source"],
+                    "dialect_applied": res["dialect_applied"],
+                    "safety": res["safety"],
+                }
+            )
+        except Exception as e:  # noqa: BLE001 — one bad language never sinks the set
+            print(f"[text_rewriter] rewrite_all fallback for {lang}: {e}", file=sys.stderr)
+            out.append(
+                {
+                    "lang_code": lang,
+                    "text": base_message,
+                    "source": "rewrite-fallback",
+                    "dialect_applied": [],
+                    "safety": {"clean": True},
+                }
+            )
+    return out
+
+
 def rewrite_campaign_copy(brief, langs: list[str], *, month: str | None = None) -> dict:
     """Rewrite a brief's campaign message once per language.
 
