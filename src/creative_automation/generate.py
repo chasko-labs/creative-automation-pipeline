@@ -816,6 +816,127 @@ def _apply_brand_overlay(
     return out_path
 
 
+def _recipe_card_defaults(product_name: str) -> dict:
+    """On-brand default recipe fields derived from the product name (deterministic).
+
+    Used when the brief supplies no recipe_fields. No randomness — same product name
+    yields the same card copy, so _compose_recipe_card stays byte-deterministic.
+    """
+    return {
+        "title": f"{product_name} Trail Stack",
+        "ingredients": [
+            f"2 cups {product_name} mix",
+            "1 cup water or milk",
+            "1 tbsp maple",
+        ],
+        "steps": [
+            "Whisk mix with liquid",
+            "Cook on a hot griddle",
+            "Stack, top, and fuel up",
+        ],
+    }
+
+
+def _compose_recipe_card(
+    hero_img_path: Path,
+    title: str,
+    ratio: str,
+    out_path: Path,
+    recipe_fields: dict | None = None,
+) -> Path:
+    """Deterministic Pillow recipe-card: GenAI hero in a fixed image slot + brand card.
+
+    The whole point: the card STRUCTURE is composed deterministically in Pillow
+    (typography, title bar, ingredient/step zones, accent bar, safe-area), and the
+    generative hero image is PLACED into a defined image slot rather than the model
+    inventing the layout. Layout:
+
+      - top ~55% : the GenAI hero, cover-fit into the image slot (ImageOps.fit BICUBIC)
+      - title bar: a scrim-ink band straddling the hero/card seam, title in headline font
+      - lower ~45%: token-brand card on a warm kraft base — an ingredients column and a
+        steps column drawn in the body font, inside a safe-area pad
+      - C03 8px Blaze Orange accent bar pinned to the very bottom
+
+    Deterministic: same inputs -> same bytes (fonts + palette are fixed; the only
+    randomness in the pipeline is the already-seeded kraft texture applied later by
+    _finalize_render). Reuses generate.py palette constants (_scrim_hex, _accent_hex),
+    _CANVAS dims, _HEADLINE_PX, and _wrap_headline — no new hardcoded hex.
+    """
+    W, H = _CANVAS.get(ratio, _CANVAS["1x1"])
+    fields = recipe_fields or {}
+    ingredients = [str(x) for x in fields.get("ingredients", []) if str(x).strip()]
+    steps = [str(x) for x in fields.get("steps", []) if str(x).strip()]
+
+    # image slot = top 55% of the canvas; the GenAI hero cover-fits it (stays the hero).
+    slot_h = int(H * 0.55)
+    hero = Image.open(hero_img_path).convert("RGB")
+    hero_fit = ImageOps.fit(hero, (W, slot_h), method=Image.BICUBIC, centering=(0.5, 0.4))
+
+    # card base: warm kraft ink for the lower region so it reads as a paper card.
+    card = Image.new("RGB", (W, H), _KRAFT_BASE)
+    card.paste(hero_fit, (0, 0))
+    canvas = card.convert("RGBA")
+    draw = ImageDraw.Draw(canvas)
+
+    pad = 48  # C03 safe-area pad, shared with _apply_brand_overlay
+
+    # title bar: a scrim-ink band across the hero/card seam, title centered in it.
+    title_h = int(H * 0.14)
+    title_top = slot_h - title_h // 2
+    bar = Image.new("RGBA", (W, title_h), (*_hex_to_rgb(_scrim_hex), 220))
+    canvas.alpha_composite(bar, (0, title_top))
+    if title:
+        px = _HEADLINE_PX.get(ratio, 56)
+        try:
+            tfont = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", px)
+        except Exception:
+            tfont = ImageFont.load_default()
+        lines = _wrap_headline(draw, title, tfont, W - 2 * pad)
+        line_h = int(px * 1.15)
+        block_h = line_h * len(lines)
+        ty = title_top + (title_h - block_h) // 2
+        for line in lines:
+            bbox = draw.textbbox((0, 0), line, font=tfont)
+            tw = bbox[2] - bbox[0]
+            draw.text(
+                ((W - tw) / 2, ty), line, fill="white", font=tfont,
+                stroke_width=2, stroke_fill=(0, 0, 0, 180),
+            )
+            ty += line_h
+
+    # body zones: ingredients (left) + steps (right) in the kraft card region.
+    body_px = max(20, int(_HEADLINE_PX.get(ratio, 56) * 0.42))
+    try:
+        hfont = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", body_px)
+        bfont = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", body_px)
+    except Exception:
+        hfont = ImageFont.load_default()
+        bfont = hfont
+    ink = _hex_to_rgb(_scrim_hex)
+    body_top = title_top + title_h + pad // 2
+    line_gap = int(body_px * 1.4)
+    col_x = {"left": pad, "right": W // 2 + pad // 2}
+
+    def _draw_zone(x: int, heading: str, items: list[str]) -> None:
+        y = body_top
+        draw.text((x, y), heading, fill=(*ink, 255), font=hfont)
+        y += line_gap
+        for item in items[:6]:
+            draw.text((x, y), f"- {item}", fill=(*ink, 255), font=bfont)
+            y += line_gap
+
+    _draw_zone(col_x["left"], "Ingredients", ingredients)
+    _draw_zone(col_x["right"], "Steps", steps)
+
+    # C03 — 8px Blaze Orange accent bar at the very bottom.
+    accent = _hex_to_rgb(_accent_hex)
+    draw.rectangle([0, H - 8, W, H], fill=(*accent, 255))
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    canvas.convert("RGB").save(out_path, "PNG")
+    return out_path
+
+
 def _compose_scene(
     photo: Path,
     headline: str,
@@ -1054,6 +1175,16 @@ def generate_hero_set(
     provenance["headline"] = headline if brand_overlay else None
     provenance["ratios"] = {}
 
+    # recipe-cards theme routes each sized hero through the deterministic Pillow card
+    # template (_compose_recipe_card): the GenAI hero drops into a fixed image slot and
+    # the lower region becomes a token-brand card. Other themes keep the plain brand
+    # overlay path unchanged. recipe_fields default from the product name (no brief seam
+    # into this function), so the card copy is deterministic and on-brand.
+    is_recipe_card = theme == "recipe-cards"
+    recipe_fields = _recipe_card_defaults(product_name) if is_recipe_card else None
+    if is_recipe_card:
+        provenance["card_template"] = True
+
     renders: list[dict] = []
     for ratio in _DELIVERY_RATIOS:
         target_w, target_h = _CANVAS[ratio]
@@ -1077,8 +1208,15 @@ def generate_hero_set(
                 _pillow_outpaint_fallback(clean_base, target_w, target_h, ratio_path)
                 ratio_engine = "pillow-outpaint-fallback"
 
-        # PART C — deterministic brand layer over each sized render (default-on).
-        if brand_overlay:
+        # PART C — deterministic brand layer over each sized render (default-on). For the
+        # recipe-cards theme this is the full card template instead of the plain overlay.
+        if is_recipe_card:
+            try:
+                _compose_recipe_card(ratio_path, headline, ratio, ratio_path, recipe_fields)
+                ratio_engine = f"{ratio_engine}+recipe-card-template"
+            except Exception as e:  # noqa: BLE001 — never lose the render over the card layer
+                print(f"[generate] recipe-card template on {ratio} failed: {e}", file=sys.stderr)
+        elif brand_overlay:
             try:
                 _apply_brand_overlay(ratio_path, headline, ratio, ratio_path)
             except Exception as e:  # noqa: BLE001 — never lose the render over the overlay
@@ -1091,7 +1229,7 @@ def generate_hero_set(
         renders.append({"ratio": ratio, "path": ratio_path, "w": w, "h": h, "engine": ratio_engine})
         provenance["ratios"][ratio] = ratio_engine
 
-    provenance["overlay_applied"] = bool(brand_overlay)
+    provenance["overlay_applied"] = bool(brand_overlay) or is_recipe_card
     return renders, source, provenance
 
 
