@@ -1,8 +1,9 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: >-
   Kodiak creatives - standalone prompt-to-image generation endpoint stack
-  (kodiak-creatives-generate). Container-image Lambda that runs Nova Canvas
-  (bedrock invoke_model) plus pillow, uploads the rendered PNG to the DAM S3
+  (kodiak-creatives-generate). Container-image Lambda that runs Bedrock
+  (Nova Pro art-direction + Stability control-structure and outpaint inference
+  profiles) plus pillow, uploads the rendered PNG to the DAM S3
   bucket under brands/kodiak/renders/, and returns a presigned url. Fronted by a
   public (dev-open) Lambda Function URL that the site calls directly. The
   container image must be built and pushed to ECR BEFORE deploy - its uri is
@@ -77,10 +78,32 @@ Resources:
           PolicyDocument:
             Version: "2012-10-17"
             Statement:
-              - Sid: BedrockInvokeNovaCanvas
+              # Nova Pro (Converse) art-directs the scene prompt + caption.
+              - Sid: BedrockInvokeNovaPro
                 Effect: Allow
                 Action: bedrock:InvokeModel
-                Resource: arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-canvas-v1:0
+                Resource: arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-pro-v1:0
+              # Stability control-structure (1:1 real GenAI). us.* inference
+              # profile invoke authorizes against BOTH the profile ARN AND every
+              # foundation-model ARN the profile routes to (us-east-1/-2, us-west-2).
+              - Sid: BedrockInvokeStabilityControlStructure
+                Effect: Allow
+                Action: bedrock:InvokeModel
+                Resource:
+                  - arn:aws:bedrock:us-east-1:946179428633:inference-profile/us.stability.stable-image-control-structure-v1:0
+                  - arn:aws:bedrock:us-east-1::foundation-model/stability.stable-image-control-structure-v1:0
+                  - arn:aws:bedrock:us-east-2::foundation-model/stability.stable-image-control-structure-v1:0
+                  - arn:aws:bedrock:us-west-2::foundation-model/stability.stable-image-control-structure-v1:0
+              # Stability outpaint (true GenAI extend for 4:5 + 2:3). Same
+              # inference-profile + foundation-model dual-grant requirement.
+              - Sid: BedrockInvokeStabilityOutpaint
+                Effect: Allow
+                Action: bedrock:InvokeModel
+                Resource:
+                  - arn:aws:bedrock:us-east-1:946179428633:inference-profile/us.stability.stable-outpaint-v1:0
+                  - arn:aws:bedrock:us-east-1::foundation-model/stability.stable-outpaint-v1:0
+                  - arn:aws:bedrock:us-east-2::foundation-model/stability.stable-outpaint-v1:0
+                  - arn:aws:bedrock:us-west-2::foundation-model/stability.stable-outpaint-v1:0
               - Sid: DamRendersReadWrite
                 Effect: Allow
                 Action:
@@ -108,8 +131,16 @@ Resources:
       Code:
         ImageUri: !Ref ImageUri
       Role: !GetAtt GenerateLambdaRole.Arn
-      Timeout: 60
-      MemorySize: 2048
+      # 300s (5 min) accommodates 4 serial Bedrock GenAI round-trips: Nova Pro
+      # scene prompt + Stability control-structure restyle + 2x Stability
+      # outpaint. The 60s ceiling killed the chain mid-outpaint. Lambda max is
+      # 900; 300 gives headroom without being wasteful.
+      Timeout: 300
+      # 3008 MB (up from 2048) buys proportionally more vCPU, which speeds the
+      # Pillow compositing and the boto3 TLS/serialization around each Bedrock
+      # call. This is image work, not memory-bound compute - 3008 is the sane
+      # cost/perf point, do not go higher.
+      MemorySize: 3008
       Environment:
         Variables:
           DAM_S3_BUCKET: chasko-creative-dam-946179428633-us-east-1
