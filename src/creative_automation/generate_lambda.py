@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 from pathlib import Path
 from typing import Any
 from uuid import uuid4
@@ -40,6 +41,15 @@ def _is_options(event: dict[str, Any]) -> bool:
 def _response(status: int, payload: dict[str, Any]) -> dict[str, Any]:
     """Shape a Function-URL response with CORS headers and a JSON string body."""
     return {"statusCode": status, "headers": CORS_HEADERS, "body": json.dumps(payload)}
+
+
+def _download_filename(product: str, region: str, theme: str | None) -> str:
+    """Build a stable, safe .png filename for the presigned download attachment."""
+    parts = [p for p in (theme or product, region) if p]
+    slug = "-".join(parts) if parts else "campaign-asset"
+    slug = re.sub(r"[^A-Za-z0-9-]+", "-", slug).strip("-").upper()
+    slug = slug or "CAMPAIGN-ASSET"
+    return f"KODIAK-CAKES-{slug}.png"
 
 
 def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
@@ -86,9 +96,16 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
             ContentType="image/png",
         )
         s3_uri = f"s3://{DAM_S3_BUCKET}/{key}"
+        # Cross-origin presigned GET: sign Content-Disposition: attachment so the
+        # browser SAVES with the right filename instead of opening inline in a tab.
+        download_name = _download_filename(product, data.get("region", "us"), theme)
         image_url = s3.generate_presigned_url(
             "get_object",
-            Params={"Bucket": DAM_S3_BUCKET, "Key": key},
+            Params={
+                "Bucket": DAM_S3_BUCKET,
+                "Key": key,
+                "ResponseContentDisposition": f'attachment; filename="{download_name}"',
+            },
             ExpiresIn=3600,
         )
 
