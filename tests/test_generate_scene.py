@@ -42,8 +42,8 @@ def test_compose_scene_canvas_sizes_and_not_solid(tmp_path: Path) -> None:
     expected = {"1x1": (1080, 1080), "9x16": (1080, 1920), "16x9": (1920, 1080)}
     for ratio, dims in expected.items():
         out = tmp_path / f"scene-{ratio}.png"
-        # logo=None -> no DAM/network; explicit to keep offline-deterministic
-        result = generate._compose_scene(photo, "Wild Protein Mornings", ratio, out, idx=0, logo=None)
+        # no logo param anymore — Kodiak campaigns carry no logo (brand pref)
+        result = generate._compose_scene(photo, "Wild Protein Mornings", ratio, out, idx=0)
         assert result.exists()
         with Image.open(result) as img:
             assert img.size == dims
@@ -61,7 +61,6 @@ def test_generate_hero_dam_disabled_falls_back_gracefully(tmp_path: Path, monkey
 
     monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: None)
-    monkeypatch.setattr(generate, "_fetch_logo", lambda: None)
 
     out = tmp_path / "hero.png"
     result, source = generate.generate_hero(
@@ -108,3 +107,108 @@ def test_resolve_map_path_env_override(tmp_path: Path, monkeypatch) -> None:
         assert generate._resolve_dam_photo("x-sku") == "brands/kodiak/raw-ingest/x.jpg"
     finally:
         generate._SKU_PHOTO_MAP_CACHE = None
+
+
+
+# --------------------------------------------------------------- theme-aware generation
+
+
+def test_resolve_theme_photo_known_theme() -> None:
+    key = generate._resolve_theme_photo("zac-efron")
+    assert key is not None
+    assert key.startswith("brands/kodiak/raw-ingest/")
+
+
+def test_resolve_theme_photo_unknown_theme() -> None:
+    assert generate._resolve_theme_photo("nonexistent") is None
+
+
+def test_generate_hero_theme_dam_disabled_falls_back_gracefully(tmp_path: Path, monkeypatch) -> None:
+    # theme resolves to a real key, but DAM is disabled (fetch -> None) and there is
+    # no disk asset -> must fall back to the placeholder, never raise.
+    import creative_automation.dam as dam
+
+    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: None)
+    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: None)
+
+    out = tmp_path / "hero-theme.png"
+    result, source = generate.generate_hero(
+        product_id="power-cakes",
+        product_name="Power Cakes",
+        brief_msg="athletic mornings",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+        theme="zac-efron",
+    )
+    assert result.exists()
+    assert source == generate.FALLBACK_SOURCE
+
+
+def test_generate_hero_theme_composes_on_fetched_photo(tmp_path: Path, monkeypatch) -> None:
+    # theme resolves and fetch_dam_key returns a real local png -> composes the scene
+    # and reports source "bedrock:nova-pro" (the chip theme drove the image).
+    photo = _make_photo(tmp_path / "theme-src.png")
+    import creative_automation.dam as dam
+
+    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: photo)
+    # Nova Pro offline -> caption None -> brief headline used; keep deterministic
+    monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
+
+    out = tmp_path / "hero-theme-ok.png"
+    result, source = generate.generate_hero(
+        product_id="power-cakes",
+        product_name="Power Cakes",
+        brief_msg="athletic mornings",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+        theme="zac-efron",
+    )
+    assert result.exists()
+    assert source == "bedrock:nova-pro"
+
+
+def test_compose_scene_has_no_logo() -> None:
+    # off-brand overlay stripped: _fetch_logo removed AND _compose_scene dropped the
+    # logo param. Assert both — real, simple, no visual diffing.
+    import inspect
+
+    assert not hasattr(generate, "_fetch_logo")
+    assert "logo" not in inspect.signature(generate._compose_scene).parameters
+
+
+def test_generate_hero_theme_none_preserves_product_path(tmp_path: Path, monkeypatch) -> None:
+    # regression: theme=None (default) must NOT touch the theme resolver — the product
+    # sku-photo-map path drives the image exactly as before.
+    photo = _make_photo(tmp_path / "product-src.png")
+    import creative_automation.dam as dam
+
+    called = {"theme_resolver": 0}
+
+    def _spy_theme(slug: str):  # pragma: no cover - asserted via counter
+        called["theme_resolver"] += 1
+        return None
+
+    monkeypatch.setattr(generate, "_resolve_theme_photo", _spy_theme)
+    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: "brands/kodiak/raw-ingest/x.jpg")
+    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: photo)
+    monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
+
+    out = tmp_path / "hero-product.png"
+    result, source = generate.generate_hero(
+        product_id="power-cakes",
+        product_name="Power Cakes",
+        brief_msg="wild mornings",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+    )
+    assert result.exists()
+    assert source == "bedrock:nova-pro"
+    # theme=None short-circuits before the theme resolver is ever consulted
+    assert called["theme_resolver"] == 0

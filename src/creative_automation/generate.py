@@ -57,11 +57,10 @@ _HEADLINE_PX = {"1x1": 56, "9x16": 64, "16x9": 72}
 # (parents[2] IS the repo root with data/) and the Lambda image (pip install .
 # lands the module under site-packages, where parents[2]/data does not exist).
 _SKU_PHOTO_MAP_PATH = Path(__file__).parents[2] / "data" / "products" / "sku-photo-map.json"
-# Kodiak logo candidates in the DAM (full keys). First that fetches wins; graceful skip.
-_LOGO_KEYS = (
-    "brands/kodiak/logos/kodiak-bear.png",
-    "brands/kodiak/raw-ingest/kodiakcakes/logos/kodiak-primary-logo_optimized.png",
-)
+# theme-asset-map: theme-slug -> best real thematic DAM key. Sibling of sku-photo-map,
+# same 3-candidate resolve pattern. A chip theme drives the IMAGE (theme wins over the
+# product default) — see generate_hero precedence.
+_THEME_ASSET_MAP_PATH = Path(__file__).parents[2] / "data" / "products" / "theme-asset-map.json"
 _scrim_hex = "#1A1110CC"  # tokens kodiak.color.semantic.overlay.scrim (warm ink)
 _accent_hex = "#E8530E"  # tokens kodiak.color.brand.blazeOrange
 
@@ -167,6 +166,68 @@ def _resolve_dam_photo(product_id: str) -> Optional[str]:
     return None
 
 
+# ------------------------------------------------------------- theme -> photo resolver
+_THEME_ASSET_MAP_CACHE: Optional[dict] = None
+
+
+def _resolve_theme_map_path() -> Path:
+    """Pick the theme-asset-map path that exists under the current install layout.
+
+    Candidate order (first existing wins), mirroring _resolve_map_path:
+      a. $THEME_ASSET_MAP_PATH (Lambda points this at the shipped copy in /var/task)
+      b. Path(__file__).parents[2]/data/products/theme-asset-map.json (repo checkout)
+      c. Path(__file__).parent/data/theme-asset-map.json (map packaged with the module)
+    Falls back to the parents[2] default even if absent, so a load failure names a
+    sensible path in its error message.
+    """
+    candidates: list[Path] = []
+    env = os.getenv("THEME_ASSET_MAP_PATH")
+    if env:
+        candidates.append(Path(env))
+    candidates.append(_THEME_ASSET_MAP_PATH)
+    candidates.append(Path(__file__).parent / "data" / "theme-asset-map.json")
+    for c in candidates:
+        if c.exists():
+            return c
+    return _THEME_ASSET_MAP_PATH
+
+
+def _load_theme_asset_map() -> dict:
+    """Load the theme-asset-map once. Returns the {theme-slug: entry} map.
+
+    Module-level cache. Returns an empty dict on any read/parse failure so the
+    caller falls through to the existing product precedence.
+    """
+    global _THEME_ASSET_MAP_CACHE
+    if _THEME_ASSET_MAP_CACHE is not None:
+        return _THEME_ASSET_MAP_CACHE
+    try:
+        data = json.loads(_resolve_theme_map_path().read_text(encoding="utf-8"))
+        _THEME_ASSET_MAP_CACHE = data.get("map", {}) if isinstance(data, dict) else {}
+    except Exception as e:  # noqa: BLE001 — missing/unreadable map -> product fallback
+        print(f"[generate] theme-asset-map load skipped: {e}", file=sys.stderr)
+        _THEME_ASSET_MAP_CACHE = {}
+    return _THEME_ASSET_MAP_CACHE
+
+
+def _resolve_theme_photo(theme_slug: str) -> Optional[str]:
+    """Return the best real thematic DAM key for a theme slug, else None.
+
+    Prefers photo_key; if somehow absent, walks the pool list. Returns None when
+    the theme is not in the map.
+    """
+    entry = _load_theme_asset_map().get(theme_slug)
+    if not isinstance(entry, dict):
+        return None
+    primary = entry.get("photo_key")
+    if isinstance(primary, str) and primary.strip():
+        return primary
+    for p in entry.get("pool", []) or []:
+        if isinstance(p, str) and p.strip():
+            return p
+    return None
+
+
 def _mock_hero(product_name: str, brief_msg: str, region: str, out_path: Path, idx: int = 0) -> Path:
     """Deterministic on-brand placeholder hero (1024x1024). True last resort only.
 
@@ -199,8 +260,6 @@ def _mock_hero(product_name: str, brief_msg: str, region: str, out_path: Path, i
     bbox2 = draw.textbbox((0, 0), sub, font=font_small)
     tw2 = bbox2[2] - bbox2[0]
     draw.text(((W - tw2) / 2, H * 0.76), sub, fill=(255, 255, 255, 200), font=font_small)
-
-    draw.text((20, H - 40), "KODIAK - Nourishment for Today's Frontier", fill=(255, 255, 255, 120), font=font_small)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     img.save(out_path, "PNG")
@@ -311,21 +370,6 @@ def _parse_layout(caption: str) -> tuple[str, str]:
     return headline[:48], side
 
 
-def _fetch_logo() -> Optional[Path]:
-    """Fetch a Kodiak logo from the DAM to /tmp cache. None on any miss (graceful)."""
-    try:
-        from .dam import fetch_dam_key
-
-        for key in _LOGO_KEYS:
-            dest = Path("/tmp/kodiak-assets/logo") / Path(key).name  # noqa: S108 — Lambda /tmp
-            hit = fetch_dam_key(key, dest)
-            if hit is not None and hit.exists():
-                return hit
-    except Exception as e:  # noqa: BLE001 — logo is optional, never fails the compose
-        print(f"[generate] logo fetch skipped: {e}", file=sys.stderr)
-    return None
-
-
 def _wrap_headline(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont, max_w: int) -> list[str]:
     """Word-wrap headline to fit max_w, capped at 3 lines (C04)."""
     if not text:
@@ -354,7 +398,6 @@ def _compose_scene(
     ratio: str,
     out_path: Path,
     idx: int = 0,
-    logo: Optional[Path] = None,
 ) -> Path:
     """Scene-integration composer per social-3ratio.json. The real photo is the hero.
 
@@ -362,8 +405,8 @@ def _compose_scene(
     blend (~0.18) for legibility — this REPLACES the ellipse entirely, no solid-color
     background anywhere on this path. C04 semi-transparent dark message bar ~32% tall
     anchored at 68% down with the centered white headline (max 3 lines, per-ratio font
-    56/64/72). C05 KODIAK logo at 140w @(24,24), omitted gracefully if unavailable.
-    C03 8px Blaze Orange accent bar pinned to the very bottom.
+    56/64/72). C03 8px Blaze Orange accent bar pinned to the very bottom. No Kodiak
+    logo/wordmark is stamped — Kodiak campaigns carry no logo per brand preference.
     """
     W, H = _CANVAS.get(ratio, _CANVAS["1x1"])
 
@@ -399,17 +442,6 @@ def _compose_scene(
             draw.text(((W - tw) / 2, ty), line, fill="white", font=font, stroke_width=2, stroke_fill=(0, 0, 0, 180))
             ty += line_h
 
-    # C05 — KODIAK logo overlay at 140w @(24,24). Graceful skip if unavailable.
-    if logo is not None and Path(logo).exists():
-        try:
-            lg = Image.open(logo).convert("RGBA")
-            target_w = 140
-            scale = target_w / lg.width
-            lg = lg.resize((target_w, max(1, int(lg.height * scale))), Image.LANCZOS)
-            canvas.alpha_composite(lg, (24, 24))
-        except Exception as e:  # noqa: BLE001 — logo optional
-            print(f"[generate] logo overlay skipped: {e}", file=sys.stderr)
-
     # C03 — 8px Blaze Orange accent bar at the very bottom.
     accent = _hex_to_rgb(_accent_hex)
     draw.rectangle([0, H - 8, W, H], fill=(*accent, 255))
@@ -428,19 +460,21 @@ def generate_hero(
     out_path: Path,
     idx: int = 0,
     ratio: str = "1x1",
+    theme: str | None = None,
 ) -> tuple[Path, str]:
     """Generate a real Kodiak-social-style hero. Returns (path, source).
 
     Precedence:
-    a. sku-photo-map resolves the handle -> a REAL lifestyle DAM photo. Fetch it
-       (dam.fetch_dam_key -> /tmp) and compose the 6-piece social template ON that
-       photo (photo is the full-bleed cover background; ellipse is gone) -> the
-       result is the product. Source stays "bedrock:nova-pro" — Nova Pro still
-       writes the headline caption over the real photo.
+    0. theme provided AND _resolve_theme_photo(theme) resolves -> fetch that thematic
+       DAM photo and compose the scene ON it -> the chip theme drives the IMAGE, not
+       the product default. Source "bedrock:nova-pro". Theme wins when present.
+    a. no theme (or theme unresolved) -> sku-photo-map resolves the handle -> a REAL
+       lifestyle DAM photo. Fetch it (dam.fetch_dam_key -> /tmp) and compose the social
+       template ON that photo -> the result is the product. Source "bedrock:nova-pro".
     b. no map entry OR the DAM fetch fails -> fall back to the disk _find_source_asset
        (unchanged discovery) and compose the same scene on that disk image, so nothing
        regresses offline where a real disk asset exists -> "bedrock:nova-pro".
-    c. only if BOTH fail -> _mock_hero (true last resort: DAM unreachable + no disk
+    c. only if ALL fail -> _mock_hero (true last resort: DAM unreachable + no disk
        asset), source "bedrock:nova-pro-fallback". No "mock"/"preview" reaches the UI.
     """
     if ratio not in _CANVAS:
@@ -451,6 +485,24 @@ def generate_hero(
         headline, _side = _parse_layout(caption)
         return headline or brief_msg[:48]
 
+    # 0) theme-first — a chip theme drives the IMAGE. Composes on the thematic DAM
+    # photo when the theme resolves and the fetch succeeds; otherwise falls through
+    # to the unchanged product precedence below (theme is best-effort, never fatal).
+    if theme:
+        theme_key = _resolve_theme_photo(theme)
+        if theme_key:
+            try:
+                from .dam import fetch_dam_key
+
+                dest = Path("/tmp/kodiak-assets/theme") / Path(theme_key).name  # noqa: S108 — Lambda /tmp
+                photo = fetch_dam_key(theme_key, dest)
+                if photo is not None and photo.exists():
+                    result = _compose_scene(photo, _headline(photo), ratio, out_path, idx)
+                    if result.exists():
+                        return result, "bedrock:nova-pro"
+            except Exception as e:  # noqa: BLE001 — falls through to product precedence
+                print(f"[generate] theme scene compose failed: {e}", file=sys.stderr)
+
     # a) real lifestyle photo from the sku-photo-map, composed as full-bleed cover.
     photo_key = _resolve_dam_photo(product_id)
     if photo_key:
@@ -460,7 +512,7 @@ def generate_hero(
             dest = Path("/tmp/kodiak-assets/scene") / Path(photo_key).name  # noqa: S108 — Lambda /tmp
             photo = fetch_dam_key(photo_key, dest)
             if photo is not None and photo.exists():
-                result = _compose_scene(photo, _headline(photo), ratio, out_path, idx, logo=_fetch_logo())
+                result = _compose_scene(photo, _headline(photo), ratio, out_path, idx)
                 if result.exists():
                     return result, "bedrock:nova-pro"
         except Exception as e:  # noqa: BLE001 — falls through to disk/mock
@@ -471,7 +523,7 @@ def generate_hero(
     src = _find_source_asset(product_id, product_name)
     if src is not None and src.exists():
         try:
-            result = _compose_scene(src, _headline(src), ratio, out_path, idx, logo=_fetch_logo())
+            result = _compose_scene(src, _headline(src), ratio, out_path, idx)
             if result.exists():
                 return result, "bedrock:nova-pro"
         except Exception as e:  # noqa: BLE001 — falls through to placeholder

@@ -52,10 +52,13 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
         if not prompt:
             prompt = "KODIAK - Nourishment for Today's Frontier. Keep It Wild."
         product = data.get("product", "power-cakes")
+        theme = data.get("theme")
 
         out_path = Path(f"/tmp/{uuid4().hex}.png")  # noqa: S108 — Lambda only allows /tmp writes
         # "prompt" is the campaign brief/vibe now, not a generation seed. generate_hero
         # composes over a real product asset via Nova Pro vision, or falls back to a mock.
+        # When "theme" is present it drives the IMAGE (theme wins over the product
+        # default); product is still passed for iso-naming / fallback.
         result, source = generate_hero(
             product_id=product,
             product_name=product.replace("-", " ").title(),
@@ -64,6 +67,7 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
             audience=data.get("audience", "active families"),
             out_path=out_path,
             idx=0,
+            theme=theme,
         )
 
         key = f"brands/kodiak/renders/{uuid4().hex}.png"
@@ -96,6 +100,7 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
                 "s3_uri": s3_uri,
                 "source": source,
                 "prompt": prompt,
+                "theme": theme,
             },
         )
     except Exception as e:  # noqa: BLE001 — surface any failure as a 500 JSON body

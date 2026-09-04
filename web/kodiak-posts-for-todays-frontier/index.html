@@ -194,23 +194,20 @@ section.xl{padding:var(--section-space-xl) 0}
     <button class="ff-go" id="generateCampaign" data-mcp="generate" data-mcp-description="Single button — fans to all formats + localized variants, shows sample">Create</button>
   </div>
   <div class="ff-chips" id="promptChips" role="group" aria-label="Campaign starting points">
-    <button type="button" class="ff-chip" data-brief="Recipe cards for Park City families — protein-packed whole grain recipes styled as shareable cards. Keep It Wild."><span class="ff-dot"></span>Recipe cards</button>
-    <button type="button" class="ff-chip" data-brief="Localized Costco campaign — bulk Family Size value for the warehouse aisle, Park City / Wasatch Back framing."><span class="ff-dot"></span>Localized Costco</button>
-    <button type="button" class="ff-chip" data-brief="Riff on past content — remix our existing heroes into fresh variants across all three ratios."><span class="ff-dot"></span>Riff on past content</button>
-    <button type="button" class="ff-chip" data-brief="Zac Efron athletic-morning energy — high-protein pre-trail fuel, aspirational active lifestyle. Keep It Wild."><span class="ff-dot"></span>Zac Efron</button>
-    <button type="button" class="ff-chip" data-brief="Bears + Keep It Wild — lean into the KODIAK Bear, wild frontier tone, protein for epic days."><span class="ff-dot"></span>Bears</button>
-    <button type="button" class="ff-chip" data-brief="Keep It Wild program — brand campaign tying protein-packed whole grains to the outdoor frontier lifestyle."><span class="ff-dot"></span>Keep It Wild program</button>
+    <button type="button" class="ff-chip" data-theme="recipe-cards" data-brief="Recipe cards for Park City families — protein-packed whole grain recipes styled as shareable cards. Keep It Wild."><span class="ff-dot"></span>Recipe cards</button>
+    <button type="button" class="ff-chip" data-theme="localized-costco" data-brief="Localized Costco campaign — bulk Family Size value for the warehouse aisle, Park City / Wasatch Back framing."><span class="ff-dot"></span>Localized Costco</button>
+    <button type="button" class="ff-chip" data-theme="riff-on-past-content" data-brief="Riff on past content — remix our existing heroes into fresh variants across all three ratios."><span class="ff-dot"></span>Riff on past content</button>
+    <button type="button" class="ff-chip" data-theme="zac-efron" data-brief="Zac Efron athletic-morning energy — high-protein pre-trail fuel, aspirational active lifestyle. Keep It Wild."><span class="ff-dot"></span>Zac Efron</button>
+    <button type="button" class="ff-chip" data-theme="bears" data-brief="Bears + Keep It Wild — lean into the KODIAK Bear, wild frontier tone, protein for epic days."><span class="ff-dot"></span>Bears</button>
+    <button type="button" class="ff-chip" data-theme="keep-it-wild-program" data-brief="Keep It Wild program — brand campaign tying protein-packed whole grains to the outdoor frontier lifestyle."><span class="ff-dot"></span>Keep It Wild program</button>
   </div>
 </div>
 
-<!-- Product chooser — pick from the KODIAK catalog (protected IDs kept) -->
-<div class="field" id="existingAssets" data-mcp="products" data-mcp-description="Real KODIAK SKUs — choose up to 3, autocomplete as you type"><label>Products — choose up to 3 from the KODIAK catalog</label><input type="text" id="productSearch" placeholder="Search SKUs — flapjack, blueberry, power cakes, muffin, oatmeal, cup, waffle, bar…" style="margin-bottom:8px"><div id="productChooser" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;max-height:180px;overflow:auto;padding:2px"></div><div class="row" style="margin-top:8px"><button class="btn ghost" id="randomProducts">Random 3</button><span class="hint" id="skuHint">0 / 3 selected — empty = random 3 on generate</span></div></div>
+<!-- Product chooser — optional, up to 3 from the KODIAK catalog (protected IDs kept) -->
+<div class="field" id="existingAssets" data-mcp="products" data-mcp-description="Real KODIAK SKUs — choose up to 3, autocomplete as you type"><label>Products (optional — up to 3)</label><input type="text" id="productSearch" placeholder="Search SKUs — flapjack, blueberry, power cakes, muffin, oatmeal, cup, waffle, bar…" style="margin-bottom:8px"><div id="productChooser" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;max-height:180px;overflow:auto;padding:2px"></div><div class="row" style="margin-top:8px;gap:10px;align-items:center"><button class="btn ghost" id="randomProducts">Random 3</button><span class="hint" id="skuHint" style="margin-top:0">Pick up to 3, or leave empty — Create uses your brief/theme.</span></div></div>
 
-<!-- Product-in-picture default -->
-<div class="field"><label style="display:flex;gap:8px;align-items:center;text-transform:none;letter-spacing:normal;font-weight:500;color:var(--chocolate)"><input type="checkbox" id="productInPicture" checked> Feature product in the pictures</label></div>
-
-<!-- Download asset pack (Create/Generate now lives in the prompt bar above) -->
-<div class="row" style="margin-top:14px;gap:10px"><button class="btn ghost" id="downloadPack" style="justify-content:center;padding:12px 18px;font-size:13px" data-mcp="download-pack" data-mcp-description="Download the campaign assets as an ISO-labeled zip from S3">Download asset pack</button></div>
+<!-- Download asset pack hidden by default; primary/secondary download actions injected under the preview after generation -->
+<div class="row" style="margin-top:14px;gap:10px"><button class="btn ghost" id="downloadPack" style="display:none;justify-content:center;padding:12px 18px;font-size:13px" data-mcp="download-pack" data-mcp-description="Download the campaign assets as an ISO-labeled zip from S3">Download asset pack</button></div>
 <div class="hint" id="generateHint" style="margin-top:6px">Park City default with a localized variant. <span id="sampleStatus" style="color:#6B5A53"></span></div>
 
 <!-- HIDDEN: single retailers channel default so generate JS never null-crashes (.channel-check never read by JS, kept for safety) -->
@@ -743,17 +740,67 @@ let skuList = [
       };
       const ASSET_BACKED = ['power-cakes','bear-bites','oatmeal-cup'];
       const primarySlug = hadExplicitSelection ? slugify(products[0]) : ASSET_BACKED[0];
-      // Show the real generation result as ONE composed hero, shown prominently, labelled with
-      // source + brief. We do not fabricate three fake ratio tiles around a single image.
-      const showRealImage = (imageUrl, source)=>{
-        window.__lastHeroUrl = imageUrl; // record latest real hero URL globally so downloadAssetPack can use it
+      // Theme is active only when a chip is the starting point (set on window by the chip IIFE).
+      // A manual brief edit or product selection clears window.__activeTheme.
+      const activeTheme = window.__activeTheme || null;
+      const THEME_LABELS = {
+        'recipe-cards':'Recipe cards','localized-costco':'Localized Costco',
+        'riff-on-past-content':'Riff on past content','zac-efron':'Zac Efron',
+        'bears':'Bears','keep-it-wild-program':'Keep It Wild program'
+      };
+      const themeLabel = activeTheme ? (THEME_LABELS[activeTheme] || activeTheme) : null;
+      // Reveal the primary "Download image" + secondary "Download localized campaign asset pack"
+      // actions directly under the preview. Idempotent — builds the row once, then just unhides it.
+      const revealDownloadActions = ()=>{
         const preview = document.getElementById('preview');
         if(!preview) return;
-        preview.innerHTML = '';
+        let row = document.getElementById('previewDownloadRow');
+        if(!row){
+          row = document.createElement('div');
+          row.id = 'previewDownloadRow';
+          row.className = 'row';
+          row.style.cssText = 'margin:14px 0 0;gap:10px;flex-direction:column;align-items:stretch;max-width:640px;margin-left:auto;margin-right:auto';
+          // PRIMARY — download the shown preview image
+          const primary = document.createElement('button');
+          primary.type = 'button';
+          primary.id = 'downloadImageBtn';
+          primary.className = 'btn orange';
+          primary.style.cssText = 'justify-content:center;padding:12px 18px;font-size:13px';
+          primary.textContent = 'Download image';
+          primary.addEventListener('click', function(){ window.downloadAssetPack(); });
+          // SECONDARY — the full localized campaign asset pack (async build; marked coming)
+          const secondary = document.createElement('button');
+          secondary.type = 'button';
+          secondary.id = 'downloadPackBtn';
+          secondary.className = 'btn ghost';
+          secondary.style.cssText = 'justify-content:center;padding:10px 16px;font-size:12px;opacity:.85';
+          secondary.title = 'async pack — in progress';
+          secondary.textContent = 'Download localized campaign asset pack';
+          secondary.addEventListener('click', function(){
+            const s = document.getElementById('sampleStatus');
+            if(s) s.textContent = 'Full localized pack — coming in the async build';
+          });
+          row.appendChild(primary);
+          row.appendChild(secondary);
+          preview.parentNode?.insertBefore(row, preview.nextSibling);
+        }
+        row.style.display = 'flex';
+      };
+      // Show the real generation result(s). For a single image, one prominent hero tile.
+      // For multi-product fan-out, a grid of tiles (one per product). window.__lastHeroUrl is
+      // the FIRST returned so the "Download image" button targets the hero.
+      const showRealImage = (imageUrl, source, opts)=>{
+        opts = opts || {};
+        // In grid/append mode the caller owns __lastHeroUrl (first-returned wins); single mode records here.
+        if(!opts.grid) window.__lastHeroUrl = imageUrl;
+        const preview = document.getElementById('preview');
+        if(!preview) return;
+        if(!opts.append) preview.innerHTML = '';
         const label = (source && String(source).toLowerCase().includes('bedrock')) ? 'Nova Pro' : (source || 'Nova Pro');
         const tile = document.createElement('div');
         tile.className = 'tile';
-        tile.style.cssText = 'grid-column:1/-1;max-width:640px;margin:0 auto';
+        // single hero centers wide; grid tiles flow in the auto-fill preview grid
+        if(!opts.grid) tile.style.cssText = 'grid-column:1/-1;max-width:640px;margin:0 auto';
         const img = document.createElement('img');
         img.src = imageUrl;
         img.alt = 'Nova Pro composed campaign hero — ' + brief;
@@ -761,14 +808,17 @@ let skuList = [
         tile.appendChild(img);
         const meta = document.createElement('div');
         meta.className = 'meta';
-        meta.innerHTML = `<b>KODIAK® composed hero</b><div class="small">source: ${label} · ${selectedLoc.market} · ${brief.slice(0,90)}</div>`;
+        const themeLine = opts.theme ? ` · theme: ${opts.themeLabel || opts.theme}` : '';
+        const prodLine = opts.productName ? `${opts.productName} · ` : '';
+        meta.innerHTML = `<b>KODIAK® composed hero</b><div class="small">${prodLine}source: ${label} · ${selectedLoc.market}${themeLine} · ${brief.slice(0,80)}</div>`;
         tile.appendChild(meta);
         preview.appendChild(tile);
         // source badge above the preview
         let badge = document.getElementById('genSourceBadge');
         if(!badge){ badge=document.createElement('span'); badge.id='genSourceBadge'; badge.className='badge'; preview.parentNode?.insertBefore(badge, preview); }
-        badge.textContent = 'source: ' + label;
+        badge.textContent = opts.theme ? ('source: ' + label + ' · theme: ' + (opts.themeLabel || opts.theme)) : ('source: ' + label);
         badge.style.cssText = 'display:inline-block;margin:0 0 8px;padding:2px 8px;border-radius:6px;font-size:11px;color:#FFF8F0;background:#1A3C34';
+        revealDownloadActions();
       };
       const finishCommon = ()=>{
         // Update local flavor with brief context (runs after either path)
@@ -799,10 +849,16 @@ let skuList = [
       // Skeleton pulse tile + elapsed-seconds counter so the ~90s wait never feels frozen.
       const preview = document.getElementById('preview');
       let elapsed = 0, tick = null;
+      // Multi-product (2+ selected, no theme) shows a skeleton tile per pending product; otherwise one hero skeleton.
+      const willFanOut = !activeTheme && hadExplicitSelection && products.length > 1;
       if(preview){
-        preview.innerHTML = `<div class="tile" id="genSkeleton" style="grid-column:1/-1;max-width:640px;margin:0 auto"><div style="aspect-ratio:1/1;background:linear-gradient(90deg,#EFE6DB 25%,#F7F0E8 50%,#EFE6DB 75%);background-size:200% 100%;animation:genpulse 1.4s ease-in-out infinite;display:flex;align-items:center;justify-content:center"><span style="font:700 13px/1 'kodiak_sans','museo-sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8C7A70">Composing…</span></div><div class="meta"><b>Composing your campaign with Nova Pro</b><div class="small" id="genElapsed">0s elapsed — up to ~90s</div></div></div>`;
+        if(willFanOut){
+          preview.innerHTML = products.map((name,i)=>`<div class="tile genSkeletonTile"><div style="aspect-ratio:1/1;background:linear-gradient(90deg,#EFE6DB 25%,#F7F0E8 50%,#EFE6DB 75%);background-size:200% 100%;animation:genpulse 1.4s ease-in-out infinite;display:flex;align-items:center;justify-content:center"><span style="font:700 12px/1 'kodiak_sans','museo-sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8C7A70">Composing…</span></div><div class="meta"><b>${name}</b><div class="small" id="genElapsed${i}">0s elapsed — up to ~90s</div></div></div>`).join('');
+        } else {
+          preview.innerHTML = `<div class="tile" id="genSkeleton" style="grid-column:1/-1;max-width:640px;margin:0 auto"><div style="aspect-ratio:1/1;background:linear-gradient(90deg,#EFE6DB 25%,#F7F0E8 50%,#EFE6DB 75%);background-size:200% 100%;animation:genpulse 1.4s ease-in-out infinite;display:flex;align-items:center;justify-content:center"><span style="font:700 13px/1 'kodiak_sans','museo-sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8C7A70">Composing…</span></div><div class="meta"><b>Composing your campaign with Nova Pro${activeTheme ? ' — theme: ' + themeLabel : ''}</b><div class="small" id="genElapsed">0s elapsed — up to ~90s</div></div></div>`;
+        }
         if(!document.getElementById('genPulseKeyframes')){ const st=document.createElement('style'); st.id='genPulseKeyframes'; st.textContent='@keyframes genpulse{0%{background-position:200% 0}100%{background-position:-200% 0}}'; document.head.appendChild(st); }
-        tick = setInterval(()=>{ elapsed++; const e=document.getElementById('genElapsed'); if(e) e.textContent = elapsed+'s elapsed — up to ~90s'; }, 1000);
+        tick = setInterval(()=>{ elapsed++; document.querySelectorAll('[id^="genElapsed"]').forEach(e=>{ e.textContent = elapsed+'s elapsed — up to ~90s'; }); }, 1000);
       }
       let stageT1=null, stageT2=null;
       if(status){
@@ -812,13 +868,48 @@ let skuList = [
       }
       const controller = new AbortController();
       const timeoutId = setTimeout(()=>controller.abort(), 100000); // Nova Pro composition is slow (~90s); allow headroom
-      try{
-        const resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({prompt: brief, market: selectedLoc.market, product: primarySlug}), signal: controller.signal});
+      // Decide the request shape:
+      //  - themed chip active -> ONE themed request (theme wins; no per-product fan-out)
+      //  - 2+ products explicitly selected AND no theme -> one request PER product, render a grid
+      //  - otherwise -> one default request (single hero)
+      const doThemedOrSingle = activeTheme || !(hadExplicitSelection && products.length > 1);
+      const oneGenerate = async (productSlug, wantTheme)=>{
+        const body = {prompt: brief, market: selectedLoc.market, product: productSlug, ...(wantTheme ? {theme: wantTheme} : {})};
+        const resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: controller.signal});
         if(!resp.ok) throw new Error('backend returned HTTP ' + resp.status);
         const json = await resp.json();
         if(!json || !json.image_url) throw new Error('response missing image_url');
-        showRealImage(json.image_url, json.source);
-        if(status) status.textContent = 'Campaign preview ready — one real composed hero from ' + (json.source || 'Nova Pro');
+        return json;
+      };
+      try{
+        if(doThemedOrSingle){
+          // Single request (themed if a chip is active, else default product).
+          const json = await oneGenerate(primarySlug, activeTheme || undefined);
+          showRealImage(json.image_url, json.source, {theme: json.theme || activeTheme || null, themeLabel: json.theme ? (THEME_LABELS[json.theme] || json.theme) : themeLabel});
+          const readyTheme = (json.theme || activeTheme) ? (' · theme: ' + (THEME_LABELS[json.theme] || themeLabel)) : '';
+          if(status) status.textContent = 'Campaign preview ready — one real composed hero from ' + (json.source || 'Nova Pro') + readyTheme;
+        } else {
+          // Multi-product fan-out: one themed-less request per selected product; render each tile as it returns.
+          if(preview) preview.innerHTML = '';
+          if(status) status.textContent = 'Composing ' + products.length + ' product variants with Nova Pro…';
+          let firstDone = false, okCount = 0;
+          await Promise.all(products.map(async (name)=>{
+            const slug = slugify(name);
+            try{
+              const json = await oneGenerate(slug, undefined);
+              showRealImage(json.image_url, json.source, {append:true, grid:true, productName:name});
+              okCount++;
+              if(!firstDone){ firstDone = true; window.__lastHeroUrl = json.image_url; }
+            }catch(e){
+              console.warn('generate: product variant failed for', name, e && e.message ? e.message : e);
+              // render a small failed-tile so the grid shows what did not compose
+              const p = document.getElementById('preview');
+              if(p){ const t=document.createElement('div'); t.className='tile'; t.innerHTML=`<div class="meta"><b>${name}</b><div class="small" style="color:#B51E14">variant failed — try again</div></div>`; p.appendChild(t); }
+            }
+          }));
+          if(status) status.textContent = okCount ? ('Campaign preview ready — ' + okCount + ' of ' + products.length + ' product variants composed') : 'Generation failed — showing local preview';
+          if(!okCount){ try{ render(); }catch(e){} }
+        }
       }catch(err){
         console.warn('generate: real backend failed, falling back to canvas —', err && err.message ? err.message : err);
         try{ render(); }catch(e){ console.warn('render() fallback also failed', e); }
@@ -830,6 +921,7 @@ let skuList = [
         if(stageT2) clearTimeout(stageT2);
         if(tick) clearInterval(tick);
         const sk=document.getElementById('genSkeleton'); if(sk) sk.remove();
+        document.querySelectorAll('.genSkeletonTile').forEach(t=>t.remove());
         lockControls(false);
         finishCommon();
         btn.disabled=false; btn.textContent=origLabel;
@@ -861,19 +953,39 @@ window.KODIAK_CART={open:()=>{const d=document.getElementById('kodiak-cart-drawe
 <script>
 // --- Simplified Park City demo wiring: prompt chips, upload affordance, textarea auto-grow ---
 (function(){
-  // Firefly-style suggestion chips — populate the prompt, mark active
+  // Firefly-style suggestion chips — populate the prompt, mark active, set theme
   var briefEl = document.getElementById('campaignBrief');
   var chipWrap = document.getElementById('promptChips');
+  // Manual brief edit or product select clears the active theme (a chip is the only theme source).
+  window.__clearActiveTheme = function(){
+    window.__activeTheme = null;
+    if(chipWrap) chipWrap.querySelectorAll('.ff-chip').forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+  };
   if(chipWrap && briefEl){
     chipWrap.querySelectorAll('.ff-chip[data-brief]').forEach(function(chip){
       chip.addEventListener('click', function(){
         briefEl.value = chip.getAttribute('data-brief');
+        // Chip is the active starting point: expose its theme slug for the generate IIFE.
+        window.__activeTheme = chip.getAttribute('data-theme') || null;
+        // dispatch input AFTER setting theme, and guard the input handler so the chip's own
+        // programmatic input event does not immediately clear the theme it just set.
+        window.__chipSettingBrief = true;
         briefEl.dispatchEvent(new Event('input', {bubbles:true}));
+        window.__chipSettingBrief = false;
         chipWrap.querySelectorAll('.ff-chip').forEach(function(c){ c.setAttribute('aria-pressed', c===chip ? 'true':'false'); });
         briefEl.focus();
       });
     });
+    // Manual textarea edit (not driven by a chip) clears the theme.
+    briefEl.addEventListener('input', function(){
+      if(window.__chipSettingBrief) return;
+      window.__clearActiveTheme();
+    });
   }
+  // Selecting/deselecting a product overrides the theme too.
+  document.getElementById('productChooser')?.addEventListener('change', function(e){
+    if(e.target && e.target.classList && e.target.classList.contains('sku-check')) window.__clearActiveTheme();
+  });
 
   // Upload affordance — the + icon opens a file picker (transient input; path chooser removed)
   function openUpload(){
