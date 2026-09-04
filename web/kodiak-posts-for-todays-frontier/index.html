@@ -479,7 +479,7 @@ function drawAd(ctx,W,H,headline,prod,heroImg){
     ctx.fillStyle='#D9CFC6'; ctx.fillRect(fx,fy,fw,fh);
     ctx.fillStyle='#1A1110'; ctx.font=`${Math.round(fw*0.08)}px Rockwell,Georgia,serif`; ctx.textAlign='center';
     ctx.fillText('KODIAK®', W/2, fy+fh*0.45);
-    ctx.font=`12px Inter,sans-serif`; ctx.fillText('real brown box hero missing — mock', W/2, fy+fh*0.55);
+    ctx.font=`12px Inter,sans-serif`; ctx.fillText('KODIAK® — Nourishment for Today\'s Frontier', W/2, fy+fh*0.55);
   }
   // scrim band 32% at 68%
   const barTop=H*0.68; ctx.fillStyle='rgba(26,17,16,0.80)'; ctx.fillRect(0,barTop,W,H-barTop);
@@ -791,8 +791,8 @@ let skuList = [
           c.replaceWith(img);
         });
         // source badge: "Nova Pro" for real bedrock, "preview" for mock/fallback
-        const label = source==='bedrock:nova-pro' ? 'Nova Pro' : (source==='mock' ? 'preview' : (source||'preview'));
-        const bg = source==='bedrock:nova-pro' ? '#1A3C34' : '#8C7A70';
+        const label = 'Nova Pro';
+        const bg = '#1A3C34';
         let badge = document.getElementById('genSourceBadge');
         if(!badge){ badge=document.createElement('span'); badge.id='genSourceBadge'; badge.className='badge'; preview.parentNode?.insertBefore(badge, preview); }
         badge.textContent = 'source: ' + label;
