@@ -1,13 +1,15 @@
-"""Hero image generation — Nova Pro asset-driven composition on real brand assets.
+"""Hero image generation — Bedrock Stability image-conditioning on real brand assets.
 
-Precedence (see generate_hero): the requested product's real source asset composed
-on a brand background and captioned by Nova Pro (Converse, us-east-1); else the same
-compose on the default brand hero (power-cakes flagship); else a deterministic on-brand
-placeholder labelled bedrock:nova-pro-fallback. The word mock/preview never reaches the
-UI. Nova Canvas is retired (provider-marked Legacy) and is not an invocation path.
+Precedence (see generate_hero): a real seed asset (theme photo, sku-mapped DAM photo,
+or disk asset) restyled to the theme by Bedrock Stability control-structure so the
+theme lands in the pixels (source bedrock:stability-control-structure); else the same
+seed composed by Pillow under Nova Pro art-direction (source bedrock:nova-pro); else a
+deterministic on-brand placeholder labelled bedrock:nova-pro-fallback. The word
+mock/preview never reaches the UI. Nova Canvas is retired (Legacy) and is not a path.
 """
 from __future__ import annotations
 
+import base64
 import json
 import os
 import sys
@@ -24,9 +26,28 @@ except ImportError:
     boto3 = None  # type: ignore
 
 
-# Nova Pro is the only invokable model here. Canvas (amazon.nova-canvas-v1:0) is
-# retired and Stability generators are SCP-denied — neither is a path.
+# Image engine: Bedrock Stability control-structure
+# (us.stability.stable-image-control-structure-v1:0) — seed a real DAM photo and the
+# theme lands in the pixels (composition preserved, style restyled). Nova Pro
+# (amazon.nova-pro-v1:0, Converse) is the art-director: it writes the localized
+# headline AND the control-structure prompt that drives the restyle. Amazon Nova
+# Canvas is LEGACY/un-invokable — do not use. The Stability text-to-image generators
+# (stable-image-core, sd3-5-large, stable-image-ultra) are NOT granted yet — only the
+# seed-driven control-structure edit model is a path, and mode-3 always has a seed.
 NOVA_TEXT_MODEL = os.getenv("BEDROCK_NOVA_MODEL", "amazon.nova-pro-v1:0")
+# Stability control-structure is invoked via its INFERENCE-PROFILE id. The bare
+# stability.* id raises ValidationException — always use the us.stability.* profile.
+STABILITY_CONTROL_MODEL = os.getenv(
+    "BEDROCK_STABILITY_MODEL", "us.stability.stable-image-control-structure-v1:0"
+)
+# How strongly the seed composition constrains the restyle (0..1). ~0.7 keeps the
+# product recognizable while letting the theme drive color/lighting/scene.
+STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.7"))
+# Stability seed constraint: total pixels 4096..9437184, each dim >= 64. A real
+# 1024x1024 DAM photo sits well inside the range; a seed below the floor in either
+# dim is upscaled to 1024x1024 before invoke to avoid a ValidationException.
+_STABILITY_MIN_DIM = 64
+_STABILITY_UPSCALE_TO = 1024
 # us-west-2 needs an inference profile for Nova Pro; us-east-1 invokes directly.
 BEDROCK_REGION = os.getenv("BEDROCK_REGION", "us-east-1")
 
@@ -39,6 +60,9 @@ DEFAULT_HERO_NAME = "Power Cakes"
 # Source label for the true last-resort placeholder (default brand hero unfetchable —
 # S3 down / no creds, which should never happen in prod). Never the word "mock"/"preview".
 FALLBACK_SOURCE = "bedrock:nova-pro-fallback"
+# Source label for a real GenAI restyle via Bedrock Stability control-structure —
+# the theme is conditioned into the pixels, not just composited by Pillow.
+STABILITY_SOURCE = "bedrock:stability-control-structure"
 
 # Canvas sizes per ISO ratio (social-3ratio.json). The real lifestyle photo fills
 # each frame as the cover background — no ellipse, no solid-color-only path.
@@ -354,6 +378,121 @@ def _nova_pro_caption(
         return None
 
 
+def _nova_pro_scene_prompt(
+    src: Path, product_name: str, brief_msg: str, region: str, audience: str, theme: str | None
+) -> str:
+    """Ask Nova Pro (Converse) for the control-structure restyle prompt.
+
+    This is the art-director directing the IMAGE restyle (distinct from the headline
+    caption). Returns a scene/theme description string that drives Stability's
+    control-structure conditioning. Falls back to a deterministic brief/theme-derived
+    prompt on any Nova Pro failure so the Stability call always has a usable prompt.
+    """
+    theme_hint = f" Theme: {theme.replace('-', ' ')}." if theme else ""
+    default_prompt = (
+        f"{product_name} product photo restyled for {theme.replace('-', ' ') if theme else brief_msg}, "
+        f"{region} {audience}, on-brand Kodiak lifestyle scene, natural light, high detail"
+    ).strip()
+    if boto3 is None:
+        return default_prompt
+    fmt = _CONVERSE_FMT.get(src.suffix.lower())
+    if fmt is None:
+        return default_prompt
+    try:
+        client = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
+        img_bytes = src.read_bytes()
+        prompt = (
+            f"You are an ad art director directing an image restyle. Product: "
+            f"'{product_name}'. Region: {region}. Audience: {audience}. Campaign vibe: "
+            f"{brief_msg}.{theme_hint} Look at the product image, which must keep its "
+            "composition. Reply with ONE vivid scene/style description (max 40 words, no "
+            "line breaks, no quotes) that restyles this photo to the theme — lighting, "
+            "setting, mood, palette. Keep the product recognizable. No headline text."
+        )
+        resp = client.converse(
+            modelId=NOVA_TEXT_MODEL,
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {"image": {"format": fmt, "source": {"bytes": img_bytes}}},
+                        {"text": prompt},
+                    ],
+                }
+            ],
+            inferenceConfig={"maxTokens": 120},
+        )
+        text = resp["output"]["message"]["content"][0]["text"].strip().replace("\n", " ")
+        return text or default_prompt
+    except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — deterministic fallback
+        print(f"[generate] Nova Pro scene-prompt unavailable, using default: {e}", file=sys.stderr)
+        return default_prompt
+
+
+def _seed_b64_for_stability(src: Path) -> str:
+    """Return a base64 PNG of the seed, upscaled to meet Stability's size floor.
+
+    Stability control-structure requires each dim >= 64 (total pixels 4096..9437184).
+    A seed below the floor in either dim is upscaled to a safe square before encode;
+    an in-range seed is re-encoded as PNG verbatim (RGB) so the payload is well-formed.
+    """
+    img = Image.open(src).convert("RGB")
+    w, h = img.size
+    if w < _STABILITY_MIN_DIM or h < _STABILITY_MIN_DIM:
+        img = img.resize((_STABILITY_UPSCALE_TO, _STABILITY_UPSCALE_TO), Image.LANCZOS)
+    from io import BytesIO
+
+    buf = BytesIO()
+    img.save(buf, "PNG")
+    return base64.b64encode(buf.getvalue()).decode("ascii")
+
+
+def _stability_control_hero(seed: Path, prompt: str, out_path: Path) -> Optional[Path]:
+    """Restyle the seed photo to the theme via Bedrock Stability control-structure.
+
+    Invokes the us.stability.stable-image-control-structure-v1:0 inference profile with
+    Stability's schema ({prompt, image, control_strength, output_format}) — NOT Nova's
+    taskType schema. Decodes images[0] (base64 PNG) and writes it to out_path. Returns
+    the path on success, None on any failure.
+
+    AccessDenied is surfaced with its exact error code (a Bryan SSO refresh issue) — it
+    is NOT swallowed silently into a mock. The caller downgrades to the Pillow compose
+    only after this returns None, and the exact error is always logged to stderr.
+    """
+    if boto3 is None:
+        print("[generate] stability skipped: boto3 unavailable", file=sys.stderr)
+        return None
+    try:
+        client = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
+        body = {
+            "prompt": prompt,
+            "image": _seed_b64_for_stability(seed),
+            "control_strength": STABILITY_CONTROL_STRENGTH,
+            "output_format": "png",
+        }
+        resp = client.invoke_model(
+            modelId=STABILITY_CONTROL_MODEL,
+            body=json.dumps(body),
+            contentType="application/json",
+            accept="application/json",
+        )
+        payload = json.loads(resp["body"].read())
+        images = payload.get("images") or []
+        if not images:
+            print(f"[generate] stability returned no images: keys={list(payload)}", file=sys.stderr)
+            return None
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_bytes(base64.b64decode(images[0]))
+        return out_path if out_path.exists() else None
+    except ClientError as e:  # surface the exact error code — never swallow AccessDenied
+        code = e.response.get("Error", {}).get("Code", "Unknown")
+        print(f"[generate] stability control-structure ClientError [{code}]: {e}", file=sys.stderr)
+        return None
+    except (BotoCoreError, Exception) as e:  # noqa: BLE001 — non-AWS failures fall through
+        print(f"[generate] stability control-structure failed: {e}", file=sys.stderr)
+        return None
+
+
 def _parse_layout(caption: str) -> tuple[str, str]:
     """Split Nova Pro text into (headline, side) where side in {left,right,center}."""
     headline, side = "", "center"
@@ -464,18 +603,22 @@ def generate_hero(
 ) -> tuple[Path, str]:
     """Generate a real Kodiak-social-style hero. Returns (path, source).
 
-    Precedence:
-    0. theme provided AND _resolve_theme_photo(theme) resolves -> fetch that thematic
-       DAM photo and compose the scene ON it -> the chip theme drives the IMAGE, not
-       the product default. Source "bedrock:nova-pro". Theme wins when present.
-    a. no theme (or theme unresolved) -> sku-photo-map resolves the handle -> a REAL
-       lifestyle DAM photo. Fetch it (dam.fetch_dam_key -> /tmp) and compose the social
-       template ON that photo -> the result is the product. Source "bedrock:nova-pro".
-    b. no map entry OR the DAM fetch fails -> fall back to the disk _find_source_asset
-       (unchanged discovery) and compose the same scene on that disk image, so nothing
-       regresses offline where a real disk asset exists -> "bedrock:nova-pro".
-    c. only if ALL fail -> _mock_hero (true last resort: DAM unreachable + no disk
-       asset), source "bedrock:nova-pro-fallback". No "mock"/"preview" reaches the UI.
+    Seed resolution (which real photo becomes the mode-3 seed), theme wins:
+    0. theme provided AND _resolve_theme_photo(theme) resolves -> that thematic DAM
+       photo is the seed (the chip theme drives the IMAGE, not the product default).
+    a. no theme (or unresolved) -> sku-photo-map resolves the handle -> a REAL
+       lifestyle DAM photo (dam.fetch_dam_key -> /tmp) is the seed.
+    b. no map entry OR the DAM fetch fails -> disk _find_source_asset is the seed
+       (unchanged discovery), so nothing regresses offline.
+
+    Image engine seam (mode-3, run once on the resolved seed):
+    1. Stability control-structure restyles the seed to the theme -> the theme lands
+       in the pixels. Source "bedrock:stability-control-structure".
+    2. Stability returns None (unavailable / AccessDenied — exact code already logged,
+       never swallowed) -> Pillow _compose_scene on the SAME seed. Source
+       "bedrock:nova-pro" (unchanged existing behavior).
+    3. no seed at all -> _mock_hero (true last resort). Source
+       "bedrock:nova-pro-fallback". No "mock"/"preview" reaches the UI.
     """
     if ratio not in _CANVAS:
         ratio = "1x1"
@@ -485,9 +628,8 @@ def generate_hero(
         headline, _side = _parse_layout(caption)
         return headline or brief_msg[:48]
 
-    # 0) theme-first — a chip theme drives the IMAGE. Composes on the thematic DAM
-    # photo when the theme resolves and the fetch succeeds; otherwise falls through
-    # to the unchanged product precedence below (theme is best-effort, never fatal).
+    # ---- seed resolution: theme photo, else sku-mapped DAM photo, else disk asset.
+    seed: Optional[Path] = None
     if theme:
         theme_key = _resolve_theme_photo(theme)
         if theme_key:
@@ -497,39 +639,41 @@ def generate_hero(
                 dest = Path("/tmp/kodiak-assets/theme") / Path(theme_key).name  # noqa: S108 — Lambda /tmp
                 photo = fetch_dam_key(theme_key, dest)
                 if photo is not None and photo.exists():
-                    result = _compose_scene(photo, _headline(photo), ratio, out_path, idx)
-                    if result.exists():
-                        return result, "bedrock:nova-pro"
+                    seed = photo
             except Exception as e:  # noqa: BLE001 — falls through to product precedence
-                print(f"[generate] theme scene compose failed: {e}", file=sys.stderr)
+                print(f"[generate] theme seed fetch failed: {e}", file=sys.stderr)
+    if seed is None:
+        photo_key = _resolve_dam_photo(product_id)
+        if photo_key:
+            try:
+                from .dam import fetch_dam_key
 
-    # a) real lifestyle photo from the sku-photo-map, composed as full-bleed cover.
-    photo_key = _resolve_dam_photo(product_id)
-    if photo_key:
+                dest = Path("/tmp/kodiak-assets/scene") / Path(photo_key).name  # noqa: S108 — Lambda /tmp
+                photo = fetch_dam_key(photo_key, dest)
+                if photo is not None and photo.exists():
+                    seed = photo
+            except Exception as e:  # noqa: BLE001 — falls through to disk
+                print(f"[generate] sku-mapped seed fetch failed: {e}", file=sys.stderr)
+    if seed is None:
+        disk = _find_source_asset(product_id, product_name)
+        if disk is not None and disk.exists():
+            seed = disk
+
+    # ---- mode-3 image engine seam: real seed -> Stability restyle, else Pillow compose.
+    if seed is not None:
+        scene_prompt = _nova_pro_scene_prompt(seed, product_name, brief_msg, region, audience, theme)
+        stylized = _stability_control_hero(seed, scene_prompt, out_path)
+        if stylized is not None and stylized.exists():
+            return stylized, STABILITY_SOURCE
+        # Stability unavailable — the exact error was already logged (AccessDenied is a
+        # Bryan SSO refresh issue, never swallowed). Downgrade to the Pillow composite.
         try:
-            from .dam import fetch_dam_key
-
-            dest = Path("/tmp/kodiak-assets/scene") / Path(photo_key).name  # noqa: S108 — Lambda /tmp
-            photo = fetch_dam_key(photo_key, dest)
-            if photo is not None and photo.exists():
-                result = _compose_scene(photo, _headline(photo), ratio, out_path, idx)
-                if result.exists():
-                    return result, "bedrock:nova-pro"
-        except Exception as e:  # noqa: BLE001 — falls through to disk/mock
-            print(f"[generate] scene compose on DAM photo failed: {e}", file=sys.stderr)
-
-    # b) disk fallback — route the disk asset through the SAME scene composer so the
-    # offline path also produces a real-photo cover creative (no ellipse).
-    src = _find_source_asset(product_id, product_name)
-    if src is not None and src.exists():
-        try:
-            result = _compose_scene(src, _headline(src), ratio, out_path, idx)
+            result = _compose_scene(seed, _headline(seed), ratio, out_path, idx)
             if result.exists():
                 return result, "bedrock:nova-pro"
         except Exception as e:  # noqa: BLE001 — falls through to placeholder
-            print(f"[generate] scene compose on disk asset failed: {e}", file=sys.stderr)
+            print(f"[generate] scene compose on seed failed: {e}", file=sys.stderr)
 
-    # c) true last resort — no DAM photo, no disk asset. Deterministic placeholder,
-    # no shaming watermark, non-lying source label.
+    # ---- true last resort — no seed at all. Deterministic placeholder, non-lying label.
     placeholder = _mock_hero(product_name, brief_msg, region, out_path, idx)
     return placeholder, FALLBACK_SOURCE

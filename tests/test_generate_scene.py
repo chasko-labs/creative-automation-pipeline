@@ -148,14 +148,18 @@ def test_generate_hero_theme_dam_disabled_falls_back_gracefully(tmp_path: Path, 
 
 
 def test_generate_hero_theme_composes_on_fetched_photo(tmp_path: Path, monkeypatch) -> None:
-    # theme resolves and fetch_dam_key returns a real local png -> composes the scene
-    # and reports source "bedrock:nova-pro" (the chip theme drove the image).
+    # theme resolves and fetch_dam_key returns a real local png. With the Stability
+    # engine unavailable (patched -> None), generate_hero downgrades to the Pillow
+    # scene composer and reports "bedrock:nova-pro" (the chip theme drove the image).
     photo = _make_photo(tmp_path / "theme-src.png")
     import creative_automation.dam as dam
 
     monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: photo)
     # Nova Pro offline -> caption None -> brief headline used; keep deterministic
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
+    # Stability offline -> None so the compose fallback (bedrock:nova-pro) is exercised
+    monkeypatch.setattr(generate, "_stability_control_hero", lambda seed, prompt, out: None)
+    monkeypatch.setattr(generate, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
 
     out = tmp_path / "hero-theme-ok.png"
     result, source = generate.generate_hero(
@@ -197,6 +201,9 @@ def test_generate_hero_theme_none_preserves_product_path(tmp_path: Path, monkeyp
     monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: "brands/kodiak/raw-ingest/x.jpg")
     monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: photo)
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
+    # Stability offline -> None so the compose fallback (bedrock:nova-pro) is exercised
+    monkeypatch.setattr(generate, "_stability_control_hero", lambda seed, prompt, out: None)
+    monkeypatch.setattr(generate, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
 
     out = tmp_path / "hero-product.png"
     result, source = generate.generate_hero(
