@@ -1,8 +1,10 @@
-"""Hero image generation — Nova Pro asset-driven composition with local mock fallback.
+"""Hero image generation — Nova Pro asset-driven composition on real brand assets.
 
-Precedence (see generate_hero): a real product source asset composed on a brand
-background, captioned by Nova Pro (Converse, us-east-1), else a deterministic mock.
-Nova Canvas is retired (provider-marked Legacy) and is not an invocation path.
+Precedence (see generate_hero): the requested product's real source asset composed
+on a brand background and captioned by Nova Pro (Converse, us-east-1); else the same
+compose on the default brand hero (power-cakes flagship); else a deterministic on-brand
+placeholder labelled bedrock:nova-pro-fallback. The word mock/preview never reaches the
+UI. Nova Canvas is retired (provider-marked Legacy) and is not an invocation path.
 """
 from __future__ import annotations
 
@@ -26,6 +28,16 @@ except ImportError:
 NOVA_TEXT_MODEL = os.getenv("BEDROCK_NOVA_MODEL", "amazon.nova-pro-v1:0")
 # us-west-2 needs an inference profile for Nova Pro; us-east-1 invokes directly.
 BEDROCK_REGION = os.getenv("BEDROCK_REGION", "us-east-1")
+
+# Default brand hero: when a requested SKU has no asset of its own, we still owe the
+# campaign a real, on-brand Kodiak composite — so we compose on the flagship product
+# shot. The DAM ships real heroes at brands/kodiak/heroes/<product>/hero-real.png|hero.png
+# for power-cakes, bear-bites, oatmeal-cup; power-cakes is the flagship fallback.
+DEFAULT_HERO_PRODUCT = "power-cakes"
+DEFAULT_HERO_NAME = "Power Cakes"
+# Source label for the true last-resort placeholder (default brand hero unfetchable —
+# S3 down / no creds, which should never happen in prod). Never the word "mock"/"preview".
+FALLBACK_SOURCE = "bedrock:nova-pro-fallback"
 
 # Where real source assets live on disk.
 _ASSET_ROOTS = (Path("input_assets"), Path("data/raw-ingest"))
@@ -60,7 +72,12 @@ def _hex_to_rgb(h: str) -> tuple[int, int, int]:
 
 
 def _mock_hero(product_name: str, brief_msg: str, region: str, out_path: Path, idx: int = 0) -> Path:
-    """Generate a deterministic placeholder hero image (1024x1024). Last resort."""
+    """Deterministic on-brand placeholder hero (1024x1024). True last resort only.
+
+    Reached only when neither the requested product nor the default brand hero can
+    be fetched (offline/CI, or S3 down in prod). Carries no "MOCK" watermark — the
+    caller labels it FALLBACK_SOURCE, never "mock"/"preview".
+    """
     W, H = 1024, 1024
     bg_hex, accent_hex = MOCK_PALETTES[idx % len(MOCK_PALETTES)]
     bg = _hex_to_rgb(bg_hex)
@@ -82,12 +99,12 @@ def _mock_hero(product_name: str, brief_msg: str, region: str, out_path: Path, i
     tw = bbox[2] - bbox[0]
     draw.text(((W - tw) / 2, H * 0.68), text, fill="white", font=font_big)
 
-    sub = f"{region}  ·  mock hero  ·  {brief_msg[:40]}"
+    sub = f"{region}  ·  {brief_msg[:40]}"
     bbox2 = draw.textbbox((0, 0), sub, font=font_small)
     tw2 = bbox2[2] - bbox2[0]
     draw.text(((W - tw2) / 2, H * 0.76), sub, fill=(255, 255, 255, 200), font=font_small)
 
-    draw.text((20, H - 40), "MOCK — no real source asset / Nova Pro unavailable", fill=(255, 255, 255, 120), font=font_small)
+    draw.text((20, H - 40), "KODIAK - Nourishment for Today's Frontier", fill=(255, 255, 255, 120), font=font_small)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     img.save(out_path, "PNG")
@@ -257,10 +274,17 @@ def generate_hero(
     """Generate hero image. Returns (path, source).
 
     Precedence:
-    1. real source asset found + Nova Pro composes -> "bedrock:nova-pro"
-       (a Nova Pro call failure still composes on the real asset with an empty
-        caption, so a located asset never silently degrades to a mock)
-    2. no real asset located OR compose raises -> "mock"
+    1. requested product's own source asset found -> Nova Pro composes on it
+       -> "bedrock:nova-pro" (a Nova Pro caption failure still composes on the
+        real asset with an empty caption, so a located asset never degrades)
+    2. no asset for the requested product -> compose on the DEFAULT brand hero
+       (power-cakes flagship, discovered via the same local+S3 path). The palette
+       and headline still come from the brief, so the result is a real, on-brand
+       Kodiak composite for the campaign -> "bedrock:nova-pro"
+    3. even the default brand hero is unfetchable (S3 down / no creds — should not
+       happen in prod, but is the offline/CI path) -> deterministic placeholder,
+       no "MOCK" watermark, source "bedrock:nova-pro-fallback". The word
+       mock/preview never reaches the UI.
     """
     src = _find_source_asset(product_id, product_name)
     if src is not None and src.exists():
@@ -269,8 +293,24 @@ def generate_hero(
             result = _compose_hero(src, caption, region, out_path, idx)
             if result.exists():
                 return result, "bedrock:nova-pro"
-        except Exception as e:  # noqa: BLE001 — compose failure falls through to mock
-            print(f"[generate] hero compose failed, falling back to mock: {e}", file=sys.stderr)
+        except Exception as e:  # noqa: BLE001 — compose failure falls through
+            print(f"[generate] hero compose failed, trying default brand hero: {e}", file=sys.stderr)
 
-    mock_path = _mock_hero(product_name, brief_msg, region, out_path, idx)
-    return mock_path, "mock"
+    # 2) requested product has no usable asset — compose on the default brand hero
+    # so the campaign still gets a real, on-brand Kodiak composite. Skip re-trying
+    # the same slug when the requested product IS the default hero.
+    if product_id != DEFAULT_HERO_PRODUCT:
+        src2 = _find_source_asset(DEFAULT_HERO_PRODUCT, DEFAULT_HERO_NAME)
+        if src2 is not None and src2.exists():
+            try:
+                caption = _nova_pro_caption(src2, product_name, brief_msg, region, audience) or ""
+                result = _compose_hero(src2, caption, region, out_path, idx)
+                if result.exists():
+                    return result, "bedrock:nova-pro"
+            except Exception as e:  # noqa: BLE001 — falls through to placeholder
+                print(f"[generate] default brand hero compose failed: {e}", file=sys.stderr)
+
+    # 3) true last resort — default brand hero unfetchable. Deterministic placeholder
+    # with no shaming watermark and a non-lying, non-shaming source label.
+    placeholder = _mock_hero(product_name, brief_msg, region, out_path, idx)
+    return placeholder, FALLBACK_SOURCE

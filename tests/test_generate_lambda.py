@@ -38,20 +38,23 @@ def test_handler_returns_200_with_image_url(monkeypatch, tmp_path: Path) -> None
     assert body["prompt"] == "a bear eating pancakes"
 
 
-def test_handler_falls_back_to_mock(monkeypatch, tmp_path: Path) -> None:
-    fake_png = tmp_path / "mock.png"
+def test_handler_falls_back_to_default_hero_label(monkeypatch, tmp_path: Path) -> None:
+    # true last-resort path: generate_hero never returns "mock"/"preview" — the
+    # non-shaming fallback label is what reaches the handler and the UI.
+    fake_png = tmp_path / "fallback.png"
     fake_png.write_bytes(b"\x89PNG\r\n")
     monkeypatch.setattr(
         generate_lambda,
         "generate_hero",
-        lambda **kwargs: (fake_png, "mock"),
+        lambda **kwargs: (fake_png, "bedrock:nova-pro-fallback"),
     )
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
 
     resp = generate_lambda.handler({"prompt": "x"}, None)
     body = json.loads(resp["body"])
     assert resp["statusCode"] == 200
-    assert body["source"] == "mock"
+    assert body["source"] == "bedrock:nova-pro-fallback"
+    assert "mock" not in body["source"]
 
 
 def test_options_preflight_returns_200(monkeypatch) -> None:
