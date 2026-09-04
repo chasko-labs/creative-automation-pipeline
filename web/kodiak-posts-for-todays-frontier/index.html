@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"/>
 <link rel="stylesheet" href="https://use.typekit.net/zjt4wyq.css">
-<link rel="stylesheet" href="design/styles.css">
+<link rel="stylesheet" href="design/styles.css?v=0.4.1-28d0c98-20260902">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>KODIAK® Posts for Today's Frontier — v0.4.1-28d0c98-20260902</title>
 <meta name="kodiak-version" content="0.4.1-28d0c98-20260902">
@@ -227,6 +227,9 @@ section.xl{padding:var(--section-space-xl) 0}
 <div class="row" style="margin:6px 0 4px"><a href="details.html" style="font:700 11px/1 'kodiak_sans','museo-sans',sans-serif;letter-spacing:.06em;text-transform:uppercase">Design system + details &rarr;</a></div>
 
 <details class="card wide-track" id="aboutTool" style="padding:0"><summary style="padding:14px 16px;cursor:pointer;font:800 13px/1.2 gin,'museo-sans',Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate)">About this tool</summary><div class="body" style="padding-top:0"><p style="margin:0;color:#6B5A53;font:500 13px/1.6 'museo-sans',sans-serif">craft images and recipes for blogs, newsletters, and social campaigns with content exported for facebook, rss, costco, target &amp; publix. 16 Frontier urban markets — coincidentally where Adobe offices are — with language support for 3 most commonly spoken languages and one sister rural frontier site where Kodiak's subscription service offers unique positioning. Image generation includes square 1080×1080, tall 1080×1920, wide 1920×1080 — when using the KODIAK Bear it appears at 24,24.</p></div></details>
+
+<!-- visible build stamp — confirm at a glance which version/JS is live in the browser (cache-buster verification) -->
+<div id="buildStamp" style="margin:12px 0 4px;text-align:center;color:#8C7A70;font:600 11px/1.4 'kodiak_sans','museo-sans',monospace;letter-spacing:.04em">build 0.4.1-28d0c98-20260902</div>
 
 </div>
 <script>
@@ -1027,28 +1030,19 @@ window.KODIAK_CART={open:()=>{const d=document.getElementById('kodiak-cart-drawe
     // Single composed hero image, so .png (not a multi-ratio .zip pack).
     var name = 'KODIAK-CAKES-' + product + '-' + region + '-' + locality + '-' + channel + '-' + date + '-v01.png';
     var url = window.__lastHeroUrl;
-    var openInTab = function(){
-      var a = document.createElement('a');
-      a.href = url; a.target = '_blank'; a.rel = 'noopener';
-      document.body.appendChild(a); a.click(); a.remove();
-    };
-    // Prefer fetch->blob->objectURL so the download attribute (ISO filename) is honored.
-    // Presigned S3 URLs are cross-origin; if fetch is blocked, fall back to opening in a new tab.
-    fetch(url).then(function(r){
-      if(!r.ok) throw new Error('HTTP ' + r.status);
-      return r.blob();
-    }).then(function(b){
-      var u = URL.createObjectURL(b);
-      var a = document.createElement('a');
-      a.href = u; a.download = name;
-      document.body.appendChild(a); a.click(); a.remove();
-      URL.revokeObjectURL(u);
-      if(status) status.textContent = 'Downloaded ' + name;
-    }).catch(function(err){
-      console.warn('[downloadAssetPack] blob download failed, opening in new tab —', err && err.message ? err.message : err);
-      openInTab();
-      if(status) status.textContent = 'Downloaded ' + name;
-    });
+    // Direct anchor[download] against the presigned S3 URL — NO fetch()/blob().
+    // fetch->blob tripped S3 CORS (no Access-Control-Allow-Origin on the presigned GET),
+    // which failed the download entirely. A plain anchor click bypasses the CORS preflight/read path.
+    // The browser saves rather than navigates when the presigned URL carries
+    // Content-Disposition:attachment (set at signing time via ResponseContentDisposition).
+    // Cross-origin note: the download="" filename attribute is ignored for cross-origin hrefs,
+    // so the saved filename comes from Content-Disposition; download="" stays as the same-origin hint.
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = name;
+    a.rel = 'noopener';
+    document.body.appendChild(a); a.click(); a.remove();
+    if(status) status.textContent = 'Downloaded ' + name;
     return name;
   };
   document.getElementById('downloadPack')?.addEventListener('click', function(){ window.downloadAssetPack(); });
@@ -1067,5 +1061,5 @@ window.KODIAK_CART={open:()=>{const d=document.getElementById('kodiak-cart-drawe
   onScroll();
 })();
 </script>
-  <script src="glimmer-proxy.js"></script>
+  <script src="glimmer-proxy.js?v=0.4.1-28d0c98-20260902"></script>
 </body></html>
