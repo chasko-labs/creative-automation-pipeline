@@ -329,12 +329,12 @@ sequenceDiagram
     CB->>CB: gate 1/3 — ruff check .
     CB->>CB: gate 2/3 — pytest -x -q (fail-fast)
     CB->>CB: gate 3/3 — cfn-lint infra/template.yaml
-    Note over CB: slow path (render + nova-act + embed corpus)<br/>only when RUN_SLOW=true — nightly/manual
+    Note over CB: slow path (render + embed corpus)<br/>only when RUN_SLOW=true — nightly/manual
     CB->>Log: stream build logs to /codebuild/kodiak-creatives-ci
     CB-->>GH: report build status
 ```
 
-The per-push gate pins `RUN_SLOW=false` so the expensive path (Nova image render, a planned browser visual check (not yet built), the full embedding run, cloud e2e sync) never runs on a normal push — it belongs to nightly or manual runs. The build follows harness-first CI: install plus gate commands only, no inline service configuration.
+The per-push gate pins `RUN_SLOW=false` so the expensive path (Nova image render, the full embedding run, cloud e2e sync) never runs on a normal push — it belongs to nightly or manual runs. The build follows harness-first CI: install plus gate commands only, no inline service configuration.
 
 ---
 
@@ -392,7 +392,6 @@ The maturity view a CIO wants up front. The local pipeline is the always-present
 | RAG corpus (3144 vectors, 635 prompts)                        | live                  | `data/vectors/`, `data/prompts/`                                                                                                                                                                                              |
 | AgentCore Runtime hosting wrap                                | planned               | `agentcore.md`, `agentcore-backlog.md` epic C                                                                                                                                                                                 |
 | AgentCore Memory (cross-session market wins)                  | planned               | backlog C3                                                                                                                                                                                                                    |
-| Nova Act visual QA in the loop                                | planned (not built)   | design idea only; NOT part of the current architecture — no Nova Act runtime deployed                                                                                                                                         |
 | runtime IAM role (attaches ObservabilityWritePolicy)          | planned               | template comment                                                                                                                                                                                                              |
 
 ---
@@ -405,5 +404,5 @@ The maturity view a CIO wants up front. The local pipeline is the always-present
 - [Asset library + observability design](asset-library-and-observability.md) — AssetRef contract, Observer substrate
 - [Team lanes](team-lanes.md) — path ownership and seams
 - [Dispatch guideline](dispatch-guideline.md) — agent roster, tooling standards, CI gate
-- [DAM runbook](../dam-runbook.md) · [Nova Act runbook](../nova-act-runbook.md) · [Observability runbook](../observability-runbook.md)
+- [DAM runbook](../dam-runbook.md) · [Observability runbook](../observability-runbook.md)
 - [ISO naming conventions](../iso-naming-conventions.md) · [Kodiak image standards](../kodiak-image-standards.md)
