@@ -131,8 +131,16 @@ Resources:
       Code:
         ImageUri: !Ref ImageUri
       Role: !GetAtt GenerateLambdaRole.Arn
-      Timeout: 60
-      MemorySize: 2048
+      # 300s (5 min) accommodates 4 serial Bedrock GenAI round-trips: Nova Pro
+      # scene prompt + Stability control-structure restyle + 2x Stability
+      # outpaint. The 60s ceiling killed the chain mid-outpaint. Lambda max is
+      # 900; 300 gives headroom without being wasteful.
+      Timeout: 300
+      # 3008 MB (up from 2048) buys proportionally more vCPU, which speeds the
+      # Pillow compositing and the boto3 TLS/serialization around each Bedrock
+      # call. This is image work, not memory-bound compute - 3008 is the sane
+      # cost/perf point, do not go higher.
+      MemorySize: 3008
       Environment:
         Variables:
           DAM_S3_BUCKET: chasko-creative-dam-946179428633-us-east-1
