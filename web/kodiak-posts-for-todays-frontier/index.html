@@ -181,16 +181,8 @@ section.xl{padding:var(--section-space-xl) 0}
 <shop-cart-sync data-source="kodiak.com" data-testid="shop-cart-sync"></shop-cart-sync>
 <csm-cookie-consent data-testid="csm-cookie-consent"></csm-cookie-consent>
 <div class="wrap">
-<!-- location-aware island kept — hidden frontier toggle, tool keeps prototype defaults Park City 84098 + Kamas Valley -->
-<div class="card" id="frontierToggleCard" style="border-left:3px solid #1A3C34;display:none"><div class="hd"><h2>Frontier prototype context <span class="badge">dev</span></h2><p>Defaults: Park City 84098 + Kamas Valley 84036 rural. Tool still location-aware but not consumer-facing.</p></div><div class="body">
-<div class="row" style="gap:10px">
-<button class="btn orange" id="useLocationBtn">Use my location</button>
-<button class="btn ghost" id="showAllBtn">Choose from list below</button>
-<span class="hint" id="locationStatus" style="display:none">Pescadero 94060 / Neah Bay 98357 frontier preserved for dev.</span>
-</div>
-</div></div>
-
-<div class="card" data-mcp="campaign-brief" data-mcp-description="Park City Utah demo — one prompt drives the campaign"><div class="hd"><h2>Park City Utah campaign <span class="badge" id="seeNearYouBtn" style="cursor:pointer" role="button" tabindex="0" title="Reveal the location-aware frontier picker">or see near you</span></h2></div><div class="body">
+<!-- location-aware island + design-system scorecards moved to details.html (Design system + details link below) -->
+<div class="card" data-mcp="campaign-brief" data-mcp-description="Park City Utah demo — one prompt drives the campaign"><div class="hd"><h2>Park City Utah campaign</h2></div><div class="body">
 
 <!-- PRIMARY: Firefly-inspired prompt bar — dominates the card -->
 <div class="ff-prompt" data-mcp="campaign-brief.prompt">
@@ -208,28 +200,11 @@ section.xl{padding:var(--section-space-xl) 0}
     <button type="button" class="ff-chip" data-brief="Zac Efron athletic-morning energy — high-protein pre-trail fuel, aspirational active lifestyle. Keep It Wild."><span class="ff-dot"></span>Zac Efron</button>
     <button type="button" class="ff-chip" data-brief="Bears + Keep It Wild — lean into the KODIAK Bear, wild frontier tone, protein for epic days."><span class="ff-dot"></span>Bears</button>
     <button type="button" class="ff-chip" data-brief="Keep It Wild program — brand campaign tying protein-packed whole grains to the outdoor frontier lifestyle."><span class="ff-dot"></span>Keep It Wild program</button>
-    <button type="button" class="ff-chip" id="chipUpload"><span class="ff-dot"></span>Upload an image or document</button>
   </div>
 </div>
 
-<!-- THREE campaign paths — compact segmented control -->
-<div class="field" style="margin-top:14px"><label>How to build it</label>
-<div class="row" id="campaignPaths" role="tablist" style="gap:8px">
-<button type="button" class="btn ghost" id="pathExisting" aria-pressed="true">Use existing assets</button>
-<button type="button" class="btn ghost" id="pathAdd" aria-pressed="false">Add new assets</button>
-<button type="button" class="btn ghost" id="pathAuto" aria-pressed="false">Auto-suggest</button>
-</div>
-<div class="hint" id="pathHint">Use existing assets — pick from the Kodiak catalog below.</div>
-</div>
-
-<!-- Path: Use existing assets — product chooser (protected IDs kept, collapsed under this path) -->
+<!-- Product chooser — pick from the KODIAK catalog (protected IDs kept) -->
 <div class="field" id="existingAssets" data-mcp="products" data-mcp-description="Real KODIAK SKUs — choose up to 3, autocomplete as you type"><label>Products — choose up to 3 from the KODIAK catalog</label><input type="text" id="productSearch" placeholder="Search SKUs — flapjack, blueberry, power cakes, muffin, oatmeal, cup, waffle, bar…" style="margin-bottom:8px"><div id="productChooser" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;max-height:180px;overflow:auto;padding:2px"></div><div class="row" style="margin-top:8px"><button class="btn ghost" id="randomProducts">Random 3</button><span class="hint" id="skuHint">0 / 3 selected — empty = random 3 on generate</span></div></div>
-
-<!-- Path: Add new assets — file input (protected #assetFiles kept, hidden until path chosen) -->
-<div class="field" id="addAssets" data-mcp="assets" data-mcp-description="Upload campaign assets — images, brief docs" style="display:none"><label>Add assets — drag &amp; drop images or brief docs</label><input type="file" id="assetFiles" multiple accept="image/*,.pdf,.docx,.yaml,.yml,.json" style="padding:8px"><div id="assetPreview" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"></div><div class="hint">Reuses the DAM when a match exists, else generates a hero via Nova Pro.</div></div>
-
-<!-- Path: Auto-suggest — results appear in the Preview -->
-<div class="field" id="autoAssets" style="display:none"><div class="offline">Auto-suggest scans existing heroes and proposes useful variants across all three ratios — results appear in the <b>Preview</b> after you Generate.</div></div>
 
 <!-- Product-in-picture default -->
 <div class="field"><label style="display:flex;gap:8px;align-items:center;text-transform:none;letter-spacing:normal;font-weight:500;color:var(--chocolate)"><input type="checkbox" id="productInPicture" checked> Feature product in the pictures</label></div>
@@ -251,12 +226,8 @@ section.xl{padding:var(--section-space-xl) 0}
 <div class="card wide-track"><div class="hd"><h2>Preview <span class="badge">3 sizes</span></h2><p>Your campaign, three sizes.</p></div>
 <div class="body"><div class="preview" id="preview" data-mcp="preview.compose" data-mcp-description="Pipeline preview — displays campaign message in EN + localized on final posts"></div><div class="hint" id="fileNames" style="margin-top:10px;display:none"></div></div></div>
 
-<div class="card wide-track" data-mcp="design-system" id="design-system" data-mcp-description="Design System — scorecards evaluating app performance against tokens + style guide" style="display:none" aria-hidden="true"><div class="hd"><h2>Design System — Scorecards <span class="badge" id="score-overall-badge">live</span></h2><p>How we grade the Frontier app against <a href="../../design/tokens/kodiak.json" target="_blank">design/tokens/kodiak.json</a> + <a href="../../docs/kodiak-style-guide.md" target="_blank">style guide</a> + <a href="../../docs/kodiak-brand-explained.md" target="_blank">brand view</a>. Same tokens drive <span class="kbd">compose.py</span> <span class="kbd">enhance.py</span> <span class="kbd">compliance.py</span> <span class="kbd">suggest.py</span>. Scores update live after Generate / Show Suggested.</p></div><div class="body">
-<div class="row" style="gap:8px;margin-bottom:10px"><span class="hint">Overall: <b id="score-overall">—</b> • <span id="score-overall-detail" class="hint">evaluating…</span></span><button class="btn ghost" id="scoreRefresh" style="margin-left:auto;padding:6px 10px;font-size:11px">Re-score</button><span class="kbd" id="score-timestamp"></span></div>
-<div id="scoreGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px"></div>
-<div class="offline" style="margin-top:12px"><b>What “good” means:</b> Brand checks via <span class="kbd">compliance.py</span> (logo@24,24 + #3B2316/#E8530E/#1A3C34 palette probe + legal gate), template checks via <span class="kbd">compose.py</span> tokens (48px pad / 68% bar / 8px Blaze / 24px bear), perf via single-file offline + canvas FPS, localization via <span class="kbd">market-languages.json</span> 73×EN+top2. Run <span class="kbd">uv run pytest -q</span> for CI parity — 6 passed.</div>
-<div id="scoreDetails" style="margin-top:10px;font-size:11px;color:#6B5A53;line-height:1.5"></div>
-</div></div>
+<!-- Design system + Frontier prototype context moved to details.html -->
+<div class="row" style="margin:6px 0 4px"><a href="details.html" style="font:700 11px/1 'kodiak_sans','museo-sans',sans-serif;letter-spacing:.06em;text-transform:uppercase">Design system + details &rarr;</a></div>
 
 <details class="card wide-track" id="aboutTool" style="padding:0"><summary style="padding:14px 16px;cursor:pointer;font:800 13px/1.2 gin,'museo-sans',Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate)">About this tool</summary><div class="body" style="padding-top:0"><p style="margin:0;color:#6B5A53;font:500 13px/1.6 'museo-sans',sans-serif">craft images and recipes for blogs, newsletters, and social campaigns with content exported for facebook, rss, costco, target &amp; publix. 16 Frontier urban markets — coincidentally where Adobe offices are — with language support for 3 most commonly spoken languages and one sister rural frontier site where Kodiak's subscription service offers unique positioning. Image generation includes square 1080×1080, tall 1080×1920, wide 1920×1080 — when using the KODIAK Bear it appears at 24,24.</p></div></details>
 
@@ -549,33 +520,7 @@ function nearestMarketForCoords(lat, lon){
   }
   return best || "US-SW-TULAROSA";
 }
-document.getElementById('useLocationBtn')?.addEventListener('click', ()=>{
-  const params=new URLSearchParams(location.search);
-  if(params.has('mockLat') && params.has('mockLon')){
-    const m=nearestMarketForCoords(parseFloat(params.get('mockLat')), parseFloat(params.get('mockLon')));
-    const status=document.getElementById('locationStatus');
-    status.textContent=`Mocked location ${params.get('mockLat')},${params.get('mockLon')} → ${m} — selected for you. Showing what your Costco sees vs frontier.`;
-    localitySel.value=m;
-    onLocality(); render();
-    return;
-  }
-  const status=document.getElementById('locationStatus');
-  if(!navigator.geolocation){ status.textContent="Geolocation not available — choose from list below"; return; }
-  status.textContent="Locating…";
-  navigator.geolocation.getCurrentPosition(pos=>{
-    const m=nearestMarketForCoords(pos.coords.latitude, pos.coords.longitude);
-    status.textContent=`You are near ${m} — selected for you. Showing what your Costco sees vs frontier.`;
-    localitySel.value=m;
-    onLocality(); render();
-    // also auto-show suggested frontier comparison
-    if(m==="US-CA-PESCADERO") { localitySel.value="US-CA-PESCADERO"; } 
-    if(m==="US-WA-NEAHBAY") document.getElementById('locationStatus').textContent += " Neah Bay frontier: Washburn's General Store only, 70mi to Port Angeles, subscription & Amazon.com alongside Seattle.";
-  }, err=>{ status.textContent="Location denied — choose from list below ("+err.message+")"; });
-});
-document.getElementById('showAllBtn')?.addEventListener('click', ()=>{
-  document.getElementById('locality').focus();
-  document.getElementById('locationStatus').textContent="Choose any Where from the list — Bay Area sees Pescadero (artichoke + Marin goat cheese, fitness lean), Seattle sees Neah Bay (salmon + huckleberry), both see frontier representation.";
-});
+// #useLocationBtn / #showAllBtn / #locationStatus moved to details.html (frontier prototype context card) — handlers removed in lockstep
 
 try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn('fillSelects', e); } render();
 // Show images right away on load for Park City 84098 and nearby Kamas Valley (Peoa/Oakley) as demanded — not generic 6-piece template text
@@ -660,7 +605,27 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
 <script>
 // --- New campaign UI: products up to 3 + random, real employees, local flavor derived, single generate ---
 (function(){
-  let skuCatalog=[]; async function loadCatalog(){ const urls=["data/products/kodiak-full-catalog.json","../../data/products/kodiak-full-catalog.json","./data/products/kodiak-full-catalog.json","/data/products/kodiak-full-catalog.json"]; for(const url of urls){ try{ const r=await fetch(url); if(r.ok){ const d=await r.json(); if(d.products?.length) { console.log('[catalog] loaded',d.products.length,'from',url); return d.products; } }}catch(e){} } console.warn('[catalog] failed all urls'); return []; } loadCatalog().then(products=>{ skuCatalog=products; if(skuCatalog.length){ window.skuCatalog=skuCatalog; skuList=skuCatalog.map(p=>p.name); const chooser=document.getElementById("productChooser"); const render=(filter="")=>{ const filtered=skuCatalog.filter(p=>!filter||p.name.toLowerCase().includes(filter.toLowerCase())||p.handle.includes(filter.toLowerCase())||p.category.includes(filter.toLowerCase())).slice(0,12); chooser.innerHTML=filtered.map(p=>`<label style="display:flex;gap:8px;align-items:center;font-size:12px;border:1px solid var(--stone);border-radius:8px;padding:6px;background:#FDF6EC;box-shadow:var(--shadows-sm)"><input type="checkbox" value="${p.name}" class="sku-check"> <img src="${p.images?.[0]||""}" style="width:32px;height:32px;object-fit:cover;border-radius:6px" onerror="this.style.display='none'" crossorigin="anonymous" loading="lazy"><span>${p.name}<br><span style="color:#8C7A70;font-size:10px">${p.category} • $${p.price_usd||""}</span></span></label>`).join(""); const hint2=document.getElementById('skuHint'); if(hint2) hint2.textContent=`${skuCatalog.length} SKUs loaded — 0 / 3 selected`; if(window.KODIAK_SCORECARDS) window.KODIAK_SCORECARDS.render(); }; render(""); document.getElementById("productSearch")?.addEventListener("input",e=>render(e.target.value)); document.getElementById("campaignBrief")?.addEventListener("input",e=>{ const v=e.target.value.toLowerCase().split(/\s+/).filter(Boolean).pop(); if(v&&v.length>2) render(v); }); } else { console.warn('[catalog] empty after fetch'); }});
+  let skuCatalog=[]; async function loadCatalog(){ const urls=["data/products/kodiak-full-catalog.json","../../data/products/kodiak-full-catalog.json","./data/products/kodiak-full-catalog.json","/data/products/kodiak-full-catalog.json"]; for(const url of urls){ try{ const r=await fetch(url); if(r.ok){ const d=await r.json(); if(d.products?.length) { console.log('[catalog] loaded',d.products.length,'from',url); return d.products; } }}catch(e){} } console.warn('[catalog] failed all urls'); return []; } loadCatalog().then(products=>{ skuCatalog=products||[]; const chooser=document.getElementById("productChooser"); if(!chooser) return;
+    // Single owner of #productChooser. If the catalog JSON loaded, render rich checkboxes (image + price).
+    // If it failed/empty, DO NOT leave the chooser blank — fall back to the hardcoded skuList so a checkbox
+    // always exists. Selection handlers are bound once by the static block below via delegation on the element,
+    // so they keep working no matter which branch paints.
+    const preserveChecked=()=>new Set(Array.from(chooser.querySelectorAll('.sku-check:checked')).map(c=>c.value));
+    if(skuCatalog.length){ window.skuCatalog=skuCatalog; skuList=skuCatalog.map(p=>p.name);
+      const render=(filter="")=>{ const kept=preserveChecked(); const q=(filter||"").toLowerCase(); let filtered=skuCatalog.filter(p=>!q||(p.name||"").toLowerCase().includes(q)||(p.handle||"").toLowerCase().includes(q)||(p.category||"").toLowerCase().includes(q)).slice(0,12);
+        // never blank the chooser: a no-match filter (e.g. a brief keyword) falls back to the first 12 SKUs
+        if(!filtered.length) filtered=skuCatalog.slice(0,12);
+        chooser.innerHTML=filtered.map(p=>`<label style="display:flex;gap:8px;align-items:center;font-size:12px;border:1px solid var(--stone);border-radius:8px;padding:6px;background:#FDF6EC;box-shadow:var(--shadows-sm)"><input type="checkbox" value="${p.name}" class="sku-check"${kept.has(p.name)?" checked":""}> <img src="${p.images?.[0]||""}" style="width:32px;height:32px;object-fit:cover;border-radius:6px" onerror="this.style.display='none'" crossorigin="anonymous" loading="lazy"><span>${p.name}<br><span style="color:#8C7A70;font-size:10px">${p.category} • $${p.price_usd||""}</span></span></label>`).join(""); const hint2=document.getElementById('skuHint'); if(hint2) hint2.textContent=`${skuCatalog.length} SKUs loaded — ${kept.size} / 3 selected`; if(window.KODIAK_SCORECARDS) window.KODIAK_SCORECARDS.render(); };
+      render(""); document.getElementById("productSearch")?.addEventListener("input",e=>render(e.target.value)); document.getElementById("campaignBrief")?.addEventListener("input",e=>{ const v=e.target.value.toLowerCase().split(/\s+/).filter(Boolean).pop(); if(v&&v.length>2) render(v); });
+    } else { console.warn('[catalog] empty after fetch — falling back to static skuList checkboxes');
+      // Guaranteed non-empty fallback. window.skuCatalog is seeded from skuList names so slugify() has a
+      // consistent lookup path (no .handle here — slugify's lowercase/hyphenate path yields the real handle,
+      // e.g. "Blueberry Muffin Mix" -> "blueberry-muffin-mix").
+      window.skuCatalog=skuList.map(n=>({name:n}));
+      if(!chooser.querySelector('.sku-check')){ chooser.innerHTML=skuList.slice(0,12).map(n=>`<label style="display:flex;gap:8px;align-items:center;font-size:12px;border:1px solid var(--stone);border-radius:8px;padding:6px;background:#FDF6EC;box-shadow:var(--shadows-sm)"><input type="checkbox" value="${n}" class="sku-check"> ${n}</label>`).join(''); }
+      const hint2=document.getElementById('skuHint'); if(hint2) hint2.textContent=`${skuList.length} SKUs (offline) — 0 / 3 selected`; if(window.KODIAK_SCORECARDS) window.KODIAK_SCORECARDS.render();
+    }
+  });
 let skuList = [
     "Banana Muffin and Quick Bread Mix","Blueberry Muffin Mix","Chocolate Chip Muffin Mix",
     "Buttermilk Power Cakes Flapjack & Waffle Mix","Cinnamon Oat Power Cakes","Dark Chocolate Power Cakes",
@@ -692,6 +657,10 @@ let skuList = [
   const chooser = document.getElementById('productChooser');
   const hint = document.getElementById('skuHint');
   if(chooser){
+    // Synchronous baseline: paint skuList checkboxes immediately so #productChooser is never empty before the
+    // async catalog resolves. The catalog .then above is the single owner afterward — it upgrades these to rich
+    // rows on success or re-affirms skuList on empty. The change/random handlers below bind to the chooser
+    // ELEMENT (event delegation), so they keep working across every innerHTML swap regardless of which renderer paints.
     chooser.innerHTML = skuList.slice(0,12).map((n,i)=>`<label style="display:flex;gap:8px;align-items:center;font-size:12px;border:1px solid var(--stone);border-radius:8px;padding:6px;background:#FDF6EC;box-shadow:var(--shadows-sm)"><input type="checkbox" value="${n}" class="sku-check"> ${n}</label>`).join('');
     const checks = ()=> Array.from(chooser.querySelectorAll('.sku-check:checked'));
     chooser.addEventListener('change', (e)=>{
@@ -774,36 +743,45 @@ let skuList = [
       };
       const ASSET_BACKED = ['power-cakes','bear-bites','oatmeal-cup'];
       const primarySlug = hadExplicitSelection ? slugify(products[0]) : ASSET_BACKED[0];
-      // Show real generation result: lay out the 3 ratio tiles via render(), then swap each tile's
-      // canvas for an <img> of the composed hero (one hero shown in all 3 frames via object-fit).
+      // Show the real generation result as ONE composed hero, shown prominently, labelled with
+      // source + brief. We do not fabricate three fake ratio tiles around a single image.
       const showRealImage = (imageUrl, source)=>{
         window.__lastHeroUrl = imageUrl; // record latest real hero URL globally so downloadAssetPack can use it
-        try{ render(); }catch(e){ console.warn('render() failed before image swap', e); }
         const preview = document.getElementById('preview');
         if(!preview) return;
-        const tiles = preview.querySelectorAll('.tile');
-        tiles.forEach(tile=>{
-          const c = tile.querySelector('canvas');
-          if(!c) return;
-          const img = document.createElement('img');
-          img.src = imageUrl;
-          img.alt = 'Nova Pro composed campaign hero';
-          img.style.cssText = 'width:100%;height:auto;max-width:100%;display:block;object-fit:cover;border-radius:6px';
-          c.replaceWith(img);
-        });
-        // source badge: "Nova Pro" for real bedrock, "preview" for mock/fallback
-        const label = 'Nova Pro';
-        const bg = '#1A3C34';
+        preview.innerHTML = '';
+        const label = (source && String(source).toLowerCase().includes('bedrock')) ? 'Nova Pro' : (source || 'Nova Pro');
+        const tile = document.createElement('div');
+        tile.className = 'tile';
+        tile.style.cssText = 'grid-column:1/-1;max-width:640px;margin:0 auto';
+        const img = document.createElement('img');
+        img.src = imageUrl;
+        img.alt = 'Nova Pro composed campaign hero — ' + brief;
+        img.style.cssText = 'width:100%;height:auto;max-width:100%;display:block;background:var(--chocolate)';
+        tile.appendChild(img);
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        meta.innerHTML = `<b>KODIAK® composed hero</b><div class="small">source: ${label} · ${selectedLoc.market} · ${brief.slice(0,90)}</div>`;
+        tile.appendChild(meta);
+        preview.appendChild(tile);
+        // source badge above the preview
         let badge = document.getElementById('genSourceBadge');
         if(!badge){ badge=document.createElement('span'); badge.id='genSourceBadge'; badge.className='badge'; preview.parentNode?.insertBefore(badge, preview); }
         badge.textContent = 'source: ' + label;
-        badge.style.cssText = `display:inline-block;margin:0 0 8px;padding:2px 8px;border-radius:6px;font-size:11px;color:#FFF8F0;background:${bg}`;
+        badge.style.cssText = 'display:inline-block;margin:0 0 8px;padding:2px 8px;border-radius:6px;font-size:11px;color:#FFF8F0;background:#1A3C34';
       };
       const finishCommon = ()=>{
         // Update local flavor with brief context (runs after either path)
         const lf = document.getElementById('localFlavorText');
         if(lf) lf.innerHTML += `<br><span style="color:#1A3C34"><b>Brief applied:</b> “${brief}” — fans to all formats</span>`;
         console.log('KODIAK generate — sample', {brief, products, primarySlug, audience, selectedLoc: selectedLoc.market, frontierHint});
+      };
+      // Lock competing controls during generation so nothing changes mid-request; restore after.
+      const lockIds = ['generateCampaign','productSearch','randomProducts','downloadPack','promptUpload'];
+      const lockControls = (locked)=>{
+        lockIds.forEach(id=>{ const el=document.getElementById(id); if(el) el.disabled=locked; });
+        document.querySelectorAll('#promptChips .ff-chip').forEach(c=>{ c.disabled=locked; c.style.pointerEvents = locked?'none':''; c.style.opacity = locked?'.5':''; });
+        document.querySelectorAll('#productChooser .sku-check').forEach(c=>{ c.disabled=locked; });
       };
       // Preserve local/offline behavior: file:// or localhost has no /generate — go straight to canvas.
       const isLocal = (location.protocol==='file:') || ['127.0.0.1','localhost'].includes(location.hostname);
@@ -816,23 +794,43 @@ let skuList = [
         return;
       }
       // Hosted https path: call the real Nova Pro backend, canvas as graceful fallback.
-      if(status) status.textContent = 'Generating with Nova Pro…';
-      btn.disabled=true; btn.textContent='Generating with Nova Pro…';
+      lockControls(true);
+      btn.textContent='Composing…';
+      // Skeleton pulse tile + elapsed-seconds counter so the ~90s wait never feels frozen.
+      const preview = document.getElementById('preview');
+      let elapsed = 0, tick = null;
+      if(preview){
+        preview.innerHTML = `<div class="tile" id="genSkeleton" style="grid-column:1/-1;max-width:640px;margin:0 auto"><div style="aspect-ratio:1/1;background:linear-gradient(90deg,#EFE6DB 25%,#F7F0E8 50%,#EFE6DB 75%);background-size:200% 100%;animation:genpulse 1.4s ease-in-out infinite;display:flex;align-items:center;justify-content:center"><span style="font:700 13px/1 'kodiak_sans','museo-sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8C7A70">Composing…</span></div><div class="meta"><b>Composing your campaign with Nova Pro</b><div class="small" id="genElapsed">0s elapsed — up to ~90s</div></div></div>`;
+        if(!document.getElementById('genPulseKeyframes')){ const st=document.createElement('style'); st.id='genPulseKeyframes'; st.textContent='@keyframes genpulse{0%{background-position:200% 0}100%{background-position:-200% 0}}'; document.head.appendChild(st); }
+        tick = setInterval(()=>{ elapsed++; const e=document.getElementById('genElapsed'); if(e) e.textContent = elapsed+'s elapsed — up to ~90s'; }, 1000);
+      }
+      let stageT1=null, stageT2=null;
+      if(status){
+        status.textContent = 'Composing your campaign with Nova Pro… (up to ~90s)';
+        stageT1 = setTimeout(()=>{ if(status) status.textContent = 'Still composing — Nova Pro is rendering your hero…'; }, 30000);
+        stageT2 = setTimeout(()=>{ if(status) status.textContent = 'Almost there — finishing the composition…'; }, 60000);
+      }
       const controller = new AbortController();
-      const timeoutId = setTimeout(()=>controller.abort(), 90000); // Nova Pro composition is slow (~90s)
+      const timeoutId = setTimeout(()=>controller.abort(), 100000); // Nova Pro composition is slow (~90s); allow headroom
       try{
         const resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({prompt: brief, market: selectedLoc.market, product: primarySlug}), signal: controller.signal});
         if(!resp.ok) throw new Error('backend returned HTTP ' + resp.status);
         const json = await resp.json();
         if(!json || !json.image_url) throw new Error('response missing image_url');
         showRealImage(json.image_url, json.source);
-        if(status) status.textContent = 'Campaign preview ready';
+        if(status) status.textContent = 'Campaign preview ready — one real composed hero from ' + (json.source || 'Nova Pro');
       }catch(err){
         console.warn('generate: real backend failed, falling back to canvas —', err && err.message ? err.message : err);
         try{ render(); }catch(e){ console.warn('render() fallback also failed', e); }
-        if(status) status.textContent = 'Campaign preview ready (canvas fallback)';
+        const timedOut = err && (err.name==='AbortError');
+        if(status) status.textContent = timedOut ? 'Generation timed out — showing local preview' : 'Generation failed — showing local preview';
       }finally{
         clearTimeout(timeoutId);
+        if(stageT1) clearTimeout(stageT1);
+        if(stageT2) clearTimeout(stageT2);
+        if(tick) clearInterval(tick);
+        const sk=document.getElementById('genSkeleton'); if(sk) sk.remove();
+        lockControls(false);
         finishCommon();
         btn.disabled=false; btn.textContent=origLabel;
       }
@@ -844,217 +842,7 @@ let skuList = [
   console.log('KODIAK campaign UI — single brief + up to 3 SKUs + real team + local flavor derived + single generate (fans to ALL)');
 })();
 </script>
-<script>
-// === Design System Scorecards — live eval against kodiak.json + style guide ===
-(function(){
-  /** @type {Array<{id:string,title:string,weight:number,desc:string,check:()=>{score:number,max:number,detail:string,pass:boolean,subs:Array<string>}}>} */
-  const defs = [
-    { id:'brand-token', title:'Brand Token Fidelity', weight:2, desc:'kodiak.json exact: #3B2316 bearBrown + #E8530E blaze + #1A3C34 frontier + #FFF8F0 parchment + #1A1110CC scrim 80% — not approx', check: function(){
-        const subs=[]; let s=0,m=4;
-        const styleText=document.querySelector('style')?.textContent||'';
-        const hasPatch=(v)=>styleText.includes(v)||document.documentElement.innerHTML.includes(v);
-        if(hasPatch('#3B2316')){s++; subs.push('✓ #3B2316 bearBrown exact');} else subs.push('✗ #3B2316 missing');
-        if(hasPatch('#E8530E')){s++; subs.push('✓ #E8530E blaze exact');} else subs.push('✗ #E8530E missing');
-        if(hasPatch('#1A3C34')){s++; subs.push('✓ #1A3C34 frontier exact');} else subs.push('✗ #1A3C34 missing');
-        if(hasPatch('#1A1110CC')||hasPatch('#1A1110')||hasPatch('rgba(26,17,16')){s++; subs.push('✓ scrim #1A1110CC 80%');} else subs.push('✗ scrim #1A1110CC missing');
-        return {score:s,max:m,detail:subs.join(' • '),pass:s===m,subs};
-      }},
-    { id:'typography', title:'Typography Rigor', weight:2, desc:'Gin 800 display -0.02em tracked 0.45em epic + Museo 300/500/700/900 + Roar chunky + Kodiak Sans UI — 4 fonts, no DejaVu fallback', check: function(){
-        const subs=[]; let s=0,m=4;
-        const html=document.documentElement.innerHTML;
-        const hasGin=html.includes('gin')&&html.includes('zjt4wyq');
-        if(hasGin){s++; subs.push('✓ Gin zjt4wyq loaded');} else subs.push('✗ Gin missing');
-        const hasMuseo=html.includes('museo-sans')&&html.includes('300')&&html.includes('900');
-        if(hasMuseo){s++; subs.push('✓ Museo 300/500/700/900');} else subs.push('✗ Museo missing');
-        const hasRoar=html.includes('Roar')&&html.includes('roar-sans');
-        if(hasRoar||html.includes('kodiak_sans')){s++; subs.push('✓ Roar/Kodiak Sans');} else subs.push('✗ Roar/Kodiak missing');
-        const hasDejaVuFallback=html.includes('DejaVu')||html.includes('Rockwell fallback for headline');
-        if(!hasDejaVuFallback && hasGin){s++; subs.push('✓ no DejaVu headline fallback');} else if(hasDejaVuFallback){ subs.push('✗ DejaVu fallback present = F'); } else subs.push('✗ font probe inconclusive');
-        return {score:s,max:m,detail:subs.join(' • '),pass:s===m,subs};
-      }},
-    { id:'paper', title:'Paper Texture', weight:1.5, desc:'kc-paper-bg.webp repeat + mega-menu_red-bg.webp red grit both loaded — not flat hex', check: function(){
-        const subs=[]; let s=0,m=4;
-        const cs=getComputedStyle(document.body).backgroundImage||'';
-        const styleText=document.querySelector('style')?.textContent||'';
-        if(cs.includes('kc-paper-bg.webp')||styleText.includes('kc-paper-bg.webp')){s++; subs.push('✓ kc-paper-bg.webp body');} else subs.push('✗ kc-paper-bg missing');
-        if(styleText.includes('mega-menu_red-bg.webp')||document.documentElement.innerHTML.includes('mega-menu_red-bg.webp')){s++; subs.push('✓ mega-menu red grit');} else subs.push('✗ red grit missing');
-        if(cs.includes('repeat')||styleText.includes('repeat')){s++; subs.push('✓ repeat grit');} else subs.push('✗ no repeat');
-        const flatHexOnly=!styleText.includes('kc-paper')&&styleText.includes('#a77957')&&!styleText.includes('url(');
-        if(!flatHexOnly){s++; subs.push('✓ not flat hex only');} else subs.push('✗ flat hex only');
-        return {score:s,max:m,detail:subs.join(' • '),pass:s===m,subs};
-      }},
-    { id:'logo', title:'Logo Determinism', weight:2, desc:'bear PNG 140w@24,24 clearSpace 35px min 32h/80w reversal only on bear/green/ink — no KODIAK text rendering', check: function(){
-        const subs=[]; let s=0,m=4;
-        const logoImg=document.querySelector('img.kodiak-header__logo--primary')||document.querySelector('img[src*="kodiak-primary-logo"]');
-        if(logoImg && logoImg.getAttribute('src')?.includes('kodiak-primary-logo')){s++; subs.push('✓ PNG 140w logo present');} else subs.push('✗ PNG logo missing');
-        const html=document.documentElement.innerHTML;
-        const has2424=html.includes('24,24')||html.includes('24, 24')||html.includes('logoOffset')||html.includes('24px bear');
-        if(has2424){s++; subs.push('✓ @24,24 documented');} else subs.push('✗ @24,24 missing');
-        const noKodiakTextDraw=!(html.includes("ctx.fillText('KODIAK")&&html.includes('Rockwell'))||html.includes('brand_logo PNG at 140w@24,24');
-        if(html.includes('brand_logo PNG')||!html.includes("fillText('KODIAK'")){s++; subs.push('✓ no text KODIAK draw');} else subs.push('✗ text KODIAK draw present');
-        if(html.includes('140w')||html.includes('clearSpace')||html.includes('32h')){s++; subs.push('✓ clearSpace/minSize token');} else subs.push('✗ token missing');
-        return {score:s,max:m,detail:subs.join(' • '),pass:s===m,subs};
-      }},
-    { id:'spacing', title:'Spacing Tightness', weight:1.5, desc:'wrap 18px not 8rem wasteful + card 10px + wide-track 0 (tool, not consumer rhythm)', check: function(){
-        const subs=[]; let s=0,m=4;
-        const styleText=document.querySelector('style')?.textContent||'';
-        const has8rem=styleText.includes('--section-space-lg:8rem');
-        if(!has8rem&&styleText.includes('--section-space-lg:1.25rem')){s++; subs.push('✓ --section-space-lg 1.25rem not 8rem');} else subs.push('✗ wasteful 8rem still');
-        const wrapPad=getComputedStyle(document.querySelector('.wrap')).paddingTop;
-        if(wrapPad==='18px'||parseInt(wrapPad)<=24){s++; subs.push('✓ wrap 18px tight');} else subs.push('✗ wrap pad '+wrapPad);
-        const wideTrackCS=styleText.includes('.wide-track{margin:0}');
-        if(wideTrackCS){s++; subs.push('✓ wide-track 0');} else subs.push('✗ wide-track still 8rem');
-        const cardMargin=styleText.includes('.card{')&&styleText.includes('margin:10px');
-        if(cardMargin){s++; subs.push('✓ card 10px');} else subs.push('✗ card 18px');
-        return {score:s,max:m,detail:subs.join(' • '),pass:s===m,subs};
-      }},
-    { id:'tool-focus', title:'Tool Focus', weight:2, desc:'single marquee PROMPT→CAMPAIGNS + header Creative Automation Pipeline + frontier hidden — no consumer Explore Recipes/Join newsletter', check: function(){
-        const subs=[]; let s=0,m=4;
-        const html=document.body.innerHTML;
-        const hasToolMarquee=html.includes('PROMPT → CAMPAIGNS')&&html.includes('88 SKUs');
-        if(hasToolMarquee){s++; subs.push('✓ tool marquee PROMPT→');} else subs.push('✗ tool marquee missing');
-        const noConsumerMarquee=!html.includes('Explore Recipes <span')||html.includes('no second consumer marquee');
-        if(noConsumerMarquee&&!document.querySelector('[data-testid=\"marquee-recipes\"]')){s++; subs.push('✓ no consumer marquee');} else subs.push('✗ consumer marquee present');
-        const headerIsPipeline=document.querySelector('header h1')?.textContent?.includes('Creative Automation Pipeline');
-        if(headerIsPipeline){s++; subs.push('✓ header Pipeline not Posts');} else subs.push('✗ header consumer');
-        const frontierHidden=document.getElementById('frontierToggleCard')?.style.display==='none';
-        if(frontierHidden){s++; subs.push('✓ frontier hidden');} else subs.push('✗ frontier visible consumer');
-        return {score:s,max:m,detail:subs.join(' • '),pass:s===m,subs};
-      }},
-    { id:'offline', title:'Offline Single-File', weight:2, desc:'data/products/kodiak-full-catalog.json 200 inside web dir + input_assets 200 + file:// capable, 0 404', check: function(){
-        const subs=[]; let s=0,m=4;
-        const html=document.documentElement.innerHTML;
-        const hasInsidePath=html.includes('data/products/kodiak-full-catalog.json')&&!html.includes('../../data/products/kodiak-full-catalog.json\"),');
-        // check via catalog loaded flag
-        const skuLen=(window.skuCatalog?.length||0);
-        if(skuLen===88){s++; subs.push('✓ 88 SKUs inside web dir');} else subs.push('✗ skuCatalog '+skuLen+' not 88');
-        const hasNo404=!html.includes('Failed to load resource: the server responded with a status of 404 (File not found)')||document.querySelectorAll('img[src*=\"input_assets\"]').length>0;
-        // we rely on previous console; use fetch probes via style: check data folder exists via fetch attempt already done
-        if(document.querySelectorAll('#productChooser img').length>=12){s++; subs.push('✓ 12 chooser imgs loaded');} else subs.push('✗ chooser imgs <12');
-        const isOfflineCapable=document.querySelector('meta[content*=\"noindex\"]')!==null;
-        if(isOfflineCapable){s++; subs.push('✓ noindex + offline capable');} else subs.push('✗ offline flag');
-        const hasInputHero=document.documentElement.innerHTML.includes('input_assets/power-cakes/hero.png');
-        if(hasInputHero){s++; subs.push('✓ input_assets inside web dir');} else subs.push('✗ input_assets path outside');
-        return {score:s,max:m,detail:subs.join(' • '),pass:s===m,subs};
-      }},
-    { id:'img-path', title:'Image Path Correctness', weight:1.5, desc:'12/12 CDN 32×32 crossOrigin anonymous + hero 200 — not broken placeholder', check: function(){
-        const subs=[]; let s=0,m=4;
-        const imgs=document.querySelectorAll('#productChooser img');
-        const loaded=[...imgs].filter(i=>i.complete&&i.naturalWidth>0).length;
-        if(loaded===12){s++; subs.push('✓ 12/12 CDN loaded');} else subs.push('✗ '+loaded+'/12 loaded');
-        const firstSrc=imgs[0]?.src||'';
-        if(firstSrc.includes('kodiakcakes.com/cdn/shop/files')){s++; subs.push('✓ CDN pack shot');} else subs.push('✗ CDN src '+firstSrc.slice(0,30));
-        const hasCrossOrigin=[...imgs].some(i=>i.getAttribute('crossorigin')==='anonymous');
-        if(hasCrossOrigin){s++; subs.push('✓ crossOrigin anonymous');} else subs.push('✗ no crossOrigin');
-        const heroOk=document.querySelector('img.kodiak-header__logo--primary')?.complete;
-        if(heroOk||loaded===12){s++; subs.push('✓ hero/logo ok');} else subs.push('✗ hero missing');
-        return {score:s,max:m,detail:subs.join(' • '),pass:s===m,subs};
-      }},
-    { id:'a11y', title:'Accessibility & Craft', weight:1, desc:'alt≥4 + contrast #382316 on #FFF8F0 7:1 + kraft 6% + vignette 0.06 + double border — no purple/glass/bento/emoji', check: function(){
-        const subs=[]; let s=0,m=4;
-        const imgs=document.querySelectorAll('img');
-        const alts=[...imgs].filter(i=>i.alt&&i.alt.length>3).length;
-        if(alts>=4){s++; subs.push('✓ alt '+alts+'≥4');} else subs.push('✗ alt '+alts+'<4');
-        const styleText=document.querySelector('style')?.textContent||'';
-        const hasKraft=styleText.includes('kraft')||document.documentElement.innerHTML.includes('kc-paper');
-        if(hasKraft){s++; subs.push('✓ kraft/paper');} else subs.push('✗ kraft missing');
-        const hasDoubleBorder=styleText.includes('#D9CFC6')&&styleText.includes('#3B2316')&&styleText.includes('#E8530E');
-        if(hasDoubleBorder){s++; subs.push('✓ double border Stone/Bear/Blaze');} else subs.push('✗ double border missing');
-        const bad=document.documentElement.innerHTML.toLowerCase().includes('purple')||document.documentElement.innerHTML.includes('backdrop-filter')||document.documentElement.innerHTML.includes('glassmorphism')||document.documentElement.innerHTML.includes('bento');
-        if(!bad){s++; subs.push('✓ no purple/glass/bento');} else subs.push('✗ purple/glass present');
-        return {score:s,max:m,detail:subs.join(' • '),pass:s===m,subs};
-      }},
-    { id:'perf', title:'Performance FPS', weight:1.5, desc:'4 controls + generate + canvas 3 auto Park City + FPS probe >10', check: function(){
-        const subs=[]; let s=0,m=4;
-        const ctrls=['generateCampaign','productSearch','useLocationBtn'].filter(id=>document.getElementById(id));
-        if(ctrls.length===4){s++; subs.push('✓ 4 controls');} else subs.push('✗ '+ctrls.length+'/4');
-        const canv=document.querySelectorAll('#preview canvas').length;
-        if(canv===3){s++; subs.push('✓ 3 canvases auto');} else subs.push('✗ canvases '+canv+'≠3');
-        const hasFPSProbe=document.documentElement.innerHTML.includes('FPS')||document.documentElement.innerHTML.includes('4 controls');
-        if(hasFPSProbe){s++; subs.push('✓ FPS probe wired');} else subs.push('✗ no probe');
-        const sizeKB=Math.round(document.documentElement.outerHTML.length/1000);
-        if(sizeKB>=90&&sizeKB<=150){s++; subs.push('✓ '+sizeKB+'k tight');} else subs.push('✗ size '+sizeKB+'k');
-        return {score:s,max:m,detail:subs.join(' • '),pass:s===m,subs};
-      }},
-    { id:'localization', title:'Localization Coverage', weight:2, desc:'73 markets + 219 variants + every market top_languages 2 + Burlington 3.2/2.1 etc verified', check: function(){
-        const subs=[]; let s=0,m=4;
-        const placesLen=(typeof places!=='undefined'?places.length:0);
-        if(placesLen>=73){s++; subs.push('✓ places 73+ '+placesLen);} else subs.push('✗ places '+placesLen+'<73');
-        const ml=typeof marketLangsOffline!=='undefined'?Object.keys(marketLangsOffline).length:0;
-        if(ml>=70){s++; subs.push('✓ marketLangs '+ml+'≥70');} else subs.push('✗ langs '+ml+'<70');
-        const hasBurl=typeof marketLangsOffline!=='undefined'&&JSON.stringify(marketLangsOffline).includes('BURLINGTON')||JSON.stringify(marketLangsOffline||{}).includes('fr');
-        if(hasBurl){s++; subs.push('✓ Burlington FR present');} else subs.push('✗ Burlington missing');
-        const chip=document.getElementById('lang-chips');
-        if(chip&&chip.textContent.includes('EN')){s++; subs.push('✓ lang-chips EN');} else subs.push('✗ lang-chips missing');
-        return {score:s,max:m,detail:subs.join(' • '),pass:s===m,subs};
-      }},
-    { id:'data', title:'Data Integrity', weight:1.5, desc:'88 SKUs price/category/image + kodiak-recipes 444 + market-languages 73 + vectors manifest', check: function(){
-        const subs=[]; let s=0,m=4;
-        const skuLen=window.skuCatalog?.length||0;
-        if(skuLen===88){s++; subs.push('✓ 88 SKUs');} else subs.push('✗ SKUs '+skuLen+'≠88');
-        const skuPriceOk=window.skuCatalog?.some(p=>p.price_usd&&p.category&&p.images?.[0])||false;
-        if(skuPriceOk){s++; subs.push('✓ price/category/image present');} else subs.push('✗ price/category missing');
-        const has444=document.documentElement.innerHTML.includes('kodiak-recipes 444')||document.documentElement.innerHTML.includes('444');
-        // check via fetch evidence: we know file exists
-        if(true){s++; subs.push('✓ recipes 444 (checked)');} else subs.push('✗ recipes');
-        const has73=typeof marketLangsOffline!=='undefined';
-        if(has73){s++; subs.push('✓ market-languages 73');} else subs.push('✗ missing');
-        return {score:s,max:m,detail:subs.join(' • '),pass:s===m,subs};
-      }}
-  ];
-
-  function badgeClass(s,max){ const pct=s/max; if(pct>=0.9) return 'background:#1A3C34;color:#FACC7C'; if(pct>=0.7) return 'background:#E8530E;color:#fff'; if(pct>=0.5) return 'background:#B45309;color:#fff'; return 'background:#7F1D1D;color:#FECACA'; }
-  function scoreLabel(s,max){ const pct=Math.round(s/max*100); if(pct>=90) return 'A'; if(pct>=80) return 'B'; if(pct>=70) return 'C'; if(pct>=50) return 'D'; return 'F'; }
-
-  function render(){
-    const grid=document.getElementById('scoreGrid');
-    const overallEl=document.getElementById('score-overall');
-    const detailEl=document.getElementById('score-overall-detail');
-    const badgeEl=document.getElementById('score-overall-badge');
-    const tsEl=document.getElementById('score-timestamp');
-    const detEl=document.getElementById('scoreDetails');
-    if(!grid) return;
-    let weighted=0, weightSum=0, minPass=true;
-    grid.innerHTML='';
-    defs.forEach(d=>{
-      const r=d.check();
-      weighted += (r.score/r.max)*d.weight;
-      weightSum += d.weight;
-      if(!r.pass) minPass=false;
-      const pct=Math.round(r.score/r.max*100);
-      const grade=scoreLabel(r.score,r.max);
-      const card=document.createElement('div');
-      card.style.cssText='border:1px solid #D9CFC6;border-radius:12px;overflow:hidden;background:#fff';
-      card.innerHTML=`<div style="padding:12px 14px;border-bottom:1px solid #F4EDE6;display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b style="font:800 12px/1 "museo-sans","kodiak_sans",sans-serif;letter-spacing:.06em;text-transform:uppercase">${d.title}</b><span style="display:inline-flex;padding:3px 8px;border-radius:999px;font:800 10px/1 Inter,sans-serif;letter-spacing:.06em;${badgeClass(r.score,r.max)}">${grade} ${r.score}/${r.max} • ${pct}%</span><span style="margin-left:auto;font-size:11px;color:#8C7A70">${r.pass?'PASS':'NEEDS WORK'}</span></div><div style="padding:10px 14px"><div style="height:8px;background:#F4EDE6;border-radius:999px;overflow:hidden"><div style="height:100%;width:${pct}%;background:${r.pass?'#1A3C34':'#E8530E'};transition:width .4s"></div></div><div style="font-size:11px;color:#6B5A53;margin-top:6px;line-height:1.4">${d.desc}</div><div style="font-size:11px;color:${r.pass?'#1A3C34':'#B51E14'};margin-top:6px;font-family:JetBrains Mono,Menlo,monospace">${r.detail}</div></div>`;
-      grid.appendChild(card);
-    });
-    const overallPct=Math.round(weighted/weightSum*100);
-    // brutal: any card FAIL = overall FAIL, not weighted average leniency
-    const overallGrade=minPass?'A': (overallPct>=90?'F': (overallPct>=70?'F':'F'));
-    const brutalPct=minPass?overallPct:Math.min(overallPct,59);
-    if(overallEl) overallEl.textContent=`${minPass?overallGrade: 'F'} — ${minPass?overallPct:brutalPct}% ${minPass?'':'• BRUTAL'}`;
-    if(detailEl) detailEl.textContent = minPass ? 'All 12 PASS — brutal green • image pipeline also 12/12 required' : `${defs.filter(d=>{try{return !d.check().pass}catch(e){return true}}).length} cards NEEDS WORK — brutal: 100% required, no 75% C pass`;
-    if(badgeEl){ badgeEl.textContent = minPass?'PASS A' : 'FAIL F — BRUTAL'; badgeEl.style.background = minPass?'#1A3C34':'#7F1D1D'; badgeEl.style.color='#fff'; }
-    if(tsEl) tsEl.textContent = new Date().toISOString().slice(0,19).replace('T',' ')+' UTC';
-    if(detEl){
-      const fileK=Math.round(document.documentElement.outerHTML.length/1000);
-      detEl.innerHTML=`File: <span class=kbd>${fileK}k</span> • Tokens: <span class=kbd>design/tokens/kodiak.json</span> • Build: <span class=kbd>${window.KODIAK_VERSION||'v0.4.1'}</span> • Live re-score on Generate / Suggested — <span class=kbd>uv run pytest -q</span> is CI parity (6 passed).`;
-    }
-    console.log('[scorecards]', {overall:`${overallGrade} ${overallPct}%`, weighted, weightSum});
-  }
-
-  document.addEventListener('DOMContentLoaded', ()=>setTimeout(render, 900));
-  setTimeout(render, 1600);
-  document.getElementById('scoreRefresh')?.addEventListener('click', render);
-  // re-score after key actions
-  ['generateCampaign','randomProducts'].forEach(id=>{
-    document.getElementById(id)?.addEventListener('click', ()=>setTimeout(render, 1200));
-  });
-  // also re-score when skuCatalog loads
-  let tries=0; const iv=setInterval(()=>{ tries++; if(typeof skuCatalog!=='undefined'&&skuCatalog.length>=12){ render(); clearInterval(iv);} if(tries>20) clearInterval(iv); }, 800);
-  window.KODIAK_SCORECARDS = { defs, render };
-})();
-</script>
+<!-- Design System Scorecards script moved to details.html (window.KODIAK_SCORECARDS defined there; catalog render guards with if(window.KODIAK_SCORECARDS)) -->
 <!-- cart drawer stub — kodiak.com DOM shape -->
 <aside id="kodiak-cart-drawer" class="kodiak-cart-drawer" aria-label="Cart" data-testid="cart-drawer" aria-hidden="true">
   <div class="kodiak-cart-drawer__hd"><span>Your Cart</span><button type="button" aria-label="Close cart" onclick="document.getElementById('kodiak-cart-drawer').removeAttribute('open');document.getElementById('kodiak-cart-drawer').setAttribute('aria-hidden','true')" style="background:#fff;border:1px solid #D9CFC6;border-radius:999px;padding:6px 10px;font:700 11px/1 'kodiak_sans','museo-sans',sans-serif;cursor:pointer">Close</button></div>
@@ -1071,32 +859,8 @@ if(!customElements.get('csm-cookie-consent')) customElements.define('csm-cookie-
 window.KODIAK_CART={open:()=>{const d=document.getElementById('kodiak-cart-drawer');d.setAttribute('open','');d.setAttribute('aria-hidden','false')},close:()=>{const d=document.getElementById('kodiak-cart-drawer');d.removeAttribute('open');d.setAttribute('aria-hidden','true')}};
 </script>
 <script>
-// --- Simplified Park City demo wiring: three campaign paths, "or see near you" reveal, download asset pack stub ---
+// --- Simplified Park City demo wiring: prompt chips, upload affordance, textarea auto-grow ---
 (function(){
-  // Three campaign paths — reveal existing / add / auto sections
-  var existing = document.getElementById('existingAssets');
-  var add = document.getElementById('addAssets');
-  var auto = document.getElementById('autoAssets');
-  var hintEl = document.getElementById('pathHint');
-  var paths = {
-    pathExisting: {el: existing, hint: 'Use existing assets — pick from the Kodiak catalog below.'},
-    pathAdd: {el: add, hint: 'Add new assets — drop images or brief docs to fold into the campaign.'},
-    pathAuto: {el: auto, hint: 'Auto-suggest — let the pipeline propose useful variants; results appear in the Preview.'}
-  };
-  function selectPath(id){
-    Object.keys(paths).forEach(function(k){
-      var btn = document.getElementById(k);
-      var active = (k === id);
-      if(btn){ btn.setAttribute('aria-pressed', active ? 'true' : 'false'); btn.classList.toggle('orange', active); }
-      if(paths[k].el) paths[k].el.style.display = active ? '' : 'none';
-    });
-    if(hintEl && paths[id]) hintEl.textContent = paths[id].hint;
-  }
-  Object.keys(paths).forEach(function(k){
-    document.getElementById(k)?.addEventListener('click', function(){ selectPath(k); });
-  });
-  selectPath('pathExisting'); // default
-
   // Firefly-style suggestion chips — populate the prompt, mark active
   var briefEl = document.getElementById('campaignBrief');
   var chipWrap = document.getElementById('promptChips');
@@ -1106,21 +870,26 @@ window.KODIAK_CART={open:()=>{const d=document.getElementById('kodiak-cart-drawe
         briefEl.value = chip.getAttribute('data-brief');
         briefEl.dispatchEvent(new Event('input', {bubbles:true}));
         chipWrap.querySelectorAll('.ff-chip').forEach(function(c){ c.setAttribute('aria-pressed', c===chip ? 'true':'false'); });
-        // "riff on past content" nudges toward auto-suggest; others use existing assets
-        if(/riff on past content/i.test(chip.textContent)) selectPath('pathAuto');
         briefEl.focus();
       });
     });
   }
 
-  // Upload affordances — the + icon and the upload chip both open the Add-assets path + file picker
+  // Upload affordance — the + icon opens a file picker (transient input; path chooser removed)
   function openUpload(){
-    selectPath('pathAdd');
-    var f = document.getElementById('assetFiles');
-    if(f){ try{ f.click(); }catch(e){} f.focus(); }
+    var f = document.createElement('input');
+    f.type = 'file';
+    f.accept = 'image/*,.pdf,.docx,.yaml,.yml,.json';
+    f.style.display = 'none';
+    document.body.appendChild(f);
+    f.addEventListener('change', function(){
+      var status = document.getElementById('sampleStatus');
+      if(status && f.files && f.files.length){ status.textContent = 'Attached ' + f.files[0].name + ' — folds into the next campaign.'; }
+      f.remove();
+    });
+    try{ f.click(); }catch(e){ f.remove(); }
   }
   document.getElementById('promptUpload')?.addEventListener('click', openUpload);
-  document.getElementById('chipUpload')?.addEventListener('click', openUpload);
 
   // auto-grow the prompt textarea (google/firefly feel)
   if(briefEl){
@@ -1128,27 +897,7 @@ window.KODIAK_CART={open:()=>{const d=document.getElementById('kodiak-cart-drawe
     briefEl.addEventListener('input', grow); setTimeout(grow, 100);
   }
 
-  // "or see near you" — reveal the hidden location-aware frontier toggle card
-  function revealNearYou(){
-    var card = document.getElementById('frontierToggleCard');
-    if(card){ card.style.display=''; card.scrollIntoView({behavior:'smooth', block:'nearest'}); }
-    var status = document.getElementById('locationStatus');
-    if(status) status.style.display='';
-  }
-  var seeBtn = document.getElementById('seeNearYouBtn');
-  if(seeBtn){
-    seeBtn.addEventListener('click', revealNearYou);
-    seeBtn.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); revealNearYou(); } });
-  }
-
-  // Download asset pack — S3 wiring stub.
-  // TODO(S3): replace this stub with a real call that requests a presigned S3 URL for the
-  // zipped asset pack and triggers the download. The zip + each PNG inside must be named per the
-  // ISO 8601 filename contract:
-  //   KODIAK-CAKES-{PRODUCT}-{REGION}-{LOCALITY}-{CHANNEL}-{RATIO}-{YYYYMMDD}-v01
-  //   (year-first date, lowercase product, hyphen-separated, version zero-padded; ratio one of 1x1|9x16|16x9)
-  // Suggested shape: window.downloadAssetPack({product, region, locality, channel, date}) ->
-  //   fetch presigned URL from the asset-pack service, then set location.href / anchor download.
+  // Download asset pack — download the last generated hero as an ISO-labeled PNG.
   window.downloadAssetPack = function(opts){
     opts = opts || {};
     var status = document.getElementById('sampleStatus');
