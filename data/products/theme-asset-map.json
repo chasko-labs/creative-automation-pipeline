@@ -81,6 +81,23 @@
       "score": 30.0,
       "theme": "riff-on-past-content"
     },
+    "us-ski-snowboard": {
+      "brief": "US Ski & Snowboard partnership (Milano Cortina 2026) — Kodiak Kitchen at the USANA Center of Excellence in Park City. Winter Wasatch athlete-fuel, podium energy. Partner-brand campaign — honor the real partnership, generic athlete imagery only, no likeness or endorsement over-implication.",
+      "caption": "Wasatch alpine dawn — snow-lit Park City ridgeline, cast-iron protein stack before the training day, USANA Center of Excellence home fuel. Keep It Wild.",
+      "channel": "instagram",
+      "guardrail": "no real athlete likeness or name: generic winter/alpine + lifestyle assets only. Named-athlete DAM keys (Schweizer/Harrington/Howes/Mason/Grossman) are excluded from this pool by design; the primary is a generic outdoor-family-lifestyle asset.",
+      "image_file": "00ed49a3920f--3-camping-granola-e4fa8d_53fe72.jpg",
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/00ed49a3920f--3-camping-granola-e4fa8d_53fe72.jpg",
+      "pool": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/00ed49a3920f--3-camping-granola-e4fa8d_53fe72.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2020.8_Idaho_Wheat_Fields_00063_0bb83592-d10a-4d8a-bc7d-ebfa3a354df6.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2023-Outdoor-Cooking-Family-Lifestyle-2051_fe0443fc-5504-4627-a3dd-d35d4ce3508f.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0386-54847b_ac7233.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/00313ed25c79--Kodiak-Zucchini-Oat-Muffin-9-545ab0_280bcd.jpg"
+      ],
+      "score": 52.0,
+      "theme": "us-ski-snowboard"
+    },
     "zac-efron": {
       "brief": "Zac Efron athletic-morning energy — high-protein pre-trail fuel, aspirational active lifestyle. Keep It Wild.",
       "caption": "2023 Outdoor Cooking Family Lifestyle 2051 fe0443fc 5504 4627 a3dd d35d4ce3508f",
@@ -101,7 +118,7 @@
   "metadata": {
     "channel_distribution": {
       "catalog": 2,
-      "instagram": 4
+      "instagram": 5
     },
     "generated": "deterministic",
     "model_note": "deterministic keyword+metadata overlap scoring (no vector cosine); each theme scored against a fixed match-token set over caption/hashtags/image_file, channel-weighted toward blog/instagram lifestyle over catalog pack-shots; bears theme applies a negative captive-bear-closeup guardrail; zac-efron theme applies an additive athlete/lifestyle filename boost so real licensed brand-athlete photography ranks first (rights-clean, no likeness synthesis); primaries are globally de-duped in a fixed priority order (zac-efron first, then alphabetical) so all themes carry distinct primary photo_keys; top-1 + up to 4 fallbacks per theme, all reconciled to real DAM keys",
@@ -116,7 +133,8 @@
       "recipe-cards",
       "localized-costco",
       "riff-on-past-content",
-      "keep-it-wild-program"
+      "keep-it-wild-program",
+      "us-ski-snowboard"
     ]
   }
 }

@@ -1,0 +1,91 @@
+{
+  "schema": "kodiak.platform-matrix.v1",
+  "generated": "authoritative-2026-09",
+  "note": "Single source of truth for platform -> ratio -> dimension. Read by both the asset-pack builder (src/creative_automation) and the frontend (web/). Keep this JSON clean and stable; both consumers key on the exact slugs below.",
+  "ratios": {
+    "1x1": {
+      "label": "Square",
+      "w": 1080,
+      "h": 1080,
+      "platforms": ["facebook", "instagram", "x", "linkedin", "pinterest"]
+    },
+    "4x5": {
+      "label": "Portrait",
+      "w": 1080,
+      "h": 1350,
+      "platforms": ["instagram", "facebook"]
+    },
+    "9x16": {
+      "label": "Vertical / Full-Screen",
+      "w": 1080,
+      "h": 1920,
+      "platforms": ["instagram", "facebook", "tiktok", "youtube", "pinterest"]
+    },
+    "16x9": {
+      "label": "Landscape",
+      "w": 1920,
+      "h": 1080,
+      "platforms": ["youtube", "linkedin", "x", "facebook"]
+    }
+  },
+  "platforms": {
+    "facebook": {
+      "label": "Facebook",
+      "ratios": ["1x1", "4x5", "9x16", "16x9"],
+      "placements": {
+        "1x1": "feed",
+        "4x5": "portrait feed",
+        "9x16": "stories",
+        "16x9": "link / landscape"
+      }
+    },
+    "instagram": {
+      "label": "Instagram",
+      "ratios": ["1x1", "4x5", "9x16"],
+      "placements": {
+        "1x1": "feed",
+        "4x5": "portrait feed (Meta-prioritized 2026)",
+        "9x16": "stories + reels"
+      }
+    },
+    "x": {
+      "label": "X",
+      "ratios": ["1x1", "16x9"],
+      "placements": {
+        "1x1": "feed",
+        "16x9": "landscape"
+      }
+    },
+    "linkedin": {
+      "label": "LinkedIn",
+      "ratios": ["1x1", "16x9"],
+      "placements": {
+        "1x1": "feed",
+        "16x9": "landscape"
+      }
+    },
+    "pinterest": {
+      "label": "Pinterest",
+      "ratios": ["1x1", "9x16"],
+      "placements": {
+        "1x1": "square pin",
+        "9x16": "idea / vertical pin"
+      }
+    },
+    "tiktok": {
+      "label": "TikTok",
+      "ratios": ["9x16"],
+      "placements": {
+        "9x16": "full-screen video"
+      }
+    },
+    "youtube": {
+      "label": "YouTube",
+      "ratios": ["9x16", "16x9"],
+      "placements": {
+        "9x16": "shorts",
+        "16x9": "landscape"
+      }
+    }
+  }
+}
