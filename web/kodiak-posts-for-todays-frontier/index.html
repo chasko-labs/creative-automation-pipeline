@@ -30,17 +30,25 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
 <style>
 /* RUGGED-ELEGANT — Kodiak Frontier | Adobe palette + paper grit + red overlay */
 :root{
-  /* Kodiak Frontier palette — verified via kodiakcakes.com / screen.css */
-  --adobe:#a77957;
-  --chocolate:#382316;
-  --brown:#382316;
-  --brown-kodiak:#3B2316;
-  --red:#B51E14;
-  --parchment:#FFF8F0;
-  --parch:#FFF8F0;
+  /* === Token alias layer (D2) — the raw-hex per-file palette is retired. ===
+     design/styles.css (--colors-* Panda tokens) is the single source of truth.
+     These legacy names resolve THROUGH the tokens so every existing var(--chocolate)
+     etc. downstream keeps working, now single-sourced — no drift, no restyle. */
+  /* D3: one brown. --chocolate/--brown (was #382316) reconciled to canonical bearBrown #3B2316 */
+  --chocolate:var(--colors-brand-bear-brown);
+  --brown:var(--colors-brand-bear-brown);
+  --brown-kodiak:var(--colors-brand-bear-brown);
+  /* D1: live production red is now an official brand token */
+  --red:var(--colors-brand-signal-red);
+  --parchment:var(--colors-neutral-50);
+  --parch:var(--colors-neutral-50);
+  --stone:var(--colors-neutral-300);
+  --oat:var(--colors-neutral-100);
+  /* --ink base == neutral-900 (#1A1110); alpha CC retained literally to preserve exact rendering */
   --ink:#1A1110CC;
-  --stone:#D9CFC6;
-  --oat:#F4EDE6;
+  /* --adobe #a77957 has no token + zero var() consumers (only literal inside --wood svg);
+     kept as single documented exception so nothing that references it later breaks */
+  --adobe:#a77957;
   --adobe-10:#A779571A;
   --section-space-lg:1.25rem;
   --section-space-xl:1.75rem;
