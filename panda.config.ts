@@ -23,6 +23,9 @@ export default defineConfig({
             frontierGreen: {
               value: "#1A3C34",
             },
+            signalRed: {
+              value: "#B51E14",
+            },
           },
           neutral: {
             "0": {

@@ -37,6 +37,17 @@
               "usage": "secondary / evergreen / nature"
             }
           }
+        },
+        "signalRed": {
+          "$type": "color",
+          "$value": "#B51E14",
+          "$description": "Signal Red — live production accent. Links, header title block, .btn.orange CTA. Governs the previously-inline --red so flat UI and future 3D never drift.",
+          "$extensions": {
+            "org.kodiak": {
+              "name": "Signal Red",
+              "usage": "accent / link / cta"
+            }
+          }
         }
       },
       "neutral": {
