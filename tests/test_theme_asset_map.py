@@ -12,7 +12,11 @@ import pathlib
 import re
 
 MAP_PATH = pathlib.Path("data/products/theme-asset-map.json")
-DAM_KEYS_PATH = pathlib.Path("/tmp/dam-real-keys.txt")
+# Committed fixture is the source of truth in CI (no /tmp scratch there);
+# fall back to the legacy /tmp scratch path only if the fixture is absent.
+_FIXTURE_KEYS = pathlib.Path(__file__).parent / "fixtures" / "dam-real-keys.txt"
+_TMP_KEYS = pathlib.Path("/tmp/dam-real-keys.txt")
+DAM_KEYS_PATH = _FIXTURE_KEYS if _FIXTURE_KEYS.exists() else _TMP_KEYS
 DAM_PREFIX = "brands/kodiak/raw-ingest/kodiakcakes/images/"
 VARIANT_SUFFIX_RE = re.compile(r"_\d+x\d+(?=\.[a-z0-9]+$)", re.IGNORECASE)
 
