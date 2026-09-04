@@ -146,16 +146,14 @@ section.xl{padding:var(--section-space-xl) 0}
 /* tight tool spacing — 1.25/1.75rem, no wasteful 8/10rem consumer rhythm */
 .wide-track{margin:0}
 .wide-track + .wide-track{margin-top:10px}
-/* dual logo header — primary visible, secondary sticky opacity 0 */
-.kodiak-header__logos{position:relative;display:flex;align-items:center;background:linear-gradient(#E8D5BE,#DFC9AC);background-image:repeating-linear-gradient(135deg, rgba(59,35,22,0.12) 0px, rgba(59,35,22,0.12) 1px, transparent 1px, transparent 4px), linear-gradient(#E8D5BE,#DFC9AC)}
-.kodiak-header__logo--primary{opacity:1;transition:opacity .2s}
-.kodiak-header__logo--secondary{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .2s}
+/* dual logo header — the Kodiak bear-seal sits on a rectangular kraft badge (~4:3, wider than tall).
+   present it at natural aspect within the navbar height, no circular clip. primary visible, secondary sticky crossfade. */
+.kodiak-header__logos{position:relative;flex:0 0 auto;width:clamp(72px,9vw,116px);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
+.kodiak-header__logo--primary{width:100%;height:100%;object-fit:contain;opacity:1;transition:opacity .2s}
+.kodiak-header__logo--secondary{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;pointer-events:none;transition:opacity .2s}
 .kodiak-header.is-sticky .kodiak-header__logo--primary{opacity:0}
 .kodiak-header.is-sticky .kodiak-header__logo--secondary{opacity:1}
-/* cart drawer stub — matches kodiak.com drawer shape */
-.kodiak-cart-drawer{position:fixed;inset:0 0 0 auto;width:380px;max-width:88vw;background:#FFF8F0;border-left:1px solid #D9CFC6;transform:translateX(100%);transition:transform .28s ease;z-index:999;box-shadow:-8px 0 24px rgba(59,35,22,.18);display:flex;flex-direction:column}
-.kodiak-cart-drawer[open]{transform:translateX(0)}
-.kodiak-cart-drawer__hd{padding:16px;border-bottom:1px solid #F4EDE6;display:flex;align-items:center;justify-content:space-between;font:800 12px/1 "museo-sans","kodiak_sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#3B2316}
+@media(max-width:860px){.kodiak-header__logos{width:clamp(64px,16vw,88px)}}
 @media(prefers-reduced-motion:reduce){.kodiak-header.is-sticky .kodiak-header__logo--primary{transition:none}}
 
 /* === Firefly-inspired prompt bar — "Create a Kodiak campaign" === */
@@ -413,14 +411,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <div id="edgeVignette" aria-hidden="true"></div>
 <div class="kodiak-topstrip" style="display:none" aria-hidden="true"></div>
 <header class="kodiak-header" style="border-bottom:none;display:flex;align-items:center;gap:16px;padding:10px 18px;flex-wrap:wrap;margin:0"><div class="header__inner">
-<div class="kodiak-header__logos" style="flex:0 0 52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:var(--shadows-sm);position:relative"><img class="kodiak-header__logo--primary" src="assets/kodiak-primary-logo_optimized.png" alt="KODIAK — 100% WHOLE GRAINS" style="width:48px;height:48px;object-fit:contain" onerror="this.onerror=null;this.src='assets/kodiak-primary-logo.png'"><span class="kodiak-header__logo--secondary" style="display:flex;align-items:center;justify-content:center;font-family:gin,'kodiak_sans',Rockwell,Georgia,serif;font-weight:800;font-size:13px;letter-spacing:.06em;color:var(--colors-foreground-inverse)">KODIAK</span></div>
+<div class="kodiak-header__logos"><img class="kodiak-header__logo--primary" src="assets/kodiak-primary-logo_optimized.png" alt="KODIAK — 100% WHOLE GRAINS" onerror="this.onerror=null;this.src='assets/kodiak-primary-logo.png'"><img class="kodiak-header__logo--secondary" src="assets/kodiak-parkcity-alt-logo.svg" alt="Kodiak Cakes — Park City" onerror="this.onerror=null;this.src='assets/kodiak-primary-logo.png'"></div>
 <div class="kodiak-headline-plate"><h1>Nourishing Today's Frontier: Kodiak Cakes Creative Automation Pipeline</h1></div>
 </div>
 </header>
 
-<!-- kodiak.com DOM stubs — static shape match -->
-<shop-cart-sync data-source="kodiak.com" data-testid="shop-cart-sync"></shop-cart-sync>
-<csm-cookie-consent data-testid="csm-cookie-consent"></csm-cookie-consent>
 <div class="wrap">
 <!-- location-aware island + design-system scorecards moved to details.html (Design system + details link below) -->
 <div class="card" data-mcp="campaign-brief" data-mcp-description="Park City Utah demo — one prompt drives the campaign"><div class="hd"><h2>Create a Kodiak Cakes social campaign</h2></div><div class="body">
@@ -522,7 +517,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <!-- Design system + Frontier prototype context moved to details.html -->
 <div class="row" style="margin:6px 0 4px"><a href="details.html" style="font:700 11px/1 'kodiak_sans','museo-sans',sans-serif;letter-spacing:.06em;text-transform:uppercase">Design system + details &rarr;</a></div>
 
-<details class="card wide-track" id="aboutTool" style="padding:0"><summary style="padding:14px 16px;cursor:pointer;font:800 13px/1.2 gin,'museo-sans',Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate)">About this tool</summary><div class="body" style="padding-top:0"><p style="margin:0;color:#6B5A53;font:500 13px/1.6 'museo-sans',sans-serif">craft images and recipes for blogs, newsletters, and social campaigns with content exported for facebook, rss, costco, target &amp; publix. 16 Frontier urban markets — coincidentally where Adobe offices are — with language support for 3 most commonly spoken languages and one sister rural frontier site where Kodiak's subscription service offers unique positioning. Image generation includes square 1080×1080, tall 1080×1920, wide 1920×1080 — when using the KODIAK Bear it appears at 24,24.</p></div></details>
+<details class="card wide-track" id="aboutTool" style="padding:0"><summary style="padding:14px 16px;cursor:pointer;font:800 13px/1.2 gin,'museo-sans',Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate)">About this tool</summary><div class="body" style="padding-top:0"><p style="margin:0;color:#6B5A53;font:500 13px/1.6 'museo-sans',sans-serif">Type one line, pick a starting point, and get a ready-to-post Kodiak campaign — images and copy sized for every social platform and retailer, localized to the market you choose. See the <a href="details.html">design system + details</a> for how it works under the hood.</p></div></details>
 
 <!-- visible build stamp — confirm at a glance which version/JS is live in the browser (cache-buster verification) -->
 <div id="buildStamp" style="margin:12px 0 4px;text-align:center;color:#8C7A70;font:600 11px/1.4 'kodiak_sans','museo-sans',monospace;letter-spacing:.04em">build 0.1.007-ebc17a9-20260904</div>
@@ -1187,8 +1182,8 @@ let skuList = [
         'us-ski-snowboard':'US Ski & Snowboard'
       };
       const themeLabel = activeTheme ? (THEME_LABELS[activeTheme] || activeTheme) : null;
-      // Reveal the primary "Download image" + secondary "Download localized campaign asset pack"
-      // actions directly under the preview. Idempotent — builds the row once, then just unhides it.
+      // Reveal the primary "Download image" action directly under the preview.
+      // Idempotent — builds the row once, then just unhides it.
       const revealDownloadActions = ()=>{
         const preview = document.getElementById('preview');
         if(!preview) return;
@@ -1207,21 +1202,7 @@ let skuList = [
           primary.textContent = 'Download image';
           primary.setAttribute('aria-label', 'Download the composed campaign image');
           primary.addEventListener('click', function(){ window.downloadAssetPack(); });
-          // SECONDARY — the full localized campaign asset pack (async build; marked coming)
-          const secondary = document.createElement('button');
-          secondary.type = 'button';
-          secondary.id = 'downloadPackBtn';
-          secondary.className = 'btn ghost';
-          secondary.style.cssText = 'justify-content:center;padding:10px 16px;font-size:12px;opacity:.85';
-          secondary.title = 'async pack — in progress';
-          secondary.textContent = 'Download localized campaign asset pack';
-          secondary.setAttribute('aria-label', 'Download the full localized campaign asset pack');
-          secondary.addEventListener('click', function(){
-            const s = document.getElementById('sampleStatus');
-            if(s) s.textContent = 'Full localized pack — coming in the async build';
-          });
           row.appendChild(primary);
-          row.appendChild(secondary);
           preview.parentNode?.insertBefore(row, preview.nextSibling);
         }
         row.style.display = 'flex';
@@ -1502,21 +1483,6 @@ let skuList = [
 })();
 </script>
 <!-- Design System Scorecards script moved to details.html (window.KODIAK_SCORECARDS defined there; catalog render guards with if(window.KODIAK_SCORECARDS)) -->
-<!-- cart drawer stub — kodiak.com DOM shape -->
-<aside id="kodiak-cart-drawer" class="kodiak-cart-drawer" aria-label="Cart" data-testid="cart-drawer" aria-hidden="true">
-  <div class="kodiak-cart-drawer__hd"><span>Your Cart</span><button type="button" aria-label="Close cart" onclick="document.getElementById('kodiak-cart-drawer').removeAttribute('open');document.getElementById('kodiak-cart-drawer').setAttribute('aria-hidden','true')" style="background:#fff;border:1px solid #D9CFC6;border-radius:999px;padding:6px 10px;font:700 11px/1 'kodiak_sans','museo-sans',sans-serif;cursor:pointer">Close</button></div>
-  <div style="flex:1;padding:16px;color:#6B5A53;font-size:12px;line-height:1.5">Your cart is empty — add Frontier favorites from the campaign preview.</div>
-  <div style="padding:12px 16px;border-top:1px solid #F4EDE6"><button class="btn orange" style="width:100%;justify-content:center">Checkout</button></div>
-</aside>
-<script>
-// stub custom elements — <shop-cart-sync> and <csm-cookie-consent> — no-ops for static match
-class ShopCartSync extends HTMLElement{connectedCallback(){this.setAttribute('data-mounted','true')}}
-class CsmCookieConsent extends HTMLElement{connectedCallback(){this.setAttribute('data-mounted','true')}}
-if(!customElements.get('shop-cart-sync')) customElements.define('shop-cart-sync', ShopCartSync);
-if(!customElements.get('csm-cookie-consent')) customElements.define('csm-cookie-consent', CsmCookieConsent);
-// cart drawer toggle — expose for manual test: window.KODIAK_CART.open()
-window.KODIAK_CART={open:()=>{const d=document.getElementById('kodiak-cart-drawer');d.setAttribute('open','');d.setAttribute('aria-hidden','false')},close:()=>{const d=document.getElementById('kodiak-cart-drawer');d.removeAttribute('open');d.setAttribute('aria-hidden','true')}};
-</script>
 <script>
 // --- Simplified Park City demo wiring: prompt chips, upload affordance, textarea auto-grow ---
 (function(){
@@ -1946,7 +1912,7 @@ window.KODIAK_CART={open:()=>{const d=document.getElementById('kodiak-cart-drawe
 })();
 </script>
   <script>
-// scroll swap — toggle is-sticky on the header so the bear crossfades to the KODIAK wordmark past 40px scroll
+// scroll swap — toggle is-sticky on the header so the bear crossfades to the Park City alt logo past 40px scroll
 (function(){
   var header=document.querySelector('.kodiak-header');
   if(!header) return;
