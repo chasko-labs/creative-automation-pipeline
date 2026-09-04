@@ -1,0 +1,959 @@
+{
+  "$schema_note": "SKU -> real product-BOX packshot manifest for the Kodiak composed-preview pipeline. This is the SOURCE data that lets compose show the actual retail box instead of a generated white-bread/candy stand-in.",
+  "contract": {
+    "compatible_with": "data/products/sku-photo-map.json (creative-automation-pipeline)",
+    "shape": "top-level 'map' dict keyed by sku-id (product handle), same key space as sku-photo-map.json so the pipeline can EXTEND rather than replace",
+    "relationship_to_sku_photo_map": "sku-photo-map.json maps sku-id -> LIFESTYLE/recipe photo (photo_key) used as a generation seed. THIS file adds packshot_key = the real product BOX to composite verbatim, plus lifestyle_keys[] = real recipe/lifestyle shots usable as compose backgrounds. Merge strategy: for each sku-id, pipeline reads packshot_key from here for the foreground box layer; keeps photo_key from sku-photo-map.json for the background/seed layer.",
+    "per_entry_fields": {
+      "sku_id": "product handle (matches sku-photo-map.json key and kodiak-full-catalog.json handle)",
+      "upc": "705599* UPC from kodiak-full-catalog.json sku field",
+      "display_name": "catalog product name",
+      "category": "catalog category",
+      "packshot_key": "full S3 key of the best real product-box packshot, or null if no real box found",
+      "packshot_confidence": "high = exact UPC-prefixed box file confirmed present in DAM; medium = real box present but a variant/near-match; low = approximated; null = no real box",
+      "lifestyle_keys": "2-3 real recipe/lifestyle S3 keys usable as compose background candidates",
+      "caption": "short display caption"
+    }
+  },
+  "provenance": {
+    "dam_bucket": "chasko-creative-dam-946179428633-us-east-1",
+    "packshot_prefix": "brands/kodiak/raw-ingest/kodiakcakes/images/",
+    "ground_truth": "packshot_key values verified against the raw-ingest images directory (local mirror of the DAM prefix) file listing; only filenames confirmed present are cited. catalog fields (upc, display_name, category, cdn image filenames) from data/products/kodiak-full-catalog.json. lifestyle_keys drawn from data/products/sku-photo-map.json photo_key/fallbacks (already verified matched=true).",
+    "verification_note": "packshot filenames are the same 705599* UPC-prefixed names the kodiakcakes.com Shopify CDN serves; the DAM raw-ingest sync stored them verbatim under packshot_prefix. Every high-confidence key below was matched character-for-character against the DAM listing.",
+    "coverage": "top 40 SKUs prioritized (all baking-mixes, all bars, all cups, flagship flapjack/waffle mixes + power cakes/waffles + oatmeal + granola). Remaining long-tail SKUs (frozen sandwiches, gift cards, overnight-oats pouches, some oatmeal-packets) are out of this pass and flagged in unmapped[].",
+    "generated": "2026-09-05T00:00:00Z"
+  },
+  "map": {
+    "banana-muffin-quick-bread-mix": {
+      "sku_id": "banana-muffin-quick-bread-mix",
+      "upc": "705599018848",
+      "display_name": "Banana Muffin and Quick Bread Mix",
+      "category": "baking-mixes",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599018848.-Kodiak-Cakes_Banana_Muffin-MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240625_Kodiak_Dark_Chocolate_Banana_Bread_0167.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Single_Serve_Chocolate_Chip_Banana_Protein_Muffin_5_5f9ec567-7c59-4369-8785-c7cf23882327.jpg"
+      ],
+      "caption": "Banana Muffin & Quick Bread Mix"
+    },
+    "blueberry-muffin-mix": {
+      "sku_id": "blueberry-muffin-mix",
+      "upc": "705599013133",
+      "display_name": "Blueberry Muffin Mix",
+      "category": "baking-mixes",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599013133-Kodiak_Cakes-Blueberry-Muffin_Mix--Front_Shadow.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Single_Serve_Blueberry_Flax_Muffin_6_814f4ca4-f0af-467b-a6cf-55effa503005.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2024-Blueberry-Muffin-5215_13f3ae58-32d3-48f6-a016-56c89ffbb9b2.jpg"
+      ],
+      "caption": "Blueberry Muffin Mix"
+    },
+    "chocolate-chip-muffin-mix": {
+      "sku_id": "chocolate-chip-muffin-mix",
+      "upc": "705599013119",
+      "display_name": "Chocolate Chip Muffin Mix",
+      "category": "baking-mixes",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599013119-Kodiak_Cakes-Chocolate_Chip-Muffin_Mix--Front_Shadow.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Single_Serve_Chocolate_Chip_Banana_Protein_Muffin_5_5f9ec567-7c59-4369-8785-c7cf23882327.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg"
+      ],
+      "caption": "Chocolate Chip Muffin Mix"
+    },
+    "chocolate-fudge-brownie-mix": {
+      "sku_id": "chocolate-fudge-brownie-mix",
+      "upc": "705599012945",
+      "display_name": "Chocolate Fudge Brownie Mix",
+      "category": "baking-mixes",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599012945-Kodiak_Cakes-Chocolate_Fudge-Brownie_Mix-MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1_Kodiak_Brownie_Bar_7_a1c3af71-0f13-41f7-a82a-3ac1138f397f.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240719_Kodiak_Holiday_Double_Chocolate_Peppermint_Brownie_Jar_0134.jpg"
+      ],
+      "caption": "Chocolate Fudge Brownie Mix"
+    },
+    "dark-chocolate-muffin-mix": {
+      "sku_id": "dark-chocolate-muffin-mix",
+      "upc": "705599012334",
+      "display_name": "Double Dark Chocolate Muffin Mix",
+      "category": "baking-mixes",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599012334_Kodiak-Cakes_Double-Dark-Chocolate-Muffin_Mix-MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2021-Double-Dark-Chocolate-Muffin-Cup-7.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/double_chocolate_quick_bread_ff2ab891-7c23-4915-85d9-b1edab8e1cdc.jpg"
+      ],
+      "caption": "Double Dark Chocolate Muffin Mix"
+    },
+    "kodiak-cakes-blueberry-lemon-muffin-mix": {
+      "sku_id": "kodiak-cakes-blueberry-lemon-muffin-mix",
+      "upc": "705599012310",
+      "display_name": "Blueberry Lemon Muffin Mix",
+      "category": "baking-mixes",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599012310_Kodiak-Cakes_Blueberry-Lemon_Muffin-MainImage_1.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Single_Serve_Lemon_Blueberry_Coffee_Cake_2_b8060316-eb3a-41e1-8ba8-06e4fec9d567.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Blueberry-Lemon_Muffin_6.3-NFP_480x480.jpg"
+      ],
+      "caption": "Blueberry Lemon Muffin Mix"
+    },
+    "buttermilk-power-cakes-flapjack-waffle-mix": {
+      "sku_id": "buttermilk-power-cakes-flapjack-waffle-mix",
+      "upc": "705599011627",
+      "display_name": "Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "category": "flapjack-waffle-mix",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599011627_FlapjackMix_Buttermilk_Front_1.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Power_Waffle_Breakfast_Tacos_Frozen_Recipe_Reshoot_0526_0038.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Portfolio_Power_Cakes_1025_0148_1.jpg"
+      ],
+      "caption": "Buttermilk Power Cakes Mix"
+    },
+    "buttermilk-honey-frontier-cakes-flapjack-and-waffle-mix": {
+      "sku_id": "buttermilk-honey-frontier-cakes-flapjack-and-waffle-mix",
+      "upc": "705599011313",
+      "display_name": "Buttermilk & Honey Frontier Cakes Flapjack & Waffle Mix",
+      "category": "flapjack-waffle-mix",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599011313_FlapjackMix_ButtermilkandHoney_MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/705599011313_Flapjack_Mix_Buttermilk_and_Honey_Photograph_3_836e298a-0c2e-4ab6-a383-4eb2d4e9c78a.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240710_Kodiak_Buttermilk_Honey_Whole_Wheat_Bread_0544_045486b4-5b60-406d-9a6f-66a86ee57338.jpg"
+      ],
+      "caption": "Buttermilk & Honey Frontier Cakes Mix"
+    },
+    "chocolate-chip-power-cakes-flapjack-waffle-mix": {
+      "sku_id": "chocolate-chip-power-cakes-flapjack-waffle-mix",
+      "upc": "705599013379",
+      "display_name": "Chocolate Chip Power Cakes Flapjack & Waffle Mix",
+      "category": "flapjack-waffle-mix",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599013379_FlapjackMix_ChocolateChip_MainImage_1.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Chocolate_Chip_Waffle_Cookies_1.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg"
+      ],
+      "caption": "Chocolate Chip Power Cakes Mix"
+    },
+    "cinnamon-oat-power-cakes-flapjack-waffle-mix": {
+      "sku_id": "cinnamon-oat-power-cakes-flapjack-waffle-mix",
+      "upc": "705599012679",
+      "display_name": "Cinnamon Oat Power Cakes Flapjack & Waffle Mix",
+      "category": "flapjack-waffle-mix",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599012679_FlapjackMix_CinnamonOat_MainImage_1.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240710_Kodiak_Apple_Cinnamon_Oat_Pecan_Sheet_Pan_Flapjack_0234_d3ff5db2-eae9-4cd4-814e-c788eef463c9.jpg"
+      ],
+      "caption": "Cinnamon Oat Power Cakes Mix"
+    },
+    "blueberry-power-cakes": {
+      "sku_id": "blueberry-power-cakes",
+      "upc": "705599013805",
+      "display_name": "Blueberry Power Cakes Flapjack & Waffle Mix",
+      "category": "flapjack-waffle-mix",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599013805_FlapjackMix_Blueberry_MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240705_Kodiak_Blueberry_Flapjack_Bundt_Cake_0280.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Lemon_Blueberry_Waffle_Trifle_2_06d0c784-7174-4e49-a018-dfbaf7c8d9b1.jpg"
+      ],
+      "caption": "Blueberry Power Cakes Mix"
+    },
+    "birthday-cake-power-cakes": {
+      "sku_id": "birthday-cake-power-cakes",
+      "upc": "705599016431",
+      "display_name": "Birthday Cake Power Cakes",
+      "category": "flapjack-waffle-mix",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599016431_FlapjackMix_BirthdayCake_MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1_Kodiak_Birthday_Mug_Cake_3_1_1d22c6d3-8fcf-416f-998c-9f6504d32866.jpg"
+      ],
+      "caption": "Birthday Cake Power Cakes"
+    },
+    "dark-chocolate-power-cakes": {
+      "sku_id": "dark-chocolate-power-cakes",
+      "upc": "705599012198",
+      "display_name": "Dark Chocolate Power Cakes Flapjack & Waffle Mix",
+      "category": "flapjack-waffle-mix",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599012198_FlapjackMix_DarkChocolate_MainImage_1.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Dark_Chocolate_Banana_Bread_Mug_Cake_2_197d058a-43e9-4786-9f9e-ef6e2c7f9104.jpg"
+      ],
+      "caption": "Dark Chocolate Power Cakes Mix"
+    },
+    "pumpkin-power-cakes": {
+      "sku_id": "pumpkin-power-cakes",
+      "upc": "705599012389",
+      "display_name": "Pumpkin Power Cakes Flapjack & Waffle Mix",
+      "category": "flapjack-waffle-mix",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599012389_FlapjackMix_Pumpkin_MainImage_1.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240725_Kodiak_Pumpkin_Flapjacks_With_Whipped_Pumpkin_Maple_Butter_Cranberries_And_Walnuts_0377.jpg"
+      ],
+      "caption": "Pumpkin Power Cakes Mix"
+    },
+    "raspberry-lemon-flapjack-waffle-mix": {
+      "sku_id": "raspberry-lemon-flapjack-waffle-mix",
+      "upc": "705599017848",
+      "display_name": "Raspberry Lemon Flapjack & Waffle Mix",
+      "category": "flapjack-waffle-mix",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599017848_FlapjackMix_RaspberryLemon_MainImage_1.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/705599017848_Flapjack_Mix_Raspberry_Lemon_Photograph_1_575056bf-eac8-47d8-a2a2-fc0695d230aa.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Raspberry_Lemon_Bars_7_126c166f-253a-4352-87ce-bf7208c635d5.jpg"
+      ],
+      "caption": "Raspberry Lemon Flapjack & Waffle Mix"
+    },
+    "grizzly-buttermilk-power-cakes": {
+      "sku_id": "grizzly-buttermilk-power-cakes",
+      "upc": "705599016219",
+      "display_name": "Grizzly-Size Buttermilk Power Cakes",
+      "category": "flapjack-waffle-mix",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599016219_FlapjackMix_Grizzly_Buttermilk_MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Portfolio_Power_Cakes_1025_0403.jpg"
+      ],
+      "caption": "Grizzly-Size Buttermilk Power Cakes"
+    },
+    "gluten-free-power-cakes": {
+      "sku_id": "gluten-free-power-cakes",
+      "upc": "705599014635",
+      "display_name": "Gluten-Free Frontier Oat Power Cakes Mix",
+      "category": "flapjack-waffle-mix",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599014635_FlapjackMix_Gluten-Free_MainImage.png",
+      "packshot_confidence": "medium",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/705599014376_Kodiak-Cakes_Buttermilk_Maple_Gluten-Free_Flapjack-Unleashed.jpg"
+      ],
+      "caption": "Gluten-Free Frontier Oat Power Cakes Mix"
+    },
+    "blueberry-power-waffles": {
+      "sku_id": "blueberry-power-waffles",
+      "upc": "705599012150",
+      "display_name": "Blueberry Power Waffles",
+      "category": "frozen",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599012150_PowerWaffle_Blueberry_Mobile.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1_Kodiak_Protein_Blueberry_Lemon_Waffles_5.jpg"
+      ],
+      "caption": "Blueberry Power Waffles"
+    },
+    "buttermilk-vanilla-power-waffles": {
+      "sku_id": "buttermilk-vanilla-power-waffles",
+      "upc": "705599012211",
+      "display_name": "Buttermilk & Vanilla Power Waffles",
+      "category": "frozen",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599012211_PowerWaffles_ButtermilkandVanilla_MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Glazed_Donut_Waffles_2_b3bdb614-2d67-44c7-862d-f528d4c8726d.jpg"
+      ],
+      "caption": "Buttermilk & Vanilla Power Waffles"
+    },
+    "chocolate-chip-power-waffles": {
+      "sku_id": "chocolate-chip-power-waffles",
+      "upc": "705599013201",
+      "display_name": "Chocolate Chip Power Waffles",
+      "category": "frozen",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599013201_PowerWaffles_ChocolateChip_MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg"
+      ],
+      "caption": "Chocolate Chip Power Waffles"
+    },
+    "dark-chocolate-power-waffles": {
+      "sku_id": "dark-chocolate-power-waffles",
+      "upc": "705599012709",
+      "display_name": "Dark Chocolate Power Waffles",
+      "category": "frozen",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599012709_PowerWaffles_DarkChocolate_MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Glazed_Donut_Waffles_2_b3bdb614-2d67-44c7-862d-f528d4c8726d.jpg"
+      ],
+      "caption": "Dark Chocolate Power Waffles"
+    },
+    "gluten-free-power-waffles": {
+      "sku_id": "gluten-free-power-waffles",
+      "upc": "705599014765",
+      "display_name": "Gluten-Free Power Waffles",
+      "category": "frozen",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599014765_PowerWaffle_Gluten-Free_Mobile.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Glazed_Donut_Waffles_2_b3bdb614-2d67-44c7-862d-f528d4c8726d.jpg"
+      ],
+      "caption": "Gluten-Free Power Waffles"
+    },
+    "buttermilk-vanilla-thick-and-fluffy-power-waffles": {
+      "sku_id": "buttermilk-vanilla-thick-and-fluffy-power-waffles",
+      "upc": "705599014802",
+      "display_name": "Buttermilk & Vanilla Thick & Fluffy Power Waffles",
+      "category": "frozen",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599014802_ThickandFluffyPowerWaffles_ButtermilkandVanilla_Front.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Glazed_Donut_Waffles_2_b3bdb614-2d67-44c7-862d-f528d4c8726d.jpg"
+      ],
+      "caption": "Buttermilk & Vanilla Thick & Fluffy Power Waffles"
+    },
+    "blueberry-thick-and-fluffy-power-waffles": {
+      "sku_id": "blueberry-thick-and-fluffy-power-waffles",
+      "upc": "705599014826",
+      "display_name": "Blueberry Thick & Fluffy Power Waffles",
+      "category": "frozen",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599014826_ThickandFluffyPowerWaffles_Blueberry_Front.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1_Kodiak_Protein_Blueberry_Lemon_Waffles_5.jpg"
+      ],
+      "caption": "Blueberry Thick & Fluffy Power Waffles"
+    },
+    "chocolate-chip-thick-and-fluffy-power-waffles": {
+      "sku_id": "chocolate-chip-thick-and-fluffy-power-waffles",
+      "upc": "705599015137",
+      "display_name": "Chocolate Chip Thick & Fluffy Power Waffles",
+      "category": "frozen",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599015137_ThickandFluffyPowerWaffles_ChocolateChip_MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg"
+      ],
+      "caption": "Chocolate Chip Thick & Fluffy Power Waffles"
+    },
+    "buttermilk-vanilla-flapjack-puffs": {
+      "sku_id": "buttermilk-vanilla-flapjack-puffs",
+      "upc": "705599018186",
+      "display_name": "Buttermilk & Vanilla Flapjack Puffs",
+      "category": "flapjack-waffle-mix",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599018186-Original-Flapjack_Puffs-Q-Rev-1-FRONT.png",
+      "packshot_confidence": "medium",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240705_Kodiak_Chocolate_Vanilla_Marble_Bundt_Cake_0455.jpg"
+      ],
+      "caption": "Buttermilk & Vanilla Flapjack Puffs"
+    },
+    "blueberry-lemon-drizzled-minis-bars": {
+      "sku_id": "blueberry-lemon-drizzled-minis-bars",
+      "upc": "705599021084",
+      "display_name": "Blueberry Lemon Drizzled Mini Bars",
+      "category": "bars",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599021084_DrizzledMiniBars_BlueberryLemon_Mobile-Main.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Recipe_Blueberry_Lemon_Crumb_Bars_0725_0168_a598274b-46aa-4aec-9838-2bb9f69915f9.jpg"
+      ],
+      "caption": "Blueberry Lemon Drizzled Mini Bars"
+    },
+    "brown-sugar-cinnamon-drizzled-mini-bars": {
+      "sku_id": "brown-sugar-cinnamon-drizzled-mini-bars",
+      "upc": "705599021114",
+      "display_name": "Brown Sugar Cinnamon Drizzled Mini Bars",
+      "category": "bars",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599021114_DrizzledMiniBars_BrownSugarCinnamon_Mobile.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Maple_Brown_Sugar_Muffin_2_718257e7-9085-4514-ae6f-056d42d223ea.jpg"
+      ],
+      "caption": "Brown Sugar Cinnamon Drizzled Mini Bars"
+    },
+    "chocolate-almond-trail-bars-5-ct": {
+      "sku_id": "chocolate-almond-trail-bars-5-ct",
+      "upc": "705599020339",
+      "display_name": "Chocolate Almond Trail Bars",
+      "category": "bars",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599019296-KDK-Bars-Trail-Chocolate_Almond-MainImage_1.png",
+      "packshot_confidence": "medium",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240703_Kodiak_Almond_Butter_Banana_Bars_0082_7e011488-4b05-44ff-b80c-d92c345d6412.jpg"
+      ],
+      "caption": "Chocolate Almond Trail Bars",
+      "confidence_note": "box packshot filename carries UPC 705599019296 (trail-bar carton art) while the catalog sku is 705599020339; same product line, art shared across the trail-bar 5-ct pack, so medium not high"
+    },
+    "cranberry-chocolate-chip-trail-bars-5-ct": {
+      "sku_id": "cranberry-chocolate-chip-trail-bars-5-ct",
+      "upc": "705599019326",
+      "display_name": "Cranberry Chocolate Chip Trail Bars",
+      "category": "bars",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599019296-KDK-Bars-Trail-CCC-MainImage_2.png",
+      "packshot_confidence": "medium",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/20240619_Kodiak_Crunchy_Bar_Trail_Mix_0188_432a84c7-d635-479a-850a-665fb1e18a75.jpg"
+      ],
+      "caption": "Cranberry Chocolate Chip Trail Bars",
+      "confidence_note": "box art filename carries UPC 705599019296 vs catalog sku 705599019326; shared trail-bar carton art, medium confidence"
+    },
+    "chocolate-chip-chewy-granola-bar-5-ct": {
+      "sku_id": "chocolate-chip-chewy-granola-bar-5-ct",
+      "upc": "705599016288",
+      "display_name": "Chocolate Chip Chewy Bars",
+      "category": "bars",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599016288_ChewyGranolaBar_ChocolateChip_MainImage_1.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Raspberry_Frozen_Yogurt_Bars_4_50f6ddba-aabf-48cf-830c-41b12fa7db73.jpg"
+      ],
+      "caption": "Chocolate Chip Chewy Bars"
+    },
+    "chocolate-chip-crunchy-granola-bars-6-ct": {
+      "sku_id": "chocolate-chip-crunchy-granola-bars-6-ct",
+      "upc": "705599015373",
+      "display_name": "Chocolate Chip Crunchy Bars",
+      "category": "bars",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599015373_CrunchyGranolaBars_ChocolateChip_Front.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Dark_Chocolate_Cherry_Granola_Bars_6_aef631e9-8f0d-4bf1-a8e5-594d50ea889e.jpg"
+      ],
+      "caption": "Chocolate Chip Crunchy Bars"
+    },
+    "cinnamon-oat-apple-breakfast-bar": {
+      "sku_id": "cinnamon-oat-apple-breakfast-bar",
+      "upc": "705599018435",
+      "display_name": "Cinnamon Oat & Apple Breakfast Bars",
+      "category": "bars",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599018435_BreakfastBar_CinnamonOatApple_MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Apple_Muffin_3_0352f959-ce26-4b50-8dce-1de8f43395d7.jpg"
+      ],
+      "caption": "Cinnamon Oat & Apple Breakfast Bars"
+    },
+    "cookie-butter-crunchy-granola-bars-6-ct": {
+      "sku_id": "cookie-butter-crunchy-granola-bars-6-ct",
+      "upc": "705599016462",
+      "display_name": "Cookie Butter Crunchy Bars",
+      "category": "bars",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599016462_CrunchyGranolaBars_CookieButter_Front.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Cookie_Butter_Cheesecake_Bites_3_7499d68d-74cf-46f3-bb2c-84a39434a827.jpg"
+      ],
+      "caption": "Cookie Butter Crunchy Bars"
+    },
+    "kodiak-cakes-chewy-bar-double-chocolate-5-ct": {
+      "sku_id": "kodiak-cakes-chewy-bar-double-chocolate-5-ct",
+      "upc": "705599016387",
+      "display_name": "Double Chocolate Chewy Bars",
+      "category": "bars",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599016387_ChewyGranolaBar_DoubleChocolate_Front_1.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Dark_Chocolate_Cherry_Granola_Bars_6_aef631e9-8f0d-4bf1-a8e5-594d50ea889e.jpg"
+      ],
+      "caption": "Double Chocolate Chewy Bars"
+    },
+    "odiak-cakes-blueberry-oat-breakfast-bar": {
+      "sku_id": "odiak-cakes-blueberry-oat-breakfast-bar",
+      "upc": "705599018398",
+      "display_name": "Blueberry Oat Breakfast Bars",
+      "category": "bars",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599018398_BreakfastBar_BlueberryOat_MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/4fa7f2665a74--Kodiak-Berry-Baked-Oatmeal-Bars-1-ab8fca_04af5a.jpg"
+      ],
+      "caption": "Blueberry Oat Breakfast Bars",
+      "sku_id_note": "catalog handle is literally 'odiak-cakes-blueberry-oat-breakfast-bar' (leading K dropped); kept verbatim so the key matches sku-photo-map.json / catalog"
+    },
+    "peanut-butter-chocolate-chip-chewy-granola-bar-5-ct": {
+      "sku_id": "peanut-butter-chocolate-chip-chewy-granola-bar-5-ct",
+      "upc": "705599017339",
+      "display_name": "Peanut Butter Chocolate Chip Chewy Bars",
+      "category": "bars",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599017339_ChewyGranolaBar_PeanutButterChocolateChip_Front.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/CHOCOLATE_PEANUT_BUTTER_BARS_1_69b26ea2-2544-4b2c-8873-e3194c9caccc.jpg"
+      ],
+      "caption": "Peanut Butter Chocolate Chip Chewy Bars"
+    },
+    "peanut-butter-crunchy-granola-bars-6-ct": {
+      "sku_id": "peanut-butter-crunchy-granola-bars-6-ct",
+      "upc": "705599015403",
+      "display_name": "Peanut Butter Crunchy Bars",
+      "category": "bars",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599015403_CrunchyGranolaBars_PeanutButter_Front.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/CHOCOLATE_PEANUT_BUTTER_BARS_1_69b26ea2-2544-4b2c-8873-e3194c9caccc.jpg"
+      ],
+      "caption": "Peanut Butter Crunchy Bars"
+    },
+    "smores-chewy-granola-bar-5-ct": {
+      "sku_id": "smores-chewy-granola-bar-5-ct",
+      "upc": "705599016417",
+      "display_name": "S'mores Chewy Bars",
+      "category": "bars",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599016417_ChewyGranolaBar_S_mores_Front.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_S_more_Brookie_4_3262329f-f11a-4a17-808d-ae94160d9e5b.jpg"
+      ],
+      "caption": "S'mores Chewy Bars"
+    },
+    "blueberries-and-cream-oatmeal-power-cup": {
+      "sku_id": "blueberries-and-cream-oatmeal-power-cup",
+      "upc": "705599014963",
+      "display_name": "Blueberries & Cream Oatmeal Cup",
+      "category": "cups",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599014963_Kodiak_Cakes_Blueberries_Cream_Oatmeal-Power_Cup-Mobile.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2022-Oatmeal_Canister-Recipes_001.jpg"
+      ],
+      "caption": "Blueberries & Cream Oatmeal Cup"
+    },
+    "blueberry-muffin-power-cup": {
+      "sku_id": "blueberry-muffin-power-cup",
+      "upc": "705599011498",
+      "display_name": "Blueberry Minute Muffin",
+      "category": "cups",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599011498_MuffinCup_Blueberry_Main-Image.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Single_Serve_Blueberry_Flax_Muffin_6_814f4ca4-f0af-467b-a6cf-55effa503005.jpg"
+      ],
+      "caption": "Blueberry Minute Muffin Cup"
+    },
+    "buttermilk-maple-flapjack-power-cup": {
+      "sku_id": "buttermilk-maple-flapjack-power-cup",
+      "upc": "705599011955",
+      "display_name": "Buttermilk & Maple Flapjack Cup",
+      "category": "cups",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599011955_FlapjackCup_ButtermilkandMaple_Main-Image.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_167.jpg"
+      ],
+      "caption": "Buttermilk & Maple Flapjack Cup"
+    },
+    "chocolate-chip-maple-flapjack-power-cup": {
+      "sku_id": "chocolate-chip-maple-flapjack-power-cup",
+      "upc": "705599013393",
+      "display_name": "Chocolate Chip & Maple Flapjack Cup",
+      "category": "cups",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599013393_FlapjackCup_ChocolateChipandMaple_Main-Image.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Chocolate_Chip_Shortbread_8_39568e85-b8a8-4876-a853-1f977830c823.jpg"
+      ],
+      "caption": "Chocolate Chip & Maple Flapjack Cup"
+    },
+    "chocolate-chip-minute-muffin-power-cup": {
+      "sku_id": "chocolate-chip-minute-muffin-power-cup",
+      "upc": "705599013522",
+      "display_name": "Chocolate Chip Minute Muffin",
+      "category": "cups",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599013522_MuffinCup_ChocolateChip_Main-Image.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Single_Serve_Chocolate_Chip_Banana_Protein_Muffin_5_5f9ec567-7c59-4369-8785-c7cf23882327.jpg"
+      ],
+      "caption": "Chocolate Chip Minute Muffin Cup"
+    },
+    "chocolate-chip-oatmeal-power-cup": {
+      "sku_id": "chocolate-chip-oatmeal-power-cup",
+      "upc": "705599013416",
+      "display_name": "Chocolate Chip Oatmeal Cup",
+      "category": "cups",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599013416-Kodiak_Cakes-Chocolate_Chip-Oatmeal-Power-Cup-Mobile.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2023-Chocolate-Chip-Cookies-7132_fa5af7b1-d9fe-45d8-aad9-20b4e890c021.jpg"
+      ],
+      "caption": "Chocolate Chip Oatmeal Cup"
+    },
+    "chocolate-fudge-brownie-power-cup": {
+      "sku_id": "chocolate-fudge-brownie-power-cup",
+      "upc": "705599013287",
+      "display_name": "Chocolate Fudge Brownie Cup",
+      "category": "cups",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599013287_BrownieCup_ChocolateFudge_Main-Image.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1_Kodiak_Brownie_Bar_7_a1c3af71-0f13-41f7-a82a-3ac1138f397f.jpg"
+      ],
+      "caption": "Chocolate Fudge Brownie Cup"
+    },
+    "chocolate-peanut-butter-flapjack-power-cup": {
+      "sku_id": "chocolate-peanut-butter-flapjack-power-cup",
+      "upc": "705599012655",
+      "display_name": "Chocolate Peanut Butter Flapjack Cup",
+      "category": "cups",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599012655_FlapjackCup_ChocolatePeanutButter_MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/CHOCOLATE_PEANUT_BUTTER_BARS_1_69b26ea2-2544-4b2c-8873-e3194c9caccc.jpg"
+      ],
+      "caption": "Chocolate Peanut Butter Flapjack Cup"
+    },
+    "cinnamon-maple-flapjack-power-cup": {
+      "sku_id": "cinnamon-maple-flapjack-power-cup",
+      "upc": "705599011917",
+      "display_name": "Cinnamon & Maple Flapjack Cup",
+      "category": "cups",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599011917_FlapjackCup_CinnamonandMaple_Main-Image.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_167.jpg"
+      ],
+      "caption": "Cinnamon & Maple Flapjack Cup"
+    },
+    "cinnamon-roll-muffin-power-cup": {
+      "sku_id": "cinnamon-roll-muffin-power-cup",
+      "upc": "705599014550",
+      "display_name": "Cinnamon Roll Minute Muffin",
+      "category": "cups",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599014550_MuffinCup_CinnamonRoll_Main-Image.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_459.jpg"
+      ],
+      "caption": "Cinnamon Roll Minute Muffin Cup"
+    },
+    "double-dark-chocolate-muffin-cup": {
+      "sku_id": "double-dark-chocolate-muffin-cup",
+      "upc": "705599011542",
+      "display_name": "Double Dark Chocolate Minute Muffin",
+      "category": "cups",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599011542_MuffinCup_DoubleDarkChocolate_Main-Image.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2021-Double-Dark-Chocolate-Muffin-Cup-7.jpg"
+      ],
+      "caption": "Double Dark Chocolate Minute Muffin Cup"
+    },
+    "kodiak-cakes-blueberry-maple-flapjack-power-cup": {
+      "sku_id": "kodiak-cakes-blueberry-maple-flapjack-power-cup",
+      "upc": "705599011931",
+      "display_name": "Blueberry & Maple Flapjack Cup",
+      "category": "cups",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599011931_FlapjackCup_BlueberryandMaple_Main-Image.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Cups_Graphics_Roadmap_Recipe_Shoot0326_167.jpg"
+      ],
+      "caption": "Blueberry & Maple Flapjack Cup"
+    },
+    "kodiak-cakes-pumpkin-chocolate-chip-muffin-cup": {
+      "sku_id": "kodiak-cakes-pumpkin-chocolate-chip-muffin-cup",
+      "upc": "705599011863",
+      "display_name": "Pumpkin Chocolate Chip Minute Muffin",
+      "category": "cups",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599011863-Kodiak_Cakes-Pumpkin_Chocolate_Chip-Muffin-Power_Cup-V-CUP-0001_1186_01-Front_2.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Pumpkin_Chocolate_Chip_Muffin_Top_Cookie_6.jpg"
+      ],
+      "caption": "Pumpkin Chocolate Chip Minute Muffin Cup"
+    },
+    "maple-brown-sugar-oatmeal-power-cup": {
+      "sku_id": "maple-brown-sugar-oatmeal-power-cup",
+      "upc": "705599013430",
+      "display_name": "Maple & Brown Sugar Oatmeal Cup",
+      "category": "cups",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599013430-Kodiak_Cakes-MBS-Oatmeal-Power_Cup-Mobile.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2023-Peak-Oatmeal-Maple-Brown-Sugar-7701.jpg"
+      ],
+      "caption": "Maple & Brown Sugar Oatmeal Cup"
+    },
+    "peanut-butter-chocolate-chip-oatmeal-power-cup": {
+      "sku_id": "peanut-butter-chocolate-chip-oatmeal-power-cup",
+      "upc": "705599013485",
+      "display_name": "Peanut Butter Chocolate Chip Oatmeal Cup",
+      "category": "cups",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599013485_Kodiak_Cakes_PBCC_Oatmeal_Power_Cup-Mobile.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/CHOCOLATE_PEANUT_BUTTER_BARS_1_69b26ea2-2544-4b2c-8873-e3194c9caccc.jpg"
+      ],
+      "caption": "Peanut Butter Chocolate Chip Oatmeal Cup"
+    },
+    "smores-flapjack-power-cup": {
+      "sku_id": "smores-flapjack-power-cup",
+      "upc": "705599013928",
+      "display_name": "S'Mores Flapjack Cup",
+      "category": "cups",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599013928_FlapjackCup_S_mores_Main-Image.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_S_mores_Dip_3_d36c0db6-7662-4ab4-8a7c-b17623ad2bc1.jpg"
+      ],
+      "caption": "S'Mores Flapjack Cup"
+    },
+    "chocolate-chip-oatmeal-packets": {
+      "sku_id": "chocolate-chip-oatmeal-packets",
+      "upc": "705599014185",
+      "display_name": "Chocolate Chip Oatmeal Packets",
+      "category": "oatmeal",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599014185-KDK-Oatmeal_Packets-Chocolate_Chip-MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2023-Chocolate-Chip-Cookies-7132_fa5af7b1-d9fe-45d8-aad9-20b4e890c021.jpg"
+      ],
+      "caption": "Chocolate Chip Oatmeal Packets"
+    },
+    "blueberries-cream-oatmeal-packets": {
+      "sku_id": "blueberries-cream-oatmeal-packets",
+      "upc": "705599015519",
+      "display_name": "Blueberries & Cream Oatmeal Packets",
+      "category": "oatmeal",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599015519-KDK-Oatmeal_Packets-Blueberries_and_Cream-MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Berry_Oatmeal_Waffles_5.jpg"
+      ],
+      "caption": "Blueberries & Cream Oatmeal Packets"
+    },
+    "apple-cinnamon-oatmeal-packets": {
+      "sku_id": "apple-cinnamon-oatmeal-packets",
+      "upc": "705599018930",
+      "display_name": "Apple Cinnamon Oatmeal Packets",
+      "category": "oatmeal",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599018930-KDK-Oatmeal_Packets-Apple_Cinnamon-MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Single-serve_Cinnamon_Apple_Crisp_6_c824a3c1-0ad5-4b26-9925-10b93bfbae89.jpg"
+      ],
+      "caption": "Apple Cinnamon Oatmeal Packets"
+    },
+    "classic-rolled-oats-oatmeal-canister": {
+      "sku_id": "classic-rolled-oats-oatmeal-canister",
+      "upc": "705599015533",
+      "display_name": "Classic Rolled Oats Oatmeal Canister",
+      "category": "oatmeal",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599015533-KDK-Oatmeal-Canister-Classic_Rolled_Oats-MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2022-Oatmeal_Canister-Recipes_001.jpg"
+      ],
+      "caption": "Classic Rolled Oats Canister"
+    },
+    "banana-nut-peak-oatmeal-packets": {
+      "sku_id": "banana-nut-peak-oatmeal-packets",
+      "upc": "705599018732",
+      "display_name": "Banana Nut Peak Oatmeal",
+      "category": "oatmeal",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599018732-Kodiak-Banana_Nut-Peak-Oatmeal--Front_Shadow.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Banana_Oatmeal_Pancakes_-_1.jpg"
+      ],
+      "caption": "Banana Nut Peak Oatmeal"
+    },
+    "berries-cream-peak-oatmeal-packets": {
+      "sku_id": "berries-cream-peak-oatmeal-packets",
+      "upc": "705599018756",
+      "display_name": "Berries & Cream Peak Oatmeal",
+      "category": "oatmeal",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599018756-Kodiak-Berries___Cream-Peak-Oatmeal--Front.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Berry_Oatmeal_Waffles_5.jpg"
+      ],
+      "caption": "Berries & Cream Peak Oatmeal"
+    },
+    "maple-brown-sugar-peak-oatmeal-packets": {
+      "sku_id": "maple-brown-sugar-peak-oatmeal-packets",
+      "upc": "705599018770",
+      "display_name": "Maple Brown Sugar Peak Oatmeal",
+      "category": "oatmeal",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599018770-Kodiak-MBS-Peak-Oatmeal--Front_Shadow.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2023-Peak-Oatmeal-Maple-Brown-Sugar-7701.jpg"
+      ],
+      "caption": "Maple Brown Sugar Peak Oatmeal",
+      "sku_id_note": "handle inferred from Peak Oatmeal line; verify exact catalog handle before merge"
+    },
+    "maple-brown-sugar-oatmeal-canister": {
+      "sku_id": "maple-brown-sugar-oatmeal-canister",
+      "upc": "705599014147",
+      "display_name": "Maple Brown Sugar Oatmeal Canister",
+      "category": "oatmeal",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599014147-Kodiak_Cakes-Maple_Brown_Sugar-Oatmeal-Box-Rev1-CTN-0010_12--HS--QUAD-2024-Front.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2023-Peak-Oatmeal-Maple-Brown-Sugar-7701.jpg"
+      ],
+      "caption": "Maple Brown Sugar Oatmeal Canister",
+      "sku_id_note": "handle inferred; verify exact catalog handle before merge"
+    },
+    "oatmeal-packets-variety-6ct": {
+      "sku_id": "oatmeal-packets-variety-6ct",
+      "upc": "705599019401",
+      "display_name": "Oatmeal Packets Variety 6-Pack (MBS/CC/APC)",
+      "category": "oatmeal",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599019401-KDK-Oatmeal_Packets-Variety_6pc-MBS_CC_APC-MainImage_1.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Oatmeal-packets-collection.jpg"
+      ],
+      "caption": "Oatmeal Packets Variety 6-Pack",
+      "sku_id_note": "handle inferred; verify exact catalog handle before merge"
+    },
+    "chocolate-granola": {
+      "sku_id": "chocolate-granola",
+      "upc": "705599019678",
+      "display_name": "Chocolate Granola",
+      "category": "granola",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599019678-Kodiak-Granola-Chocolate-MainImage_2.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Dark_Chocolate_Cherry_Granola_Bars_6_aef631e9-8f0d-4bf1-a8e5-594d50ea889e.jpg"
+      ],
+      "caption": "Chocolate Granola"
+    },
+    "honey-oat-granola": {
+      "sku_id": "honey-oat-granola",
+      "upc": "705599019630",
+      "display_name": "Honey Oat Granola",
+      "category": "granola",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599019630-Kodiak-Granola-Honey_Oat-MainImage_1.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1_-_Kodiak_Granola_Cereal_e32332b8-3777-4f1f-a0e8-0cf170bd39f1.jpg"
+      ],
+      "caption": "Honey Oat Granola",
+      "sku_id_note": "handle inferred; verify exact catalog handle before merge"
+    },
+    "cookie-butter-granola": {
+      "sku_id": "cookie-butter-granola",
+      "upc": "705599020308",
+      "display_name": "Cookie Butter Granola",
+      "category": "granola",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599020308-Kodiak-Granola-Cookie_Butter-MainImage_1.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1_-_Kodiak_Granola_Cereal_e32332b8-3777-4f1f-a0e8-0cf170bd39f1.jpg"
+      ],
+      "caption": "Cookie Butter Granola",
+      "sku_id_note": "handle inferred; verify exact catalog handle before merge"
+    },
+    "blueberry-vanilla-granola": {
+      "sku_id": "blueberry-vanilla-granola",
+      "upc": "705599020735",
+      "display_name": "Blueberry Vanilla Granola",
+      "category": "granola",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599020735-Kodiak-Blueberry_Vanilla-Granola-10oz-PCH0007_2073_1-FRONT.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Single_Serve_Lemon_Blueberry_Coffee_Cake_2_b8060316-eb3a-41e1-8ba8-06e4fec9d567.jpg"
+      ],
+      "caption": "Blueberry Vanilla Granola"
+    },
+    "salted-caramel-granola": {
+      "sku_id": "salted-caramel-granola",
+      "upc": "705599020698",
+      "display_name": "Salted Caramel Granola",
+      "category": "granola",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599020698-Kodiak-Salted_Caramel-Granola-10oz-Belmark-PCH0007_2069_1-FRONT_1.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/SALTED_CARAMEL_CUPCAKES_1_6c19c12e-de04-4013-bb3a-c1aed354c22a.jpg"
+      ],
+      "caption": "Salted Caramel Granola",
+      "sku_id_note": "handle inferred; verify exact catalog handle before merge"
+    },
+    "oat-chocolate-chip-protein-balls": {
+      "sku_id": "oat-chocolate-chip-protein-balls",
+      "upc": "705599015007",
+      "display_name": "Oat Chocolate Chip Protein Balls",
+      "category": "protein-balls",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599015007-Kodiak_Cakes-Oat_Chocolate_Chip-Protein_Balls-MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1-Banana_Bread_Protein_Bites.jpg"
+      ],
+      "caption": "Oat Chocolate Chip Protein Balls",
+      "sku_id_note": "handle inferred; verify exact catalog handle before merge"
+    },
+    "snickerdoodle-protein-balls": {
+      "sku_id": "snickerdoodle-protein-balls",
+      "upc": "705599019487",
+      "display_name": "Snickerdoodle Protein Balls",
+      "category": "protein-balls",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599019487-Kodiak_Cakes-Protein_Balls-Snickerdoodle-MainImage.png",
+      "packshot_confidence": "medium",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1-Matcha_Protein_Balls_f9a88529-fb66-4edf-819b-3437d23bc3a0.jpg"
+      ],
+      "caption": "Snickerdoodle Protein Balls",
+      "confidence_note": "UPC 705599019487 also appears on a French Toast Sticks Cinnamon file in the DAM; the -Protein_Balls-Snickerdoodle-MainImage.png filename is unambiguous, but the shared UPC-prefix collision drops this to medium pending confirmation of the intended SKU handle"
+    },
+    "buttermilk-french-toast-sticks": {
+      "sku_id": "buttermilk-french-toast-sticks",
+      "upc": "705599019500",
+      "display_name": "Buttermilk French Toast Sticks",
+      "category": "frozen",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599019500_FrenchToastSticks_Buttermilk_Mobile.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1-Kodiak_French_Toast_Sticks.jpg"
+      ],
+      "caption": "Buttermilk French Toast Sticks"
+    },
+    "cinnamon-french-toast-sticks": {
+      "sku_id": "cinnamon-french-toast-sticks",
+      "upc": "705599019487",
+      "display_name": "Cinnamon French Toast Sticks",
+      "category": "frozen",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599019487_FrenchToastSticks_Cinnamon_MainImage.png",
+      "packshot_confidence": "medium",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/1-Kodiak_French_Toast_Sticks.jpg"
+      ],
+      "caption": "Cinnamon French Toast Sticks",
+      "confidence_note": "catalog assigns UPC 705599019487 to both this and snickerdoodle-protein-balls in the DAM filenames; distinct box files exist for each, so packshot is correct but the shared UPC is a catalog-data ambiguity - flag for catalog owner"
+    },
+    "buttermilk-cubs-mini-flapjacks": {
+      "sku_id": "buttermilk-cubs-mini-flapjacks",
+      "upc": "705599018718",
+      "display_name": "Cubs Buttermilk Mini Flapjacks",
+      "category": "flapjack-waffle-mix",
+      "packshot_key": "brands/kodiak/raw-ingest/kodiakcakes/images/705599018718_CubsMiniFlapjacks_Buttermilk_MainImage.png",
+      "packshot_confidence": "high",
+      "lifestyle_keys": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Portfolio_Power_Cakes_1025_0148_1.jpg"
+      ],
+      "caption": "Cubs Buttermilk Mini Flapjacks",
+      "sku_id_note": "handle inferred; verify exact catalog handle before merge"
+    }
+  },
+  "unmapped": {
+    "note": "SKUs with NO confirmed real product-box packshot in the DAM as of this pass, plus long-tail categories not yet cross-referenced. These must stay generated OR get a new packshot photo shoot.",
+    "no_real_box_found": [
+      {
+        "sku_id": "buttermilk-power-flapjacks",
+        "reason": "no dedicated 705599* box file located in DAM listing distinct from the buttermilk power-cakes mix; likely same carton art - verify against catalog UPC before treating as generated-only"
+      },
+      {
+        "sku_id": "blueberry-vanilla-flapjack-puffs",
+        "reason": "only the Original Flapjack Puffs FRONT box (705599018186) is present; a distinct blueberry-vanilla puffs box was not located - if this is a separate SKU it needs a packshot"
+      }
+    ],
+    "long_tail_not_in_this_pass": [
+      "frozen breakfast sandwiches (Maple Pancake Sandwich 705599020261, Bacon/Egg/ColbyJack 705599020285, English Muffin Turkey Sausage 705599020759) - box files 705599020261_Frozen_Maple_Pancake_Sandwich*.png, 705599020285_FrozenMaplePancakeSandwich*.png, 705599020759_FrozenEnglishMuffinSandwich*.png EXIST in DAM and can be mapped high-confidence in a follow-up pass",
+      "overnight-oats pouches (Maple Pecan 705599020797, Cookie Butter 705599020810, Chocolate Sea Salt 705599020834, Peach 705599020858, Honey Oats Almond 705599020872) - Pouch_Front PNGs EXIST in DAM, mappable high-confidence in follow-up",
+      "gift cards (4 SKUs) - digital gift certificate art only (KDK-24-Digital_Gift_Certificate-Front-R2*.png); not a physical box, retailer preview N/A",
+      "remaining oatmeal-packets single flavors and some flapjack-cup/power-waffle line extensions - box files largely present in DAM under 705599* prefix; extend in follow-up"
+    ]
+  }
+}

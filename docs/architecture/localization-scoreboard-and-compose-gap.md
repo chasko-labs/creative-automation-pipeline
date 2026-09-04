@@ -61,3 +61,11 @@ these are not fixed by data alone:
 ### brand-fit caveat on color
 
 all `design_palette` hex values are perceptual approximations and are flagged for brand-fit review. region color must never fight the fixed kodiak brand palette (bearBrown / blazeOrange / frontierGreen / parchment / oatmeal). treat region hex as a candidate accent set pending review, not a committed value.
+
+## compose-fix package
+
+reference artifacts backing the compose gap, under `compose-fix/`:
+
+- [compose-fix-spec.md](compose-fix/compose-fix-spec.md) — exact files/functions to change (campaign.py, dam.py, compose.py) plus the ordered resolution precedence: product-composite when a packshot resolves, generated-scene otherwise
+- [sku-packshot-map.json](compose-fix/sku-packshot-map.json) — sku -> packshot manifest, 50 skus mapped to real `705599*` boxes; extends `data/products/sku-photo-map.json` (adds `packshot_key`, keeps existing lifestyle keys)
+- [retailer-logo-sourcing.md](compose-fix/retailer-logo-sourcing.md) — retailer-logo sourcing spec; trademark usage is a legal blocker, retailer layer stays off by default until assets are legitimately sourced
