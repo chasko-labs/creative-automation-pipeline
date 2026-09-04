@@ -747,6 +747,7 @@ let skuList = [
       let brief = document.getElementById('campaignBrief')?.value.trim();
       if(!brief){ brief = 'Keep It Wild — Feeding Epic Days & Wilder Lives • Nourishment for Today\'s Frontier — 100% whole grains, 14g protein — quick-test'; }
       let selectedProducts = Array.from(document.querySelectorAll('#productChooser .sku-check:checked')).map(c=>c.value);
+      const hadExplicitSelection = selectedProducts.length > 0;
       // If local and glimmer up, let it rank SKUs intelligently (not random)
       if(!selectedProducts.length && window.GlimmerProxy?.isLocal){
         try{ const ranked = await window.GlimmerProxy.pickSkus(brief, skuList, 3); if(ranked) selectedProducts = ranked; }catch(e){}
@@ -771,7 +772,8 @@ let skuList = [
         }catch(e){}
         return String(name||'').toLowerCase().trim().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
       };
-      const primarySlug = slugify(products[0]);
+      const ASSET_BACKED = ['power-cakes','bear-bites','oatmeal-cup'];
+      const primarySlug = hadExplicitSelection ? slugify(products[0]) : ASSET_BACKED[0];
       // Show real generation result: lay out the 3 ratio tiles via render(), then swap each tile's
       // canvas for an <img> of the composed hero (one hero shown in all 3 frames via object-fit).
       const showRealImage = (imageUrl, source)=>{
