@@ -341,6 +341,53 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   font:700 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.04em;cursor:pointer;box-shadow:var(--shadows-sm)}
 .ff-season select:hover{background:var(--colors-neutral-100)}
 
+/* D2. "use my location" — discrete secondary control beside the market button (token-styled, not competing) */
+.ff-geo{flex:0 0 auto;display:inline-flex;align-items:center;gap:var(--spacing-xs);height:100%;min-height:40px;padding:0 12px;
+  border:1px solid var(--colors-border-default);border-radius:var(--radii-lg);
+  background:var(--colors-neutral-50);color:var(--colors-foreground-default);
+  font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;box-shadow:var(--shadows-sm)}
+.ff-geo:hover{background:var(--colors-neutral-100);border-color:var(--colors-border-strong)}
+.ff-geo .ff-geo-pin{width:14px;height:14px;display:inline-block;flex:0 0 auto;fill:var(--colors-brand-signal-red)}
+.ff-geo-status{flex:1 1 100%;order:99;margin-top:var(--spacing-xs);font:500 11px/1.35 "museo-sans",sans-serif;color:var(--colors-foreground-muted)}
+.ff-geo-status:empty{display:none}
+
+/* shared focus ring for every new wave3 control — visible, high-contrast, keyboard-only */
+.ff-geo:focus-visible,.ff-addloc-input:focus-visible,.ff-addloc-btn:focus-visible,
+.ff-addasset-label:focus-within,.ff-addasset-input:focus-visible,.ff-pending-remove:focus-visible{
+  outline:2px solid var(--colors-brand-blaze-orange);outline-offset:2px}
+
+/* D3. add-a-location affordance inside the market disclosure panel */
+.ff-addloc{display:flex;flex-wrap:wrap;gap:var(--spacing-xs);align-items:center;margin-top:var(--spacing-xs);
+  padding-top:var(--spacing-sm);border-top:1px dashed var(--colors-border-default)}
+.ff-addloc-label{flex:1 1 100%;font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted)}
+.ff-addloc-input{flex:1 1 140px;min-width:0;padding:8px 10px;border:1px solid var(--colors-border-default);border-radius:var(--radii-sm);
+  background:var(--colors-neutral-0);color:var(--colors-foreground-default);font:500 12px/1.4 "museo-sans",sans-serif}
+.ff-addloc-btn{flex:0 0 auto;padding:8px 12px;border:1px solid var(--colors-brand-frontier-green);border-radius:var(--radii-sm);
+  background:var(--colors-background-nature);color:var(--colors-foreground-inverse);
+  font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;cursor:pointer}
+.ff-addloc-btn:hover{background:var(--colors-brand-bear-brown);border-color:var(--colors-brand-bear-brown)}
+/* subtle badge distinguishing user-added custom markets from curated ones */
+.ff-opt-badge{display:inline-block;margin-left:var(--spacing-xs);padding:1px 6px;border-radius:var(--radii-full);
+  background:var(--colors-brand-blaze-orange);color:var(--colors-foreground-inverse);
+  font:700 9px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;vertical-align:middle}
+
+/* D4. add-your-own-asset affordance beside the product chooser — frontend staging only */
+.ff-addasset{margin-top:var(--spacing-sm);padding-top:var(--spacing-sm);border-top:1px dashed var(--colors-border-default)}
+.ff-addasset-label{display:inline-flex;align-items:center;gap:var(--spacing-xs);padding:8px 12px;border:1px solid var(--colors-border-default);border-radius:var(--radii-sm);
+  background:var(--colors-neutral-50);color:var(--colors-foreground-default);
+  font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;cursor:pointer}
+.ff-addasset-label:hover{background:var(--colors-neutral-100);border-color:var(--colors-border-strong)}
+/* visually-hidden file input — the styled label is the operable surface, input stays keyboard-focusable */
+.ff-addasset-input{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.ff-pending{display:flex;flex-wrap:wrap;gap:var(--spacing-sm);margin-top:var(--spacing-sm)}
+.ff-pending-chip{display:inline-flex;align-items:center;gap:var(--spacing-sm);padding:var(--spacing-xs) var(--spacing-sm);
+  border:1px solid var(--colors-border-default);border-radius:var(--radii-md);background:var(--colors-neutral-100)}
+.ff-pending-thumb{width:32px;height:32px;object-fit:cover;border-radius:var(--radii-sm);background:var(--colors-neutral-200)}
+.ff-pending-name{font:500 11px/1.35 "museo-sans",sans-serif;color:var(--colors-foreground-default);max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ff-pending-remove{flex:0 0 auto;width:20px;height:20px;line-height:1;padding:0;border:1px solid var(--colors-border-default);border-radius:var(--radii-full);
+  background:var(--colors-neutral-50);color:var(--colors-foreground-muted);font:700 12px/1 "museo-sans",sans-serif;cursor:pointer}
+.ff-pending-remove:hover{background:var(--colors-brand-signal-red);border-color:var(--colors-brand-signal-red);color:var(--colors-foreground-inverse)}
+
 /* respect reduced-motion for every wave2 micro-animation */
 @media(prefers-reduced-motion:reduce){
   .ff-market>summary .ff-caret{transition:none}
@@ -396,8 +443,22 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       </summary>
       <div class="ff-market-panel">
         <div id="marketListbox" role="listbox" aria-label="Localized markets" tabindex="-1"></div>
+        <!-- D3. add a location the curated list does not cover — client-side custom market, degrades gracefully -->
+        <div class="ff-addloc">
+          <label class="ff-addloc-label" for="addLocInput">Add a location</label>
+          <input type="text" id="addLocInput" class="ff-addloc-input" autocomplete="off"
+                 aria-label="Add a market by city or zip" placeholder="City or ZIP — e.g. Bozeman, MT or 59715">
+          <button type="button" id="addLocBtn" class="ff-addloc-btn" aria-label="Add this location as a selectable market">Add</button>
+        </div>
       </div>
     </details>
+    <!-- D2. discrete "use my location" control — snaps to the nearest curated market by haversine -->
+    <button type="button" class="ff-geo" id="useMyLocation"
+            aria-label="Use my location to pick the nearest market">
+      <svg class="ff-geo-pin" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+      <span>My location</span>
+      <span class="ff-geo-status" id="geoStatus" role="status" aria-live="polite"></span>
+    </button>
     <div class="ff-season" data-mcp="seasonal-context">
       <select id="seasonalSelect" aria-label="Seasonal context (optional) — month, season, or holiday">
         <option value="">Season: any</option>
@@ -430,7 +491,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </div>
 
 <!-- Product chooser — optional, up to 3 from the KODIAK catalog (protected IDs kept) -->
-<div class="field" id="existingAssets" data-mcp="products" data-mcp-description="Real KODIAK SKUs — choose up to 3, autocomplete as you type"><label for="productSearch">Products (optional — up to 3)</label><input type="text" id="productSearch" aria-label="Search KODIAK products by name" placeholder="Search SKUs — flapjack, blueberry, power cakes, muffin, oatmeal, cup, waffle, bar…" style="margin-bottom:8px"><div id="productChooser" role="group" aria-label="KODIAK product choices" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;max-height:180px;overflow:auto;padding:2px"></div><div class="row" style="margin-top:8px;gap:10px;align-items:center"><button class="btn ghost" id="randomProducts" aria-label="Pick 3 random products">Random 3</button><span class="hint" id="skuHint" style="margin-top:0">Pick up to 3, or leave empty — Create uses your brief/theme.</span></div></div>
+<div class="field" id="existingAssets" data-mcp="products" data-mcp-description="Real KODIAK SKUs — choose up to 3, autocomplete as you type"><label for="productSearch">Products (optional — up to 3)</label><input type="text" id="productSearch" aria-label="Search KODIAK products by name" placeholder="Search SKUs — flapjack, blueberry, power cakes, muffin, oatmeal, cup, waffle, bar…" style="margin-bottom:8px"><div id="productChooser" role="group" aria-label="KODIAK product choices" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;max-height:180px;overflow:auto;padding:2px"></div><div class="row" style="margin-top:8px;gap:10px;align-items:center"><button class="btn ghost" id="randomProducts" aria-label="Pick 3 random products">Random 3</button><span class="hint" id="skuHint" style="margin-top:0">Pick up to 3, or leave empty — Create uses your brief/theme.</span></div>
+<!-- D4. add-your-own-asset — FRONTEND STAGING ONLY. TODO: server DAM-upload endpoint for user assets — frontend staging only for now (no upload-to-DAM backend exists; file is staged client-side and a marker is threaded into the brief). -->
+<div class="ff-addasset" data-mcp="user-asset" data-mcp-description="Stage a user-supplied image — frontend only, no DAM upload">
+  <label class="ff-addasset-label" for="addAssetInput">
+    <svg class="ff-geo-pin" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="fill:var(--colors-foreground-muted)"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg>
+    <span>Add your own asset</span>
+    <input type="file" id="addAssetInput" class="ff-addasset-input" accept="image/*" aria-label="Add your own image asset to this campaign">
+  </label>
+  <div class="ff-pending" id="pendingAssets" role="group" aria-label="Your staged assets"></div>
+</div></div>
 
 <!-- Download asset pack hidden by default; primary/secondary download actions injected under the preview after generation -->
 <div class="row" style="margin-top:14px;gap:10px"><button class="btn ghost" id="downloadPack" style="display:none;justify-content:center;padding:12px 18px;font-size:13px" data-mcp="download-pack" data-mcp-description="Download the campaign assets as an ISO-labeled zip from S3">Download asset pack</button></div>
@@ -1071,6 +1141,14 @@ let skuList = [
       if(activeSeason && !new RegExp('season:\\s*'+activeSeason.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i').test(brief)){
         brief = brief + ' — season: ' + activeSeason;
       }
+      // 4. user-supplied assets are staged frontend-only (no DAM upload). Thread a marker so the
+      // generate path is aware a user asset was supplied. TODO: server DAM-upload endpoint — staging only.
+      try{
+        const userAssets = window.__userAssets || [];
+        if(userAssets.length && !/user assets?:/i.test(brief)){
+          brief = brief + ' — user assets: ' + userAssets.map(function(a){return a.name;}).join(', ');
+        }
+      }catch(e){}
       let selectedProducts = Array.from(document.querySelectorAll('#productChooser .sku-check:checked')).map(c=>c.value);
       const hadExplicitSelection = selectedProducts.length > 0;
       // If local and glimmer up, let it rank SKUs intelligently (not random)
@@ -1567,8 +1645,15 @@ window.KODIAK_CART={open:()=>{const d=document.getElementById('kodiak-cart-drawe
   }
 
   function placeFor(market){
-    try{ return (typeof places!=='undefined') ? places.find(function(p){return p.market===market;}) : null; }catch(e){ return null; }
+    try{
+      if(typeof places!=='undefined'){ var hit = places.find(function(p){return p.market===market;}); if(hit) return hit; }
+    }catch(e){}
+    // custom user-added markets are not in places[] — resolve them here so the label/featured lines reflect
+    try{ return customMarkets.find(function(p){return p.market===market;}) || null; }catch(e){ return null; }
   }
+
+  // 3. user-added markets (client-side only). No curated cue/language data — degrade gracefully.
+  var customMarkets = [];
 
   // update the three derived lines (button label, featured frontier, language line) for a market
   function reflectMarket(market){
@@ -1609,16 +1694,19 @@ window.KODIAK_CART={open:()=>{const d=document.getElementById('kodiak-cart-drawe
   function buildOptions(){
     if(typeof places==='undefined' || !places.length) return;
     listbox.innerHTML = '';
-    places.forEach(function(p){
+    function addOption(p, isCustom){
       var opt = document.createElement('button');
       opt.type='button';
       opt.setAttribute('role','option');
       opt.dataset.market = p.market;
       opt.setAttribute('aria-selected','false');
-      opt.innerHTML = '<span>'+ (p.place||p.market) +'</span><span class="ff-opt-sub">'+ p.market +'</span>';
+      var badge = isCustom ? '<span class="ff-opt-badge">custom</span>' : '';
+      opt.innerHTML = '<span>'+ (p.place||p.market) + badge +'</span><span class="ff-opt-sub">'+ p.market +'</span>';
       opt.addEventListener('click', function(){ selectMarket(p.market); });
       listbox.appendChild(opt);
-    });
+    }
+    places.forEach(function(p){ addOption(p, false); });
+    customMarkets.forEach(function(p){ addOption(p, true); });
   }
 
   // ---- disclosure open/close + aria-expanded ----
@@ -1687,6 +1775,156 @@ window.KODIAK_CART={open:()=>{const d=document.getElementById('kodiak-cart-drawe
     window.__activeSeason = null;
     seasonSel.addEventListener('change', function(){
       window.__activeSeason = seasonSel.value || null;
+    });
+    // 1. default to the CURRENT calendar month by name (not "any"). "Season: any" stays selectable.
+    // seed activeSeason so the brief carries "season: <month>" by default.
+    try{
+      var cm = months[new Date().getMonth()];
+      seasonSel.value = cm;
+      window.__activeSeason = seasonSel.value || null;
+    }catch(e){}
+  }
+
+  // ---- 2. "use my location" — snap to nearest curated market by haversine ----
+  // places[] carries no coordinates; store-finder-markets.json (keyed by `market`) does.
+  // offline-first: fetch is best-effort across the same candidate paths the language file uses.
+  // if coordinates never load, the button degrades to a polite "keeping Park City" and no-ops.
+  var marketCoords = {}; // market code -> {lat, lon}
+  (async function loadMarketCoords(){
+    for(const url of ['data/localization/store-finder-markets.json','../../data/localization/store-finder-markets.json','./data/localization/store-finder-markets.json']){
+      try{
+        const r = await fetch(url);
+        if(r && r.ok){
+          const d = await r.json();
+          const list = (d && d.markets) ? d.markets : [];
+          list.forEach(function(m){
+            if(m && m.market && m.coordinates && typeof m.coordinates.lat==='number' && typeof m.coordinates.lon==='number'){
+              marketCoords[m.market] = {lat:m.coordinates.lat, lon:m.coordinates.lon};
+            }
+          });
+          if(Object.keys(marketCoords).length){ console.log('[geo] loaded', Object.keys(marketCoords).length, 'market coordinates from', url); break; }
+        }
+      }catch(e){ /* file:// or offline — try next candidate, then no-op */ }
+    }
+  })();
+
+  function haversineMi(lat1, lon1, lat2, lon2){
+    var R = 3958.8, toRad = function(d){ return d*Math.PI/180; };
+    var dLat = toRad(lat2-lat1), dLon = toRad(lon2-lon1);
+    var a = Math.sin(dLat/2)*Math.sin(dLat/2) + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)*Math.sin(dLon/2);
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  }
+  function nearestMarket(lat, lon){
+    var best=null, bestD=Infinity;
+    Object.keys(marketCoords).forEach(function(mk){
+      var c = marketCoords[mk];
+      var d = haversineMi(lat, lon, c.lat, c.lon);
+      if(d < bestD){ bestD = d; best = mk; }
+    });
+    return best ? {market:best, miles:bestD} : null;
+  }
+
+  var geoBtn = document.getElementById('useMyLocation');
+  var geoStatus = document.getElementById('geoStatus');
+  function setGeoStatus(msg){ if(geoStatus) geoStatus.textContent = msg || ''; }
+  if(geoBtn){
+    geoBtn.addEventListener('click', function(){
+      if(!('geolocation' in navigator)){ setGeoStatus('Location unavailable — keeping Park City'); return; }
+      if(!Object.keys(marketCoords).length){ setGeoStatus('Location data unavailable — keeping Park City'); return; }
+      setGeoStatus('Locating\u2026');
+      navigator.geolocation.getCurrentPosition(
+        function(pos){
+          try{
+            var hit = nearestMarket(pos.coords.latitude, pos.coords.longitude);
+            if(hit){
+              selectMarket(hit.market);
+              var p = placeFor(hit.market);
+              setGeoStatus('Nearest market: ' + ((p && p.place) || hit.market) + ' (' + Math.round(hit.miles) + ' mi)');
+            } else {
+              setGeoStatus('No nearby market — keeping Park City');
+            }
+          }catch(e){ setGeoStatus('Location unavailable — keeping Park City'); }
+        },
+        function(){ setGeoStatus('Location unavailable — keeping Park City'); },
+        {enableHighAccuracy:false, timeout:8000, maximumAge:600000}
+      );
+    });
+  }
+
+  // ---- 3. add a location not in the curated list (client-side custom market) ----
+  var addLocInput = document.getElementById('addLocInput');
+  var addLocBtn = document.getElementById('addLocBtn');
+  var customSeq = 0;
+  function addCustomLocation(){
+    if(!addLocInput) return;
+    var raw = (addLocInput.value || '').trim();
+    if(!raw) return;
+    customSeq += 1;
+    var code = 'CUSTOM-' + customSeq;
+    // custom entry has no curated cue -> featured line blanks; no langs -> falls back to EN/ES/PT.
+    customMarkets.push({market:code, place:raw, cue:'', custom:true});
+    buildOptions();
+    selectMarket(code, {keepOpen:true});
+    addLocInput.value = '';
+    addLocInput.focus();
+  }
+  if(addLocBtn){ addLocBtn.addEventListener('click', addCustomLocation); }
+  if(addLocInput){
+    addLocInput.addEventListener('keydown', function(e){
+      if(e.key==='Enter'){ e.preventDefault(); addCustomLocation(); }
+    });
+  }
+
+  // ---- 4. add-your-own-asset (frontend staging only, no DAM upload) ----
+  // stages a pending asset chip and threads a marker into the brief so the generate path can read it.
+  var addAssetInput = document.getElementById('addAssetInput');
+  var pendingWrap = document.getElementById('pendingAssets');
+  var pendingSeq = 0;
+  window.__userAssets = window.__userAssets || [];
+  function refreshUserAssetMarker(){
+    // expose count for the generate path; also mark the create card so downstream can read it.
+    try{
+      var card = document.querySelector('[data-mcp="campaign-brief"]');
+      if(card){ card.setAttribute('data-user-assets', String(window.__userAssets.length)); }
+    }catch(e){}
+  }
+  function stagePendingAsset(file){
+    if(!file || !pendingWrap) return;
+    pendingSeq += 1;
+    var id = 'pending-asset-' + pendingSeq;
+    var rec = {id:id, name:file.name || 'asset', type:file.type || ''};
+    window.__userAssets.push(rec);
+    var chip = document.createElement('div');
+    chip.className = 'ff-pending-chip';
+    chip.id = id;
+    var thumb = document.createElement('img');
+    thumb.className = 'ff-pending-thumb';
+    thumb.alt = '';
+    try{ thumb.src = URL.createObjectURL(file); }catch(e){}
+    var nm = document.createElement('span');
+    nm.className = 'ff-pending-name';
+    nm.textContent = rec.name;
+    var rm = document.createElement('button');
+    rm.type = 'button';
+    rm.className = 'ff-pending-remove';
+    rm.setAttribute('aria-label', 'Remove staged asset ' + rec.name);
+    rm.textContent = '\u00d7';
+    rm.addEventListener('click', function(){
+      try{ if(thumb.src && thumb.src.indexOf('blob:')===0) URL.revokeObjectURL(thumb.src); }catch(e){}
+      window.__userAssets = window.__userAssets.filter(function(a){ return a.id!==id; });
+      if(chip.parentNode) chip.parentNode.removeChild(chip);
+      refreshUserAssetMarker();
+    });
+    chip.appendChild(thumb); chip.appendChild(nm); chip.appendChild(rm);
+    pendingWrap.appendChild(chip);
+    refreshUserAssetMarker();
+  }
+  if(addAssetInput){
+    addAssetInput.addEventListener('change', function(e){
+      var files = e.target && e.target.files ? e.target.files : [];
+      for(var i=0;i<files.length;i++){ stagePendingAsset(files[i]); }
+      // clear so re-selecting the same file re-fires change
+      try{ addAssetInput.value = ''; }catch(err){}
     });
   }
 
