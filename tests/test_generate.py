@@ -136,6 +136,26 @@ def test_default_scene_prompt_omits_raw_celebrity_token(monkeypatch) -> None:
     assert generate._THEME_PERSONA_MAP["zac-efron"] in prompt
 
 
+def test_safe_prompt_text_rewrites_incoming_celebrity_name() -> None:
+    # a client-built prompt embedding a real name is rewritten name-free, persona in,
+    # and the rest of the brief survives intact.
+    out = generate._safe_prompt_text(
+        "Zac Efron athletic-morning energy — high-protein pre-trail fuel, "
+        "aspirational active lifestyle. Keep It Wild."
+    )
+    assert "zac" not in out.lower()
+    assert "efron" not in out.lower()
+    assert generate._THEME_PERSONA_MAP["zac-efron"] in out
+    assert "Keep It Wild." in out
+    assert "pre-trail fuel" in out
+
+
+def test_safe_prompt_text_passes_through_when_no_celebrity() -> None:
+    # a prompt with no named person is returned unchanged.
+    brief = "wild mornings on the frontier — high-protein fuel. Keep It Wild."
+    assert generate._safe_prompt_text(brief) == brief
+
+
 # --------------------------------------------------------------- generate_hero seam
 def test_generate_hero_stability_primary_on_disk_seed(tmp_path: Path, monkeypatch) -> None:
     # a real disk seed + Stability success -> source is the stability tag, and the

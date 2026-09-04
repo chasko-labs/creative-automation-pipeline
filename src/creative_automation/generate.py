@@ -112,6 +112,33 @@ def _safe_theme_text(theme_slug: str) -> str:
         return persona
     return theme_slug.replace("-", " ")
 
+
+def _safe_prompt_text(prompt: str) -> str:
+    """Strip real celebrity names out of a free-text incoming prompt.
+
+    The frontend builds the prompt client-side and can embed a real person's display
+    name (e.g. "Zac Efron") verbatim. That name reaches Stability via brief_msg and
+    trips the content filter (finish_reasons:["Filter reason: prompt"]). For every
+    named-person slug in _THEME_PERSONA_MAP, replace the display name ("Zac Efron")
+    and the spaced-slug form ("zac efron") with the filter-safe persona text, matching
+    case-insensitively. Ordinary prompts with no named person pass through unchanged.
+    """
+    out = prompt
+    for slug, persona in _THEME_PERSONA_MAP.items():
+        words = slug.split("-")
+        display_name = " ".join(words).title()  # "zac-efron" -> "Zac Efron"
+        spaced_slug = " ".join(words)  # "zac efron"
+        for needle in (display_name, spaced_slug):
+            # case-insensitive replace without regex: scan lowercased copy for the span
+            lowered = out.lower()
+            target = needle.lower()
+            start = lowered.find(target)
+            while start != -1:
+                out = out[:start] + persona + out[start + len(needle):]
+                lowered = out.lower()
+                start = lowered.find(target)
+    return out
+
 # Where real source assets live on disk.
 _ASSET_ROOTS = (Path("input_assets"), Path("data/raw-ingest"))
 _ASSET_EXTS = (".png", ".jpg", ".jpeg", ".webp")
