@@ -1,0 +1,122 @@
+{
+  "map": {
+    "bears": {
+      "brief": "Bears + Keep It Wild — lean into the KODIAK Bear, wild frontier tone, protein for epic days.",
+      "caption": "Vital Ground corridor — grizzly tracks in meadow, Keep It Wild conservation, every stack protects habitat.",
+      "channel": "instagram",
+      "guardrail": "captive-bear-closeup excluded (PETA 2022): rows with captive/zoo/portrait caption cues and no offsetting wild-habitat context are penalized out; prefers trail/meadow/landscape/wild",
+      "image_file": "02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0386-54847b_ac7233.jpg",
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0386-54847b_ac7233.jpg",
+      "pool": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0386-54847b_ac7233.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/00313ed25c79--Kodiak-Zucchini-Oat-Muffin-9-545ab0_280bcd.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/001-05606-Kodiak_Cakes-Cups-Photoshop_Rework_Brownie-01_2c3938e5-63de-4af7-8e11-538bc87d1aef.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/013-_kodiakCakes_gut_27ac10bf-3235-46bf-bdfa-d49d02a5ebc4.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/0100aea6ca6c--20240711-Kodiak-Baked-Pizza-Muffins-0253-38a66c_c42c89.jpg"
+      ],
+      "score": 63.0,
+      "theme": "bears"
+    },
+    "keep-it-wild-program": {
+      "brief": "Keep It Wild program — brand campaign tying protein-packed whole grains to the outdoor frontier lifestyle.",
+      "caption": "Keep It Wild with Vital Ground — Wasatch wheat field alpenglow, grizzly corridor co-badge KODIAK · kodiakcakes.com · Keep It Wild.",
+      "channel": "instagram",
+      "image_file": "00313ed25c79--Kodiak-Zucchini-Oat-Muffin-9-545ab0_280bcd.jpg",
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/00313ed25c79--Kodiak-Zucchini-Oat-Muffin-9-545ab0_280bcd.jpg",
+      "pool": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/00313ed25c79--Kodiak-Zucchini-Oat-Muffin-9-545ab0_280bcd.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0386-54847b_ac7233.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/001-05606-Kodiak_Cakes-Cups-Photoshop_Rework_Brownie-01_2c3938e5-63de-4af7-8e11-538bc87d1aef.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/0100aea6ca6c--20240711-Kodiak-Baked-Pizza-Muffins-0253-38a66c_c42c89.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/00ed49a3920f--3-camping-granola-e4fa8d_53fe72.jpg"
+      ],
+      "score": 36.0,
+      "theme": "keep-it-wild-program"
+    },
+    "localized-costco": {
+      "brief": "Localized Costco campaign — bulk Family Size value for the warehouse aisle, Park City / Wasatch Back framing.",
+      "caption": "Corner pocket pantry — membership bulk stack, Costco frontier family, enough for the whole week.",
+      "channel": "instagram",
+      "image_file": "0272fd970269--2-09b132_e70c8e.jpg",
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/0272fd970269--2-09b132_e70c8e.jpg",
+      "pool": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/0272fd970269--2-09b132_e70c8e.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/01ab36da4a86--20240611-Kodiak-Cast-Iron-Pizza-0095-b5d307_8a078e.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/00313ed25c79--Kodiak-Zucchini-Oat-Muffin-9-545ab0_280bcd.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/00ed49a3920f--3-camping-granola-e4fa8d_53fe72.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/0272fd970269--3-74d19e_a98f09.jpg"
+      ],
+      "score": 45.0,
+      "theme": "localized-costco"
+    },
+    "recipe-cards": {
+      "brief": "Recipe cards for Park City families — protein-packed whole grain recipes styled as shareable cards. Keep It Wild.",
+      "caption": "06ca7afee296  Web Recipes from Social Target Spring Mix Recipe Raspberry Almond Poppy Seed Cake 0226 0da51a59",
+      "channel": "catalog",
+      "image_file": "06ca7afee296--Web-Recipes-from-Social-Target-Spring-Mix-Recipe-Raspberry-Almond-Poppy-Seed-Cake-0226_0da51a59.jpg",
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/06ca7afee296--Web-Recipes-from-Social-Target-Spring-Mix-Recipe-Raspberry-Almond-Poppy-Seed-Cake-0226_0da51a59.jpg",
+      "pool": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/06ca7afee296--Web-Recipes-from-Social-Target-Spring-Mix-Recipe-Raspberry-Almond-Poppy-Seed-Cake-0226_0da51a59.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/06ca7afee296--Web-Recipes-from-Social-Target-Spring-Mix-Recipe-Raspberry-Almond-Poppy-Seed-Cake-0226_3fba1a60.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/06ca7afee296--Web-Recipes-from-Social-Target-Spring-Mix-Recipe-Raspberry-Almond-Poppy-Seed-Cake-0226_81cc6ef0.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/06ca7afee296--Web-Recipes-from-Social-Target-Spring-Mix-Recipe-Raspberry-Almond-Poppy-Seed-Cake-0226_a3a112da.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/06ca7afee296--Web-Recipes-from-Social-Target-Spring-Mix-Recipe-Raspberry-Almond-Poppy-Seed-Cake-0226_d8542322.jpg"
+      ],
+      "score": 8.4,
+      "theme": "recipe-cards"
+    },
+    "riff-on-past-content": {
+      "brief": "Riff on past content — remix our existing heroes into fresh variants across all three ratios.",
+      "caption": "Fuel your frontier with 14g protein and 100% whole grains — Wasatch dawn, cast-iron stack on pine table.",
+      "channel": "instagram",
+      "image_file": "001-05606-Kodiak_Cakes-Cups-Photoshop_Rework_Brownie-01_2c3938e5-63de-4af7-8e11-538bc87d1aef.jpg",
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/001-05606-Kodiak_Cakes-Cups-Photoshop_Rework_Brownie-01_2c3938e5-63de-4af7-8e11-538bc87d1aef.jpg",
+      "pool": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/001-05606-Kodiak_Cakes-Cups-Photoshop_Rework_Brownie-01_2c3938e5-63de-4af7-8e11-538bc87d1aef.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/030de2bb33a9--20240724-Kodiak-Cinnamon-Chocolate-Chip-Scones-0098-b1b30d_34c81a.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/00ed49a3920f--3-camping-granola-e4fa8d_53fe72.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0386-54847b_ac7233.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/030de2bb33a9--20240724-Kodiak-Cinnamon-Chocolate-Chip-Scones-0091-6ad4f0_5e97c3.jpg"
+      ],
+      "score": 30.0,
+      "theme": "riff-on-past-content"
+    },
+    "zac-efron": {
+      "brief": "Zac Efron athletic-morning energy — high-protein pre-trail fuel, aspirational active lifestyle. Keep It Wild.",
+      "caption": "2023 Outdoor Cooking Family Lifestyle 2051 fe0443fc 5504 4627 a3dd d35d4ce3508f",
+      "channel": "catalog",
+      "image_file": "2023-Outdoor-Cooking-Family-Lifestyle-2051_fe0443fc-5504-4627-a3dd-d35d4ce3508f.jpg",
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/2023-Outdoor-Cooking-Family-Lifestyle-2051_fe0443fc-5504-4627-a3dd-d35d4ce3508f.jpg",
+      "pool": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2023-Outdoor-Cooking-Family-Lifestyle-2051_fe0443fc-5504-4627-a3dd-d35d4ce3508f.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2020.6_Karissa_Schweizer_Athlete-769.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2020.9_Emily_Harrington_Athlete-187.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2020.9_Emily_Harrington_Athlete-305.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2023-Cooking-with-Zac-2636_1_59086e86-8776-4fbe-980a-9167bc5e19fb.jpg"
+      ],
+      "score": 58.4,
+      "theme": "zac-efron"
+    }
+  },
+  "metadata": {
+    "channel_distribution": {
+      "catalog": 2,
+      "instagram": 4
+    },
+    "generated": "deterministic",
+    "model_note": "deterministic keyword+metadata overlap scoring (no vector cosine); each theme scored against a fixed match-token set over caption/hashtags/image_file, channel-weighted toward blog/instagram lifestyle over catalog pack-shots; bears theme applies a negative captive-bear-closeup guardrail; zac-efron theme applies an additive athlete/lifestyle filename boost so real licensed brand-athlete photography ranks first (rights-clean, no likeness synthesis); primaries are globally de-duped in a fixed priority order (zac-efron first, then alphabetical) so all themes carry distinct primary photo_keys; top-1 + up to 4 fallbacks per theme, all reconciled to real DAM keys",
+    "pool_size": 5,
+    "reconciled_to_real_keys": true,
+    "source": {
+      "embeddings": "data/vectors/kodiak-embeddings.jsonl"
+    },
+    "themes": [
+      "zac-efron",
+      "bears",
+      "recipe-cards",
+      "localized-costco",
+      "riff-on-past-content",
+      "keep-it-wild-program"
+    ]
+  }
+}
