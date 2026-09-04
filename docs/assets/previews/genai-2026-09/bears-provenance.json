@@ -1,0 +1,17 @@
+{
+  "seed_source": "02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0386-54847b_ac7233",
+  "seed_selection": "theme-photo",
+  "engine": "stability-control-structure",
+  "scene_prompt": "Forest clearing with Kodiak bear cub, golden hour light, earthy tones, wild adventure mood.",
+  "control_strength": 0.7,
+  "model": "us.stability.stable-image-control-structure-v1:0",
+  "incoming_prompt": "Bears + Keep It Wild \u2014 lean into the KODIAK Bear, wild frontier tone, protein for epic days.",
+  "headline": "Fuel your wild side.",
+  "overlay_applied": true,
+  "paper_overlay": true,
+  "ratios": {
+    "1x1": "primary",
+    "4x5": "pillow-outpaint-fallback",
+    "2x3": "pillow-outpaint-fallback"
+  }
+}
