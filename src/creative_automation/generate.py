@@ -88,6 +88,30 @@ _THEME_ASSET_MAP_PATH = Path(__file__).parents[2] / "data" / "products" / "theme
 _scrim_hex = "#1A1110CC"  # tokens kodiak.color.semantic.overlay.scrim (warm ink)
 _accent_hex = "#E8530E"  # tokens kodiak.color.brand.blazeOrange
 
+# Persona sanitization: a theme slug naming a real person is REJECTED by Stability's
+# content filter (finish_reasons:["Filter reason: prompt"]) and by extension poisons
+# any Nova Pro scene prompt that echoes it. Map named-person slugs to a filter-safe
+# descriptive persona so the raw name NEVER reaches a prompt. Ordinary theme slugs
+# fall through to the plain slug-to-words form. Add entries as new named-person themes
+# appear — each is a one-line slug -> persona mapping. This map is PROMPT-ONLY; the
+# theme-asset-map seed-photo selection stays keyed on the raw slug (unchanged).
+_THEME_PERSONA_MAP: dict[str, str] = {
+    "zac-efron": "energetic athletic young man, morning-fitness lifestyle vibe",
+}
+
+
+def _safe_theme_text(theme_slug: str) -> str:
+    """Return prompt-safe descriptive text for a theme slug.
+
+    A named-person slug maps to its filter-safe persona (no real name); any other slug
+    falls back to the plain slug-to-words form. Only text destined for a PROMPT passes
+    through here — seed-photo selection remains keyed on the raw slug.
+    """
+    persona = _THEME_PERSONA_MAP.get(theme_slug)
+    if persona is not None:
+        return persona
+    return theme_slug.replace("-", " ")
+
 # Where real source assets live on disk.
 _ASSET_ROOTS = (Path("input_assets"), Path("data/raw-ingest"))
 _ASSET_EXTS = (".png", ".jpg", ".jpeg", ".webp")
@@ -388,9 +412,9 @@ def _nova_pro_scene_prompt(
     control-structure conditioning. Falls back to a deterministic brief/theme-derived
     prompt on any Nova Pro failure so the Stability call always has a usable prompt.
     """
-    theme_hint = f" Theme: {theme.replace('-', ' ')}." if theme else ""
+    theme_hint = f" Theme: {_safe_theme_text(theme)}." if theme else ""
     default_prompt = (
-        f"{product_name} product photo restyled for {theme.replace('-', ' ') if theme else brief_msg}, "
+        f"{product_name} product photo restyled for {_safe_theme_text(theme) if theme else brief_msg}, "
         f"{region} {audience}, on-brand Kodiak lifestyle scene, natural light, high detail"
     ).strip()
     if boto3 is None:
@@ -479,7 +503,11 @@ def _stability_control_hero(seed: Path, prompt: str, out_path: Path) -> Optional
         payload = json.loads(resp["body"].read())
         images = payload.get("images") or []
         if not images:
-            print(f"[generate] stability returned no images: keys={list(payload)}", file=sys.stderr)
+            print(
+                f"[generate] stability returned no images: "
+                f"finish_reasons={payload.get('finish_reasons')} keys={list(payload)}",
+                file=sys.stderr,
+            )
             return None
         out_path.parent.mkdir(parents=True, exist_ok=True)
         out_path.write_bytes(base64.b64decode(images[0]))

@@ -113,6 +113,29 @@ def test_stability_returns_none_on_client_error(tmp_path: Path, monkeypatch) -> 
     assert generate._stability_control_hero(seed, "p", tmp_path / "o.png") is None
 
 
+# --------------------------------------------------------------- persona sanitization
+def test_safe_theme_text_maps_celebrity_to_name_free_persona() -> None:
+    # a named-person slug maps to its filter-safe persona; the raw name is gone.
+    persona = generate._safe_theme_text("zac-efron")
+    assert persona == generate._THEME_PERSONA_MAP["zac-efron"]
+    assert "zac" not in persona.lower()
+    assert "efron" not in persona.lower()
+    # an ordinary slug falls through to the plain slug-to-words form
+    assert generate._safe_theme_text("wild-frontier") == "wild frontier"
+
+
+def test_default_scene_prompt_omits_raw_celebrity_token(monkeypatch) -> None:
+    # with boto3 unavailable the deterministic default prompt is built directly — the
+    # raw celebrity token must NOT appear; the persona text must.
+    monkeypatch.setattr(generate, "boto3", None)
+    prompt = generate._nova_pro_scene_prompt(
+        Path("seed.png"), "Power Cakes", "wild mornings", "us", "active families", "zac-efron"
+    )
+    assert "zac" not in prompt.lower()
+    assert "efron" not in prompt.lower()
+    assert generate._THEME_PERSONA_MAP["zac-efron"] in prompt
+
+
 # --------------------------------------------------------------- generate_hero seam
 def test_generate_hero_stability_primary_on_disk_seed(tmp_path: Path, monkeypatch) -> None:
     # a real disk seed + Stability success -> source is the stability tag, and the
