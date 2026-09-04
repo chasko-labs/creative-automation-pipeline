@@ -43,6 +43,15 @@ STABILITY_CONTROL_MODEL = os.getenv(
 # How strongly the seed composition constrains the restyle (0..1). ~0.7 keeps the
 # product recognizable while letting the theme drive color/lighting/scene.
 STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.7"))
+# Stability outpaint is invoked via its INFERENCE-PROFILE id (bare stability.* raises
+# ValidationException). Confirmed ACTIVE + AUTHORIZED + AVAILABLE in us-east-1. The
+# taller ratios (4x5, 2x3) are DERIVED from the 1x1 control-structure hero via outpaint
+# — one restyle call plus two extend calls, cheaper than three full restyles and keeps
+# the subject consistent across sizes. Schema mirrors control-structure (Stability's
+# {prompt, image, left/right/up/down, output_format} — NOT Nova's taskType).
+STABILITY_OUTPAINT_MODEL = os.getenv(
+    "BEDROCK_STABILITY_OUTPAINT_MODEL", "us.stability.stable-outpaint-v1:0"
+)
 # Stability seed constraint: total pixels 4096..9437184, each dim >= 64. A real
 # 1024x1024 DAM photo sits well inside the range; a seed below the floor in either
 # dim is upscaled to 1024x1024 before invoke to avoid a ValidationException.
@@ -70,9 +79,17 @@ _CANVAS = {
     "1x1": (1080, 1080),
     "9x16": (1080, 1920),
     "16x9": (1920, 1080),
+    # Delivery ratios (backlog item4): the frontend promises three sizes. 4x5 is the
+    # portrait feed render, 2x3 the story/pin render. Both are DERIVED from the 1x1
+    # hero via Stability outpaint (see generate_hero_set), so they share its subject.
+    "4x5": (1080, 1350),
+    "2x3": (1000, 1500),
 }
+# The three delivery ratios returned by generate_hero_set, in response order. The 1x1
+# is the primary (also mirrored to the top-level image_url for frontend back-compat).
+_DELIVERY_RATIOS = ("1x1", "4x5", "2x3")
 # Per-ratio headline slab size (C06: 56/64/72).
-_HEADLINE_PX = {"1x1": 56, "9x16": 64, "16x9": 72}
+_HEADLINE_PX = {"1x1": 56, "9x16": 64, "16x9": 72, "4x5": 60, "2x3": 64}
 
 # sku-photo-map: catalog handle -> best real lifestyle DAM key (full key, NOT under
 # the dam/ prefix). Loaded once; the file ships in the deployment (Lambda-safe).
@@ -548,6 +565,166 @@ def _stability_control_hero(seed: Path, prompt: str, out_path: Path) -> Optional
         return None
 
 
+def _stability_outpaint(
+    base_png: Path, target_w: int, target_h: int, prompt: str, out_path: Path
+) -> Optional[Path]:
+    """Extend base_png to (target_w, target_h) via Bedrock Stability outpaint.
+
+    PART B — derive the taller delivery ratios (4x5, 2x3) from the 1x1 control-structure
+    hero so the subject stays consistent and only one restyle call is spent. Invokes the
+    us.stability.stable-outpaint-v1:0 inference profile with Stability's edit schema
+    ({prompt, image, left/right/up/down, output_format}) — NOT Nova's taskType. The
+    left/right/up/down are pixel deltas added to each edge; here the base is centered so
+    horizontal/vertical growth splits evenly across the two opposing edges. Decodes
+    images[0] (base64 PNG) to out_path. Returns the path on success, None on any failure
+    (the caller then falls back to a Pillow cover-pad of the same base — see
+    _pillow_outpaint_fallback). Seed dims must stay in Stability's range (>=64/dim,
+    4096..9437184 total px); the 1080x1080 hero and the modest deltas sit well inside.
+    """
+    if boto3 is None:
+        print("[generate] outpaint skipped: boto3 unavailable", file=sys.stderr)
+        return None
+    try:
+        base = Image.open(base_png).convert("RGB")
+        bw, bh = base.size
+        # Only ever GROW: negative deltas are clamped to 0 (outpaint extends, never crops).
+        dw = max(target_w - bw, 0)
+        dh = max(target_h - bh, 0)
+        left = dw // 2
+        right = dw - left
+        up = dh // 2
+        down = dh - up
+        if left == right == up == down == 0:
+            # already at/over target in both dims — nothing to extend.
+            return None
+        from io import BytesIO
+
+        buf = BytesIO()
+        base.save(buf, "PNG")
+        image_b64 = base64.b64encode(buf.getvalue()).decode("ascii")
+        client = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
+        body = {
+            "prompt": prompt,
+            "image": image_b64,
+            "left": left,
+            "right": right,
+            "up": up,
+            "down": down,
+            "output_format": "png",
+        }
+        resp = client.invoke_model(
+            modelId=STABILITY_OUTPAINT_MODEL,
+            body=json.dumps(body),
+            contentType="application/json",
+            accept="application/json",
+        )
+        payload = json.loads(resp["body"].read())
+        images = payload.get("images") or []
+        if not images:
+            print(
+                f"[generate] outpaint returned no images: "
+                f"finish_reasons={payload.get('finish_reasons')} keys={list(payload)}",
+                file=sys.stderr,
+            )
+            return None
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_bytes(base64.b64decode(images[0]))
+        # Stability may return exact target or its own rounded dims; normalize to target.
+        if out_path.exists():
+            fitted = ImageOps.fit(
+                Image.open(out_path).convert("RGB"),
+                (target_w, target_h),
+                method=Image.BICUBIC,
+                centering=(0.5, 0.5),
+            )
+            fitted.save(out_path, "PNG")
+            return out_path
+        return None
+    except ClientError as e:  # surface the exact error code — never swallow AccessDenied
+        code = e.response.get("Error", {}).get("Code", "Unknown")
+        print(f"[generate] outpaint ClientError [{code}]: {e}", file=sys.stderr)
+        return None
+    except (BotoCoreError, Exception) as e:  # noqa: BLE001 — non-AWS failures fall through
+        print(f"[generate] outpaint failed: {e}", file=sys.stderr)
+        return None
+
+
+def _pillow_outpaint_fallback(base_png: Path, target_w: int, target_h: int, out_path: Path) -> Path:
+    """Smart cover-fit of the 1x1 hero to a taller ratio when outpaint is unavailable.
+
+    PART B fallback — cover-fit keeps the subject centered and fills the taller frame
+    without letterbox bars (some crop of the long edge is accepted). The caller marks
+    provenance engine "pillow-outpaint-fallback" so the response never claims a GenAI
+    extend happened when it did not.
+    """
+    fitted = ImageOps.fit(
+        Image.open(base_png).convert("RGB"),
+        (target_w, target_h),
+        method=Image.BICUBIC,
+        centering=(0.5, 0.5),
+    )
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    fitted.save(out_path, "PNG")
+    return out_path
+
+
+# --------------------------------------------------------------- kraft-paper texture
+# PART D — a deterministic brown-paper-bag grain baked into every final render at ~2%.
+# Pillow-only (numpy is not a core dependency), fixed-seed so output is byte-reproducible
+# and testable. Warm kraft base ~#C8A97E + low-amplitude per-pixel noise + sparse fibrous
+# specks. To dump a reusable 512x512 tile for the web side to load, run:
+#     python -c "from creative_automation.generate import _kraft_texture; \
+#                _kraft_texture(512, 512).save('kraft-512.png')"
+_KRAFT_BASE = (200, 169, 126)  # ~#C8A97E warm kraft
+_KRAFT_SEED = 20260101  # fixed so _kraft_texture(w,h) is deterministic across runs
+
+
+def _kraft_texture(w: int, h: int) -> Image.Image:
+    """Synthesize a deterministic subtle brown-paper-bag texture tile (RGB, w x h).
+
+    Fixed-seed low-amplitude luminance noise over a warm kraft base plus a handful of
+    slightly darker fibrous specks. Deterministic: same (w, h) -> identical bytes, so
+    it is testable and reproducible. Pillow + stdlib random only, no numpy.
+    """
+    import random
+
+    rng = random.Random(_KRAFT_SEED)
+    img = Image.new("RGB", (w, h), _KRAFT_BASE)
+    px = img.load()
+    br, bg, bb = _KRAFT_BASE
+    # per-pixel low-amplitude grain (+-10 luminance) — the paper-fiber tone variation.
+    for y in range(h):
+        for x in range(w):
+            n = rng.randint(-10, 10)
+            px[x, y] = (
+                max(0, min(255, br + n)),
+                max(0, min(255, bg + n)),
+                max(0, min(255, bb + n)),
+            )
+    # sparse fibrous specks: ~1 per 900 px, a touch darker, 1px, for the bag grain.
+    draw = ImageDraw.Draw(img)
+    speck_count = max(1, (w * h) // 900)
+    for _ in range(speck_count):
+        sx = rng.randint(0, w - 1)
+        sy = rng.randint(0, h - 1)
+        d = rng.randint(18, 34)
+        draw.point((sx, sy), fill=(max(0, br - d), max(0, bg - d), max(0, bb - d)))
+    return img
+
+
+def _apply_paper_overlay(img: Image.Image, opacity: float = 0.02) -> Image.Image:
+    """Blend the kraft texture over img at a very slight opacity (~2%). Returns RGB.
+
+    PART D — the final step on every returned render (1x1, 4x5, 2x3; stability + pillow
+    paths). "Very slight, like 2% visible": alpha ~0.02-0.03, so the texture reads as a
+    faint paper tooth, not a wash. Same-size output as input (the texture is generated
+    at the image's own dimensions). Deterministic given the deterministic _kraft_texture.
+    """
+    base = img.convert("RGB")
+    tex = _kraft_texture(base.width, base.height)
+    return Image.blend(base, tex, max(0.0, min(1.0, opacity)))
+
+
 def _parse_layout(caption: str) -> tuple[str, str]:
     """Split Nova Pro text into (headline, side) where side in {left,right,center}."""
     headline, side = "", "center"
@@ -586,30 +763,24 @@ def _wrap_headline(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTyp
     return lines[:3]
 
 
-def _compose_scene(
-    photo: Path,
+def _apply_brand_overlay(
+    base_img_path: Path,
     headline: str,
     ratio: str,
     out_path: Path,
-    idx: int = 0,
 ) -> Path:
-    """Scene-integration composer per social-3ratio.json. The real photo is the hero.
+    """Draw only the deterministic Kodiak brand elements on top of an existing image.
 
-    C01 real photo COVER-fits the full canvas (ImageOps.fit BICUBIC) + a dark scrim
-    blend (~0.18) for legibility — this REPLACES the ellipse entirely, no solid-color
-    background anywhere on this path. C04 semi-transparent dark message bar ~32% tall
-    anchored at 68% down with the centered white headline (max 3 lines, per-ratio font
-    56/64/72). C03 8px Blaze Orange accent bar pinned to the very bottom. No Kodiak
-    logo/wordmark is stamped — Kodiak campaigns carry no logo per brand preference.
+    PART C — the on-brand layer, extracted so it can composite over EITHER a Stability
+    GenAI hero (the image is already the background — no cover-fit, no scrim) OR the
+    Pillow scene composer (which supplies its own cover-fit + scrim first). Draws:
+    C04 the ~32% dark message bar at 68% down with the centered wrapped white headline
+    (per-ratio font), and C03 the 8px Blaze Orange accent bar pinned to the bottom.
+    Never resizes the incoming image — the base is opened and drawn on at its own size.
+    No Kodiak logo/wordmark (brand preference).
     """
-    W, H = _CANVAS.get(ratio, _CANVAS["1x1"])
-
-    # C01 — real lifestyle photo fills the frame as cover background.
-    src_img = Image.open(photo).convert("RGB")
-    cover = ImageOps.fit(src_img, (W, H), method=Image.BICUBIC, centering=(0.5, 0.5))
-    scrim = Image.new("RGB", (W, H), _hex_to_rgb(_scrim_hex))
-    canvas = Image.blend(cover, scrim, 0.18)
-    canvas = canvas.convert("RGBA")
+    canvas = Image.open(base_img_path).convert("RGBA")
+    W, H = canvas.size
     draw = ImageDraw.Draw(canvas)
 
     # C04 — message bar: semi-transparent dark band ~32% tall anchored at 68% down.
@@ -645,6 +816,37 @@ def _compose_scene(
     return out_path
 
 
+def _compose_scene(
+    photo: Path,
+    headline: str,
+    ratio: str,
+    out_path: Path,
+    idx: int = 0,
+) -> Path:
+    """Scene-integration composer per social-3ratio.json. The real photo is the hero.
+
+    C01 real photo COVER-fits the full canvas (ImageOps.fit BICUBIC) + a dark scrim
+    blend (~0.18) for legibility — this REPLACES the ellipse entirely, no solid-color
+    background anywhere on this path. The message bar + headline + Blaze Orange accent
+    bar are then drawn by the shared _apply_brand_overlay (PART C) so the pure-Pillow
+    path and the Stability-hero path share one deterministic brand layer. No Kodiak
+    logo/wordmark is stamped — Kodiak campaigns carry no logo per brand preference.
+    """
+    W, H = _CANVAS.get(ratio, _CANVAS["1x1"])
+
+    # C01 — real lifestyle photo fills the frame as cover background + dark scrim.
+    src_img = Image.open(photo).convert("RGB")
+    cover = ImageOps.fit(src_img, (W, H), method=Image.BICUBIC, centering=(0.5, 0.5))
+    scrim = Image.new("RGB", (W, H), _hex_to_rgb(_scrim_hex))
+    canvas = Image.blend(cover, scrim, 0.18)
+
+    # Write the scrimmed background, then delegate the deterministic brand layer to the
+    # shared overlay so Stability heroes get the exact same message bar + accent bar.
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    canvas.save(out_path, "PNG")
+    return _apply_brand_overlay(out_path, headline, ratio, out_path)
+
+
 def generate_hero(
     product_id: str,
     product_name: str,
@@ -655,8 +857,10 @@ def generate_hero(
     idx: int = 0,
     ratio: str = "1x1",
     theme: str | None = None,
-) -> tuple[Path, str]:
-    """Generate a real Kodiak-social-style hero. Returns (path, source).
+    brand_overlay: bool = True,
+    paper_overlay: bool = True,
+) -> tuple[Path, str, dict]:
+    """Generate a real Kodiak-social-style hero. Returns (path, source, provenance).
 
     Seed resolution (which real photo becomes the mode-3 seed), theme wins:
     0. theme provided AND _resolve_theme_photo(theme) resolves -> that thematic DAM
@@ -668,12 +872,19 @@ def generate_hero(
 
     Image engine seam (mode-3, run once on the resolved seed):
     1. Stability control-structure restyles the seed to the theme -> the theme lands
-       in the pixels. Source "bedrock:stability-control-structure".
+       in the pixels. Source "bedrock:stability-control-structure". PART C then layers
+       the deterministic on-brand headline + accent bar over the GenAI hero (the win is
+       Pillow brand elements ON TOP of the GenAI image, not instead of it).
     2. Stability returns None (unavailable / AccessDenied — exact code already logged,
        never swallowed) -> Pillow _compose_scene on the SAME seed. Source
        "bedrock:nova-pro" (unchanged existing behavior).
     3. no seed at all -> _mock_hero (true last resort). Source
        "bedrock:nova-pro-fallback". No "mock"/"preview" reaches the UI.
+
+    PART A — provenance: a JSON-serializable dict explaining what was provided vs what
+    was done. PART C — brand_overlay (default-on) composites the deterministic brand
+    layer over the Stability hero. PART D — paper_overlay (default-on) bakes the ~2%
+    kraft texture into the FINAL render on every path.
     """
     if ratio not in _CANVAS:
         ratio = "1x1"
@@ -682,6 +893,21 @@ def generate_hero(
         caption = _nova_pro_caption(src, product_name, brief_msg, region, audience) or ""
         headline, _side = _parse_layout(caption)
         return headline or brief_msg[:48]
+
+    # PART A — provenance accumulator. Populated as the seed + engine paths resolve so
+    # the response can explain "what was provided vs what was done to make this image".
+    provenance: dict = {
+        "seed_source": None,
+        "seed_selection": "none",
+        "engine": None,
+        "scene_prompt": None,
+        "control_strength": None,
+        "model": None,
+        "incoming_prompt": brief_msg,
+        "headline": None,
+        "overlay_applied": False,
+        "paper_overlay": False,
+    }
 
     # ---- seed resolution: theme photo, else sku-mapped DAM photo, else disk asset.
     seed: Optional[Path] = None
@@ -695,6 +921,8 @@ def generate_hero(
                 photo = fetch_dam_key(theme_key, dest)
                 if photo is not None and photo.exists():
                     seed = photo
+                    provenance["seed_selection"] = "theme-photo"
+                    provenance["seed_source"] = Path(theme_key).stem
             except Exception as e:  # noqa: BLE001 — falls through to product precedence
                 print(f"[generate] theme seed fetch failed: {e}", file=sys.stderr)
     if seed is None:
@@ -707,28 +935,170 @@ def generate_hero(
                 photo = fetch_dam_key(photo_key, dest)
                 if photo is not None and photo.exists():
                     seed = photo
+                    provenance["seed_selection"] = "sku-mapped-dam"
+                    provenance["seed_source"] = Path(photo_key).stem
             except Exception as e:  # noqa: BLE001 — falls through to disk
                 print(f"[generate] sku-mapped seed fetch failed: {e}", file=sys.stderr)
     if seed is None:
         disk = _find_source_asset(product_id, product_name)
         if disk is not None and disk.exists():
             seed = disk
+            provenance["seed_selection"] = "disk-asset"
+            provenance["seed_source"] = disk.stem
 
     # ---- mode-3 image engine seam: real seed -> Stability restyle, else Pillow compose.
     if seed is not None:
         scene_prompt = _nova_pro_scene_prompt(seed, product_name, brief_msg, region, audience, theme)
+        provenance["scene_prompt"] = scene_prompt
         stylized = _stability_control_hero(seed, scene_prompt, out_path)
         if stylized is not None and stylized.exists():
-            return stylized, STABILITY_SOURCE
+            provenance["engine"] = "stability-control-structure"
+            provenance["control_strength"] = STABILITY_CONTROL_STRENGTH
+            provenance["model"] = STABILITY_CONTROL_MODEL
+            # PART C — the win: deterministic on-brand headline + accent bar ON TOP of
+            # the GenAI hero (Nova Pro still supplies the headline). Default-on.
+            if brand_overlay:
+                try:
+                    headline = _headline(seed)
+                    _apply_brand_overlay(stylized, headline, ratio, stylized)
+                    provenance["overlay_applied"] = True
+                    provenance["headline"] = headline
+                except Exception as e:  # noqa: BLE001 — never lose the GenAI hero over the overlay
+                    print(f"[generate] brand overlay on stability hero failed: {e}", file=sys.stderr)
+            _finalize_render(stylized, paper_overlay, provenance)
+            return stylized, STABILITY_SOURCE, provenance
         # Stability unavailable — the exact error was already logged (AccessDenied is a
         # Bryan SSO refresh issue, never swallowed). Downgrade to the Pillow composite.
         try:
-            result = _compose_scene(seed, _headline(seed), ratio, out_path, idx)
+            headline = _headline(seed)
+            result = _compose_scene(seed, headline, ratio, out_path, idx)
             if result.exists():
-                return result, "bedrock:nova-pro"
+                provenance["engine"] = "pillow-compose"
+                provenance["model"] = "pillow:compose-scene"
+                provenance["overlay_applied"] = True  # _compose_scene bakes the brand layer
+                provenance["headline"] = headline
+                _finalize_render(result, paper_overlay, provenance)
+                return result, "bedrock:nova-pro", provenance
         except Exception as e:  # noqa: BLE001 — falls through to placeholder
             print(f"[generate] scene compose on seed failed: {e}", file=sys.stderr)
 
     # ---- true last resort — no seed at all. Deterministic placeholder, non-lying label.
     placeholder = _mock_hero(product_name, brief_msg, region, out_path, idx)
-    return placeholder, FALLBACK_SOURCE
+    provenance["engine"] = "mock-placeholder"
+    provenance["model"] = "pillow:mock-hero"
+    _finalize_render(placeholder, paper_overlay, provenance)
+    return placeholder, FALLBACK_SOURCE, provenance
+
+
+def _finalize_render(path: Path, paper_overlay: bool, provenance: dict) -> None:
+    """PART D final step — bake the ~2% kraft texture into a render in place.
+
+    Applies to every returned render on every path (stability, pillow, placeholder).
+    Records paper_overlay=True in provenance on success. Never raises past the render —
+    a texture failure must not lose the hero.
+    """
+    if not paper_overlay:
+        return
+    try:
+        finished = _apply_paper_overlay(Image.open(path).convert("RGB"))
+        finished.save(path, "PNG")
+        provenance["paper_overlay"] = True
+    except Exception as e:  # noqa: BLE001 — texture is cosmetic; never lose the hero over it
+        print(f"[generate] paper overlay failed: {e}", file=sys.stderr)
+
+
+def generate_hero_set(
+    product_id: str,
+    product_name: str,
+    brief_msg: str,
+    region: str,
+    audience: str,
+    out_dir: Path,
+    theme: str | None = None,
+    brand_overlay: bool = True,
+    paper_overlay: bool = True,
+) -> tuple[list[dict], str, dict]:
+    """Deliver all three sizes (backlog item4) from ONE call. Returns (renders, source, provenance).
+
+    Design (PART B): the primary 1x1 is generated once (clean, no overlays) so it can
+    seed the two taller ratios via Stability outpaint — one restyle plus two extend
+    calls, cheaper than three full restyles and keeps the subject consistent. 4x5 and
+    2x3 are derived from that clean 1x1 base. After sizing, the deterministic brand
+    layer (PART C) + the ~2% kraft texture (PART D) are applied uniformly to all three.
+
+    renders: [{ratio, path, w, h, engine}, ...] in _DELIVERY_RATIOS order. The caller
+    (handler) uploads each and builds the response renders[] + the top-level image_url
+    back-compat = the 1x1 url. Provenance is one object for the whole set, noting which
+    ratios came from outpaint vs the pillow-outpaint-fallback.
+    """
+    # Clean 1x1 base: engine runs once, overlays OFF, so the base is a pristine hero to
+    # outpaint from (overlays are applied per-ratio below, after sizing).
+    base_path = out_dir / "hero-1x1-base.png"
+    base_path.parent.mkdir(parents=True, exist_ok=True)
+    clean_base, source, provenance = generate_hero(
+        product_id=product_id,
+        product_name=product_name,
+        brief_msg=brief_msg,
+        region=region,
+        audience=audience,
+        out_path=base_path,
+        idx=0,
+        ratio="1x1",
+        theme=theme,
+        brand_overlay=False,
+        paper_overlay=False,
+    )
+
+    scene_prompt = provenance.get("scene_prompt") or brief_msg
+    headline = _headline_for(clean_base, product_name, brief_msg, region, audience)
+    provenance["headline"] = headline if brand_overlay else None
+    provenance["ratios"] = {}
+
+    renders: list[dict] = []
+    for ratio in _DELIVERY_RATIOS:
+        target_w, target_h = _CANVAS[ratio]
+        ratio_path = out_dir / f"hero-{ratio}.png"
+        if ratio == "1x1":
+            # the primary is the clean base at its native square — copy forward.
+            ImageOps.fit(
+                Image.open(clean_base).convert("RGB"),
+                (target_w, target_h),
+                method=Image.BICUBIC,
+                centering=(0.5, 0.5),
+            ).save(ratio_path, "PNG")
+            ratio_engine = "primary"
+        else:
+            # derive the taller ratio via Stability outpaint from the clean 1x1 base.
+            extended = _stability_outpaint(clean_base, target_w, target_h, scene_prompt, ratio_path)
+            if extended is not None and extended.exists():
+                ratio_engine = "stability-outpaint"
+            else:
+                # outpaint unavailable/failed -> smart cover-pad the primary hero.
+                _pillow_outpaint_fallback(clean_base, target_w, target_h, ratio_path)
+                ratio_engine = "pillow-outpaint-fallback"
+
+        # PART C — deterministic brand layer over each sized render (default-on).
+        if brand_overlay:
+            try:
+                _apply_brand_overlay(ratio_path, headline, ratio, ratio_path)
+            except Exception as e:  # noqa: BLE001 — never lose the render over the overlay
+                print(f"[generate] brand overlay on {ratio} failed: {e}", file=sys.stderr)
+        # PART D — bake the ~2% kraft texture as the final step on every render.
+        _finalize_render(ratio_path, paper_overlay, provenance)
+
+        with Image.open(ratio_path) as im:
+            w, h = im.size
+        renders.append({"ratio": ratio, "path": ratio_path, "w": w, "h": h, "engine": ratio_engine})
+        provenance["ratios"][ratio] = ratio_engine
+
+    provenance["overlay_applied"] = bool(brand_overlay)
+    return renders, source, provenance
+
+
+def _headline_for(
+    src: Path, product_name: str, brief_msg: str, region: str, audience: str
+) -> str:
+    """Nova Pro headline for the set (module-level so generate_hero_set can reuse it)."""
+    caption = _nova_pro_caption(src, product_name, brief_msg, region, audience) or ""
+    headline, _side = _parse_layout(caption)
+    return headline or brief_msg[:48]

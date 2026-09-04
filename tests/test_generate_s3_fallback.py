@@ -122,7 +122,7 @@ def test_generate_hero_s3_asset_yields_nova_pro(monkeypatch, tmp_path: Path) -> 
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
 
     out = tmp_path / "out.png"
-    result, source = generate_hero_call(out)
+    result, source, _prov = generate_hero_call(out)
     assert result.exists()
     assert source == "bedrock:nova-pro"
 
@@ -141,7 +141,7 @@ def test_generate_hero_no_asset_yields_fallback_label(monkeypatch, tmp_path: Pat
 
     monkeypatch.setattr(generate, "_find_source_asset", track)
     out = tmp_path / "out.png"
-    result, source = generate_hero_call(out)
+    result, source, _prov = generate_hero_call(out)
     assert result.exists()
     assert source == "bedrock:nova-pro-fallback"
     assert "mock" not in source and "preview" not in source
@@ -170,7 +170,7 @@ def test_generate_hero_missing_product_no_default_hero_fallback(monkeypatch, tmp
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
 
     out = tmp_path / "out.png"
-    result, source = generate.generate_hero(
+    result, source, _prov = generate.generate_hero(
         product_id="bear-bites-limited",
         product_name="Bear Bites Limited",
         brief_msg="frontier trail energy",

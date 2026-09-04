@@ -10,22 +10,61 @@ from creative_automation import generate_lambda
 class _FakeS3:
     """Stub s3 client capturing put_object and returning a canned presigned url."""
 
+    def __init__(self) -> None:
+        self.puts: list[dict] = []
+        self.presign_calls: list[dict] = []
+
     def put_object(self, **kwargs) -> dict:
         self.last_put = kwargs
+        self.puts.append(kwargs)
         return {}
 
     def generate_presigned_url(self, op, Params, ExpiresIn) -> str:  # noqa: N803 — boto3 kwarg name
         self.last_presign_params = Params
+        self.presign_calls.append(Params)
         return f"https://presigned.example/{Params['Key']}?exp={ExpiresIn}"
 
 
+def _fake_renders(out_dir: Path) -> list[dict]:
+    """Build a 3-ratio renders[] list with real tiny PNGs on disk (handler reads bytes)."""
+    from PIL import Image
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+    dims = {"1x1": (1080, 1080), "4x5": (1080, 1350), "2x3": (1000, 1500)}
+    renders = []
+    for ratio, (w, h) in dims.items():
+        p = out_dir / f"hero-{ratio}.png"
+        Image.new("RGB", (16, 16), (200, 120, 40)).save(p, "PNG")
+        renders.append({"ratio": ratio, "path": p, "w": w, "h": h, "engine": "stability-outpaint"})
+    return renders
+
+
+def _stub_hero_set(source: str, tmp_path: Path, provenance: dict | None = None):
+    """Return a generate_hero_set stub that yields 3 fake renders + source + provenance."""
+
+    def _stub(**kwargs):
+        out_dir = kwargs.get("out_dir") or (tmp_path / "renders")
+        prov = provenance or {
+            "seed_source": "power-cakes-hero",
+            "seed_selection": "disk-asset",
+            "engine": "stability-control-structure",
+            "scene_prompt": "wild frontier restyle",
+            "control_strength": 0.7,
+            "model": "us.stability.stable-image-control-structure-v1:0",
+            "incoming_prompt": kwargs.get("brief_msg", ""),
+            "headline": "Keep It Wild",
+            "overlay_applied": True,
+            "paper_overlay": True,
+            "ratios": {"1x1": "primary", "4x5": "stability-outpaint", "2x3": "stability-outpaint"},
+        }
+        return _fake_renders(Path(out_dir)), source, prov
+
+    return _stub
+
+
 def test_handler_returns_200_with_image_url(monkeypatch, tmp_path: Path) -> None:
-    fake_png = tmp_path / "fake.png"
-    fake_png.write_bytes(b"\x89PNG\r\n")
     monkeypatch.setattr(
-        generate_lambda,
-        "generate_hero",
-        lambda **kwargs: (fake_png, "bedrock:nova-pro"),
+        generate_lambda, "generate_hero_set", _stub_hero_set("bedrock:nova-pro", tmp_path)
     )
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
 
@@ -37,17 +76,23 @@ def test_handler_returns_200_with_image_url(monkeypatch, tmp_path: Path) -> None
     assert body["image_url"].startswith("https://presigned.example/")
     assert body["source"] == "bedrock:nova-pro"
     assert body["prompt"] == "a bear eating pancakes"
+    # PART B — three renders delivered from one call, 1x1 first, correct dims.
+    assert [r["ratio"] for r in body["renders"]] == ["1x1", "4x5", "2x3"]
+    dims = {r["ratio"]: (r["w"], r["h"]) for r in body["renders"]}
+    assert dims == {"1x1": (1080, 1080), "4x5": (1080, 1350), "2x3": (1000, 1500)}
+    # back-compat: top-level image_url == the 1x1 render url
+    primary = next(r for r in body["renders"] if r["ratio"] == "1x1")
+    assert body["image_url"] == primary["image_url"]
+    assert body["s3_uri"] == primary["s3_uri"]
+    # PART A — provenance surfaced
+    assert body["provenance"]["engine"] == "stability-control-structure"
 
 
 def test_handler_empty_prompt_defaults_to_brand_tagline(monkeypatch, tmp_path: Path) -> None:
     # empty or missing prompt must never 400 — it defaults to the brand tagline
     # and generation proceeds normally, always producing a real hero.
-    fake_png = tmp_path / "default.png"
-    fake_png.write_bytes(b"\x89PNG\r\n")
     monkeypatch.setattr(
-        generate_lambda,
-        "generate_hero",
-        lambda **kwargs: (fake_png, "bedrock:nova-pro"),
+        generate_lambda, "generate_hero_set", _stub_hero_set("bedrock:nova-pro", tmp_path)
     )
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
 
@@ -68,14 +113,12 @@ def test_handler_empty_prompt_defaults_to_brand_tagline(monkeypatch, tmp_path: P
 
 
 def test_handler_falls_back_to_default_hero_label(monkeypatch, tmp_path: Path) -> None:
-    # true last-resort path: generate_hero never returns "mock"/"preview" — the
+    # true last-resort path: generate_hero_set never returns "mock"/"preview" — the
     # non-shaming fallback label is what reaches the handler and the UI.
-    fake_png = tmp_path / "fallback.png"
-    fake_png.write_bytes(b"\x89PNG\r\n")
     monkeypatch.setattr(
         generate_lambda,
-        "generate_hero",
-        lambda **kwargs: (fake_png, "bedrock:nova-pro-fallback"),
+        "generate_hero_set",
+        _stub_hero_set("bedrock:nova-pro-fallback", tmp_path),
     )
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
 
@@ -96,17 +139,16 @@ def test_options_preflight_returns_200(monkeypatch) -> None:
 
 def test_handler_sanitizes_celebrity_name_before_brief_msg(monkeypatch, tmp_path: Path) -> None:
     # a client-built prompt naming a real person must be rewritten name-free BEFORE it
-    # reaches generate_hero as brief_msg — that string drives every Nova Pro/Stability
+    # reaches generate_hero_set as brief_msg — that string drives every Nova Pro/Stability
     # prompt, so the raw name must never flow past the handler.
-    fake_png = tmp_path / "sanitized.png"
-    fake_png.write_bytes(b"\x89PNG\r\n")
     captured: dict = {}
 
     def _capture(**kwargs):
         captured.update(kwargs)
-        return (fake_png, "bedrock:nova-pro")
+        out_dir = kwargs.get("out_dir") or (tmp_path / "renders")
+        return _fake_renders(Path(out_dir)), "bedrock:nova-pro", {"engine": "pillow-compose"}
 
-    monkeypatch.setattr(generate_lambda, "generate_hero", _capture)
+    monkeypatch.setattr(generate_lambda, "generate_hero_set", _capture)
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
 
     event = {
@@ -128,14 +170,11 @@ def test_handler_sanitizes_celebrity_name_before_brief_msg(monkeypatch, tmp_path
 
 def test_presigned_url_signed_with_attachment_disposition(monkeypatch, tmp_path: Path) -> None:
     # cross-origin presigned GET must be signed with Content-Disposition: attachment
-    # so the browser saves (not inline-opens) with a sensible .png filename.
-    fake_png = tmp_path / "hero.png"
-    fake_png.write_bytes(b"\x89PNG\r\n")
+    # so the browser saves (not inline-opens) with a sensible .png filename. Every one
+    # of the three renders is signed this way.
     fake_s3 = _FakeS3()
     monkeypatch.setattr(
-        generate_lambda,
-        "generate_hero",
-        lambda **kwargs: (fake_png, "bedrock:nova-pro"),
+        generate_lambda, "generate_hero_set", _stub_hero_set("bedrock:nova-pro", tmp_path)
     )
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: fake_s3)
 
@@ -143,9 +182,12 @@ def test_presigned_url_signed_with_attachment_disposition(monkeypatch, tmp_path:
     resp = generate_lambda.handler(event, None)
     assert resp["statusCode"] == 200
 
-    disposition = fake_s3.last_presign_params["ResponseContentDisposition"]
-    assert disposition.startswith("attachment; filename=")
-    assert disposition.endswith('.png"')
+    # all three renders were uploaded + presigned with an attachment .png disposition
+    assert len(fake_s3.presign_calls) == 3
+    for params in fake_s3.presign_calls:
+        disposition = params["ResponseContentDisposition"]
+        assert disposition.startswith("attachment; filename=")
+        assert disposition.endswith('.png"')
 
 
 def test_download_filename_sanitizes_and_falls_back() -> None:

@@ -475,7 +475,7 @@ def _render_asset(
     try:
         # 1) hero pixels — Nova Canvas when creds resolve, deterministic mock otherwise.
         # The prompt carries no headline text; cr-1 is enforced inside generate_hero.
-        _hero_path, hero_source = generate_hero(
+        _hero_path, hero_source, _hero_prov = generate_hero(
             product_id=product["id"],
             product_name=product["name"],
             brief_msg=campaign_message,
