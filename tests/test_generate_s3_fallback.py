@@ -149,18 +149,23 @@ def test_generate_hero_no_asset_yields_fallback_label(monkeypatch, tmp_path: Pat
     assert calls == ["power-cakes"]
 
 
-def test_generate_hero_missing_product_composes_on_default_hero(monkeypatch, tmp_path: Path) -> None:
-    """A NON-default SKU with no asset of its own but WITH the default brand hero
-    available -> compose on power-cakes -> source 'bedrock:nova-pro', not a placeholder.
+def test_generate_hero_missing_product_no_default_hero_fallback(monkeypatch, tmp_path: Path) -> None:
+    """The default-brand-hero (power-cakes) intermediate fallback was RETIRED when the
+    real-photo scene composer landed. Precedence is now: sku-photo-map DAM photo ->
+    disk _find_source_asset -> _mock_hero. A non-default SKU with no sku-photo-map
+    entry and no disk asset of its own goes straight to the last-resort label — it
+    does NOT silently compose on power-cakes anymore. _find_source_asset is called at
+    most once (for the requested SKU); the default hero is never discovered.
     """
     monkeypatch.chdir(tmp_path)
-    default_src = tmp_path / "cache" / "power-cakes" / "hero-real.png"
-    _write_png(default_src)
+    calls: list[str] = []
 
     def discover(pid, pname):
-        # the requested SKU has nothing; only the default brand hero resolves
-        return default_src if pid == generate.DEFAULT_HERO_PRODUCT else None
+        calls.append(pid)
+        return None  # requested SKU has nothing; no default-hero retry exists
 
+    # bear-bites-limited is not in the sku-photo-map -> resolver returns None
+    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", discover)
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
 
@@ -175,7 +180,10 @@ def test_generate_hero_missing_product_composes_on_default_hero(monkeypatch, tmp
         idx=0,
     )
     assert result.exists()
-    assert source == "bedrock:nova-pro"
+    assert source == "bedrock:nova-pro-fallback"
+    assert "mock" not in source and "preview" not in source
+    # the requested SKU is looked up once; power-cakes is never discovered as a fallback
+    assert calls == ["bear-bites-limited"]
 
 
 def generate_hero_call(out_path: Path):

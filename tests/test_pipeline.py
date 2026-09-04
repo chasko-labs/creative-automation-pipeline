@@ -31,10 +31,13 @@ def test_dam_reuse_vs_generate(tmp_path):
     hs = [p for p in report["products"] if p["id"] == "hydrating-serum"][0]
     assert hs["hero_source"] in ("dam", "dam+enhanced")
     rm = [p for p in report["products"] if p["id"] == "radiant-moisturizer"][0]
-    # radiant-moisturizer has no DAM asset of its own, but the default brand hero
-    # (power-cakes) is present in input_assets/, so it composes a real on-brand
-    # Kodiak hero rather than a mock placeholder -> bedrock:nova-pro (never "mock")
-    assert rm["hero_source"] == "bedrock:nova-pro"
+    # radiant-moisturizer has no DAM asset of its own and no sku-photo-map entry, and
+    # the default-brand-hero fallback was retired when the real-photo scene composer
+    # landed (precedence is now: sku-photo-map DAM photo -> disk _find_source_asset ->
+    # _mock_hero). Offline with no disk asset it reaches the non-shaming last-resort
+    # label. Never "mock"/"preview".
+    assert rm["hero_source"] == "bedrock:nova-pro-fallback"
+    assert "mock" not in rm["hero_source"]
 
 def test_legal_flag(tmp_path):
     from creative_automation.compliance import check_legal
