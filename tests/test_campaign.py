@@ -22,6 +22,7 @@ cards, the lockup step is pure resolution. No network, no credentials.
 from pathlib import Path
 
 from creative_automation.campaign import run_campaign
+from creative_automation.campaign import STANDARD_PLATFORMS
 from creative_automation.naming import ISO_NAME_RE
 
 
@@ -79,7 +80,8 @@ def test_sf_campaign_fans_out_across_platforms_and_languages(tmp_path):
     campaign = result["campaign"]
     assert campaign["market"] == "US-CA-PESCADERO"
 
-    # multiple platforms: instagram (1x1 + 9x16) + blog (16x9)
+    # multiple platforms across the full standard set: instagram/facebook/tiktok/
+    # youtube/blog/display, spanning all three ISO ratios
     platforms = {a["platform"] for a in result["assets"]}
     ratios = {a["ratio"] for a in result["assets"]}
     assert len(platforms) >= 2, f"expected multi-platform, got {platforms}"
@@ -89,8 +91,8 @@ def test_sf_campaign_fans_out_across_platforms_and_languages(tmp_path):
     langs = {a["lang"] for a in result["assets"]}
     assert "en" in langs
     assert len(langs) >= 2, f"expected multi-language, got {langs}"
-    # 1 product x 3 platform-ratios x 3 languages = 9 planned assets
-    assert result["summary"]["asset_count"] == 9
+    # 1 product x 9 platform-ratios (2+2+1+2+1+1) x 3 languages = 27 planned assets
+    assert result["summary"]["asset_count"] == 27
 
 
 def test_sf_recipe_cards_reference_pescadero_september_ingredient(tmp_path):
@@ -173,8 +175,8 @@ def test_atlanta_assets_are_iso_named_and_safety_clean(tmp_path):
     for a in result["assets"]:
         assert ISO_NAME_RE.match(a["iso_name"]), f"not iso-named: {a['iso_name']}"
         assert a["safety"]["clean"] is True
-    # 2 products x 3 platform-ratios x 3 languages (en, es, ko) = 18 assets
-    assert result["summary"]["asset_count"] == 18
+    # 2 products x 9 platform-ratios (2+2+1+2+1+1) x 3 languages (en, es, ko) = 54 assets
+    assert result["summary"]["asset_count"] == 54
 
 
 def test_atlanta_unknown_retailers_skipped_without_crashing(tmp_path):
@@ -184,6 +186,33 @@ def test_atlanta_unknown_retailers_skipped_without_crashing(tmp_path):
     assert retailers == {"publix"}
     assert any("Walmart" in w for w in result["summary"]["warnings"])
     assert any("Kroger" in w for w in result["summary"]["warnings"])
+
+
+# --------------------------------------------------------------------------- #
+# standard platform map — channel expansion invariants
+# --------------------------------------------------------------------------- #
+def test_standard_platforms_only_use_locked_iso_ratios():
+    # guards the ISO-standard invariant: every ratio in the default fan-out map must be
+    # one of the three locked canvas sizes (naming.ISO_NAME_RE). a channel expansion may
+    # never introduce a new ratio.
+    locked = {"1x1", "9x16", "16x9"}
+    for platform, ratios in STANDARD_PLATFORMS.items():
+        for ratio in ratios:
+            assert ratio in locked, f"{platform} has non-ISO ratio {ratio!r}"
+
+
+def test_standard_platforms_cover_expected_channels():
+    # the full outlined social channel set is present in the default map
+    assert set(STANDARD_PLATFORMS) == {
+        "instagram",
+        "facebook",
+        "tiktok",
+        "youtube",
+        "blog",
+        "display",
+    }
+    # total platform-ratio pairs drives the fan-out count: 2+2+1+2+1+1 = 9
+    assert sum(len(r) for r in STANDARD_PLATFORMS.values()) == 9
 
 
 # --------------------------------------------------------------------------- #
