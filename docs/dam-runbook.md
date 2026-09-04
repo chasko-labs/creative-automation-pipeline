@@ -77,7 +77,7 @@ DAM_S3_BUCKET=chasko-labs-dam-dev python -m creative_automation.cli --brief brie
 
 - Result 4's S3Vectors fallback is for report/search, not assets — don't conflate.
 - If S3 creds/bucket unavailable or `boto3` missing: code logs `[dam] s3 fetch miss` and falls back to local `find_*` with no error.
-- If S3 key not found: local glob fallback; if product dir empty: hero generated via `generate_hero` (Nova Pro composition on a real asset, else mock — Nova Canvas is retired and not a path).
+- If S3 key not found: local glob fallback; if the product has no asset of its own, `generate_hero` composes on the flagship brand hero (power-cakes) via Nova Pro — so it always returns a real on-brand composite.
 - Large sync: prefer `aws s3 sync` (CLI) over `sync_dam_from_s3` (boto3 loop) — CLI handles multipart, retries, delete.
 
 ## Verify
