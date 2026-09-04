@@ -31,7 +31,10 @@ def test_dam_reuse_vs_generate(tmp_path):
     hs = [p for p in report["products"] if p["id"] == "hydrating-serum"][0]
     assert hs["hero_source"] in ("dam", "dam+enhanced")
     rm = [p for p in report["products"] if p["id"] == "radiant-moisturizer"][0]
-    assert rm["hero_source"] == "mock"
+    # radiant-moisturizer has no DAM asset of its own, but the default brand hero
+    # (power-cakes) is present in input_assets/, so it composes a real on-brand
+    # Kodiak hero rather than a mock placeholder -> bedrock:nova-pro (never "mock")
+    assert rm["hero_source"] == "bedrock:nova-pro"
 
 def test_legal_flag(tmp_path):
     from creative_automation.compliance import check_legal

@@ -127,14 +127,55 @@ def test_generate_hero_s3_asset_yields_nova_pro(monkeypatch, tmp_path: Path) -> 
     assert source == "bedrock:nova-pro"
 
 
-def test_generate_hero_no_asset_yields_mock(monkeypatch, tmp_path: Path) -> None:
-    """Local + S3 both miss -> mock is the correct last resort."""
+def test_generate_hero_no_asset_yields_fallback_label(monkeypatch, tmp_path: Path) -> None:
+    """Requested product IS the default hero and both local + S3 miss -> true last
+    resort. Never 'mock'/'preview' — the non-shaming fallback label reaches the UI.
+    The default-hero retry is skipped because product_id == DEFAULT_HERO_PRODUCT.
+    """
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setattr(generate, "_find_source_asset", lambda pid, pname: None)
+    calls: list[str] = []
+
+    def track(pid, pname):
+        calls.append(pid)
+        return None
+
+    monkeypatch.setattr(generate, "_find_source_asset", track)
     out = tmp_path / "out.png"
     result, source = generate_hero_call(out)
     assert result.exists()
-    assert source == "mock"
+    assert source == "bedrock:nova-pro-fallback"
+    assert "mock" not in source and "preview" not in source
+    # power-cakes IS the default hero, so discovery is attempted exactly once
+    assert calls == ["power-cakes"]
+
+
+def test_generate_hero_missing_product_composes_on_default_hero(monkeypatch, tmp_path: Path) -> None:
+    """A NON-default SKU with no asset of its own but WITH the default brand hero
+    available -> compose on power-cakes -> source 'bedrock:nova-pro', not a placeholder.
+    """
+    monkeypatch.chdir(tmp_path)
+    default_src = tmp_path / "cache" / "power-cakes" / "hero-real.png"
+    _write_png(default_src)
+
+    def discover(pid, pname):
+        # the requested SKU has nothing; only the default brand hero resolves
+        return default_src if pid == generate.DEFAULT_HERO_PRODUCT else None
+
+    monkeypatch.setattr(generate, "_find_source_asset", discover)
+    monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
+
+    out = tmp_path / "out.png"
+    result, source = generate.generate_hero(
+        product_id="bear-bites-limited",
+        product_name="Bear Bites Limited",
+        brief_msg="frontier trail energy",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+    )
+    assert result.exists()
+    assert source == "bedrock:nova-pro"
 
 
 def generate_hero_call(out_path: Path):
