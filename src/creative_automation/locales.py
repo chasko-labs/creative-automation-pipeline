@@ -15,10 +15,11 @@ from datetime import datetime, timezone
 from functools import lru_cache
 from pathlib import Path
 
-# repo-root anchored so this works from any cwd (tests run from repo root)
-PAIRS_PATH = (
-    Path(__file__).parents[2] / "data" / "localization" / "retailer-frontier-pairs.json"
-)
+from ._datapaths import data_path
+
+# resolved at runtime so it works in a repo checkout AND the Lambda image (see
+# _datapaths.data_root — parents[2]/data does not exist under site-packages).
+PAIRS_PATH = data_path("localization", "retailer-frontier-pairs.json")
 
 
 @dataclass(frozen=True)
@@ -109,9 +110,7 @@ def resolve_this_month(
 # always first and never dropped.
 # --------------------------------------------------------------------------- #
 
-MARKET_LANGUAGES_PATH = (
-    Path(__file__).parents[2] / "data" / "localization" / "market-languages.json"
-)
+MARKET_LANGUAGES_PATH = data_path("localization", "market-languages.json")
 
 # The always-on default when a market is unknown or under-specified. English first,
 # then Spanish + Portuguese per Bryan's EN/ES/PT default.
@@ -188,7 +187,7 @@ def resolve_target_languages(
 # enye is meaning, not cosmetic, so this loader never normalizes or strips them.
 # --------------------------------------------------------------------------- #
 
-DIALECT_DIR = Path(__file__).parents[2] / "data" / "localization" / "dialect"
+DIALECT_DIR = data_path("localization", "dialect")
 
 # (lang_code, region) -> filename. region kept loose so callers can pass either
 # the exact region tag or a looser market hint; lookup falls back on lang+substr.

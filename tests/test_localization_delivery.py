@@ -125,7 +125,7 @@ def test_handler_surfaces_localizations_and_provenance_languages(monkeypatch, tm
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
     monkeypatch.setattr(text_rewriter, "rewrite_all", _fake_rewrite_all)
 
-    event = {"body": json.dumps({"prompt": "wild", "market": "US-MW-PARKCITY-84098"})}
+    event = {"body": json.dumps({"mode": "full", "prompt": "wild", "market": "US-MW-PARKCITY-84098"})}
     resp = generate_lambda.handler(event, None)
     assert resp["statusCode"] == 200
     body = json.loads(resp["body"])
@@ -156,7 +156,7 @@ def test_handler_localization_offline_never_crashes(monkeypatch, tmp_path) -> No
                 "AWS_CONTAINER_CREDENTIALS_RELATIVE_URI"):
         monkeypatch.delenv(var, raising=False)
 
-    event = {"body": json.dumps({"prompt": "wild", "market": "US-NOWHERE"})}
+    event = {"body": json.dumps({"mode": "full", "prompt": "wild", "market": "US-NOWHERE"})}
     resp = generate_lambda.handler(event, None)
     assert resp["statusCode"] == 200
     body = json.loads(resp["body"])

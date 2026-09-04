@@ -22,16 +22,16 @@ from __future__ import annotations
 
 import json
 import re
-from pathlib import Path
 
 from . import locales
 from .brief import CampaignBrief
+from ._datapaths import data_path
 
-# repo-root anchored so this resolves from any cwd (tests run from repo root)
-_ROOT = Path(__file__).parents[2]
-CLUSTERS_PATH = _ROOT / "data" / "vectors" / "image-clusters.json"
-MARKET_LANGS_PATH = _ROOT / "data" / "localization" / "market-languages.json"
-SAMPLE_PROMPTS_PATH = _ROOT / "data" / "prompts" / "blog-sample-prompts.jsonl"
+# resolved at runtime so this works in a repo checkout AND the Lambda image (see
+# _datapaths.data_root — parents[2]/data does not exist under site-packages).
+CLUSTERS_PATH = data_path("vectors", "image-clusters.json")
+MARKET_LANGS_PATH = data_path("localization", "market-languages.json")
+SAMPLE_PROMPTS_PATH = data_path("prompts", "blog-sample-prompts.jsonl")
 
 # brand rules that never vary — cr-1..cr-3 from docs/kodiak-image-standards.md
 PALETTE_ANCHOR = "#3B2316"  # Bear Brown

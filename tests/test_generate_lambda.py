@@ -68,7 +68,7 @@ def test_handler_returns_200_with_image_url(monkeypatch, tmp_path: Path) -> None
     )
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
 
-    event = {"body": json.dumps({"prompt": "a bear eating pancakes"})}
+    event = {"body": json.dumps({"mode": "full", "prompt": "a bear eating pancakes"})}
     resp = generate_lambda.handler(event, None)
     assert resp["statusCode"] == 200
     body = json.loads(resp["body"])
@@ -96,8 +96,8 @@ def test_handler_empty_prompt_defaults_to_brand_tagline(monkeypatch, tmp_path: P
     )
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
 
-    # missing prompt entirely
-    resp = generate_lambda.handler({"body": json.dumps({})}, None)
+    # missing prompt entirely (full mode exercises the stubbed generate_hero_set source)
+    resp = generate_lambda.handler({"body": json.dumps({"mode": "full"})}, None)
     assert resp["statusCode"] == 200
     body = json.loads(resp["body"])
     assert body["ok"] is True
@@ -106,7 +106,7 @@ def test_handler_empty_prompt_defaults_to_brand_tagline(monkeypatch, tmp_path: P
     assert body["prompt"] == "KODIAK - Nourishment for Today's Frontier. Keep It Wild."
 
     # empty/whitespace prompt
-    resp = generate_lambda.handler({"body": json.dumps({"prompt": "   "})}, None)
+    resp = generate_lambda.handler({"body": json.dumps({"mode": "full", "prompt": "   "})}, None)
     assert resp["statusCode"] == 200
     body = json.loads(resp["body"])
     assert body["prompt"] == "KODIAK - Nourishment for Today's Frontier. Keep It Wild."
@@ -122,7 +122,7 @@ def test_handler_falls_back_to_default_hero_label(monkeypatch, tmp_path: Path) -
     )
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
 
-    resp = generate_lambda.handler({"prompt": "x"}, None)
+    resp = generate_lambda.handler({"mode": "full", "prompt": "x"}, None)
     body = json.loads(resp["body"])
     assert resp["statusCode"] == 200
     assert body["source"] == "bedrock:nova-pro-fallback"
@@ -154,6 +154,7 @@ def test_handler_sanitizes_celebrity_name_before_brief_msg(monkeypatch, tmp_path
     event = {
         "body": json.dumps(
             {
+                "mode": "full",
                 "prompt": "Zac Efron athletic-morning energy — high-protein pre-trail fuel, "
                 "aspirational active lifestyle. Keep It Wild.",
                 "theme": "zac-efron",
@@ -178,7 +179,7 @@ def test_presigned_url_signed_with_attachment_disposition(monkeypatch, tmp_path:
     )
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: fake_s3)
 
-    event = {"body": json.dumps({"product": "power-cakes", "region": "us"})}
+    event = {"body": json.dumps({"mode": "full", "product": "power-cakes", "region": "us"})}
     resp = generate_lambda.handler(event, None)
     assert resp["statusCode"] == 200
 
@@ -200,3 +201,152 @@ def test_download_filename_sanitizes_and_falls_back() -> None:
     )
     # empty inputs still yield a stable, safe name
     assert generate_lambda._download_filename("", "", None) == "KODIAK-CAKES-CAMPAIGN-ASSET.png"
+
+
+
+# --------------------------------------------------------------------------- #
+# preview vs full mode (emergency fix: API Gateway hard 30s timeout)
+#
+# The interactive /generate call is fronted by API Gateway with a HARD 30s integration
+# timeout. The full generate_hero_set chain (control-structure hero + 2 serial outpaint
+# extends + 3 localization rewrites + platform copy) runs ~35s and trips a 503, so the
+# frontend falls back to the local Pillow placeholder. PREVIEW mode (the new default)
+# returns ONE 1x1 control-structure hero, no outpaint, no localization, well under 30s.
+# FULL mode preserves the complete set for the async download-pack builder.
+# --------------------------------------------------------------------------- #
+
+
+def _fake_single_render(out_path: Path):
+    """Write a real tiny PNG at out_path (the handler reads bytes + size from it)."""
+    from PIL import Image
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    Image.new("RGB", (16, 16), (200, 120, 40)).save(out_path, "PNG")
+    return out_path
+
+
+def _stub_generate_hero(source: str, provenance: dict | None = None):
+    """generate_hero stub: writes the requested out_path and returns (path, source, provenance)."""
+
+    def _stub(**kwargs):
+        out_path = Path(kwargs["out_path"])
+        _fake_single_render(out_path)
+        prov = provenance or {
+            "seed_source": "power-cakes-hero",
+            "seed_selection": "disk-asset",
+            "engine": "stability-control-structure",
+            "scene_prompt": "wild frontier restyle",
+            "control_strength": 0.7,
+            "model": "us.stability.stable-image-control-structure-v1:0",
+            "incoming_prompt": kwargs.get("brief_msg", ""),
+            "headline": "Keep It Wild",
+            "overlay_applied": True,
+            "paper_overlay": True,
+        }
+        return out_path, source, dict(prov)
+
+    return _stub
+
+
+def test_preview_mode_is_default_single_1x1_no_outpaint_no_localization(
+    monkeypatch, tmp_path: Path
+) -> None:
+    # default (no "mode") is preview: exactly ONE render (the 1x1), top-level image_url
+    # set, source + provenance present, and NEITHER the outpaint path NOR the localization
+    # rewrite chain is invoked (those are the >30s killers deferred to the async pack).
+    monkeypatch.setattr(
+        generate_lambda, "generate_hero", _stub_generate_hero("bedrock:stability-control-structure")
+    )
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+
+    # spy the outpaint fn (imported in generate.py) — it must NOT be called in preview
+    from creative_automation import generate as gen_mod
+
+    outpaint_calls: list = []
+    monkeypatch.setattr(
+        gen_mod, "_stability_outpaint", lambda *a, **k: outpaint_calls.append(a) or None
+    )
+    # spy the localization seam — it must NOT be called on the sync preview path
+    localize_calls: list = []
+    monkeypatch.setattr(
+        generate_lambda, "_build_localizations", lambda *a, **k: localize_calls.append(a) or ([], [])
+    )
+
+    event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
+    resp = generate_lambda.handler(event, None)
+    assert resp["statusCode"] == 200
+    body = json.loads(resp["body"])
+
+    assert body["ok"] is True
+    assert body["mode"] == "preview"
+    # exactly one render, the 1x1
+    assert len(body["renders"]) == 1
+    assert body["renders"][0]["ratio"] == "1x1"
+    # top-level image_url set and == the single render url
+    assert body["image_url"].startswith("https://presigned.example/")
+    assert body["image_url"] == body["renders"][0]["image_url"]
+    assert body["s3_uri"] == body["renders"][0]["s3_uri"]
+    # real GenAI source preserved, provenance present + flagged preview
+    assert body["source"] == "bedrock:stability-control-structure"
+    assert body["provenance"]["engine"] == "stability-control-structure"
+    assert body["provenance"]["ratios"] == {"1x1": "primary"}
+    assert body["provenance"]["mode"] == "preview"
+    # localization + platform copy are deferred to the async pack (empty on preview)
+    assert body["localizations"] == []
+    assert body["platform_copy"] == {}
+    # the two >30s killers never ran on the preview path
+    assert outpaint_calls == []
+    assert localize_calls == []
+
+
+def test_preview_mode_sanitizes_celebrity_name_before_brief_msg(monkeypatch, tmp_path: Path) -> None:
+    # the celebrity sanitizer must still run on the preview path: the raw name must not
+    # reach generate_hero as brief_msg (it drives the Stability/Nova prompt).
+    captured: dict = {}
+
+    def _capture(**kwargs):
+        captured.update(kwargs)
+        _fake_single_render(Path(kwargs["out_path"]))
+        return Path(kwargs["out_path"]), "bedrock:stability-control-structure", {"engine": "x"}
+
+    monkeypatch.setattr(generate_lambda, "generate_hero", _capture)
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+
+    event = {
+        "body": json.dumps(
+            {"prompt": "Zac Efron morning energy. Keep It Wild.", "theme": "zac-efron"}
+        )
+    }
+    resp = generate_lambda.handler(event, None)
+    assert resp["statusCode"] == 200
+    brief_msg = captured["brief_msg"]
+    assert "zac" not in brief_msg.lower()
+    assert "efron" not in brief_msg.lower()
+    assert "Keep It Wild." in brief_msg
+
+
+def test_full_mode_still_produces_3size_set_localization_platform_copy(
+    monkeypatch, tmp_path: Path
+) -> None:
+    # mode="full" preserves the complete async-pack behavior: the 3-size set, the
+    # localizations[] block, and per-platform copy.
+    monkeypatch.setattr(
+        generate_lambda, "generate_hero_set", _stub_hero_set("bedrock:stability-control-structure", tmp_path)
+    )
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+
+    event = {"body": json.dumps({"mode": "full", "prompt": "a bear eating pancakes"})}
+    resp = generate_lambda.handler(event, None)
+    assert resp["statusCode"] == 200
+    body = json.loads(resp["body"])
+
+    assert body["mode"] == "full"
+    # three renders from one call, 1x1 first
+    assert [r["ratio"] for r in body["renders"]] == ["1x1", "4x5", "2x3"]
+    # localization block delivered (top-3 languages, English always present)
+    assert isinstance(body["localizations"], list)
+    assert len(body["localizations"]) == 3
+    assert body["localizations"][0]["lang_code"] == "en"
+    # per-platform copy delivered (seven sanctioned platforms by default)
+    assert isinstance(body["platform_copy"], dict)
+    assert len(body["platform_copy"]) >= 1
