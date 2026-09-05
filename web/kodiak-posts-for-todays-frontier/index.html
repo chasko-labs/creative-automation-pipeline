@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"/>
 <link rel="stylesheet" href="https://use.typekit.net/zjt4wyq.css">
-<link rel="stylesheet" href="design/styles.css?v=0.1.010-70bcd2d-20260905">
+<link rel="stylesheet" href="design/styles.css?v=0.1.011-480c79d-20260905">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>KODIAK® Posts for Today's Frontier — v0.1.010-70bcd2d-20260905</title>
-<meta name="kodiak-version" content="0.1.010-70bcd2d-20260905">
+<title>KODIAK® Posts for Today's Frontier — v0.1.011-480c79d-20260905</title>
+<meta name="kodiak-version" content="0.1.011-480c79d-20260905">
 <meta name="webmcp" content="enabled">
 <meta name="mcp:server" content="kodiak-posts-frontier">
 <meta name="mcp:tools" content="places,products,recipes,market-languages,brief-yaml,preview,compose,localize">
 <link rel="mcp-manifest" href="webmcp.json">
-<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.010-70bcd2d-20260905","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":73,"languages":"EN + top2 per market (ACS 2022)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
+<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.011-480c79d-20260905","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":73,"languages":"EN + top2 per market (ACS 2022)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
 <meta name="robots" content="noindex, nofollow, noarchive">
 <script>
 // Password gate: cakes — unlisted from bots, simple JS gate (also respects CloudFront if added)
@@ -117,6 +117,36 @@ header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-s
 .body{padding:16px;position:relative}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:860px){.grid{grid-template-columns:1fr}}
+
+/* === AXIS 1 — responsive 4-view breakpoints ===
+   baseline .wrap max-width is 1100px (see below); above 860px only the .grid changed, so
+   1440 and 2560 rendered identically (whitespace-only growth) and 375/768 were undifferentiated.
+   these rules give mobile / tablet / desktop / ultrawide four intentional layouts.
+   tokens only — no invented var(--red)/#B51E14 (D1 drift). */
+/* tablet ~768 — distinct from mobile at the control row: keep market + season side-by-side
+   (mobile stacks them full-width at <=640), and let the render-set breathe to 2 columns min. */
+@media(min-width:641px) and (max-width:1024px){
+  .ff-controlrow{flex-wrap:wrap}
+  .ff-controlrow .ff-market,.ff-controlrow .ff-season{flex:0 0 auto}
+  .ff-controlrow .ff-detail{flex:1 1 100%}
+  .render-set{grid-template-columns:repeat(2,minmax(220px,1fr))}
+}
+/* desktop >=1025 — .grid two-up already applies; hold the content column at the 1100px baseline. */
+@media(min-width:1025px){
+  .render-set{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+}
+/* ultrawide >=1600 — cap the main content width so >=1600px viewports do not just grow whitespace,
+   and let the intrinsically-fluid render/preview grids add columns instead. */
+@media(min-width:1600px){
+  .wrap{max-width:1440px}
+  .render-set,.preview{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+}
+/* ultra-ultrawide >=2200 (2560 class) — a slightly wider content cap + one more intentional column tier,
+   so the 2560 view is visibly distinct from 1440 rather than identical. */
+@media(min-width:2200px){
+  .wrap{max-width:1680px}
+  .render-set,.preview{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+}
 .field label{display:block;font:700 11px/1 "museo-sans","kodiak_sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#6B5A53;margin:12px 0 6px}
 .field input,.field select,.field textarea{width:100%;padding:10px 12px;border:1px solid var(--stone);border-radius:4px;background:#fff;font:500 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate)}
 .field textarea{min-height:72px;resize:vertical}
@@ -727,7 +757,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 <details class="card wide-track ff-about" id="aboutTool"><summary>About this tool</summary><div class="body"><p class="ff-about__copy">Type one line, pick a starting point, and get a ready-to-post Kodiak campaign — images and copy sized for every social platform and retailer, localized to the market you choose. See the <a href="details.html">design system + details</a> for how it works under the hood.</p></div></details>
 
 <!-- visible build stamp — confirm at a glance which version/JS is live in the browser (cache-buster verification) -->
-<div id="buildStamp">build 0.1.010-70bcd2d-20260905</div>
+<div id="buildStamp">build 0.1.011-480c79d-20260905</div>
 
 </div>
 <script>
@@ -1096,9 +1126,189 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
     if(sel){ sel.value=m; sel.dispatchEvent(new Event('change')); if(typeof onLocality==='function') onLocality(); if(typeof render==='function') render(); }
   }
 })();
+
+// === AXIS 2 + AXIS 3 — grouped market taxonomy (derived) + per-market localized-copy surface ===
+// Self-contained: reuses the existing `places` array, `marketLangsOffline`/`marketLangsFor`, and the
+// hidden #locality <select> as the selection source of truth. The #marketDisclosure listbox was inert
+// markup (never populated by any JS); this wires it as the real surface and mirrors selection into
+// #locality so all downstream plumbing (onLocality/render/updateLocalFlavor) keeps working unchanged.
+(function(){
+  const listbox   = document.getElementById('marketListbox');
+  const disclosure= document.getElementById('marketDisclosure');
+  const btnLabel  = document.getElementById('marketButtonLabel');
+  const langLine  = document.getElementById('marketLangLine');
+  const featured  = document.getElementById('featuredFrontier');
+  const summary   = disclosure ? disclosure.querySelector('summary') : null;
+  if(!listbox || typeof places==='undefined') return;
+
+  // --- frontier-gaps overlay (frontier:true markets). offline-tolerant multi-path fetch; overlay only. ---
+  const frontierMarkets = new Set();
+  (async ()=>{
+    for(const url of ['data/localization/frontier-gaps.json','../../data/localization/frontier-gaps.json','./data/localization/frontier-gaps.json']){
+      try{ const r=await fetch(url); if(r.ok){ const d=await r.json(); (d.gaps||[]).forEach(g=>{ if(g.frontier) frontierMarkets.add(g.market); }); build(); break; } }catch(e){}
+    }
+  })();
+
+  // --- location_class DERIVED at render time (no data mutation, no new persisted field) ---
+  // "market" when the retailer STRING names a chain grocer; else "featured-frontier"
+  // (retail gap / general-store or farmers-market only / frontier:true from frontier-gaps).
+  const CHAIN_GROCERS = /\b(target|walmart|smith'?s|costco|publix|h-?e-?b|keb|kroger|safeway|albertsons|whole foods|fred meyer|meijer|jewel-?osco|king soopers|hy-?vee|giant eagle|giant|stop & shop|hannaford|market basket|winco|raley'?s|vons|harris teeter|ingles|fry'?s|schnucks|piggly wiggly|rouses|acme|cub foods|pick 'n save|homeland|hornbacher'?s|winn-?dixie)\b/i;
+  const GAP_ONLY = /general store|mercantile|farmers market|no commercial retail|no grocery|limited sku/i;
+  function locationClass(p){
+    if(frontierMarkets.has(p.market)) return 'featured-frontier';
+    const r = p.retailer||'';
+    if(GAP_ONLY.test(r) && !CHAIN_GROCERS.test(r)) return 'featured-frontier';
+    if(CHAIN_GROCERS.test(r)) return 'market';
+    return 'featured-frontier';
+  }
+
+  // --- derive a US state abbreviation for the sublabel + sort key ---
+  const STATE_ABBR = {alabama:'AL',alaska:'AK',arizona:'AZ',arkansas:'AR',california:'CA',colorado:'CO',connecticut:'CT',delaware:'DE',florida:'FL',georgia:'GA',hawaii:'HI',idaho:'ID',illinois:'IL',indiana:'IN',iowa:'IA',kansas:'KS',kentucky:'KY',louisiana:'LA',maine:'ME',maryland:'MD',massachusetts:'MA',michigan:'MI',minnesota:'MN',mississippi:'MS',missouri:'MO',montana:'MT',nebraska:'NE',nevada:'NV','new hampshire':'NH','new jersey':'NJ','new mexico':'NM','new york':'NY','north carolina':'NC','north dakota':'ND',ohio:'OH',oklahoma:'OK',oregon:'OR',pennsylvania:'PA','rhode island':'RI','south carolina':'SC','south dakota':'SD',tennessee:'TN',texas:'TX',utah:'UT',vermont:'VT',virginia:'VA',washington:'WA','west virginia':'WV',wisconsin:'WI',wyoming:'WY'};
+  const ABBR_SET = new Set(Object.values(STATE_ABBR));
+  function stateOf(p){
+    const place = p.place||'';
+    // explicit "City, ST" two-letter token
+    const m2 = place.match(/,\s*([A-Z]{2})\b/);
+    if(m2 && ABBR_SET.has(m2[1])) return m2[1];
+    // full state name anywhere in the place string
+    const low = place.toLowerCase();
+    for(const name in STATE_ABBR){ if(low.includes(name)) return STATE_ABBR[name]; }
+    // fall back to zip-based? none reliable — use region segment
+    return '';
+  }
+  // short display name for the button + option label
+  function shortName(p){ return (p.place||p.market).split(/\s+—\s+/)[0].replace(/\s*\(.*/,'').trim() || p.market; }
+
+  // --- build the two-group listbox (Axis 2) ---
+  const CLASS_LABEL = {'market':'Market','featured-frontier':'Featured Frontier'};
+  function build(){
+    const groups = {'market':[], 'featured-frontier':[]};
+    places.forEach(p=>{ groups[locationClass(p)].push(p); });
+    const cmp = (a,b)=>{ const sa=stateOf(a), sb=stateOf(b); if(sa!==sb) return sa<sb?-1:1; const na=shortName(a).toLowerCase(), nb=shortName(b).toLowerCase(); return na<nb?-1:na>nb?1:0; };
+    groups.market.sort(cmp); groups['featured-frontier'].sort(cmp);
+    listbox.innerHTML='';
+    ['market','featured-frontier'].forEach(cls=>{
+      const rows = groups[cls]; if(!rows.length) return;
+      const gid = 'ffgrp-'+cls;
+      const head = document.createElement('div'); head.id=gid; head.setAttribute('role','presentation');
+      head.style.cssText='padding:6px 10px 2px;font:700 10px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted)';
+      head.textContent = CLASS_LABEL[cls]+'s';
+      listbox.appendChild(head);
+      const grp = document.createElement('div'); grp.setAttribute('role','group'); grp.setAttribute('aria-labelledby',gid);
+      rows.forEach(p=>{
+        const opt=document.createElement('div');
+        opt.setAttribute('role','option'); opt.id='ffopt-'+p.market; opt.dataset.market=p.market;
+        opt.setAttribute('aria-selected','false'); opt.tabIndex=-1;
+        const st=stateOf(p); const sub=CLASS_LABEL[cls]+(st?' — '+st:'');
+        opt.innerHTML='<span class="ff-opt-name">'+esc(shortName(p))+'</span><span class="ff-opt-sub">'+esc(sub)+'</span>';
+        opt.addEventListener('click',()=>select(p.market));
+        grp.appendChild(opt);
+      });
+      listbox.appendChild(grp);
+    });
+    // reflect whatever #locality currently holds
+    const cur = document.getElementById('locality')?.value; if(cur) markSelected(cur);
+  }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+  function markSelected(market){
+    listbox.querySelectorAll('[role="option"]').forEach(o=>o.setAttribute('aria-selected', o.dataset.market===market?'true':'false'));
+  }
+
+  // --- selection: mirror into the hidden #locality select (the existing source of truth) ---
+  function select(market){
+    const p = places.find(x=>x.market===market); if(!p) return;
+    const loc = document.getElementById('locality');
+    if(loc){ loc.value=market; loc.dispatchEvent(new Event('change')); }
+    if(typeof onLocality==='function') try{ onLocality(); }catch(e){}
+    markSelected(market);
+    if(btnLabel) btnLabel.textContent = shortName(p);
+    if(summary) summary.setAttribute('aria-label','Choose market — currently '+shortName(p));
+    renderMarketLangs(market);
+    if(disclosure) disclosure.open=false;
+    if(summary) summary.setAttribute('aria-expanded','false');
+  }
+
+  // === AXIS 3 — translation render surface (surface only; content STUBBED, blocked on backend #124) ===
+  // renderMarketLangs replaces the old renderLangChips no-op behaviour: on market selection it reads the
+  // selected market's top languages from market-languages.json (via marketLangsFor) and paints .loc-line rows.
+  //
+  // BLOCKER: no precomputed market x lang -> {text,provider} JSON exists in the repo (localize() is a backend
+  // python service). So this renders PLACEHOLDERS, never fabricated machine translations:
+  //   - English source line  -> data-provider="source" (real English source string from places[].message)
+  //   - machine-translatable  -> data-provider="pending"        (placeholder "translation pending")
+  //   - nv / zip (HARD GATE)  -> data-provider="human-required" (placeholder "human translation pending")
+  //
+  // #124 populates window.KODIAK_LOCALIZED_COPY = { "<market>": { "<translate_code>": {text, provider} } }.
+  // When that object exists, real text swaps in for the placeholder with NO structural change — and the
+  // nv/zip human-required gate below still overrides any provider the data claims.
+  const HUMAN_REQUIRED = new Set(['nv','zip']); // Navajo, Zapotec — never machine-translated (ethics gate #123)
+
+  // host for the localized-copy preview, injected once beside the featured/langs detail cell
+  let host = document.getElementById('locPreview');
+  function ensureHost(){
+    if(host && host.isConnected) return host;
+    host = document.getElementById('locPreview');
+    if(host) return host;
+    host = document.createElement('div');
+    host.id='locPreview'; host.className='ff-locpreview'; host.setAttribute('aria-live','polite');
+    host.style.cssText='flex:1 1 100%;margin-top:var(--spacing-sm)';
+    const cell = featured ? featured.parentNode : null;
+    if(cell && cell.parentNode) cell.parentNode.appendChild(host); else (document.querySelector('.ff-controlrow')||document.body).appendChild(host);
+    return host;
+  }
+
+  // resolve a precomputed entry from the (future) #124 data structure; null until it lands
+  function precomputed(market, code){
+    try{ const t = window.KODIAK_LOCALIZED_COPY && window.KODIAK_LOCALIZED_COPY[market] && window.KODIAK_LOCALIZED_COPY[market][code]; return (t && typeof t.text==='string') ? t : null; }catch(e){ return null; }
+  }
+
+  function renderMarketLangs(market){
+    const h = ensureHost(); if(!h) return;
+    const p = places.find(x=>x.market===market);
+    const source = (p && p.message) ? p.message : "KODIAK® — Nourishment for Today's Frontier";
+    const langs = (typeof marketLangsFor==='function') ? marketLangsFor(market) : [];
+
+    // update #marketLangLine to reflect this market's REAL top languages (Axis 3 requirement)
+    if(langLine){
+      const names = langs.map(l=>l.lang_name).filter(Boolean);
+      langLine.innerHTML = 'localized in languages: <b>'+esc(['English'].concat(names).join(', '))+'</b>';
+    }
+
+    const rows = [];
+    // English source line — real string, tagged source
+    rows.push('<p class="loc-line" lang="en" data-provider="source"><span class="loc-langtag">EN</span>'+esc(source)+'</p>');
+    // one placeholder row per non-English target language
+    langs.forEach(l=>{
+      const code = (l.translate_code||l.lang_code||'').toLowerCase();
+      const humanGate = HUMAN_REQUIRED.has(code);           // client-side ethics gate (#123) — nv/zip
+      const pre = humanGate ? null : precomputed(market, code); // real text only when #124 data exists AND not gated
+      const provider = humanGate ? 'human-required' : (pre ? (pre.provider||'machine') : 'pending');
+      const fill = humanGate ? 'human translation pending'
+                 : (pre ? pre.text : 'translation pending');
+      rows.push('<p class="loc-line" lang="'+esc(l.lang_code||code)+'" data-provider="'+esc(provider)+'">'+
+                '<span class="loc-langtag">'+esc((l.lang_code||code).toUpperCase())+'</span>'+
+                esc(fill)+'</p>');
+    });
+    h.innerHTML = '<div class="ff-locpreview-head" style="font:700 10px/1.2 \'kodiak_sans\',\'museo-sans\',sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted);margin-bottom:2px">Localized copy preview</div>'+rows.join('');
+  }
+
+  // Replace the legacy renderLangChips no-op so any caller (fillSelects, change listener, fetch upgrade)
+  // now repaints the localized surface for the current market instead of deleting #lang-chips.
+  try{
+    window.renderLangChips = function(){
+      const cur = document.getElementById('locality')?.value || 'US-MW-PARKCITY-84098';
+      renderMarketLangs(cur);
+    };
+  }catch(e){}
+
+  // initial build + paint for the default market
+  build();
+  renderMarketLangs(document.getElementById('locality')?.value || 'US-MW-PARKCITY-84098');
+})();
 </script>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.010-70bcd2d-20260905","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.011-480c79d-20260905","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
 
 
 <script>
@@ -2475,5 +2685,5 @@ let skuList = [
   onScroll();
 })();
 </script>
-  <script src="glimmer-proxy.js?v=0.1.010-70bcd2d-20260905"></script>
+  <script src="glimmer-proxy.js?v=0.1.011-480c79d-20260905"></script>
 </body></html>
