@@ -237,3 +237,242 @@ brown pack. tints for backgrounds, shades for hover/pressed/depth.
   the token everywhere, retire `--chocolate`.
 
 these are design-system governance calls, not mechanical fixes. they belong to the product owner.
+
+---
+
+## 9. axis A — the 4-view responsive dimension (form + function per viewport)
+
+> appended 2026-09-05 by ghost-stratia-ux-research from live index.html
+> (`web/kodiak-posts-for-todays-frontier/index.html`), grounding the responsive axis the
+> prep spec named. this section grades each element's form + function across four viewports:
+> mobile 375 / tablet 768 / desktop 1440 / ultrawide 2560.
+
+**live CSS breakpoint reality (read before trusting any wide-view row).** the prior pass
+reported "only ONE layout breakpoint @860px." that is not accurate against the live file. the
+content-layout media queries are actually TWO, plus two non-layout queries:
+
+| media query                     | line region | what it restructures                                                              |
+| ------------------------------- | ----------- | --------------------------------------------------------------------------------- |
+| `@media(max-width:860px)`       | L119        | `.grid` 2-col -> 1-col (the main two-panel split)                                  |
+| `@media(max-width:860px)`       | L156        | `.kodiak-header__logos` shrinks to `clamp(64px,16vw,88px)`                         |
+| `@media(max-width:860px)`       | L177        | `.ff-inputwrap` wraps, textarea goes full-width, `.ff-go` stretches               |
+| `@media(max-width:640px)`       | ~L437       | `.ff-controlrow` -> column, `.ff-market>summary`/`.ff-season select` full-width   |
+| `@media(prefers-reduced-motion)`| L140, L157  | disables transitions (not a layout query)                                         |
+
+so the true finding: TWO layout breakpoints (860 for the main grid + prompt row, 640 for the
+control row), and NO breakpoint above 860px. desktop (1440) and ultrawide (2560) share the exact
+same ruleset — nothing differentiates them. that is the real form gap on the wide end. mobile
+(375) and tablet (768) both sit below 860 AND below 640, so they share BOTH collapsed rulesets;
+nothing differentiates 375 from 768 either. the design has effectively two states — "narrow"
+(<=640) and "wide" (>860) — with a thin 641-860 band where the grid is single-col but the control
+row is still a row. four named viewports, two actual layouts.
+
+**standard S11 — four-view form+function parity.** every brand-load-bearing element must have a
+defined form at mobile 375, tablet 768, desktop 1440, ultrawide 2560. where the current CSS cannot
+differentiate two named viewports (the 375/768 pair and the 1440/2560 pair), that is a gap to be
+flagged, not a pass. wide-end behavior (does the prompt card stretch edge-to-edge at 2560, does the
+preview grid reflow to more columns, does line length exceed comfortable measure) is UNKNOWN from
+CSS reading alone — it requires a rendered screenshot pass. those rows are marked TBD-verify.
+
+> TBD-verify is EXPECTED and CORRECT here. a headless screenshot pass at the four breakpoints
+> (ghost-liora-headless-verifier) is currently BLOCKED on a session MCP failure. do not treat the
+> absence of screenshots as a defect in this inventory — treat every wide-reflow claim as a
+> hypothesis pending that pass. express mcp grounds what we generate; it does not render the live
+> screen, so it cannot close these rows either.
+
+### 9.1 per-element narrow-vs-wide table
+
+| element                    | selector             | narrow (<=640 / 375+768)                                              | wide (>860 / 1440+2560)                                             | flag                                                                 |
+| -------------------------- | -------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| Main two-panel grid        | `.grid`              | single column, panels stack                                           | two columns `1fr 1fr`                                               | TBD-verify: no >860 rule — 1440 and 2560 identical, wide whitespace  |
+| Header logo disc           | `.kodiak-header__logos` | `clamp(64px,16vw,88px)`                                            | native size                                                         | ok — the one element with a fluid clamp                              |
+| Prompt input wrap          | `.ff-inputwrap`      | wraps; textarea `flex:1 1 100%`; `.ff-go` stretches full-width        | single row, textarea + button inline                               | ok narrow; TBD-verify wide max-width at 2560                         |
+| Control row                | `.ff-controlrow`     | `flex-direction:column` @640; market button + season full-width       | single wrapping row of pills                                        | ok narrow; TBD-verify wrap behavior in 641-860 band                  |
+| Market disclosure summary  | `.ff-market>summary` | full-width, `justify-content:space-between` @640                       | intrinsic-width pill                                                | ok                                                                   |
+| Market disclosure panel    | `.ff-market-panel`   | `left:0;right:0` (full-bleed) @640                                      | `min-width:280px;max-width:min(92vw,420px)` popover                 | ok narrow; TBD-verify: 340px max-height scroll on tall 2560          |
+| Seasonal select            | `.ff-season select`  | full-width @640                                                        | intrinsic pill                                                      | ok                                                                   |
+| Featured + langs detail    | `.ff-detail`         | `flex:1 1 220px` stacks under controls                                 | inline third cell of the row                                        | TBD-verify: langs line wrap at 375                                   |
+| Preview grid               | `.preview` `#preview`| `auto-fill minmax(240px,...)` -> 1 col at 375                           | auto-fill, more columns as width grows                             | TBD-verify: column count at 1440 vs 2560 (auto-fill IS fluid — likely the ONE element that uses ultrawide width, needs screenshot to confirm count) |
+| Render set                 | `.render-set`        | `auto-fit minmax(220px,...)` -> stacks                                  | up to 3 ratio tiles inline                                          | TBD-verify: does auto-fit add a 4th phantom track at 2560            |
+| Card                       | `.card`              | full-width in stacked grid                                             | half-width in 2-col grid                                            | TBD-verify: measure/line-length at 2560 half-column                  |
+| Product chooser disclosure | `.ff-products`       | full-width summary line                                                | intrinsic disclosure                                                | ok — closed by default, one summary line at rest all viewports       |
+| Selection tray             | `.ff-tray`           | wraps chips, collapses when empty                                     | wraps chips                                                        | ok — flex-wrap handles all widths                                    |
+
+**form gaps that are certain (no screenshot needed):**
+
+- no >860px breakpoint exists, so 1440 and 2560 render byte-identical CSS. any intended
+  ultrawide-specific treatment (max content width, multi-column reflow of the main grid beyond
+  2 columns, larger creative previews) is simply absent. the layout will grow whitespace, not
+  structure, past ~1400px unless an element uses an intrinsically-fluid track.
+- `.preview` and `.render-set` use `auto-fill`/`auto-fit minmax()` — these ARE intrinsically
+  fluid and are the only elements that will use extra ultrawide width by adding columns. exact
+  column counts at 1440 vs 2560 are TBD-verify.
+- mobile 375 and tablet 768 are undifferentiated (both below both breakpoints). a tablet-specific
+  layout (e.g. 2-col control row but stacked main grid) does not exist.
+
+---
+
+## 10. axis B — translation as a first-class element (THE highest-value gap)
+
+> appended 2026-09-05 by ghost-stratia-ux-research. this is the single highest-value functional
+> gap in the frontend: the site advertises localization on every surface but renders ZERO
+> per-market translated copy. the data to do it exists and is rich; the render path is a
+> deliberate no-op.
+
+**the core finding, grounded in the live file.** `renderLangChips()` at index.html L748 is not a
+partial implementation — it is a hard no-op that actively REMOVES its own target from the DOM:
+
+```
+function renderLangChips(){
+  // declutter — lang-chips removed from the app page (non-interactive, hardcoded markets).
+  // kept as a safe no-op so fillSelects/change-listener/setTimeout/async-fetch callers never throw.
+  const el = document.getElementById('lang-chips');
+  if(el && el.parentNode) el.parentNode.removeChild(el);
+}
+document.addEventListener('change', e=>{ if(e.target && e.target.id==='locality') renderLangChips(); });
+```
+
+so every caller (the `#locality` change listener at L754, plus the async market-file upgrade
+fetch) invokes a function whose entire behavior is to delete `#lang-chips`. no localized copy is
+ever produced client-side. translation is entirely missing as rendered output.
+
+**the data is present and abundant — the gap is purely render.** `data/localization/` carries:
+
+- `market-languages.json` — 73 markets, top-2 non-English language per market with real ACS
+  S1601 percentages, `translate_code` per language, 219 total localized variants
+  (73 markets x 3 variants EN + top2). metadata declares `auto_produce:true`, `nova_proven:true`.
+- `localization-training-data.jsonl` + `localization-table-seed.json` — seeded localized copy.
+- `local-flavor.json`, `dialect/`, regional dirs — per-market cue/message localization.
+- the manifest (L10-12) advertises a `localize` mcp tool and `"languages":"EN + top2 per market
+  (ACS 2022)"`.
+
+**standard S12 — translation is a first-class rendered element, not a badge.** any surface that
+claims localization must render actual localized copy for the selected market, sourced from
+`market-languages.json` (or the live `localize` tool), not a static string. the deliverable is
+preview/render of localized captions per market + language, driven by the selected market's
+`top_languages[]`. a hardcoded language list that never changes with market selection is a
+violation of S12.
+
+### 10.1 every surface that SHOULD render localized copy — each MISSING
+
+| surface                    | selector / location            | what it claims                                                    | what it renders today                                                  | state    |
+| -------------------------- | ------------------------------ | ----------------------------------------------------------------- | ---------------------------------------------------------------------- | -------- |
+| Manifest tools list        | `<meta mcp:tools>` L10          | advertises `localize` tool                                        | tool listed, never invoked client-side                                 | MISSING  |
+| Manifest languages field   | webmcp-manifest JSON L12         | `"EN + top2 per market (ACS 2022)"`                               | static string in manifest, no runtime binding                          | MISSING  |
+| Language chips             | `#lang-chips` (via renderLangChips) | per-market localized language chips                            | function DELETES the node — no-op stub                                  | MISSING  |
+| Market languages line      | `#marketLangLine` `.ff-langs` L658 | localized-in language list for the chosen market               | hardcoded `English, Spanish, Portuguese` — never changes with market   | MISSING  |
+| Featured-frontier note     | `#featuredFrontier` `.ff-featured` L657 | localized frontier/featured copy per market               | empty `aria-live` region, no localized fill wired                      | MISSING  |
+| Localized font faces       | `@font-face` block L565+        | self-hosted Noto per-script (CJK/Cyrillic/etc), unicode-range split | `@font-face` rules present but woff2 binaries NOT in repo (`./fonts/`) | MISSING (binaries absent) |
+| Create button variant fan  | `#generateCampaign` `.ff-go` L623 | "fans to all formats + localized variants"                     | button label promises localized variants; no localized render path     | MISSING  |
+| Preview tile captions      | `.tile` / `.render-tile` copy   | localized caption per rendered creative                           | canvas renders composed creative; caption localization absent          | MISSING  |
+| Provenance localization    | `.provenance` / `.prov-pill`    | provenance of the localization/translate step                     | no localize provenance pill                                            | MISSING  |
+
+**the core deliverable (wave 2/3):** wire the selected market -> its `top_languages[]` from
+`market-languages.json` -> render localized caption previews on the preview/render tiles AND
+update `#marketLangLine` + `#featuredFrontier` to the selected market's real languages. replace
+`renderLangChips()` from a delete-stub to a real per-market chip renderer, or fold its job into
+the market-disclosure selection handler. this is the highest-value gap because the entire
+data + provenance layer already exists (219 variants, Nova-proven) and only the render path is
+stubbed out.
+
+---
+
+## 11. axis C — market vs featured-frontier taxonomy (derived, grouped, alpha-by-state)
+
+> appended 2026-09-05 by ghost-stratia-ux-research. reclassifies the location control under the
+> two-bucket product vocabulary the prep spec named, derived from live data shape.
+
+**the two buckets, grounded in the two data files that back the 73 markets:**
+
+- **market** = has a commercial retail footprint. in `store-finder-markets.json` every record
+  carries a `retailer` field naming chain grocers (e.g. Park City: `Target (Kimball Junction),
+  Walmart (Kimball Junction), Smith's Food & Drug`). where you can buy Kodiak Cakes on a shelf.
+- **featured frontier** = no commercial retail chain — general store / farmers-market /
+  subscription only. in `frontier-gaps.json` every record carries `retail_gap` (e.g. Timberon:
+  `No grocery chain; nearest full grocer 45min... General Store limited SKU`), plus
+  `frontier:true` and `subscriber_variant:true`. recipe-source and DTC/subscription markets.
+
+**standard S13 — location_class is DERIVED, not a schema field.** do not add a `location_class`
+field to the 73 records and do not migrate the four-value `classification` (metro / regional /
+frontier / frontier-gap). derive at render time:
+
+```
+location_class = has_commercial_retail(record) ? "market" : "featured-frontier"
+
+has_commercial_retail(record):
+  true  if record.retailer names a chain grocer (Target/Walmart/Smith's/Costco/Publix/HEB/Kroger/...)
+  false if record.retail_gap is present, OR retailer is only a general-store / farmers-market,
+        OR the record originates from frontier-gaps.json (frontier:true + subscriber_variant:true)
+```
+
+this keeps the rich schema intact (`classification`, ACS language data, retailer strings, cross-
+promo) while giving the clean two-bucket product language. the mapping the prep spec named holds:
+metro + regional + frontier (with a chain grocer in `retailer[]`) => market; frontier-gap
+(retail_gap / general-store / farmers-market, DTC-only) => featured-frontier.
+
+**standard S14 — group by class first, then alphabetize by state within each group.** the
+selector renders two labeled groups ("Markets" then "Featured Frontier"), and within each group
+sorts alphabetically by state (AK, AZ, CA, ..., UT, VT, WA). this replaces the current flat,
+unsorted, ungrouped ordering (raw file order). ordering rule is: class bucket (markets before
+featured-frontier) -> state alpha -> place alpha within a state.
+
+### 11.1 controls that should surface the market / featured-frontier label
+
+| control                    | selector             | today                                                              | should                                                                 | verdict                        |
+| -------------------------- | -------------------- | ----------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------ |
+| Market disclosure listbox  | `#marketListbox` `.ff-market-panel` L634 | accessible `role=listbox` of 73 markets, flat        | grouped into Markets / Featured Frontier headers, alpha-by-state each   | RIGHT HOME — apply S13 + S14   |
+| Market option row          | `[role=option]` + `.ff-opt-sub` | option with sublabel slot (`.ff-opt-sub`) available    | sublabel shows class + state ("Market — UT" / "Featured Frontier — NM") | RIGHT HOME — sublabel is built for this |
+| Selected option state      | `[role=option][aria-selected=true]` | frontier-green fill on selected                     | plus class-aware summary label on the button                           | apply                          |
+| Market button label        | `#marketButtonLabel` `.ff-market-name` L630 | shows place name (`Park City, Utah`)               | may prefix/annotate with class when useful                             | apply                          |
+| Featured-frontier note     | `#featuredFrontier` `.ff-featured` L657 | empty                                             | render the featured-frontier framing when a featured-frontier market picked | apply (also an S12 surface) |
+| Flat locality select       | `#locality` <select>  | populated in raw `places[]` order, no grouping, no sort (change listener at L754 still bound) | DEPRECATE — the flat select is the migration target, not the home | DEPRECATION TARGET             |
+
+the `.ff-market` disclosure listbox is the correct home for the reclassified selector: it already
+has `role=listbox`, `role=option` rows, `aria-selected`, and a `.ff-opt-sub` sublabel slot purpose-
+built to carry the class + state annotation. the flat `#locality` select is the deprecation target
+— it renders in raw order with no grouping or sort and cannot express the two-bucket taxonomy.
+
+---
+
+## 12. spectrum migration candidates (token-bridged, not token-replacing)
+
+> appended 2026-09-05 by ghost-stratia-ux-research. ranks which bespoke `.ff-*` controls are the
+> best candidates to migrate onto adobe spectrum `sp-*` web components, WITHOUT replacing the
+> kodiak token layer — spectrum components are token-bridged: their custom properties are fed the
+> existing `--colors-* / --radii-* / --shadows-*` kodiak tokens so brand fidelity is preserved.
+
+**standard S15 — spectrum adoption is token-bridged, not token-replacing.** a migrated control
+keeps the kodiak look by mapping kodiak tokens onto the spectrum component's theming custom
+properties (e.g. feed `--colors-brand-frontier-green`, `--radii-lg`, `--shadows-sm` into the
+`sp-*` element's exposed vars). never let a spectrum default palette override a kodiak token. the
+migration is worth it only where the `sp-*` component removes bespoke a11y/interaction code we
+currently hand-maintain. bridge, do not replace.
+
+### 12.1 ranked sp-* replacement table
+
+| rank | current control            | selector             | sp-* target                     | why migrate                                                                                          | token bridge (kodiak -> sp)                                                                                 |
+| ---- | -------------------------- | -------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| 1    | Market disclosure listbox  | `.ff-market` / `#marketListbox` | `sp-picker` + `sp-menu-group`   | TOP candidate — `sp-menu-group` gives grouped-with-header + accessible listbox for free, which ALSO delivers S14 (group-by-class, alpha-by-state) with zero hand-rolled grouping code; retires the bespoke disclosure + manual `role=option`/`aria-selected` wiring | `--radii-lg`, `--shadows-md`, `--colors-brand-frontier-green` (selected), `--colors-brand-bear-brown` (open), `--colors-neutral-50/100`, `--colors-foreground-*` |
+| 2    | Seasonal select            | `.ff-season select`  | `sp-picker`                     | native `<select>` styling is browser-inconsistent; `sp-picker` normalizes it + keyboard nav          | `--radii-lg`, `--colors-brand-blaze-orange` (border), `--shadows-sm`, `--colors-neutral-50/100`             |
+| 3    | Product search combobox    | `#productSearch` `.ff-products-search` | `sp-combobox`                   | hand-rolled `role=combobox` + `#productResults` listbox + autocomplete is exactly what `sp-combobox` ships tested | `--radii-sm`, `--colors-border-default`, `--colors-brand-signal-red` (focus), `--colors-foreground-default` |
+| 4    | Suggestion / theme chips   | `.ff-chip` (x6)      | `sp-action-group` + `sp-action-button` (toggle) | pressed-state chips map cleanly to toggle action buttons; frees the manual `aria-pressed` handling   | `--colors-brand-bear-brown` (pressed), `--colors-brand-blaze-orange` (dot), `--radii-*`                     |
+| 5    | Product chooser disclosure | `.ff-products`       | `sp-accordion` / `sp-disclosure`| native `<details>` works; migration is lowest urgency — only if consolidating on spectrum primitives | `--radii-lg`, `--colors-neutral-100/200`, `--colors-brand-signal-red` (caret)                              |
+| 6    | Use-my-location button     | `.ff-geo`            | `sp-action-button` (quiet) + `sp-icon`          | low value — small bespoke button; migrate only for icon-system consistency                            | `--colors-border-default`, `--radii-lg`, `--colors-brand-signal-red` (pin fill — already on-token)          |
+
+**top candidate rationale.** `.ff-market -> sp-picker + sp-menu-group` is ranked #1 because it is
+the only migration that solves TWO standards at once: it modernizes the control (S15) AND its
+`sp-menu-group` primitive natively provides the grouped-header + within-group ordering that S14
+requires, deleting the bespoke grouping/sort code before it is even written. it is the highest-
+leverage single migration on the board.
+
+**do-not-migrate (keep bespoke).** the hero prompt bar (`.ff-prompt`, `bear` elevation), the
+preview/render tiles (`.tile`/`.render-tile`, brand-specific kraft surfaces + aspect-ratio locks),
+and all decorative overlays are brand-signature surfaces with no spectrum equivalent — they stay
+bespoke and on-token. spectrum is for the generic form controls, not the creative canvas.
+
+> note on S15 + S1 interaction: three `.ff-*` controls above reference `--colors-brand-signal-red`
+> (`.ff-geo-pin`, `.ff-products` caret/focus, `.ff-pending-remove` hover). the global focus ring at
+> L281 still uses the invented `var(--red)` (#B51E14, non-token per S1/D1). any spectrum migration
+> that touches focus styling must resolve to the eventual signal-red TOKEN, not the raw `--red`
+> var — do not carry the drift into the sp-* bridge. this keeps S15 aligned with the pending D1
+> decision.
