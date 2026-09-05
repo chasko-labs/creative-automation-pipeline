@@ -28,6 +28,24 @@ ASSET_EXTS = {".png", ".jpg", ".jpeg", ".webp"}
 HERO_NAMES = {"hero", "main", "cover", "product"}
 BRAND_NAMES = ("logo", "brand", "mark")
 
+# The S3-fetch cache must land on a WRITABLE fs. Lambda mounts /var/task read-only
+# and only guarantees /tmp is writable, so caching under the relative input_assets
+# root (which resolves under /var/task on Lambda) raises Errno 30 on the dest.mkdir
+# for every candidate key — the ~16-candidate retry loop then blows the 30s API
+# Gateway budget -> 503. /tmp/kodiak-assets is always writable on Lambda AND locally,
+# and mirrors the convention resolve_packshot / fetch_hero_to_tmp already use. Env
+# override (DAM_CACHE_ROOT) wins for callers that need a bespoke cache location.
+_DEFAULT_CACHE_ROOT = "/tmp/kodiak-assets"  # noqa: S108 — Lambda only allows /tmp writes
+
+
+def _dam_cache_root() -> Path:
+    """Writable root for S3-fetch downloads: $DAM_CACHE_ROOT, else /tmp/kodiak-assets.
+
+    Never returns the read-only relative input_assets. Local reads still hit the
+    caller-supplied dam_root; only the fetched-asset WRITE destination moves here.
+    """
+    return Path(os.getenv("DAM_CACHE_ROOT", "").strip() or _DEFAULT_CACHE_ROOT)
+
 
 def _s3_bucket_and_prefix() -> tuple[Optional[str], str]:
     """Resolve bucket/prefix from DAM_S3_BUCKET + DAM_S3_PREFIX or DAM_S3_URI.
@@ -72,7 +90,15 @@ def _s3_download(bucket: str, key: str, dest: Path) -> bool:
     if client is None:
         return False
     try:
-        dest.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            dest.parent.mkdir(parents=True, exist_ok=True)
+        except OSError as e:
+            # Read-only fs (Errno 30) or perms — degrade gracefully rather than raise
+            # and blow the retry-loop time budget. Caller falls through to the next
+            # candidate / local path. The writable _dam_cache_root default should keep
+            # this from firing on Lambda, but the guard is the belt to that suspenders.
+            print(f"[dam] s3 cache dir unwritable {dest.parent}: {e}")
+            return False
         client.download_file(bucket, key, str(dest))
         return dest.exists()
     except (ClientError, BotoCoreError, Exception) as e:
@@ -81,13 +107,17 @@ def _s3_download(bucket: str, key: str, dest: Path) -> bool:
 
 
 def _s3_try_fetch_product_asset(product_id: str, dam_root: Path, explicit: Optional[str] = None) -> Optional[Path]:
-    """Try to materialize hero asset from S3 into dam_root. Returns local path if fetched.
+    """Try to materialize hero asset from S3 into a writable cache. Returns local path if fetched.
 
     Looks for s3://<bucket>/<prefix><product_id>/hero.* then any image under
-    s3://<bucket>/<prefix><product_id>/ . Caches to dam_root/<product_id>/.
+    s3://<bucket>/<prefix><product_id>/ . A pre-synced hit under dam_root/<product_id>/
+    is honored first (local read), but fetched downloads are written to
+    _dam_cache_root()/<product_id>/ — never the (possibly read-only) dam_root — so the
+    Lambda /var/task read-only fs cannot break the fetch.
     """
     if not _s3_enabled():
         return None
+    cache_root = _dam_cache_root()
     # if explicit is s3://, fetch that single key
     if explicit and explicit.startswith("s3://"):
         bucket, _ = _s3_bucket_and_prefix()
@@ -96,7 +126,11 @@ def _s3_try_fetch_product_asset(product_id: str, dam_root: Path, explicit: Optio
         if not key:
             return None
         fname = Path(key).name
-        dest = dam_root / product_id / fname
+        # honor a pre-synced local copy under dam_root, else download to the cache root
+        local_pre = dam_root / product_id / fname
+        if local_pre.exists():
+            return local_pre
+        dest = cache_root / product_id / fname
         if dest.exists():
             return dest
         if _s3_download(bucket, key, dest):  # type: ignore
@@ -116,10 +150,13 @@ def _s3_try_fetch_product_asset(product_id: str, dam_root: Path, explicit: Optio
     for ext in ASSET_EXTS:
         for name in HERO_NAMES:
             key = f"{base_prefix}{name}{ext}"
-            dest = dam_root / product_id / f"{name}{ext}"
+            # pre-synced local copy under dam_root wins (offline / CI), else cache root
+            local_pre = dam_root / product_id / f"{name}{ext}"
+            if local_pre.exists():
+                return local_pre
+            dest = cache_root / product_id / f"{name}{ext}"
             if dest.exists():
                 return dest
-            # need to check existence via HeadObject before download to avoid log noise?
             # try download optimistically
             if _s3_download(bucket, key, dest):
                 print(f"[dam] s3 hit s3://{bucket}/{key}")
@@ -138,7 +175,10 @@ def _s3_try_fetch_product_asset(product_id: str, dam_root: Path, explicit: Optio
             key = obj["Key"]
             if any(key.lower().endswith(ext) for ext in ASSET_EXTS):
                 fname = Path(key).name
-                dest = dam_root / product_id / fname
+                local_pre = dam_root / product_id / fname
+                if local_pre.exists():
+                    return local_pre
+                dest = cache_root / product_id / fname
                 if dest.exists():
                     return dest
                 if _s3_download(bucket, key, dest):
@@ -348,15 +388,19 @@ def _s3_try_fetch_brand_logo(dam_root: Path) -> Optional[Path]:
     client = _s3_client()
     if client is None:
         return None
+    cache_root = _dam_cache_root()
     for sub in ("brand/", ""):
         base_prefix = f"{prefix}{sub}"
         # named candidates first
         for ext in ASSET_EXTS:
             for name in BRAND_NAMES:
                 key = f"{base_prefix}{name}{ext}"
-                # cache under dam_root/brand/ or dam_root/
+                # cache under brand/ or root; check pre-synced dam_root first, write to cache_root
                 rel = f"brand/{name}{ext}" if sub == "brand/" else f"{name}{ext}"
-                dest = dam_root / rel
+                local_pre = dam_root / rel
+                if local_pre.exists():
+                    return local_pre
+                dest = cache_root / rel
                 if dest.exists():
                     return dest
                 if _s3_download(bucket, key, dest):
@@ -375,7 +419,10 @@ def _s3_try_fetch_brand_logo(dam_root: Path) -> Optional[Path]:
                 if any(key.lower().endswith(ext) for ext in ASSET_EXTS):
                     fname = Path(key).name
                     rel_dir = "brand" if sub == "brand/" else ""
-                    dest = dam_root / rel_dir / fname if rel_dir else dam_root / fname
+                    local_pre = dam_root / rel_dir / fname if rel_dir else dam_root / fname
+                    if local_pre.exists():
+                        return local_pre
+                    dest = cache_root / rel_dir / fname if rel_dir else cache_root / fname
                     if dest.exists():
                         return dest
                     if _s3_download(bucket, key, dest):
