@@ -20,13 +20,37 @@ from typing import Optional
 
 try:
     import boto3
+    from botocore.config import Config as _BotoConfig
     from botocore.exceptions import BotoCoreError, ClientError
 except ImportError:  # boto3 optional — local-only mode still works
     boto3 = None  # type: ignore
+    _BotoConfig = None  # type: ignore
 
 ASSET_EXTS = {".png", ".jpg", ".jpeg", ".webp"}
 HERO_NAMES = {"hero", "main", "cover", "product"}
 BRAND_NAMES = ("logo", "brand", "mark")
+
+# LOOP-LEVEL DEADLINE FLOOR: the probe functions accept an optional deadline callback
+# (a zero-arg callable returning remaining budget in ms, threaded from generate.py's
+# remaining_ms). A probe loop ABANDONS the moment remaining drops below this floor, so a
+# fan-out of ~50 serial S3 misses cannot run to the full ~37s even with the per-call
+# botocore timeout — it bails mid-loop and the caller drops to rung C/D (no-seed). Reuse
+# the rung-C reservation idea: stop probing while ~3s of budget still remains.
+DAM_PROBE_FLOOR_MS = int(os.getenv("DAM_PROBE_FLOOR_MS", "3000"))
+
+
+def _deadline_exceeded(deadline_ms) -> bool:
+    """True when a deadline callback is supplied AND remaining budget < the floor.
+
+    deadline_ms is a zero-arg callable returning remaining milliseconds (generate.py's
+    remaining_ms). None means no deadline threaded (offline / test / CLI) — never abandons.
+    """
+    if deadline_ms is None:
+        return False
+    try:
+        return deadline_ms() < DAM_PROBE_FLOOR_MS
+    except Exception:
+        return False
 
 # The S3-fetch cache must land on a WRITABLE fs. Lambda mounts /var/task read-only
 # and only guarantees /tmp is writable, so caching under the relative input_assets
@@ -79,7 +103,21 @@ def _s3_client():
         return None
     region = os.getenv("DAM_S3_REGION", os.getenv("BEDROCK_REGION", os.getenv("AWS_REGION", "us-east-1")))
     try:
-        return boto3.client("s3", region_name=region)
+        # FAIL-FAST config: an unmapped-SKU probe fans out ~50 SERIAL HeadObject/GetObject
+        # misses. A bare client (no timeouts, default 3-retry mode) lets those misses run
+        # unbounded to ~37s and 503 at the 30s API Gateway edge. Bound every call to a few
+        # seconds worst case and kill the retry multiplier so ~50 misses cannot exceed the
+        # budget. Same class of fix already applied to the Bedrock client in generate.py.
+        read_timeout = int(os.getenv("DAM_S3_READ_TIMEOUT_S", "2"))
+        connect_timeout = int(os.getenv("DAM_S3_CONNECT_TIMEOUT_S", "1"))
+        cfg = None
+        if _BotoConfig is not None:
+            cfg = _BotoConfig(
+                connect_timeout=connect_timeout,
+                read_timeout=read_timeout,
+                retries={"max_attempts": 1, "mode": "standard"},
+            )
+        return boto3.client("s3", region_name=region, config=cfg)
     except Exception:
         return None
 
@@ -106,7 +144,7 @@ def _s3_download(bucket: str, key: str, dest: Path) -> bool:
         return False
 
 
-def _s3_try_fetch_product_asset(product_id: str, dam_root: Path, explicit: Optional[str] = None) -> Optional[Path]:
+def _s3_try_fetch_product_asset(product_id: str, dam_root: Path, explicit: Optional[str] = None, deadline_ms=None) -> Optional[Path]:
     """Try to materialize hero asset from S3 into a writable cache. Returns local path if fetched.
 
     Looks for s3://<bucket>/<prefix><product_id>/hero.* then any image under
@@ -114,6 +152,9 @@ def _s3_try_fetch_product_asset(product_id: str, dam_root: Path, explicit: Optio
     is honored first (local read), but fetched downloads are written to
     _dam_cache_root()/<product_id>/ — never the (possibly read-only) dam_root — so the
     Lambda /var/task read-only fs cannot break the fetch.
+
+    deadline_ms (optional zero-arg callable -> remaining ms) bounds the ASSET_EXTS x
+    HERO_NAMES fan-out: the loop ABANDONS once remaining < DAM_PROBE_FLOOR_MS.
     """
     if not _s3_enabled():
         return None
@@ -149,6 +190,9 @@ def _s3_try_fetch_product_asset(product_id: str, dam_root: Path, explicit: Optio
     # 1) hero.* candidates first
     for ext in ASSET_EXTS:
         for name in HERO_NAMES:
+            if _deadline_exceeded(deadline_ms):
+                print(f"[dam] product probe abandoned mid-fan-out (budget floor) s3://{bucket}/{base_prefix}")
+                return None
             key = f"{base_prefix}{name}{ext}"
             # pre-synced local copy under dam_root wins (offline / CI), else cache root
             local_pre = dam_root / product_id / f"{name}{ext}"
@@ -169,6 +213,9 @@ def _s3_try_fetch_product_asset(product_id: str, dam_root: Path, explicit: Optio
                     pass
 
     # 2) any image under product prefix — list
+    if _deadline_exceeded(deadline_ms):
+        print(f"[dam] product list probe skipped (budget floor) s3://{bucket}/{base_prefix}")
+        return None
     try:
         resp = client.list_objects_v2(Bucket=bucket, Prefix=base_prefix, MaxKeys=20)
         for obj in resp.get("Contents", []):
@@ -200,7 +247,7 @@ def _heroes_prefix() -> str:
     return prefix
 
 
-def fetch_hero_to_tmp(product_id: str, cache_root: Path = Path("/tmp/kodiak-assets")) -> Optional[Path]:  # noqa: S108 — Lambda only allows /tmp writes
+def fetch_hero_to_tmp(product_id: str, cache_root: Path = Path("/tmp/kodiak-assets"), deadline_ms=None) -> Optional[Path]:  # noqa: S108 — Lambda only allows /tmp writes
     """Materialize a product hero from the S3 DAM into a Lambda-safe /tmp cache.
 
     Resolves s3://<DAM bucket>/<heroes prefix><product_id>/hero-real.png first
@@ -211,6 +258,10 @@ def fetch_hero_to_tmp(product_id: str, cache_root: Path = Path("/tmp/kodiak-asse
     missing), when the client cannot init, or when neither key is present. Never
     raises — mirrors the graceful guards the rest of this module uses so local dev
     and CI (no S3 configured) fall through to the caller's local / mock path.
+
+    deadline_ms (optional zero-arg callable -> remaining ms) bounds the fan-out: the
+    hero-real/hero x ext loop ABANDONS mid-flight once remaining < DAM_PROBE_FLOOR_MS,
+    returning None so the ladder drops to rung C/D instead of blowing the 30s edge.
     """
     if not _s3_enabled():
         return None
@@ -221,6 +272,9 @@ def fetch_hero_to_tmp(product_id: str, cache_root: Path = Path("/tmp/kodiak-asse
     # hero-real preferred over hero — matches _find_source_asset's local order
     for name in ("hero-real", "hero"):
         for ext in ASSET_EXTS:
+            if _deadline_exceeded(deadline_ms):
+                print(f"[dam] hero probe abandoned mid-fan-out (budget floor) s3://{bucket}/{base_prefix}")
+                return None
             fname = f"{name}{ext}"
             key = f"{base_prefix}{fname}"
             dest = cache_root / product_id / fname
@@ -341,7 +395,7 @@ def _looks_like_box(key: str) -> bool:
     return "705599" in name
 
 
-def resolve_packshot(product_id: str, dam_root: Optional[Path] = None) -> Optional[Path]:
+def resolve_packshot(product_id: str, dam_root: Optional[Path] = None, deadline_ms=None) -> Optional[Path]:
     """Return a local path to the REAL product-box packshot for a SKU, else None.
 
     Manifest-first (unlike find_hero_asset). Resolution chain, in order:
@@ -352,6 +406,9 @@ def resolve_packshot(product_id: str, dam_root: Optional[Path] = None) -> Option
 
     Offline-safe: fetch_dam_key returns None when S3 is disabled, so local dev / CI
     fall straight through to step 3 (local glob) or None. Never raises.
+
+    deadline_ms (optional zero-arg callable -> remaining ms) is threaded into step 3's
+    find_hero_asset fan-out so an unmapped-SKU probe abandons mid-loop past the floor.
     """
     cache_dir = Path("/tmp/kodiak-assets/packshot")
     entry = _packshot_entry_for(product_id)
@@ -372,7 +429,7 @@ def resolve_packshot(product_id: str, dam_root: Optional[Path] = None) -> Option
                     return hit
     # 3) fuzzy glob — reuse the existing S3-prefix + local-glob primitive
     root = dam_root or Path("input_assets")
-    fuzzy = find_hero_asset(product_id, root)
+    fuzzy = find_hero_asset(product_id, root, deadline_ms=deadline_ms)
     if fuzzy is not None and _looks_like_box(str(fuzzy)):
         return fuzzy
     # 4) nothing box-like resolved
@@ -478,7 +535,7 @@ def _local_find_brand(dam_root: Path) -> Optional[Path]:
 
 
 # ------------------------------------------------------------------ public API (backward-compatible)
-def find_hero_asset(product_id: str, dam_root: Path, explicit: Optional[str] = None) -> Optional[Path]:
+def find_hero_asset(product_id: str, dam_root: Path, explicit: Optional[str] = None, deadline_ms=None) -> Optional[Path]:
     """Return hero image path if found, else None.
 
     Lookup order:
@@ -491,16 +548,19 @@ def find_hero_asset(product_id: str, dam_root: Path, explicit: Optional[str] = N
       DAM_S3_BUCKET, DAM_S3_PREFIX (default dam/), DAM_S3_URI (alt s3://bucket/prefix),
       DAM_S3_REGION / BEDROCK_REGION / AWS_REGION, standard AWS credential chain.
     When S3 env not set or boto3 unavailable, steps 2 is skipped — pure local (existing tests pass).
+
+    deadline_ms (optional zero-arg callable -> remaining ms) threads through the S3
+    fan-out so the probe abandons mid-loop once remaining < DAM_PROBE_FLOOR_MS.
     """
     # explicit s3:// handled inside s3 fetch
     if explicit and explicit.startswith("s3://"):
-        hit = _s3_try_fetch_product_asset(product_id, dam_root, explicit)
+        hit = _s3_try_fetch_product_asset(product_id, dam_root, explicit, deadline_ms)
         if hit:
             return hit
         # fall through to local explicit check
 
     # S3 first (cached) — keeps dam usable when input_assets empty but bucket populated
-    s3_hit = _s3_try_fetch_product_asset(product_id, dam_root)
+    s3_hit = _s3_try_fetch_product_asset(product_id, dam_root, deadline_ms=deadline_ms)
     if s3_hit:
         return s3_hit
 
