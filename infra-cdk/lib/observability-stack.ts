@@ -1,7 +1,7 @@
 import * as cdk from "aws-cdk-lib";
 import { Construct } from "constructs";
-import * as logs from "aws-cdk-lib/aws-logs";
 import * as iam from "aws-cdk-lib/aws-iam";
+import * as logs from "aws-cdk-lib/aws-logs";
 import * as xray from "aws-cdk-lib/aws-xray";
 
 export interface ObservabilityStackProps extends cdk.StackProps {
@@ -9,33 +9,41 @@ export interface ObservabilityStackProps extends cdk.StackProps {
 }
 
 /**
- * Observability primitives for the pipeline: the structured-app-log group, the
- * kodiak X-Ray sampling rule, and a standalone managed policy a future app
- * runtime role attaches for logs + X-Ray writes.
+ * Kodiak creatives observability (adoption base = migrated L1, stack id
+ * `kodiak-creatives-observability`). Structured app-log group + kodiak X-Ray
+ * sampling rule + a standalone managed policy a future app runtime role
+ * attaches for logs + X-Ray writes.
  *
- * This mirrors ../infra/observability.yaml. The log group already exists live;
- * adopt it with `cdk import` if you want CDK to own it (see README), or let the
- * first deploy create it in a fresh environment.
+ * R3: the log group gets DeletionPolicy RETAIN. The migrated base defaulted to
+ * Delete and live carries none -- RETAIN is the safe intended state so a stack
+ * delete never drops operational log history.
+ *
+ * Tagging: inline tag arrays stripped -- app-level tag set (managed-by=cdk)
+ * applies; stack= added per-stack here.
  */
 export class ObservabilityStack extends cdk.Stack {
-  public readonly appLogGroup: logs.ILogGroup;
-  public readonly writePolicy: iam.IManagedPolicy;
+  public readonly creativePipelineLogGroupName: string;
+  public readonly kodiakSamplingRuleName: string;
+  public readonly observabilityWritePolicyArn: string;
 
   constructor(scope: Construct, id: string, props: ObservabilityStackProps) {
     super(scope, id, props);
 
-    // structured app logs land here. RETAIN -- the group holds operational
-    // history a stack delete must not drop.
-    const appLogGroup = new logs.LogGroup(this, "CreativePipelineLogGroup", {
-      logGroupName: "/kodiak/creative-pipeline",
-      retention: logs.RetentionDays.ONE_MONTH,
-      removalPolicy: cdk.RemovalPolicy.RETAIN,
-    });
-    this.appLogGroup = appLogGroup;
+    // structured app logs land here. R3 -- RETAIN.
+    const creativePipelineLogGroup = new logs.CfnLogGroup(
+      this,
+      "CreativePipelineLogGroup",
+      {
+        logGroupName: "/kodiak/creative-pipeline",
+        retentionInDays: 30,
+      },
+    );
+    creativePipelineLogGroup.cfnOptions.deletionPolicy =
+      cdk.CfnDeletionPolicy.RETAIN;
+    creativePipelineLogGroup.cfnOptions.updateReplacePolicy =
+      cdk.CfnDeletionPolicy.RETAIN;
 
     // X-Ray sampling rule -- captures kodiak traces above the 5% Default rule.
-    // Priority 9000 sits below Default (10000) so it is evaluated first.
-    // ServiceName wildcard matches kodiak-creative and any suffixed variant.
     // No L2 construct exists for sampling rules -- CfnSamplingRule is correct.
     new xray.CfnSamplingRule(this, "KodiakSamplingRule", {
       samplingRule: {
@@ -54,62 +62,62 @@ export class ObservabilityStack extends cdk.Stack {
     });
 
     // standalone managed policy for a future app runtime role to attach.
-    const writePolicy = new iam.ManagedPolicy(
+    const observabilityWritePolicy = new iam.CfnManagedPolicy(
       this,
       "ObservabilityWritePolicy",
       {
         description:
           "Least-privilege write access for kodiak structured logs + X-Ray traces",
-        statements: [
-          new iam.PolicyStatement({
-            sid: "WriteStructuredLogs",
-            effect: iam.Effect.ALLOW,
-            actions: [
-              "logs:CreateLogGroup",
-              "logs:CreateLogStream",
-              "logs:PutLogEvents",
-            ],
-            resources: [
-              appLogGroup.logGroupArn,
-              `${appLogGroup.logGroupArn}:*`,
-            ],
-          }),
-          // X-Ray write actions do not support resource-level scoping -- AWS
-          // requires Resource "*" for Put*. The sampling reads (Get*) are used by
-          // the SDK sampler and also only accept "*". Service constraint, not a
-          // widening.
-          new iam.PolicyStatement({
-            sid: "WriteTracesAndReadSampling",
-            effect: iam.Effect.ALLOW,
-            actions: [
-              "xray:PutTraceSegments",
-              "xray:PutTelemetryRecords",
-              "xray:GetSamplingRules",
-              "xray:GetSamplingTargets",
-              "xray:GetSamplingStatisticSummaries",
-            ],
-            resources: ["*"],
-          }),
-        ],
+        policyDocument: {
+          Version: "2012-10-17",
+          Statement: [
+            {
+              Sid: "WriteStructuredLogs",
+              Effect: "Allow",
+              Action: [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+              ],
+              Resource: [
+                creativePipelineLogGroup.attrArn,
+                `${creativePipelineLogGroup.attrArn}:*`,
+              ],
+            },
+            {
+              Sid: "WriteTracesAndReadSampling",
+              Effect: "Allow",
+              Action: [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+                "xray:GetSamplingRules",
+                "xray:GetSamplingTargets",
+                "xray:GetSamplingStatisticSummaries",
+              ],
+              Resource: "*",
+            },
+          ],
+        },
       },
     );
-    this.writePolicy = writePolicy;
 
     // ---- tags ------------------------------------------------------------
-    // project/team/managed-by/repo/environment come from the app-level tag set.
     cdk.Tags.of(this).add("stack", "kodiak-creatives-observability");
 
     // ---- outputs ---------------------------------------------------------
+    this.creativePipelineLogGroupName = creativePipelineLogGroup.ref;
     new cdk.CfnOutput(this, "CreativePipelineLogGroupName", {
-      value: appLogGroup.logGroupName,
+      value: this.creativePipelineLogGroupName,
       description: "CloudWatch log group for structured app logs",
     });
+    this.kodiakSamplingRuleName = "kodiak-creative";
     new cdk.CfnOutput(this, "KodiakSamplingRuleName", {
-      value: "kodiak-creative",
+      value: this.kodiakSamplingRuleName,
       description: "X-Ray sampling rule name",
     });
+    this.observabilityWritePolicyArn = observabilityWritePolicy.ref;
     new cdk.CfnOutput(this, "ObservabilityWritePolicyArn", {
-      value: writePolicy.managedPolicyArn,
+      value: this.observabilityWritePolicyArn,
       description:
         "Managed policy arn a future app runtime role attaches for logs + X-Ray writes",
     });

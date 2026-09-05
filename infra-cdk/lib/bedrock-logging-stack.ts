@@ -71,6 +71,12 @@ export class BedrockLoggingStack extends cdk.Stack {
       }),
     });
 
+    // RETAIN pin -- the earlier `cdk import` of the us-east-1 stack reverted the
+    // role's DeletionPolicy to the CloudFormation default (Delete). Pin RETAIN
+    // so a stack delete never drops the role Bedrock assumes to write logs; the
+    // account+region logging singleton would otherwise silently lose its writer.
+    role.applyRemovalPolicy(cdk.RemovalPolicy.RETAIN);
+
     // least-privilege: only the two write actions Bedrock needs, scoped to the
     // model-invocation stream path inside THIS region's log group. Because
     // logGroup.logGroupArn resolves to the stack's region, the us-west-2
