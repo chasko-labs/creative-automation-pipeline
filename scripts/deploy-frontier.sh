@@ -29,6 +29,7 @@ WEB_SRC="${WEB_SRC:-$REPO_ROOT/web/kodiak-posts-for-todays-frontier}"
 # keep this list in sync with what index.html references
 FILES=(
 	"index.html|index.html|text/html"
+	"details.html|details.html|text/html"
 	"design/styles.css|design/styles.css|text/css"
 	"webmcp.json|webmcp.json|application/json"
 	"glimmer-proxy.js|glimmer-proxy.js|application/javascript"
