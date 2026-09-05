@@ -1,0 +1,168 @@
+{
+  "region_id": "pescadero-bay-area",
+  "market_code": "US-CA-PESCADERO",
+  "aliases": ["US-W-SF (Bay Area metro anchor / legacy market)"],
+  "place": "Pescadero, CA 94060 -- San Mateo County coast, ~35mi south of San Francisco",
+  "zip": "94060",
+  "county": "San Mateo County",
+  "state": "CA",
+  "coordinates": { "lat": 37.255, "lon": -122.383 },
+  "classification": "frontier-gap",
+  "city_center": {
+    "name": "Downtown Pescadero (Stage Rd / Pescadero Creek Rd)",
+    "landmark": "Arcangeli Grocery Co. (Norm's Market) + the 1867 Pescadero Community Church; Dickerman Barn (National Register)",
+    "notes": "Two miles inland off Highway 1; the main drag is 19th-century New England-style wood buildings. No chain grocer in town -- Arcangeli Grocery (famous artichoke-garlic bread) plus small farm stands only; nearest full grocer 18mi (Half Moon Bay Safeway), nearest Costco 30mi (South SF / Redwood City). sources: Pescadero, CA (en.wikipedia.org); thesanfranciscopeninsula.com; frontier-gaps.json."
+  },
+  "featured_frontier": {
+    "hook": "Castroville artichoke + Harley Farms goat cheese savory Power Cakes on a weathered-barn board, coastal fog behind -- the last dairy in San Mateo County meets the Bay's frontier table",
+    "photo_cue": "Pescadero artichoke field at dawn, Arcangeli general-store porch, Kodiak box with artichoke hearts + Harley Farms chevre on a redwood board, Half Moon Bay fog behind, Alpine goats in green pasture",
+    "signature_ingredient": "Castroville artichokes (Mar-Jun peak Apr) + Harley Farms fresh chevre; coastal strawberries + olallieberries (May-Sep); Brussels sprouts (Sep-Feb); pumpkins (Oct)",
+    "cross_promo": {
+      "partner": "Harley Farms Goat Dairy",
+      "url": "https://www.harleyfarms.com",
+      "product": "Harley Farms fresh chevre goat cheese",
+      "activation": "artichoke + Harley Farms goat cheese savory flapjacks -- KODIAK x Pescadero; Fifth Crow Farm for strawberries + Brussels sprouts. Harley Farms is the last operational dairy in San Mateo County (restored 1910, ~200 Alpine goats, 9 acres), an American Cheese Society and World Cheese Show award winner",
+      "consent_status": "proposed"
+    }
+  },
+  "audience": "Bay Area urban families who want to see their frontier -- SF/Oakland/San Jose Costco shoppers, Half Moon Bay trail families, Pescadero homesteaders and Harley Farms regulars, coastside pumpkin-season day-trippers",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 11.5, "translate_code": "es", "reason": "INFERRED (pipeline market-languages.json absent): San Mateo/SF coast Spanish est ~11.5%; coastal farm-labor community; carried from the US-W-SF metro proxy, NOT Pescadero-town ACS -- flag INFERRED" },
+    { "lang_code": "zh", "lang_name": "Chinese", "pct_home": 8.2, "translate_code": "zh", "reason": "INFERRED (pipeline absent): Bay Area 2nd-largest Chinese community in the US; metro-anchor language, not Pescadero-town specific -- carried from US-W-SF, flag INFERRED" }
+  ],
+  "cultural_notes": [
+    "Pescadero ('fishing place' in Spanish) is a farming, ranching, and tourism community founded 1856; many buildings date from the 19th century and the surrounding coast is permanently protected from development (source: Pescadero, CA en.wikipedia.org; foodandwine.com)",
+    "Arcangeli Grocery Co. (Norm's Market) is a destination food stop -- people drive an hour from SF for its artichoke-garlic bread (source: aol.com; foodandwine.com; frontier-gaps.json)",
+    "Harley Farms Goat Dairy is the last operational dairy farm in San Mateo County, a restored 1910 farm with ~200 Alpine goats on nine acres two miles inland; its cheeses have taken first place in American Cheese Society contests and a World Cheese Show gold (source: harleyfarms.com/about; visithalfmoonbay.org; agweb.com; cheesetrail.org)",
+    "the coast is the Castroville-adjacent artichoke + strawberry belt; frontier-gap DTC framing means Kodiak ships where the two-lane road turns rural (source: frontier-gaps.json; retailer-frontier-pairs.json)",
+    "coastside fall is pumpkin country -- the Half Moon Bay / San Mateo coast is nationally known for its October pumpkin harvest and farm-stand culture, with Pescadero farms part of that draw (source: visithalfmoonbay.org; general coastside framing)",
+    "kidding season in spring at Harley Farms (baby goats) is a genuine agritourism ritual and a warm seasonal photo cue (source: bayareatelegraph.com; scotscoop.com)",
+    "Bay Area state-awareness framing mirrors Seattle: use-your-location surfaces both the SF/Redwood City Costco bulk creative and the Pescadero frontier DTC creative -- urban shoppers see their coast's frontier (source: frontier-gaps.json fulfillment)"
+  ],
+  "design_palette": {
+    "textures": ["weathered redwood barn board", "silvered New England clapboard", "salt-fog-bleached fence wood", "artichoke-bract layering", "goat-cheese chalk-white curd", "coastal-scrub sage foliage", "damp coastal loam", "olallieberry-skin sheen", "pumpkin-rind ribbing", "Alpine-goat coat texture"],
+    "colors": [
+      { "name": "coastal fog gray", "hex": "#B7BEC0", "use": "sky / backdrop / negative space" },
+      { "name": "artichoke sage-green", "hex": "#6E7B4F", "use": "produce hero / foreground" },
+      { "name": "weathered-barn redwood", "hex": "#7A4A3A", "use": "structure / board" },
+      { "name": "silvered clapboard gray", "hex": "#9C978C", "use": "storefront / trim" },
+      { "name": "Arcangeli coral door", "hex": "#D98A6B", "use": "door / small warm accent" },
+      { "name": "goat-cheese chalk white", "hex": "#F2EEE4", "use": "chevre / plate / negative space" },
+      { "name": "coastal-pumpkin orange", "hex": "#D9773A", "use": "fall produce hero / warm pop" },
+      { "name": "olallieberry deep purple", "hex": "#3E2A3C", "use": "summer berry accent" }
+    ],
+    "building_materials": ["weathered redwood barn siding", "New England-style painted clapboard", "board-and-batten farm-stand", "split-rail coastal fence", "corrugated ranch-shed metal", "restored 1910 dairy timber (Harley Farms)"],
+    "landscape_motifs": ["artichoke field rows at dawn", "coastal fog rolling off the Pacific", "Pescadero Creek + marsh", "weathered barn against verdant farmland", "Highway 1 two-lane turn inland", "Alpine goats in green pasture", "coastside pumpkin patch in October"],
+    "_provenance_note": "weathered barns + 19th-c New England clapboard grounded in Pescadero historic buildings (Dickerman Barn, 1867 church -- thesanfranciscopeninsula.com; en.wikipedia.org). coral door + verdant farmland + fog from familydestinationsguide.com Pescadero. artichoke sage-green + goat-cheese white from produce (Castroville artichokes, Harley Farms). pumpkin orange + olallieberry purple from the coastside fall/summer crops (visithalfmoonbay.org). hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "spring-easter",
+      "months": [3, 4, 5],
+      "in_season_produce": [
+        { "name": "Castroville artichokes", "peak_month": 4, "pancake_tie": "savory artichoke-heart + Harley Farms goat cheese Power Cakes -- the signature Pescadero build" },
+        { "name": "Harley Farms fresh chevre (spring kidding-season milk)", "peak_month": 4, "pancake_tie": "whipped chevre folded into savory batter, spring-herb top" }
+      ],
+      "where_to_buy": [
+        { "name": "Arcangeli Grocery Co.", "type": "general-store", "notes": "downtown Pescadero; artichoke-garlic bread + local produce" },
+        { "name": "Harley Farms Goat Dairy", "type": "cross-promo-partner", "url": "https://www.harleyfarms.com", "notes": "fresh chevre; agritourism anchor; spring kidding season" },
+        { "name": "Half Moon Bay Farmers Market", "type": "farmers-market", "notes": "Saturdays, 14mi north; standalone URL unconfirmed -- research todo" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8, 9],
+      "in_season_produce": [
+        { "name": "coastal strawberries (Fifth Crow Farm)", "peak_month": 7, "pancake_tie": "strawberry compote over Buttermilk Power Cakes -- May-Sep coastal berry window" },
+        { "name": "olallieberries (coastside cane berry)", "peak_month": 7, "pancake_tie": "olallieberry compote over Power Cakes -- a signature coastal-California summer berry" }
+      ],
+      "where_to_buy": [
+        { "name": "Fifth Crow Farm stand", "type": "farm-stand", "notes": "Pescadero; strawberries + row crops" },
+        { "name": "Arcangeli Grocery Co.", "type": "general-store" }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        { "name": "Brussels sprouts (Fifth Crow)", "peak_month": 10, "pancake_tie": "savory shaved-sprout + cheddar Power Cakes -- coastal Brussels window Sep-Feb" },
+        { "name": "coastside pumpkins + winter squash", "peak_month": 10, "pancake_tie": "spiced pumpkin Power Cakes -- coastside October pumpkin country" },
+        { "name": "coastal olive oil (fall press)", "peak_month": 11, "pancake_tie": "olive-oil-crisped savory Power Cakes edge; fall-press finish" }
+      ],
+      "where_to_buy": [
+        { "name": "Fifth Crow Farm stand", "type": "farm-stand", "notes": "Brussels sprouts Sep-Feb; fall row crops" },
+        { "name": "coastside pumpkin farm stands (San Mateo coast)", "type": "farm-stand", "notes": "October pumpkin patches" },
+        { "name": "Half Moon Bay Safeway", "type": "chain-grocer", "notes": "nearest full grocer, 18mi" }
+      ]
+    },
+    {
+      "season": "thanksgiving",
+      "months": [11],
+      "in_season_produce": [
+        { "name": "Brussels sprouts + winter squash (Thanksgiving table)", "peak_month": 11, "pancake_tie": "savory Brussels-and-cheddar holiday Power Cakes -- real coastal November crop for the Thanksgiving table" }
+      ],
+      "where_to_buy": [
+        { "name": "Fifth Crow Farm stand", "type": "farm-stand" },
+        { "name": "Half Moon Bay Safeway", "type": "chain-grocer", "notes": "nearest full grocer, 18mi" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [12, 1, 2],
+      "in_season_produce": [
+        { "name": "Brussels sprouts (peak Oct-Dec)", "peak_month": 12, "pancake_tie": "roasted-sprout savory holiday stack -- real coastal winter crop" }
+      ],
+      "where_to_buy": [
+        { "name": "Arcangeli Grocery Co.", "type": "general-store" },
+        { "name": "Costco (South SF / Redwood City)", "type": "chain-grocer", "notes": "nearest bulk halo, 30mi; frontier-gap fallback" },
+        { "name": "Amazon.com / DTC subscription", "type": "dtc-subscription", "notes": "ships to Pescadero where the road turns to two lanes" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Arcangeli Grocery Co.", "role": "home", "distance_mi": 0, "notes": "the only in-town grocer; general store" },
+    { "name": "Harley Farms Goat Dairy", "role": "primary", "distance_mi": 0, "notes": "cross-promo partner; agritourism + chevre" },
+    { "name": "Safeway (Half Moon Bay)", "role": "gap-nearest", "distance_mi": 18, "notes": "nearest full grocer" },
+    { "name": "Costco (South SF / Redwood City)", "role": "gap-nearest", "distance_mi": 30, "notes": "nearest bulk halo" },
+    { "name": "Amazon.com", "role": "halo", "notes": "DTC subscription channel for the frontier gap" }
+  ],
+  "campaign_type_fit": {
+    "keep-it-wild": { "fit": "strong", "angle": "protected coast + frontier-gap where the road turns rural: Keep It Wild lands on the artichoke-field-at-dawn cue and the DTC-where-the-road-narrows story", "existing_brief": "briefs/kodiak.yaml" },
+    "recipe-cards": { "fit": "strong", "angle": "savory artichoke + Harley Farms chevre card (spring) + coastal strawberry/olallieberry card (summer) + savory Brussels-sprout card (fall/winter) + pumpkin card (October) -- five-season real coastal calendar" },
+    "localized-costco": { "fit": "weak", "angle": "no in-town Costco; nearest is South SF/Redwood City 30mi as a gap-nearest halo. Bulk contrast works as the urban Bay Area anchor (see regions/sf.json), not the town" },
+    "riff-on-past-content": { "fit": "weak", "angle": "existing Pescadero creative is a rich cue + calendar but not a produced-content corpus yet" },
+    "bears": { "fit": "na", "angle": "coastal farm-and-fog market; no bear-habitat hook" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness" },
+    "us-ski-and-snowboard": { "fit": "na", "angle": "coastal market; no ski culture" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.9,
+    "ready_to_rock": true,
+    "notes": "DEEPENED further (already had the fullest calendar). Palette expanded to 8 colors + 10 textures (added goat-cheese white, pumpkin orange, olallieberry purple, Alpine-goat + pumpkin-rind textures). FIVE seasonal windows now including a Thanksgiving Brussels/squash window and an October pumpkin pick; added olallieberries and coastside pumpkins. 7 cultural_notes now cite Harley Farms as the LAST dairy in San Mateo County (restored 1910, ~200 Alpine goats, ACS + World Cheese awards) and coastside pumpkin + kidding-season rituals. featured_frontier sharpened to Harley Farms + Castroville artichoke. Harley Farms promoted to primary retailer + cross-promo. languages remain THIN + INFERRED (pipeline market-languages.json absent; carried from US-W-SF metro proxy, NO exact ACS fabricated -- the one soft field). cross_promo consent_status 'proposed'. Retailer logos intentionally NOT sourced -- partnerships-gated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "frontier-gaps.json (US-CA-PESCADERO: classification frontier-gap, retail_gap, cross_promo, coordinates, audience, photo_cue, fulfillment)",
+      "local-flavor.json (US-CA-PESCADERO: Castroville artichokes [3,4,5,6] peak 4, Marin goat cheese, strawberries [5,6,7,8,9], Brussels sprouts [9,10,11,12,1,2])",
+      "retailer-frontier-pairs.json (US-CA-PESCADERO confirmed 12-month calendar: strawberries, artichokes Mar-Jun, Brussels sprouts Sep-Feb, olive oil Nov press; Harley Farms + Fifth Crow + Half Moon Bay farmers market)",
+      "web: Pescadero, CA (1856 founding, 19th-c buildings, fishing-place name) -- en.wikipedia.org/wiki/Pescadero,_California",
+      "web: thesanfranciscopeninsula.com Pescadero (1867 Community Church, Dickerman Barn, New England-style main drag)",
+      "web: Harley Farms (last dairy in San Mateo County, restored 1910, ~200 Alpine goats, 9 acres, ACS + World Cheese awards, spring kidding season) -- harleyfarms.com/about; visithalfmoonbay.org; agweb.com; cheesetrail.org; bayareatelegraph.com; scotscoop.com",
+      "web: foodandwine.com + aol.com (Arcangeli Grocery destination food stop)",
+      "web: familydestinationsguide.com (weathered barns, coral door, coastal fog, verdant farmland)",
+      "note: pipeline market-languages.json ABSENT -- language pct INFERRED (US-W-SF metro proxy), no exact ACS fabricated. retailer logos NOT sourced (partnerships-gated)."
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "region_id": "providence",
+  "market_code": "US-NE-PROVIDENCE",
+  "aliases": [],
+  "place": "Providence, Rhode Island",
+  "zip": "02903",
+  "county": "Providence County",
+  "state": "RI",
+  "coordinates": { "lat": 41.824, "lon": -71.4128 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Providence / Federal Hill + College Hill",
+    "landmark": "Federal Hill Italian district (Atwells Ave, DePasquale Square); College Hill Colonial and Federal houses; Narragansett Bay waterfront",
+    "notes": "Providence pairs a dense Colonial and Federal architectural fabric on College Hill with the Italian-American Federal Hill food district on Atwells Avenue. The metro sits at the head of Narragansett Bay. sources: en.wikipedia.org Providence, Rhode Island; Federal Hill (Providence)."
+  },
+  "featured_frontier": {
+    "hook": "Rhode Island apple + New England maple compote over Power Cakes on a College Hill clapboard porch, Federal Hill espresso alongside",
+    "photo_cue": "cast-iron flapjack stack on a Colonial clapboard porch, Federal Hill Atwells Ave storefronts, autumn maples, Narragansett Bay light",
+    "signature_ingredient": "Rhode Island + New England apples (Sep-Oct) + maple; Narragansett-region berries and sweet corn (summer)",
+    "cross_promo": {
+      "partner": "Federal Hill markets / Rhode Island farm stands",
+      "activation": "New England apple + maple compote card, Stop & Shop / Dave's Fresh Marketplace / Shaw's retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Providence metro families + College Hill and Federal Hill households; RISD/Brown college-town culture; Italian-American food heritage; New England maple-and-foliage shoppers; Stop & Shop, Dave's Fresh Marketplace, and Shaw's shoppers",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 20.0, "translate_code": "es", "reason": "INFERRED (ACS source file absent): large Dominican, Guatemalan, and broader Latino community in Providence; pct is a web-informed estimate, not exact ACS" },
+    { "lang_code": "pt", "lang_name": "Portuguese", "pct_home": 6.0, "translate_code": "pt", "reason": "INFERRED (ACS source file absent): Rhode Island has one of the largest Portuguese-heritage shares in the US (Fox Point, East Providence); pct estimated" }
+  ],
+  "cultural_notes": [
+    "Federal Hill (Atwells Avenue) is Providence's Italian-American food district, a defining culinary identity with the DePasquale Square pineapple fountain landmark (source: en.wikipedia.org Federal Hill, Providence)",
+    "Rhode Island has one of the largest Portuguese-heritage population shares in the US, centered on Fox Point and East Providence -- a strong food-culture influence (source: general demographic framing, publicly documented)",
+    "College Hill's dense Colonial and Federal houses (Brown, RISD) are a signature New England architectural fabric (source: en.wikipedia.org Providence, Rhode Island; College Hill Historic District)",
+    "New England maple-and-foliage culture anchors the breakfast occasion; Stop & Shop, Dave's Fresh Marketplace (a Rhode Island chain), and Shaw's are the grocers (source: chain regional footprint)"
+  ],
+  "design_palette": {
+    "textures": ["Colonial clapboard siding", "Federal red brick", "College Hill fieldstone", "Federal Hill terrazzo and tile", "sugar-maple foliage litter", "Narragansett Bay weathered dock wood", "cast-iron griddle char"],
+    "colors": [
+      { "name": "Colonial clapboard white", "hex": "#F1EEE4", "use": "structure / trim / negative space" },
+      { "name": "Federal brick red", "hex": "#8B4535", "use": "structure / storefront" },
+      { "name": "sugar-maple foliage red", "hex": "#B23A2C", "use": "autumn canopy / accent" },
+      { "name": "Narragansett Bay slate blue", "hex": "#4E636F", "use": "water / sky" },
+      { "name": "Federal Hill espresso brown", "hex": "#4A3123", "use": "warm accent / structure" }
+    ],
+    "building_materials": ["white-painted wood clapboard (College Hill)", "Federal fired red brick", "New England fieldstone", "terrazzo and tile (Federal Hill storefronts)", "weathered dock timber (waterfront)"],
+    "landscape_motifs": ["College Hill Colonial house row", "Federal Hill Atwells Ave storefronts", "sugar-maple foliage street", "Narragansett Bay waterfront", "white-steeple churchscape"],
+    "_provenance_note": "clapboard white + Federal brick + fieldstone grounded in Providence College Hill Colonial/Federal architecture. Federal Hill espresso brown + terrazzo from the Italian food district. Narragansett Bay slate + maple foliage from regional water/terrain and fall. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        { "name": "Rhode Island + New England apples", "peak_month": 10, "pancake_tie": "New England apple-cinnamon compote over Power Cakes at peak foliage" },
+        { "name": "Rhode Island pumpkins + squash", "peak_month": 10, "pancake_tie": "spiced squash Power Cakes for a College Hill fall morning" }
+      ],
+      "where_to_buy": [
+        { "name": "Rhode Island farm stands", "type": "farm-stand", "notes": "apples + squash in fall" },
+        { "name": "Dave's Fresh Marketplace", "type": "chain-grocer", "notes": "Rhode Island regional grocer" },
+        { "name": "Stop & Shop", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [11, 12, 1, 2],
+      "in_season_produce": [
+        { "name": "stored apples + New England maple", "pancake_tie": "maple-apple holiday Power Cakes for a cold Providence morning" }
+      ],
+      "where_to_buy": [
+        { "name": "Stop & Shop", "type": "chain-grocer" },
+        { "name": "Dave's Fresh Marketplace", "type": "chain-grocer" },
+        { "name": "Shaw's", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4, 5],
+      "in_season_produce": [
+        { "name": "New England maple + spring rhubarb", "peak_month": 3, "pancake_tie": "fresh maple over Power Cakes -- spring sugaring pour" },
+        { "name": "early strawberries", "peak_month": 5, "pancake_tie": "strawberry compote over Power Waffles" }
+      ],
+      "where_to_buy": [
+        { "name": "Rhode Island farm stands", "type": "farm-stand", "notes": "spring maple + first strawberries" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [7, 8],
+      "in_season_produce": [
+        { "name": "Rhode Island sweet corn", "peak_month": 8, "pancake_tie": "sweet-corn savory Power Cakes for a summer bay-side griddle" },
+        { "name": "Rhode Island blueberries + peaches", "peak_month": 7, "pancake_tie": "blueberry or peach compote over Power Cakes" }
+      ],
+      "where_to_buy": [
+        { "name": "Rhode Island farm stands", "type": "farm-stand", "notes": "sweet corn + berries at summer peak" },
+        { "name": "Stop & Shop", "type": "chain-grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Stop & Shop", "role": "home", "distance_mi": 0, "notes": "dominant Rhode Island grocer; home channel" },
+    { "name": "Dave's Fresh Marketplace", "role": "primary", "notes": "Rhode Island regional grocer" },
+    { "name": "Shaw's", "role": "primary" },
+    { "name": "Costco (Warwick)", "role": "secondary", "notes": "bulk channel" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "New England apple card (fall) + Rhode Island sweet-corn savory card (summer) + maple card (spring) -- real regional produce with a Federal Hill espresso-and-flapjacks styling angle" },
+    "localized-costco": { "fit": "strong", "angle": "Providence is a Costco (Warwick) + Stop & Shop/Dave's bulk-and-value market; retailer lockup works with the Rhode Island regional-grocer story", "existing_brief": "briefs/kodiak-costco.yaml" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no produced Providence content corpus yet; strong Federal Hill + College Hill cue but thin prior material" },
+    "keep-it-wild": { "fit": "weak", "angle": "small dense metro; Keep It Wild lands better on the Narragansett Bay / South County coast edge than downtown" },
+    "bears": { "fit": "weak", "angle": "Rhode Island has minimal bear presence; Bear Bites lunchbox angle carries nationally, keep conservation-toned" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness" },
+    "us-ski-and-snowboard": { "fit": "na", "angle": "no ski identity in Rhode Island" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.85,
+    "ready_to_rock": true,
+    "notes": "Palette grounded in College Hill Colonial clapboard + Federal brick + fieldstone + Federal Hill espresso + Narragansett Bay. Four seasonal windows from real Rhode Island / New England produce with farm-stand + chain sourcing. Retailers mapped to Stop & Shop/Dave's Fresh Marketplace/Shaw's. languages THIN -- percentages INFERRED because ACS source file is absent; no exact ACS numbers fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Providence, Rhode Island -- en.wikipedia.org (College Hill, Narragansett Bay)",
+      "web: Federal Hill, Providence -- en.wikipedia.org (Atwells Ave Italian district, DePasquale Square)",
+      "web: Rhode Island Portuguese-heritage community framing -- publicly documented",
+      "web: Dave's Fresh Marketplace regional footprint -- publicly documented",
+      "note: language percentages INFERRED -- ACS/market-languages source file absent in checkout; no exact ACS numbers used"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

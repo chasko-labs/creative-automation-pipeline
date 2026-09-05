@@ -1,0 +1,120 @@
+{
+  "region_id": "roswell-carlsbad",
+  "market_code": "US-SW-ROSWELL",
+  "aliases": ["US-SW-CARLSBAD (paired Pecos Valley market)"],
+  "place": "Roswell + Carlsbad, New Mexico",
+  "zip": "88201",
+  "county": "Chaves County",
+  "state": "NM",
+  "coordinates": { "lat": 33.3943, "lon": -104.5230 },
+  "classification": "regional",
+  "city_center": {
+    "name": "Downtown Roswell (Main Street / Pioneer Plaza) + Carlsbad",
+    "landmark": "Pecos Valley irrigated farm country on the Chihuahuan desert plain; Carlsbad Caverns and the Guadalupe Mountains anchor the south",
+    "notes": "Roswell is a center for acequia-style irrigated farming, dairying and ranching; Carlsbad (75 mi south) is the gateway to Carlsbad Caverns National Park. American folk and New Mexico music performances gather near Pioneer Plaza. sources: en.wikipedia.org/wiki/Roswell,_New_Mexico; nps.gov Carlsbad Caverns; britannica.com Carlsbad Caverns."
+  },
+  "featured_frontier": {
+    "hook": "A hearty Pecos Valley ranch stack at dawn, dairy-fresh butter and local pecans, the Guadalupe Mountains low on the southern horizon -- irrigated-desert ranch breakfast",
+    "photo_cue": "cast-iron stack, fresh butter and pecans, ranch table, Chihuahuan desert plain, Guadalupe Mountains far south",
+    "signature_ingredient": "Pecos Valley dairy + New Mexico pecans + green chile (irrigated desert ranch country)",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "Pecos Valley ranch + dairy families, oilfield households; Walmart + Albertsons shoppers, irrigated-desert farming and ranching economy",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 26.0, "translate_code": "es", "reason": "INFERRED from Chaves + Eddy County Hispanic ~55% (ACS pattern); Pecos Valley Hispano and border-labor share -- verify exact ACS S1601 pct before production" }
+  ],
+  "cultural_notes": [
+    "Roswell is a center for acequia-like irrigated farming, dairying, and ranching on the Pecos Valley plain -- a working agricultural and petroleum economy, not a tourist town (source: en.wikipedia.org/wiki/Roswell,_New_Mexico)",
+    "Carlsbad Caverns, in the Guadalupe Mountains (a segment of the greater Sacramento range) on the Chihuahuan desert, is a UNESCO World Heritage site laid down in a 265-million-year-old fossil reef (source: nps.gov Carlsbad Caverns; britannica.com; kids.britannica.com)",
+    "an Apache story tells of a medicine man who ventured into the caverns and was never seen again, with annual tribal visits leaving food at the entrance -- a cited Indigenous cultural association; keep any reference respectful and consent-aware (source: newmexicomagazine.org history of Carlsbad Caverns)",
+    "Roswell's UFO/'1947 incident' kitsch is a strong pop-culture identity -- usable as playful tone, but keep the food story grounded in the real ranch/dairy/pecan economy (INFERRED tone guidance; verify before production)"
+  ],
+  "design_palette": {
+    "textures": ["corrugated ranch steel", "weathered corral timber", "dairy-galvanized milk can", "pecan-shell husk", "Chihuahuan desert caliche", "Pecos River cottonwood bark", "limestone cavern flowstone (Carlsbad)"],
+    "colors": [
+      { "name": "Pecos Valley alfalfa green", "hex": "#5E7A3C", "use": "irrigated field / foreground" },
+      { "name": "Chihuahuan desert tan", "hex": "#CBB183", "use": "plain / ground" },
+      { "name": "ranch-steel rust red", "hex": "#9C4A2E", "use": "structure / barn accent" },
+      { "name": "pecan shell brown", "hex": "#6B4A2C", "use": "produce hero / trim" },
+      { "name": "Guadalupe dusk blue", "hex": "#5B6B84", "use": "distant range / skyline" }
+    ],
+    "building_materials": ["corrugated ranch steel", "weathered corral and barn timber", "concrete block", "stucco over block", "galvanized dairy structures", "brick storefront (downtown Roswell)"],
+    "landscape_motifs": ["irrigated alfalfa and pecan-orchard rows", "Chihuahuan desert plain", "Pecos River cottonwood corridor", "Guadalupe Mountains on the southern horizon", "windmill and stock tank"],
+    "_provenance_note": "ranch steel + corral timber + dairy galvanization grounded in Roswell's irrigated farming/dairying/ranching economy (en.wikipedia.org Roswell). pecan shell brown grounded in the Pecos Valley pecan crop. Guadalupe dusk + cavern flowstone grounded in the Carlsbad Caverns Guadalupe range (nps.gov). hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        { "name": "New Mexico pecans (Pecos Valley)", "peak_month": 11, "pancake_tie": "toasted local pecans + pecan-praline drizzle over Power Cakes -- Pecos Valley is New Mexico pecan country, Nov harvest" },
+        { "name": "green chile + fall squash", "peak_month": 9, "pancake_tie": "savory green-chile + cheddar Power Cakes -- regional roaster-drum season" }
+      ],
+      "where_to_buy": [
+        { "name": "Albertsons (Roswell)", "type": "chain-grocer", "notes": "roasts green chile in season" },
+        { "name": "Roswell Farmers & Gardeners Market", "type": "farmers-market", "notes": "seasonal Pecos Valley produce; verify current schedule" }
+      ]
+    },
+    {
+      "season": "thanksgiving",
+      "months": [11],
+      "in_season_produce": [
+        { "name": "Pecos Valley pecans (holiday)", "peak_month": 11, "pancake_tie": "pecan-praline holiday stack; pecans peak at Nov harvest" }
+      ],
+      "where_to_buy": [
+        { "name": "Walmart (Roswell / Carlsbad)", "type": "chain-grocer" },
+        { "name": "Roswell Farmers & Gardeners Market", "type": "farmers-market" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [12, 1],
+      "in_season_produce": [
+        { "name": "dairy-fresh butter + red-chile ristras (holiday)", "pancake_tie": "brown-butter + red-chile-honey holiday stack -- Pecos Valley dairy country (INFERRED tie, verify)" }
+      ],
+      "where_to_buy": [
+        { "name": "Albertsons / Walmart (Roswell / Carlsbad)", "type": "chain-grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Walmart", "role": "primary", "notes": "Roswell + Carlsbad Supercenters" },
+    { "name": "Albertsons", "role": "home", "distance_mi": 0, "notes": "Roswell; roasts chile in season" },
+    { "name": "Target", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "Pecos Valley pecan-praline card + green-chile card -- real regional pecan and chile produce; ranch/dairy butter tie" },
+    "keep-it-wild": { "fit": "strong", "angle": "Carlsbad Caverns National Park + Guadalupe Mountains are wild public land and a World Heritage site -- Keep It Wild desert-and-cavern-country stack", "existing_brief": "briefs/kodiak.yaml" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no existing Roswell/Carlsbad creative corpus; the UFO kitsch could seed playful short-form later but there is nothing to riff on yet" },
+    "localized-costco": { "fit": "na", "angle": "no Costco in the Pecos Valley; nearest is El Paso/Lubbock hours away. Walmart is the bulk substitute" },
+    "bears": { "fit": "weak", "angle": "Bear Bites angle carries nationally; the Guadalupes have black bear habitat at elevation but the market identity is desert ranch country -- keep conservation-toned" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype/partnership only, never likeness" },
+    "us-ski-and-snowboard": { "fit": "na", "angle": "Chihuahuan desert ranch country; no ski culture" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.86,
+    "ready_to_rock": true,
+    "notes": "New seed pairing Roswell + Carlsbad as one Pecos Valley market. design_palette grounded in ranch/dairy economy + Guadalupe/Caverns terrain, cited; seasonal keyed to pecans + green chile fall harvest (Sept-Nov). UFO kitsch flagged as optional playful tone, food story kept grounded in the real ranch/dairy/pecan economy. Apache cavern association cited and consent-aware. languages carry INFERRED flag -- market-languages.json absent in checkout. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Roswell acequia-style irrigated farming, dairying, ranching, petroleum -- en.wikipedia.org/wiki/Roswell,_New_Mexico",
+      "web: Carlsbad Caverns, Guadalupe Mountains, Chihuahuan desert, UNESCO World Heritage, 265M-year fossil reef -- nps.gov/cave; britannica.com; kids.britannica.com",
+      "web: Apache medicine-man cavern story (Indigenous cultural association) -- newmexicomagazine.org history of Carlsbad Caverns",
+      "web: New Mexico pecan + green chile regional produce (shared with Las Cruces record) -- newmexico.org",
+      "INFERRED: language pct + dairy holiday tie (market-languages.json absent in checkout) -- verify ACS S1601 for Chaves/Eddy County"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

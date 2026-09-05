@@ -1,0 +1,131 @@
+{
+  "region_id": "albuquerque",
+  "market_code": "US-SW-ALBQ",
+  "aliases": ["US-SW-LASCRUCES (adjacent high-desert green-chile region)"],
+  "place": "Albuquerque, New Mexico",
+  "zip": "87101",
+  "county": "Bernalillo County",
+  "state": "NM",
+  "coordinates": { "lat": 35.0844, "lon": -106.6504 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Old Town Albuquerque",
+    "landmark": "Old Town Plaza + San Felipe de Neri Church (1706 townsite), Sandia Mountains on the eastern skyline",
+    "notes": "Old Town is the 1706 original townsite, a Pueblo Revival / Territorial adobe district; the Sandia Mountains glow watermelon-pink at sunset ('Sandia' = watermelon). Downtown Growers Market (Robinson Park) is the summer gathering anchor. sources: Old Town Albuquerque (en.wikipedia.org); Sandia Mountains (en.wikipedia.org)."
+  },
+  "featured_frontier": {
+    "hook": "Red chile + toasted pinon over Power Cakes on an adobe portal, enamel mug, Sandia watermelon-glow behind -- desert dawn flapjacks",
+    "photo_cue": "red chile and pinon, enamel mug on portal, Sandia sunset glow",
+    "signature_ingredient": "New Mexico red chile + pinon (Sacramento/Sandia pine nut); high-desert dawn",
+    "cross_promo": {
+      "partner": "pinonnuts.com (New Mexico pinon)",
+      "url": "https://pinonnuts.com",
+      "product": "roasted New Mexico pinon seeds",
+      "activation": "pinon-honey drizzle Power Cakes; adjacent to the Timberon/Cloudcroft pinon cross-promo pattern already in frontier-gaps.json",
+      "consent_status": "proposed"
+    }
+  },
+  "audience": "High-desert families, adobe-morning households; Target + Walmart + Smith's shoppers, urban hub for Navajo Nation",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 22.3, "translate_code": "es", "reason": "ACS Bernalillo County Hispanic 49%, Spanish at home 22.6%; high-desert historic Hispano" },
+    { "lang_code": "nv", "lang_name": "Navajo", "pct_home": 1.1, "translate_code": "nv", "reason": "ACS Bernalillo Navajo/Dine speakers 1.1%; Albuquerque is the urban hub for Navajo Nation (Window Rock feeder)" }
+  ],
+  "cultural_notes": [
+    "'red or green?' is the official New Mexico state question; Albuquerque leans red-chile (posole, carne adovada) vs the green-chile south (source: New Mexico state question, newmexico.org)",
+    "Pueblo Revival is the region's signature architecture: adobe or stone, flat roofs, rounded corners, thick walls, vigas and latillas -- codified by Santa Fe architect John Gaw Meem, the 'official' campus style at UNM (source: Pueblo architecture + Scholes Hall, en.wikipedia.org)",
+    "Albuquerque is a major urban hub for the Navajo Nation and Pueblo communities; pinon-harvest is a fall high-desert tradition (source: market-languages.json Navajo reason; frontier-gaps.json pinon cross-promo). tribal partnership references stay consent-gated -- no fabricated endorsement",
+    "the Albuquerque International Balloon Fiesta (early October) is a signature civic ritual and dawn-sky visual cue (INFERRED civic-ritual framing from region knowledge -- verify before production use)"
+  ],
+  "design_palette": {
+    "textures": ["adobe mud-brick", "stucco over block", "sun-cracked caliche clay", "roasted red-chile skin", "pinon-pine bark + shell", "weathered viga end grain", "turquoise-inlay sheen"],
+    "colors": [
+      { "name": "Sandia sunset watermelon-pink", "hex": "#C86B72", "use": "skyline / dawn-dusk backdrop" },
+      { "name": "New Mexico red-chile", "hex": "#9E2B25", "use": "produce hero / accent" },
+      { "name": "adobe tan", "hex": "#C79A6B", "use": "structure / wall" },
+      { "name": "viga pine brown", "hex": "#6E4A2E", "use": "roof beam / trim" },
+      { "name": "high-desert turquoise", "hex": "#3E9AA0", "use": "door / small accent" }
+    ],
+    "building_materials": ["adobe mud-brick", "stucco (faux-dobe wood-frame)", "vigas (ponderosa roof beams)", "latillas (perpendicular roof laths)", "flat-roof parapet", "kiln-fired brick coping (Territorial)"],
+    "landscape_motifs": ["Sandia Mountains watermelon glow", "adobe portal + ristra", "Rio Grande cottonwood bosque", "pinon-juniper high-desert flat", "balloon-fiesta dawn sky"],
+    "_provenance_note": "adobe/vigas/latillas/flat-roof grounded in Pueblo + Territorial Revival architecture (en.wikipedia.org/wiki/Pueblo_architecture; newmexicomagazine.org; Old Town Albuquerque). Sandia watermelon-pink grounded in the range name + sunset granite glow (en.wikipedia.org/wiki/Sandia_Mountains; albuquerque.com). turquoise is a New Mexico signature accent. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        { "name": "New Mexico red + green chile", "peak_month": 9, "pancake_tie": "savory red-chile + cheddar Power Cakes; roaster-drum season across ABQ grocers" },
+        { "name": "New Mexico pinon", "peak_month": 10, "pancake_tie": "toasted pinon folded into batter with a pinon-honey drizzle -- fall high-desert harvest" }
+      ],
+      "where_to_buy": [
+        { "name": "Smith's Food & Drug (Albuquerque)", "type": "chain-grocer", "notes": "roasts chile by the bushel in season" },
+        { "name": "Downtown Growers Market (Robinson Park)", "type": "farmers-market", "url": "https://downtowngrowers.org", "notes": "Sat, spring through fall; local chile + produce" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [12, 1],
+      "in_season_produce": [
+        { "name": "dried red-chile ristras (posole / holiday)", "pancake_tie": "red-chile honey holiday stack; posole is the ABQ holiday table (INFERRED pancake tie, verify)" },
+        { "name": "New Mexico pinon (holiday roast)", "pancake_tie": "pinon-honey drizzle holiday stack" }
+      ],
+      "where_to_buy": [
+        { "name": "Smith's / Walmart (Albuquerque)", "type": "chain-grocer" },
+        { "name": "pinonnuts.com", "type": "dtc-subscription", "url": "https://pinonnuts.com", "notes": "New Mexico pinon DTC" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        { "name": "New Mexico melons + sweet corn (Rio Grande valley)", "peak_month": 8, "pancake_tie": "savory sweet-corn Power Cakes; melon side -- INFERRED summer pick, verify local availability" }
+      ],
+      "where_to_buy": [
+        { "name": "Downtown Growers Market (Robinson Park)", "type": "farmers-market", "notes": "Sat summer season" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Smith's Food & Drug", "role": "home", "distance_mi": 0, "notes": "Kroger banner; roasts chile in season" },
+    { "name": "Target", "role": "primary" },
+    { "name": "Walmart", "role": "primary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "red-chile + cheddar savory Power Cakes card + pinon-honey card -- real ABQ fall produce; pairs with the Las Cruces green-chile card as a 'red or green?' set" },
+    "keep-it-wild": { "fit": "strong", "angle": "Sandia foothills + Rio Grande bosque as high-desert wild public land; adobe-portal Keep It Wild dawn stack", "existing_brief": "briefs/kodiak.yaml" },
+    "riff-on-past-content": { "fit": "weak", "angle": "existing ABQ creative is a single cue string ('red chile and pinon, enamel mug on portal') -- thin corpus to riff on" },
+    "localized-costco": { "fit": "weak", "angle": "Costco present in ABQ metro but not the home channel here (Smith's/Target/Walmart lead); bulk stock-up secondary angle" },
+    "bears": { "fit": "weak", "angle": "Bear Bites lunchbox angle carries nationally; Sandia has black bear habitat -- keep conservation-toned, tracks-only" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness" },
+    "us-ski-and-snowboard": { "fit": "weak", "angle": "Sandia Peak Ski Area exists on the crest but ABQ is a high-desert metro identity, not a ski-town -- secondary angle only" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "ready",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.89,
+    "ready_to_rock": true,
+    "notes": "Was (audit): FF thin, AUD thin, CULT absent, PAL absent, SEAS absent, CTF absent, score 0.28 -- the weakest ready-ish region in the set. Now: featured_frontier upgraded to a red-chile+pinon adobe-portal hook, palette grounded in Pueblo Revival adobe + Sandia watermelon-glow, cultural_notes cited to the state question + Pueblo Revival architecture + Navajo urban hub, three seasonal windows with per-season where-to-buy. Smith's mapped as home retailer. pinon cross-promo consent_status 'proposed'; some winter/summer produce ties carry INFERRED flags. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "localization-table-seed.json (US-SW-ALBQ: place/audience/message/cue/retailer Target,Walmart,Smith's)",
+      "market-languages.json (US-SW-ALBQ top_languages: es 22.3, nv 1.1)",
+      "frontier-gaps.json (pinon cross-promo pattern: pinonnuts.com New Mexico pinon)",
+      "web: Old Town Albuquerque (1706 townsite, Pueblo Revival adobe) -- en.wikipedia.org/wiki/Old_Town_Albuquerque",
+      "web: Pueblo architecture (adobe, vigas, latillas, flat roofs) -- en.wikipedia.org/wiki/Pueblo_architecture",
+      "web: Scholes Hall / John Gaw Meem Pueblo Revival at UNM -- en.wikipedia.org/wiki/Scholes_Hall",
+      "web: Sandia Mountains (watermelon-pink sunset granite glow) -- en.wikipedia.org/wiki/Sandia_Mountains, albuquerque.com/sandia-mountains",
+      "web: New Mexico state question 'red or green?' -- newmexico.org"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

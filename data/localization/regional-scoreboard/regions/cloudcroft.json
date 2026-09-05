@@ -1,0 +1,118 @@
+{
+  "region_id": "cloudcroft",
+  "market_code": "US-SW-CLOUDCROFT",
+  "aliases": ["US-SW-TULAROSA (adjacent Tularosa Basin below the pass)", "US-SW-LASCRUCES (regional grocery shed)"],
+  "place": "Cloudcroft + Alamogordo, New Mexico",
+  "zip": "88317",
+  "county": "Otero County",
+  "state": "NM",
+  "coordinates": { "lat": 32.9573, "lon": -105.7433 },
+  "classification": "frontier",
+  "city_center": {
+    "name": "Cloudcroft village (Burro Avenue) + Alamogordo below",
+    "landmark": "Sacramento Mountains alpine village at ~8,600-9,000 ft, surrounded by the Lincoln National Forest; a 4,400-ft drop west to White Sands and Alamogordo on the Tularosa Basin floor",
+    "notes": "Cloudcroft is one of the highest communities in the Southwest, an alpine pine village founded as a logging and vacation town on the El Paso & Northeastern Railroad; the everyday grocery run drops to Alamogordo below. sources: en.wikipedia.org/wiki/Cloudcroft,_New_Mexico; newmexicomagazine.org Cloudcroft; discovercloudcroft.com."
+  },
+  "featured_frontier": {
+    "hook": "A hot stack on the porch of a pine-timber lodge at 9,000 ft, Lincoln National Forest in the frost while White Sands shimmers 4,400 ft below -- 'the land above the clouds' breakfast",
+    "photo_cue": "cast-iron stack on a pine-timber porch, frosted ponderosa, White Sands glinting far below at dawn",
+    "signature_ingredient": "high-mountain cool-climate apples + honey; alpine pine-village dawn",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "Alpine mountain-village families + Alamogordo basin households; Walmart Alamogordo + Albertsons shoppers, cool-forest getaway above the desert",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 20.0, "translate_code": "es", "reason": "INFERRED from Otero County Hispanic ~35% (ACS pattern); Alamogordo basin carries the regional Hispano/border share -- verify exact ACS S1601 pct before production" }
+  ],
+  "cultural_notes": [
+    "Cloudcroft sits at nearly 8,700 ft in the Sacramento Mountains -- one of the highest communities in the US, 'the land above the clouds' -- a pine-forest alpine island above the surrounding desert (source: en.wikipedia.org/wiki/Cloudcroft,_New_Mexico; newmexicomagazine.org; localobserverdaily.com)",
+    "the village was established in the late 1890s as a logging and vacation town by developers of the El Paso & Northeastern Railroad, which pushed a line up the summit to harvest the forests (source: en.wikipedia.org Cloudcroft; newmexicomagazine.org)",
+    "Cloudcroft opens onto 1.1 million acres of Lincoln National Forest and some of the darkest night skies in New Mexico; a 4,400-ft drop leads to White Sands (source: discovercloudcroft.com)",
+    "the everyday retail base is down in Alamogordo on the Tularosa Basin floor; the village itself is a small frontier grocery gap (INFERRED retail framing from geography -- verify)"
+  ],
+  "design_palette": {
+    "textures": ["ponderosa-pine timber", "weathered board-and-batten", "railroad-trestle beam", "frost-crust on pine needles", "gypsum-white sand (White Sands below)", "cast-iron griddle sear", "lichen-mottled granite"],
+    "colors": [
+      { "name": "ponderosa forest green", "hex": "#33502F", "use": "hillside / foreground" },
+      { "name": "weathered pine silver-gray", "hex": "#8A8178", "use": "board siding / trestle" },
+      { "name": "White Sands gypsum white", "hex": "#EDE9E0", "use": "distant basin floor / negative space" },
+      { "name": "alpine frost blue-white", "hex": "#D3DEE4", "use": "frost / snow accent" },
+      { "name": "Sacramento sunrise amber", "hex": "#D89A4F", "use": "dawn sky backdrop" }
+    ],
+    "building_materials": ["ponderosa-pine timber frame", "weathered board-and-batten siding", "log lodge construction", "steep pitched metal roof (snow shed)", "railroad-trestle timber", "fieldstone foundation"],
+    "landscape_motifs": ["ponderosa and fir forest", "railroad trestle in the pines", "White Sands shimmering 4,400 ft below", "dark alpine night sky", "frost on the high meadow"],
+    "_provenance_note": "pine timber + board-and-batten + trestle grounded in Cloudcroft's logging/railroad heritage and alpine forest setting (en.wikipedia.org Cloudcroft; newmexicomagazine.org). White Sands gypsum white grounded in the basin below (discovercloudcroft.com). hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        { "name": "high-country apples (Sacramento Mountains / High Rolls)", "peak_month": 10, "pancake_tie": "cinnamon-apple compote over Power Cakes -- High Rolls / Sacramento Mountains are a small apple-and-cherry orchard pocket (INFERRED specific orchard tie, verify)" }
+      ],
+      "where_to_buy": [
+        { "name": "Walmart Alamogordo", "type": "chain-grocer", "notes": "basin-floor everyday grocery run below the village" },
+        { "name": "Alamogordo Farmers Market", "type": "farmers-market", "notes": "seasonal basin produce; verify current schedule" }
+      ]
+    },
+    {
+      "season": "ski-season",
+      "months": [12, 1, 2],
+      "in_season_produce": [
+        { "name": "pantry stock-up (shelf-stable) + local honey", "pancake_tie": "warm honey stack for a cold pine-village morning; Ski Cloudcroft and snow-play draw winter visitors -- pantry cue when fresh windows close" }
+      ],
+      "where_to_buy": [
+        { "name": "Walmart Alamogordo", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        { "name": "basin melons + chile (Tularosa Basin) + High Rolls cherries", "peak_month": 7, "pancake_tie": "High Rolls cherry compote over Power Cakes -- the cherry festival is a local summer ritual (INFERRED tie, verify festival timing)" }
+      ],
+      "where_to_buy": [
+        { "name": "Alamogordo Farmers Market", "type": "farmers-market" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Walmart", "role": "primary", "notes": "Alamogordo Supercenter, basin floor below the village" },
+    { "name": "Albertsons", "role": "primary", "notes": "Alamogordo" },
+    { "name": "village general store (Cloudcroft)", "role": "home", "distance_mi": 0, "notes": "small in-village grocery; full runs drop to Alamogordo" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "weak", "angle": "cinnamon-apple compote card ties to the High Rolls / Sacramento Mountains orchard pocket, but the produce story is thin vs the chile/pistachio basin neighbors" },
+    "keep-it-wild": { "fit": "strong", "angle": "1.1 million acres of Lincoln National Forest wrap the village + some of NM's darkest night skies -- Keep It Wild alpine-forest dawn stack is the natural hook here", "existing_brief": "briefs/kodiak.yaml" },
+    "us-ski-and-snowboard": { "fit": "weak", "angle": "Ski Cloudcroft is a small community ski area and the village markets snow-play; a genuine local winter draw but tiny scale -- secondary angle" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no existing Cloudcroft creative corpus -- thin to riff on" },
+    "localized-costco": { "fit": "na", "angle": "no Costco; nearest is El Paso ~90mi. frontier grocery pattern, Walmart Alamogordo is the bulk substitute" },
+    "bears": { "fit": "weak", "angle": "the Sacramento Mountains genuinely have black bear habitat (Smokey Bear was found near Capitan, just north) -- keep conservation-toned, tracks-only, and note the real Smokey Bear regional heritage carefully" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype/partnership only, never likeness" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "thin",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "thin",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.78,
+    "ready_to_rock": false,
+    "notes": "New seed. Strong Keep-It-Wild alpine-forest hook (Lincoln National Forest, dark skies, land-above-the-clouds). seasonal produce ties (High Rolls apples/cherries) are INFERRED and need orchard/festival verification. Smokey Bear regional heritage (Capitan, just north) is real and should be handled carefully if a bears angle is pursued. ready_to_rock false pending produce verification + demographic confirmation. languages/audience carry INFERRED flags -- market-languages.json absent in checkout. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Cloudcroft ~8,600-9,000 ft, Sacramento Mountains, land above the clouds -- en.wikipedia.org/wiki/Cloudcroft,_New_Mexico; newmexicomagazine.org; localobserverdaily.com",
+      "web: founded late 1890s as logging/vacation town on El Paso & Northeastern Railroad -- en.wikipedia.org Cloudcroft",
+      "web: 1.1 million acres Lincoln National Forest, 4,400-ft drop to White Sands, dark skies -- discovercloudcroft.com",
+      "web: alpine dining culture at 8,600 ft -- build-construct.com southwest culinary towns",
+      "INFERRED: High Rolls apple/cherry orchard ties + Alamogordo retail base -- verify before production; language/audience pcts pending (market-languages.json absent)"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

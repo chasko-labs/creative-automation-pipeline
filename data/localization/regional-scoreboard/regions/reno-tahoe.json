@@ -1,0 +1,120 @@
+{
+  "region_id": "reno-tahoe",
+  "market_code": "US-W-RENO",
+  "aliases": ["US-W-TAHOE (paired Lake Tahoe market)"],
+  "place": "Reno + Tahoe, Nevada / California",
+  "zip": "89501",
+  "county": "Washoe County",
+  "state": "NV",
+  "coordinates": { "lat": 39.5296, "lon": -119.8138 },
+  "classification": "regional",
+  "city_center": {
+    "name": "Downtown Reno (Riverwalk / Truckee River) + Lake Tahoe",
+    "landmark": "the Sierra Nevada rising west of Reno; Lake Tahoe, the 'Jewel of the Sierra Nevada', ringed by alpine peaks and ski resorts (Palisades Tahoe) 45 min up the hill",
+    "notes": "Reno sits between the Sierra Nevada and the Great Basin Desert, gateway to Lake Tahoe; the Truckee River runs through downtown and the Riverwalk anchors the district, with local farmers markets across the region. Palisades Tahoe and the Tahoe resorts are the ski anchor. sources: nationalgeographic.com Reno-Tahoe essential guide; travelnevada.com Lake Tahoe loop; visitrenotahoe.com."
+  },
+  "featured_frontier": {
+    "hook": "A ski-morning stack before a Palisades Tahoe powder day, Sierra Nevada peaks over the Truckee River, Great Basin desert light behind -- Jewel-of-the-Sierra breakfast",
+    "photo_cue": "cast-iron stack, Truckee River, Sierra Nevada peaks, ski gear, alpine-lake blue",
+    "signature_ingredient": "Sierra-to-desert seasonal produce + Nevada honey; Tahoe powder-morning fuel",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "Sierra-and-desert families, Tahoe ski-commuter and outdoor households, growing tech-transplant base; Raley's + Smith's + Costco + Walmart shoppers, Reno-Tahoe outdoor culture",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 16.0, "translate_code": "es", "reason": "INFERRED from Washoe County Hispanic ~26% (ACS pattern); largest second language of the Reno area -- verify exact ACS S1601 pct before production" }
+  ],
+  "cultural_notes": [
+    "Reno is nestled between the Sierra Nevada and the Great Basin Desert -- the gateway to historic mining towns, Indigenous (Washoe/Paiute) culture, and year-round outdoor adventure (source: nationalgeographic.com Reno-Tahoe essential guide; visitrenotahoe.com heritage)",
+    "Lake Tahoe, the 'Jewel of the Sierra Nevada', is a summertime paradise and winter wonderland encircled by alpine peaks and ski resorts, 45 minutes up the hill from Reno (source: travelnevada.com Reno to Lake Tahoe loop)",
+    "the region blends Native American and Basque cultures, silver-mining heritage and Western traditions (source: visitrenotahoe.com Reno history and culture)",
+    "the Washoe people are the Indigenous stewards of the Lake Tahoe basin; any tribal reference stays consent-gated -- no fabricated endorsement (INFERRED framing; verify + honor sovereignty)"
+  ],
+  "design_palette": {
+    "textures": ["Sierra Nevada granite", "Truckee River cobble", "silver-mining brick (downtown Reno)", "weathered Great Basin sagebrush", "fresh Tahoe powder", "cast-iron griddle sear", "Jeffrey-pine bark"],
+    "colors": [
+      { "name": "Lake Tahoe alpine blue", "hex": "#3E7B9A", "use": "lake / signature accent" },
+      { "name": "Sierra granite gray", "hex": "#8C8880", "use": "peaks / rock backdrop" },
+      { "name": "Tahoe powder white", "hex": "#E4EAF0", "use": "snow / negative space" },
+      { "name": "Great Basin sagebrush silver-green", "hex": "#8A9478", "use": "desert flat / foreground" },
+      { "name": "Sierra sunset copper", "hex": "#B5623A", "use": "dusk sky / accent" }
+    ],
+    "building_materials": ["Sierra Nevada granite stone", "silver-mining-era brick (downtown Reno)", "timber-and-stone lodge (Tahoe)", "board-and-batten (rural / Great Basin)", "stucco and frame (suburban)", "cast-iron storefront trim"],
+    "landscape_motifs": ["Sierra Nevada peaks west of Reno", "Lake Tahoe alpine-blue water", "Truckee River through downtown", "Great Basin sagebrush flat east", "Jeffrey-pine and fir Tahoe basin"],
+    "_provenance_note": "Sierra granite + Tahoe alpine blue grounded in the Sierra Nevada / Lake Tahoe setting (travelnevada.com; nationalgeographic.com). Great Basin sagebrush grounded in the desert east; silver-mining brick grounded in Reno's mining heritage (visitrenotahoe.com). hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "ski-season",
+      "months": [12, 1, 2, 3],
+      "in_season_produce": [
+        { "name": "Nevada honey + stored root veg + pantry stock-up", "pancake_tie": "warm honey stack + savory root-veg Power Cakes before a Palisades Tahoe / Tahoe-resort powder day -- Reno is the ski-staging city for the north Tahoe resorts" }
+      ],
+      "where_to_buy": [
+        { "name": "Raley's (Reno)", "type": "chain-grocer", "notes": "regional Northern California/Nevada chain" },
+        { "name": "Smith's Food & Drug (Reno)", "type": "chain-grocer", "notes": "Kroger banner" }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        { "name": "Sierra Valley + Northern Nevada apples, squash, late tomatoes", "peak_month": 9, "pancake_tie": "cinnamon-apple compote on cast iron; savory late-tomato or squash Power Cakes -- regional fall produce at Reno markets" }
+      ],
+      "where_to_buy": [
+        { "name": "Reno-area farmers markets (Riverside / Village)", "type": "farmers-market", "url": "https://www.visitrenotahoe.com/things-to-do/shopping/farmers-markets/", "notes": "seasonal Reno-Tahoe markets, produce and artisan goods; verify current schedule" },
+        { "name": "Raley's (Reno)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [7, 8],
+      "in_season_produce": [
+        { "name": "regional stone fruit + berries + early tomatoes (Sierra/Central Valley)", "peak_month": 8, "pancake_tie": "peach or berry compote over Power Cakes; nearby California Central Valley fruit reaches Reno markets midsummer" }
+      ],
+      "where_to_buy": [
+        { "name": "Reno-area farmers markets", "type": "farmers-market" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Raley's", "role": "home", "distance_mi": 0, "notes": "regional Northern California/Nevada chain, strong Reno presence" },
+    { "name": "Smith's Food & Drug", "role": "primary", "notes": "Kroger banner" },
+    { "name": "Costco", "role": "primary", "notes": "Reno metro; ski-trip bulk stock-up" },
+    { "name": "Walmart", "role": "primary" }
+  ],
+  "campaign_type_fit": {
+    "us-ski-and-snowboard": { "fit": "strong", "angle": "Reno is the staging city for the north Lake Tahoe resorts (Palisades Tahoe, Northstar, Mt Rose, Heavenly) -- powder-morning protein stack for ski-commuter and destination households. A flagship Sierra market for the us-ski brief" },
+    "keep-it-wild": { "fit": "strong", "angle": "Lake Tahoe, the Sierra Nevada and the Great Basin all meet here -- Keep It Wild alpine-lake-and-desert dawn stack, a genuinely distinct two-ecosystem hook", "existing_brief": "briefs/kodiak.yaml" },
+    "localized-costco": { "fit": "strong", "angle": "Reno metro Costco footprint + ski-trip and big-household bulk stock-up -- Family Size stock-the-cabin angle fits the Tahoe-trip behavior" },
+    "recipe-cards": { "fit": "weak", "angle": "regional apple/stone-fruit cards work but much produce comes from the California Central Valley -- the ownable local-produce hook is thinner than the orchard markets" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no existing Reno-Tahoe creative corpus -- thin to riff on until ski assets ship" },
+    "bears": { "fit": "weak", "angle": "the Tahoe basin has genuine, well-known black bear activity (urban-edge bears are a real local story) -- keep conservation-toned, tracks-only, no costume grizzlies; a careful local bear angle could land here" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype/partnership only, never likeness" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.89,
+    "ready_to_rock": true,
+    "notes": "New seed, a flagship Sierra us-ski market (north Tahoe resort gateway). us-ski + keep-it-wild + localized-costco all STRONG. design_palette grounded in Sierra granite + Tahoe alpine blue + Great Basin sagebrush, cited; seasonal keyed to ski-season pantry/honey + fall regional apples (not winter-defaulted). Tahoe-basin black bear activity noted as a genuine careful-handling angle. Washoe reference consent-gated. languages carry INFERRED flag -- market-languages.json absent in checkout. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Reno between Sierra Nevada and Great Basin Desert, gateway to Tahoe, Indigenous + mining culture -- nationalgeographic.com Reno-Tahoe essential guide; visitrenotahoe.com heritage",
+      "web: Lake Tahoe 'Jewel of the Sierra Nevada', winter wonderland ski resorts -- travelnevada.com Reno to Lake Tahoe loop; blog.palisadestahoe.com Reno guide",
+      "web: Native American + Basque + silver-mining + Western culture blend -- visitrenotahoe.com Reno history and culture",
+      "web: Reno-Tahoe farmers markets -- visitrenotahoe.com farmers markets; nvmoms.com Reno farmers markets",
+      "INFERRED: language pct + Central Valley produce sourcing (market-languages.json absent in checkout) -- verify ACS S1601 for Washoe County; honor Washoe consent"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

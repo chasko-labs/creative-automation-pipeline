@@ -1,0 +1,282 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kodiakcakes.com/schema/regional-scoreboard-v1.json",
+  "title": "Kodiak Regional Automation Scoreboard",
+  "description": "One record per region. Unifies the fragmented localization layer (localization-table-seed, market-languages, store-finder-markets, retailer-frontier-pairs, local-flavor, frontier-gaps) into a single structured shape covering city center, featured frontier, languages+culture, regional design palette (textures/colors/materials), calendar-aware seasonal produce with where-to-buy, in-region retailers, and per-campaign-type fit. Feeds brief composition (target_market -> campaign_message/audience/products) and the local_flavor_for(market,month) island. readiness_score records which fields are populated so a region can be judged ready-to-rock.",
+  "type": "object",
+  "required": [
+    "region_id",
+    "market_code",
+    "place",
+    "city_center",
+    "featured_frontier",
+    "audience",
+    "languages",
+    "design_palette",
+    "seasonal",
+    "retailers",
+    "campaign_type_fit",
+    "readiness"
+  ],
+  "properties": {
+    "region_id": {
+      "type": "string",
+      "description": "Stable slug for the region, lowercase kebab (e.g. park-city-wasatch, las-cruces).",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "market_code": {
+      "type": "string",
+      "description": "Existing market convention. Matches localization-table-seed/store-finder-markets keys.",
+      "pattern": "^US-[A-Z]{1,3}-[A-Z0-9 -]+$",
+      "examples": ["US-MW-WASATCH", "US-SW-LASCRUCES", "US-MW-PARKCITY-84098"]
+    },
+    "aliases": {
+      "type": "array",
+      "description": "Other market_codes that resolve to the same region (e.g. US-MW-WASATCH + US-MW-PARKCITY-84098 + US-MW-WASATCH-SLC labor shed).",
+      "items": { "type": "string" }
+    },
+    "place": {
+      "type": "string",
+      "description": "Human place label as it appears in existing files (e.g. 'Las Cruces + Alamogordo, New Mexico')."
+    },
+    "zip": { "type": "string", "pattern": "^[0-9]{5}$" },
+    "county": { "type": "string" },
+    "state": { "type": "string", "minLength": 2, "maxLength": 2 },
+    "coordinates": {
+      "type": "object",
+      "properties": {
+        "lat": { "type": "number" },
+        "lon": { "type": "number" }
+      },
+      "required": ["lat", "lon"]
+    },
+    "classification": {
+      "type": "string",
+      "enum": ["metro", "regional", "frontier", "frontier-gap"],
+      "description": "metro=chain-dense; frontier=rugged but has some retail; frontier-gap=no in-town chain grocer, DTC/subscription only."
+    },
+    "city_center": {
+      "type": "object",
+      "description": "The anchor downtown / gathering point the creative can reference.",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "examples": ["Downtown Las Cruces", "Park City Main Street"] },
+        "landmark": { "type": "string", "description": "Signature landmark (e.g. Organ Mountains bench, Park City Mountain base)." },
+        "notes": { "type": "string" }
+      }
+    },
+    "featured_frontier": {
+      "type": "object",
+      "description": "The signature local hook -- the single most localized creative angle for this region. This is the heart of the scoreboard.",
+      "required": ["hook"],
+      "properties": {
+        "hook": {
+          "type": "string",
+          "description": "One-line signature angle.",
+          "examples": [
+            "Roasted Hatch green chile folded into flapjacks, eaten on the Organ Mountains bench",
+            "Jensen Farms peach + Copper Moose rhubarb compote on cast iron at the Park City Mountain base farmers market"
+          ]
+        },
+        "photo_cue": { "type": "string", "description": "Maps to existing market.cue field and vp-* photography direction." },
+        "signature_ingredient": { "type": "string" },
+        "cross_promo": {
+          "type": "object",
+          "description": "Optional partner activation (e.g. pinonnuts.com, Harley Farms).",
+          "properties": {
+            "partner": { "type": "string" },
+            "url": { "type": "string", "format": "uri" },
+            "product": { "type": "string" },
+            "activation": { "type": "string" },
+            "consent_status": { "type": "string", "enum": ["confirmed", "maybe", "proposed", "n/a"], "description": "Honor tribal/partner sovereignty -- e.g. Makah fishery is 'maybe, with consent'." }
+          }
+        }
+      }
+    },
+    "audience": {
+      "type": "string",
+      "description": "Maps directly to brief target_audience + market.audience."
+    },
+    "languages": {
+      "type": "array",
+      "description": "Localized languages. Seeded from market-languages.json top_languages.",
+      "items": {
+        "type": "object",
+        "required": ["lang_code", "lang_name"],
+        "properties": {
+          "lang_code": { "type": "string", "examples": ["es", "pt", "nv", "ht"] },
+          "lang_name": { "type": "string" },
+          "pct_home": { "type": "number", "description": "% pop 5+ speaking at home (ACS S1601)." },
+          "translate_code": { "type": "string", "description": "Amazon Translate / Nova code." },
+          "reason": { "type": "string", "description": "Provenance note for the language selection." }
+        }
+      }
+    },
+    "cultural_notes": {
+      "type": "array",
+      "description": "Cultural context beyond language: food traditions, communities, sensitivities. Currently ABSENT in all existing files -- new field.",
+      "items": { "type": "string" }
+    },
+    "design_palette": {
+      "type": "object",
+      "description": "REGION-SPECIFIC visual design inputs, distinct from the fixed Kodiak brand palette (bearBrown #3B2316, blazeOrange #E8530E, frontierGreen #1A3C34, parchment #FFF8F0, oatmeal #F4EDE6). These are the local textures/colors/materials that make a region's creative land. Currently ABSENT for nearly all markets -- local-flavor.json is a produce stub with no visual layer.",
+      "required": ["textures", "colors", "building_materials"],
+      "properties": {
+        "textures": {
+          "type": "array",
+          "description": "Regional surface/material textures for photo styling (e.g. adobe stucco, weathered pine, red sandstone, kaolin-white clay).",
+          "items": { "type": "string" }
+        },
+        "colors": {
+          "type": "array",
+          "description": "Regional accent colors distinct from brand palette. Each is a named local color, optionally with hex.",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": { "type": "string", "examples": ["Organ Mountains dusk violet", "Hatch chile roast char-green", "Wasatch alpenglow rose"] },
+              "hex": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+              "use": { "type": "string", "description": "Where it appears (sky, produce, terrain, structure)." }
+            }
+          }
+        },
+        "building_materials": {
+          "type": "array",
+          "description": "Common local architecture/materials for backdrop authenticity (e.g. adobe, ponderosa log cabin, corrugated ranch steel, brick storefront).",
+          "items": { "type": "string" }
+        },
+        "landscape_motifs": {
+          "type": "array",
+          "description": "Optional environmental motifs (mesa, alpenglow ridge, artichoke field, kaolin quarry).",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "seasonal": {
+      "type": "array",
+      "description": "Calendar-aware. Each entry is a holiday-season window (or month) mapping to in-season produce and where to buy it in-region. Reconciles local-flavor.json (month windows) + retailer-frontier-pairs.json (YYYY-MM ingredient calendar).",
+      "items": {
+        "type": "object",
+        "required": ["season", "in_season_produce"],
+        "properties": {
+          "season": {
+            "type": "string",
+            "description": "Named holiday season or period.",
+            "enum": [
+              "new-year",
+              "valentines",
+              "spring-easter",
+              "mothers-day",
+              "summer-fourth",
+              "back-to-school",
+              "harvest-fall",
+              "halloween",
+              "thanksgiving",
+              "winter-holidays",
+              "ski-season",
+              "year-round"
+            ]
+          },
+          "months": {
+            "type": "array",
+            "description": "Inclusive month integers 1-12; may wrap year end. Matches local-flavor.json month_convention.",
+            "items": { "type": "integer", "minimum": 1, "maximum": 12 }
+          },
+          "in_season_produce": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name"],
+              "properties": {
+                "name": { "type": "string" },
+                "peak_month": { "type": "integer", "minimum": 1, "maximum": 12 },
+                "pancake_tie": { "type": "string", "description": "How it folds into a Kodiak recipe (e.g. muscadine compote over Power Cakes)." }
+              }
+            }
+          },
+          "where_to_buy": {
+            "type": "array",
+            "description": "In-region sourcing for the season's produce: chain retailers, farmers markets, farm stands, cross-promo partners.",
+            "items": {
+              "type": "object",
+              "required": ["name", "type"],
+              "properties": {
+                "name": { "type": "string" },
+                "type": { "type": "string", "enum": ["chain-grocer", "farmers-market", "farm-stand", "general-store", "dtc-subscription", "cross-promo-partner"] },
+                "url": { "type": "string", "format": "uri" },
+                "notes": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "retailers": {
+      "type": "array",
+      "description": "Chain + local retailers present in region. Seeded from market.retailer string (split) + store-finder-markets. Drives retailer logo lockups and localized-costco/publix briefs.",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string", "examples": ["Costco", "Publix", "Target", "Walmart", "Albertsons", "Smith's"] },
+          "role": { "type": "string", "enum": ["home", "primary", "secondary", "halo", "gap-nearest"], "description": "home=flagship channel; halo=nearest chain for a frontier-gap; gap-nearest=distant fallback." },
+          "distance_mi": { "type": "number", "description": "For frontier-gap markets, distance to this retailer." }
+        }
+      }
+    },
+    "campaign_type_fit": {
+      "type": "object",
+      "description": "Fit rating for each of the 7 repeatable campaign types. Every type is scored strong/weak/na with a localized angle. These 7 are the canonical Kodiak campaign taxonomy; existing briefs only partially cover them (see audit).",
+      "required": [
+        "recipe-cards",
+        "localized-costco",
+        "riff-on-past-content",
+        "zac-efron",
+        "bears",
+        "keep-it-wild",
+        "us-ski-and-snowboard"
+      ],
+      "patternProperties": {
+        "^(recipe-cards|localized-costco|riff-on-past-content|zac-efron|bears|keep-it-wild|us-ski-and-snowboard)$": {
+          "type": "object",
+          "required": ["fit"],
+          "properties": {
+            "fit": { "type": "string", "enum": ["strong", "weak", "na"] },
+            "angle": { "type": "string", "description": "The localized angle for this campaign type in this region." },
+            "existing_brief": { "type": "string", "description": "Path to an existing brief that already serves this, if any (e.g. briefs/kodiak-costco.yaml)." }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "readiness": {
+      "type": "object",
+      "description": "Rubric: which scoreboard fields are populated with real data (ready), partial/generic (thin), or missing (absent). score = ready field weight sum / total. ready_to_rock true when no core field is absent.",
+      "required": ["fields", "score", "ready_to_rock"],
+      "properties": {
+        "fields": {
+          "type": "object",
+          "description": "Per-field readiness state.",
+          "patternProperties": {
+            "^(city_center|featured_frontier|audience|languages|cultural_notes|design_palette|seasonal|retailers|campaign_type_fit)$": {
+              "type": "string",
+              "enum": ["ready", "thin", "absent"]
+            }
+          },
+          "additionalProperties": false
+        },
+        "score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "ready_to_rock": { "type": "boolean" },
+        "notes": { "type": "string" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "description": "Where each block was sourced. Keeps the unified record auditable back to the fragment files.",
+      "properties": {
+        "sourced_from": { "type": "array", "items": { "type": "string" } },
+        "generated": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "region_id": "omaha",
+  "market_code": "US-MW-OMAHA",
+  "aliases": ["US-MW-OMA"],
+  "place": "Omaha, Nebraska",
+  "zip": "68102",
+  "county": "Douglas County",
+  "state": "NE",
+  "coordinates": { "lat": 41.2565, "lon": -95.9345 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Omaha / Old Market",
+    "landmark": "The Old Market -- a brick-and-cobblestone warehouse district on the Missouri River bluff; the river and Bob Kerrey pedestrian bridge anchor the riverfront",
+    "notes": "Omaha grew as a Missouri River gateway and railroad-and-livestock city; the Old Market is a preserved brick warehouse district with cobblestone streets. Omaha's grocery market is split roughly evenly between Walmart, Hy-Vee, and Baker's (a Kroger banner). sources: Omaha grocery market share Walmart / Hy-Vee / Baker's (supermarketnews.com Omaha upscale market share); Hy-Vee Nebraska ranking (supermarketnews.com Kroger-Hy-Vee Midwest)."
+  },
+  "featured_frontier": {
+    "hook": "Nebraska sweet-corn savory Power Cakes and heartland honey on a brick Old Market porch, cobblestones and the Missouri River behind -- cornhusker prairie morning",
+    "photo_cue": "savory sweet-corn griddle stack, red brick warehouse, cobblestone, Missouri River, cast iron, enamel plate",
+    "signature_ingredient": "Nebraska sweet corn and heartland grain + Missouri River-gateway brick; big-prairie morning",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "Cornhusker heartland families -- railroad-and-livestock gateway city with a preserved brick warehouse core; Hy-Vee, Baker's, and Walmart shoppers",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 9.0, "translate_code": "es", "reason": "INFERRED from Douglas County Hispanic ~13% (concentrated in South Omaha) Spanish-at-home pattern; verify exact ACS S1601 pct before production -- market-languages.json absent in checkout" }
+  ],
+  "cultural_notes": [
+    "Omaha grew as a Missouri River gateway and a railroad-and-livestock city; the Old Market is a preserved brick-and-cobblestone warehouse district that defines the downtown texture (INFERRED architectural framing from region knowledge -- verify specific claims before production)",
+    "Omaha's grocery market share is split nearly evenly among Walmart, Hy-Vee, and Baker's / Dillon (a Kroger subsidiary) -- no single dominant grocer, unlike the Texas H-E-B or Iowa Hy-Vee monopolies (source: supermarketnews.com Operators Seek More of Omaha's Upscale Market Share)",
+    "Hy-Vee is an employee-owned midwest chain that ranks first in visits in Nebraska in some measures and captured ~41% of Nebraska grocery visits in one monthly report -- a strong but not exclusive regional loyalty (source: supermarketnews.com Kroger-Hy-Vee Midwest; supermarketnews.com Kroger-Hy-Vee January visits)",
+    "South Omaha holds a large Hispanic community rooted in the old stockyards / meatpacking labor history -- creative should read heartland-multicultural, not single-heritage (INFERRED framing -- verify before production use)"
+  ],
+  "design_palette": {
+    "textures": ["Old Market red brick and cobblestone", "warehouse timber-and-iron", "Nebraska sweet-corn husk", "Missouri River-bluff soil", "cast-iron griddle", "prairie tallgrass seedhead", "grain-elevator concrete"],
+    "colors": [
+      { "name": "Old Market brick red", "hex": "#9C4A38", "use": "structure / warehouse" },
+      { "name": "cobblestone gray", "hex": "#8C8880", "use": "street / ground" },
+      { "name": "Nebraska cornhusk gold", "hex": "#D6B24A", "use": "produce hero / grain" },
+      { "name": "Missouri River bluff brown", "hex": "#6B5A3E", "use": "river / bluff" },
+      { "name": "prairie big-sky blue", "hex": "#7FA0C0", "use": "sky / horizon" }
+    ],
+    "building_materials": ["red-brick warehouse", "cobblestone paving", "timber-and-iron loft", "grain-elevator concrete", "steel-and-glass downtown"],
+    "landscape_motifs": ["Old Market brick-and-cobblestone district", "Missouri River gateway and pedestrian bridge", "Nebraska cornfield and grain elevator", "tallgrass prairie big sky", "railroad-and-stockyards heritage"],
+    "_provenance_note": "Old Market brick / cobblestone grounded in the preserved warehouse district (INFERRED architectural framing, verify). cornhusk gold and grain elevator are Nebraska agricultural signatures. Missouri River gateway is documented. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "summer-fourth",
+      "months": [7, 8],
+      "in_season_produce": [
+        { "name": "Nebraska sweet corn", "peak_month": 8, "pancake_tie": "savory Nebraska sweet-corn Power Cakes -- the Cornhusker State's signature summer crop at peak" },
+        { "name": "Nebraska tomatoes + melons", "peak_month": 8, "pancake_tie": "savory tomato Power Cakes; melon side -- heartland summer produce" }
+      ],
+      "where_to_buy": [
+        { "name": "Hy-Vee (Omaha)", "type": "chain-grocer", "url": "https://www.hy-vee.com", "notes": "employee-owned midwest chain; splits Omaha market with Walmart and Baker's" },
+        { "name": "Omaha Farmers Market (Old Market / Aksarben Village)", "type": "farmers-market", "notes": "seasonal market; Nebraska growers" }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        { "name": "Nebraska apples + winter squash", "peak_month": 10, "pancake_tie": "apple compote over Power Cakes -- heartland fall orchard and roots" },
+        { "name": "pumpkins + sweet potatoes", "peak_month": 10, "pancake_tie": "savory sweet-potato Power Cakes -- Nebraska fall harvest" }
+      ],
+      "where_to_buy": [
+        { "name": "Hy-Vee / Baker's (Omaha)", "type": "chain-grocer", "notes": "Baker's is the Omaha Kroger banner" },
+        { "name": "Omaha Farmers Market", "type": "farmers-market" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        { "name": "asparagus + rhubarb + spring greens", "peak_month": 5, "pancake_tie": "rhubarb compote over Power Cakes -- heartland spring; INFERRED pick, verify local availability" }
+      ],
+      "where_to_buy": [
+        { "name": "Omaha Farmers Market", "type": "farmers-market" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Hy-Vee", "role": "home", "distance_mi": 0, "notes": "employee-owned midwest chain; strong Nebraska visit share" },
+    { "name": "Walmart", "role": "primary", "notes": "shares the Omaha market lead with Hy-Vee and Baker's" },
+    { "name": "Baker's", "role": "primary", "notes": "Kroger banner in Omaha" },
+    { "name": "Costco", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "Nebraska sweet-corn savory Power Cakes card + heartland apple card -- Cornhusker seasonal hooks tied to the state's signature crop" },
+    "localized-costco": { "fit": "weak", "angle": "Omaha's market is split among Hy-Vee, Walmart, and Baker's with no dominant grocer; a Hy-Vee heartland lockup is the stronger localized-retailer play than a warehouse-club angle" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no existing Omaha creative corpus in the scoreboard set -- thin to riff on until first assets ship" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype/partnership only, never likeness" },
+    "bears": { "fit": "weak", "angle": "Bear Bites lunchbox angle carries nationally; the Nebraska prairie is not bear country -- keep conservation-toned, national" },
+    "keep-it-wild": { "fit": "weak", "angle": "the Missouri River gateway, tallgrass prairie, and river greenways offer a heartland prairie-and-river Keep It Wild angle, but this is a dense brick-warehouse metro identity" },
+    "us-ski-and-snowboard": { "fit": "na", "angle": "heartland prairie metro; no ski culture" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.83,
+    "ready_to_rock": true,
+    "notes": "New seed. design_palette grounded in Old Market brick-and-cobblestone + Nebraska corn + Missouri River gateway, brick framing flagged INFERRED; seasonal keyed to Nebraska sweet corn (summer -- the signature crop), apples (fall), rhubarb (spring) -- not winter-defaulted. Retailers correctly mapped as a three-way split (Hy-Vee / Walmart / Baker's) with no dominant grocer, localized-costco marked weak. Spanish pct carries INFERRED flag -- no ACS number fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Omaha grocery market split Walmart / Hy-Vee / Baker's-Dillon (Kroger) -- supermarketnews.com Operators Seek More of Omaha's Upscale Market Share",
+      "web: Hy-Vee Nebraska visit share / ranking -- supermarketnews.com Kroger-Hy-Vee Midwest; supermarketnews.com Kroger-Hy-Vee January visits (Nebraska 41%)",
+      "web: Hy-Vee employee-owned midwest chain -- en.wikipedia.org/wiki/Hy-Vee",
+      "INFERRED: Old Market architecture framing, South Omaha Hispanic-community framing, and Spanish-at-home pct (market-languages.json absent in checkout) -- verify ACS S1601 for Douglas County"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

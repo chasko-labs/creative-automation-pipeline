@@ -1,0 +1,129 @@
+{
+  "region_id": "santa-fe",
+  "market_code": "US-SW-SANTA FE",
+  "aliases": ["US-SW-ALBQ (adjacent Rio Grande corridor)"],
+  "place": "Santa Fe, New Mexico",
+  "zip": "87501",
+  "county": "Santa Fe County",
+  "state": "NM",
+  "coordinates": { "lat": 35.687, "lon": -105.9378 },
+  "classification": "regional",
+  "city_center": {
+    "name": "Santa Fe Plaza",
+    "landmark": "Santa Fe Plaza (National Historic Landmark) with the Palace of the Governors on the north side; Sangre de Cristo Mountains on the eastern skyline",
+    "notes": "the Plaza was developed as the terminus of the Santa Fe Trail, fronted by adobe buildings with porticoes; the Santa Fe Farmers Market at the Railyard is the gathering anchor. sources: Santa Fe Plaza (en.wikipedia.org/wiki/Santa_Fe_Plaza; sah-archipedia.org); santafe.com Santa Fe style."
+  },
+  "featured_frontier": {
+    "hook": "Red chile + toasted pinon Power Cakes on an adobe portal off the Plaza, Sangre de Cristo peaks catching first light -- high-desert capital breakfast",
+    "photo_cue": "red chile and pinon, adobe portal off the Plaza, Sangre de Cristo dawn, enamel mug",
+    "signature_ingredient": "New Mexico red chile + pinon; 7,000-ft high-desert dawn",
+    "cross_promo": {
+      "partner": "pinonnuts.com (New Mexico pinon)",
+      "url": "https://pinonnuts.com",
+      "product": "roasted New Mexico pinon seeds",
+      "activation": "pinon-honey drizzle Power Cakes; shared with the Albuquerque + Timberon pinon cross-promo pattern",
+      "consent_status": "proposed"
+    }
+  },
+  "audience": "High-desert capital families, adobe-Plaza households; Albertsons + Smith's + Walmart shoppers, arts-and-food tourism town at 7,000 ft",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 24.0, "translate_code": "es", "reason": "INFERRED from Santa Fe County Hispanic ~50% and historic Hispano population (ACS pattern); Spanish is deeply rooted since the colonial era -- verify exact ACS S1601 pct before production" },
+    { "lang_code": "tewa", "lang_name": "Tewa", "pct_home": 0.5, "translate_code": "es", "reason": "INFERRED Northern Rio Grande Tewa Pueblos (Tesuque, Pojoaque, Nambe, San Ildefonso) ring Santa Fe; culturally significant even at low home-language pct. translate_code falls back to Spanish (no Nova Tewa code). honor tribal consent before any language use" }
+  ],
+  "cultural_notes": [
+    "Santa Fe style is a fusion of Pueblo, Spanish Colonial, and Territorial influences designed for high-desert living, codified in Santa Fe roughly 1908-1940 -- Pueblo-Spanish Revival plus Territorial Revival (source: santafe.com Santa Fe style; en.wikipedia.org Pueblo Revival architecture; santafenm.gov design standards)",
+    "the Santa Fe Plaza is a National Historic Landmark in the style of traditional Spanish-American colonial cities, developed as the terminus of the Santa Fe Trail (source: Santa Fe Plaza, en.wikipedia.org; sah-archipedia.org)",
+    "'red or green?' is the official New Mexico state question; Santa Fe cuisine leans on both New Mexico chile and pinon (source: newmexico.org, shared with the Albuquerque record)",
+    "Northern Rio Grande Tewa Pueblos surround the city; Santa Fe is a major Native and Hispano arts market (Santa Fe Indian Market) -- tribal references stay consent-gated, no fabricated endorsement (INFERRED civic-culture framing; verify tone + honor sovereignty)"
+  ],
+  "design_palette": {
+    "textures": ["hand-built adobe wall", "lime-plaster over adobe", "roasted red-chile skin", "pinon-pine bark + shell", "viga end grain", "Territorial brick coping", "sun-worn portal timber"],
+    "colors": [
+      { "name": "Sangre de Cristo alpenglow rose", "hex": "#C87F82", "use": "skyline / dawn backdrop" },
+      { "name": "New Mexico red-chile", "hex": "#9E2B25", "use": "produce hero / accent" },
+      { "name": "Santa Fe adobe tan", "hex": "#C79A6B", "use": "structure / wall" },
+      { "name": "portal turquoise", "hex": "#3E9AA0", "use": "door / window trim accent" },
+      { "name": "viga pine brown", "hex": "#6E4A2E", "use": "roof beam / trim" }
+    ],
+    "building_materials": ["hand-built adobe brick", "lime-plaster over adobe", "vigas (ponderosa roof beams)", "latillas (perpendicular roof laths)", "flat-roof parapet", "Territorial brick coping", "portal (covered porch) timber"],
+    "landscape_motifs": ["Sangre de Cristo alpenglow ridge", "adobe portal + ristra off the Plaza", "pinon-juniper high-desert flat", "Santa Fe River cottonwood", "Railyard market crates"],
+    "_provenance_note": "adobe/vigas/latillas/Territorial coping grounded in codified Santa Fe style / Pueblo-Spanish + Territorial Revival (santafe.com; santafenm.gov; en.wikipedia.org Pueblo Revival). Sangre de Cristo alpenglow rose grounded in the range name ('blood of Christ') and its sunset glow. turquoise is a signature NM portal accent. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        { "name": "New Mexico red + green chile", "peak_month": 9, "pancake_tie": "savory red-chile + cheddar Power Cakes; roaster-drum season across Santa Fe grocers" },
+        { "name": "New Mexico pinon", "peak_month": 10, "pancake_tie": "toasted pinon in the batter with a pinon-honey drizzle -- fall high-desert harvest" },
+        { "name": "high-desert apples (Dixon / Espanola valley)", "peak_month": 10, "pancake_tie": "cinnamon-apple compote over Power Cakes -- northern NM orchard fall" }
+      ],
+      "where_to_buy": [
+        { "name": "Santa Fe Farmers Market (Railyard)", "type": "farmers-market", "url": "https://www.santafefarmersmarket.com", "notes": "year-round, Sat + Tue; chile, apples, pinon" },
+        { "name": "Albertsons Santa Fe", "type": "chain-grocer", "notes": "roasts chile in season" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [12, 1],
+      "in_season_produce": [
+        { "name": "dried red-chile ristras (posole / holiday) + pinon", "pancake_tie": "red-chile-honey + pinon holiday stack; farolito-season table (INFERRED pancake tie, verify)" }
+      ],
+      "where_to_buy": [
+        { "name": "Albertsons / Smith's (Santa Fe)", "type": "chain-grocer" },
+        { "name": "pinonnuts.com", "type": "dtc-subscription", "url": "https://pinonnuts.com", "notes": "New Mexico pinon DTC" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        { "name": "northern NM greens + early squash (Railyard market)", "peak_month": 7, "pancake_tie": "savory squash-blossom Power Cakes -- INFERRED summer pick, verify local availability" }
+      ],
+      "where_to_buy": [
+        { "name": "Santa Fe Farmers Market (Railyard)", "type": "farmers-market" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Albertsons", "role": "home", "distance_mi": 0, "notes": "roasts chile in season" },
+    { "name": "Smith's Food & Drug", "role": "primary", "notes": "Kroger banner" },
+    { "name": "Walmart", "role": "primary" },
+    { "name": "Target", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "red-chile + cheddar Power Cakes card + pinon-honey card + northern-NM apple compote card -- pairs with Albuquerque as the 'red' side of the 'red or green?' set" },
+    "keep-it-wild": { "fit": "strong", "angle": "Santa Fe National Forest + Sangre de Cristo trailheads at the city edge -- Keep It Wild adobe-portal high-desert dawn stack", "existing_brief": "briefs/kodiak.yaml" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no existing Santa Fe creative corpus in the scoreboard set -- thin to riff on until first assets ship" },
+    "localized-costco": { "fit": "weak", "angle": "no in-town Costco (nearest is Albuquerque ~60mi); Albertsons/Smith's/Walmart lead. Bulk stock-up secondary" },
+    "bears": { "fit": "weak", "angle": "Bear Bites angle carries nationally; the Sangre de Cristos have black bear habitat -- keep conservation-toned, tracks-only" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype/partnership only, never likeness" },
+    "us-ski-and-snowboard": { "fit": "weak", "angle": "Ski Santa Fe sits on the Sangre de Cristo crest above town -- a real local ski area, but Santa Fe's identity is an arts-and-food capital, not a ski town. secondary angle only" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.86,
+    "ready_to_rock": true,
+    "notes": "New seed, sibling to Albuquerque on the 'red' side of the NM chile question. design_palette grounded in codified Santa Fe style (Pueblo-Spanish + Territorial Revival) and Sangre de Cristo alpenglow, cited; seasonal keyed to chile/pinon/apples fall harvest (Sept-onward). Ski Santa Fe noted as a genuine but secondary ski angle. languages carry INFERRED flags -- market-languages.json absent in checkout; Tewa reference consent-gated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Santa Fe style = Pueblo, Spanish Colonial, Territorial fusion, codified ~1908-1940 -- santafe.com/santa-fe-style; santafenm.gov design standards; webstersantafe.com",
+      "web: Santa Fe Plaza National Historic Landmark, Santa Fe Trail terminus, adobe porticoes -- en.wikipedia.org/wiki/Santa_Fe_Plaza; sah-archipedia.org",
+      "web: Pueblo Revival architecture (adobe, vigas, latillas) -- en.wikipedia.org/wiki/Pueblo_Revival_architecture",
+      "web: New Mexico state question 'red or green?' + pinon (shared with Albuquerque record) -- newmexico.org; pinonnuts.com",
+      "INFERRED: language pcts (market-languages.json absent in checkout) -- verify ACS S1601 for Santa Fe County; honor Tewa Pueblo consent"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

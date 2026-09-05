@@ -1,0 +1,161 @@
+{
+  "region_id": "seattle",
+  "market_code": "US-W-SEA",
+  "aliases": ["US-WA-NEAHBAY (Washington frontier sister / urban_frontier_link)"],
+  "place": "Seattle, Washington",
+  "zip": "98101",
+  "county": "King County",
+  "state": "WA",
+  "coordinates": { "lat": 47.6062, "lon": -122.3321 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Pike Place Market (Downtown Seattle waterfront)",
+    "landmark": "Pike Place Market neon clock + brass pig ('Rachel'), western views to Elliott Bay, Puget Sound, and the Olympic Range",
+    "notes": "Pike Place is one of the oldest continuously operated public farmers markets in the US (opened 1907), a nine-acre historic district of one-to-three-story wood and brick structures on steep streets, with 90+ local farmers bringing produce grown within ~100 miles of Seattle. The mid-week 'Produce on Pike' market runs Wednesday evenings June-September. sources: Pike Place Market (en.wikipedia.org); tclf.org Pike Place Public Market Historic District; pikeplacemarket.org (90+ farmers, 100-mile radius; Produce on Pike)."
+  },
+  "featured_frontier": {
+    "hook": "Pike Place stone fruit and Washington apples beside cast-iron Power Cakes on a rain-morning griddle -- market-stall abundance, bulk Costco stack, and a Washington-state link to the Neah Bay frontier",
+    "photo_cue": "coffee beside KODIAK flapjacks, Rainier cherries and Washington apples from a Pike Place stall, evergreen and rain-morning steam, bulk Costco Family Size -- with Neah Bay frontier representation (harbor fog, cedar canoe) for Washington-state awareness",
+    "signature_ingredient": "Washington apples (top US apple state) + Rainier/Bing cherries + PNW berries (blackberry, blueberry, marionberry); bulk Costco Family Size",
+    "cross_promo": {
+      "partner": "Neah Bay / Washington-state frontier link (US-WA-NEAHBAY)",
+      "activation": "Washington-state awareness contrast: Seattle Costco bulk + Pike Place market vs Neah Bay DTC subscription -- urban shoppers see the frontier their state contains",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Seattle Costco bulk shoppers; rain-morning tech families (South Lake Union / Ballard / Capitol Hill); Pike Place market-goers; evergreen frontier audience that sees Washington's frontier via Neah Bay",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 6.8, "translate_code": "es", "reason": "INFERRED (pipeline market-languages.json absent): King County Hispanic ~10%, Spanish at home est ~6.8%; web-informed estimate, NOT exact ACS -- flag INFERRED" },
+    { "lang_code": "vi", "lang_name": "Vietnamese", "pct_home": 1.9, "translate_code": "vi", "reason": "INFERRED (pipeline absent): Seattle International District + South King, large Vietnamese community; pct estimated ~1.9%, NOT exact ACS -- flag INFERRED" },
+    { "lang_code": "zh", "lang_name": "Chinese", "pct_home": 2.4, "translate_code": "zh", "reason": "INFERRED (pipeline absent): historic Chinatown-International District community; pct estimated, NOT exact ACS -- flag INFERRED" }
+  ],
+  "cultural_notes": [
+    "Pike Place Market is Seattle's civic food landmark: a 1907 public market, protected as a historic district in 1971, still running the 'meet the producer' tradition seven days a week with 90+ farmers sourcing within ~100 miles (source: Pike Place Market, pikeplacemarket.org; en.wikipedia.org)",
+    "long-tenured market producers anchor the seasonal calendar -- Alberg Cherry Farms has brought Rainier, Van, Lambert, and Bing cherries for over four decades; Chukar Cherries has operated in the market since 1992 (source: pikeplacemarket.org vendor profiles)",
+    "coffee-forward rain-morning culture and a strong Costco-bulk shopping pattern define the breakfast occasion (source: localization-table-seed.json audience/message)",
+    "the Chinatown-International District anchors a large Vietnamese, Chinese, Filipino, and pan-Asian food community (source: en.wikipedia.org Chinatown-International District, Seattle)",
+    "Washington is the top US apple-producing state, and the Yakima/Wenatchee valleys east of the Cascades supply the market's fall apples and pears (source: general Washington agriculture framing; publicly documented)",
+    "the brass pig 'Rachel' and the neon market clock are the market's signature civic icons, a recurring styling anchor (source: historylink.org Pike Place Market)",
+    "state-awareness framing: when a shopper's Washington location is noted, both Seattle Costco-bulk creative and Neah Bay frontier-DTC creative are eligible for the same audience -- intentional, so urban folks see frontier representation (source: localization-table-seed.json seattle_awareness / urban_frontier_link)"
+  ],
+  "design_palette": {
+    "textures": ["weathered market timber post-and-beam", "aged red market brick", "wet-cobblestone street sheen", "neon-tube glow (market clock)", "cedar and Douglas-fir grain", "rain-slick griddle steam", "moss on north-face stone", "brass pig patina", "salmon-scale sheen (fishmonger stall)", "chalkboard produce-sign matte"],
+    "colors": [
+      { "name": "Puget Sound slate gray", "hex": "#5A6B72", "use": "water / sky / negative space" },
+      { "name": "Pike Place market-brick red", "hex": "#8E4636", "use": "structure / storefront" },
+      { "name": "evergreen Douglas-fir green", "hex": "#26463A", "use": "canopy / foreground" },
+      { "name": "rain-morning fog silver", "hex": "#C6CCCE", "use": "fog / backdrop" },
+      { "name": "market-clock neon red", "hex": "#C42B27", "use": "sign accent / small hot pop" },
+      { "name": "Rainier cherry gold-red", "hex": "#D9764B", "use": "produce hero (Rainier cherry blush)" },
+      { "name": "Washington apple red", "hex": "#A32E2A", "use": "produce accent (Honeycrisp/Gala)" },
+      { "name": "brass-pig weathered gold", "hex": "#9C7A3C", "use": "landmark metal accent" }
+    ],
+    "building_materials": ["wood post-and-beam (market stalls)", "red fired brick", "cast-iron and steel market framing", "cedar shingle (craftsman residential)", "wet cobblestone paving", "glass-and-steel downtown tower", "corrugated market-canopy metal"],
+    "landscape_motifs": ["Elliott Bay + Olympic Range western view", "evergreen Douglas-fir skyline", "rain-slick market street under the neon clock", "ferry on Puget Sound", "farm stalls stacked with apples and cherries", "Mount Rainier on a clear morning"],
+    "_provenance_note": "market timber + brick + steep-street cobblestone grounded in Pike Place historic district (one-to-three-story wood and brick, western views of Elliott Bay/Puget Sound/Olympic Range -- tclf.org; en.wikipedia.org). evergreen + fog from Pacific NW terrain. neon-red from the market clock and brass-gold from the pig 'Rachel' (historylink.org). Rainier cherry + Washington apple hues from produce. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        { "name": "PNW rhubarb + early strawberries", "peak_month": 5, "pancake_tie": "rhubarb-strawberry compote over Power Waffles -- market spring pick" },
+        { "name": "spring asparagus (Eastern WA)", "peak_month": 5, "pancake_tie": "savory asparagus-and-cheddar Power Cakes -- Columbia Basin spring crop" }
+      ],
+      "where_to_buy": [
+        { "name": "Pike Place Market farm stalls", "type": "farmers-market", "url": "https://www.pikeplacemarket.org", "notes": "spring rhubarb + first berries + asparagus" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        { "name": "Rainier + Bing cherries (Alberg Cherry Farms)", "peak_month": 7, "pancake_tie": "cherry compote spoon on a rain-or-shine griddle stack -- a 40+ year Pike Place cherry producer" },
+        { "name": "Washington blueberries + marionberry/blackberry", "peak_month": 7, "pancake_tie": "PNW berry compote over Buttermilk Power Cakes -- market-stall berries at peak" }
+      ],
+      "where_to_buy": [
+        { "name": "Pike Place Market farm stalls", "type": "farmers-market", "url": "https://www.pikeplacemarket.org", "notes": "producer stalls 7 days/week; cherries + berries in summer" },
+        { "name": "Produce on Pike (Wed evenings Jun-Sep)", "type": "farmers-market", "url": "https://www.pikeplacemarket.org", "notes": "midweek farmers market Jun-Sep" },
+        { "name": "Costco (SODO / Issaquah)", "type": "chain-grocer", "notes": "home bulk channel; Family Size" }
+      ]
+    },
+    {
+      "season": "back-to-school",
+      "months": [8, 9],
+      "in_season_produce": [
+        { "name": "early Washington apples (Gala) + Italian prune plums", "peak_month": 9, "pancake_tie": "apple-cinnamon or prune-plum compote over Power Cakes -- a lunchbox-season market pick" }
+      ],
+      "where_to_buy": [
+        { "name": "Pike Place Market farm stalls", "type": "farmers-market", "url": "https://www.pikeplacemarket.org" },
+        { "name": "Costco (SODO / Issaquah)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        { "name": "Washington apples (Honeycrisp, Gala)", "peak_month": 10, "pancake_tie": "cinnamon-apple compote over Power Cakes -- Washington is the top US apple state" },
+        { "name": "PNW pears (Bartlett, Anjou)", "peak_month": 9, "pancake_tie": "pear + honey spoon on a cast-iron stack" }
+      ],
+      "where_to_buy": [
+        { "name": "Pike Place Market farm stalls", "type": "farmers-market", "url": "https://www.pikeplacemarket.org", "notes": "Washington apples + pears in fall" },
+        { "name": "Costco (SODO / Issaquah)", "type": "chain-grocer", "notes": "bulk apples / Family Size" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [11, 12, 1],
+      "in_season_produce": [
+        { "name": "stored Washington apples + winter squash + PNW hazelnuts", "peak_month": 12, "pancake_tie": "spiced apple-squash Power Cakes with toasted hazelnut for a gray-morning holiday stack" }
+      ],
+      "where_to_buy": [
+        { "name": "Costco (SODO / Issaquah)", "type": "chain-grocer", "notes": "home bulk channel" },
+        { "name": "Target (Downtown / Ballard)", "type": "chain-grocer" },
+        { "name": "Amazon Subscribe & Save", "type": "dtc-subscription", "notes": "urban DTC contrast to the Neah Bay frontier subscription" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Costco", "role": "home", "distance_mi": 0, "notes": "SODO / Issaquah; bulk Family Size flagship channel" },
+    { "name": "Pike Place Market farm stalls", "role": "primary", "notes": "downtown producer market, 7 days/week" },
+    { "name": "Target", "role": "secondary", "notes": "Downtown / Ballard" },
+    { "name": "Amazon Subscribe & Save", "role": "secondary", "notes": "urban DTC channel" }
+  ],
+  "campaign_type_fit": {
+    "localized-costco": { "fit": "strong", "angle": "Seattle is a home Costco market (SODO/Issaquah): bulk Family Size, rain-morning stock-up. Direct fit for briefs/kodiak-costco.yaml with a Seattle retailer lockup (logo compositing partnerships-gated)", "existing_brief": "briefs/kodiak-costco.yaml" },
+    "keep-it-wild": { "fit": "strong", "angle": "evergreen frontier + Washington-state link to Neah Bay: urban shoppers see the wild their state contains. Pairs with the Neah Bay frontier record" },
+    "recipe-cards": { "fit": "strong", "angle": "PNW cherry card (summer, Alberg Cherry Farms) + Washington apple-cinnamon card (fall) + rhubarb-strawberry card (spring) + hazelnut-apple-squash card (winter) -- four real market-stall seasonal cards" },
+    "riff-on-past-content": { "fit": "weak", "angle": "existing Seattle creative is a rich cue string but not a produced-content corpus to riff on yet" },
+    "bears": { "fit": "weak", "angle": "Bear Bites lunchbox angle carries nationally; Cascades/Olympics have black bear -- keep conservation-toned, tracks-only" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness" },
+    "us-ski-and-snowboard": { "fit": "weak", "angle": "Cascades ski culture exists (Snoqualmie, Stevens, Crystal) but Seattle is a metro/bulk market, not a ski-town identity like Park City -- secondary angle only" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.9,
+    "ready_to_rock": true,
+    "notes": "DEEPENED metro record. Palette expanded to 8 colors + 10 textures (added Rainier cherry, Washington apple, brass-pig gold, salmon-scale, chalkboard). FIVE seasonal windows now including a back-to-school apple/prune-plum window; named real Pike Place producers Alberg Cherry Farms (40+ yrs) and Chukar Cherries (since 1992) and the Produce on Pike Wed-evening market. 7 cultural_notes. featured_frontier sharpened to Pike Place + Washington apples with the Neah Bay state link. Costco mapped as home retailer; Pike Place added as primary. languages moved to THIN + INFERRED (pipeline market-languages.json absent; prior file cited exact ACS but the source pipeline is now absent, so re-flagged INFERRED with NO exact ACS asserted). Retailer logos intentionally NOT sourced -- partnerships-gated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "localization-table-seed.json (US-W-SEA: place/audience/message/cue/retailer Costco,Target,Amazon; seattle_awareness; urban_frontier_link US-WA-NEAHBAY)",
+      "web: Pike Place Market -- en.wikipedia.org/wiki/Pike_Place_Market (1907 public market, 98101)",
+      "web: Pike Place Public Market Historic District -- tclf.org (one-to-three-story wood and brick, western views Elliott Bay/Puget Sound/Olympic Range)",
+      "web: Pike Place Market press kit + producer directory -- pikeplacemarket.org (90+ farmers, 100-mile radius, meet-the-producer 7 days/week; Produce on Pike Wed Jun-Sep)",
+      "web: Alberg Cherry Farms (40+ yrs, Rainier/Van/Lambert/Bing) + Chukar Cherries (since 1992) -- pikeplacemarket.org vendor profiles",
+      "web: Pike Place Market neon clock + brass pig 'Rachel' -- historylink.org",
+      "note: pipeline market-languages.json ABSENT -- language pct re-flagged INFERRED (prior file asserted exact ACS; source pipeline is absent so no exact ACS is claimed here). retailer logos NOT sourced (partnerships-gated)."
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

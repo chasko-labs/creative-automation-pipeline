@@ -1,0 +1,165 @@
+{
+  "region_id": "southeast-publix",
+  "market_code": "US-SE-ATL",
+  "aliases": ["US-SE-COAST (Publix coastal southeast)", "US-SE-NASH (Publix Tennessee)"],
+  "place": "Atlanta, Georgia -- the Publix heartland of the Peach State",
+  "zip": "30301",
+  "county": "Fulton County",
+  "state": "GA",
+  "coordinates": { "lat": 33.749, "lon": -84.388 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Midtown Atlanta (West Peachtree corridor)",
+    "landmark": "Publix Super Market at The Plaza Midtown, 950 W Peachtree St NW; Piedmont Park, the Atlanta BeltLine, and the Fox Theatre nearby",
+    "notes": "Publix Plaza Midtown is the metro anchor channel (open daily 6:45AM-10PM). Midtown is the dense residential-and-office core along the West Peachtree corridor, walkable to Piedmont Park and the BeltLine. The Sandersville frontier sister has been split into its own dedicated record -- see regions/sandersville.json (market_code US-SE-SANDERSVILLE). sources: retailer-frontier-pairs.json (Publix Plaza Midtown address/hours); en.wikipedia.org Midtown Atlanta."
+  },
+  "featured_frontier": {
+    "hook": "Georgia peach + toasted pecan praline over Power Cakes at Midtown Publix, Sweet Auburn brick and Piedmont Park pine behind -- the Peach State's brunch-heartland stack",
+    "photo_cue": "Kodiak stack on a Midtown counter, Georgia peach compote and pecan praline drizzle, red-brick storefront and Georgia pine, BeltLine morning light; Sweet Auburn heritage-district brick as an alternate backdrop",
+    "signature_ingredient": "Georgia peaches (May-Aug peak Jul) + Georgia pecans (Oct-Dec peak Nov); muscadine grapes (Aug-Sep); Georgia figs (late summer)",
+    "cross_promo": {
+      "partner": "Publix Super Market at The Plaza Midtown (retailer lockup, partnerships-gated)",
+      "url": "https://www.publix.com",
+      "product": "Georgia peach + pecan praline recipe cards",
+      "activation": "Publix-heartland localized-costco variant: Publix retailer lockup + Southern brunch stack across the metro (retailer logo compositing is a partnerships-gated future step -- names only here)",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Urban Atlanta families and Sunday-brunch households; Publix-first Georgia shoppers across Midtown, Buckhead, Decatur, and the BeltLine neighborhoods; Peach State grocery loyalists",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 6.8, "translate_code": "es", "reason": "INFERRED (pipeline market-languages.json absent): metro Atlanta Hispanic community concentrated in Gwinnett/Cobb; pct is a web-informed estimate carried from prior seed, NOT re-verified against exact ACS -- flag INFERRED" },
+    { "lang_code": "ko", "lang_name": "Korean", "pct_home": 1.1, "translate_code": "ko", "reason": "INFERRED (pipeline absent): metro Atlanta hosts the Southeast's largest Koreatown (Gwinnett/Duluth H-Mart corridor); metro pct estimated ~1.1%, NOT exact ACS -- flag INFERRED" },
+    { "lang_code": "vi", "lang_name": "Vietnamese", "pct_home": 1.2, "translate_code": "vi", "reason": "INFERRED (pipeline absent): established Vietnamese community along Buford Highway; pct estimated, NOT exact ACS -- flag INFERRED" }
+  ],
+  "cultural_notes": [
+    "Southern brunch and biscuit culture anchor the breakfast occasion; Publix is the dominant regional grocer and a genuine cultural fixture across Georgia and the Southeast (source: Publix regional footprint; localization-table-seed.json retailer=Publix,Target)",
+    "Georgia is 'the Peach State' and a top-three US pecan producer; peaches peak in July, muscadine (the native Southern grape) Aug-Sep, and pecans at the November harvest (source: UGA extension crop calendar framing; retailer-frontier-pairs.json monthly_ingredient_notes)",
+    "Sweet Auburn (Auburn Avenue) is the historic heart of Black Atlanta business and civic life and the birthplace of the Rev. Dr. Martin Luther King Jr. -- referenced respectfully as a heritage district, never as a styling prop (source: en.wikipedia.org Sweet Auburn; nps.gov MLK National Historical Park)",
+    "the Atlanta BeltLine and Ponce City Market reflect a rail-corridor-to-food-hall adaptive reuse pattern that shapes the modern metro brunch scene (source: en.wikipedia.org Atlanta BeltLine; Ponce City Market)",
+    "post-1864-fire Atlanta retains almost no antebellum fabric; its architecture reads as red-brick commercial plus modern and contemporary glass-and-steel towers (source: Architecture of Atlanta, en.wikipedia.org)",
+    "Buford Highway is one of the most concentrated immigrant food corridors in the US -- Korean, Vietnamese, Latino, and Chinese communities anchor a deep pan-Asian and Latin American food culture in the metro (source: en.wikipedia.org Buford Highway; general food-culture framing)",
+    "the metro's Piedmont setting -- red-clay soil, Georgia pine, rolling terrain -- is the recurring natural backdrop even inside the city (source: en.wikipedia.org Piedmont (United States); Ultisol soil color)"
+  ],
+  "design_palette": {
+    "textures": ["Georgia red-clay (Ultisol) soil", "aged red brick", "Sweet Auburn heritage-district brick", "Georgia granite curb + lintel", "BeltLine weathered-rail steel", "pecan-shell mottle", "muscadine-skin bloom", "peach-fuzz surface", "pine-straw ground cover", "Midtown glass-and-steel curtain wall"],
+    "colors": [
+      { "name": "Georgia red-clay ochre", "hex": "#A85B3B", "use": "ground / terrain" },
+      { "name": "Atlanta brick red", "hex": "#7C3B2E", "use": "structure / storefront" },
+      { "name": "Georgia peach blush", "hex": "#F2B27A", "use": "produce hero / warm accent" },
+      { "name": "muscadine bronze-purple", "hex": "#4A2E3A", "use": "produce accent" },
+      { "name": "pecan-shell tan", "hex": "#8A6A4A", "use": "produce / plate surface" },
+      { "name": "Georgia pine green", "hex": "#2F4A34", "use": "canopy / foreground" },
+      { "name": "BeltLine rail-steel gray", "hex": "#6B6660", "use": "structure / urban texture" },
+      { "name": "Midtown glass sky blue", "hex": "#8FB0C4", "use": "tower glass / sky reflection" }
+    ],
+    "building_materials": ["red fired brick", "Sweet Auburn heritage brick", "Georgia granite (lintels, sills, quoins)", "steel-and-glass Midtown tower", "adaptive-reuse rail-corridor steel (BeltLine / Ponce City Market)", "wood-frame bungalow (intown neighborhoods)"],
+    "landscape_motifs": ["Midtown skyline behind Piedmont Park", "Atlanta BeltLine corridor", "Georgia pine and pecan-orchard rows on the metro edge", "red-clay Piedmont rolling terrain", "Sweet Auburn brick streetscape"],
+    "_provenance_note": "red-clay ochre grounded in Georgia Piedmont Ultisol soil color (en.wikipedia.org/wiki/Ultisol). brick red + Georgia granite grounded in Architecture of Atlanta + Georgia stone trim (en.wikipedia.org; sah-archipedia.org). BeltLine rail-steel from the adaptive-reuse rail corridor (en.wikipedia.org Atlanta BeltLine). peach/muscadine/pecan colors from produce. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "spring-easter",
+      "months": [3, 4, 5],
+      "in_season_produce": [
+        { "name": "Georgia strawberries + spring greens", "peak_month": 5, "pancake_tie": "Georgia strawberry compote over Buttermilk Power Cakes -- early Southern berry" },
+        { "name": "Vidalia sweet onions (statewide availability)", "peak_month": 5, "pancake_tie": "caramelized Vidalia + cheddar savory Power Cakes -- Georgia's certified state vegetable, stocked at metro Publix in the spring pack window" }
+      ],
+      "where_to_buy": [
+        { "name": "Publix Super Market at The Plaza Midtown", "type": "chain-grocer", "notes": "950 W Peachtree St NW, Atlanta; daily 6:45AM-10PM" },
+        { "name": "Piedmont Park Green Market (Saturdays)", "type": "farmers-market", "notes": "seasonal Midtown market; standalone URL research todo" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [5, 6, 7, 8],
+      "in_season_produce": [
+        { "name": "Georgia peaches", "peak_month": 7, "pancake_tie": "fresh Georgia peach compote over Power Cakes -- Peach State summer stack" },
+        { "name": "Georgia figs (late summer)", "peak_month": 8, "pancake_tie": "fig + honey spoon over Buttermilk Power Cakes" }
+      ],
+      "where_to_buy": [
+        { "name": "Publix (metro Atlanta)", "type": "chain-grocer", "notes": "peaches at summer peak" },
+        { "name": "Piedmont Park Green Market (Saturdays)", "type": "farmers-market" }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        { "name": "muscadine grapes", "peak_month": 9, "pancake_tie": "muscadine compote over Power Cakes -- native Southern grape" },
+        { "name": "Georgia sweet potatoes", "peak_month": 10, "pancake_tie": "roasted sweet-potato + cinnamon folded into Power Cakes batter" }
+      ],
+      "where_to_buy": [
+        { "name": "Publix (metro Atlanta)", "type": "chain-grocer" },
+        { "name": "Piedmont Park Green Market (Saturdays)", "type": "farmers-market" }
+      ]
+    },
+    {
+      "season": "thanksgiving",
+      "months": [11],
+      "in_season_produce": [
+        { "name": "Georgia pecans", "peak_month": 11, "pancake_tie": "Georgia pecan praline drizzle stack -- pecans peak at the November harvest, a top-three US pecan state" }
+      ],
+      "where_to_buy": [
+        { "name": "Publix (metro Atlanta)", "type": "chain-grocer", "notes": "Georgia pecans Oct-Dec" },
+        { "name": "Kroger (metro Atlanta)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [12, 1, 2],
+      "in_season_produce": [
+        { "name": "Georgia collards + winter greens", "peak_month": 1, "pancake_tie": "savory greens-and-cheddar Power Cakes -- Southern winter table tie (INFERRED pancake tie, verify)" }
+      ],
+      "where_to_buy": [
+        { "name": "Publix (metro Atlanta)", "type": "chain-grocer" },
+        { "name": "Kroger / Walmart (metro Atlanta)", "type": "chain-grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Publix", "role": "home", "distance_mi": 0, "notes": "Plaza Midtown flagship channel; dominant Southeast grocer" },
+    { "name": "Kroger", "role": "primary", "notes": "large metro Atlanta footprint" },
+    { "name": "Target", "role": "secondary" },
+    { "name": "Walmart", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "localized-costco": { "fit": "strong", "angle": "the Publix analogue of the localized-costco type: Publix Plaza Midtown retailer lockup + Southern brunch stack. Repurpose the localized-costco brief pattern as a Publix-heartland variant (briefs/kodiak-costco.yaml exists for US-W-COSTCO); retailer logo compositing is partnerships-gated", "existing_brief": "briefs/kodiak-costco.yaml" },
+    "recipe-cards": { "fit": "strong", "angle": "Georgia peach compote card (summer) + pecan praline card (Thanksgiving) + muscadine compote card (fall) + Vidalia savory card (spring) -- four real Peach State seasonal cards stocked at metro Publix" },
+    "riff-on-past-content": { "fit": "weak", "angle": "existing Atlanta creative is a one-line pecan-praline cue; thin prior corpus to riff on" },
+    "keep-it-wild": { "fit": "weak", "angle": "dense metro; Keep It Wild lands better on the Sandersville frontier sister (kaolin farm country -- see regions/sandersville.json) than on Midtown" },
+    "bears": { "fit": "weak", "angle": "Bear Bites brunch/lunchbox angle carries nationally; north Georgia has black bear only, no grizzly hook -- keep conservation-toned" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness" },
+    "us-ski-and-snowboard": { "fit": "na", "angle": "no ski culture; Southeast metro" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.9,
+    "ready_to_rock": true,
+    "notes": "DEEPENED as a pure Atlanta metro record. Sandersville removed from being buried here and split into regions/sandersville.json -- only a one-line alias pointer remains in city_center. Palette expanded to 8 colors + 10 textures grounded in red-clay/brick/granite/BeltLine-steel; five holiday-season windows (spring through winter-holidays) with real Peach State produce; 7 cultural_notes adding Sweet Auburn, BeltLine/Ponce City Market, Buford Highway (all respectful, heritage-aware). featured_frontier sharpened to the Peach State + Sweet Auburn brunch-heartland hook. Publix mapped as home retailer; localized-costco reframed as the Publix-heartland variant. languages THIN + INFERRED (pipeline market-languages.json absent; NO exact ACS fabricated). winter greens tie carries an INFERRED flag. Retailer logos intentionally NOT sourced -- partnerships-gated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "localization-table-seed.json (US-SE-ATL: place/audience/message/cue/retailer Publix,Target)",
+      "retailer-frontier-pairs.json (US-SE-ATL: Publix Plaza Midtown address/hours; Peach State monthly_ingredient_notes)",
+      "web: Midtown Atlanta + Atlanta BeltLine + Ponce City Market -- en.wikipedia.org",
+      "web: Sweet Auburn + Martin Luther King Jr. National Historical Park -- en.wikipedia.org; nps.gov",
+      "web: Buford Highway immigrant food corridor -- en.wikipedia.org",
+      "web: Architecture of Atlanta (red brick, post-1864 fire, no antebellum fabric) -- en.wikipedia.org/wiki/Architecture_of_Atlanta",
+      "web: Georgia architecture stone trim (limestone, marble, granite) -- sah-archipedia.org",
+      "web: Ultisol soil color (purplish-red to reddish-orange) -- en.wikipedia.org/wiki/Ultisol",
+      "web: Vidalia onion certified state vegetable, spring pack window -- agr.georgia.gov; gardenandgun.com",
+      "note: Sandersville frontier sister split to regions/sandersville.json. pipeline market-languages.json ABSENT -- language pct INFERRED, no exact ACS fabricated. retailer logos NOT sourced (partnerships-gated)."
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

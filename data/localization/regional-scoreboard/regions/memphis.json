@@ -1,0 +1,134 @@
+{
+  "region_id": "memphis",
+  "market_code": "US-SE-MEMPHIS",
+  "aliases": [],
+  "place": "Memphis, Tennessee",
+  "state": "TN",
+  "coordinates": { "lat": 35.1495, "lon": -90.049 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Memphis (Beale Street) + Memphis Farmers Market",
+    "landmark": "Beale Street blues district and the Mississippi River bluff; Memphis Farmers Market in the South Main Arts District",
+    "notes": "Mississippi Delta river city, home of the blues and Memphis-style barbecue. Kroger (dominant across TN) is the home grocer. Beale Street's old brick-and-tin-ceiling storefronts anchor the district. sources: en.wikipedia.org/wiki/Beale_Street; loc.gov Beale Street Historic District HABS."
+  },
+  "featured_frontier": {
+    "hook": "Delta sweet potato + Memphis-BBQ-spiced savory Power Cakes -- a Beale Street river-city brunch at the edge of the Mississippi Delta",
+    "photo_cue": "old Beale Street brick and tin ceilings, Mississippi River bluff, roasted Delta sweet potato, smoky spice rub; golden river light",
+    "signature_ingredient": "Delta sweet potatoes (fall) + summer tomatoes; Memphis-BBQ spice savory tie",
+    "cross_promo": {
+      "partner": "Memphis Farmers Market (South Main Arts District)",
+      "activation": "Delta sweet-potato + BBQ-spice savory Power Cakes recipe card, Kroger retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Delta river-city families + downtown-and-suburb households; Kroger-first Memphis shoppers",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "translate_code": "es", "reason": "Spanish is the leading second home language across the Memphis metro. Percentage INFERRED (localization pipeline data absent) -- not an ACS figure" }
+  ],
+  "cultural_notes": [
+    "Memphis sits on the Mississippi River at the edge of the Delta; Beale Street is the birthplace and home of the blues, and Memphis-style barbecue is a defining regional food tradition (source: en.wikipedia.org/wiki/Beale_Street; loc.gov Beale Street Historic District HABS; language selection flagged INFERRED)",
+    "Beale Street's historic fabric is old brick buildings with tin ceilings and loadbearing brick-masonry storefronts (source: facingsouth.org Beale Street; uzuncase.com adaptive reuse Memphis)",
+    "Delta agriculture gives the region strong root and summer-vegetable crops; Tennessee tomatoes run June through October and sweet potatoes are a fall harvest (source: bcbstwelltuned.com Tennessee tomato guide; picktnproducts.org)",
+    "The African-American musical and cultural heritage of Beale Street and Memphis is central to the city's identity and should be referenced respectfully (source: general cultural knowledge -- honor community, no endorsement implied)"
+  ],
+  "design_palette": {
+    "textures": ["old Beale Street brick", "pressed-tin ceiling", "Mississippi River bluff clay", "timber-truss beam", "smoky BBQ-spice rub", "sweet-potato skin", "Delta cotton-field row"],
+    "colors": [
+      { "name": "Beale Street brick red", "hex": "#8A4030", "use": "structure / facade" },
+      { "name": "pressed-tin gray", "hex": "#9A968C", "use": "ceiling / trim accent" },
+      { "name": "Delta sweet-potato copper", "hex": "#B5662E", "use": "produce hero" },
+      { "name": "BBQ-spice paprika", "hex": "#9E4227", "use": "produce accent / rub" },
+      { "name": "Mississippi River blue-brown", "hex": "#6B6B57", "use": "water / terrain" }
+    ],
+    "building_materials": ["loadbearing brick masonry", "pressed-tin ceilings", "timber trusses (adaptive-reuse warehouses)", "cast stone", "painted-metal blues-club signage"],
+    "landscape_motifs": ["Beale Street brick streetscape", "Mississippi River bluff at sunset", "Delta cotton-and-crop rows", "South Main arts district", "riverboat on the Mississippi"]
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        { "name": "Delta sweet potatoes", "peak_month": 10, "pancake_tie": "roasted Delta sweet-potato + BBQ-spice savory Power Cakes -- fall root harvest" },
+        { "name": "late Tennessee tomatoes", "peak_month": 9, "pancake_tie": "savory tomato Power Cakes -- TN tomatoes run into October" }
+      ],
+      "where_to_buy": [
+        { "name": "Memphis Farmers Market", "type": "farmers-market", "notes": "South Main Arts District, seasonal Saturdays" },
+        { "name": "Kroger (Memphis metro)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        { "name": "Tennessee tomatoes", "peak_month": 7, "pancake_tie": "savory Tennessee-tomato Power Cakes -- tomatoes Jun-Oct" },
+        { "name": "Delta sweet corn", "peak_month": 8, "pancake_tie": "sweet-corn cakes -- TN sweet corn Jul-Sep" }
+      ],
+      "where_to_buy": [
+        { "name": "Memphis Farmers Market", "type": "farmers-market" },
+        { "name": "Kroger (Memphis metro)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "thanksgiving",
+      "months": [11],
+      "in_season_produce": [
+        { "name": "Delta greens + winter squash", "peak_month": 11, "pancake_tie": "savory greens-and-cheddar Power Cakes -- Southern fall table tie" }
+      ],
+      "where_to_buy": [
+        { "name": "Kroger (Memphis metro)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        { "name": "Tennessee strawberries", "peak_month": 5, "pancake_tie": "spring strawberry compote stack" }
+      ],
+      "where_to_buy": [
+        { "name": "Memphis Farmers Market", "type": "farmers-market" },
+        { "name": "Kroger (Memphis metro)", "type": "chain-grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Kroger", "role": "home" },
+    { "name": "Walmart", "role": "primary" },
+    { "name": "Cash Saver", "role": "secondary" },
+    { "name": "Aldi", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "localized-costco": { "fit": "strong", "angle": "Kroger Delta variant of the localized-costco type; reuse briefs/kodiak-costco.yaml pattern with a Memphis river-city lockup", "existing_brief": "briefs/kodiak-costco.yaml" },
+    "recipe-cards": { "fit": "strong", "angle": "Delta sweet-potato + BBQ-spice savory card + Tennessee-tomato card + spring strawberry card -- Memphis-BBQ heat tie on the savory card" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no known prior Memphis creative to riff on" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype only, never likeness (avoid blues/rock-artist likeness)" },
+    "bears": { "fit": "weak", "angle": "no regional bear hook in the Delta metro; Bear Bites carries nationally, keep conservation-toned" },
+    "keep-it-wild": { "fit": "weak", "angle": "Mississippi River and Delta wild angle possible but river-metro market" },
+    "us-ski-and-snowboard": { "fit": "na", "angle": "no ski culture; Delta lowlands" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.83,
+    "ready_to_rock": true,
+    "notes": "Memphis anchored on Delta + Beale Street blues/BBQ heritage (referenced respectfully) and fall Delta sweet-potato harvest; Kroger as home grocer. languages thin -- single INFERRED entry, no ACS numbers fabricated. hex flagged for brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Beale Street birthplace of the blues -- en.wikipedia.org/wiki/Beale_Street; loc.gov Beale Street Historic District HABS",
+      "web: Beale Street brick + tin ceilings -- facingsouth.org; timber-truss adaptive reuse -- uzuncase.com",
+      "web: Tennessee tomatoes Jun-Oct -- bcbstwelltuned.com; TN produce -- picktnproducts.org",
+      "Kroger TN footprint -- general regional knowledge",
+      "language percentage INFERRED -- localization pipeline data absent from checkout; no ACS figure fabricated"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

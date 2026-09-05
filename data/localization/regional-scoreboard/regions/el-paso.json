@@ -1,0 +1,121 @@
+{
+  "region_id": "el-paso",
+  "market_code": "US-SW-EL PASO",
+  "aliases": ["US-SW-LASCRUCES (adjacent Mesilla Valley / border labor shed)"],
+  "place": "El Paso, Texas",
+  "zip": "79901",
+  "county": "El Paso County",
+  "state": "TX",
+  "coordinates": { "lat": 31.7619, "lon": -106.485 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown El Paso / El Paso del Norte pass",
+    "landmark": "Franklin Mountains rising through the middle of the city; the Rio Grande pass ('el paso del norte') between the Franklins and Cerro Bola across the border in Juarez",
+    "notes": "El Paso means 'the pass of the north' -- the Rio Grande gap between the Franklin Mountains and the mountains of Juarez. Ysleta and Socorro missions (1680s) anchor the lower valley. sources: Franklin Mountains geography (beg.utexas.edu); El Paso Missions (texasbeyondhistory.net); Adobe in West Texas (preservationtexas.org)."
+  },
+  "featured_frontier": {
+    "hook": "Roasted green chile + border-style Power Cakes on a mission-adobe patio, Franklin Mountains splitting the city behind -- flapjacks at the pass of the north",
+    "photo_cue": "roasted green chile, adobe mission wall, Franklin Mountains through the city, enamel plate",
+    "signature_ingredient": "borderland green chile + Mesilla Valley pecans (bi-national desert food culture)",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "Bilingual border families, El Paso del Norte households; Walmart + Albertsons + Costco shoppers, deeply Mexican-American food culture",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 68.0, "translate_code": "es", "reason": "INFERRED from El Paso County Hispanic ~83% and majority Spanish-at-home (ACS pattern for a border metro); one of the most Spanish-dominant large US cities -- verify exact ACS S1601 pct before production" }
+  ],
+  "cultural_notes": [
+    "El Paso means 'the pass of the north' (originally El Paso del Norte) -- the Rio Grande gap between the Franklin Mountains and the mountains south of the border (source: beg.utexas.edu Texas Through Time, Franklin Mountains)",
+    "the region holds 350-year-old adobe structures; Spanish missionaries built adobe churches and missions at Ysleta and Socorro in the 1680s, and those missions shaped nearby residential adobe (source: Adobe in West Texas, preservationtexas.org; A guide to El Paso's architectural history, elpasomatters.org)",
+    "the Ysleta del Sur Pueblo (Tigua) is the surviving Native community that has maintained cultural identity through the mission era -- any tribal reference stays consent-gated (source: El Paso Missions, texasbeyondhistory.net)",
+    "Chihuahuita and El Segundo Barrio are the historic border neighborhoods where El Paso's urbanization began -- deeply Mexican-American, muralist, migrant-farmworker heritage (source: savingplaces.org 2016 endangered list)"
+  ],
+  "design_palette": {
+    "textures": ["mission adobe mud-brick", "thick stone-and-adobe mill wall", "roasted green-chile char skin", "sun-faded stucco", "Franklin Mountains granite", "Rio Grande cottonwood bark", "El Segundo Barrio mural plaster"],
+    "colors": [
+      { "name": "Franklin Mountains sunset copper", "hex": "#B5623A", "use": "skyline / dawn-dusk backdrop" },
+      { "name": "roasted green-chile char", "hex": "#3F5A2A", "use": "produce hero" },
+      { "name": "mission adobe tan", "hex": "#C79A6B", "use": "structure / wall" },
+      { "name": "El Segundo mural turquoise", "hex": "#2E8B8B", "use": "small accent / storefront" },
+      { "name": "Chihuahuan desert sand", "hex": "#D9C7A3", "use": "ground / plate surface" }
+    ],
+    "building_materials": ["mission adobe brick", "thick stone-and-adobe walls", "stucco over block", "flat parapet roof", "fired brick storefront (downtown)", "art-deco concrete (downtown mid-century)"],
+    "landscape_motifs": ["Franklin Mountains through the city", "Rio Grande pass and border river", "mission bell tower (Ysleta / Socorro)", "Chihuahuan desert creosote flat", "El Segundo Barrio murals"],
+    "_provenance_note": "mission adobe + stone-and-adobe grounded in 350-year adobe patrimony and the 1680s Ysleta/Socorro missions (preservationtexas.org; elpasomatters.org). Franklin Mountains copper sunset grounded in the range that splits the city. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [8, 9, 10],
+      "in_season_produce": [
+        { "name": "borderland / Hatch-region green chile", "peak_month": 9, "pancake_tie": "roasted green chile + cheddar savory Power Cakes -- roaster-drum season across the border region, Aug-Sep" },
+        { "name": "Mesilla Valley / Tornillo pecans", "peak_month": 11, "pancake_tie": "toasted pecans in the batter -- the El Paso-Las Cruces corridor is major pecan country" }
+      ],
+      "where_to_buy": [
+        { "name": "Albertsons (El Paso)", "type": "chain-grocer", "notes": "roasts green chile in season" },
+        { "name": "El Paso Downtown Art & Farmers Market", "type": "farmers-market", "notes": "Union Plaza / downtown; regional produce and crafts" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [12, 1],
+      "in_season_produce": [
+        { "name": "dried red-chile ristras + pecans (holiday)", "pancake_tie": "pecan-praline + red-chile-honey holiday stacks -- border holiday table (INFERRED tie, verify)" }
+      ],
+      "where_to_buy": [
+        { "name": "Walmart / Albertsons (El Paso)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        { "name": "spring greens + early onions (Rio Grande valley)", "pancake_tie": "savory green-onion + cheddar Power Cakes -- INFERRED spring pick, verify local availability" }
+      ],
+      "where_to_buy": [
+        { "name": "El Paso Downtown Art & Farmers Market", "type": "farmers-market" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Walmart", "role": "primary" },
+    { "name": "Albertsons", "role": "home", "distance_mi": 0, "notes": "roasts green chile in season" },
+    { "name": "Costco", "role": "primary" },
+    { "name": "Target", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "roasted green-chile cheddar Power Cakes card + Mesilla Valley pecan-praline card -- pairs with the Las Cruces green-chile set as a border-corridor family" },
+    "localized-costco": { "fit": "strong", "angle": "El Paso is a real Costco metro serving a large-household border market; bulk Family Size stock-up angle lands, and it is the nearest-Costco halo for Las Cruces" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no existing El Paso creative corpus in the scoreboard set -- thin to riff on until first assets ship" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype/partnership only, never likeness" },
+    "bears": { "fit": "weak", "angle": "Bear Bites angle carries nationally; Franklin Mountains are Chihuahuan desert, not bear country -- keep conservation-toned, national" },
+    "keep-it-wild": { "fit": "strong", "angle": "Franklin Mountains State Park is one of the largest urban parks in the US, rising through the middle of the city -- Keep It Wild desert-mountain-in-the-city stack", "existing_brief": "briefs/kodiak.yaml" },
+    "us-ski-and-snowboard": { "fit": "na", "angle": "Chihuahuan desert border metro; no ski culture" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.86,
+    "ready_to_rock": true,
+    "notes": "New seed clustered with the NM green-chile corridor. design_palette grounded in 350-year mission adobe + Franklin Mountains and cited; seasonal keyed to green chile + Mesilla Valley pecans (Aug-Nov, not winter-defaulted). Spanish-dominant border market noted but pct carries INFERRED flag -- market-languages.json absent in checkout. Tigua reference consent-gated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Franklin Mountains + 'the pass of the north' geography -- beg.utexas.edu Texas Through Time; thenation.com El Paso-Juarez",
+      "web: 350-year adobe, Ysleta/Socorro 1680s missions -- preservationtexas.org/elpaso-news/adobe; elpasomatters.org architectural history",
+      "web: Tigua (Ysleta del Sur Pueblo) cultural continuity -- texasbeyondhistory.net/paso",
+      "web: Chihuahuita + El Segundo Barrio historic neighborhoods -- savingplaces.org 2016 endangered list",
+      "web: Mesilla Valley pecan region + green chile corridor (shared with Las Cruces record) -- newmexico.org; hatchchilefest.com",
+      "INFERRED: language pct (market-languages.json absent in checkout) -- verify ACS S1601 for El Paso County"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

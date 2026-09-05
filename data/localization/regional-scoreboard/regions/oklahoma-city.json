@@ -1,0 +1,121 @@
+{
+  "region_id": "oklahoma-city",
+  "market_code": "US-SW-OKC",
+  "aliases": ["US-SW-OKLAHOMACITY"],
+  "place": "Oklahoma City, Oklahoma",
+  "zip": "73102",
+  "county": "Oklahoma County",
+  "state": "OK",
+  "coordinates": { "lat": 35.4676, "lon": -97.5164 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Oklahoma City / Stockyards City",
+    "landmark": "Stockyards City along Exchange Avenue -- a working livestock market since 1910 with classic red-brick architecture; Route 66 threads 51.5 miles through the city",
+    "notes": "Oklahoma City's first major industry was livestock: stockyards and meat-packing opened in 1910, and Stockyards City on Exchange Avenue still runs live cattle auctions. Route 66 (centennial 2026) crosses the city with neon and art-deco stretches. sources: Oklahoma National Stockyards (okhistory.org); Stockyards City (retrometrookc.org, travelok.com); OKC Route 66 (nationalgeographic.com)."
+  },
+  "featured_frontier": {
+    "hook": "Red-earth prairie wildflower-honey and Oklahoma pecan Power Cakes on a red-brick Exchange Avenue porch, cattle pens and big prairie sky behind -- Stockyards City morning",
+    "photo_cue": "Oklahoma pecans, wildflower honey, red brick, cattle-country steel, red-dirt horizon, enamel plate",
+    "signature_ingredient": "Oklahoma pecans + red-earth-prairie wildflower honey; cattle-country plains morning",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "Central Oklahoma plains families -- cattle-country and Route 66 heritage; Homeland (locally owned), Walmart, and Crest shoppers with a neighborhood-grocer loyalty",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 10.0, "translate_code": "es", "reason": "INFERRED from Oklahoma County Hispanic ~15% and a growing Spanish-at-home population; verify exact ACS S1601 pct before production -- market-languages.json absent in checkout" }
+  ],
+  "cultural_notes": [
+    "livestock marketing was Oklahoma City's first major industry -- stockyards and meat-packing plants opened in 1910, and Stockyards City on Exchange Avenue is still a working livestock market with Monday and Tuesday cattle auctions and classic red-brick architecture (source: okhistory.org Oklahoma National Stockyards; travelok.com Stockyards City; retrometrookc.org)",
+    "Route 66 runs 51.5 miles through Oklahoma City -- the highway marks its centennial in 2026 -- known for murals, neon-sign neighborhoods, and art-deco architecture (source: nationalgeographic.com OKC Route 66 guide)",
+    "Homeland is a locally owned, employee-owned Oklahoma grocery chain that leans hard on neighborhood identity ('Welcome Friends, Locally Owned -- Community Proud'), including a northeast-OKC store celebrating Black history through public art (source: okcretail.com Homeland; freep.com Homeland mural)",
+    "central Oklahoma sits on the red-earth Southern Plains, where iron-rich soil gives the ground and dust a distinctive red cast -- a regional landscape-color signature (INFERRED landscape-color framing from region knowledge -- verify before production use)"
+  ],
+  "design_palette": {
+    "textures": ["Exchange Avenue red brick", "cattle-country weathered steel and pipe fence", "red-earth prairie soil and dust", "art-deco cast-stone (Route 66 / downtown)", "neon-sign glass tube", "prairie tallgrass seedhead", "wood-plank stockyards walk"],
+    "colors": [
+      { "name": "red-earth prairie soil", "hex": "#A85632", "use": "ground / red-dirt cue" },
+      { "name": "Stockyards brick red", "hex": "#96453A", "use": "structure / Exchange Avenue" },
+      { "name": "prairie tallgrass gold", "hex": "#C9A24B", "use": "landscape / grass" },
+      { "name": "Route 66 neon teal", "hex": "#2FA5A0", "use": "small accent / signage" },
+      { "name": "big-sky prairie blue", "hex": "#7FA0C0", "use": "sky / horizon" }
+    ],
+    "building_materials": ["red-brick storefront and warehouse", "cattle steel and pipe fencing", "art-deco cast stone", "neon signage", "wood-plank boardwalk"],
+    "landscape_motifs": ["red-earth Southern Plains horizon", "Stockyards City cattle pens", "Route 66 neon and murals", "prairie tallgrass big sky", "North Canadian / Oklahoma River corridor"],
+    "_provenance_note": "red brick / cattle steel / Exchange Avenue grounded in Stockyards City heritage (okhistory.org; travelok.com; retrometrookc.org). Route 66 neon and art deco grounded in nationalgeographic.com. red-earth soil color is a regional Southern Plains signature (INFERRED, verify). hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        { "name": "Oklahoma pecans", "peak_month": 11, "pancake_tie": "toasted native Oklahoma pecans in the batter -- pecan harvest across the state, late fall" },
+        { "name": "fall squash + sweet potatoes", "peak_month": 10, "pancake_tie": "savory sweet-potato Power Cakes -- central Oklahoma fall roots" }
+      ],
+      "where_to_buy": [
+        { "name": "Homeland (Oklahoma City)", "type": "chain-grocer", "url": "https://www.homelandstores.com", "notes": "locally / employee-owned Oklahoma grocer; neighborhood identity" },
+        { "name": "OSU-OKC Farmers Market", "type": "farmers-market", "notes": "Oklahoma City farmers market; central-Oklahoma growers" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        { "name": "Oklahoma peaches (Porter) + watermelon (Rush Springs)", "peak_month": 7, "pancake_tie": "Porter peach compote over Power Cakes; Rush Springs watermelon side -- Oklahoma's signature summer fruit towns" },
+        { "name": "summer sweet corn + tomatoes", "peak_month": 7, "pancake_tie": "savory sweet-corn Power Cakes" }
+      ],
+      "where_to_buy": [
+        { "name": "OSU-OKC Farmers Market", "type": "farmers-market" },
+        { "name": "Homeland / Walmart (Oklahoma City)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        { "name": "spring greens + asparagus + strawberries", "peak_month": 5, "pancake_tie": "strawberry compote over Power Cakes -- central Oklahoma spring fruit; INFERRED pick, verify local availability" }
+      ],
+      "where_to_buy": [
+        { "name": "OSU-OKC Farmers Market", "type": "farmers-market" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Homeland", "role": "home", "distance_mi": 0, "notes": "locally / employee-owned Oklahoma grocer; strong neighborhood identity" },
+    { "name": "Walmart", "role": "primary" },
+    { "name": "Crest Foods", "role": "secondary", "notes": "Oklahoma-based value grocer" },
+    { "name": "Homeland / Buy For Less family", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "Porter peach Power Cakes card + Oklahoma pecan card + Rush Springs watermelon side -- real Oklahoma summer-and-fall produce hooks" },
+    "localized-costco": { "fit": "weak", "angle": "the true home channel is Homeland, a locally owned Oklahoma grocer, not a warehouse club; the stronger localized-retailer play is a Homeland community-proud lockup rather than a Costco bulk angle" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no existing OKC creative corpus in the scoreboard set -- thin to riff on until first assets ship" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype/partnership only, never likeness" },
+    "bears": { "fit": "weak", "angle": "Bear Bites lunchbox angle carries nationally; central Oklahoma prairie is not core bear range (black bears are recovering in eastern Oklahoma) -- keep conservation-toned, national" },
+    "keep-it-wild": { "fit": "strong", "angle": "the red-earth Southern Plains, the Wichita Mountains to the southwest, and the tallgrass prairie -- Keep It Wild big-sky prairie-and-bison stack", "existing_brief": "briefs/kodiak.yaml" },
+    "us-ski-and-snowboard": { "fit": "na", "angle": "Southern Plains metro; no ski culture" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.84,
+    "ready_to_rock": true,
+    "notes": "New seed. design_palette grounded in Stockyards City red brick + Route 66 neon + red-earth prairie and cited; seasonal keyed to Porter peaches and Rush Springs watermelon (summer), Oklahoma pecans (fall) -- not winter-defaulted. Homeland correctly mapped as the locally owned home channel, with localized-costco marked weak because a warehouse club is not the home retailer. red-earth color flagged INFERRED. Spanish pct carries INFERRED flag -- no ACS number fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Oklahoma National Stockyards 1910, Stockyards City Exchange Avenue red brick, cattle auctions -- okhistory.org; travelok.com Stockyards City; retrometrookc.org; okmag.com",
+      "web: OKC Route 66, 51.5 miles, centennial 2026, neon and art deco -- nationalgeographic.com OKC Route 66 guide; visitokc.com historic sites",
+      "web: Homeland locally / employee-owned neighborhood grocer -- okcretail.com Homeland; freep.com Homeland mural northeast OKC; en.wikipedia.org/wiki/Homeland_(supermarket)",
+      "INFERRED: red-earth prairie soil color and Spanish-at-home pct (market-languages.json absent in checkout) -- verify ACS S1601 for Oklahoma County; verify Porter peach / Rush Springs watermelon seasonality"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

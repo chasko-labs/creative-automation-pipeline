@@ -1,0 +1,133 @@
+{
+  "region_id": "birmingham",
+  "market_code": "US-SE-BIRMINGHAM",
+  "aliases": [],
+  "place": "Birmingham, Alabama",
+  "state": "AL",
+  "coordinates": { "lat": 33.5186, "lon": -86.8104 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Birmingham + Pepper Place Market",
+    "landmark": "Sloss Furnaces National Historic Landmark (preserved blast furnace) and the Vulcan statue over the city; Pepper Place Saturday market downtown",
+    "notes": "'The Magic City' -- an iron-and-steel town in the Appalachian foothills. Publix and Winn-Dixie both serve the metro; Piggly Wiggly has local roots. Sloss Furnaces produced pig iron from 1882 to 1971 and is now a preserved landmark. sources: en.wikipedia.org/wiki/Sloss_Furnaces; encyclopediaofalabama.org."
+  },
+  "featured_frontier": {
+    "hook": "Chilton County peach + Alabama sweet potato over Power Cakes -- a Magic City brunch in the shadow of the Sloss iron furnaces",
+    "photo_cue": "rust-red weathered iron of Sloss Furnaces, Appalachian-foothill brick, Chilton County peaches, roasted sweet potato; warm foothill light",
+    "signature_ingredient": "Chilton County peaches (May-Sep) + Alabama sweet potatoes (mid-Jul-Nov)",
+    "cross_promo": {
+      "partner": "Pepper Place Market (downtown Birmingham)",
+      "activation": "Chilton County peach + sweet-potato recipe card, Publix retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Magic City iron-heritage families + downtown-and-suburb households; Publix-and-Winn-Dixie shoppers across central Alabama",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "translate_code": "es", "reason": "Spanish is the leading second home language across the Birmingham metro. Percentage INFERRED (localization pipeline data absent) -- not an ACS figure" }
+  ],
+  "cultural_notes": [
+    "Birmingham is 'The Magic City,' founded on iron and steel; Sloss Furnaces operated as a pig-iron blast furnace from 1882 to 1971 and is now one of the first industrial sites in the US preserved for public use (source: en.wikipedia.org/wiki/Sloss_Furnaces; encyclopediaofalabama.org; birminghamal.gov)",
+    "The region's iron heritage comes from an unusual local abundance of the three minerals needed to make iron -- ore, coal, and limestone -- all near Birmingham (source: hmdb.org Ironmaking marker)",
+    "Chilton County, just south of Birmingham, is Alabama's famous peach country; Alabama peaches run May through September and sweet potatoes are harvested mid-July through November (source: aces.edu Fruit Culture in Alabama; alabamafarmtoece.org AL produce seasons)",
+    "Birmingham holds deep significance in the American civil-rights movement; reference the city's history respectfully and never trivialize it (source: general historical knowledge -- honor gravity, no trivializing)"
+  ],
+  "design_palette": {
+    "textures": ["weathered cast-iron furnace steel", "Appalachian-foothill red brick", "sandstone ridge outcrop", "coke-oven brick", "peach fuzz", "sweet-potato skin", "iron-ore rust mottle"],
+    "colors": [
+      { "name": "Sloss iron rust-red", "hex": "#8A4A32", "use": "structure / industrial accent" },
+      { "name": "Magic City brick red", "hex": "#7C3B2E", "use": "structure / storefront" },
+      { "name": "Chilton peach blush", "hex": "#E7A56A", "use": "produce hero" },
+      { "name": "Alabama sweet-potato copper", "hex": "#B5662E", "use": "produce accent" },
+      { "name": "Appalachian ridge green", "hex": "#3A5A3C", "use": "canopy / foreground" }
+    ],
+    "building_materials": ["cast iron and steel (industrial heritage)", "Appalachian-foothill red brick", "local sandstone", "coke-oven firebrick", "wood-frame farmhouse (rural Chilton County)"],
+    "landscape_motifs": ["Sloss Furnaces industrial silhouette", "Vulcan statue over Red Mountain", "Chilton County peach orchard", "Appalachian foothill ridgeline", "downtown brick streetscape"]
+  },
+  "seasonal": [
+    {
+      "season": "summer-fourth",
+      "months": [5, 6, 7, 8],
+      "in_season_produce": [
+        { "name": "Chilton County peaches", "peak_month": 7, "pancake_tie": "Chilton County peach compote over Power Cakes -- Alabama peaches May-Sep, Chilton is the famous peach county" },
+        { "name": "Alabama blueberries", "peak_month": 6, "pancake_tie": "blueberry Power Cakes" }
+      ],
+      "where_to_buy": [
+        { "name": "Pepper Place Market", "type": "farmers-market", "notes": "downtown Birmingham, Saturdays" },
+        { "name": "Publix / Winn-Dixie (Birmingham metro)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        { "name": "Alabama sweet potatoes", "peak_month": 10, "pancake_tie": "roasted Alabama sweet-potato + cinnamon Power Cakes -- harvested mid-Jul through Nov" },
+        { "name": "Alabama apples (late)", "peak_month": 9, "pancake_tie": "apple-cinnamon Power Cakes -- AL apples Jul-Oct" }
+      ],
+      "where_to_buy": [
+        { "name": "Pepper Place Market", "type": "farmers-market" },
+        { "name": "Publix / Winn-Dixie (Birmingham metro)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "thanksgiving",
+      "months": [11],
+      "in_season_produce": [
+        { "name": "Alabama collards + winter greens", "peak_month": 11, "pancake_tie": "savory greens-and-cheddar Power Cakes -- Southern fall table tie" }
+      ],
+      "where_to_buy": [
+        { "name": "Publix / Winn-Dixie (Birmingham metro)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4],
+      "in_season_produce": [
+        { "name": "Alabama strawberries", "peak_month": 4, "pancake_tie": "spring strawberry compote stack -- AL strawberries Mar-Jun" }
+      ],
+      "where_to_buy": [
+        { "name": "Publix / Winn-Dixie (Birmingham metro)", "type": "chain-grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Publix", "role": "home" },
+    { "name": "Winn-Dixie", "role": "primary" },
+    { "name": "Piggly Wiggly", "role": "secondary" },
+    { "name": "Walmart", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "localized-costco": { "fit": "strong", "angle": "Publix/Winn-Dixie central-Alabama variant of the localized-costco type; reuse briefs/kodiak-costco.yaml pattern with a Magic City lockup", "existing_brief": "briefs/kodiak-costco.yaml" },
+    "recipe-cards": { "fit": "strong", "angle": "Chilton County peach compote card + Alabama sweet-potato card + spring strawberry card -- three real seasonal Alabama cards" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no known prior Birmingham creative to riff on" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype only, never likeness" },
+    "bears": { "fit": "weak", "angle": "Alabama black bear is small and localized, not a Birmingham metro hook; keep conservation-toned, tracks-only" },
+    "keep-it-wild": { "fit": "weak", "angle": "Appalachian-foothill wild angle possible but iron-city metro" },
+    "us-ski-and-snowboard": { "fit": "na", "angle": "no ski culture; central Alabama" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.83,
+    "ready_to_rock": true,
+    "notes": "Birmingham anchored on Magic City iron heritage (Sloss Furnaces) + Chilton County peach country; civil-rights history referenced respectfully. Publix/Winn-Dixie split home grocer. languages thin -- single INFERRED entry, no ACS numbers fabricated. hex flagged for brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Sloss Furnaces pig iron 1882-1971, preserved landmark -- en.wikipedia.org/wiki/Sloss_Furnaces; encyclopediaofalabama.org; birminghamal.gov",
+      "web: Birmingham iron minerals (ore, coal, limestone) -- hmdb.org Ironmaking marker",
+      "web: Alabama peaches May-Sep, sweet potatoes mid-Jul-Nov, strawberries Mar-Jun -- aces.edu Fruit Culture in Alabama; alabamafarmtoece.org AL produce seasons",
+      "Chilton County peach reputation + Publix/Winn-Dixie footprint -- general regional knowledge",
+      "language percentage INFERRED -- localization pipeline data absent from checkout; no ACS figure fabricated"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

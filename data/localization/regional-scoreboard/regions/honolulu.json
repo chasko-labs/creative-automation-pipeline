@@ -1,0 +1,141 @@
+{
+  "region_id": "honolulu",
+  "market_code": "US-W-HONOLULU",
+  "aliases": [],
+  "place": "Honolulu, Hawaii (Oahu)",
+  "zip": "96813",
+  "county": "Honolulu County",
+  "state": "HI",
+  "coordinates": { "lat": 21.3069, "lon": -157.8583 },
+  "classification": "regional",
+  "city_center": {
+    "name": "Downtown Honolulu / KCC Farmers Market + the Oahu south shore",
+    "landmark": "Diamond Head (Leahi) crater above Waikiki; the KCC Saturday Farmers Market at Kapiolani Community College; the Pacific south shore; lush windward valleys",
+    "notes": "Honolulu sits on Oahu's south shore beneath Diamond Head (Leahi), with a year-round tropical growing climate. The KCC Saturday Farmers Market is Oahu's premier local-food market. sources: en.wikipedia.org Honolulu; Hawaii Farm Bureau KCC Farmers Market framing."
+  },
+  "featured_frontier": {
+    "hook": "Local Hawaii pineapple + apple-banana over Power Cakes on a lanai, palms and Pacific behind -- year-round tropical island breakfast",
+    "photo_cue": "cast-iron flapjack stack on a lanai, golden Hawaii pineapple and small sweet apple-bananas, plumeria and palm, Diamond Head and turquoise Pacific behind, warm tropical light -- tropical year-round, NOT a winter scene",
+    "signature_ingredient": "Hawaii-grown pineapple + apple-bananas + papaya (year-round tropical); local mango and lilikoi (passionfruit) in summer",
+    "cross_promo": {
+      "partner": "KCC Farmers Market / Hawaii-grown producers",
+      "url": "https://hfbf.org",
+      "activation": "tropical fruit Power Cakes cards (pineapple, apple-banana, lilikoi), Foodland / Times / Costco retailer lockup; Native Hawaiian foods and imagery referenced ONLY with consent",
+      "consent_status": "proposed"
+    }
+  },
+  "audience": "Honolulu + Oahu families; island local-food culture; a strong bulk-and-shipping shopping pattern (island logistics); multicultural (Native Hawaiian, Japanese, Filipino, Chinese, Samoan) food heritage; Foodland, Times, and Costco shoppers",
+  "languages": [
+    { "lang_code": "tl", "lang_name": "Tagalog", "pct_home": 8.0, "translate_code": "tl", "reason": "INFERRED (ACS source file absent): Hawaii has one of the largest Filipino population shares in the US; pct is a web-informed estimate, not exact ACS" },
+    { "lang_code": "ja", "lang_name": "Japanese", "pct_home": 5.0, "translate_code": "ja", "reason": "INFERRED (ACS source file absent): large Japanese-American community and Japanese-language use; pct estimated" },
+    { "lang_code": "haw", "lang_name": "Hawaiian (Olelo Hawaii)", "pct_home": 1.5, "translate_code": "haw", "reason": "INFERRED (ACS source file absent): Hawaiian is an official state language undergoing revitalization; use with cultural care and consent, never as decoration; pct estimated" }
+  ],
+  "cultural_notes": [
+    "Honolulu has a year-round tropical growing climate -- pineapple, papaya, apple-banana, mango, and lilikoi (passionfruit) define the local produce; there is no winter dormancy, so seasonal framing is tropical, not cold-season (source: Hawaii agriculture framing, publicly documented)",
+    "Native Hawaiian (Kanaka Maoli) foodways -- kalo (taro) and its poi, ulu (breadfruit), and the land-stewardship concept of malama aina -- are sacred and central; reference ONLY with explicit consent and cultural guidance, NEVER as decoration or an endorsement, and never appropriate poi/kalo imagery without a Native Hawaiian partner (source: general framing; Native Hawaiian cultural-protocol note)",
+    "Hawaii is deeply multicultural (Native Hawaiian, Japanese, Filipino, Chinese, Samoan, Portuguese) with a rich mixed-plate food culture; island logistics make bulk-and-shipping shopping common (source: general demographic framing, publicly documented)",
+    "Foodland (a beloved local Hawaii chain) and Times Supermarket anchor grocery, with a strong Costco presence given island shipping economics (source: chain regional footprint)"
+  ],
+  "design_palette": {
+    "textures": ["lava-rock (aa / pahoehoe) basalt", "monstera and palm-frond foliage", "plumeria and hibiscus bloom", "woven lauhala texture (reference respectfully)", "pineapple-crown lattice", "turquoise reef-water sheen", "cast-iron griddle char"],
+    "colors": [
+      { "name": "Pacific turquoise", "hex": "#2E9CA6", "use": "ocean / bright accent" },
+      { "name": "volcanic lava-rock black", "hex": "#2F2C2B", "use": "rock / structure / hard line" },
+      { "name": "tropical monstera green", "hex": "#2E5A3A", "use": "foliage / foreground" },
+      { "name": "hibiscus coral-red", "hex": "#D9503E", "use": "bloom / warm pop" },
+      { "name": "Hawaii pineapple gold", "hex": "#E0B02A", "use": "produce hero / warm accent" }
+    ],
+    "building_materials": ["volcanic lava rock", "single-wall plantation-style wood", "lanai post-and-beam", "corrugated plantation roof steel", "coral-and-stucco (historic)"],
+    "landscape_motifs": ["Diamond Head (Leahi) crater above the shore", "palm-and-plumeria lanai", "turquoise reef and south-shore surf", "lush windward valley with waterfalls", "pineapple field on the plateau (historic)"],
+    "_provenance_note": "Pacific turquoise + lava-rock black + monstera green grounded in the Oahu tropical landscape. hibiscus coral + pineapple gold from island flora and produce. lauhala texture referenced respectfully -- do not appropriate Native Hawaiian craft imagery without consent. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "in_season_produce": [
+        { "name": "Hawaii pineapple", "peak_month": 6, "pancake_tie": "grilled-pineapple Power Cakes -- island pineapple is available much of the year in the tropical climate" },
+        { "name": "apple-bananas + papaya", "peak_month": 1, "pancake_tie": "sliced apple-banana + papaya over Power Cakes -- everyday island tropical fruit, year-round" }
+      ],
+      "where_to_buy": [
+        { "name": "KCC Farmers Market", "type": "farmers-market", "url": "https://hfbf.org", "notes": "Oahu premier Saturday market; Hawaii-grown tropical fruit year-round" },
+        { "name": "Foodland", "type": "chain-grocer", "notes": "beloved local Hawaii chain" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        { "name": "local Hawaii mango", "peak_month": 7, "pancake_tie": "fresh-mango compote over Power Cakes -- summer is peak mango on the islands" },
+        { "name": "lilikoi (passionfruit)", "peak_month": 8, "pancake_tie": "lilikoi-syrup drizzle over Power Cakes -- tangy island summer" }
+      ],
+      "where_to_buy": [
+        { "name": "KCC Farmers Market", "type": "farmers-market", "notes": "mango + lilikoi at summer peak" },
+        { "name": "Times Supermarket", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        { "name": "local citrus + continuing tropical fruit", "peak_month": 11, "pancake_tie": "island-citrus Power Cakes -- fall on Oahu stays warm and green, not a cold harvest; framed honestly as tropical" }
+      ],
+      "where_to_buy": [
+        { "name": "KCC Farmers Market", "type": "farmers-market", "notes": "local fruit continues through the warm fall" },
+        { "name": "Costco (Honolulu)", "type": "chain-grocer", "notes": "bulk-and-shipping is common given island logistics" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [12, 1, 2],
+      "in_season_produce": [
+        { "name": "papaya + apple-bananas (year-round) + local greens", "pancake_tie": "tropical-fruit Power Cakes -- a warm-weather holiday stack; Honolulu winter is mild and green, note honestly (no snow scene)" }
+      ],
+      "where_to_buy": [
+        { "name": "Foodland", "type": "chain-grocer" },
+        { "name": "Costco (Honolulu)", "type": "chain-grocer", "notes": "island bulk channel" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Foodland", "role": "home", "distance_mi": 0, "notes": "beloved local Hawaii chain; home channel" },
+    { "name": "Times Supermarket", "role": "primary", "notes": "local Hawaii grocer" },
+    { "name": "Costco", "role": "primary", "notes": "strong island bulk channel; shipping economics favor bulk" },
+    { "name": "Safeway", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "grilled-pineapple card + apple-banana/papaya card (year-round) + mango + lilikoi cards (summer) -- real Hawaii-grown tropical fruit; keep it authentically local, avoid generic tiki cliche" },
+    "localized-costco": { "fit": "strong", "angle": "island shipping economics make Costco bulk-and-stock-up genuinely common; a big-batch tropical Power Cakes story fits Honolulu's Foodland + Costco pattern honestly", "existing_brief": "briefs/kodiak-costco.yaml" },
+    "keep-it-wild": { "fit": "weak", "angle": "lush windward valleys and reef coast are beautiful, but Keep It Wild's frontier/bear framing does not map to island ecology; if used, ground it in reef-and-valley conservation and malama aina ONLY with cultural guidance, not the mainland-wilderness frame" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no produced Honolulu content corpus yet; strong tropical cue but thin prior material" },
+    "bears": { "fit": "na", "angle": "there are NO bears in Hawaii; the Bears habitat angle does not apply. Bear Bites lunchbox angle could carry nationally but any bear-in-Hawaii imagery would be false to place -- avoid" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness" },
+    "us-ski-and-snowboard": { "fit": "na", "angle": "tropical island; no ski identity (Mauna Kea rare snow is not a ski market)" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.85,
+    "ready_to_rock": true,
+    "notes": "Palette grounded in Pacific turquoise + lava-rock black + monstera green + hibiscus coral + pineapple gold. Seasonal built as year-round tropical (added the 'year-round' season entry) -- September and winter framed HONESTLY as warm/green, no snow scene. bears scored na (no bears in Hawaii), us-ski na. Native Hawaiian (Kanaka Maoli) foodways -- kalo/poi, ulu, malama aina -- consent-gated: referenced respectfully, NEVER as decoration or without a Native Hawaiian partner; cross-promo consent_status 'proposed'. Hawaiian language noted with cultural care. languages THIN -- percentages INFERRED because ACS source file is absent; no exact ACS numbers fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Honolulu -- en.wikipedia.org (Diamond Head/Leahi, south shore)",
+      "web: KCC Saturday Farmers Market (Hawaii Farm Bureau) -- hfbf.org",
+      "web: Hawaii tropical agriculture (pineapple, papaya, apple-banana, mango, lilikoi) year-round framing -- publicly documented",
+      "web: Hawaii Filipino + Japanese community shares framing -- publicly documented",
+      "note: Native Hawaiian foodways (kalo/poi, ulu, malama aina) + Hawaiian language + lauhala imagery are consent-gated and referenced respectfully; language percentages INFERRED -- ACS source file absent, no exact ACS numbers used"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

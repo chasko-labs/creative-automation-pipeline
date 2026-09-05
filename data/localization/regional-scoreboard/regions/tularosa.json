@@ -1,0 +1,127 @@
+{
+  "region_id": "tularosa",
+  "market_code": "US-SW-TULAROSA",
+  "aliases": ["US-SW-CLOUDCROFT (adjacent Sacramento Mountains + Alamogordo shed)", "US-SW-TIMBERON (pinon cross-promo neighbor)"],
+  "place": "Tularosa, New Mexico (Tularosa Basin)",
+  "zip": "88352",
+  "county": "Otero County",
+  "state": "NM",
+  "coordinates": { "lat": 33.0745, "lon": -106.0286 },
+  "classification": "frontier",
+  "city_center": {
+    "name": "Tularosa village + Highway 54/70 pistachio corridor",
+    "landmark": "Tularosa Basin high-desert plain at ~4,400 ft between the Sacramento Mountains and White Sands; pistachio groves line Highway 54/70 toward Alamogordo",
+    "notes": "the basin takes its name from the red reeds ('tularosa') that grew near local springs; elevation, dry air and alkaline soil suit pistachio trees. PistachioLand and Eagle Ranch (Heart of the Desert) are the landmark groves. sources: homestratosphere.com Tularosa Basin pistachio towns; newmexico.org Alamogordo; farmprogress.com."
+  },
+  "featured_frontier": {
+    "hook": "Toasted New Mexico pistachios folded into Power Cakes at a Tularosa Basin grove, White Sands bright to the west, Sacramento Mountains behind -- pistachio-country flapjacks",
+    "photo_cue": "toasted green pistachios in the batter, grove row, White Sands glare west, Sacramento Mountains east",
+    "signature_ingredient": "Tularosa Basin pistachios (PistachioLand / Eagle Ranch high-desert nut country)",
+    "cross_promo": {
+      "partner": "Heart of the Desert / Eagle Ranch Pistachios (Alamogordo/Tularosa)",
+      "url": "https://www.heartofthedesert.com",
+      "product": "New Mexico pistachios",
+      "activation": "pistachio-honey Power Cakes tie to the Tularosa Basin pistachio groves; local nut-country hook",
+      "consent_status": "proposed"
+    }
+  },
+  "audience": "Tularosa Basin high-desert families, pistachio-and-pecan grove households; Walmart Alamogordo + Albertsons shoppers, small agricultural-town base",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 24.0, "translate_code": "es", "reason": "INFERRED from Otero County Hispanic ~35% and Tularosa village's strong Hispano heritage (ACS pattern) -- verify exact ACS S1601 pct before production" }
+  ],
+  "cultural_notes": [
+    "the Tularosa Basin is named for the red reeds ('tularosa') that once grew near local springs; it is an arid high-desert zone at roughly 4,400 ft whose dry air and alkaline soil suit pistachio trees (source: homestratosphere.com Tularosa Basin pistachio towns; farmprogress.com Eagle Ranch)",
+    "the basin has the climate for pistachios, pecans and grapes, with numerous nut farms and wineries between Alamogordo and Tularosa -- PistachioLand and Eagle Ranch / Heart of the Desert are the two largest pistachio groves (source: newmexico.org Alamogordo; rvingwithrex.com; nationalnutgrower.com Heart of the Desert)",
+    "Eagle Ranch (Heart of the Desert) began in the early 1970s when the Schweer family planted pistachios in the New Mexico high desert -- a documented family-farm origin, not a fabricated claim (source: nationalnutgrower.com; stephwaxpoetic.com)",
+    "Tularosa village retains a historic Hispano acequia-and-cottonwood character; White Sands National Park lies just west (INFERRED cultural framing from region + basin geography -- verify tone before production)"
+  ],
+  "design_palette": {
+    "textures": ["pistachio-shell split husk", "grove-row drip-irrigation line", "adobe and stucco village wall", "Tularosa cottonwood bark", "White Sands gypsum grain", "Sacramento Mountains granite", "alkaline caliche soil crust"],
+    "colors": [
+      { "name": "pistachio shell green", "hex": "#8FA045", "use": "produce hero / accent" },
+      { "name": "White Sands gypsum white", "hex": "#EDE9E0", "use": "distant dune field / negative space" },
+      { "name": "Tularosa adobe tan", "hex": "#C79A6B", "use": "structure / wall" },
+      { "name": "Sacramento dusk blue", "hex": "#5B6B84", "use": "eastern range / skyline" },
+      { "name": "high-desert sand", "hex": "#D9C7A3", "use": "ground / plate surface" }
+    ],
+    "building_materials": ["adobe and stucco village construction", "concrete block", "corrugated grove-shed steel", "flat parapet roof", "cottonwood-shaded acequia frontage", "brick storefront (village center)"],
+    "landscape_motifs": ["pistachio grove rows", "White Sands dune field to the west", "Sacramento Mountains to the east", "Tularosa cottonwood-lined acequia", "high-desert alkaline flat"],
+    "_provenance_note": "pistachio shell green + grove rows grounded in the Tularosa Basin pistachio industry (homestratosphere.com; farmprogress.com; nationalnutgrower.com). White Sands gypsum white grounded in the adjacent dune field; adobe/cottonwood grounded in the historic Hispano village. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        { "name": "Tularosa Basin pistachios", "peak_month": 9, "pancake_tie": "toasted New Mexico pistachios folded into batter with a honey drizzle -- pistachio harvest is late summer into fall (Sep)" },
+        { "name": "New Mexico pecans + wine grapes (basin)", "peak_month": 10, "pancake_tie": "toasted pecans in the batter; the basin also grows pecans and grapes (newmexico.org)" }
+      ],
+      "where_to_buy": [
+        { "name": "Heart of the Desert / Eagle Ranch Store", "type": "cross-promo-partner", "url": "https://www.heartofthedesert.com", "notes": "grove store on Hwy 54/70 between Alamogordo and Tularosa" },
+        { "name": "PistachioLand", "type": "farm-stand", "notes": "landmark grove + store, Tularosa Basin" },
+        { "name": "Walmart Alamogordo", "type": "chain-grocer", "notes": "basin everyday grocery run" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [11, 12],
+      "in_season_produce": [
+        { "name": "New Mexico pistachios (holiday gift + roast)", "pancake_tie": "pistachio-honey holiday stack; pistachios are a signature NM holiday gift crop from these groves" }
+      ],
+      "where_to_buy": [
+        { "name": "Heart of the Desert / Eagle Ranch Store", "type": "cross-promo-partner", "url": "https://www.heartofthedesert.com" },
+        { "name": "Walmart Alamogordo", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        { "name": "basin melons + chile", "peak_month": 8, "pancake_tie": "savory roasted-chile Power Cakes; melon side -- INFERRED summer pick, verify local availability" }
+      ],
+      "where_to_buy": [
+        { "name": "Alamogordo Farmers Market", "type": "farmers-market", "notes": "seasonal basin produce; verify schedule" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Walmart", "role": "primary", "notes": "Alamogordo Supercenter, basin everyday run" },
+    { "name": "Albertsons", "role": "primary", "notes": "Alamogordo" },
+    { "name": "Heart of the Desert / Eagle Ranch", "role": "home", "distance_mi": 0, "notes": "grove store, the signature local pistachio channel" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "pistachio-honey Power Cakes card -- a genuinely distinct, ownable local hook (Tularosa Basin pistachio country); pecan card as a second regional nut" },
+    "keep-it-wild": { "fit": "strong", "angle": "White Sands National Park is minutes west and the Lincoln National Forest rises east -- Keep It Wild gypsum-dune-and-grove stack", "existing_brief": "briefs/kodiak.yaml" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no existing Tularosa creative corpus -- thin to riff on until pistachio assets ship" },
+    "localized-costco": { "fit": "na", "angle": "no Costco in the basin; nearest El Paso ~90mi. Walmart Alamogordo is the bulk substitute; frontier grocery pattern" },
+    "bears": { "fit": "weak", "angle": "Bear Bites angle carries nationally; the Sacramento Mountains east have black bear habitat but the basin identity is grove-and-desert -- keep conservation-toned" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype/partnership only, never likeness" },
+    "us-ski-and-snowboard": { "fit": "na", "angle": "high-desert basin; no ski culture (Cloudcroft's small area is over the mountains)" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.86,
+    "ready_to_rock": true,
+    "notes": "New seed with a genuinely ownable pistachio-country hook. design_palette grounded in the Tularosa Basin pistachio industry + White Sands/Sacramento terrain, cited; seasonal keyed to pistachio harvest (Sep) + pecans/grapes fall. Eagle Ranch/Heart of the Desert family-farm origin is documented (not fabricated); cross-promo consent_status 'proposed'. languages carry INFERRED flag -- market-languages.json absent in checkout. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Tularosa Basin named for red reeds, alkaline soil suits pistachios -- homestratosphere.com Tularosa Basin pistachio towns",
+      "web: basin climate for pistachios/pecans/grapes; PistachioLand + Eagle Ranch groves -- newmexico.org Alamogordo; rvingwithrex.com",
+      "web: Eagle Ranch / Heart of the Desert Schweer family origin (early 1970s, Alamogordo) -- nationalnutgrower.com; stephwaxpoetic.com; farmprogress.com",
+      "web: Tularosa Pistachios family farm -- tularosapistachios.com",
+      "INFERRED: language pct + summer produce (market-languages.json absent in checkout) -- verify ACS S1601 for Otero County"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}
