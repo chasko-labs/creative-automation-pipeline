@@ -7,6 +7,19 @@ output_*/
 .DS_Store
 .env
 
+# editor / agent config
+.kiro/
+
+# node (only infra-cdk uses node; its own .gitignore handles cdk.out/compiled)
+node_modules/
+package-lock.json
+
+# generated docs + local doc-gen tooling (not part of the shipped pipeline)
+README.html
+docs/kodiak/
+scripts/gen-readme-html.py
+scripts/vendor/
+
 # terraform
 .terraform/
 *.tfstate
