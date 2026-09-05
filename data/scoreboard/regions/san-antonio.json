@@ -1,0 +1,248 @@
+{
+  "region_id": "san-antonio",
+  "market_code": "US-SC-SANANTONIO",
+  "aliases": ["US-SC-SATX"],
+  "place": "San Antonio, Texas",
+  "zip": "78205",
+  "county": "Bexar County",
+  "state": "TX",
+  "coordinates": { "lat": 29.4241, "lon": -98.4936 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown San Antonio / River Walk",
+    "landmark": "The Alamo (Mission San Antonio de Valero, 1718) and the cypress-lined River Walk along the San Antonio River",
+    "notes": "San Antonio grew along the San Antonio River, where Spanish Franciscans built five missions between 1718 and 1731 -- now a UNESCO World Heritage Site; the River Walk is the downtown gathering water, lined with bald cypress. sources: San Antonio Missions NHS (nps.gov); Alamo / Mission San Antonio de Valero (smarthistory.org); River Walk (americanheritage.com)."
+  },
+  "featured_frontier": {
+    "hook": "Pan dulce-inspired conchas and mission-fig Power Cakes on a limestone mission wall, bald cypress and the River Walk behind -- Tejano morning at the missions",
+    "photo_cue": "concha pink sugar crust, mission limestone arch, bald cypress, San Antonio River, enamel plate",
+    "signature_ingredient": "Tejano pan dulce sweetness + South Texas citrus and pecans; Spanish colonial mission stone",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "Deeply Mexican-American / Tejano families, mission-city households; H-E-B and Central Market shoppers -- San Antonio is H-E-B's headquarters city and its strongest market",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 40.0,
+      "translate_code": "es",
+      "reason": "INFERRED from Bexar County Hispanic ~60% and San Antonio's deeply Tejano Spanish-at-home pattern; verify exact ACS S1601 pct before production -- market-languages.json absent in checkout"
+    }
+  ],
+  "cultural_notes": [
+    "Spanish Franciscans established five Catholic missions along the San Antonio River between 1718 and 1731 -- Valero (the Alamo), Concepcion, San Jose, San Juan, and Espada -- now inscribed as a UNESCO World Heritage Site (source: nps.gov San Antonio Missions NHS; visitsanantonio.com missions guide)",
+    "the missions blended Spanish and Indigenous traditions into the distinct culture of South Texas; farmlands, granaries, kilns, and still-working Spanish acequia irrigation survive at the mission complexes (source: nps.gov World Heritage Site article; nps.gov Spanish Influence in Texas)",
+    "H-E-B is headquartered in San Antonio and took more than 50% of the area grocery market in 2024, up from 47% in 2022 -- the strongest local-grocer loyalty of any Kodiak Texas market (source: axios.com H-E-B grows its market share in San Antonio; expressnews.com)",
+    "the River Walk's Spanish-colonial Christmas -- cobblestone walks, little bridges, majestic cypresses lit with colored lights and decorated water taxis -- is a signature civic winter ritual (source: americanheritage.com A Spanish Colonial Christmas in San Antonio)"
+  ],
+  "design_palette": {
+    "textures": [
+      "Spanish colonial mission limestone",
+      "carved sandstone portal (San Jose rose window)",
+      "lime-washed adobe and stucco",
+      "bald cypress bark along the river",
+      "wrought-iron River Walk railing",
+      "concha sugar-crust texture",
+      "clay barrel-tile roof"
+    ],
+    "colors": [
+      {
+        "name": "mission limestone warm ivory",
+        "hex": "#DDD0B4",
+        "use": "structure / wall"
+      },
+      {
+        "name": "concha pan dulce pink",
+        "hex": "#E39BB0",
+        "use": "food accent / sweetness cue"
+      },
+      {
+        "name": "San Antonio River green",
+        "hex": "#4C7A5E",
+        "use": "water / River Walk"
+      },
+      {
+        "name": "barrel-tile terracotta",
+        "hex": "#B4552F",
+        "use": "roof / accent"
+      },
+      {
+        "name": "Tejano fiesta marigold",
+        "hex": "#E8A128",
+        "use": "small accent / festival color"
+      }
+    ],
+    "building_materials": [
+      "Spanish colonial cut limestone",
+      "sandstone carved portals",
+      "lime-washed adobe / stucco",
+      "clay barrel-tile roof",
+      "wrought iron",
+      "arched mission colonnade"
+    ],
+    "landscape_motifs": [
+      "mission bell tower and arched colonnade",
+      "River Walk bald cypress",
+      "San Antonio River acequia",
+      "South Texas mesquite brushland",
+      "fiesta color and papel picado"
+    ],
+    "_provenance_note": "mission limestone / sandstone portal / arched colonnade grounded in the five 18th-century San Antonio missions (nps.gov; smarthistory.org). River Walk cypress grounded in americanheritage.com. concha pink and fiesta marigold are Tejano food-and-festival cues. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "winter-holidays",
+      "months": [12, 1],
+      "in_season_produce": [
+        {
+          "name": "Rio Grande Valley / South Texas grapefruit + citrus",
+          "peak_month": 12,
+          "pancake_tie": "Ruby Red grapefruit-honey glaze over Power Cakes -- South Texas citrus peaks late fall through winter"
+        },
+        {
+          "name": "Texas pecans (holiday)",
+          "peak_month": 12,
+          "pancake_tie": "pecan-praline holiday stack -- Tejano holiday sweetness alongside the River Walk Christmas lights"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "H-E-B (San Antonio HQ)",
+          "type": "chain-grocer",
+          "url": "https://www.heb.com",
+          "notes": "H-E-B is headquartered here and holds 50%+ area market share"
+        },
+        {
+          "name": "Central Market (San Antonio)",
+          "type": "chain-grocer",
+          "url": "https://www.centralmarket.com",
+          "notes": "H-E-B upscale banner; strong local-Texas program"
+        }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4],
+      "in_season_produce": [
+        {
+          "name": "Texas 1015 sweet onions",
+          "peak_month": 4,
+          "pancake_tie": "savory sweet-onion + cheddar Power Cakes -- the 1015 was bred for South Texas spring planting"
+        },
+        {
+          "name": "Texas strawberries (Poteet)",
+          "peak_month": 4,
+          "pancake_tie": "Poteet strawberry compote over Power Cakes -- Poteet, south of San Antonio, is the Texas strawberry capital"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "H-E-B (San Antonio)",
+          "type": "chain-grocer",
+          "notes": "1015 onions and Poteet strawberries are spring features"
+        },
+        {
+          "name": "Pearl Farmers Market (Pearl / former brewery)",
+          "type": "farmers-market",
+          "notes": "Sat/Sun year-round; South Texas growers"
+        }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        {
+          "name": "Texas pecans",
+          "peak_month": 11,
+          "pancake_tie": "toasted pecans in the batter -- native South Texas pecan harvest late fall"
+        },
+        {
+          "name": "fall squash + peppers",
+          "peak_month": 10,
+          "pancake_tie": "savory squash-and-pepper Power Cakes -- INFERRED seasonal tie, verify local availability"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "H-E-B / Central Market (San Antonio)",
+          "type": "chain-grocer"
+        },
+        { "name": "Pearl Farmers Market", "type": "farmers-market" }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "H-E-B",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "headquartered in San Antonio; 50%+ area market share (2024)"
+    },
+    {
+      "name": "Central Market",
+      "role": "primary",
+      "notes": "H-E-B upscale banner"
+    },
+    { "name": "Walmart", "role": "secondary" },
+    { "name": "Costco", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "Poteet strawberry Power Cakes card + Rio Grande Ruby Red grapefruit-honey card + pan-dulce-inspired concha card -- real South Texas seasonal and Tejano food hooks"
+    },
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "San Antonio is H-E-B's home city; the localized-retailer play is an H-E-B / Central Market lockup, the single strongest local-grocer identity in the Texas cluster -- a warehouse-club angle is secondary",
+      "existing_brief": "briefs/kodiak-costco.yaml"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no existing San Antonio creative corpus in the scoreboard set -- thin to riff on until first assets ship"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified; archetype/partnership only, never likeness"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "Bear Bites lunchbox angle carries nationally; South Texas brushland is not bear range -- keep conservation-toned, national"
+    },
+    "keep-it-wild": {
+      "fit": "weak",
+      "angle": "the San Antonio River / mission reach and the Hill Country to the north offer a mission-acequia water-heritage stack, but this is a dense mission-city identity more than a wild-land one"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "South Texas mission city; no ski culture"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.86,
+    "ready_to_rock": true,
+    "notes": "New seed. design_palette grounded in Spanish colonial mission limestone + River Walk cypress and cited; seasonal keyed to South Texas citrus (winter), 1015 onions + Poteet strawberries (spring), pecans (fall) -- not winter-defaulted, and where winter is used it is real citrus season. H-E-B mapped as home channel (HQ city, 50%+ share). Tejano and mission references stay conservation-and-heritage-toned, no tribal endorsement claimed. Spanish pct carries INFERRED flag -- no ACS number fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: San Antonio Missions NHS, five missions 1718-1731, UNESCO World Heritage -- nps.gov/articles/sanantonio.htm; nps.gov World Heritage Site article; visitsanantonio.com missions guide",
+      "web: Alamo / Mission San Antonio de Valero 1718 -- smarthistory.org/the-alamo",
+      "web: River Walk Spanish-colonial Christmas, bald cypress -- americanheritage.com Spanish Colonial Christmas in San Antonio",
+      "web: H-E-B HQ San Antonio, 50%+ 2024 market share -- axios.com H-E-B grows market share in San Antonio; expressnews.com",
+      "web: Texas produce (1015 onions, Poteet strawberries, Rio Grande citrus, pecans) -- texasagriculture.gov Produce Commodity Card; pickyourown.org TXharvestcalendar",
+      "INFERRED: Spanish-at-home pct (market-languages.json absent in checkout) -- verify ACS S1601 for Bexar County"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

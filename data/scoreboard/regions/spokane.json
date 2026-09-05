@@ -1,0 +1,275 @@
+{
+  "region_id": "spokane",
+  "market_code": "US-W-SPOKANE",
+  "aliases": [],
+  "place": "Spokane, Washington",
+  "zip": "99201",
+  "county": "Spokane County",
+  "state": "WA",
+  "coordinates": { "lat": 47.6588, "lon": -117.426 },
+  "classification": "regional",
+  "city_center": {
+    "name": "Downtown Spokane / Riverfront Park + the Spokane River falls",
+    "landmark": "Spokane Falls in Riverfront Park; basalt river gorge; the Palouse wheat country to the south; ponderosa-pine and lake country (Coeur d'Alene) to the east",
+    "notes": "Spokane sits on the Spokane River where the falls run through downtown Riverfront Park, in a basalt-and-ponderosa landscape. The Palouse (rolling wheat and lentil country) lies south; Inland Northwest lakes and ski mountains lie east. sources: en.wikipedia.org Spokane, Washington; Palouse agriculture framing."
+  },
+  "featured_frontier": {
+    "hook": "Washington apple + Palouse-country honey over Power Cakes on a ponderosa-pine porch, basalt falls behind -- Inland Northwest breakfast",
+    "photo_cue": "cast-iron flapjack stack on a ponderosa-log porch, crisp Washington apples, basalt gorge and Spokane Falls behind, golden Palouse wheat hills, first snow on Mount Spokane",
+    "signature_ingredient": "Washington apples + pears (Sep-Nov) + Inland Northwest cherries and huckleberries (summer); Palouse wheat and lentils",
+    "cross_promo": {
+      "partner": "Spokane Farmers Market / Green Bluff growers",
+      "url": "https://spokanefarmersmarket.org",
+      "activation": "Washington apple compote card + wild-huckleberry card, Fred Meyer / Yoke's / Rosauers retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Spokane + Inland Northwest families; Palouse farm-country and lake-and-mountain outdoor households; ponderosa-and-basalt landscape culture; Fred Meyer, Yoke's, Rosauers, and WinCo shoppers",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 5.0,
+      "translate_code": "es",
+      "reason": "INFERRED (ACS source file absent): modest Latino share in a predominantly English-speaking Inland Northwest market; pct is a web-informed estimate, not exact ACS"
+    },
+    {
+      "lang_code": "ru",
+      "lang_name": "Russian",
+      "pct_home": 2.5,
+      "translate_code": "ru",
+      "reason": "INFERRED (ACS source file absent): Spokane has a notable Russian and Ukrainian community (Slavic immigration to the Inland Northwest); pct estimated"
+    }
+  ],
+  "cultural_notes": [
+    "Spokane sits on the Spokane River with the falls running through downtown Riverfront Park, in a basalt-gorge-and-ponderosa-pine landscape (source: en.wikipedia.org Spokane, Washington)",
+    "the Palouse to the south is a distinctive rolling wheat, lentil, and legume country; Green Bluff (northeast of the city) is a well-known u-pick apple and cherry orchard district (source: Palouse + Green Bluff agriculture framing, publicly documented)",
+    "Spokane has a notable Russian and Ukrainian community from Slavic immigration to the Inland Northwest (source: general demographic framing, publicly documented)",
+    "Fred Meyer, Yoke's, Rosauers (a Spokane-founded grocer), and WinCo are the regional grocers; huckleberries are a prized wild Inland Northwest berry (source: chain regional footprint; huckleberry regional framing)"
+  ],
+  "design_palette": {
+    "textures": [
+      "ponderosa-pine bark plate",
+      "Columbia basalt gorge rock",
+      "Palouse rolling-wheat texture",
+      "weathered orchard-post wood",
+      "Spokane Falls whitewater sheen",
+      "huckleberry-cluster gloss",
+      "cast-iron griddle char"
+    ],
+    "colors": [
+      {
+        "name": "ponderosa-pine green",
+        "hex": "#2E4A34",
+        "use": "forest / foreground"
+      },
+      {
+        "name": "Palouse wheat gold",
+        "hex": "#C9A94C",
+        "use": "rolling hills / warm accent"
+      },
+      {
+        "name": "Columbia basalt gray",
+        "hex": "#565452",
+        "use": "gorge rock / structure"
+      },
+      {
+        "name": "Washington apple red",
+        "hex": "#A93A2E",
+        "use": "produce hero / warm accent"
+      },
+      {
+        "name": "wild-huckleberry purple",
+        "hex": "#3E2A4A",
+        "use": "produce accent"
+      }
+    ],
+    "building_materials": [
+      "ponderosa-log and timber",
+      "Columbia basalt fieldstone",
+      "fired red brick (downtown)",
+      "weathered orchard-shed wood",
+      "corrugated ranch steel"
+    ],
+    "landscape_motifs": [
+      "Spokane Falls in the basalt gorge",
+      "ponderosa-pine forest edge",
+      "rolling Palouse wheat hills",
+      "Green Bluff apple orchard",
+      "first snow on Mount Spokane"
+    ],
+    "_provenance_note": "ponderosa-pine green + basalt gray grounded in the Spokane gorge landscape. Palouse wheat gold from the rolling farm country south of the city. Washington apple red + wild-huckleberry purple from regional produce. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "summer-fourth",
+      "months": [7, 8],
+      "in_season_produce": [
+        {
+          "name": "wild Inland Northwest huckleberries",
+          "peak_month": 8,
+          "pancake_tie": "wild-huckleberry compote over Power Cakes -- the prized Inland NW mountain berry"
+        },
+        {
+          "name": "Inland Northwest cherries",
+          "peak_month": 7,
+          "pancake_tie": "cherry compote for a river-gorge July Fourth griddle"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Spokane Farmers Market",
+          "type": "farmers-market",
+          "url": "https://spokanefarmersmarket.org",
+          "notes": "cherries + huckleberries in summer"
+        },
+        {
+          "name": "Rosauers",
+          "type": "chain-grocer",
+          "notes": "Spokane-founded grocer"
+        }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        {
+          "name": "Green Bluff + Washington apples",
+          "peak_month": 10,
+          "pancake_tie": "Washington apple-cinnamon compote over Power Cakes -- Green Bluff u-pick orchard country"
+        },
+        {
+          "name": "Washington pears",
+          "peak_month": 9,
+          "pancake_tie": "pear-and-honey spoon over a cast-iron stack"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Green Bluff Growers",
+          "type": "farm-stand",
+          "notes": "u-pick apple + cherry district northeast of Spokane"
+        },
+        { "name": "Fred Meyer", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "ski-season",
+      "months": [12, 1, 2, 3],
+      "in_season_produce": [
+        {
+          "name": "stored Washington apples + Palouse-country honey",
+          "peak_month": 1,
+          "pancake_tie": "honey-apple Power Cakes at a Mount Spokane / Schweitzer / Silver Mountain ski-lodge griddle"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Fred Meyer",
+          "type": "chain-grocer",
+          "notes": "one-stop stock-up before the mountain"
+        },
+        { "name": "Yoke's Fresh Market", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        {
+          "name": "Inland Northwest asparagus + rhubarb",
+          "peak_month": 5,
+          "pancake_tie": "rhubarb compote over Power Waffles -- Inland NW spring pick"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Spokane Farmers Market",
+          "type": "farmers-market",
+          "notes": "spring asparagus + rhubarb"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Fred Meyer",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "Pacific NW one-stop chain; home channel"
+    },
+    {
+      "name": "Rosauers",
+      "role": "primary",
+      "notes": "Spokane-founded grocer"
+    },
+    {
+      "name": "Yoke's Fresh Market",
+      "role": "primary",
+      "notes": "eastern-Washington grocer"
+    },
+    {
+      "name": "WinCo Foods",
+      "role": "secondary",
+      "notes": "employee-owned value grocer"
+    }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "wild-huckleberry card (summer) + Green Bluff apple card (fall) + pear card -- real Inland Northwest produce with the wild huckleberry as a distinctive hook"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "strong",
+      "angle": "Mount Spokane, Schweitzer (Sandpoint), Silver Mountain, and 49 Degrees North ring the metro; Spokane has a genuine Inland Northwest ski culture -- a strong us-ski-and-snowboard fit for the ski-lodge stack"
+    },
+    "keep-it-wild": {
+      "fit": "strong",
+      "angle": "ponderosa forests, basalt river gorge, and Inland Northwest lakes give Spokane a real Keep It Wild backdrop with the wild-huckleberry forage story"
+    },
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "Spokane is a Costco + Fred Meyer/WinCo bulk-and-value market; retailer lockup works with the Inland NW grocer story",
+      "existing_brief": "briefs/kodiak-costco.yaml"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no produced Spokane content corpus yet; strong ponderosa + huckleberry cue but thin prior material"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "black bear (and grizzly in the far northern Selkirks near the Canada border) live in the Inland NW; keep conservation-toned, habitat framing, grizzly reference careful and honest"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.87,
+    "ready_to_rock": true,
+    "notes": "Palette grounded in ponderosa-pine green + Palouse wheat gold + basalt gray + Washington apple red + wild-huckleberry purple. Four seasonal windows including ski-season, from real Inland NW produce (huckleberry, Green Bluff apples, pears). us-ski-and-snowboard AND keep-it-wild both scored strong (Schweitzer, Mount Spokane, Silver Mtn). Grizzly noted honestly (far northern Selkirks). languages THIN -- percentages INFERRED because ACS source file is absent; no exact ACS numbers fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Spokane, Washington + Spokane Falls / Riverfront Park -- en.wikipedia.org",
+      "web: Palouse agriculture + Green Bluff u-pick orchard district framing -- publicly documented",
+      "web: Inland Northwest ski areas (Mount Spokane, Schweitzer, Silver Mountain, 49 Degrees North) -- publicly documented",
+      "web: Rosauers Spokane-founded grocer footprint -- publicly documented",
+      "note: language percentages INFERRED -- ACS/market-languages source file absent in checkout; no exact ACS numbers used"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

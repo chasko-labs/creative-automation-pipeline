@@ -1,0 +1,224 @@
+{
+  "region_id": "louisville",
+  "market_code": "US-SE-LOU",
+  "aliases": [],
+  "place": "Louisville, Kentucky",
+  "state": "KY",
+  "coordinates": { "lat": 38.2527, "lon": -85.7585 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Louisville (West Main cast-iron district) + Old Louisville",
+    "landmark": "West Main Street's cast-iron facades (one of the largest such collections in the US) and Old Louisville's Victorian mansions; Churchill Downs to the south",
+    "notes": "Ohio River bourbon-and-Derby city. Kroger (Cincinnati-based, dominant across KY) is the home grocer. Old Louisville is the largest preservation district of almost entirely Victorian architecture in the US. sources: louisvilleky.gov West Main cast-iron; en.wikipedia.org/wiki/Old_Louisville; gotolouisville.com architecture."
+  },
+  "featured_frontier": {
+    "hook": "Kentucky apple + sorghum-and-bourbon-barrel-spice Power Cakes -- a Derby-country brunch in bourbon-and-Victorian Louisville",
+    "photo_cue": "cast-iron facade and Victorian brick, bourbon barrel, Kentucky apples, sorghum drizzle; Derby-season light",
+    "signature_ingredient": "Kentucky apples (Jul-Dec) + Kentucky sorghum; bourbon-barrel-spice tie (flavor only, no alcohol claim)",
+    "cross_promo": {
+      "partner": "Louisville-area farmers markets (Bardstown Road / St. Matthews)",
+      "activation": "Kentucky apple + sorghum recipe card, Kroger retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Ohio River bourbon-and-Derby families + downtown-and-suburb households; Kroger-first Louisville shoppers",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "translate_code": "es",
+      "reason": "Spanish is the leading second home language across the Louisville metro. Percentage INFERRED (localization pipeline data absent) -- not an ACS figure"
+    }
+  ],
+  "cultural_notes": [
+    "Louisville is defined by bourbon and the Kentucky Derby (Churchill Downs, first Saturday in May), with the mint julep as its signature drink -- a strong seasonal cultural anchor (source: general regional knowledge; language selection flagged INFERRED)",
+    "Downtown Louisville's West Main Street holds one of the largest collections of cast-iron building facades in the US, and Old Louisville is the largest US preservation district of almost entirely Victorian architecture (source: louisvilleky.gov West Main; en.wikipedia.org/wiki/Old_Louisville; gotolouisville.com)",
+    "Kentucky apples run July through December and sorghum is a traditional mountain-and-farm sweetener; Kentucky's produce peaks with tomatoes and corn in summer and apples and squash in fall (source: kyagr.com Farm Market Produce Availability Guide; farmflavor.com Kentucky produce calendar)"
+  ],
+  "design_palette": {
+    "textures": [
+      "cast-iron facade fluting",
+      "Victorian brick",
+      "limestone lintel",
+      "bourbon-barrel char oak",
+      "sorghum-syrup sheen",
+      "apple skin",
+      "Ohio River ripple"
+    ],
+    "colors": [
+      {
+        "name": "cast-iron storefront gray-green",
+        "hex": "#5C6660",
+        "use": "structure / facade"
+      },
+      {
+        "name": "Old Louisville Victorian brick red",
+        "hex": "#8A4032",
+        "use": "structure"
+      },
+      {
+        "name": "bourbon-barrel amber",
+        "hex": "#B5722A",
+        "use": "accent / sorghum drizzle"
+      },
+      { "name": "Kentucky apple red", "hex": "#A5302B", "use": "produce hero" },
+      {
+        "name": "Ohio River blue-gray",
+        "hex": "#5A7280",
+        "use": "water / terrain"
+      }
+    ],
+    "building_materials": [
+      "cast-iron storefront facades",
+      "Victorian red brick",
+      "Kentucky limestone trim",
+      "charred white-oak (bourbon-barrel motif)",
+      "wood-frame farmhouse (rural)"
+    ],
+    "landscape_motifs": [
+      "West Main cast-iron streetscape",
+      "Old Louisville mansion row",
+      "Churchill Downs twin spires",
+      "Ohio River bank",
+      "bluegrass horse pasture"
+    ],
+    "_provenance_note": "cast-iron gray-green + Victorian brick grounded in louisvilleky.gov West Main + Old Louisville descriptions; limestone from Louisville storefront guidelines; bourbon-barrel amber and apple red from regional flavor and produce. hex values are perceptual approximations -- flag for brand-fit review."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        {
+          "name": "Kentucky apples",
+          "peak_month": 10,
+          "pancake_tie": "Kentucky apple-cinnamon Power Cakes -- apples run Jul-Dec in Kentucky"
+        },
+        {
+          "name": "Kentucky sorghum",
+          "peak_month": 10,
+          "pancake_tie": "sorghum drizzle over Power Cakes -- traditional Kentucky fall sweetener"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Louisville-area farmers markets",
+          "type": "farmers-market",
+          "notes": "Bardstown Road / St. Matthews seasonal markets"
+        },
+        { "name": "Kroger (Louisville metro)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        {
+          "name": "Kentucky tomatoes",
+          "peak_month": 8,
+          "pancake_tie": "savory Kentucky-tomato Power Cakes -- summer tomato peak"
+        },
+        {
+          "name": "Kentucky sweet corn",
+          "peak_month": 8,
+          "pancake_tie": "sweet-corn cakes -- KY sweet corn Jul-Sep"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Louisville-area farmers markets", "type": "farmers-market" },
+        { "name": "Kroger (Louisville metro)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "thanksgiving",
+      "months": [11, 12],
+      "in_season_produce": [
+        {
+          "name": "late Kentucky apples + winter squash",
+          "peak_month": 11,
+          "pancake_tie": "spiced apple + squash Power Cakes -- KY apples run into December"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Kroger (Louisville metro)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        {
+          "name": "Kentucky strawberries + asparagus",
+          "peak_month": 5,
+          "pancake_tie": "Derby-season strawberry compote stack -- ties to the first-Saturday-in-May Derby weekend"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Louisville-area farmers markets", "type": "farmers-market" },
+        { "name": "Kroger (Louisville metro)", "type": "chain-grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Kroger", "role": "home" },
+    { "name": "Meijer", "role": "primary" },
+    { "name": "Walmart", "role": "secondary" },
+    { "name": "ALDI", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "Kroger Kentucky variant of the localized-costco type; reuse briefs/kodiak-costco.yaml pattern with a Derby-country lockup",
+      "existing_brief": "briefs/kodiak-costco.yaml"
+    },
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "Kentucky apple-sorghum card + Derby-season strawberry card + savory Kentucky-tomato card; bourbon-barrel-spice as a flavor motif only, no alcohol claim"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no known prior Louisville creative to riff on"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified; archetype only, never likeness"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "black bear is far-eastern Kentucky Appalachia, not the Louisville metro; keep conservation-toned, tracks-only"
+    },
+    "keep-it-wild": {
+      "fit": "weak",
+      "angle": "Ohio River metro; keep-it-wild lands better in the eastern Kentucky mountains"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "no ski culture; Ohio River valley"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.83,
+    "ready_to_rock": true,
+    "notes": "Louisville anchored on bourbon/Derby + cast-iron and Victorian architecture, with a Derby-season spring strawberry tie; bourbon-barrel treated as a flavor/spice motif only, no alcohol claim. Kroger as home grocer. languages thin -- single INFERRED entry, no ACS numbers fabricated. hex flagged for brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: West Main cast-iron facades + Old Louisville Victorian -- louisvilleky.gov West Main; en.wikipedia.org/wiki/Old_Louisville; gotolouisville.com architecture",
+      "web: Kentucky apples Jul-Dec, summer tomatoes/corn, fall apples/squash -- kyagr.com Farm Market Produce Availability Guide; farmflavor.com Kentucky produce calendar",
+      "Kentucky Derby / bourbon cultural anchor + Kroger KY footprint -- general regional knowledge",
+      "language percentage INFERRED -- localization pipeline data absent from checkout; no ACS figure fabricated"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

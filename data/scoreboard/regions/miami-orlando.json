@@ -1,0 +1,234 @@
+{
+  "region_id": "miami-orlando",
+  "market_code": "US-SE-FL",
+  "aliases": ["US-SE-MIA", "US-SE-ORL"],
+  "place": "Miami + Orlando, Florida",
+  "state": "FL",
+  "coordinates": { "lat": 25.7617, "lon": -80.1918 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Miami Beach Art Deco District (Ocean Drive / Collins Ave) + Downtown Orlando",
+    "landmark": "South Beach Art Deco Historic District (900+ deco buildings); Orlando's Lake Eola and downtown farmers market inland",
+    "notes": "Miami is the Cuban/Latin cultural anchor of the Southeast; Publix (Lakeland, FL headquarters) is the dominant home grocer statewide. Orlando is the Central Florida sister metro. sources: miamibeachfl.gov/architecture/art-deco; en.wikipedia.org/wiki/Miami_Beach_Architectural_District."
+  },
+  "featured_frontier": {
+    "hook": "Cuban cafe con leche + Florida citrus over Power Cakes -- a South Beach pastel breakfast stack in peak winter citrus season",
+    "photo_cue": "pastel art-deco facade, chrome eyebrow overhangs, fresh orange + grapefruit segments, cafe con leche foam; Florida sunlight",
+    "signature_ingredient": "Florida citrus (oranges, grapefruit, tangerines Nov-May) + strawberries (Dec-Mar peak); Cuban coffee tie",
+    "cross_promo": {
+      "partner": "Local Florida farmers markets (Orlando Farmers Market at Lake Eola; South Florida markets)",
+      "activation": "Florida citrus + Cuban-coffee glaze recipe card, Publix retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Latin-influenced Miami families + Central Florida households; Publix-first Florida shoppers, bilingual Spanish/English homes",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "translate_code": "es",
+      "reason": "Miami-Dade is majority Hispanic; Spanish is the dominant second (often first) home language across the metro. Percentage INFERRED (localization pipeline data absent from checkout) -- do not treat as an ACS figure"
+    },
+    {
+      "lang_code": "ht",
+      "lang_name": "Haitian Creole",
+      "translate_code": "ht",
+      "reason": "South Florida has one of the largest Haitian-American populations in the US (Little Haiti, Miami). Percentage INFERRED, not an ACS figure"
+    }
+  ],
+  "cultural_notes": [
+    "Miami is the Cuban and broader Latin-American cultural capital of the Southeast; cafe con leche, pastelitos, and Little Havana anchor the daily-life food culture (source: general regional cultural knowledge; language selection flagged INFERRED)",
+    "South Beach holds an unrivaled concentration of Art Deco architecture -- over 900 buildings in the Miami Beach Architectural District, with the pastel palette standardized by a 1980s preservation campaign (source: miamibeachfl.gov/architecture/art-deco; corcoran.com inhabit; audiala.com South Beach guide)",
+    "Florida's agricultural calendar is near-tropical and inverted from the north: the state's most intense growing season runs October through May, making winter -- not summer -- peak citrus and strawberry season (source: fdacs.gov Crops-in-Season; sarasotamagazine.com; UF/IFAS blogs.ifas.ufl.edu)",
+    "Publix is a Florida institution (Lakeland headquarters) and the dominant home grocer across the state (source: Publix regional footprint)"
+  ],
+  "design_palette": {
+    "textures": [
+      "pastel stucco facade",
+      "chrome and glass-block trim",
+      "coquina limestone",
+      "terrazzo floor",
+      "neon tube glow",
+      "royal palm frond",
+      "citrus-peel dimple"
+    ],
+    "colors": [
+      {
+        "name": "South Beach flamingo pink",
+        "hex": "#F4A6B8",
+        "use": "structure / facade accent"
+      },
+      { "name": "art-deco mint", "hex": "#9BD3C0", "use": "structure / trim" },
+      { "name": "Miami sky aqua", "hex": "#4FB3C9", "use": "sky / awning" },
+      {
+        "name": "Florida orange",
+        "hex": "#F28A2E",
+        "use": "produce hero / citrus"
+      },
+      {
+        "name": "royal-palm green",
+        "hex": "#2E5E3A",
+        "use": "canopy / foreground"
+      }
+    ],
+    "building_materials": [
+      "pastel-painted stucco over masonry",
+      "coquina (shell) limestone",
+      "chrome and glass block",
+      "terrazzo",
+      "concrete deco relief",
+      "clay barrel tile (Coral Gables Mediterranean Revival)"
+    ],
+    "landscape_motifs": [
+      "Ocean Drive palm row",
+      "South Beach neon at dusk",
+      "citrus grove",
+      "Lake Eola fountain (Orlando)",
+      "art-deco eyebrow-window facade"
+    ],
+    "_provenance_note": "pastel pink/mint/aqua grounded in the South Beach Art Deco palette (miamibeachfl.gov; corcoran.com; bhg.com art-deco color). coquina + terrazzo + chrome/glass-block from Miami Beach deco material descriptions. Florida orange from produce. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "winter-holidays",
+      "months": [12, 1, 2],
+      "in_season_produce": [
+        {
+          "name": "Florida oranges + grapefruit",
+          "peak_month": 1,
+          "pancake_tie": "fresh Florida citrus segments + citrus glaze over Power Cakes -- winter is peak citrus in Florida, not a northern off-season"
+        },
+        {
+          "name": "Florida strawberries",
+          "peak_month": 2,
+          "pancake_tie": "Plant City strawberry compote stack -- Florida strawberry peaks Dec-Mar"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Publix (statewide)",
+          "type": "chain-grocer",
+          "notes": "home grocer, Lakeland FL headquarters"
+        },
+        {
+          "name": "Orlando Farmers Market at Lake Eola",
+          "type": "farmers-market",
+          "notes": "Sunday market, downtown Orlando"
+        }
+      ]
+    },
+    {
+      "season": "new-year",
+      "months": [1],
+      "in_season_produce": [
+        {
+          "name": "Florida tangerines",
+          "peak_month": 1,
+          "pancake_tie": "tangerine-honey drizzle over Power Cakes -- tangerine runs Sep-May, mid-winter sweet"
+        }
+      ],
+      "where_to_buy": [{ "name": "Publix (statewide)", "type": "chain-grocer" }]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4],
+      "in_season_produce": [
+        {
+          "name": "Florida blueberries",
+          "peak_month": 4,
+          "pancake_tie": "early Florida blueberry stack -- Florida blueberries lead the national crop in spring"
+        },
+        {
+          "name": "Florida sweet corn",
+          "peak_month": 4,
+          "pancake_tie": "sweet-corn cakes -- Florida sweet corn runs Oct-Jun"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Publix (statewide)", "type": "chain-grocer" },
+        { "name": "Local Florida farmers markets", "type": "farmers-market" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [5, 6, 7, 8],
+      "in_season_produce": [
+        {
+          "name": "Florida watermelon",
+          "peak_month": 6,
+          "pancake_tie": "watermelon + lime side to a summer Power Cakes stack (watermelon Apr-Jul)"
+        },
+        {
+          "name": "Florida avocado (late summer)",
+          "peak_month": 8,
+          "pancake_tie": "savory avocado + chile Power Cakes -- Florida avocado runs summer into fall"
+        }
+      ],
+      "where_to_buy": [{ "name": "Publix (statewide)", "type": "chain-grocer" }]
+    }
+  ],
+  "retailers": [
+    { "name": "Publix", "role": "home" },
+    { "name": "Winn-Dixie", "role": "primary" },
+    { "name": "Target", "role": "secondary" },
+    { "name": "Walmart", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "Publix-heartland variant of the localized-costco type: Publix retailer lockup + a bilingual Spanish/English Miami-Orlando citrus stack. Reuse the briefs/kodiak-costco.yaml pattern for a Publix Florida edition",
+      "existing_brief": "briefs/kodiak-costco.yaml"
+    },
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "Florida citrus glaze card + Cuban cafe-con-leche stack card + Plant City strawberry compote card -- three real winter-season Florida cards"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no known prior Florida-specific Kodiak creative to riff on; build fresh"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified; archetype/partnership only, never likeness"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "Bear Bites lunchbox angle carries nationally; Florida black bear exists statewide but no grizzly hook -- keep conservation-toned, tracks-only"
+    },
+    "keep-it-wild": {
+      "fit": "weak",
+      "angle": "Everglades / near-tropical wild angle possible but metro-dense market; keep-it-wild lands softer here than in frontier regions"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "no ski culture; subtropical Florida"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.83,
+    "ready_to_rock": true,
+    "notes": "Florida record built season-honest: winter is peak citrus + strawberry, not an off-season. Palette grounded in South Beach Art Deco pastels. languages marked thin -- percentages are INFERRED because the localization pipeline data was absent from this checkout; no ACS numbers were fabricated. hex values flagged for brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Florida crops in season -- fdacs.gov/Food-Nutrition/Buy-Fresh-From-Florida/Crops-in-Season (strawberry Dec-Apr, tangerine Sep-May, tomato + sweet corn Oct-Jun, watermelon Apr-Jul)",
+      "web: Florida winter fruits / strawberry peak Dec-Mar -- blogs.ifas.ufl.edu (UF/IFAS)",
+      "web: what's in season in Florida (Oct-May growing season) -- sarasotamagazine.com",
+      "web: Miami Beach Art Deco (900+ buildings, pastel palette) -- miamibeachfl.gov/architecture/art-deco; en.wikipedia.org/wiki/Miami_Beach_Architectural_District; corcoran.com",
+      "web: art-deco color palette -- bhg.com art-deco-color-palette-miami-beach; Coral Gables Mediterranean Revival earth tones -- baillylectures.com",
+      "language percentages INFERRED -- localization pipeline data (market-languages.json) absent from this checkout; no ACS figure fabricated"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

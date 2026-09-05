@@ -1,0 +1,228 @@
+{
+  "region_id": "boulder",
+  "market_code": "US-W-BOULDER",
+  "aliases": ["US-MW-DEN (adjacent Front Range metro)"],
+  "place": "Boulder, Colorado",
+  "zip": "80302",
+  "county": "Boulder County",
+  "state": "CO",
+  "coordinates": { "lat": 40.015, "lon": -105.2705 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Boulder / Pearl Street Mall",
+    "landmark": "the Flatirons -- five tilted sandstone slabs rising directly above the western edge of town; Pearl Street Mall downtown",
+    "notes": "the Flatirons are visible from nearly every street corner and define Boulder's western skyline; the Boulder County Farmers Market (13th Street) brings Western Slope fruit and Front Range produce to town Wed + Sat. sources: en.wikipedia.org/wiki/The_Flatirons; gocolorado.com/boulder; bcfm.org."
+  },
+  "featured_frontier": {
+    "hook": "Palisade peach compote over Power Cakes at the Boulder County Farmers Market, the Flatirons glowing above Pearl Street -- Front Range trail-town breakfast",
+    "photo_cue": "Palisade peach compote, cast iron, Pearl Street crates, Flatirons sandstone glow behind",
+    "signature_ingredient": "Western Slope Palisade peaches + Front Range honey; trail-town outdoor culture",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "Front Range trail-and-outdoor families, university and active-lifestyle households; King Soopers + Whole Foods + Costco + Target shoppers, health-forward mountain-town-adjacent metro",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 9.0,
+      "translate_code": "es",
+      "reason": "INFERRED from Boulder County Hispanic ~14% (ACS pattern); largest second language -- verify exact ACS S1601 pct before production"
+    }
+  ],
+  "cultural_notes": [
+    "the Flatirons are five massive tilted slabs of Fountain Formation conglomeratic sandstone (roughly 290-296 million years old), rising directly above the western edge of town and visible from nearly every street corner (source: en.wikipedia.org/wiki/The_Flatirons; gocolorado.com/boulder)",
+    "Boulder is a trail-and-outdoor town: 155+ miles of trails and an open-space greenbelt wrap the city, feeding a health-forward, active-lifestyle food culture (source: gocolorado.com/boulder)",
+    "the Boulder County Farmers Market (13th Street, Sat Apr-Nov) is a Front Range destination for Western Slope peaches from Palisade and Paonia and organic local produce (source: bcfm.org markets; bcfm.org Western Slope farmers)",
+    "the Flatirons and Chautauqua are the civic-recreation heart -- morning-trail-then-breakfast rhythm is the local ritual (INFERRED civic framing from region knowledge -- verify tone before production)"
+  ],
+  "design_palette": {
+    "textures": [
+      "Flatiron sandstone slab",
+      "Fountain Formation red rock",
+      "Pearl Street brick",
+      "Palisade peach fuzz",
+      "ponderosa bark (foothills)",
+      "cast-iron griddle sear",
+      "prairie-grass open space"
+    ],
+    "colors": [
+      {
+        "name": "Flatiron sandstone red",
+        "hex": "#A34E3A",
+        "use": "skyline / rock backdrop"
+      },
+      {
+        "name": "Palisade peach blush",
+        "hex": "#E68A5C",
+        "use": "produce hero"
+      },
+      {
+        "name": "Front Range foothills green",
+        "hex": "#3E5C3A",
+        "use": "hillside / foreground"
+      },
+      {
+        "name": "Pearl Street brick warm-red",
+        "hex": "#8C4131",
+        "use": "downtown storefront"
+      },
+      {
+        "name": "high-plains dawn gold",
+        "hex": "#D8B968",
+        "use": "eastern plains / dawn accent"
+      }
+    ],
+    "building_materials": [
+      "Flatiron sandstone (Fountain Formation)",
+      "red fired brick (Pearl Street / downtown)",
+      "board-and-batten (foothills / rural)",
+      "stucco and frame (suburban)",
+      "timber trailhead structures",
+      "cast-iron storefront trim"
+    ],
+    "landscape_motifs": [
+      "Flatirons rising above Pearl Street",
+      "Chautauqua meadow trailhead",
+      "Boulder Creek path cottonwoods",
+      "farmers-market crates on 13th Street",
+      "high-plains-meets-foothills edge"
+    ],
+    "_provenance_note": "Flatiron sandstone red grounded in the Fountain Formation slabs above town (en.wikipedia.org The Flatirons). Palisade peach grounded in the Western Slope fruit at the Boulder market (bcfm.org). Pearl Street brick grounded in the downtown mall. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        {
+          "name": "Palisade / Western Slope peaches (end of season)",
+          "peak_month": 9,
+          "pancake_tie": "Palisade peach compote on cast iron -- peaches sell at the Boulder market into early September, season ends when freezing returns (a genuine early-fall window in September)"
+        },
+        {
+          "name": "Front Range apples + fall squash",
+          "peak_month": 10,
+          "pancake_tie": "cinnamon-apple compote; savory squash Power Cakes"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Boulder County Farmers Market (13th Street)",
+          "type": "farmers-market",
+          "url": "https://bcfm.org",
+          "notes": "Sat 8-2, first Sat of April through last Sat before Thanksgiving; Palisade + Paonia fruit"
+        },
+        {
+          "name": "King Soopers (Boulder)",
+          "type": "chain-grocer",
+          "notes": "Kroger banner, dominant Front Range grocer"
+        }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [7, 8],
+      "in_season_produce": [
+        {
+          "name": "Paonia cherries + early Palisade peaches",
+          "peak_month": 8,
+          "pancake_tie": "cherry or peach compote over Power Cakes -- Western Slope fruit peaks midsummer into August"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Boulder County Farmers Market (13th Street)",
+          "type": "farmers-market"
+        }
+      ]
+    },
+    {
+      "season": "ski-season",
+      "months": [12, 1, 2],
+      "in_season_produce": [
+        {
+          "name": "Colorado honey + stored root veg + pantry stock-up",
+          "pancake_tie": "warm honey stack before an Eldora / I-70 resort ski day; savory root-veg Power Cakes -- Boulder is a Front Range base for ski trips west"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "King Soopers / Whole Foods (Boulder)",
+          "type": "chain-grocer"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "King Soopers",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "Kroger banner, dominant Front Range grocer"
+    },
+    {
+      "name": "Whole Foods Market",
+      "role": "primary",
+      "notes": "health-forward Boulder base"
+    },
+    { "name": "Costco", "role": "primary" },
+    { "name": "Target", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "Palisade peach compote card + Paonia cherry card + Front Range apple card -- iconic Colorado Western Slope produce; health-forward Boulder audience fits the whole-grain protein story"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "strong",
+      "angle": "Boulder is a Front Range ski-country base -- Eldora is close and the I-70 resorts (Winter Park, Copper, Vail) are the weekend commute; trail-and-powder-morning protein stack. Front Range ski market anchor with Denver"
+    },
+    "keep-it-wild": {
+      "fit": "strong",
+      "angle": "the Flatirons + 155 miles of open-space trails wrap the city -- Keep It Wild is nearly Boulder's civic identity; Flatiron-dawn trail stack",
+      "existing_brief": "briefs/kodiak.yaml"
+    },
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "dense Front Range Costco footprint + active-family bulk stock-up culture -- Family Size fits, though King Soopers leads everyday"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no existing Boulder creative corpus -- thin to riff on until first assets ship"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "the Front Range foothills have genuine black bear habitat (urban-edge bear activity is real) -- keep conservation-toned, tracks-only, no costume grizzlies"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified; archetype/partnership only, never likeness"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.89,
+    "ready_to_rock": true,
+    "notes": "New seed, Front Range ski-country base (sibling to Denver). us-ski STRONG (Eldora + I-70 resorts), recipe-cards STRONG (Palisade peaches). design_palette grounded in Flatiron Fountain-Formation sandstone + Palisade peach, cited; seasonal keyed to Palisade peaches (Sept end-of-season window, honestly flagged) + Paonia cherries summer + fall apples (not winter-defaulted). languages carry INFERRED flag -- market-languages.json absent in checkout. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: The Flatirons = Fountain Formation conglomeratic sandstone, 290-296M years, above town's western edge -- en.wikipedia.org/wiki/The_Flatirons; gocolorado.com/boulder",
+      "web: 155+ miles of trails, open-space greenbelt, trail-town identity -- gocolorado.com/boulder",
+      "web: Boulder County Farmers Market (13th St, Apr-Nov) + Palisade/Paonia Western Slope fruit -- bcfm.org markets; bcfm.org Western Slope farmers; rmpbs.org Palisade peach science",
+      "web: Palisade peach season ends at first freeze (early-fall window) -- rmpbs.org; denverpost.com Denver/Boulder farmers markets 2025",
+      "INFERRED: language pct (market-languages.json absent in checkout) -- verify ACS S1601 for Boulder County"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "region_id": "jackson-hole",
+  "market_code": "US-MW-JACKSONHOLE",
+  "aliases": [],
+  "place": "Jackson Hole, Wyoming",
+  "zip": "83001",
+  "county": "Teton County",
+  "state": "WY",
+  "coordinates": { "lat": 43.4799, "lon": -110.7624 },
+  "classification": "regional",
+  "city_center": {
+    "name": "Town of Jackson / Town Square (antler arches)",
+    "landmark": "Jackson Town Square with its four elk-antler arches; the Teton Range to the northwest; Jackson Hole Mountain Resort in Teton Village",
+    "notes": "Jackson Hole is the valley between the Gros Ventre and Teton ranges near the Idaho border; the Town Square antler arches are the civic gathering icon, and Jackson Hole Mountain Resort in Teton Village is the ski anchor. sources: en.wikipedia.org/wiki/Jackson_Hole; nps.gov Grand Teton cultural history; wyoshpo.wyo.gov Teton County (Alpenhof / Teton Village)."
+  },
+  "featured_frontier": {
+    "hook": "A hearty log-cabin stack before a Jackson Hole Mountain Resort powder day, Teton peaks catching first light over the valley -- final-frontier ranch-and-ski breakfast",
+    "photo_cue": "cast-iron stack on a log-cabin table, Teton Range dawn, ski gear, antler-arch town square",
+    "signature_ingredient": "hearty high-valley ranch fare + honey; Teton powder-morning fuel",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "Teton valley families, ranch-and-resort households, resort staff; Albertsons + Smith's (in-town) + Costco (Idaho Falls halo) shoppers, world-class ski destination",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 15.0,
+      "translate_code": "es",
+      "reason": "INFERRED from Teton County Hispanic ~15% (ACS pattern); a large resort service workforce is Spanish-speaking -- verify exact ACS S1601 pct before production"
+    }
+  ],
+  "cultural_notes": [
+    "Jackson Hole is a high mountain valley (a 'hole' in mountain-man usage) between the Gros Ventre and Teton ranges near the Idaho border; humans have been drawn here for more than 11,000 years (source: en.wikipedia.org/wiki/Jackson_Hole; nps.gov Grand Teton cultural history)",
+    "the valley was settled by homesteaders and ranchers facing poor soils, a short growing season, and limited market access -- log construction was near-universal given the absence of local sawmills; 'dude ranch vernacular' (log with board-and-batten additions) defines the historic building style (source: jacksonholehistory.org; wyoshpo.wyo.gov Teton County NRHP; en.wikipedia.org historical buildings of Grand Teton)",
+    "Teton Village and Jackson Hole Mountain Resort turned the valley into a year-round destination and drove the ski economy; the 1965 Alpenhof Lodge introduced Swiss-Alpine architecture to the village (source: wyoshpo.wyo.gov Teton County, Alpenhof Lodge)",
+    "the National Elk Refuge borders the town; elk-antler arches ring the Town Square -- a genuine wildlife-and-conservation civic identity (source: nps.gov Grand Teton; region knowledge -- verify exact framing before production)"
+  ],
+  "design_palette": {
+    "textures": [
+      "round-log cabin timber",
+      "board-and-batten dude-ranch siding",
+      "shed elk antler",
+      "Teton granite",
+      "fresh Teton powder",
+      "sagebrush flat",
+      "cast-iron griddle sear"
+    ],
+    "colors": [
+      {
+        "name": "Teton granite gray-blue",
+        "hex": "#6E7A8A",
+        "use": "peaks / skyline backdrop"
+      },
+      {
+        "name": "Teton powder white",
+        "hex": "#E4EAF0",
+        "use": "snow / negative space"
+      },
+      {
+        "name": "dude-ranch log brown",
+        "hex": "#6E4A2E",
+        "use": "cabin / structure"
+      },
+      {
+        "name": "sagebrush silver-green",
+        "hex": "#8A9478",
+        "use": "valley flat / foreground"
+      },
+      {
+        "name": "aspen autumn gold",
+        "hex": "#D6A64A",
+        "use": "hillside / fall accent"
+      }
+    ],
+    "building_materials": [
+      "round-log cabin construction",
+      "board-and-batten siding (dude-ranch additions)",
+      "timber-and-stone lodge frame",
+      "Swiss-Alpine chalet timber (Teton Village)",
+      "fieldstone chimney and foundation",
+      "steep pitched snow-shed roof"
+    ],
+    "landscape_motifs": [
+      "Teton Range dawn skyline",
+      "elk-antler arches at the Town Square",
+      "sagebrush valley flat",
+      "aspen stands turning gold",
+      "log ranch cabin at the mountain base"
+    ],
+    "_provenance_note": "log-cabin + dude-ranch board-and-batten grounded in Jackson Hole's homestead/dude-ranch vernacular (jacksonholehistory.org; wyoshpo.wyo.gov; en.wikipedia.org historical buildings of Grand Teton). Teton granite + powder grounded in the range and ski terrain. antler + sagebrush grounded in the valley wildlife/terrain. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "ski-season",
+      "months": [12, 1, 2, 3],
+      "in_season_produce": [
+        {
+          "name": "Wyoming/regional honey + stored root veg + pantry stock-up",
+          "pancake_tie": "warm honey stack before a Jackson Hole Mountain Resort powder day; savory root-veg Power Cakes for a base-area breakfast -- short growing season means winter leans on pantry and stored goods"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Albertsons (Jackson)",
+          "type": "chain-grocer",
+          "notes": "in-town everyday fill"
+        },
+        {
+          "name": "Smith's Food & Drug (Jackson)",
+          "type": "chain-grocer",
+          "notes": "Kroger banner"
+        }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [7, 8],
+      "in_season_produce": [
+        {
+          "name": "People's Market produce + regional berries (Idaho/Wyoming)",
+          "peak_month": 8,
+          "pancake_tie": "berry compote over Power Cakes; the short high-valley season peaks late summer -- much produce comes up from Idaho (INFERRED sourcing, verify)"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Jackson Hole Farmers Market / People's Market",
+          "type": "farmers-market",
+          "notes": "summer market on/near the Town Square; verify current name and schedule"
+        }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        {
+          "name": "regional apples + squash (brought up from Idaho valleys) + honey",
+          "peak_month": 9,
+          "pancake_tie": "cinnamon-apple compote on cast iron; the valley's own growing season is short, so fall produce is largely imported from Idaho -- honey and squash keep local (INFERRED sourcing, verify)"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Jackson Hole Farmers Market / People's Market",
+          "type": "farmers-market",
+          "notes": "late-summer into early fall; verify schedule"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Albertsons",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "Jackson in-town everyday channel"
+    },
+    {
+      "name": "Smith's Food & Drug",
+      "role": "primary",
+      "notes": "Kroger banner, Jackson"
+    },
+    {
+      "name": "Costco",
+      "role": "halo",
+      "notes": "no in-valley Costco; nearest is Idaho Falls ~90mi -- bulk Family Size halo"
+    }
+  ],
+  "campaign_type_fit": {
+    "us-ski-and-snowboard": {
+      "fit": "strong",
+      "angle": "Jackson Hole Mountain Resort is one of the most iconic ski destinations in North America -- log-cabin powder-morning stack, Teton dawn, resort-staff and destination-skier segments. A flagship market for the us-ski brief (briefs/kodiak-us-ski.yaml, to be authored)"
+    },
+    "keep-it-wild": {
+      "fit": "strong",
+      "angle": "Grand Teton National Park and the National Elk Refuge border the town -- Keep It Wild is almost the valley's default identity; Teton-dawn wilderness stack",
+      "existing_brief": "briefs/kodiak.yaml"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "Greater Yellowstone/Teton is genuine grizzly country -- a real habitat market, so keep any bear angle strictly conservation-toned, respectful-distance/tracks-only, aligned to the Keep-It-Wild guardrail (never costume/captive)"
+    },
+    "recipe-cards": {
+      "fit": "weak",
+      "angle": "short high-valley growing season limits a local-produce recipe hook; honey + hearty ranch fare cards work but the fresh-produce story is thin and largely imported"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no existing Jackson Hole creative corpus -- thin to riff on until ski assets ship"
+    },
+    "localized-costco": {
+      "fit": "na",
+      "angle": "no in-valley Costco (nearest Idaho Falls ~90mi); halo/bulk-run angle only"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified; archetype/partnership only, never likeness"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "thin",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.83,
+    "ready_to_rock": true,
+    "notes": "New seed, a flagship us-ski market (Jackson Hole Mountain Resort). us-ski + keep-it-wild both STRONG. NOTE: Greater Yellowstone/Teton is genuine grizzly country -- bears angle must stay conservation-toned per guardrail (flagged). design_palette grounded in dude-ranch log vernacular + Teton terrain, cited. seasonal flagged thin: the short high-valley growing season means fall/summer produce is largely imported from Idaho (sourcing INFERRED, needs verification) -- honey and pantry ties are the reliable local anchors. languages carry INFERRED flag -- market-languages.json absent in checkout. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Jackson Hole valley between Gros Ventre and Teton ranges, 11,000-year human history -- en.wikipedia.org/wiki/Jackson_Hole; nps.gov Grand Teton cultural history",
+      "web: homestead/dude-ranch vernacular, near-universal log construction -- jacksonholehistory.org; en.wikipedia.org historical buildings of Grand Teton; wyoshpo.wyo.gov Teton County NRHP",
+      "web: Teton Village + Alpenhof Lodge (1965, Swiss-Alpine) + Jackson Hole Mountain Resort ski economy -- wyoshpo.wyo.gov Teton County",
+      "web: National Elk Refuge + Grand Teton adjacency -- nps.gov Grand Teton",
+      "INFERRED: produce sourcing (short season, imported from Idaho) + language pct (market-languages.json absent in checkout) -- verify before production"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

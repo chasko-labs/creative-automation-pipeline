@@ -1,0 +1,263 @@
+{
+  "region_id": "indianapolis",
+  "market_code": "US-MW-INDY",
+  "aliases": [],
+  "place": "Indianapolis, Indiana",
+  "zip": "46204",
+  "county": "Marion County",
+  "state": "IN",
+  "coordinates": { "lat": 39.7684, "lon": -86.1581 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Indianapolis / Monument Circle + City Market",
+    "landmark": "Soldiers' and Sailors' Monument on Monument Circle; the historic Indianapolis City Market; surrounding Indiana Corn Belt farm country",
+    "notes": "Monument Circle anchors downtown Indianapolis; the Indianapolis City Market is a historic public market hall. The metro sits squarely in the Indiana Corn Belt, prime corn, soybean, and melon country. sources: en.wikipedia.org Soldiers' and Sailors' Monument (Indianapolis); indycitymarket.com."
+  },
+  "featured_frontier": {
+    "hook": "Indiana sweet corn + melon Power Cakes on a limestone-and-brick porch, Corn Belt fields behind -- Hoosier heartland breakfast",
+    "photo_cue": "cast-iron flapjack stack on a brick porch, Indiana limestone accent, sweet-corn and melon in late summer, autumn apples, Corn Belt field behind",
+    "signature_ingredient": "Indiana sweet corn + melons (Jul-Aug) + Indiana apples (Sep-Oct); persimmons a fall regional specialty",
+    "cross_promo": {
+      "partner": "Indianapolis City Market / Indiana Grown producers",
+      "url": "https://indycitymarket.com",
+      "activation": "sweet-corn savory card (summer) + apple/persimmon compote card (fall), Kroger / Meijer / Marsh-successor retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Indianapolis metro families + downtown and suburban households (Carmel, Fishers, Greenwood); Hoosier Corn Belt food culture; Kroger and Meijer shoppers",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 7.0,
+      "translate_code": "es",
+      "reason": "INFERRED (ACS source file absent): growing Mexican and broader Latino community on the near-south and east sides; pct is a web-informed estimate, not exact ACS"
+    },
+    {
+      "lang_code": "my",
+      "lang_name": "Burmese",
+      "pct_home": 1.5,
+      "translate_code": "my",
+      "reason": "INFERRED (ACS source file absent): Indianapolis holds one of the largest Burmese (Chin) refugee communities in the US (Perry Township); pct estimated"
+    }
+  ],
+  "cultural_notes": [
+    "Indianapolis sits in the heart of the Indiana Corn Belt; sweet corn, melons, and soybeans define the surrounding farm country and the summer produce season (source: Indiana agriculture framing, publicly documented)",
+    "Indianapolis holds one of the largest Burmese (Chin) refugee communities in the US, concentrated in Perry Township -- a notable food-culture identity alongside a growing Latino community (source: general demographic framing, publicly documented)",
+    "the Indianapolis City Market (a historic public market hall) and Monument Circle anchor the downtown; Indiana limestone (the national building stone of monuments) is a point of state pride (source: indycitymarket.com; Indiana limestone framing)",
+    "Kroger and Meijer are the dominant metro grocers; Indiana Grown is the state farm-produce program (source: chain regional footprint; Indiana Grown)"
+  ],
+  "design_palette": {
+    "textures": [
+      "Indianapolis red brick",
+      "Indiana limestone ashlar",
+      "City Market cast-iron and glass",
+      "Corn Belt field furrow",
+      "sweet-corn husk",
+      "melon rind netting",
+      "cast-iron griddle char"
+    ],
+    "colors": [
+      {
+        "name": "Indianapolis brick red",
+        "hex": "#8B4535",
+        "use": "structure / facade"
+      },
+      {
+        "name": "Indiana limestone buff",
+        "hex": "#C6BB9E",
+        "use": "monument / stone trim"
+      },
+      {
+        "name": "Corn Belt sweet-corn gold",
+        "hex": "#D9A93A",
+        "use": "produce hero / warm accent"
+      },
+      {
+        "name": "Hoosier field green",
+        "hex": "#4A6138",
+        "use": "farmland / foreground"
+      },
+      {
+        "name": "cantaloupe melon orange",
+        "hex": "#D98A4B",
+        "use": "produce accent"
+      }
+    ],
+    "building_materials": [
+      "fired red brick",
+      "Indiana limestone (monuments, civic buildings)",
+      "cast iron and glass (City Market)",
+      "clapboard farmhouse (rural)",
+      "glass-and-steel downtown tower"
+    ],
+    "landscape_motifs": [
+      "Monument Circle",
+      "City Market hall",
+      "Corn Belt field rows to the horizon",
+      "brick-and-limestone downtown street",
+      "melon and sweet-corn farm stand"
+    ],
+    "_provenance_note": "Indianapolis brick + Indiana limestone grounded in the city's building fabric and the state's signature limestone. sweet-corn gold + field green + melon orange from the surrounding Corn Belt. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "summer-fourth",
+      "months": [7, 8],
+      "in_season_produce": [
+        {
+          "name": "Indiana sweet corn",
+          "peak_month": 8,
+          "pancake_tie": "sweet-corn savory Power Cakes for a Hoosier July Fourth griddle -- Corn Belt summer"
+        },
+        {
+          "name": "Indiana melons (cantaloupe, watermelon)",
+          "peak_month": 8,
+          "pancake_tie": "melon-and-honey spoon alongside a summer Power Cakes stack"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Indianapolis City Market",
+          "type": "farmers-market",
+          "url": "https://indycitymarket.com",
+          "notes": "Indiana sweet corn + melons in summer"
+        },
+        { "name": "Kroger", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        {
+          "name": "Indiana apples",
+          "peak_month": 10,
+          "pancake_tie": "Indiana apple-cinnamon compote over Power Cakes -- orchard-country staple"
+        },
+        {
+          "name": "Indiana persimmons",
+          "peak_month": 10,
+          "pancake_tie": "wild-persimmon pulp folded into Power Cakes batter -- a southern-Indiana fall specialty"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Indianapolis City Market",
+          "type": "farmers-market",
+          "notes": "apples + persimmons in fall"
+        },
+        {
+          "name": "Meijer",
+          "type": "chain-grocer",
+          "notes": "Midwest supercenter"
+        }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [11, 12, 1, 2],
+      "in_season_produce": [
+        {
+          "name": "stored apples + winter squash",
+          "pancake_tie": "spiced apple-squash Power Cakes for a cold Hoosier morning"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Kroger", "type": "chain-grocer" },
+        { "name": "Meijer", "type": "chain-grocer" },
+        {
+          "name": "Costco",
+          "type": "chain-grocer",
+          "notes": "metro bulk channel"
+        }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        {
+          "name": "Indiana asparagus + rhubarb",
+          "peak_month": 5,
+          "pancake_tie": "rhubarb compote over Power Waffles -- Indiana spring pick"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Indianapolis City Market",
+          "type": "farmers-market",
+          "notes": "spring asparagus + rhubarb"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Kroger",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "dominant Indianapolis-metro grocer; home channel"
+    },
+    { "name": "Meijer", "role": "primary", "notes": "Midwest supercenter" },
+    { "name": "Costco", "role": "secondary", "notes": "metro bulk channel" },
+    { "name": "Aldi", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "sweet-corn savory card + melon card (summer) + apple/persimmon card (fall) -- real Indiana Corn Belt produce with the persimmon as a distinctive Hoosier hook"
+    },
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "Indianapolis is a Kroger + Meijer + Costco bulk-and-value market; retailer lockup works with the Midwest grocer story",
+      "existing_brief": "briefs/kodiak-costco.yaml"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no produced Indianapolis content corpus yet; thin prior material"
+    },
+    "keep-it-wild": {
+      "fit": "weak",
+      "angle": "flat Corn Belt metro; Keep It Wild lands better on the southern-Indiana hills / Hoosier National Forest edge than downtown"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "no established bear population in Indiana; Bear Bites lunchbox angle carries nationally, keep conservation-toned"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "flat metro; no ski identity"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.85,
+    "ready_to_rock": true,
+    "notes": "Palette grounded in Indianapolis brick + Indiana limestone + Corn Belt sweet-corn gold + Hoosier field green + melon orange. Four seasonal windows from real Indiana produce (sweet corn, melons, apples, persimmons) with City Market + chain sourcing. Retailers mapped to Kroger/Meijer/Costco. languages THIN -- percentages INFERRED because ACS source file is absent; no exact ACS numbers fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Soldiers' and Sailors' Monument (Indianapolis) + Monument Circle -- en.wikipedia.org",
+      "web: Indianapolis City Market -- indycitymarket.com",
+      "web: Indiana Corn Belt + persimmon (southern Indiana specialty) framing -- publicly documented",
+      "web: Indianapolis Burmese (Chin) refugee community (Perry Township) framing -- publicly documented",
+      "note: language percentages INFERRED -- ACS/market-languages source file absent in checkout; no exact ACS numbers used"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

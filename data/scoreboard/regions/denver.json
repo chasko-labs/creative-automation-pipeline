@@ -1,0 +1,233 @@
+{
+  "region_id": "denver",
+  "market_code": "US-MW-DEN",
+  "aliases": ["US-W-BOULDER (adjacent Front Range metro)"],
+  "place": "Denver, Colorado",
+  "zip": "80202",
+  "county": "Denver County",
+  "state": "CO",
+  "coordinates": { "lat": 39.7392, "lon": -104.9903 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Denver / Union Station / LoDo",
+    "landmark": "the Front Range and Rocky Mountains on the western skyline; Union Station and the LoDo (Lower Downtown) red-brick warehouse district",
+    "notes": "Denver, the Mile High City, sits where the high plains meet the Front Range; the Union Station Farmers Market and metro markets bring Western Slope fruit east. It is the staging metro for the I-70 ski corridor. sources: diningout.com Denver farmers markets; denverpost.com Denver/Boulder farmers markets; 5280.com Palisade peach stands."
+  },
+  "featured_frontier": {
+    "hook": "Palisade peach compote over Power Cakes at a LoDo market, Rocky Mountain Front Range on the skyline, ski gear packed for I-70 -- Mile High staging-metro breakfast",
+    "photo_cue": "Palisade peach compote, cast iron, LoDo red brick, Front Range skyline, ski gear",
+    "signature_ingredient": "Western Slope Palisade peaches + Colorado honey; Mile High ski-staging culture",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "Front Range metro families, active-outdoor and ski-commuter households; King Soopers + Safeway + Costco + Target shoppers, I-70 ski-corridor staging metro",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 22.0,
+      "translate_code": "es",
+      "reason": "INFERRED from Denver County Hispanic ~29% (ACS pattern); deep-rooted Chicano/Hispano community and largest second language -- verify exact ACS S1601 pct before production"
+    }
+  ],
+  "cultural_notes": [
+    "Denver, the Mile High City, sits where the high plains meet the Front Range of the Rocky Mountains; the LoDo district preserves red-brick warehouse architecture around Union Station (source: diningout.com Denver farmers markets; region knowledge -- verify architectural framing before production)",
+    "Colorado farmers-market season runs May through October -- from spring asparagus to the pumpkin harvest -- with Paonia cherries and Palisade peaches as the marquee summer-fall fruit (source: denverpost.com Denver/Boulder farmers markets 2025)",
+    "metro markets are anchored by Western Slope growers -- Palizzi Farm (Brighton) and Forte Fruits (Palisade) among them (source: diningout.com 2026 Denver metro farmers market guide)",
+    "Denver has a deep-rooted Chicano/Hispano community shaping the food culture, and is the staging metro for the I-70 ski corridor (Loveland, Winter Park, Copper, Breckenridge, Vail) (INFERRED cultural + geographic framing -- verify tone before production)"
+  ],
+  "design_palette": {
+    "textures": [
+      "LoDo red warehouse brick",
+      "sandstone civic facade",
+      "Palisade peach fuzz",
+      "Front Range foothills rock",
+      "high-plains shortgrass",
+      "cast-iron griddle sear",
+      "aspen bark (mountains)"
+    ],
+    "colors": [
+      {
+        "name": "Front Range dusk blue",
+        "hex": "#5B6B84",
+        "use": "mountain skyline backdrop"
+      },
+      {
+        "name": "Palisade peach blush",
+        "hex": "#E68A5C",
+        "use": "produce hero"
+      },
+      {
+        "name": "LoDo warehouse brick red",
+        "hex": "#8C4131",
+        "use": "downtown structure"
+      },
+      {
+        "name": "high-plains dawn gold",
+        "hex": "#D8B968",
+        "use": "eastern plains / dawn accent"
+      },
+      {
+        "name": "Rocky Mountain conifer green",
+        "hex": "#33502F",
+        "use": "foothills / foreground"
+      }
+    ],
+    "building_materials": [
+      "red fired warehouse brick (LoDo)",
+      "Colorado sandstone (civic buildings)",
+      "stucco and frame (suburban)",
+      "board-and-batten (foothills / rural)",
+      "timber-and-stone lodge (mountains)",
+      "cast-iron and steel storefront trim"
+    ],
+    "landscape_motifs": [
+      "Front Range on the western skyline",
+      "LoDo red-brick warehouse blocks",
+      "high-plains-meets-mountains edge",
+      "Union Station market crates",
+      "I-70 corridor toward the peaks"
+    ],
+    "_provenance_note": "LoDo warehouse brick grounded in Denver's Lower Downtown historic district; Front Range dusk grounded in the Rocky Mountain skyline. Palisade peach grounded in the Western Slope fruit at metro markets (diningout.com; denverpost.com). hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        {
+          "name": "Palisade / Western Slope peaches (end of season)",
+          "peak_month": 9,
+          "pancake_tie": "Palisade peach compote on cast iron -- peaches run at metro markets into early September, season ends at first freeze"
+        },
+        {
+          "name": "Front Range apples + fall squash + pumpkins",
+          "peak_month": 10,
+          "pancake_tie": "cinnamon-apple compote; savory squash Power Cakes -- Colorado market season runs to the pumpkin harvest"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Union Station Farmers Market (Denver)",
+          "type": "farmers-market",
+          "notes": "downtown market with Western Slope fruit; verify current schedule"
+        },
+        {
+          "name": "King Soopers (Denver metro)",
+          "type": "chain-grocer",
+          "notes": "Kroger banner, dominant Front Range grocer"
+        }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [7, 8],
+      "in_season_produce": [
+        {
+          "name": "Paonia cherries + early Palisade peaches",
+          "peak_month": 8,
+          "pancake_tie": "cherry or peach compote over Power Cakes -- Western Slope fruit peaks midsummer into August"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Denver metro farmers markets (Palizzi Farm, Forte Fruits)",
+          "type": "farmers-market",
+          "notes": "Western Slope + Front Range growers"
+        }
+      ]
+    },
+    {
+      "season": "ski-season",
+      "months": [12, 1, 2, 3],
+      "in_season_produce": [
+        {
+          "name": "Colorado honey + stored root veg + pantry stock-up",
+          "pancake_tie": "warm honey stack + savory root-veg Power Cakes before an I-70 ski day -- Denver is the ski-corridor staging metro; big pantry stock-up runs"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "King Soopers / Safeway (Denver metro)",
+          "type": "chain-grocer"
+        },
+        {
+          "name": "Costco (Denver metro)",
+          "type": "chain-grocer",
+          "notes": "dense warehouse footprint; ski-trip bulk stock-up"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "King Soopers",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "Kroger banner, dominant Front Range grocer"
+    },
+    {
+      "name": "Safeway",
+      "role": "primary",
+      "notes": "Albertsons banner, strong Denver presence"
+    },
+    { "name": "Costco", "role": "primary", "notes": "dense metro footprint" },
+    { "name": "Target", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "Palisade peach compote card + Paonia cherry card + Front Range apple/pumpkin card -- iconic Colorado Western Slope produce across a huge metro audience"
+    },
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "large Denver metro with dense Costco coverage + ski-trip bulk stock-up behavior -- Family Size stock-the-cabin angle is a high-volume fit"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "strong",
+      "angle": "Denver is THE staging metro for the I-70 ski corridor (Loveland, Winter Park, Copper, Breckenridge, Vail) -- Friday-night pack-and-go powder-morning protein stack. Front Range ski anchor with Boulder"
+    },
+    "keep-it-wild": {
+      "fit": "strong",
+      "angle": "the Front Range foothills, open-space parks and the Rockies at the metro's back door -- Keep It Wild mountain-staging-metro dawn stack",
+      "existing_brief": "briefs/kodiak.yaml"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no dedicated Denver creative corpus yet, though it shares Palisade-peach assets with Boulder"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "Front Range foothills have genuine black bear habitat (urban-edge activity is real) -- keep conservation-toned, tracks-only, no costume grizzlies"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified; archetype/partnership only, never likeness"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "thin",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.86,
+    "ready_to_rock": true,
+    "notes": "New seed, the Front Range ski-staging metro (sibling to Boulder). us-ski + localized-costco + recipe-cards all STRONG (I-70 corridor + Costco density + Palisade peaches). design_palette grounded in LoDo brick + Front Range + Palisade peach; seasonal keyed to Palisade peaches (Sept end-of-season) + Paonia cherries + fall apples, ski-season pantry (not winter-defaulted for produce). cultural_notes flagged thin: LoDo architectural framing and I-70 staging framing carry INFERRED elements needing local verification. languages carry INFERRED flag -- market-languages.json absent in checkout. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Denver/Boulder Colorado farmers-market season May-Oct, Paonia cherries + Palisade peaches -- denverpost.com Denver farmers markets 2025",
+      "web: Denver metro markets anchored by Palizzi Farm (Brighton) + Forte Fruits (Palisade) -- diningout.com 2026 Denver metro farmers market guide",
+      "web: Palisade peach town + peach stands, 3.5-hour drive from Denver -- 5280.com best Palisade peach stands; rmpbs.org Palisade peach science",
+      "region: LoDo red-brick warehouse district + I-70 ski corridor staging -- verify architectural + staging framing before production",
+      "INFERRED: language pct (market-languages.json absent in checkout) -- verify ACS S1601 for Denver County"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

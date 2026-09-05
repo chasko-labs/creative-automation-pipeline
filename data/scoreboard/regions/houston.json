@@ -1,0 +1,247 @@
+{
+  "region_id": "houston",
+  "market_code": "US-SC-HOUSTON",
+  "aliases": ["US-SC-HTX"],
+  "place": "Houston, Texas",
+  "zip": "77002",
+  "county": "Harris County",
+  "state": "TX",
+  "coordinates": { "lat": 29.7604, "lon": -95.3698 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Houston / Buffalo Bayou",
+    "landmark": "Allen's Landing at the confluence of Buffalo Bayou and White Oak Bayou -- the 1836 founding site; the Buffalo Bayou Park green corridor threads the bayou through the city",
+    "notes": "Houston is the Bayou City, founded in 1836 at the confluence of Buffalo Bayou and White Oak Bayou; slow-moving bayous wind across the flat Gulf Coast plain and are called the soul of the city. sources: Houston founding at Allen's Landing (en.wikipedia.org/wiki/Houston); Bayou City history (houstonchronicle.com); Buffalo Bayou Partnership (buffalobayou.org)."
+  },
+  "featured_frontier": {
+    "hook": "Gulf Coast citrus and Texas ruby-red grapefruit Power Cakes on a bungalow porch, live oaks and Buffalo Bayou behind -- Bayou City morning",
+    "photo_cue": "ruby-red grapefruit segments, wood bungalow porch, live oak, bayou water, enamel plate",
+    "signature_ingredient": "Gulf Coast citrus + Texas Gulf shrimp-and-grits savory register; humid live-oak morning on the bayou",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "Diverse Gulf Coast families -- one of the most multicultural US metros; H-E-B / Joe V's / Mi Tienda and Kroger shoppers across a broad, humid coastal-plain city",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 37.0,
+      "translate_code": "es",
+      "reason": "INFERRED from Harris County Hispanic ~44% and Houston's large Spanish-at-home population; verify exact ACS S1601 pct before production -- market-languages.json absent in checkout"
+    },
+    {
+      "lang_code": "vi",
+      "lang_name": "Vietnamese",
+      "pct_home": 3.0,
+      "translate_code": "vi",
+      "reason": "INFERRED -- Houston has one of the largest Vietnamese communities in the US, concentrated in the Midtown / southwest corridor; pct is an estimate pending ACS S1601 verification"
+    }
+  ],
+  "cultural_notes": [
+    "Houston is the Bayou City -- founded in 1836 at the confluence of Buffalo Bayou and White Oak Bayou (Allen's Landing); the bayous are slow-moving coastal-plain waterways described as the soul of the city (source: en.wikipedia.org/wiki/Houston; houstonchronicle.com Bayou City history; houstoncitybeat.com)",
+    "the flat Gulf Coast setting means the city's landscape identity is water and green corridor, not mountain -- Buffalo Bayou Park transformed the bayou into a regional outdoor amenity and flood-storage green space (source: houstonarchitecture.com Lockwood South; buffalobayou.org)",
+    "Houston is one of the most ethnically diverse metros in the US, with major Hispanic, Vietnamese, and Nigerian communities -- creative should read as multicultural, not single-heritage (INFERRED framing from region demographics -- verify community-specific claims before production)",
+    "H-E-B, including Central Market, H-E-B Plus, Joe V's Smart Shop, and Mi Tienda, leads the Houston grocery market ahead of Kroger; Joe V's and Mi Tienda are value / Hispanic-focused banners specific to this market (source: axios.com H-E-B leads Houston grocery market)"
+  ],
+  "design_palette": {
+    "textures": [
+      "painted-wood bungalow siding",
+      "live oak bark with Spanish moss",
+      "bayou-mud and cypress-knee riverbank",
+      "downtown warehouse red brick",
+      "humid-air soft-focus green",
+      "ruby-red grapefruit segment",
+      "reflective glass tower skin"
+    ],
+    "colors": [
+      { "name": "bayou water olive", "hex": "#6B7A4E", "use": "water / bayou" },
+      {
+        "name": "ruby red grapefruit",
+        "hex": "#C0392B",
+        "use": "produce hero / accent"
+      },
+      {
+        "name": "bungalow porch cream",
+        "hex": "#EDE3CE",
+        "use": "structure / porch"
+      },
+      {
+        "name": "live oak deep green",
+        "hex": "#3E5233",
+        "use": "canopy / shade"
+      },
+      {
+        "name": "Gulf humid dawn gray-blue",
+        "hex": "#8FA6B0",
+        "use": "sky / dawn backdrop"
+      }
+    ],
+    "building_materials": [
+      "painted-wood craftsman bungalow",
+      "warehouse red brick (downtown / East End)",
+      "cypress and pier-and-beam construction",
+      "steel-and-glass tower",
+      "raised flood-conscious foundations"
+    ],
+    "landscape_motifs": [
+      "Buffalo Bayou green corridor",
+      "live oak and Spanish moss",
+      "Gulf Coast prairie and coastal plain",
+      "bayou confluence at Allen's Landing",
+      "downtown skyline over the bayou"
+    ],
+    "_provenance_note": "Bayou-corridor / live-oak / bungalow grounded in Houston Bayou City geography and bayou-park architecture sources (en.wikipedia.org/wiki/Houston; buffalobayou.org; houstonarchitecture.com). ruby-red grapefruit is the Texas Gulf / Rio Grande citrus signature. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "winter-holidays",
+      "months": [12, 1, 2],
+      "in_season_produce": [
+        {
+          "name": "Texas ruby-red grapefruit + citrus (Rio Grande Valley)",
+          "peak_month": 1,
+          "pancake_tie": "ruby-red grapefruit-honey glaze over Power Cakes -- Texas citrus peaks over the winter, a bright Gulf Coast cold-season fruit"
+        },
+        {
+          "name": "winter greens (collards / mustard)",
+          "peak_month": 1,
+          "pancake_tie": "savory greens-and-cheddar Power Cakes -- Gulf Coast winter greens, a Southern table staple"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "H-E-B (Houston)",
+          "type": "chain-grocer",
+          "url": "https://www.heb.com",
+          "notes": "leads the Houston market with Central Market, H-E-B Plus, Joe V's, Mi Tienda banners"
+        },
+        {
+          "name": "Kroger (Houston)",
+          "type": "chain-grocer",
+          "notes": "the number-two Houston chain behind H-E-B"
+        }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4, 5],
+      "in_season_produce": [
+        {
+          "name": "Texas 1015 sweet onions",
+          "peak_month": 4,
+          "pancake_tie": "savory sweet-onion + cheddar Power Cakes -- Texas spring sweet onion"
+        },
+        {
+          "name": "Gulf Coast strawberries + early tomatoes",
+          "peak_month": 4,
+          "pancake_tie": "strawberry compote over Power Cakes -- early Gulf Coast spring fruit"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Urban Harvest Farmers Market (Houston)",
+          "type": "farmers-market",
+          "notes": "large Houston farmers market; Gulf Coast growers"
+        },
+        { "name": "H-E-B / Joe V's (Houston)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        {
+          "name": "Gulf Coast peaches + watermelon",
+          "peak_month": 7,
+          "pancake_tie": "peach compote Power Cakes; watermelon side -- East Texas / Gulf summer fruit"
+        },
+        {
+          "name": "summer okra + tomatoes",
+          "peak_month": 8,
+          "pancake_tie": "savory tomato Power Cakes -- INFERRED summer tie, verify local availability"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Urban Harvest Farmers Market", "type": "farmers-market" },
+        { "name": "H-E-B (Houston)", "type": "chain-grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "H-E-B",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "market leader incl Central Market, H-E-B Plus, Joe V's Smart Shop, Mi Tienda"
+    },
+    {
+      "name": "Kroger",
+      "role": "primary",
+      "notes": "number-two Houston chain"
+    },
+    {
+      "name": "Joe V's Smart Shop",
+      "role": "secondary",
+      "notes": "H-E-B value banner, Houston-specific"
+    },
+    { "name": "Walmart", "role": "secondary" },
+    { "name": "Costco", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "Texas ruby-red grapefruit-honey Power Cakes card + Gulf Coast greens savory card + summer-peach card -- real coastal-plain seasonal hooks across a diverse metro"
+    },
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "H-E-B leads Houston with the Joe V's and Mi Tienda value/Hispanic banners as well as Central Market; the localized-retailer play here is banner-specific -- Joe V's / Mi Tienda for value households, Central Market for premium",
+      "existing_brief": "briefs/kodiak-costco.yaml"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no existing Houston creative corpus in the scoreboard set -- thin to riff on until first assets ship"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified; archetype/partnership only, never likeness"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "Bear Bites lunchbox angle carries nationally; the Gulf Coast plain is not bear country -- keep conservation-toned, national"
+    },
+    "keep-it-wild": {
+      "fit": "strong",
+      "angle": "Buffalo Bayou Park green corridor and the Katy Prairie -- Keep It Wild urban-bayou-and-coastal-prairie stack, water rather than mountain",
+      "existing_brief": "briefs/kodiak.yaml"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "humid Gulf Coast metro; no ski culture"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.85,
+    "ready_to_rock": true,
+    "notes": "New seed. design_palette grounded in Bayou City geography + live oak + bungalow and cited; seasonal keyed to Texas ruby-red grapefruit (winter -- a real coastal citrus season, not a default), 1015 onions and Gulf strawberries (spring), peaches (summer). H-E-B mapped as market leader with correct Houston-specific banners (Joe V's, Mi Tienda, Central Market). Multicultural framing kept general with INFERRED flag. Both language pcts carry INFERRED flag -- no ACS number fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Houston Bayou City founding at Allen's Landing 1836 -- en.wikipedia.org/wiki/Houston; houstonchronicle.com Bayou City history; houstoncitybeat.com",
+      "web: Buffalo Bayou green corridor / flood storage -- buffalobayou.org; houstonarchitecture.com Lockwood South; planning.org Buffalo Bayou",
+      "web: H-E-B leads Houston with Central Market, H-E-B Plus, Joe V's, Mi Tienda -- axios.com H-E-B leads Houston grocery market",
+      "web: Texas produce (ruby-red grapefruit, 1015 onions) -- texasagriculture.gov Produce Commodity Card; pickyourown.org TXharvestcalendar",
+      "INFERRED: Spanish and Vietnamese at-home pcts (market-languages.json absent in checkout) -- verify ACS S1601 for Harris County"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

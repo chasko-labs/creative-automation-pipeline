@@ -1,0 +1,228 @@
+{
+  "region_id": "las-vegas",
+  "market_code": "US-W-VEGAS",
+  "aliases": [],
+  "place": "Las Vegas, Nevada",
+  "zip": "89101",
+  "county": "Clark County",
+  "state": "NV",
+  "coordinates": { "lat": 36.1699, "lon": -115.1398 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Las Vegas / Downtown Summerlin",
+    "landmark": "the Mojave Desert valley ringed by the Spring Mountains and Red Rock Canyon to the west, Lake Mead to the southeast; Downtown Summerlin is the suburban farmers-market anchor",
+    "notes": "Las Vegas sits in a Mojave Desert basin between Red Rock Canyon and Lake Mead; the Las Vegas Farmers Market at Downtown Summerlin (The Pavilion, Sat) is the most accessible market, bringing Southwest produce to the valley. sources: st-aug.edu Las Vegas Mojave/Lake Mead geography; fabulousnevada.com Las Vegas farmers markets; britannica.com Las Vegas."
+  },
+  "featured_frontier": {
+    "hook": "A stack with Southwest melon and date over Power Cakes at the Downtown Summerlin market, Red Rock Canyon's red sandstone glowing west of the valley -- Mojave-oasis breakfast",
+    "photo_cue": "melon + dates, cast iron, Summerlin market pavilion, Red Rock Canyon red sandstone west",
+    "signature_ingredient": "Southwest desert melons + dates + citrus (Mojave-valley market produce)",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "Mojave-valley families, large-household and service-industry base, fast-growing metro; Smith's + Albertsons + Costco + Walmart shoppers, 24-hour desert city",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 27.0,
+      "translate_code": "es",
+      "reason": "INFERRED from Clark County Hispanic ~33% (ACS pattern); largest second language of the Las Vegas valley -- verify exact ACS S1601 pct before production"
+    },
+    {
+      "lang_code": "tl",
+      "lang_name": "Tagalog",
+      "pct_home": 6.0,
+      "translate_code": "tl",
+      "reason": "INFERRED Las Vegas has one of the larger Filipino communities in the US (hospitality workforce); Tagalog is a significant home language -- verify ACS pct before production"
+    }
+  ],
+  "cultural_notes": [
+    "Las Vegas sits at the crossroads of the Mojave Desert to the north and west and the Lake Mead National Recreation Area to the southeast; Red Rock Canyon's red sandstone escarpment rises just west of the valley (source: st-aug.edu where in America is Las Vegas; britannica.com Las Vegas outdoor recreation)",
+    "beyond the Strip, the valley has a real farmers-market and farm-to-table movement -- the Las Vegas Farmers Market at Downtown Summerlin brings the freshest Southwest fruits and vegetables to the community (source: fabulousnevada.com 5 Las Vegas farmers markets; lasvegasweekly.com farm to table)",
+    "Las Vegas is a large, fast-growing, 24-hour service-economy metro with a substantial Filipino and Hispanic workforce shaping the food culture (INFERRED demographic framing -- verify tone before production)",
+    "the desert setting means most fresh produce is imported; Red Rock Canyon and Lake Mead are the genuine wild-land recreation anchors (source: britannica.com Las Vegas; st-aug.edu)"
+  ],
+  "design_palette": {
+    "textures": [
+      "Red Rock Canyon sandstone strata",
+      "Mojave creosote-and-caliche flat",
+      "stucco suburban wall",
+      "date-palm frond",
+      "neon-glass reflection (downtown)",
+      "cast-iron griddle sear",
+      "Joshua-tree bark (outer valley)"
+    ],
+    "colors": [
+      {
+        "name": "Red Rock Canyon sandstone red",
+        "hex": "#B15A3C",
+        "use": "western escarpment / backdrop"
+      },
+      {
+        "name": "Mojave dawn amber",
+        "hex": "#D8A85A",
+        "use": "desert dawn sky"
+      },
+      { "name": "desert melon green", "hex": "#7FA05A", "use": "produce hero" },
+      {
+        "name": "medjool date brown",
+        "hex": "#5A3620",
+        "use": "produce hero / accent"
+      },
+      {
+        "name": "Spring Mountains dusk blue",
+        "hex": "#5B6B84",
+        "use": "western range skyline"
+      }
+    ],
+    "building_materials": [
+      "stucco over frame (suburban)",
+      "concrete block",
+      "flat and low-pitch tile roof",
+      "Red Rock sandstone accent",
+      "glass-and-steel (downtown / Strip)",
+      "desert-landscaped xeriscape frontage"
+    ],
+    "landscape_motifs": [
+      "Red Rock Canyon red sandstone escarpment",
+      "Mojave creosote flat",
+      "date-palm and xeriscape",
+      "Spring Mountains ringing the valley",
+      "Lake Mead blue to the southeast"
+    ],
+    "_provenance_note": "Red Rock sandstone red grounded in the escarpment west of the valley (britannica.com; st-aug.edu). desert melon + date grounded in Southwest market produce. Mojave dawn + Spring Mountains grounded in the basin terrain. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        {
+          "name": "Southwest melons + late-season stone fruit (market)",
+          "peak_month": 9,
+          "pancake_tie": "melon side + savory Power Cakes; desert melons carry into early fall at the Summerlin market"
+        },
+        {
+          "name": "dates + early citrus (imported Southwest)",
+          "peak_month": 11,
+          "pancake_tie": "chopped-date + citrus-honey stack -- regional Southwest fall harvest brought to the valley"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Las Vegas Farmers Market (Downtown Summerlin, The Pavilion)",
+          "type": "farmers-market",
+          "url": "https://www.lasvegasfarmersmarket.com",
+          "notes": "Sat 9-2; Southwest fruits and vegetables, nuts, baked goods"
+        },
+        {
+          "name": "Smith's Food & Drug (Las Vegas)",
+          "type": "chain-grocer",
+          "notes": "Kroger banner, dominant valley grocer"
+        }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [12, 1],
+      "in_season_produce": [
+        {
+          "name": "Southwest citrus + dates (holiday)",
+          "peak_month": 1,
+          "pancake_tie": "citrus-honey + date holiday stack -- imported Southwest citrus peaks into midwinter (INFERRED tie, verify)"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Smith's / Albertsons (Las Vegas)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        {
+          "name": "Southwest melons + stone fruit (market)",
+          "peak_month": 8,
+          "pancake_tie": "melon side + fold peach into batter -- peak market fruit despite desert heat"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Las Vegas Farmers Market (Downtown Summerlin)",
+          "type": "farmers-market"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Smith's Food & Drug",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "Kroger banner, dominant Las Vegas grocer"
+    },
+    { "name": "Albertsons", "role": "primary" },
+    {
+      "name": "Costco",
+      "role": "primary",
+      "notes": "dense metro footprint; large-household bulk market"
+    },
+    { "name": "Walmart", "role": "primary" }
+  ],
+  "campaign_type_fit": {
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "large, fast-growing Las Vegas metro with dense Costco coverage and big-household + service-industry bulk-buying culture -- Family Size stock-up is a strong, high-volume fit"
+    },
+    "recipe-cards": {
+      "fit": "weak",
+      "angle": "melon/date/citrus market cards work, but most produce is imported so the ownable local-produce hook is thinner than the orchard/chile markets"
+    },
+    "keep-it-wild": {
+      "fit": "strong",
+      "angle": "Red Rock Canyon National Conservation Area and Lake Mead frame the valley -- Keep It Wild red-sandstone-and-Mojave dawn stack (a genuine escape-the-Strip angle)",
+      "existing_brief": "briefs/kodiak.yaml"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no existing Las Vegas creative corpus -- thin to riff on until first assets ship"
+    },
+    "bears": {
+      "fit": "na",
+      "angle": "Mojave Desert valley; no bear habitat. Bear Bites lunchbox angle carries only nationally, not locally"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified; archetype/partnership only, never likeness"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "weak",
+      "angle": "Lee Canyon in the Spring Mountains (Mount Charleston) is a genuine small ski area ~45 min from the valley -- a real but niche local snow angle, not a Las Vegas identity"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "thin",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.83,
+    "ready_to_rock": true,
+    "notes": "New seed. localized-costco STRONG (large metro + bulk-buying culture); keep-it-wild STRONG (Red Rock Canyon + Lake Mead). Lee Canyon noted as a genuine niche ski angle. seasonal flagged thin: most produce is imported to the desert valley, so produce ties are market-sourced Southwest fruit rather than local crops (honestly flagged). Filipino/Tagalog + Hispanic communities noted. languages carry INFERRED flags -- market-languages.json absent in checkout. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Las Vegas Mojave Desert / Red Rock Canyon / Lake Mead geography -- st-aug.edu where in America is Las Vegas; britannica.com Las Vegas",
+      "web: Las Vegas Farmers Market at Downtown Summerlin (The Pavilion, Sat) + farm-to-table movement -- fabulousnevada.com 5 Las Vegas farmers markets; lasvegasweekly.com farm to table; smartvegasdeals.com",
+      "region: Lee Canyon (Mount Charleston / Spring Mountains) small ski area -- verify before production",
+      "INFERRED: language pcts + imported-produce framing (market-languages.json absent in checkout) -- verify ACS S1601 for Clark County"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

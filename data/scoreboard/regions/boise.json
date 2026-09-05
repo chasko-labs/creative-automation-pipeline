@@ -1,0 +1,247 @@
+{
+  "region_id": "boise",
+  "market_code": "US-MW-BOISE",
+  "aliases": [],
+  "place": "Boise, Idaho",
+  "zip": "83702",
+  "county": "Ada County",
+  "state": "ID",
+  "coordinates": { "lat": 43.615, "lon": -116.2023 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Boise / the Basque Block",
+    "landmark": "the Boise Foothills rising north of downtown; the Basque Block (600 block of Grove Street), one of the most significant Basque cultural districts outside Spain",
+    "notes": "the Basque Block anchors downtown Boise's food-and-culture identity; the Boise Farmers Market (North End, Fort Street) gathers Treasure Valley growers. Bogus Basin ski area sits 16 miles up the foothills. sources: visitsouthwestidaho.org Basque Block; theboisefarmersmarket.com; bogusbasin.org."
+  },
+  "featured_frontier": {
+    "hook": "Treasure Valley stone-fruit compote over Power Cakes with a nod to the Basque Block, Boise Foothills behind, Bogus Basin snow up top -- foothills-and-Basque breakfast",
+    "photo_cue": "peach/plum compote, cast iron, Basque-block brick, Boise Foothills, Bogus Basin ridge",
+    "signature_ingredient": "Treasure Valley stone fruit + Idaho honey; Basque-heritage food culture",
+    "cross_promo": {
+      "partner": "The Basque Market / Basque Block (Boise)",
+      "url": "https://www.thebasquemarket.com",
+      "activation": "Basque-Block food-culture tie for downtown activations (croqueta-adjacent brunch context); keep the pancake product front and center",
+      "consent_status": "proposed"
+    }
+  },
+  "audience": "Treasure Valley families, foothills-and-outdoor households, growing tech-transplant base; Albertsons (HQ) + WinCo + Costco + Fred Meyer shoppers",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 8.0,
+      "translate_code": "es",
+      "reason": "INFERRED from Ada County Hispanic ~9% (ACS pattern); largest second language of the Treasure Valley -- verify exact ACS S1601 pct before production"
+    },
+    {
+      "lang_code": "eu",
+      "lang_name": "Basque (Euskara)",
+      "pct_home": 0.3,
+      "translate_code": "es",
+      "reason": "INFERRED Boise/Treasure Valley is the largest Basque community outside Europe (15,000+); culturally central even where home-language pct is very low. translate_code falls back to Spanish (no Nova Basque code). verify before use"
+    }
+  ],
+  "cultural_notes": [
+    "over 15,000 Basques settled the Treasure Valley, making it the largest community of Basques outside Europe; the Basque Block on Grove Street is a walkable district of a museum, market, restaurants and boardinghouse history (source: en.wikipedia.org/wiki/Treasure_Valley; visitsouthwestidaho.org Basque Block; visitboise.com Basque)",
+    "the Cyrus Jacobs-Uberuaga House on the Basque Block is the oldest surviving brick building in Boise (1864); Jaialdi, a major Basque festival, fills the block (source: visitboise.com Basque; visitsouthwestidaho.org Jaialdi)",
+    "Basques came in the mid-1800s and became indispensable sheepherders in Idaho's rugged high country -- a deep agricultural-heritage story (source: nationalgeographic.com Basque culture in Idaho)",
+    "the Boise Foothills and Bogus Basin (16 mi from downtown) give the metro an accessible ski-and-trail outdoor identity (source: bogusbasin.org; visitsouthwestidaho.org)"
+  ],
+  "design_palette": {
+    "textures": [
+      "Boise sandstone (Table Rock quarry)",
+      "Basque-block red brick",
+      "weathered sheep-camp wagon canvas",
+      "orchard stone-fruit skin",
+      "foothills cheatgrass gold",
+      "cast-iron griddle sear",
+      "ponderosa bark (Bogus Basin)"
+    ],
+    "colors": [
+      {
+        "name": "Boise Foothills summer gold",
+        "hex": "#C6A45A",
+        "use": "foothills / backdrop"
+      },
+      {
+        "name": "Table Rock sandstone tan",
+        "hex": "#C9A877",
+        "use": "structure / stone"
+      },
+      {
+        "name": "Basque-red brick",
+        "hex": "#9C3B2E",
+        "use": "storefront / accent (Basque flag red)"
+      },
+      {
+        "name": "Treasure Valley peach blush",
+        "hex": "#E68A5C",
+        "use": "produce hero"
+      },
+      {
+        "name": "Bogus Basin conifer green",
+        "hex": "#33502F",
+        "use": "ridge / foreground"
+      }
+    ],
+    "building_materials": [
+      "Boise sandstone (Table Rock quarry stone)",
+      "red fired brick (downtown / Basque Block)",
+      "board-and-batten (foothills / rural)",
+      "stucco and frame (suburban)",
+      "timber lodge (Bogus Basin)",
+      "cast-iron storefront trim"
+    ],
+    "landscape_motifs": [
+      "Boise Foothills gold ridgelines",
+      "Basque Block brick storefronts",
+      "Treasure Valley orchard rows",
+      "Boise River greenbelt cottonwoods",
+      "Bogus Basin snow ridge"
+    ],
+    "_provenance_note": "Table Rock sandstone + Basque-block brick grounded in Boise's stone/brick downtown and Basque district (visitboise.com; en.wikipedia.org Treasure Valley). Basque-red accent grounded in the Basque flag/heritage. Treasure Valley peach grounded in the orchard economy. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        {
+          "name": "Treasure Valley peaches + plums + apples",
+          "peak_month": 9,
+          "pancake_tie": "cinnamon peach/plum compote on cast iron; Idaho orchard stone fruit runs into September"
+        },
+        {
+          "name": "Idaho sweet corn + winter squash",
+          "peak_month": 10,
+          "pancake_tie": "savory sweet-corn or squash Power Cakes -- Treasure Valley fall harvest"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Boise Farmers Market (North End, Fort Street)",
+          "type": "farmers-market",
+          "url": "https://theboisefarmersmarket.com",
+          "notes": "Treasure Valley growers, produce and honey"
+        },
+        {
+          "name": "Albertsons (Boise HQ)",
+          "type": "chain-grocer",
+          "notes": "Albertsons is headquartered in Boise"
+        }
+      ]
+    },
+    {
+      "season": "ski-season",
+      "months": [12, 1, 2],
+      "in_season_produce": [
+        {
+          "name": "Idaho honey + stored root veg + pantry stock-up",
+          "pancake_tie": "warm honey stack before a Bogus Basin morning; savory root-veg Power Cakes"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "WinCo Foods (Boise)",
+          "type": "chain-grocer",
+          "notes": "Idaho-founded bulk-value grocer"
+        },
+        {
+          "name": "Fred Meyer (Boise)",
+          "type": "chain-grocer",
+          "notes": "Kroger banner"
+        }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        {
+          "name": "Idaho cherries + early peaches + berries",
+          "peak_month": 7,
+          "pancake_tie": "fold cherries or diced peach into batter; bright summer stack"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Boise Farmers Market (North End, Fort Street)",
+          "type": "farmers-market"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Albertsons",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "headquartered in Boise"
+    },
+    {
+      "name": "WinCo Foods",
+      "role": "primary",
+      "notes": "Idaho-founded bulk-value grocer"
+    },
+    { "name": "Fred Meyer", "role": "primary", "notes": "Kroger banner" },
+    { "name": "Costco", "role": "primary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "Treasure Valley peach/plum compote card + Idaho sweet-corn savory card -- real Idaho orchard-and-valley produce; optional Basque-Block food-culture framing"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "strong",
+      "angle": "Bogus Basin sits 16 miles from downtown, an accessible community ski-and-recreation mountain -- a genuine metro-adjacent ski identity, powder-morning stack for the foothills market"
+    },
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "Boise is Albertsons' HQ metro with dense WinCo/Costco/Fred Meyer coverage; bulk Family Size stock-up + home-banner Albertsons lockup both land"
+    },
+    "keep-it-wild": {
+      "fit": "strong",
+      "angle": "the Boise Foothills / Ridge to Rivers trail system rises straight out of downtown -- Keep It Wild foothills-dawn stack",
+      "existing_brief": "briefs/kodiak.yaml"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no existing Boise creative corpus in the scoreboard set -- thin to riff on until first assets ship"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "Bear Bites angle carries nationally; central Idaho has black bear habitat but Boise's identity is foothills-and-Basque -- keep conservation-toned"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified; archetype/partnership only, never likeness"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.89,
+    "ready_to_rock": true,
+    "notes": "New seed. Distinct Basque-Block cultural hook + Albertsons-HQ home-retailer story. us-ski STRONG (Bogus Basin 16 mi from downtown), localized-costco STRONG (Albertsons HQ + WinCo/Costco density). design_palette grounded in Boise sandstone/Basque brick/foothills, cited; seasonal keyed to Treasure Valley stone fruit fall + ski-season honey (not winter-defaulted). Basque language reference falls back to Spanish translate_code + consent-flagged. languages carry INFERRED flag -- market-languages.json absent in checkout. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Treasure Valley = largest Basque community outside Europe (15,000+); Basque Block on Grove Street -- en.wikipedia.org/wiki/Treasure_Valley; visitsouthwestidaho.org Basque Block; visitboise.com Basque",
+      "web: Cyrus Jacobs-Uberuaga House (oldest brick building 1864) + Jaialdi festival -- visitboise.com Basque; visitsouthwestidaho.org Jaialdi",
+      "web: Basque sheepherding heritage in Idaho -- nationalgeographic.com Basque culture in Idaho",
+      "web: Bogus Basin ski/recreation 16 mi from downtown -- bogusbasin.org",
+      "web: Boise Farmers Market (North End, Fort Street) -- theboisefarmersmarket.com",
+      "INFERRED: language pcts (market-languages.json absent in checkout) -- verify ACS S1601 for Ada County"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "region_id": "tampa",
+  "market_code": "US-SE-TAMPA",
+  "aliases": ["US-SE-TAMPA-STPETE"],
+  "place": "Tampa, Florida",
+  "state": "FL",
+  "coordinates": { "lat": 27.9506, "lon": -82.4572 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Ybor City + Tampa Riverwalk",
+    "landmark": "Ybor City historic Latin district (cigar-era brick), Tampa Riverwalk along the Hillsborough River; Plant City strawberry country to the east",
+    "notes": "Tampa Bay metro with the Ybor City Cuban/Spanish/Italian heritage core. Publix (Lakeland FL headquarters) is the home grocer, headquartered just up the road in Polk County. Plant City is the winter strawberry capital of the state. source: Publix footprint; Plant City strawberry heritage."
+  },
+  "featured_frontier": {
+    "hook": "Plant City strawberry shortstack + Cuban-bread French toast -- Ybor City Latin brunch in peak winter strawberry season",
+    "photo_cue": "Ybor brick and wrought-iron balcony, Cuban bread, fresh Plant City strawberries, cafe con leche; warm Tampa Bay light",
+    "signature_ingredient": "Plant City strawberries (Dec-Mar peak) + Florida citrus; Cuban-bread tie",
+    "cross_promo": {
+      "partner": "Plant City strawberry growers / Ybor City farmers markets",
+      "activation": "Plant City strawberry compote recipe card, Publix retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Tampa Bay Latin-heritage and beach families; Publix-first Central Gulf Coast households",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "translate_code": "es",
+      "reason": "Spanish is the leading second home language across the Tampa Bay metro, with deep Ybor City Cuban/Spanish roots. Percentage INFERRED (localization pipeline data absent) -- not an ACS figure"
+    }
+  ],
+  "cultural_notes": [
+    "Ybor City is Tampa's historic Latin district, built by Cuban, Spanish, and Italian cigar-industry immigrants; its brick and wrought-iron fabric anchors the city's cultural identity (source: general regional knowledge; language selection flagged INFERRED)",
+    "Plant City, east of Tampa, is Florida's winter strawberry capital -- the Florida Strawberry Festival runs late February to early March, at the peak of the Dec-Mar strawberry season (source: fdacs.gov Crops-in-Season strawberry Dec-Apr; UF/IFAS strawberry peak Dec-Mar)",
+    "Florida's near-tropical calendar makes winter the peak of citrus and strawberry, not a produce off-season (source: fdacs.gov; sarasotamagazine.com)",
+    "Publix is headquartered in nearby Lakeland (Polk County) and is the dominant home grocer across the Tampa Bay metro (source: Publix regional footprint)"
+  ],
+  "design_palette": {
+    "textures": [
+      "Ybor red brick",
+      "wrought-iron balcony scroll",
+      "Cuban-tile mosaic",
+      "Gulf-sand grain",
+      "strawberry-skin dimple",
+      "royal-palm frond",
+      "cigar-leaf mottle"
+    ],
+    "colors": [
+      {
+        "name": "Ybor cigar-brick red",
+        "hex": "#8A4032",
+        "use": "structure / facade"
+      },
+      {
+        "name": "Plant City strawberry red",
+        "hex": "#C42A38",
+        "use": "produce hero"
+      },
+      { "name": "Cuban-tile teal", "hex": "#3E8F8F", "use": "accent / trim" },
+      {
+        "name": "Gulf Coast sand",
+        "hex": "#E4D3B0",
+        "use": "ground / plate surface"
+      },
+      {
+        "name": "royal-palm green",
+        "hex": "#2E5E3A",
+        "use": "canopy / foreground"
+      }
+    ],
+    "building_materials": [
+      "red fired brick (Ybor cigar factories)",
+      "wrought iron balcony and rail",
+      "decorative Cuban tile",
+      "wood-frame bungalow",
+      "stucco over masonry"
+    ],
+    "landscape_motifs": [
+      "Ybor City brick streetscape",
+      "Tampa Riverwalk on the Hillsborough River",
+      "Plant City strawberry field",
+      "Gulf Coast beach",
+      "royal-palm avenue"
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "winter-holidays",
+      "months": [12, 1, 2],
+      "in_season_produce": [
+        {
+          "name": "Plant City strawberries",
+          "peak_month": 2,
+          "pancake_tie": "Plant City strawberry shortstack -- winter is peak strawberry in the Tampa area, the state's strawberry capital"
+        },
+        {
+          "name": "Florida citrus (oranges, grapefruit)",
+          "peak_month": 1,
+          "pancake_tie": "citrus glaze over Power Cakes -- winter peak citrus"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Publix (Tampa Bay metro)",
+          "type": "chain-grocer",
+          "notes": "home grocer, Lakeland FL headquarters nearby"
+        },
+        {
+          "name": "Plant City farm stands",
+          "type": "farm-stand",
+          "notes": "strawberry country east of Tampa"
+        }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4],
+      "in_season_produce": [
+        {
+          "name": "Florida blueberries",
+          "peak_month": 4,
+          "pancake_tie": "early blueberry Power Cakes -- Florida blueberries lead the spring crop"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Publix (Tampa Bay metro)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [5, 6, 7, 8],
+      "in_season_produce": [
+        {
+          "name": "Florida watermelon",
+          "peak_month": 6,
+          "pancake_tie": "watermelon side to a summer stack (watermelon Apr-Jul)"
+        },
+        {
+          "name": "Florida mango (late summer)",
+          "peak_month": 7,
+          "pancake_tie": "mango-lime spoon over Power Cakes -- Florida mango peaks mid-summer"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Publix (Tampa Bay metro)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        {
+          "name": "Florida sweet corn (fall crop)",
+          "peak_month": 11,
+          "pancake_tie": "savory sweet-corn cakes -- Florida sweet corn runs Oct-Jun, fall crop starts here"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Publix (Tampa Bay metro)", "type": "chain-grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Publix", "role": "home" },
+    { "name": "Winn-Dixie", "role": "primary" },
+    { "name": "Target", "role": "secondary" },
+    { "name": "Walmart", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "Publix-heartland variant (Publix headquartered in nearby Lakeland) with an Ybor City Latin-brunch angle; reuse briefs/kodiak-costco.yaml pattern",
+      "existing_brief": "briefs/kodiak-costco.yaml"
+    },
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "Plant City strawberry shortstack card + Cuban-bread French toast card + Florida citrus glaze card -- three real winter-season cards"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no known prior Tampa creative to riff on"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified; archetype only, never likeness"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "Florida black bear present; keep conservation-toned, tracks-only, no grizzly hook"
+    },
+    "keep-it-wild": {
+      "fit": "weak",
+      "angle": "Gulf Coast wild angle possible but metro-dense market"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "no ski culture; Gulf Coast subtropical"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.83,
+    "ready_to_rock": true,
+    "notes": "Tampa Bay record anchored on Plant City strawberry capital + Ybor City Latin heritage, season-honest (winter strawberry/citrus). languages thin -- single INFERRED entry, no ACS numbers fabricated. hex flagged for brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Florida crops in season (strawberry Dec-Apr) -- fdacs.gov/Food-Nutrition/Buy-Fresh-From-Florida/Crops-in-Season",
+      "web: Florida strawberry peak Dec-Mar -- blogs.ifas.ufl.edu (UF/IFAS)",
+      "web: Florida growing season Oct-May -- sarasotamagazine.com",
+      "Plant City strawberry capital + Ybor City heritage + Publix Lakeland HQ -- general regional knowledge",
+      "language percentage INFERRED -- localization pipeline data absent from checkout; no ACS figure fabricated"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

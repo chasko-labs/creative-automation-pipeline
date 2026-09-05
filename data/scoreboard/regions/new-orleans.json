@@ -1,0 +1,260 @@
+{
+  "region_id": "new-orleans",
+  "market_code": "US-SE-NOLA",
+  "aliases": ["US-SE-NEWORLEANS"],
+  "place": "New Orleans, Louisiana",
+  "state": "LA",
+  "coordinates": { "lat": 29.9511, "lon": -90.0715 },
+  "classification": "metro",
+  "city_center": {
+    "name": "French Quarter (Vieux Carre) + Crescent City Farmers Market",
+    "landmark": "French Quarter cast-iron galleries and Jackson Square; Crescent City Farmers Market operating year-round across the city",
+    "notes": "Creole river city on the Mississippi. Rouses Markets (Louisiana-founded, Thibodaux HQ) is the dominant home grocer; Winn-Dixie also serves the metro. Crescent City Farmers Market hosts 70+ local farmers, fishers, and food producers. sources: crescentcityfarmersmarket.org; en.wikipedia.org/wiki/Buildings_and_architecture_of_New_Orleans."
+  },
+  "featured_frontier": {
+    "hook": "Creole tomato + chicory-cafe-au-lait savory stack, or a Carnival-season king-cake Power Cakes -- a French Quarter wrought-iron-balcony brunch",
+    "photo_cue": "cast-iron gallery lacework, Creole-townhouse stucco in Caribbean colors, Creole tomatoes, chicory coffee, king-cake sugar in purple-green-gold; humid Quarter light",
+    "signature_ingredient": "Creole tomatoes (late May-July) + chicory coffee; king cake for Carnival season (Epiphany to Mardi Gras)",
+    "cross_promo": {
+      "partner": "Crescent City Farmers Market",
+      "url": "https://crescentcityfarmersmarket.org/whats-in-season",
+      "activation": "Creole-tomato savory Power Cakes card + Carnival king-cake stack card, Rouses retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Creole-and-Cajun-heritage New Orleans families + French Quarter and neighborhood households; Rouses-first metro shoppers",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "translate_code": "es",
+      "reason": "Spanish is the leading second home language across the New Orleans metro, with a large Honduran community. Percentage INFERRED (localization pipeline data absent) -- not an ACS figure"
+    },
+    {
+      "lang_code": "vi",
+      "lang_name": "Vietnamese",
+      "translate_code": "vi",
+      "reason": "New Orleans East has one of the most established Vietnamese-American communities in the Gulf South. Percentage INFERRED, not an ACS figure"
+    }
+  ],
+  "cultural_notes": [
+    "New Orleans is a Creole city with French, Spanish, Caribbean, and African roots; cafe au lait with chicory and beignets anchor the daily food culture, and the city's calendar turns on Carnival season (source: benjaminmoore.com French Quarter palette; general cultural knowledge; language selection flagged INFERRED)",
+    "The French Quarter's most recognizable feature is its cast-iron galleries; despite the French name, the surviving architecture is overwhelmingly Spanish, rebuilt in fire-resistant brick, stucco, and tile after the 1788 and 1794 fires, with Creole townhouses and Caribbean colors (source: en.wikipedia.org/wiki/Buildings_and_architecture_of_New_Orleans; tripshock.com; frenchmarketinn.com)",
+    "King cake is the signature Carnival-season food, eaten from Epiphany (January 6) through Mardi Gras, decorated in the purple, green, and gold of Carnival (source: general regional food-culture knowledge)",
+    "Creole tomatoes are a short-season Southeast-Louisiana specialty sold at farmers markets and roadside stands from late May through July (source: chefsresource.com Creole tomatoes; nola.com produce guide)",
+    "Rouses Markets is a Louisiana-founded grocer (Thibodaux headquarters) and a regional cultural fixture across the Gulf South (source: Rouses regional footprint)"
+  ],
+  "design_palette": {
+    "textures": [
+      "cast-iron gallery lacework",
+      "Creole-townhouse stucco",
+      "fire-resistant Spanish brick",
+      "clay barrel tile",
+      "tropical-courtyard fern",
+      "Creole-tomato skin",
+      "king-cake sugar crystal"
+    ],
+    "colors": [
+      {
+        "name": "French Quarter Caribbean ochre",
+        "hex": "#D89A54",
+        "use": "structure / facade"
+      },
+      {
+        "name": "wrought-iron gallery black-green",
+        "hex": "#2C3630",
+        "use": "ironwork / accent"
+      },
+      {
+        "name": "Creole terracotta",
+        "hex": "#B25A3E",
+        "use": "structure / roof tile"
+      },
+      { "name": "Creole-tomato red", "hex": "#C43A2E", "use": "produce hero" },
+      {
+        "name": "Carnival purple-green-gold",
+        "hex": "#5E3A7A",
+        "use": "seasonal accent (king cake)"
+      }
+    ],
+    "building_materials": [
+      "cast and wrought iron (galleries and balconies)",
+      "fire-resistant Spanish brick",
+      "stucco over masonry",
+      "clay barrel roof tile",
+      "wooden shutters and French doors"
+    ],
+    "landscape_motifs": [
+      "French Quarter cast-iron balcony row",
+      "Jackson Square and St. Louis Cathedral",
+      "Mississippi River levee",
+      "tropical courtyard",
+      "streetcar on St. Charles Avenue"
+    ],
+    "_provenance_note": "Caribbean ochre, terracotta, and earthy stucco hues grounded in the Benjamin Moore French Quarter palette and Spanish-rebuild material descriptions (en.wikipedia; tripshock.com). wrought-iron black-green from the galleries. Carnival purple-green-gold is the traditional king-cake color triad. hex values are perceptual approximations -- flag for brand-fit review."
+  },
+  "seasonal": [
+    {
+      "season": "new-year",
+      "months": [1, 2],
+      "in_season_produce": [
+        {
+          "name": "king cake (Carnival season)",
+          "peak_month": 2,
+          "pancake_tie": "Carnival king-cake Power Cakes -- cinnamon stack with purple-green-gold sugar, Epiphany through Mardi Gras"
+        },
+        {
+          "name": "Louisiana satsuma + citrus",
+          "peak_month": 1,
+          "pancake_tie": "Louisiana satsuma glaze over Power Cakes -- Gulf-South winter citrus"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Rouses Markets (New Orleans metro)",
+          "type": "chain-grocer",
+          "notes": "Louisiana-founded grocer"
+        },
+        {
+          "name": "Crescent City Farmers Market",
+          "type": "farmers-market",
+          "url": "https://crescentcityfarmersmarket.org/whats-in-season"
+        }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4, 5],
+      "in_season_produce": [
+        {
+          "name": "Ponchatoula strawberries",
+          "peak_month": 4,
+          "pancake_tie": "Ponchatoula strawberry compote stack -- Southeast Louisiana spring strawberries"
+        },
+        {
+          "name": "Creole tomatoes (early)",
+          "peak_month": 5,
+          "pancake_tie": "savory Creole-tomato Power Cakes -- Creole tomatoes start in late May"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Crescent City Farmers Market",
+          "type": "farmers-market",
+          "url": "https://crescentcityfarmersmarket.org/whats-in-season"
+        },
+        { "name": "Rouses Markets (New Orleans metro)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        {
+          "name": "Creole tomatoes (peak)",
+          "peak_month": 6,
+          "pancake_tie": "savory Creole-tomato Power Cakes -- short-season specialty, late May-July peak"
+        },
+        {
+          "name": "Louisiana blueberries + peaches",
+          "peak_month": 6,
+          "pancake_tie": "Gulf-South blueberry Power Cakes"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Crescent City Farmers Market", "type": "farmers-market" },
+        {
+          "name": "Southeast Louisiana roadside stands",
+          "type": "farm-stand",
+          "notes": "Creole tomatoes late May-July"
+        }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        {
+          "name": "Louisiana sweet potatoes + citrus (early)",
+          "peak_month": 11,
+          "pancake_tie": "roasted Louisiana sweet-potato Power Cakes; early satsuma glaze"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Rouses Markets (New Orleans metro)",
+          "type": "chain-grocer"
+        },
+        { "name": "Crescent City Farmers Market", "type": "farmers-market" }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Rouses Markets",
+      "role": "home",
+      "notes": "Louisiana-founded, Thibodaux HQ"
+    },
+    { "name": "Winn-Dixie", "role": "primary" },
+    { "name": "Walmart", "role": "secondary" },
+    { "name": "Whole Foods Market", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "Rouses (Louisiana grocer) variant of the localized-costco type; reuse briefs/kodiak-costco.yaml pattern with a French Quarter Rouses lockup",
+      "existing_brief": "briefs/kodiak-costco.yaml"
+    },
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "Carnival king-cake Power Cakes card + Creole-tomato savory card + Ponchatoula strawberry card -- three real season-tied cards, king cake for Carnival"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no known prior New Orleans creative to riff on"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified; archetype only, never likeness"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "Louisiana black bear is a coastal/bottomland conservation success story but not a metro hook; keep conservation-toned, tracks-only"
+    },
+    "keep-it-wild": {
+      "fit": "weak",
+      "angle": "bayou-and-wetland wild angle possible but dense historic-metro market"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "no ski culture; below-sea-level Gulf city"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.83,
+    "ready_to_rock": true,
+    "notes": "New Orleans is the distinctive Gulf record: Creole/French Quarter wrought iron, Carnival king-cake seasonality (Jan-Feb), short-season Creole tomatoes, Rouses as the Louisiana home grocer. languages thin -- INFERRED, no ACS numbers fabricated. hex flagged for brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: French Quarter cast-iron galleries + Spanish rebuild (brick/stucco/tile) -- en.wikipedia.org/wiki/Buildings_and_architecture_of_New_Orleans; tripshock.com; frenchmarketinn.com",
+      "web: French Quarter earthy/Caribbean palette -- benjaminmoore.com French Quarter colors",
+      "web: Creole tomatoes late May-July -- chefsresource.com; nola.com produce guide",
+      "web: Crescent City Farmers Market (year-round, 70+ producers) -- crescentcityfarmersmarket.org",
+      "Rouses Louisiana founding + king cake Carnival tradition -- general regional knowledge",
+      "language percentages INFERRED -- localization pipeline data absent from checkout; no ACS figure fabricated"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

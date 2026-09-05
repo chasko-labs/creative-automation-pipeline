@@ -1,0 +1,264 @@
+{
+  "region_id": "baltimore",
+  "market_code": "US-NE-BALTIMORE",
+  "aliases": [],
+  "place": "Baltimore, Maryland",
+  "zip": "21202",
+  "county": "Baltimore City",
+  "state": "MD",
+  "coordinates": { "lat": 39.2904, "lon": -76.6122 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Baltimore Public Markets (Lexington Market / Cross Street Market) + Inner Harbor",
+    "landmark": "Lexington Market (est. 1782), one of the oldest continuously operating public markets in the US; Inner Harbor; Formstone rowhouses with white marble stoops",
+    "notes": "Lexington Market is among the oldest continuously running public markets in the country. Baltimore's signature residential fabric is brick and formstone rowhouses with scrubbed white marble stoops. sources: lexingtonmarket.com; en.wikipedia.org Lexington Market; Formstone."
+  },
+  "featured_frontier": {
+    "hook": "Maryland apple + Eastern Shore honey compote on Power Cakes on a white-marble Baltimore stoop -- Chesapeake rowhouse breakfast",
+    "photo_cue": "cast-iron flapjack stack on a scrubbed white marble stoop, formstone rowhouse behind, Inner Harbor light, autumn Maryland apples",
+    "signature_ingredient": "Maryland + mid-Atlantic apples (Sep-Nov) + Eastern Shore honey; Chesapeake-region berries and stone fruit (summer)",
+    "cross_promo": {
+      "partner": "Baltimore Public Markets / Maryland's Best producers",
+      "url": "https://lexingtonmarket.com",
+      "activation": "Maryland apple + honey compote card, Giant / Weis / Safeway retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Baltimore rowhouse families + Inner Harbor and Fells Point households; public-market shoppers; Chesapeake-region food families; Giant, Weis, Safeway, and ShopRite shoppers",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 5.0,
+      "translate_code": "es",
+      "reason": "INFERRED (ACS source file absent): growing Latino community, notably in Highlandtown / Southeast Baltimore; pct is a web-informed estimate, not exact ACS"
+    },
+    {
+      "lang_code": "zh",
+      "lang_name": "Chinese",
+      "pct_home": 1.0,
+      "translate_code": "zh",
+      "reason": "INFERRED (ACS source file absent): metro Chinese community; pct estimated"
+    }
+  ],
+  "cultural_notes": [
+    "Lexington Market (1782) is one of the oldest continuously operating public markets in the US and a Baltimore civic food anchor (source: en.wikipedia.org Lexington Market; lexingtonmarket.com)",
+    "the scrubbed white marble stoop on a brick or formstone rowhouse is a defining Baltimore image; formstone (a stucco cladding patented locally) covers many rowhouse fronts (source: Formstone, en.wikipedia.org)",
+    "Chesapeake foodways center the region; the Eastern Shore supplies produce, honey, and famous blue crab (crab is out of scope for a breakfast tie but frames the food identity) (source: general Chesapeake foodways framing, publicly documented)",
+    "Giant, Weis, Safeway, and ShopRite are the metro grocers; Maryland's Best is the state farm-produce program (source: chain regional footprint; Maryland Department of Agriculture Maryland's Best)"
+  ],
+  "design_palette": {
+    "textures": [
+      "white marble scrubbed stoop",
+      "formstone stucco cladding",
+      "Baltimore red brick",
+      "painted-screen rowhouse detail",
+      "Inner Harbor weathered dock timber",
+      "Chesapeake tidewater wood",
+      "honey-amber matte sheen"
+    ],
+    "colors": [
+      {
+        "name": "Baltimore rowhouse brick red",
+        "hex": "#8C4634",
+        "use": "structure / facade"
+      },
+      {
+        "name": "scrubbed marble-stoop white",
+        "hex": "#EAE7DD",
+        "use": "stoop / trim / negative space"
+      },
+      {
+        "name": "formstone tan-gray",
+        "hex": "#A79A85",
+        "use": "cladding / structure"
+      },
+      {
+        "name": "Chesapeake harbor blue-gray",
+        "hex": "#4F636E",
+        "use": "water / sky"
+      },
+      {
+        "name": "Eastern Shore honey amber",
+        "hex": "#B9781F",
+        "use": "produce hero / warm accent"
+      }
+    ],
+    "building_materials": [
+      "fired red brick (rowhouse)",
+      "formstone stucco cladding",
+      "white marble stoop steps",
+      "cast iron (market framing)",
+      "tidewater weathered wood (harbor / Eastern Shore)"
+    ],
+    "landscape_motifs": [
+      "marble-stoop rowhouse block",
+      "Inner Harbor waterfront",
+      "public-market hall",
+      "Chesapeake Bay tidewater",
+      "Eastern Shore farm field"
+    ],
+    "_provenance_note": "rowhouse brick red + scrubbed marble stoop + formstone grounded in Baltimore residential architecture (Formstone, en.wikipedia.org). harbor blue-gray from the Chesapeake / Inner Harbor. honey amber from Eastern Shore produce. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        {
+          "name": "Maryland + mid-Atlantic apples",
+          "peak_month": 10,
+          "pancake_tie": "Maryland apple-cinnamon compote over Power Cakes -- fall orchard staple"
+        },
+        {
+          "name": "Eastern Shore pumpkins + squash",
+          "peak_month": 10,
+          "pancake_tie": "spiced pumpkin Power Cakes for a rowhouse fall morning"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Baltimore Farmers' Market & Bazaar",
+          "type": "farmers-market",
+          "notes": "under the JFX; Sundays; regional apples in fall"
+        },
+        { "name": "Giant", "type": "chain-grocer" },
+        {
+          "name": "Weis Markets",
+          "type": "chain-grocer",
+          "notes": "Pennsylvania/Maryland regional grocer"
+        }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [12, 1, 2],
+      "in_season_produce": [
+        {
+          "name": "stored apples + Eastern Shore honey",
+          "pancake_tie": "honey-drizzled apple Power Cakes for a cold Baltimore morning"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Giant", "type": "chain-grocer" },
+        { "name": "Safeway", "type": "chain-grocer" },
+        {
+          "name": "Lexington Market",
+          "type": "general-store",
+          "url": "https://lexingtonmarket.com"
+        }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        {
+          "name": "spring strawberries + rhubarb",
+          "peak_month": 5,
+          "pancake_tie": "strawberry-rhubarb compote over Power Waffles"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Baltimore Farmers' Market & Bazaar",
+          "type": "farmers-market",
+          "notes": "first strawberries in spring"
+        }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        {
+          "name": "Chesapeake-region berries + peaches",
+          "peak_month": 7,
+          "pancake_tie": "peach or blueberry compote over Power Cakes -- mid-Atlantic summer peak"
+        },
+        {
+          "name": "Maryland sweet corn",
+          "peak_month": 8,
+          "pancake_tie": "sweet-corn savory Power Cakes for a July Fourth harbor griddle"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Baltimore Farmers' Market & Bazaar",
+          "type": "farmers-market",
+          "notes": "summer stone fruit + corn"
+        },
+        { "name": "Giant", "type": "chain-grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Giant",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "dominant Baltimore-metro grocer; home channel"
+    },
+    { "name": "Weis Markets", "role": "primary" },
+    { "name": "Safeway", "role": "primary" },
+    { "name": "ShopRite", "role": "secondary" },
+    { "name": "Costco", "role": "secondary", "notes": "metro bulk channel" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "Maryland apple card (fall) + Chesapeake stone-fruit card (summer) + honey card -- real mid-Atlantic seasonal produce"
+    },
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "Baltimore is a Costco + Giant bulk-and-value market; retailer lockup works with the regional-grocer story",
+      "existing_brief": "briefs/kodiak-costco.yaml"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no produced Baltimore content corpus yet; strong marble-stoop + market cue but thin prior material"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "western Maryland black bear country; keep conservation-toned, no metro grizzly hook"
+    },
+    "keep-it-wild": {
+      "fit": "weak",
+      "angle": "dense metro; Keep It Wild lands better on the western-Maryland / Appalachian edge than on the rowhouse block"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "no metro ski identity (Wisp in western Maryland is a distant drive)"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.85,
+    "ready_to_rock": true,
+    "notes": "Palette grounded in Baltimore rowhouse brick + scrubbed white marble stoop + formstone + Chesapeake harbor. Four seasonal windows from real mid-Atlantic produce with public-market + chain sourcing. Retailers mapped to Giant/Weis/Safeway/ShopRite. languages THIN -- percentages INFERRED because ACS source file is absent; no exact ACS numbers fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Lexington Market -- en.wikipedia.org (1782, one of the oldest public markets in the US); lexingtonmarket.com",
+      "web: Formstone -- en.wikipedia.org (Baltimore rowhouse stucco cladding)",
+      "web: Maryland's Best -- Maryland Department of Agriculture (state farm-produce program)",
+      "web: Chesapeake foodways framing -- publicly documented",
+      "note: language percentages INFERRED -- ACS/market-languages source file absent in checkout; no exact ACS numbers used"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

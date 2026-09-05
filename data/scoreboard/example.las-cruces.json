@@ -1,0 +1,188 @@
+{
+  "region_id": "las-cruces",
+  "market_code": "US-SW-LASCRUCES",
+  "aliases": [
+    "US-SW-ALBQ (adjacent high-desert), US-SW-EL PASO (border labor shed)"
+  ],
+  "place": "Las Cruces + Alamogordo, New Mexico",
+  "zip": "88001",
+  "county": "Dona Ana County",
+  "state": "NM",
+  "coordinates": { "lat": 32.3199, "lon": -106.7637 },
+  "classification": "regional",
+  "city_center": {
+    "name": "Downtown Las Cruces (Main Street / Plaza de Las Cruces)",
+    "landmark": "Organ Mountains bench, Organ Mountains-Desert Peaks National Monument",
+    "notes": "Saturday Las Cruces Farmers and Crafts Market on Main Street is the gathering anchor; Organ Mountains dominate the eastern skyline."
+  },
+  "featured_frontier": {
+    "hook": "Roasted Hatch green chile folded into flapjacks, eaten on the Organ Mountains bench -- green chile meets grizzly",
+    "photo_cue": "Roasted Hatch green chile in flapjacks, Organ Mountains bench, trail bench",
+    "signature_ingredient": "Hatch green chile (roasted by the bushel, Aug-Sep peak Sep)",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "Green chile families, Hatch roast households 28-45; Las Cruces NM Target + Alamogordo Walmart and Albertsons",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 27.5,
+      "translate_code": "es",
+      "reason": "ACS 2023 5yr Dona Ana County: Hispanic 68%, Spanish at home 27.8%; border county"
+    },
+    {
+      "lang_code": "zh",
+      "lang_name": "Chinese",
+      "pct_home": 0.7,
+      "translate_code": "zh",
+      "reason": "NMSU international graduate Chinese 0.7%"
+    }
+  ],
+  "cultural_notes": [
+    "Hatch green chile roast is a September civic ritual (roaster drums outside every grocer); 'red or green?' is the state question",
+    "NMSU college town rhythm; Dia de los Muertos and border-Tejano food culture present",
+    "INFERRED from region knowledge -- not present in any source file; verify before production use"
+  ],
+  "design_palette": {
+    "textures": [
+      "adobe stucco",
+      "sun-cracked desert clay",
+      "roasted-chile char skin",
+      "weathered ristra twine",
+      "Organ Mountains granite spires"
+    ],
+    "colors": [
+      {
+        "name": "Hatch chile roast char-green",
+        "hex": "#3F5A2A",
+        "use": "produce hero"
+      },
+      {
+        "name": "Organ Mountains dusk violet",
+        "hex": "#6B5B7B",
+        "use": "skyline backdrop"
+      },
+      { "name": "adobe terracotta", "hex": "#C1683D", "use": "structure/wall" },
+      {
+        "name": "high-desert sand",
+        "hex": "#D9C7A3",
+        "use": "ground/plate surface"
+      }
+    ],
+    "building_materials": [
+      "adobe",
+      "stucco over block",
+      "vigas (ponderosa roof beams)",
+      "corrugated ranch steel",
+      "sun-faded brick storefront"
+    ],
+    "landscape_motifs": [
+      "Organ Mountains spires",
+      "chile field rows at dusk",
+      "ristras on a portal",
+      "roaster drum smoke"
+    ],
+    "_provenance_note": "textures/colors/building_materials are INFERRED region-visual seeds; source files carry only photo_cue text, no structured palette. Flag for research + brand-fit review before use."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [8, 9],
+      "in_season_produce": [
+        {
+          "name": "Hatch green chile",
+          "peak_month": 9,
+          "pancake_tie": "Roasted Hatch green chile + sharp cheddar folded into savory Buttermilk Power Cakes"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Albertsons Las Cruces",
+          "type": "chain-grocer",
+          "notes": "roasts by the bushel in season"
+        },
+        {
+          "name": "Las Cruces Farmers and Crafts Market",
+          "type": "farmers-market",
+          "notes": "Main St, Wed + Sat"
+        }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [11, 12],
+      "in_season_produce": [
+        {
+          "name": "dried red chile ristras (posole/holiday)",
+          "pancake_tie": "red chile honey drizzle holiday stack -- INFERRED, needs verification"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Albertsons / Walmart Las Cruces", "type": "chain-grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Target", "role": "primary" },
+    { "name": "Walmart", "role": "primary" },
+    { "name": "Albertsons", "role": "home", "distance_mi": 0 }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "Green chile cheddar Power Cakes recipe card; savory Hatch + pepper jack waffle -- already drafted in briefs/kodiak-green-chile.yaml products",
+      "existing_brief": "briefs/kodiak-green-chile.yaml"
+    },
+    "localized-costco": {
+      "fit": "weak",
+      "angle": "No Costco in Las Cruces (nearest El Paso 45mi); Walmart/Albertsons bulk substitute only"
+    },
+    "riff-on-past-content": {
+      "fit": "strong",
+      "angle": "Riff the existing 'green chile meets grizzly' line into short-form; strong prior creative signal"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "No celebrity tie identified for this region"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "Bear Bites cubs angle works nationally but no regional bear-habitat hook; Organ Mountains are desert, not grizzly country"
+    },
+    "keep-it-wild": {
+      "fit": "strong",
+      "angle": "Organ Mountains-Desert Peaks National Monument = wild public land; Keep It Wild lands on the bench cue",
+      "existing_brief": "briefs/kodiak.yaml"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "No ski culture; desert market"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "thin",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "ready",
+      "cultural_notes": "absent",
+      "design_palette": "absent",
+      "seasonal": "thin",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.55,
+    "ready_to_rock": false,
+    "notes": "Strongest featured-frontier signal in the set (green chile hook + dedicated brief). Blockers: design_palette absent (only photo_cue text exists), cultural_notes absent, seasonal has only the single Hatch entry -- no full holiday-season calendar or per-season where-to-buy beyond fall. City center is inferred, not sourced."
+  },
+  "provenance": {
+    "sourced_from": [
+      "localization-table-seed.json (US-SW-LASCRUCES: place/audience/message/cue/retailer/zip)",
+      "market-languages.json (US-SW-LASCRUCES top_languages)",
+      "store-finder-markets.json (coordinates, retailer)",
+      "local-flavor.json (US-SW-LASCRUCES: Hatch green chile months [8,9] peak 9, source string)",
+      "briefs/kodiak-green-chile.yaml (products, campaign_message)"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

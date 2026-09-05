@@ -1,0 +1,237 @@
+{
+  "region_id": "st-louis",
+  "market_code": "US-MW-STL",
+  "aliases": ["US-MW-STLOUIS", "US-MW-SAINTLOUIS"],
+  "place": "St. Louis, Missouri",
+  "zip": "63101",
+  "county": "City of St. Louis",
+  "state": "MO",
+  "coordinates": { "lat": 38.627, "lon": -90.1994 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown St. Louis / Gateway Arch riverfront",
+    "landmark": "The Gateway Arch above the Mississippi River; red-brick neighborhoods (Soulard, The Hill) that define the city's built texture",
+    "notes": "St. Louis sits on the Mississippi River as the historic gateway west; the city is famous for its red-brick housing stock and neighborhoods, and for St. Louis-style barbecue -- spare ribs associated with the region. Schnucks (founded north St. Louis 1939) and Dierbergs split the local grocery market. sources: St. Louis-style barbecue (en.wikipedia.org); Schnucks history (schnucks.com/about); Dierbergs splits STL market (en.wikipedia.org/wiki/Dierbergs_Markets)."
+  },
+  "featured_frontier": {
+    "hook": "Missouri toasted-ravioli-adjacent savory Power Cakes and local honey on a red-brick Soulard porch, the Gateway Arch and Mississippi behind -- gateway-city brick morning",
+    "photo_cue": "savory griddle stack, red brick rowhouse, Gateway Arch, Mississippi riverfront, cast iron, enamel plate",
+    "signature_ingredient": "St. Louis brick-neighborhood table + Missouri river-valley produce; Mississippi-gateway morning",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "Gateway-city families in a deeply neighborhood-and-brick metro; Schnucks and Dierbergs shoppers with strong local-grocer loyalty",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 3.0,
+      "translate_code": "es",
+      "reason": "INFERRED -- St. Louis metro is majority English-at-home with a smaller Hispanic share (~4%); Spanish is the leading non-English home language but modest. Verify exact ACS S1601 pct before production -- market-languages.json absent in checkout"
+    },
+    {
+      "lang_code": "bs",
+      "lang_name": "Bosnian",
+      "pct_home": 1.0,
+      "translate_code": "bs",
+      "reason": "INFERRED -- St. Louis (Bevo Mill / south city) has one of the largest Bosnian communities in the US; pct is an estimate pending ACS S1601 verification"
+    }
+  ],
+  "cultural_notes": [
+    "St. Louis is defined by its red-brick building stock -- rowhouses and neighborhood churches in areas like Soulard and The Hill -- a foundational regional building material and visual texture (INFERRED architectural framing from region knowledge -- verify specific claims before production)",
+    "St. Louis-style barbecue refers to spare ribs associated with the St. Louis area -- a defining regional food identity distinct from Kansas City-style (source: en.wikipedia.org/wiki/St._Louis-style_barbecue)",
+    "Schnucks was founded in north St. Louis in 1939 and Dierbergs is based in Chesterfield; the two family-owned chains effectively split the Greater St. Louis grocery market among local retailers -- strong local-grocer loyalty (source: schnucks.com/about; en.wikipedia.org/wiki/Dierbergs_Markets)",
+    "St. Louis has one of the largest Bosnian diaspora communities in the US, concentrated in the Bevo Mill / south-city area -- creative should acknowledge a multi-heritage neighborhood identity (INFERRED framing -- verify before production use)"
+  ],
+  "design_palette": {
+    "textures": [
+      "St. Louis red brick and terra-cotta",
+      "Soulard rowhouse masonry",
+      "Mississippi river-mud bank",
+      "Gateway Arch stainless-steel skin",
+      "cast-iron griddle",
+      "Missouri river-valley soil",
+      "neighborhood-church stained masonry"
+    ],
+    "colors": [
+      {
+        "name": "St. Louis brick red",
+        "hex": "#9A4234",
+        "use": "structure / rowhouse"
+      },
+      {
+        "name": "Gateway Arch stainless silver",
+        "hex": "#B8BEC2",
+        "use": "landmark / accent"
+      },
+      {
+        "name": "Mississippi river brown",
+        "hex": "#6B5A3E",
+        "use": "river / bank"
+      },
+      {
+        "name": "terra-cotta ornament orange",
+        "hex": "#C06A3B",
+        "use": "trim / detail"
+      },
+      {
+        "name": "river-valley harvest gold",
+        "hex": "#C9A24B",
+        "use": "grain / landscape"
+      }
+    ],
+    "building_materials": [
+      "red brick rowhouse",
+      "terra-cotta ornament",
+      "limestone civic base",
+      "stainless-steel monument (Arch)",
+      "cast-stone neighborhood church"
+    ],
+    "landscape_motifs": [
+      "Gateway Arch riverfront",
+      "red-brick neighborhood streetscape",
+      "Mississippi River bank",
+      "Missouri river-valley farmland",
+      "confluence gateway west"
+    ],
+    "_provenance_note": "brick / terra-cotta grounded in St. Louis neighborhood building stock (INFERRED, verify). Gateway Arch stainless and Mississippi river brown are documented landmarks. barbecue heritage grounded in en.wikipedia.org St. Louis-style barbecue. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        {
+          "name": "Missouri apples + pawpaw",
+          "peak_month": 10,
+          "pancake_tie": "apple compote over Power Cakes -- Missouri river-valley fall orchard fruit"
+        },
+        {
+          "name": "fall squash + sweet potatoes",
+          "peak_month": 10,
+          "pancake_tie": "savory squash Power Cakes -- Missouri fall roots"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Schnucks (St. Louis)",
+          "type": "chain-grocer",
+          "url": "https://schnucks.com",
+          "notes": "founded north St. Louis 1939; splits the local market with Dierbergs"
+        },
+        {
+          "name": "Soulard Farmers Market (St. Louis)",
+          "type": "farmers-market",
+          "notes": "historic year-round public market; regional growers"
+        }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        {
+          "name": "Missouri sweet corn + tomatoes",
+          "peak_month": 7,
+          "pancake_tie": "savory sweet-corn Power Cakes -- Missouri river-valley summer peak"
+        },
+        {
+          "name": "Missouri peaches + blackberries",
+          "peak_month": 7,
+          "pancake_tie": "peach-blackberry compote over Power Cakes"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Soulard Farmers Market", "type": "farmers-market" },
+        {
+          "name": "Dierbergs (St. Louis)",
+          "type": "chain-grocer",
+          "notes": "Chesterfield-based; splits the local market with Schnucks"
+        }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        {
+          "name": "asparagus + rhubarb + strawberries",
+          "peak_month": 5,
+          "pancake_tie": "strawberry-rhubarb compote over Power Cakes -- Missouri spring; INFERRED pick, verify local availability"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Soulard Farmers Market", "type": "farmers-market" }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Schnucks",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "founded north St. Louis 1939; family-owned; splits STL market with Dierbergs"
+    },
+    {
+      "name": "Dierbergs",
+      "role": "primary",
+      "notes": "Chesterfield-based family grocer; splits STL market with Schnucks"
+    },
+    { "name": "Walmart", "role": "secondary" },
+    { "name": "Costco", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "Missouri apple Power Cakes card + savory summer sweet-corn card + strawberry-rhubarb spring card -- river-valley seasonal hooks"
+    },
+    "localized-costco": {
+      "fit": "weak",
+      "angle": "the home channel is a split between two family-owned local chains, Schnucks and Dierbergs; a Schnucks-or-Dierbergs local lockup is the stronger localized-retailer play than a warehouse-club angle"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no existing St. Louis creative corpus in the scoreboard set -- thin to riff on until first assets ship"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified; archetype/partnership only, never likeness"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "Bear Bites lunchbox angle carries nationally; the gateway metro is not bear country (black bears recovering in the Missouri Ozarks to the south) -- keep conservation-toned, national"
+    },
+    "keep-it-wild": {
+      "fit": "weak",
+      "angle": "the Mississippi and Missouri confluence, river greenways, and the Ozark foothills to the south offer a river-and-forest Keep It Wild angle, but this is a dense brick-neighborhood metro identity"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "gateway river metro; no ski culture"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.83,
+    "ready_to_rock": true,
+    "notes": "New seed. design_palette grounded in St. Louis red brick + Gateway Arch + Mississippi and cited where documented, brick-neighborhood framing flagged INFERRED; seasonal keyed to Missouri apples (fall), sweet corn (summer), strawberry-rhubarb (spring) -- not winter-defaulted. Schnucks + Dierbergs correctly mapped as the split home channel, localized-costco marked weak. Both language pcts carry INFERRED flag (incl Bosnian community) -- no ACS number fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: St. Louis-style barbecue (spare ribs) -- en.wikipedia.org/wiki/St._Louis-style_barbecue",
+      "web: Schnucks founded north St. Louis 1939 -- schnucks.com/about; en.wikipedia.org/wiki/Schnucks",
+      "web: Dierbergs splits Greater St. Louis market with Schnucks -- en.wikipedia.org/wiki/Dierbergs_Markets",
+      "INFERRED: red-brick neighborhood architecture, Bosnian-community framing, and Spanish/Bosnian at-home pcts (market-languages.json absent in checkout) -- verify ACS S1601 for the St. Louis metro"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "region_id": "duluth",
+  "market_code": "US-MW-MINNEAPOLIS2",
+  "aliases": ["US-MW-DULUTH"],
+  "place": "Duluth, Minnesota",
+  "zip": "55802",
+  "county": "St. Louis County",
+  "state": "MN",
+  "coordinates": { "lat": 46.7867, "lon": -92.1005 },
+  "classification": "regional",
+  "city_center": {
+    "name": "Canal Park / Aerial Lift Bridge (Duluth waterfront)",
+    "landmark": "the Aerial Lift Bridge over the Duluth ship canal; Lake Superior's rocky North Shore; the Boundary Waters and North Woods beyond",
+    "notes": "Duluth sits on the rocky western tip of Lake Superior, the largest freshwater lake in the world by surface area. The Aerial Lift Bridge and Canal Park anchor the waterfront; the North Shore and Boundary Waters wilderness lie north and east. sources: en.wikipedia.org Aerial Lift Bridge; Lake Superior North Shore framing."
+  },
+  "featured_frontier": {
+    "hook": "Wild Lake Superior blueberry + North Woods maple Power Cakes at a North Shore cabin, gitchi-gami waves behind -- big-lake frontier breakfast",
+    "photo_cue": "cast-iron flapjack stack on a North Shore cabin table, Lake Superior waves and basalt shore behind, wild blueberries, birch and pine, autumn birch gold",
+    "signature_ingredient": "wild Lake Superior blueberries (Jul-Aug) + North Woods maple; Minnesota Honeycrisp apples (fall)",
+    "cross_promo": {
+      "partner": "Duluth Farmers Market / North Shore producers",
+      "url": "https://duluthfarmersmarket.com",
+      "activation": "wild-blueberry + North Woods maple compote card, Cub Foods / Super One / Whole Foods Co-op retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Duluth + North Shore families; Boundary Waters and big-lake outdoor culture; ore-port and North Woods heritage; Cub Foods, Super One Foods, and Whole Foods Co-op shoppers",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 1.5,
+      "translate_code": "es",
+      "reason": "INFERRED (ACS source file absent): small Spanish-speaking share in a predominantly English-speaking North Woods market; pct is a web-informed estimate, not exact ACS"
+    }
+  ],
+  "cultural_notes": [
+    "Duluth sits on Lake Superior, the largest freshwater lake in the world by surface area; the Aerial Lift Bridge and the working ore port define the waterfront (source: en.wikipedia.org Duluth, Minnesota; Aerial Lift Bridge)",
+    "the North Shore, Boundary Waters, and Superior National Forest make this a big-lake and wilderness outdoor market -- canoe, hike, and cabin culture (source: general North Woods framing, publicly documented)",
+    "Lake Superior is called Gitchi-Gami in Ojibwe; the region has deep Ojibwe (Anishinaabe) heritage -- reference respectfully, no tribal endorsement implied without consent (source: general framing; Ojibwe place-name note)",
+    "wild blueberries grow across the North Woods and are foraged and sold locally in summer; Cub Foods, Super One Foods, and the Whole Foods Co-op are the grocers (source: chain regional footprint; wild-blueberry regional framing)"
+  ],
+  "design_palette": {
+    "textures": [
+      "Lake Superior basalt and gabbro shore rock",
+      "North Woods pine-log cabin",
+      "white birch bark",
+      "Aerial Lift Bridge steel",
+      "ore-dock weathered timber",
+      "wild-blueberry cluster",
+      "cast-iron griddle char"
+    ],
+    "colors": [
+      {
+        "name": "Lake Superior deep blue",
+        "hex": "#345A6E",
+        "use": "water / sky / negative space"
+      },
+      {
+        "name": "North Shore basalt gray",
+        "hex": "#4E4F52",
+        "use": "shore rock / structure"
+      },
+      {
+        "name": "North Woods pine green",
+        "hex": "#26443A",
+        "use": "forest / foreground"
+      },
+      { "name": "white birch bark", "hex": "#E7E3D8", "use": "trunk / trim" },
+      {
+        "name": "wild-blueberry indigo",
+        "hex": "#3A4A6B",
+        "use": "produce hero / accent"
+      }
+    ],
+    "building_materials": [
+      "Lake Superior basalt / gabbro stone",
+      "pine-log cabin (North Woods)",
+      "white birch",
+      "steel (Aerial Lift Bridge, ore docks)",
+      "clapboard lake cottage"
+    ],
+    "landscape_motifs": [
+      "Lake Superior basalt shore with breaking waves",
+      "Aerial Lift Bridge over the canal",
+      "pine-and-birch North Woods",
+      "North Shore waterfall (Gooseberry, Split Rock)",
+      "ore dock on the big lake"
+    ],
+    "_provenance_note": "Lake Superior deep blue + basalt gray grounded in the rocky North Shore. pine green + birch bark from the North Woods. wild-blueberry indigo from the foraged regional crop. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "summer-fourth",
+      "months": [7, 8],
+      "in_season_produce": [
+        {
+          "name": "wild Lake Superior blueberries",
+          "peak_month": 8,
+          "pancake_tie": "wild-blueberry compote over Power Cakes -- foraged North Woods summer signature"
+        },
+        {
+          "name": "North Shore strawberries + raspberries",
+          "peak_month": 7,
+          "pancake_tie": "north-country berry compote over Power Cakes"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Duluth Farmers Market",
+          "type": "farmers-market",
+          "url": "https://duluthfarmersmarket.com",
+          "notes": "wild + cultivated berries in summer"
+        },
+        {
+          "name": "Super One Foods",
+          "type": "chain-grocer",
+          "notes": "northern Minnesota grocer"
+        }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        {
+          "name": "Minnesota Honeycrisp apples",
+          "peak_month": 10,
+          "pancake_tie": "Honeycrisp apple-cinnamon compote over Power Cakes -- Minnesota-bred apple at peak"
+        },
+        {
+          "name": "North Woods squash + wild rice",
+          "peak_month": 9,
+          "pancake_tie": "savory wild-rice-and-squash Power Cakes (reference manoomin respectfully)"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Duluth Farmers Market",
+          "type": "farmers-market",
+          "notes": "apples + squash in fall"
+        },
+        {
+          "name": "Whole Foods Co-op (Duluth)",
+          "type": "chain-grocer",
+          "notes": "Duluth food co-op"
+        }
+      ]
+    },
+    {
+      "season": "ski-season",
+      "months": [12, 1, 2, 3],
+      "in_season_produce": [
+        {
+          "name": "North Woods maple + stored Honeycrisp",
+          "peak_month": 3,
+          "pancake_tie": "North Woods maple over Power Cakes at a Spirit Mountain / North Shore ski-cabin griddle"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Cub Foods",
+          "type": "chain-grocer",
+          "notes": "Duluth grocer; maple + pantry staples"
+        },
+        { "name": "Super One Foods", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        {
+          "name": "North Woods maple (spring sugaring) + rhubarb",
+          "peak_month": 4,
+          "pancake_tie": "fresh North Woods maple over Power Cakes -- spring sugaring pour"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Duluth Farmers Market",
+          "type": "farmers-market",
+          "notes": "spring maple + rhubarb"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Cub Foods",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "Duluth grocer; home channel"
+    },
+    {
+      "name": "Super One Foods",
+      "role": "primary",
+      "notes": "northern Minnesota grocer"
+    },
+    {
+      "name": "Whole Foods Co-op (Duluth)",
+      "role": "primary",
+      "notes": "Duluth food co-op"
+    },
+    { "name": "Costco", "role": "secondary", "notes": "Duluth bulk channel" }
+  ],
+  "campaign_type_fit": {
+    "keep-it-wild": {
+      "fit": "strong",
+      "angle": "Lake Superior + Boundary Waters + North Shore wilderness: Keep It Wild lands directly on the big-lake basalt-shore and North Woods cabin story -- one of the strongest wild fits in this cluster"
+    },
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "wild-blueberry card (summer) + Honeycrisp card (fall) + North Woods maple card (spring/ski) -- real foraged and North Woods produce"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "weak",
+      "angle": "Spirit Mountain (Duluth) + strong nordic/cross-country and North Shore skiing exist; a genuine winter-sports culture but a regional hill, not a big-mountain identity -- secondary angle"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "the North Woods is genuine black bear country (no grizzlies in Minnesota); keep conservation-toned, habitat-and-tracks framing"
+    },
+    "localized-costco": {
+      "fit": "weak",
+      "angle": "Costco in Duluth is a secondary channel; this is a co-op + Cub/Super One market, not a bulk-first metro"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no produced Duluth content corpus yet; strong North Shore cue but thin prior material"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.85,
+    "ready_to_rock": true,
+    "notes": "US-MW-MINNEAPOLIS2 mapped to Duluth per task. Palette grounded in Lake Superior deep blue + North Shore basalt + North Woods pine/birch + wild-blueberry indigo. Four seasonal windows including ski-season, from real North Woods produce (wild blueberries, Honeycrisp, maple, wild rice). keep-it-wild scored strong. Wild rice referenced respectfully as manoomin; Lake Superior noted as Gitchi-Gami with no tribal endorsement implied. languages THIN -- percentages INFERRED because ACS source file is absent; no exact ACS numbers fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Duluth, Minnesota + Aerial Lift Bridge -- en.wikipedia.org (Lake Superior, Canal Park)",
+      "web: Lake Superior (largest freshwater lake by surface area; Gitchi-Gami Ojibwe name) -- publicly documented",
+      "web: North Shore / Boundary Waters / Superior National Forest framing -- publicly documented",
+      "web: Duluth Farmers Market -- duluthfarmersmarket.com; Super One Foods / Whole Foods Co-op regional footprint",
+      "note: language percentages INFERRED -- ACS/market-languages source file absent in checkout; no exact ACS numbers used"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

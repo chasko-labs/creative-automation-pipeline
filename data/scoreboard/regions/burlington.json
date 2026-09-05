@@ -1,0 +1,272 @@
+{
+  "region_id": "burlington",
+  "market_code": "US-NE-BURLINGTON",
+  "aliases": [],
+  "place": "Burlington, Vermont",
+  "zip": "05401",
+  "county": "Chittenden County",
+  "state": "VT",
+  "coordinates": { "lat": 44.4759, "lon": -73.2121 },
+  "classification": "regional",
+  "city_center": {
+    "name": "Church Street Marketplace (Downtown Burlington)",
+    "landmark": "Church Street Marketplace pedestrian mall; Lake Champlain waterfront with Adirondack views; Burlington Farmers Market; Green Mountains to the east",
+    "notes": "Church Street Marketplace is Burlington's pedestrian brick main street. The city sits on Lake Champlain with the Adirondacks west and the Green Mountains (Stowe, Sugarbush, Bolton Valley, Mad River Glen) a short drive east. sources: churchstmarketplace.com; en.wikipedia.org Burlington, Vermont."
+  },
+  "featured_frontier": {
+    "hook": "First-run Vermont maple over Power Cakes at a Green Mountain ski cabin, sugarhouse steam behind -- the maple state's signature stack",
+    "photo_cue": "amber Vermont maple pour on a cast-iron stack, sugarhouse steam, snowy Green Mountain slope, clapboard cabin, fall foliage in October",
+    "signature_ingredient": "Vermont maple syrup (Vermont leads US maple production) + Vermont apples (Sep-Oct); ski-cabin breakfast occasion",
+    "cross_promo": {
+      "partner": "Vermont sugarhouses / Burlington Farmers Market",
+      "url": "https://burlingtonfarmersmarket.org",
+      "activation": "first-run Vermont maple recipe card + ski-morning stack, Hannaford / Shaw's / City Market co-op retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Burlington + Chittenden County families; Green Mountain skiers and riders (Stowe, Sugarbush, Bolton, Mad River Glen); maple-and-foliage culture; UVM college town; Hannaford, Shaw's, and City Market Onion River Co-op shoppers",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 1.5,
+      "translate_code": "es",
+      "reason": "INFERRED (ACS source file absent): small Spanish-speaking share in a predominantly English-speaking market; pct is a web-informed estimate, not exact ACS"
+    },
+    {
+      "lang_code": "ne",
+      "lang_name": "Nepali",
+      "pct_home": 1.0,
+      "translate_code": "ne",
+      "reason": "INFERRED (ACS source file absent): Burlington is a refugee-resettlement city with a notable Bhutanese-Nepali (and Somali, Congolese) community; pct estimated"
+    }
+  ],
+  "cultural_notes": [
+    "Vermont leads US maple syrup production; spring sugaring is a defining state ritual and Burlington sits at the maple-and-foliage heart of it (source: USDA / Vermont Maple Sugar Makers' Association production framing)",
+    "Burlington is a designated refugee-resettlement community with Bhutanese-Nepali, Somali, and Congolese residents adding to a mostly English-speaking market (source: general resettlement framing, publicly documented)",
+    "the Green Mountains (Stowe, Sugarbush, Bolton Valley, Mad River Glen) make this a genuine ski-culture market -- a strong us-ski-and-snowboard fit unlike most Northeast metros (source: Vermont ski resort geography, publicly documented)",
+    "City Market Onion River Co-op is a beloved downtown food co-op; Hannaford and Shaw's are the regional chains (source: chain regional footprint; citymarket.coop)"
+  ],
+  "design_palette": {
+    "textures": [
+      "weathered clapboard siding",
+      "sugarhouse cedar-shake roof",
+      "Church Street red brick",
+      "Vermont granite / marble stone",
+      "snow-crust and birch-bark",
+      "sugar-maple foliage litter",
+      "cast-iron griddle char"
+    ],
+    "colors": [
+      {
+        "name": "sugar-maple foliage red-gold",
+        "hex": "#C1502A",
+        "use": "autumn canopy / accent"
+      },
+      {
+        "name": "Vermont barn-red",
+        "hex": "#7E3B2F",
+        "use": "barn / structure"
+      },
+      {
+        "name": "clapboard colonial white",
+        "hex": "#F1EEE4",
+        "use": "structure / trim / snow negative space"
+      },
+      {
+        "name": "Green Mountain evergreen",
+        "hex": "#274A38",
+        "use": "forest / foreground"
+      },
+      {
+        "name": "first-run maple amber",
+        "hex": "#A96019",
+        "use": "syrup / warm hero accent"
+      }
+    ],
+    "building_materials": [
+      "white-painted wood clapboard",
+      "cedar-shake sugarhouse roof",
+      "Vermont barn-red board",
+      "fired red brick (Church Street)",
+      "Vermont granite / Danby marble stone"
+    ],
+    "landscape_motifs": [
+      "snowy Green Mountain ski slope",
+      "sugarhouse with rising steam",
+      "Lake Champlain with Adirondack backdrop",
+      "sugar-maple foliage hillside",
+      "white-steeple village common"
+    ],
+    "_provenance_note": "clapboard white + barn-red + cedar sugarhouse grounded in Vermont vernacular architecture. maple amber + foliage red from the maple/sugaring and foliage seasons. Green Mountain evergreen + Lake Champlain from regional terrain. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "ski-season",
+      "months": [12, 1, 2, 3],
+      "in_season_produce": [
+        {
+          "name": "Vermont maple syrup (winter pantry + late-season sugaring)",
+          "peak_month": 3,
+          "pancake_tie": "first-run Vermont maple over Power Cakes at the ski-cabin griddle -- the signature Green Mountain ski breakfast"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "City Market Onion River Co-op",
+          "type": "chain-grocer",
+          "url": "https://www.citymarket.coop",
+          "notes": "downtown co-op; Vermont maple year-round"
+        },
+        {
+          "name": "Vermont sugarhouses (Stowe / Cambridge)",
+          "type": "farm-stand",
+          "notes": "on-mountain and roadside sugarhouses"
+        }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        {
+          "name": "Vermont apples (McIntosh, Cortland, Empire)",
+          "peak_month": 10,
+          "pancake_tie": "Vermont apple-cinnamon compote over Power Cakes at peak foliage"
+        },
+        {
+          "name": "Vermont pumpkins + squash",
+          "peak_month": 10,
+          "pancake_tie": "spiced squash Power Cakes for a foliage-season morning"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Burlington Farmers Market",
+          "type": "farmers-market",
+          "url": "https://burlingtonfarmersmarket.org",
+          "notes": "Vermont apples + squash in fall"
+        },
+        { "name": "Hannaford", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4],
+      "in_season_produce": [
+        {
+          "name": "fresh Vermont maple (sugaring season)",
+          "peak_month": 3,
+          "pancake_tie": "first-run Vermont maple over Power Cakes -- the defining spring sugaring pour"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Vermont sugarhouses",
+          "type": "farm-stand",
+          "notes": "sugaring season March-April"
+        },
+        { "name": "City Market Onion River Co-op", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [7, 8],
+      "in_season_produce": [
+        {
+          "name": "Vermont blueberries + strawberries",
+          "peak_month": 7,
+          "pancake_tie": "Vermont berry compote over Power Cakes -- Lake Champlain summer"
+        },
+        {
+          "name": "Vermont sweet corn",
+          "peak_month": 8,
+          "pancake_tie": "sweet-corn savory Power Cakes for a lakeside griddle"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Burlington Farmers Market",
+          "type": "farmers-market",
+          "notes": "summer berries + corn"
+        },
+        { "name": "Shaw's", "type": "chain-grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Hannaford",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "northern New England chain; home channel"
+    },
+    {
+      "name": "City Market Onion River Co-op",
+      "role": "primary",
+      "notes": "beloved downtown Burlington co-op"
+    },
+    { "name": "Shaw's", "role": "primary" },
+    {
+      "name": "Costco (Colchester)",
+      "role": "secondary",
+      "notes": "bulk channel"
+    }
+  ],
+  "campaign_type_fit": {
+    "us-ski-and-snowboard": {
+      "fit": "strong",
+      "angle": "Burlington is a genuine Green Mountain ski market (Stowe, Sugarbush, Bolton, Mad River Glen): a first-run Vermont maple ski-cabin Power Cakes stack is a direct us-ski-and-snowboard fit -- one of the strongest ski markets in this cluster"
+    },
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "first-run Vermont maple card (spring/ski) + Vermont apple card (fall) + Champlain berry card (summer) -- real maple-state produce calendar"
+    },
+    "keep-it-wild": {
+      "fit": "strong",
+      "angle": "Green Mountains + Lake Champlain + Adirondack views: Keep It Wild lands naturally on the sugarhouse-in-the-woods and ski-frontier story"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no produced Burlington content corpus yet; strong maple + ski cue but thin prior material"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "Green Mountains have healthy black bear; keep conservation-toned, no grizzly hook (no grizzlies in Vermont)"
+    },
+    "localized-costco": {
+      "fit": "weak",
+      "angle": "Costco in Colchester is a secondary channel; this is a co-op + Hannaford market, not a bulk-first metro"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.87,
+    "ready_to_rock": true,
+    "notes": "Palette grounded in Vermont clapboard + barn-red + sugarhouse cedar + maple amber + Green Mountain evergreen. Four seasonal windows including a ski-season entry, built from real maple-state produce. us-ski-and-snowboard scored STRONG -- a genuine Green Mountain ski market. languages THIN -- percentages INFERRED because ACS source file is absent; no exact ACS numbers fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Burlington, Vermont -- en.wikipedia.org (Lake Champlain, Church Street Marketplace)",
+      "web: Vermont maple production framing -- USDA / Vermont Maple Sugar Makers' Association (Vermont leads US maple)",
+      "web: Vermont ski resorts (Stowe, Sugarbush, Bolton Valley, Mad River Glen) -- publicly documented",
+      "web: City Market Onion River Co-op -- citymarket.coop; Burlington Farmers Market -- burlingtonfarmersmarket.org",
+      "note: language percentages INFERRED -- ACS/market-languages source file absent in checkout; no exact ACS numbers used"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}
