@@ -1,0 +1,139 @@
+{
+  "region_id": "san-diego",
+  "market_code": "US-W-SD",
+  "aliases": [],
+  "place": "San Diego, California",
+  "zip": "92101",
+  "county": "San Diego County",
+  "state": "CA",
+  "coordinates": { "lat": 32.7157, "lon": -117.1611 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Little Italy Mercato + Balboa Park (Downtown San Diego)",
+    "landmark": "the Little Italy Mercato farmers market; Balboa Park's Spanish-Colonial Revival architecture; the Pacific coastline and the US-Mexico border region",
+    "notes": "San Diego pairs Balboa Park's Spanish-Colonial Revival landmarks with a year-round Pacific-coast farm bounty. Little Italy Mercato is a major weekend farmers market. The border region gives a strong California-Baja food culture. sources: en.wikipedia.org Balboa Park (San Diego); littleitalymercato.com."
+  },
+  "featured_frontier": {
+    "hook": "San Diego avocado + citrus over Power Cakes on a Spanish-tile patio, Pacific and palms behind -- year-round Southern California breakfast",
+    "photo_cue": "cast-iron flapjack stack on a Saltillo-tile patio, avocado and citrus, bougainvillea and palm, Balboa Park Spanish-Colonial arch, Pacific light",
+    "signature_ingredient": "San Diego County avocados (a top US avocado county, spring-summer) + California citrus (winter); coastal strawberries (spring)",
+    "cross_promo": {
+      "partner": "Little Italy Mercato / San Diego County growers",
+      "url": "https://littleitalymercato.com",
+      "activation": "avocado savory card + citrus card, Vons / Ralphs / Costco retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "San Diego metro families + coastal and inland-suburb households; year-round outdoor and beach food culture; California-Baja border food heritage; Vons, Ralphs, and Costco shoppers",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 24.0, "translate_code": "es", "reason": "INFERRED (ACS source file absent): very large Mexican-American and cross-border Latino community; pct is a web-informed estimate, not exact ACS" },
+    { "lang_code": "tl", "lang_name": "Tagalog", "pct_home": 4.0, "translate_code": "tl", "reason": "INFERRED (ACS source file absent): San Diego holds one of the largest Filipino communities in the US (National City, Mira Mesa), tied to the Navy presence; pct estimated" }
+  ],
+  "cultural_notes": [
+    "San Diego County is one of the top US avocado-producing counties; avocado, citrus, and year-round produce define the local food identity (source: San Diego County agriculture framing, publicly documented)",
+    "Balboa Park's Spanish-Colonial Revival architecture (from the 1915 exposition) is a signature San Diego image -- Saltillo tile, arches, and stucco (source: en.wikipedia.org Balboa Park)",
+    "the US-Mexico border gives a deep California-Baja food culture, alongside one of the largest Filipino communities in the US tied to the Navy (source: general demographic framing, publicly documented)",
+    "Vons and Ralphs anchor grocery with strong Costco presence; Little Italy Mercato is a major weekend farmers market (source: chain regional footprint; littleitalymercato.com)"
+  ],
+  "design_palette": {
+    "textures": ["Spanish-Colonial stucco", "Saltillo terracotta tile", "bougainvillea bloom", "palm-frond fan", "Pacific coastal bluff sandstone", "avocado skin pebble", "cast-iron griddle char"],
+    "colors": [
+      { "name": "Spanish-Colonial stucco white", "hex": "#EFE7D6", "use": "structure / facade / negative space" },
+      { "name": "Saltillo terracotta", "hex": "#B15A34", "use": "roof / tile / warm accent" },
+      { "name": "bougainvillea magenta", "hex": "#B23A6B", "use": "bloom / bright pop" },
+      { "name": "Pacific coastal blue", "hex": "#3E7C94", "use": "ocean / sky" },
+      { "name": "Hass avocado green", "hex": "#4F6138", "use": "produce hero / accent" }
+    ],
+    "building_materials": ["Spanish-Colonial stucco", "Saltillo terracotta tile roof", "wrought iron (railings, gates)", "Pacific bluff sandstone", "glass-and-steel downtown tower"],
+    "landscape_motifs": ["Spanish-Colonial arch and tower (Balboa Park)", "palm-lined coastal street", "avocado and citrus grove (inland North County)", "Pacific bluff coastline", "bougainvillea-draped patio"],
+    "_provenance_note": "stucco white + Saltillo terracotta grounded in Balboa Park Spanish-Colonial Revival architecture. bougainvillea magenta + palm from the SoCal streetscape. Pacific blue from the coast. Hass avocado green from San Diego County's signature crop. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "spring-easter",
+      "months": [3, 4, 5],
+      "in_season_produce": [
+        { "name": "San Diego County avocados (Hass)", "peak_month": 5, "pancake_tie": "savory avocado-and-lime topped Power Cakes -- a top US avocado county, spring peak" },
+        { "name": "coastal strawberries", "peak_month": 4, "pancake_tie": "California strawberry compote over Power Cakes -- early SoCal berry" }
+      ],
+      "where_to_buy": [
+        { "name": "Little Italy Mercato", "type": "farmers-market", "url": "https://littleitalymercato.com", "notes": "avocados + strawberries in spring" },
+        { "name": "Vons", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        { "name": "San Diego avocados + summer stone fruit", "peak_month": 7, "pancake_tie": "avocado savory stack or peach compote for a beach-morning griddle" }
+      ],
+      "where_to_buy": [
+        { "name": "Little Italy Mercato", "type": "farmers-market", "notes": "avocados + stone fruit at summer peak" },
+        { "name": "Ralphs", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        { "name": "SoCal pomegranates + late citrus", "peak_month": 10, "pancake_tie": "pomegranate-arils-and-honey spoon over Power Cakes -- SoCal fall" }
+      ],
+      "where_to_buy": [
+        { "name": "Little Italy Mercato", "type": "farmers-market", "notes": "pomegranates + citrus in fall" },
+        { "name": "Vons", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [12, 1, 2],
+      "in_season_produce": [
+        { "name": "California winter citrus (navel oranges, Meyer lemons)", "peak_month": 1, "pancake_tie": "citrus-ricotta Power Cakes -- SoCal winter keeps produce bright year-round" }
+      ],
+      "where_to_buy": [
+        { "name": "Little Italy Mercato", "type": "farmers-market", "notes": "winter citrus" },
+        { "name": "Costco", "type": "chain-grocer", "notes": "metro bulk channel" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Vons", "role": "home", "distance_mi": 0, "notes": "dominant San Diego grocer; home channel" },
+    { "name": "Ralphs", "role": "primary", "notes": "SoCal grocer" },
+    { "name": "Costco", "role": "primary", "notes": "strong San Diego bulk channel" },
+    { "name": "Sprouts", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "avocado savory card (spring/summer) + SoCal citrus card (winter) + pomegranate card (fall) -- real San Diego County produce" },
+    "localized-costco": { "fit": "strong", "angle": "San Diego is a strong Costco + Vons/Ralphs bulk-and-value market; retailer lockup works across the metro chains", "existing_brief": "briefs/kodiak-costco.yaml" },
+    "keep-it-wild": { "fit": "weak", "angle": "coastal metro; Keep It Wild lands better on the backcountry (Anza-Borrego, Cleveland National Forest) edge than downtown" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no produced San Diego content corpus yet; strong Balboa Park + avocado cue but thin prior material" },
+    "bears": { "fit": "weak", "angle": "black bear lives in the SoCal mountains east of the metro; California grizzly extinct (state symbol only). Keep conservation-toned and historically honest" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness" },
+    "us-ski-and-snowboard": { "fit": "na", "angle": "coastal SoCal; no ski identity (Big Bear is a distant drive)" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.85,
+    "ready_to_rock": true,
+    "notes": "Palette grounded in Spanish-Colonial stucco + Saltillo terracotta + bougainvillea + Pacific blue + Hass avocado green. Four seasonal windows across San Diego's year-round produce (avocado, citrus, pomegranate, strawberry). Retailers mapped to Vons/Ralphs/Costco. September framed as autumn (pomegranate/late citrus), not winter. languages THIN -- percentages INFERRED because ACS source file is absent; no exact ACS numbers fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Balboa Park (San Diego) Spanish-Colonial Revival -- en.wikipedia.org",
+      "web: San Diego County avocado production (top US avocado county) framing -- publicly documented",
+      "web: Little Italy Mercato -- littleitalymercato.com",
+      "web: San Diego Filipino community (National City, Navy tie) + border food culture framing -- publicly documented",
+      "note: language percentages INFERRED -- ACS/market-languages source file absent in checkout; no exact ACS numbers used"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

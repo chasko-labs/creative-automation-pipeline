@@ -1,0 +1,128 @@
+{
+  "region_id": "tucson",
+  "market_code": "US-MW-PHX2",
+  "aliases": ["US-SW-PHX (adjacent Sonoran-desert metro)"],
+  "place": "Tucson, Arizona",
+  "zip": "85701",
+  "county": "Pima County",
+  "state": "AZ",
+  "coordinates": { "lat": 32.2226, "lon": -110.9747 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Tucson / Mission Garden",
+    "landmark": "Santa Catalina Mountains to the north, Tucson Mountains to the west; Mission Garden at the foot of Sentinel Peak ('A' Mountain), the recreated birthplace of Tucson agriculture",
+    "notes": "Mission Garden sits on the Santa Cruz riverbed where the Hohokam channeled water to grow crops thousands of years ago; it anchors Tucson's living food heritage. sources: Mission Garden (en.wikipedia.org/wiki/Mission_Garden); visittucson.org City of Gastronomy."
+  },
+  "featured_frontier": {
+    "hook": "Heritage White Sonora wheat + mesquite-flour Power Cakes with prickly-pear syrup, Santa Catalina foothills behind -- 4,000 years of Sonoran grain on the griddle",
+    "photo_cue": "mesquite + White Sonora wheat flour, prickly-pear syrup, adobe patio, Santa Catalina foothills",
+    "signature_ingredient": "heritage White Sonora wheat + mesquite flour + prickly pear (desert Sonoran food heritage)",
+    "cross_promo": {
+      "partner": "Mission Garden / Tucson City of Gastronomy heritage-grain growers",
+      "url": "https://tucson.cityofgastronomy.org",
+      "activation": "heritage White Sonora wheat + mesquite-flour Power Cakes tie to the UNESCO City of Gastronomy grain story",
+      "consent_status": "proposed"
+    }
+  },
+  "audience": "Sonoran-heritage food families, desert-foothills households; Fry's + Walmart + Costco shoppers, UNESCO City of Gastronomy food-culture town",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 24.0, "translate_code": "es", "reason": "INFERRED from Pima County Hispanic ~38% (ACS pattern); Tucson is a deeply bilingual border-adjacent city -- verify exact ACS S1601 pct before production" },
+    { "lang_code": "yaq", "lang_name": "Yaqui (Yoeme)", "pct_home": 0.4, "translate_code": "es", "reason": "INFERRED Pascua Yaqui Tribe is headquartered in Tucson; Yoeme presence is culturally significant even where home-language pct is low. translate_code falls back to Spanish (no Nova Yaqui code). verify + honor tribal consent before any language use" }
+  ],
+  "cultural_notes": [
+    "Tucson was named the first UNESCO City of Gastronomy in the United States in 2015, recognized for a food story dating back thousands of years and its Sonoran Mexican cuisine (source: Mission Garden, en.wikipedia.org; visittucson.org; unesco.org creative-cities/tucson)",
+    "Mission Garden, at the foot of Sentinel Peak, recreates the Santa Cruz riverbed cultivation where the Hohokam grew indigenous crops -- 'the birthplace of Tucson' (source: visittucson.org UNESCO City of Gastronomy; en.wikipedia.org Mission Garden)",
+    "heritage crops -- White Sonora wheat, tepary beans, mesquite flour, prickly pear -- anchor the local desert-adapted food identity (source: unesco.org creative-cities/tucson 300-year tradition of orchards and heritage foods)",
+    "the Pascua Yaqui Tribe and Tohono O'odham Nation are significant regional communities; any tribal food reference stays consent-gated -- no fabricated endorsement (INFERRED framing; verify + honor tribal sovereignty)"
+  ],
+  "design_palette": {
+    "textures": ["adobe mud-brick", "mesquite wood grain", "White Sonora wheat sheaf", "prickly-pear pad + magenta fruit", "saguaro rib", "sun-baked Santa Cruz river clay", "ocotillo fence latillas"],
+    "colors": [
+      { "name": "prickly-pear magenta", "hex": "#9B2D5E", "use": "produce hero / accent" },
+      { "name": "White Sonora wheat gold", "hex": "#D8B968", "use": "grain / batter hero" },
+      { "name": "Santa Catalina dusk violet", "hex": "#6E5A78", "use": "skyline backdrop" },
+      { "name": "mesquite brown", "hex": "#5B3A24", "use": "wood / trim" },
+      { "name": "adobe terracotta", "hex": "#C0703F", "use": "structure / wall" }
+    ],
+    "building_materials": ["adobe brick", "mesquite and saguaro-rib lath", "lime-plaster over block", "flat parapet roof", "ocotillo-branch fencing", "fired brick storefront (downtown)"],
+    "landscape_motifs": ["Santa Catalina foothills at dusk", "saguaro-forest Sonoran flat", "Mission Garden heritage-crop rows", "Santa Cruz riverbed", "prickly-pear and cholla desert"],
+    "_provenance_note": "adobe/mesquite/saguaro-rib grounded in Sonoran desert vernacular + Mission Garden heritage agriculture (visittucson.org; en.wikipedia.org Mission Garden). prickly-pear magenta + White Sonora wheat gold grounded in the heritage crops. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        { "name": "prickly pear (tuna) fruit", "peak_month": 9, "pancake_tie": "magenta prickly-pear syrup over Buttermilk Power Cakes -- late-summer to early-fall desert fruit" },
+        { "name": "low-desert citrus (early grapefruit)", "peak_month": 11, "pancake_tie": "grapefruit-honey stack; citrus palatable by fall, sweeter into winter" },
+        { "name": "Arizona pecans (Green Valley / Sahuarita)", "peak_month": 11, "pancake_tie": "toasted local pecans in the batter -- southern Arizona is a major pecan-growing area" }
+      ],
+      "where_to_buy": [
+        { "name": "Fry's Food Stores (Tucson)", "type": "chain-grocer", "notes": "Kroger banner" },
+        { "name": "Heirloom Farmers Markets (Tucson)", "type": "farmers-market", "url": "https://www.heirloomfm.org", "notes": "multiple Tucson locations; heritage and desert-adapted produce" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [12, 1],
+      "in_season_produce": [
+        { "name": "peak low-desert citrus", "peak_month": 1, "pancake_tie": "citrus-honey holiday stack; grapefruit and navel orange sweeten on the tree into midwinter" }
+      ],
+      "where_to_buy": [
+        { "name": "Fry's / Walmart (Tucson)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [7, 8],
+      "in_season_produce": [
+        { "name": "monsoon-season mesquite pods (milled to flour)", "peak_month": 7, "pancake_tie": "mesquite-flour Power Cakes -- sweet, nutty desert grain harvested after summer monsoon (heritage-food tie)" }
+      ],
+      "where_to_buy": [
+        { "name": "Heirloom Farmers Markets (Tucson)", "type": "farmers-market" },
+        { "name": "Mission Garden", "type": "cross-promo-partner", "url": "https://www.missiongarden.org", "notes": "heritage-grain and desert-food programming" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Fry's Food Stores", "role": "home", "distance_mi": 0, "notes": "Kroger banner" },
+    { "name": "Walmart", "role": "primary" },
+    { "name": "Costco", "role": "primary" },
+    { "name": "Target", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "heritage White Sonora wheat + mesquite-flour Power Cakes card, prickly-pear syrup card -- the UNESCO City of Gastronomy food story is a genuinely distinct recipe hook, richest in the AZ set" },
+    "localized-costco": { "fit": "weak", "angle": "Costco present in Tucson metro but Fry's leads the everyday channel; bulk stock-up secondary angle" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no existing Tucson creative corpus in the scoreboard set yet -- thin to riff on until heritage-grain assets ship" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype/partnership only, never likeness" },
+    "bears": { "fit": "weak", "angle": "Bear Bites angle carries nationally; the Santa Catalinas have black bear habitat at elevation but Tucson is a desert-foothills identity -- keep conservation-toned, tracks-only" },
+    "keep-it-wild": { "fit": "strong", "angle": "Saguaro National Park flanks the city east and west, Santa Catalina foothills rise at the edge -- Keep It Wild saguaro-forest dawn stack", "existing_brief": "briefs/kodiak.yaml" },
+    "us-ski-and-snowboard": { "fit": "weak", "angle": "Mount Lemmon Ski Valley (southernmost ski area in the continental US) sits above Tucson on the Catalinas -- a genuine but niche local angle, not a core Tucson identity" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.86,
+    "ready_to_rock": true,
+    "notes": "New seed with the strongest recipe-card hook in the Arizona set (UNESCO City of Gastronomy heritage grains). design_palette grounded in Sonoran desert vernacular + heritage crops; seasonal keyed to prickly pear/citrus/mesquite (fall + monsoon, not winter-defaulted). languages carry INFERRED flags -- market-languages.json absent in checkout; Yaqui reference consent-gated. Mount Lemmon noted as a genuine niche ski angle. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Tucson first UNESCO City of Gastronomy in the US (2015), Sonoran Mexican cuisine -- en.wikipedia.org/wiki/Mission_Garden; visittucson.org/visit/article/food-past; unesco.org/en/creative-cities/tucson",
+      "web: Mission Garden, Santa Cruz riverbed Hohokam cultivation, birthplace of Tucson -- visittucson.org UNESCO City of Gastronomy; missiongarden.org",
+      "web: heritage foods (300-year tradition of orchards, heritage grains) -- unesco.org creative-cities/tucson; smithsonianmag.com first capital of gastronomy",
+      "web: Arizona seasonal produce (prickly pear, pecans, low-desert citrus) -- heirloomfm.org seasonality guide; extension.arizona.edu low-desert citrus",
+      "INFERRED: language pcts (market-languages.json absent in checkout) -- verify ACS S1601 for Pima County; honor Pascua Yaqui / Tohono O'odham consent"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

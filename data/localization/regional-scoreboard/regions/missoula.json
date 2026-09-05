@@ -1,0 +1,123 @@
+{
+  "region_id": "missoula",
+  "market_code": "US-MW-MISSOULA",
+  "aliases": [],
+  "place": "Missoula, Montana",
+  "zip": "59801",
+  "county": "Missoula County",
+  "state": "MT",
+  "coordinates": { "lat": 46.8721, "lon": -113.994 },
+  "classification": "regional",
+  "city_center": {
+    "name": "Downtown Missoula / Clark Fork riverfront",
+    "landmark": "the Clark Fork River through downtown, Mount Sentinel with the 'M' above the University of Montana; the 'hub of five valleys' at the convergence of five mountain ranges",
+    "notes": "Missoula sits along the Clark Fork River near its confluence with the Bitterroot and Blackfoot, the 'hub of five valleys'; the Clark Fork River Market and the Missoula Farmers Market (north Higgins Avenue) anchor summer-fall weekends. Montana Snowbowl is 12 miles northwest. sources: en.wikipedia.org/wiki/Missoula,_Montana; clarkforkmarket.com; en.wikipedia.org/wiki/Montana_Snowbowl."
+  },
+  "featured_frontier": {
+    "hook": "Wild Montana huckleberry compote over Power Cakes at the Clark Fork River Market, Mount Sentinel behind, Snowbowl snow up the drainage -- five-valleys river-town breakfast",
+    "photo_cue": "purple huckleberry compote, cast iron, Clark Fork riverfront, Mount Sentinel 'M', conifer ridges",
+    "signature_ingredient": "wild Montana huckleberries + Bitterroot valley produce; river-town outdoor culture",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "River-town families, university and outdoor households, five-valleys rural base; Rosauers + Albertsons + Costco + Walmart shoppers, huckleberry-and-trail culture",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 3.0, "translate_code": "es", "reason": "INFERRED from Missoula County Hispanic ~4% (ACS pattern); small but the largest second language -- verify exact ACS S1601 pct before production" },
+    { "lang_code": "sal", "lang_name": "Salish", "pct_home": 0.4, "translate_code": "en", "reason": "INFERRED the Bitterroot Salish are the region's Indigenous people (Confederated Salish and Kootenai Tribes to the north); culturally significant even at low home-language pct. translate_code falls back to English (no Nova Salish code). honor tribal consent before any language use" }
+  ],
+  "cultural_notes": [
+    "Missoula sits along the Clark Fork River near its confluence with the Bitterroot and Blackfoot rivers, at the convergence of five mountain ranges -- 'the hub of five valleys' (source: en.wikipedia.org/wiki/Missoula,_Montana)",
+    "wild Montana huckleberries are a signature regional food, found at the Clark Fork River Market alongside local produce, bread, honey and wool goods (source: bluemountainbb.com Missoula farmers markets; clarkforkmarket.com; destinationmissoula.org)",
+    "downtown holds a documented late-1800s to 1940 commercial-architecture historic district -- brick storefronts from the railroad-and-timber era (source: NRHP Historic Resources in Missoula 1864-1940, nps.gov)",
+    "the Bitterroot Salish are the region's Indigenous people; any tribal reference stays consent-gated -- no fabricated endorsement (INFERRED framing; verify + honor sovereignty)"
+  ],
+  "design_palette": {
+    "textures": ["railroad-era red brick", "Clark Fork river cobble", "weathered barn timber (Bitterroot)", "wild-huckleberry cluster", "ponderosa and larch bark", "cast-iron griddle sear", "Mount Sentinel bunchgrass"],
+    "colors": [
+      { "name": "wild-huckleberry purple", "hex": "#5B3A6B", "use": "produce hero / accent" },
+      { "name": "Missoula brick red", "hex": "#8C4131", "use": "downtown storefront / structure" },
+      { "name": "Clark Fork river green", "hex": "#3E6B5A", "use": "river / foreground" },
+      { "name": "larch autumn gold", "hex": "#D6A64A", "use": "hillside / fall accent (western larch turns gold)" },
+      { "name": "five-valleys conifer green", "hex": "#33502F", "use": "ridge / backdrop" }
+    ],
+    "building_materials": ["railroad-era red fired brick", "weathered wood barn timber (Bitterroot valley)", "board-and-batten (rural)", "timber-and-stone lodge (Snowbowl / rural)", "cast-iron storefront trim", "fieldstone foundation"],
+    "landscape_motifs": ["Clark Fork River through downtown", "Mount Sentinel 'M' hillside", "western larch turning gold in fall", "Bitterroot valley farmland", "five converging mountain ranges"],
+    "_provenance_note": "railroad-era brick grounded in the Missoula 1864-1940 commercial historic district (nps.gov NRHP). wild-huckleberry purple grounded in the signature regional berry (clarkforkmarket.com; bluemountainbb.com). larch autumn gold grounded in western larch fall color. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        { "name": "Bitterroot valley apples + fall squash + late huckleberries", "peak_month": 9, "pancake_tie": "huckleberry or cinnamon-apple compote on cast iron; huckleberry season tails into early fall, apples peak Sep-Oct" },
+        { "name": "Montana honey + root veg", "peak_month": 10, "pancake_tie": "raw-honey drizzle stack; savory root-veg Power Cakes" }
+      ],
+      "where_to_buy": [
+        { "name": "Missoula Farmers Market (north Higgins Ave)", "type": "farmers-market", "url": "https://www.missoulafarmersmarket.com", "notes": "nearly 100 vendors; tomatoes, greens, melons, cherries, apples" },
+        { "name": "Rosauers Supermarket (Missoula)", "type": "chain-grocer", "notes": "regional Northwest chain" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [7, 8],
+      "in_season_produce": [
+        { "name": "wild Montana huckleberries", "peak_month": 8, "pancake_tie": "wild huckleberry compote over Buttermilk Power Cakes -- the signature Montana summer berry, peak mid-to-late summer" },
+        { "name": "Flathead cherries + Bitterroot berries", "peak_month": 7, "pancake_tie": "fold cherries into batter; bright river-town summer stack" }
+      ],
+      "where_to_buy": [
+        { "name": "Clark Fork River Market", "type": "farmers-market", "url": "https://www.clarkforkmarket.com", "notes": "225 S. Pattee St; huckleberries, produce, bread, honey" },
+        { "name": "Missoula Farmers Market (north Higgins Ave)", "type": "farmers-market" }
+      ]
+    },
+    {
+      "season": "ski-season",
+      "months": [12, 1, 2],
+      "in_season_produce": [
+        { "name": "huckleberry preserves + Montana honey (shelf-stable) + root veg", "pancake_tie": "huckleberry-preserve holiday/ski stack when fresh berry windows close; warm morning before a Montana Snowbowl day" }
+      ],
+      "where_to_buy": [
+        { "name": "Albertsons / Rosauers (Missoula)", "type": "chain-grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Rosauers Supermarket", "role": "home", "distance_mi": 0, "notes": "regional Northwest chain, strong Missoula presence" },
+    { "name": "Albertsons", "role": "primary" },
+    { "name": "Costco", "role": "primary" },
+    { "name": "Walmart", "role": "primary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "wild Montana huckleberry compote card -- a genuinely distinct, ownable regional hook; Bitterroot apple + Flathead cherry cards as seasonal companions" },
+    "us-ski-and-snowboard": { "fit": "strong", "angle": "Montana Snowbowl is 12 miles from town and the market has deep trail-and-outdoor culture -- powder-morning huckleberry stack lands; supports the us-ski brief for the northern Rockies" },
+    "keep-it-wild": { "fit": "strong", "angle": "five valleys, the Clark Fork/Bitterroot/Blackfoot rivers and surrounding national forest make wild land the everyday backdrop -- Keep It Wild river-town dawn stack", "existing_brief": "briefs/kodiak.yaml" },
+    "bears": { "fit": "weak", "angle": "western Montana is genuine grizzly and black bear country -- this is a real habitat market, so keep the bear angle strictly conservation-toned, respectful-distance/tracks-only, and lean into the Keep-It-Wild brand guardrail (no costume/captive bears)" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no existing Missoula creative corpus -- thin to riff on until huckleberry assets ship" },
+    "localized-costco": { "fit": "weak", "angle": "Costco present in Missoula but Rosauers/Albertsons lead the everyday channel; bulk stock-up secondary angle" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype/partnership only, never likeness" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.89,
+    "ready_to_rock": true,
+    "notes": "New seed with a strongly ownable wild-huckleberry hook. us-ski STRONG (Montana Snowbowl 12 mi). NOTE: western Montana is genuine grizzly country -- bears angle must stay conservation-toned per Keep-It-Wild guardrail (flagged in campaign_type_fit). design_palette grounded in railroad brick + huckleberry + larch, cited; seasonal keyed to huckleberries (summer peak) + Bitterroot apples fall (not winter-defaulted). languages carry INFERRED flags; Salish reference consent-gated -- market-languages.json absent in checkout. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Missoula = hub of five valleys, Clark Fork/Bitterroot/Blackfoot confluence -- en.wikipedia.org/wiki/Missoula,_Montana",
+      "web: wild Montana huckleberries + Clark Fork River Market + Missoula Farmers Market -- clarkforkmarket.com; bluemountainbb.com Missoula farmers markets; destinationmissoula.org",
+      "web: Missoula 1864-1940 commercial-architecture historic district (railroad-era brick) -- nps.gov NRHP Historic Resources in Missoula",
+      "web: Montana Snowbowl 12 mi northwest -- en.wikipedia.org/wiki/Montana_Snowbowl",
+      "INFERRED: language pcts (market-languages.json absent in checkout) -- verify ACS S1601 for Missoula County; honor Bitterroot Salish consent"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

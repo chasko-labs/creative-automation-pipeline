@@ -1,0 +1,125 @@
+{
+  "region_id": "austin",
+  "market_code": "US-SC-AUSTIN",
+  "aliases": ["US-SC-ATX"],
+  "place": "Austin, Texas",
+  "zip": "78701",
+  "county": "Travis County",
+  "state": "TX",
+  "coordinates": { "lat": 30.2672, "lon": -97.7431 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Austin / South Congress",
+    "landmark": "Texas State Capitol dome on Congress Avenue; Lady Bird Lake and the Barton Springs greenbelt at the edge of the Texas Hill Country",
+    "notes": "Austin sits on the Balcones Escarpment where the Blackland Prairie meets the limestone Hill Country; Barton Springs and the Lady Bird Lake trail are the civic gathering water. sources: Texas Hill Country limestone (texashillcountry.com); Austin residential architecture (homeworlddesign.com)."
+  },
+  "featured_frontier": {
+    "hook": "Fredericksburg Hill Country peach compote over Power Cakes on a limestone porch, live oaks and the Balcones bluff behind -- Hill Country dawn flapjacks",
+    "photo_cue": "Hill Country peaches, native limestone wall, deep shaded porch, live oak canopy, enamel plate",
+    "signature_ingredient": "Fredericksburg peaches (mid-May to mid-August) + Hill Country pecans; limestone-and-live-oak morning",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "Hill Country-edge families, tech-transplant and long-Austin households; H-E-B and Central Market shoppers with a strong local-food and outdoor identity",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 28.0, "translate_code": "es", "reason": "INFERRED from Travis County Hispanic ~34% and Central Texas Spanish-at-home pattern; verify exact ACS S1601 pct before production -- market-languages.json absent in checkout" }
+  ],
+  "cultural_notes": [
+    "Austin sits on the Balcones Escarpment, the fault line where the Blackland Prairie gives way to the limestone Hill Country -- the reason native limestone is the region's signature building stone (source: texashillcountry.com/limestone-buildings-hill-country; architectgpt.io Texas Hill Country architecture)",
+    "Hill Country vernacular architecture draws on German and Hispanic building traditions carried by 19th-century settlers: low-pitched metal roofs, deep covered porches, native limestone walls, casement windows set for the breeze (source: build-construct.com residential construction in Texas Hill Country small towns)",
+    "H-E-B holds close to half the Austin-area grocery market and Central Market -- H-E-B's upscale banner -- was founded in Austin in 1994; the local-grocer loyalty is a cultural fact, not just a retail one (source: axios.com H-E-B dominates Austin; en.wikipedia.org Central Market Texas)",
+    "Fredericksburg, in the Hill Country west of Austin, runs a peach season mid-May through mid-August that fills roadside stands -- a regional summer ritual (source: visitfredericksburgtx.com peach picking)"
+  ],
+  "design_palette": {
+    "textures": ["native Hill Country limestone", "hand-troweled lime plaster / stucco", "weathered cedar and mesquite timber", "standing-seam metal roof patina", "live oak bark", "peach fuzz skin", "Barton Springs spring-water clarity"],
+    "colors": [
+      { "name": "Hill Country limestone pale gold", "hex": "#D8CBA6", "use": "structure / wall" },
+      { "name": "Fredericksburg peach blush", "hex": "#E8A15C", "use": "produce hero / accent" },
+      { "name": "live oak canopy green", "hex": "#4A5D3A", "use": "landscape / shade" },
+      { "name": "Barton Springs spring green", "hex": "#5FA890", "use": "water / small accent" },
+      { "name": "Balcones dusk violet", "hex": "#7C6A8A", "use": "sky / dawn-dusk backdrop" }
+    ],
+    "building_materials": ["native limestone block and veneer", "lime plaster / stucco", "standing-seam metal roof", "cedar-post deep porch", "mesquite timber accents", "steel-and-glass modern Hill Country"],
+    "landscape_motifs": ["limestone bluff and escarpment", "live oak and cedar savanna", "Lady Bird Lake and Barton Springs", "Hill Country peach orchard", "wildflower roadside (bluebonnet spring)"],
+    "_provenance_note": "limestone / metal roof / deep porch / German-Hispanic vernacular grounded in Texas Hill Country architecture sources (texashillcountry.com; build-construct.com; architectgpt.io). peach blush grounded in Fredericksburg peach season (visitfredericksburgtx.com). hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "summer-fourth",
+      "months": [5, 6, 7, 8],
+      "in_season_produce": [
+        { "name": "Fredericksburg Hill Country peaches", "peak_month": 6, "pancake_tie": "fresh peach compote folded over Power Cakes -- peak Hill Country peach season mid-May to mid-August" },
+        { "name": "Texas summer tomatoes + sweet corn", "peak_month": 7, "pancake_tie": "savory sweet-corn Power Cakes with a summer tomato side" }
+      ],
+      "where_to_buy": [
+        { "name": "Central Market (Austin)", "type": "chain-grocer", "url": "https://www.centralmarket.com", "notes": "H-E-B upscale banner, founded Austin 1994; strong local-Texas produce program" },
+        { "name": "H-E-B (Austin)", "type": "chain-grocer", "url": "https://www.heb.com", "notes": "close to half the Austin grocery market" },
+        { "name": "SFC Farmers' Market (Downtown / Republic Square)", "type": "farmers-market", "notes": "Sustainable Food Center market; Hill Country growers, peaches in season" }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        { "name": "Hill Country pecans", "peak_month": 11, "pancake_tie": "toasted pecans in the batter -- Texas is a major native-pecan state, harvest late fall" },
+        { "name": "fall greens + winter squash", "peak_month": 10, "pancake_tie": "savory squash-and-cheddar Power Cakes -- INFERRED seasonal tie, verify local availability" }
+      ],
+      "where_to_buy": [
+        { "name": "H-E-B / Central Market (Austin)", "type": "chain-grocer" },
+        { "name": "SFC Farmers' Market", "type": "farmers-market" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4],
+      "in_season_produce": [
+        { "name": "Texas 1015 sweet onions", "peak_month": 4, "pancake_tie": "savory sweet-onion + cheddar Power Cakes -- the 1015 is Texas's signature spring sweet onion" }
+      ],
+      "where_to_buy": [
+        { "name": "H-E-B (Austin)", "type": "chain-grocer", "notes": "Texas 1015 onions are an H-E-B spring feature" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "H-E-B", "role": "home", "distance_mi": 0, "notes": "close to 50% Austin-area market share" },
+    { "name": "Central Market", "role": "primary", "notes": "H-E-B upscale banner, founded Austin 1994" },
+    { "name": "Costco", "role": "secondary" },
+    { "name": "Walmart", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "Fredericksburg peach compote Power Cakes card + Texas pecan card + 1015 sweet-onion savory card -- three real Central-Texas seasonal produce hooks" },
+    "localized-costco": { "fit": "strong", "angle": "H-E-B is the true home channel here, not Costco; the stronger localized-retailer play is an H-E-B / Central Market lockup rather than a warehouse-club angle", "existing_brief": "briefs/kodiak-costco.yaml" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no existing Austin creative corpus in the scoreboard set -- thin to riff on until first assets ship" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype/partnership only, never likeness" },
+    "bears": { "fit": "weak", "angle": "Bear Bites lunchbox angle carries nationally; Hill Country is not black-bear range at scale -- keep conservation-toned, national" },
+    "keep-it-wild": { "fit": "strong", "angle": "Barton Creek greenbelt, Lady Bird Lake, and the Balcones Canyonlands preserve -- Keep It Wild limestone-and-live-oak greenbelt stack in an urban setting", "existing_brief": "briefs/kodiak.yaml" },
+    "us-ski-and-snowboard": { "fit": "na", "angle": "Central Texas Hill Country; no ski culture" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.86,
+    "ready_to_rock": true,
+    "notes": "New seed. design_palette grounded in Hill Country limestone + Fredericksburg peach and cited; seasonal keyed to peaches (May-Aug), pecans (fall), 1015 onions (spring) -- not winter-defaulted. H-E-B/Central Market mapped as home channel with the correct localized-retailer note. Spanish pct carries INFERRED flag -- market-languages.json absent in checkout, no ACS number fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Texas Hill Country limestone architecture -- texashillcountry.com/limestone-buildings-hill-country; architectgpt.io texas-hill-country-architecture; build-construct.com residential construction Hill Country small towns",
+      "web: Austin residential architecture / vernacular -- homeworlddesign.com/austin-residential-architecture",
+      "web: H-E-B ~50% Austin market share -- axios.com H-E-B dominates Austin grocery stores; canvasbusinessmodel.com H-E-B competitive landscape",
+      "web: Central Market H-E-B upscale banner founded Austin 1994 -- en.wikipedia.org/wiki/Central_Market_(Texas)",
+      "web: Fredericksburg peach season mid-May to mid-August -- visitfredericksburgtx.com peaches",
+      "web: Texas produce calendar (1015 onions, pecans) -- texasagriculture.gov Produce Commodity Card; pickyourown.org TXharvestcalendar",
+      "INFERRED: Spanish-at-home pct (market-languages.json absent in checkout) -- verify ACS S1601 for Travis County"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

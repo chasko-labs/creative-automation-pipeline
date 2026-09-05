@@ -1,0 +1,160 @@
+{
+  "region_id": "sf",
+  "market_code": "US-W-SF",
+  "aliases": ["US-W-BAYAREA (metro anchor)"],
+  "place": "San Francisco Bay Area, California",
+  "zip": "94102",
+  "county": "City and County of San Francisco",
+  "state": "CA",
+  "coordinates": { "lat": 37.7749, "lon": -122.4194 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Ferry Building Marketplace (Embarcadero) + the Bay Area metro",
+    "landmark": "the Ferry Building and its Ferry Plaza Farmers Market (operated by Foodwise, formerly CUESA); Victorian and Edwardian 'Painted Lady' rowhouses; the Golden Gate; the East Bay and Peninsula suburbs",
+    "notes": "This is the San Francisco Bay Area METRO record -- distinct from the Pescadero frontier-gap record (regions/pescadero-bay-area.json). The Ferry Plaza Farmers Market is a California Certified Farmers Market running Tuesday, Thursday, and Saturday year-round, rain or shine, with 100+ vendors on the Saturday market -- a flagship of California's year-round produce abundance. The metro spans SF, the East Bay, and the Peninsula. sources: en.wikipedia.org Ferry Building (San Francisco); foodwise.org (Foodwise/formerly CUESA, tri-weekly year-round); ferrybuildingmarketplace.com."
+  },
+  "featured_frontier": {
+    "hook": "Year-round California abundance at the Ferry Plaza -- Meyer lemon, Central Valley stone fruit, and Brentwood corn over Power Cakes, a Painted Lady bay window and Golden Gate light behind",
+    "photo_cue": "cast-iron flapjack stack at a Ferry Plaza stall, Bay fog and a Painted Lady bay window behind, California citrus and stone fruit, international-orange bridge light",
+    "signature_ingredient": "California year-round abundance: Meyer lemons + winter citrus (winter), Central Valley stone fruit (summer, e.g. Kashiwase Farms), Brentwood corn + cherries (early summer), NorCal apples + persimmons (fall)",
+    "cross_promo": {
+      "partner": "Foodwise Ferry Plaza Farmers Market (formerly CUESA)",
+      "url": "https://foodwise.org/ferry-plaza-farmers-market/",
+      "product": "seasonal California produce recipe cards",
+      "activation": "year-round California produce cards; Safeway / Lucky / Trader Joe's / Costco retailer lockup across the Bay Area metro (retailer logo compositing is partnerships-gated)",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "San Francisco + East Bay + Peninsula families and professionals; Ferry Plaza and neighborhood-market shoppers; delivery-forward tech households; Safeway, Lucky, Trader Joe's, and Costco shoppers",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 12.0, "translate_code": "es", "reason": "INFERRED (pipeline market-languages.json absent): large Latino community across the Mission and the broader Bay Area; pct is a web-informed estimate, NOT exact ACS -- flag INFERRED" },
+    { "lang_code": "zh", "lang_name": "Chinese", "pct_home": 9.0, "translate_code": "zh", "reason": "INFERRED (pipeline absent): the Bay Area holds one of the largest Chinese communities in the US (Chinatown, Sunset, Richmond, East Bay); pct estimated, NOT exact ACS -- flag INFERRED" },
+    { "lang_code": "tl", "lang_name": "Tagalog", "pct_home": 3.0, "translate_code": "tl", "reason": "INFERRED (pipeline absent): large Filipino community across the Bay Area (Daly City, SoMa); pct estimated, NOT exact ACS -- flag INFERRED" }
+  ],
+  "cultural_notes": [
+    "the Ferry Building Marketplace hosts the Ferry Plaza Farmers Market (operated by Foodwise, formerly CUESA), a nationally noted showcase of California's year-round produce abundance running Tue/Thu/Sat rain or shine (source: foodwise.org; ferrybuildingmarketplace.com; en.wikipedia.org Ferry Building)",
+    "San Francisco's Victorian and Edwardian 'Painted Lady' rowhouses (Alamo Square, the Haight) are a defining architectural image (source: Painted ladies, en.wikipedia.org)",
+    "the Bay Area is deeply diverse -- large Chinese, Latino, and Filipino communities shape a rich food culture across Chinatown, the Mission, and Daly City (source: general demographic framing, publicly documented)",
+    "long-running Ferry Plaza farms anchor the seasonal calendar -- Kashiwase Farms has brought organic Central Valley stone fruit and almonds for over 20 years, a marker of the market's producer-relationship depth (source: foodwise.org Kashiwase Farms)",
+    "the metro is delivery- and small-format-forward; Safeway, Lucky, and Trader Joe's anchor grocery with strong Costco presence in the East Bay and Peninsula (source: chain regional footprint)",
+    "the Golden Gate Bridge's 'international orange' is a signature regional color and one of the most recognizable structural hues in the world (source: en.wikipedia.org Golden Gate Bridge)",
+    "the marine layer -- the Bay's summer fog -- defines the region's light and morning texture, a recurring styling cue distinct from Southern California sun (source: general climate framing, publicly documented)"
+  ],
+  "design_palette": {
+    "textures": ["Victorian painted-wood clapboard and gingerbread trim", "Bay fog haze / marine layer", "Ferry Building steel-and-glass arcade", "serpentine and sandstone hillside", "eucalyptus-and-cypress foliage", "California citrus rind", "dry-farmed tomato skin", "cast-iron griddle char", "cable-car track steel", "brick Embarcadero pier"],
+    "colors": [
+      { "name": "Painted Lady facade cream", "hex": "#E8DCC2", "use": "structure / Victorian facade" },
+      { "name": "Bay fog silver", "hex": "#C3C9CB", "use": "fog / backdrop / negative space" },
+      { "name": "Golden Gate international orange", "hex": "#C0362C", "use": "bridge / hot accent" },
+      { "name": "San Francisco Bay blue", "hex": "#3E6C82", "use": "water / sky" },
+      { "name": "Meyer-lemon gold", "hex": "#E0B33A", "use": "produce hero / warm accent" },
+      { "name": "Central Valley stone-fruit blush", "hex": "#E79A6B", "use": "produce accent (peach/nectarine)" },
+      { "name": "eucalyptus sage-green", "hex": "#7C8A6A", "use": "foliage / hillside" },
+      { "name": "Ferry Building sandstone buff", "hex": "#C9B79A", "use": "arcade masonry / warm structure" }
+    ],
+    "building_materials": ["Victorian/Edwardian painted wood (Painted Ladies)", "steel-and-glass arcade (Ferry Building)", "sandstone and masonry (Ferry Building tower)", "stucco (mission-era + modern)", "serpentine and sandstone (hillside)", "glass-and-steel downtown tower", "brick Embarcadero pier structures"],
+    "landscape_motifs": ["Painted Lady rowhouse row against fog", "Golden Gate over the Bay", "Ferry Plaza market stalls on the Embarcadero", "steep foggy hillside street", "Bay waterfront with sailboats", "cable car climbing a fog-lit grade"],
+    "_provenance_note": "Painted Lady cream + Golden Gate international orange grounded in SF's signature Victorian architecture (en.wikipedia.org Painted ladies) and the bridge's documented international-orange hue (en.wikipedia.org Golden Gate Bridge). Bay fog silver + Bay blue from the marine terrain. Meyer-lemon gold + stone-fruit blush from California produce. Ferry Building sandstone buff from the 1898 masonry landmark. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "winter-holidays",
+      "months": [12, 1, 2],
+      "in_season_produce": [
+        { "name": "California Meyer lemons + winter citrus (mandarins, blood oranges)", "peak_month": 1, "pancake_tie": "Meyer-lemon-ricotta Power Cakes -- California winter citrus keeps produce bright when most of the country is bare" }
+      ],
+      "where_to_buy": [
+        { "name": "Ferry Plaza Farmers Market (Foodwise)", "type": "farmers-market", "url": "https://foodwise.org/ferry-plaza-farmers-market/", "notes": "year-round Tue/Thu/Sat; winter citrus" },
+        { "name": "Safeway", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "valentines",
+      "months": [2],
+      "in_season_produce": [
+        { "name": "blood oranges + early California strawberries", "peak_month": 2, "pancake_tie": "blood-orange + strawberry compote over Power Cakes -- a bright red Valentine stack from California's early-season fruit" }
+      ],
+      "where_to_buy": [
+        { "name": "Ferry Plaza Farmers Market (Foodwise)", "type": "farmers-market", "url": "https://foodwise.org/ferry-plaza-farmers-market/" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4, 5],
+      "in_season_produce": [
+        { "name": "California strawberries + asparagus", "peak_month": 5, "pancake_tie": "California strawberry compote over Power Cakes -- early West Coast berry" },
+        { "name": "spring apricots (early stone fruit)", "peak_month": 5, "pancake_tie": "apricot compote over Buttermilk Power Cakes -- the leading edge of Central Valley stone fruit" }
+      ],
+      "where_to_buy": [
+        { "name": "Ferry Plaza Farmers Market (Foodwise)", "type": "farmers-market", "url": "https://foodwise.org/ferry-plaza-farmers-market/", "notes": "spring berries + asparagus + first apricots" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        { "name": "Central Valley stone fruit (peaches, nectarines -- e.g. Kashiwase Farms)", "peak_month": 7, "pancake_tie": "California peach compote over Power Cakes -- Central Valley summer peak, a 20+ year Ferry Plaza staple" },
+        { "name": "Brentwood sweet corn + cherries", "peak_month": 6, "pancake_tie": "Brentwood cherry compote or sweet-corn savory Power Cakes -- East Bay farm belt" }
+      ],
+      "where_to_buy": [
+        { "name": "Ferry Plaza Farmers Market (Foodwise)", "type": "farmers-market", "url": "https://foodwise.org/ferry-plaza-farmers-market/", "notes": "stone fruit + Brentwood corn/cherries at summer peak" },
+        { "name": "Lucky", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        { "name": "NorCal apples (Sebastopol Gravenstein successors) + Fuyu persimmons", "peak_month": 10, "pancake_tie": "California apple or Fuyu-persimmon compote over Power Cakes -- Bay Area fall" },
+        { "name": "dry-farmed tomatoes (late season)", "peak_month": 9, "pancake_tie": "savory tomato-and-herb Power Cakes -- a NorCal dry-farmed specialty" }
+      ],
+      "where_to_buy": [
+        { "name": "Ferry Plaza Farmers Market (Foodwise)", "type": "farmers-market", "url": "https://foodwise.org/ferry-plaza-farmers-market/", "notes": "apples + persimmons + dry-farmed tomatoes in fall" },
+        { "name": "Costco", "type": "chain-grocer", "notes": "East Bay / Peninsula bulk channel" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Safeway", "role": "home", "distance_mi": 0, "notes": "dominant Bay Area grocer; home channel" },
+    { "name": "Lucky", "role": "primary", "notes": "NorCal grocer" },
+    { "name": "Trader Joe's", "role": "primary" },
+    { "name": "Costco", "role": "secondary", "notes": "East Bay / Peninsula bulk channel" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "year-round California cards: Meyer-lemon (winter), blood-orange (Valentine), strawberry/apricot (spring), stone fruit + Brentwood corn (summer), apple/persimmon/dry-farmed tomato (fall) -- the Ferry Plaza abundance calendar, five-season deep" },
+    "localized-costco": { "fit": "strong", "angle": "the Bay Area is a strong Costco + Safeway bulk-and-value market; retailer lockup works across the metro. Distinct from the Pescadero frontier-gap record where Costco is a 30mi gap-nearest halo (retailer logo compositing partnerships-gated)", "existing_brief": "briefs/kodiak-costco.yaml" },
+    "keep-it-wild": { "fit": "weak", "angle": "dense metro; Keep It Wild lands better on the Pescadero coast / Marin headlands frontier record than on the city itself" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no produced Bay Area metro content corpus yet; strong Ferry Plaza + Painted Lady cue but thin prior material" },
+    "bears": { "fit": "weak", "angle": "the California grizzly is extinct (state-flag symbol only); black bear lives in the Sierra to the east. Bear framing is symbolic/heritage here -- keep conservation-toned and historically honest" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness" },
+    "us-ski-and-snowboard": { "fit": "weak", "angle": "Lake Tahoe / Sierra skiing is a ~3-4hr drive and a real Bay Area weekend habit, but SF itself has no ski identity -- secondary angle only" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.9,
+    "ready_to_rock": true,
+    "notes": "DEEPENED metro record for US-W-SF, distinct from the Pescadero frontier-gap record. Corrected CUESA -> Foodwise rebrand and confirmed the Ferry Plaza tri-weekly year-round schedule. Palette expanded to 8 colors + 10 textures (added stone-fruit blush, eucalyptus sage, Ferry Building sandstone). FIVE seasonal windows now including a valentines blood-orange window and a fall dry-farmed-tomato pick; named Kashiwase Farms as a real 20+ year stone-fruit producer. 7 cultural_notes. featured_frontier sharpened to Ferry Plaza year-round abundance. languages THIN + INFERRED (pipeline market-languages.json absent; NO exact ACS fabricated -- the one soft field). Grizzly noted extinct-in-CA. Retailer logos intentionally NOT sourced -- partnerships-gated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Ferry Building (San Francisco) -- en.wikipedia.org",
+      "web: Ferry Plaza Farmers Market operated by Foodwise (formerly CUESA), Tue/Thu/Sat year-round, 100+ Saturday vendors -- foodwise.org/ferry-plaza-farmers-market; ferrybuildingmarketplace.com/farmers-market",
+      "web: Kashiwase Farms organic Central Valley stone fruit 20+ years at Ferry Plaza -- foodwise.org/articles/kashiwase-farms",
+      "web: Painted ladies (San Francisco Victorian rowhouses) -- en.wikipedia.org",
+      "web: Golden Gate Bridge international orange -- en.wikipedia.org",
+      "web: California grizzly bear (extinct, state-flag symbol) -- publicly documented",
+      "note: distinct from regions/pescadero-bay-area.json (frontier-gap). pipeline market-languages.json ABSENT -- language pct INFERRED, no exact ACS fabricated. retailer logos NOT sourced (partnerships-gated)."
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

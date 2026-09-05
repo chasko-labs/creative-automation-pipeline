@@ -1,0 +1,145 @@
+{
+  "region_id": "park-city-wasatch",
+  "market_code": "US-MW-PARKCITY-84098",
+  "aliases": ["US-MW-WASATCH", "US-MW-WASATCH-SLC"],
+  "place": "Park City, Utah 84098 (Wasatch Back)",
+  "zip": "84098",
+  "county": "Summit County",
+  "state": "UT",
+  "coordinates": { "lat": 40.6461, "lon": -111.498 },
+  "classification": "regional",
+  "city_center": {
+    "name": "Historic Park City Main Street",
+    "landmark": "Park City Mountain base + Historic Main Street district (Old Town), Wasatch Range behind",
+    "notes": "Historic Main Street is a National Register mining-town business district; the Park City Farmers Market sets up at the base of Park City Mountain Resort (Canyons Village) Wed 11-5 through mid-October. McLeod Creek runs through the Wasatch Back valley below Old Town. sources: Park City Main Street Historic District (en.wikipedia.org/wiki/Park_City_Main_Street_Historic_District); park-city-84098.json hyper_local_sources."
+  },
+  "featured_frontier": {
+    "hook": "Jensen Farms peach + Copper Moose rhubarb-orange compote on cast iron at the Park City Mountain base farmers market, Wasatch alpenglow behind",
+    "photo_cue": "Wasatch alpenglow, pine, boulder, snow at dawn -- farmers market crates from Park City Mountain base, rhubarb-orange compote, peach preserves on cast iron",
+    "signature_ingredient": "Jensen Farms / Smith Orchards Utah peaches (Jun-Sep, market through mid-Oct); Copper Moose biodynamic rhubarb (Jun-Oct)",
+    "cross_promo": {
+      "partner": "Park City Farmers Market (Jensen Farms, Copper Moose Farm, Tagges Fruit, Ballerina Farm)",
+      "activation": "farmers-market peach/rhubarb compote pairing at the Park City Mountain base; Ballerina Farm butter+honey Bear Bites variant",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Mountain families, Wasatch trail households, resort staff; bulk Family Size via Costco halo + Target/Walmart Kimball Junction runs",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 5.8, "translate_code": "es", "reason": "ACS 2023 5yr Summit County: Hispanic 9.2%, Spanish at home 6.1%; resort-town service workforce" },
+    { "lang_code": "pt", "lang_name": "Portuguese", "pct_home": 1.2, "translate_code": "pt", "reason": "ACS Summit County Portuguese 1.1%; Brazilian J-1/H-2B resort staff community documented by Park City Chamber" }
+  ],
+  "cultural_notes": [
+    "silver-mining heritage town: Historic Main Street preserves Victorian, Queen Anne and Mission/Spanish Revival storefronts from the boom; an anti-chain-store ordinance keeps Main Street independent (source: Park City Main Street Historic District, en.wikipedia.org; westernartandarchitecture.com)",
+    "ski-and-snowboard civic identity: hosted 2002 Winter Olympics alpine/nordic events, hosts Sundance Film Festival on Main Street each January (source: sltrib.com Park City Main Street)",
+    "farmers-market rhythm is a summer-fall community ritual at the resort base (Wed) plus Copper Moose biodynamic stand (Tue/Thu/Sat) -- INFERRED civic-ritual framing from park-city-84098.json hyper_local_sources, verify tone before production",
+    "brand voice guardrail carried from source: no costume/captive grizzlies, respectful distance or tracks only (park-city-84098.json voice_guardrails)"
+  ],
+  "design_palette": {
+    "textures": ["weathered pine board-and-batten", "red mining-brick storefront", "cast-iron facade trim", "cast-iron griddle sear", "granite mountain talus", "late-spring snowpack crust", "lodgepole pine bark"],
+    "colors": [
+      { "name": "Wasatch alpenglow rose", "hex": "#E4A79B", "use": "dawn sky / skyline backdrop" },
+      { "name": "Main Street mining brick red", "hex": "#8C4131", "use": "structure / storefront" },
+      { "name": "weathered pine silver-gray", "hex": "#8A8178", "use": "board siding / trim" },
+      { "name": "aspen-and-lodgepole green", "hex": "#3E5C3A", "use": "hillside / foreground" },
+      { "name": "dawn snowpack blue-white", "hex": "#DCE4EC", "use": "snow / negative space" }
+    ],
+    "building_materials": ["weathered wood board siding", "red fired mining brick", "cast-iron storefront trim", "corrugated metal mine-shed roofing", "fieldstone foundation", "log-and-timber lodge frame"],
+    "landscape_motifs": ["Wasatch alpenglow ridgeline", "lodgepole pine and aspen stands", "McLeod Creek ribbon through the valley", "granite boulder trailhead", "farmers-market crates at the resort base"],
+    "_provenance_note": "textures/materials/motifs grounded in Park City Main Street Historic District (Victorian/Queen Anne/Mission storefronts, red brick, cast-iron trim, weathered wood -- en.wikipedia.org; foresyteapp.com) + Wasatch alpenglow terrain (journee-mondiale.com, park-city-84098.json cue). hex values are perceptual approximations of the cited materials/light, not sampled -- flag for brand-fit review so region color never fights the fixed Kodiak brand palette (bearBrown/blazeOrange/frontierGreen/parchment/oatmeal)."
+  },
+  "seasonal": [
+    {
+      "season": "ski-season",
+      "months": [12, 1, 2, 3],
+      "in_season_produce": [
+        { "name": "Ballerina Farm butter + raw Utah honey (Kamas)", "pancake_tie": "brown-butter + raw honey drizzle over Buttermilk Power Cakes -- warm ski-morning stack, honey frontier variant" },
+        { "name": "stored Utah winter squash / root veg", "pancake_tie": "savory squash-and-cheddar Power Cakes for a base-area breakfast" }
+      ],
+      "where_to_buy": [
+        { "name": "Smith's Food & Drug Park City", "type": "chain-grocer", "notes": "UT-224 / Kearns Blvd everyday fill" },
+        { "name": "Ballerina Farm Stand (Kamas)", "type": "farm-stand", "notes": "scratch dairy, fresh butter, raw Utah honey; 15 min east over the pass" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7],
+      "in_season_produce": [
+        { "name": "Copper Moose biodynamic rhubarb", "peak_month": 6, "pancake_tie": "rhubarb + orange juice + honey compote over Power Waffles -- tart-bright, cuts the hearty grain" },
+        { "name": "early Utah raspberries + first peaches", "peak_month": 7, "pancake_tie": "fold diced peach + a whisper of cinnamon into Buttermilk Power Cakes batter" }
+      ],
+      "where_to_buy": [
+        { "name": "Park City Farmers Market", "type": "farmers-market", "url": "https://parkcityfarmersmarket.com", "notes": "base of Park City Mountain Resort, Wed 11-5, Jun through mid-Oct; Jensen Farms + Smith Orchards" },
+        { "name": "Copper Moose Farm Stand", "type": "farm-stand", "notes": "84098 biodynamic; Tue/Thu 12-6, Sat 9-3, Jun-Oct" }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [8, 9, 10],
+      "in_season_produce": [
+        { "name": "Jensen Farms / Smith Orchards Utah peaches", "peak_month": 9, "pancake_tie": "peach compote with cinnamon on cast iron; peach preserve spoon for the market-crate photo" },
+        { "name": "Tagges Fruit peaches + jarred preserves", "peak_month": 9, "pancake_tie": "swirl Tagges peach preserve into batter before the flip -- pantry-stocking 'stock the frontier' cue" }
+      ],
+      "where_to_buy": [
+        { "name": "Tagges Fruit Stand", "type": "farm-stand", "notes": "SR-224 near Canyons Village, daily through September" },
+        { "name": "Park City Farmers Market", "type": "farmers-market", "notes": "base of resort, Wed 11-5 through mid-Oct" },
+        { "name": "Target Kimball Junction", "type": "chain-grocer", "notes": "UT-224 anchor for the Wasatch Back" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [11, 12],
+      "in_season_produce": [
+        { "name": "Ballerina Farm honey-butter + shelf-stable Tagges preserves", "pancake_tie": "holiday stack with brown-butter honey and peach preserve -- pantry cue when raw-fruit windows close" }
+      ],
+      "where_to_buy": [
+        { "name": "Smith's Food & Drug Park City", "type": "chain-grocer" },
+        { "name": "Walmart Kimball Junction Supercenter", "type": "chain-grocer", "notes": "UT-224" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Target", "role": "primary", "notes": "Kimball Junction UT-224" },
+    { "name": "Walmart", "role": "primary", "notes": "Kimball Junction Supercenter" },
+    { "name": "Smith's Food & Drug", "role": "home", "distance_mi": 0, "notes": "Park City UT-224 / Kearns Blvd everyday fill" },
+    { "name": "Costco", "role": "halo", "notes": "bulk Family Size halo channel (Salt Lake valley)" }
+  ],
+  "campaign_type_fit": {
+    "us-ski-and-snowboard": { "fit": "strong", "angle": "Park City / Wasatch is THE ski market: base-area farmers market, resort staff segment, 2002 Olympics + Sundance identity. Trailhead-to-lift protein, alpenglow ski-morning stack. No brief scaffold exists yet -- author briefs/kodiak-us-ski.yaml with US-MW-PARKCITY-84098 as target_market" },
+    "keep-it-wild": { "fit": "strong", "angle": "'Keep It Wild' is the region's live message; Wasatch alpenglow + trail bench + cast iron. Protect-the-bear guardrail already codified in source voice_guardrails", "existing_brief": "briefs/kodiak.yaml" },
+    "recipe-cards": { "fit": "strong", "angle": "Jensen Farms peach-cinnamon compote card + Copper Moose rhubarb-orange compote card; builds already specified in park-city-84098.json recipe_pairings" },
+    "riff-on-past-content": { "fit": "strong", "angle": "richest existing creative corpus in the set (default demo market, full hyper_local + caption bundles) -- riff the alpenglow peach stack into short-form" },
+    "localized-costco": { "fit": "weak", "angle": "no in-town Costco; Family Size via Salt Lake valley halo. Bulk stock-up-the-cabin angle works but retailer is not in-market" },
+    "bears": { "fit": "weak", "angle": "Bear Bites lunchbox / trail-pack angle carries nationally; Wasatch has black bear habitat (not grizzly) so keep conservation-toned, tracks-only -- no costume grizzlies per source guardrail" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified for this region; archetype/partnership only if pursued, never likeness" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "ready",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.94,
+    "ready_to_rock": true,
+    "notes": "Default demo market, now fully seeded. design_palette grounded in Main Street mining-town architecture + Wasatch alpenglow; four holiday-season windows (ski-season, summer-fourth, harvest-fall, winter-holidays) with per-season where-to-buy; cultural_notes cited to mining/ski heritage. Only open action: author the missing briefs/kodiak-us-ski.yaml scaffold (us-ski-and-snowboard has no brief yet -- systemic gap, not a data gap). campaign_type_fit design_palette hex values pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "park-city-84098.json (coordinates, retailers, hyper_local_sources, recipe_pairings, seasonal_local, voice_guardrails, audience_segments)",
+      "localization-table-seed.json (US-MW-PARKCITY-84098: place/audience/message/cue/retailer, is_default_demo)",
+      "market-languages.json (US-MW-PARKCITY-84098 top_languages: es 5.8, pt 1.2)",
+      "local-flavor.json (US-MW-PARKCITY-84098: Jensen Farms peaches [6,7,8,9], Copper Moose rhubarb [6,7,8,9])",
+      "web: Park City Main Street Historic District -- en.wikipedia.org/wiki/Park_City_Main_Street_Historic_District (Victorian/Queen Anne/Mission storefronts, mining-town brick)",
+      "web: foresyteapp.com/park-city-main-street (weathered wood + cast-iron trim restoration)",
+      "web: journee-mondiale.com Park City (red brick facades catching Wasatch alpenglow, McLeod Creek)",
+      "web: westernartandarchitecture.com Park City (anti-chain-store ordinance, mining history)",
+      "web: sltrib.com Park City Main Street (2002 Olympics + Sundance identity)"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "region_id": "raleigh-durham",
+  "market_code": "US-NE-RALEIGH",
+  "aliases": ["US-SE-RDU", "US-SE-TRIANGLE"],
+  "place": "Raleigh-Durham, North Carolina (the Carolinas -- clustered with the Southeast)",
+  "state": "NC",
+  "coordinates": { "lat": 35.7796, "lon": -78.6382 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Raleigh + Durham; State Farmers Market (Raleigh)",
+    "landmark": "North Carolina State Farmers Market on Lake Wheeler Road, Raleigh; Research Triangle Park anchoring the metro",
+    "notes": "Research Triangle metro (Raleigh, Durham, Chapel Hill). Note: market_code US-NE-RALEIGH is carried from the source convention, but the region is the Carolinas and belongs with the Southeast cluster. Harris Teeter is the home grocer; Publix has expanded into the Triangle. source: NC State Farmers Market; Harris Teeter footprint."
+  },
+  "featured_frontier": {
+    "hook": "North Carolina sweet potato + local honey over Power Cakes -- a Research Triangle farmers-market brunch in the top sweet-potato state",
+    "photo_cue": "State Farmers Market stalls, roasted NC sweet potato, local honey jar, Piedmont pine backdrop; bright Triangle morning",
+    "signature_ingredient": "NC sweet potatoes (fall, #1 US producer) + Piedmont apples and muscadine",
+    "cross_promo": {
+      "partner": "North Carolina State Farmers Market (Raleigh)",
+      "activation": "NC sweet-potato + local-honey recipe card, Harris Teeter retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Research Triangle university-and-tech families; Harris Teeter-first Raleigh-Durham households",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "translate_code": "es", "reason": "Spanish is the leading second home language across the Triangle metro. Percentage INFERRED (localization pipeline data absent) -- not an ACS figure" }
+  ],
+  "cultural_notes": [
+    "Raleigh-Durham is the Research Triangle -- three universities and Research Triangle Park anchor a tech-and-university culture (source: general regional knowledge; language selection flagged INFERRED)",
+    "North Carolina leads the US in sweet-potato production, and the Raleigh State Farmers Market is a year-round Piedmont sourcing hub (source: NC Cooperative Extension; NC State Farmers Market)",
+    "Apples run August through February in North Carolina, and muscadine lingers late-summer into early December (source: buncombe.ces.ncsu.edu; discover.texasrealfood.com North Carolina December)"
+  ],
+  "design_palette": {
+    "textures": ["Piedmont red-clay soil", "Carolina red brick", "collegiate-Georgian stone trim", "loblolly-pine straw", "sweet-potato skin", "local-honey amber", "modern-lab glass"],
+    "colors": [
+      { "name": "Piedmont red-clay ochre", "hex": "#A85B3B", "use": "ground / terrain" },
+      { "name": "Carolina brick red", "hex": "#7C3B2E", "use": "structure" },
+      { "name": "NC sweet-potato copper", "hex": "#B5662E", "use": "produce hero" },
+      { "name": "local-honey amber", "hex": "#C8892E", "use": "produce accent / drizzle" },
+      { "name": "loblolly-pine green", "hex": "#2F4A34", "use": "canopy / foreground" }
+    ],
+    "building_materials": ["Carolina red fired brick", "collegiate Georgian stone trim", "steel-and-glass research-park building", "wood-frame Piedmont farmhouse", "brick storefront"],
+    "landscape_motifs": ["State Farmers Market stalls", "Piedmont red-clay road", "loblolly-pine stand", "university quad", "rolling Triangle farmland"]
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        { "name": "North Carolina sweet potatoes", "peak_month": 10, "pancake_tie": "roasted NC sweet-potato + cinnamon Power Cakes -- the nation's top sweet-potato state" },
+        { "name": "Piedmont muscadine grapes", "peak_month": 9, "pancake_tie": "muscadine compote over Power Cakes" }
+      ],
+      "where_to_buy": [
+        { "name": "NC State Farmers Market (Raleigh)", "type": "farmers-market", "notes": "Lake Wheeler Road, year-round" },
+        { "name": "Harris Teeter (Triangle)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "thanksgiving",
+      "months": [11],
+      "in_season_produce": [
+        { "name": "NC apples + collards", "peak_month": 11, "pancake_tie": "NC apple-cinnamon Power Cakes -- apples Aug-Feb in NC" }
+      ],
+      "where_to_buy": [
+        { "name": "NC State Farmers Market (Raleigh)", "type": "farmers-market" },
+        { "name": "Harris Teeter (Triangle)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [5, 6, 7, 8],
+      "in_season_produce": [
+        { "name": "Carolina peaches", "peak_month": 7, "pancake_tie": "Carolina peach compote over Power Cakes" },
+        { "name": "Piedmont blueberries", "peak_month": 6, "pancake_tie": "blueberry Power Cakes" }
+      ],
+      "where_to_buy": [
+        { "name": "NC State Farmers Market (Raleigh)", "type": "farmers-market" },
+        { "name": "Harris Teeter (Triangle)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4],
+      "in_season_produce": [
+        { "name": "Carolina strawberries", "peak_month": 4, "pancake_tie": "spring strawberry compote stack" }
+      ],
+      "where_to_buy": [
+        { "name": "NC State Farmers Market (Raleigh)", "type": "farmers-market" },
+        { "name": "Harris Teeter (Triangle)", "type": "chain-grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Harris Teeter", "role": "home" },
+    { "name": "Publix", "role": "primary" },
+    { "name": "Food Lion", "role": "secondary" },
+    { "name": "Walmart", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "localized-costco": { "fit": "strong", "angle": "Harris Teeter Triangle variant of the localized-costco type; reuse briefs/kodiak-costco.yaml pattern with a Research Triangle lockup", "existing_brief": "briefs/kodiak-costco.yaml" },
+    "recipe-cards": { "fit": "strong", "angle": "NC sweet-potato Power Cakes card + local-honey drizzle card + muscadine compote card" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no known prior Triangle creative to riff on" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype only, never likeness" },
+    "bears": { "fit": "weak", "angle": "NC black bear is coastal-plain and mountain, not the Piedmont Triangle; keep conservation-toned, tracks-only" },
+    "keep-it-wild": { "fit": "weak", "angle": "Piedmont university metro; keep-it-wild lands better on the mountain sister" },
+    "us-ski-and-snowboard": { "fit": "na", "angle": "no local ski culture; Piedmont metro" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.83,
+    "ready_to_rock": true,
+    "notes": "Raleigh-Durham clustered with the Southeast as a Carolinas market despite the US-NE-RALEIGH source code (flagged in city_center notes). Anchored on NC sweet-potato leadership + the State Farmers Market. languages thin -- single INFERRED entry, no ACS numbers fabricated. hex flagged for brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: NC produce in season, apples Aug-Feb -- buncombe.ces.ncsu.edu; brunswick.ces.ncsu.edu (NC Cooperative Extension)",
+      "web: NC fall produce (sweet potatoes) -- morefood.org; gardening.ces.ncsu.edu",
+      "web: NC muscadine into December -- discover.texasrealfood.com North Carolina December",
+      "Harris Teeter Triangle footprint + NC State Farmers Market -- general regional knowledge",
+      "language percentage INFERRED -- localization pipeline data absent from checkout; no ACS figure fabricated"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

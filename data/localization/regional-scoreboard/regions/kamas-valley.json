@@ -1,0 +1,126 @@
+{
+  "region_id": "kamas-valley",
+  "market_code": "US-UT-KAMASVALLEY",
+  "aliases": ["US-MW-PARKCITY-84098 (adjacent Wasatch Back)", "US-MW-WASATCH-SLC (regional labor shed)"],
+  "place": "Kamas Valley, Utah (Peoa / Oakley / Kamas)",
+  "zip": "84036",
+  "county": "Summit County",
+  "state": "UT",
+  "coordinates": { "lat": 40.6433, "lon": -111.2802 },
+  "classification": "regional",
+  "city_center": {
+    "name": "Kamas (Main Street) + Oakley / Peoa",
+    "landmark": "the Kamas Valley pastureland below the Uinta Mountains, the western gateway to the Mirror Lake Highway and the Uintas; Ballerina Farm scratch-dairy country",
+    "notes": "Kamas Valley is a working ranch-and-dairy valley on the Wasatch Back, 15-20 minutes east of Park City over the pass; Ballerina Farm (scratch dairy, fresh butter, raw honey) is the signature local farm. Oakley hosts a long-running rodeo. sources: park-city-wasatch.json Ballerina Farm stand (Kamas); regional Uinta gateway geography."
+  },
+  "featured_frontier": {
+    "hook": "Ballerina Farm fresh butter and raw honey over a hot stack on a Kamas Valley ranch porch, the Uinta Mountains behind -- scratch-dairy ranch-valley breakfast",
+    "photo_cue": "cast-iron stack, fresh churned butter and raw honey, ranch porch, Uinta Mountains, pasture",
+    "signature_ingredient": "Ballerina Farm scratch butter + raw Utah honey (Kamas Valley ranch-and-dairy country)",
+    "cross_promo": {
+      "partner": "Ballerina Farm (Kamas)",
+      "activation": "brown-butter + raw honey Bear Bites variant + ranch-porch stack; the farm-stand pairing carried from the Park City record",
+      "consent_status": "maybe"
+    }
+  },
+  "audience": "Ranch-and-dairy valley families, Wasatch Back rural households; Kamas Foodtown + Park City / Kimball Junction chain runs, scratch-farm and rodeo culture",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 6.0, "translate_code": "es", "reason": "INFERRED shares Summit County demographics with Park City (ACS Summit County Hispanic ~9%, Spanish at home ~6%); rural ranch-valley service and ag workforce -- verify exact ACS S1601 pct before production" }
+  ],
+  "cultural_notes": [
+    "Kamas Valley is a working ranch-and-dairy valley on the Wasatch Back, the western gateway to the Mirror Lake Highway and the Uinta Mountains, 15-20 minutes east of Park City over the pass (source: park-city-wasatch.json Ballerina Farm stand notes; regional Uinta gateway geography)",
+    "Ballerina Farm (Kamas) is a scratch dairy producing fresh butter and raw Utah honey -- a documented local farm carried from the Park City scoreboard record (source: park-city-wasatch.json seasonal + cross_promo)",
+    "Oakley, at the valley's north end, holds a long-running Independence Day rodeo -- a genuine rural-valley civic ritual (INFERRED civic-ritual framing from region knowledge -- verify exact framing/timing before production)",
+    "brand-voice guardrail carried from the Wasatch source: no costume/captive grizzlies, respectful distance or tracks only (park-city-wasatch.json voice guardrails)"
+  ],
+  "design_palette": {
+    "textures": ["weathered ranch-fence timber", "dairy-barn board siding", "churned-butter sheen", "raw-honeycomb wax", "Uinta granite", "hay-bale twine", "pasture-grass blade"],
+    "colors": [
+      { "name": "Kamas pasture green", "hex": "#5E7A3C", "use": "valley floor / foreground" },
+      { "name": "churned-butter cream", "hex": "#F2E2A8", "use": "produce hero / dairy accent" },
+      { "name": "raw-honey amber", "hex": "#C88A2E", "use": "produce hero / drizzle" },
+      { "name": "Uinta dusk blue", "hex": "#5B6B84", "use": "eastern range / skyline" },
+      { "name": "weathered barn red", "hex": "#8C4131", "use": "barn / structure accent" }
+    ],
+    "building_materials": ["weathered wood ranch fencing", "board-and-batten dairy barn", "log-and-timber ranch house", "corrugated hay-shed steel", "fieldstone foundation", "metal pitched roof (snow shed)"],
+    "landscape_motifs": ["Kamas Valley pasture below the Uintas", "dairy barn and hay field", "Ballerina Farm scratch dairy", "Mirror Lake Highway gateway", "ranch fence line at dawn"],
+    "_provenance_note": "ranch fencing + dairy barn + pasture grounded in Kamas Valley's working ranch-and-dairy character and Ballerina Farm (park-city-wasatch.json). churned-butter cream + raw-honey amber grounded in the scratch-dairy produce. Uinta dusk grounded in the mountains east. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "ski-season",
+      "months": [12, 1, 2, 3],
+      "in_season_produce": [
+        { "name": "Ballerina Farm fresh butter + raw Utah honey", "pancake_tie": "brown-butter + raw honey drizzle over Buttermilk Power Cakes -- warm ranch-valley morning before a Wasatch Back ski day" }
+      ],
+      "where_to_buy": [
+        { "name": "Ballerina Farm Stand (Kamas)", "type": "farm-stand", "notes": "scratch dairy, fresh butter, raw Utah honey" },
+        { "name": "Kamas Foodtown", "type": "chain-grocer", "notes": "the valley's in-town grocery; full runs also drop to Park City / Kimball Junction" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7],
+      "in_season_produce": [
+        { "name": "valley dairy + early Utah produce + honey", "peak_month": 7, "pancake_tie": "raw-honey-butter stack for a rodeo-weekend breakfast (Oakley July 4 rodeo)" }
+      ],
+      "where_to_buy": [
+        { "name": "Ballerina Farm Stand (Kamas)", "type": "farm-stand" },
+        { "name": "Park City Farmers Market", "type": "farmers-market", "url": "https://parkcityfarmersmarket.com", "notes": "over the pass, base of Park City Mountain, Wed Jun through mid-Oct" }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        { "name": "Utah peaches + apples (Wasatch orchards, brought up-valley)", "peak_month": 9, "pancake_tie": "cinnamon peach compote on cast iron; peaches run into September in northern Utah" },
+        { "name": "valley honey + stored squash", "peak_month": 10, "pancake_tie": "raw-honey drizzle stack; savory squash Power Cakes" }
+      ],
+      "where_to_buy": [
+        { "name": "Kamas Foodtown", "type": "chain-grocer" },
+        { "name": "Park City Farmers Market", "type": "farmers-market", "notes": "over the pass, through mid-October" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Kamas Foodtown", "role": "home", "distance_mi": 0, "notes": "the valley's in-town grocery" },
+    { "name": "Smith's Food & Drug", "role": "primary", "notes": "Park City, ~20 min over the pass" },
+    { "name": "Walmart", "role": "secondary", "notes": "Kimball Junction Supercenter, over the pass" },
+    { "name": "Costco", "role": "halo", "notes": "bulk Family Size via Salt Lake valley" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "Ballerina Farm brown-butter + raw honey card + Utah peach compote card -- scratch-dairy ranch-valley produce, a distinct farm-forward hook" },
+    "us-ski-and-snowboard": { "fit": "strong", "angle": "Kamas Valley is Wasatch Back ranch-and-dairy country minutes from Park City and the Uinta gateway -- the ranch-porch ski-morning fuel stack; supports the us-ski brief alongside Park City + SLC" },
+    "keep-it-wild": { "fit": "strong", "angle": "the Uinta Mountains and Mirror Lake Highway open at the valley's east edge -- Keep It Wild ranch-to-wilderness dawn stack", "existing_brief": "briefs/kodiak.yaml" },
+    "bears": { "fit": "weak", "angle": "Bear Bites Ballerina-Farm butter+honey lunchbox variant carries; Uintas have black bear habitat -- keep conservation-toned, tracks-only, no costume grizzlies per Wasatch guardrail" },
+    "riff-on-past-content": { "fit": "weak", "angle": "shares the Park City/Wasatch alpenglow corpus but has no dedicated Kamas creative yet -- thin to riff on alone" },
+    "localized-costco": { "fit": "weak", "angle": "no in-valley Costco; Family Size via Salt Lake valley halo. Bulk stock-up-the-ranch angle works but retailer is not in-market" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype/partnership only, never likeness" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.89,
+    "ready_to_rock": true,
+    "notes": "New seed, the ranch-and-dairy sibling to Park City on the Wasatch Back. Distinct farm-forward hook (Ballerina Farm scratch dairy). us-ski STRONG (Wasatch Back + Uinta gateway). design_palette grounded in ranch/dairy/Uinta terrain, cited; seasonal keyed to ski-season dairy/honey + fall Utah peaches. Ballerina Farm cross-promo consent_status 'maybe' (respect farm partnership). languages carry INFERRED flag -- market-languages.json absent in checkout. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web/record: Ballerina Farm (Kamas) scratch dairy, fresh butter, raw honey; Kamas 15-20 min east of Park City -- park-city-wasatch.json seasonal + cross_promo",
+      "region: Kamas Valley = Uinta / Mirror Lake Highway western gateway ranch-and-dairy valley",
+      "region: Oakley July 4 rodeo civic ritual -- verify timing/framing before production",
+      "web: Utah peaches/apples fall + Park City Farmers Market (shared with Park City record) -- parkcityfarmersmarket.com",
+      "INFERRED: language pct (market-languages.json absent in checkout) -- verify ACS S1601 for Summit County"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

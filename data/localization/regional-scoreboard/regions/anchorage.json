@@ -1,0 +1,137 @@
+{
+  "region_id": "anchorage",
+  "market_code": "US-W-ANCHORAGE",
+  "aliases": [],
+  "place": "Anchorage, Alaska",
+  "zip": "99501",
+  "county": "Anchorage Municipality",
+  "state": "AK",
+  "coordinates": { "lat": 61.2181, "lon": -149.9003 },
+  "classification": "frontier",
+  "city_center": {
+    "name": "Downtown Anchorage + the Anchorage Market / Chugach front range",
+    "landmark": "the Chugach Mountains rising behind the city; Cook Inlet and the Turnagain Arm; the Anchorage weekend public market; the boreal-and-tundra Alaska frontier beyond",
+    "notes": "Anchorage sits between the Chugach Mountains and Cook Inlet, gateway to the boreal and tundra Alaska frontier. This is genuine grizzly (brown bear) country -- brown and black bears range in and around the city. sources: en.wikipedia.org Anchorage, Alaska; Alaska Department of Fish and Game bear-country framing."
+  },
+  "featured_frontier": {
+    "hook": "Wild Alaska blueberry + birch-syrup Power Cakes at a Chugach cabin, salmon-stream and boreal forest behind -- true frontier breakfast in real bear country",
+    "photo_cue": "cast-iron flapjack stack on a boreal-cabin table, wild low-bush blueberries, Alaska birch syrup, Chugach peaks and spruce behind, low-angle northern light -- bear-country framing kept respectful and conservation-toned",
+    "signature_ingredient": "wild Alaska blueberries + lingonberries (late summer) + Alaska birch syrup; Matanuska Valley produce (giant cabbages, potatoes, rhubarb)",
+    "cross_promo": {
+      "partner": "Anchorage public market / Matanuska Valley (Mat-Su) growers",
+      "activation": "wild-blueberry + birch-syrup frontier card, Fred Meyer / Carrs-Safeway / Costco retailer lockup; Alaska Native foods referenced only with consent",
+      "consent_status": "proposed"
+    }
+  },
+  "audience": "Anchorage + Mat-Su families; Alaska frontier and outdoor-subsistence culture; a bulk-and-stock-up shopping pattern driven by distance and season; Fred Meyer, Carrs-Safeway, and Costco shoppers",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 4.0, "translate_code": "es", "reason": "INFERRED (ACS source file absent): modest Latino share; Anchorage is notably diverse but predominantly English-speaking; pct is a web-informed estimate, not exact ACS" },
+    { "lang_code": "tl", "lang_name": "Tagalog", "pct_home": 3.0, "translate_code": "tl", "reason": "INFERRED (ACS source file absent): Anchorage has a sizable Filipino community; pct estimated" }
+  ],
+  "cultural_notes": [
+    "Anchorage sits between the Chugach Mountains and Cook Inlet, gateway to Alaska's boreal-and-tundra frontier -- this is genuine brown-bear (grizzly) and black-bear country in and around the city (source: Alaska Department of Fish and Game bear-country framing; en.wikipedia.org Anchorage)",
+    "Alaska Native peoples (Dena'ina Athabascan on whose ancestral land Anchorage sits, plus Yup'ik, Inupiaq, Alutiiq, Tlingit and others across the state) hold deep foodways including salmon, berries, and game -- reference respectfully and NEVER imply endorsement or use Alaska Native foods/imagery without explicit consent (source: general framing; Dena'ina land acknowledgment)",
+    "distance and long winters drive a strong bulk-and-stock-up shopping pattern; the Matanuska-Susitna (Mat-Su) Valley grows famously giant cabbages, potatoes, and rhubarb under the midnight sun (source: Mat-Su agriculture framing, publicly documented)",
+    "Fred Meyer and Carrs-Safeway anchor grocery with a strong Costco presence -- bulk is a genuine frontier necessity here (source: chain regional footprint)"
+  ],
+  "design_palette": {
+    "textures": ["boreal white-spruce bark", "Alaska birch bark", "Chugach granite and snow", "weathered cabin log", "tundra low-bush foliage", "wild-blueberry cluster", "cast-iron griddle char"],
+    "colors": [
+      { "name": "Chugach glacier blue", "hex": "#7C9DB0", "use": "peak / glacier / sky" },
+      { "name": "boreal spruce green", "hex": "#22423A", "use": "forest / foreground" },
+      { "name": "Alaska birch cream", "hex": "#E7E0CE", "use": "bark / trim / snow negative space" },
+      { "name": "wild-blueberry indigo", "hex": "#3A4A6B", "use": "produce hero / accent" },
+      { "name": "tundra autumn crimson", "hex": "#9E3A2E", "use": "fall tundra / warm accent" }
+    ],
+    "building_materials": ["boreal spruce and birch log cabin", "weathered timber", "Chugach granite fieldstone", "corrugated frontier steel", "clapboard with steep snow-shedding roof"],
+    "landscape_motifs": ["Chugach front range behind the city", "boreal spruce-and-birch forest", "Cook Inlet / Turnagain Arm tidal flats", "salmon stream in the forest", "autumn tundra with distant peaks"],
+    "_provenance_note": "Chugach glacier blue + boreal spruce + birch cream grounded in the Anchorage front-range and boreal landscape. wild-blueberry indigo + tundra autumn crimson from real Alaska frontier produce and fall color. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "summer-fourth",
+      "months": [7, 8],
+      "in_season_produce": [
+        { "name": "wild Alaska blueberries + lingonberries", "peak_month": 8, "pancake_tie": "wild-blueberry compote over Power Cakes -- foraged frontier berry under the midnight sun (forage responsibly, respect subsistence rights)" },
+        { "name": "Mat-Su Valley rhubarb", "peak_month": 7, "pancake_tie": "midnight-sun rhubarb compote over Power Waffles -- Mat-Su grows outsized produce" }
+      ],
+      "where_to_buy": [
+        { "name": "Anchorage weekend public market", "type": "farmers-market", "notes": "Mat-Su produce + local goods in summer" },
+        { "name": "Fred Meyer", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        { "name": "Mat-Su Valley potatoes + giant cabbages", "peak_month": 9, "pancake_tie": "savory potato Power Cakes -- Mat-Su root harvest before the freeze" }
+      ],
+      "where_to_buy": [
+        { "name": "Anchorage weekend public market", "type": "farmers-market", "notes": "Mat-Su root harvest" },
+        { "name": "Carrs-Safeway", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [11, 12, 1, 2, 3],
+      "in_season_produce": [
+        { "name": "stored Mat-Su potatoes + Alaska birch syrup + pantry staples", "peak_month": 1, "pancake_tie": "birch-syrup Power Cakes for a deep-dark-winter frontier stack -- birch syrup is Alaska's answer to maple" }
+      ],
+      "where_to_buy": [
+        { "name": "Costco (Anchorage)", "type": "chain-grocer", "notes": "bulk stock-up is a genuine frontier necessity through the long winter" },
+        { "name": "Fred Meyer", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        { "name": "Alaska birch syrup (spring tapping) + greenhouse greens", "peak_month": 4, "pancake_tie": "fresh Alaska birch syrup over Power Cakes -- spring birch-tapping pour" }
+      ],
+      "where_to_buy": [
+        { "name": "Fred Meyer", "type": "chain-grocer", "notes": "birch syrup + spring greenhouse produce" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Fred Meyer", "role": "home", "distance_mi": 0, "notes": "Alaska one-stop chain; home channel" },
+    { "name": "Carrs-Safeway", "role": "primary", "notes": "Alaska Safeway banner" },
+    { "name": "Costco", "role": "primary", "notes": "bulk stock-up is a real frontier necessity" },
+    { "name": "Three Bears / local", "role": "secondary", "notes": "Alaska value grocer" }
+  ],
+  "campaign_type_fit": {
+    "keep-it-wild": { "fit": "strong", "angle": "Anchorage is the real thing -- boreal forest, Chugach peaks, salmon streams, and the Alaska frontier. Keep It Wild lands here more authentically than almost anywhere in the cluster; lead with conservation and respect for the land" },
+    "bears": { "fit": "strong", "angle": "this is genuine brown-bear (grizzly) and black-bear country -- the Bears campaign has real habitat truth here. Handle with strict conservation framing, never trivialize; bears are neighbors, not mascots, in Anchorage. Coordinate any bear creative with conservation-toned messaging" },
+    "recipe-cards": { "fit": "strong", "angle": "wild-blueberry card (summer) + birch-syrup frontier card (winter) + Mat-Su potato card (fall) -- real Alaska frontier produce; birch syrup is a distinctive hook" },
+    "localized-costco": { "fit": "strong", "angle": "bulk stock-up is a genuine frontier necessity through the long winter; a big-batch Power Cakes pantry story fits Anchorage's Costco + Fred Meyer pattern honestly", "existing_brief": "briefs/kodiak-costco.yaml" },
+    "us-ski-and-snowboard": { "fit": "weak", "angle": "Alyeska (Girdwood, ~40mi) is a real ski mountain and Anchorage has strong nordic-ski culture; a genuine winter-sports habit but not the core town identity -- secondary angle" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no produced Anchorage content corpus yet; strong frontier cue but thin prior material" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.86,
+    "ready_to_rock": true,
+    "notes": "True frontier classification. Palette grounded in Chugach glacier blue + boreal spruce + birch cream + wild-blueberry + tundra crimson. Four seasonal windows from real Alaska frontier produce (wild blueberries, Mat-Su roots, birch syrup). keep-it-wild AND bears both scored strong -- this is REAL grizzly/brown-bear country, handled with strict conservation framing (bears as neighbors, not mascots). Dena'ina land + Alaska Native foodways referenced respectfully; cross-promo consent_status 'proposed', no Alaska Native imagery/foods without explicit consent. languages THIN -- percentages INFERRED because ACS source file is absent; no exact ACS numbers fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Anchorage, Alaska -- en.wikipedia.org (Chugach Mountains, Cook Inlet)",
+      "web: Alaska Department of Fish and Game bear-country framing (brown + black bear in/around Anchorage)",
+      "web: Matanuska-Susitna Valley agriculture (giant cabbages, potatoes, rhubarb, midnight sun) framing -- publicly documented",
+      "web: Alaska birch syrup framing -- publicly documented; Dena'ina Athabascan ancestral-land acknowledgment",
+      "note: Alaska Native foodways/imagery consent-gated; language percentages INFERRED -- ACS source file absent, no exact ACS numbers used"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

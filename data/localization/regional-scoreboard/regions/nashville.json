@@ -1,0 +1,136 @@
+{
+  "region_id": "nashville",
+  "market_code": "US-SE-NASH",
+  "aliases": [],
+  "place": "Nashville, Tennessee",
+  "state": "TN",
+  "coordinates": { "lat": 36.1627, "lon": -86.7816 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Nashville (Broadway / Music Row) + Nashville Farmers' Market",
+    "landmark": "Broadway honky-tonk strip and the Nashville Farmers' Market at Bicentennial Capitol Mall; Cumberland River through downtown",
+    "notes": "Music City metro. Kroger (Cincinnati-based, dominant across TN) is the home grocer; Publix has expanded into Middle Tennessee. Nashville Farmers' Market peak growing season runs May to November. sources: nashvillefarmersmarket.org; Kroger TN footprint."
+  },
+  "featured_frontier": {
+    "hook": "Tennessee tomato + hot-honey savory Power Cakes -- a Music City hot-chicken-country brunch at peak summer tomato season",
+    "photo_cue": "Broadway neon guitar signs, cast-iron skillet, ripe Tennessee tomatoes, hot-honey drizzle; warm Music City light",
+    "signature_ingredient": "Tennessee tomatoes (Jun-Oct) + hot-honey (Nashville hot-chicken heat tie) and summer sweet corn",
+    "cross_promo": {
+      "partner": "Nashville Farmers' Market",
+      "url": "https://www.nashvillefarmersmarket.org/",
+      "activation": "Tennessee tomato + hot-honey savory Power Cakes recipe card, Kroger retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Music City families + downtown-and-suburb households; Kroger-first Middle Tennessee shoppers",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "translate_code": "es", "reason": "Spanish is the leading second home language across the Nashville metro. Percentage INFERRED (localization pipeline data absent) -- not an ACS figure" },
+    { "lang_code": "ku", "lang_name": "Kurdish", "translate_code": "ku", "reason": "Nashville has the largest Kurdish community in the US ('Little Kurdistan', south Nashville). Percentage INFERRED, not an ACS figure" }
+  ],
+  "cultural_notes": [
+    "Nashville is Music City -- the Broadway honky-tonk strip and Music Row anchor a country-and-live-music identity, and Nashville hot chicken is the city's signature dish (source: general regional knowledge; nashvillesites.org South Broadway architecture; language selection flagged INFERRED)",
+    "Nashville is home to the largest Kurdish community in the US, centered in 'Little Kurdistan' in south Nashville (source: general regional demographic knowledge; language selection flagged INFERRED)",
+    "Tennessee tomatoes run June through October (sometimes into November in warm years), and the Nashville Farmers' Market's peak growing season is May to November (source: bcbstwelltuned.com Tennessee tomato guide; nashvillefarmersmarket.org)"
+  ],
+  "design_palette": {
+    "textures": ["downtown red brick", "neon-tube glow (Broadway)", "cast-iron skillet sheen", "Cumberland River ripple", "worked-stone facade", "tomato-skin gloss", "worn hardwood stage board"],
+    "colors": [
+      { "name": "Broadway neon gold", "hex": "#E8B23A", "use": "sign / accent" },
+      { "name": "Nashville brick red", "hex": "#8A4536", "use": "structure / storefront" },
+      { "name": "Tennessee tomato red", "hex": "#C43A2E", "use": "produce hero" },
+      { "name": "hot-honey amber", "hex": "#D08A2A", "use": "produce accent / drizzle" },
+      { "name": "Cumberland River blue-gray", "hex": "#5A7280", "use": "water / terrain" }
+    ],
+    "building_materials": ["red fired brick", "worked stone and cast stone (civic buildings)", "steel and glass (Music City Center)", "neon and painted-metal signage", "hardwood interior"],
+    "landscape_motifs": ["Broadway neon streetscape", "Cumberland River bend", "Music Row studios", "Middle Tennessee rolling farmland", "downtown skyline"]
+  },
+  "seasonal": [
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        { "name": "Tennessee tomatoes", "peak_month": 7, "pancake_tie": "savory Tennessee-tomato + hot-honey Power Cakes -- tomatoes run Jun-Oct in Tennessee" },
+        { "name": "Tennessee sweet corn", "peak_month": 8, "pancake_tie": "sweet-corn cakes -- TN sweet corn Jul-Sep" }
+      ],
+      "where_to_buy": [
+        { "name": "Nashville Farmers' Market", "type": "farmers-market", "url": "https://www.nashvillefarmersmarket.org/", "notes": "peak season May-Nov" },
+        { "name": "Kroger (Nashville metro)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        { "name": "Tennessee apples", "peak_month": 10, "pancake_tie": "TN apple-cinnamon Power Cakes -- fall apples" },
+        { "name": "Tennessee sweet potatoes", "peak_month": 10, "pancake_tie": "roasted sweet-potato Power Cakes -- fall root harvest" }
+      ],
+      "where_to_buy": [
+        { "name": "Nashville Farmers' Market", "type": "farmers-market" },
+        { "name": "Kroger (Nashville metro)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "thanksgiving",
+      "months": [11],
+      "in_season_produce": [
+        { "name": "Tennessee winter squash + greens", "peak_month": 11, "pancake_tie": "spiced winter-squash Power Cakes -- fall-winter table tie" }
+      ],
+      "where_to_buy": [
+        { "name": "Kroger (Nashville metro)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        { "name": "Tennessee strawberries + spring greens", "peak_month": 5, "pancake_tie": "spring strawberry compote stack" }
+      ],
+      "where_to_buy": [
+        { "name": "Nashville Farmers' Market", "type": "farmers-market" },
+        { "name": "Kroger (Nashville metro)", "type": "chain-grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Kroger", "role": "home" },
+    { "name": "Publix", "role": "primary" },
+    { "name": "Walmart", "role": "secondary" },
+    { "name": "Target", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "localized-costco": { "fit": "strong", "angle": "Kroger Middle-Tennessee variant of the localized-costco type; reuse briefs/kodiak-costco.yaml pattern with a Music City lockup", "existing_brief": "briefs/kodiak-costco.yaml" },
+    "recipe-cards": { "fit": "strong", "angle": "Tennessee-tomato + hot-honey savory card + sweet-corn card + fall apple card -- Music City hot-chicken-heat tie on the savory card" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no known prior Nashville creative to riff on" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype only, never likeness (avoid country-music-artist likeness)" },
+    "bears": { "fit": "weak", "angle": "black bear is East Tennessee (Smokies), not Middle Tennessee metro; keep conservation-toned, tracks-only" },
+    "keep-it-wild": { "fit": "weak", "angle": "Middle Tennessee metro; keep-it-wild lands better toward the Smokies to the east" },
+    "us-ski-and-snowboard": { "fit": "na", "angle": "no ski culture; Middle Tennessee" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.83,
+    "ready_to_rock": true,
+    "notes": "Nashville anchored on Music City + hot-chicken-heat savory tie and Tennessee summer tomato season; Kroger as home grocer, Little Kurdistan cultural note. languages thin -- INFERRED, no ACS numbers fabricated. hex flagged for brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Tennessee tomatoes Jun-Oct -- bcbstwelltuned.com Tennessee tomato guide",
+      "web: Nashville Farmers' Market peak May-Nov -- nashvillefarmersmarket.org",
+      "web: Nashville architecture / Music City Center -- nashvillesites.org South Broadway architecture",
+      "web: Tennessee produce (apples, root veg, strawberries) -- picktnproducts.org; texasrealfood.com Tennessee",
+      "Kroger TN footprint + Little Kurdistan -- general regional knowledge",
+      "language percentages INFERRED -- localization pipeline data absent from checkout; no ACS figure fabricated"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

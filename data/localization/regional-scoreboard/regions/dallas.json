@@ -1,0 +1,125 @@
+{
+  "region_id": "dallas",
+  "market_code": "US-SC-DALLAS",
+  "aliases": ["US-SC-DFW", "US-SC-FORTWORTH"],
+  "place": "Dallas + Fort Worth, Texas",
+  "zip": "75201",
+  "county": "Dallas County",
+  "state": "TX",
+  "coordinates": { "lat": 32.7767, "lon": -96.797 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Dallas / Fort Worth Stockyards",
+    "landmark": "Dallas skyline over the Trinity River floodway and levees to the west; the Fort Worth Stockyards and Cowtown Western heritage district anchor the DFW west side",
+    "notes": "Dallas and Fort Worth grew from railroads carrying cotton, cattle, and later oil across the Texas Blackland Prairie; the Trinity River threads a leveed floodway between downtown Dallas and the west, and Fort Worth still embraces its Longhorn cattle-trade Western heritage. sources: Dallas railroad / cotton / cattle history (en.wikipedia.org/wiki/Dallas); Fort Worth Longhorn cattle trade (en.wikipedia.org/wiki/Fort_Worth,_Texas); Blackland Prairie (worldlandscapearchitect.com)."
+  },
+  "featured_frontier": {
+    "hook": "Blackland Prairie wildflower-honey and Texas pecan Power Cakes on a brick-and-steel porch, the Trinity floodway and Cowtown skyline behind -- North Texas prairie morning",
+    "photo_cue": "Texas pecans, wildflower honey, red brick, cattle-country steel, prairie grass, enamel plate",
+    "signature_ingredient": "Texas pecans + Blackland Prairie wildflower honey; cattle-and-cotton North Texas plain",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "North Texas metroplex families -- big, fast-growing, split between urban Dallas and Western-heritage Fort Worth; H-E-B, Central Market, Tom Thumb, and Kroger shoppers",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 32.0, "translate_code": "es", "reason": "INFERRED from Dallas County Hispanic ~41% and North Texas Spanish-at-home pattern; verify exact ACS S1601 pct before production -- market-languages.json absent in checkout" }
+  ],
+  "cultural_notes": [
+    "Dallas and Fort Worth both grew as products of railroad lines that carried cotton, cattle, and later oil across North and East Texas -- the metroplex's identity is prairie-commerce and cattle trade, not mountain or desert (source: en.wikipedia.org/wiki/Dallas)",
+    "Fort Worth was established in 1849 as an army outpost on a bluff over the Trinity River and became a center of the Texas Longhorn cattle trade; it still embraces its Western heritage, and the Fort Worth Stockyards keep a working cattle-district identity ('Cowtown') (source: en.wikipedia.org/wiki/Fort_Worth,_Texas)",
+    "the region sits on the Texas Blackland Prairie, a dark-soil tallgrass prairie now reduced to less than 1% of its original range -- a conservation-toned landscape story (source: worldlandscapearchitect.com Robert L. Crandall Campus)",
+    "the Trinity River runs through a wide leveed floodway between downtown Dallas and the residential west side -- an engineered river landscape rather than a natural greenbelt (source: asla.org Trinity River Corridor Design Guidelines; fwweekly.com Shaping Our Heritage)"
+  ],
+  "design_palette": {
+    "textures": ["North Texas red brick", "cattle-country weathered steel and barbed wire", "Blackland Prairie dark clay soil", "tallgrass prairie seedhead", "Cowtown wood-plank boardwalk", "cotton boll fiber", "downtown mirrored-glass skin"],
+    "colors": [
+      { "name": "Blackland Prairie dark soil", "hex": "#3B322A", "use": "ground / soil cue" },
+      { "name": "tallgrass prairie gold", "hex": "#C9A24B", "use": "landscape / grass" },
+      { "name": "Cowtown brick red", "hex": "#9E4636", "use": "structure / stockyards" },
+      { "name": "cattle-steel gray", "hex": "#8A8B87", "use": "fence / accent" },
+      { "name": "Texas pecan brown", "hex": "#6E4A2E", "use": "produce hero / trim" }
+    ],
+    "building_materials": ["red brick storefront and warehouse", "weathered steel and cattle fencing", "wood-plank stockyards boardwalk", "steel-and-mirrored-glass tower", "prairie-modern stone-and-metal"],
+    "landscape_motifs": ["Blackland Prairie tallgrass", "Trinity River leveed floodway", "Fort Worth Stockyards cattle drive", "North Texas big-sky horizon", "cotton-and-cattle rail heritage"],
+    "_provenance_note": "brick / cattle-steel / stockyards grounded in Fort Worth Longhorn-trade and Cowtown heritage (en.wikipedia.org/wiki/Fort_Worth,_Texas). Blackland Prairie soil and tallgrass grounded in the <1%-remaining prairie story (worldlandscapearchitect.com). Trinity floodway grounded in asla.org. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        { "name": "Texas pecans", "peak_month": 11, "pancake_tie": "toasted pecans in the batter -- North and East Texas native pecan harvest, late fall" },
+        { "name": "fall sweet potatoes + winter squash", "peak_month": 10, "pancake_tie": "savory sweet-potato Power Cakes -- North Texas fall roots" }
+      ],
+      "where_to_buy": [
+        { "name": "Central Market (Dallas -- HQ)", "type": "chain-grocer", "url": "https://www.centralmarket.com", "notes": "Central Market is headquartered in Dallas; H-E-B's upscale banner" },
+        { "name": "Dallas Farmers Market (downtown)", "type": "farmers-market", "notes": "year-round downtown market; North Texas growers" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [5, 6, 7, 8],
+      "in_season_produce": [
+        { "name": "East Texas peaches + blackberries", "peak_month": 6, "pancake_tie": "peach-and-blackberry compote over Power Cakes -- East Texas summer stone fruit and berries" },
+        { "name": "summer tomatoes + sweet corn", "peak_month": 7, "pancake_tie": "savory sweet-corn Power Cakes with a tomato side" }
+      ],
+      "where_to_buy": [
+        { "name": "Dallas Farmers Market", "type": "farmers-market" },
+        { "name": "Tom Thumb / Kroger (DFW)", "type": "chain-grocer", "notes": "Tom Thumb is the Albertsons banner in North Texas" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4],
+      "in_season_produce": [
+        { "name": "Texas 1015 sweet onions + spring greens", "peak_month": 4, "pancake_tie": "savory sweet-onion + cheddar Power Cakes -- Texas spring onion, bluebonnet-season timing on the prairie" }
+      ],
+      "where_to_buy": [
+        { "name": "Central Market / Tom Thumb (DFW)", "type": "chain-grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Central Market", "role": "home", "distance_mi": 0, "notes": "H-E-B upscale banner, headquartered in Dallas" },
+    { "name": "H-E-B", "role": "primary", "notes": "expanding across the DFW metroplex" },
+    { "name": "Tom Thumb", "role": "primary", "notes": "Albertsons banner, established North Texas grocer" },
+    { "name": "Kroger", "role": "primary" },
+    { "name": "Costco", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "Texas pecan Power Cakes card + East Texas peach-and-blackberry card + Blackland wildflower-honey card -- real North/East Texas seasonal hooks" },
+    "localized-costco": { "fit": "strong", "angle": "DFW is a genuinely multi-banner market -- Central Market (HQ here), expanding H-E-B, Tom Thumb, and Kroger; the localized-retailer play can flex Central Market premium against a warehouse-club bulk stock-up angle", "existing_brief": "briefs/kodiak-costco.yaml" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no existing Dallas creative corpus in the scoreboard set -- thin to riff on until first assets ship" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype/partnership only, never likeness" },
+    "bears": { "fit": "weak", "angle": "Bear Bites lunchbox angle carries nationally; the Blackland Prairie is not bear country -- keep conservation-toned, national" },
+    "keep-it-wild": { "fit": "strong", "angle": "the Texas Blackland Prairie -- reduced to under 1% of its range -- and the Great Trinity Forest are a conservation-toned Keep It Wild tallgrass-restoration stack", "existing_brief": "briefs/kodiak.yaml" },
+    "us-ski-and-snowboard": { "fit": "na", "angle": "North Texas prairie metroplex; no ski culture" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.85,
+    "ready_to_rock": true,
+    "notes": "New seed covering the DFW metroplex (Dallas + Fort Worth). design_palette grounded in Cowtown cattle heritage + Blackland Prairie + Trinity floodway and cited; seasonal keyed to pecans (fall), East Texas peaches (summer), 1015 onions (spring) -- not winter-defaulted. Retailers correctly multi-banner: Central Market HQ Dallas as home, expanding H-E-B, Tom Thumb (Albertsons banner), Kroger. Blackland Prairie framed conservation-toned. Spanish pct carries INFERRED flag -- no ACS number fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Dallas railroad / cotton / cattle / oil history -- en.wikipedia.org/wiki/Dallas",
+      "web: Fort Worth 1849 outpost, Longhorn cattle trade, Western heritage -- en.wikipedia.org/wiki/Fort_Worth,_Texas",
+      "web: Texas Blackland Prairie <1% remaining -- worldlandscapearchitect.com Robert L. Crandall Campus",
+      "web: Trinity River leveed floodway -- asla.org Trinity River Corridor Design Guidelines; fwweekly.com Shaping Our Heritage",
+      "web: Central Market HQ Dallas -- en.wikipedia.org/wiki/Central_Market_(Texas)",
+      "web: Texas produce (pecans, 1015 onions, East Texas peaches) -- texasagriculture.gov Produce Commodity Card; pickyourown.org TXharvestcalendar",
+      "INFERRED: Spanish-at-home pct (market-languages.json absent in checkout) -- verify ACS S1601 for Dallas County"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

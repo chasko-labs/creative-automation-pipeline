@@ -1,0 +1,127 @@
+{
+  "region_id": "salt-lake-city",
+  "market_code": "US-MW-WASATCH-SLC",
+  "aliases": ["US-MW-WASATCH", "US-UT-KAMASVALLEY (adjacent Wasatch Back)"],
+  "place": "Salt Lake City, Utah",
+  "zip": "84101",
+  "county": "Salt Lake County",
+  "state": "UT",
+  "coordinates": { "lat": 40.7608, "lon": -111.891 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Salt Lake City / Pioneer Park",
+    "landmark": "Wasatch Range rising abruptly on the eastern skyline; Temple Square downtown; the Downtown Farmers Market at Pioneer Park is the summer-fall gathering anchor",
+    "notes": "the Wasatch Front sits at the base of the Wasatch Range, with the Cottonwood Canyon ski resorts (Alta, Snowbird, Brighton, Solitude) less than an hour up-canyon -- 'the greatest snow on earth'. sources: skiutah.com Salt Lake summer markets; slc.gov grocers who carry local products."
+  },
+  "featured_frontier": {
+    "hook": "A ski-morning stack with Ballerina Farm butter and raw Utah honey before a Cottonwood Canyon powder day, Wasatch peaks catching alpenglow behind -- greatest-snow-on-earth breakfast",
+    "photo_cue": "cast-iron stack, brown butter and raw honey, Wasatch alpenglow, ski gear at the door",
+    "signature_ingredient": "Wasatch Front raw honey + Utah dairy butter; Cottonwood Canyon ski-morning fuel",
+    "cross_promo": {
+      "partner": "Ballerina Farm (Kamas) + Wasatch Front farmers markets",
+      "activation": "brown-butter + raw honey ski-morning stack; shared with the Park City and Kamas Valley records",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Wasatch Front families, ski-commuter households, resort staff; Smith's + Harmons + Costco + Walmart shoppers, powder-day metro at the base of world-class ski canyons",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 14.0, "translate_code": "es", "reason": "INFERRED from Salt Lake County Hispanic ~19% (ACS pattern); largest second language of the Wasatch Front -- verify exact ACS S1601 pct before production" },
+    { "lang_code": "sm", "lang_name": "Samoan", "pct_home": 0.8, "translate_code": "sm", "reason": "INFERRED Salt Lake has one of the larger Pacific Islander (Samoan/Tongan) communities in the mainland US; culturally present -- verify ACS pct before production" }
+  ],
+  "cultural_notes": [
+    "Salt Lake City sits on the Wasatch Front at the base of the Wasatch Range; the Cottonwood Canyon resorts (Alta, Snowbird, Brighton, Solitude) are less than an hour from downtown, anchoring a genuine 'greatest snow on earth' ski identity (source: skiutah.com Salt Lake summer markets + resort proximity)",
+    "the Wasatch Front is dense with farmers markets -- the Downtown Farmers Market at Pioneer Park plus Brighton and canyon-adjacent markets offer seasonal produce, dairy and honey (source: skiutah.com Local Living Salt Lake summer markets; nichehomes.com best summer farmers markets)",
+    "local grocers actively carry Utah products (local produce, meat, dairy, packaged goods) with in-store local labeling (source: slc.gov grocers who carry local products)",
+    "Pioneer / Latter-day Saint heritage shapes the civic calendar (Pioneer Day, July 24) and a strong family-size household culture (INFERRED civic framing from region knowledge -- verify tone before production)"
+  ],
+  "design_palette": {
+    "textures": ["Wasatch granite talus", "quartzite canyon rock", "red mining brick (downtown)", "weathered barn timber (valley)", "fresh Cottonwood powder", "cast-iron griddle sear", "aspen bark"],
+    "colors": [
+      { "name": "Wasatch alpenglow rose", "hex": "#E4A79B", "use": "dawn sky / skyline backdrop" },
+      { "name": "Cottonwood powder blue-white", "hex": "#DCE4EC", "use": "snow / negative space" },
+      { "name": "downtown mining brick red", "hex": "#8C4131", "use": "structure / storefront" },
+      { "name": "Wasatch conifer green", "hex": "#33502F", "use": "hillside / foreground" },
+      { "name": "raw-honey amber", "hex": "#C88A2E", "use": "produce hero / accent" }
+    ],
+    "building_materials": ["Wasatch granite and quartzite stone", "red fired brick (downtown historic)", "weathered wood barn timber (valley)", "stucco and frame (suburban)", "timber-and-stone lodge (canyon)", "cast-iron storefront trim"],
+    "landscape_motifs": ["Wasatch Range alpenglow ridgeline", "Cottonwood Canyon powder slopes", "Great Salt Lake shimmer to the west", "aspen and conifer canyon stands", "Pioneer Park market crates"],
+    "_provenance_note": "granite/quartzite + Wasatch alpenglow grounded in the range at the city's edge; powder blue-white grounded in the Cottonwood ski canyons (skiutah.com). raw-honey amber grounded in the Wasatch Front local honey/dairy story (slc.gov). hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "ski-season",
+      "months": [12, 1, 2, 3],
+      "in_season_produce": [
+        { "name": "Ballerina Farm butter + raw Utah honey (Kamas / Wasatch)", "pancake_tie": "brown-butter + raw honey drizzle over Buttermilk Power Cakes -- powder-morning stack before a Cottonwood Canyon day" },
+        { "name": "stored Utah winter squash + root veg", "pancake_tie": "savory squash-and-cheddar Power Cakes for a base-of-the-canyon breakfast" }
+      ],
+      "where_to_buy": [
+        { "name": "Smith's Food & Drug (Salt Lake)", "type": "chain-grocer", "notes": "Kroger banner, everyday Wasatch Front fill" },
+        { "name": "Harmons Grocery (Salt Lake)", "type": "chain-grocer", "notes": "Utah local-forward grocer; carries local dairy and honey" }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        { "name": "Utah peaches + apples (Wasatch Front orchards)", "peak_month": 9, "pancake_tie": "cinnamon peach compote on cast iron; Utah peaches run late summer into September" },
+        { "name": "Utah honey + fall squash", "peak_month": 10, "pancake_tie": "raw-honey drizzle stack; savory squash Power Cakes" }
+      ],
+      "where_to_buy": [
+        { "name": "Downtown Farmers Market (Pioneer Park)", "type": "farmers-market", "url": "https://slcfarmersmarket.org", "notes": "Sat, summer through October; Utah produce, dairy, honey" },
+        { "name": "Harmons Grocery (Salt Lake)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        { "name": "Utah cherries + early peaches + berries", "peak_month": 7, "pancake_tie": "fold diced peach or cherries into batter; bright summer stack" }
+      ],
+      "where_to_buy": [
+        { "name": "Downtown Farmers Market (Pioneer Park)", "type": "farmers-market" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Smith's Food & Drug", "role": "home", "distance_mi": 0, "notes": "Kroger banner, dominant Wasatch Front grocer" },
+    { "name": "Harmons Grocery", "role": "primary", "notes": "Utah local-forward chain" },
+    { "name": "Costco", "role": "primary", "notes": "dense Salt Lake valley warehouse footprint" },
+    { "name": "Walmart", "role": "primary" }
+  ],
+  "campaign_type_fit": {
+    "us-ski-and-snowboard": { "fit": "strong", "angle": "Salt Lake is the metro gateway to the Cottonwood Canyon resorts (Alta, Snowbird, Brighton, Solitude) -- 'greatest snow on earth', ski-commuter households, powder-morning protein stack. Pairs with Park City on the us-ski brief (briefs/kodiak-us-ski.yaml, to be authored)" },
+    "localized-costco": { "fit": "strong", "angle": "dense Salt Lake valley Costco footprint + large family-size household culture -- bulk Family Size stock-up is a natural, high-volume fit" },
+    "recipe-cards": { "fit": "strong", "angle": "Utah peach compote card + raw-honey ski-morning card + Ballerina Farm brown-butter card -- real Wasatch Front produce and dairy" },
+    "keep-it-wild": { "fit": "strong", "angle": "the Wasatch canyons (Big/Little Cottonwood, Mill Creek) are wild public land at the metro edge -- Keep It Wild alpenglow-canyon dawn stack", "existing_brief": "briefs/kodiak.yaml" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no dedicated SLC creative corpus yet, though the Park City/Wasatch record shares alpenglow assets to lean on" },
+    "bears": { "fit": "weak", "angle": "Bear Bites angle carries nationally; the Wasatch has black bear habitat (not grizzly) -- keep conservation-toned, tracks-only, no costume grizzlies" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype/partnership only, never likeness" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.89,
+    "ready_to_rock": true,
+    "notes": "New seed, the metro anchor of the Wasatch ski cluster (sibling to Park City and Kamas Valley). us-ski STRONG (Cottonwood Canyon gateway) and localized-costco STRONG (dense valley footprint + family-size culture). design_palette grounded in Wasatch granite/alpenglow + powder, cited; seasonal keyed to ski-season honey/dairy + fall Utah peaches (not winter-defaulted for autumn produce). languages carry INFERRED flags -- market-languages.json absent in checkout. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Salt Lake summer/canyon farmers markets + Cottonwood resort proximity -- skiutah.com Local Living Salt Lake summer markets; nichehomes.com best summer farmers markets",
+      "web: local grocers carrying Utah products -- slc.gov/sustainability/grocers-who-carry-local-products",
+      "web: Ballerina Farm (Kamas) dairy/honey (shared with Park City record) -- park-city-wasatch.json seasonal",
+      "region: Wasatch Range / Cottonwood Canyon ski identity ('greatest snow on earth') -- skiutah.com",
+      "INFERRED: language pcts (market-languages.json absent in checkout) -- verify ACS S1601 for Salt Lake County"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

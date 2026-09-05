@@ -1,0 +1,141 @@
+{
+  "region_id": "hartford",
+  "market_code": "US-NE-HARTFORD",
+  "aliases": [],
+  "place": "Hartford, Connecticut",
+  "zip": "06103",
+  "county": "Hartford County",
+  "state": "CT",
+  "coordinates": { "lat": 41.7658, "lon": -72.6734 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Hartford / Old State House + Connecticut River",
+    "landmark": "Old State House (1796); Connecticut River waterfront; the Connecticut River Valley tobacco-shed and farm country north of the city",
+    "notes": "Hartford sits on the Connecticut River in the fertile Connecticut River Valley, historically shade-tobacco country with red tobacco sheds and rich bottomland farms. sources: en.wikipedia.org Hartford, Connecticut; Connecticut River Valley agriculture framing."
+  },
+  "featured_frontier": {
+    "hook": "Connecticut River Valley apple + New England maple compote on Power Cakes, red tobacco shed and valley farmland behind",
+    "photo_cue": "cast-iron flapjack stack on a clapboard porch, red tobacco shed and river-valley farm behind, autumn maples, October foliage",
+    "signature_ingredient": "Connecticut apples (Sep-Oct) + New England maple; Connecticut River Valley sweet corn and berries (summer)",
+    "cross_promo": {
+      "partner": "Connecticut River Valley farm stands / Hartford Regional Market",
+      "activation": "valley apple + maple compote card, Stop & Shop / Big Y / ShopRite retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Hartford metro families + Connecticut River Valley households; New England fall-foliage and maple shoppers; insurance-city professional families; Stop & Shop, Big Y, and ShopRite shoppers",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 20.0, "translate_code": "es", "reason": "INFERRED (ACS source file absent): Hartford has one of the largest Puerto Rican population shares of any US city; pct is a web-informed estimate, not exact ACS" },
+    { "lang_code": "pl", "lang_name": "Polish", "pct_home": 1.5, "translate_code": "pl", "reason": "INFERRED (ACS source file absent): historic Polish community, notably New Britain adjacent; pct estimated" }
+  ],
+  "cultural_notes": [
+    "Hartford has one of the highest Puerto Rican population shares of any US city -- a defining cultural and food identity in the metro (source: general demographic framing, publicly documented)",
+    "the Connecticut River Valley is historic shade-tobacco country; its red tobacco sheds and fertile bottomland farms are a signature valley landscape and supply strong seasonal produce (source: Connecticut River Valley agriculture framing, publicly documented)",
+    "New England maple and fall-foliage culture anchors the breakfast occasion, as across the region (source: general New England foodways framing)",
+    "Stop & Shop, Big Y (a Massachusetts/Connecticut regional chain), and ShopRite are the metro grocers (source: chain regional footprint)"
+  ],
+  "design_palette": {
+    "textures": ["red tobacco-shed board siding", "white-painted clapboard", "New England fieldstone wall", "Connecticut brownstone", "sugar-maple foliage litter", "Connecticut River silt bottomland", "cast-iron griddle char"],
+    "colors": [
+      { "name": "tobacco-shed barn red", "hex": "#7C382D", "use": "shed / structure" },
+      { "name": "clapboard colonial white", "hex": "#F1EEE4", "use": "structure / trim / negative space" },
+      { "name": "sugar-maple foliage orange", "hex": "#C25A2A", "use": "autumn canopy / accent" },
+      { "name": "Connecticut River slate blue", "hex": "#4F6470", "use": "water / sky" },
+      { "name": "valley harvest gold", "hex": "#B98A34", "use": "farmland / warm accent" }
+    ],
+    "building_materials": ["red tobacco-shed board siding", "white-painted wood clapboard", "New England fieldstone", "Connecticut brownstone (Portland CT quarries)", "fired red brick (downtown)"],
+    "landscape_motifs": ["red tobacco shed in a river-valley field", "sugar-maple foliage hillside", "Connecticut River bottomland farm", "white-steeple village common", "downtown skyline over the river"],
+    "_provenance_note": "tobacco-shed red + valley farmland grounded in Connecticut River Valley shade-tobacco agriculture. clapboard white + fieldstone from New England vernacular. Connecticut brownstone references the historic Portland CT quarries. maple foliage from the fall season. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        { "name": "Connecticut apples (McIntosh, Macoun)", "peak_month": 10, "pancake_tie": "valley apple-cinnamon compote over Power Cakes -- Connecticut orchard classic at peak foliage" },
+        { "name": "Connecticut pumpkins + squash", "peak_month": 10, "pancake_tie": "spiced squash Power Cakes for a river-valley fall morning" }
+      ],
+      "where_to_buy": [
+        { "name": "Connecticut River Valley farm stands", "type": "farm-stand", "notes": "valley apples + squash in fall" },
+        { "name": "Big Y", "type": "chain-grocer", "notes": "Connecticut/Massachusetts regional grocer" },
+        { "name": "Stop & Shop", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [11, 12, 1, 2],
+      "in_season_produce": [
+        { "name": "stored apples + New England maple", "pancake_tie": "maple-apple holiday Power Cakes for a cold Hartford morning" }
+      ],
+      "where_to_buy": [
+        { "name": "Stop & Shop", "type": "chain-grocer" },
+        { "name": "Big Y", "type": "chain-grocer" },
+        { "name": "ShopRite", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4, 5],
+      "in_season_produce": [
+        { "name": "New England maple + spring rhubarb", "peak_month": 3, "pancake_tie": "fresh maple over Power Cakes -- spring sugaring pour" },
+        { "name": "early strawberries", "peak_month": 5, "pancake_tie": "strawberry compote over Power Waffles" }
+      ],
+      "where_to_buy": [
+        { "name": "Connecticut River Valley farm stands", "type": "farm-stand", "notes": "spring maple + first strawberries" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [7, 8],
+      "in_season_produce": [
+        { "name": "Connecticut River Valley sweet corn", "peak_month": 8, "pancake_tie": "sweet-corn savory Power Cakes for a summer valley griddle" },
+        { "name": "Connecticut blueberries + peaches", "peak_month": 7, "pancake_tie": "blueberry or peach compote over Power Cakes" }
+      ],
+      "where_to_buy": [
+        { "name": "Connecticut River Valley farm stands", "type": "farm-stand", "notes": "sweet corn + berries at summer peak" },
+        { "name": "Stop & Shop", "type": "chain-grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Stop & Shop", "role": "home", "distance_mi": 0, "notes": "dominant Connecticut grocer; home channel" },
+    { "name": "Big Y", "role": "primary", "notes": "Connecticut/Massachusetts regional grocer" },
+    { "name": "ShopRite", "role": "primary" },
+    { "name": "Costco", "role": "secondary", "notes": "metro bulk channel" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "Connecticut apple card (fall) + valley sweet-corn savory card (summer) + maple card (spring) -- real Connecticut River Valley produce" },
+    "localized-costco": { "fit": "strong", "angle": "Hartford is a Costco + Stop & Shop/Big Y bulk-and-value market; retailer lockup works with the regional-grocer story", "existing_brief": "briefs/kodiak-costco.yaml" },
+    "keep-it-wild": { "fit": "weak", "angle": "metro market; Keep It Wild lands better on the Litchfield Hills / valley farm edge than downtown" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no produced Hartford content corpus yet; thin prior material" },
+    "bears": { "fit": "weak", "angle": "Connecticut has a growing black bear population statewide; keep conservation-toned, no grizzly hook" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness" },
+    "us-ski-and-snowboard": { "fit": "weak", "angle": "small Connecticut ski areas (Mohawk, Ski Sundown) exist but no ski-town identity; secondary angle only" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.85,
+    "ready_to_rock": true,
+    "notes": "Palette grounded in Connecticut River Valley tobacco-shed red + clapboard white + fieldstone + Connecticut brownstone + maple foliage. Four seasonal windows from real valley produce with farm-stand + chain sourcing. Retailers mapped to Stop & Shop/Big Y/ShopRite. languages THIN -- percentages INFERRED because ACS source file is absent; no exact ACS numbers fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Hartford, Connecticut -- en.wikipedia.org (Connecticut River, Old State House)",
+      "web: Connecticut River Valley shade-tobacco agriculture framing -- publicly documented",
+      "web: Hartford Puerto Rican community share framing -- publicly documented",
+      "web: Big Y / Stop & Shop regional footprint -- publicly documented",
+      "note: language percentages INFERRED -- ACS/market-languages source file absent in checkout; no exact ACS numbers used"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "region_id": "charlotte",
+  "market_code": "US-SE-CHARLOTTE",
+  "aliases": [],
+  "place": "Charlotte, North Carolina",
+  "state": "NC",
+  "coordinates": { "lat": 35.2271, "lon": -80.8431 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Uptown Charlotte + Charlotte Regional Farmers Market",
+    "landmark": "Uptown skyline and the Charlotte Regional Farmers Market on Yorkmont Road; Piedmont rolling country around the metro",
+    "notes": "Piedmont NC banking metro. Harris Teeter (founded in Charlotte-area Concord/Charlotte roots, now Kroger-owned) is the home grocer; Publix has expanded into the Carolinas. source: Harris Teeter Carolinas footprint."
+  },
+  "featured_frontier": {
+    "hook": "North Carolina sweet potato + muscadine stack -- Piedmont fall harvest brunch, NC being the nation's top sweet-potato state",
+    "photo_cue": "Piedmont red clay, Uptown skyline behind, roasted NC sweet potato, muscadine cluster; crisp fall light",
+    "signature_ingredient": "NC sweet potatoes (fall, #1 US producer) + muscadine grapes (late summer-fall)",
+    "cross_promo": {
+      "partner": "Charlotte Regional Farmers Market",
+      "activation": "NC sweet-potato + muscadine recipe card, Harris Teeter retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Piedmont NC banking-and-suburb families; Harris Teeter-first Charlotte households",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "translate_code": "es", "reason": "Spanish is the leading second home language across the Charlotte metro. Percentage INFERRED (localization pipeline data absent) -- not an ACS figure" }
+  ],
+  "cultural_notes": [
+    "Charlotte is a Piedmont banking metro; Harris Teeter, with Charlotte-area roots, is the flagship Carolinas grocer, and Publix has expanded into the region (source: Harris Teeter / Publix Carolinas footprint; language selection flagged INFERRED)",
+    "North Carolina is the top sweet-potato producing state in the US, and apples run August through February in the state's orchards (source: NC Cooperative Extension buncombe.ces.ncsu.edu / brunswick.ces.ncsu.edu; morefood.org fall produce)",
+    "Muscadine, the native Southern grape, is available late summer through fall and even lingers into early December in North Carolina (source: discover.texasrealfood.com North Carolina December)"
+  ],
+  "design_palette": {
+    "textures": ["Piedmont red-clay soil", "Uptown steel-and-glass curtain wall", "Carolina red brick", "sweet-potato skin", "muscadine-skin bloom", "loblolly-pine straw", "granite curb"],
+    "colors": [
+      { "name": "Piedmont red-clay ochre", "hex": "#A85B3B", "use": "ground / terrain" },
+      { "name": "Charlotte brick red", "hex": "#7C3B2E", "use": "structure / storefront" },
+      { "name": "NC sweet-potato copper", "hex": "#B5662E", "use": "produce hero" },
+      { "name": "muscadine bronze-purple", "hex": "#4A2E3A", "use": "produce accent" },
+      { "name": "Carolina pine green", "hex": "#2F4A34", "use": "canopy / foreground" }
+    ],
+    "building_materials": ["Carolina red fired brick", "steel-and-glass Uptown tower", "Piedmont granite trim", "wood-frame Piedmont farmhouse (rural)", "brick storefront"],
+    "landscape_motifs": ["Piedmont red-clay road", "Uptown skyline", "rolling Piedmont farmland", "sweet-potato field", "loblolly-pine stand"]
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        { "name": "North Carolina sweet potatoes", "peak_month": 10, "pancake_tie": "roasted NC sweet-potato + cinnamon Power Cakes -- the nation's top sweet-potato state" },
+        { "name": "muscadine grapes", "peak_month": 9, "pancake_tie": "muscadine compote over Power Cakes -- native Southern grape, late-summer to fall pick" }
+      ],
+      "where_to_buy": [
+        { "name": "Charlotte Regional Farmers Market", "type": "farmers-market", "notes": "Yorkmont Road" },
+        { "name": "Harris Teeter (Charlotte metro)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "thanksgiving",
+      "months": [11],
+      "in_season_produce": [
+        { "name": "NC apples + winter greens", "peak_month": 11, "pancake_tie": "NC apple-cinnamon Power Cakes -- apples run Aug-Feb in NC" }
+      ],
+      "where_to_buy": [
+        { "name": "Harris Teeter (Charlotte metro)", "type": "chain-grocer" },
+        { "name": "Charlotte Regional Farmers Market", "type": "farmers-market" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [5, 6, 7, 8],
+      "in_season_produce": [
+        { "name": "Carolina peaches", "peak_month": 7, "pancake_tie": "Carolina peach compote over Power Cakes" },
+        { "name": "Piedmont blueberries", "peak_month": 6, "pancake_tie": "blueberry Power Cakes" }
+      ],
+      "where_to_buy": [
+        { "name": "Charlotte Regional Farmers Market", "type": "farmers-market" },
+        { "name": "Harris Teeter (Charlotte metro)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4],
+      "in_season_produce": [
+        { "name": "Carolina strawberries", "peak_month": 4, "pancake_tie": "spring strawberry compote stack" }
+      ],
+      "where_to_buy": [
+        { "name": "Harris Teeter (Charlotte metro)", "type": "chain-grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Harris Teeter", "role": "home" },
+    { "name": "Publix", "role": "primary" },
+    { "name": "Food Lion", "role": "secondary" },
+    { "name": "Walmart", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "localized-costco": { "fit": "strong", "angle": "Harris Teeter Carolinas variant of the localized-costco type; reuse briefs/kodiak-costco.yaml pattern with a Charlotte Uptown lockup", "existing_brief": "briefs/kodiak-costco.yaml" },
+    "recipe-cards": { "fit": "strong", "angle": "NC sweet-potato Power Cakes card + muscadine compote card + Carolina peach card" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no known prior Charlotte creative to riff on" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype only, never likeness" },
+    "bears": { "fit": "weak", "angle": "NC has black bear in the mountains and coastal plain, not the Piedmont metro; keep conservation-toned, tracks-only" },
+    "keep-it-wild": { "fit": "weak", "angle": "Piedmont metro; keep-it-wild lands better on the mountain and coastal sisters" },
+    "us-ski-and-snowboard": { "fit": "weak", "angle": "NC mountains have small ski areas (Beech, Sugar) a few hours west, but Charlotte itself is a Piedmont metro -- weak local tie" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.83,
+    "ready_to_rock": true,
+    "notes": "Charlotte record anchored on NC as the top sweet-potato state + Piedmont fall harvest, Harris Teeter as home grocer. languages thin -- single INFERRED entry, no ACS numbers fabricated. hex flagged for brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: NC produce in season, apples Aug-Feb -- brunswick.ces.ncsu.edu; buncombe.ces.ncsu.edu (NC Cooperative Extension)",
+      "web: NC fall produce (sweet potatoes, collards) -- morefood.org; gardening.ces.ncsu.edu",
+      "web: NC muscadine into December -- discover.texasrealfood.com North Carolina December",
+      "Harris Teeter Carolinas footprint -- general regional retail knowledge",
+      "language percentage INFERRED -- localization pipeline data absent from checkout; no ACS figure fabricated"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

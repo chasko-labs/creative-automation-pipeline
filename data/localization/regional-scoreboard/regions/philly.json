@@ -1,0 +1,143 @@
+{
+  "region_id": "philly",
+  "market_code": "US-NE-PHILLY",
+  "aliases": [],
+  "place": "Philadelphia, Pennsylvania",
+  "zip": "19107",
+  "county": "Philadelphia County",
+  "state": "PA",
+  "coordinates": { "lat": 39.9526, "lon": -75.1652 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Reading Terminal Market (Center City)",
+    "landmark": "Reading Terminal Market (est. 1893), one of the oldest continuously operating public markets in the US; Italian Market (9th Street) South Philly; brick rowhouse blocks",
+    "notes": "Reading Terminal Market is a landmark indoor public market with Pennsylvania Dutch and regional producers. The 9th Street Italian Market is the country's oldest continuously operating outdoor market. Philadelphia's residential fabric is dense brick rowhouses. sources: readingterminalmarket.org; en.wikipedia.org Italian Market, Philadelphia."
+  },
+  "featured_frontier": {
+    "hook": "Pennsylvania Dutch apple butter + Lancaster County maple on Power Cakes at a Reading Terminal counter -- brick-rowhouse breakfast",
+    "photo_cue": "cast-iron flapjack stack on a Reading Terminal counter, apple-butter swirl, brick rowhouse block behind, Italian Market awnings",
+    "signature_ingredient": "Lancaster County apples + apple butter (fall) + Pennsylvania maple; Jersey blueberries + peaches (summer)",
+    "cross_promo": {
+      "partner": "Reading Terminal Market / Pennsylvania Dutch producers",
+      "url": "https://readingterminalmarket.org",
+      "activation": "apple-butter + maple compote card, Lancaster County farm-country story with an Acme / Giant retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Philadelphia rowhouse families + Center City and South Philly households; Reading Terminal + Italian Market food shoppers; Lancaster County / Pennsylvania Dutch farm-country adjacency; Acme, Giant, and ShopRite shoppers",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 9.0, "translate_code": "es", "reason": "INFERRED (ACS source file absent): large Puerto Rican + broader Latino community in North Philadelphia; pct is a web-informed estimate, not exact ACS" },
+    { "lang_code": "zh", "lang_name": "Chinese", "pct_home": 2.0, "translate_code": "zh", "reason": "INFERRED (ACS source file absent): Philadelphia Chinatown + South Philly community; pct estimated" },
+    { "lang_code": "vi", "lang_name": "Vietnamese", "pct_home": 1.5, "translate_code": "vi", "reason": "INFERRED (ACS source file absent): sizable Vietnamese community in South Philadelphia; pct estimated" }
+  ],
+  "cultural_notes": [
+    "Reading Terminal Market (1893) is a civic food anchor with Pennsylvania Dutch (Amish/Mennonite) producers alongside regional farmers -- a Center City institution (source: readingterminalmarket.org; en.wikipedia.org)",
+    "the 9th Street Italian Market is the oldest continuously operating outdoor market in the US, a South Philly cultural landmark (source: en.wikipedia.org Italian Market, Philadelphia)",
+    "Lancaster County Pennsylvania Dutch farm country supplies apple butter, apples, and maple to the metro -- a strong regional food identity (source: general Pennsylvania Dutch foodways framing, publicly documented)",
+    "Philadelphia's dense brick rowhouse blocks are a defining architectural identity; Acme (a Philly-rooted chain), Giant, and ShopRite are the regional grocers (source: chain regional footprint; Philadelphia rowhouse architecture)"
+  ],
+  "design_palette": {
+    "textures": ["Philadelphia red-brick rowhouse", "formstone facade cladding", "marble stoop step", "Italian Market awning canvas", "Reading Terminal wrought-iron and tile", "Wissahickon schist stone", "apple-butter matte sheen"],
+    "colors": [
+      { "name": "Philadelphia rowhouse brick red", "hex": "#8B4636", "use": "structure / facade" },
+      { "name": "marble-stoop white", "hex": "#E8E4DA", "use": "step / trim / negative space" },
+      { "name": "Wissahickon schist gray-gold", "hex": "#8A7C63", "use": "stone structure / accent" },
+      { "name": "apple-butter deep brown", "hex": "#5A3320", "use": "produce hero / warm accent" },
+      { "name": "Italian Market awning green", "hex": "#356140", "use": "storefront accent" }
+    ],
+    "building_materials": ["fired red brick (rowhouse)", "formstone cladding (South Philly)", "marble stoop steps", "Wissahickon schist (Northwest Philly)", "wrought iron and tile (Reading Terminal)"],
+    "landscape_motifs": ["red-brick rowhouse block", "marble-stoop street", "Italian Market awning row", "Reading Terminal market hall", "Lancaster County farm patchwork"],
+    "_provenance_note": "rowhouse brick red + marble stoop grounded in Philadelphia residential architecture; Wissahickon schist is the characteristic local building stone of Northwest Philadelphia. apple-butter brown from Pennsylvania Dutch produce. Italian Market awning green from the 9th Street market. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        { "name": "Lancaster County apples + apple butter", "peak_month": 10, "pancake_tie": "Pennsylvania Dutch apple-butter swirl over Power Cakes -- Lancaster farm-country classic" },
+        { "name": "Pennsylvania pumpkins + winter squash", "peak_month": 10, "pancake_tie": "spiced pumpkin Power Cakes for a brick-rowhouse fall morning" }
+      ],
+      "where_to_buy": [
+        { "name": "Reading Terminal Market", "type": "farmers-market", "url": "https://readingterminalmarket.org", "notes": "Pennsylvania Dutch + regional producers; apple butter in fall" },
+        { "name": "Acme", "type": "chain-grocer", "notes": "Philly-rooted regional grocer" },
+        { "name": "Giant", "type": "chain-grocer", "notes": "Pennsylvania regional grocer" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [12, 1, 2],
+      "in_season_produce": [
+        { "name": "stored apples + Pennsylvania maple", "pancake_tie": "maple-apple holiday Power Cakes stack for a cold Center City morning" }
+      ],
+      "where_to_buy": [
+        { "name": "Acme", "type": "chain-grocer" },
+        { "name": "ShopRite", "type": "chain-grocer", "notes": "regional mid-Atlantic grocer" },
+        { "name": "Reading Terminal Market", "type": "farmers-market" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        { "name": "Pennsylvania maple + spring rhubarb", "peak_month": 4, "pancake_tie": "fresh maple over Power Cakes -- spring sugaring pour" },
+        { "name": "early strawberries", "peak_month": 5, "pancake_tie": "strawberry compote over Power Waffles" }
+      ],
+      "where_to_buy": [
+        { "name": "Reading Terminal Market", "type": "farmers-market", "notes": "spring maple + first strawberries" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        { "name": "New Jersey blueberries", "peak_month": 7, "pancake_tie": "Jersey blueberry compote over Power Cakes -- NJ is a top blueberry state, minutes across the river" },
+        { "name": "Jersey peaches + sweet corn", "peak_month": 8, "pancake_tie": "Jersey peach compote summer stack" }
+      ],
+      "where_to_buy": [
+        { "name": "Italian Market (9th Street)", "type": "farmers-market", "url": "https://italianmarketphilly.org", "notes": "oldest outdoor market in the US; summer produce" },
+        { "name": "Reading Terminal Market", "type": "farmers-market" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Acme", "role": "home", "distance_mi": 0, "notes": "Philly-rooted regional grocer; home channel" },
+    { "name": "Giant", "role": "primary", "notes": "Pennsylvania regional grocer" },
+    { "name": "ShopRite", "role": "primary", "notes": "mid-Atlantic grocer" },
+    { "name": "Costco", "role": "secondary", "notes": "metro bulk channel" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "Pennsylvania Dutch apple-butter card (fall) + Jersey blueberry card (summer) + maple card (spring) -- real Lancaster + South Jersey produce" },
+    "riff-on-past-content": { "fit": "weak", "angle": "no produced Philly content corpus yet; strong Reading Terminal + rowhouse cue but thin prior material" },
+    "localized-costco": { "fit": "strong", "angle": "Philadelphia is a Costco + Acme/Giant bulk-and-value market; retailer lockup works with the regional-grocer story", "existing_brief": "briefs/kodiak-costco.yaml" },
+    "bears": { "fit": "weak", "angle": "Pennsylvania has a large black bear population statewide; keep conservation-toned, no metro grizzly hook" },
+    "keep-it-wild": { "fit": "weak", "angle": "dense metro; Keep It Wild lands better on the Pennsylvania Wilds / Poconos edge than on Center City" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness" },
+    "us-ski-and-snowboard": { "fit": "weak", "angle": "Poconos ski is a drive north but no city ski identity; secondary angle only" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.86,
+    "ready_to_rock": true,
+    "notes": "Palette grounded in Philadelphia rowhouse brick + marble stoops + Wissahickon schist + apple butter. Four seasonal windows from real Lancaster County + South Jersey produce with Reading Terminal + Italian Market + chain sourcing. Retailers mapped to Acme/Giant/ShopRite. languages THIN -- percentages INFERRED because ACS source file is absent; no exact ACS numbers fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Reading Terminal Market -- readingterminalmarket.org (1893 public market, Pennsylvania Dutch producers)",
+      "web: Italian Market, Philadelphia -- en.wikipedia.org (oldest continuously operating outdoor market in the US, 9th Street)",
+      "web: New Jersey blueberry production framing -- NJ is a leading US blueberry state (Rutgers extension)",
+      "web: Philadelphia rowhouse + Wissahickon schist architecture framing -- publicly documented",
+      "note: language percentages INFERRED -- ACS/market-languages source file absent in checkout; no exact ACS numbers used"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}
