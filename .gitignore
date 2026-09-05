@@ -13,6 +13,7 @@ output_*/
 # node (only infra-cdk uses node; its own .gitignore handles cdk.out/compiled)
 node_modules/
 package-lock.json
+/package-lock.json
 
 # generated docs + local doc-gen tooling (not part of the shipped pipeline)
 README.html
