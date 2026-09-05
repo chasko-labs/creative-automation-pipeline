@@ -42,6 +42,7 @@ from pathlib import Path
 from . import naming, retailers, safety
 from .compose import compose_creative
 from .context_pack import build_context_pack
+from .dam import resolve_packshot
 from .enhance import enhance_hero
 from .generate import generate_hero
 from .recipe_card import build_recipe_card
@@ -473,8 +474,16 @@ def _render_asset(
     work_hero = out_root / "_work" / f"{product['id']}_hero.png"
     work_hero.parent.mkdir(parents=True, exist_ok=True)
     try:
+        # 0) PACKSHOT-FIRST (compose-fix root-cause repair): if a real product box
+        # resolves for this SKU, the box is composited VERBATIM over a background scene —
+        # no generative step touches those pixels, so it cannot render as bread or candy.
+        # Generation is only the FALLBACK when no packshot resolves. See
+        # docs/architecture/compose-fix/compose-fix-spec.md precedence table (order a/b).
+        packshot = resolve_packshot(product["id"])
         # 1) hero pixels — Nova Canvas when creds resolve, deterministic mock otherwise.
-        # The prompt carries no headline text; cr-1 is enforced inside generate_hero.
+        # In packshot mode this paints the BACKGROUND scene only (the box lands on top in
+        # compose); in generated-scene mode it is the hero itself. The prompt carries no
+        # headline text; cr-1 is enforced inside generate_hero.
         _hero_path, hero_source, _hero_prov = generate_hero(
             product_id=product["id"],
             product_name=product["name"],
@@ -484,7 +493,9 @@ def _render_asset(
             out_path=work_hero,
             idx=idx,
         )
-        # 2) institutional enhance (contrast/texture/frame) — Pillow, offline-safe
+        # 2) institutional enhance (contrast/texture/frame) — Pillow, offline-safe.
+        # Applies to the background layer in both modes; the packshot box itself is NEVER
+        # enhanced (it is composited verbatim inside compose_creative).
         try:
             enhance_hero(
                 work_hero,
@@ -500,20 +511,29 @@ def _render_asset(
             hero_source = f"{hero_source}+enhanced"
         except Exception:  # noqa: BLE001 — enhance is best-effort, never blocks render
             pass
-        # 3) compose the final creative — headline enters HERE as overlay copy (cr-1)
+        # 3) compose the final creative — headline enters HERE as overlay copy (cr-1).
+        # product_layer is the verbatim box in packshot mode, None in generated-scene mode.
         iso_path = out_root / asset["iso_name"]
         compose_creative(
             hero_path=work_hero,
             out_path=iso_path,
             message=asset["headline"],
             ratio_key=asset["ratio"],
+            product_layer=packshot,
         )
         # 4) post-render cohesion check (cr-3) — creds-gated, skipped-not-faked offline
         cohesion = _cohesion_check(iso_path, pack)
+        if packshot is not None:
+            base_source = "dam:packshot-composite"
+        elif hero_source.startswith("mock"):
+            base_source = "mock"
+        else:
+            base_source = "bedrock:nova-pro"
         return {
             "generated": True,
-            "hero_source": "mock" if hero_source.startswith("mock") else "bedrock:nova-pro",
+            "hero_source": base_source,
             "hero_source_detail": hero_source,
+            "packshot": str(packshot) if packshot is not None else None,
             "file_path": str(iso_path),
             "cohesion": cohesion,
         }

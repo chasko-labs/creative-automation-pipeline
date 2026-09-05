@@ -13,6 +13,7 @@ Runbook sync (see docs/dam-runbook.md):
 """
 from __future__ import annotations
 
+import json
 import os
 from pathlib import Path
 from typing import Optional
@@ -226,6 +227,115 @@ def fetch_dam_key(key: str, dest: Path) -> Optional[Path]:
             dest.unlink()
         except Exception:
             pass
+    return None
+
+
+# --------------------------------------------------------- SKU -> packshot resolver
+# The packshot manifest maps sku-id -> the REAL product-box image (705599* UPC key).
+# Resolving it BEFORE any generative step is the compose-fix root-cause repair: a pasted
+# real box cannot render as bread or candy. Manifest lives at the committed contract path
+# by default; $SKU_PACKSHOT_MAP_PATH overrides for Lambda / test layouts. See
+# docs/architecture/compose-fix/compose-fix-spec.md.
+_SKU_PACKSHOT_MAP_PATH = (
+    Path(__file__).parents[2] / "docs" / "architecture" / "compose-fix" / "sku-packshot-map.json"
+)
+_SKU_PACKSHOT_MAP_CACHE: Optional[dict] = None
+
+
+def _resolve_packshot_map_path() -> Path:
+    """First existing packshot-manifest path; env override wins, else committed doc, else packaged."""
+    candidates: list[Path] = []
+    env = os.getenv("SKU_PACKSHOT_MAP_PATH")
+    if env:
+        candidates.append(Path(env))
+    candidates.append(_SKU_PACKSHOT_MAP_PATH)
+    candidates.append(Path(__file__).parent / "data" / "sku-packshot-map.json")
+    for c in candidates:
+        if c.exists():
+            return c
+    return _SKU_PACKSHOT_MAP_PATH
+
+
+def _load_packshot_map() -> dict:
+    """Load the packshot manifest once -> {handle: entry}. Empty dict on any failure."""
+    global _SKU_PACKSHOT_MAP_CACHE
+    if _SKU_PACKSHOT_MAP_CACHE is not None:
+        return _SKU_PACKSHOT_MAP_CACHE
+    try:
+        data = json.loads(_resolve_packshot_map_path().read_text(encoding="utf-8"))
+        _SKU_PACKSHOT_MAP_CACHE = data.get("map", {}) if isinstance(data, dict) else {}
+    except Exception as e:  # noqa: BLE001 — missing/unreadable manifest -> generative fallback
+        print(f"[dam] sku-packshot-map load skipped: {e}")
+        _SKU_PACKSHOT_MAP_CACHE = {}
+    return _SKU_PACKSHOT_MAP_CACHE
+
+
+def _norm_handle(product_id: str) -> str:
+    """Normalize a product_id to the map handle: lowercase, spaces -> hyphens, trimmed."""
+    return "-".join(str(product_id).strip().lower().split()).strip("-")
+
+
+def _packshot_entry_for(product_id: str) -> Optional[dict]:
+    """Match a product_id to a manifest entry: exact handle, then normalized, then longest-prefix."""
+    m = _load_packshot_map()
+    if not m:
+        return None
+    if product_id in m and isinstance(m[product_id], dict):
+        return m[product_id]
+    norm = _norm_handle(product_id)
+    if norm in m and isinstance(m[norm], dict):
+        return m[norm]
+    # longest-prefix match so "chocolate-fudge" matches "chocolate-fudge-brownie-mix"
+    best_key: Optional[str] = None
+    for k in m:
+        kn = _norm_handle(k)
+        if (norm.startswith(kn) or kn.startswith(norm)) and isinstance(m[k], dict):
+            if best_key is None or len(kn) > len(_norm_handle(best_key)):
+                best_key = k
+    return m[best_key] if best_key else None
+
+
+def _looks_like_box(key: str) -> bool:
+    """Heuristic: a real product-BOX key carries the 705599* UPC prefix in its filename."""
+    name = key.rsplit("/", 1)[-1]
+    return "705599" in name
+
+
+def resolve_packshot(product_id: str, dam_root: Optional[Path] = None) -> Optional[Path]:
+    """Return a local path to the REAL product-box packshot for a SKU, else None.
+
+    Manifest-first (unlike find_hero_asset). Resolution chain, in order:
+      1. manifest packshot_key      -> fetch_dam_key verbatim (no prefix join)
+      2. manifest fallbacks[] boxes -> fetch_dam_key per 705599* candidate
+      3. fuzzy find_hero_asset      -> S3 prefix + local glob
+      4. none                       -> return None (caller falls to generated-scene)
+
+    Offline-safe: fetch_dam_key returns None when S3 is disabled, so local dev / CI
+    fall straight through to step 3 (local glob) or None. Never raises.
+    """
+    cache_dir = Path("/tmp/kodiak-assets/packshot")
+    entry = _packshot_entry_for(product_id)
+    if isinstance(entry, dict):
+        # 1) explicit packshot box
+        pk = entry.get("packshot_key")
+        if isinstance(pk, str) and pk.strip():
+            dest = cache_dir / pk.rsplit("/", 1)[-1]
+            hit = fetch_dam_key(pk, dest)
+            if hit is not None:
+                return hit
+        # 2) box-like fallbacks / lifestyle_keys that carry the UPC prefix
+        for cand in (entry.get("fallbacks") or []) + (entry.get("lifestyle_keys") or []):
+            if isinstance(cand, str) and cand.strip() and _looks_like_box(cand):
+                dest = cache_dir / cand.rsplit("/", 1)[-1]
+                hit = fetch_dam_key(cand, dest)
+                if hit is not None:
+                    return hit
+    # 3) fuzzy glob — reuse the existing S3-prefix + local-glob primitive
+    root = dam_root or Path("input_assets")
+    fuzzy = find_hero_asset(product_id, root)
+    if fuzzy is not None and _looks_like_box(str(fuzzy)):
+        return fuzzy
+    # 4) nothing box-like resolved
     return None
 
 

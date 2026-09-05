@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 from typing import Tuple
 
-from PIL import Image, ImageDraw, ImageFont, ImageOps
+from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
 
 from .token_loader import get_brand_colors, get_canvas_dims, load_tokens
 
@@ -89,8 +89,16 @@ def compose_creative(
     brand_logo: Path | None = None,
     brand_colors: list[str] | None = None,
     retailer_logo: Path | None = None,
+    product_layer: Path | None = None,
 ) -> Path:
-    """Produce a social creative at the requested ratio with message overlay."""
+    """Produce a social creative at the requested ratio with message overlay.
+
+    product_layer: when set, the VERBATIM real product-box packshot is composited over
+    the background as a physical product layer (soft drop shadow, contained to the upper
+    safe area above the message bar). It is pasted as-is — NO cover-fit, NO scrim blend,
+    NO enhance — so a real box structurally cannot render as bread or candy. When None,
+    the existing foreground-hero paste stands (generated-scene mode).
+    """
     key = CANONICAL.get(ratio_key, ratio_key)
     if key not in RATIOS and ratio_key not in RATIOS:
         raise ValueError(f"unknown ratio {ratio_key}, expected one of {list(CANONICAL.keys())}")
@@ -112,6 +120,42 @@ def compose_creative(
     fg = hero.resize((fw, fh), Image.BICUBIC)
     # paste fg centered upper
     bg.paste(fg, ((W - fw) // 2, int(H * 0.08)))
+
+    # product-composite layer — the compose-fix root-cause repair. When a real product
+    # box resolves, paste it VERBATIM (with a soft drop shadow) over the background in the
+    # upper safe area. It overlays the generated/lifestyle fg hero so the actual retail box
+    # is what the eye reads. No cover-fit, no scrim, no enhance — those pixels are fixed
+    # brand art. See docs/architecture/compose-fix/compose-fix-spec.md section 3.
+    if product_layer is not None and Path(product_layer).exists():
+        try:
+            box = Image.open(product_layer).convert("RGBA")
+            # safe area: box must stay above the message bar (H*0.68) and below the logo slot
+            bar_top_frac = 0.68
+            box_max_w = W * 0.62
+            box_max_h = (H * bar_top_frac) * 0.72
+            box_scale = min(box_max_w / box.width, box_max_h / box.height)
+            bw, bh = max(1, int(box.width * box_scale)), max(1, int(box.height * box_scale))
+            box = box.resize((bw, bh), Image.BICUBIC)
+            # anchor near H*0.08, horizontally centered; clamp bottom >=24px above bar_top
+            bx = (W - bw) // 2
+            by = int(H * 0.08)
+            bar_top_px = int(H * bar_top_frac)
+            if by + bh > bar_top_px - 24:
+                by = max(int(H * 0.04), bar_top_px - 24 - bh)
+            # soft drop shadow on an RGBA scratch layer, composited UNDER the box
+            shadow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            sil = Image.new("RGBA", (bw, bh), (0, 0, 0, 102))  # ~40% black
+            sil.putalpha(box.split()[-1].point(lambda a: int(a * 0.40)))
+            shadow.paste(sil, (bx + 8, by + 8), sil)
+            try:
+                shadow = shadow.filter(ImageFilter.GaussianBlur(12))
+            except Exception:
+                pass
+            bg = Image.alpha_composite(bg.convert("RGBA"), shadow).convert("RGB")
+            # paste the verbatim box on top of its shadow
+            bg.paste(box, (bx, by), box)
+        except Exception as e:
+            print(f"[compose] product layer composite failed: {e}", file=sys.stderr)
 
     draw = ImageDraw.Draw(bg, "RGBA")
 
