@@ -511,7 +511,7 @@ header h1,header h2,header h3{color:var(--parchment)}
     if(tsEl) tsEl.textContent = new Date().toISOString().slice(0,19).replace('T',' ')+' UTC';
     if(detEl){
       const fileK=Math.round(document.documentElement.outerHTML.length/1000);
-      detEl.innerHTML=`File: <span class=kbd>${fileK}k</span> • Tokens: <span class=kbd>design/tokens/kodiak.json</span> • Build: <span class=kbd>${window.KODIAK_VERSION||'v0.1.009'}</span> • Live re-score on Generate / Suggested — <span class=kbd>uv run pytest -q</span> is CI parity (6 passed).`;
+      detEl.innerHTML=`File: <span class=kbd>${fileK}k</span> • Tokens: <span class=kbd>design/tokens/kodiak.json</span> • Build: <span class=kbd>${window.KODIAK_VERSION||'v0.1.010'}</span> • Live re-score on Generate / Suggested — <span class=kbd>uv run pytest -q</span> is CI parity (6 passed).`;
     }
     console.log('[scorecards]', {overall:`${overallGrade} ${overallPct}%`, weighted, weightSum});
   }
