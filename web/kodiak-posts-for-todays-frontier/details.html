@@ -45,7 +45,10 @@ body{
   position:relative;
 }
 body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:var(--kraft);mix-blend-mode:multiply}
-a{color:var(--red);text-decoration:none;border-bottom:1px solid #B51E1433}a:hover{border-bottom-color:var(--red);color:var(--chocolate)}
+/* signal-red at ~20% alpha for the link underline — token-sourced via color-mix, no raw hex (S1/D1) */
+a{color:var(--red);text-decoration:none;border-bottom:1px solid color-mix(in srgb, var(--red) 20%, transparent)}a:hover{border-bottom-color:var(--red);color:var(--chocolate)}
+/* keyboard focus ring — signal-red TOKEN, never the raw --red literal (S1/D1/S15 note) */
+a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--colors-brand-signal-red);outline-offset:2px;border-radius:2px}
 h1,h2,h3,.gin,.headline{font-family:"gin",Rockwell,Clarendon,Georgia,serif;font-weight:800;font-style:normal;text-transform:uppercase;letter-spacing:.06em;line-height:1; font-feature-settings:"ss01" 1,"liga" 1; font-variant-ligatures:common-ligatures; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
 h1{font-size:clamp(28px,4vw,44px);letter-spacing:.04em}
 h2{font-size:clamp(18px,2.4vw,22px);letter-spacing:.05em}
@@ -57,7 +60,7 @@ nav,.btn,.badge,.kbd,.ui{font-family:"kodiak_sans","Roar","museo-sans",system-ui
 header{padding:0;background:var(--brown-kodiak);color:#FFF8F0;border-bottom:4px solid var(--chocolate);position:relative;overflow:hidden;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 header::before{content:"";position:absolute;inset:0;background:var(--gradients-kraft\.surface);opacity:.14;mix-blend-mode:multiply;pointer-events:none}
 header::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(26,17,16,.08), rgba(26,17,16,.18));pointer-events:none}
-.header__inner{position:relative;z-index:1;display:flex;align-items:center;gap:16px;width:100%;padding:10px 18px;background:#382316}
+.header__inner{position:relative;z-index:1;display:flex;align-items:center;gap:16px;width:100%;padding:10px 18px;background:var(--brown-kodiak)}
 header h1{margin:0;font:800 22px/1 gin,"kodiak_sans",Rockwell,Georgia,serif;letter-spacing:.04em;text-transform:uppercase;color:#FFF8F0}
 header h1,header h2,header h3{color:var(--parchment)}
 .wrap{max-width:1100px;margin:0 auto;padding:18px;position:relative}
@@ -82,23 +85,228 @@ header h1,header h2,header h3{color:var(--parchment)}
 .wide-track + .wide-track{margin-top:10px}
 .backlink{display:inline-flex;align-items:center;gap:6px;color:#FFF8F0;border-bottom:none;font:700 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase}
 .backlink:hover{color:#FFDCC3;border-bottom:none}
+/* === sticky section nav / shortcut index (keyboard-accessible anchor list) === */
+.section-nav{position:sticky;top:0;z-index:50;background:var(--brown-kodiak);border-bottom:3px solid var(--chocolate);box-shadow:var(--shadows-sm)}
+.section-nav__inner{max-width:1100px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap}
+.section-nav__label{font:800 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#FFDCC3;margin-right:4px}
+.section-nav a{color:#FFF8F0;border-bottom:none;font:600 12px/1 "museo-sans",sans-serif;letter-spacing:.02em;padding:4px 8px;border-radius:3px}
+.section-nav a:hover{background:color-mix(in srgb, var(--colors-neutral-50) 16%, transparent);border-bottom:none;color:#FFF8F0}
+/* === design-system inventory sections (human-readable companion to the scorecards, S9) === */
+.inv-section{scroll-margin-top:64px}
+.inv-section .body>h3{margin:0 0 8px;color:var(--chocolate)}
+.inv-section .body>h3+p{margin-top:0}
+.inv-lead{color:#6B5A53;font:500 13px/1.6 "museo-sans",sans-serif;margin:0 0 12px}
+.inv-table{width:100%;border-collapse:collapse;margin:12px 0;font:500 12px/1.5 "museo-sans",sans-serif}
+.inv-table th,.inv-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--stone);vertical-align:top}
+.inv-table th{font:700 11px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#6B5A53;background:#FFFBF6}
+.inv-table tr:hover td{background:color-mix(in srgb, var(--colors-brand-blaze-orange) 5%, transparent)}
+.std{display:block;margin:12px 0;padding:10px 12px;border-left:3px solid var(--colors-brand-frontier-green);background:var(--gradients-kraft\.surface);border-radius:0 4px 4px 0}
+.std b{color:var(--chocolate)}
+.std.decision{border-left-color:var(--red)}
+.state{display:inline-block;padding:2px 7px;border-radius:999px;font:700 9px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase}
+.state.built{background:var(--colors-brand-frontier-green);color:#FACC7C}
+.state.drift{background:var(--colors-brand-blaze-orange);color:#fff}
+.state.stub,.state.missing{background:#7F1D1D;color:#FECACA}
+.state.tbd{background:var(--oat);color:var(--chocolate);border:1px solid var(--stone)}
+.inv-section .body{padding:18px}
+.wrap>.card+.card{margin-top:14px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head><body>
-<header class="kodiak-header" style="background:#382316;color:#FFF8F0;border-bottom:none;display:flex;align-items:center;gap:16px;padding:10px 18px;flex-wrap:wrap;margin:0"><div class="header__inner">
+<header class="kodiak-header" style="background:var(--brown-kodiak);color:#FFF8F0;border-bottom:none;display:flex;align-items:center;gap:16px;padding:10px 18px;flex-wrap:wrap;margin:0"><div class="header__inner">
 <a class="backlink" href="index.html">&larr; Back to campaign</a>
-<div style="flex:1;background:#B51E14;border-radius:6px;padding:8px 14px"><h1 style="color:#FFF8F0;font-size:clamp(16px,3.2vw,26px)">Design system + details</h1></div>
+<div style="flex:1;background:var(--red);border-radius:6px;padding:8px 14px"><h1 style="color:#FFF8F0;font-size:clamp(16px,3.2vw,26px)">Design system + details</h1></div>
 </div>
 </header>
+
+<!-- section nav / shortcut index — real anchor links, keyboard-focusable, token focus ring -->
+<nav class="section-nav" aria-label="Section shortcuts">
+<div class="section-nav__inner">
+<span class="section-nav__label">Jump to</span>
+<a href="#frontier-context">Frontier context</a>
+<a href="#inventory">Inventory</a>
+<a href="#inv-tokens">Token layer</a>
+<a href="#inv-drift">Drift + standards</a>
+<a href="#inv-shared">Shared elements</a>
+<a href="#inv-cards">Cards + elevation</a>
+<a href="#inv-index-page">index.html elements</a>
+<a href="#inv-details-page">details.html elements</a>
+<a href="#inv-express">Express prototyping</a>
+<a href="#inv-responsive">Responsive axis</a>
+<a href="#inv-translation">Translation axis</a>
+<a href="#inv-taxonomy">Market taxonomy</a>
+<a href="#inv-spectrum">Spectrum migration</a>
+<a href="#inv-decisions">Open decisions</a>
+<a href="#design-system">Live scorecards</a>
+</div>
+</nav>
 
 <div class="wrap">
 
 <!-- location-aware island — frontier toggle, prototype defaults Park City 84098 + Kamas Valley 84036 rural -->
-<div class="card" id="frontierToggleCard" style="border-left:3px solid #1A3C34"><div class="hd"><h2>Frontier prototype context <span class="badge">dev</span></h2><p>Defaults: Park City 84098 + Kamas Valley 84036 rural. Tool still location-aware but not consumer-facing.</p></div><div class="body">
+<div class="card inv-section" id="frontierToggleCard" style="border-left:3px solid var(--colors-brand-frontier-green);scroll-margin-top:64px"><span id="frontier-context" style="position:absolute;top:-64px"></span><div class="hd"><h2>Frontier prototype context <span class="badge">dev</span></h2><p>Defaults: Park City 84098 + Kamas Valley 84036 rural. Tool still location-aware but not consumer-facing.</p></div><div class="body">
 <div class="row" style="gap:10px">
 <button class="btn orange" id="useLocationBtn">Use my location</button>
 <button class="btn ghost" id="showAllBtn">Choose from list below</button>
 <span class="hint" id="locationStatus" style="display:none">Pescadero 94060 / Neah Bay 98357 frontier preserved for dev.</span>
 </div>
+</div></div>
+
+<!-- ============================================================================
+     DESIGN SYSTEM INVENTORY — human-readable companion to the live scorecards (S9).
+     Sourced from docs/design-system-inventory.md (sections 1-8, S1-S10, D1-D3)
+     + valkey kodiak:inventory-ext:2026-09-05 (sections 9-12, S11-S15).
+     Placed ABOVE the scorecards so the page reads inventory-then-live-grade.
+     ============================================================================ -->
+<div class="card wide-track inv-section" id="inventory"><div class="hd"><h2>Design System — Living Inventory <span class="badge">reference</span></h2><p>Label every element on the frontend so it can be prototyped in Adobe Express then pinned back to the token layer. Human-readable companion to the live scorecards below (standard S9). Token source of truth: <a href="../../design/tokens/kodiak.json" target="_blank">design/tokens/kodiak.json</a> (W3C DTFM) → <span class="kbd">panda.config.ts</span> → <a href="design/styles.css" target="_blank">design/styles.css</a> (<span class="kbd">--colors-*</span>).</p></div><div class="body">
+<p class="inv-lead">State legend: <span class="state built">built</span> shipped + on-token · <span class="state drift">built-drift</span> shipped but hardcodes off-token hex · <span class="state stub">stub</span> shape only, no behavior · <span class="state missing">missing</span> claimed but not rendered · <span class="state tbd">tbd-verify</span> needs a rendered screenshot pass.</p>
+</div></div>
+
+<div class="card inv-section" id="inv-tokens"><div class="hd"><h2>1 · Token layer state <span class="badge">foundation</span></h2><p>The foundation everything else grades against.</p></div><div class="body">
+<table class="inv-table"><thead><tr><th>Token group</th><th>Source</th><th>State</th><th>Notes</th></tr></thead><tbody>
+<tr><td>brand colors</td><td>kodiak.json color.brand</td><td><span class="state built">built</span></td><td>bearBrown 3B2316, blazeOrange E8530E, frontierGreen 1A3C34</td></tr>
+<tr><td>neutral ramp</td><td>color.neutral 0-1000</td><td><span class="state built">built</span></td><td>warm ramp: 50 parchment FFF8F0 … 900 ink 1A1110</td></tr>
+<tr><td>semantic</td><td>color.semantic</td><td><span class="state built">built</span></td><td>background / foreground / border / overlay — the layer components should consume</td></tr>
+<tr><td>kraft gradients</td><td>gradient.kraft</td><td><span class="state built">built</span></td><td>pure-css, zero rasters: surface / background / surfaceHover</td></tr>
+<tr><td>shadow scale</td><td>shadow.*</td><td><span class="state built">built</span></td><td>none/sm/md/lg + warm bear + text</td></tr>
+<tr><td>radii</td><td>radius.*</td><td><span class="state built">built</span></td><td>none 0 (creative full-bleed) … pill 999 (protein badge)</td></tr>
+<tr><td>typography</td><td>typography.*</td><td><span class="state built">built</span></td><td>per-ratio headline/body/caption sizes; families gin, museo-sans, Roar, kodiak_sans</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="card inv-section" id="inv-drift"><div class="hd"><h2>2 · Drift finding + color standards <span class="badge">S1–S2</span></h2><p>The token layer is mature; the HTML did not fully consume it. Colors are the drift surface (gradients + shadows are on-token).</p></div><div class="body">
+<table class="inv-table"><thead><tr><th>Inline var</th><th>Inline value</th><th>Token equivalent</th><th>Verdict</th></tr></thead><tbody>
+<tr><td>--chocolate / --brown</td><td>382316</td><td>bearBrown 3B2316</td><td><span class="state drift">drift</span> 3-hex, reads identical — reconciled to token (D3)</td></tr>
+<tr><td>--brown-kodiak</td><td>3B2316</td><td>bearBrown 3B2316</td><td><span class="state built">on-token</span></td></tr>
+<tr><td>--red</td><td>B51E14</td><td>signalRed (adopted)</td><td>adopted as brand token color.brand.signalRed (D1)</td></tr>
+<tr><td>--parchment / --stone / --oat</td><td>FFF8F0 / D9CFC6 / F4EDE6</td><td>neutral 50 / 300 / 100</td><td>on-token values, now routed through the alias layer</td></tr>
+</tbody></table>
+<span class="std"><b>S1 — color source.</b> Every color reference resolves to a token var. No raw hex in element styles except where a token does not yet exist. This file's <span class="kbd">:root</span> alias layer now routes every legacy name (--chocolate, --red, --parchment…) through the Panda tokens in styles.css.</span>
+<span class="std"><b>S2 — no ad-hoc palette per file.</b> The inline <span class="kbd">:root{}</span> block must not redeclare a divergent palette; it is reduced to token aliases only. The documented <span class="kbd">--adobe #a77957</span> svg exception stays as-is (no token, only literal inside the --wood svg).</span>
+</div></div>
+
+<div class="card inv-section" id="inv-shared"><div class="hd"><h2>3 · Shared elements + standards <span class="badge">S3–S6</span></h2><p>Define once, apply everywhere. Prototype these once in Adobe Express as reusable components.</p></div><div class="body">
+<table class="inv-table"><thead><tr><th>Label</th><th>Selector</th><th>Surface</th><th>State</th></tr></thead><tbody>
+<tr><td>Page Background</td><td>body</td><td>kraft.background over parchment</td><td><span class="state built">built</span></td></tr>
+<tr><td>Paper Fiber / Grain / Vignette</td><td>body::before, #paperGrain, #edgeVignette</td><td>svg hairlines + tiled grain + radial darkening</td><td><span class="state built">built</span></td></tr>
+<tr><td>Top Strip / Header Bar</td><td>.kodiak-topstrip, header.kodiak-header</td><td>bearBrown + kraft overlay</td><td><span class="state built">built</span> (reconciled to token)</td></tr>
+<tr><td>Logo cluster</td><td>.kodiak-header__logo*</td><td>kraft-tan radial + circular mask</td><td><span class="state built">built</span></td></tr>
+<tr><td>Title Block</td><td>header h1 block</td><td>signalRed token surface</td><td><span class="state built">built</span> (reconciled to token)</td></tr>
+<tr><td>Buttons</td><td>.btn / .btn.orange / .btn.ghost</td><td>bearBrown / signalRed / parchment</td><td><span class="state built">built</span></td></tr>
+<tr><td>Primitives</td><td>.badge .kbd .field-label .offline .hint</td><td>bearBrown / oat / muted canyon</td><td><span class="state built">built</span></td></tr>
+</tbody></table>
+<span class="std"><b>S3 — decorative overlays never intercept events.</b> Every fixed decorative layer carries <span class="kbd">pointer-events:none</span> + <span class="kbd">aria-hidden</span>. No filter/backdrop-filter on html/body (filter-containing-block trap breaks position:fixed).</span>
+<span class="std"><b>S4 — logo determinism.</b> bear PNG 140w @24,24, clearSpace 0.25x width, min 32h/80w, reversal only on bearBrown/frontierGreen/ink/black.</span>
+<span class="std"><b>S5 — heading contrast guard.</b> Global brown heading rule renders brown-on-brown on dark surfaces; header headings force-set to parchment (~12:1, AA). Repeat the override for any new heading on a dark surface.</span>
+<span class="std"><b>S6 — CTA fill.</b> Primary = bearBrown. Accent/CTA resolves to blazeOrange or the adopted signalRed token — never a raw hex.</span>
+</div></div>
+
+<div class="card inv-section" id="inv-cards"><div class="hd"><h2>4 · Elevation + card system <span class="badge">S7–S8</span></h2><p>Kodiak cards are kraft-paper surfaces with warm-tinted depth. Elevation maps to the shadow scale.</p></div><div class="body">
+<table class="inv-table"><thead><tr><th>Elevation</th><th>Shadow token</th><th>Used by</th><th>Surface</th></tr></thead><tbody>
+<tr><td>flat</td><td>--shadows-none</td><td>inline fields, chips</td><td>inherits page</td></tr>
+<tr><td>raised</td><td>--shadows-sm</td><td>.tile .render-tile .provenance</td><td>kraft.surface</td></tr>
+<tr><td>card</td><td>--shadows-md</td><td>.card</td><td>kraft.surface → surfaceHover</td></tr>
+<tr><td>floating</td><td>--shadows-lg</td><td>reserved (billboard/modal)</td><td>—</td></tr>
+<tr><td>bear</td><td>--shadows-bear</td><td>.ff-prompt hero bar</td><td>kraft surface</td></tr>
+</tbody></table>
+<span class="std"><b>S7 — elevation semantics.</b> raised = passive containers; card = interactive grouped content; bear = the single hero element on a page. Do not stack two bear-shadowed elements on one screen.</span>
+<span class="std"><b>S8 — card anatomy.</b> kraft surface + 1px stone border + 4px radius + --shadows-md + wood-grain ::before at 6% + optional .hd header strip + .body 16px pad. Hover swaps to surfaceHover (blazeOrange 12% bloom).</span>
+</div></div>
+
+<div class="card inv-section" id="inv-index-page"><div class="hd"><h2>5 · Page elements — index.html (the app)</h2><p>The interactive prompt bar is the focal point; bear elevation is reserved for it.</p></div><div class="body">
+<table class="inv-table"><thead><tr><th>Label</th><th>Selector</th><th>Surface / fill</th><th>State</th></tr></thead><tbody>
+<tr><td>Campaign Prompt Bar</td><td>.ff-prompt</td><td>kraft surface, bear shadow</td><td><span class="state built">built</span></td></tr>
+<tr><td>Prompt Input Wrap / Textarea</td><td>.ff-inputwrap #campaignBrief</td><td>white, stone border; focus-within blazeOrange ring</td><td><span class="state built">built</span></td></tr>
+<tr><td>Create Button</td><td>.ff-go #generateCampaign</td><td>blazeOrange fill (var(--orange) — on-token)</td><td><span class="state built">built</span></td></tr>
+<tr><td>Suggestion Chips + dot</td><td>.ff-chip (x6) .ff-dot</td><td>white pill, stone border, pressed bearBrown; blaze dot</td><td><span class="state built">built</span></td></tr>
+<tr><td>Product Chooser / Search</td><td>#productChooser #productSearch</td><td>grid of SKU checkboxes; field input</td><td><span class="state built">built</span></td></tr>
+<tr><td>Preview Grid / Tile / Canvas</td><td>.preview .tile canvas</td><td>auto-fill 240px tiles, kraft surface</td><td><span class="state built">built</span></td></tr>
+<tr><td>Render Set / Tile</td><td>.render-set .render-tile</td><td>auto-fit 220px, 3 aspect-locked ratios</td><td><span class="state built">built</span></td></tr>
+<tr><td>Provenance Panel + Pills</td><td>.provenance .prov-pill</td><td>details/summary, brown/oat/green fills</td><td><span class="state built">built</span></td></tr>
+</tbody></table>
+<p class="inv-lead">Note: .ff-go (Create) reads <span class="kbd">var(--orange, #E8530E)</span> — the ONE CTA already on blazeOrange, proving the accent should be orange everywhere.</p>
+</div></div>
+
+<div class="card inv-section" id="inv-details-page"><div class="hd"><h2>6 · Page elements — details.html (this page) <span class="badge">S9</span></h2></div><div class="body">
+<table class="inv-table"><thead><tr><th>Label</th><th>Selector</th><th>Surface</th><th>State</th></tr></thead><tbody>
+<tr><td>Back Link</td><td>.backlink</td><td>in header, parchment text</td><td><span class="state built">built</span></td></tr>
+<tr><td>Section Nav</td><td>.section-nav</td><td>sticky bearBrown bar, token focus ring</td><td><span class="state built">built</span> (new)</td></tr>
+<tr><td>Frontier Toggle Card</td><td>#frontierToggleCard</td><td>card, frontier-green left rule</td><td><span class="state built">built</span></td></tr>
+<tr><td>Inventory sections</td><td>.inv-section</td><td>card + inv-table + std callouts</td><td><span class="state built">built</span> (new)</td></tr>
+<tr><td>Design System Scorecards</td><td>#design-system #scoreGrid</td><td>card holding a live grid</td><td><span class="state built">built</span></td></tr>
+</tbody></table>
+<span class="std"><b>S9 — the scorecards are the existing self-audit.</b> details.html grades the app against tokens on 12 axes. This inventory is the human-readable companion to that machine grader — kept aligned so a new brand-load-bearing element gets both an inventory row and a scorecard axis.</span>
+</div></div>
+
+<div class="card inv-section" id="inv-express"><div class="hd"><h2>7 · Adobe Express prototyping key <span class="badge">S10</span></h2><p>Exact values (all resolve from tokens) to reach for when rebuilding an element in Express.</p></div><div class="body">
+<table class="inv-table"><thead><tr><th>Need</th><th>Value</th></tr></thead><tbody>
+<tr><td>page background</td><td>kraft-tan E8D5BE → DFC9AC (or flat FFF8F0 parchment)</td></tr>
+<tr><td>card surface</td><td>kraft-tan F0E4D4 → EAD9C4</td></tr>
+<tr><td>primary text / fill</td><td>bearBrown 3B2316 (10.2:1 on parchment, AAA)</td></tr>
+<tr><td>muted text</td><td>canyon 6B5A53 (~6:1, AA)</td></tr>
+<tr><td>accent / CTA</td><td>blazeOrange E8530E (large text/CTA only — 3.1:1)</td></tr>
+<tr><td>secondary / nature</td><td>frontierGreen 1A3C34 (12.1:1, AAA)</td></tr>
+<tr><td>card radius / shadow</td><td>4/8/16px · 0 8px 24px ink 20%</td></tr>
+<tr><td>headline / body font</td><td>gin extraBold 800 uppercase tracked · museo-sans 400-500</td></tr>
+<tr><td>accent bar</td><td>8px solid blazeOrange at bottom edge (brand signature)</td></tr>
+</tbody></table>
+<span class="std"><b>S10 — the iconic-box principle.</b> bearBrown is ALWAYS primary bg/text/logo-backdrop. Orange is ONLY the 8px bar, CTA, protein callout, glow overlay (≤18% opacity or tint ≥30%). Green is secondary — borders, panels — never large enough to outshine the brown pack.</span>
+</div></div>
+
+<div class="card inv-section" id="inv-responsive"><div class="hd"><h2>9 · Axis A — four-view responsive dimension <span class="badge">S11</span></h2><p>Grades each element's form + function across mobile 375 / tablet 768 / desktop 1440 / ultrawide 2560.</p></div><div class="body">
+<p class="inv-lead">Live CSS reality: TWO layout breakpoints (860 for the main grid + prompt row, 640 for the control row) and NO breakpoint above 860px. Desktop 1440 and ultrawide 2560 render byte-identical CSS; mobile 375 and tablet 768 are also undifferentiated. Effectively two states — narrow (≤640) and wide (>860) — with a thin 641-860 band. Wide-reflow claims are hypotheses pending a headless screenshot pass (currently blocked on a session MCP failure).</p>
+<table class="inv-table"><thead><tr><th>Element</th><th>Narrow (≤640)</th><th>Wide (>860)</th><th>Flag</th></tr></thead><tbody>
+<tr><td>.grid main split</td><td>single column, panels stack</td><td>two columns 1fr 1fr</td><td><span class="state tbd">tbd</span> no >860 rule, wide whitespace</td></tr>
+<tr><td>.kodiak-header__logos</td><td>clamp(64px,16vw,88px)</td><td>native size</td><td><span class="state built">ok</span> only fluid clamp</td></tr>
+<tr><td>.ff-inputwrap</td><td>wraps, textarea full-width, go stretches</td><td>single inline row</td><td><span class="state tbd">tbd</span> 2560 max-width</td></tr>
+<tr><td>.ff-controlrow</td><td>column @640, full-width children</td><td>wrapping row of pills</td><td><span class="state tbd">tbd</span> 641-860 wrap</td></tr>
+<tr><td>.preview #preview</td><td>auto-fill minmax(240px) → 1 col</td><td>more columns as width grows</td><td><span class="state tbd">tbd</span> col count 1440 vs 2560 (the one fluid element)</td></tr>
+<tr><td>.render-set</td><td>auto-fit minmax(220px) stacks</td><td>up to 3 ratio tiles inline</td><td><span class="state tbd">tbd</span> phantom 4th track at 2560</td></tr>
+<tr><td>.card</td><td>full-width stacked</td><td>half-width in 2-col</td><td><span class="state tbd">tbd</span> measure at 2560 half-column</td></tr>
+</tbody></table>
+<span class="std"><b>S11 — four-view form+function parity.</b> Every brand-load-bearing element must have a defined form at 375/768/1440/2560. Where CSS cannot differentiate two named viewports (375/768 and 1440/2560), that is a gap to flag, not a pass. Wide-end behavior is UNKNOWN from CSS reading — requires a rendered screenshot pass (tbd-verify is expected and correct here).</span>
+</div></div>
+
+<div class="card inv-section" id="inv-translation"><div class="hd"><h2>10 · Axis B — translation as a first-class element <span class="badge">S12 · highest-value gap</span></h2><p>The site advertises localization on every surface but renders ZERO per-market translated copy. The data exists and is rich; the render path is a deliberate no-op.</p></div><div class="body">
+<p class="inv-lead">Core finding: <span class="kbd">renderLangChips()</span> (index.html L748) is a hard no-op that DELETES its own target from the DOM. The data is abundant — <span class="kbd">market-languages.json</span> carries 73 markets, top-2 non-English language each with real ACS S1601 percentages, 219 total localized variants (auto_produce:true, nova_proven:true). The gap is purely render.</p>
+<table class="inv-table"><thead><tr><th>Surface</th><th>Claims</th><th>Renders today</th><th>State</th></tr></thead><tbody>
+<tr><td>Manifest tools / languages</td><td>localize tool + "EN + top2 per market"</td><td>listed, never invoked; static string</td><td><span class="state missing">missing</span></td></tr>
+<tr><td>Language chips (#lang-chips)</td><td>per-market localized chips</td><td>function DELETES the node</td><td><span class="state missing">missing</span></td></tr>
+<tr><td>Market languages line (#marketLangLine)</td><td>localized language list for chosen market</td><td>hardcoded English, Spanish, Portuguese</td><td><span class="state missing">missing</span></td></tr>
+<tr><td>Featured-frontier note (#featuredFrontier)</td><td>localized frontier copy per market</td><td>empty aria-live region</td><td><span class="state missing">missing</span></td></tr>
+<tr><td>Localized font faces (@font-face)</td><td>self-hosted Noto per-script</td><td>rules present, woff2 binaries absent</td><td><span class="state missing">missing</span></td></tr>
+<tr><td>Preview tile captions</td><td>localized caption per creative</td><td>caption localization absent</td><td><span class="state missing">missing</span></td></tr>
+</tbody></table>
+<span class="std"><b>S12 — translation is a first-class rendered element, not a badge.</b> Any surface that claims localization must render actual localized copy for the selected market, sourced from market-languages.json (or the live localize tool), driven by the selected market's top_languages[]. A hardcoded language list that never changes with market selection is a violation. Wave 2/3 deliverable: wire selected market → top_languages[] → localized caption previews + update #marketLangLine + #featuredFrontier; replace renderLangChips from delete-stub to real renderer.</span>
+</div></div>
+
+<div class="card inv-section" id="inv-taxonomy"><div class="hd"><h2>11 · Axis C — market vs featured-frontier taxonomy <span class="badge">S13–S14</span></h2><p>Reclassifies the location control under the two-bucket product vocabulary, derived from live data shape.</p></div><div class="body">
+<p class="inv-lead"><b>market</b> = has a commercial retail footprint (store-finder-markets.json <span class="kbd">retailer</span> names a chain grocer). <b>featured frontier</b> = no retail chain — general store / farmers-market / subscription only (frontier-gaps.json <span class="kbd">retail_gap</span> + frontier:true + subscriber_variant:true).</p>
+<table class="inv-table"><thead><tr><th>Control</th><th>Today</th><th>Should</th><th>Verdict</th></tr></thead><tbody>
+<tr><td>Market disclosure listbox (#marketListbox)</td><td>flat role=listbox of 73</td><td>grouped Markets / Featured Frontier, alpha-by-state each</td><td>right home — apply S13+S14</td></tr>
+<tr><td>Market option row (.ff-opt-sub)</td><td>sublabel slot available</td><td>sublabel shows class + state ("Market — UT")</td><td>right home</td></tr>
+<tr><td>Featured-frontier note (#featuredFrontier)</td><td>empty</td><td>render featured-frontier framing when picked</td><td>apply (also S12)</td></tr>
+<tr><td>Flat locality select (#locality)</td><td>raw order, no grouping/sort</td><td>—</td><td><span class="state stub">deprecation target</span></td></tr>
+</tbody></table>
+<span class="std"><b>S13 — location_class is DERIVED, not a schema field.</b> Do not add a location_class field or migrate the four-value classification. Derive at render time: has_commercial_retail(record) ? "market" : "featured-frontier" (retail_gap / general-store / farmers-market / frontier-gaps origin → featured-frontier).</span>
+<span class="std"><b>S14 — group by class first, then alphabetize by state within each group.</b> Two labeled groups (Markets then Featured Frontier); within each, sort alpha by state, then place alpha within a state. Replaces the current flat, unsorted, ungrouped ordering.</span>
+</div></div>
+
+<div class="card inv-section" id="inv-spectrum"><div class="hd"><h2>12 · Spectrum migration candidates <span class="badge">S15</span></h2><p>Which bespoke .ff-* controls are the best candidates to migrate onto Adobe Spectrum sp-* web components — token-bridged, not token-replacing.</p></div><div class="body">
+<table class="inv-table"><thead><tr><th>Rank</th><th>Current control</th><th>sp-* target</th><th>Why migrate</th></tr></thead><tbody>
+<tr><td>1</td><td>.ff-market / #marketListbox</td><td>sp-picker + sp-menu-group</td><td>TOP — sp-menu-group delivers grouped-header + accessible listbox for free, which ALSO delivers S14 with zero hand-rolled grouping; retires bespoke role=option/aria-selected wiring</td></tr>
+<tr><td>2</td><td>.ff-season select</td><td>sp-picker</td><td>normalizes browser-inconsistent native select + keyboard nav</td></tr>
+<tr><td>3</td><td>#productSearch combobox</td><td>sp-combobox</td><td>hand-rolled role=combobox + autocomplete is exactly what sp-combobox ships tested</td></tr>
+<tr><td>4</td><td>.ff-chip (x6)</td><td>sp-action-group + sp-action-button</td><td>pressed-state chips map to toggle buttons; frees manual aria-pressed</td></tr>
+<tr><td>5</td><td>.ff-products disclosure</td><td>sp-accordion / sp-disclosure</td><td>lowest urgency — only if consolidating on spectrum primitives</td></tr>
+<tr><td>6</td><td>.ff-geo button</td><td>sp-action-button (quiet) + sp-icon</td><td>low value — migrate only for icon-system consistency</td></tr>
+</tbody></table>
+<span class="std"><b>S15 — spectrum adoption is token-bridged, not token-replacing.</b> A migrated control keeps the kodiak look by mapping kodiak tokens onto the sp-* component's theming custom properties (feed --colors-* / --radii-* / --shadows-*). Never let a spectrum default palette override a kodiak token. Migrate only where sp-* removes bespoke a11y/interaction code. Do-not-migrate: the hero prompt bar, preview/render tiles, decorative overlays — brand-signature surfaces stay bespoke and on-token. Any spectrum migration touching focus styling must resolve to the signalRed TOKEN, not the raw --red var.</span>
+</div></div>
+
+<div class="card inv-section" id="inv-decisions"><div class="hd"><h2>8 · Open standards decisions <span class="badge">D1–D3</span></h2><p>Flag, do not silently fix — these are design-system governance calls owned by the product owner.</p></div><div class="body">
+<span class="std decision"><b>D1 — the signal red B51E14.</b> Used for links, .btn.orange, header title block. Not originally a brand token and it competed with blazeOrange as "the accent." Resolved: adopted as color.brand.signalRed token; the :root alias --red now routes through it. Blocks S1 closure until deploy confirms.</span>
+<span class="std decision"><b>D2 — inline palette duplication.</b> The :root{} block was copied into both HTML files. Resolved: reduced to token aliases only (single-sourced through styles.css); the --adobe svg literal stays as a documented exception.</span>
+<span class="std decision"><b>D3 — chocolate 382316 vs bearBrown 3B2316.</b> 3-hex drift, visually identical. Resolved: normalized to the token everywhere; --chocolate/--brown now alias bearBrown.</span>
 </div></div>
 
 <div class="card wide-track" data-mcp="design-system" id="design-system" data-mcp-description="Design System — scorecards evaluating app performance against tokens + style guide"><div class="hd"><h2>Design System — Scorecards <span class="badge" id="score-overall-badge">live</span></h2><p>How we grade the Frontier app against <a href="../../design/tokens/kodiak.json" target="_blank">design/tokens/kodiak.json</a> + <a href="../../docs/kodiak-style-guide.md" target="_blank">style guide</a> + <a href="../../docs/kodiak-brand-explained.md" target="_blank">brand view</a>. Same tokens drive <span class="kbd">compose.py</span> <span class="kbd">enhance.py</span> <span class="kbd">compliance.py</span> <span class="kbd">suggest.py</span>. Scores update live after Generate / Show Suggested.</p></div><div class="body">
@@ -303,7 +511,7 @@ header h1,header h2,header h3{color:var(--parchment)}
     if(tsEl) tsEl.textContent = new Date().toISOString().slice(0,19).replace('T',' ')+' UTC';
     if(detEl){
       const fileK=Math.round(document.documentElement.outerHTML.length/1000);
-      detEl.innerHTML=`File: <span class=kbd>${fileK}k</span> • Tokens: <span class=kbd>design/tokens/kodiak.json</span> • Build: <span class=kbd>${window.KODIAK_VERSION||'v0.1.008'}</span> • Live re-score on Generate / Suggested — <span class=kbd>uv run pytest -q</span> is CI parity (6 passed).`;
+      detEl.innerHTML=`File: <span class=kbd>${fileK}k</span> • Tokens: <span class=kbd>design/tokens/kodiak.json</span> • Build: <span class=kbd>${window.KODIAK_VERSION||'v0.1.009'}</span> • Live re-score on Generate / Suggested — <span class=kbd>uv run pytest -q</span> is CI parity (6 passed).`;
     }
     console.log('[scorecards]', {overall:`${overallGrade} ${overallPct}%`, weighted, weightSum});
   }
