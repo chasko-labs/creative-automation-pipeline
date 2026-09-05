@@ -350,3 +350,64 @@ def test_full_mode_still_produces_3size_set_localization_platform_copy(
     # per-platform copy delivered (seven sanctioned platforms by default)
     assert isinstance(body["platform_copy"], dict)
     assert len(body["platform_copy"]) >= 1
+
+
+
+# --------------------------------------------------------------------------- #
+# OUTER-DEADLINE WALL (#118): a structural guarantee that no internal stall can
+# push the handler past the API Gateway 30s edge. When the generate ladder hangs
+# past GENERATE_WALL_TIMEOUT_S, the handler thread composites the zero-I/O rung-D
+# brand floor and returns 200 real pixels — never a 503, never an exception.
+# --------------------------------------------------------------------------- #
+
+
+def test_wall_fires_returns_200_rungD_wall_timeout_real_pixels(monkeypatch, tmp_path: Path) -> None:
+    # simulate the generate work HANGING past the wall: the submitted callable sleeps
+    # well beyond GENERATE_WALL_TIMEOUT_S. The handler must NOT wait it out, NOT raise,
+    # NOT 503 — it returns 200 with rung=D wall-timeout REAL pixels from _brand_floor.
+    import time as _time
+
+    # shrink the wall so the test is fast; behavior is identical at the 22s default
+    monkeypatch.setattr(generate_lambda, "GENERATE_WALL_TIMEOUT_S", 0.3)
+
+    def _hang(**kwargs):
+        _time.sleep(30)  # far past the wall — this thread is abandoned
+        raise AssertionError("wall did not abandon the hung worker")
+
+    # both mode paths call through generate_hero / generate_hero_set; stub both to hang
+    monkeypatch.setattr(generate_lambda, "generate_hero", _hang)
+    monkeypatch.setattr(generate_lambda, "generate_hero_set", _hang)
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+
+    event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
+    resp = generate_lambda.handler(event, None)
+
+    assert resp["statusCode"] == 200  # NOT 503, NOT 500
+    body = json.loads(resp["body"])
+    assert body["ok"] is True
+    # real pixels persisted + presigned (the floor put ran)
+    assert body["image_url"].startswith("https://presigned.example/")
+    assert body["renders"][0]["ratio"] == "1x1"
+    assert body["renders"][0]["w"] > 0 and body["renders"][0]["h"] > 0
+    # rung-D wall-timeout provenance
+    assert body["provenance"]["rung"] == "D"
+    assert body["provenance"]["fallthrough_reason"] == "wall-timeout"
+    assert body["source"] == "brand-floor:wall-timeout"
+    assert "mock" not in body["source"]
+
+
+def test_wall_does_not_fire_when_work_completes_in_time(monkeypatch, tmp_path: Path) -> None:
+    # the wall is last-resort ONLY: when the ladder returns inside the wall, the normal
+    # preview payload flows through untouched (no rung-D fallthrough).
+    monkeypatch.setattr(
+        generate_lambda, "generate_hero", _stub_generate_hero("bedrock:stability-control-structure")
+    )
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+
+    event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
+    resp = generate_lambda.handler(event, None)
+    assert resp["statusCode"] == 200
+    body = json.loads(resp["body"])
+    assert body["source"] == "bedrock:stability-control-structure"
+    # normal preview provenance — NOT the wall-timeout floor
+    assert body["provenance"].get("fallthrough_reason") != "wall-timeout"

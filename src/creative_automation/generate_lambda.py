@@ -1,6 +1,7 @@
 """Lambda Function-URL handler: brief-to-hero via Nova Pro asset composition."""
 from __future__ import annotations
 
+import concurrent.futures
 import json
 import os
 import re
@@ -14,7 +15,7 @@ from botocore.config import Config
 from PIL import Image
 
 from . import text_rewriter
-from .generate import _safe_prompt_text, generate_hero, generate_hero_set
+from .generate import _brand_floor, _safe_prompt_text, generate_hero, generate_hero_set
 from .locales import resolve_target_languages
 from .platform_copy import generate_platform_copy
 from .platforms import PLATFORMS
@@ -29,6 +30,22 @@ from .platforms import PLATFORMS
 # interactive endpoint stays fast. The ONLY non-200 is a 400 for a malformed request body.
 PREVIEW_MODE = "preview"
 FULL_MODE = "full"
+
+# STRUCTURAL OUTER-DEADLINE WALL (#118): the never-503 contract above relies on the
+# per-rung remaining_ms() budget gates inside generate_hero to abandon a stalled rung
+# gracefully. Those gates are QUALITY — they make the COMMON case drop to rung C with real
+# generated pixels well inside the budget. But a per-call botocore/S3 stall can move the
+# hang to whichever call is not yet bounded (a 4-deploy whack-a-mole: #116 bounded the
+# probe, #117 bounded rung-B Bedrock, and an intermittent Transfer-manager hang remained).
+# The wall is the CORRECTNESS guarantee that ends the game: the handler runs the entire
+# generate ladder inside a ThreadPoolExecutor and WAITS only GENERATE_WALL_TIMEOUT_S. If
+# the wait expires, the handler thread — which holds no stalled resource — composites rung
+# D (_brand_floor, zero-I/O, bundled asset, cannot fail) IN THE HANDLER THREAD, does a
+# bounded S3 put, and returns 200 real pixels tagged rung=D fallthrough_reason=wall-timeout.
+# Wall = correctness (a floor is ALWAYS reachable); budget = quality (the common case still
+# abandons to rung C with generated pixels). 22s leaves ~8s headroom under the 30s API
+# Gateway edge for the post-wall composite + put + return leg.
+GENERATE_WALL_TIMEOUT_S = float(os.getenv("GENERATE_WALL_TIMEOUT_S", "22"))
 
 DAM_S3_BUCKET = os.getenv("DAM_S3_BUCKET", "chasko-creative-dam-946179428633-us-east-1")
 CORS_HEADERS = {
@@ -115,14 +132,31 @@ def _download_filename(product: str, region: str, theme: str | None) -> str:
 
 
 def _s3_client():
-    """Build the S3 client with SigV4 + explicit region (ASIA session-token creds need it)."""
+    """Build the S3 client with SigV4 + explicit region (ASIA session-token creds need it).
+
+    BOUNDED RETURN-LEG (#118, PART 3): the final-image put in _upload_render is the ONE
+    call that lives AFTER the outer wall fires (the post-wall rung-D path still has to
+    persist its pixels), so the client carries a fail-fast Config — connect 1s, read a few
+    seconds, max_attempts 1 — so the tail put itself cannot become the new stall the wall
+    just eliminated upstream. A default (unbounded, 3-retry) client would reintroduce the
+    whack-a-mole one leg later. The presign call on the same client is a local signing op
+    (no network), so the bound only ever bites the put/get network legs.
+    """
     # SigV4 + explicit region: session-token (ASIA) creds require SigV4 presigns; the
     # boto3 default can emit SigV2 query params that S3 rejects with 403.
     region = os.getenv("AWS_REGION", "us-east-1")
+    put_connect = int(os.getenv("GENERATE_PUT_CONNECT_TIMEOUT_S", "1"))
+    put_read = int(os.getenv("GENERATE_PUT_READ_TIMEOUT_S", "4"))
     return boto3.client(
         "s3",
         region_name=region,
-        config=Config(signature_version="s3v4", s3={"addressing_style": "virtual"}),
+        config=Config(
+            signature_version="s3v4",
+            s3={"addressing_style": "virtual"},
+            connect_timeout=put_connect,
+            read_timeout=put_read,
+            retries={"max_attempts": 1, "mode": "standard"},
+        ),
     )
 
 
@@ -297,6 +331,69 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     }
 
 
+def _post_wall_brand_floor(data: dict[str, Any], prompt: str) -> dict[str, Any]:
+    """Last-resort rung-D response built IN THE HANDLER THREAD after the wall fires.
+
+    Called only when the ThreadPoolExecutor wait for the generate ladder exceeds
+    GENERATE_WALL_TIMEOUT_S. The abandoned worker thread keeps running the stalled call
+    and leaks until the container freezes/thaws — that is SAFE here because:
+      - the leaked path writes to its OWN per-invocation out_dir (uuid4), and this floor
+        writes to a DIFFERENT per-invocation path (a fresh uuid4 out_dir), so there is NO
+        shared mutable buffer or fixed /tmp filename the leaked thread could be mid-write on
+      - dam._s3_download now uses get_object+read (no Transfer-manager thread pool), so the
+        leak is a single bounded socket read, not a whole worker pool
+    _brand_floor is genuinely zero-I/O: it composites the package-bundled Kodiak logo
+    (src/creative_automation/brand_assets/) in Pillow — no Bedrock, no DAM, no network — so
+    it is ALWAYS reachable after the wall and cannot fail. The only network op on this path
+    is the bounded S3 put of the finished floor pixels (PART 3 timeout applies).
+    """
+    product = data.get("product", "power-cakes")
+    theme = data.get("theme")
+    # DISTINCT per-invocation path — never the abandoned worker's out_dir.
+    out_dir = Path(f"/tmp/{uuid4().hex}-wall")  # noqa: S108 — Lambda only allows /tmp writes
+    hero_path = out_dir / "hero-1x1.png"
+    hero_path.parent.mkdir(parents=True, exist_ok=True)
+
+    product_name = product.replace("-", " ").title()
+    # rung D, in-memory, zero network — real Kodiak brand pixels, cannot fail.
+    result_path = _brand_floor(product_name, "1x1", hero_path)
+
+    with Image.open(result_path) as im:
+        w, h = im.size
+    render = {"ratio": "1x1", "path": result_path, "w": w, "h": h}
+
+    s3 = _s3_client()  # bounded put client (PART 3) — the one call living past the wall
+    download_name = _download_filename(product, data.get("region", "us"), theme)
+    entry = _upload_render(s3, render, download_name)
+
+    provenance = {
+        "seed_source": None,
+        "seed_selection": "none",
+        "engine": "brand-floor",
+        "rung": "D",
+        "fallthrough_reason": "wall-timeout",
+        "mode": PREVIEW_MODE,
+        "incoming_prompt": prompt,
+        "theme": theme,
+        "ratios": {"1x1": "primary"},
+        "deferred": ["4x5", "2x3", "localization", "platform_copy"],
+    }
+
+    return {
+        "ok": True,
+        "image_url": entry["image_url"],
+        "s3_uri": entry["s3_uri"],
+        "source": "brand-floor:wall-timeout",
+        "prompt": prompt,
+        "theme": theme,
+        "mode": PREVIEW_MODE,
+        "renders": [entry],
+        "provenance": provenance,
+        "localizations": [],
+        "platform_copy": {},
+    }
+
+
 def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
     """Compose a hero from real source assets driven by a brief, upload it, return a presigned URL.
 
@@ -327,10 +424,33 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
         prompt = _safe_prompt_text(prompt)
 
         mode = (data.get("mode") or PREVIEW_MODE).strip().lower()
-        if mode == FULL_MODE:
-            payload = _handle_full(data, prompt)
-        else:
-            payload = _handle_preview(data, prompt)
+
+        # OUTER WALL: run the entire generate ladder in a worker thread and WAIT only
+        # GENERATE_WALL_TIMEOUT_S. The per-rung budget gates inside generate_hero handle
+        # the common case (graceful drop to rung C with generated pixels); this wall is
+        # the last-resort STRUCTURAL guarantee that no internal stall — whichever call it
+        # moves to — can push the handler past the 30s API Gateway edge. On timeout the
+        # handler thread (holding no stalled resource) composites the zero-I/O rung-D
+        # brand floor and returns 200 real pixels. A well-formed POST NEVER 503s.
+        work = _handle_full if mode == FULL_MODE else _handle_preview
+        executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+        future = executor.submit(work, data, prompt)
+        try:
+            payload = future.result(timeout=GENERATE_WALL_TIMEOUT_S)
+        except concurrent.futures.TimeoutError:
+            # Abandon the WAIT (the worker keeps running the stalled call and leaks —
+            # safe: it writes to its own out_dir, get_object read is a single socket).
+            # Build the floor in THIS thread and return real rung-D pixels.
+            print(
+                f"[generate_lambda] outer wall fired at {GENERATE_WALL_TIMEOUT_S}s — "
+                "rung-D brand-floor fallthrough (wall-timeout)",
+                file=sys.stderr,
+            )
+            payload = _post_wall_brand_floor(data, prompt)
+        finally:
+            # Do NOT block on the leaked worker — let it drain on its own; the container
+            # freeze/thaw reclaims it. wait=False keeps the return leg off the stalled call.
+            executor.shutdown(wait=False)
         return _response(200, payload)
     except Exception as e:  # noqa: BLE001 — a well-formed POST should never reach here
         # The ladder guarantees a real-pixel 200, so an exception here is an infrastructure
