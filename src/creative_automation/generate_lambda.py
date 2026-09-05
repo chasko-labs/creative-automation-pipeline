@@ -19,14 +19,14 @@ from .locales import resolve_target_languages
 from .platform_copy import generate_platform_copy
 from .platforms import PLATFORMS
 
-# Interactive HTTP calls hit API Gateway's HARD 30s integration timeout (cannot be
-# raised). The full generate_hero_set chain (control-structure hero + 2 serial outpaint
-# extends + 3 localization rewrites + platform copy) now runs ~35s and trips a 503, so
-# the frontend catch-block falls to the local Pillow placeholder. PREVIEW mode restores
-# real GenAI to the live preview: the single 1x1 control-structure hero (~12-15s, well
-# under 30s), no outpaint, no localization on the sync path. FULL mode keeps the complete
-# 3-size set + localization + platform copy for the async pack builder. Default is
-# preview so the interactive endpoint stays fast.
+# NEVER-503 CONTRACT: a well-formed POST /generate returns 200 with REAL Kodiak pixels
+# 100% of the time. generate_hero runs a never-fail degradation ladder A->B->C->D whose
+# floor (rung D, brand-floor) does zero network I/O and cannot fail, so the old "38s then
+# 503" path is gone — a slow/absent Bedrock is a fall-through to rung C (pillow-compose),
+# not an error. The interactive PREVIEW mode runs ONE 1x1 hero under the 24s internal soft
+# budget (well inside API Gateway's hard 30s cap); FULL mode keeps the complete 3-size set
+# + localization + platform copy for the async pack builder. Default is preview so the
+# interactive endpoint stays fast. The ONLY non-200 is a 400 for a malformed request body.
 PREVIEW_MODE = "preview"
 FULL_MODE = "full"
 
@@ -308,8 +308,17 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
     """
     if _is_options(event):
         return {"statusCode": 200, "headers": CORS_HEADERS, "body": ""}
+    # TOP-LEVEL VALIDATION (before the ladder): a genuinely malformed request — an
+    # unparseable JSON body — is the ONLY non-200 (a 400). A well-formed POST always
+    # reaches the never-fail ladder in generate_hero, which returns 200 real pixels
+    # 100% of the time (rung D cannot fail), so 503 is structurally unreachable here.
     try:
         data = _parse_body(event)
+    except (json.JSONDecodeError, ValueError, TypeError) as e:
+        return _response(400, {"ok": False, "error": f"malformed request body: {e}"})
+    if not isinstance(data, dict):
+        return _response(400, {"ok": False, "error": "malformed request body: expected a JSON object"})
+    try:
         prompt = (data.get("prompt") or "").strip()
         if not prompt:
             prompt = "KODIAK - Nourishment for Today's Frontier. Keep It Wild."
@@ -323,5 +332,7 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
         else:
             payload = _handle_preview(data, prompt)
         return _response(200, payload)
-    except Exception as e:  # noqa: BLE001 — surface any failure as a 500 JSON body
+    except Exception as e:  # noqa: BLE001 — a well-formed POST should never reach here
+        # The ladder guarantees a real-pixel 200, so an exception here is an infrastructure
+        # fault (e.g. S3 upload), NOT a generation failure. Surface as 500, never 503.
         return _response(500, {"ok": False, "error": str(e)})

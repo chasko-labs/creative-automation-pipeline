@@ -33,10 +33,9 @@ def test_dam_reuse_vs_generate(tmp_path):
     rm = [p for p in report["products"] if p["id"] == "radiant-moisturizer"][0]
     # radiant-moisturizer has no DAM asset of its own and no sku-photo-map entry, and
     # the default-brand-hero fallback was retired when the real-photo scene composer
-    # landed (precedence is now: sku-photo-map DAM photo -> disk _find_source_asset ->
-    # _mock_hero). Offline with no disk asset it reaches the non-shaming last-resort
-    # label. Never "mock"/"preview".
-    assert rm["hero_source"] == "bedrock:nova-pro-fallback"
+    # landed. With no seed and no packshot the never-fail ladder ends at rung D
+    # (brand-floor): real pixels, zero I/O, non-shaming label. Never "mock"/"preview".
+    assert rm["hero_source"] == "brand-floor"
     assert "mock" not in rm["hero_source"]
 
 def test_legal_flag(tmp_path):

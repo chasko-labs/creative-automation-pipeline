@@ -1627,6 +1627,48 @@ let skuList = [
         if(!json || !json.image_url) throw new Error('response missing image_url');
         return json;
       };
+      // Total-network-loss defense-in-depth ONLY (no response at all). Composites the REAL
+      // requested SKU on a plain canvas and labels it explicitly as an offline stand-in. This
+      // is NOT the fake-output path: it does not set window.__lastHeroUrl (so the download
+      // button will not treat it as a real generated hero) and carries no "source: Nova Pro"
+      // badge — it visibly reads as an offline preview of the requested product, not a result.
+      const drawNetworkLossNotice = (requestedSku, briefText)=>{
+        const p = document.getElementById('preview');
+        if(!p) return;
+        p.innerHTML = '';
+        // strip any stale real-result source badge so the offline notice is not mislabeled.
+        const staleBadge = document.getElementById('genSourceBadge'); if(staleBadge) staleBadge.remove();
+        const sku = String(requestedSku || 'power-cakes');
+        // resolve a real thumbnail for the requested product from the catalog/products list.
+        let heroSrc = 'input_assets/power-cakes/hero.png';
+        try{
+          const cat = (window.skuCatalog || (typeof skuCatalog!=='undefined' ? skuCatalog : [])) || [];
+          const hit = cat.find(x=>x && (x.handle===sku || x.name===sku));
+          if(hit && hit.img) heroSrc = hit.img;
+          else if(typeof products!=='undefined'){ const pr = products.find && products.find(x=>x && (x.id===sku)); if(pr && pr.img) heroSrc = pr.img; }
+        }catch(e){}
+        const tile = document.createElement('div');
+        tile.className = 'tile';
+        tile.style.cssText = 'grid-column:1/-1;max-width:640px;margin:0 auto;border:1px dashed #B51E14';
+        const c = document.createElement('canvas'); c.width=1080; c.height=1080; c.style.maxWidth='100%'; c.style.height='auto';
+        const ctx = c.getContext('2d');
+        const paint = (heroImg)=>{
+          try{ drawAd(ctx, 1080, 1080, (briefText||'Keep It Wild'), {id:sku}, heroImg||null); }catch(e){}
+          // explicit offline watermark band — makes clear this is NOT the generated result.
+          ctx.fillStyle='rgba(181,30,20,0.92)'; ctx.fillRect(0,0,1080,64);
+          ctx.fillStyle='#FFF8F0'; ctx.textAlign='center'; ctx.font='700 26px Inter,sans-serif';
+          ctx.fillText('OFFLINE PREVIEW — not the generated campaign', 540, 42);
+        };
+        const img = new Image(); img.crossOrigin='anonymous';
+        img.onload = ()=>paint(img);
+        img.onerror = ()=>paint(null);
+        img.src = heroSrc;
+        tile.appendChild(c);
+        const meta = document.createElement('div'); meta.className='meta';
+        meta.innerHTML = `<b>Offline preview — ${sku}</b><div class="small" style="color:#B51E14">No server response. This is a local stand-in of the requested product, not a generated campaign. Reconnect and try Create again.</div>`;
+        tile.appendChild(meta);
+        p.appendChild(tile);
+      };
       try{
         if(doThemedOrSingle){
           // Single request (themed if a chip is active, else default product).
@@ -1670,15 +1712,24 @@ let skuList = [
               if(p){ const t=document.createElement('div'); t.className='tile'; t.innerHTML=`<div class="meta"><b>${name}</b><div class="small" style="color:#B51E14">variant failed — try again</div></div>`; p.appendChild(t); }
             }
           }));
-          if(status) status.textContent = okCount ? ('Campaign preview ready — ' + okCount + ' of ' + products.length + ' product variants composed') : 'Generation failed — showing local preview';
-          if(!okCount){ try{ render(); }catch(e){} }
+          if(status) status.textContent = okCount ? ('Campaign preview ready — ' + okCount + ' of ' + products.length + ' product variants composed') : 'Some variants could not reach the server — check your connection and try again';
           openPreviewCard();
         }
       }catch(err){
-        console.warn('generate: real backend failed, falling back to canvas —', err && err.message ? err.message : err);
-        try{ render(); }catch(e){ console.warn('render() fallback also failed', e); }
+        // NEVER-503 CONTRACT: a well-formed POST /generate now returns 200 with real Kodiak
+        // pixels 100% of the time (backend degradation ladder A->B->C->D, rung D cannot fail).
+        // So a thrown error here means TOTAL network loss — no response at all (fetch rejected
+        // or aborted), not a backend generation failure. The old fake-placeholder path (render()
+        // -> drawAd with a hardcoded savory-waffles product) is DELETED: it produced fake output
+        // that misrepresented a real generated result. Defense-in-depth for total network loss
+        // ONLY: composite the REAL requested SKU offline and label it explicitly as an offline
+        // stand-in — never styled or badged as the real generated campaign.
+        console.warn('generate: no response from backend (total network loss) —', err && err.message ? err.message : err);
         const timedOut = err && (err.name==='AbortError');
-        if(status) status.textContent = timedOut ? 'Generation timed out — showing local preview' : 'Generation failed — showing local preview';
+        try{ drawNetworkLossNotice(window.__requestedSku || primarySlug, brief); }catch(e){ console.warn('offline notice render failed', e); }
+        if(status) status.textContent = timedOut
+          ? 'No response from the server (timed out) — offline preview shown; reconnect and try again'
+          : 'Could not reach the server — offline preview shown; reconnect and try again';
       }finally{
         clearTimeout(timeoutId);
         if(stageT1) clearTimeout(stageT1);
