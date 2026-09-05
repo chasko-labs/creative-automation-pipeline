@@ -19,6 +19,13 @@ dependencies = [
   # ARN via the Converse API (art_director.py). Pinned: the streaming=False + imported-model
   # ARN path is version-sensitive.
   "strands-agents==1.54.0",
+  # complex-text shaping for the server-side compose layer (text_shaping.shape_for_pillow).
+  # Pillow does NO shaping — Arabic needs presentation-form reshaping + bidi reordering
+  # before ImageDraw.text or the glyphs render isolated + left-to-right. Myanmar/Devanagari
+  # conjunct shaping is handled by libraqm, a SYSTEM lib added in infra/generate.Dockerfile
+  # (apt-get libraqm), not a pip dependency.
+  "arabic-reshaper>=3.0",
+  "python-bidi>=0.4",
 ]
 
 [project.optional-dependencies]
