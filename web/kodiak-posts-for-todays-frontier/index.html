@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"/>
 <link rel="stylesheet" href="https://use.typekit.net/zjt4wyq.css">
-<link rel="stylesheet" href="design/styles.css?v=0.1.007-ebc17a9-20260904">
+<link rel="stylesheet" href="design/styles.css?v=0.1.008-40d3633-20260905">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>KODIAK® Posts for Today's Frontier — v0.1.007-ebc17a9-20260904</title>
-<meta name="kodiak-version" content="0.1.007-ebc17a9-20260904">
+<title>KODIAK® Posts for Today's Frontier — v0.1.008-40d3633-20260905</title>
+<meta name="kodiak-version" content="0.1.008-40d3633-20260905">
 <meta name="webmcp" content="enabled">
 <meta name="mcp:server" content="kodiak-posts-frontier">
 <meta name="mcp:tools" content="places,products,recipes,market-languages,brief-yaml,preview,compose,localize">
 <link rel="mcp-manifest" href="webmcp.json">
-<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.007-ebc17a9-20260904","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":73,"languages":"EN + top2 per market (ACS 2022)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
+<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.008-40d3633-20260905","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":73,"languages":"EN + top2 per market (ACS 2022)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
 <meta name="robots" content="noindex, nofollow, noarchive">
 <script>
 // Password gate: cakes — unlisted from bots, simple JS gate (also respects CloudFront if added)
@@ -691,7 +691,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 <details class="card wide-track ff-about" id="aboutTool"><summary>About this tool</summary><div class="body"><p class="ff-about__copy">Type one line, pick a starting point, and get a ready-to-post Kodiak campaign — images and copy sized for every social platform and retailer, localized to the market you choose. See the <a href="details.html">design system + details</a> for how it works under the hood.</p></div></details>
 
 <!-- visible build stamp — confirm at a glance which version/JS is live in the browser (cache-buster verification) -->
-<div id="buildStamp">build 0.1.007-ebc17a9-20260904</div>
+<div id="buildStamp">build 0.1.008-40d3633-20260905</div>
 
 </div>
 <script>
@@ -1062,7 +1062,7 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
 })();
 </script>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.007-ebc17a9-20260904","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.008-40d3633-20260905","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
 
 
 <script>
@@ -1332,17 +1332,51 @@ let skuList = [
                            selectedLoc.market.includes('US-CA-PESCADERO') ? 'Pescadero Marsh boardwalk — Half Moon Bay Coastal Trail' : 'Nearest Frontier via haversine — same pipeline fans to all 73';
       const status = document.getElementById('sampleStatus');
       const origLabel = 'Generate Kodiak campaign';
-      // slugify a product NAME -> API slug: prefer catalog .handle, else lowercase spaces->hyphens
+      // slugify a product NAME -> API slug that resolves to a packshot map key.
+      // The packshot map key space == catalog product .handle (per sku-packshot-map.json contract:
+      // sku_id "matches ... kodiak-full-catalog.json handle"). The catalog carries .handle for every
+      // SKU, so the catalog lookup is authoritative and must be the primary path.
+      //
+      // Prior bug: the string fallback did .replace(/&/g,'and'), producing e.g.
+      //   "Buttermilk Power Cakes Flapjack & Waffle Mix" -> "...-flapjack-and-waffle-mix"
+      //   "Banana Muffin and Quick Bread Mix"            -> "banana-muffin-and-quick-bread-mix"
+      // but the real map keys DROP that connector: "buttermilk-power-cakes-flapjack-waffle-mix",
+      // "banana-muffin-quick-bread-mix". The inserted "and" breaks the backend longest-prefix
+      // matcher, so a SKU that HAS a real packshot box silently fell to the slow generative path.
+      //
+      // The map keys are inconsistent about the connector (most DROP "and"/"&"; a few KEEP it, e.g.
+      // buttermilk-honey-frontier-cakes-flapjack-and-waffle-mix). Those "keep" SKUs are all present as
+      // catalog handles, so the authoritative .handle lookup serves them correctly and the fallback
+      // below never has to guess. The fallback mirrors how Kodiak actually mints the dominant handle
+      // style — drop the standalone connector — which resolves every flagship baking-mix / flapjack SKU.
+      const norm = (s)=>String(s||'').toLowerCase().trim();
+      const slugFallback = (name)=>{
+        // drop standalone "and" / "&" the way the map keys do, then hyphenate
+        const s = norm(name).replace(/&/g,' ').replace(/\band\b/g,' ');
+        return s.replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+      };
       const slugify = (name)=>{
         try{
           const cat = (window.skuCatalog || (typeof skuCatalog!=='undefined' ? skuCatalog : [])) || [];
-          const hit = cat.find(p=>p && p.name===name);
+          // 1. exact catalog name match -> authoritative handle
+          let hit = cat.find(p=>p && p.name===name);
+          // 2. tolerant name match (case/whitespace) for GlimmerProxy-ranked or lightly-varied names
+          if(!hit) hit = cat.find(p=>p && norm(p.name)===norm(name));
           if(hit && hit.handle) return hit.handle;
         }catch(e){}
-        return String(name||'').toLowerCase().trim().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+        // 3. no catalog entry (offline / non-catalog name) — mint a connector-dropped slug that
+        //    matches the packshot map key style rather than the lossy &->and form.
+        return slugFallback(name);
       };
-      const ASSET_BACKED = ['power-cakes','bear-bites','oatmeal-cup'];
-      const primarySlug = hadExplicitSelection ? slugify(products[0]) : ASSET_BACKED[0];
+      // Default (no product picked) must target a MAPPED handle so the common Create-without-picking
+      // takes the fast ~5s packshot route, not the 30s generative path that 503s to a placeholder.
+      // "power-cakes" (the old default) is NOT a packshot map key. The buttermilk power cakes flapjack
+      // & waffle mix IS the flagship key (high packshot confidence) and is the sensible default.
+      const DEFAULT_MAPPED_SLUG = 'buttermilk-power-cakes-flapjack-waffle-mix';
+      const primarySlug = hadExplicitSelection ? slugify(products[0]) : DEFAULT_MAPPED_SLUG;
+      // Record the SKU this Create actually requested so a graceful-degrade fallback (canvas render /
+      // asset-pack download) names the requested product instead of a hardcoded "savory-waffles".
+      try{ window.__requestedSku = primarySlug; }catch(e){}
       // Theme is active only when a chip is the starting point (set on window by the chip IIFE).
       // A manual brief edit or product selection clears window.__activeTheme.
       const activeTheme = window.__activeTheme || null;
@@ -1840,7 +1874,9 @@ let skuList = [
     }
     var date = new Date().toISOString().slice(0,10).replace(/-/g,'');
     // Park City demo defaults — real selection state can override via opts.
-    var product = opts.product || 'savory-waffles';
+    // Prefer the SKU the last Create actually requested so a fallback filename is honest about the
+    // product, rather than always claiming the hardcoded "savory-waffles" demo stand-in.
+    var product = opts.product || window.__requestedSku || 'savory-waffles';
     var region = opts.region || 'US-UT';
     var locality = opts.locality || 'park-city-84098';
     var channel = opts.channel || 'retailers';
@@ -2248,5 +2284,5 @@ let skuList = [
   onScroll();
 })();
 </script>
-  <script src="glimmer-proxy.js?v=0.1.007-ebc17a9-20260904"></script>
+  <script src="glimmer-proxy.js?v=0.1.008-40d3633-20260905"></script>
 </body></html>

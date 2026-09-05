@@ -2,7 +2,7 @@
 > Offline frontier creative automation — AgentCore + Nova Canvas/Micro + Amazon Translate (jitsi/cloud del norte) + S3 DAM + CloudFront d37333alc7ojpl.cloudfront.net
 
 ## Version
-0.1.007-ebc17a9-20260904 — see [data-testid="app-version"] in header, window.KODIAK_VERSION in console, footer [data-mcp="footer.version"]
+0.1.008-40d3633-20260905 — see [data-testid="app-version"] in header, window.KODIAK_VERSION in console, footer [data-mcp="footer.version"]
 
 ## Console demo (open DevTools)
 KODIAK_VERSION
