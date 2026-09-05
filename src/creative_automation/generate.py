@@ -81,6 +81,27 @@ _PROBE_BUDGET_MS = int(os.getenv("GENERATE_PROBE_BUDGET_MS", "5000"))
 # to C". NO retries — a retry inside a 30s gateway cap is a budget killer.
 BEDROCK_READ_TIMEOUT_S = int(os.getenv("BEDROCK_READ_TIMEOUT_S", "12"))
 BEDROCK_CONNECT_TIMEOUT_S = int(os.getenv("BEDROCK_CONNECT_TIMEOUT_S", "3"))
+# Nova Pro fail-fast: the two rung-B vision calls (caption + scene-prompt) build the SAME
+# fail-fast bedrock-runtime client as the Stability invoke, but with a TIGHTER read
+# timeout so caption + scene-prompt + stability all fit under the ~24s soft budget. The
+# root-cause of the 33s silent gap was these two Converse calls on a bare client with NO
+# Config — one hung unbounded past the 30s gateway cap. Capped here, a slow Nova Pro
+# degrades gracefully (caption -> brief fallback, scene-prompt -> deterministic default).
+BEDROCK_NOVA_READ_TIMEOUT_S = int(os.getenv("BEDROCK_NOVA_READ_TIMEOUT_S", "6"))
+# Per-subcall rung-B budget reservations (ms): each Bedrock sub-call is entered ONLY while
+# remaining_ms() still covers that call's worst-case cost PLUS the rung-C reservation, so
+# no single sub-call can consume the budget rung C needs to return real pixels by ~24s.
+_B_NOVA_SCENE_MS = int(os.getenv("GENERATE_B_NOVA_SCENE_MS", "7000"))
+_B_STABILITY_MS = int(os.getenv("GENERATE_B_STABILITY_MS", "13000"))
+
+
+class _RungBBudgetSkip(Exception):
+    """Internal sentinel: a per-subcall budget gate abandoned rung B for rung C.
+
+    Not an error — carries no failure, only a control-flow signal so the two gates
+    (scene-prompt, stability) share one clean fall-to-C path. fallthrough_reason is set
+    to budget-exhausted at the raise site before this propagates.
+    """
 
 
 # Image engine: Bedrock Stability control-structure
@@ -581,7 +602,7 @@ def _nova_pro_caption(
     if fmt is None:
         return None
     try:
-        client = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
+        client = _bedrock_failfast_client(read_timeout=BEDROCK_NOVA_READ_TIMEOUT_S)
         img_bytes = src.read_bytes()
         prompt = (
             f"You are an ad art director. Product: '{product_name}'. Region: {region}. "
@@ -634,7 +655,7 @@ def _nova_pro_scene_prompt(
     if fmt is None:
         return default_prompt
     try:
-        client = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
+        client = _bedrock_failfast_client(read_timeout=BEDROCK_NOVA_READ_TIMEOUT_S)
         img_bytes = src.read_bytes()
         prompt = (
             f"You are an ad art director directing an image restyle. Product: "
@@ -682,17 +703,19 @@ def _seed_b64_for_stability(src: Path) -> str:
     return base64.b64encode(buf.getvalue()).decode("ascii")
 
 
-def _bedrock_failfast_client():
-    """Dedicated bedrock-runtime client for the rung-B stability invoke_model ONLY.
+def _bedrock_failfast_client(read_timeout: int | None = None):
+    """Fail-fast bedrock-runtime client for EVERY Bedrock invoke in the request path.
 
-    Explicit botocore Config: read_timeout=12s (BEDROCK_READ_TIMEOUT_S), connect_timeout=3s,
-    retries max_attempts=0. This converts the old "38s then 503" into "12s then fall to
-    rung C" — NO retries, because a retry inside the 30s gateway cap is a budget killer.
-    A fresh client per call (cheap) so this config never leaks into the Nova Pro converse
-    clients, which keep the SDK defaults.
+    Explicit botocore Config: connect_timeout=3s, retries max_attempts=0, and a read
+    timeout that defaults to the Stability cap (BEDROCK_READ_TIMEOUT_S=12s) but can be
+    overridden — the two Nova Pro Converse calls pass BEDROCK_NOVA_READ_TIMEOUT_S (6s) so
+    caption + scene-prompt + stability all fit under the ~24s soft budget. NO retries,
+    because a retry inside the 30s gateway cap is a budget killer. This is the ONLY way a
+    bedrock-runtime client is built in rung B — no bare boto3.client anywhere in the path,
+    which is the fix for the 33s silent gap (an uncapped Nova Pro Converse call).
     """
     cfg = _BotoConfig(
-        read_timeout=BEDROCK_READ_TIMEOUT_S,
+        read_timeout=read_timeout if read_timeout is not None else BEDROCK_READ_TIMEOUT_S,
         connect_timeout=BEDROCK_CONNECT_TIMEOUT_S,
         retries={"max_attempts": 0, "mode": "standard"},
     )
@@ -1388,10 +1411,37 @@ def generate_hero(
         # is not a concern here (seed is not None), so the budget gate is the sole B gate.
         if remaining_ms() >= _B_BUDGET_MS + _C_RESERVATION_MS:
             try:
+                # Per-subcall budget gate 1 — the Nova Pro scene-prompt (fail-fast, capped
+                # at BEDROCK_NOVA_READ_TIMEOUT_S). Enter it ONLY while the clock still
+                # covers the scene call PLUS the downstream stability + C reservation, so a
+                # slow Nova Pro can never consume the budget rung C needs. If it will not
+                # fit, skip the rest of B and drop to C. The scene call itself also
+                # degrades to a deterministic default on timeout, but this gate keeps the
+                # WALL-CLOCK bounded even before the timeout fires.
+                if remaining_ms() < _B_NOVA_SCENE_MS + _B_STABILITY_MS + _C_RESERVATION_MS:
+                    print(
+                        f"[generate] rung B scene-prompt skipped (budget {remaining_ms():.0f}ms < "
+                        f"{_B_NOVA_SCENE_MS + _B_STABILITY_MS + _C_RESERVATION_MS}ms) -> rung C",
+                        file=sys.stderr,
+                    )
+                    provenance["fallthrough_reason"] = "budget-exhausted"
+                    raise _RungBBudgetSkip
                 scene_prompt = _nova_pro_scene_prompt(
                     seed, product_name, brief_msg, region, audience, theme
                 )
                 provenance["scene_prompt"] = scene_prompt
+                # Per-subcall budget gate 2 — the Stability invoke (fail-fast, capped at
+                # BEDROCK_READ_TIMEOUT_S). Re-check AFTER the scene call actually spent its
+                # time; if the remaining clock can no longer cover stability + the C
+                # reservation, abandon B and fall to C rather than risk the gateway cap.
+                if remaining_ms() < _B_STABILITY_MS + _C_RESERVATION_MS:
+                    print(
+                        f"[generate] rung B stability skipped (budget {remaining_ms():.0f}ms < "
+                        f"{_B_STABILITY_MS + _C_RESERVATION_MS}ms) -> rung C",
+                        file=sys.stderr,
+                    )
+                    provenance["fallthrough_reason"] = "budget-exhausted"
+                    raise _RungBBudgetSkip
                 stylized = _stability_control_hero(seed, scene_prompt, out_path)
                 if stylized is not None and stylized.exists():
                     provenance["engine"] = "stability-restyle"
@@ -1414,6 +1464,10 @@ def generate_hero(
                 # helper returned None — timeout/throttle/model-error already logged to
                 # stderr with its exact code. Fall to rung C with a model-error reason.
                 provenance["fallthrough_reason"] = "model-error"
+            except _RungBBudgetSkip:
+                # a per-subcall budget gate abandoned B (reason already set to
+                # budget-exhausted) — fall cleanly to rung C, NOT a model error.
+                pass
             except (ReadTimeoutError, ConnectTimeoutError) as e:
                 print(f"[generate] rung B bedrock timeout -> fall to C: {e}", file=sys.stderr)
                 provenance["fallthrough_reason"] = "bedrock-timeout"
