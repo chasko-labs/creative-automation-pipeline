@@ -1,0 +1,261 @@
+{
+  "region_id": "neah-bay",
+  "market_code": "US-WA-NEAHBAY",
+  "aliases": ["US-W-SEA (Washington metro sister / urban_frontier_link)"],
+  "place": "Neah Bay, WA 98357 -- northwestern tip of the Olympic Peninsula, Makah Reservation",
+  "zip": "98357",
+  "county": "Clallam County",
+  "state": "WA",
+  "coordinates": { "lat": 48.36, "lon": -124.62 },
+  "classification": "frontier-gap",
+  "city_center": {
+    "name": "Neah Bay (harbor + SR-112)",
+    "landmark": "Neah Bay harbor; Makah Cultural and Research Center on SR-112; Cape Flattery (northwesternmost point of the contiguous US) nearby",
+    "notes": "Small harbor community on the Makah Reservation; only mini-marts and Washburn's General Store in town (limited SKU). Nearest full grocer Port Angeles Safeway / Walmart -- 70mi winding 2-lane SR-112 / US-101; 4-5hr to Seattle including a Puget Sound ferry. sources: frontier-gaps.json; Makah Tribal Info (makah.com); revisitwa.org."
+  },
+  "featured_frontier": {
+    "hook": "Huckleberry compote over Buttermilk Power Cakes on Washburn's porch, harbor fog behind -- Washington-water frontier meets Wasatch grain",
+    "photo_cue": "Neah Bay harbor at dawn, Washburn's porch with huckleberry compote on cast iron, Olympic Peninsula fog, 70mi road sign to Port Angeles",
+    "signature_ingredient": "wild huckleberry (late Jul-Sep, peak Aug); regional salmon + halibut (as respectful regional context, cross-promo consent-gated)",
+    "cross_promo": {
+      "partner": "Makah Tribal Fishery (potential)",
+      "url": "https://makah.com/fisheries",
+      "product": "regional cedar-smoked salmon -- seasonal Strait of Juan de Fuca catch",
+      "activation": "proposed savory salmon Power Cakes variant -- PROPOSE ONLY WITH TRIBAL CONSENT; no endorsement implied or claimed until confirmed",
+      "consent_status": "maybe"
+    }
+  },
+  "audience": "Makah families, Neah Bay mini-mart regulars, Port Angeles commuters (70mi), and Seattle/Washington shoppers who want to see the frontier their state contains (Seattle Costco bulk vs Neah Bay DTC subscription)",
+  "languages": [
+    {
+      "lang_code": "myh",
+      "lang_name": "Makah (Qʷiqʷidiččaq)",
+      "translate_code": "en",
+      "reason": "Makah is the Indigenous language of Neah Bay (Wakashan family); revitalization is Tribe-led. No ACS home-use percentage asserted -- language is listed for cultural accuracy, not as a translation target, and any use requires Tribal guidance. INFERRED cultural listing, not an ACS figure"
+    },
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 6.8,
+      "translate_code": "es",
+      "reason": "carried from the Washington-state / US-W-SEA anchor as a metro-sister proxy; not Neah-Bay-town ACS. INFERRED"
+    }
+  ],
+  "cultural_notes": [
+    "the Makah Tribe has lived at the northwestern tip of the Olympic Peninsula for thousands of years; five historic villages (Waatch, Sooes, Deah/Neah Bay, Ozette, Bahaada) with roughly 1,500 members in and around Neah Bay today (source: Makah Tribal Info + history, makah.com)",
+    "western red cedar is central to Makah life -- longhouses, ocean canoes, bark clothing; the Makah Cultural and Research Center displays Ozette artifacts (source: Makah, en.wikipedia.org; content.lib.washington.edu)",
+    "Makah Days each August commemorates Makah culture and the anniversary of US citizenship (source: makah.com/attractions/makah-days)",
+    "SOVEREIGNTY GUARDRAIL: cedar is a cultural cue for photography only, never an ingredient; the salmon cross-promo is a PROPOSAL requiring Makah consent (consent_status 'maybe'); do NOT imply or fabricate any Makah endorsement, and route any activation through the Tribe. This record documents public cultural context only -- it does not authorize use of Makah imagery, language, or fishery without Tribal agreement"
+  ],
+  "design_palette": {
+    "textures": [
+      "salt-weathered dock timber",
+      "harbor-fog haze",
+      "beach-cobble and driftwood",
+      "storm-silvered general-store clapboard",
+      "wet cast-iron griddle sheen",
+      "coastal spruce and hemlock bark"
+    ],
+    "colors": [
+      {
+        "name": "Strait fog gray-green",
+        "hex": "#8A9A96",
+        "use": "sky / water / negative space"
+      },
+      { "name": "harbor deep slate", "hex": "#3C4A52", "use": "water / depth" },
+      {
+        "name": "huckleberry deep purple",
+        "hex": "#3A2740",
+        "use": "produce hero / accent"
+      },
+      {
+        "name": "driftwood silver-gray",
+        "hex": "#9E958A",
+        "use": "dock / structure"
+      },
+      {
+        "name": "coastal spruce green",
+        "hex": "#2C4438",
+        "use": "treeline / foreground"
+      }
+    ],
+    "building_materials": [
+      "salt-weathered wood dock + piling",
+      "storm-silvered clapboard (general store)",
+      "corrugated metal shed roofing",
+      "beach driftwood + cobble"
+    ],
+    "landscape_motifs": [
+      "Neah Bay harbor at dawn",
+      "Olympic Peninsula fog bank",
+      "Cape Flattery cliffs + Pacific swell",
+      "coastal spruce-hemlock treeline",
+      "70mi road sign to Port Angeles"
+    ],
+    "_provenance_note": "palette deliberately grounded in the PUBLIC coastal/harbor/general-store environment (weathered dock, fog, driftwood, huckleberry) -- NOT in Makah cultural motifs, which are not the brand's to stylize. cedar and canoe are noted as cultural cues in the source photo_cue but are intentionally excluded from the brand color/texture layer pending Tribal guidance. terrain grounded in frontier-gaps.json + Olympic Coast NOAA + Makah public info. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [8, 9],
+      "in_season_produce": [
+        {
+          "name": "wild huckleberry",
+          "peak_month": 8,
+          "pancake_tie": "huckleberry compote (Aug) with honey + lemon spooned over Buttermilk Power Cakes -- the sweet Neah Bay build"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Washburn's General Store (Neah Bay)",
+          "type": "general-store",
+          "notes": "in-town, limited SKU"
+        },
+        {
+          "name": "DTC subscription / Amazon.com",
+          "type": "dtc-subscription",
+          "notes": "ships where the grocer is 70mi away"
+        }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [5, 6, 7],
+      "in_season_produce": [
+        {
+          "name": "regional salmon (May-Sep; sockeye Jun, coho Aug)",
+          "pancake_tie": "PROPOSED savory salmon + chive Power Cakes -- Makah-fishery cross-promo, consent-gated, do not produce without Tribal consent"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Washburn's General Store (Neah Bay)",
+          "type": "general-store"
+        },
+        {
+          "name": "Port Angeles Safeway / Walmart",
+          "type": "chain-grocer",
+          "notes": "nearest full grocer, 70mi via SR-112 / US-101"
+        }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4, 5, 6],
+      "in_season_produce": [
+        {
+          "name": "regional halibut (Mar-Jun, peak Apr-May)",
+          "pancake_tie": "savory context only; not a sweet-stack tie. Kept for calendar completeness, not a recipe claim"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Washburn's General Store (Neah Bay)",
+          "type": "general-store"
+        }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [11, 12, 1],
+      "in_season_produce": [
+        {
+          "name": "shelf-stable pantry (frontier-gap winter)",
+          "pancake_tie": "DTC subscription stock-up stack; no fresh-local winter produce claimed for this remote coast"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "DTC subscription / Amazon.com",
+          "type": "dtc-subscription",
+          "notes": "primary winter channel where the store is 70mi"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Washburn's General Store",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "Neah Bay; limited SKU"
+    },
+    {
+      "name": "Safeway / Walmart (Port Angeles)",
+      "role": "gap-nearest",
+      "distance_mi": 70,
+      "notes": "nearest full grocer via SR-112 / US-101"
+    },
+    {
+      "name": "Costco (Sequim / Seattle)",
+      "role": "gap-nearest",
+      "distance_mi": 130,
+      "notes": "4-5hr incl Puget Sound ferry"
+    },
+    {
+      "name": "Amazon.com",
+      "role": "halo",
+      "notes": "DTC subscription channel for the frontier gap"
+    }
+  ],
+  "campaign_type_fit": {
+    "keep-it-wild": {
+      "fit": "strong",
+      "angle": "outermost Washington frontier -- Cape Flattery, harbor fog, DTC where the road runs out. Keep It Wild lands on the huckleberry-on-the-porch cue. Pairs with the Seattle record for the Washington-state frontier-awareness link",
+      "existing_brief": "briefs/kodiak.yaml"
+    },
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "huckleberry compote card (Aug, sweet) is fully clear to produce; the savory salmon card is consent-gated and must not ship without Makah agreement"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "rich source cue + calendar but no produced-content corpus yet"
+    },
+    "localized-costco": {
+      "fit": "weak",
+      "angle": "nearest Costco is 4-5hr incl ferry; bulk is not the frontier-gap story -- DTC subscription is"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "Olympic Peninsula has black bear habitat; Bear Bites angle stays conservation-toned, tracks-only, and must not overlap Makah imagery"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie; and celebrity framing would be inappropriate against a Tribal-community market"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "coastal frontier; no ski culture"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "thin"
+    },
+    "score": 0.83,
+    "ready_to_rock": false,
+    "notes": "Was (audit): CULT thin, PAL absent, score 0.61. Now: palette grounded in the public harbor/coast environment (NOT Makah cultural motifs), cultural_notes cited to Makah public sources with an explicit sovereignty guardrail, four seasonal windows with huckleberry as the clear sweet build. INTENTIONALLY held below ready_to_rock: the salmon cross-promo and any Makah-fishery activation are consent-gated (consent_status 'maybe') -- campaign_type_fit stays 'thin' and the region is NOT clear-to-produce for the frontier hook until Makah consent is secured. languages 'thin' (Makah listed for accuracy, not as a translate target; Spanish carried from the Seattle anchor). the sweet huckleberry recipe-card path IS clear to produce. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "frontier-gaps.json (US-WA-NEAHBAY: classification, retail_gap, cross_promo status 'maybe', localization salmon/halibut/huckleberry/cedar, coordinates, fulfillment, subscription_explanation)",
+      "localization-table-seed.json (US-WA-NEAHBAY: place/audience/message/cue/retailer/cross_promo, urban_frontier_link)",
+      "local-flavor.json (US-WA-NEAHBAY: Makah salmon [5,6,7,8,9], huckleberry [8])",
+      "web: Makah Tribal Info + history -- makah.com/makah-tribal-info (five villages, ~1,500 members, Neah Bay)",
+      "web: Makah -- en.wikipedia.org/wiki/Makah (western red cedar longhouses, canoes, bark clothing)",
+      "web: Makah Days -- makah.com/attractions/makah-days (August, culture + US-citizenship anniversary)",
+      "web: Makah Cultural and Research Center / Ozette -- content.lib.washington.edu; revisitwa.org",
+      "web: Olympic Coast National Marine Sanctuary -- olympiccoast.noaa.gov (Northwest cedar canoe context)"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

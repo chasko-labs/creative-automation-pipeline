@@ -1,0 +1,256 @@
+{
+  "region_id": "savannah-charleston",
+  "market_code": "US-SE-COAST",
+  "aliases": ["US-SE-SAV", "US-SE-CHS"],
+  "place": "Savannah + Charleston, Coastal Southeast",
+  "state": "SC",
+  "coordinates": { "lat": 32.7765, "lon": -79.9311 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Charleston peninsula (Marion Square / King Street) + Savannah Historic District",
+    "landmark": "Charleston's Rainbow Row and Marion Square farmers market; Savannah's oak-and-Spanish-moss squares",
+    "notes": "Twin Lowcountry coastal cities. Publix is strong across coastal GA/SC; Harris Teeter (Charlotte NC-based) and Piggly Wiggly also serve the Charleston market. Charleston Farmers Market runs Saturdays in Marion Square. sources: en.wikipedia / architecturaldigest Savannah Historic District; exclusivepropertiesus.com Marion Square market."
+  },
+  "featured_frontier": {
+    "hook": "Lowcountry muscadine + South Carolina peach compote over Power Cakes -- a Rainbow Row brunch under Spanish moss",
+    "photo_cue": "salmon-pink to deep-red historic brick, wrought-iron gate, Spanish-moss live oaks, muscadine cluster + SC peach; Lowcountry morning light",
+    "signature_ingredient": "muscadine grapes (late summer-fall) + South Carolina peaches (state fruit, summer)",
+    "cross_promo": {
+      "partner": "Charleston Farmers Market (Marion Square) / Boone Hall Farms roadside market",
+      "url": "https://boonehallplantation.com/boone-hall-farms/",
+      "activation": "muscadine + SC peach compote recipe card, Publix/Harris Teeter retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Lowcountry coastal families + historic-district households; Publix and Harris Teeter shoppers across coastal GA/SC",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "translate_code": "es",
+      "reason": "Spanish is the leading second home language across the coastal SC/GA metros. Percentage INFERRED (localization pipeline data absent) -- not an ACS figure"
+    }
+  ],
+  "cultural_notes": [
+    "The Lowcountry has a distinctive building vocabulary: tabby (a coastal material made from oyster shells, lime, and sand), heart pine and cypress from Lowcountry forests, and iron from Charleston's historic forges (source: thecharlestondesigncenter.com Lowcountry Aesthetic; historiccharleston.org)",
+    "Charleston brick was fired from local Lowcountry clay in beehive kilns, giving a salmon-pink to deep-red color range; Savannah's counterpart is the soft gray-to-tan handmade Savannah Grey Brick of the early 1800s (source: build-construct.com historic Charleston mansions; americanpavingdesign.com Savannah Grey Brick)",
+    "Savannah's historic district is famous for oak-lined squares draped in Spanish moss -- a living museum of American architecture (source: architecturaldigest.com Savannah Historic District)",
+    "South Carolina is a peach heavyweight -- the peach is the state fruit and SC ranks second to California in production -- and muscadine, the native Southern grape, appears in late summer (source: discoversouthcarolina.com; positivebloom.com Charleston Farmers Market)",
+    "The Gullah Geechee cultural heritage of the Lowcountry coast is significant and should be referenced respectfully; do not appropriate or claim endorsement (source: general cultural knowledge -- honor community sovereignty, no endorsement implied)"
+  ],
+  "design_palette": {
+    "textures": [
+      "tabby (oyster-shell + lime + sand)",
+      "salmon-to-deep-red Lowcountry brick",
+      "Savannah Grey soft brick",
+      "wrought-iron scroll",
+      "heart-pine board",
+      "Spanish-moss drape",
+      "cypress grain"
+    ],
+    "colors": [
+      {
+        "name": "Charleston brick salmon-red",
+        "hex": "#B15746",
+        "use": "structure / facade"
+      },
+      {
+        "name": "Savannah Grey brick",
+        "hex": "#8C8377",
+        "use": "structure / paver"
+      },
+      {
+        "name": "Rainbow Row pastel",
+        "hex": "#E9B96E",
+        "use": "facade accent"
+      },
+      {
+        "name": "Spanish-moss gray-green",
+        "hex": "#8A9A7B",
+        "use": "canopy / drape"
+      },
+      {
+        "name": "muscadine bronze-purple",
+        "hex": "#4A2E3A",
+        "use": "produce hero"
+      }
+    ],
+    "building_materials": [
+      "tabby (oyster shell, lime, sand)",
+      "handmade Lowcountry-clay brick",
+      "Savannah Grey Brick",
+      "wrought and cast iron (Charleston forges)",
+      "heart pine and cypress framing",
+      "stucco over masonry"
+    ],
+    "landscape_motifs": [
+      "Rainbow Row facade",
+      "oak-and-Spanish-moss square",
+      "Charleston single-house side porch",
+      "coastal salt marsh",
+      "wrought-iron garden gate"
+    ],
+    "_provenance_note": "salmon-red and Savannah Grey brick grounded in Lowcountry brick descriptions (build-construct.com; americanpavingdesign.com). tabby, heart pine, cypress, iron from thecharlestondesigncenter.com. Rainbow Row pastel and Spanish moss from Charleston/Savannah streetscape references. muscadine from produce. hex values are perceptual approximations -- flag for brand-fit review."
+  },
+  "seasonal": [
+    {
+      "season": "summer-fourth",
+      "months": [5, 6, 7, 8],
+      "in_season_produce": [
+        {
+          "name": "South Carolina peaches",
+          "peak_month": 7,
+          "pancake_tie": "SC peach compote over Power Cakes -- the state fruit, second only to California in production"
+        },
+        {
+          "name": "Lowcountry blueberries",
+          "peak_month": 6,
+          "pancake_tie": "coastal blueberry Power Cakes"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Charleston Farmers Market (Marion Square)",
+          "type": "farmers-market",
+          "notes": "Saturdays, Marion Square"
+        },
+        {
+          "name": "Boone Hall Farms / Willie's Roadside Market",
+          "type": "farm-stand",
+          "url": "https://boonehallplantation.com/boone-hall-farms/",
+          "notes": "Mount Pleasant, Charleston County"
+        }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        {
+          "name": "muscadine grapes",
+          "peak_month": 9,
+          "pancake_tie": "muscadine compote over Power Cakes -- native Southern grape, late-summer to fall real in-season pick"
+        },
+        {
+          "name": "coastal sweet potatoes",
+          "peak_month": 10,
+          "pancake_tie": "roasted sweet-potato + cinnamon folded into Power Cakes batter"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Charleston Farmers Market (Marion Square)",
+          "type": "farmers-market",
+          "notes": "muscadine in season late summer"
+        },
+        {
+          "name": "Publix / Harris Teeter (coastal SC/GA)",
+          "type": "chain-grocer"
+        }
+      ]
+    },
+    {
+      "season": "thanksgiving",
+      "months": [11],
+      "in_season_produce": [
+        {
+          "name": "Lowcountry collards + winter greens",
+          "peak_month": 11,
+          "pancake_tie": "savory greens-and-cheddar Power Cakes -- Southern table tie (INFERRED pancake tie, verify)"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Publix / Harris Teeter (coastal SC/GA)",
+          "type": "chain-grocer"
+        }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4],
+      "in_season_produce": [
+        {
+          "name": "coastal strawberries",
+          "peak_month": 4,
+          "pancake_tie": "spring strawberry compote stack -- Lowcountry strawberries at Boone Hall"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Boone Hall Farms / Willie's Roadside Market",
+          "type": "farm-stand",
+          "url": "https://boonehallplantation.com/boone-hall-farms/"
+        },
+        {
+          "name": "Publix / Harris Teeter (coastal SC/GA)",
+          "type": "chain-grocer"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Publix", "role": "home" },
+    { "name": "Harris Teeter", "role": "primary" },
+    { "name": "Piggly Wiggly", "role": "secondary" },
+    { "name": "Walmart", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "Publix/Harris Teeter Lowcountry variant of the localized-costco type; reuse briefs/kodiak-costco.yaml pattern with a coastal historic-district lockup",
+      "existing_brief": "briefs/kodiak-costco.yaml"
+    },
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "muscadine compote card + SC peach compote card + Lowcountry blueberry card -- three real seasonal cards from the coastal calendar"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no known prior coastal-SE creative to riff on"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified; archetype only, never likeness"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "coastal SC/GA has black bear inland only; keep conservation-toned, tracks-only, no grizzly hook"
+    },
+    "keep-it-wild": {
+      "fit": "weak",
+      "angle": "salt-marsh and barrier-island wild angle possible but historic-metro market"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "no ski culture; coastal Lowcountry"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.83,
+    "ready_to_rock": true,
+    "notes": "Coastal SE record grounded in the distinctive Lowcountry vocabulary -- tabby, salmon-red and Savannah Grey brick, Charleston iron, Spanish moss. Gullah Geechee heritage referenced respectfully with no endorsement claim. languages thin -- single INFERRED entry, no ACS numbers fabricated. hex flagged for brand-fit review. thanksgiving greens pancake tie carries an INFERRED flag."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Lowcountry aesthetic (tabby, heart pine, cypress, iron) -- thecharlestondesigncenter.com",
+      "web: historic Charleston brick (Lowcountry clay, salmon-pink to deep-red) -- build-construct.com; historiccharleston.org",
+      "web: Savannah Grey Brick (gray/tan/charcoal) -- americanpavingdesign.com",
+      "web: Savannah Historic District oaks + Spanish moss -- architecturaldigest.com",
+      "web: SC peaches (state fruit, 2nd to CA) -- discoversouthcarolina.com; Charleston Farmers Market muscadine -- positivebloom.com; Boone Hall Farms -- boonehallplantation.com",
+      "language percentage INFERRED -- localization pipeline data absent from checkout; no ACS figure fabricated"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "region_id": "los-angeles",
+  "market_code": "US-W-LA",
+  "aliases": [],
+  "place": "Los Angeles, California",
+  "zip": "90012",
+  "county": "Los Angeles County",
+  "state": "CA",
+  "coordinates": { "lat": 34.0522, "lon": -118.2437 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Grand Central Market (Downtown LA) + the Original Farmers Market (Fairfax)",
+    "landmark": "Grand Central Market (1917) downtown; the Original Farmers Market at 3rd and Fairfax; Spanish-Colonial and mid-century architecture; palms and the Hollywood Hills",
+    "notes": "Los Angeles pairs Grand Central Market (a 1917 downtown food hall) and the Original Farmers Market (Fairfax) with year-round Southern California produce. Architecture ranges from Spanish-Colonial Revival to mid-century modern. sources: en.wikipedia.org Grand Central Market; farmersmarketla.com."
+  },
+  "featured_frontier": {
+    "hook": "California citrus + stone fruit over Power Cakes on a palm-shaded patio, year-round SoCal sun -- Los Angeles market-hall breakfast",
+    "photo_cue": "cast-iron flapjack stack on a mid-century patio, oranges and stone fruit, palm silhouette, Grand Central Market neon, golden-hour LA light",
+    "signature_ingredient": "California citrus (winter) + Central Valley/SoCal stone fruit (summer) + avocados; strawberries (spring)",
+    "cross_promo": {
+      "partner": "Original Farmers Market / Grand Central Market vendors",
+      "url": "https://www.farmersmarketla.com",
+      "activation": "seasonal California produce cards, Ralphs / Vons / Costco retailer lockup across the LA metro",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Los Angeles metro families + city and valley households (San Fernando, San Gabriel, South Bay); year-round outdoor food culture; deeply multicultural food scene; Ralphs, Vons, and Costco shoppers",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 38.0,
+      "translate_code": "es",
+      "reason": "INFERRED (ACS source file absent): LA County has one of the largest Spanish-speaking populations in the US; pct is a web-informed estimate, not exact ACS"
+    },
+    {
+      "lang_code": "zh",
+      "lang_name": "Chinese",
+      "pct_home": 3.0,
+      "translate_code": "zh",
+      "reason": "INFERRED (ACS source file absent): large Chinese community in the San Gabriel Valley (Monterey Park, Alhambra); pct estimated"
+    },
+    {
+      "lang_code": "ko",
+      "lang_name": "Korean",
+      "pct_home": 2.5,
+      "translate_code": "ko",
+      "reason": "INFERRED (ACS source file absent): LA Koreatown is the largest Korean community outside Korea; pct estimated"
+    }
+  ],
+  "cultural_notes": [
+    "Los Angeles is one of the most multicultural food cities in the US -- LA County has one of the nation's largest Spanish-speaking populations, the largest Koreatown outside Korea, and a major San Gabriel Valley Chinese community (source: general demographic framing, publicly documented)",
+    "Grand Central Market (1917) and the Original Farmers Market (3rd and Fairfax) are landmark food halls; California's year-round produce keeps the seasonal calendar full every month (source: en.wikipedia.org Grand Central Market; farmersmarketla.com)",
+    "architecture spans Spanish-Colonial Revival, Craftsman, and mid-century modern -- a distinctive palette-and-backdrop range (source: LA architecture framing, publicly documented)",
+    "Ralphs and Vons anchor grocery with strong Costco presence across the metro (source: chain regional footprint)"
+  ],
+  "design_palette": {
+    "textures": [
+      "Spanish-Colonial stucco",
+      "mid-century terrazzo and glass",
+      "palm-frond fan",
+      "Grand Central Market neon",
+      "jacaranda bloom drift",
+      "California citrus rind",
+      "cast-iron griddle char"
+    ],
+    "colors": [
+      {
+        "name": "SoCal stucco cream",
+        "hex": "#EFE6D2",
+        "use": "structure / facade / negative space"
+      },
+      {
+        "name": "golden-hour LA amber",
+        "hex": "#D89A45",
+        "use": "warm light / accent"
+      },
+      {
+        "name": "jacaranda purple",
+        "hex": "#6E5A9E",
+        "use": "spring bloom / accent"
+      },
+      {
+        "name": "palm-and-hills sage green",
+        "hex": "#5A6B47",
+        "use": "foliage / foreground"
+      },
+      {
+        "name": "navel-orange citrus",
+        "hex": "#E07B2A",
+        "use": "produce hero / warm pop"
+      }
+    ],
+    "building_materials": [
+      "Spanish-Colonial stucco",
+      "mid-century glass-and-steel",
+      "terracotta tile roof",
+      "terrazzo (market floors)",
+      "neon signage"
+    ],
+    "landscape_motifs": [
+      "palm-lined boulevard",
+      "Spanish-Colonial arch and courtyard",
+      "Grand Central Market neon hall",
+      "Hollywood Hills backdrop",
+      "citrus and jacaranda street trees"
+    ],
+    "_provenance_note": "SoCal stucco cream + golden-hour amber grounded in LA's Spanish-Colonial and mid-century architecture and light. jacaranda purple + palm sage from the streetscape. navel-orange citrus from California produce. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "winter-holidays",
+      "months": [12, 1, 2],
+      "in_season_produce": [
+        {
+          "name": "California navel oranges + Meyer lemons",
+          "peak_month": 1,
+          "pancake_tie": "citrus-ricotta Power Cakes -- SoCal winter citrus keeps the calendar bright year-round"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Original Farmers Market (Fairfax)",
+          "type": "farmers-market",
+          "url": "https://www.farmersmarketla.com",
+          "notes": "winter citrus"
+        },
+        { "name": "Ralphs", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4, 5],
+      "in_season_produce": [
+        {
+          "name": "California strawberries + avocados",
+          "peak_month": 5,
+          "pancake_tie": "strawberry compote over Power Cakes or savory avocado stack -- SoCal spring"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Original Farmers Market (Fairfax)",
+          "type": "farmers-market",
+          "notes": "strawberries + avocados in spring"
+        }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        {
+          "name": "Central Valley + SoCal stone fruit (peaches, plums)",
+          "peak_month": 7,
+          "pancake_tie": "California stone-fruit compote over Power Cakes -- summer peak"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Grand Central Market",
+          "type": "farmers-market",
+          "notes": "stone fruit at summer peak"
+        },
+        { "name": "Vons", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        {
+          "name": "SoCal pomegranates + persimmons",
+          "peak_month": 10,
+          "pancake_tie": "pomegranate-and-honey or Fuyu-persimmon spoon over Power Cakes -- SoCal fall"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Original Farmers Market (Fairfax)",
+          "type": "farmers-market",
+          "notes": "pomegranates + persimmons in fall"
+        },
+        {
+          "name": "Costco",
+          "type": "chain-grocer",
+          "notes": "metro bulk channel"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Ralphs",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "dominant LA-metro grocer; home channel"
+    },
+    { "name": "Vons", "role": "primary", "notes": "SoCal grocer" },
+    { "name": "Costco", "role": "primary", "notes": "strong LA bulk channel" },
+    { "name": "Trader Joe's", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "SoCal citrus card (winter) + strawberry/avocado card (spring) + stone-fruit card (summer) + pomegranate card (fall) -- California year-round abundance"
+    },
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "LA is a strong Costco + Ralphs/Vons bulk-and-value market; retailer lockup works across the metro chains",
+      "existing_brief": "briefs/kodiak-costco.yaml"
+    },
+    "zac-efron": {
+      "fit": "weak",
+      "angle": "LA is the entertainment capital -- an archetype/partnership celebrity angle is more plausible here than elsewhere, but still never likeness without a signed deal; treat as a partnership opportunity, not a claim"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no produced LA content corpus yet; strong market-hall + palm cue but thin prior material"
+    },
+    "keep-it-wild": {
+      "fit": "weak",
+      "angle": "dense metro; Keep It Wild lands better on the San Gabriel Mountains / Angeles National Forest edge than the city"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "black bear roams the San Gabriel Mountains and occasionally suburbs; California grizzly extinct (state symbol only). Keep conservation-toned and historically honest"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "coastal metro; no ski identity (Big Bear / Mountain High are distant drives)"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.85,
+    "ready_to_rock": true,
+    "notes": "Palette grounded in SoCal stucco + golden-hour amber + jacaranda + palm sage + navel-orange citrus. Four seasonal windows across California's year-round produce. Retailers mapped to Ralphs/Vons/Costco. zac-efron flagged as a plausible partnership angle (entertainment capital) but never likeness without a signed deal. languages THIN -- percentages INFERRED because ACS source file is absent; no exact ACS numbers fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Grand Central Market -- en.wikipedia.org (1917 downtown food hall)",
+      "web: Original Farmers Market (3rd and Fairfax) -- farmersmarketla.com",
+      "web: LA multicultural food geography (Koreatown, San Gabriel Valley) framing -- publicly documented",
+      "web: California year-round produce framing -- publicly documented",
+      "note: language percentages INFERRED -- ACS/market-languages source file absent in checkout; no exact ACS numbers used"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "region_id": "detroit",
+  "market_code": "US-MW-DETROIT",
+  "aliases": [],
+  "place": "Detroit, Michigan",
+  "zip": "48226",
+  "county": "Wayne County",
+  "state": "MI",
+  "coordinates": { "lat": 42.3314, "lon": -83.0458 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Eastern Market (Detroit) + the Detroit River",
+    "landmark": "Eastern Market, one of the largest historic public markets in the US (Saturday market since 1891); the Detroit River and Great Lakes; Michigan fruit belt to the west",
+    "notes": "Detroit's Eastern Market is one of the oldest and largest year-round public markets in the country, running a major Saturday market. Michigan's fruit belt (west Michigan lakeshore) supplies cherries, blueberries, and apples. sources: en.wikipedia.org Eastern Market, Detroit; easternmarket.org."
+  },
+  "featured_frontier": {
+    "hook": "Michigan tart cherry + blueberry compote over Power Cakes at Eastern Market, brick-and-Pewabic-tile city behind -- Great Lakes fruit-belt breakfast",
+    "photo_cue": "cast-iron flapjack stack at an Eastern Market shed, ruby Michigan cherries, Pewabic-tile teal accent, Detroit River light, autumn apples",
+    "signature_ingredient": "Michigan tart cherries (Jul) + Michigan blueberries (Jul-Aug) + Michigan apples (Sep-Oct)",
+    "cross_promo": {
+      "partner": "Eastern Market / Michigan fruit-belt growers",
+      "url": "https://easternmarket.org",
+      "activation": "Michigan cherry + blueberry compote card, Meijer / Kroger retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Detroit metro families + city and suburban households (Dearborn, Royal Oak, Warren); Great Lakes fruit-belt food culture; Arab-American food heritage (Dearborn); Meijer and Kroger shoppers",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 5.0,
+      "translate_code": "es",
+      "reason": "INFERRED (ACS source file absent): Latino community concentrated in southwest Detroit (Mexicantown); pct is a web-informed estimate, not exact ACS"
+    },
+    {
+      "lang_code": "ar",
+      "lang_name": "Arabic",
+      "pct_home": 4.0,
+      "translate_code": "ar",
+      "reason": "INFERRED (ACS source file absent): metro Detroit (Dearborn) holds one of the largest Arab-American communities in the US; pct estimated"
+    }
+  ],
+  "cultural_notes": [
+    "Detroit's Eastern Market is one of the oldest and largest year-round public markets in the US, with a major Saturday market dating to 1891 -- a civic food anchor (source: en.wikipedia.org Eastern Market, Detroit; easternmarket.org)",
+    "metro Detroit (Dearborn) holds one of the largest and most established Arab-American communities in the US, a major food-culture identity (source: general demographic framing, publicly documented)",
+    "Michigan's fruit belt along the west-Michigan lakeshore is a top US producer of tart cherries and blueberries, with a strong apple crop -- Great Lakes fruit is the regional produce story (source: Michigan fruit production framing, publicly documented)",
+    "Pewabic tile (a Detroit art-pottery tradition) adds a teal-glazed accent to the city's brick fabric; Meijer and Kroger are the metro grocers (source: Pewabic Pottery framing; chain regional footprint)"
+  ],
+  "design_palette": {
+    "textures": [
+      "Detroit red-and-buff brick",
+      "Pewabic-tile iridescent glaze",
+      "Eastern Market shed timber",
+      "Detroit River wave sheen",
+      "cherry-orchard bark",
+      "Michigan fruit-belt sandy loam",
+      "cast-iron griddle char"
+    ],
+    "colors": [
+      {
+        "name": "Detroit brick red",
+        "hex": "#8B4535",
+        "use": "structure / facade"
+      },
+      {
+        "name": "Pewabic tile teal",
+        "hex": "#2C6E6A",
+        "use": "accent / tile detail"
+      },
+      {
+        "name": "Michigan tart-cherry red",
+        "hex": "#9E2B2A",
+        "use": "produce hero / warm accent"
+      },
+      {
+        "name": "Detroit River blue-gray",
+        "hex": "#4E636F",
+        "use": "water / sky"
+      },
+      {
+        "name": "fruit-belt blueberry indigo",
+        "hex": "#3A4A6B",
+        "use": "produce accent"
+      }
+    ],
+    "building_materials": [
+      "fired red-and-buff brick",
+      "Pewabic art tile (accent)",
+      "Eastern Market shed timber and steel",
+      "limestone (civic buildings)",
+      "clapboard fruit-belt farmhouse (rural)"
+    ],
+    "landscape_motifs": [
+      "Eastern Market shed row",
+      "Detroit River waterfront",
+      "Michigan cherry + blueberry fruit belt",
+      "brick city street with Pewabic accents",
+      "downtown skyline over the river"
+    ],
+    "_provenance_note": "Detroit brick red + Pewabic teal grounded in the city's brick fabric and the Pewabic Pottery tile tradition. Michigan cherry red + blueberry indigo from the fruit belt. Detroit River blue-gray from the Great Lakes waterway. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "summer-fourth",
+      "months": [7, 8],
+      "in_season_produce": [
+        {
+          "name": "Michigan tart cherries",
+          "peak_month": 7,
+          "pancake_tie": "Michigan tart-cherry compote over Power Cakes -- Great Lakes fruit-belt July signature"
+        },
+        {
+          "name": "Michigan blueberries",
+          "peak_month": 8,
+          "pancake_tie": "Michigan blueberry compote over Power Cakes -- top US blueberry state"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Eastern Market",
+          "type": "farmers-market",
+          "url": "https://easternmarket.org",
+          "notes": "Michigan cherries + blueberries in summer"
+        },
+        {
+          "name": "Meijer",
+          "type": "chain-grocer",
+          "notes": "Michigan-founded supercenter"
+        }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        {
+          "name": "Michigan apples (Honeycrisp, McIntosh)",
+          "peak_month": 10,
+          "pancake_tie": "Michigan apple-cinnamon compote over Power Cakes -- fruit-belt fall staple"
+        },
+        {
+          "name": "Michigan pumpkins + squash",
+          "peak_month": 10,
+          "pancake_tie": "spiced pumpkin Power Cakes for a Detroit fall morning"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Eastern Market",
+          "type": "farmers-market",
+          "notes": "apples + pumpkins in fall"
+        },
+        { "name": "Kroger", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [11, 12, 1, 2],
+      "in_season_produce": [
+        {
+          "name": "stored Michigan apples + winter squash",
+          "pancake_tie": "spiced apple-squash Power Cakes for a lake-effect snow morning"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Meijer", "type": "chain-grocer" },
+        { "name": "Kroger", "type": "chain-grocer" },
+        {
+          "name": "Costco",
+          "type": "chain-grocer",
+          "notes": "metro bulk channel"
+        }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        {
+          "name": "Michigan asparagus + rhubarb",
+          "peak_month": 5,
+          "pancake_tie": "rhubarb compote over Power Waffles -- Michigan spring pick"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Eastern Market",
+          "type": "farmers-market",
+          "notes": "spring asparagus + rhubarb"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Meijer",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "Michigan-founded supercenter; home channel"
+    },
+    { "name": "Kroger", "role": "primary" },
+    { "name": "Costco", "role": "secondary", "notes": "metro bulk channel" },
+    { "name": "Aldi", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "Michigan tart-cherry card + Michigan blueberry card (summer) + Michigan apple card (fall) -- real Great Lakes fruit-belt produce"
+    },
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "Detroit is a strong Meijer + Costco bulk-and-value market; retailer lockup works with the Michigan-founded Meijer story",
+      "existing_brief": "briefs/kodiak-costco.yaml"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no produced Detroit content corpus yet; strong Eastern Market + fruit-belt cue but thin prior material"
+    },
+    "keep-it-wild": {
+      "fit": "weak",
+      "angle": "metro market; Keep It Wild lands better on the Great Lakes / northern Michigan edge than downtown"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "northern Michigan has black bear (no grizzlies); keep conservation-toned, no metro hook"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "no metro ski identity (northern Michigan resorts are a distant drive)"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.85,
+    "ready_to_rock": true,
+    "notes": "Palette grounded in Detroit brick + Pewabic tile teal + Michigan cherry/blueberry + Detroit River. Four seasonal windows from real Michigan fruit-belt produce with Eastern Market + Meijer/Kroger sourcing. Retailers mapped to Meijer (home) + Kroger + Costco. languages THIN -- percentages INFERRED because ACS source file is absent; no exact ACS numbers fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Eastern Market, Detroit -- en.wikipedia.org (largest historic public market, Saturday market since 1891); easternmarket.org",
+      "web: Michigan fruit belt (top US tart cherry + blueberry state) -- publicly documented",
+      "web: metro Detroit / Dearborn Arab-American community framing -- publicly documented",
+      "web: Pewabic Pottery tile tradition -- publicly documented",
+      "note: language percentages INFERRED -- ACS/market-languages source file absent in checkout; no exact ACS numbers used"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

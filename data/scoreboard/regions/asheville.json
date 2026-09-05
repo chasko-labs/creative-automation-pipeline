@@ -1,0 +1,240 @@
+{
+  "region_id": "asheville",
+  "market_code": "US-SE-ASHEVILLE",
+  "aliases": ["US-SE-WNC"],
+  "place": "Asheville, North Carolina",
+  "state": "NC",
+  "coordinates": { "lat": 35.5951, "lon": -82.5515 },
+  "classification": "regional",
+  "city_center": {
+    "name": "Downtown Asheville + Hendersonville Apple Country",
+    "landmark": "Downtown Asheville's Art Deco core (Grove Arcade, City Building) in the Blue Ridge Mountains; Hendersonville orchards to the south",
+    "notes": "Blue Ridge mountain town with a nationally strong local-food and brewery scene. Ingles Markets (headquartered in nearby Black Mountain, NC) is the home grocer. Hendersonville is one of the top apple-producing counties in the US. sources: amazingasheville.net architecture; romanticasheville.com apple country; Ingles HQ."
+  },
+  "featured_frontier": {
+    "hook": "Hendersonville apple + Blue Ridge sorghum over Power Cakes -- an Appalachian orchard-country breakfast in peak fall apple season",
+    "photo_cue": "Blue Ridge ridgeline in haze, orchard rows, crisp mountain apples, sorghum drizzle, weathered barn wood; cool autumn light",
+    "signature_ingredient": "Hendersonville apples (Aug-Feb, peak fall) + Appalachian sorghum and local honey",
+    "cross_promo": {
+      "partner": "Hendersonville apple orchards (Apple Country) / WNC Farmers Market (Asheville)",
+      "url": "https://www.romanticasheville.com/cider",
+      "activation": "Hendersonville apple + sorghum recipe card, Ingles retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Blue Ridge mountain-town families + local-food and outdoor households; Ingles-first Western North Carolina shoppers",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "translate_code": "es",
+      "reason": "Spanish is the leading second home language in the Asheville metro, including agricultural-worker communities in the surrounding apple country. Percentage INFERRED (localization pipeline data absent) -- not an ACS figure"
+    }
+  ],
+  "cultural_notes": [
+    "Asheville is a Blue Ridge Mountains city where Appalachian tradition meets a nationally recognized local-food, brewery, and arts scene (source: asheville.com; mahec.net about-the-area)",
+    "Downtown Asheville holds one of the largest concentrations of Art Deco architecture in the South, second only to Miami Beach (source: amazingasheville.net; grayline.com Asheville architecture)",
+    "Hendersonville, just south of Asheville, is nationally known as Apple Country -- one of the top apple-producing counties in the US -- and apples run August through February in North Carolina (source: romanticasheville.com Hard Apple Cidery Trail; buncombe.ces.ncsu.edu NC Cooperative Extension)",
+    "The Blue Ridge and surrounding Western North Carolina mountains are real American black bear habitat; treat bear presence with a conservation tone, tracks-and-signs only, never as a threat or a mascot stunt (source: general Blue Ridge wildlife knowledge -- honor conservation framing)"
+  ],
+  "design_palette": {
+    "textures": [
+      "Blue Ridge granite outcrop",
+      "weathered barn-wood board",
+      "Appalachian fieldstone",
+      "orchard-apple skin",
+      "Art Deco terracotta relief",
+      "sorghum-syrup sheen",
+      "mountain-laurel leaf"
+    ],
+    "colors": [
+      {
+        "name": "Blue Ridge haze blue",
+        "hex": "#5E6E82",
+        "use": "ridgeline / sky"
+      },
+      {
+        "name": "Appalachian fieldstone gray",
+        "hex": "#8C8578",
+        "use": "structure / terrain"
+      },
+      {
+        "name": "Hendersonville apple red",
+        "hex": "#A5302B",
+        "use": "produce hero"
+      },
+      {
+        "name": "sorghum amber",
+        "hex": "#B5722A",
+        "use": "produce accent / drizzle"
+      },
+      {
+        "name": "mountain-laurel green",
+        "hex": "#3A5A3C",
+        "use": "canopy / foreground"
+      }
+    ],
+    "building_materials": [
+      "Blue Ridge granite and fieldstone",
+      "Art Deco terracotta and cast stone (downtown)",
+      "weathered barn wood (orchard country)",
+      "brick storefront",
+      "timber-frame mountain cabin"
+    ],
+    "landscape_motifs": [
+      "Blue Ridge hazy ridgeline",
+      "apple-orchard rows",
+      "downtown Art Deco streetscape",
+      "mountain-laurel understory",
+      "weathered orchard barn"
+    ],
+    "_provenance_note": "Blue Ridge haze blue grounded in the mountains' characteristic blue haze; Art Deco terracotta from amazingasheville.net (2nd only to Miami Beach); apple red + sorghum amber from produce; fieldstone from Appalachian construction. hex values are perceptual approximations -- flag for brand-fit review."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        {
+          "name": "Hendersonville apples",
+          "peak_month": 10,
+          "pancake_tie": "Apple Country apple-cinnamon Power Cakes -- Hendersonville is one of the top apple counties in the US, peak fall harvest"
+        },
+        {
+          "name": "Appalachian sorghum",
+          "peak_month": 10,
+          "pancake_tie": "sorghum drizzle over Power Cakes -- mountain sorghum is pressed and cooked in the fall"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Hendersonville apple orchards (Apple Country)",
+          "type": "farm-stand",
+          "url": "https://www.romanticasheville.com/cider",
+          "notes": "u-pick orchards and roadside stands, fall"
+        },
+        {
+          "name": "WNC Farmers Market (Asheville)",
+          "type": "farmers-market",
+          "notes": "Brevard Road, year-round"
+        }
+      ]
+    },
+    {
+      "season": "thanksgiving",
+      "months": [11],
+      "in_season_produce": [
+        {
+          "name": "late-storage apples + winter squash",
+          "peak_month": 11,
+          "pancake_tie": "spiced apple + squash Power Cakes -- NC apples store and sell into February"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "WNC Farmers Market (Asheville)", "type": "farmers-market" },
+        {
+          "name": "Ingles Markets (Western NC)",
+          "type": "chain-grocer",
+          "notes": "headquartered in Black Mountain, NC"
+        }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        {
+          "name": "mountain blueberries + blackberries",
+          "peak_month": 7,
+          "pancake_tie": "wild-berry Power Cakes -- Blue Ridge summer berries"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "WNC Farmers Market (Asheville)", "type": "farmers-market" },
+        { "name": "Ingles Markets (Western NC)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        {
+          "name": "mountain ramps + spring greens",
+          "peak_month": 4,
+          "pancake_tie": "savory ramp-and-cheddar Power Cakes -- Appalachian spring ramp tradition (INFERRED pancake tie, verify)"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "WNC Farmers Market (Asheville)", "type": "farmers-market" }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Ingles Markets",
+      "role": "home",
+      "notes": "headquartered in Black Mountain, NC"
+    },
+    { "name": "Harris Teeter", "role": "primary" },
+    { "name": "Publix", "role": "secondary" },
+    { "name": "Walmart", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "localized-costco": {
+      "fit": "weak",
+      "angle": "Ingles is the regional grocer, not a warehouse club; a localized-costco analogue is thin here -- an Ingles Apple Country lockup is the closest fit",
+      "existing_brief": "briefs/kodiak-costco.yaml"
+    },
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "Hendersonville apple-cinnamon card + Appalachian sorghum drizzle card + mountain wild-berry card -- three real Blue Ridge seasonal cards"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no known prior Asheville creative to riff on"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified; archetype only, never likeness"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "Blue Ridge has real black bear habitat -- this is the strongest bears tie in the Southeast cluster, but it must stay conservation-toned and tracks-only: a black-bear-country trail-breakfast angle, never a grizzly and never a bear as a stunt"
+    },
+    "keep-it-wild": {
+      "fit": "strong",
+      "angle": "Blue Ridge Parkway, Pisgah National Forest, mountain trails -- keep-it-wild lands strongly here; an Appalachian trail-and-orchard wild angle"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "weak",
+      "angle": "small WNC ski areas (Cataloochee, Beech nearby) exist but Asheville itself is a mild-winter mountain town -- weak local ski tie"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.83,
+    "ready_to_rock": true,
+    "notes": "Asheville is the standout Appalachian record: Blue Ridge apple country (Hendersonville), Art Deco downtown, Ingles as home grocer, and the cluster's strongest keep-it-wild and bears fits -- bears kept strictly conservation-toned and tracks-only per guardrail. languages thin -- single INFERRED entry, no ACS numbers fabricated. hex flagged for brand-fit review. spring ramp pancake tie carries an INFERRED flag."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Asheville Appalachian + local-food scene -- asheville.com; mahec.net",
+      "web: Asheville Art Deco (2nd to Miami Beach) -- amazingasheville.net; grayline.com",
+      "web: Hendersonville Apple Country (top US apple county) -- romanticasheville.com; visithendersonvillenc.org",
+      "web: NC apples Aug-Feb -- buncombe.ces.ncsu.edu (NC Cooperative Extension)",
+      "Ingles Markets Black Mountain NC HQ + Blue Ridge black bear habitat -- general regional knowledge (bears framed conservation-toned)",
+      "language percentage INFERRED -- localization pipeline data absent from checkout; no ACS figure fabricated"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

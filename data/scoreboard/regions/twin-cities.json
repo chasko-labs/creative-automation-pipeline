@@ -1,0 +1,281 @@
+{
+  "region_id": "twin-cities",
+  "market_code": "US-MW-TC",
+  "aliases": ["US-MW-MSP (Minneapolis-St. Paul)"],
+  "place": "Twin Cities (Minneapolis-St. Paul), Minnesota",
+  "zip": "55401",
+  "county": "Hennepin County",
+  "state": "MN",
+  "coordinates": { "lat": 44.9778, "lon": -93.265 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Minneapolis riverfront (Mill District / Stone Arch Bridge) + St. Paul",
+    "landmark": "Stone Arch Bridge and the Mill District over the Mississippi; Minneapolis Farmers Market; the North Woods and lake country beyond the metro",
+    "notes": "The Twin Cities sit on the Mississippi where the historic flour mills stood; the Stone Arch Bridge and Mill District anchor the riverfront. North of the metro lies Minnesota's North Woods and lake country -- wild rice, walleye, and pine. sources: en.wikipedia.org Stone Arch Bridge (Minneapolis); minneapolisfarmersmarket.com."
+  },
+  "featured_frontier": {
+    "hook": "Minnesota wild rice + honeycrisp apple Power Cakes on a North Woods cabin table, pine and lake behind -- Land of 10,000 Lakes breakfast",
+    "photo_cue": "cast-iron flapjack stack on a North Woods cabin table, birch and pine, lake behind, Honeycrisp apples, wild-rice flecks in the batter, autumn birch gold",
+    "signature_ingredient": "Minnesota Honeycrisp apples (Minnesota-bred, Sep-Oct) + Minnesota wild rice; North Woods lake-country produce",
+    "cross_promo": {
+      "partner": "Minneapolis Farmers Market / Minnesota Grown producers",
+      "url": "https://www.minneapolisfarmersmarket.com",
+      "activation": "Honeycrisp apple compote card + savory wild-rice Power Cakes card, Cub Foods / Lunds & Byerlys / Hy-Vee retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Twin Cities metro families + Minneapolis and St. Paul households; North Woods cabin-and-lake culture; Nordic and East African food heritage; Cub Foods, Lunds & Byerlys, and Hy-Vee shoppers",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 6.0,
+      "translate_code": "es",
+      "reason": "INFERRED (ACS source file absent): Latino community concentrated on St. Paul's West Side and south Minneapolis; pct is a web-informed estimate, not exact ACS"
+    },
+    {
+      "lang_code": "so",
+      "lang_name": "Somali",
+      "pct_home": 3.0,
+      "translate_code": "so",
+      "reason": "INFERRED (ACS source file absent): the Twin Cities hold the largest Somali community in the US (Cedar-Riverside, Minneapolis); pct estimated"
+    },
+    {
+      "lang_code": "hmn",
+      "lang_name": "Hmong",
+      "pct_home": 2.5,
+      "translate_code": "hmn",
+      "reason": "INFERRED (ACS source file absent): St. Paul has one of the largest Hmong communities in the US; pct estimated"
+    }
+  ],
+  "cultural_notes": [
+    "the Twin Cities hold the largest Somali community in the US (Cedar-Riverside) and one of the largest Hmong communities (St. Paul) -- both major food-culture identities alongside a Nordic heritage (source: general demographic framing, publicly documented)",
+    "the Honeycrisp apple was bred at the University of Minnesota and is a point of state pride; Minnesota Grown is the state farm-produce program (source: University of Minnesota apple breeding; Minnesota Grown)",
+    "Minnesota's North Woods and lake country (the Land of 10,000 Lakes) frames cabin-and-lake culture; wild rice (manoomin) is a signature crop with deep cultural significance to Ojibwe communities -- reference respectfully, no tribal endorsement implied without consent (source: general framing; Ojibwe manoomin cultural note)",
+    "Cub Foods, Lunds & Byerlys, and Hy-Vee are the metro grocers (source: chain regional footprint)"
+  ],
+  "design_palette": {
+    "textures": [
+      "North Woods pine-log cabin",
+      "white birch bark",
+      "Mississippi limestone mill stone",
+      "Stone Arch Bridge granite",
+      "lake-water ripple",
+      "wild-rice grain",
+      "cast-iron griddle char"
+    ],
+    "colors": [
+      {
+        "name": "North Woods pine green",
+        "hex": "#26443A",
+        "use": "forest / foreground"
+      },
+      {
+        "name": "white birch bark",
+        "hex": "#E7E3D8",
+        "use": "trunk / trim / negative space"
+      },
+      {
+        "name": "Mississippi mill-limestone tan",
+        "hex": "#A99878",
+        "use": "structure / stone"
+      },
+      { "name": "north-lake blue", "hex": "#3F6474", "use": "water / sky" },
+      {
+        "name": "Honeycrisp apple red-gold",
+        "hex": "#C24D34",
+        "use": "produce hero / warm accent"
+      }
+    ],
+    "building_materials": [
+      "pine-log cabin (North Woods)",
+      "white birch",
+      "Mississippi limestone (mill district)",
+      "granite (Stone Arch Bridge)",
+      "clapboard lake cottage"
+    ],
+    "landscape_motifs": [
+      "pine-and-birch North Woods shore",
+      "Stone Arch Bridge over the Mississippi",
+      "north-country lake at dawn",
+      "wild-rice marsh",
+      "downtown skyline over the river"
+    ],
+    "_provenance_note": "pine green + birch bark + north-lake blue grounded in Minnesota North Woods lake country. mill-limestone tan + Stone Arch granite from the Minneapolis riverfront mill district. Honeycrisp red-gold from the Minnesota-bred apple. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        {
+          "name": "Minnesota Honeycrisp + SweeTango apples",
+          "peak_month": 10,
+          "pancake_tie": "Honeycrisp apple-cinnamon compote over Power Cakes -- the Minnesota-bred apple at peak"
+        },
+        {
+          "name": "Minnesota wild rice (fall harvest)",
+          "peak_month": 9,
+          "pancake_tie": "savory wild-rice Power Cakes -- a North Woods signature (reference manoomin respectfully)"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Minneapolis Farmers Market",
+          "type": "farmers-market",
+          "url": "https://www.minneapolisfarmersmarket.com",
+          "notes": "Honeycrisp + fall produce"
+        },
+        { "name": "Cub Foods", "type": "chain-grocer" },
+        { "name": "Lunds & Byerlys", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [11, 12, 1, 2],
+      "in_season_produce": [
+        {
+          "name": "stored Honeycrisp apples + winter squash",
+          "pancake_tie": "spiced apple-squash Power Cakes for a deep-winter cabin morning"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Cub Foods", "type": "chain-grocer" },
+        {
+          "name": "Hy-Vee",
+          "type": "chain-grocer",
+          "notes": "Midwest employee-owned grocer"
+        },
+        {
+          "name": "Costco",
+          "type": "chain-grocer",
+          "notes": "metro bulk channel"
+        }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [7, 8],
+      "in_season_produce": [
+        {
+          "name": "Minnesota sweet corn",
+          "peak_month": 8,
+          "pancake_tie": "sweet-corn savory Power Cakes for a lakeside July Fourth griddle"
+        },
+        {
+          "name": "Minnesota blueberries + strawberries",
+          "peak_month": 7,
+          "pancake_tie": "north-country berry compote over Power Cakes"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Minneapolis Farmers Market",
+          "type": "farmers-market",
+          "notes": "sweet corn + berries at summer peak"
+        },
+        { "name": "Lunds & Byerlys", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        {
+          "name": "Minnesota rhubarb + asparagus",
+          "peak_month": 5,
+          "pancake_tie": "rhubarb compote over Power Waffles -- Minnesota spring pick"
+        },
+        {
+          "name": "regional maple",
+          "peak_month": 4,
+          "pancake_tie": "fresh maple over Power Cakes -- Minnesota does tap sugar maples in spring"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Minneapolis Farmers Market",
+          "type": "farmers-market",
+          "notes": "spring rhubarb + asparagus"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Cub Foods",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "dominant Twin Cities grocer; home channel"
+    },
+    {
+      "name": "Lunds & Byerlys",
+      "role": "primary",
+      "notes": "Twin Cities upscale grocer"
+    },
+    {
+      "name": "Hy-Vee",
+      "role": "primary",
+      "notes": "Midwest employee-owned grocer"
+    },
+    { "name": "Costco", "role": "secondary", "notes": "metro bulk channel" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "Honeycrisp apple card (fall) + savory wild-rice card + north-country berry card (summer) -- real Minnesota produce with the state-bred apple as hero"
+    },
+    "keep-it-wild": {
+      "fit": "strong",
+      "angle": "North Woods lake country + pine-and-birch cabin culture: Keep It Wild lands naturally on the Land of 10,000 Lakes cabin-breakfast story"
+    },
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "Twin Cities is a strong Costco + Cub/Lunds/Hy-Vee bulk-and-value market; retailer lockup works across the metro chains",
+      "existing_brief": "briefs/kodiak-costco.yaml"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no produced Twin Cities content corpus yet; strong North Woods + Honeycrisp cue but thin prior material"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "northern Minnesota has healthy black bear (no grizzlies); keep conservation-toned, North Woods habitat framing"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "weak",
+      "angle": "cross-country ski + small downhill areas (Buck Hill, Afton Alps) exist; strong nordic-ski culture but no big-mountain identity; secondary angle"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.87,
+    "ready_to_rock": true,
+    "notes": "Palette grounded in North Woods pine + birch + Mississippi mill limestone + Honeycrisp red-gold. Four seasonal windows from real Minnesota produce (Honeycrisp, wild rice, sweet corn, berries) with market + chain sourcing. keep-it-wild scored strong. Wild rice referenced respectfully as manoomin, no tribal endorsement implied. languages THIN -- percentages INFERRED because ACS source file is absent; no exact ACS numbers fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Stone Arch Bridge (Minneapolis) + Mill District -- en.wikipedia.org",
+      "web: Honeycrisp apple (University of Minnesota breeding) -- publicly documented",
+      "web: Minneapolis Farmers Market -- minneapolisfarmersmarket.com; Minnesota Grown program",
+      "web: Twin Cities Somali (Cedar-Riverside) + Hmong (St. Paul) community framing -- publicly documented",
+      "web: Minnesota wild rice (manoomin) cultural significance to Ojibwe -- publicly documented",
+      "note: language percentages INFERRED -- ACS/market-languages source file absent in checkout; no exact ACS numbers used"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

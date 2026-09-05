@@ -1,0 +1,248 @@
+{
+  "region_id": "las-cruces",
+  "market_code": "US-SW-LASCRUCES",
+  "aliases": [
+    "US-SW-ALBQ (adjacent high-desert)",
+    "US-SW-EL PASO (border labor shed)"
+  ],
+  "place": "Las Cruces + Alamogordo, New Mexico",
+  "zip": "88001",
+  "county": "Dona Ana County",
+  "state": "NM",
+  "coordinates": { "lat": 32.3199, "lon": -106.7637 },
+  "classification": "regional",
+  "city_center": {
+    "name": "Downtown Las Cruces (Main Street / Plaza de Las Cruces)",
+    "landmark": "Organ Mountains bench, Organ Mountains-Desert Peaks National Monument",
+    "notes": "Saturday Las Cruces Farmers and Crafts Market on Main Street is the gathering anchor; Organ Mountains dominate the eastern skyline. sources: localization-table-seed.json cue; Organ Mountains-Desert Peaks National Monument (blm.gov)."
+  },
+  "featured_frontier": {
+    "hook": "Roasted Hatch green chile folded into flapjacks, eaten on the Organ Mountains bench -- green chile meets grizzly",
+    "photo_cue": "Roasted Hatch green chile in flapjacks, Organ Mountains bench, trail bench",
+    "signature_ingredient": "Hatch green chile (roasted by the bushel, Aug-Sep peak Sep)",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "Green chile families, Hatch roast households 28-45; Las Cruces Target + Alamogordo Walmart and Albertsons",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 27.5,
+      "translate_code": "es",
+      "reason": "ACS 2023 5yr Dona Ana County: Hispanic 68%, Spanish at home 27.8%; border county"
+    },
+    {
+      "lang_code": "zh",
+      "lang_name": "Chinese",
+      "pct_home": 0.7,
+      "translate_code": "zh",
+      "reason": "NMSU international graduate Chinese 0.7%"
+    }
+  ],
+  "cultural_notes": [
+    "the Hatch green chile roast is a late-summer civic ritual across southern New Mexico: roaster drums turn outside grocers Aug-Sep and 'red or green?' is the official state question of New Mexico (source: New Mexico statute, state question adopted 1996; newmexico.org green chile culture)",
+    "Hatch, NM (45 min north) bills itself the 'Green Chile Capital of the World' and holds the Hatch Chile Festival over Labor Day weekend (source: hatchchilefest.com; newmexico.org)",
+    "NMSU (New Mexico State University) college-town rhythm shapes the market; Dia de los Muertos and border-Tejano food culture are present (INFERRED cultural framing from region knowledge -- verify tone before production use)",
+    "conservation note: Organ Mountains are Chihuahuan desert, not bear habitat -- keep any bear/grizzly angle national and conservation-toned, not local-habitat"
+  ],
+  "design_palette": {
+    "textures": [
+      "adobe stucco",
+      "sun-cracked desert clay",
+      "roasted-chile char skin",
+      "weathered ristra twine",
+      "Organ Mountains granite spires",
+      "galvanized roaster-drum mesh"
+    ],
+    "colors": [
+      {
+        "name": "Hatch chile roast char-green",
+        "hex": "#3F5A2A",
+        "use": "produce hero"
+      },
+      {
+        "name": "roasted red-chile ristra",
+        "hex": "#9E2B25",
+        "use": "accent / holiday"
+      },
+      {
+        "name": "Organ Mountains dusk violet",
+        "hex": "#6B5B7B",
+        "use": "skyline backdrop"
+      },
+      {
+        "name": "adobe terracotta",
+        "hex": "#C1683D",
+        "use": "structure / wall"
+      },
+      {
+        "name": "high-desert sand",
+        "hex": "#D9C7A3",
+        "use": "ground / plate surface"
+      }
+    ],
+    "building_materials": [
+      "adobe",
+      "stucco over block",
+      "vigas (ponderosa roof beams)",
+      "latillas (perpendicular roof laths)",
+      "corrugated ranch steel",
+      "sun-faded brick storefront"
+    ],
+    "landscape_motifs": [
+      "Organ Mountains spires",
+      "chile field rows at dusk",
+      "ristras on a portal",
+      "roaster-drum smoke",
+      "Chihuahuan desert creosote flat"
+    ],
+    "_provenance_note": "adobe/vigas/latillas grounded in Pueblo + Territorial Revival architecture of southern NM (en.wikipedia.org/wiki/Pueblo_architecture; newmexicomagazine.org adobe). chile char-green + ristra red grounded in Hatch roast produce. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [8, 9],
+      "in_season_produce": [
+        {
+          "name": "Hatch green chile",
+          "peak_month": 9,
+          "pancake_tie": "roasted Hatch green chile + sharp cheddar folded into savory Buttermilk Power Cakes"
+        },
+        {
+          "name": "New Mexico pecans (Mesilla Valley)",
+          "peak_month": 11,
+          "pancake_tie": "toasted Mesilla Valley pecans in the batter -- Dona Ana is a top US pecan-producing county"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Albertsons Las Cruces",
+          "type": "chain-grocer",
+          "notes": "roasts green chile by the bushel in season"
+        },
+        {
+          "name": "Las Cruces Farmers and Crafts Market",
+          "type": "farmers-market",
+          "url": "https://www.lascrucesfarmersmarket.org",
+          "notes": "Main St, Wed + Sat"
+        }
+      ]
+    },
+    {
+      "season": "thanksgiving",
+      "months": [11],
+      "in_season_produce": [
+        {
+          "name": "Mesilla Valley pecans",
+          "peak_month": 11,
+          "pancake_tie": "pecan-praline drizzle holiday stack; pecans peak at Nov harvest"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Las Cruces Farmers and Crafts Market",
+          "type": "farmers-market",
+          "notes": "Main St, Wed + Sat; local pecan vendors"
+        },
+        { "name": "Walmart Las Cruces", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [12, 1],
+      "in_season_produce": [
+        {
+          "name": "dried red-chile ristras (posole / holiday)",
+          "pancake_tie": "red-chile honey drizzle holiday stack -- INFERRED tie, needs recipe verification"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Albertsons / Walmart Las Cruces", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        {
+          "name": "Mesilla Valley spring onions + early greens",
+          "pancake_tie": "savory green-onion + cheddar Power Cakes -- INFERRED spring pick, verify local availability"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Las Cruces Farmers and Crafts Market",
+          "type": "farmers-market",
+          "notes": "Main St, Wed + Sat"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Target", "role": "primary" },
+    { "name": "Walmart", "role": "primary" },
+    { "name": "Albertsons", "role": "home", "distance_mi": 0 }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "green chile cheddar Power Cakes recipe card; savory Hatch + pepper jack waffle -- already drafted in briefs/kodiak-green-chile.yaml products",
+      "existing_brief": "briefs/kodiak-green-chile.yaml"
+    },
+    "localized-costco": {
+      "fit": "weak",
+      "angle": "no Costco in Las Cruces (nearest El Paso 45mi); Walmart/Albertsons bulk substitute only"
+    },
+    "riff-on-past-content": {
+      "fit": "strong",
+      "angle": "riff the existing 'green chile meets grizzly' line into short-form; strong prior creative signal"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified for this region"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "Bear Bites cubs angle works nationally but no regional bear-habitat hook; Organ Mountains are Chihuahuan desert, not grizzly country -- keep conservation-toned"
+    },
+    "keep-it-wild": {
+      "fit": "strong",
+      "angle": "Organ Mountains-Desert Peaks National Monument = wild public land; Keep It Wild lands on the bench cue",
+      "existing_brief": "briefs/kodiak.yaml"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "no ski culture; desert market"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "ready",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.94,
+    "ready_to_rock": true,
+    "notes": "Refined from example.las-cruces.json. Was: design_palette absent, cultural_notes absent, seasonal thin (single Hatch entry). Now: palette grounded in adobe/vigas + chile-roast color and cited; cultural_notes cited to NM state question + Hatch Chile Festival; four seasonal windows (harvest-fall, thanksgiving, winter-holidays, spring-easter) with per-season where-to-buy and added Mesilla Valley pecans. Winter/spring produce ties still carry INFERRED flags pending recipe verification. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "example.las-cruces.json (base record: place/city_center/featured_frontier/audience/languages/retailers/campaign_type_fit)",
+      "localization-table-seed.json (US-SW-LASCRUCES: place/audience/message/cue/retailer/zip)",
+      "market-languages.json (US-SW-LASCRUCES top_languages)",
+      "store-finder-markets.json (coordinates, retailer)",
+      "local-flavor.json (US-SW-LASCRUCES: Hatch green chile months [8,9] peak 9)",
+      "briefs/kodiak-green-chile.yaml (products, campaign_message)",
+      "web: New Mexico state question 'red or green?' (adopted 1996) + green chile culture -- newmexico.org",
+      "web: Hatch Chile Festival, Labor Day weekend -- hatchchilefest.com",
+      "web: Pueblo + Territorial Revival architecture (adobe, vigas, latillas) -- en.wikipedia.org/wiki/Pueblo_architecture, newmexicomagazine.org"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

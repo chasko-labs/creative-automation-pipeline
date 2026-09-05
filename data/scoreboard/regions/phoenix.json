@@ -1,0 +1,240 @@
+{
+  "region_id": "phoenix",
+  "market_code": "US-SW-PHX",
+  "aliases": ["US-MW-PHX2 (Tucson, adjacent Sonoran-desert market)"],
+  "place": "Phoenix, Arizona",
+  "zip": "85001",
+  "county": "Maricopa County",
+  "state": "AZ",
+  "coordinates": { "lat": 33.4484, "lon": -112.074 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Phoenix / Heritage Square",
+    "landmark": "Camelback Mountain + South Mountain on the skyline; Heritage Square is the last intact 1890s residential block of the original townsite",
+    "notes": "the low Sonoran desert basin sits below Camelback and the Phoenix Mountains; Singh Meadows in north Tempe (former 70-acre golf course along Indian Bend Wash) is a farm-to-table gathering anchor. sources: visitphoenix.com seasonal flavors (Singh Meadows); Sonoran Desert basin geography (statemuseum.arizona.edu Hohokam)."
+  },
+  "featured_frontier": {
+    "hook": "Sweet low-desert grapefruit segments + toasted medjool date over Power Cakes on a saguaro-rib table, Camelback glowing red at dawn -- Sonoran desert breakfast",
+    "photo_cue": "grapefruit + medjool dates, enamel plate on adobe patio, Camelback red-rock dawn glow",
+    "signature_ingredient": "low-desert citrus (grapefruit, palatable Sept) + Arizona medjool dates",
+    "cross_promo": { "consent_status": "n/a" }
+  },
+  "audience": "Sunbelt desert families, low-desert citrus-and-date households; Fry's + Walmart + Costco metro shoppers, snowbird-inflected fall-winter season",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 20.0,
+      "translate_code": "es",
+      "reason": "INFERRED from Maricopa County Hispanic ~31% (ACS pattern); Spanish is the dominant second language of the Phoenix metro -- verify exact ACS S1601 pct before production"
+    },
+    {
+      "lang_code": "nv",
+      "lang_name": "Navajo",
+      "pct_home": 0.5,
+      "translate_code": "nv",
+      "reason": "INFERRED Arizona urban hub for Navajo Nation + tribal communities; low but present -- verify ACS pct before production"
+    }
+  ],
+  "cultural_notes": [
+    "the Hohokam engineered the original canal network across the Salt River valley; freestanding adobe-walled compounds appeared roughly A.D. 1150-1200, and modern Phoenix canals trace that ancient irrigation (source: Culture History of Southern Arizona: Hohokam, statemuseum.arizona.edu)",
+    "Pueblo Revival is a signature historic-district style in Phoenix: sun-dried adobe or stucco/concrete stand-ins with rounded corners, irregular parapets and thick battered walls (source: Pueblo Revival architecture in Phoenix, historicphoenix.com; historicphoenixdistricts.com)",
+    "Sonoran Transitional and territorial-era adobe are documented local styles (source: Wisdom House NRHP nomination, nps.gov; Preservation of adobe, phgmag.com)",
+    "large snowbird / seasonal-resident population reshapes the fall-winter grocery calendar (INFERRED demographic framing -- verify tone before production use)"
+  ],
+  "design_palette": {
+    "textures": [
+      "sun-dried adobe mud-brick",
+      "lime-plaster over block",
+      "saguaro-rib lath",
+      "medjool date-palm frond",
+      "grapefruit peel dimple",
+      "red Camelback sandstone",
+      "sun-cracked caliche"
+    ],
+    "colors": [
+      {
+        "name": "Camelback sandstone red",
+        "hex": "#B15A3C",
+        "use": "skyline / dawn backdrop"
+      },
+      {
+        "name": "low-desert grapefruit blush",
+        "hex": "#E6785E",
+        "use": "produce hero / accent"
+      },
+      {
+        "name": "medjool date brown",
+        "hex": "#5A3620",
+        "use": "produce hero / trim"
+      },
+      { "name": "adobe tan", "hex": "#CBA477", "use": "structure / wall" },
+      {
+        "name": "saguaro green",
+        "hex": "#5C7B52",
+        "use": "cactus / foreground accent"
+      }
+    ],
+    "building_materials": [
+      "sun-dried adobe brick",
+      "lime-plaster / stucco over concrete block",
+      "saguaro-rib and ocotillo lath ceilings",
+      "flat parapet roof",
+      "exposed viga beam (transitional)",
+      "fired brick (territorial)"
+    ],
+    "landscape_motifs": [
+      "Camelback Mountain red-rock glow",
+      "saguaro-and-ocotillo Sonoran flat",
+      "date-palm grove row",
+      "citrus orchard at dawn",
+      "Salt River canal ribbon"
+    ],
+    "_provenance_note": "adobe/lime-plaster/saguaro-rib grounded in Pueblo Revival + Sonoran Transitional + Hohokam adobe (historicphoenix.com; nps.gov Wisdom House; statemuseum.arizona.edu). Camelback sandstone red + citrus/date produce color grounded in the terrain and low-desert crops. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette (bearBrown/blazeOrange/frontierGreen/parchment/oatmeal)."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        {
+          "name": "low-desert grapefruit + early citrus",
+          "peak_month": 11,
+          "pancake_tie": "grapefruit-supreme segments + honey over Buttermilk Power Cakes; grapefruit is palatable by September, sweeter into winter"
+        },
+        {
+          "name": "Arizona medjool + deglet noor dates",
+          "peak_month": 10,
+          "pancake_tie": "chopped medjool date folded into batter with a date-syrup drizzle -- late-summer to fall date harvest"
+        },
+        {
+          "name": "pomegranates",
+          "peak_month": 10,
+          "pancake_tie": "pomegranate-aril garnish on a honey stack"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Fry's Food Stores (Phoenix metro)",
+          "type": "chain-grocer",
+          "notes": "Kroger banner; carries Arizona citrus and dates in season"
+        },
+        {
+          "name": "Singh Meadows Farmers Market (Tempe)",
+          "type": "farmers-market",
+          "url": "https://www.visitphoenix.com",
+          "notes": "farm-to-table market along Indian Bend Wash"
+        }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [12, 1],
+      "in_season_produce": [
+        {
+          "name": "peak low-desert grapefruit + navel orange",
+          "peak_month": 1,
+          "pancake_tie": "citrus-honey holiday stack; citrus sweetens on the tree into midwinter"
+        },
+        {
+          "name": "medjool dates (holiday)",
+          "pancake_tie": "date-and-pecan holiday stack -- INFERRED tie, verify"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Fry's / Walmart (Phoenix metro)", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        {
+          "name": "desert melons + summer chiles",
+          "peak_month": 8,
+          "pancake_tie": "savory roasted-chile Power Cakes; melon side -- Arizona summer harvest (heirloomfm.org seasonality)"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Singh Meadows Farmers Market (Tempe)",
+          "type": "farmers-market"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Fry's Food Stores",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "Kroger banner, dominant Phoenix grocer"
+    },
+    { "name": "Walmart", "role": "primary" },
+    {
+      "name": "Costco",
+      "role": "primary",
+      "notes": "dense metro warehouse footprint"
+    },
+    { "name": "Target", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "citrus-honey Power Cakes card + medjool-date syrup card -- real Arizona low-desert fall/winter produce"
+    },
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "Phoenix is a dense Costco metro; bulk Family Size stock-up for large Sunbelt households + snowbird pantry runs is a natural fit"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no existing Phoenix creative corpus identified in the scoreboard set -- thin to riff on until first assets ship"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified; archetype/partnership only, never likeness"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "Bear Bites lunchbox angle carries nationally; low Sonoran desert is not bear habitat -- keep conservation-toned, national"
+    },
+    "keep-it-wild": {
+      "fit": "strong",
+      "angle": "South Mountain Park (one of the largest municipal parks in the US), Camelback, and the Sonoran Preserve are wild public land at the metro edge -- Keep It Wild desert-dawn stack",
+      "existing_brief": "briefs/kodiak.yaml"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "low Sonoran desert metro; nearest snow is the Arizona high country (Flagstaff/Snowbowl) but not a Phoenix identity"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "thin",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.83,
+    "ready_to_rock": true,
+    "notes": "New seed. design_palette grounded in Pueblo Revival + Sonoran Transitional adobe + Camelback terrain and cited; seasonal keyed to low-desert citrus/date/pomegranate fall harvest (Sept-onward, not winter-defaulted); Fry's mapped as home retailer, Costco strong for localized-costco. languages carry INFERRED flags -- market-languages.json was not present in this checkout, so ACS pcts need verification. audience thin pending demographic confirmation. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Pueblo Revival architecture in Phoenix (adobe, rounded corners, thick battered walls) -- historicphoenix.com/historic-architecture/pueblo-revival-architecture-phoenix; historicphoenixdistricts.com",
+      "web: Culture History of Southern Arizona: Hohokam (freestanding adobe compounds A.D. 1150-1200, Salt River canals) -- statemuseum.arizona.edu",
+      "web: Wisdom House / Sonoran Transitional style NRHP -- npgallery.nps.gov (87001590)",
+      "web: Arizona low-desert citrus (grapefruit palatable September, sweeter into winter) -- extension.arizona.edu/pubs/low-desert-citrus-varieties",
+      "web: Arizona seasonal produce (dates, melons, pomegranates late summer-fall) -- heirloomfm.org seasonality guide; thespruceeats.com Arizona seasonal guide; riosalado.edu whats-season",
+      "web: Singh Meadows farm-to-table market, Tempe -- visitphoenix.com/blog seasonal flavors",
+      "INFERRED: language pcts (market-languages.json absent in checkout) -- verify ACS S1601 for Maricopa County"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "region_id": "bend",
+  "market_code": "US-W-BEND",
+  "aliases": [],
+  "place": "Bend, Oregon",
+  "zip": "97701",
+  "county": "Deschutes County",
+  "state": "OR",
+  "coordinates": { "lat": 44.0582, "lon": -121.3153 },
+  "classification": "regional",
+  "city_center": {
+    "name": "Downtown Bend + the Deschutes River / Old Mill District",
+    "landmark": "the Deschutes River through the Old Mill District; Mount Bachelor and the Cascade volcanoes on the western skyline; high-desert ponderosa and juniper; a nationally noted craft-brewery scene",
+    "notes": "Bend is a high-desert Cascade town on the Deschutes River, a ski-and-outdoor recreation hub anchored by Mount Bachelor, with a nationally noted craft-brewery culture. Ponderosa pine, juniper, and volcanic rock define the landscape. sources: en.wikipedia.org Bend, Oregon; Mount Bachelor + Bend Ale Trail framing."
+  },
+  "featured_frontier": {
+    "hook": "Central Oregon berry + juniper-honey Power Cakes at a Mount Bachelor ski lodge, Deschutes River and Cascade volcanoes behind -- high-desert ski-town breakfast",
+    "photo_cue": "cast-iron flapjack stack on a ponderosa-log lodge table, Mount Bachelor snowcap and Cascade volcanoes behind, high-desert juniper, craft-brew growler alongside, alpine-morning light",
+    "signature_ingredient": "Central Oregon + Willamette Valley berries (summer) + juniper/wildflower honey; Hood River-adjacent apples and pears (fall); craft-brew culture tie",
+    "cross_promo": {
+      "partner": "Bend Farmers Market / Central Oregon producers",
+      "url": "https://www.bendfarmersmarket.com",
+      "activation": "ski-lodge berry Power Cakes card + craft-brew-brunch pairing angle, Fred Meyer / Newport Avenue Market / WinCo retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Bend + Central Oregon families; Mount Bachelor skiers and riders; high-desert outdoor-recreation and craft-brew culture; transplant and second-home households; Fred Meyer, Newport Avenue Market, and WinCo shoppers",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 7.0,
+      "translate_code": "es",
+      "reason": "INFERRED (ACS source file absent): Latino community across Central Oregon (Redmond, Madras nearby); pct is a web-informed estimate, not exact ACS"
+    }
+  ],
+  "cultural_notes": [
+    "Bend is a high-desert Cascade recreation hub on the Deschutes River; Mount Bachelor is a major ski-and-snowboard mountain with a long season, making this a genuine ski-town identity (source: en.wikipedia.org Bend, Oregon; Mount Bachelor framing)",
+    "Bend has a nationally noted craft-brewery scene (the Bend Ale Trail) -- a brunch-and-brew culture that a Power Cakes brunch angle can lean into (source: Bend Ale Trail framing, publicly documented)",
+    "the landscape is ponderosa pine, western juniper, and Cascade volcanic rock -- a high-desert alpine setting distinct from the wet Willamette Valley (source: Central Oregon geography, publicly documented)",
+    "Fred Meyer, Newport Avenue Market (a beloved local Bend grocer), and WinCo are the regional grocers (source: chain regional footprint)"
+  ],
+  "design_palette": {
+    "textures": [
+      "ponderosa-pine bark plate",
+      "western-juniper twist-grain wood",
+      "Cascade volcanic basalt and pumice",
+      "snow-crust alpine texture",
+      "Deschutes River riffle sheen",
+      "high-desert bunchgrass",
+      "cast-iron griddle char"
+    ],
+    "colors": [
+      {
+        "name": "ponderosa-pine green",
+        "hex": "#2E4A34",
+        "use": "forest / foreground"
+      },
+      {
+        "name": "Cascade-snow blue-white",
+        "hex": "#D2DBE0",
+        "use": "peak snow / negative space"
+      },
+      {
+        "name": "volcanic basalt charcoal",
+        "hex": "#3E3B3A",
+        "use": "rock / structure"
+      },
+      {
+        "name": "high-desert juniper sage",
+        "hex": "#7C8763",
+        "use": "juniper / dry foreground"
+      },
+      {
+        "name": "alpenglow rose",
+        "hex": "#D98A76",
+        "use": "peak alpenglow / warm accent"
+      }
+    ],
+    "building_materials": [
+      "ponderosa-log and timber lodge",
+      "western-juniper accent wood",
+      "Cascade basalt fieldstone",
+      "corrugated Old-Mill steel",
+      "board-and-batten high-desert home"
+    ],
+    "landscape_motifs": [
+      "Mount Bachelor and Cascade volcanoes on the skyline",
+      "Deschutes River through the Old Mill",
+      "ponderosa-and-juniper high desert",
+      "alpenglow on a snowy peak",
+      "ski-lodge deck at altitude"
+    ],
+    "_provenance_note": "ponderosa green + juniper sage + volcanic basalt grounded in the Central Oregon high-desert Cascade landscape. Cascade-snow blue-white + alpenglow rose from the alpine peaks. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "ski-season",
+      "months": [11, 12, 1, 2, 3, 4],
+      "in_season_produce": [
+        {
+          "name": "stored Oregon apples + juniper/wildflower honey",
+          "peak_month": 1,
+          "pancake_tie": "honey-apple Power Cakes at a Mount Bachelor ski-lodge griddle -- Bend's signature ski-town stack (Bachelor has one of the longest seasons in the West)"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Newport Avenue Market",
+          "type": "chain-grocer",
+          "notes": "beloved local Bend grocer; stock-up before the mountain"
+        },
+        { "name": "Fred Meyer", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        {
+          "name": "Oregon berries (marionberry, blueberry via Willamette Valley)",
+          "peak_month": 7,
+          "pancake_tie": "Oregon berry compote over Power Cakes -- summer trail-and-river breakfast"
+        },
+        {
+          "name": "Central Oregon farmers-market stone fruit",
+          "peak_month": 8,
+          "pancake_tie": "peach compote for a high-desert summer griddle"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Bend Farmers Market",
+          "type": "farmers-market",
+          "url": "https://www.bendfarmersmarket.com",
+          "notes": "berries + stone fruit trucked from the valley + local growers"
+        }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        {
+          "name": "Hood River-adjacent apples + pears",
+          "peak_month": 10,
+          "pancake_tie": "apple-and-pear compote over Power Cakes -- Cascade orchard fall"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Bend Farmers Market",
+          "type": "farmers-market",
+          "notes": "apples + pears in fall"
+        },
+        { "name": "Newport Avenue Market", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [4, 5],
+      "in_season_produce": [
+        {
+          "name": "Oregon rhubarb + early greens",
+          "peak_month": 5,
+          "pancake_tie": "rhubarb compote over Power Waffles -- late-spring pick as the ski season winds down"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Newport Avenue Market",
+          "type": "chain-grocer",
+          "notes": "spring produce"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Fred Meyer",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "Pacific NW one-stop chain; home channel"
+    },
+    {
+      "name": "Newport Avenue Market",
+      "role": "primary",
+      "notes": "beloved local Bend grocer"
+    },
+    {
+      "name": "WinCo Foods",
+      "role": "primary",
+      "notes": "employee-owned value grocer"
+    },
+    { "name": "Costco (Bend)", "role": "secondary", "notes": "bulk channel" }
+  ],
+  "campaign_type_fit": {
+    "us-ski-and-snowboard": {
+      "fit": "strong",
+      "angle": "Mount Bachelor has one of the longest ski seasons in the West and defines Bend's identity; a ski-lodge honey-apple Power Cakes stack is a direct, top-tier us-ski-and-snowboard fit -- one of the strongest ski markets in this cluster"
+    },
+    "keep-it-wild": {
+      "fit": "strong",
+      "angle": "Cascade volcanoes, the Deschutes River, and the high-desert ponderosa-and-juniper landscape give Bend a premier Keep It Wild backdrop -- alpine and river frontier"
+    },
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "ski-lodge honey-apple card (winter) + Oregon berry card (summer) + apple/pear card (fall) -- real Cascade + Willamette Valley produce with a craft-brew-brunch styling angle"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no produced Bend content corpus yet; strong ski-town + craft cue but thin prior material"
+    },
+    "localized-costco": {
+      "fit": "weak",
+      "angle": "Costco in Bend is a secondary channel; this is a Fred Meyer + Newport Avenue Market ski-town market, not a bulk-first metro"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "black bear lives in the Central Oregon Cascades (no grizzlies in Oregon currently); keep conservation-toned, habitat framing"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.87,
+    "ready_to_rock": true,
+    "notes": "Palette grounded in ponderosa green + Cascade-snow + volcanic basalt + juniper sage + alpenglow rose (high-desert Cascade). Four seasonal windows led by a long ski-season entry, from real Cascade + valley produce. us-ski-and-snowboard AND keep-it-wild both scored strong (Mount Bachelor, one of the top ski markets in the cluster). Craft-brew-brunch angle noted. languages THIN -- Spanish pct INFERRED because ACS source file is absent; no exact ACS numbers fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Bend, Oregon -- en.wikipedia.org (Deschutes River, Old Mill, high desert)",
+      "web: Mount Bachelor (long ski season) + Cascade volcanoes framing -- publicly documented",
+      "web: Bend Ale Trail craft-brewery culture framing -- publicly documented",
+      "web: Newport Avenue Market local Bend grocer -- publicly documented",
+      "note: language percentages INFERRED -- ACS/market-languages source file absent in checkout; no exact ACS numbers used"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

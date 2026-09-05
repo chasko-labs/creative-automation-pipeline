@@ -1,0 +1,215 @@
+{
+  "region_id": "timberon",
+  "market_code": "US-SW-TIMBERON",
+  "aliases": [
+    "US-SW-CLOUDCROFT (nearest Sacramento Mountains village)",
+    "US-SW-TULAROSA (basin grocery shed)"
+  ],
+  "place": "Timberon, New Mexico",
+  "zip": "88350",
+  "county": "Otero County",
+  "state": "NM",
+  "coordinates": { "lat": 32.6383, "lon": -105.6905 },
+  "classification": "frontier-gap",
+  "city_center": {
+    "name": "Timberon (unincorporated Sacramento Mountains community)",
+    "landmark": "remote pinon-and-ponderosa mountain community in the southern Sacramento Mountains, Lincoln National Forest / Sacramento Mountains high country south of Cloudcroft",
+    "notes": "Timberon is a small, remote unincorporated mountain community with no in-town chain grocer; residents drive down to Alamogordo for full grocery runs. The pinon-harvest cross-promo pattern is carried from frontier-gaps.json. sources: frontier-gaps.json (pinon cross-promo pattern, per task brief); Sacramento Mountains / Lincoln National Forest geography (shared with Cloudcroft record)."
+  },
+  "featured_frontier": {
+    "hook": "Wild-harvested Sacramento Mountains pinon toasted into Power Cakes on a cabin porch at elevation, ponderosa and pinon-juniper all around -- off-grid mountain pinon breakfast",
+    "photo_cue": "toasted pinon in the batter, cast-iron on a log-cabin porch, pinon-juniper and ponderosa, high-mountain dawn",
+    "signature_ingredient": "wild Sacramento Mountains pinon (fall high-desert / high-mountain harvest)",
+    "cross_promo": {
+      "partner": "pinonnuts.com (New Mexico pinon)",
+      "url": "https://pinonnuts.com",
+      "product": "roasted New Mexico pinon seeds",
+      "activation": "pinon-honey Power Cakes tie to the Sacramento Mountains pinon harvest; the Timberon/Cloudcroft pinon cross-promo pattern already in frontier-gaps.json",
+      "consent_status": "proposed"
+    }
+  },
+  "audience": "Remote mountain-community households, off-grid cabin and retiree residents; DTC/subscription plus Alamogordo Walmart runs -- no in-town chain grocer",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 12.0,
+      "translate_code": "es",
+      "reason": "INFERRED small remote Otero County mountain community with a lower Hispano share than the basin villages; low but present -- verify ACS pct before production (small-population estimate uncertainty is high)"
+    }
+  ],
+  "cultural_notes": [
+    "Timberon is a remote unincorporated Sacramento Mountains community with no in-town chain grocer -- a genuine frontier-gap market where DTC/subscription and a drive to Alamogordo fill the pantry (source: frontier-gaps.json pattern per task brief; classification pattern shared with the scoreboard schema frontier-gap definition)",
+    "the Sacramento Mountains high country around Timberon is pinon-juniper and ponderosa forest; fall pinon-nut harvest is a genuine high-country tradition (source: pinon harvest framing shared with the Albuquerque/Santa Fe records; frontier-gaps.json)",
+    "Smokey Bear's real origin is nearby -- the cub was rescued after a 1950 fire in the Lincoln National Forest / Capitan area to the north; any bear angle should honor that real conservation heritage carefully, not costume it (source: Lincoln National Forest / Capitan Smokey Bear heritage, region knowledge -- verify exact framing before production)",
+    "very small population means demographic and produce estimates carry high uncertainty -- mark everything inferred and verify before production (INFERRED note)"
+  ],
+  "design_palette": {
+    "textures": [
+      "log-cabin round timber",
+      "pinon-pine bark + shell",
+      "ponderosa needle duff",
+      "weathered split-rail fence",
+      "granite outcrop",
+      "wood-stove cast iron",
+      "juniper-berry sprig"
+    ],
+    "colors": [
+      {
+        "name": "pinon-juniper green",
+        "hex": "#4C5F3C",
+        "use": "forest / foreground"
+      },
+      {
+        "name": "ponderosa bark cinnamon",
+        "hex": "#8A4B2C",
+        "use": "trunk / structure trim"
+      },
+      {
+        "name": "log-cabin timber brown",
+        "hex": "#6E4A2E",
+        "use": "cabin wall / porch"
+      },
+      {
+        "name": "high-mountain dawn gold",
+        "hex": "#D8A85A",
+        "use": "dawn sky backdrop"
+      },
+      {
+        "name": "granite gray",
+        "hex": "#8C8880",
+        "use": "outcrop / stone accent"
+      }
+    ],
+    "building_materials": [
+      "round-log cabin construction",
+      "board-and-batten siding",
+      "steep pitched metal roof (snow shed)",
+      "fieldstone foundation and chimney",
+      "split-rail fencing",
+      "wood-stove flue"
+    ],
+    "landscape_motifs": [
+      "pinon-juniper and ponderosa forest",
+      "log cabin at elevation",
+      "split-rail mountain fence",
+      "granite outcrop",
+      "high-mountain dawn over the Sacramentos"
+    ],
+    "_provenance_note": "log-cabin timber + pinon-juniper + ponderosa grounded in the Sacramento Mountains high-country forest around Timberon (shared with Cloudcroft terrain sourcing). pinon shell + juniper grounded in the fall pinon harvest. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        {
+          "name": "wild Sacramento Mountains pinon",
+          "peak_month": 10,
+          "pancake_tie": "toasted pinon folded into batter with a pinon-honey drizzle -- fall high-country pinon harvest; the signature Timberon hook"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "pinonnuts.com",
+          "type": "dtc-subscription",
+          "url": "https://pinonnuts.com",
+          "notes": "New Mexico pinon DTC -- the practical channel for a frontier-gap market"
+        },
+        {
+          "name": "Walmart Alamogordo",
+          "type": "chain-grocer",
+          "notes": "nearest chain grocer, a drive down off the mountain"
+        }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [12, 1],
+      "in_season_produce": [
+        {
+          "name": "pinon (holiday roast) + shelf-stable pantry",
+          "pancake_tie": "pinon-honey holiday stack; pantry-and-DTC cue for a snowed-in mountain community"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "pinonnuts.com",
+          "type": "dtc-subscription",
+          "url": "https://pinonnuts.com"
+        },
+        { "name": "Walmart Alamogordo", "type": "chain-grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Walmart",
+      "role": "gap-nearest",
+      "distance_mi": 55,
+      "notes": "Alamogordo Supercenter, approximate drive off the mountain -- verify exact distance"
+    },
+    {
+      "name": "pinonnuts.com",
+      "role": "home",
+      "notes": "DTC pinon is the practical in-market channel for a frontier-gap community"
+    }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "weak",
+      "angle": "pinon-honey Power Cakes card is a strong single hook, but the frontier-gap produce story is otherwise thin (one crop, DTC channel)"
+    },
+    "keep-it-wild": {
+      "fit": "strong",
+      "angle": "Timberon is surrounded by Sacramento Mountains / Lincoln National Forest wild land -- Keep It Wild off-grid mountain-cabin dawn stack is the natural hook",
+      "existing_brief": "briefs/kodiak.yaml"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "the real Smokey Bear origin (Capitan / Lincoln National Forest, 1950) is nearby -- a genuine conservation-heritage angle IF handled with care; keep it conservation-toned and never costume/captive, honor the real story"
+    },
+    "riff-on-past-content": {
+      "fit": "na",
+      "angle": "no existing Timberon creative corpus at all -- nothing to riff on"
+    },
+    "localized-costco": {
+      "fit": "na",
+      "angle": "frontier-gap: no Costco, no in-town chain grocer; DTC/subscription only with a long drive to Alamogordo"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified; archetype/partnership only, never likeness"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "remote mountain community; no organized ski culture (nearest small area is Cloudcroft/Ski Apache region)"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "thin",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "thin",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.72,
+    "ready_to_rock": false,
+    "notes": "New seed, a genuine frontier-gap market (no in-town chain grocer, DTC pinon channel). Strong single pinon hook + Keep-It-Wild fit. Everything demographic/produce carries high uncertainty due to tiny population and absent market-languages.json; Walmart Alamogordo distance is an estimate. Smokey Bear (Capitan) real conservation heritage flagged for careful handling. ready_to_rock false pending demographic + produce verification. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "task brief: frontier-gaps.json pinon cross-promo pattern (Timberon/Cloudcroft) -- source file not present in this checkout, carried from brief",
+      "web/region: Sacramento Mountains / Lincoln National Forest high-country geography (shared with Cloudcroft record) -- discovercloudcroft.com; en.wikipedia.org Cloudcroft",
+      "web/region: New Mexico pinon harvest + pinonnuts.com DTC (shared with Albuquerque/Santa Fe records) -- pinonnuts.com",
+      "region: Smokey Bear real origin, Capitan / Lincoln National Forest 1950 -- verify exact framing before production",
+      "INFERRED: language/audience/distance (market-languages.json + store-finder-markets.json absent in checkout, tiny population) -- verify all before production"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

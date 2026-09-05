@@ -1,0 +1,298 @@
+{
+  "region_id": "boston",
+  "market_code": "US-NE-BOS",
+  "aliases": ["US-NE-PORTLANDME (Portland, Maine sister)"],
+  "place": "Boston, Massachusetts + Portland, Maine",
+  "zip": "02108",
+  "county": "Suffolk County",
+  "state": "MA",
+  "coordinates": { "lat": 42.3601, "lon": -71.0589 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Faneuil Hall Marketplace / Quincy Market (Downtown Boston)",
+    "landmark": "Quincy Market granite colonnade (1826) + Faneuil Hall; the Freedom Trail red-brick line; Boston Public Market year-round indoor farmers market",
+    "notes": "Boston Public Market (100 Hanover St) is a permanent indoor market of New England producers, open year-round. Portland ME sister anchor is the Old Port cobblestone district. sources: Quincy Market + Faneuil Hall (en.wikipedia.org); bostonpublicmarket.org."
+  },
+  "featured_frontier": {
+    "hook": "New Hampshire maple + McIntosh apple compote over Power Cakes on a clapboard porch, fall foliage behind -- New England breakfast from Boston to the Portland Old Port",
+    "photo_cue": "amber maple drizzle on a cast-iron stack, weathered white clapboard, sugar-maple foliage in October reds and golds, granite market colonnade",
+    "signature_ingredient": "New England maple syrup (spring sugaring) + McIntosh/Cortland apples (Sep-Oct); Maine wild blueberries (Jul-Aug)",
+    "cross_promo": {
+      "partner": "Boston Public Market New England producers",
+      "url": "https://bostonpublicmarket.org",
+      "activation": "maple + apple compote recipe card, Market Basket / Stop & Shop retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Boston metro families + Cambridge/Somerville households; New England fall-foliage and maple-culture shoppers; Portland ME Old Port food families; Market Basket and Hannaford value shoppers",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 8.5,
+      "translate_code": "es",
+      "reason": "INFERRED (ACS source file absent in checkout): metro Boston has a large Spanish-speaking population concentrated in East Boston, Chelsea, and Lawrence; pct is a web-informed estimate, not an exact ACS figure"
+    },
+    {
+      "lang_code": "pt",
+      "lang_name": "Portuguese",
+      "pct_home": 2.5,
+      "translate_code": "pt",
+      "reason": "INFERRED (ACS source file absent): greater Boston holds one of the largest Portuguese and Brazilian communities in the US (Fall River, New Bedford, Somerville, Framingham); pct estimated, not exact ACS"
+    },
+    {
+      "lang_code": "zh",
+      "lang_name": "Chinese",
+      "pct_home": 2.0,
+      "translate_code": "zh",
+      "reason": "INFERRED (ACS source file absent): Boston Chinatown + Quincy anchor a sizable Chinese community; pct estimated"
+    }
+  ],
+  "cultural_notes": [
+    "New England breakfast tradition ties maple, apples, and cast-iron cooking to the fall foliage and spring sugaring seasons; sugaring runs late winter into early spring when nights freeze and days thaw (source: Massachusetts Maple Producers Association / UVM extension framing)",
+    "Boston Public Market is a permanent year-round indoor market showcasing only New England producers -- a civic food anchor near Faneuil Hall (source: bostonpublicmarket.org)",
+    "Market Basket is a fiercely loyal New England value grocer; Hannaford and Stop & Shop round out the regional chains (source: chain regional footprint, publicly documented)",
+    "Portland, Maine's Old Port is a working waterfront and nationally noted food scene; Maine wild (lowbush) blueberries are a signature regional crop peaking mid-to-late summer (source: University of Maine wild blueberry extension; en.wikipedia.org Old Port)"
+  ],
+  "design_palette": {
+    "textures": [
+      "white-painted clapboard siding",
+      "aged Colonial red brick",
+      "Quincy granite ashlar",
+      "cobblestone paving (Old Port / Beacon Hill)",
+      "sugar-maple leaf litter",
+      "weathered lobster-trap lath",
+      "cast-iron griddle char"
+    ],
+    "colors": [
+      {
+        "name": "sugar-maple foliage red",
+        "hex": "#B23A2E",
+        "use": "autumn canopy / produce accent"
+      },
+      {
+        "name": "Colonial brick red",
+        "hex": "#8A4033",
+        "use": "structure / storefront"
+      },
+      {
+        "name": "clapboard colonial white",
+        "hex": "#F2EFE6",
+        "use": "structure / trim / negative space"
+      },
+      {
+        "name": "Quincy granite gray",
+        "hex": "#8C8A85",
+        "use": "market colonnade / paving"
+      },
+      {
+        "name": "maple-syrup amber",
+        "hex": "#A9611E",
+        "use": "syrup / warm hero accent"
+      }
+    ],
+    "building_materials": [
+      "white-painted wood clapboard",
+      "Colonial fired red brick",
+      "Quincy granite (market colonnade, sills)",
+      "cobblestone paving",
+      "weathered wharf timber (Portland Old Port)"
+    ],
+    "landscape_motifs": [
+      "sugar-maple foliage hillside",
+      "white-steeple town common",
+      "granite market colonnade",
+      "cobblestone Old Port lane",
+      "working harbor with lobster boats"
+    ],
+    "_provenance_note": "clapboard white + Colonial brick + Quincy granite grounded in Boston/New England historic architecture (Quincy Market granite colonnade 1826 -- en.wikipedia.org; Beacon Hill brick). maple foliage red + syrup amber from New England fall and sugaring. Old Port cobblestone + wharf timber from Portland ME waterfront. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10],
+      "in_season_produce": [
+        {
+          "name": "McIntosh + Cortland apples",
+          "peak_month": 10,
+          "pancake_tie": "cinnamon-apple compote over Power Cakes -- New England orchard classic at peak foliage"
+        },
+        {
+          "name": "New England cranberries (Massachusetts bogs)",
+          "peak_month": 10,
+          "pancake_tie": "cranberry-maple spoon over Buttermilk Power Cakes -- MA is a top cranberry state"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Boston Public Market",
+          "type": "farmers-market",
+          "url": "https://bostonpublicmarket.org",
+          "notes": "year-round New England producers; apples + cranberries in fall"
+        },
+        {
+          "name": "Market Basket",
+          "type": "chain-grocer",
+          "notes": "New England value grocer; regional apples"
+        },
+        {
+          "name": "Stop & Shop",
+          "type": "chain-grocer",
+          "notes": "metro Boston"
+        }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [11, 12, 1, 2],
+      "in_season_produce": [
+        {
+          "name": "stored apples + New England maple syrup",
+          "pancake_tie": "maple-drenched holiday Power Cakes stack -- pantry maple through the cold months"
+        },
+        {
+          "name": "winter squash + root vegetables",
+          "pancake_tie": "spiced squash Power Cakes for a snow-morning stack"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Market Basket", "type": "chain-grocer" },
+        {
+          "name": "Hannaford",
+          "type": "chain-grocer",
+          "notes": "strong across northern New England + Maine"
+        },
+        { "name": "Stop & Shop", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4, 5],
+      "in_season_produce": [
+        {
+          "name": "fresh New England maple syrup (sugaring season)",
+          "peak_month": 3,
+          "pancake_tie": "first-run maple over Power Cakes -- the signature spring sugaring pour"
+        },
+        {
+          "name": "spring rhubarb",
+          "peak_month": 5,
+          "pancake_tie": "rhubarb compote over Power Waffles"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Boston Public Market",
+          "type": "farmers-market",
+          "notes": "fresh-run maple + spring produce"
+        },
+        { "name": "Market Basket", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [7, 8],
+      "in_season_produce": [
+        {
+          "name": "Maine wild (lowbush) blueberries",
+          "peak_month": 8,
+          "pancake_tie": "Maine wild-blueberry compote over Power Cakes -- Portland ME signature summer crop"
+        },
+        {
+          "name": "New England sweet corn + strawberries",
+          "peak_month": 7,
+          "pancake_tie": "strawberry compote summer stack"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Portland Farmers Market (Deering Oaks)",
+          "type": "farmers-market",
+          "notes": "Portland ME; Maine wild blueberries in summer"
+        },
+        {
+          "name": "Hannaford",
+          "type": "chain-grocer",
+          "notes": "Maine-founded chain; wild blueberries"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Market Basket",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "New England value flagship; deeply loyal shopper base"
+    },
+    { "name": "Stop & Shop", "role": "primary", "notes": "metro Boston" },
+    {
+      "name": "Hannaford",
+      "role": "primary",
+      "notes": "northern New England + Maine"
+    },
+    {
+      "name": "Costco",
+      "role": "secondary",
+      "notes": "Everett / Waltham bulk channel"
+    }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "maple + McIntosh apple compote card (fall), Maine wild-blueberry card (summer), cranberry-maple card (fall) -- real New England seasonal calendar"
+    },
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "Boston is a Costco + Market Basket bulk market; retailer lockup works with the New England value-grocer story",
+      "existing_brief": "briefs/kodiak-costco.yaml"
+    },
+    "keep-it-wild": {
+      "fit": "weak",
+      "angle": "White Mountains / Maine North Woods carry a wild story, but Boston itself is a dense metro -- lands better on the Portland ME / northern New England edge"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no produced Boston content corpus yet; strong cue but thin prior material"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "New Hampshire + Maine have healthy black bear populations; keep conservation-toned, tracks-and-habitat only, no metro grizzly hook"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "weak",
+      "angle": "New England ski country (White Mountains, Sunday River, Sugarloaf ME) is real but a drive from Boston; secondary angle, not a ski-town identity"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.86,
+    "ready_to_rock": true,
+    "notes": "Palette grounded in New England clapboard + Colonial brick + Quincy granite + maple foliage. Four seasonal windows from real regional produce (apples, cranberries, maple, Maine wild blueberries). Retailers mapped to Market Basket/Stop & Shop/Hannaford. languages are THIN -- percentages INFERRED because the ACS source file is absent in this checkout; no exact ACS numbers fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Quincy Market + Faneuil Hall -- en.wikipedia.org (1826 granite colonnade, Freedom Trail)",
+      "web: Boston Public Market -- bostonpublicmarket.org (year-round indoor New England producers market)",
+      "web: Massachusetts cranberry + maple production framing -- Massachusetts Maple Producers Association; cape cod cranberry growers",
+      "web: University of Maine wild blueberry extension (lowbush blueberry peak mid-to-late summer)",
+      "web: Old Port, Portland Maine -- en.wikipedia.org (cobblestone waterfront district)",
+      "note: language percentages INFERRED -- ACS/market-languages source file absent in checkout; no exact ACS numbers used"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "region_id": "jackson",
+  "market_code": "US-SE-JACKSON",
+  "aliases": ["US-SE-JACKSON-MS"],
+  "place": "Jackson, Mississippi",
+  "state": "MS",
+  "coordinates": { "lat": 32.2988, "lon": -90.1848 },
+  "classification": "regional",
+  "city_center": {
+    "name": "Downtown Jackson (Farish Street Historic District) + Mississippi Farmers Market",
+    "landmark": "Farish Street Historic District (one of the largest historically African-American business districts in the US) and the Old Capitol; Mississippi Farmers Market on High Street",
+    "notes": "Mississippi capital in the Delta-and-Piney-Woods transition. Kroger and Winn-Dixie serve the metro; Rouses has expanded from Louisiana into Mississippi. Farish Street was a hub of Black-owned business and blues heritage. sources: general Farish Street heritage; Mississippi Farmers Market (MDAC)."
+  },
+  "featured_frontier": {
+    "hook": "Mississippi sweet potato + summer-tomato savory Power Cakes -- a capital-city brunch on the edge of the Delta",
+    "photo_cue": "downtown Jackson brick and Farish Street storefronts, Mississippi sweet potato, ripe tomatoes, Piney-Woods pine backdrop; warm capital-city light",
+    "signature_ingredient": "Mississippi sweet potatoes (fall) + summer tomatoes and Gulf-South stone fruit",
+    "cross_promo": {
+      "partner": "Mississippi Farmers Market (Jackson, MDAC)",
+      "activation": "Mississippi sweet-potato + savory-tomato recipe card, Kroger retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Mississippi capital-city families + downtown-and-suburb households; Kroger-and-Winn-Dixie shoppers across central Mississippi",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "translate_code": "es",
+      "reason": "Spanish is the leading second home language in the Jackson metro, though the metro is majority English-speaking with a large African-American population. Percentage INFERRED (localization pipeline data absent) -- not an ACS figure"
+    }
+  ],
+  "cultural_notes": [
+    "Jackson is Mississippi's capital, sitting at the transition between the Delta to the northwest and the Piney Woods to the south (source: general regional knowledge; language selection flagged INFERRED)",
+    "The Farish Street Historic District was one of the largest historically African-American business districts in the US and a center of blues and civil-rights history; reference it respectfully and never trivialize it (source: general historical knowledge -- honor gravity, no trivializing)",
+    "Mississippi's growing season supports strong summer vegetables (tomatoes, sweet corn, okra) and a substantial fall sweet-potato crop, plus spring strawberries and asparagus (source: msstate.edu Extension Buy Fresh Fruits and Vegetables in Season; texasrealfood.com Mississippi)",
+    "Kroger and Winn-Dixie anchor the metro grocery landscape, with Rouses expanding from Louisiana (source: regional retail footprint)"
+  ],
+  "design_palette": {
+    "textures": [
+      "downtown red brick",
+      "Farish Street storefront masonry",
+      "Mississippi loess-and-clay soil",
+      "Piney-Woods pine bark",
+      "sweet-potato skin",
+      "tomato-skin gloss",
+      "cotton-boll fluff"
+    ],
+    "colors": [
+      {
+        "name": "Mississippi red-clay ochre",
+        "hex": "#A85B3B",
+        "use": "ground / terrain"
+      },
+      {
+        "name": "Jackson brick red",
+        "hex": "#7C3B2E",
+        "use": "structure / storefront"
+      },
+      {
+        "name": "Mississippi sweet-potato copper",
+        "hex": "#B5662E",
+        "use": "produce hero"
+      },
+      {
+        "name": "summer-tomato red",
+        "hex": "#C43A2E",
+        "use": "produce accent"
+      },
+      {
+        "name": "Piney-Woods pine green",
+        "hex": "#2F4A34",
+        "use": "canopy / foreground"
+      }
+    ],
+    "building_materials": [
+      "red fired brick",
+      "masonry storefront (Farish Street)",
+      "cast stone (Old Capitol civic)",
+      "wood-frame farmhouse (rural)",
+      "brick commercial block"
+    ],
+    "landscape_motifs": [
+      "downtown Jackson brick streetscape",
+      "Farish Street district",
+      "Mississippi red-clay road",
+      "Piney-Woods pine stand",
+      "Delta-edge farmland"
+    ]
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        {
+          "name": "Mississippi sweet potatoes",
+          "peak_month": 10,
+          "pancake_tie": "roasted Mississippi sweet-potato + cinnamon Power Cakes -- fall root harvest"
+        },
+        {
+          "name": "fall greens (collards, mustard, turnip)",
+          "peak_month": 11,
+          "pancake_tie": "savory greens-and-cheddar Power Cakes -- Southern fall table tie"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Mississippi Farmers Market (Jackson)",
+          "type": "farmers-market",
+          "notes": "High Street, MDAC"
+        },
+        {
+          "name": "Kroger / Winn-Dixie (Jackson metro)",
+          "type": "chain-grocer"
+        }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        {
+          "name": "Mississippi tomatoes",
+          "peak_month": 7,
+          "pancake_tie": "savory Mississippi-tomato Power Cakes -- summer tomato peak"
+        },
+        {
+          "name": "Mississippi sweet corn + okra",
+          "peak_month": 7,
+          "pancake_tie": "savory sweet-corn cakes"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Mississippi Farmers Market (Jackson)",
+          "type": "farmers-market"
+        },
+        {
+          "name": "Kroger / Winn-Dixie (Jackson metro)",
+          "type": "chain-grocer"
+        }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4, 5],
+      "in_season_produce": [
+        {
+          "name": "Mississippi strawberries",
+          "peak_month": 4,
+          "pancake_tie": "spring strawberry compote stack"
+        },
+        {
+          "name": "spring asparagus",
+          "peak_month": 4,
+          "pancake_tie": "savory asparagus-and-cheddar Power Cakes"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Mississippi Farmers Market (Jackson)",
+          "type": "farmers-market"
+        },
+        {
+          "name": "Kroger / Winn-Dixie (Jackson metro)",
+          "type": "chain-grocer"
+        }
+      ]
+    },
+    {
+      "season": "thanksgiving",
+      "months": [11],
+      "in_season_produce": [
+        {
+          "name": "winter squash + late greens",
+          "peak_month": 11,
+          "pancake_tie": "spiced winter-squash Power Cakes -- fall-winter table tie"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Kroger / Winn-Dixie (Jackson metro)",
+          "type": "chain-grocer"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Kroger", "role": "home" },
+    { "name": "Winn-Dixie", "role": "primary" },
+    { "name": "Rouses Markets", "role": "secondary" },
+    { "name": "Walmart", "role": "secondary" }
+  ],
+  "campaign_type_fit": {
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "Kroger/Winn-Dixie central-Mississippi variant of the localized-costco type; reuse briefs/kodiak-costco.yaml pattern with a Jackson capital-city lockup",
+      "existing_brief": "briefs/kodiak-costco.yaml"
+    },
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "Mississippi sweet-potato card + savory summer-tomato card + spring strawberry card -- three real seasonal Mississippi cards"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no known prior Jackson creative to riff on"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified; archetype only, never likeness"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "the Louisiana black bear (also in Mississippi bottomlands) is a conservation success story but not a Jackson metro hook; keep conservation-toned, tracks-only"
+    },
+    "keep-it-wild": {
+      "fit": "weak",
+      "angle": "Delta-edge and Piney-Woods wild angle possible but capital-metro market"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "no ski culture; central Mississippi lowlands"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.83,
+    "ready_to_rock": true,
+    "notes": "Jackson anchored on the Delta-to-Piney-Woods transition + Mississippi fall sweet-potato harvest; Farish Street heritage referenced respectfully. Kroger/Winn-Dixie split home grocer, Rouses expanding in. languages thin -- single INFERRED entry, no ACS numbers fabricated. hex flagged for brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Mississippi buy-fresh-in-season (summer tomatoes/corn/okra, fall sweet potatoes, spring strawberries) -- extension.msstate.edu; texasrealfood.com Mississippi",
+      "Farish Street historically-Black business district + blues heritage -- general historical knowledge (referenced respectfully)",
+      "Kroger/Winn-Dixie/Rouses Mississippi footprint + Mississippi Farmers Market (MDAC) -- general regional knowledge",
+      "language percentage INFERRED -- localization pipeline data absent from checkout; no ACS figure fabricated"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

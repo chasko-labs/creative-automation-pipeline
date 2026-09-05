@@ -1,0 +1,271 @@
+{
+  "region_id": "sacramento",
+  "market_code": "US-W-SACRAMENTO",
+  "aliases": [],
+  "place": "Sacramento, California",
+  "zip": "95814",
+  "county": "Sacramento County",
+  "state": "CA",
+  "coordinates": { "lat": 38.5816, "lon": -121.4944 },
+  "classification": "metro",
+  "city_center": {
+    "name": "Downtown Sacramento / Old Sacramento + the Central Valley farm belt",
+    "landmark": "the California State Capitol; Old Sacramento's Gold Rush-era brick waterfront; the Sacramento River; the Central Valley, America's most productive farm region",
+    "notes": "Sacramento is the self-styled 'Farm-to-Fork Capital of America', sitting at the heart of the Central Valley -- the most productive agricultural region in the US. Old Sacramento preserves Gold Rush-era brick buildings along the river. sources: en.wikipedia.org Sacramento, California; Sacramento Farm-to-Fork framing."
+  },
+  "featured_frontier": {
+    "hook": "Central Valley stone fruit + Delta corn over Power Cakes on a Gold Rush brick porch, farm-to-fork abundance behind",
+    "photo_cue": "cast-iron flapjack stack on a Gold Rush brick waterfront porch, Central Valley peaches and Delta corn, State Capitol dome, valley-oak and golden-grass light",
+    "signature_ingredient": "Central Valley stone fruit (peaches, nectarines, cherries; summer) + Delta sweet corn + California citrus (winter); tomatoes",
+    "cross_promo": {
+      "partner": "Sacramento farmers markets / Central Valley growers (Farm-to-Fork)",
+      "url": "https://farmtofork.com",
+      "activation": "Central Valley stone-fruit card + Delta corn card, Raley's / Safeway / Bel Air retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Sacramento metro families + downtown, suburban, and Delta households; farm-to-fork Central Valley food culture; Gold Rush and state-capital heritage; Raley's, Safeway, and Bel Air shoppers",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 16.0,
+      "translate_code": "es",
+      "reason": "INFERRED (ACS source file absent): large Mexican-American and broader Latino community across the metro; pct is a web-informed estimate, not exact ACS"
+    },
+    {
+      "lang_code": "zh",
+      "lang_name": "Chinese",
+      "pct_home": 3.0,
+      "translate_code": "zh",
+      "reason": "INFERRED (ACS source file absent): historic and current Chinese community; pct estimated"
+    },
+    {
+      "lang_code": "hmn",
+      "lang_name": "Hmong",
+      "pct_home": 2.0,
+      "translate_code": "hmn",
+      "reason": "INFERRED (ACS source file absent): Sacramento has one of the largest Hmong communities in the US; pct estimated"
+    }
+  ],
+  "cultural_notes": [
+    "Sacramento brands itself the 'Farm-to-Fork Capital of America', sitting in the Central Valley -- the most productive agricultural region in the US, supplying stone fruit, tomatoes, corn, and citrus (source: Sacramento Farm-to-Fork framing; farmtofork.com)",
+    "Old Sacramento preserves Gold Rush-era brick buildings along the Sacramento River, a signature waterfront (source: en.wikipedia.org Sacramento, California)",
+    "Sacramento has one of the largest Hmong communities in the US, alongside a large Latino community and historic Chinese presence -- a diverse food culture (source: general demographic framing, publicly documented)",
+    "Raley's (a Sacramento-founded chain), Safeway, and Bel Air are the metro grocers (source: chain regional footprint)"
+  ],
+  "design_palette": {
+    "textures": [
+      "Gold Rush-era red brick",
+      "State Capitol white stone",
+      "valley-oak bark",
+      "golden dry-grass hillside",
+      "Delta river-silt loam",
+      "stone-fruit fuzz",
+      "cast-iron griddle char"
+    ],
+    "colors": [
+      {
+        "name": "Gold Rush brick red",
+        "hex": "#8E4636",
+        "use": "structure / waterfront facade"
+      },
+      {
+        "name": "Capitol dome white",
+        "hex": "#EBE7DD",
+        "use": "landmark / negative space"
+      },
+      {
+        "name": "Central Valley golden-grass tan",
+        "hex": "#C9A94C",
+        "use": "hillside / warm accent"
+      },
+      {
+        "name": "valley-oak green",
+        "hex": "#4F6138",
+        "use": "canopy / foreground"
+      },
+      {
+        "name": "peach-blush orange",
+        "hex": "#E09660",
+        "use": "produce hero / warm pop"
+      }
+    ],
+    "building_materials": [
+      "Gold Rush-era fired red brick",
+      "white stone (State Capitol)",
+      "wood-frame Victorian (midtown)",
+      "clapboard Delta farmhouse",
+      "glass-and-steel downtown tower"
+    ],
+    "landscape_motifs": [
+      "Gold Rush brick waterfront (Old Sacramento)",
+      "State Capitol dome and park",
+      "Central Valley orchard rows",
+      "golden dry-grass valley-oak hillside",
+      "Sacramento-San Joaquin Delta waterway"
+    ],
+    "_provenance_note": "Gold Rush brick red + Capitol white grounded in Sacramento's historic architecture. golden-grass tan + valley-oak green from the Central Valley terrain. peach-blush from the stone-fruit crop. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "summer-fourth",
+      "months": [6, 7, 8],
+      "in_season_produce": [
+        {
+          "name": "Central Valley stone fruit (peaches, nectarines, cherries)",
+          "peak_month": 7,
+          "pancake_tie": "Central Valley peach compote over Power Cakes -- the farm-to-fork summer hero"
+        },
+        {
+          "name": "Delta sweet corn",
+          "peak_month": 8,
+          "pancake_tie": "sweet-corn savory Power Cakes for a Delta July Fourth griddle"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Sacramento Certified Farmers Markets",
+          "type": "farmers-market",
+          "url": "https://farmtofork.com",
+          "notes": "Central Valley stone fruit + Delta corn at summer peak"
+        },
+        {
+          "name": "Raley's",
+          "type": "chain-grocer",
+          "notes": "Sacramento-founded grocer"
+        }
+      ]
+    },
+    {
+      "season": "harvest-fall",
+      "months": [9, 10, 11],
+      "in_season_produce": [
+        {
+          "name": "Central Valley tomatoes + late stone fruit",
+          "peak_month": 9,
+          "pancake_tie": "savory tomato-and-herb Power Cakes -- the valley leads US processing-tomato production"
+        },
+        {
+          "name": "California pomegranates + persimmons",
+          "peak_month": 10,
+          "pancake_tie": "pomegranate or Fuyu-persimmon spoon over Power Cakes"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Sacramento Certified Farmers Markets",
+          "type": "farmers-market",
+          "notes": "tomatoes + persimmons in fall"
+        },
+        { "name": "Bel Air", "type": "chain-grocer" }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [12, 1, 2],
+      "in_season_produce": [
+        {
+          "name": "California winter citrus (mandarins, navels)",
+          "peak_month": 1,
+          "pancake_tie": "mandarin-citrus Power Cakes -- Placer County mandarins are a nearby winter signature"
+        }
+      ],
+      "where_to_buy": [
+        { "name": "Raley's", "type": "chain-grocer" },
+        { "name": "Safeway", "type": "chain-grocer" },
+        {
+          "name": "Costco",
+          "type": "chain-grocer",
+          "notes": "metro bulk channel"
+        }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [3, 4, 5],
+      "in_season_produce": [
+        {
+          "name": "California strawberries + asparagus (Delta)",
+          "peak_month": 5,
+          "pancake_tie": "strawberry compote over Power Cakes -- Delta asparagus is a spring valley staple"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Sacramento Certified Farmers Markets",
+          "type": "farmers-market",
+          "notes": "strawberries + Delta asparagus in spring"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Raley's",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "Sacramento-founded grocer; home channel"
+    },
+    { "name": "Safeway", "role": "primary" },
+    { "name": "Bel Air", "role": "primary", "notes": "Raley's banner" },
+    { "name": "Costco", "role": "secondary", "notes": "metro bulk channel" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "Central Valley stone-fruit card + Delta corn card (summer) + tomato savory card (fall) + mandarin card (winter) -- the farm-to-fork calendar, one of the richest produce stories in the cluster"
+    },
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "Sacramento is a Costco + Raley's/Safeway bulk-and-value market; retailer lockup works with the Sacramento-founded Raley's story",
+      "existing_brief": "briefs/kodiak-costco.yaml"
+    },
+    "keep-it-wild": {
+      "fit": "weak",
+      "angle": "valley metro; Keep It Wild lands better on the Sierra foothills / American River edge than downtown"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no produced Sacramento content corpus yet; strong farm-to-fork cue but thin prior material"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "black bear lives in the Sierra foothills east of the valley; California grizzly extinct (state symbol only). Keep conservation-toned and historically honest"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "weak",
+      "angle": "Lake Tahoe / Sierra skiing is a ~1.5-2hr drive and a real Sacramento weekend habit; the metro itself has no ski identity -- secondary angle only"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.86,
+    "ready_to_rock": true,
+    "notes": "Palette grounded in Gold Rush brick + Capitol white + Central Valley golden-grass + valley-oak + peach-blush. Four seasonal windows across the farm-to-fork Central Valley calendar (stone fruit, Delta corn, tomatoes, mandarins). Retailers mapped to Raley's/Safeway/Bel Air. Tahoe ski noted as a real weekend habit but secondary. languages THIN -- percentages INFERRED because ACS source file is absent; no exact ACS numbers fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: Sacramento, California + Old Sacramento -- en.wikipedia.org",
+      "web: Sacramento Farm-to-Fork Capital + Central Valley agriculture framing -- farmtofork.com; publicly documented",
+      "web: Sacramento Hmong community framing -- publicly documented",
+      "web: Raley's Sacramento-founded grocer footprint -- publicly documented",
+      "note: language percentages INFERRED -- ACS/market-languages source file absent in checkout; no exact ACS numbers used"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}
