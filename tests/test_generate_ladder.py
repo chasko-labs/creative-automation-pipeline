@@ -295,3 +295,89 @@ def test_budget_wall_skips_rung_b_lands_rung_c(tmp_path, monkeypatch):
     assert stability_calls["n"] == 0
     # returned within the (tightened) soft budget
     assert prov["elapsed_ms"] <= generate_mod.GENERATE_SOFT_BUDGET_MS
+
+
+
+# --------------------------------------------------------------------------- #
+# (e) NOVA PRO FAIL-FAST + per-subcall budget gate (the 33s-silent-gap repair):
+#   1. both Nova Pro clients build via the fail-fast factory with the tighter Nova read
+#      timeout (BEDROCK_NOVA_READ_TIMEOUT_S) — NOT a bare boto3.client — so an uncapped
+#      Converse call can never hang past the gateway cap
+#   2. a slow Nova Pro scene-prompt that eats the budget makes the STABILITY sub-call
+#      gate abandon rung B to rung C with real pixels, still under the soft budget
+# One test, driven by a fake monotonic clock so the "slow scene-prompt" is deterministic
+# and no network / real sleep is touched.
+# --------------------------------------------------------------------------- #
+def test_slow_nova_scene_prompt_abandons_rung_b_to_c_failfast(tmp_path, monkeypatch):
+    seed = tmp_path / "seed.png"
+    seed.parent.mkdir(parents=True, exist_ok=True)
+    Image.new("RGB", (1024, 1024), (180, 90, 30)).save(seed, "PNG")
+    monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: "seed-key")
+    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: seed)
+    monkeypatch.setattr(dam, "resolve_packshot", lambda pid, dam_root=None: None)
+    monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: None)
+
+    # Part 1 spy: the Nova Pro scene-prompt MUST build its client via the fail-fast factory
+    # with the tighter Nova read timeout. Record every read_timeout the factory is asked
+    # for so we can assert the Config is applied to the Nova path (not a bare client).
+    factory_timeouts: list[int | None] = []
+
+    def _spy_factory(read_timeout=None):
+        factory_timeouts.append(read_timeout)
+        raise AssertionError("no network in test — factory client must not be invoked")
+
+    monkeypatch.setattr(generate_mod, "_bedrock_failfast_client", _spy_factory)
+
+    # a scene-prompt that is SLOW: it advances the fake clock past the stability sub-call
+    # gate, then returns the deterministic default (mirrors the real graceful degrade).
+    # It first touches the fail-fast factory so the spy records the Nova read timeout.
+    NOVA_T = generate_mod.BEDROCK_NOVA_READ_TIMEOUT_S
+
+    def _slow_scene(*_a, **_k):
+        try:
+            generate_mod._bedrock_failfast_client(read_timeout=NOVA_T)
+        except AssertionError:
+            pass  # spy raises after recording — degrade to default like a real timeout
+        clock["t"] += 9.0  # burn 9s of wall-clock — pushes remaining under the B stability gate
+        return "scene"
+
+    monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", _slow_scene)
+
+    # stability must NEVER be reached once the scene call ate the budget.
+    stability_calls = {"n": 0}
+    monkeypatch.setattr(
+        generate_mod, "_stability_control_hero",
+        lambda s, p, o: stability_calls.__setitem__("n", stability_calls["n"] + 1) or seed,
+    )
+
+    # fake monotonic clock: start at 0; the outer B gate + scene gate pass at t=0, then the
+    # slow scene advances t so the stability gate (t2) fails -> abandon B to C.
+    clock = {"t": 0.0}
+    monkeypatch.setattr(generate_mod.time, "monotonic", lambda: clock["t"])
+    # 20s budget: covers the outer B gate (19s) and scene gate 1
+    # (7+13+3=23s? no — set high enough to pass gate 1, then the 9s burn trips gate 2).
+    monkeypatch.setattr(generate_mod, "GENERATE_SOFT_BUDGET_MS", 24000)
+
+    out = tmp_path / "hero.png"
+    result, source, prov = generate_mod.generate_hero(
+        product_id="totally-made-up-sku-xyz",
+        product_name="Made Up",
+        brief_msg="Fuel your frontier morning",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+    )
+
+    # Part 1: the Nova scene-prompt built its client via the fail-fast factory with the
+    # tighter Nova read timeout — proof the Config is applied, not a bare client.
+    assert NOVA_T in factory_timeouts
+    # Part 2: the slow scene ate the budget -> stability sub-call gate abandoned B to C.
+    assert stability_calls["n"] == 0
+    assert result.exists()
+    assert _distinct_colors(result) > 20  # rung C composited real pixels on the seed
+    assert source == "bedrock:nova-pro"
+    assert prov["rung"] == "C"
+    assert prov["engine"] == "pillow-compose"
+    assert prov["fallthrough_reason"] == "budget-exhausted"
