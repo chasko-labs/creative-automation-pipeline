@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"/>
 <link rel="stylesheet" href="https://use.typekit.net/zjt4wyq.css">
-<link rel="stylesheet" href="design/styles.css?v=0.1.011-480c79d-20260905">
+<link rel="stylesheet" href="design/styles.css?v=0.1.012-1041999-20260905">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>KODIAK® Posts for Today's Frontier — v0.1.011-480c79d-20260905</title>
-<meta name="kodiak-version" content="0.1.011-480c79d-20260905">
+<title>KODIAK® Posts for Today's Frontier — v0.1.012-1041999-20260905</title>
+<meta name="kodiak-version" content="0.1.012-1041999-20260905">
 <meta name="webmcp" content="enabled">
 <meta name="mcp:server" content="kodiak-posts-frontier">
 <meta name="mcp:tools" content="places,products,recipes,market-languages,brief-yaml,preview,compose,localize">
 <link rel="mcp-manifest" href="webmcp.json">
-<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.011-480c79d-20260905","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":73,"languages":"EN + top2 per market (ACS 2022)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
+<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.012-1041999-20260905","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":73,"languages":"EN + top2 per market (ACS 2022)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
 <meta name="robots" content="noindex, nofollow, noarchive">
 <script>
 // Password gate: cakes — unlisted from bots, simple JS gate (also respects CloudFront if added)
@@ -625,7 +625,13 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .loc-line[lang="ne"]{font-family:'Noto Sans Devanagari','Noto Sans',sans-serif}
 .loc-line[lang="ja"],.loc-line[lang="ko"],.loc-line[lang="zh"]{font-family:'Noto Sans CJK','Noto Sans',sans-serif}
 .loc-line[data-provider="source"]{font-weight:600}
-.loc-line[data-provider="human-required"],.loc-line[data-provider="pending"],.loc-line[data-provider="offline"]{opacity:.6;font-style:italic}
+/* machine-translatable placeholders stay dimmed/italic — they are a genuine "pending real copy" state (#124) */
+.loc-line[data-provider="pending"],.loc-line[data-provider="offline"]{opacity:.6;font-style:italic}
+/* community-review languages (nv/zip) are FIRST-CLASS, not an apology: full-opacity, upright, name prominent.
+   the review state is an intentional, respectful annotation — a badge, not dimming. adobe sienna is an existing
+   brand token (warm/earthy), deliberately NOT var(--red)/signal-red (D1) so this never reads as an error. */
+.loc-line[data-provider="community-review"],.loc-line[data-provider="community-authorized"]{opacity:1;font-style:normal;font-weight:500}
+.loc-review{display:inline-flex;align-items:center;gap:.3em;font-family:"kodiak_sans","museo-sans",sans-serif;font-size:.66em;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--adobe);background:var(--adobe-10);border:1px solid var(--adobe);border-radius:999px;padding:.05em .55em;margin-inline-start:.45em;vertical-align:.05em;white-space:nowrap;cursor:help}
 .loc-langtag{font-size:.72em;opacity:.55;font-style:normal;margin-inline-end:.4em}
 </style></head><body>
 <!-- Decorative overlays — aria-hidden, pointer-events:none so they never intercept clicks/focus/scroll -->
@@ -757,7 +763,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 <details class="card wide-track ff-about" id="aboutTool"><summary>About this tool</summary><div class="body"><p class="ff-about__copy">Type one line, pick a starting point, and get a ready-to-post Kodiak campaign — images and copy sized for every social platform and retailer, localized to the market you choose. See the <a href="details.html">design system + details</a> for how it works under the hood.</p></div></details>
 
 <!-- visible build stamp — confirm at a glance which version/JS is live in the browser (cache-buster verification) -->
-<div id="buildStamp">build 0.1.011-480c79d-20260905</div>
+<div id="buildStamp">build 0.1.012-1041999-20260905</div>
 
 </div>
 <script>
@@ -770,9 +776,10 @@ const marketLangsOffline = {
   "US-CA-PESCADERO": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":12},{"lang_code":"zh","lang_name":"Chinese","translate_code":"zh","pct_home":6}],
   "US-WA-NEAHBAY": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":8},{"lang_code":"zh","lang_name":"Chinese","translate_code":"zh","pct_home":1.5}],
   "US-MW-PARKCITY-84098": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":9},{"lang_code":"de","lang_name":"German","translate_code":"de","pct_home":0.6}],
+  "US-SW-ALBQ": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":22.3},{"lang_code":"nv","lang_name":"Navajo","translate_code":"nv","pct_home":1.1,"machine_translate":false,"review":"community","review_note":"Community-authorized translation required — not machine-generated (language sovereignty)."}],
   "_default": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":8},{"lang_code":"fr","lang_name":"French","translate_code":"fr","pct_home":0.5}]
 };
-/** @param {string} code @returns {Array<{lang_code:string,lang_name:string,translate_code:string,pct_home:number}>} */
+/** @param {string} code @returns {Array<{lang_code:string,lang_name:string,translate_code:string,pct_home:number,machine_translate?:boolean,review?:string,review_note?:string}>} */
 function marketLangsFor(code){ return (marketLangsOffline[code] || marketLangsOffline._default || []).filter(Boolean); }
 /** @param {void} @returns {void} */
 function renderLangChips(){
@@ -1235,14 +1242,28 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
   //
   // BLOCKER: no precomputed market x lang -> {text,provider} JSON exists in the repo (localize() is a backend
   // python service). So this renders PLACEHOLDERS, never fabricated machine translations:
-  //   - English source line  -> data-provider="source" (real English source string from places[].message)
-  //   - machine-translatable  -> data-provider="pending"        (placeholder "translation pending")
-  //   - nv / zip (HARD GATE)  -> data-provider="human-required" (placeholder "human translation pending")
+  //   - English source line       -> data-provider="source" (real English source string from places[].message)
+  //   - machine-translatable       -> data-provider="pending"            (placeholder "translation pending")
+  //   - community-review (nv/zip)  -> data-provider="community-review"   (FIRST-CLASS row + visible review badge)
+  //
+  // COMMUNITY-REVIEW LANGUAGES (nv/zip): these are low-resource Indigenous languages under community sovereignty.
+  // They are SUPPORTED and VISIBLE — never machine-translated, never hidden or dimmed into an apology. The row
+  // renders full-strength with the English source they'd be translated from and a respectful badge explaining WHY
+  // (community-authorized translation, not machine). SOURCE OF TRUTH is the DATA flag machine_translate:false in
+  // market-languages.json; the HUMAN_REQUIRED set below is a defense-in-depth fallback if that flag is ever absent.
   //
   // #124 populates window.KODIAK_LOCALIZED_COPY = { "<market>": { "<translate_code>": {text, provider} } }.
-  // When that object exists, real text swaps in for the placeholder with NO structural change — and the
-  // nv/zip human-required gate below still overrides any provider the data claims.
-  const HUMAN_REQUIRED = new Set(['nv','zip']); // Navajo, Zapotec — never machine-translated (ethics gate #123)
+  // When that object exists, real text swaps in for the placeholder with NO structural change. For a
+  // community-review language the authorized copy is presented as data-provider="community-authorized" with a
+  // "community-authorized" badge — it is NEVER relabeled as "machine", regardless of what provider the data claims.
+  const HUMAN_REQUIRED = new Set(['nv','zip']); // Navajo, Zapotec — fallback safety net; DATA flag is primary (#123)
+
+  // primary source of truth: the market-languages.json entry says machine_translate:false.
+  // returns true if this language must not be machine-translated (data flag OR fallback set).
+  function isCommunityReview(l, code){
+    if(l && l.machine_translate === false) return true;   // DATA is authoritative
+    return HUMAN_REQUIRED.has(code);                        // defense-in-depth fallback
+  }
 
   // host for the localized-copy preview, injected once beside the featured/langs detail cell
   let host = document.getElementById('locPreview');
@@ -1278,17 +1299,35 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
     const rows = [];
     // English source line — real string, tagged source
     rows.push('<p class="loc-line" lang="en" data-provider="source"><span class="loc-langtag">EN</span>'+esc(source)+'</p>');
-    // one placeholder row per non-English target language
+    // one row per non-English target language
     langs.forEach(l=>{
       const code = (l.translate_code||l.lang_code||'').toLowerCase();
-      const humanGate = HUMAN_REQUIRED.has(code);           // client-side ethics gate (#123) — nv/zip
-      const pre = humanGate ? null : precomputed(market, code); // real text only when #124 data exists AND not gated
-      const provider = humanGate ? 'human-required' : (pre ? (pre.provider||'machine') : 'pending');
-      const fill = humanGate ? 'human translation pending'
-                 : (pre ? pre.text : 'translation pending');
+      const community = isCommunityReview(l, code);        // DATA flag primary, HUMAN_REQUIRED set fallback
+      // #124 copy: for a community-review language, authorized copy is ALWAYS presented as community-authorized,
+      // never as "machine" — even if the data object tags it otherwise. For machine langs, real text swaps in as-is.
+      const pre = precomputed(market, code);
+      const note = l.review_note || 'Community-authorized translation required — not machine-generated (language sovereignty).';
+      let provider, fill, badge='';
+      if(community){
+        if(pre){
+          // authorized community copy has landed via #124 — show it, attributed as community-authorized (NOT machine)
+          provider = 'community-authorized';
+          fill = pre.text;
+          badge = '<span class="loc-review" title="'+esc(note)+'">Community-authorized</span>';
+        } else {
+          // no authorized copy yet — first-class visible row showing the English source + review annotation
+          provider = 'community-review';
+          fill = source;                                    // show the English source they'd be translated from
+          badge = '<span class="loc-review" title="'+esc(note)+'">Community review — not machine-translated</span>';
+        }
+      } else {
+        // machine-translatable — real text only when #124 data exists, else pending placeholder (blocked on #124)
+        provider = pre ? (pre.provider||'machine') : 'pending';
+        fill = pre ? pre.text : 'translation pending';
+      }
       rows.push('<p class="loc-line" lang="'+esc(l.lang_code||code)+'" data-provider="'+esc(provider)+'">'+
                 '<span class="loc-langtag">'+esc((l.lang_code||code).toUpperCase())+'</span>'+
-                esc(fill)+'</p>');
+                esc(fill)+badge+'</p>');
     });
     h.innerHTML = '<div class="ff-locpreview-head" style="font:700 10px/1.2 \'kodiak_sans\',\'museo-sans\',sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted);margin-bottom:2px">Localized copy preview</div>'+rows.join('');
   }
@@ -1308,7 +1347,7 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
 })();
 </script>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.011-480c79d-20260905","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.012-1041999-20260905","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
 
 
 <script>
@@ -2685,5 +2724,5 @@ let skuList = [
   onScroll();
 })();
 </script>
-  <script src="glimmer-proxy.js?v=0.1.011-480c79d-20260905"></script>
+  <script src="glimmer-proxy.js?v=0.1.012-1041999-20260905"></script>
 </body></html>
