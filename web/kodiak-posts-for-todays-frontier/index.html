@@ -506,6 +506,61 @@ header.kodiak-header{border-bottom:none;display:flex;align-items:center;gap:var(
 .ff-chip{font-size:13px}
 /* offline/small meta captions — keep >=11px but ensure AA muted token */
 .tile .meta .small{font-size:11px}
+
+/* === #footer-fill — full-viewport-height layout, sticky-footer pattern ===
+   root complaint: content did not fill the viewport, leaving a white-space gap
+   below the footer. body becomes a flex column at least one viewport tall
+   (dvh accounts for mobile browser chrome; vh is the fallback for older engines).
+   header keeps its natural height, .wrap grows to consume the remaining space,
+   and the footer group (details link + build stamp) is pushed to the bottom via
+   an auto top margin so it sits at the viewport floor instead of floating mid-page.
+   minimalism preserved — no filler content, the create card just gets room to breathe. */
+body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+.wrap{flex:1 1 auto;display:flex;flex-direction:column}
+/* the create card is the main content — center it in the freed vertical space so the
+   surface breathes rather than cramming at the top with emptiness below */
+.wrap>.card{margin-top:auto;margin-bottom:var(--spacing-lg)}
+/* footer group — the ridge divider + details link + build stamp settle to the floor.
+   auto top margin on the first footer element absorbs any leftover height as a single
+   graceful gap above the footer, never below it */
+.wrap>.ff-ridge{margin-top:auto}
+.wrap>.ff-detailslink-row{margin-bottom:0}
+.wrap>#buildStamp{margin-bottom:var(--spacing-md)}
+
+/* === #control-rhythm — one shared control height + one gap token across breakpoints ===
+   every interactive control in the prompt row and control row shares a 40px height and
+   the single --spacing-sm gap rhythm, so nothing renders ragged on desktop/tablet/mobile. */
+.ff-inputwrap{gap:var(--spacing-sm)}
+/* prompt-row controls align to a shared 40px control height */
+.ff-iconbtn,.ff-go{height:40px;min-height:40px}
+/* control row — single shared gap token, controls stretch to a common height */
+.ff-controlrow{gap:var(--spacing-sm)}
+.ff-market>summary,.ff-season select,.ff-geo,.ff-controlrow .ff-detail{min-height:40px}
+/* chip row — even gap + consistent pill sizing */
+.ff-chips{gap:var(--spacing-sm)}
+.ff-chip{min-height:32px;padding:0 12px}
+/* tablet <=860 — inputwrap wraps but keeps the shared gap; Create spans the row cleanly */
+@media(max-width:860px){.ff-inputwrap{gap:var(--spacing-sm)}}
+/* mobile <=640 — controls stack full-width with the same single gap rhythm, no ragged edges */
+@media(max-width:640px){
+  .ff-controlrow{gap:var(--spacing-sm)}
+  .ff-geo,.ff-season,.ff-season select,.ff-controlrow .ff-detail{width:100%}
+  .ff-geo{justify-content:center}
+}
+/* narrow mobile <=520 — prompt row stacks, Create + upload keep the shared height + gap */
+@media(max-width:520px){
+  .ff-inputwrap{gap:var(--spacing-sm)}
+  .ff-iconbtn,.ff-go{height:40px;min-height:40px}
+}
+
+/* === #fileinput-chrome — guarantee the native file control renders zero visible chrome ===
+   reported leak: "+  No file chosen" — the browser's native file-input text appeared
+   next to the "+" icon. .ff-addasset-input already carries the clip:rect visually-hidden
+   pattern; harden it so the native control can never paint on any engine while the input
+   stays keyboard-focusable and the "+" icon (#promptUpload) remains the only affordance. */
+.ff-addasset-input,#addAssetInput{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;opacity:0;pointer-events:none;-webkit-appearance:none;appearance:none}
+.ff-addasset-input::-webkit-file-upload-button,#addAssetInput::-webkit-file-upload-button{display:none}
+.ff-addasset-input::file-selector-button,#addAssetInput::file-selector-button{display:none}
 </style></head><body>
 <!-- Decorative overlays — aria-hidden, pointer-events:none so they never intercept clicks/focus/scroll -->
 <div id="paperGrain" aria-hidden="true"></div>
