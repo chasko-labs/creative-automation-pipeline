@@ -9,6 +9,15 @@ COPY data/products/sku-photo-map.json /var/task/data/products/sku-photo-map.json
 ENV SKU_PHOTO_MAP_PATH=/var/task/data/products/sku-photo-map.json
 COPY data/products/theme-asset-map.json /var/task/data/products/theme-asset-map.json
 ENV THEME_ASSET_MAP_PATH=/var/task/data/products/theme-asset-map.json
+# Ship the packshot manifest (sku-packshot-map.json) — the compose-fix root-cause repair.
+# Same class of bug as sku-photo-map (ba5855e) + theme-asset-map (1f1fb67): dam.py resolves
+# it via parents[2]/docs/... which does NOT exist under the site-packages install, so
+# without this COPY resolve_packshot() returns None for every SKU and the packshot-first
+# composite silently degrades to generated-scene. The committed manifest lives at
+# docs/architecture/compose-fix/; SKU_PACKSHOT_MAP_PATH points the resolver at the stable
+# /var/task copy.
+COPY docs/architecture/compose-fix/sku-packshot-map.json /var/task/data/products/sku-packshot-map.json
+ENV SKU_PACKSHOT_MAP_PATH=/var/task/data/products/sku-packshot-map.json
 # Ship the localization tables the runtime reads (retailer-frontier-pairs.json,
 # market-languages.json, dialect/*.jsonl) plus the context-pack inputs (image-clusters,
 # blog sample prompts). Without these the localization chain errored to fallback with
