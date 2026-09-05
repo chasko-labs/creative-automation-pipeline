@@ -120,6 +120,29 @@ if HAS_FASTAPI:
             vec, model = embed_text(body.get("text", ""))  # type: ignore
         return {"model": model, "dim": len(vec), "vector": vec[:8], "note": "truncated"}
 
+    class LocalizeRequest(BaseModel):  # type: ignore
+        text: str = Field(description="Source (English) marketing string to localize")
+        market: str = Field(description="Market code, e.g. US-SW-LASCRUCES")
+        target_lang: str = Field(description="Target lang_code from market-languages.json (es/ht/ar/nv/...)")
+
+    @app.post("/localize")  # type: ignore
+    def localize_api(body: LocalizeRequest):
+        """Localize one string with an honest provenance tag — the translation-surfacing seam (issue #124).
+
+        Resolution order the frontend depends on:
+          1. precomputed hit in kodiak-creatives-localization-memory DynamoDB -> provider=precomputed
+          2. live machine translate on miss, routed by language:
+             - Amazon Translate langs -> provider=amazon-translate
+             - machine-able gaps -> provider=bedrock (flagged low_confidence)
+             - nv/zip -> provider=human-required, original text returned (never machine translated)
+          3. offline / no-creds -> source=mock, provider=offline-dictionary (CI stays green)
+
+        Response may also carry low_confidence=true (bedrock gaps) or human_pending=true (nv/zip).
+        """
+        from .localize_service import localize as _localize
+
+        return _localize(body.text, body.market, body.target_lang)
+
     @app.get("/assets/{product}/hero")  # type: ignore
     def asset_hero(product: str):
         """Canto + Shopify file endpoint wrapped with local input_assets fallback — Arnoldo Romo's asset sync path."""
