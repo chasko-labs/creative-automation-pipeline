@@ -143,7 +143,8 @@ def test_generate_hero_no_asset_yields_fallback_label(monkeypatch, tmp_path: Pat
     out = tmp_path / "out.png"
     result, source, _prov = generate_hero_call(out)
     assert result.exists()
-    assert source == "bedrock:nova-pro-fallback"
+    # no seed anywhere + no packshot -> the ladder's rung D (brand-floor), zero I/O.
+    assert source == generate.BRAND_FLOOR_SOURCE
     assert "mock" not in source and "preview" not in source
     # power-cakes IS the default hero, so discovery is attempted exactly once
     assert calls == ["power-cakes"]
@@ -180,7 +181,7 @@ def test_generate_hero_missing_product_no_default_hero_fallback(monkeypatch, tmp
         idx=0,
     )
     assert result.exists()
-    assert source == "bedrock:nova-pro-fallback"
+    assert source == generate.BRAND_FLOOR_SOURCE
     assert "mock" not in source and "preview" not in source
     # the requested SKU is looked up once; power-cakes is never discovered as a fallback
     assert calls == ["bear-bites-limited"]

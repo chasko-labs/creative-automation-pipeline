@@ -76,7 +76,7 @@ def test_provenance_shape_and_json_serializable(tmp_path: Path, monkeypatch) -> 
     assert required.issubset(prov.keys())
     assert prov["seed_selection"] == "disk-asset"
     assert prov["seed_source"] == "seed"  # readable label (stem), not a /tmp path
-    assert prov["engine"] == "stability-control-structure"
+    assert prov["engine"] == "stability-restyle"
     assert prov["control_strength"] == generate.STABILITY_CONTROL_STRENGTH
     assert prov["model"] == generate.STABILITY_CONTROL_MODEL
     assert prov["incoming_prompt"] == "wild mornings on the frontier"

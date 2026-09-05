@@ -73,8 +73,8 @@ def test_generate_hero_dam_disabled_falls_back_gracefully(tmp_path: Path, monkey
         idx=0,
     )
     assert result.exists()
-    # DAM + disk both unavailable -> true last-resort placeholder label
-    assert source == generate.FALLBACK_SOURCE
+    # DAM + disk both unavailable, no packshot -> the ladder's rung D (brand-floor)
+    assert source == generate.BRAND_FLOOR_SOURCE
     assert "mock" not in source
 
 
@@ -144,7 +144,7 @@ def test_generate_hero_theme_dam_disabled_falls_back_gracefully(tmp_path: Path, 
         theme="zac-efron",
     )
     assert result.exists()
-    assert source == generate.FALLBACK_SOURCE
+    assert source == generate.BRAND_FLOOR_SOURCE
 
 
 def test_generate_hero_theme_composes_on_fetched_photo(tmp_path: Path, monkeypatch) -> None:

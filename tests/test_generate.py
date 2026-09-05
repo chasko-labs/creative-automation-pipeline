@@ -217,11 +217,15 @@ def test_generate_hero_falls_back_to_compose_when_stability_fails(tmp_path: Path
     assert source == "bedrock:nova-pro"
 
 
-def test_generate_hero_no_seed_returns_placeholder(tmp_path: Path, monkeypatch) -> None:
-    # no theme, no sku photo, no disk asset -> Stability never runs, placeholder label.
+def test_generate_hero_no_seed_returns_brand_floor(tmp_path: Path, monkeypatch) -> None:
+    # no theme, no sku photo, no disk asset, no packshot -> Stability never runs, the
+    # ladder ends at rung D (brand-floor): real Kodiak pixels, zero network, non-lying label.
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: None)
+    import creative_automation.dam as dam
+
+    monkeypatch.setattr(dam, "resolve_packshot", lambda pid, dam_root=None: None)
     called = {"stability": 0}
     monkeypatch.setattr(
         generate, "_stability_control_hero",
@@ -229,7 +233,7 @@ def test_generate_hero_no_seed_returns_placeholder(tmp_path: Path, monkeypatch) 
     )
 
     out = tmp_path / "hero.png"
-    result, source, _prov = generate.generate_hero(
+    result, source, prov = generate.generate_hero(
         product_id="nonexistent-sku",
         product_name="Nonexistent",
         brief_msg="x",
@@ -239,9 +243,11 @@ def test_generate_hero_no_seed_returns_placeholder(tmp_path: Path, monkeypatch) 
         idx=0,
     )
     assert result.exists()
-    assert source == generate.FALLBACK_SOURCE
+    assert source == generate.BRAND_FLOOR_SOURCE == "brand-floor"
     assert "mock" not in source
-    # with no seed, the image engine is never invoked
+    # rung D is reached; the image engine (rung B) is never invoked with no seed
+    assert prov["rung"] == "D"
+    assert prov["engine"] == "brand-floor"
     assert called["stability"] == 0
 
 

@@ -13,6 +13,7 @@ import base64
 import json
 import os
 import sys
+import time
 from pathlib import Path
 from typing import Optional
 
@@ -21,9 +22,58 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 # Attempt boto3 import lazily — local-only mode still works without it
 try:
     import boto3
-    from botocore.exceptions import BotoCoreError, ClientError
+    from botocore.config import Config as _BotoConfig
+    from botocore.exceptions import (
+        BotoCoreError,
+        ClientError,
+        ConnectTimeoutError,
+        ReadTimeoutError,
+    )
 except ImportError:
     boto3 = None  # type: ignore
+    _BotoConfig = None  # type: ignore
+
+    # Offline/no-boto shims so the never-503 ladder's except-tuple is always a valid
+    # exception set (catching these names must never itself raise a NameError).
+    class BotoCoreError(Exception):  # type: ignore[no-redef]
+        pass
+
+    class ClientError(Exception):  # type: ignore[no-redef]
+        pass
+
+    class ReadTimeoutError(Exception):  # type: ignore[no-redef]
+        pass
+
+    class ConnectTimeoutError(Exception):  # type: ignore[no-redef]
+        pass
+
+
+# ---------------------------------------------------------------- never-fail ladder
+# GOVERNING PRINCIPLE: a well-formed POST /generate returns 200 with REAL Kodiak pixels
+# 100% of the time. The generate_hero ladder A->B->C->D falls through linearly and always
+# ends at rung D (brand-floor), which does zero network I/O and cannot fail. Only a
+# malformed request (validated in the handler, before the ladder) is a 4xx; 503 is
+# structurally unreachable from a well-formed POST.
+#
+# TIME BUDGET: the Lambda timeout is 300s but API Gateway caps the interactive call at
+# 30s, so the 24s internal soft budget (NOT context.get_remaining_time_in_millis) is the
+# real authority. Each rung checks remaining_ms() against its worst-case cost BEFORE
+# starting and skips a rung that will not fit, so the ladder always reserves time to
+# reach a real-pixel floor. time.monotonic (never time.time) so a wall-clock step never
+# corrupts the deadline.
+GENERATE_SOFT_BUDGET_MS = int(os.getenv("GENERATE_SOFT_BUDGET_MS", "24000"))
+# Rung B (Bedrock stability-restyle) worst-case cost estimate: the read timeout (12s)
+# plus connect + decode + overlay headroom. B is attempted only if remaining_ms covers
+# this AND the C reservation, so a slow Bedrock call can never starve the C recovery.
+_B_BUDGET_MS = int(os.getenv("GENERATE_B_BUDGET_MS", "16000"))
+# Held-back reservation so rung C (pillow-compose, ~1-2s) can ALWAYS run after B, even
+# when B burns its full budget. C is the guaranteed-real workhorse below B.
+_C_RESERVATION_MS = int(os.getenv("GENERATE_C_RESERVATION_MS", "3000"))
+# Bedrock fail-fast: a dedicated bedrock-runtime client for the rung-B invoke_model only,
+# built with an explicit botocore Config so the old "38s then 503" becomes "12s then fall
+# to C". NO retries — a retry inside a 30s gateway cap is a budget killer.
+BEDROCK_READ_TIMEOUT_S = int(os.getenv("BEDROCK_READ_TIMEOUT_S", "12"))
+BEDROCK_CONNECT_TIMEOUT_S = int(os.getenv("BEDROCK_CONNECT_TIMEOUT_S", "3"))
 
 
 # Image engine: Bedrock Stability control-structure
@@ -79,6 +129,21 @@ STABILITY_SOURCE = "bedrock:stability-control-structure"
 # /generate endpoint reports the composite path the same way the batch pipeline does.
 # See docs/architecture/compose-fix/compose-fix-spec.md precedence table (order a/b).
 PACKSHOT_SOURCE = "dam:packshot-composite"
+
+# ---- degradation-ladder engine labels + provenance rungs.
+# The ladder's four rungs each emit a distinct provenance.engine + rung letter so the
+# response says which rung produced the pixels. Rung A reuses PACKSHOT_SOURCE (the
+# packshot-composite path already returns that). Rungs B/C/D use these:
+#   B stability-restyle   -> STABILITY_SOURCE  (rung "B")
+#   C pillow-compose      -> "bedrock:nova-pro" (rung "C", the guaranteed-real workhorse)
+#   D brand-floor         -> BRAND_FLOOR_SOURCE (rung "D", zero-I/O floor, cannot fail)
+BRAND_FLOOR_SOURCE = "brand-floor"
+# The bundled-in-the-deployment-package Kodiak brand asset rung D composites. It ships
+# INSIDE the module (packages=["src/creative_automation"]), so it lands in /var/task with
+# the code — no S3, no external fetch, always present. When even this is somehow absent,
+# rung D still composites the brand wordmark on a brand-color canvas (pure Pillow), so
+# rung D is unconditionally real Kodiak pixels with zero network.
+_BRAND_FLOOR_ASSET = Path(__file__).parent / "brand_assets" / "kodiak-primary-logo.png"
 
 # Canvas sizes per ISO ratio (social-3ratio.json). The real lifestyle photo fills
 # each frame as the cover background — no ellipse, no solid-color-only path.
@@ -381,6 +446,58 @@ def _mock_hero(product_name: str, brief_msg: str, region: str, out_path: Path, i
     return out_path
 
 
+def _brand_floor(product_name: str, ratio: str, out_path: Path) -> Path:
+    """Rung D — the ultimate floor. Real Kodiak pixels, ZERO network, cannot fail.
+
+    Composite the bundled-in-the-deployment-package Kodiak brand logo onto a Bear-Brown
+    brand-color canvas with a Blaze Orange accent bar and the product wordmark. The logo
+    ships INSIDE the module (src/creative_automation/brand_assets/), so it lands in
+    /var/task with the code — no S3, no external fetch, always present. If the bundled
+    asset is somehow unreadable, the canvas + wordmark + accent bar are still real Kodiak
+    brand pixels drawn purely in Pillow, so this rung has no failure path and no
+    fallthrough — nothing sits below it.
+    """
+    W, H = _CANVAS.get(ratio, _CANVAS["1x1"])
+    bg = _hex_to_rgb(MOCK_PALETTES[0][0])  # Bear Brown brand base
+    accent = _hex_to_rgb(_accent_hex)  # Blaze Orange
+    canvas = Image.new("RGB", (W, H), bg)
+
+    # bundled brand logo, centered in the upper safe area — the real brand mark. Never
+    # let a logo read failure sink the rung: the wordmark + canvas below are the floor.
+    try:
+        if _BRAND_FLOOR_ASSET.exists():
+            logo = Image.open(_BRAND_FLOOR_ASSET).convert("RGBA")
+            max_w, max_h = int(W * 0.5), int(H * 0.38)
+            scale = min(max_w / logo.width, max_h / logo.height)
+            lw, lh = max(1, int(logo.width * scale)), max(1, int(logo.height * scale))
+            logo = logo.resize((lw, lh), Image.LANCZOS)
+            canvas.paste(logo, ((W - lw) // 2, int(H * 0.16)), logo)
+    except Exception as e:  # noqa: BLE001 — floor never fails; wordmark below stands in
+        print(f"[generate] brand-floor logo skipped: {e}", file=sys.stderr)
+
+    draw = ImageDraw.Draw(canvas)
+    try:
+        font_big = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 64)
+        font_small = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 30)
+    except Exception:
+        font_big = ImageFont.load_default()
+        font_small = ImageFont.load_default()
+
+    word = "KODIAK CAKES"
+    bbox = draw.textbbox((0, 0), word, font=font_big)
+    draw.text(((W - (bbox[2] - bbox[0])) / 2, H * 0.62), word, fill="white", font=font_big)
+    sub = f"{product_name[:32]}  ·  Keep It Wild"
+    bbox2 = draw.textbbox((0, 0), sub, font=font_small)
+    draw.text(((W - (bbox2[2] - bbox2[0])) / 2, H * 0.72), sub, fill=(255, 248, 240), font=font_small)
+
+    # Blaze Orange accent bar pinned to the very bottom (brand signature).
+    draw.rectangle([0, H - 8, W, H], fill=accent)
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    canvas.save(out_path, "PNG")
+    return out_path
+
+
 def _find_source_asset(product_id: str, product_name: str) -> Optional[Path]:
     """Locate a real source image for the product.
 
@@ -542,6 +659,23 @@ def _seed_b64_for_stability(src: Path) -> str:
     return base64.b64encode(buf.getvalue()).decode("ascii")
 
 
+def _bedrock_failfast_client():
+    """Dedicated bedrock-runtime client for the rung-B stability invoke_model ONLY.
+
+    Explicit botocore Config: read_timeout=12s (BEDROCK_READ_TIMEOUT_S), connect_timeout=3s,
+    retries max_attempts=0. This converts the old "38s then 503" into "12s then fall to
+    rung C" — NO retries, because a retry inside the 30s gateway cap is a budget killer.
+    A fresh client per call (cheap) so this config never leaks into the Nova Pro converse
+    clients, which keep the SDK defaults.
+    """
+    cfg = _BotoConfig(
+        read_timeout=BEDROCK_READ_TIMEOUT_S,
+        connect_timeout=BEDROCK_CONNECT_TIMEOUT_S,
+        retries={"max_attempts": 0, "mode": "standard"},
+    )
+    return boto3.client("bedrock-runtime", region_name=BEDROCK_REGION, config=cfg)
+
+
 def _stability_control_hero(seed: Path, prompt: str, out_path: Path) -> Optional[Path]:
     """Restyle the seed photo to the theme via Bedrock Stability control-structure.
 
@@ -558,7 +692,7 @@ def _stability_control_hero(seed: Path, prompt: str, out_path: Path) -> Optional
         print("[generate] stability skipped: boto3 unavailable", file=sys.stderr)
         return None
     try:
-        client = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
+        client = _bedrock_failfast_client()
         body = {
             "prompt": prompt,
             "image": _seed_b64_for_stability(seed),
@@ -583,9 +717,19 @@ def _stability_control_hero(seed: Path, prompt: str, out_path: Path) -> Optional
         out_path.parent.mkdir(parents=True, exist_ok=True)
         out_path.write_bytes(base64.b64decode(images[0]))
         return out_path if out_path.exists() else None
+    except (ReadTimeoutError, ConnectTimeoutError):
+        # Rung-B budget guard: a timeout is re-raised so the generate_hero ladder classifies
+        # the fallthrough as bedrock-timeout and drops to rung C (the "12s then fall to C"
+        # behavior). Swallowing it here would lose that reason.
+        raise
     except ClientError as e:  # surface the exact error code — never swallow AccessDenied
         code = e.response.get("Error", {}).get("Code", "Unknown")
         print(f"[generate] stability control-structure ClientError [{code}]: {e}", file=sys.stderr)
+        # A throttle is a distinct, retryable-elsewhere condition — re-raise so the ladder
+        # records fallthrough_reason=throttle. Other client errors (AccessDenied, validation)
+        # stay swallowed to None (the documented downgrade-to-Pillow path, code already logged).
+        if "Throttl" in str(code):
+            raise
         return None
     except (BotoCoreError, Exception) as e:  # noqa: BLE001 — non-AWS failures fall through
         print(f"[generate] stability control-structure failed: {e}", file=sys.stderr)
@@ -1010,7 +1154,17 @@ def generate_hero(
 ) -> tuple[Path, str, dict]:
     """Generate a real Kodiak-social-style hero. Returns (path, source, provenance).
 
-    Seed resolution (which real photo becomes the mode-3 seed), theme wins:
+    Never-fail degradation ladder A->B->C->D (linear, one-directional; every rung REAL
+    Kodiak pixels). Each rung checks the remaining time budget against its worst-case cost
+    before starting and skips a rung that will not fit; a caught failure logs cause+rung
+    and CONTINUES down the ladder, never raising. Rung D cannot fail, so a well-formed call
+    always ends in real pixels — 503 is unreachable from here.
+      A packshot-composite  — real product BOX pasted verbatim (tried first for a mapped SKU)
+      B stability-restyle   — Bedrock restyle of a resolved seed, budget-gated + fail-fast
+      C pillow-compose      — Pillow composite of the seed + brand overlay (guaranteed-real)
+      D brand-floor         — bundled Kodiak brand asset on a brand-color canvas, ZERO I/O
+
+    Seed resolution (which real photo becomes the rung-B seed), theme wins:
     0. theme provided AND _resolve_theme_photo(theme) resolves -> that thematic DAM
        photo is the seed (the chip theme drives the IMAGE, not the product default).
     a. no theme (or unresolved) -> sku-photo-map resolves the handle -> a REAL
@@ -1018,22 +1172,19 @@ def generate_hero(
     b. no map entry OR the DAM fetch fails -> disk _find_source_asset is the seed
        (unchanged discovery), so nothing regresses offline.
 
-    Image engine seam (mode-3, run once on the resolved seed):
-    1. Stability control-structure restyles the seed to the theme -> the theme lands
-       in the pixels. Source "bedrock:stability-control-structure". PART C then layers
-       the deterministic on-brand headline + accent bar over the GenAI hero (the win is
-       Pillow brand elements ON TOP of the GenAI image, not instead of it).
-    2. Stability returns None (unavailable / AccessDenied — exact code already logged,
-       never swallowed) -> Pillow _compose_scene on the SAME seed. Source
-       "bedrock:nova-pro" (unchanged existing behavior).
-    3. no seed at all -> _mock_hero (true last resort). Source
-       "bedrock:nova-pro-fallback". No "mock"/"preview" reaches the UI.
-
     PART A — provenance: a JSON-serializable dict explaining what was provided vs what
-    was done. PART C — brand_overlay (default-on) composites the deterministic brand
-    layer over the Stability hero. PART D — paper_overlay (default-on) bakes the ~2%
-    kraft texture into the FINAL render on every path.
+    was done, plus which rung produced the pixels + why the ladder fell through. PART C —
+    brand_overlay (default-on) composites the deterministic brand layer. PART D —
+    paper_overlay (default-on) bakes the ~2% kraft texture into the FINAL render.
     """
+    # TIME BUDGET + DEADLINE. Capture the monotonic start once; the 24s soft budget (env
+    # GENERATE_SOFT_BUDGET_MS) is the real authority, not the Lambda 300s timeout. Each
+    # rung gates on remaining_ms() so the ladder always reserves time to reach a floor.
+    start = time.monotonic()
+
+    def remaining_ms() -> float:
+        return GENERATE_SOFT_BUDGET_MS - (time.monotonic() - start) * 1000.0
+
     if ratio not in _CANVAS:
         ratio = "1x1"
 
@@ -1048,6 +1199,9 @@ def generate_hero(
         "seed_source": None,
         "seed_selection": "none",
         "engine": None,
+        "rung": None,
+        "fallthrough_reason": None,
+        "elapsed_ms": None,
         "scene_prompt": None,
         "control_strength": None,
         "model": None,
@@ -1058,6 +1212,12 @@ def generate_hero(
         "paper_overlay": False,
         "packshot": None,
     }
+
+    def _seal(reason: str | None = None) -> None:
+        """Record the elapsed clock (and an optional fallthrough reason) into provenance."""
+        provenance["elapsed_ms"] = int((time.monotonic() - start) * 1000.0)
+        if reason is not None:
+            provenance["fallthrough_reason"] = reason
 
     # ---- seed resolution: theme photo, else sku-mapped DAM photo, else disk asset.
     seed: Optional[Path] = None
@@ -1134,58 +1294,114 @@ def generate_hero(
                 product_layer=packshot,
             )
             provenance["engine"] = "packshot-composite"
+            provenance["rung"] = "A"
             provenance["model"] = "pillow:compose-creative"
             provenance["packshot"] = str(packshot)
             provenance["seed_selection"] = "packshot"
             provenance["overlay_applied"] = bool(brand_overlay)
             provenance["headline"] = headline if brand_overlay else None
             _finalize_render(out_path, paper_overlay, provenance)
+            _seal()
             return out_path, PACKSHOT_SOURCE, provenance
         except Exception as e:  # noqa: BLE001 — a composite failure falls through to generation
             print(f"[generate] packshot composite failed, falling through to generation: {e}", file=sys.stderr)
 
-    # ---- mode-3 image engine seam: real seed -> Stability restyle, else Pillow compose.
+    # ---- RUNG B (stability-restyle) -> RUNG C (pillow-compose) -> RUNG D (brand-floor).
+    # Never-503 contract: every attempt below is wrapped so a caught failure logs
+    # cause+rung and CONTINUES down the ladder. Rung D cannot fail, so the ladder always
+    # ends in a 200 with real pixels.
+    _bedrock_fail_tuple = (
+        ReadTimeoutError,
+        ConnectTimeoutError,
+        ClientError,
+        BotoCoreError,
+        ValueError,
+        KeyError,
+        OSError,
+    )
     if seed is not None:
-        scene_prompt = _nova_pro_scene_prompt(seed, product_name, brief_msg, region, audience, theme)
-        provenance["scene_prompt"] = scene_prompt
-        stylized = _stability_control_hero(seed, scene_prompt, out_path)
-        if stylized is not None and stylized.exists():
-            provenance["engine"] = "stability-control-structure"
-            provenance["control_strength"] = STABILITY_CONTROL_STRENGTH
-            provenance["model"] = STABILITY_CONTROL_MODEL
-            # PART C — the win: deterministic on-brand headline + accent bar ON TOP of
-            # the GenAI hero (Nova Pro still supplies the headline). Default-on.
-            if brand_overlay:
-                try:
-                    headline = _headline(seed)
-                    _apply_brand_overlay(stylized, headline, ratio, stylized)
-                    provenance["overlay_applied"] = True
-                    provenance["headline"] = headline
-                except Exception as e:  # noqa: BLE001 — never lose the GenAI hero over the overlay
-                    print(f"[generate] brand overlay on stability hero failed: {e}", file=sys.stderr)
-            _finalize_render(stylized, paper_overlay, provenance)
-            return stylized, STABILITY_SOURCE, provenance
-        # Stability unavailable — the exact error was already logged (AccessDenied is a
-        # Bryan SSO refresh issue, never swallowed). Downgrade to the Pillow composite.
+        # ---- RUNG B: Bedrock stability-restyle. Attempted ONLY if the budget covers B's
+        # worst-case cost PLUS the held-back C reservation, so a slow Bedrock call can
+        # never starve rung C. Skipped (fall to C) when the budget will not fit — no seed
+        # is not a concern here (seed is not None), so the budget gate is the sole B gate.
+        if remaining_ms() >= _B_BUDGET_MS + _C_RESERVATION_MS:
+            try:
+                scene_prompt = _nova_pro_scene_prompt(
+                    seed, product_name, brief_msg, region, audience, theme
+                )
+                provenance["scene_prompt"] = scene_prompt
+                stylized = _stability_control_hero(seed, scene_prompt, out_path)
+                if stylized is not None and stylized.exists():
+                    provenance["engine"] = "stability-restyle"
+                    provenance["rung"] = "B"
+                    provenance["control_strength"] = STABILITY_CONTROL_STRENGTH
+                    provenance["model"] = STABILITY_CONTROL_MODEL
+                    # PART C — deterministic on-brand headline + accent bar ON TOP of the
+                    # GenAI hero (Nova Pro still supplies the headline). Default-on.
+                    if brand_overlay:
+                        try:
+                            headline = _headline(seed)
+                            _apply_brand_overlay(stylized, headline, ratio, stylized)
+                            provenance["overlay_applied"] = True
+                            provenance["headline"] = headline
+                        except Exception as e:  # noqa: BLE001 — never lose the GenAI hero
+                            print(f"[generate] brand overlay on stability hero failed: {e}", file=sys.stderr)
+                    _finalize_render(stylized, paper_overlay, provenance)
+                    _seal()
+                    return stylized, STABILITY_SOURCE, provenance
+                # helper returned None — timeout/throttle/model-error already logged to
+                # stderr with its exact code. Fall to rung C with a model-error reason.
+                provenance["fallthrough_reason"] = "model-error"
+            except (ReadTimeoutError, ConnectTimeoutError) as e:
+                print(f"[generate] rung B bedrock timeout -> fall to C: {e}", file=sys.stderr)
+                provenance["fallthrough_reason"] = "bedrock-timeout"
+            except ClientError as e:  # throttle / access / validation
+                code = e.response.get("Error", {}).get("Code", "Unknown") if hasattr(e, "response") else "Unknown"
+                reason = "throttle" if "Throttl" in str(code) else "model-error"
+                print(f"[generate] rung B ClientError [{code}] -> fall to C: {e}", file=sys.stderr)
+                provenance["fallthrough_reason"] = reason
+            except _bedrock_fail_tuple as e:  # noqa: BLE001 — any other Bedrock failure falls to C
+                print(f"[generate] rung B failed -> fall to C: {e}", file=sys.stderr)
+                provenance["fallthrough_reason"] = "model-error"
+        else:
+            # budget will not fit B (+C reservation) — skip straight to C.
+            print(
+                f"[generate] rung B skipped (budget {remaining_ms():.0f}ms < "
+                f"{_B_BUDGET_MS + _C_RESERVATION_MS}ms) -> rung C",
+                file=sys.stderr,
+            )
+            provenance["fallthrough_reason"] = "budget-exhausted"
+
+        # ---- RUNG C: Pillow compose overlay on the SAME seed. The guaranteed-real
+        # workhorse rung B falls through to. Always available (no network).
         try:
             headline = _headline(seed)
             result = _compose_scene(seed, headline, ratio, out_path, idx)
             if result.exists():
                 provenance["engine"] = "pillow-compose"
+                provenance["rung"] = "C"
                 provenance["model"] = "pillow:compose-scene"
                 provenance["overlay_applied"] = True  # _compose_scene bakes the brand layer
                 provenance["headline"] = headline
                 _finalize_render(result, paper_overlay, provenance)
+                _seal()
                 return result, "bedrock:nova-pro", provenance
-        except Exception as e:  # noqa: BLE001 — falls through to placeholder
-            print(f"[generate] scene compose on seed failed: {e}", file=sys.stderr)
+        except Exception as e:  # noqa: BLE001 — falls through to rung D (brand-floor)
+            print(f"[generate] rung C compose failed -> fall to rung D: {e}", file=sys.stderr)
 
-    # ---- true last resort — no seed at all. Deterministic placeholder, non-lying label.
-    placeholder = _mock_hero(product_name, brief_msg, region, out_path, idx)
-    provenance["engine"] = "mock-placeholder"
-    provenance["model"] = "pillow:mock-hero"
-    _finalize_render(placeholder, paper_overlay, provenance)
-    return placeholder, FALLBACK_SOURCE, provenance
+    # ---- RUNG D (brand-floor): the ultimate floor. Reached when no seed resolved (so B/C
+    # had nothing to work with), or when a rung-C compose somehow failed. Composites the
+    # bundled Kodiak brand asset onto a brand-color canvas — ZERO external I/O, cannot
+    # fail, no fallthrough. This is why 503 is unreachable from a well-formed POST.
+    if provenance["fallthrough_reason"] is None:
+        provenance["fallthrough_reason"] = "no-seed"
+    floor = _brand_floor(product_name, ratio, out_path)
+    provenance["engine"] = "brand-floor"
+    provenance["rung"] = "D"
+    provenance["model"] = "pillow:brand-floor"
+    _finalize_render(floor, paper_overlay, provenance)
+    _seal()
+    return floor, BRAND_FLOOR_SOURCE, provenance
 
 
 def _finalize_render(path: Path, paper_overlay: bool, provenance: dict) -> None:
