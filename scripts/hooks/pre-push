@@ -5,22 +5,23 @@
 # this hook is the CI. there is no server-side CI on this repo.
 # CodeBuild has been disconnected (webhook deleted) and GitHub Actions is
 # forbidden (zero-budget repo). buildspec.yml remains in the tree only as the
-# canonical command spec that this hook mirrors gate-for-gate.
+# canonical command spec for the FULL gate.
 #
-# runs the same three gates buildspec.yml defines, fail-fast, cheapest first,
-# so a broken push dies in seconds and bad code never leaves the machine:
-#   gate 1  uvx ruff@0.15.12 check .              (lint)
-#   gate 2  uv run --with pytest pytest -x -q     (fast unit tests, RUN_SLOW=false posture)
-#   gate 3  cfn-lint infra/template.yaml          (template safety, no aws calls)
+# this hook runs ONLY the fast lint gate so a push never waits on the 250s test
+# suite -- a heavy per-push gate just gets --no-verify'd into uselessness.
+#   gate  uvx ruff@0.15.12 check .   (lint, ~1s)
 #
-# any gate failure prints "PUSH BLOCKED: <gate> failed" and exits non-zero,
-# aborting the push before bad code leaves the machine.
+# the full suite (pytest + cfn-lint) is a DELIBERATE checkpoint, not a per-push
+# tax. run it before opening/merging a PR:
+#   uv run --with pytest pytest -x -q
+#   cfn-lint infra/template.yaml
+# (or run scripts/hooks/full-check.sh)
+#
+# ruff failure prints "PUSH BLOCKED: ruff failed" and exits non-zero.
 #
 # activation (fresh clone, one command):
 #   scripts/hooks/install.sh
-# which runs: git config core.hooksPath scripts/hooks
-#
-# emergency bypass (use sparingly, never on shared branches):
+# emergency bypass (sparingly, never on shared branches):
 #   git push --no-verify
 # ---------------------------------------------------------------------------
 set -euo pipefail
@@ -28,44 +29,15 @@ set -euo pipefail
 repo_root="$(git rev-parse --show-toplevel)"
 cd "$repo_root"
 
-# preflight -- fail with a clear, actionable message if a required tool is
-# missing, rather than a cryptic "command not found" mid-gate.
-require_tool() {
-  local tool="$1" hint="$2"
-  if ! command -v "$tool" >/dev/null 2>&1; then
-    echo "PUSH BLOCKED: missing tool '$tool' -- install with: $hint" >&2
-    exit 1
-  fi
-}
+if ! command -v uvx >/dev/null 2>&1; then
+  echo "PUSH BLOCKED: missing tool 'uvx' -- install with: curl -LsSf https://astral.sh/uv/install.sh | sh" >&2
+  exit 1
+fi
 
-# uv/uvx ship together (astral-sh/uv). cfn-lint installs via pip.
-require_tool uv  "curl -LsSf https://astral.sh/uv/install.sh | sh"
-require_tool uvx "curl -LsSf https://astral.sh/uv/install.sh | sh"
-require_tool cfn-lint "pip install cfn-lint  (or: uv tool install cfn-lint)"
-
-echo "pre-push gate: running local CI (mirror of buildspec.yml)"
-
-# gate 1 -- lint (cheapest, fails first)
-# pinned version matches buildspec; ruff@latest ruleset drifts across releases
-echo "gate 1/3 ruff"
+echo "pre-push gate: ruff (fast lint)"
 if ! uvx ruff@0.15.12 check .; then
   echo "PUSH BLOCKED: ruff failed" >&2
   exit 1
 fi
 
-# gate 2 -- unit tests, stop on first failure
-# fast unit tests only (RUN_SLOW=false posture); slow/networked paths are not gated
-echo "gate 2/3 pytest -x"
-if ! uv run --with pytest pytest -x -q; then
-  echo "PUSH BLOCKED: pytest failed" >&2
-  exit 1
-fi
-
-# gate 3 -- cloudformation lint (no aws calls, cheap)
-echo "gate 3/3 cfn-lint"
-if ! cfn-lint infra/template.yaml; then
-  echo "PUSH BLOCKED: cfn-lint failed" >&2
-  exit 1
-fi
-
-echo "pre-push gate: all three gates passed -- push allowed"
+echo "pre-push gate: ruff clean -- push allowed (run pytest + cfn-lint before merge)"

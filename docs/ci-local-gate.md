@@ -1,30 +1,34 @@
-# ci is a local pre-push gate
+# ci is a local gate
 
-CI for this repo runs on the developer machine as a git pre-push hook. there is
-no server-side CI.
+CI for this repo runs on the developer machine. there is no server-side CI.
 
 ## why
 
 - CodeBuild made every PR sit UNSTABLE waiting on a webhook status check and
   burned build minutes. with no branch protection (free-tier repo) it was only
-  a soft check anyway, never a hard gate
+  a soft check anyway
 - GitHub Actions is forbidden on this repo (zero budget). do not add
   `.github/workflows/` anything
-- a local pre-push hook gives the same three gates instantly, offline, with no
-  wait and no cost, and stops bad code before it ever leaves the machine
 
-## the gates
+## two tiers -- fast on every push, full before merge
 
-the hook (`scripts/hooks/pre-push`) mirrors `buildspec.yml` gate-for-gate,
-fail-fast, cheapest first:
+per-push hook (`scripts/hooks/pre-push`) runs ONE fast gate so a push never
+waits:
 
-- gate 1  `uvx ruff@0.15.12 check .`            lint
-- gate 2  `uv run --with pytest pytest -x -q`   fast unit tests (RUN_SLOW=false posture)
-- gate 3  `cfn-lint infra/template.yaml`        cloudformation template safety
+- `uvx ruff@0.15.12 check .`   lint, ~1s
 
-any gate failure exits non-zero and aborts the push. `buildspec.yml` stays in
-the tree as the canonical command spec the hook is kept in sync with -- it is
-not GitHub Actions, just the reference command list.
+the full suite is a deliberate pre-merge checkpoint, not a per-push tax. run it
+yourself before opening or merging a PR:
+
+```
+scripts/hooks/full-check.sh
+```
+
+which runs `pytest -x -q` (fast unit tests) then `cfn-lint infra/template.yaml`.
+
+`buildspec.yml` stays in the tree as the canonical full command spec. a heavy
+per-push hook just gets `--no-verify`'d into uselessness, so the push gate is
+kept to lint only.
 
 ## activate after clone (one command)
 
@@ -32,8 +36,8 @@ not GitHub Actions, just the reference command list.
 scripts/hooks/install.sh
 ```
 
-this runs `git config core.hooksPath scripts/hooks` for this repo only (it does
-not touch your global hooks path). every clone must run it once.
+sets `git config core.hooksPath scripts/hooks` for this repo only. every clone
+runs it once.
 
 ## emergency bypass
 
@@ -41,24 +45,15 @@ not touch your global hooks path). every clone must run it once.
 git push --no-verify
 ```
 
-use sparingly, never on shared branches.
+## disconnect CodeBuild (one manual operator step)
 
-## the one manual operator step -- disconnect CodeBuild
-
-the CodeBuild webhook is an AWS/GitHub-app binding, not a repo file, so it
-cannot be removed by a commit. an operator disconnects it once so CodeBuild
-stops triggering on push:
-
-```
-aws codebuild delete-webhook --project-name kodiak-creatives-ci --profile aerospaceug-admin --region us-east-1
-```
-
-the status check context was `kodiak-creatives-ci` (account 946179428633,
-aerospaceug-admin). confirm the exact project name first:
+the CodeBuild webhook is an AWS/GitHub-app binding, not a repo file. an operator
+deletes it once so CodeBuild stops triggering:
 
 ```
 aws codebuild list-projects --profile aerospaceug-admin --region us-east-1
+aws codebuild delete-webhook --project-name kodiak-creatives-ci --profile aerospaceug-admin --region us-east-1
 ```
 
-after the webhook is deleted, pushes and PRs no longer trigger CodeBuild and no
-status check is posted. the local pre-push gate is the only CI.
+after the webhook is deleted, pushes and PRs no longer trigger CodeBuild. the
+local gate is the only CI.
