@@ -1,176 +1,181 @@
 import * as cdk from "aws-cdk-lib";
 import { Construct } from "constructs";
-import * as lambda from "aws-cdk-lib/aws-lambda";
-import * as ecr from "aws-cdk-lib/aws-ecr";
 import * as iam from "aws-cdk-lib/aws-iam";
+import * as lambda from "aws-cdk-lib/aws-lambda";
 
 export interface GenerateStackProps extends cdk.StackProps {
   readonly projectName: string;
   readonly damBucketName: string;
-  /** ECR repo the generate container image is pushed to. Default kodiak-creatives-generate. */
-  readonly ecrRepositoryName?: string;
-  /** image tag to deploy. Default latest. Override via -c generateImageTag=... */
-  readonly imageTag?: string;
+  /**
+   * ECR image uri for the generation Lambda container. The image is built +
+   * pushed to ECR BEFORE deploy (see README); this stack only references it.
+   * Falls back to context key `generateImageUri`, then to the live
+   * :latest tag in the account ECR repo.
+   */
+  readonly imageUri?: string;
 }
 
 /**
- * Prompt-to-image generation endpoint.
+ * Kodiak creatives generate endpoint (adoption base = migrated L1, stack id
+ * `kodiak-creatives-generate`). Container-image Lambda that runs Bedrock
+ * (Nova Pro art-direction + Stability control-structure / outpaint) plus
+ * Pillow, writes the rendered PNG to the DAM bucket under
+ * brands/kodiak/renders/, and is fronted by a public (dev-open) Function URL.
  *
- * Container-image Lambda (PackageType Image) that runs Bedrock (Nova Pro
- * art-direction + Stability control-structure/outpaint) plus Pillow, writes the
- * rendered PNG to the DAM bucket under brands/kodiak/renders/, and is fronted by
- * a public (dev-open) Lambda Function URL.
+ * FIX 1 (R2, intentional live-behavior change on next deploy): X-Ray Tracing
+ * ACTIVE on the function + env AWS_XRAY_SDK_ENABLED=true + the
+ * xray:PutTraceSegments / PutTelemetryRecords statement on the role. The
+ * migrated base was pre-fix (Mode absent, flag "false", no xray statement);
+ * all three are added here so the run-ledger trace_id is populated.
  *
- * The image is built + pushed to ECR BEFORE deploy (see README). This stack
- * references it by repo name + tag; it does not build the image.
+ * Tagging: inline managed-by=cloudformation tag arrays stripped -- app-level
+ * tag set (managed-by=cdk) applies; stack= added per-stack here.
  */
 export class GenerateStack extends cdk.Stack {
+  public readonly functionUrl: string;
+  public readonly lambdaName: string;
+  public readonly lambdaRoleArn: string;
+
   constructor(scope: Construct, id: string, props: GenerateStackProps) {
     super(scope, id, props);
 
     const { damBucketName } = props;
-    const repoName =
-      props.ecrRepositoryName ??
-      (this.node.tryGetContext("generateEcrRepo") as string | undefined) ??
-      "kodiak-creatives-generate";
-    const imageTag =
-      props.imageTag ??
-      (this.node.tryGetContext("generateImageTag") as string | undefined) ??
-      "latest";
 
-    // reference the pre-built image in an existing ECR repo (built + pushed out
-    // of band -- CloudFormation only references it, mirroring the old
-    // ImageUri parameter).
-    const repo = ecr.Repository.fromRepositoryName(
-      this,
-      "GenerateImageRepo",
-      repoName,
-    );
+    const imageUri =
+      props.imageUri ??
+      (this.node.tryGetContext("generateImageUri") as string | undefined) ??
+      `${this.account}.dkr.ecr.${this.region}.amazonaws.com/kodiak-creatives-generate:latest`;
 
     // ---- execution role --------------------------------------------------
-    const role = new iam.Role(this, "GenerateLambdaRole", {
-      assumedBy: new iam.ServicePrincipal("lambda.amazonaws.com"),
-      managedPolicies: [
-        iam.ManagedPolicy.fromAwsManagedPolicyName(
-          "service-role/AWSLambdaBasicExecutionRole",
-        ),
+    const generateLambdaRole = new iam.CfnRole(this, "GenerateLambdaRole", {
+      assumeRolePolicyDocument: {
+        Version: "2012-10-17",
+        Statement: [
+          {
+            Effect: "Allow",
+            Principal: { Service: "lambda.amazonaws.com" },
+            Action: "sts:AssumeRole",
+          },
+        ],
+      },
+      managedPolicyArns: [
+        "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+      ],
+      policies: [
+        {
+          policyName: "generate-lambda-inline",
+          policyDocument: {
+            Version: "2012-10-17",
+            Statement: [
+              {
+                Sid: "BedrockInvokeNovaPro",
+                Effect: "Allow",
+                Action: "bedrock:InvokeModel",
+                Resource:
+                  "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-pro-v1:0",
+              },
+              {
+                Sid: "BedrockInvokeStabilityControlStructure",
+                Effect: "Allow",
+                Action: "bedrock:InvokeModel",
+                Resource: [
+                  "arn:aws:bedrock:us-east-1:946179428633:inference-profile/us.stability.stable-image-control-structure-v1:0",
+                  "arn:aws:bedrock:us-east-1::foundation-model/stability.stable-image-control-structure-v1:0",
+                  "arn:aws:bedrock:us-east-2::foundation-model/stability.stable-image-control-structure-v1:0",
+                  "arn:aws:bedrock:us-west-2::foundation-model/stability.stable-image-control-structure-v1:0",
+                ],
+              },
+              {
+                Sid: "BedrockInvokeStabilityOutpaint",
+                Effect: "Allow",
+                Action: "bedrock:InvokeModel",
+                Resource: [
+                  "arn:aws:bedrock:us-east-1:946179428633:inference-profile/us.stability.stable-outpaint-v1:0",
+                  "arn:aws:bedrock:us-east-1::foundation-model/stability.stable-outpaint-v1:0",
+                  "arn:aws:bedrock:us-east-2::foundation-model/stability.stable-outpaint-v1:0",
+                  "arn:aws:bedrock:us-west-2::foundation-model/stability.stable-outpaint-v1:0",
+                ],
+              },
+              {
+                Sid: "DamRendersReadWrite",
+                Effect: "Allow",
+                Action: ["s3:PutObject", "s3:GetObject"],
+                Resource: `arn:aws:s3:::${damBucketName}/brands/kodiak/renders/*`,
+              },
+              // FIX 1 -- X-Ray write actions. ACTIVE tracing (set on the
+              // function below) needs the role to ship segments.
+              // xray:Put* does not support resource-level scoping -- AWS
+              // requires Resource "*". Service constraint, not a widening.
+              {
+                Sid: "WriteXRayTraces",
+                Effect: "Allow",
+                Action: ["xray:PutTraceSegments", "xray:PutTelemetryRecords"],
+                Resource: "*",
+              },
+            ],
+          },
+        },
       ],
     });
 
-    // Nova Pro (Converse) art-directs the scene prompt + caption.
-    role.addToPolicy(
-      new iam.PolicyStatement({
-        sid: "BedrockInvokeNovaPro",
-        effect: iam.Effect.ALLOW,
-        actions: ["bedrock:InvokeModel"],
-        resources: [
-          "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-pro-v1:0",
-        ],
-      }),
-    );
-
-    // Stability control-structure. The us.* inference profile authorizes against
-    // BOTH the profile ARN AND every foundation-model ARN it routes to
-    // (us-east-1/-2, us-west-2) -- all listed.
-    role.addToPolicy(
-      new iam.PolicyStatement({
-        sid: "BedrockInvokeStabilityControlStructure",
-        effect: iam.Effect.ALLOW,
-        actions: ["bedrock:InvokeModel"],
-        resources: [
-          `arn:aws:bedrock:us-east-1:${this.account}:inference-profile/us.stability.stable-image-control-structure-v1:0`,
-          "arn:aws:bedrock:us-east-1::foundation-model/stability.stable-image-control-structure-v1:0",
-          "arn:aws:bedrock:us-east-2::foundation-model/stability.stable-image-control-structure-v1:0",
-          "arn:aws:bedrock:us-west-2::foundation-model/stability.stable-image-control-structure-v1:0",
-        ],
-      }),
-    );
-
-    // Stability outpaint. Same inference-profile + foundation-model dual grant.
-    role.addToPolicy(
-      new iam.PolicyStatement({
-        sid: "BedrockInvokeStabilityOutpaint",
-        effect: iam.Effect.ALLOW,
-        actions: ["bedrock:InvokeModel"],
-        resources: [
-          `arn:aws:bedrock:us-east-1:${this.account}:inference-profile/us.stability.stable-outpaint-v1:0`,
-          "arn:aws:bedrock:us-east-1::foundation-model/stability.stable-outpaint-v1:0",
-          "arn:aws:bedrock:us-east-2::foundation-model/stability.stable-outpaint-v1:0",
-          "arn:aws:bedrock:us-west-2::foundation-model/stability.stable-outpaint-v1:0",
-        ],
-      }),
-    );
-
-    // DAM renders read/write -- scoped to the renders prefix only.
-    role.addToPolicy(
-      new iam.PolicyStatement({
-        sid: "DamRendersReadWrite",
-        effect: iam.Effect.ALLOW,
-        actions: ["s3:PutObject", "s3:GetObject"],
-        resources: [`arn:aws:s3:::${damBucketName}/brands/kodiak/renders/*`],
-      }),
-    );
-
-    // FIX 1 -- X-Ray write actions for the generate lambda. Active tracing (set
-    // below) needs the role to be able to ship segments. xray:Put* actions do
-    // not support resource-level scoping -- AWS requires Resource "*" for
-    // PutTraceSegments / PutTelemetryRecords. This is a service constraint, not
-    // a widening. WHY active tracing: the run-ledger correlates each generate
-    // invocation to a trace_id, which is only populated when the segment is
-    // emitted to X-Ray. PassThrough left trace_id blank in the ledger.
-    role.addToPolicy(
-      new iam.PolicyStatement({
-        sid: "WriteXRayTraces",
-        effect: iam.Effect.ALLOW,
-        actions: ["xray:PutTraceSegments", "xray:PutTelemetryRecords"],
-        resources: ["*"],
-      }),
-    );
-
     // ---- function --------------------------------------------------------
-    const fn = new lambda.DockerImageFunction(this, "GenerateLambda", {
-      code: lambda.DockerImageCode.fromEcr(repo, { tagOrDigest: imageTag }),
-      role,
-      // 300s accommodates 4 serial Bedrock GenAI round-trips (Nova Pro scene +
-      // Stability control-structure + 2x outpaint). 60s killed it mid-outpaint.
-      timeout: cdk.Duration.seconds(300),
-      // 3008 MB buys proportional vCPU for Pillow compositing + boto3 TLS around
-      // each Bedrock call. Image work, not memory-bound -- do not go higher.
+    const generateLambda = new lambda.CfnFunction(this, "GenerateLambda", {
+      packageType: "Image",
+      code: { imageUri },
+      role: generateLambdaRole.attrArn,
+      // 300s accommodates 4 serial Bedrock GenAI round-trips. 60s killed it.
+      timeout: 300,
+      // 3008 MB buys proportional vCPU for Pillow compositing + boto3 TLS.
       memorySize: 3008,
-      // FIX 1 -- was Mode=PassThrough. ACTIVE makes the lambda sample + emit its
-      // own X-Ray segments so run-ledger trace_id is populated.
-      tracing: lambda.Tracing.ACTIVE,
+      // FIX 1 -- ACTIVE makes the lambda sample + emit its own X-Ray segments
+      // so the run-ledger trace_id is populated (was PassThrough / absent).
+      tracingConfig: { mode: "Active" },
       environment: {
-        DAM_S3_BUCKET: damBucketName,
-        // FIX 1 -- was "false". Enables the aws-xray-sdk inside the handler so
-        // downstream boto3 (Bedrock, S3) calls are captured as subsegments.
-        AWS_XRAY_SDK_ENABLED: "true",
+        variables: {
+          DAM_S3_BUCKET: damBucketName,
+          // FIX 1 -- was "false". Enables aws-xray-sdk inside the handler so
+          // downstream boto3 (Bedrock, S3) calls are captured as subsegments.
+          AWS_XRAY_SDK_ENABLED: "true",
+        },
       },
     });
 
     // public, dev-open Function URL. The site calls it directly, unsigned.
-    // Tighten to AWS_IAM before any production/public exposure.
-    const fnUrl = fn.addFunctionUrl({
-      authType: lambda.FunctionUrlAuthType.NONE,
+    const generateFunctionUrl = new lambda.CfnUrl(this, "GenerateFunctionUrl", {
+      targetFunctionArn: generateLambda.attrArn,
+      authType: "NONE",
       cors: {
-        allowedOrigins: ["*"],
-        // Function URLs answer the CORS preflight (OPTIONS) automatically, so
-        // only the real invocation method (POST) is listed.
-        allowedMethods: [lambda.HttpMethod.POST],
-        allowedHeaders: ["content-type"],
+        allowOrigins: ["*"],
+        allowMethods: ["POST"],
+        allowHeaders: ["content-type"],
       },
     });
 
+    new lambda.CfnPermission(this, "GenerateFunctionUrlPermission", {
+      functionName: generateLambda.ref,
+      action: "lambda:InvokeFunctionUrl",
+      principal: "*",
+      functionUrlAuthType: "NONE",
+    });
+
     // ---- tags ------------------------------------------------------------
-    // project/team/managed-by/repo/environment come from the app-level tag set.
     cdk.Tags.of(this).add("stack", "kodiak-creatives-generate");
 
     // ---- outputs ---------------------------------------------------------
+    this.functionUrl = generateFunctionUrl.attrFunctionUrl;
     new cdk.CfnOutput(this, "FunctionUrl", {
-      value: fnUrl.url,
+      value: this.functionUrl,
       description: "Public HTTPS endpoint for prompt-to-image generation",
     });
-    new cdk.CfnOutput(this, "LambdaName", { value: fn.functionName });
-    new cdk.CfnOutput(this, "LambdaRoleArn", { value: role.roleArn });
+    this.lambdaName = generateLambda.ref;
+    new cdk.CfnOutput(this, "LambdaName", {
+      value: this.lambdaName,
+      description: "Name of the generation Lambda function",
+    });
+    this.lambdaRoleArn = generateLambdaRole.attrArn;
+    new cdk.CfnOutput(this, "LambdaRoleArn", {
+      value: this.lambdaRoleArn,
+      description: "ARN of the Lambda execution role",
+    });
   }
 }
