@@ -69,6 +69,13 @@ _B_BUDGET_MS = int(os.getenv("GENERATE_B_BUDGET_MS", "16000"))
 # Held-back reservation so rung C (pillow-compose, ~1-2s) can ALWAYS run after B, even
 # when B burns its full budget. C is the guaranteed-real workhorse below B.
 _C_RESERVATION_MS = int(os.getenv("GENERATE_C_RESERVATION_MS", "3000"))
+# HARD WALL for the pre-ladder S3 discovery phases (seed probe + packshot probe). Each
+# unmapped-SKU probe fans out sequential S3 misses (~10s+ each) that run BEFORE any rung
+# gate, so a slow probe alone could blow the 30s API Gateway cap even though B/C/D are
+# gated. A probe is entered ONLY while remaining_ms() still leaves this probe's own
+# worst-case cost PLUS the C reservation; once the wall is crossed the probe is abandoned
+# (treated as no-seed / no-packshot) so the ladder still reaches rung C or D by ~24s.
+_PROBE_BUDGET_MS = int(os.getenv("GENERATE_PROBE_BUDGET_MS", "5000"))
 # Bedrock fail-fast: a dedicated bedrock-runtime client for the rung-B invoke_model only,
 # built with an explicit botocore Config so the old "38s then 503" becomes "12s then fall
 # to C". NO retries — a retry inside a 30s gateway cap is a budget killer.
@@ -1185,6 +1192,16 @@ def generate_hero(
     def remaining_ms() -> float:
         return GENERATE_SOFT_BUDGET_MS - (time.monotonic() - start) * 1000.0
 
+    def _probe_ok() -> bool:
+        """HARD WALL gate for a pre-ladder S3 probe.
+
+        True only while the clock still leaves one probe's worst-case cost
+        (_PROBE_BUDGET_MS) PLUS the rung-C reservation. Once false, the caller abandons
+        the probe (no-seed / no-packshot) so a slow S3 fan-out can never starve the
+        guaranteed-real rung C or D — the ladder still returns real pixels by ~24s.
+        """
+        return remaining_ms() >= _PROBE_BUDGET_MS + _C_RESERVATION_MS
+
     if ratio not in _CANVAS:
         ratio = "1x1"
 
@@ -1250,11 +1267,24 @@ def generate_hero(
             except Exception as e:  # noqa: BLE001 — falls through to disk
                 print(f"[generate] sku-mapped seed fetch failed: {e}", file=sys.stderr)
     if seed is None:
-        disk = _find_source_asset(product_id, product_name)
-        if disk is not None and disk.exists():
-            seed = disk
-            provenance["seed_selection"] = "disk-asset"
-            provenance["seed_source"] = disk.stem
+        # _find_source_asset's step 3 is an S3 DAM fan-out (sequential hero-real/hero x
+        # ext misses ~10s+ on an unmapped SKU) that runs BEFORE any rung gate. Enter it
+        # only while the wall still leaves room for a probe + the C reservation; past the
+        # wall, abandon the seed probe (treat as no-seed) so the ladder still reaches a
+        # real-pixel floor by ~24s.
+        if _probe_ok():
+            disk = _find_source_asset(product_id, product_name)
+            if disk is not None and disk.exists():
+                seed = disk
+                provenance["seed_selection"] = "disk-asset"
+                provenance["seed_source"] = disk.stem
+        else:
+            print(
+                f"[generate] seed probe skipped (budget {remaining_ms():.0f}ms < "
+                f"{_PROBE_BUDGET_MS + _C_RESERVATION_MS}ms) -> no-seed",
+                file=sys.stderr,
+            )
+            provenance["fallthrough_reason"] = "budget-exhausted"
 
     # ---- PACKSHOT-FIRST (compose-fix root-cause repair): if a real product BOX resolves
     # for this SKU, paste it VERBATIM over a background scene — NO generative step touches
@@ -1264,7 +1294,17 @@ def generate_hero(
     # (when no packshot resolves). See docs/architecture/compose-fix/compose-fix-spec.md.
     from .dam import resolve_packshot  # local import — keeps the offline path import-light
 
-    packshot = resolve_packshot(product_id)
+    # HARD WALL: resolve_packshot's step 3 (find_hero_asset) is another S3 fan-out on an
+    # unmapped SKU. Only probe for a packshot while the wall still leaves a probe + the C
+    # reservation; past the wall, skip straight to the generative ladder (rung C/D).
+    packshot = resolve_packshot(product_id) if _probe_ok() else None
+    if packshot is None and not _probe_ok():
+        print(
+            f"[generate] packshot probe skipped (budget {remaining_ms():.0f}ms < "
+            f"{_PROBE_BUDGET_MS + _C_RESERVATION_MS}ms) -> generative ladder",
+            file=sys.stderr,
+        )
+        provenance["fallthrough_reason"] = "budget-exhausted"
     if packshot is not None:
         try:
             headline = _headline(seed) if seed is not None else brief_msg[:48]
