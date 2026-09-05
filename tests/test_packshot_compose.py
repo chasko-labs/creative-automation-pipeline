@@ -224,3 +224,132 @@ def test_compose_creative_without_product_layer_still_renders(tmp_path):
     res = compose_creative(hero_path=hero, out_path=out, message="Keep it wild", ratio_key="1x1")
     assert Path(res).exists()
     assert Image.open(res).size == (1080, 1080)
+
+
+# --------------------------------------------------------------------------- #
+# /generate handler code path — generate_hero (what _handle_preview/_handle_full call)
+# --------------------------------------------------------------------------- #
+# The LIVE website POST /generate runs generate_lambda.py -> _handle_preview ->
+# generate.generate_hero (and _handle_full -> generate_hero_set -> generate_hero). The
+# batch/CLI path (campaign.py::_render_asset, covered above) already threaded
+# packshot-first; these tests prove the SAME precedence now runs on the generate_hero
+# seam so a mapped SKU on the endpoint composites the verbatim box and the Stability
+# restyle NEVER paints the product pixels. An unmapped SKU falls through to generation.
+from creative_automation import generate as generate_mod  # noqa: E402
+
+
+def test_generate_hero_mapped_sku_takes_packshot_and_skips_stability(tmp_path, monkeypatch):
+    # a mapped SKU (banana-muffin) resolves a real 705599* box -> generate_hero returns
+    # the dam:packshot-composite source, sets provenance.packshot, and NEVER invokes the
+    # Stability control-structure restyle (the generative step must not touch the box).
+    monkeypatch.setattr(dam, "fetch_dam_key", _local_box_fetch(tmp_path))
+    # no theme/sku/disk seed so the background falls to the deterministic mock backdrop —
+    # keeps the test offline and isolates the packshot branch from seed resolution.
+    monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: None)
+
+    stability_calls = {"n": 0}
+
+    def _spy_stability(seed, prompt, out_path):
+        stability_calls["n"] += 1
+        return None
+
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", _spy_stability)
+
+    out = tmp_path / "hero.png"
+    result, source, prov = generate_mod.generate_hero(
+        product_id="banana-muffin-quick-bread-mix",
+        product_name="Banana Muffin and Quick Bread Mix",
+        brief_msg="Fuel your frontier morning",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+    )
+
+    assert result.exists()
+    # the endpoint's provenance field (top-level source) reports the composite path
+    assert source == generate_mod.PACKSHOT_SOURCE == "dam:packshot-composite"
+    # provenance carries the additive packshot fields the /generate response ships
+    assert prov["engine"] == "packshot-composite"
+    assert prov["seed_selection"] == "packshot"
+    assert prov["packshot"] is not None and "705599" in prov["packshot"]
+    # the generative restyle was NEVER called — the product pixels are the pasted box
+    assert stability_calls["n"] == 0
+
+
+def test_generate_hero_mapped_sku_composites_verbatim_box(tmp_path, monkeypatch):
+    # the real box reaches compose_creative's product_layer verbatim on the generate_hero
+    # path (same guarantee _render_asset gives): compose is the only thing that paints the
+    # product, and it pastes the box as-is (no cover-fit, no scrim, no restyle).
+    monkeypatch.setattr(dam, "fetch_dam_key", _local_box_fetch(tmp_path))
+    monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: None)
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o: None)
+
+    seen = {}
+    import creative_automation.compose as compose_mod
+    real_compose = compose_mod.compose_creative
+
+    def _spy_compose(*args, **kwargs):
+        seen["product_layer"] = kwargs.get("product_layer")
+        return real_compose(*args, **kwargs)
+
+    monkeypatch.setattr(compose_mod, "compose_creative", _spy_compose)
+
+    out = tmp_path / "hero.png"
+    result, source, _prov = generate_mod.generate_hero(
+        product_id="chocolate-fudge-brownie-mix",
+        product_name="Chocolate Fudge Brownie Mix",
+        brief_msg="Fuel your frontier morning",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+    )
+    assert result.exists()
+    assert source == "dam:packshot-composite"
+    assert seen.get("product_layer") is not None, "packshot not passed to compose_creative"
+    assert "705599" in Path(seen["product_layer"]).name
+
+
+def test_generate_hero_unmapped_sku_falls_through_to_generation(tmp_path, monkeypatch):
+    # an unmapped SKU resolves NO packshot -> generate_hero must reach the generative
+    # seam (Stability restyle on a real seed), NOT the packshot-composite branch.
+    monkeypatch.setattr(dam, "fetch_dam_key", _local_box_fetch(tmp_path))
+    seed = tmp_path / "seed.png"
+    seed.parent.mkdir(parents=True, exist_ok=True)
+    Image.new("RGB", (1024, 1024), (180, 90, 30)).save(seed, "PNG")
+    monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: seed)
+
+    stability_calls = {"n": 0}
+
+    def _spy_stability(s, prompt, out_path):
+        stability_calls["n"] += 1
+        return None  # force the documented Pillow-compose fallback (still generation)
+
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", _spy_stability)
+    monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
+    monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: None)
+
+    out = tmp_path / "hero.png"
+    result, source, prov = generate_mod.generate_hero(
+        product_id="totally-made-up-sku-xyz",
+        product_name="Nonexistent Product",
+        brief_msg="Fuel your frontier morning",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+    )
+    assert result.exists()
+    # generation path — Stability was invoked (then fell back to pillow-compose)
+    assert stability_calls["n"] == 1
+    assert source == "bedrock:nova-pro"
+    assert prov["engine"] == "pillow-compose"
+    assert prov["packshot"] is None
+    assert prov["seed_selection"] != "packshot"

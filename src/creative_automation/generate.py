@@ -72,6 +72,13 @@ FALLBACK_SOURCE = "bedrock:nova-pro-fallback"
 # Source label for a real GenAI restyle via Bedrock Stability control-structure —
 # the theme is conditioned into the pixels, not just composited by Pillow.
 STABILITY_SOURCE = "bedrock:stability-control-structure"
+# Source label for the packshot-first composite path: a real product BOX resolved for
+# the SKU and was pasted VERBATIM over a background scene — NO generative step ever
+# touched the product pixels, so it structurally cannot render as bread or candy. This
+# mirrors campaign.py::_render_asset's dam:packshot-composite provenance so the live
+# /generate endpoint reports the composite path the same way the batch pipeline does.
+# See docs/architecture/compose-fix/compose-fix-spec.md precedence table (order a/b).
+PACKSHOT_SOURCE = "dam:packshot-composite"
 
 # Canvas sizes per ISO ratio (social-3ratio.json). The real lifestyle photo fills
 # each frame as the cover background — no ellipse, no solid-color-only path.
@@ -1049,6 +1056,7 @@ def generate_hero(
         "headline": None,
         "overlay_applied": False,
         "paper_overlay": False,
+        "packshot": None,
     }
 
     # ---- seed resolution: theme photo, else sku-mapped DAM photo, else disk asset.
@@ -1087,6 +1095,54 @@ def generate_hero(
             seed = disk
             provenance["seed_selection"] = "disk-asset"
             provenance["seed_source"] = disk.stem
+
+    # ---- PACKSHOT-FIRST (compose-fix root-cause repair): if a real product BOX resolves
+    # for this SKU, paste it VERBATIM over a background scene — NO generative step touches
+    # those product pixels, so it structurally cannot render as bread or candy. This
+    # mirrors campaign.py::_render_asset order a/b and MUST run before the Stability seam
+    # so a mapped SKU never reaches the restyle. Generation is only the FALLBACK below
+    # (when no packshot resolves). See docs/architecture/compose-fix/compose-fix-spec.md.
+    from .dam import resolve_packshot  # local import — keeps the offline path import-light
+
+    packshot = resolve_packshot(product_id)
+    if packshot is not None:
+        try:
+            headline = _headline(seed) if seed is not None else brief_msg[:48]
+            # Background scene: the already-resolved real seed photo (theme/sku/disk) is
+            # the backdrop; when there is no seed, a deterministic on-brand background is
+            # synthesized. Neither is a generative render of the PRODUCT — the box is the
+            # only product pixels and it is pasted verbatim by compose_creative below.
+            bg_path = out_path.parent / f"{out_path.stem}-bg.png"
+            bg_path.parent.mkdir(parents=True, exist_ok=True)
+            if seed is not None:
+                bg_src = Image.open(seed).convert("RGB")
+                bg_w, bg_h = _CANVAS.get(ratio, _CANVAS["1x1"])
+                ImageOps.fit(bg_src, (bg_w, bg_h), method=Image.BICUBIC, centering=(0.5, 0.5)).save(bg_path, "PNG")
+                provenance["seed_source"] = provenance["seed_source"] or Path(seed).stem
+            else:
+                _mock_hero(product_name, brief_msg, region, bg_path, idx)
+            # Verbatim box composite: compose_creative pastes the real box (product_layer)
+            # over the background and bakes its own message bar + accent bar, so no
+            # separate _apply_brand_overlay is needed on this path (matches _render_asset).
+            from .compose import compose_creative
+
+            compose_creative(
+                hero_path=bg_path,
+                out_path=out_path,
+                message=headline if brand_overlay else "",
+                ratio_key=ratio,
+                product_layer=packshot,
+            )
+            provenance["engine"] = "packshot-composite"
+            provenance["model"] = "pillow:compose-creative"
+            provenance["packshot"] = str(packshot)
+            provenance["seed_selection"] = "packshot"
+            provenance["overlay_applied"] = bool(brand_overlay)
+            provenance["headline"] = headline if brand_overlay else None
+            _finalize_render(out_path, paper_overlay, provenance)
+            return out_path, PACKSHOT_SOURCE, provenance
+        except Exception as e:  # noqa: BLE001 — a composite failure falls through to generation
+            print(f"[generate] packshot composite failed, falling through to generation: {e}", file=sys.stderr)
 
     # ---- mode-3 image engine seam: real seed -> Stability restyle, else Pillow compose.
     if seed is not None:
