@@ -1,5 +1,14 @@
 version: 0.2
 
+# REFERENCE SPEC ONLY -- no longer wired to a CodeBuild webhook trigger.
+# CI moved to a local pre-push git hook (scripts/hooks/pre-push) that mirrors
+# the three gates below command-for-command. GitHub Actions is forbidden on this
+# repo (zero budget) and the CodeBuild webhook has been disconnected. this file
+# stays in the tree as the canonical gate definition the hook is kept in sync with.
+# to disconnect CodeBuild fully: aws codebuild delete-webhook --project-name kodiak-creatives-ci
+# activate the local gate after clone: scripts/hooks/install.sh
+# see docs/ci-local-gate.md.
+#
 # fail-fast CI gate for the kodiak creative pipeline
 # ordering is cheap-to-expensive so a broken push dies in seconds, not minutes
 #   1. ruff        (lint, ~1s)        -- fastest signal, catches syntax + style first
