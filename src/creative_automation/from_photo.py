@@ -143,7 +143,7 @@ def build_image_from_photo(
             # neither a resolvable hero nor a prompt -> caller returns 400
             return None
         hero_out = out_root / "hero" / f"hero-{product_slug}.png"
-        generated, gen_source = generate_hero(
+        generated, gen_source, _prov = generate_hero(
             product_id=product_slug,
             product_name=product_slug.replace("-", " ").title(),
             brief_msg=prompt.strip(),
