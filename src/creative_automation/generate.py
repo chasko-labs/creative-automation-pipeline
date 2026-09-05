@@ -505,12 +505,28 @@ def _brand_floor(product_name: str, ratio: str, out_path: Path) -> Path:
     return out_path
 
 
-def _find_source_asset(product_id: str, product_name: str) -> Optional[Path]:
+def _call_with_optional_deadline(fn, *args, deadline_ms=None):
+    """Call fn(*args, deadline_ms=...) but tolerate callables without that kwarg.
+
+    The real probe fns (_find_source_asset, dam.resolve_packshot) accept deadline_ms so
+    the fan-out can bail mid-loop. Test stubs and older signatures may not — fall back to
+    the bare call so threading the deadline never breaks a monkeypatched path.
+    """
+    try:
+        return fn(*args, deadline_ms=deadline_ms)
+    except TypeError:
+        return fn(*args)
+
+
+def _find_source_asset(product_id: str, product_name: str, deadline_ms=None) -> Optional[Path]:
     """Locate a real source image for the product.
 
     Order: input_assets/<product_id>/hero-real.png, then hero.png, then any image
     in that product dir, then a name-matching glob across the asset roots, then an
     S3 DAM fallback (fetch_hero_to_tmp) for Lambda where no assets are baked in.
+
+    deadline_ms (optional zero-arg callable -> remaining ms) bounds the step-3 S3
+    fan-out so an unmapped-SKU probe abandons mid-loop rather than running to ~37s.
     """
     # 1) canonical per-product location, hero-real preferred over hero
     prod_dir = Path("input_assets") / product_id
@@ -547,7 +563,7 @@ def _find_source_asset(product_id: str, product_name: str) -> Optional[Path]:
     try:
         from .dam import fetch_hero_to_tmp  # local import — keeps offline path import-light
 
-        s3_hit = fetch_hero_to_tmp(product_id)
+        s3_hit = _call_with_optional_deadline(fetch_hero_to_tmp, product_id, deadline_ms=deadline_ms)
         if s3_hit is not None and s3_hit.exists():
             return s3_hit
     except Exception as e:  # noqa: BLE001 — S3 discovery never breaks the mock fallback
@@ -1273,7 +1289,9 @@ def generate_hero(
         # wall, abandon the seed probe (treat as no-seed) so the ladder still reaches a
         # real-pixel floor by ~24s.
         if _probe_ok():
-            disk = _find_source_asset(product_id, product_name)
+            disk = _call_with_optional_deadline(
+                _find_source_asset, product_id, product_name, deadline_ms=remaining_ms
+            )
             if disk is not None and disk.exists():
                 seed = disk
                 provenance["seed_selection"] = "disk-asset"
@@ -1297,7 +1315,11 @@ def generate_hero(
     # HARD WALL: resolve_packshot's step 3 (find_hero_asset) is another S3 fan-out on an
     # unmapped SKU. Only probe for a packshot while the wall still leaves a probe + the C
     # reservation; past the wall, skip straight to the generative ladder (rung C/D).
-    packshot = resolve_packshot(product_id) if _probe_ok() else None
+    packshot = (
+        _call_with_optional_deadline(resolve_packshot, product_id, deadline_ms=remaining_ms)
+        if _probe_ok()
+        else None
+    )
     if packshot is None and not _probe_ok():
         print(
             f"[generate] packshot probe skipped (budget {remaining_ms():.0f}ms < "
