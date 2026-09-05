@@ -241,3 +241,57 @@ def test_empty_prompt_is_still_200_not_4xx(tmp_path, monkeypatch):
     generate_lambda = _install_handler_stubs(monkeypatch, tmp_path)
     resp = generate_lambda.handler({"body": json.dumps({"product": "power-cakes"})})
     assert resp["statusCode"] == 200
+
+
+# --------------------------------------------------------------------------- #
+# worst-case BUDGET WALL: a near-exhausted soft budget must force an early return on
+# rung C (real pixels on the resolved seed) WITHOUT ever starting rung B, and must not
+# exceed the budget. This is the 503 repair — a slow probe/Bedrock path can never push
+# the ladder past ~24s because the wall skips B and lands on the guaranteed-real C.
+# --------------------------------------------------------------------------- #
+def test_budget_wall_skips_rung_b_lands_rung_c(tmp_path, monkeypatch):
+    # a real seed resolves via the (cheap, single-key) sku-mapped path so rung C has a
+    # seed to compose; the seed path is NOT probe-gated, so a seed exists regardless.
+    seed = tmp_path / "seed.png"
+    seed.parent.mkdir(parents=True, exist_ok=True)
+    Image.new("RGB", (1024, 1024), (180, 90, 30)).save(seed, "PNG")
+    monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: "seed-key")
+    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: seed)
+    monkeypatch.setattr(dam, "resolve_packshot", lambda pid, dam_root=None: None)
+    monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: None)
+
+    # HARD WALL: soft budget below rung B's gate (_B_BUDGET_MS + _C_RESERVATION_MS) but
+    # above the C reservation — the gate MUST skip B and drop to C. Set well under the
+    # 19s B gate to model the live "probe already ate the budget" state.
+    monkeypatch.setattr(generate_mod, "GENERATE_SOFT_BUDGET_MS", 5000)
+
+    # rung B must never be started once the wall is crossed.
+    stability_calls = {"n": 0}
+    monkeypatch.setattr(
+        generate_mod, "_stability_control_hero",
+        lambda s, p, o: stability_calls.__setitem__("n", stability_calls["n"] + 1) or seed,
+    )
+
+    out = tmp_path / "hero.png"
+    result, source, prov = generate_mod.generate_hero(
+        product_id="totally-made-up-sku-xyz",
+        product_name="Made Up",
+        brief_msg="Fuel your frontier morning",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+    )
+
+    assert result.exists()
+    assert _distinct_colors(result) > 20  # rung C composited real pixels on the seed
+    assert source == "bedrock:nova-pro"
+    assert prov["rung"] == "C"
+    assert prov["engine"] == "pillow-compose"
+    # the wall — not a model error — forced the skip
+    assert prov["fallthrough_reason"] == "budget-exhausted"
+    # rung B was never even attempted
+    assert stability_calls["n"] == 0
+    # returned within the (tightened) soft budget
+    assert prov["elapsed_ms"] <= generate_mod.GENERATE_SOFT_BUDGET_MS
