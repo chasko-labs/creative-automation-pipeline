@@ -1,0 +1,6 @@
+{
+  "_overlay_for_project": "creative-automation-pipeline",
+  "_note": "kodiak creative pipeline opts into the adobe express developer mcp for the design-system-inventory prototyping loop (label element -> prototype in express, mcp-grounded + token-fed -> pin back to token layer -> update inventory row). express-developer-mcp is read-only docs + typescript sdk defs, stdio, no auth. see docs/kodiak/express-mcp-inventory-prep-spec.md. RTCDP MCP deliberately excluded (customer-data monitoring, not design).",
+  "_opt_in_families": ["mcp-adobe-express"],
+  "mcpServers": {}
+}
