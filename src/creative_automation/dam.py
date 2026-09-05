@@ -123,7 +123,19 @@ def _s3_client():
 
 
 def _s3_download(bucket: str, key: str, dest: Path) -> bool:
-    """Download single S3 key to dest. Returns True on success."""
+    """Download single S3 key to dest via bounded get_object + body.read(). True on success.
+
+    OUTER-WALL PREREQUISITE (#118): boto3 client.download_file() drives the S3 Transfer
+    manager, which spins its OWN worker thread pool. The botocore read_timeout on the
+    _s3_client() Config bounds a SINGLE socket read, NOT the overall transfer — a stalled
+    warm-container connection can therefore hang ~33s inside the Transfer manager despite
+    the 2s read_timeout, and the abandoned-thread leak the handler wall relies on would be
+    a whole Transfer thread pool, not a single socket. get_object has no Transfer-manager
+    threading: it is one bounded HTTP GET whose body.read() we drain inline under the SAME
+    fail-fast Config (connect 1s / read 2s / max_attempts 1) the client already carries.
+    An abandoned thread on this path is therefore a single safe socket read — that is what
+    makes the handler-level outer wall's leaked-thread abandonment safe.
+    """
     client = _s3_client()
     if client is None:
         return False
@@ -137,7 +149,14 @@ def _s3_download(bucket: str, key: str, dest: Path) -> bool:
             # this from firing on Lambda, but the guard is the belt to that suspenders.
             print(f"[dam] s3 cache dir unwritable {dest.parent}: {e}")
             return False
-        client.download_file(bucket, key, str(dest))
+        # get_object (no Transfer manager) + explicit body.read(), then write the bytes
+        # to dest — preserves the write-to-dest contract download_file provided. The read
+        # is bounded by the client Config's read_timeout; a stalled read raises and falls
+        # to the miss path rather than hanging a Transfer worker pool for ~33s.
+        resp = client.get_object(Bucket=bucket, Key=key)
+        body = resp["Body"].read()
+        with open(dest, "wb") as fh:
+            fh.write(body)
         return dest.exists()
     except (ClientError, BotoCoreError, Exception) as e:
         print(f"[dam] s3 fetch miss s3://{bucket}/{key}: {e}")
