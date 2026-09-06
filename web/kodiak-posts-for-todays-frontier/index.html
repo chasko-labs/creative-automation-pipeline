@@ -105,6 +105,8 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
   --kraft:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M0 10h60M0 50h60' stroke='%23624E42' stroke-opacity='.05' stroke-width='.8'/%3E%3C/svg%3E");
   --wood:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M0 60 Q30 55 60 60 T120 60' stroke='%23a77957' stroke-opacity='.07' stroke-width='1' fill='none'/%3E%3C/svg%3E");
   --mountain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0 38 L120 8 L260 32 L380 4 L520 30 L640 10 L760 34 L880 6 L1000 28 L1120 12 L1200 36 L1200 48 L0 48Z' fill='%231A2F29'/%3E%3C/svg%3E");
+  /* forest treeline divider - mirrors --mountain (same viewBox 0 0 1200 48, same fill #1A2F29) but ~36 narrow conifer spikes of varied height (peaks y=6..28) with baseline valleys at y=46, so it reads as a dense spruce/pine treeline rather than a few wide peaks */
+  --forest:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0 48 L0 46 L16 10 L33 46 L49 20 L66 46 L82 6 L99 46 L116 24 L133 46 L150 14 L166 46 L183 28 L199 46 L216 8 L233 46 L250 18 L266 46 L283 12 L300 46 L316 22 L333 46 L350 10 L366 46 L383 20 L399 46 L416 6 L433 46 L450 24 L466 46 L483 14 L500 46 L516 28 L533 46 L550 8 L566 46 L583 18 L600 46 L616 12 L633 46 L650 22 L666 46 L683 10 L699 46 L716 20 L733 46 L750 6 L766 46 L783 24 L799 46 L816 14 L833 46 L850 28 L866 46 L883 8 L900 46 L916 18 L933 46 L950 12 L966 46 L983 22 L1000 46 L1016 10 L1033 46 L1050 20 L1066 46 L1083 6 L1100 46 L1116 24 L1133 46 L1150 14 L1166 46 L1183 28 L1200 46 L1200 48 Z' fill='%231A2F29'/%3E%3C/svg%3E");
 }
 *{box-sizing:border-box}
 html,body{margin:0;color:var(--chocolate);font-family:"museo-sans",system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif;font-weight:500;font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased}
@@ -381,10 +383,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* A. simplified header — headline always full-width of its container, fluid clamp() type.
    top strip removed from DOM; header is now just logo + full-bleed headline plate. */
 .kodiak-header .header__inner{width:100%}
-.kodiak-headline-plate{flex:1 1 100%;min-width:0;background:var(--colors-background-nature);border-radius:var(--radii-md);padding:var(--spacing-sm) var(--spacing-md);box-shadow:var(--shadows-sm)}
+.kodiak-headline-plate{flex:1 1 100%;min-width:0;background:var(--colors-background-nature);border-radius:var(--radii-md);padding:var(--spacing-sm) var(--spacing-md);box-shadow:var(--shadows-sm);
+  /* headline plate is a size container so the h1 can size against the plate width, not the viewport - keeps the title one line inside its own box at every breakpoint */
+  container-type:inline-size}
 .kodiak-headline-plate h1{margin:0;width:100%;color:var(--colors-foreground-inverse);font-family:"gin",Rockwell,Clarendon,Georgia,serif;font-weight:800;line-height:1.05;letter-spacing:.02em;text-transform:none;
-  /* fluid + full width: scales 20px→38px across viewport, spans the plate at every breakpoint */
-  font-size:clamp(20px, 4.2vw, 38px)}
+  /* never wrap: single line, fluid size scales against the plate (cqi) so it fills the width and shrinks on narrow screens instead of wrapping. 4.4cqi keeps the ~41-char title within the plate width at every size (41 chars * ~0.55em gin cap-width => needs <=4.44cqi to fit 100cqi); floor 12px holds one line at 375px, ceiling 30px caps growth on wide plates. */
+  white-space:nowrap;overflow:hidden;text-overflow:clip;
+  font-size:clamp(12px, 4.4cqi, 30px)}
 
 /* C+D+E+F. control row — [market button] [seasonal menu] [featured-frontier + languages inline], one responsive row */
 /* rizz-1: align-items:center (was stretch) so the .ff-detail block's tall wrapped
@@ -424,7 +429,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 /* D. seasonal menu — token-styled native <select> shaped like the market button */
 .ff-season{flex:0 0 auto;display:inline-flex}
-.ff-season select{height:100%;min-height:40px;padding:0 12px;border:1px solid var(--colors-brand-blaze-orange);border-radius:var(--radii-lg);
+.ff-season select{height:100%;min-height:40px;padding:0 12px;border:1px solid var(--colors-border-default);border-radius:var(--radii-lg);
   background:var(--colors-neutral-50);color:var(--colors-foreground-default);
   font:700 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.04em;cursor:pointer;box-shadow:var(--shadows-sm)}
 .ff-season select:hover{background:var(--colors-neutral-100)}
@@ -496,6 +501,41 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* G. theme chips regrouped INTO the create-campaign surface — a labeled section, not a floating block */
 .ff-optiongroup{margin-top:var(--spacing-md);padding-top:var(--spacing-md);border-top:1px dashed var(--colors-border-default)}
 .ff-optiongroup>.ff-optiongroup-label{display:block;margin:0 0 var(--spacing-sm);font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted)}
+
+/* item 6 - unified brainstorming surface: campaign-option chips + product picker share one panel
+   (single background/border/radius + consistent inner spacing rhythm) so they read as one control
+   surface instead of two disconnected blocks. wrapper only; child ids untouched. */
+.ff-brainstorm{margin-top:var(--spacing-md);padding:var(--spacing-md);
+  background:var(--colors-neutral-100);border:1px solid var(--colors-border-default);border-radius:var(--radii-lg)}
+/* inside the unified panel the option-group no longer needs its own top border/margin - the panel provides the separation */
+.ff-brainstorm>.ff-optiongroup{margin-top:0;padding-top:0;border-top:none}
+/* products disclosure sits directly below the chips inside the same panel, separated by a hairline rhythm line */
+.ff-brainstorm>.ff-products{margin-top:var(--spacing-md);padding-top:var(--spacing-md);border-top:1px dashed var(--colors-border-default)}
+
+/* item 7 - product-picker field-as-shell: 3-slot horizontal image carousel below the search line.
+   reuses the .ff-products-search bordered look as the shell edge; horizontal scroll + scroll-snap,
+   content-visibility:auto for off-screen slot perf. Random 3 stays inline on the search row (item 7c). */
+.ff-product-carousel{display:flex;gap:var(--spacing-sm);overflow-x:auto;scroll-snap-type:x proximity;
+  padding:var(--spacing-xs);border:1px solid var(--colors-border-default);border-radius:var(--radii-md);
+  background:var(--colors-neutral-0);content-visibility:auto;contain-intrinsic-size:auto 96px;-webkit-overflow-scrolling:touch}
+.ff-carousel-slot{flex:0 0 33%;min-width:96px;aspect-ratio:1/1;scroll-snap-align:start;
+  border:1px dashed var(--colors-border-default);border-radius:var(--radii-sm);background:var(--colors-neutral-100);
+  display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ff-carousel-slot>img{width:100%;height:100%;object-fit:cover;display:block}
+/* narrow viewport - slots stay a single-row horizontal scroll and never overflow the shell */
+@media(max-width:520px){
+  .ff-carousel-slot{flex:0 0 46%;min-width:120px}
+}
+
+/* item 5 - publish-targets pill strip: tidy on-brand row of small pill links (tokens only) */
+.ff-publish-targets{display:flex;flex-wrap:wrap;align-items:center;gap:var(--spacing-sm);margin-top:var(--spacing-md)}
+.ff-publish-targets .ff-publish-label{font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted)}
+.ff-publish-targets .ff-publish-pill{display:inline-flex;align-items:center;padding:var(--spacing-xs) var(--spacing-sm);
+  border:1px solid var(--colors-border-default);border-radius:var(--radii-pill);
+  background:var(--colors-neutral-50);color:var(--colors-foreground-default);
+  font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.04em;text-decoration:none}
+.ff-publish-targets .ff-publish-pill:hover{background:var(--colors-neutral-100);border-color:var(--colors-border-strong);color:var(--colors-foreground-default)}
+.ff-publish-targets .ff-publish-pill:focus-visible{outline:2px solid var(--colors-brand-signal-red);outline-offset:2px}
 
 /* B. subtitle promoted to the prominent guiding line, full-width responsive */
 .ff-prompt h2.ff-sublead{margin:0 0 var(--spacing-md);width:100%;color:var(--colors-foreground-default);
@@ -570,6 +610,8 @@ header.kodiak-header{border-bottom:none;display:flex;align-items:center;gap:var(
 .ff-hidden{display:none}
 /* Wasatch ridge divider — decorative silhouette band */
 .ff-ridge{height:48px;background:var(--mountain) no-repeat center/100% 48px;margin:var(--spacing-sm) 0 0}
+/* forest treeline divider - mirrors .ff-ridge, uses the conifer --forest silhouette */
+.ff-forest{height:48px;background:var(--forest) no-repeat center/100% 48px;margin:var(--spacing-sm) 0 0}
 /* preview filenames line — hidden until populated */
 .ff-filenames{margin-top:10px;display:none}
 /* details-page link row + link type */
@@ -771,13 +813,13 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 <div class="kodiak-topstrip" aria-hidden="true"></div>
 <header class="kodiak-header"><div class="header__inner">
 <div class="kodiak-header__logos"><img class="kodiak-header__logo--primary" src="assets/kodiak-primary-logo_optimized.png" alt="KODIAK — 100% WHOLE GRAINS" onerror="this.onerror=null;this.src='assets/kodiak-primary-logo.png'"><img class="kodiak-header__logo--secondary" src="assets/kodiak-parkcity-alt-logo.svg" alt="Kodiak Cakes — Park City" onerror="this.onerror=null;this.src='assets/kodiak-primary-logo.png'"></div>
-<div class="kodiak-headline-plate"><h1>Nourishing Today's Frontier: Kodiak Cakes Creative Automation Pipeline</h1></div>
+<div class="kodiak-headline-plate"><h1>Kodiak Cakes Creative Automation Pipeline</h1></div>
 </div>
 </header>
 
 <div class="wrap">
 <!-- location-aware island + design-system scorecards moved to details.html (Design system + details link below) -->
-<div class="card" data-mcp="campaign-brief" data-mcp-description="Park City Utah demo — one prompt drives the campaign"><div class="hd"><h2>Create a Kodiak Cakes social campaign</h2></div><div class="body">
+<div class="card" data-mcp="campaign-brief" data-mcp-description="Park City Utah demo — one prompt drives the campaign"><div class="hd"><h2>Nourishing Today's Frontier: Create a Kodiak Cakes Social Campaign</h2></div><div class="body">
 
 <!-- PRIMARY: Firefly-inspired prompt bar — dominates the card -->
 <div class="ff-prompt" data-mcp="campaign-brief.prompt">
@@ -817,6 +859,8 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
     <!-- B2: .ff-detail (featured-frontier + languages readout) moved OUT to the output section below — it is a readout of what selections resolved to, not an input. -->
   </div>
 
+  <!-- ff-brainstorm - unified brainstorming surface: campaign-option chips + product picker read as ONE panel. wrapper only; every child still binds by id so the JS selectors are unaffected. -->
+  <div class="ff-brainstorm">
   <!-- G. campaign-creation options — the theme chips, regrouped INTO this create surface (not a floating block) -->
   <div class="ff-optiongroup">
     <span class="ff-optiongroup-label" id="promptChipsLabel">Or start from a campaign option</span>
@@ -851,10 +895,19 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
         <button type="button" class="ff-products-random" id="randomProducts" aria-label="Pick 3 random products">Random 3</button>
         <span class="ff-products-hint" id="skuHint">Pick up to 3, or leave empty — Create uses your brief/theme.</span>
       </div>
+      <!-- field-as-shell: 3-slot horizontal image carousel below the search line; JS fills the slots from selected/random SKUs. scroll-snap + content-visibility for perf; single-row horizontal scroll on narrow viewports. -->
+      <div class="ff-product-carousel" id="productCarousel" role="group" aria-label="Selected product images">
+        <!-- JS fills carousel slots -->
+        <div class="ff-carousel-slot" aria-hidden="true"></div>
+        <div class="ff-carousel-slot" aria-hidden="true"></div>
+        <div class="ff-carousel-slot" aria-hidden="true"></div>
+      </div>
       <!-- hidden host for the SKU checkboxes — the change-delegation handlers + Random 3 still bind here; the tray mirrors the checked state -->
       <div id="productChooser" role="group" aria-label="KODIAK product choices" hidden></div>
     </div>
   </details>
+  </div>
+  <!-- /ff-brainstorm -->
 
   <!-- Shared selection tray — staged uploads + selected SKUs render here as removable chips. Zero-height when empty. -->
   <div class="ff-tray" id="selectionTray" role="group" aria-label="Selected products and staged assets"></div>
@@ -896,7 +949,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 
 <!-- ============ OUTPUT ============ -->
 <section class="ff-output" aria-labelledby="outputHeading">
-  <h2 class="ff-output-heading" id="outputHeading">Output</h2>
+  <h2 class="ff-output-heading" id="outputHeading">Output Preview</h2>
 
   <!-- readout: what your selections resolved to (featured frontier + languages). ids preserved so the market-selection JS still writes here. -->
   <div class="ff-detail ff-output-readout">
@@ -905,11 +958,24 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
     <!-- #locPreview (localized-copy preview) is injected here by the AXIS-3 script, beside this readout -->
   </div>
 
-  <details class="card wide-track preview-card" id="previewCard"><summary><span>Preview</span> <span class="badge">3 sizes</span><span class="preview-sub">Your campaign previewed in three sizes: 1x1, 9x16, 16x9 — one brief, generated for every platform below.</span></summary>
+  <details class="card wide-track preview-card" id="previewCard"><summary><span>Preview</span> <span class="badge">4 sizes</span><span class="preview-sub">Four sizes - 1x1, 4x5, 9x16, 16x9 - one brief, sized for every platform below.</span></summary>
   <div class="body"><div class="preview" id="preview" role="region" aria-label="Campaign preview — three sizes" data-mcp="preview.compose" data-mcp-description="Pipeline preview — displays campaign message in EN + localized on final posts"></div><div class="hint ff-filenames" id="fileNames"></div></div></details>
 
   <!-- Download asset pack hidden by default; primary/secondary download actions injected under the preview after generation -->
-  <div class="row ff-downloadrow"><button class="btn ghost" id="downloadPack" data-mcp="download-pack" data-mcp-description="Download the campaign assets as an ISO-labeled zip from S3">Download asset pack</button></div>
+  <div class="row ff-downloadrow"><button class="btn ghost" id="downloadPack" data-mcp="download-pack" data-mcp-description="Download the campaign assets as an ISO-labeled zip from S3">Download Preview Pack</button></div>
+
+  <!-- Publish targets - static on-brand pill links to Kodiak owned + social channels. #publishTargets is findable; JS track may correct hrefs (blog path) but the strip is static markup. -->
+  <nav class="ff-publish-targets" id="publishTargets" aria-label="Kodiak publish targets">
+    <span class="ff-publish-label">Publish targets</span>
+    <a class="ff-publish-pill" href="https://kodiakcakes.com" target="_blank" rel="noopener noreferrer">Homepage</a>
+    <a class="ff-publish-pill" href="https://kodiakcakes.com/blogs/kodiak-kitchen" target="_blank" rel="noopener noreferrer">Blog</a>
+    <a class="ff-publish-pill" href="https://instagram.com/kodiakcakes" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a class="ff-publish-pill" href="https://facebook.com/kodiakcakes" target="_blank" rel="noopener noreferrer">Facebook</a>
+    <a class="ff-publish-pill" href="https://tiktok.com/@kodiakcakes" target="_blank" rel="noopener noreferrer">TikTok</a>
+    <a class="ff-publish-pill" href="https://youtube.com/kodiakcakes" target="_blank" rel="noopener noreferrer">YouTube</a>
+    <a class="ff-publish-pill" href="https://pinterest.com/kodiakcakes" target="_blank" rel="noopener noreferrer">Pinterest</a>
+    <a class="ff-publish-pill" href="https://x.com/kodiakcakes" target="_blank" rel="noopener noreferrer">X</a>
+  </nav>
   <div class="hint ff-generatehint" id="generateHint">Park City default with a localized variant. <span id="sampleStatus" class="ff-samplestatus" role="status" aria-live="polite"></span></div>
 
   <!-- HIDDEN: single retailers channel default so generate JS never null-crashes (.channel-check never read by JS, kept for safety) -->
@@ -919,6 +985,11 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
   <div id="localFlavor" class="ff-hidden" data-mcp="local-flavor" data-mcp-description="Local flavor per season & source — derived, not selectable"><b>Local flavor</b><div id="localFlavorText">Park City: Wasatch Back — Jensen Farms peaches + Copper Moose rhubarb Jun–Sep at Park City Farmers Market.</div></div>
 </section>
 <!-- ============ /OUTPUT ============ -->
+
+<!-- Forest treeline - divider between Output Preview and the Generate Campaign section (mirrors the Wasatch ridge, conifer silhouette) -->
+<div class="ff-forest" aria-hidden="true" title="Frontier forest treeline - Frontier Green S30 #1A2F29"></div>
+<!-- generate-campaign section mounts here (JS track) -->
+
 <div class="row ff-detailslink-row"><a href="details.html" class="ff-detailslink">Design system + details &rarr;</a></div>
 
 <details class="card wide-track ff-about" id="aboutTool"><summary>About this tool</summary><div class="body"><p class="ff-about__copy">Type one line, pick a starting point, and get a ready-to-post Kodiak campaign — images and copy sized for every social platform and retailer, localized to the market you choose. See the <a href="details.html">design system + details</a> for how it works under the hood.</p></div></details>
@@ -940,6 +1011,18 @@ const marketLangsOffline = {
   "US-SW-ALBQ": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":22.3},{"lang_code":"nv","lang_name":"Navajo","translate_code":"nv","pct_home":1.1,"machine_translate":false,"review":"community","review_note":"Community-authorized translation required — not machine-generated (language sovereignty)."}],
   "_default": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":8},{"lang_code":"fr","lang_name":"French","translate_code":"fr","pct_home":0.5}]
 };
+// RESTING-LOCALIZATION SEED — real translated copy for the default resting markets so the resting preview
+// shows genuine localized text (not 3x English) before the live /localize is ever called on Create. Seed
+// entries carry provider:"seed" and are treated by both localized renderers exactly like precomputed #124
+// copy: real text, no "showing English source only" note. Live /localize on Create still overrides. Park
+// City real top_languages are es + de. NEVER seed community-review languages (nv/zip) — those stay human-only.
+window.KODIAK_LOCALIZED_COPY = window.KODIAK_LOCALIZED_COPY || {};
+if(!window.KODIAK_LOCALIZED_COPY["US-MW-PARKCITY-84098"]){
+  window.KODIAK_LOCALIZED_COPY["US-MW-PARKCITY-84098"] = {
+    "es": {text:"Mantente Salvaje — cereales integrales ricos en proteína para tu frontera Wasatch. Nutrición para la Frontera de Hoy", provider:"seed"},
+    "de": {text:"Bleib wild — proteinreiche Vollkornprodukte für deine Wasatch-Frontier. Nahrung für die Frontier von heute", provider:"seed"}
+  };
+}
 /** @param {string} code @returns {Array<{lang_code:string,lang_name:string,translate_code:string,pct_home:number,machine_translate?:boolean,review?:string,review_note?:string}>} */
 function marketLangsFor(code){ return (marketLangsOffline[code] || marketLangsOffline._default || []).filter(Boolean); }
 /** @param {void} @returns {void} */
@@ -1103,7 +1186,7 @@ function render(){
   const needsMark = !headline.includes('®') || !headline.includes('KODIAK');
   // enforce brand marks preview hint (guard headlineEl deprecated -> campaignBrief)
   try{ const hlEl = headlineEl || document.getElementById('campaignBrief'); if(hlEl) hlEl.style.borderColor = needsMark ? '#E8530E' : '#D9CFC6'; }catch(e){}
-  const ratios = [{k:"1x1",w:1080,h:1080},{k:"9x16",w:1080,h:1920},{k:"16x9",w:1920,h:1080}];
+  const ratios = [{k:"1x1",w:1080,h:1080},{k:"4x5",w:1080,h:1350},{k:"9x16",w:1080,h:1920},{k:"16x9",w:1920,h:1080}];
   previewEl.innerHTML="";
   canvases=[];
   const date = new Date().toISOString().slice(0,10).replace(/-/g,"");
@@ -1139,6 +1222,8 @@ function render(){
   fileNamesEl.innerHTML = files.map(f=>`<span class=kbd>${f}</span>`).join(' ');
   // re-insert the platform-matrix explainer above the canvas tiles (render() cleared #preview above).
   try{ if(window.__renderPlatformMatrix) window.__renderPlatformMatrix(); }catch(e){}
+  // preview is ready (offline canvas path) — reveal the Generate Campaign section (guarded no-op if absent)
+  try{ if(typeof window.__kodiakRevealCampaign==='function') window.__kodiakRevealCampaign(); }catch(e){}
 }
 function drawAd(ctx,W,H,headline,prod,heroImg){
   // blurred cover emulation: brown kraft cover
@@ -1552,8 +1637,13 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
                 '<span class="loc-langtag">'+esc((l.lang_code||code).toUpperCase())+'</span>'+
                 '<span class="loc-txt">'+esc(fill)+'</span>'+badge+'</p>');
     });
-    // offline honest note — single line, only when the endpoint is off (never fabricate translated text)
-    const offlineNote = window.KODIAK_LOCALIZE_ENDPOINT ? '' :
+    // offline honest note — single line, only when the endpoint is off (never fabricate translated text).
+    // Suppressed when this market carries resting seed copy (provider "seed"): a seeded market shows real
+    // localized text, so the "showing English source only" apology must never appear for it.
+    let _hasSeed = false;
+    try{ const _s = window.KODIAK_LOCALIZED_COPY && window.KODIAK_LOCALIZED_COPY[market];
+      if(_s) _hasSeed = langs.some(l=>{ const c=(l.translate_code||l.lang_code||'').toLowerCase(); const e=_s[c]; return e && typeof e.text==='string'; }); }catch(e){}
+    const offlineNote = (window.KODIAK_LOCALIZE_ENDPOINT || _hasSeed) ? '' :
       '<p class="loc-line loc-offline" data-provider="offline-note" style="font-style:italic;color:var(--colors-foreground-muted)">localization offline — showing English source only</p>';
     h.innerHTML = '<div class="ff-locpreview-head" style="font:700 10px/1.2 \'kodiak_sans\',\'museo-sans\',sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted);margin-bottom:2px">Localized copy preview</div>'+rows.join('')+offlineNote;
 
@@ -1768,14 +1858,15 @@ let skuList = [
   const escapeHtml = (s)=> String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const PLATFORM_LABELS = {
     facebook:'Facebook', instagram:'Instagram', linkedin:'LinkedIn',
-    pinterest:'Pinterest', tiktok:'TikTok', x:'X', youtube:'YouTube'
+    pinterest:'Pinterest', tiktok:'TikTok', x:'X', youtube:'YouTube', blog:'Blog'
   };
   // Inline fallback — ratio order matches the summary copy (1x1, then portrait, then vertical, then landscape).
   const PLATFORM_MATRIX_FALLBACK = {
     '1x1':  {label:'Square',    w:1080, h:1080, platforms:['facebook','instagram','x','linkedin','pinterest']},
     '4x5':  {label:'Portrait',  w:1080, h:1350, platforms:['instagram','facebook']},
     '9x16': {label:'Vertical',  w:1080, h:1920, platforms:['instagram','facebook','tiktok','youtube','pinterest']},
-    '16x9': {label:'Landscape', w:1920, h:1080, platforms:['youtube','linkedin','x','facebook']}
+    '16x9': {label:'Landscape', w:1920, h:1080, platforms:['youtube','linkedin','x','facebook']},
+    'blog': {label:'Blog / Open Graph', w:1200, h:630, platforms:['blog']}
   };
   // live matrix — starts as the fallback, upgraded by the fetched JSON when reachable.
   let platformMatrix = PLATFORM_MATRIX_FALLBACK;
@@ -1826,8 +1917,8 @@ let skuList = [
     if(!preview) return;
     const old = document.getElementById('platformMatrix');
     if(old) old.remove();
-    // ratio display order — square, portrait, vertical, landscape (whatever the matrix provides)
-    const order = ['1x1','4x5','9x16','16x9'];
+    // ratio display order — square, portrait, vertical, landscape, then blog/open-graph (whatever the matrix provides)
+    const order = ['1x1','4x5','9x16','16x9','blog'];
     const keys = order.filter(k=>platformMatrix[k]).concat(Object.keys(platformMatrix).filter(k=>order.indexOf(k)<0));
     const rows = keys.map(k=>{
       const row = platformMatrix[k];
@@ -1843,8 +1934,7 @@ let skuList = [
     wrap.className = 'platform-matrix';
     wrap.id = 'platformMatrix';
     wrap.innerHTML =
-      '<div class="pm-head"><b>When you hit Create, we generate these sizes for these platforms</b>'+
-      '<span class="pm-sub">One brief, every ratio, every platform in scope.</span></div>'+
+      '<div class="pm-head"><b>One asset pack exports these ratios for these platforms</b></div>'+
       '<table><thead><tr><th scope="col">Ratio</th><th scope="col">Dimensions</th><th scope="col">Platforms</th></tr></thead>'+
       '<tbody>'+rows+'</tbody></table>';
     // matrix leads the preview (explainer sits above the render tiles)
@@ -2063,6 +2153,7 @@ let skuList = [
         badge.textContent = opts.theme ? ('source: ' + label + ' · theme: ' + (opts.themeLabel || opts.theme)) : ('source: ' + label);
         badge.style.cssText = 'display:inline-block;margin:0 0 8px;padding:2px 8px;border-radius:6px;font-size:11px;color:#FFF8F0;background:#1A3C34';
         revealDownloadActions();
+        try{ if(typeof window.__kodiakRevealCampaign==='function') window.__kodiakRevealCampaign(); }catch(e){}
       };
       // Human labels for the render ratios and the engine.
       const RATIO_LABELS = {
@@ -2130,7 +2221,10 @@ let skuList = [
         badge.textContent = opts.themeLabel ? ('source: ' + label + ' · theme: ' + opts.themeLabel) : ('source: ' + label);
         badge.style.cssText = 'display:inline-block;margin:0 0 8px;padding:2px 8px;border-radius:6px;font-size:11px;color:#FFF8F0;background:#1A3C34';
         revealDownloadActions();
+        try{ if(typeof window.__kodiakRevealCampaign==='function') window.__kodiakRevealCampaign(); }catch(e){}
       };
+      // expose the hosted multi-ratio renderer so the Generate Campaign section can reuse it for full-campaign results
+      try{ window.KODIAK_showRenderSet = showRenderSet; }catch(e){}
       // TASK 2 — collapsible provenance panel: what you provided vs what we did.
       const renderProvenancePanel = (prov, ctx)=>{
         ctx = ctx || {};
@@ -2773,7 +2867,54 @@ let skuList = [
     if(status) status.textContent = 'Downloaded ' + name;
     return name;
   };
-  document.getElementById('downloadPack')?.addEventListener('click', function(){ window.downloadAssetPack(); });
+
+  // Download Preview Pack — save ALL current preview images, not one. Offline: iterate canvases[]
+  // (populated by the offline render(); {canvas,ratio,product}) via toDataURL. Hosted: iterate the
+  // <img> tiles the hosted renderer (showRenderSet / showRealImage) painted into #preview and save
+  // each presigned url. Falls back to the single-hero downloadAssetPack when neither source exists.
+  // Guarded end to end; never throws into the click handler.
+  window.downloadAllPreview = function(){
+    var status = document.getElementById('sampleStatus');
+    var date = new Date().toISOString().slice(0,10).replace(/-/g,'');
+    var product = window.__requestedSku || 'savory-waffles';
+    var region = 'US-UT', locality = 'park-city-84098', channel = 'retailers';
+    var saved = 0;
+    var clickDL = function(href, dl){
+      try{ var a=document.createElement('a'); a.href=href; if(dl) a.download=dl; a.rel='noopener'; document.body.appendChild(a); a.click(); a.remove(); saved++; }catch(e){}
+    };
+    // 1. offline canvases[] — real client-side pixels, name per ratio
+    try{
+      if(typeof canvases!=='undefined' && canvases && canvases.length){
+        canvases.forEach(function(c){
+          if(!c || !c.canvas) return;
+          var nm = 'KODIAK-CAKES-'+(c.product||product)+'-'+region+'-'+locality+'-'+channel+'-'+(c.ratio||'1x1')+'-'+date+'-v01.png';
+          try{ clickDL(c.canvas.toDataURL('image/png'), nm); }catch(e){}
+        });
+      }
+    }catch(e){}
+    // 2. hosted preview <img> tiles — presigned urls (cross-origin download attr ignored; Content-Disposition wins)
+    if(!saved){
+      try{
+        var preview = document.getElementById('preview');
+        var imgs = preview ? Array.prototype.slice.call(preview.querySelectorAll('img')) : [];
+        imgs.forEach(function(img, i){
+          var src = img && img.getAttribute('src'); if(!src) return;
+          var nm = 'KODIAK-CAKES-'+product+'-'+region+'-'+locality+'-'+channel+'-'+(i+1)+'-'+date+'-v01.png';
+          clickDL(src, nm);
+        });
+      }catch(e){}
+    }
+    // 3. nothing on screen — fall back to the single recorded hero, else prompt to generate
+    if(!saved){
+      if(window.__lastHeroUrl){ return window.downloadAssetPack(); }
+      if(status) status.textContent = 'Generate a preview first, then download.';
+      return 0;
+    }
+    if(status) status.textContent = 'Downloaded ' + saved + ' preview image' + (saved===1?'':'s');
+    return saved;
+  };
+  // Download Preview Pack downloads ALL current preview images (was mis-bound to #downloadAll which is not in the DOM).
+  document.getElementById('downloadPack')?.addEventListener('click', function(){ window.downloadAllPreview(); });
 })();
 </script>
   <script>
@@ -2871,6 +3012,19 @@ let skuList = [
         line.innerHTML = tag + 'human translation required (' + esc(l.lang_name || code) + ')';
         langLine.appendChild(line);
         return;
+      }
+
+      // RESTING-LOCALIZATION SEED — real precomputed copy for the default resting markets. When a seed
+      // exists for market x code, render it as provider "seed" (real text, no offline apology). Live
+      // /localize on Create still overrides via the fetch path below when the endpoint is on. This is the
+      // resting "real-looking translated copy" state (never fabricated at request time — seeded ahead).
+      var seed = null;
+      try{ var _sm = window.KODIAK_LOCALIZED_COPY && window.KODIAK_LOCALIZED_COPY[market]; var _se = _sm && _sm[code]; if(_se && typeof _se.text==='string') seed = _se; }catch(e){}
+      if(seed){
+        line.setAttribute('data-provider', seed.provider || 'seed');
+        line.innerHTML = tag + esc(seed.text);
+        langLine.appendChild(line);
+        return;   // seeded line is real copy — never emit noteOffline() for it
       }
 
       line.setAttribute('data-provider','pending');
@@ -4001,6 +4155,257 @@ let skuList = [
   if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', function(){ setTimeout(runRestore, 700); }); }
   else { setTimeout(runRestore, 700); }
   setTimeout(runRestore, 1500);   // second pass — SKU checkboxes may finish painting after the first pass
+})();
+</script>
+  <script>
+// === Generate Campaign + Campaign Assets (post-create) + product carousel fill — additive, guarded ===
+// VANILLA-JS BEHAVIOR track. Mounts two sections at the "generate-campaign section mounts here" placeholder
+// (after the .ff-forest treeline), wires the real full-campaign generate, and mirrors selected product images
+// into #productCarousel. All guarded; never 500s the UI; prefers-reduced-motion respected for the pulse.
+(function(){
+  'use strict';
+  var esc = function(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); };
+
+  // ---- resolve the selected market place name for the "localized to <AREA>" label ----
+  function currentAreaLabel(){
+    try{
+      var code = document.getElementById('locality')?.value || 'US-MW-PARKCITY-84098';
+      var list = (window.places && window.places.length) ? window.places : (typeof places!=='undefined' ? places : []);
+      var p = list.find(function(x){ return x && x.market===code; });
+      return (p && p.place) ? p.place : 'Park City, Utah';
+    }catch(e){ return 'Park City, Utah'; }
+  }
+
+  // ---- one-time attention-pulse style (respects prefers-reduced-motion) ----
+  function ensurePulseStyle(){
+    if(document.getElementById('ffCampaignPulseCss')) return;
+    var st = document.createElement('style');
+    st.id = 'ffCampaignPulseCss';
+    st.textContent =
+      '@keyframes ffCampaignPulse{0%{box-shadow:0 0 0 0 rgba(232,83,14,.45)}70%{box-shadow:0 0 0 14px rgba(232,83,14,0)}100%{box-shadow:0 0 0 0 rgba(232,83,14,0)}}'+
+      '.ff-campaign-pulse{animation:ffCampaignPulse 1.2s ease-out 2}'+
+      '@media(prefers-reduced-motion:reduce){.ff-campaign-pulse{animation:none}}';
+    document.head.appendChild(st);
+  }
+
+  // ---- build the two sections into the placeholder location ----
+  function mountSections(){
+    if(document.getElementById('generateCampaignSection')) return true;   // idempotent
+    // anchor: the forest treeline divider that precedes the placeholder comment
+    var forest = document.querySelector('.ff-forest');
+    var area = currentAreaLabel();
+    var wrap = document.createElement('div');
+    wrap.innerHTML =
+      '<section id="generateCampaignSection" class="ff-generate-campaign" aria-labelledby="generateCampaignHeading" hidden style="max-width:960px;margin:0 auto;padding:0 var(--spacing-sm)">'+
+        '<h2 id="generateCampaignHeading" class="ff-output-heading">Generate Campaign</h2>'+
+        '<p class="hint" id="generateCampaignHint">Your preview is ready. Generate the full campaign — every ratio, every platform, localized.</p>'+
+        '<div class="row" id="generateCampaignBtns" style="gap:10px;flex-wrap:wrap">'+
+          '<button type="button" class="btn ghost" id="genScopeNationwide" data-scope="nationwide">Generate Nationwide</button>'+
+          '<button type="button" class="btn ghost" id="genScopeNationwideLoc" data-scope="nationwide-localized">Generate Nationwide with Full Localization</button>'+
+          '<button type="button" class="btn orange" id="genScopeLocal" data-scope="local">Generate Campaign Localized to '+esc(area)+'</button>'+
+        '</div>'+
+        '<div class="hint" id="generateCampaignStatus" role="status" aria-live="polite"></div>'+
+      '</section>'+
+      '<section id="campaignAssetsSection" class="ff-campaign-assets" aria-labelledby="campaignAssetsHeading" hidden style="max-width:960px;margin:0 auto;padding:0 var(--spacing-sm)">'+
+        '<h2 id="campaignAssetsHeading" class="ff-output-heading">Campaign Assets Created</h2>'+
+        '<div class="row" style="justify-content:flex-start"><button type="button" class="btn orange" id="downloadCampaignPackTop" data-mcp="download-campaign-pack">Download Campaign Pack</button></div>'+
+        '<div class="ff-product-carousel" id="campaignAssetsCarousel" role="group" aria-label="Generated campaign assets" style="margin-top:var(--spacing-sm)"></div>'+
+        '<div class="row" style="justify-content:flex-start;margin-top:var(--spacing-sm)"><button type="button" class="btn orange" id="downloadCampaignPackBottom" data-mcp="download-campaign-pack">Download Campaign Pack</button></div>'+
+      '</section>';
+    // insert right after the forest divider (the placeholder comment sits there); fallback to body append
+    if(forest && forest.parentNode){
+      var ref = forest.nextSibling;
+      while(wrap.firstChild){ forest.parentNode.insertBefore(wrap.firstChild, ref); }
+    } else {
+      document.body.appendChild(wrap);
+    }
+    wireButtons();
+    return true;
+  }
+
+  // ---- keep the "localized to <AREA>" label live on market change ----
+  function refreshAreaLabel(){
+    var btn = document.getElementById('genScopeLocal');
+    if(btn) btn.textContent = 'Generate Campaign Localized to ' + currentAreaLabel();
+  }
+  document.addEventListener('change', function(e){ if(e.target && e.target.id==='locality') refreshAreaLabel(); });
+
+  // ---- reveal + scroll + pulse when a preview becomes ready ----
+  window.__kodiakRevealCampaign = function(){
+    try{
+      mountSections();
+      var sec = document.getElementById('generateCampaignSection');
+      if(!sec) return;
+      if(sec.hidden){ sec.hidden = false; }
+      refreshAreaLabel();
+      ensurePulseStyle();
+      // scroll into center so the user never has to hunt; pulse for attention (reduced-motion => no anim)
+      try{ sec.scrollIntoView({behavior:'smooth', block:'center'}); }catch(e){ try{ sec.scrollIntoView(); }catch(e2){} }
+      sec.classList.remove('ff-campaign-pulse');
+      // reflow so re-adding the class restarts the animation on a repeat preview
+      void sec.offsetWidth;
+      sec.classList.add('ff-campaign-pulse');
+    }catch(e){ /* reveal must never break the generate flow */ }
+  };
+
+  // ---- the real full-campaign generate (scope distinction on the same /generate endpoint) ----
+  var campaignRenders = [];   // last full-campaign renders[] for the download-pack buttons
+  function selectedMarket(){ try{ return document.getElementById('locality')?.value || 'US-MW-PARKCITY-84098'; }catch(e){ return 'US-MW-PARKCITY-84098'; } }
+  function selectedProductSlug(){
+    // reuse the requested-sku the preview Create recorded; fall back to the flagship mapped handle
+    try{ if(window.__requestedSku) return window.__requestedSku; }catch(e){}
+    return 'buttermilk-power-cakes-flapjack-waffle-mix';
+  }
+  function currentBrief(){ try{ return (document.getElementById('campaignBrief')?.value || '').trim() || 'Keep It Wild — Nourishment for Today\u0027s Frontier'; }catch(e){ return 'Keep It Wild'; } }
+
+  function renderCampaignCarousel(renders){
+    var car = document.getElementById('campaignAssetsCarousel');
+    if(!car) return;
+    car.innerHTML = '';
+    (renders||[]).forEach(function(r){
+      if(!r || !r.image_url) return;
+      var slot = document.createElement('div');
+      slot.className = 'ff-carousel-slot';
+      slot.removeAttribute('aria-hidden');
+      var img = document.createElement('img');
+      img.src = r.image_url;
+      img.loading = 'lazy';
+      img.alt = 'Campaign asset ' + (r.ratio ? String(r.ratio).replace('x',':') : '');
+      slot.appendChild(img);
+      car.appendChild(slot);
+    });
+  }
+
+  // download all campaign renders (hosted urls). Mirrors the download-all-preview approach for full renders.
+  window.downloadCampaignPack = function(){
+    var status = document.getElementById('generateCampaignStatus');
+    if(!campaignRenders.length){ if(status) status.textContent = 'Generate a campaign first, then download the pack.'; return 0; }
+    var date = new Date().toISOString().slice(0,10).replace(/-/g,'');
+    var product = selectedProductSlug();
+    var saved = 0;
+    campaignRenders.forEach(function(r, i){
+      if(!r || !r.image_url) return;
+      try{
+        var nm = 'KODIAK-CAKES-'+product+'-campaign-'+(r.ratio||(i+1))+'-'+date+'-v01.png';
+        var a = document.createElement('a'); a.href = r.image_url; a.download = nm; a.rel='noopener';
+        document.body.appendChild(a); a.click(); a.remove(); saved++;
+      }catch(e){}
+    });
+    if(status) status.textContent = 'Downloaded ' + saved + ' campaign asset' + (saved===1?'':'s');
+    return saved;
+  };
+
+  function setCampaignBtnsDisabled(d){
+    ['genScopeNationwide','genScopeNationwideLoc','genScopeLocal'].forEach(function(id){ var b=document.getElementById(id); if(b) b.disabled = d; });
+  }
+
+  async function runCampaign(scope){
+    var status = document.getElementById('generateCampaignStatus');
+    var isLocal = (location.protocol==='file:') || ['127.0.0.1','localhost'].includes(location.hostname);
+    if(isLocal){
+      if(status) status.textContent = 'Full campaign generate needs the hosted backend — offline shows the preview only.';
+      return;
+    }
+    setCampaignBtnsDisabled(true);
+    if(status) status.textContent = 'Generating full campaign (' + scope + ')\u2026 up to ~90s';
+    var controller = new AbortController();
+    var timeoutId = setTimeout(function(){ controller.abort(); }, 100000);
+    try{
+      var body = {
+        prompt: currentBrief(),
+        market: selectedMarket(),
+        product: selectedProductSlug(),
+        scope: scope,        // nationwide | nationwide-localized | local
+        mode: 'full'         // full 3/4-size + localization + platform-copy path (backend FULL_MODE)
+      };
+      var resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: controller.signal});
+      if(!resp.ok) throw new Error('backend returned HTTP ' + resp.status);
+      var json;
+      try{ json = await resp.json(); }catch(pe){ throw new Error('malformed response from backend'); }
+      var renders = Array.isArray(json.renders) && json.renders.length ? json.renders
+                    : (json.image_url ? [{image_url: json.image_url, ratio: json.ratio || '1x1', w: json.w, h: json.h}] : []);
+      if(!renders.length) throw new Error('response missing renders');
+      campaignRenders = renders;
+      // reuse the preview renderer for the on-screen result when available
+      try{ if(typeof window.KODIAK_showRenderSet==='function' && Array.isArray(json.renders) && json.renders.length){ window.KODIAK_showRenderSet(json.renders, {source: json.source}); } }catch(e){}
+      renderCampaignCarousel(renders);
+      var assets = document.getElementById('campaignAssetsSection');
+      if(assets && assets.hidden){ assets.hidden = false; }
+      try{ assets.scrollIntoView({behavior:'smooth', block:'start'}); }catch(e){}
+      if(status) status.textContent = 'Campaign created — ' + renders.length + ' asset' + (renders.length===1?'':'s') + ' from ' + (json.source || 'Nova Pro') + ' (' + scope + ')';
+    }catch(err){
+      if(status) status.textContent = (err && err.name==='AbortError')
+        ? 'Campaign generate timed out — reconnect and try again.'
+        : 'Could not generate the full campaign — ' + (err && err.message ? err.message : 'try again') + '.';
+    }finally{
+      clearTimeout(timeoutId);
+      setCampaignBtnsDisabled(false);
+    }
+  }
+
+  function wireButtons(){
+    var map = {genScopeNationwide:'nationwide', genScopeNationwideLoc:'nationwide-localized', genScopeLocal:'local'};
+    Object.keys(map).forEach(function(id){
+      var b = document.getElementById(id);
+      if(b && !b.__wired){ b.__wired = true; b.addEventListener('click', function(){ runCampaign(map[id]); }); }
+    });
+    var dt = document.getElementById('downloadCampaignPackTop');
+    if(dt && !dt.__wired){ dt.__wired = true; dt.addEventListener('click', function(){ window.downloadCampaignPack(); }); }
+    var db = document.getElementById('downloadCampaignPackBottom');
+    if(db && !db.__wired){ db.__wired = true; db.addEventListener('click', function(){ window.downloadCampaignPack(); }); }
+  }
+
+  // ---- Item 8: product carousel fill — mirror selected product images into #productCarousel slots ----
+  function repaintProductCarousel(){
+    try{
+      var car = document.getElementById('productCarousel');
+      if(!car) return;
+      var checked = Array.prototype.slice.call(document.querySelectorAll('#productChooser .sku-check:checked')).map(function(c){ return c.value; });
+      var cat = (window.skuCatalog && window.skuCatalog.length) ? window.skuCatalog : [];
+      // resolve up to 3 image urls from the selected products (catalog images[0], else hidden host thumb)
+      var imgs = [];
+      checked.slice(0,3).forEach(function(name){
+        var hit = cat.find(function(p){ return p && p.name===name; });
+        var src = hit && hit.images && hit.images[0] ? hit.images[0] : '';
+        if(!src){
+          // fall back to the checkbox row thumb the chooser painted, if present
+          try{ var box = Array.prototype.slice.call(document.querySelectorAll('#productChooser .sku-check')).find(function(b){ return b.value===name; });
+            var thumb = box && box.parentNode ? box.parentNode.querySelector('img') : null; if(thumb && thumb.src) src = thumb.src; }catch(e){}
+        }
+        if(src) imgs.push({src:src, name:name});
+      });
+      // repaint exactly 3 slots: filled first, dashed placeholders after (mirror only, no selection change)
+      car.innerHTML = '';
+      for(var i=0;i<3;i++){
+        var slot = document.createElement('div');
+        slot.className = 'ff-carousel-slot';
+        if(imgs[i]){
+          var im = document.createElement('img');
+          im.src = imgs[i].src; im.loading = 'lazy'; im.alt = imgs[i].name;
+          im.setAttribute('crossorigin','anonymous');
+          im.onerror = function(){ this.style.display='none'; };
+          slot.appendChild(im);
+        } else {
+          slot.setAttribute('aria-hidden','true');
+        }
+        car.appendChild(slot);
+      }
+    }catch(e){ /* carousel fill is a visual mirror — never break selection logic */ }
+  }
+  // repaint on any sku-check change (delegation, survives chooser innerHTML swaps + Random 3)
+  document.addEventListener('change', function(e){ if(e.target && e.target.classList && e.target.classList.contains('sku-check')) repaintProductCarousel(); });
+  document.getElementById('randomProducts')?.addEventListener('click', function(){ setTimeout(repaintProductCarousel, 0); });
+
+  // ---- init ----
+  function init(){
+    mountSections();
+    // catalog paints asynchronously (~900ms) — repaint the carousel after it settles + once more later
+    setTimeout(repaintProductCarousel, 950);
+    setTimeout(repaintProductCarousel, 1600);
+    refreshAreaLabel();
+  }
+  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', init); }
+  else { init(); }
 })();
 </script>
   <script src="glimmer-proxy.js?v=0.1.014-7a8cd3c-20260906"></script>
