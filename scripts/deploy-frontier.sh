@@ -4,6 +4,11 @@ set -euo pipefail
 # One command replaces the manual `aws s3 cp` + invalidation dance.
 # Idempotent, local-first. Deploys the committed web source, not a worktree.
 #
+# Invariant: the app version must be stamped via scripts/bump-version.sh.
+# Deploy refuses on version drift — if index.html / glimmer-proxy / webmcp.json
+# disagree (content changed without a bump), the deploy aborts and tells you to
+# run ./scripts/bump-version.sh. Deploy never auto-bumps (that would hide intent).
+#
 # Usage:
 #   ./scripts/deploy-frontier.sh              # deploy to production
 #   DRY_RUN=1 ./scripts/deploy-frontier.sh    # show what would deploy, touch nothing
@@ -66,6 +71,14 @@ fi
 if ! aws sts get-caller-identity --profile "$PROFILE" --region "$REGION" >/dev/null 2>&1; then
 	echo "[deploy-frontier] abort: AWS creds not valid for profile $PROFILE" >&2
 	echo "[deploy-frontier] run: ~/.kiro/bin/check-sso-status" >&2
+	exit 1
+fi
+
+# preflight: version must be consistent across all sinks. If content changed
+# without a bump the sinks drift — refuse rather than ship a stale/split version.
+# Honors DRY_RUN (still checks; a dry run of a drifted tree should surface the drift).
+if ! "$REPO_ROOT/scripts/bump-version.sh" --check; then
+	echo "[deploy-frontier] abort: version drift across index.html / glimmer-proxy / webmcp.json — run ./scripts/bump-version.sh before deploying" >&2
 	exit 1
 fi
 

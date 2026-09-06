@@ -1,30 +1,78 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"/>
 <link rel="stylesheet" href="https://use.typekit.net/zjt4wyq.css">
-<link rel="stylesheet" href="design/styles.css?v=0.1.012-1041999-20260905">
+<link rel="stylesheet" href="design/styles.css?v=0.1.012-99cfde8-20260906">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>KODIAK® Posts for Today's Frontier — v0.1.012-1041999-20260905</title>
-<meta name="kodiak-version" content="0.1.012-1041999-20260905">
+<title>KODIAK® Posts for Today's Frontier — v0.1.012-99cfde8-20260906</title>
+<meta name="kodiak-version" content="0.1.012-99cfde8-20260906">
 <meta name="webmcp" content="enabled">
 <meta name="mcp:server" content="kodiak-posts-frontier">
 <meta name="mcp:tools" content="places,products,recipes,market-languages,brief-yaml,preview,compose,localize">
 <link rel="mcp-manifest" href="webmcp.json">
-<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.012-1041999-20260905","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":73,"languages":"EN + top2 per market (ACS 2022)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
+<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.012-99cfde8-20260906","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":73,"languages":"EN + top2 per market (ACS 2022)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
 <meta name="robots" content="noindex, nofollow, noarchive">
 <script>
-// Password gate: cakes — unlisted from bots, simple JS gate (also respects CloudFront if added)
+// Password gate: cakes — unlisted from bots, in-page lock screen (no prompt(), no document.write)
 // Headless test bypass: ?cakes=1 or ?gate=cakes auto-sets sessionStorage
 if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParams(location.search).get('gate')==='cakes'){ try{sessionStorage.setItem('kodiak_gate','cakes')}catch(e){} }
-// Password gate: cakes — unlisted from bots, simple JS gate (also respects CloudFront if added)
 (function(){
-  try{
-    if(sessionStorage.getItem('kodiak_gate')==='cakes') return;
-    var pw=prompt('Frontier is unlisted — enter password to enter (hint: cakes):');
-    if(pw!=='cakes'){ document.write('<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#3B2316;color:#FFF8F0;font-family:system-ui;padding:24px;text-align:center"><div><h1 style="font-family:Rockwell,Georgia,serif">KODIAK® Frontier is Private</h1><p>Ask Bryan for the password — hint: <b>cakes</b><br>Also available offline at <code>web/kodiak-posts-for-todays-frontier/index.html</code> via file://</p></div></div>'); throw new Error('gate');
-    }
-    sessionStorage.setItem('kodiak_gate','cakes');
-  }catch(e){}
+  try{ if(sessionStorage.getItem('kodiak_gate')==='cakes') return; }catch(e){}
+
+  // lock the page — hide overflow while the gate is up
+  document.documentElement.style.overflow='hidden';
+
+  function mountGate(){
+    var overlay=document.createElement('div');
+    overlay.id='kodiak-gate';
+    overlay.setAttribute('role','dialog');
+    overlay.setAttribute('aria-modal','true');
+    overlay.setAttribute('aria-label','Password required');
+    overlay.style.cssText='position:fixed;inset:0;z-index:2147483647;display:flex;align-items:center;justify-content:center;background:#3B2316;color:#FFF8F0;font-family:system-ui,-apple-system,sans-serif;padding:24px;text-align:center';
+
+    overlay.innerHTML=
+      '<div style="max-width:420px;width:100%">'
+      +'<h1 style="font-family:Rockwell,Georgia,serif;font-size:1.75rem;margin:0 0 .75rem">KODIAK\u00AE Frontier is Private</h1>'
+      +'<p style="margin:0 0 1.25rem;line-height:1.5">Enter the password to continue (hint: <b>cakes</b>)</p>'
+      +'<form id="kodiak-gate-form" style="display:flex;flex-direction:column;gap:.75rem;align-items:center">'
+      +'<label for="kodiak-gate-pw" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Password</label>'
+      +'<input id="kodiak-gate-pw" type="password" autocomplete="off" autofocus placeholder="password" '
+      +'style="width:100%;max-width:260px;padding:.6rem .75rem;border:2px solid #FFF8F0;border-radius:4px;background:transparent;color:#FFF8F0;font-size:1rem;text-align:center;outline:none" />'
+      +'<button type="submit" style="padding:.6rem 1.6rem;border:none;border-radius:4px;background:#E8530E;color:#FFF8F0;font-size:1rem;font-weight:600;cursor:pointer">Enter</button>'
+      +'</form>'
+      +'<p id="kodiak-gate-error" style="margin:.75rem 0 0;color:#E8530E;font-weight:600;min-height:1.4em" aria-live="polite"></p>'
+      +'<p style="margin:1.25rem 0 0;font-size:.8rem;opacity:.7">Also available offline at <code>web/kodiak-posts-for-todays-frontier/index.html</code> via file://</p>'
+      +'</div>';
+
+    document.body.appendChild(overlay);
+
+    // focus the input once it is in the DOM
+    var inp=document.getElementById('kodiak-gate-pw');
+    if(inp) inp.focus();
+
+    document.getElementById('kodiak-gate-form').addEventListener('submit',function(e){
+      e.preventDefault();
+      var val=inp.value;
+      if(val==='cakes'){
+        try{ sessionStorage.setItem('kodiak_gate','cakes'); }catch(ex){}
+        document.documentElement.style.overflow='';
+        overlay.remove();
+        location.reload();
+      } else {
+        document.getElementById('kodiak-gate-error').textContent='Not quite \u2014 hint: cakes';
+        inp.value='';
+        inp.focus();
+      }
+    });
+  }
+
+  // body may not exist yet (we are in <head>), so wait if needed
+  if(document.body){ mountGate(); }
+  else{ document.addEventListener('DOMContentLoaded',mountGate); }
 })();
+</script>
+<script>
+// wire KODIAK_VERSION from <meta> so details.html build stamp reads the real version
+(function(){ var m=document.querySelector('meta[name="kodiak-version"]'); if(m&&m.content) window.KODIAK_VERSION=m.content; })();
 </script>
 <meta name="description" content="KODIAK® Posts for Today's Frontier — personalized pipeline that turns one brief into hundreds of local ads for every social platform, every retailer, every Frontier. Brown box stays iconic. Works offline, no server — just open this file."/>
 <style>
@@ -776,7 +824,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 <details class="card wide-track ff-about" id="aboutTool"><summary>About this tool</summary><div class="body"><p class="ff-about__copy">Type one line, pick a starting point, and get a ready-to-post Kodiak campaign — images and copy sized for every social platform and retailer, localized to the market you choose. See the <a href="details.html">design system + details</a> for how it works under the hood.</p></div></details>
 
 <!-- visible build stamp — confirm at a glance which version/JS is live in the browser (cache-buster verification) -->
-<div id="buildStamp">build 0.1.012-1041999-20260905</div>
+<div id="buildStamp">build 0.1.012-99cfde8-20260906</div>
 
 </div>
 <script>
@@ -1360,7 +1408,7 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
 })();
 </script>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.012-1041999-20260905","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.012-99cfde8-20260906","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
 
 
 <script>
@@ -2970,5 +3018,5 @@ let skuList = [
   }
 })();
 </script>
-  <script src="glimmer-proxy.js?v=0.1.012-1041999-20260905"></script>
+  <script src="glimmer-proxy.js?v=0.1.012-99cfde8-20260906"></script>
 </body></html>
