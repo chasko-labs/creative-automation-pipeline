@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"/>
 <link rel="stylesheet" href="https://use.typekit.net/zjt4wyq.css">
-<link rel="stylesheet" href="design/styles.css?v=0.1.012-99cfde8-20260906">
+<link rel="stylesheet" href="design/styles.css?v=0.1.012-691d360-20260906">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>KODIAK® Posts for Today's Frontier — v0.1.012-99cfde8-20260906</title>
-<meta name="kodiak-version" content="0.1.012-99cfde8-20260906">
+<title>KODIAK® Posts for Today's Frontier — v0.1.012-691d360-20260906</title>
+<meta name="kodiak-version" content="0.1.012-691d360-20260906">
 <meta name="webmcp" content="enabled">
 <meta name="mcp:server" content="kodiak-posts-frontier">
 <meta name="mcp:tools" content="places,products,recipes,market-languages,brief-yaml,preview,compose,localize">
 <link rel="mcp-manifest" href="webmcp.json">
-<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.012-99cfde8-20260906","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":73,"languages":"EN + top2 per market (ACS 2022)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
+<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.012-691d360-20260906","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":73,"languages":"EN + top2 per market (ACS 2022)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
 <meta name="robots" content="noindex, nofollow, noarchive">
 <script>
 // Password gate: cakes — unlisted from bots, in-page lock screen (no prompt(), no document.write)
@@ -824,7 +824,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 <details class="card wide-track ff-about" id="aboutTool"><summary>About this tool</summary><div class="body"><p class="ff-about__copy">Type one line, pick a starting point, and get a ready-to-post Kodiak campaign — images and copy sized for every social platform and retailer, localized to the market you choose. See the <a href="details.html">design system + details</a> for how it works under the hood.</p></div></details>
 
 <!-- visible build stamp — confirm at a glance which version/JS is live in the browser (cache-buster verification) -->
-<div id="buildStamp">build 0.1.012-99cfde8-20260906</div>
+<div id="buildStamp">build 0.1.012-691d360-20260906</div>
 
 </div>
 <script>
@@ -929,12 +929,12 @@ const places = [
   {market:"US-SW-TULAROSA", place:"Tularosa, NM 88352 — Tularosa Basin, provider edge", retailer:"Walmart Alamogordo, Lowe's Supermarket Tularosa", zip:"88352", audience:"Tularosa Basin families — Cory", message:"KODIAK® Keep It Wild — protein-packed whole grains for your Tularosa frontier. Nourishment for Today's Frontier", peppers:"—", cheeses:"—", cue:"White Sands, Sacramento Mountains, Tularosa Basin"}
 ];
 const products = [
-  {id:"power-cakes", name:"KODIAK CAKES® Buttermilk Power Cakes", img:"input_assets/power-cakes/hero.png", base:"1 cup mix + 2/3 cup milk + 1 egg"},
-  {id:"protein-biscuits", name:"KODIAK CAKES® Cheddar Jalapeno Drop Biscuits", img:"input_assets/bear-bites/hero.png", base:"2 cups mix + cold butter + cheddar + jalapeno, drop bake 14 min"},
-  {id:"savory-waffles", name:"KODIAK CAKES® Savory Waffles — Regional", img:"input_assets/power-cakes/hero.png", base:"1 cup mix + 2 eggs + milk + 1/2 cup cheese + 1/4 cup roasted peppers, waffle iron 3 min"},
-  {id:"oatmeal-cup", name:"KODIAK POWER CUPS® Protein Oatmeal Cup", img:"input_assets/oatmeal-cup/hero.png", base:"1 Power Cup + water, 5 min"},
-  {id:"muffin", name:"KODIAK CAKES® Chocolate Chip Muffins", img:"input_assets/power-cakes/hero.png", base:"1 box Muffin Mix + 2 eggs + milk + oil"},
-  {id:"waffle-icecream-sandwiches", name:"KODIAK CAKES® Waffle Ice Cream Sandwiches", img:"input_assets/power-cakes/hero.png", base:"Toast 2 Power Waffles, sandwich ice cream"}
+  {id:"power-cakes", name:"KODIAK CAKES® Buttermilk Power Cakes", img:"", base:"1 cup mix + 2/3 cup milk + 1 egg"},
+  {id:"protein-biscuits", name:"KODIAK CAKES® Cheddar Jalapeno Drop Biscuits", img:"", base:"2 cups mix + cold butter + cheddar + jalapeno, drop bake 14 min"},
+  {id:"savory-waffles", name:"KODIAK CAKES® Savory Waffles — Regional", img:"", base:"1 cup mix + 2 eggs + milk + 1/2 cup cheese + 1/4 cup roasted peppers, waffle iron 3 min"},
+  {id:"oatmeal-cup", name:"KODIAK POWER CUPS® Protein Oatmeal Cup", img:"", base:"1 Power Cup + water, 5 min"},
+  {id:"muffin", name:"KODIAK CAKES® Chocolate Chip Muffins", img:"", base:"1 box Muffin Mix + 2 eggs + milk + oil"},
+  {id:"waffle-icecream-sandwiches", name:"KODIAK CAKES® Waffle Ice Cream Sandwiches", img:"", base:"Toast 2 Power Waffles, sandwich ice cream"}
 ];
 const peppersList = ["Hatch green chile roasted, diced","Red chile","Jalapeño","Chipotle","Poblano","—"];
 const cheesesList = ["Oaxaca crumble","Sharp cheddar","Pepper jack","Cotija","Oaxaca","Gruyère","Queso fresco","—"];
@@ -1154,17 +1154,25 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
               const kamasMsg = sel.options[sel.selectedIndex]?.textContent?.includes('Kamas') ? (places.find(p=>p.market==='US-UT-KAMASVALLEY')?.message || "Quiet ranch country — no store, no downtown, just river valley and a hot griddle. Kodiak savory waffle + Oakley grass-fed sausage — Nourishment for Today\'s Frontier") : "Keep It Wild — protein-packed whole grains for your Wasatch frontier. Nourishment for Today\'s Frontier";
               const ratios = [{k:"1x1",w:1080,h:1080},{k:"9x16",w:1080,h:1920},{k:"16x9",w:1920,h:1080}];
               const kamasPreview=document.getElementById('kamas-preview');
-              const heroSrc = (kamasProd && kamasProd.img) ? kamasProd.img : "input_assets/power-cakes/hero.png";
-              // CDN fallback hero if input_assets missing
+              // CDN fallback hero — a real resolvable https url. only load an Image for a real
+              // http(s) url; the input_assets/*.png stubs do not exist and would 404 to console.
               const cdnFallback="https://kodiakcakes.com/cdn/shop/files/Buttermilk_Power_Cakes_24oz_Front.png";
+              const rawHero = (kamasProd && kamasProd.img) ? kamasProd.img : "";
+              const isRealUrl = (u)=> typeof u==='string' && /^https?:\/\//.test(u) && u.indexOf('input_assets/')===-1;
+              const heroSrc = isRealUrl(rawHero) ? rawHero : "";
               ratios.forEach(r=>{
                 const tile=document.createElement('div'); tile.className='tile';
                 const c=document.createElement('canvas'); c.width=r.w; c.height=r.h; c.style.maxWidth='100%'; c.style.height='auto';
                 const ctx=c.getContext('2d');
-                const img=new Image(); img.crossOrigin='anonymous';
-                img.onload=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,img); }catch(e){} };
-                img.onerror=()=>{ const fb=new Image(); fb.crossOrigin='anonymous'; fb.onload=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,fb); }catch(e){ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e2){} } }; fb.onerror=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e){} }; fb.src=cdnFallback; };
-                img.src=heroSrc;
+                // no resolvable hero -> draw with no photo (paint null), NO Image(), NO 404.
+                if(!heroSrc){
+                  try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e){}
+                } else {
+                  const img=new Image(); img.crossOrigin='anonymous';
+                  img.onload=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,img); }catch(e){} };
+                  img.onerror=()=>{ const fb=new Image(); fb.crossOrigin='anonymous'; fb.onload=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,fb); }catch(e){ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e2){} } }; fb.onerror=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e){} }; fb.src=cdnFallback; };
+                  img.src=heroSrc;
+                }
                 tile.appendChild(c);
                 const meta=document.createElement('div'); meta.className='meta';
                 meta.innerHTML=`<b>KODIAK® ${kamasProd?kamasProd.id:'savory-waffles'} — ${r.k} — Kamas Valley rural</b><div class=small>${r.w}×${r.h}</div>`;
@@ -1408,7 +1416,7 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
 })();
 </script>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.012-99cfde8-20260906","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.012-691d360-20260906","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
 
 
 <script>
@@ -1986,13 +1994,16 @@ let skuList = [
         const staleBadge = document.getElementById('genSourceBadge'); if(staleBadge) staleBadge.remove();
         const sku = String(requestedSku || 'power-cakes');
         // resolve a real thumbnail for the requested product from the catalog/products list.
-        let heroSrc = 'input_assets/power-cakes/hero.png';
+        // only a real http(s) url is loadable; input_assets/*.png stubs do not exist (404 to
+        // console). default to no hero -> paint(null) draws the ad without a photo.
+        let heroSrc = '';
         try{
           const cat = (window.skuCatalog || (typeof skuCatalog!=='undefined' ? skuCatalog : [])) || [];
           const hit = cat.find(x=>x && (x.handle===sku || x.name===sku));
           if(hit && hit.img) heroSrc = hit.img;
           else if(typeof products!=='undefined'){ const pr = products.find && products.find(x=>x && (x.id===sku)); if(pr && pr.img) heroSrc = pr.img; }
         }catch(e){}
+        const isRealHero = typeof heroSrc==='string' && /^https?:\/\//.test(heroSrc) && heroSrc.indexOf('input_assets/')===-1;
         const tile = document.createElement('div');
         tile.className = 'tile';
         tile.style.cssText = 'grid-column:1/-1;max-width:640px;margin:0 auto;border:1px dashed #B51E14';
@@ -2008,7 +2019,10 @@ let skuList = [
         const img = new Image(); img.crossOrigin='anonymous';
         img.onload = ()=>paint(img);
         img.onerror = ()=>paint(null);
-        img.src = heroSrc;
+        // only fire a network load for a real resolvable url; otherwise paint with no photo
+        // (NO Image(), NO 404). offline preview still renders with its OFFLINE watermark.
+        if(isRealHero){ img.src = heroSrc; }
+        else { paint(null); }
         tile.appendChild(c);
         const meta = document.createElement('div'); meta.className='meta';
         meta.innerHTML = `<b>Offline preview — ${sku}</b><div class="small" style="color:#B51E14">No server response. This is a local stand-in of the requested product, not a generated campaign. Reconnect and try Create again.</div>`;
@@ -2348,6 +2362,12 @@ let skuList = [
     // languages needing a human translator — render as pending, do not fetch for a final string.
     var humanRequired = { nv:1, zip:1 };
 
+    // localize backend gate. static host (cloudfront/s3) has NO /localize — so default OFFLINE
+    // and skip the POST entirely (a fetch would 403 and log to console before degrading). a
+    // dev/server context can set window.KODIAK_LOCALIZE_ENDPOINT='/localize' (or a full url) to
+    // re-enable the live path; when truthy, the fetch below targets that endpoint.
+    var LOCALIZE_ENDPOINT = (window.KODIAK_LOCALIZE_ENDPOINT || null);
+
     function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 
     // English source line, immediate + synchronous.
@@ -2393,11 +2413,20 @@ let skuList = [
       line.innerHTML = tag + '<span class="loc-pending">translating\u2026</span>';
       langLine.appendChild(line);
 
+      // no localize backend (static deploy) -> skip fetch entirely, degrade this line offline
+      // with ZERO network call. same visual result the .catch produces below.
+      if(!LOCALIZE_ENDPOINT){
+        line.setAttribute('data-provider','offline');
+        line.innerHTML = tag + esc(english);
+        noteOffline();
+        return;
+      }
+
       // async fill — short timeout, try/catch, graceful degrade. never throws into reflectMarket.
       try{
         var ctrl = (typeof AbortController!=='undefined') ? new AbortController() : null;
         var timer = ctrl ? setTimeout(function(){ ctrl.abort(); }, 6000) : null;
-        fetch('/localize', {
+        fetch(LOCALIZE_ENDPOINT, {
           method:'POST',
           headers:{'Content-Type':'application/json'},
           body: JSON.stringify({ text: english, market: market, target_lang: code }),
@@ -3018,5 +3047,5 @@ let skuList = [
   }
 })();
 </script>
-  <script src="glimmer-proxy.js?v=0.1.012-99cfde8-20260906"></script>
+  <script src="glimmer-proxy.js?v=0.1.012-691d360-20260906"></script>
 </body></html>
