@@ -4,7 +4,10 @@
 > pinned back to the token layer. maintained as the frontend evolves — when an element changes, update
 > its row here in the same change.
 >
-> scope: `web/kodiak-posts-for-todays-frontier/` (index.html + details.html + shared design/styles.css)
+> scope: `web/kodiak-posts-for-todays-frontier/` (index.html + details.html + `design/styles.css` +
+> `design/components.css`). as of the 0.1.016 atomization, index.html's inline `<style>` block was
+> extracted to hand-authored `design/components.css`; details.html still carries its inline block.
+> file architecture (js/ siblings, css split, load order) lives in `docs/frontend-architecture.md`.
 > token source of truth: `design/tokens/kodiak.json` (W3C DTFM) -> `panda.config.ts` (emitTokensOnly) ->
 > `web/.../design/styles.css` (css custom properties, `--colors-*`, `--gradients-kraft.*`, `--shadows-*`)
 > companion docs: `docs/kodiak-style-guide.md` (7-part), `docs/kodiak-shading.json` (tint/shade ladders + wcag)
@@ -32,8 +35,11 @@
 
 ## 2. the drift finding (why standards are needed, not just an inventory)
 
-the token layer is mature. the two HTML files do **not** fully consume it. each `<style>` block redeclares
-an ad-hoc palette that diverges from the tokens:
+the token layer is mature. the two HTML files do **not** fully consume it. after the 0.1.016 atomization,
+index.html's styles moved into hand-authored `design/components.css` — the ad-hoc palette described below now
+lives at the top of `components.css` (and still inline in details.html). the drift is unchanged by the move;
+extraction relocated it, it did not resolve it. each style layer redeclares an ad-hoc palette that diverges
+from the tokens:
 
 | inline var       | inline value | token equivalent             | verdict                                                                             |
 | ---------------- | ------------ | ---------------------------- | ----------------------------------------------------------------------------------- |
@@ -53,9 +59,10 @@ styles except where a token does not yet exist. the `--red #B51E14` CTA/link col
 token (`color.brand.signalRed` or similar) or be replaced by blazeOrange `#E8530E`. decision pending; until
 then, flag every use.
 
-**standard S2 — no ad-hoc palette per file.** the inline `:root{}` palette block is duplicated across
-index.html and details.html. it should be deleted in favor of the shared styles.css token layer, or reduced
-to only the mappings that styles.css does not yet provide.
+**standard S2 — no ad-hoc palette per file.** the inline `:root{}` palette block was duplicated across
+index.html and details.html. index.html's copy now lives in `design/components.css` after the atomization;
+details.html still has its inline copy. both should be deleted in favor of the shared styles.css token layer,
+or reduced to only the mappings that styles.css does not yet provide.
 
 ---
 
