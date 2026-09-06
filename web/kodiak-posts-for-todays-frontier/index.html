@@ -731,6 +731,39 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
   background:var(--brown-kodiak,#3B2316);color:var(--parchment,#FFF8F0);font:700 9px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.04em}
 /* PART B/C — inline user-facing error near the upload tray + fetch surfaces */
 .ff-inline-error{display:block;margin-top:var(--spacing-xs,4px);font:600 11px/1.4 "museo-sans",sans-serif;color:var(--red,#B51E14)}
+/* PART D — "Browse past assets" (DAM) affordance. ADDITIVE second staging path beside the "+" local upload.
+   Reuses the market-panel disclosure look (positioned panel + backdrop) — no heavy modal system. */
+.ff-dam-trigger{display:inline-flex;align-items:center;gap:4px;margin-top:var(--spacing-xs,4px);padding:2px 6px;border:none;background:transparent;
+  font:600 11px/1.4 "museo-sans",sans-serif;color:var(--colors-brand-frontier-green,#1A2F29);text-decoration:underline;cursor:pointer;border-radius:var(--radii-sm)}
+.ff-dam-trigger:hover{color:var(--colors-brand-bear-brown,#3B2316)}
+.ff-dam-trigger:focus-visible{outline:2px solid var(--colors-brand-frontier-green,#1A2F29);outline-offset:2px}
+.ff-dam-backdrop{position:fixed;inset:0;z-index:200;background:rgba(26,47,41,.32);display:none}
+.ff-dam-backdrop.is-open{display:block}
+.ff-dam-panel{position:fixed;z-index:201;top:50%;left:50%;transform:translate(-50%,-50%);width:min(92vw,760px);max-height:82vh;overflow:auto;
+  background:var(--colors-neutral-50,#FFF8F0);border:1px solid var(--colors-border-strong,#3B2316);border-radius:var(--radii-lg,12px);
+  box-shadow:var(--shadows-md,0 8px 28px rgba(0,0,0,.28));padding:var(--spacing-md,16px);display:none}
+.ff-dam-panel.is-open{display:block}
+.ff-dam-head{display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-sm,8px);margin-bottom:var(--spacing-sm,8px)}
+.ff-dam-title{font:700 14px/1.3 "kodiak_sans","museo-sans",sans-serif;color:var(--colors-foreground-default,#1A2F29)}
+.ff-dam-close{flex:0 0 auto;width:26px;height:26px;line-height:1;padding:0;border:1px solid var(--colors-border-default,#C8BCA8);border-radius:var(--radii-full,999px);
+  background:var(--colors-neutral-100,#F2E9DC);color:var(--colors-foreground-default,#1A2F29);font:700 14px/1 "museo-sans",sans-serif;cursor:pointer}
+.ff-dam-close:focus-visible{outline:2px solid var(--colors-brand-frontier-green,#1A2F29);outline-offset:2px}
+.ff-dam-status{font:600 12px/1.4 "museo-sans",sans-serif;color:var(--colors-foreground-muted,#6B5D4A);padding:var(--spacing-sm,8px) 0}
+.ff-dam-group{margin-bottom:var(--spacing-md,16px)}
+.ff-dam-group-head{display:flex;align-items:baseline;gap:6px;margin-bottom:var(--spacing-xs,4px)}
+.ff-dam-group-label{font:700 12px/1.3 "kodiak_sans","museo-sans",sans-serif;color:var(--colors-foreground-default,#1A2F29);text-transform:capitalize}
+.ff-dam-group-count{font:500 11px/1.3 "museo-sans",sans-serif;color:var(--colors-foreground-muted,#6B5D4A)}
+/* large lists — content-visibility keeps offscreen thumbnail rows out of layout/paint (Track 5 perf) */
+.ff-dam-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:var(--spacing-sm,8px);content-visibility:auto;contain-intrinsic-size:auto 220px}
+.ff-dam-thumb{display:flex;flex-direction:column;gap:3px;padding:4px;border:1px solid var(--colors-border-default,#C8BCA8);border-radius:var(--radii-sm,6px);
+  background:var(--colors-neutral-100,#F2E9DC);cursor:pointer;text-align:left;font:inherit}
+.ff-dam-thumb:hover{border-color:var(--colors-brand-frontier-green,#1A2F29)}
+.ff-dam-thumb:focus-visible{outline:2px solid var(--colors-brand-frontier-green,#1A2F29);outline-offset:1px}
+.ff-dam-thumb-img{width:100%;height:72px;object-fit:cover;border-radius:var(--radii-sm,6px);background:var(--colors-neutral-200,#E4D8C6);display:block}
+.ff-dam-thumb-video{width:100%;height:72px;display:flex;align-items:center;justify-content:center;border-radius:var(--radii-sm,6px);
+  background:var(--brown-kodiak,#3B2316);color:var(--parchment,#FFF8F0);font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em}
+.ff-dam-thumb-label{font:500 10px/1.25 "museo-sans",sans-serif;color:var(--colors-foreground-default,#1A2F29);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ff-dam-flash{font:600 11px/1.4 "museo-sans",sans-serif;color:var(--colors-brand-bear-brown,#3B2316);padding:2px 0;min-height:16px}
 </style></head><body>
 <!-- Decorative overlays — aria-hidden, pointer-events:none so they never intercept clicks/focus/scroll -->
 <div id="paperGrain" aria-hidden="true"></div>
@@ -832,6 +865,8 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
     <button type="button" class="ff-iconbtn" id="promptUpload" aria-label="Upload an image or document" title="Upload an image or document">+</button>
     <!-- D4. add-your-own-asset file input — visually-hidden, triggered by the "+" icon above. FRONTEND STAGING ONLY (no DAM upload backend); staged client-side, marker threaded into the brief via window.__userAssets. -->
     <input type="file" id="addAssetInput" class="ff-addasset-input" accept="image/*,.pdf,.docx,.yaml,.yml,.json" aria-label="Add your own image asset to this campaign">
+    <!-- D5. Browse past assets (DAM) — ADDITIVE second staging path. Opens #damPanel, stages a chosen asset into the SAME #selectionTray. -->
+    <button type="button" class="ff-dam-trigger" id="damBrowseTrigger" aria-haspopup="dialog" aria-controls="damPanel" aria-expanded="false" title="Browse past DAM assets">Browse past assets</button>
     <button class="ff-go" id="generateCampaign" data-mcp="generate" data-mcp-description="Single button — fans to all formats + localized variants, shows sample">Create</button>
     <!-- B3. prompt-box autocomplete surface — product/market matches from loaded catalog + places; reuses the ff-products-results listbox visual pattern -->
     <div id="briefSuggest" class="ff-products-results ff-briefsuggest" role="listbox" aria-label="Product and market suggestions" hidden></div>
@@ -841,6 +876,20 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 <!-- Product chooser + upload affordance consolidated into the prompt card above (closed <details> + shared tray + "+" icon). -->
 <!-- B2: the card above contains ONLY inputs. Everything below is the OUTPUT surface — a distinct section so a viewer sees input-card vs output-section at a glance. -->
 </div></div>
+
+<!-- D5. Browse past assets (DAM) panel — positioned dialog + backdrop, reuses the market-panel disclosure look.
+     Populated by the DAM browse IIFE from GET /assets/library. Hidden until the trigger opens it. -->
+<div class="ff-dam-backdrop" id="damBackdrop" hidden></div>
+<div class="ff-dam-panel" id="damPanel" role="dialog" aria-modal="true" aria-labelledby="damPanelTitle" hidden>
+  <div class="ff-dam-head">
+    <span class="ff-dam-title" id="damPanelTitle">Browse past assets</span>
+    <button type="button" class="ff-dam-close" id="damPanelClose" aria-label="Close browse past assets">&times;</button>
+  </div>
+  <div class="ff-dam-flash" id="damFlash" role="status" aria-live="polite"></div>
+  <div class="ff-dam-body" id="damBody">
+    <p class="ff-dam-status" id="damStatus">Loading past assets&hellip;</p>
+  </div>
+</div>
 
 <!-- Wasatch ridge — divider between the INPUT card and the OUTPUT section -->
 <div class="ff-ridge" aria-hidden="true" title="Wasatch ridge — Frontier Green S30 #1A2F29"></div>
@@ -2490,6 +2539,199 @@ let skuList = [
     if(input){ try{ input.click(); }catch(e){} }
   });
 
+  // ---- Browse past assets (DAM) — ADDITIVE second staging path into the SAME #selectionTray ----
+  // Reads GET /assets/library and stages a chosen asset via the shared KODIAK_buildChip so a DAM asset
+  // behaves like a local upload downstream (window.__userAssets threads name/label into the brief).
+  // Fully guarded: enabled:false, HTTP 500, malformed JSON, timeout, or offline all show the friendly
+  // "unavailable" message and never throw. Does NOT touch the local-file upload path or Track 6 routing.
+  (function(){
+    var trigger  = document.getElementById('damBrowseTrigger');
+    var backdrop = document.getElementById('damBackdrop');
+    var panel    = document.getElementById('damPanel');
+    var closeBtn = document.getElementById('damPanelClose');
+    var body     = document.getElementById('damBody');
+    var flashEl  = document.getElementById('damFlash');
+    if(!trigger || !panel || !backdrop || !body) return;  // markup missing — degrade to no-op
+
+    // resolve the library endpoint the same way localizeText resolves /localize: hosted origin only.
+    // offline (file://) or localhost -> no endpoint -> honest "unavailable offline" without a fetch.
+    var _isLocal = (location.protocol==='file:') || ['127.0.0.1','localhost'].includes(location.hostname);
+    var LIB_ENDPOINT = window.KODIAK_LIBRARY_ENDPOINT || (_isLocal ? null : '/assets/library');
+    var CAT_LABELS = { 'zac-efron':'Zac Efron', 'renders':'Renders', 'heroes':'Heroes', 'logos':'Logos' };
+    var loaded = false;      // fetch once per session; re-open reuses rendered groups
+    var lastFocus = null;    // element to restore focus to on close
+
+    function flash(msg){ try{ if(flashEl) flashEl.textContent = String(msg||''); }catch(e){} }
+    function setStatus(msg){
+      try{ body.innerHTML = ''; var p=document.createElement('p'); p.className='ff-dam-status'; p.textContent=String(msg||''); body.appendChild(p); }catch(e){}
+    }
+
+    function openPanel(){
+      lastFocus = document.activeElement;
+      backdrop.hidden = false; panel.hidden = false;
+      backdrop.classList.add('is-open'); panel.classList.add('is-open');
+      trigger.setAttribute('aria-expanded','true');
+      try{ closeBtn.focus(); }catch(e){}
+      if(!loaded) loadLibrary();
+    }
+    function closePanel(){
+      backdrop.classList.remove('is-open'); panel.classList.remove('is-open');
+      backdrop.hidden = true; panel.hidden = true;
+      trigger.setAttribute('aria-expanded','false');
+      flash('');
+      // return focus to the trigger (or the "+" if the trigger is gone)
+      var back = (lastFocus && lastFocus.isConnected) ? lastFocus : trigger;
+      try{ (back || trigger).focus(); }catch(e){}
+    }
+
+    // GET /assets/library (no category param -> all four groups). 6s AbortController timeout, mirrors localizeText.
+    function loadLibrary(){
+      if(!LIB_ENDPOINT){ renderUnavailable('Past assets unavailable offline.'); loaded = true; return; }
+      setStatus('Loading past assets\u2026');
+      var controller = new AbortController();
+      var timer = setTimeout(function(){ controller.abort(); }, 6000);
+      fetch(LIB_ENDPOINT + '?limit=60', {signal: controller.signal})
+        .then(function(r){ if(!r.ok) throw new Error('library HTTP '+r.status); return r.json(); })
+        .then(function(j){
+          if(!j || j.enabled !== true){ renderUnavailable('Past assets unavailable offline.'); }
+          else { renderLibrary(j); }
+          loaded = true;
+        })
+        .catch(function(){ renderUnavailable('Past assets unavailable offline.'); loaded = true; })
+        .finally(function(){ clearTimeout(timer); });
+    }
+
+    function renderUnavailable(msg){
+      setStatus(msg || 'Past assets unavailable offline.');
+    }
+
+    // render four labeled groups from j.categories; each group is a content-visibility grid of thumbs.
+    function renderLibrary(j){
+      var cats = (j && j.categories) || {};
+      var order = ['zac-efron','renders','heroes','logos'];
+      // include any server-returned category not in the fixed order, defensively
+      Object.keys(cats).forEach(function(k){ if(order.indexOf(k)===-1) order.push(k); });
+      body.innerHTML = '';
+      var rendered = 0;
+      order.forEach(function(cat){
+        var entry = cats[cat];
+        if(!entry) return;
+        var items = (entry && entry.items) || [];
+        var total = (typeof entry.total === 'number') ? entry.total : items.length;
+        var group = document.createElement('div');
+        group.className = 'ff-dam-group';
+
+        var head = document.createElement('div');
+        head.className = 'ff-dam-group-head';
+        var label = document.createElement('span');
+        label.className = 'ff-dam-group-label';
+        label.textContent = CAT_LABELS[cat] || cat;
+        head.appendChild(label);
+        if(total > items.length){
+          var count = document.createElement('span');
+          count.className = 'ff-dam-group-count';
+          count.textContent = 'showing ' + items.length + ' of ' + total;
+          head.appendChild(count);
+        }
+        group.appendChild(head);
+
+        var grid = document.createElement('div');
+        grid.className = 'ff-dam-grid';
+        items.forEach(function(it){ var node = buildThumb(cat, it); if(node) grid.appendChild(node); });
+        group.appendChild(grid);
+        body.appendChild(group);
+        rendered += 1;
+      });
+      if(rendered === 0){ renderUnavailable('No past assets found.'); }
+    }
+
+    // one thumbnail button: image -> lazy <img> (onerror hides broken thumb); video -> labeled placeholder box.
+    function buildThumb(cat, it){
+      if(!it || !it.url) return null;
+      var kind = (it.kind === 'video') ? 'video' : 'image';
+      var label = it.label || basename(it.key) || 'asset';
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'ff-dam-thumb';
+      btn.setAttribute('aria-label', 'Add ' + label + ' to campaign');
+
+      if(kind === 'video'){
+        var vbox = document.createElement('span');
+        vbox.className = 'ff-dam-thumb-video';
+        vbox.textContent = 'VIDEO';
+        btn.appendChild(vbox);
+      } else {
+        var img = document.createElement('img');
+        img.className = 'ff-dam-thumb-img';
+        img.loading = 'lazy';
+        img.alt = '';
+        img.onerror = function(){ this.style.display='none'; };
+        img.src = it.url;
+        btn.appendChild(img);
+      }
+      var lab = document.createElement('span');
+      lab.className = 'ff-dam-thumb-label';
+      lab.textContent = label;
+      btn.appendChild(lab);
+
+      btn.addEventListener('click', function(){ stageDamAsset(cat, it, kind, label); });
+      return btn;
+    }
+
+    function basename(key){
+      if(!key) return '';
+      var s = String(key);
+      var slash = s.lastIndexOf('/');
+      return slash !== -1 ? s.slice(slash+1) : s;
+    }
+
+    // STAGE into the shared tray exactly like a local upload — reuse KODIAK_buildChip so the chip is identical.
+    // De-dupe on source:'dam' && key. Presigned url used directly as the thumb <img> src (no blob: to revoke).
+    function stageDamAsset(cat, it, kind, label){
+      window.__userAssets = window.__userAssets || [];
+      var key = it.key || it.url;
+      // de-dupe: same DAM key already staged -> flash a note, do not stage twice
+      var dup = window.__userAssets.some(function(a){ return a && a.source==='dam' && a.key===key; });
+      if(dup){ flash('already added: ' + label); return; }
+
+      var buildChip = window.KODIAK_buildChip;
+      var docLabel  = window.KODIAK_docLabel;
+      if(typeof buildChip !== 'function'){ flash('could not add: staging unavailable'); return; }
+
+      var id = 'dam-asset-' + (window.__damSeq = (window.__damSeq||0) + 1);
+      var rec = { id:id, name:label, kind:kind, source:'dam', key:key, url:it.url, category:cat };
+      window.__userAssets.push(rec);
+
+      var thumbNode;
+      if(kind === 'image'){
+        thumbNode = document.createElement('img');
+        thumbNode.className = 'ff-pending-thumb';
+        thumbNode.alt = '';
+        thumbNode.onerror = function(){ this.style.display='none'; };
+        thumbNode.src = it.url;                 // presigned GET, not a blob: — remove handler's revoke guard skips it
+      } else {
+        thumbNode = (typeof docLabel === 'function') ? docLabel('VIDEO') : null;
+      }
+      try{ buildChip(rec, thumbNode); }
+      catch(e){
+        // never leave a half-staged record if the chip build throws — roll back the push
+        window.__userAssets = window.__userAssets.filter(function(a){ return a.id !== id; });
+        flash('could not add: ' + label);
+        return;
+      }
+      closePanel();
+    }
+
+    // wire triggers + keyboard/click-outside close
+    trigger.addEventListener('click', openPanel);
+    trigger.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openPanel(); } });
+    if(closeBtn) closeBtn.addEventListener('click', closePanel);
+    backdrop.addEventListener('click', closePanel);
+    document.addEventListener('keydown', function(e){
+      if(e.key==='Escape' && !panel.hidden){ e.preventDefault(); closePanel(); }
+    });
+  })();
+
   // auto-grow the prompt textarea (google/firefly feel)
   if(briefEl){
     var grow = function(){ briefEl.style.height='auto'; briefEl.style.height=Math.min(briefEl.scrollHeight,160)+'px'; };
@@ -3031,6 +3273,10 @@ let skuList = [
     box.textContent = text;
     return box;
   }
+  // expose the shared stagers so the DAM browse path stages identically into the same tray (buildChip == same chip look)
+  window.KODIAK_buildChip = buildChip;
+  window.KODIAK_docLabel = docLabel;
+  window.KODIAK_refreshUserAssetMarker = refreshUserAssetMarker;
 
   function stagePendingAsset(file){
     if(!file || !pendingWrap) return;
