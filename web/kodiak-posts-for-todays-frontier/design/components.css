@@ -334,9 +334,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   /* headline plate is a size container so the h1 can size against the plate width, not the viewport - keeps the title one line inside its own box at every breakpoint */
   container-type:inline-size}
 .kodiak-headline-plate h1{margin:0;width:100%;color:var(--colors-foreground-inverse);font-family:"gin",Rockwell,Clarendon,Georgia,serif;font-weight:800;line-height:1.05;letter-spacing:.02em;text-transform:none;
-  /* never wrap: single line, fluid size scales against the plate (cqi) so it fills the width and shrinks on narrow screens instead of wrapping. 4.4cqi keeps the ~41-char title within the plate width at every size (41 chars * ~0.55em gin cap-width => needs <=4.44cqi to fit 100cqi); floor 12px holds one line at 375px, ceiling 30px caps growth on wide plates. */
+  /* never wrap: single line, fluid size scales against the plate (cqi) so it fills near-full plate width on desktop and shrinks on narrow screens instead of wrapping. 4.4cqi is the driver (41 chars * ~0.55em gin cap-width => <=4.44cqi keeps the ~41-char title inside 100cqi at one line, no clip); floor 12px holds one line at 375px mobile; ceiling raised to 72px so the title can grow to fill wide desktop plates instead of capping at 30px and leaving dead space on the right. */
   white-space:nowrap;overflow:hidden;text-overflow:clip;
-  font-size:clamp(12px, 4.4cqi, 30px)}
+  font-size:clamp(12px, 4.4cqi, 72px)}
 
 /* C+D+E+F. control row — [market button] [seasonal menu] [featured-frontier + languages inline], one responsive row */
 /* rizz-1: align-items:center (was stretch) so the .ff-detail block's tall wrapped
