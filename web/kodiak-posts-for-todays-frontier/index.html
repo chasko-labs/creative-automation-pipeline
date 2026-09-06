@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"/>
 <link rel="stylesheet" href="https://use.typekit.net/zjt4wyq.css">
-<link rel="stylesheet" href="design/styles.css?v=0.1.012-6498c90-20260906">
+<link rel="stylesheet" href="design/styles.css?v=0.1.012-3e018e5-20260906">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>KODIAK® Posts for Today's Frontier — v0.1.012-6498c90-20260906</title>
-<meta name="kodiak-version" content="0.1.012-6498c90-20260906">
+<title>KODIAK® Posts for Today's Frontier — v0.1.012-3e018e5-20260906</title>
+<meta name="kodiak-version" content="0.1.012-3e018e5-20260906">
 <meta name="webmcp" content="enabled">
 <meta name="mcp:server" content="kodiak-posts-frontier">
 <meta name="mcp:tools" content="places,products,recipes,market-languages,brief-yaml,preview,compose,localize">
 <link rel="mcp-manifest" href="webmcp.json">
-<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.012-6498c90-20260906","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":73,"languages":"EN + top2 per market (ACS 2022)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
+<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.012-3e018e5-20260906","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":73,"languages":"EN + top2 per market (ACS 2022)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
 <meta name="robots" content="noindex, nofollow, noarchive">
 <script>
 // Password gate: cakes — unlisted from bots, in-page lock screen (no prompt(), no document.write)
@@ -694,6 +694,28 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .loc-line[data-provider="community-review"],.loc-line[data-provider="community-authorized"]{opacity:1;font-style:normal;font-weight:500}
 .loc-review{display:inline-flex;align-items:center;gap:.3em;font-family:"kodiak_sans","museo-sans",sans-serif;font-size:.66em;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--adobe);background:var(--adobe-10);border:1px solid var(--adobe);border-radius:999px;padding:.05em .55em;margin-inline-start:.45em;vertical-align:.05em;white-space:nowrap;cursor:help}
 .loc-langtag{font-size:.72em;opacity:.55;font-style:normal;margin-inline-end:.4em}
+
+/* === B1/B2 — input card vs output section separation === */
+/* the input card holds only inputs; the output section is its own surface below the ridge divider */
+.ff-output{margin:0 0 var(--section-space-lg);padding:16px;border:1px solid var(--stone);border-radius:var(--radii-lg);background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-md);position:relative}
+.ff-output::before{content:"";position:absolute;inset:0;background:var(--wood) repeat;opacity:.06;pointer-events:none}
+.ff-output-heading{margin:0 0 12px;font:800 16px/1.1 gin,"kodiak_sans",Rockwell,Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate);position:relative}
+/* readout of what the current selections resolved to — sits at the top of the output surface */
+.ff-output-readout{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 12px;position:relative}
+.ff-output-readout .ff-featured{flex:0 1 auto;font:600 12px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-700)}
+.ff-output-readout .ff-langs{flex:0 1 auto;font:500 12px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-600)}
+
+/* === B3 — prompt-box autocomplete dropdown, anchored to the textarea wrap === */
+/* the input row is the positioning context for the suggestion listbox */
+.ff-inputwrap{position:relative}
+/* reuse the ff-products-results visual pattern; anchor under the textarea, full width of the input row */
+.ff-briefsuggest{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:40;max-height:280px;overflow-y:auto}
+.ff-briefsuggest .ff-suggest-opt{display:flex;align-items:center;gap:8px;padding:8px 12px;cursor:pointer;font:500 13px/1.3 "museo-sans",sans-serif;color:var(--chocolate);border-bottom:1px solid var(--colors-neutral-100)}
+.ff-briefsuggest .ff-suggest-opt:last-child{border-bottom:none}
+.ff-briefsuggest .ff-suggest-opt:hover,.ff-briefsuggest .ff-suggest-opt[aria-selected="true"]{background:var(--oat)}
+.ff-briefsuggest .ff-suggest-tag{flex:0 0 auto;font:700 9px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:999px;background:var(--brown-kodiak);color:var(--parchment)}
+.ff-briefsuggest .ff-suggest-tag.is-market{background:var(--red)}
+.ff-briefsuggest .ff-suggest-name{flex:1 1 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 </style></head><body>
 <!-- Decorative overlays — aria-hidden, pointer-events:none so they never intercept clicks/focus/scroll -->
 <div id="paperGrain" aria-hidden="true"></div>
@@ -711,15 +733,9 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 
 <!-- PRIMARY: Firefly-inspired prompt bar — dominates the card -->
 <div class="ff-prompt" data-mcp="campaign-brief.prompt">
-  <h2 class="ff-sublead">Describe it in a line, tap a starting point, or upload an image or document. Defaults to Park City, Utah.</h2>
-  <div class="ff-inputwrap">
-    <textarea id="campaignBrief" rows="1" aria-label="Campaign idea — describe your Kodiak campaign in a line" placeholder="Type a campaign idea — e.g. Wasatch Back morning fuel for Park City families, feature the savory waffle. Keep It Wild."></textarea>
-    <button type="button" class="ff-iconbtn" id="promptUpload" aria-label="Upload an image or document" title="Upload an image or document">+</button>
-    <!-- D4. add-your-own-asset file input — visually-hidden, triggered by the "+" icon above. FRONTEND STAGING ONLY (no DAM upload backend); staged client-side, marker threaded into the brief via window.__userAssets. -->
-    <input type="file" id="addAssetInput" class="ff-addasset-input" accept="image/*,.pdf,.docx,.yaml,.yml,.json" aria-label="Add your own image asset to this campaign">
-    <button class="ff-go" id="generateCampaign" data-mcp="generate" data-mcp-description="Single button — fans to all formats + localized variants, shows sample">Create</button>
-  </div>
+  <h2 class="ff-sublead">Pick a market, season, product, or starting point below — each one fills the brief. Then refine the line and Create. Defaults to Park City, Utah.</h2>
 
+  <!-- B1: controls flow top-to-bottom (market/season/geo -> theme options -> products) and the prompt input is the culmination at the bottom, directly above Create. -->
   <!-- C+D+E+F. control row: market disclosure button + seasonal menu + inline featured-frontier & languages, single responsive row -->
   <div class="ff-controlrow" role="group" aria-label="Campaign market and season">
     <details class="ff-market" id="marketDisclosure">
@@ -750,14 +766,27 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
         <option value="">Season: any</option>
       </select>
     </div>
-    <div class="ff-detail">
-      <div class="ff-featured" id="featuredFrontier" aria-live="polite"></div>
-      <div class="ff-langs" id="marketLangLine" aria-live="polite">localized in languages: <b>English, Spanish, Portuguese</b></div>
-    </div>
+    <!-- B2: .ff-detail (featured-frontier + languages readout) moved OUT to the output section below — it is a readout of what selections resolved to, not an input. -->
   </div>
 
-  <!-- Shared selection tray — staged uploads + selected SKUs render here as removable chips. Zero-height when empty. -->
-  <div class="ff-tray" id="selectionTray" role="group" aria-label="Selected products and staged assets"></div>
+  <!-- G. campaign-creation options — the theme chips, regrouped INTO this create surface (not a floating block) -->
+  <div class="ff-optiongroup">
+    <span class="ff-optiongroup-label" id="promptChipsLabel">Or start from a campaign option</span>
+    <div class="ff-chips" id="promptChips" role="group" aria-labelledby="promptChipsLabel">
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="recipe-cards" data-brief="Recipe cards for Park City families — protein-packed whole grain recipes styled as shareable cards. Keep It Wild."><span class="ff-dot"></span>Recipe cards</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-costco" data-brief="Localized Costco campaign — bulk Family Size value for the warehouse aisle, Park City / Wasatch Back framing."><span class="ff-dot"></span>Localized Costco</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="riff-on-past-content" data-brief="Riff on past content — remix our existing heroes into fresh variants across all three ratios."><span class="ff-dot"></span>Riff on past content</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="zac-efron" data-brief="Zac Efron athletic-morning energy — high-protein pre-trail fuel, aspirational active lifestyle. Keep It Wild."><span class="ff-dot"></span>Zac Efron</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="bears" data-brief="Bears + Keep It Wild — lean into the KODIAK Bear, wild frontier tone, protein for epic days."><span class="ff-dot"></span>Bears</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="keep-it-wild-program" data-brief="Keep It Wild program — brand campaign tying protein-packed whole grains to the outdoor frontier lifestyle."><span class="ff-dot"></span>Keep It Wild program</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="us-ski-snowboard" data-brief="US Ski & Snowboard partner campaign — Milano Cortina 2026, Park City athlete fuel, whole-grain protein for world-class winter athletes, alpine dawn. Keep It Wild."><span class="ff-dot"></span>US Ski &amp; Snowboard</button>
+    </div>
+    <!-- partner mark — shown only when the US Ski & Snowboard chip is active (partner logo committed at assets/partners/) -->
+    <div id="ussPartnerMark" class="ff-partner-mark" role="img" aria-label="U.S. Ski &amp; Snowboard — Kodiak partner" hidden>
+      <img src="assets/partners/us-ski-snowboard-kodiak.png" alt="" width="94" height="63" class="ff-partner-mark__img" onerror="this.style.display='none'">
+      <span class="ff-partner-mark__label">Official partner mark</span>
+    </div>
+  </div>
 
   <!-- Product chooser folded into the prompt card as a CLOSED disclosure — one summary line at rest.
        FRONTEND STAGING for uploads only (no DAM upload backend); marker threaded into the brief via window.__userAssets. -->
@@ -779,52 +808,59 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
     </div>
   </details>
 
-  <!-- G. campaign-creation options — the theme chips, regrouped INTO this create surface (not a floating block) -->
-  <div class="ff-optiongroup">
-    <span class="ff-optiongroup-label" id="promptChipsLabel">Or start from a campaign option</span>
-    <div class="ff-chips" id="promptChips" role="group" aria-labelledby="promptChipsLabel">
-      <button type="button" class="ff-chip" aria-pressed="false" data-theme="recipe-cards" data-brief="Recipe cards for Park City families — protein-packed whole grain recipes styled as shareable cards. Keep It Wild."><span class="ff-dot"></span>Recipe cards</button>
-      <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-costco" data-brief="Localized Costco campaign — bulk Family Size value for the warehouse aisle, Park City / Wasatch Back framing."><span class="ff-dot"></span>Localized Costco</button>
-      <button type="button" class="ff-chip" aria-pressed="false" data-theme="riff-on-past-content" data-brief="Riff on past content — remix our existing heroes into fresh variants across all three ratios."><span class="ff-dot"></span>Riff on past content</button>
-      <button type="button" class="ff-chip" aria-pressed="false" data-theme="zac-efron" data-brief="Zac Efron athletic-morning energy — high-protein pre-trail fuel, aspirational active lifestyle. Keep It Wild."><span class="ff-dot"></span>Zac Efron</button>
-      <button type="button" class="ff-chip" aria-pressed="false" data-theme="bears" data-brief="Bears + Keep It Wild — lean into the KODIAK Bear, wild frontier tone, protein for epic days."><span class="ff-dot"></span>Bears</button>
-      <button type="button" class="ff-chip" aria-pressed="false" data-theme="keep-it-wild-program" data-brief="Keep It Wild program — brand campaign tying protein-packed whole grains to the outdoor frontier lifestyle."><span class="ff-dot"></span>Keep It Wild program</button>
-      <button type="button" class="ff-chip" aria-pressed="false" data-theme="us-ski-snowboard" data-brief="US Ski & Snowboard partner campaign — Milano Cortina 2026, Park City athlete fuel, whole-grain protein for world-class winter athletes, alpine dawn. Keep It Wild."><span class="ff-dot"></span>US Ski &amp; Snowboard</button>
-    </div>
-    <!-- partner mark — shown only when the US Ski & Snowboard chip is active (partner logo committed at assets/partners/) -->
-    <div id="ussPartnerMark" class="ff-partner-mark" role="img" aria-label="U.S. Ski &amp; Snowboard — Kodiak partner" hidden>
-      <img src="assets/partners/us-ski-snowboard-kodiak.png" alt="" width="94" height="63" class="ff-partner-mark__img" onerror="this.style.display='none'">
-      <span class="ff-partner-mark__label">Official partner mark</span>
-    </div>
+  <!-- Shared selection tray — staged uploads + selected SKUs render here as removable chips. Zero-height when empty. -->
+  <div class="ff-tray" id="selectionTray" role="group" aria-label="Selected products and staged assets"></div>
+
+  <!-- B1: the prompt input is now the CULMINATION at the bottom of the card — controls above assemble the brief, Create sits directly under the fully-assembled prompt. -->
+  <div class="ff-inputwrap">
+    <textarea id="campaignBrief" rows="1" aria-label="Campaign idea — describe your Kodiak campaign in a line" placeholder="Type a campaign idea — e.g. Wasatch Back morning fuel for Park City families, feature the savory waffle. Keep It Wild." role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="briefSuggest" autocomplete="off"></textarea>
+    <button type="button" class="ff-iconbtn" id="promptUpload" aria-label="Upload an image or document" title="Upload an image or document">+</button>
+    <!-- D4. add-your-own-asset file input — visually-hidden, triggered by the "+" icon above. FRONTEND STAGING ONLY (no DAM upload backend); staged client-side, marker threaded into the brief via window.__userAssets. -->
+    <input type="file" id="addAssetInput" class="ff-addasset-input" accept="image/*,.pdf,.docx,.yaml,.yml,.json" aria-label="Add your own image asset to this campaign">
+    <button class="ff-go" id="generateCampaign" data-mcp="generate" data-mcp-description="Single button — fans to all formats + localized variants, shows sample">Create</button>
+    <!-- B3. prompt-box autocomplete surface — product/market matches from loaded catalog + places; reuses the ff-products-results listbox visual pattern -->
+    <div id="briefSuggest" class="ff-products-results ff-briefsuggest" role="listbox" aria-label="Product and market suggestions" hidden></div>
   </div>
 </div>
 
 <!-- Product chooser + upload affordance consolidated into the prompt card above (closed <details> + shared tray + "+" icon). -->
-
-<!-- Download asset pack hidden by default; primary/secondary download actions injected under the preview after generation -->
-<div class="row ff-downloadrow"><button class="btn ghost" id="downloadPack" data-mcp="download-pack" data-mcp-description="Download the campaign assets as an ISO-labeled zip from S3">Download asset pack</button></div>
-<div class="hint ff-generatehint" id="generateHint">Park City default with a localized variant. <span id="sampleStatus" class="ff-samplestatus" role="status" aria-live="polite"></span></div>
-
-<!-- HIDDEN: single retailers channel default so generate JS never null-crashes (.channel-check never read by JS, kept for safety) -->
-<input type="checkbox" value="retailers" class="channel-check" checked hidden aria-hidden="true">
-
-<!-- HIDDEN: local-flavor block kept in DOM (updateLocalFlavor reads #localFlavorText) — not a prominent field per simplification -->
-<div id="localFlavor" class="ff-hidden" data-mcp="local-flavor" data-mcp-description="Local flavor per season & source — derived, not selectable"><b>Local flavor</b><div id="localFlavorText">Park City: Wasatch Back — Jensen Farms peaches + Copper Moose rhubarb Jun–Sep at Park City Farmers Market.</div></div>
+<!-- B2: the card above contains ONLY inputs. Everything below is the OUTPUT surface — a distinct section so a viewer sees input-card vs output-section at a glance. -->
 </div></div>
 
-<!-- no second consumer marquee — removed for tool focus (single PROMPT→CAMPAIGNS marquee above is enough) -->
+<!-- Wasatch ridge — divider between the INPUT card and the OUTPUT section -->
 <div class="ff-ridge" aria-hidden="true" title="Wasatch ridge — Frontier Green S30 #1A2F29"></div>
 
-<details class="card wide-track preview-card" id="previewCard"><summary><span>Preview</span> <span class="badge">3 sizes</span><span class="preview-sub">Your campaign previewed in three sizes: 1x1, 9x16, 16x9 — one brief, generated for every platform below.</span></summary>
-<div class="body"><div class="preview" id="preview" role="region" aria-label="Campaign preview — three sizes" data-mcp="preview.compose" data-mcp-description="Pipeline preview — displays campaign message in EN + localized on final posts"></div><div class="hint ff-filenames" id="fileNames"></div></div></details>
+<!-- ============ OUTPUT ============ -->
+<section class="ff-output" aria-labelledby="outputHeading">
+  <h2 class="ff-output-heading" id="outputHeading">Output</h2>
 
-<!-- Design system + Frontier prototype context moved to details.html -->
+  <!-- readout: what your selections resolved to (featured frontier + languages). ids preserved so the market-selection JS still writes here. -->
+  <div class="ff-detail ff-output-readout">
+    <div class="ff-featured" id="featuredFrontier" aria-live="polite"></div>
+    <div class="ff-langs" id="marketLangLine" aria-live="polite">localized in languages: <b>English, Spanish, Portuguese</b></div>
+    <!-- #locPreview (localized-copy preview) is injected here by the AXIS-3 script, beside this readout -->
+  </div>
+
+  <details class="card wide-track preview-card" id="previewCard"><summary><span>Preview</span> <span class="badge">3 sizes</span><span class="preview-sub">Your campaign previewed in three sizes: 1x1, 9x16, 16x9 — one brief, generated for every platform below.</span></summary>
+  <div class="body"><div class="preview" id="preview" role="region" aria-label="Campaign preview — three sizes" data-mcp="preview.compose" data-mcp-description="Pipeline preview — displays campaign message in EN + localized on final posts"></div><div class="hint ff-filenames" id="fileNames"></div></div></details>
+
+  <!-- Download asset pack hidden by default; primary/secondary download actions injected under the preview after generation -->
+  <div class="row ff-downloadrow"><button class="btn ghost" id="downloadPack" data-mcp="download-pack" data-mcp-description="Download the campaign assets as an ISO-labeled zip from S3">Download asset pack</button></div>
+  <div class="hint ff-generatehint" id="generateHint">Park City default with a localized variant. <span id="sampleStatus" class="ff-samplestatus" role="status" aria-live="polite"></span></div>
+
+  <!-- HIDDEN: single retailers channel default so generate JS never null-crashes (.channel-check never read by JS, kept for safety) -->
+  <input type="checkbox" value="retailers" class="channel-check" checked hidden aria-hidden="true">
+
+  <!-- HIDDEN: local-flavor block kept in DOM (updateLocalFlavor reads #localFlavorText) — not a prominent field per simplification -->
+  <div id="localFlavor" class="ff-hidden" data-mcp="local-flavor" data-mcp-description="Local flavor per season & source — derived, not selectable"><b>Local flavor</b><div id="localFlavorText">Park City: Wasatch Back — Jensen Farms peaches + Copper Moose rhubarb Jun–Sep at Park City Farmers Market.</div></div>
+</section>
+<!-- ============ /OUTPUT ============ -->
 <div class="row ff-detailslink-row"><a href="details.html" class="ff-detailslink">Design system + details &rarr;</a></div>
 
 <details class="card wide-track ff-about" id="aboutTool"><summary>About this tool</summary><div class="body"><p class="ff-about__copy">Type one line, pick a starting point, and get a ready-to-post Kodiak campaign — images and copy sized for every social platform and retailer, localized to the market you choose. See the <a href="details.html">design system + details</a> for how it works under the hood.</p></div></details>
 
 <!-- visible build stamp — confirm at a glance which version/JS is live in the browser (cache-buster verification) -->
-<div id="buildStamp">build 0.1.012-6498c90-20260906</div>
+<div id="buildStamp">build 0.1.012-3e018e5-20260906</div>
 
 </div>
 <script>
@@ -928,6 +964,8 @@ const places = [
   {market:"US-WA-NEAHBAY", place:"Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe", retailer:"Washburn's General Store (Neah Bay), Port Angeles Safeway / Walmart (70mi), Costco Seattle / Sequim area (4-5hr)", zip:"98357", audience:"Makah families, Neah Bay mini-mart regulars, Port Angeles co — Amber", message:"KODIAK® Neah Bay frontier — huckleberry compote over Buttermilk Power Cakes, Makah water meets Wasatch grain", peppers:"—", cheeses:"—", cue:"Neah Bay harbor at dawn, Makah cedar canoe, Kodiak box on Washburn's porch with huckleberry compote, Olympic Peninsula f"},
   {market:"US-SW-TULAROSA", place:"Tularosa, NM 88352 — Tularosa Basin, provider edge", retailer:"Walmart Alamogordo, Lowe's Supermarket Tularosa", zip:"88352", audience:"Tularosa Basin families — Cory", message:"KODIAK® Keep It Wild — protein-packed whole grains for your Tularosa frontier. Nourishment for Today's Frontier", peppers:"—", cheeses:"—", cue:"White Sands, Sacramento Mountains, Tularosa Basin"}
 ];
+// B3: expose the places table globally so the prompt-box autocomplete script (a separate <script>) can read markets.
+try{ window.places = places; }catch(e){}
 const products = [
   {id:"power-cakes", name:"KODIAK CAKES® Buttermilk Power Cakes", img:"", base:"1 cup mix + 2/3 cup milk + 1 egg"},
   {id:"protein-biscuits", name:"KODIAK CAKES® Cheddar Jalapeno Drop Biscuits", img:"", base:"2 cups mix + cold butter + cheddar + jalapeno, drop bake 14 min"},
@@ -1344,7 +1382,7 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
     host.id='locPreview'; host.className='ff-locpreview'; host.setAttribute('aria-live','polite');
     host.style.cssText='flex:1 1 100%;margin-top:var(--spacing-sm)';
     const cell = featured ? featured.parentNode : null;
-    if(cell && cell.parentNode) cell.parentNode.appendChild(host); else (document.querySelector('.ff-controlrow')||document.body).appendChild(host);
+    if(cell && cell.parentNode) cell.parentNode.appendChild(host); else (document.querySelector('.ff-output')||document.querySelector('.ff-controlrow')||document.body).appendChild(host);
     return host;
   }
 
@@ -1416,7 +1454,7 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
 })();
 </script>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.012-6498c90-20260906","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.012-3e018e5-20260906","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
 
 
 <script>
@@ -3047,5 +3085,202 @@ let skuList = [
   }
 })();
 </script>
-  <script src="glimmer-proxy.js?v=0.1.012-6498c90-20260906"></script>
+  <script>
+// === B3 + B4 — prompt-box autocomplete + two-way selection reflection ===
+// Additive only. Binds by id, reuses already-loaded window.skuCatalog (88 SKUs) + window.places (73 markets).
+// Coordinates with the existing chip/theme block via a shared programmatic-write guard so it never
+// clobbers the user's text, never spuriously clears window.__activeTheme, and never fights auto-grow.
+(function(){
+  'use strict';
+  var briefEl = document.getElementById('campaignBrief');
+  if(!briefEl) return;
+
+  // ---- shared helpers ----
+  function grow(){ try{ briefEl.style.height='auto'; briefEl.style.height=Math.min(briefEl.scrollHeight,160)+'px'; }catch(e){} }
+  function skus(){ return (window.skuCatalog && window.skuCatalog.length) ? window.skuCatalog : []; }
+  function markets(){ return (window.places && window.places.length) ? window.places : []; }
+
+  // =========================================================================
+  // B4 — two-way reflection: selections assemble a de-duped context suffix in the
+  // visible prompt so Create (which reads #campaignBrief.value) sends what the user sees.
+  //
+  // The value = <user free text> + <SUFFIX_MARKER><context suffix>. The suffix is regenerated
+  // from CURRENT selection state on every change, so unchecking a product removes it from the
+  // visible prompt. The user's free-text portion is preserved separately (recovered by stripping
+  // the marker+suffix from the end on manual edits).
+  // =========================================================================
+  var SUFFIX_MARKER = '\n\n\u2014 ';   // "\n\n— " — visually separates the auto-context from the user's line
+  window.__briefUserText = window.__briefUserText != null ? window.__briefUserText : (briefEl.value || '');
+  window.__briefReflecting = false;    // guard: our programmatic writes must not be read as manual edits
+
+  // current market label (readable place name), from the hidden #locality select generate() reads
+  function currentMarketLabel(){
+    var sel = document.getElementById('locality');
+    var code = sel && sel.value ? sel.value : '';
+    if(!code) return '';
+    var p = markets().find(function(x){ return x.market===code; });
+    return p ? (p.place || code) : code;
+  }
+  // current season — the selected option's visible text (skip the "Season: any" placeholder)
+  function currentSeasonLabel(){
+    var s = document.getElementById('seasonalSelect');
+    if(!s || !s.value) return '';
+    var opt = s.options[s.selectedIndex];
+    return opt ? opt.textContent.replace(/^Season:\s*/i,'').trim() : '';
+  }
+  // currently-checked product names
+  function currentProducts(){
+    return Array.prototype.slice.call(document.querySelectorAll('#productChooser .sku-check:checked'))
+      .map(function(c){ return c.value; }).filter(Boolean);
+  }
+  // build the de-duped, readable context suffix from current selection state ('' when nothing selected)
+  function buildSuffix(){
+    var parts = [];
+    var m = currentMarketLabel(); if(m) parts.push('market: ' + m);
+    var s = currentSeasonLabel(); if(s) parts.push('season: ' + s);
+    var prods = currentProducts(); if(prods.length) parts.push('products: ' + prods.join(', '));
+    return parts.length ? parts.join(' \u00b7 ') : '';
+  }
+  // recover the user's free-text base by stripping a trailing marker+suffix, if present
+  function stripSuffix(val){
+    var i = val.lastIndexOf(SUFFIX_MARKER);
+    if(i === -1) return val;
+    // only treat the tail as auto-context if it looks like our generated shape (starts market:/season:/products:)
+    var tail = val.slice(i + SUFFIX_MARKER.length);
+    if(/^(market:|season:|products:)/.test(tail)) return val.slice(0, i);
+    return val;
+  }
+  // rewrite the visible prompt = user base + current suffix, without clobbering the theme or cursor intent
+  function reflect(){
+    var suffix = buildSuffix();
+    var base = window.__briefUserText || '';
+    var next = suffix ? (base + SUFFIX_MARKER + suffix) : base;
+    if(briefEl.value === next) return;
+    window.__briefReflecting = true;
+    briefEl.value = next;
+    window.__briefReflecting = false;
+    grow();
+  }
+  window.__reflectBrief = reflect;
+
+  // manual edit: recover the user's base text (everything minus our trailing suffix). Runs alongside
+  // the existing input handler that clears the theme; we only update the stored base, never re-append here.
+  briefEl.addEventListener('input', function(){
+    if(window.__briefReflecting || window.__chipSettingBrief) return;
+    window.__briefUserText = stripSuffix(briefEl.value);
+  });
+  // a chip click sets briefEl.value = data-brief (its handler runs first, bubbling). Adopt that as the
+  // new user base, then re-append the current selection suffix so chip + market/season/products compose.
+  document.addEventListener('click', function(e){
+    var chip = e.target && e.target.closest ? e.target.closest('#promptChips .ff-chip[data-brief]') : null;
+    if(!chip) return;
+    // defer to end of task so the chip's own handler (value + theme + input dispatch) has completed
+    setTimeout(function(){
+      window.__briefUserText = stripSuffix(briefEl.value);
+      reflect();
+    }, 0);
+  });
+  // market (hidden #locality), season, and product checkbox changes all rebuild the suffix
+  document.addEventListener('change', function(e){
+    var t = e.target; if(!t) return;
+    if(t.id === 'locality' || t.id === 'seasonalSelect' || (t.classList && t.classList.contains('sku-check'))){
+      reflect();
+    }
+  });
+
+  // =========================================================================
+  // B3 — prompt-box autocomplete from loaded catalog + places. Suggests product names and market
+  // names matching the last token being typed. Reuses the ff-products-results listbox visual pattern.
+  // Keyboard accessible (arrow/enter/escape). Debounced. Does not touch #productSearch (its own combobox).
+  // =========================================================================
+  var box = document.getElementById('briefSuggest');
+  if(box){
+    var activeIdx = -1, items = [], debounceTimer = null;
+
+    // the token under the caret: the trailing fragment after the last separator
+    function currentToken(){
+      var pos = briefEl.selectionStart != null ? briefEl.selectionStart : briefEl.value.length;
+      var upto = briefEl.value.slice(0, pos);
+      var m = upto.match(/[^\s,\u00b7\u2014\n]+$/);   // stop at whitespace, comma, middot, em-dash, newline
+      return m ? { text:m[0], start: pos - m[0].length, end: pos } : { text:'', start: pos, end: pos };
+    }
+    function matches(frag){
+      var q = frag.toLowerCase();
+      if(q.length < 2) return [];
+      var out = [];
+      skus().forEach(function(p){
+        var name = p && p.name ? String(p.name) : '';
+        if(name && name.toLowerCase().indexOf(q) !== -1) out.push({ type:'product', name:name });
+      });
+      markets().forEach(function(p){
+        var name = p && p.place ? String(p.place) : '';
+        if(name && name.toLowerCase().indexOf(q) !== -1) out.push({ type:'market', name:name });
+      });
+      return out.slice(0, 8);
+    }
+    function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+    function close(){
+      box.hidden = true; box.innerHTML = ''; items = []; activeIdx = -1;
+      briefEl.setAttribute('aria-expanded','false');
+    }
+    function open(list){
+      items = list;
+      box.innerHTML = list.map(function(it, i){
+        return '<div class="ff-suggest-opt" role="option" id="briefSuggestOpt'+i+'" aria-selected="false" data-name="'+esc(it.name)+'">'
+          + '<span class="ff-suggest-tag'+(it.type==='market'?' is-market':'')+'">'+it.type+'</span>'
+          + '<span class="ff-suggest-name">'+esc(it.name)+'</span></div>';
+      }).join('');
+      box.hidden = false; activeIdx = -1;
+      briefEl.setAttribute('aria-expanded','true');
+    }
+    function setActive(i){
+      var opts = box.querySelectorAll('.ff-suggest-opt');
+      if(!opts.length) return;
+      if(i < 0) i = opts.length - 1; if(i >= opts.length) i = 0;
+      activeIdx = i;
+      opts.forEach(function(o, j){ o.setAttribute('aria-selected', j===i ? 'true':'false'); });
+      var el = opts[i]; if(el){ briefEl.setAttribute('aria-activedescendant', el.id); el.scrollIntoView({block:'nearest'}); }
+    }
+    // insert the canonical name at the caret, replacing the token being typed
+    function choose(name){
+      var tok = currentToken();
+      var before = briefEl.value.slice(0, tok.start);
+      var after = briefEl.value.slice(tok.end);
+      window.__briefReflecting = true;
+      briefEl.value = before + name + after;
+      var caret = (before + name).length;
+      try{ briefEl.setSelectionRange(caret, caret); }catch(e){}
+      window.__briefReflecting = false;
+      // selection insert counts as a manual edit to the base text — clear theme like a normal edit, update base
+      if(typeof window.__clearActiveTheme === 'function') window.__clearActiveTheme();
+      window.__briefUserText = stripSuffix(briefEl.value);
+      grow();
+      close();
+      briefEl.focus();
+    }
+    briefEl.addEventListener('input', function(){
+      if(window.__briefReflecting || window.__chipSettingBrief) return;
+      if(debounceTimer) clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(function(){
+        var tok = currentToken();
+        var list = tok.text ? matches(tok.text) : [];
+        if(list.length) open(list); else close();
+      }, 140);
+    });
+    briefEl.addEventListener('keydown', function(e){
+      if(box.hidden) return;
+      if(e.key === 'ArrowDown'){ e.preventDefault(); setActive(activeIdx + 1); }
+      else if(e.key === 'ArrowUp'){ e.preventDefault(); setActive(activeIdx - 1); }
+      else if(e.key === 'Enter'){ if(activeIdx >= 0 && items[activeIdx]){ e.preventDefault(); choose(items[activeIdx].name); } }
+      else if(e.key === 'Escape'){ e.preventDefault(); close(); }
+    });
+    box.addEventListener('mousedown', function(e){
+      var opt = e.target && e.target.closest ? e.target.closest('.ff-suggest-opt') : null;
+      if(opt){ e.preventDefault(); choose(opt.getAttribute('data-name')); }
+    });
+    briefEl.addEventListener('blur', function(){ setTimeout(close, 120); });   // allow mousedown to fire first
+  }
+})();
+</script>
+  <script src="glimmer-proxy.js?v=0.1.012-3e018e5-20260906"></script>
 </body></html>
