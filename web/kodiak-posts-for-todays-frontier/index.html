@@ -720,7 +720,17 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-briefsuggest .ff-suggest-opt:hover,.ff-briefsuggest .ff-suggest-opt[aria-selected="true"]{background:var(--oat)}
 .ff-briefsuggest .ff-suggest-tag{flex:0 0 auto;font:700 9px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:999px;background:var(--brown-kodiak);color:var(--parchment)}
 .ff-briefsuggest .ff-suggest-tag.is-market{background:var(--red)}
+/* typed-pattern rows: actionable (zip->market) vs muted note (url/mention/unmapped-zip) */
+.ff-briefsuggest .ff-suggest-tag.is-action{background:var(--green,#2E5E2E)}
+.ff-briefsuggest .ff-suggest-tag.is-note{background:var(--stone,#8C7A70)}
+.ff-briefsuggest .ff-suggest-opt.is-noteopt{cursor:default;opacity:.85}
+.ff-briefsuggest .ff-suggest-opt.is-noteopt:hover{background:transparent}
 .ff-briefsuggest .ff-suggest-name{flex:1 1 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* PART B — non-image staged asset label box (pdf/doc/brief); no blob <img> for these */
+.ff-pending-doc{width:32px;height:32px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;border-radius:var(--radii-sm);
+  background:var(--brown-kodiak,#3B2316);color:var(--parchment,#FFF8F0);font:700 9px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.04em}
+/* PART B/C — inline user-facing error near the upload tray + fetch surfaces */
+.ff-inline-error{display:block;margin-top:var(--spacing-xs,4px);font:600 11px/1.4 "museo-sans",sans-serif;color:var(--red,#B51E14)}
 </style></head><body>
 <!-- Decorative overlays — aria-hidden, pointer-events:none so they never intercept clicks/focus/scroll -->
 <div id="paperGrain" aria-hidden="true"></div>
@@ -1722,18 +1732,35 @@ let skuList = [
   let platformMatrix = PLATFORM_MATRIX_FALLBACK;
   const platformNames = (slugs)=> (slugs||[]).map(s=>PLATFORM_LABELS[s] || s);
   (async ()=>{
+    let matrixLoaded = false;
     for(const url of ['data/platforms/platform-matrix.json','../../data/platforms/platform-matrix.json','./data/platforms/platform-matrix.json']){
       try{
         const r = await fetch(url);
         if(r.ok){
-          const d = await r.json();
+          // isolate the parse: a 200 with a malformed body must not abort the loop or throw uncaught
+          let d = null;
+          try{ d = await r.json(); }catch(pe){ console.warn('[platform-matrix] malformed JSON at', url, pe && pe.message); continue; }
           if(d && d.ratios && Object.keys(d.ratios).length){
             platformMatrix = d.ratios;
+            matrixLoaded = true;
             console.log('[platform-matrix] loaded', Object.keys(d.ratios).length, 'ratios from', url);
             // if the matrix explainer is already on-screen, refresh it in place
             try{ renderPlatformMatrix(); }catch(e){}
             break;
           }
+        }
+      }catch(e){}
+    }
+    // all sources missed — the working PLATFORM_MATRIX_FALLBACK stays in effect (no blank surface).
+    // only surface a note if the matrix explainer is actually on-screen, so an offline file:// open stays quiet.
+    if(!matrixLoaded){
+      try{
+        const mx = document.getElementById('platformMatrix');
+        if(mx && !document.getElementById('platformMatrixNote')){
+          const n = document.createElement('div');
+          n.id = 'platformMatrixNote'; n.className = 'ff-inline-error';
+          n.textContent = 'Showing built-in platform sizes (live matrix unavailable)';
+          mx.appendChild(n);
         }
       }catch(e){}
     }
@@ -2148,7 +2175,9 @@ let skuList = [
         const body = {prompt: brief, market: selectedLoc.market, product: productSlug, ...(wantTheme ? {theme: wantTheme} : {})};
         const resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: controller.signal});
         if(!resp.ok) throw new Error('backend returned HTTP ' + resp.status);
-        const json = await resp.json();
+        // isolate the parse so a malformed 200 body surfaces as a clear error (outer catch -> visible status)
+        let json;
+        try{ json = await resp.json(); }catch(pe){ throw new Error('malformed response from backend'); }
         if(!json || !json.image_url) throw new Error('response missing image_url');
         return json;
       };
@@ -2840,7 +2869,9 @@ let skuList = [
       try{
         const r = await fetch(url);
         if(r && r.ok){
-          const d = await r.json();
+          // isolate the parse: a 200 with a malformed body must not abort the loop or throw uncaught
+          let d = null;
+          try{ d = await r.json(); }catch(pe){ console.warn('[geo] malformed JSON at', url, pe && pe.message); continue; }
           const list = (d && d.markets) ? d.markets : [];
           var added = 0;
           list.forEach(function(m){
@@ -2937,19 +2968,42 @@ let skuList = [
       if(card){ card.setAttribute('data-user-assets', String(window.__userAssets.length)); }
     }catch(e){}
   }
-  function stagePendingAsset(file){
-    if(!file || !pendingWrap) return;
-    pendingSeq += 1;
-    var id = 'pending-asset-' + pendingSeq;
-    var rec = {id:id, name:file.name || 'asset', type:file.type || ''};
-    window.__userAssets.push(rec);
+  // surface a short user-facing error near the upload tray (idempotent element, auto-clears on next action)
+  function assetError(msg){
+    try{
+      if(!pendingWrap) return;
+      var el = document.getElementById('ffAssetError');
+      if(!el){
+        el = document.createElement('span');
+        el.id = 'ffAssetError';
+        el.className = 'ff-inline-error';
+        el.setAttribute('role','alert');
+        el.setAttribute('aria-live','polite');
+        pendingWrap.parentNode ? pendingWrap.parentNode.insertBefore(el, pendingWrap.nextSibling) : pendingWrap.appendChild(el);
+      }
+      el.textContent = String(msg || '');
+    }catch(e){}
+  }
+  function clearAssetError(){ try{ var el = document.getElementById('ffAssetError'); if(el) el.textContent=''; }catch(e){} }
+
+  // classify by mime type first, filename extension second (mime is empty for some OS/type combos)
+  function detectKind(file){
+    var t = (file && file.type || '').toLowerCase();
+    var n = (file && file.name || '').toLowerCase();
+    var ext = n.indexOf('.') !== -1 ? n.slice(n.lastIndexOf('.')+1) : '';
+    if(t.indexOf('image/') === 0) return 'image';
+    if(t === 'application/pdf' || ext === 'pdf') return 'pdf';
+    if(ext === 'docx' || t.indexOf('wordprocessingml') !== -1) return 'docx';
+    if(ext === 'json' || t === 'application/json') return 'brief-json';
+    if(ext === 'yaml' || ext === 'yml' || t.indexOf('yaml') !== -1) return 'brief-yaml';
+    return 'unknown';
+  }
+
+  // shared chip builder — thumbNode is either a blob <img> (image) or a styled label box (pdf/doc/brief)
+  function buildChip(rec, thumbNode){
     var chip = document.createElement('div');
     chip.className = 'ff-pending-chip';
-    chip.id = id;
-    var thumb = document.createElement('img');
-    thumb.className = 'ff-pending-thumb';
-    thumb.alt = '';
-    try{ thumb.src = URL.createObjectURL(file); }catch(e){}
+    chip.id = rec.id;
     var nm = document.createElement('span');
     nm.className = 'ff-pending-name';
     nm.textContent = rec.name;
@@ -2959,19 +3013,92 @@ let skuList = [
     rm.setAttribute('aria-label', 'Remove staged asset ' + rec.name);
     rm.textContent = '\u00d7';
     rm.addEventListener('click', function(){
-      try{ if(thumb.src && thumb.src.indexOf('blob:')===0) URL.revokeObjectURL(thumb.src); }catch(e){}
-      window.__userAssets = window.__userAssets.filter(function(a){ return a.id!==id; });
+      try{ if(thumbNode && thumbNode.tagName === 'IMG' && thumbNode.src && thumbNode.src.indexOf('blob:')===0) URL.revokeObjectURL(thumbNode.src); }catch(e){}
+      window.__userAssets = window.__userAssets.filter(function(a){ return a.id!==rec.id; });
       if(chip.parentNode) chip.parentNode.removeChild(chip);
       refreshUserAssetMarker();
     });
-    chip.appendChild(thumb); chip.appendChild(nm); chip.appendChild(rm);
+    if(thumbNode) chip.appendChild(thumbNode);
+    chip.appendChild(nm); chip.appendChild(rm);
     pendingWrap.appendChild(chip);
     refreshUserAssetMarker();
+  }
+  // labelled box for non-image staged files (ascii label only — no emoji, no blob <img> that cannot render)
+  function docLabel(text){
+    var box = document.createElement('span');
+    box.className = 'ff-pending-doc';
+    box.setAttribute('aria-hidden','true');
+    box.textContent = text;
+    return box;
+  }
+
+  function stagePendingAsset(file){
+    if(!file || !pendingWrap) return;
+    clearAssetError();
+    var kind;
+    try{ kind = detectKind(file); }catch(e){ kind = 'unknown'; }
+    pendingSeq += 1;
+    var id = 'pending-asset-' + pendingSeq;
+    var rec = {id:id, name:file.name || 'asset', type:file.type || '', kind:kind};
+
+    if(kind === 'unknown'){
+      // do NOT stage — surface a user-facing error, keep the tray usable
+      assetError('unsupported file type: ' + rec.name);
+      return;
+    }
+
+    if(kind === 'image'){
+      window.__userAssets.push(rec);
+      var thumb = document.createElement('img');
+      thumb.className = 'ff-pending-thumb';
+      thumb.alt = '';
+      try{ thumb.src = URL.createObjectURL(file); }
+      catch(e){ /* blob url unavailable — chip still stages with an empty thumb, never throws */ }
+      buildChip(rec, thumb);
+      return;
+    }
+
+    if(kind === 'pdf' || kind === 'docx'){
+      window.__userAssets.push(rec);
+      buildChip(rec, docLabel(kind === 'pdf' ? 'PDF' : 'DOC'));
+      return;
+    }
+
+    // brief files (.json / .yaml / .yml): read as text, guarded. JSON is parse-checked; yaml stays raw.
+    if(kind === 'brief-json' || kind === 'brief-yaml'){
+      rec.assetType = 'brief';
+      rec.format = (kind === 'brief-json') ? 'json' : 'yaml-raw';
+      // stage immediately with a label so the chip appears even before the async read resolves
+      window.__userAssets.push(rec);
+      buildChip(rec, docLabel(kind === 'brief-json' ? 'JSON' : 'YAML'));
+      try{
+        var reader = new FileReader();
+        reader.onload = function(){
+          var text = '';
+          try{ text = String(reader.result || ''); }catch(e){ text = ''; }
+          rec.text = text;
+          if(kind === 'brief-json'){
+            try{ rec.parsed = JSON.parse(text); clearAssetError(); }
+            catch(err){
+              // guarded: never throw — surface an inline parse error, keep the raw text staged
+              rec.parsed = null; rec.parseError = true;
+              assetError('could not parse ' + rec.name + ' as JSON');
+            }
+          } else {
+            // no yaml parser available in this static build — raw text is fine, note it as raw
+            rec.parsed = null;
+          }
+        };
+        reader.onerror = function(){ assetError('could not read ' + rec.name); };
+        reader.readAsText(file);
+      }catch(e){ assetError('could not read ' + rec.name); }
+      return;
+    }
   }
   if(addAssetInput){
     addAssetInput.addEventListener('change', function(e){
       var files = e.target && e.target.files ? e.target.files : [];
-      for(var i=0;i<files.length;i++){ stagePendingAsset(files[i]); }
+      for(var i=0;i<files.length;i++){ try{ stagePendingAsset(files[i]); }catch(err){ assetError('could not add ' + ((files[i]&&files[i].name)||'file')); } }
       // clear so re-selecting the same file re-fires change
       try{ addAssetInput.value = ''; }catch(err){}
     });
@@ -3373,6 +3500,47 @@ let skuList = [
       });
       return out.slice(0, 8);
     }
+    // typed-pattern recognition — scans the FULL brief text (a URL/zip is not a clean single token),
+    // returns additive actionable/note rows. All guarded; never throws into the debounced handler.
+    var ZIP_RE = /\b\d{5}\b/g, URL_RE = /https?:\/\/[^\s]+/g, MENTION_RE = /@[\w.-]+/g;
+    function patternMatches(full){
+      var out = [];
+      try{
+        var text = String(full || '');
+        var seen = {};   // de-dupe by row label so repeated tokens do not stack
+        ZIP_RE.lastIndex = 0; URL_RE.lastIndex = 0; MENTION_RE.lastIndex = 0;   // /g regex is persisted — reset per scan
+        // 1. US ZIP -> resolve against places[] zip field
+        var zm, zc = 0;
+        while((zm = ZIP_RE.exec(text)) && zc < 3){
+          zc++;
+          var zip = zm[0];
+          if(seen['zip:'+zip]) continue; seen['zip:'+zip] = 1;
+          var place = markets().find(function(p){ return p && String(p.zip||'') === zip; });
+          if(place){
+            out.push({ type:'action', tag:'zip', action:'setmarket', market:place.market,
+              name:'Set market: ' + (place.place || place.market) });
+          } else {
+            out.push({ type:'note', tag:'zip', noteOnly:true, name:'ZIP ' + zip + ' — no mapped market yet' });
+          }
+        }
+        // 2. URL -> acknowledge, do not fetch
+        var um, uc = 0;
+        while((um = URL_RE.exec(text)) && uc < 2){
+          uc++;
+          if(seen['url']) break; seen['url'] = 1;
+          out.push({ type:'note', tag:'link', noteOnly:true, name:'Reference link noted' });
+        }
+        // 3. @mention -> acknowledge, do not resolve
+        var mm, mc = 0;
+        while((mm = MENTION_RE.exec(text)) && mc < 3){
+          mc++;
+          var handle = mm[0];
+          if(seen['mention:'+handle]) continue; seen['mention:'+handle] = 1;
+          out.push({ type:'note', tag:'@', noteOnly:true, name:'Social handle: ' + handle });
+        }
+      }catch(e){ /* pattern scan must never break the autocomplete */ }
+      return out;
+    }
     function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
     function close(){
       box.hidden = true; box.innerHTML = ''; items = []; activeIdx = -1;
@@ -3381,8 +3549,16 @@ let skuList = [
     function open(list){
       items = list;
       box.innerHTML = list.map(function(it, i){
-        return '<div class="ff-suggest-opt" role="option" id="briefSuggestOpt'+i+'" aria-selected="false" data-name="'+esc(it.name)+'">'
-          + '<span class="ff-suggest-tag'+(it.type==='market'?' is-market':'')+'">'+it.type+'</span>'
+        var tag = it.tag || it.type;
+        var tagCls = (it.type==='market' ? ' is-market' : (it.type==='action' ? ' is-action' : (it.type==='note' ? ' is-note' : '')));
+        var optCls = it.noteOnly ? ' is-noteopt' : '';
+        var role = it.noteOnly ? 'presentation' : 'option';
+        var attrs = ' data-name="'+esc(it.name)+'"'
+          + ' data-action="'+esc(it.action||'')+'"'
+          + ' data-market="'+esc(it.market||'')+'"'
+          + (it.noteOnly ? ' data-note="1"' : '');
+        return '<div class="ff-suggest-opt'+optCls+'" role="'+role+'" id="briefSuggestOpt'+i+'" aria-selected="false"'+attrs+'>'
+          + '<span class="ff-suggest-tag'+tagCls+'">'+esc(tag)+'</span>'
           + '<span class="ff-suggest-name">'+esc(it.name)+'</span></div>';
       }).join('');
       box.hidden = false; activeIdx = -1;
@@ -3413,12 +3589,38 @@ let skuList = [
       close();
       briefEl.focus();
     }
+    // set the market from a zip-resolved action row: drive the hidden #locality select generate() reads,
+    // fire change so onLocality + reflect + any listeners run exactly as a manual pick would.
+    function setMarket(code){
+      try{
+        var sel = document.getElementById('locality');
+        if(sel){
+          if(!Array.prototype.some.call(sel.options, function(o){ return o.value===code; })){
+            var o = document.createElement('option'); o.value = code; o.textContent = code; sel.appendChild(o);
+          }
+          sel.value = code;
+          sel.dispatchEvent(new Event('change', {bubbles:true}));
+        }
+      }catch(e){ /* market set must never throw out of the suggest handler */ }
+      close();
+      briefEl.focus();
+    }
+    // route a chosen row: note rows are inert, action rows drive their side effect, plain rows insert text
+    function activate(it){
+      if(!it || it.noteOnly) return;
+      if(it.type==='action' && it.action==='setmarket' && it.market){ setMarket(it.market); return; }
+      if(it.name) choose(it.name);
+    }
     briefEl.addEventListener('input', function(){
       if(window.__briefReflecting || window.__chipSettingBrief) return;
       if(debounceTimer) clearTimeout(debounceTimer);
       debounceTimer = setTimeout(function(){
         var tok = currentToken();
-        var list = tok.text ? matches(tok.text) : [];
+        var tokenList = tok.text ? matches(tok.text) : [];
+        var patList = patternMatches(briefEl.value);
+        // additive: pattern rows lead (actionable), then token substring matches. hard cap so the
+        // listbox never renders hundreds of nodes even with a huge brief + long catalog.
+        var list = patList.concat(tokenList).slice(0, 12);
         if(list.length) open(list); else close();
       }, 140);
     });
@@ -3426,12 +3628,17 @@ let skuList = [
       if(box.hidden) return;
       if(e.key === 'ArrowDown'){ e.preventDefault(); setActive(activeIdx + 1); }
       else if(e.key === 'ArrowUp'){ e.preventDefault(); setActive(activeIdx - 1); }
-      else if(e.key === 'Enter'){ if(activeIdx >= 0 && items[activeIdx]){ e.preventDefault(); choose(items[activeIdx].name); } }
+      else if(e.key === 'Enter'){ if(activeIdx >= 0 && items[activeIdx]){ e.preventDefault(); activate(items[activeIdx]); } }
       else if(e.key === 'Escape'){ e.preventDefault(); close(); }
     });
     box.addEventListener('mousedown', function(e){
       var opt = e.target && e.target.closest ? e.target.closest('.ff-suggest-opt') : null;
-      if(opt){ e.preventDefault(); choose(opt.getAttribute('data-name')); }
+      if(!opt) return;
+      e.preventDefault();
+      if(opt.getAttribute('data-note')){ return; }   // note rows are inert acknowledgments
+      var action = opt.getAttribute('data-action'), market = opt.getAttribute('data-market');
+      if(action==='setmarket' && market){ setMarket(market); return; }
+      choose(opt.getAttribute('data-name'));
     });
     briefEl.addEventListener('blur', function(){ setTimeout(close, 120); });   // allow mousedown to fire first
   }
