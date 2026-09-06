@@ -1060,9 +1060,11 @@ function render(){
     // parchment bg then brown box proxy hero (real image if loads)
     ctx.fillStyle='#FFF8F0'; ctx.fillRect(0,0,r.w,r.h);
     // Try to draw real hero image (offline file) - if fails, fallback to brown kraft with bear proxy
-    const img = new Image();
-    img.onload = ()=>{ drawAd(ctx, r.w, r.h, headline, prod, img); };
-    img.onerror = ()=>{ drawAd(ctx, r.w, r.h, headline, prod, null); };
+    let img = new Image();
+    // leak-teardown: #preview innerHTML is cleared on every re-render (~line 1048); null the handlers
+    // after they fire so the closure (and the retained Image) releases when the old node is dropped.
+    img.onload = ()=>{ try{ drawAd(ctx, r.w, r.h, headline, prod, img); }catch(e){} img.onload=img.onerror=null; img=null; };
+    img.onerror = ()=>{ try{ drawAd(ctx, r.w, r.h, headline, prod, null); }catch(e){} img.onload=img.onerror=null; img=null; };
     img.src = prod.img;
     tile.appendChild(c);
     const meta=document.createElement('div'); meta.className='meta';
@@ -1139,7 +1141,7 @@ document.getElementById('downloadBrief')?.addEventListener('click', ()=>{
   const prod = products.find(x=>x.id===productSel.value);
   const place = places.find(x=>x.market===localitySel.value);
   const yaml = `campaign_name: "KODIAK® ${place.place} — ${prod.name}"\nbrand: "KODIAK®"\ntarget_region: "${place.market.split('-')[0]}"\ntarget_market: "${place.market}"\ntarget_audience: "${audienceEl.value}"\ncampaign_message: "${headlineEl.value.replace(/"/g,'\\"')}"\nlanguage: "en-US"\nbrand_colors: ["#3B2316", "#E8530E", "#1A3C34"]\nproducts:\n  - {id: ${prod.id}, name: "${prod.name}", description: "${prod.base}"}\n`;
-  const blob=new Blob([yaml],{type:'text/yaml'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`KODIAK-CAKES-${prod.id}-${place.market.toLowerCase()}-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-v01.yaml`; a.click();
+  const blob=new Blob([yaml],{type:'text/yaml'}); const a=document.createElement('a'); const _u=URL.createObjectURL(blob); a.href=_u; a.download=`KODIAK-CAKES-${prod.id}-${place.market.toLowerCase()}-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-v01.yaml`; a.click(); setTimeout(()=>{ try{ URL.revokeObjectURL(_u); }catch(e){} }, 0);
 });
 document.getElementById('downloadAll')?.addEventListener('click', ()=>{
   canvases.forEach(({canvas,ratio,product})=>{
@@ -1213,9 +1215,10 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
                 if(!heroSrc){
                   try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e){}
                 } else {
-                  const img=new Image(); img.crossOrigin='anonymous';
-                  img.onload=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,img); }catch(e){} };
-                  img.onerror=()=>{ const fb=new Image(); fb.crossOrigin='anonymous'; fb.onload=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,fb); }catch(e){ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e2){} } }; fb.onerror=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e){} }; fb.src=cdnFallback; };
+                  let img=new Image(); img.crossOrigin='anonymous';
+                  // leak-teardown: null handlers after they fire so the closure + Image release on the next #preview clear.
+                  img.onload=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,img); }catch(e){} img.onload=img.onerror=null; img=null; };
+                  img.onerror=()=>{ let fb=new Image(); fb.crossOrigin='anonymous'; fb.onload=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,fb); }catch(e){ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e2){} } fb.onload=fb.onerror=null; fb=null; }; fb.onerror=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e){} fb.onload=fb.onerror=null; fb=null; }; fb.src=cdnFallback; img.onload=img.onerror=null; img=null; };
                   img.src=heroSrc;
                 }
                 tile.appendChild(c);
@@ -2129,26 +2132,13 @@ let skuList = [
       btn.textContent='Composing…';
       // Skeleton pulse tile + elapsed-seconds counter so the ~90s wait never feels frozen.
       const preview = document.getElementById('preview');
-      let elapsed = 0, tick = null;
+      // leak-teardown: timer holders + controller are declared BEFORE the try so the finally can always
+      // clear them; the request-shape helpers are defined before the try because the catch path calls
+      // drawNetworkLossNotice (a const defined inside the try would not be visible to the catch).
+      let elapsed = 0, tick = null, stageT1 = null, stageT2 = null, timeoutId = null;
+      const controller = new AbortController();
       // Multi-product (2+ selected, no theme) shows a skeleton tile per pending product; otherwise one hero skeleton.
       const willFanOut = !activeTheme && hadExplicitSelection && products.length > 1;
-      if(preview){
-        if(willFanOut){
-          preview.innerHTML = products.map((name,i)=>`<div class="tile genSkeletonTile"><div style="aspect-ratio:1/1;background:linear-gradient(90deg,#EFE6DB 25%,#F7F0E8 50%,#EFE6DB 75%);background-size:200% 100%;animation:genpulse 1.4s ease-in-out infinite;display:flex;align-items:center;justify-content:center"><span style="font:700 12px/1 'kodiak_sans','museo-sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8C7A70">Composing…</span></div><div class="meta"><b>${name}</b><div class="small" id="genElapsed${i}">0s elapsed — up to ~90s</div></div></div>`).join('');
-        } else {
-          preview.innerHTML = `<div class="tile" id="genSkeleton" style="grid-column:1/-1;max-width:640px;margin:0 auto"><div style="aspect-ratio:1/1;background:linear-gradient(90deg,#EFE6DB 25%,#F7F0E8 50%,#EFE6DB 75%);background-size:200% 100%;animation:genpulse 1.4s ease-in-out infinite;display:flex;align-items:center;justify-content:center"><span style="font:700 13px/1 'kodiak_sans','museo-sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8C7A70">Composing…</span></div><div class="meta"><b>Composing your campaign with Nova Pro${activeTheme ? ' — theme: ' + themeLabel : ''}</b><div class="small" id="genElapsed">0s elapsed — up to ~90s</div></div></div>`;
-        }
-        if(!document.getElementById('genPulseKeyframes')){ const st=document.createElement('style'); st.id='genPulseKeyframes'; st.textContent='@keyframes genpulse{0%{background-position:200% 0}100%{background-position:-200% 0}}'; document.head.appendChild(st); }
-        tick = setInterval(()=>{ elapsed++; document.querySelectorAll('[id^="genElapsed"]').forEach(e=>{ e.textContent = elapsed+'s elapsed — up to ~90s'; }); }, 1000);
-      }
-      let stageT1=null, stageT2=null;
-      if(status){
-        status.textContent = 'Composing your campaign with Nova Pro… (up to ~90s)';
-        stageT1 = setTimeout(()=>{ if(status) status.textContent = 'Still composing — Nova Pro is rendering your hero…'; }, 30000);
-        stageT2 = setTimeout(()=>{ if(status) status.textContent = 'Almost there — finishing the composition…'; }, 60000);
-      }
-      const controller = new AbortController();
-      const timeoutId = setTimeout(()=>controller.abort(), 100000); // Nova Pro composition is slow (~90s); allow headroom
       // Decide the request shape:
       //  - themed chip active -> ONE themed request (theme wins; no per-product fan-out)
       //  - 2+ products explicitly selected AND no theme -> one request PER product, render a grid
@@ -2197,20 +2187,39 @@ let skuList = [
           ctx.fillStyle='#FFF8F0'; ctx.textAlign='center'; ctx.font='700 26px Inter,sans-serif';
           ctx.fillText('OFFLINE PREVIEW — not the generated campaign', 540, 42);
         };
-        const img = new Image(); img.crossOrigin='anonymous';
-        img.onload = ()=>paint(img);
-        img.onerror = ()=>paint(null);
+        // leak-teardown: null the handlers after they fire so the closure + Image release.
+        let img = new Image(); img.crossOrigin='anonymous';
+        img.onload = ()=>{ paint(img); img.onload=img.onerror=null; img=null; };
+        img.onerror = ()=>{ paint(null); img.onload=img.onerror=null; img=null; };
         // only fire a network load for a real resolvable url; otherwise paint with no photo
         // (NO Image(), NO 404). offline preview still renders with its OFFLINE watermark.
         if(isRealHero){ img.src = heroSrc; }
-        else { paint(null); }
+        else { paint(null); img.onload=img.onerror=null; img=null; }
         tile.appendChild(c);
         const meta = document.createElement('div'); meta.className='meta';
         meta.innerHTML = `<b>Offline preview — ${sku}</b><div class="small" style="color:#B51E14">No server response. This is a local stand-in of the requested product, not a generated campaign. Reconnect and try Create again.</div>`;
         tile.appendChild(meta);
         p.appendChild(tile);
       };
+      // try OPENS before any timer is created so an early throw during skeleton/timer setup still
+      // reaches the finally and clears the interval + timeouts (previously the try opened after the
+      // timers were created, leaving an unguarded window where a throw would leak the elapsed-tick interval).
       try{
+      if(preview){
+        if(willFanOut){
+          preview.innerHTML = products.map((name,i)=>`<div class="tile genSkeletonTile"><div style="aspect-ratio:1/1;background:linear-gradient(90deg,#EFE6DB 25%,#F7F0E8 50%,#EFE6DB 75%);background-size:200% 100%;animation:genpulse 1.4s ease-in-out infinite;display:flex;align-items:center;justify-content:center"><span style="font:700 12px/1 'kodiak_sans','museo-sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8C7A70">Composing…</span></div><div class="meta"><b>${name}</b><div class="small" id="genElapsed${i}">0s elapsed — up to ~90s</div></div></div>`).join('');
+        } else {
+          preview.innerHTML = `<div class="tile" id="genSkeleton" style="grid-column:1/-1;max-width:640px;margin:0 auto"><div style="aspect-ratio:1/1;background:linear-gradient(90deg,#EFE6DB 25%,#F7F0E8 50%,#EFE6DB 75%);background-size:200% 100%;animation:genpulse 1.4s ease-in-out infinite;display:flex;align-items:center;justify-content:center"><span style="font:700 13px/1 'kodiak_sans','museo-sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8C7A70">Composing…</span></div><div class="meta"><b>Composing your campaign with Nova Pro${activeTheme ? ' — theme: ' + themeLabel : ''}</b><div class="small" id="genElapsed">0s elapsed — up to ~90s</div></div></div>`;
+        }
+        if(!document.getElementById('genPulseKeyframes')){ const st=document.createElement('style'); st.id='genPulseKeyframes'; st.textContent='@keyframes genpulse{0%{background-position:200% 0}100%{background-position:-200% 0}}'; document.head.appendChild(st); }
+        tick = setInterval(()=>{ elapsed++; document.querySelectorAll('[id^="genElapsed"]').forEach(e=>{ e.textContent = elapsed+'s elapsed — up to ~90s'; }); }, 1000);
+      }
+      if(status){
+        status.textContent = 'Composing your campaign with Nova Pro… (up to ~90s)';
+        stageT1 = setTimeout(()=>{ if(status) status.textContent = 'Still composing — Nova Pro is rendering your hero…'; }, 30000);
+        stageT2 = setTimeout(()=>{ if(status) status.textContent = 'Almost there — finishing the composition…'; }, 60000);
+      }
+      timeoutId = setTimeout(()=>controller.abort(), 100000); // Nova Pro composition is slow (~90s); allow headroom
         if(doThemedOrSingle){
           // Single request (themed if a chip is active, else default product).
           const json = await oneGenerate(primarySlug, activeTheme || undefined);
@@ -2256,6 +2265,9 @@ let skuList = [
           if(status) status.textContent = okCount ? ('Campaign preview ready — ' + okCount + ' of ' + products.length + ' product variants composed') : 'Some variants could not reach the server — check your connection and try again';
           openPreviewCard();
         }
+        // Successful submit reached (no throw): clear the persisted lifecycle snapshot so a completed
+        // campaign does not resurrect stale inputs on the next visit / tab-discard restore.
+        try{ if(typeof window.__kodiakClearFFState==='function') window.__kodiakClearFFState(); }catch(e){}
       }catch(err){
         // NEVER-503 CONTRACT: a well-formed POST /generate now returns 200 with real Kodiak
         // pixels 100% of the time (backend degradation ladder A->B->C->D, rung D cannot fail).
@@ -3423,6 +3435,119 @@ let skuList = [
     });
     briefEl.addEventListener('blur', function(){ setTimeout(close, 120); });   // allow mousedown to fire first
   }
+})();
+</script>
+<script>
+// --- Page Lifecycle API: snapshot/restore inputs across Chrome Memory Saver tab discard (freeze/pagehide) ---
+// Self-contained. Persists a SMALL text snapshot of the campaign inputs on hide/pagehide/freeze and
+// rehydrates on load if the snapshot is < 24h old. Does NOT store DOM, blobs, object URLs, or catalogs.
+// blob: object URLs for staged uploads do NOT survive a tab discard, so only the upload NAMES are kept
+// as a re-derivation note — the user is told to re-add them; no fake assets are fabricated.
+(function(){
+  var KEY = 'kodiak_ff_state_v1';
+  var MAX_AGE_MS = 24 * 60 * 60 * 1000;
+
+  function checkedSkus(){
+    try{
+      return Array.prototype.slice.call(document.querySelectorAll('.sku-check'))
+        .filter(function(b){ return b.checked; })
+        .map(function(b){ return b.value; });
+    }catch(e){ return []; }
+  }
+
+  function persist(){
+    try{
+      var snap = {};
+      try{ snap.brief    = document.getElementById('campaignBrief')?.value; }catch(e){}
+      try{ snap.locality = document.getElementById('locality')?.value; }catch(e){}
+      try{ snap.season   = document.getElementById('season')?.value; }catch(e){}   // #season may not exist — guarded
+      try{ snap.skus     = checkedSkus(); }catch(e){}
+      try{ snap.userAssetNames = (window.__userAssets || []).map(function(a){ return a && a.name; }).filter(Boolean); }catch(e){}
+      snap.ts = Date.now();
+      localStorage.setItem(KEY, JSON.stringify(snap));
+    }catch(e){}
+  }
+
+  // clear hook — called by the generate success path so a completed campaign does not resurrect on next visit
+  window.__kodiakClearFFState = function(){ try{ localStorage.removeItem(KEY); }catch(e){} };
+
+  function showAssetReAddNote(names){
+    try{
+      if(document.getElementById('ffAssetReaddNote')) return;   // idempotent
+      var input = document.getElementById('addAssetInput');
+      var note = document.createElement('div');
+      note.id = 'ffAssetReaddNote';
+      note.setAttribute('role', 'status');
+      note.style.cssText = 'margin:6px 0 0;font:500 12px/1.4 system-ui,-apple-system,sans-serif;color:#B51E14';
+      note.textContent = 'Your previously staged upload' + (names.length > 1 ? 's' : '') + ' (' + names.join(', ') + ') need to be re-added — the browser discarded the tab.';
+      var dismiss = document.createElement('button');
+      dismiss.type = 'button';
+      dismiss.setAttribute('aria-label', 'Dismiss staged-upload notice');
+      dismiss.textContent = '\u00d7';
+      dismiss.style.cssText = 'margin-left:8px;border:none;background:transparent;color:#B51E14;cursor:pointer;font-size:14px;line-height:1';
+      dismiss.addEventListener('click', function(){ if(note.parentNode) note.parentNode.removeChild(note); });
+      note.appendChild(dismiss);
+      // append after the file input if present, else after the prompt input wrap, else body
+      var anchor = input || document.querySelector('.ff-inputwrap') || document.body;
+      if(anchor && anchor.parentNode) anchor.parentNode.insertBefore(note, anchor.nextSibling);
+      else document.body.appendChild(note);
+    }catch(e){}
+  }
+
+  function restore(){
+    var snap = null;
+    try{ snap = JSON.parse(localStorage.getItem(KEY) || 'null'); }catch(e){ snap = null; }
+    if(!snap || typeof snap.ts !== 'number' || (Date.now() - snap.ts) > MAX_AGE_MS) return;
+
+    // brief — dispatch input so the autocomplete + auto-grow handlers re-run
+    try{
+      var briefEl = document.getElementById('campaignBrief');
+      if(briefEl && snap.brief && !briefEl.value){ briefEl.value = snap.brief; briefEl.dispatchEvent(new Event('input', {bubbles:true})); }
+    }catch(e){}
+
+    // locality — only if the saved option exists; dispatch change so onLocality/renderLangChips re-run
+    try{
+      var locEl = document.getElementById('locality');
+      if(locEl && snap.locality){
+        var hasOpt = Array.prototype.slice.call(locEl.options || []).some(function(o){ return o.value === snap.locality; });
+        if(hasOpt && locEl.value !== snap.locality){ locEl.value = snap.locality; locEl.dispatchEvent(new Event('change', {bubbles:true})); }
+      }
+    }catch(e){}
+
+    // season — may not exist; dispatch change if restored
+    try{
+      var seasonEl = document.getElementById('season');
+      if(seasonEl && snap.season && seasonEl.value !== snap.season){ seasonEl.value = snap.season; seasonEl.dispatchEvent(new Event('change', {bubbles:true})); }
+    }catch(e){}
+
+    // SKUs — re-check matching .sku-check boxes; dispatch change (bubbles) so the combobox syncSkuChips
+    // delegation + the clear-theme delegation on #productChooser both re-run and the tray chips reappear.
+    try{
+      var want = {};
+      (snap.skus || []).forEach(function(v){ want[v] = true; });
+      var restored = 0;
+      Array.prototype.slice.call(document.querySelectorAll('.sku-check')).forEach(function(b){
+        if(want[b.value] && !b.checked){ b.checked = true; b.dispatchEvent(new Event('change', {bubbles:true})); restored++; }
+      });
+    }catch(e){}
+
+    // staged uploads — blob URLs are gone after a discard; show a non-blocking re-add note (no fake assets)
+    try{
+      if(Array.isArray(snap.userAssetNames) && snap.userAssetNames.length){ showAssetReAddNote(snap.userAssetNames); }
+    }catch(e){}
+  }
+
+  // persist triggers — hidden visibilitychange + pagehide + freeze (all the discard-adjacent lifecycle events)
+  try{ document.addEventListener('visibilitychange', function(){ if(document.visibilityState === 'hidden') persist(); }); }catch(e){}
+  try{ window.addEventListener('pagehide', persist); }catch(e){}
+  try{ document.addEventListener('freeze', persist); }catch(e){}
+
+  // rehydrate after the selects + SKU checkboxes are populated. fillSelects runs synchronously on load and
+  // the SKU catalog paints asynchronously (~900ms), so restore on a short delay and retry once for the SKUs.
+  function runRestore(){ try{ restore(); }catch(e){} }
+  if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', function(){ setTimeout(runRestore, 700); }); }
+  else { setTimeout(runRestore, 700); }
+  setTimeout(runRestore, 1500);   // second pass — SKU checkboxes may finish painting after the first pass
 })();
 </script>
   <script src="glimmer-proxy.js?v=0.1.012-878bea8-20260906"></script>
