@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"/>
 <link rel="stylesheet" href="https://use.typekit.net/zjt4wyq.css">
-<link rel="stylesheet" href="design/styles.css?v=0.1.012-3e018e5-20260906">
+<link rel="stylesheet" href="design/styles.css?v=0.1.012-878bea8-20260906">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>KODIAK® Posts for Today's Frontier — v0.1.012-3e018e5-20260906</title>
-<meta name="kodiak-version" content="0.1.012-3e018e5-20260906">
+<title>KODIAK® Posts for Today's Frontier — v0.1.012-878bea8-20260906</title>
+<meta name="kodiak-version" content="0.1.012-878bea8-20260906">
 <meta name="webmcp" content="enabled">
 <meta name="mcp:server" content="kodiak-posts-frontier">
 <meta name="mcp:tools" content="places,products,recipes,market-languages,brief-yaml,preview,compose,localize">
 <link rel="mcp-manifest" href="webmcp.json">
-<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.012-3e018e5-20260906","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":73,"languages":"EN + top2 per market (ACS 2022)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
+<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.012-878bea8-20260906","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":73,"languages":"EN + top2 per market (ACS 2022)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
 <meta name="robots" content="noindex, nofollow, noarchive">
 <script>
 // Password gate: cakes — unlisted from bots, in-page lock screen (no prompt(), no document.write)
@@ -686,6 +686,11 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .loc-line[lang="ne"]{font-family:'Noto Sans Devanagari','Noto Sans',sans-serif}
 .loc-line[lang="ja"],.loc-line[lang="ko"],.loc-line[lang="zh"]{font-family:'Noto Sans CJK','Noto Sans',sans-serif}
 .loc-line[data-provider="source"]{font-weight:600}
+/* S12 — compact localized caption inside render/preview tiles (reuses .loc-line, tighter for tile scale) */
+.loc-cap{display:block;margin-top:5px;padding-top:5px;border-top:1px solid var(--colors-border-default,rgba(140,122,112,.25))}
+.loc-cap .loc-line{display:block;margin:.1rem 0;font-size:10px;line-height:1.3;color:var(--colors-neutral-600,#8C7A70)}
+.loc-cap .loc-langtag{display:inline-block;min-width:1.6em;font-weight:700;letter-spacing:.04em;opacity:.85}
+.loc-cap .loc-review{margin-left:4px;font-size:9px;font-style:italic;opacity:.9}
 /* machine-translatable placeholders stay dimmed/italic — they are a genuine "pending real copy" state (#124) */
 .loc-line[data-provider="pending"],.loc-line[data-provider="offline"]{opacity:.6;font-style:italic}
 /* community-review languages (nv/zip) are FIRST-CLASS, not an apology: full-opacity, upright, name prominent.
@@ -860,7 +865,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 <details class="card wide-track ff-about" id="aboutTool"><summary>About this tool</summary><div class="body"><p class="ff-about__copy">Type one line, pick a starting point, and get a ready-to-post Kodiak campaign — images and copy sized for every social platform and retailer, localized to the market you choose. See the <a href="details.html">design system + details</a> for how it works under the hood.</p></div></details>
 
 <!-- visible build stamp — confirm at a glance which version/JS is live in the browser (cache-buster verification) -->
-<div id="buildStamp">build 0.1.012-3e018e5-20260906</div>
+<div id="buildStamp">build 0.1.012-878bea8-20260906</div>
 
 </div>
 <script>
@@ -1061,7 +1066,9 @@ function render(){
     img.src = prod.img;
     tile.appendChild(c);
     const meta=document.createElement('div'); meta.className='meta';
-    meta.innerHTML=`<b>KODIAK® ${prod.id} — ${r.k}</b><div class=small>${r.w}×${r.h}</div>`;
+    // S12 — localized caption per offline tile (EN source + market top_languages[]; offline shows honest pending)
+    let _locCap=''; try{ if(typeof window.KODIAK_locCaption==='function') _locCap='<div class="small loc-cap-wrap">'+window.KODIAK_locCaption(_loc.market)+'</div>'; }catch(e){}
+    meta.innerHTML=`<b>KODIAK® ${prod.id} — ${r.k}</b><div class=small>${r.w}×${r.h}</div>`+_locCap;
     tile.appendChild(meta);
     previewEl.appendChild(tile);
     canvases.push({canvas:c,ratio:r.k,product:prod.id});
@@ -1255,6 +1262,17 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
   const summary   = disclosure ? disclosure.querySelector('summary') : null;
   if(!listbox || typeof places==='undefined') return;
 
+  // === S12 — live /localize gate ===
+  // Flip localization from a permanent no-op to a real translate path on the HOSTED origin, while keeping
+  // it OFF for file:// + localhost so the honest offline degrade (EN-source + single offline note) still
+  // applies there. The renderer targets window.KODIAK_LOCALIZE_ENDPOINT via localizeText() below, which
+  // carries a 6s AbortController timeout + .catch safety net — hosted origin attempts real translation and
+  // degrades honestly to EN-source if /localize 403s or times out. NEVER fabricate translated text offline.
+  if(!window.KODIAK_LOCALIZE_ENDPOINT){
+    var _isLocal = (location.protocol==='file:') || ['127.0.0.1','localhost'].includes(location.hostname);
+    if(!_isLocal) window.KODIAK_LOCALIZE_ENDPOINT = '/localize';
+  }
+
   // --- frontier-gaps overlay (frontier:true markets). offline-tolerant multi-path fetch; overlay only. ---
   const frontierMarkets = new Set();
   (async ()=>{
@@ -1372,6 +1390,29 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
     return HUMAN_REQUIRED.has(code);                        // defense-in-depth fallback
   }
 
+  // === S12 — live translate helper (single source of truth for the /localize path) ===
+  // POSTs {text, market, target_lang} to window.KODIAK_LOCALIZE_ENDPOINT and returns the translated string,
+  // or null on ANY failure (endpoint off, 403, timeout, malformed response). Callers degrade to EN-source
+  // when this returns null — translated text is NEVER fabricated. 6s AbortController timeout is the safety net.
+  // NEVER call this for community-review languages (nv/zip machine_translate:false) — that path stays human-only.
+  const _locCache = new Map(); // key: market|code|text  -> translated string (dedupe repeat renders)
+  function localizeText(text, market, code){
+    const ep = window.KODIAK_LOCALIZE_ENDPOINT;
+    if(!ep) return Promise.resolve(null);                   // offline / file:// / localhost — honest degrade
+    const key = market+'|'+code+'|'+text;
+    if(_locCache.has(key)) return Promise.resolve(_locCache.get(key));
+    const controller = new AbortController();
+    const timer = setTimeout(()=>controller.abort(), 6000); // 6s timeout — degrade if backend is slow/unreachable
+    return fetch(ep, {method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({text, market, target_lang: code}), signal: controller.signal})
+      .then(r=>{ if(!r.ok) throw new Error('localize HTTP '+r.status); return r.json(); })
+      .then(j=>{ const t=(j && (j.text || j.translated || j.translation)); const out=(typeof t==='string' && t.trim())?t:null; if(out) _locCache.set(key, out); return out; })
+      .catch(()=>null)                                       // 403 / timeout / offline -> null -> EN-source degrade
+      .finally(()=>clearTimeout(timer));
+  }
+  window.KODIAK_localizeText = localizeText;                 // reuse from tile-caption renderers in other scopes
+  window.KODIAK_isCommunityReview = isCommunityReview;
+
   // host for the localized-copy preview, injected once beside the featured/langs detail cell
   let host = document.getElementById('locPreview');
   function ensureHost(){
@@ -1406,8 +1447,10 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
     const rows = [];
     // English source line — real string, tagged source
     rows.push('<p class="loc-line" lang="en" data-provider="source"><span class="loc-langtag">EN</span>'+esc(source)+'</p>');
+    // machine rows we kicked off a live translate for — {rowId, code} — swapped in after paint
+    const liveJobs = [];
     // one row per non-English target language
-    langs.forEach(l=>{
+    langs.forEach((l, i)=>{
       const code = (l.translate_code||l.lang_code||'').toLowerCase();
       const community = isCommunityReview(l, code);        // DATA flag primary, HUMAN_REQUIRED set fallback
       // #124 copy: for a community-review language, authorized copy is ALWAYS presented as community-authorized,
@@ -1415,6 +1458,7 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
       const pre = precomputed(market, code);
       const note = l.review_note || 'Community-authorized translation required — not machine-generated (language sovereignty).';
       let provider, fill, badge='';
+      const rowId = 'locrow-'+market+'-'+code+'-'+i;
       if(community){
         if(pre){
           // authorized community copy has landed via #124 — show it, attributed as community-authorized (NOT machine)
@@ -1427,17 +1471,109 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
           fill = source;                                    // show the English source they'd be translated from
           badge = '<span class="loc-review" title="'+esc(note)+'">Community review — not machine-translated</span>';
         }
+        // community-review languages are NEVER sent to the machine translate path — no liveJobs entry
+      } else if(pre){
+        // precomputed #124 copy present — real text, no live call needed
+        provider = pre.provider||'machine';
+        fill = pre.text;
+      } else if(window.KODIAK_LOCALIZE_ENDPOINT){
+        // hosted origin — show EN source now, swap real translation in when /localize answers (else stays EN-source)
+        provider = 'pending-live';
+        fill = source;                                      // honest: EN source until the live text lands
+        liveJobs.push({rowId, code});
       } else {
-        // machine-translatable — real text only when #124 data exists, else pending placeholder (blocked on #124)
-        provider = pre ? (pre.provider||'machine') : 'pending';
-        fill = pre ? pre.text : 'translation pending';
+        // offline / file:// / localhost — honest degrade, no fabricated text
+        provider = 'pending';
+        fill = 'translation pending';
       }
-      rows.push('<p class="loc-line" lang="'+esc(l.lang_code||code)+'" data-provider="'+esc(provider)+'">'+
+      rows.push('<p class="loc-line" id="'+esc(rowId)+'" lang="'+esc(l.lang_code||code)+'" data-provider="'+esc(provider)+'">'+
                 '<span class="loc-langtag">'+esc((l.lang_code||code).toUpperCase())+'</span>'+
-                esc(fill)+badge+'</p>');
+                '<span class="loc-txt">'+esc(fill)+'</span>'+badge+'</p>');
     });
-    h.innerHTML = '<div class="ff-locpreview-head" style="font:700 10px/1.2 \'kodiak_sans\',\'museo-sans\',sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted);margin-bottom:2px">Localized copy preview</div>'+rows.join('');
+    // offline honest note — single line, only when the endpoint is off (never fabricate translated text)
+    const offlineNote = window.KODIAK_LOCALIZE_ENDPOINT ? '' :
+      '<p class="loc-line loc-offline" data-provider="offline-note" style="font-style:italic;color:var(--colors-foreground-muted)">localization offline — showing English source only</p>';
+    h.innerHTML = '<div class="ff-locpreview-head" style="font:700 10px/1.2 \'kodiak_sans\',\'museo-sans\',sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted);margin-bottom:2px">Localized copy preview</div>'+rows.join('')+offlineNote;
+
+    // === S12 — #featuredFrontier market-driven localized frontier note (Task 2) ===
+    // Show the featured-frontier framing (place cue / featured line) plus this market's REAL localized reach.
+    // Offline: EN cue + the market's real top_languages[] names (not the hardcoded trio). Live: swap the
+    // translated frontier line in when /localize answers. aria-live=polite is preserved on the element.
+    if(featured){
+      const cue = (p && (p.cue || p.message)) ? (p.cue || p.message) : source;
+      const names = langs.map(l=>l.lang_name).filter(Boolean);
+      const reach = names.length ? (' · localized reach: '+esc(['English'].concat(names).join(', '))) : '';
+      featured.innerHTML = '<span class="ff-cue">'+esc(cue)+'</span><span class="ff-reach" style="color:var(--colors-foreground-muted)">'+reach+'</span>';
+      // live: translate the frontier cue into the market's top machine-translatable language and prepend it
+      const firstMachine = langs.find(l=>!isCommunityReview(l,(l.translate_code||l.lang_code||'').toLowerCase()));
+      if(window.KODIAK_LOCALIZE_ENDPOINT && firstMachine){
+        const fcode = (firstMachine.translate_code||firstMachine.lang_code||'').toLowerCase();
+        localizeText(cue, market, fcode).then(t=>{
+          if(!t || !featured.isConnected) return;           // degrade honestly — leave EN cue in place
+          // guard against a stale market swap while the request was in flight
+          if((document.getElementById('locality')?.value||market)!==market) return;
+          featured.innerHTML = '<span class="ff-cue" lang="'+esc(firstMachine.lang_code||fcode)+'">'+esc(t)+'</span>'+
+            '<span class="ff-cue-en" style="color:var(--colors-foreground-muted)"> · '+esc(cue)+'</span>'+
+            '<span class="ff-reach" style="color:var(--colors-foreground-muted)">'+reach+'</span>';
+        });
+      }
+    }
+
+    // fire live translations for the machine rows; swap real text in on resolve, else leave EN-source
+    liveJobs.forEach(job=>{
+      localizeText(source, market, job.code).then(t=>{
+        const row = document.getElementById(job.rowId);
+        if(!row || !t) return;                              // null -> honest degrade, EN source stays
+        const txt = row.querySelector('.loc-txt');
+        if(txt) txt.textContent = t;
+        row.setAttribute('data-provider','machine-live');   // real machine translation landed
+      });
+    });
   }
+
+  // === S12 — compact localized tile caption (Task 3) ===
+  // Returns compact .loc-line HTML for a tile caption: EN source + this market's top_languages[]. Reuses the
+  // SAME source-of-truth (places[].message, marketLangsFor) and the SAME live/community/offline rules as the
+  // full preview, kept compact for a tile. Live machine rows swap real /localize text in after paint (via the
+  // uniqueId row + a microtask), community-review stays human-only, offline shows a single honest pending note.
+  // Exposed globally so showRenderSet (hosted) and the offline canvas render() can both call it.
+  let _capSeq = 0;
+  function locCaptionHtml(market){
+    const p = places.find(x=>x.market===market);
+    const source = (p && p.message) ? p.message : "KODIAK® — Nourishment for Today's Frontier";
+    const langs = (typeof marketLangsFor==='function') ? marketLangsFor(market) : [];
+    const seq = ++_capSeq;
+    const jobs = [];
+    const rows = ['<span class="loc-line" lang="en" data-provider="source"><span class="loc-langtag">EN</span>'+esc(source)+'</span>'];
+    langs.forEach((l,i)=>{
+      const code = (l.translate_code||l.lang_code||'').toLowerCase();
+      const community = isCommunityReview(l, code);
+      const note = l.review_note || 'Community-authorized translation required — not machine-generated (language sovereignty).';
+      const rowId = 'loccap-'+seq+'-'+code+'-'+i;
+      let provider, fill, badge='';
+      if(community){
+        provider='community-review'; fill=source;          // never machine-translated — EN source + badge, full-strength
+        badge='<span class="loc-review" title="'+esc(note)+'">community review</span>';
+      } else if(window.KODIAK_LOCALIZE_ENDPOINT){
+        provider='pending-live'; fill=source; jobs.push({rowId, code, source, market});
+      } else {
+        provider='pending'; fill='translation pending';    // offline honest state
+      }
+      rows.push('<span class="loc-line" id="'+esc(rowId)+'" lang="'+esc(l.lang_code||code)+'" data-provider="'+esc(provider)+'">'+
+                '<span class="loc-langtag">'+esc((l.lang_code||code).toUpperCase())+'</span>'+
+                '<span class="loc-txt">'+esc(fill)+'</span>'+badge+'</span>');
+    });
+    // fire the live translations on the next tick (after the caller has inserted this HTML into the DOM)
+    if(jobs.length) setTimeout(()=>{ jobs.forEach(job=>{
+      localizeText(job.source, job.market, job.code).then(t=>{
+        const row=document.getElementById(job.rowId); if(!row||!t) return;   // null -> EN-source stays (honest)
+        const txt=row.querySelector('.loc-txt'); if(txt) txt.textContent=t;
+        row.setAttribute('data-provider','machine-live');
+      });
+    }); }, 0);
+    return '<span class="loc-cap">'+rows.join('')+'</span>';
+  }
+  window.KODIAK_locCaption = locCaptionHtml;
 
   // Replace the legacy renderLangChips no-op so any caller (fillSelects, change listener, fetch upgrade)
   // now repaints the localized surface for the current market instead of deleting #lang-chips.
@@ -1454,7 +1590,7 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
 })();
 </script>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.012-3e018e5-20260906","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.012-878bea8-20260906","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
 
 
 <script>
@@ -1891,8 +2027,15 @@ let skuList = [
           // clean caption: "1:1 Feed · 1080×1080" + the platforms this ratio serves (no engineering noise)
           const plats = platformsForRatio(r.ratio);
           const platLine = plats.length ? '<span class="rt-platforms">' + escapeHtml(plats.join(' \u00B7 ')) + '</span>' : '';
+          // S12 — localized caption per tile: EN source + this market's top_languages[] (live /localize when on,
+          // community-review never machine, offline pending). Driven by the selected market at render time.
+          let locCap = '';
+          try{
+            const _m = document.getElementById('locality')?.value || (selectedLoc && selectedLoc.market);
+            if(_m && typeof window.KODIAK_locCaption==='function') locCap = window.KODIAK_locCaption(_m);
+          }catch(e){}
           cap.innerHTML = '<b>' + escapeHtml(ratioColon + ' ' + meta.name) + '</b>' +
-            '<span class="dims">' + escapeHtml((r.w||'') + '\u00D7' + (r.h||'')) + '</span>' + platLine;
+            '<span class="dims">' + escapeHtml((r.w||'') + '\u00D7' + (r.h||'')) + '</span>' + platLine + locCap;
           tile.appendChild(cap);
           set.appendChild(tile);
         });
@@ -3282,5 +3425,5 @@ let skuList = [
   }
 })();
 </script>
-  <script src="glimmer-proxy.js?v=0.1.012-3e018e5-20260906"></script>
+  <script src="glimmer-proxy.js?v=0.1.012-878bea8-20260906"></script>
 </body></html>
