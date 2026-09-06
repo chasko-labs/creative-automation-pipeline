@@ -19,6 +19,7 @@ import base64
 import json
 import hashlib
 import os
+import sys
 from pathlib import Path
 
 EMBED_MODEL = os.getenv("BEDROCK_EMBED_MODEL", "amazon.nova-2-multimodal-embeddings-v1:0")
@@ -177,6 +178,120 @@ def embed_multimodal(text: str, image_path: str | Path, dim: int = EMBED_DIM) ->
     text becomes retrieval metadata rather than being fused into the same vector.
     """
     return embed_image(image_path, text_hint=text, dim=dim)
+
+
+# --------------------------------------------------------------------------- S3 Vectors store
+# S3 Vectors PutVectors API shape CONFIRMED via botocore introspection of the installed
+# s3vectors model (client.meta.service_model.operation_model("PutVectors")):
+#   input: vectorBucketName (str), indexName (str), vectors (list, required)
+#   vector item: key (str, required), data (structure, required), metadata (structure)
+#   data structure: {"float32": [<floats>]}
+# GetVectors input: vectorBucketName, indexName, keys (list, required), returnData,
+# returnMetadata; output: vectors (list) — an absent key returns an empty list, a missing
+# bucket/index raises NotFoundException. That empty-list signal is the dedup-skip gate.
+_S3VECTORS_REGION = os.getenv("AWS_REGION", "us-east-1")
+
+# S3 Vectors caps per-vector metadata size; keep values small and truncate long strings so a
+# fat filename or s3_uri can never blow the metadata limit and reject the whole put.
+_META_STR_CAP = 512
+
+
+def _s3vectors_client():
+    """Build a boto3 s3vectors client; None when boto3/creds absent (offline path)."""
+    try:
+        import boto3  # type: ignore
+
+        return boto3.client("s3vectors", region_name=_S3VECTORS_REGION)
+    except Exception as e:  # noqa: BLE001
+        print(f"[vectors] s3vectors client unavailable: {e}", file=sys.stderr)
+        return None
+
+
+def _clean_metadata(metadata: dict | None) -> dict:
+    """Coerce metadata to small scalar fields; truncate long strings defensively."""
+    out: dict = {}
+    for k, v in (metadata or {}).items():
+        if v is None:
+            continue
+        if isinstance(v, str):
+            out[str(k)] = v[:_META_STR_CAP]
+        elif isinstance(v, (int, float, bool)):
+            out[str(k)] = v
+        else:
+            out[str(k)] = str(v)[:_META_STR_CAP]
+    return out
+
+
+def vector_exists(key: str, *, bucket: str | None = None, index: str | None = None) -> bool:
+    """True when a vector for `key` already lives in the index — the dedup-skip gate.
+
+    GetVectors returns an empty vectors list for an absent key (not an error), so a
+    non-empty list means the vector is already stored and the caller can SKIP re-embedding
+    a known duplicate. Returns False on any unconfigured/offline/error condition (never
+    raises) so a probe failure degrades to "embed anyway" rather than crashing ingest.
+    """
+    bucket = bucket or os.getenv("KODIAK_VECTOR_BUCKET")
+    index = index or os.getenv("KODIAK_VECTOR_INDEX")
+    if not bucket or not index:
+        return False
+    client = _s3vectors_client()
+    if client is None:
+        return False
+    try:
+        resp = client.get_vectors(
+            vectorBucketName=bucket,
+            indexName=index,
+            keys=[key],
+            returnData=False,
+            returnMetadata=False,
+        )
+        return bool(resp.get("vectors"))
+    except Exception as e:  # noqa: BLE001 — probe failure degrades to "not present"
+        print(f"[vectors] get_vectors probe failed for {key}: {e}", file=sys.stderr)
+        return False
+
+
+def put_vector(
+    vector: list[float],
+    key: str,
+    metadata: dict | None = None,
+    *,
+    bucket: str | None = None,
+    index: str | None = None,
+) -> bool:
+    """Write one vector to the S3 Vectors index. Returns True on success, False otherwise.
+
+    Never raises: an unset bucket/index, missing boto3, absent creds, or an API error all
+    return False so the caller can degrade to embed_pending and keep the asset. The shape
+    (vectorBucketName/indexName/vectors[{key,data:{float32},metadata}]) is the introspected
+    live model form. Metadata is capped small (asset_id/filename/kind/sha256/etc — never raw
+    bytes) so it stays under the S3 Vectors per-vector metadata limit.
+    """
+    bucket = bucket or os.getenv("KODIAK_VECTOR_BUCKET")
+    index = index or os.getenv("KODIAK_VECTOR_INDEX")
+    if not bucket or not index:
+        return False
+    if not vector:
+        return False
+    client = _s3vectors_client()
+    if client is None:
+        return False
+    try:
+        client.put_vectors(
+            vectorBucketName=bucket,
+            indexName=index,
+            vectors=[
+                {
+                    "key": key,
+                    "data": {"float32": [float(x) for x in vector]},
+                    "metadata": _clean_metadata(metadata),
+                }
+            ],
+        )
+        return True
+    except Exception as e:  # noqa: BLE001 — degrade to embed_pending, never crash ingest
+        print(f"[vectors] put_vectors failed for {key}: {e}", file=sys.stderr)
+        return False
 
 
 def embed_batch(
