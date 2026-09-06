@@ -242,11 +242,11 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
   <!-- Download asset pack hidden by default; primary/secondary download actions injected under the preview after generation -->
   <div class="row ff-downloadrow"><button class="btn ghost" id="downloadPack" data-mcp="download-pack" data-mcp-description="Download the campaign assets as an ISO-labeled zip from S3">Download Preview Pack</button></div>
 
-  <!-- Publish targets - static on-brand pill links to Kodiak owned + social channels. #publishTargets is findable; JS track may correct hrefs (blog path) but the strip is static markup. -->
+  <!-- Publish targets - static on-brand pill links to Kodiak owned + social channels. #publishTargets is findable; the strip is static markup (no JS href rewrite). -->
   <nav class="ff-publish-targets" id="publishTargets" aria-label="Kodiak publish targets">
     <span class="ff-publish-label">Publish targets</span>
     <a class="ff-publish-pill" href="https://kodiakcakes.com" target="_blank" rel="noopener noreferrer">Homepage</a>
-    <a class="ff-publish-pill" href="https://kodiakcakes.com/blogs/kodiak-kitchen" target="_blank" rel="noopener noreferrer">Blog</a>
+    <a class="ff-publish-pill" href="https://kodiakcakes.com/blogs/news" target="_blank" rel="noopener noreferrer">Blog</a>
     <a class="ff-publish-pill" href="https://instagram.com/kodiakcakes" target="_blank" rel="noopener noreferrer">Instagram</a>
     <a class="ff-publish-pill" href="https://facebook.com/kodiakcakes" target="_blank" rel="noopener noreferrer">Facebook</a>
     <a class="ff-publish-pill" href="https://tiktok.com/@kodiakcakes" target="_blank" rel="noopener noreferrer">TikTok</a>
