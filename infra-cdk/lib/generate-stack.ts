@@ -2,6 +2,15 @@ import * as cdk from "aws-cdk-lib";
 import { Construct } from "constructs";
 import * as iam from "aws-cdk-lib/aws-iam";
 import * as lambda from "aws-cdk-lib/aws-lambda";
+import {
+  KODIAK_VECTOR_BUCKET_NAME,
+  KODIAK_VECTOR_INDEX_NAME,
+  KODIAK_VECTOR_BUCKET_ARN,
+  KODIAK_VECTOR_INDEX_ARN,
+  BEDROCK_EMBED_MODEL_ARN,
+  BEDROCK_EMBED_FALLBACK_MODEL_ARN,
+  DAM_LIBRARY_PREFIX,
+} from "./config";
 
 export interface GenerateStackProps extends cdk.StackProps {
   readonly projectName: string;
@@ -75,6 +84,17 @@ export class GenerateStack extends cdk.Stack {
                   "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-pro-v1:0",
               },
               {
+                Sid: "BedrockInvokeArtDirector",
+                Effect: "Allow",
+                // Art-director voice model -- custom imported model in us-west-2 (isolated
+                // from the us-east-1 pipeline on purpose; art_director.py carries
+                // KODIAK_ARTDIRECTOR_REGION and never falls back to AWS_REGION). Gated dark
+                // at runtime behind KODIAK_ARTDIRECTOR_ENABLED.
+                Action: "bedrock:InvokeModel",
+                Resource:
+                  "arn:aws:bedrock:us-west-2:946179428633:imported-model/cx15b77k5nge",
+              },
+              {
                 Sid: "BedrockInvokeStabilityControlStructure",
                 Effect: "Allow",
                 Action: "bedrock:InvokeModel",
@@ -101,6 +121,43 @@ export class GenerateStack extends cdk.Stack {
                 Effect: "Allow",
                 Action: ["s3:PutObject", "s3:GetObject"],
                 Resource: `arn:aws:s3:::${damBucketName}/brands/kodiak/renders/*`,
+              },
+              // User-upload library prefix. asset_library.py writes uploads to
+              // brands/kodiak/library/* -- the DamRendersReadWrite statement
+              // above only covers renders/*, so the library prefix needs its
+              // own scoped grant (not a widening of the renders statement).
+              {
+                Sid: "DamLibraryReadWrite",
+                Effect: "Allow",
+                Action: ["s3:PutObject", "s3:GetObject"],
+                Resource: `arn:aws:s3:::${damBucketName}/${DAM_LIBRARY_PREFIX}*`,
+              },
+              // S3 Vectors read/write on the Kodiak vector bucket + index only.
+              // Scoped to the specific bucket ARN and its index sub-resource --
+              // no wildcards. The bucket-level ARN covers ListVectors; the
+              // index ARN covers Put/Get/Query on the vectors themselves.
+              {
+                Sid: "KodiakS3VectorsReadWrite",
+                Effect: "Allow",
+                Action: [
+                  "s3vectors:PutVectors",
+                  "s3vectors:GetVectors",
+                  "s3vectors:QueryVectors",
+                  "s3vectors:ListVectors",
+                ],
+                Resource: [KODIAK_VECTOR_BUCKET_ARN, KODIAK_VECTOR_INDEX_ARN],
+              },
+              // Bedrock embedding models: Nova multimodal (primary) + Titan
+              // text-only (fallback in embeddings.py). Two named model ARNs in
+              // one statement -- no wildcards.
+              {
+                Sid: "BedrockInvokeEmbedModels",
+                Effect: "Allow",
+                Action: "bedrock:InvokeModel",
+                Resource: [
+                  BEDROCK_EMBED_MODEL_ARN,
+                  BEDROCK_EMBED_FALLBACK_MODEL_ARN,
+                ],
               },
               // FIX 1 -- X-Ray write actions. ACTIVE tracing (set on the
               // function below) needs the role to ship segments.
@@ -136,6 +193,12 @@ export class GenerateStack extends cdk.Stack {
           // FIX 1 -- was "false". Enables aws-xray-sdk inside the handler so
           // downstream boto3 (Bedrock, S3) calls are captured as subsegments.
           AWS_XRAY_SDK_ENABLED: "true",
+          // S3 Vectors target for the ingest/embedding path. The runtime reads
+          // these to write + query vectors. BEDROCK_EMBED_MODEL / BEDROCK_EMBED_DIM
+          // default in embeddings.py (Nova multimodal / 1024) and are not
+          // overridden here.
+          KODIAK_VECTOR_BUCKET: KODIAK_VECTOR_BUCKET_NAME,
+          KODIAK_VECTOR_INDEX: KODIAK_VECTOR_INDEX_NAME,
         },
       },
     });

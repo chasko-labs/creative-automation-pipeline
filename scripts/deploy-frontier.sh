@@ -7,7 +7,7 @@ set -euo pipefail
 # Deploys the 5 core top-level files (index.html, details.html, design/styles.css,
 # webmcp.json, glimmer-proxy.js) AND the asset directories the page references:
 # assets/ (logos, textures, partners/), data/ (localization, products, ...),
-# fonts/ (NotoSans *.woff2), design/ (tokens/). Directory syncs use `aws s3 sync`
+# fonts/ (NotoSans *.woff2), design/ (tokens/), js/ (extracted classic scripts). Directory syncs use `aws s3 sync`
 # so newly added files ship automatically without editing this script — this is
 # the root-cause fix for prod 404s where referenced assets were never uploaded.
 #
@@ -50,12 +50,13 @@ FILES=(
 # asset directories to sync wholesale. `aws s3 sync` copies whatever is present
 # (and only what changed), so new files ship without touching this script. This
 # is the durable fix for prod 404s — the page references assets/, data/, fonts/,
-# design/tokens/ that the per-file list above never uploaded.
+# design/tokens/, js/ that the per-file list above never uploaded.
 DIRS=(
 	"assets"
 	"data"
 	"fonts"
 	"design"
+	"js"
 )
 
 run() {
@@ -136,7 +137,7 @@ for dir in "${DIRS[@]}"; do
 		--profile "$PROFILE" --region "$REGION" --only-show-errors
 
 	# re-put the types where a wrong guess breaks loading/rendering
-	for ext_ct in "svg|image/svg+xml" "woff2|font/woff2" "json|application/json"; do
+	for ext_ct in "svg|image/svg+xml" "woff2|font/woff2" "json|application/json" "js|application/javascript"; do
 		IFS='|' read -r ext ct <<<"$ext_ct"
 		echo "[deploy-frontier]   fix content-type *.$ext -> $ct in $dir/"
 		run aws s3 cp "s3://$BUCKET/$dir" "s3://$BUCKET/$dir" \

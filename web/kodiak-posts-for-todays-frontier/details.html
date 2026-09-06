@@ -183,6 +183,15 @@ header h1,header h2,header h3{color:var(--parchment)}
 .dodont__flag.dont{background:var(--colors-brand-signal-red);color:#fff}
 .dodont__flag.do{background:var(--colors-brand-frontier-green);color:#FACC7C}
 .dodont__body{font:500 15px/1.5 "museo-sans",sans-serif;margin:0}
+/* -- content-visibility: DOM slimming for Chrome Memory Saver + layout perf --
+   Native CSS (no polyfill; >95% support). This reference page carries many tall,
+   below-the-fold structural blocks — the ASCII responsive wireframes and the
+   reference data tables. Deferring their layout/paint until scrolled into view
+   cuts peak memory + first-paint. contain-intrinsic-size supplies an estimated
+   collapsed height so the scrollbar stays stable. All targets are well below the
+   fold; nothing above-the-fold-at-initial-paint is deferred. */
+.inv-wire{content-visibility:auto;contain-intrinsic-size:auto 480px}
+.inv-table{content-visibility:auto;contain-intrinsic-size:auto 360px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head><body>
 <header class="kodiak-header" style="background:var(--brown-kodiak);color:#FFF8F0;border-bottom:none;display:flex;align-items:center;gap:16px;padding:10px 18px;flex-wrap:wrap;margin:0"><div class="header__inner">

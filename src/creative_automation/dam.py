@@ -632,6 +632,33 @@ def s3_upload_and_presign(local_path: Path, key: str, expires: int = 3600) -> Op
         return None
 
 
+def presign_get(key: str, expires: int = 3600) -> Optional[str]:
+    """Presign a GET for an EXISTING DAM key. Returns url, or None when S3 disabled.
+
+    Read-only companion to s3_upload_and_presign (which uploads then presigns). The
+    key is used VERBATIM against the DAM bucket with NO prefix join — the asset
+    browser passes full keys (brands/kodiak/...) that are not under DAM_S3_PREFIX,
+    same contract as fetch_dam_key. Offline-safe: returns None when S3 is disabled
+    (no DAM_S3_BUCKET / boto3 missing / client init fails) so callers degrade to a
+    null url rather than raising. Never throws.
+    """
+    if not key or not _s3_enabled():
+        return None
+    bucket, _ = _s3_bucket_and_prefix()
+    client = _s3_client()
+    if not bucket or client is None:
+        return None
+    try:
+        return client.generate_presigned_url(
+            "get_object",
+            Params={"Bucket": bucket, "Key": key},
+            ExpiresIn=expires,
+        )
+    except (ClientError, BotoCoreError, Exception) as e:
+        print(f"[dam] presign_get failed s3://{bucket}/{key}: {e}")
+        return None
+
+
 def sync_dam_from_s3(dam_root: Path, delete: bool = False) -> bool:
     """Optional helper: bulk sync S3 prefix -> local dam_root via boto3.
 

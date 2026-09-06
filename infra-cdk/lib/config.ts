@@ -20,6 +20,32 @@ export const PROJECT_NAME = "kodiak-creatives";
 // us-east-1, account 946179428633. LIVE DATA - never destroy (RemovalPolicy.RETAIN).
 export const DAM_BUCKET_NAME = `chasko-creative-dam-${ACCOUNT}-${PRIMARY_REGION}`;
 export const DAM_RENDERS_PREFIX = "brands/kodiak/renders/";
+// User-upload library prefix (asset_library.py writes uploads here). The
+// generate Lambda role's existing DAM grant only covers renders/*, so this
+// prefix needs its own grant.
+export const DAM_LIBRARY_PREFIX = "brands/kodiak/library/";
+
+// ---- S3 Vectors (first Kodiak vector store) --------------------------------
+// Dedicated Amazon S3 Vectors vector bucket + index for the Nova multimodal
+// embeddings (amazon.nova-2-multimodal-embeddings-v1:0, 1024 dims, cosine).
+// Authored as CDK L1 (aws-s3vectors CfnVectorBucket / CfnIndex) so it is
+// IaC-managed from creation -- avoids the drift gap of a hand-created bucket.
+// Names are deterministic constants so GenerateStack can build the least-
+// privilege ARNs without a cross-stack import.
+export const KODIAK_VECTOR_BUCKET_NAME = "kodiak-vectors";
+export const KODIAK_VECTOR_INDEX_NAME = "kodiak-assets";
+export const KODIAK_VECTOR_DIMENSION = 1024; // matches BEDROCK_EMBED_DIM default
+export const KODIAK_VECTOR_DISTANCE_METRIC = "cosine"; // Nova multimodal = cosine
+export const KODIAK_VECTOR_DATA_TYPE = "float32"; // only supported S3 Vectors type
+// Deterministic S3 Vectors ARNs (us-east-1, account 946179428633). The index
+// is a sub-resource of the bucket: bucket/<bucket>/index/<index>.
+export const KODIAK_VECTOR_BUCKET_ARN = `arn:aws:s3vectors:${PRIMARY_REGION}:${ACCOUNT}:bucket/${KODIAK_VECTOR_BUCKET_NAME}`;
+export const KODIAK_VECTOR_INDEX_ARN = `${KODIAK_VECTOR_BUCKET_ARN}/index/${KODIAK_VECTOR_INDEX_NAME}`;
+
+// Bedrock embedding models the generate Lambda invokes (embeddings.py):
+// primary Nova multimodal + Titan text-only fallback.
+export const BEDROCK_EMBED_MODEL_ARN = `arn:aws:bedrock:${PRIMARY_REGION}::foundation-model/amazon.nova-2-multimodal-embeddings-v1:0`;
+export const BEDROCK_EMBED_FALLBACK_MODEL_ARN = `arn:aws:bedrock:${PRIMARY_REGION}::foundation-model/amazon.titan-embed-text-v2:0`;
 
 // DynamoDB table names (live, RETAIN).
 export const LOCALIZATION_MEMORY_TABLE = `${PROJECT_NAME}-localization-memory`;

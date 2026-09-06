@@ -6,6 +6,7 @@ import json
 import os
 import re
 import sys
+import base64
 from pathlib import Path
 from typing import Any
 from uuid import uuid4
@@ -15,6 +16,7 @@ from botocore.config import Config
 from PIL import Image
 
 from . import text_rewriter
+from . import dam_library
 from .generate import _brand_floor, _safe_prompt_text, generate_hero, generate_hero_set
 from .locales import resolve_target_languages
 from .platform_copy import generate_platform_copy
@@ -47,6 +49,65 @@ FULL_MODE = "full"
 # Gateway edge for the post-wall composite + put + return leg.
 GENERATE_WALL_TIMEOUT_S = float(os.getenv("GENERATE_WALL_TIMEOUT_S", "22"))
 
+# ART-DIRECTOR VOICE STEP (dark by default): when KODIAK_ARTDIRECTOR_ENABLED is truthy,
+# the incoming brief/prompt is run through the Kodiak brand-voice art-director model
+# (src/creative_automation/art_director.py) and the returned on-brand line replaces the
+# headline that feeds hero composition. Default is OFF — a single cheap env check then the
+# headline flows through byte-for-byte as today, with zero import-time cost and no Bedrock
+# call. The art_director import is deferred into the helper so the default-off path never
+# pays for Strands import either. See _maybe_art_direct for the never-block/never-raise
+# fallback contract (mirrors the never-503 ladder: any failure or None falls back to the
+# original headline). The art-director inference is isolated in us-west-2 by art_director.py
+# itself — this module does NOT pass AWS_REGION to it.
+ART_DIRECTOR_ENABLED = os.getenv("KODIAK_ARTDIRECTOR_ENABLED", "false").strip().lower() in (
+    "1",
+    "true",
+    "yes",
+    "on",
+)
+# Voices the art-director model was trained on; a request "voice" outside this set falls
+# back to the default rather than being passed through here.
+_ART_DIRECTOR_KNOWN_VOICES = ("adventurous", "nourishing")
+_ART_DIRECTOR_DEFAULT_VOICE = "adventurous"
+
+
+def _maybe_art_direct(data: dict[str, Any], prompt: str) -> str:
+    """Optionally refine the headline via the Kodiak art-director voice; else pass through.
+
+    Dark-by-default no-op: when ART_DIRECTOR_ENABLED is False this is a single boolean check
+    that returns `prompt` unchanged — no import, no Bedrock call, no behavior change. When
+    enabled, run the incoming brief/prompt as the art-direction "ask" through the trained
+    brand voice and return the on-brand line as the headline for hero composition.
+
+    Never blocks generation and never raises (mirrors the never-503 contract): any exception,
+    or a None/empty return, falls back to the original `prompt` and logs the fallback to
+    stderr. The art_director module owns its isolated us-west-2 region — AWS_REGION is NOT
+    passed in. Called INSIDE the walled work (_handle_preview/_handle_full run in the
+    ThreadPoolExecutor), so a slow inference is still bounded by GENERATE_WALL_TIMEOUT_S.
+    """
+    if not ART_DIRECTOR_ENABLED:
+        return prompt
+
+    voice = (data.get("voice") or "").strip().lower()
+    if voice not in _ART_DIRECTOR_KNOWN_VOICES:
+        voice = _ART_DIRECTOR_DEFAULT_VOICE
+
+    try:
+        from . import art_director  # deferred import — default-off path never loads Strands
+
+        result = art_director.art_direct(prompt, voice)  # region handled internally
+        line = (result or {}).get("text") if isinstance(result, dict) else None
+        if line and line.strip():
+            return line.strip()
+        print(
+            "[generate_lambda] art-director returned no usable text — "
+            "falling back to original headline",
+            file=sys.stderr,
+        )
+    except Exception as e:  # noqa: BLE001 — never block generation; fall back to headline
+        print(f"[generate_lambda] art-director fallback: {e}", file=sys.stderr)
+    return prompt
+
 DAM_S3_BUCKET = os.getenv("DAM_S3_BUCKET", "chasko-creative-dam-946179428633-us-east-1")
 CORS_HEADERS = {
     "Content-Type": "application/json",
@@ -75,6 +136,230 @@ def _is_options(event: dict[str, Any]) -> bool:
 def _response(status: int, payload: dict[str, Any]) -> dict[str, Any]:
     """Shape a Function-URL response with CORS headers and a JSON string body."""
     return {"statusCode": status, "headers": CORS_HEADERS, "body": json.dumps(payload)}
+
+
+def _request_path(event: dict[str, Any]) -> str:
+    """Resolve the request path from an HTTP API v2 event (v2 shape, then rawPath, then local dict).
+
+    The deployed API Gateway is HTTP API v2 with a single $default catch-all routing every
+    path to this one Lambda, so the handler is path-blind unless it reads the path itself.
+    v2 carries it at requestContext.http.path; rawPath is the v2 mirror; a bare "path" key
+    covers a local invoke dict. Default "/generate" so an event with no path info falls
+    through to the existing generate ladder (back-compat with direct/local invokes).
+    """
+    rc = event.get("requestContext") or {}
+    http = rc.get("http") or {}
+    return http.get("path") or event.get("rawPath") or event.get("path") or "/generate"
+
+
+def _handle_localize(event: dict[str, Any]) -> dict[str, Any]:
+    """POST /localize — one localized string with honest provenance via localize_service.
+
+    localize_service.localize returns {text, source, provider, lang, ...}; the frontend
+    localizeText() reads j.text (falls back to j.translated/j.translation), so the "text"
+    key is passed straight through. A backend failure degrades to an HONEST EN-source
+    response (never a fabricated translation) rather than crashing the Lambda.
+    """
+    try:
+        data = _parse_body(event)
+    except (json.JSONDecodeError, ValueError, TypeError) as e:
+        return _response(400, {"ok": False, "error": f"malformed request body: {e}"})
+    if not isinstance(data, dict):
+        return _response(400, {"ok": False, "error": "malformed request body: expected a JSON object"})
+
+    text = (data.get("text") or "").strip()
+    market = (data.get("market") or "").strip() or "us"
+    target_lang = (data.get("target_lang") or data.get("lang") or "").strip()
+    if not text:
+        return _response(400, {"ok": False, "error": "text is required"})
+    if not target_lang:
+        return _response(400, {"ok": False, "error": "target_lang is required"})
+
+    try:
+        from .localize_service import localize as _localize
+
+        result = _localize(text, market, target_lang)  # {text, source, provider, lang, ...}
+        return _response(200, result)
+    except Exception as e:  # noqa: BLE001 — never sink; honest EN-source degrade
+        print(f"[generate_lambda] /localize failed: {e}", file=sys.stderr)
+        return _response(
+            200,
+            {
+                "text": text,
+                "source": "error-fallback",
+                "provider": "none",
+                "lang": target_lang,
+                "error": str(e),
+            },
+        )
+
+
+def _handle_assets_library(event: dict[str, Any]) -> dict[str, Any]:
+    """GET /assets/library — read-only DAM picker listing via the shared dam_library module.
+
+    category + limit come from the query string (this is a GET). dam_library.list_library
+    is the ONE implementation shared with api.py's route, so there is no drift. Never
+    raises — S3-disabled and per-category failures degrade inside list_library.
+    """
+    qs = event.get("queryStringParameters") or {}
+    category = (qs.get("category") or "").strip() or None
+    raw_limit = (qs.get("limit") or "").strip()
+    try:
+        limit = int(raw_limit) if raw_limit else 60
+    except (TypeError, ValueError):
+        limit = 60
+    try:
+        return _response(200, dam_library.list_library(category, limit))
+    except Exception as e:  # noqa: BLE001 — a path handler error is a clean JSON, never a crash
+        print(f"[generate_lambda] /assets/library failed: {e}", file=sys.stderr)
+        return _response(500, {"ok": False, "error": str(e)})
+
+
+def _handle_library_assets(event: dict[str, Any]) -> dict[str, Any]:
+    """POST /library/assets — real T2 asset ingest: store then best-effort embed + vector.
+
+    Mirrors asset_api.add_asset_api's contract: filename/added_by/tags arrive as query params
+    and the raw file bytes are the request body (octet-stream). API Gateway v2 base64-encodes
+    binary bodies, so decode when isBase64Encoded is set.
+
+    Flow (store is the ONLY hard requirement; embedding is best-effort with an embed_pending
+    fallback so a slow/failed Nova call or an unconfigured index never loses an upload):
+      1. validate filename + non-empty body (400 on either miss)
+      2. AssetLibrary(bucket=DAM_S3_BUCKET); if not s3_enabled -> honest 200 s3-disabled
+      3. add_asset — DEDUP-FIRST: an identical sha256 returns the EXISTING ref, no re-put
+      4. dedup-cost-control: skip the Nova embed when a vector already exists for the
+         asset_id (vector_exists GetVectors probe). A dedup hit reuses the original
+         asset_id, so its vector is already keyed and re-embedding would waste a Nova invoke.
+      5. for a NEW asset: write bytes to /tmp, embed (image for raster, else text of
+         filename+tags), put_vector keyed by asset_id. On embed/put failure -> embed_pending.
+      6. wrap embed+put in a ThreadPoolExecutor bounded by EMBED_WALL_TIMEOUT_S so a slow
+         Nova call cannot hang the request — on timeout the asset stands as embed_pending.
+
+    COST NOTE: each NEW (non-dedup) asset spends exactly one Nova multimodal embed invoke.
+    The dedup-first store + the vector_exists GetVectors skip bound this so a re-uploaded
+    duplicate costs zero Nova invokes.
+    """
+    method = (event.get("requestContext", {}).get("http", {}).get("method")
+              or event.get("httpMethod") or "POST").upper()
+    if method != "POST":
+        return _response(405, {"ok": False, "error": f"method {method} not allowed on /library/assets"})
+
+    qs = event.get("queryStringParameters") or {}
+    filename = (qs.get("filename") or "").strip()
+    added_by = (qs.get("added_by") or "").strip() or "anonymous"
+    raw_tags = (qs.get("tags") or "").strip()
+    tags = [t.strip() for t in raw_tags.split(",") if t.strip()] if raw_tags else None
+    if not filename:
+        return _response(400, {"ok": False, "error": "filename query param is required"})
+
+    raw_body = event.get("body")
+    if raw_body is None or raw_body == "":
+        return _response(400, {"ok": False, "error": "empty request body: expected file bytes"})
+    try:
+        if event.get("isBase64Encoded"):
+            data = base64.b64decode(raw_body)
+        elif isinstance(raw_body, bytes):
+            data = raw_body
+        else:
+            # a str body that was NOT flagged base64 is raw text bytes (e.g. local invoke)
+            data = raw_body.encode("utf-8")
+    except Exception as e:  # noqa: BLE001 — a bad body is a 400, never a 500
+        return _response(400, {"ok": False, "error": f"could not decode request body: {e}"})
+    if not data:
+        return _response(400, {"ok": False, "error": "empty request body: expected file bytes"})
+
+    from .asset_library import AssetLibrary, AssetKind, UnsupportedAssetKind
+
+    library = AssetLibrary(bucket=DAM_S3_BUCKET)
+    if not library.s3_enabled:
+        return _response(
+            200,
+            {"ok": False, "status": "s3-disabled", "note": "asset library storage not configured"},
+        )
+
+    try:
+        ref = library.add_asset(data=data, filename=filename, added_by=added_by, tags=tags)
+    except UnsupportedAssetKind as e:
+        return _response(415, {"ok": False, "error": str(e)})
+    except Exception as e:  # noqa: BLE001 — a store failure is honest, never a crash
+        print(f"[generate_lambda] /library/assets store failed: {e}", file=sys.stderr)
+        return _response(200, {"ok": False, "status": "store-failed", "error": str(e)})
+
+    kind_val = ref.kind.value if isinstance(ref.kind, AssetKind) else str(ref.kind)
+
+    # Dedup-cost-control: if a vector already exists for this asset_id, this was a dedup
+    # hit (or a prior embed) — skip the Nova invoke entirely.
+    tmp_path: Path | None = None
+    embed_status = "embed_pending"
+    embed_model: str | None = None
+    dedup = False
+    try:
+        from .embeddings import vector_exists, put_vector, embed_image, embed_text
+
+        if vector_exists(ref.asset_id):
+            dedup = True
+            embed_status = "embedded"  # vector already present; nothing to spend
+        else:
+            def _embed_and_store() -> tuple[bool, str | None]:
+                nonlocal tmp_path
+                meta = {
+                    "asset_id": ref.asset_id,
+                    "filename": ref.filename,
+                    "kind": kind_val,
+                    "sha256": ref.sha256,
+                    "content_type": ref.content_type,
+                    "source": ref.source,
+                    "s3_uri": ref.s3_uri,
+                }
+                if kind_val == AssetKind.RASTER.value:
+                    tmp_path = Path(f"/tmp/{uuid4().hex}-{ref.filename}")  # noqa: S108 — Lambda /tmp
+                    tmp_path.write_bytes(data)
+                    vec, model = embed_image(tmp_path, text_hint=ref.filename)
+                else:
+                    hint = ref.filename + ((" " + " ".join(tags)) if tags else "")
+                    vec, model = embed_text(hint)
+                meta["model"] = model
+                ok = put_vector(vec, key=ref.asset_id, metadata=meta)
+                return ok, model
+
+            wall = float(os.getenv("EMBED_WALL_TIMEOUT_S", "20"))
+            executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+            fut = executor.submit(_embed_and_store)
+            try:
+                ok, embed_model = fut.result(timeout=wall)
+                embed_status = "embedded" if ok else "embed_pending"
+            except concurrent.futures.TimeoutError:
+                print(
+                    f"[generate_lambda] /library/assets embed wall fired at {wall}s — "
+                    f"asset {ref.asset_id} stands as embed_pending",
+                    file=sys.stderr,
+                )
+                embed_status = "embed_pending"
+            finally:
+                executor.shutdown(wait=False)
+    except Exception as e:  # noqa: BLE001 — embed is best-effort; asset already stored
+        print(f"[generate_lambda] /library/assets embed fallback: {e}", file=sys.stderr)
+        embed_status = "embed_pending"
+    finally:
+        if tmp_path is not None:
+            try:
+                tmp_path.unlink(missing_ok=True)
+            except Exception:  # noqa: BLE001
+                pass
+
+    return _response(
+        201,
+        {
+            "ok": True,
+            "asset_id": ref.asset_id,
+            "s3_uri": ref.s3_uri,
+            "sha256": ref.sha256,
+            "kind": kind_val,
+            "dedup": dedup,
+            "embed_status": embed_status,
+            "embed_model": embed_model,
+        },
+    )
 
 
 def _build_localizations(headline: str, market: str | None) -> tuple[list[dict], list[str]]:
@@ -202,6 +487,10 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     hero_path = out_dir / "hero-1x1.png"
     hero_path.parent.mkdir(parents=True, exist_ok=True)
 
+    # Art-director voice step (dark by default): refine the brief into an on-brand headline
+    # BEFORE it becomes brief_msg. No-op when the flag is off — prompt passes through.
+    prompt = _maybe_art_direct(data, prompt)
+
     # ONE control-structure hero at 1x1 with the brand + kraft overlays baked in. No
     # outpaint call is made on this path — that is the whole point of preview mode.
     result_path, source, provenance = generate_hero(
@@ -259,6 +548,10 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     product = data.get("product", "power-cakes")
     theme = data.get("theme")
     out_dir = Path(f"/tmp/{uuid4().hex}")  # noqa: S108 — Lambda only allows /tmp writes
+    # Art-director voice step (dark by default): refine the brief into an on-brand headline
+    # BEFORE it becomes brief_msg (and, downstream, the localization/platform-copy seed).
+    # No-op when the flag is off — prompt passes through byte-for-byte.
+    prompt = _maybe_art_direct(data, prompt)
     # "prompt" is the campaign brief/vibe now, not a generation seed. generate_hero_set
     # composes over a real product asset via Nova Pro vision / Stability, delivering all
     # three delivery ratios (1x1, 4x5, 2x3) from one call. When "theme" is present it
@@ -405,6 +698,19 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
     """
     if _is_options(event):
         return {"statusCode": 200, "headers": CORS_HEADERS, "body": ""}
+    # PATH DISPATCH (#$default catch-all): the deployed HTTP API v2 routes EVERY path to
+    # this one Lambda, so specific paths must be branched here or they fall into the
+    # generate ladder and get a hero image back instead of their real response. OPTIONS is
+    # short-circuited above so preflight still 200s for every path. Everything unmatched
+    # (/generate, /, anything else) falls through to the EXISTING generate ladder unchanged.
+    _path = _request_path(event)
+    _p = _path.rstrip("/") or "/"  # strip trailing slash for matching; keep root "/" as-is
+    if _p == "/localize":
+        return _handle_localize(event)
+    if _p == "/assets/library":
+        return _handle_assets_library(event)
+    if _p == "/library/assets":
+        return _handle_library_assets(event)  # T2 asset ingest — store + best-effort embed
     # TOP-LEVEL VALIDATION (before the ladder): a genuinely malformed request — an
     # unparseable JSON body — is the ONLY non-200 (a 400). A well-formed POST always
     # reaches the never-fail ladder in generate_hero, which returns 200 real pixels

@@ -5,9 +5,11 @@ Guards three invariants for the adopted Kodiak regional scoreboard:
   2. every value in the full keyed file validates against the mirrored schema
   3. the lite file has exactly the same key set as the full file
 
-The frontend's 73 market codes are parsed from the inline places[] array in
-web/kodiak-posts-for-todays-frontier/index.html (the codes it will look up at
-runtime). Parsing is preferred over a hardcoded list so the test tracks the UI.
+The frontend's 73 market codes are parsed from the places[] array in
+web/kodiak-posts-for-todays-frontier/js/data-core.js (the codes it will look up
+at runtime). The inline places[] array was extracted from index.html into this
+classic-script sibling. Parsing is preferred over a hardcoded list so the test
+tracks the UI.
 """
 
 from __future__ import annotations
@@ -22,7 +24,9 @@ DATA = REPO_ROOT / "data" / "localization"
 FULL = DATA / "regional-scoreboard.json"
 LITE = DATA / "regional-scoreboard-lite.json"
 SCHEMA = DATA / "regional-scoreboard.schema.json"
-FRONTEND_HTML = REPO_ROOT / "web" / "kodiak-posts-for-todays-frontier" / "index.html"
+FRONTEND_DATA = (
+    REPO_ROOT / "web" / "kodiak-posts-for-todays-frontier" / "js" / "data-core.js"
+)
 
 EXPECTED_FRONTEND_CODES = 73
 
@@ -42,10 +46,10 @@ def _load(path: Path) -> dict:
 
 
 def frontend_market_codes() -> list[str]:
-    """Parse the inline places[] market values from the frontend html."""
-    html = FRONTEND_HTML.read_text(encoding="utf-8")
+    """Parse the places[] market values from the frontend js/data-core.js."""
+    text = FRONTEND_DATA.read_text(encoding="utf-8")
     # the places array is a JS literal; each entry carries market:"US-..."
-    codes = re.findall(r'market:"(US-[A-Z]{1,3}-[A-Z0-9 -]+)"', html)
+    codes = re.findall(r'market:"(US-[A-Z]{1,3}-[A-Z0-9 -]+)"', text)
     # de-dupe preserving order
     seen: dict[str, None] = {}
     for c in codes:

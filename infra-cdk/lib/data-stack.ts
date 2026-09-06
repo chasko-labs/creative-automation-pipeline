@@ -4,6 +4,14 @@ import * as codebuild from "aws-cdk-lib/aws-codebuild";
 import * as dynamodb from "aws-cdk-lib/aws-dynamodb";
 import * as iam from "aws-cdk-lib/aws-iam";
 import * as s3 from "aws-cdk-lib/aws-s3";
+import * as s3vectors from "aws-cdk-lib/aws-s3vectors";
+import {
+  KODIAK_VECTOR_BUCKET_NAME,
+  KODIAK_VECTOR_INDEX_NAME,
+  KODIAK_VECTOR_DIMENSION,
+  KODIAK_VECTOR_DISTANCE_METRIC,
+  KODIAK_VECTOR_DATA_TYPE,
+} from "./config";
 
 export interface DataStackProps extends cdk.StackProps {
   readonly projectName: string;
@@ -39,6 +47,10 @@ export class DataStack extends cdk.Stack {
   public readonly logBucketName: string;
   public readonly codeBuildProjectName: string;
   public readonly codeBuildServiceRoleArn: string;
+  public readonly vectorBucketName: string;
+  public readonly vectorIndexName: string;
+  public readonly vectorBucketArn: string;
+  public readonly vectorIndexArn: string;
 
   constructor(scope: Construct, id: string, props: DataStackProps) {
     super(scope, id, props);
@@ -215,6 +227,39 @@ export class DataStack extends cdk.Stack {
     // brand=kodiak is SCOPED to the DAM bucket only (not app-wide).
     cdk.Tags.of(styleLibraryBucket).add("brand", "kodiak");
 
+    // ---- S3 Vectors: first Kodiak vector store (RETAIN) ------------------
+    // Dedicated Amazon S3 Vectors vector bucket + index for the Nova
+    // multimodal embeddings (1024 dims, cosine, float32). Authored as CDK L1
+    // (aws-s3vectors CfnVectorBucket / CfnIndex) so it is IaC-managed from
+    // creation -- closes the drift gap that a hand-created bucket would open.
+    // Stateful, so RETAIN on delete (a stack delete never drops vectors; note
+    // S3 Vectors only deletes EMPTY buckets, so RETAIN is the safe default).
+    const kodiakVectorBucket = new s3vectors.CfnVectorBucket(
+      this,
+      "KodiakVectorBucket",
+      {
+        vectorBucketName: KODIAK_VECTOR_BUCKET_NAME,
+        // Default SSE-S3 (AES256) -- no customer-managed KMS key required.
+      },
+    );
+    kodiakVectorBucket.cfnOptions.deletionPolicy = cdk.CfnDeletionPolicy.RETAIN;
+    kodiakVectorBucket.cfnOptions.updateReplacePolicy =
+      cdk.CfnDeletionPolicy.RETAIN;
+
+    const kodiakVectorIndex = new s3vectors.CfnIndex(this, "KodiakVectorIndex", {
+      vectorBucketName: KODIAK_VECTOR_BUCKET_NAME,
+      indexName: KODIAK_VECTOR_INDEX_NAME,
+      dataType: KODIAK_VECTOR_DATA_TYPE,
+      dimension: KODIAK_VECTOR_DIMENSION,
+      distanceMetric: KODIAK_VECTOR_DISTANCE_METRIC,
+    });
+    // Index references the bucket by name; make the dependency explicit so the
+    // bucket is created first.
+    kodiakVectorIndex.addDependency(kodiakVectorBucket);
+    kodiakVectorIndex.cfnOptions.deletionPolicy = cdk.CfnDeletionPolicy.RETAIN;
+    kodiakVectorIndex.cfnOptions.updateReplacePolicy =
+      cdk.CfnDeletionPolicy.RETAIN;
+
     // ---- per-push CI gate ------------------------------------------------
     const creativePipelineCi = new codebuild.CfnProject(
       this,
@@ -323,6 +368,28 @@ export class DataStack extends cdk.Stack {
     new cdk.CfnOutput(this, "CodeBuildServiceRoleArn", {
       value: this.codeBuildServiceRoleArn,
       description: "Least-privilege CodeBuild service role arn (CloudWatch Logs only)",
+    });
+    this.vectorBucketName = kodiakVectorBucket.ref;
+    new cdk.CfnOutput(this, "KodiakVectorBucketName", {
+      value: this.vectorBucketName,
+      description:
+        "S3 Vectors vector bucket name -- set as KODIAK_VECTOR_BUCKET on the generate Lambda",
+    });
+    this.vectorBucketArn = kodiakVectorBucket.attrVectorBucketArn;
+    new cdk.CfnOutput(this, "KodiakVectorBucketArn", {
+      value: this.vectorBucketArn,
+      description: "S3 Vectors vector bucket ARN",
+    });
+    this.vectorIndexName = kodiakVectorIndex.ref;
+    new cdk.CfnOutput(this, "KodiakVectorIndexName", {
+      value: this.vectorIndexName,
+      description:
+        "S3 Vectors index name (1024-dim cosine float32) -- set as KODIAK_VECTOR_INDEX on the generate Lambda",
+    });
+    this.vectorIndexArn = kodiakVectorIndex.attrIndexArn;
+    new cdk.CfnOutput(this, "KodiakVectorIndexArn", {
+      value: this.vectorIndexArn,
+      description: "S3 Vectors index ARN",
     });
   }
 }

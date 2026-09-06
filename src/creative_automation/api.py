@@ -34,6 +34,7 @@ from .enhance import enhance_hero
 from .reference_api import search as reference_search  # type: ignore
 from .suggest import suggest_variants
 from . import dam
+from . import dam_library
 from .asset_pack import (
     build_asset_pack_zip,
     build_pack_name,
@@ -371,6 +372,31 @@ if HAS_FASTAPI:
             "manifest": manifest,
             "note": "S3 DAM not configured (DAM_S3_BUCKET unset or boto3 missing) — returning local pack path. Set DAM_S3_BUCKET to get a presigned download url.",
         }
+
+    @app.get("/assets/library")  # type: ignore
+    def asset_library(
+        category: str | None = Query(None, description="Filter to one of zac-efron|renders|heroes|logos; all four when absent"),
+        limit: int = Query(60, description="Max presigned URLs minted per category (default 60, hard max 200)"),
+    ):
+        """Read-only DAM asset browser — curated Kodiak picker prefixes with presigned GETs.
+
+        Powers the front-page '+' 'Browse past assets' tab. The DAM bucket is fully
+        private, so every item carries a presigned GET url (public urls 403). Bucket is
+        resolved from dam._s3_bucket_and_prefix() — never hardcoded. raw-ingest/ is never
+        listed (pipeline seed data, not picker assets).
+
+        Offline / CI path (dam._s3_enabled() False): returns {"enabled": false, "bucket":
+        null, "categories": {...empty...}, "note": ...} with HTTP 200 — mirrors the
+        graceful S3-disabled fallback the other /assets routes use, never 500.
+
+        Per-category errors (list or presign failure) degrade to that category's items=[]
+        plus an "error" note rather than failing the whole route.
+
+        The listing logic lives in dam_library.list_library — the ONE implementation both
+        this dev/local route and generate_lambda's production dispatcher call, so there is
+        no drift between the two surfaces.
+        """
+        return dam_library.list_library(category, limit)
 
     # content-type -> file extension: the only image types the pipeline hero slot accepts
     _UPLOAD_EXT_BY_CT = {"image/jpeg": "jpg", "image/png": "png"}
