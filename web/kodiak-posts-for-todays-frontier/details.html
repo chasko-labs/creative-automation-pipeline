@@ -46,7 +46,9 @@ body{
 }
 body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:var(--kraft);mix-blend-mode:multiply}
 /* signal-red at ~20% alpha for the link underline — token-sourced via color-mix, no raw hex (S1/D1) */
-a{color:var(--red);text-decoration:none;border-bottom:1px solid color-mix(in srgb, var(--red) 20%, transparent)}a:hover{border-bottom-color:var(--red);color:var(--chocolate)}
+/* LEGIBILITY RESCUE fix 4 — links clearly clickable on flat parchment:
+   full-strength signal-red text + solid 1px signal-red underline (was 20%-alpha, near-invisible on tan) */
+a{color:var(--red);text-decoration:none;border-bottom:1px solid var(--red)}a:hover{border-bottom-color:var(--red);border-bottom-width:2px;color:var(--chocolate)}
 /* keyboard focus ring — signal-red TOKEN, never the raw --red literal (S1/D1/S15 note) */
 a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--colors-brand-signal-red);outline-offset:2px;border-radius:2px}
 h1,h2,h3,.gin,.headline{font-family:"gin",Rockwell,Clarendon,Georgia,serif;font-weight:800;font-style:normal;text-transform:uppercase;letter-spacing:.06em;line-height:1; font-feature-settings:"ss01" 1,"liga" 1; font-variant-ligatures:common-ligatures; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
@@ -69,17 +71,17 @@ header h1,header h2,header h3{color:var(--parchment)}
 .card:hover{background:var(--gradients-kraft\.surface-hover)}
 .card .hd{padding:16px 16px 12px;background:#FFFBF6 var(--kraft);border-bottom:1px solid #E8DDD3;position:relative}
 .card .hd h2{margin:0;font:800 14px/1.2 gin,"museo-sans",Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate)}
-.card .hd p{margin:6px 0 0;color:#6B5A53;font:500 14px/1.5 "museo-sans",sans-serif}
+.card .hd p{margin:6px 0 0;color:var(--colors-neutral-700);font:500 14px/1.5 "museo-sans",sans-serif}
 .body{padding:16px;position:relative}
 .field label{display:block;font:700 13px/1.3 "museo-sans","kodiak_sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#6B5A53;margin:12px 0 6px}
-.hint{color:#6B5A53;font:500 14px/1.5 "museo-sans",sans-serif;margin-top:6px}
+.hint{color:var(--colors-neutral-700);font:500 14px/1.5 "museo-sans",sans-serif;margin-top:6px}
 .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:2px;border:1px solid var(--chocolate);background:var(--chocolate);color:var(--parchment);font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;box-shadow:0 1px 0 rgba(0,0,0,.2)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:2px;border:1px solid var(--chocolate);background:var(--chocolate);color:var(--parchment);font:700 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:0;text-transform:uppercase;cursor:pointer;box-shadow:0 1px 0 rgba(0,0,0,.2)}
 .btn.orange{background:var(--red);border-color:var(--red);color:#fff}
 .btn.ghost{background:var(--parchment);color:var(--chocolate)}
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .kbd{font:500 11px/1 JetBrains Mono,Menlo,monospace;background:var(--oat);border:1px solid var(--stone);padding:2px 6px;border-radius:3px;color:var(--chocolate)}
-.badge{display:inline-block;padding:3px 8px;border-radius:2px;background:var(--chocolate);color:#FFDCC3;font:700 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase}
+.badge{display:inline-block;padding:3px 8px;border-radius:2px;background:var(--chocolate);color:#FFDCC3;font:700 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:0;text-transform:uppercase}
 .offline{padding:10px 12px;border-radius:2px;background:var(--gradients-kraft\.surface);border:1px dashed var(--stone);color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
 .wide-track{margin:0}
 .wide-track + .wide-track{margin-top:10px}
@@ -88,43 +90,74 @@ header h1,header h2,header h3{color:var(--parchment)}
 /* === sticky section nav / shortcut index (keyboard-accessible anchor list) === */
 .section-nav{position:sticky;top:0;z-index:50;background:var(--brown-kodiak);border-bottom:3px solid var(--chocolate);box-shadow:var(--shadows-sm)}
 .section-nav__inner{max-width:1100px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap}
-.section-nav__label{font:800 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#FFDCC3;margin-right:4px}
+.section-nav__label{font:800 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:0;text-transform:uppercase;color:#FFDCC3;margin-right:4px}
 .section-nav a{color:#FFF8F0;border-bottom:none;font:600 12px/1 "museo-sans",sans-serif;letter-spacing:.02em;padding:4px 8px;border-radius:3px}
 .section-nav a:hover{background:color-mix(in srgb, var(--colors-neutral-50) 16%, transparent);border-bottom:none;color:#FFF8F0}
 /* === design-system inventory sections (human-readable companion to the scorecards, S9) === */
 .inv-section{scroll-margin-top:64px}
 .inv-section .body>h3{margin:0 0 8px;color:var(--chocolate)}
 .inv-section .body>h3+p{margin-top:0}
-.inv-lead{color:#6B5A53;font:500 15px/1.6 "museo-sans",sans-serif;margin:0 0 12px;max-width:65ch}
+.inv-lead{color:var(--colors-neutral-700);font:500 15px/1.6 "museo-sans",sans-serif;margin:0 0 12px;max-width:65ch}
 .inv-section .body>p{max-width:65ch}
 .inv-table{width:100%;border-collapse:collapse;margin:12px 0;font:500 15px/1.5 "museo-sans",sans-serif}
 .inv-table th,.inv-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--stone);vertical-align:top}
-.inv-table th{font:700 13px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#6B5A53;background:#FFFBF6}
+.inv-table th{font:700 13px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:0;text-transform:uppercase;color:var(--colors-neutral-700);background:#FFFBF6}
 .inv-table tr:hover td{background:color-mix(in srgb, var(--colors-brand-blaze-orange) 5%, transparent)}
 .std{display:block;margin:12px 0;padding:10px 12px;border-left:3px solid var(--colors-brand-frontier-green);background:var(--gradients-kraft\.surface);border-radius:0 4px 4px 0}
 .std b{color:var(--chocolate)}
 .std.decision{border-left-color:var(--red)}
-.state{display:inline-block;padding:2px 7px;border-radius:999px;font:700 11px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase}
+.state{display:inline-block;padding:2px 7px;border-radius:999px;font:700 12px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:0;text-transform:uppercase}
 .state.built{background:var(--colors-brand-frontier-green);color:#FACC7C}
 .state.drift{background:var(--colors-brand-blaze-orange);color:#fff}
 .state.stub,.state.missing{background:#7F1D1D;color:#FECACA}
 .state.tbd{background:var(--oat);color:var(--chocolate);border:1px solid var(--stone)}
-.inv-section .body{padding:18px}
+/* === Design System scorecards — token-driven tiles (hoisted from JS inline styles). ===
+   The scorecard render() IIFE emits .score-* markup; only the bar fill width is inline (dynamic). */
+.score-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.score-refresh{margin-left:auto;padding:6px 10px;font-size:11px}
+.score-summary{gap:8px;margin-bottom:10px}
+.score-details{margin-top:10px;font:500 13px/1.5 "museo-sans",sans-serif;color:var(--colors-neutral-700)}
+.score-card{background:var(--gradients-kraft\.surface);border:1px solid var(--stone);border-radius:4px;overflow:hidden;box-shadow:var(--shadows-md)}
+.score-card__hd{padding:12px 14px;border-bottom:1px solid var(--colors-neutral-100);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.score-card__title{font:800 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate)}
+.score-card__badge{display:inline-flex;padding:3px 8px;border-radius:999px;font:800 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.03em}
+/* grade tiers — token colors, no raw hex (A green/gold, B blaze, C amber-blaze, F signal-red) */
+.score-card__badge.is-a{background:var(--colors-brand-frontier-green);color:#FACC7C}
+.score-card__badge.is-b{background:var(--colors-brand-blaze-orange);color:#fff}
+.score-card__badge.is-c{background:color-mix(in srgb, var(--colors-brand-blaze-orange) 70%, #000);color:#fff}
+.score-card__badge.is-f{background:var(--colors-brand-signal-red);color:#FECACA}
+.score-card__verdict{margin-left:auto;font:500 13px/1 "museo-sans",sans-serif;color:var(--colors-neutral-700)}
+.score-card__body{padding:10px 14px}
+.score-bar{height:8px;background:var(--colors-neutral-100);border-radius:999px;overflow:hidden}
+.score-bar__fill{height:100%;transition:width .4s;background:var(--colors-brand-blaze-orange)}
+.score-bar__fill.pass{background:var(--colors-brand-frontier-green)}
+.score-card__desc{font:500 13px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-700);margin-top:6px}
+.score-card__detail{font:500 13px/1.4 JetBrains Mono,Menlo,monospace;margin-top:6px;color:var(--colors-brand-signal-red)}
+.score-card__detail.pass{color:var(--colors-brand-frontier-green)}
+/* overall summary badge in the card header switches pass/fail via token classes */
+.score-overall-badge.pass{background:var(--colors-brand-frontier-green);color:#fff}
+.score-overall-badge.fail{background:var(--colors-brand-signal-red);color:#fff}
+/* LEGIBILITY RESCUE fix 1 — running copy sits on FLAT parchment, not kraft hatch.
+   Kraft/wood texture stays on decorative frames (.card outer, .hd, specimen swatches)
+   but never bleeds THROUGH paragraphs or tables. */
+.inv-section .body{padding:18px;background:var(--colors-neutral-50)}
+#design-system>.body{background:var(--colors-neutral-50)}
+.inv-section .body::before,#design-system>.body::before{display:none}
 .wrap>.card+.card{margin-top:14px}
 /* === specimen guide primitives (rendered design tokens, not just described) === */
 .spec-grid{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
 .chip{display:flex;flex-direction:column;width:96px;border:1px solid var(--stone);border-radius:var(--radii-sm);overflow:hidden;background:#FFFBF6}
 .chip__fill{height:52px;width:100%}
-.chip__meta{padding:6px 8px;font:500 11px/1.35 "museo-sans",sans-serif;color:#6B5A53}
+.chip__meta{padding:6px 8px;font:500 11px/1.35 "museo-sans",sans-serif;color:var(--colors-neutral-700)}
 .chip__hex{font:700 11px/1.3 JetBrains Mono,Menlo,monospace;color:var(--chocolate)}
-.chip__token{display:block;margin-top:2px;font:500 10px/1.3 "museo-sans",sans-serif;color:#6B5A53;word-break:break-word}
-.chip__wcag{display:inline-block;margin-top:4px;padding:1px 5px;border-radius:2px;font:700 9px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.04em;text-transform:uppercase}
+.chip__token{display:block;margin-top:2px;font:500 12px/1.3 "museo-sans",sans-serif;color:var(--colors-neutral-700);word-break:break-word}
+.chip__wcag{display:inline-block;margin-top:4px;padding:1px 5px;border-radius:2px;font:700 11px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:0;text-transform:uppercase}
 .chip__wcag.aaa{background:var(--colors-brand-frontier-green);color:#FACC7C}
 .chip__wcag.large{background:var(--colors-brand-blaze-orange);color:#fff}
 .spec-ladder-label{font:700 12px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#6B5A53;margin:14px 0 4px}
 .type-line{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid var(--stone)}
 .type-line__spec{font-family:"gin",Rockwell,Georgia,serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;line-height:1;color:var(--chocolate)}
-.type-line__meta{font:500 12px/1.4 JetBrains Mono,Menlo,monospace;color:#6B5A53}
+.type-line__meta{font:500 12px/1.4 JetBrains Mono,Menlo,monospace;color:var(--colors-neutral-700)}
 .type-body-spec{font:500 18px/1.5 "museo-sans",sans-serif;color:var(--chocolate);max-width:65ch;margin:12px 0 4px}
 .ruler-row{display:flex;align-items:center;gap:12px;margin:8px 0}
 .ruler-bar{height:16px;border-radius:2px;background:var(--colors-brand-bear-brown)}
@@ -139,13 +172,13 @@ header h1,header h2,header h3{color:var(--parchment)}
 .anatomy__specimen::before{content:"";position:absolute;inset:0;background:var(--wood) repeat;opacity:.06;pointer-events:none}
 .anatomy__hd{padding:12px 12px 10px;background:#FFFBF6 var(--kraft);border-bottom:1px solid #E8DDD3}
 .anatomy__hd h3{margin:0;font:800 13px/1.2 gin,"museo-sans",Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate)}
-.anatomy__body{padding:14px;font:500 13px/1.5 "museo-sans",sans-serif;color:#6B5A53}
+.anatomy__body{padding:14px;font:500 13px/1.5 "museo-sans",sans-serif;color:var(--colors-neutral-700)}
 .anatomy__legend{margin:0;padding:0;list-style:none;font:500 13px/1.6 "museo-sans",sans-serif;color:#6B5A53;max-width:46ch}
 .anatomy__legend li{padding:4px 0;border-bottom:1px solid var(--stone)}
 .anatomy__legend b{color:var(--chocolate)}
 .dodont{display:flex;gap:14px;flex-wrap:wrap;margin:12px 0}
 .dodont__panel{flex:1;min-width:240px;padding:14px;background:var(--parchment);border:1px solid var(--stone);border-radius:var(--radii-sm)}
-.dodont__flag{display:inline-block;padding:3px 9px;border-radius:2px;font:700 11px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px}
+.dodont__flag{display:inline-block;padding:3px 9px;border-radius:2px;font:700 12px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:0;text-transform:uppercase;margin-bottom:8px}
 .dodont__flag.dont{background:var(--colors-brand-signal-red);color:#fff}
 .dodont__flag.do{background:var(--colors-brand-frontier-green);color:#FACC7C}
 .dodont__body{font:500 15px/1.5 "museo-sans",sans-serif;margin:0}
@@ -153,7 +186,7 @@ header h1,header h2,header h3{color:var(--parchment)}
 </style></head><body>
 <header class="kodiak-header" style="background:var(--brown-kodiak);color:#FFF8F0;border-bottom:none;display:flex;align-items:center;gap:16px;padding:10px 18px;flex-wrap:wrap;margin:0"><div class="header__inner">
 <a class="backlink" href="index.html">&larr; Back to campaign</a>
-<div style="flex:1;background:var(--red);border-radius:6px;padding:8px 14px"><h1 style="color:#FFF8F0;font-size:clamp(16px,3.2vw,26px)">Design system + details</h1></div>
+<div style="flex:1;background:var(--red);border-radius:6px;padding:8px 14px"><h1 style="color:#FFF8F0;font-size:clamp(18px,3.2vw,26px)">Design system + details</h1></div>
 </div>
 </header>
 
@@ -416,7 +449,7 @@ header h1,header h2,header h3{color:var(--parchment)}
 </div></div>
 
 <div class="card inv-section" id="inv-responsive"><div class="hd"><h2>9 · Axis A — three-view responsive dimension <span class="badge">S11</span></h2><p>Grades each element's form + function across mobile 375 / tablet 768 / desktop 1440.</p></div><div class="body">
-<p class="inv-lead">MEASURED drawing — headless Playwright + DOM <span class="kbd">getBoundingClientRect</span> at 375×812, 768×1024, 1440×900. Top-level layout truth: body content lives in <span class="kbd">.wrap</span>, a max-1100px column; cards stack full-width as DIRECT CHILDREN of <span class="kbd">.wrap</span> in a flex/flow column. There is NO <span class="kbd">.grid 1fr 1fr</span> top-level split — that earlier assumption was wrong. Desktop 1440 adds 23.6% side gutters; mobile 375 and tablet 768 are full-bleed (<span class="kbd">.wrap</span> = 100% viewport width).</p>
+<p class="inv-lead">MEASURED drawing — headless Playwright + DOM <span class="kbd">getBoundingClientRect</span> at 375×812, 768×1024, 1440×900. Top-level layout truth: body content lives in <span class="kbd">.wrap</span>, a max-1100px column; cards stack full-width as DIRECT CHILDREN of <span class="kbd">.wrap</span> in a flex/flow column. There is NO <span class="kbd">.grid 1fr 1fr</span> top-level split — that earlier assumption was wrong. Desktop 1440 adds 23.6% side gutters; mobile 375 and tablet 768 are full-bleed (<span class="kbd">.wrap</span> = 100% viewport width). Section 9 now carries THREE complementary views — the measured vh wireframe above (proportion), the structural containment tree below (hierarchy), and the live <span class="kbd">?debug=layout</span> overlay on the app page (form + function on real pixels).</p>
 <pre class="inv-wire" style="overflow:auto;font:500 11px/1.35 ui-monospace,monospace;background:var(--colors-neutral-50);border:1px solid var(--stone);border-radius:var(--radii-sm);padding:12px">
 MOBILE 375 (full-bleed .wrap = 100vw)          TABLET 768 (full-bleed .wrap = 100vw)          DESKTOP 1440 (.wrap 76.4vw, 23.6% gutters)
 +------------------------------------+         +------------------------------------+         |<-11.8%->+------------------------+<-11.8%->|
@@ -453,6 +486,76 @@ MOBILE 375 (full-bleed .wrap = 100vw)          TABLET 768 (full-bleed .wrap = 10
 | +--------------------------------+ |         | +--------------------------------+ |         | +--------------------------------+ |
 +------------------------------------+         +------------------------------------+         +------------------------------------+
 </pre>
+<h3>Structural containment tree</h3>
+<p class="inv-lead">Parent-child structure of the app page — the hierarchy companion to the vh wireframe above (proportion) and the live <span class="kbd">?debug=layout</span> overlay on the app page (form + function on real pixels). Nodes are color-coded by role to match the overlay palette; nodes marked "(on interaction)" are JS-created and absent at load.</p>
+<pre class="mermaid">
+graph TD
+  body["page body"]:::meta
+  header["site header"]:::brand
+  plate["headline plate"]:::brand
+  wrap["content wrap"]:::meta
+  card["campaign card"]:::control
+  prompt["prompt bar"]:::input
+  inputwrap["input row"]:::input
+  brief["brief textarea"]:::input
+  upload["upload button"]:::control
+  gen["create button"]:::control
+  controlrow["control row"]:::control
+  market["market picker"]:::control
+  geo["my location"]:::control
+  season["season select"]:::input
+  detail["detail block"]:::output
+  products["product chooser"]:::control
+  tray["selection tray (on interaction)"]:::output
+  optiongroup["option group"]:::control
+  chips["chip row"]:::control
+  download["download pack"]:::control
+  ridge["ridge divider"]:::decorative
+  preview["preview card"]:::output
+  previewregion["preview region (on interaction)"]:::output
+  detailslink["details link row"]:::navigation
+  about["about tool"]:::output
+  stamp["build stamp"]:::meta
+  renderset["render set (on interaction)"]:::output
+  provenance["provenance panel (on interaction)"]:::output
+
+  body --> header
+  header --> plate
+  body --> wrap
+  wrap --> card
+  card --> prompt
+  prompt --> inputwrap
+  inputwrap --> brief
+  inputwrap --> upload
+  inputwrap --> gen
+  prompt --> controlrow
+  controlrow --> market
+  controlrow --> geo
+  controlrow --> season
+  controlrow --> detail
+  prompt --> products
+  prompt --> tray
+  prompt --> optiongroup
+  optiongroup --> chips
+  card --> download
+  wrap --> ridge
+  wrap --> preview
+  preview --> previewregion
+  wrap --> detailslink
+  wrap --> about
+  wrap --> stamp
+  wrap --> renderset
+  wrap --> provenance
+
+  classDef brand fill:#D2E3FC,stroke:#1A73E8,color:#202124;
+  classDef input fill:#CEEAD6,stroke:#188038,color:#202124;
+  classDef control fill:#E9D2FC,stroke:#9334E6,color:#202124;
+  classDef output fill:#FEE0C2,stroke:#E8710A,color:#202124;
+  classDef navigation fill:#CCECE8,stroke:#00897B,color:#202124;
+  classDef decorative fill:#F1F3F4,stroke:#9AA0A6,color:#202124;
+  classDef meta fill:#E8EAED,stroke:#5F6368,color:#202124;
+</pre>
+<p class="inv-lead">Legend — <span class="kbd">brand</span> #1A73E8 · <span class="kbd">input</span> #188038 · <span class="kbd">control</span> #9334E6 · <span class="kbd">output</span> #E8710A · <span class="kbd">navigation</span> #00897B · <span class="kbd">decorative</span> #9AA0A6 · <span class="kbd">meta</span> #5F6368. Same role vocabulary as the <span class="kbd">?debug=layout</span> overlay.</p>
 <table class="inv-table"><thead><tr><th>Element</th><th>Form / Function</th><th>Mobile 375 (w% parent, h% vh)</th><th>Tablet 768</th><th>Desktop 1440</th></tr></thead><tbody>
 <tr><td><span class="kbd">header.kodiak-header</span></td><td>brand banner / logo+headline</td><td>100% w, 17.2% vh</td><td>100% w, 12.1% vh</td><td>100% w, 14.1% vh</td></tr>
 <tr><td><span class="kbd">.kodiak-headline-plate</span></td><td>title lockup</td><td>73.9% w, 12.3% vh</td><td>85.1% w, 8.2% vh</td><td>90.4% w, 6.2% vh</td></tr>
@@ -555,11 +658,11 @@ MOBILE 375 (full-bleed .wrap = 100vw)          TABLET 768 (full-bleed .wrap = 10
 <span class="std"><b>S15 — migration is token-bridged, not token-replacing.</b> The do-not-migrate list held: .ff-prompt hero elevation, .tile/.render-tile, decorative overlays stay bespoke and on-token. Focus styling resolves to <span class="kbd">var(--colors-brand-signal-red)</span>, never raw --red.</span>
 </div></div>
 
-<div class="card wide-track" data-mcp="design-system" id="design-system" data-mcp-description="Design System — scorecards evaluating app performance against tokens + style guide"><div class="hd"><h2>Design System — Scorecards <span class="badge" id="score-overall-badge">live</span></h2><p>How we grade the Frontier app against <a href="../../design/tokens/kodiak.json" target="_blank">design/tokens/kodiak.json</a> + <a href="../../docs/kodiak-style-guide.md" target="_blank">style guide</a> + <a href="../../docs/kodiak-brand-explained.md" target="_blank">brand view</a>. Same tokens drive <span class="kbd">compose.py</span> <span class="kbd">enhance.py</span> <span class="kbd">compliance.py</span> <span class="kbd">suggest.py</span>. Scores update live after Generate / Show Suggested.</p></div><div class="body">
-<div class="row" style="gap:8px;margin-bottom:10px"><span class="hint">Overall: <b id="score-overall">—</b> • <span id="score-overall-detail" class="hint">evaluating…</span></span><button class="btn ghost" id="scoreRefresh" style="margin-left:auto;padding:6px 10px;font-size:11px">Re-score</button><span class="kbd" id="score-timestamp"></span></div>
-<div id="scoreGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px"></div>
+<div class="card wide-track" data-mcp="design-system" id="design-system" data-mcp-description="Design System — scorecards evaluating app performance against tokens + style guide"><div class="hd"><h2>Design System — Scorecards <span class="badge score-overall-badge" id="score-overall-badge">live</span></h2><p>How we grade the Frontier app against <a href="../../design/tokens/kodiak.json" target="_blank">design/tokens/kodiak.json</a> + <a href="../../docs/kodiak-style-guide.md" target="_blank">style guide</a> + <a href="../../docs/kodiak-brand-explained.md" target="_blank">brand view</a>. Same tokens drive <span class="kbd">compose.py</span> <span class="kbd">enhance.py</span> <span class="kbd">compliance.py</span> <span class="kbd">suggest.py</span>. Scores update live after Generate / Show Suggested.</p></div><div class="body">
+<div class="row score-summary"><span class="hint">Overall: <b id="score-overall">—</b> • <span id="score-overall-detail" class="hint">evaluating…</span></span><button class="btn ghost score-refresh" id="scoreRefresh">Re-score</button><span class="kbd" id="score-timestamp"></span></div>
+<div id="scoreGrid" class="score-grid"></div>
 <div class="offline" style="margin-top:12px"><b>What “good” means:</b> Brand checks via <span class="kbd">compliance.py</span> (logo@24,24 + #3B2316/#E8530E/#1A3C34 palette probe + legal gate), template checks via <span class="kbd">compose.py</span> tokens (48px pad / 68% bar / 8px Blaze / 24px bear), perf via single-file offline + canvas FPS, localization via <span class="kbd">market-languages.json</span> 73×EN+top2. Run <span class="kbd">uv run pytest -q</span> for CI parity — 6 passed.</div>
-<div id="scoreDetails" style="margin-top:10px;font-size:13px;color:#6B5A53;line-height:1.5"></div>
+<div id="scoreDetails" class="score-details"></div>
 </div></div>
 
 </div>
@@ -722,7 +825,7 @@ MOBILE 375 (full-bleed .wrap = 100vw)          TABLET 768 (full-bleed .wrap = 10
       }}
   ];
 
-  function badgeClass(s,max){ const pct=s/max; if(pct>=0.9) return 'background:#1A3C34;color:#FACC7C'; if(pct>=0.7) return 'background:#E8530E;color:#fff'; if(pct>=0.5) return 'background:#B45309;color:#fff'; return 'background:#7F1D1D;color:#FECACA'; }
+  function badgeClass(s,max){ const pct=s/max; if(pct>=0.9) return 'is-a'; if(pct>=0.7) return 'is-b'; if(pct>=0.5) return 'is-c'; return 'is-f'; }
   function scoreLabel(s,max){ const pct=Math.round(s/max*100); if(pct>=90) return 'A'; if(pct>=80) return 'B'; if(pct>=70) return 'C'; if(pct>=50) return 'D'; return 'F'; }
 
   function render(){
@@ -743,8 +846,9 @@ MOBILE 375 (full-bleed .wrap = 100vw)          TABLET 768 (full-bleed .wrap = 10
       const pct=Math.round(r.score/r.max*100);
       const grade=scoreLabel(r.score,r.max);
       const card=document.createElement('div');
-      card.style.cssText='background:var(--gradients-kraft\.surface);border:1px solid var(--stone);border-radius:4px;overflow:hidden;box-shadow:var(--shadows-md)';
-      card.innerHTML=`<div style="padding:12px 14px;border-bottom:1px solid #F4EDE6;display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b style="font:800 12px/1 "museo-sans","kodiak_sans",sans-serif;letter-spacing:.06em;text-transform:uppercase">${d.title}</b><span style="display:inline-flex;padding:3px 8px;border-radius:999px;font:800 10px/1 Inter,sans-serif;letter-spacing:.06em;${badgeClass(r.score,r.max)}">${grade} ${r.score}/${r.max} • ${pct}%</span><span style="margin-left:auto;font-size:13px;color:#6B5A53">${r.pass?'PASS':'NEEDS WORK'}</span></div><div style="padding:10px 14px"><div style="height:8px;background:#F4EDE6;border-radius:999px;overflow:hidden"><div style="height:100%;width:${pct}%;background:${r.pass?'#1A3C34':'#E8530E'};transition:width .4s"></div></div><div style="font-size:13px;color:#6B5A53;margin-top:6px;line-height:1.4">${d.desc}</div><div style="font-size:13px;color:${r.pass?'#1A3C34':'#B51E14'};margin-top:6px;font-family:JetBrains Mono,Menlo,monospace">${r.detail}</div></div>`;
+      card.className='score-card';
+      const passCls=r.pass?' pass':'';
+      card.innerHTML=`<div class="score-card__hd"><b class="score-card__title">${d.title}</b><span class="score-card__badge ${badgeClass(r.score,r.max)}">${grade} ${r.score}/${r.max} • ${pct}%</span><span class="score-card__verdict">${r.pass?'PASS':'NEEDS WORK'}</span></div><div class="score-card__body"><div class="score-bar"><div class="score-bar__fill${passCls}" style="width:${pct}%"></div></div><div class="score-card__desc">${d.desc}</div><div class="score-card__detail${passCls}">${r.detail}</div></div>`;
       grid.appendChild(card);
     });
     const overallPct=Math.round(weighted/weightSum*100);
@@ -753,7 +857,7 @@ MOBILE 375 (full-bleed .wrap = 100vw)          TABLET 768 (full-bleed .wrap = 10
     const brutalPct=minPass?overallPct:Math.min(overallPct,59);
     if(overallEl) overallEl.textContent=`${minPass?overallGrade: 'F'} — ${minPass?overallPct:brutalPct}% ${minPass?'':'• BRUTAL'}`;
     if(detailEl) detailEl.textContent = minPass ? 'All 12 PASS — brutal green • image pipeline also 12/12 required' : `${defs.filter(d=>{try{return !d.check().pass}catch(e){return true}}).length} cards NEEDS WORK — brutal: 100% required, no 75% C pass`;
-    if(badgeEl){ badgeEl.textContent = minPass?'PASS A' : 'FAIL F — BRUTAL'; badgeEl.style.background = minPass?'#1A3C34':'#7F1D1D'; badgeEl.style.color='#fff'; }
+    if(badgeEl){ badgeEl.textContent = minPass?'PASS A' : 'FAIL F — BRUTAL'; badgeEl.classList.remove('pass','fail'); badgeEl.classList.add(minPass?'pass':'fail'); }
     if(tsEl) tsEl.textContent = new Date().toISOString().slice(0,19).replace('T',' ')+' UTC';
     if(detEl){
       const fileK=Math.round(document.documentElement.outerHTML.length/1000);
@@ -774,4 +878,6 @@ MOBILE 375 (full-bleed .wrap = 100vw)          TABLET 768 (full-bleed .wrap = 10
   window.KODIAK_SCORECARDS = { defs, render };
 })();
 </script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>if(window.mermaid){mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#F4EDE6',primaryTextColor:'#3B2316',primaryBorderColor:'#D9CFC6',lineColor:'#5A4A42',fontFamily:'museo-sans,system-ui,sans-serif'}});}</script>
 </body></html>
