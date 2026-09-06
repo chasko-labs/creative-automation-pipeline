@@ -1,0 +1,249 @@
+// === Generate Campaign + Campaign Assets (post-create) + product carousel fill — additive, guarded ===
+// VANILLA-JS BEHAVIOR track. Mounts two sections at the "generate-campaign section mounts here" placeholder
+// (after the .ff-forest treeline), wires the real full-campaign generate, and mirrors selected product images
+// into #productCarousel. All guarded; never 500s the UI; prefers-reduced-motion respected for the pulse.
+(function(){
+  'use strict';
+  var esc = function(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); };
+
+  // ---- resolve the selected market place name for the "localized to <AREA>" label ----
+  function currentAreaLabel(){
+    try{
+      var code = document.getElementById('locality')?.value || 'US-MW-PARKCITY-84098';
+      var list = (window.places && window.places.length) ? window.places : (typeof places!=='undefined' ? places : []);
+      var p = list.find(function(x){ return x && x.market===code; });
+      return (p && p.place) ? p.place : 'Park City, Utah';
+    }catch(e){ return 'Park City, Utah'; }
+  }
+
+  // ---- one-time attention-pulse style (respects prefers-reduced-motion) ----
+  function ensurePulseStyle(){
+    if(document.getElementById('ffCampaignPulseCss')) return;
+    var st = document.createElement('style');
+    st.id = 'ffCampaignPulseCss';
+    st.textContent =
+      '@keyframes ffCampaignPulse{0%{box-shadow:0 0 0 0 rgba(232,83,14,.45)}70%{box-shadow:0 0 0 14px rgba(232,83,14,0)}100%{box-shadow:0 0 0 0 rgba(232,83,14,0)}}'+
+      '.ff-campaign-pulse{animation:ffCampaignPulse 1.2s ease-out 2}'+
+      '@media(prefers-reduced-motion:reduce){.ff-campaign-pulse{animation:none}}';
+    document.head.appendChild(st);
+  }
+
+  // ---- build the two sections into the placeholder location ----
+  function mountSections(){
+    if(document.getElementById('generateCampaignSection')) return true;   // idempotent
+    // anchor: the forest treeline divider that precedes the placeholder comment
+    var forest = document.querySelector('.ff-forest');
+    var area = currentAreaLabel();
+    var wrap = document.createElement('div');
+    wrap.innerHTML =
+      '<section id="generateCampaignSection" class="ff-generate-campaign" aria-labelledby="generateCampaignHeading" hidden style="max-width:960px;margin:0 auto;padding:0 var(--spacing-sm)">'+
+        '<h2 id="generateCampaignHeading" class="ff-output-heading">Generate Campaign</h2>'+
+        '<p class="hint" id="generateCampaignHint">Your preview is ready. Generate the full campaign — every ratio, every platform, localized.</p>'+
+        '<div class="row" id="generateCampaignBtns" style="gap:10px;flex-wrap:wrap">'+
+          '<button type="button" class="btn ghost" id="genScopeNationwide" data-scope="nationwide">Generate Nationwide</button>'+
+          '<button type="button" class="btn ghost" id="genScopeNationwideLoc" data-scope="nationwide-localized">Generate Nationwide with Full Localization</button>'+
+          '<button type="button" class="btn orange" id="genScopeLocal" data-scope="local">Generate Campaign Localized to '+esc(area)+'</button>'+
+        '</div>'+
+        '<div class="hint" id="generateCampaignStatus" role="status" aria-live="polite"></div>'+
+      '</section>'+
+      '<section id="campaignAssetsSection" class="ff-campaign-assets" aria-labelledby="campaignAssetsHeading" hidden style="max-width:960px;margin:0 auto;padding:0 var(--spacing-sm)">'+
+        '<h2 id="campaignAssetsHeading" class="ff-output-heading">Campaign Assets Created</h2>'+
+        '<div class="row" style="justify-content:flex-start"><button type="button" class="btn orange" id="downloadCampaignPackTop" data-mcp="download-campaign-pack">Download Campaign Pack</button></div>'+
+        '<div class="ff-product-carousel" id="campaignAssetsCarousel" role="group" aria-label="Generated campaign assets" style="margin-top:var(--spacing-sm)"></div>'+
+        '<div class="row" style="justify-content:flex-start;margin-top:var(--spacing-sm)"><button type="button" class="btn orange" id="downloadCampaignPackBottom" data-mcp="download-campaign-pack">Download Campaign Pack</button></div>'+
+      '</section>';
+    // insert right after the forest divider (the placeholder comment sits there); fallback to body append
+    if(forest && forest.parentNode){
+      var ref = forest.nextSibling;
+      while(wrap.firstChild){ forest.parentNode.insertBefore(wrap.firstChild, ref); }
+    } else {
+      document.body.appendChild(wrap);
+    }
+    wireButtons();
+    return true;
+  }
+
+  // ---- keep the "localized to <AREA>" label live on market change ----
+  function refreshAreaLabel(){
+    var btn = document.getElementById('genScopeLocal');
+    if(btn) btn.textContent = 'Generate Campaign Localized to ' + currentAreaLabel();
+  }
+  document.addEventListener('change', function(e){ if(e.target && e.target.id==='locality') refreshAreaLabel(); });
+
+  // ---- reveal + scroll + pulse when a preview becomes ready ----
+  window.__kodiakRevealCampaign = function(){
+    try{
+      mountSections();
+      var sec = document.getElementById('generateCampaignSection');
+      if(!sec) return;
+      if(sec.hidden){ sec.hidden = false; }
+      refreshAreaLabel();
+      ensurePulseStyle();
+      // scroll into center so the user never has to hunt; pulse for attention (reduced-motion => no anim)
+      try{ sec.scrollIntoView({behavior:'smooth', block:'center'}); }catch(e){ try{ sec.scrollIntoView(); }catch(e2){} }
+      sec.classList.remove('ff-campaign-pulse');
+      // reflow so re-adding the class restarts the animation on a repeat preview
+      void sec.offsetWidth;
+      sec.classList.add('ff-campaign-pulse');
+    }catch(e){ /* reveal must never break the generate flow */ }
+  };
+
+  // ---- the real full-campaign generate (scope distinction on the same /generate endpoint) ----
+  var campaignRenders = [];   // last full-campaign renders[] for the download-pack buttons
+  function selectedMarket(){ try{ return document.getElementById('locality')?.value || 'US-MW-PARKCITY-84098'; }catch(e){ return 'US-MW-PARKCITY-84098'; } }
+  function selectedProductSlug(){
+    // reuse the requested-sku the preview Create recorded; fall back to the flagship mapped handle
+    try{ if(window.__requestedSku) return window.__requestedSku; }catch(e){}
+    return 'buttermilk-power-cakes-flapjack-waffle-mix';
+  }
+  function currentBrief(){ try{ return (document.getElementById('campaignBrief')?.value || '').trim() || 'Keep It Wild — Nourishment for Today\u0027s Frontier'; }catch(e){ return 'Keep It Wild'; } }
+
+  function renderCampaignCarousel(renders){
+    var car = document.getElementById('campaignAssetsCarousel');
+    if(!car) return;
+    car.innerHTML = '';
+    (renders||[]).forEach(function(r){
+      if(!r || !r.image_url) return;
+      var slot = document.createElement('div');
+      slot.className = 'ff-carousel-slot';
+      slot.removeAttribute('aria-hidden');
+      var img = document.createElement('img');
+      img.src = r.image_url;
+      img.loading = 'lazy';
+      img.alt = 'Campaign asset ' + (r.ratio ? String(r.ratio).replace('x',':') : '');
+      slot.appendChild(img);
+      car.appendChild(slot);
+    });
+  }
+
+  // download all campaign renders (hosted urls). Mirrors the download-all-preview approach for full renders.
+  window.downloadCampaignPack = function(){
+    var status = document.getElementById('generateCampaignStatus');
+    if(!campaignRenders.length){ if(status) status.textContent = 'Generate a campaign first, then download the pack.'; return 0; }
+    var date = new Date().toISOString().slice(0,10).replace(/-/g,'');
+    var product = selectedProductSlug();
+    var saved = 0;
+    campaignRenders.forEach(function(r, i){
+      if(!r || !r.image_url) return;
+      try{
+        var nm = 'KODIAK-CAKES-'+product+'-campaign-'+(r.ratio||(i+1))+'-'+date+'-v01.png';
+        var a = document.createElement('a'); a.href = r.image_url; a.download = nm; a.rel='noopener';
+        document.body.appendChild(a); a.click(); a.remove(); saved++;
+      }catch(e){}
+    });
+    if(status) status.textContent = 'Downloaded ' + saved + ' campaign asset' + (saved===1?'':'s');
+    return saved;
+  };
+
+  function setCampaignBtnsDisabled(d){
+    ['genScopeNationwide','genScopeNationwideLoc','genScopeLocal'].forEach(function(id){ var b=document.getElementById(id); if(b) b.disabled = d; });
+  }
+
+  async function runCampaign(scope){
+    var status = document.getElementById('generateCampaignStatus');
+    var isLocal = (location.protocol==='file:') || ['127.0.0.1','localhost'].includes(location.hostname);
+    if(isLocal){
+      if(status) status.textContent = 'Full campaign generate needs the hosted backend — offline shows the preview only.';
+      return;
+    }
+    setCampaignBtnsDisabled(true);
+    if(status) status.textContent = 'Generating full campaign (' + scope + ')\u2026 up to ~90s';
+    var controller = new AbortController();
+    var timeoutId = setTimeout(function(){ controller.abort(); }, 100000);
+    try{
+      var body = {
+        prompt: currentBrief(),
+        market: selectedMarket(),
+        product: selectedProductSlug(),
+        scope: scope,        // nationwide | nationwide-localized | local
+        mode: 'full'         // full 3/4-size + localization + platform-copy path (backend FULL_MODE)
+      };
+      var resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: controller.signal});
+      if(!resp.ok) throw new Error('backend returned HTTP ' + resp.status);
+      var json;
+      try{ json = await resp.json(); }catch(pe){ throw new Error('malformed response from backend'); }
+      var renders = Array.isArray(json.renders) && json.renders.length ? json.renders
+                    : (json.image_url ? [{image_url: json.image_url, ratio: json.ratio || '1x1', w: json.w, h: json.h}] : []);
+      if(!renders.length) throw new Error('response missing renders');
+      campaignRenders = renders;
+      // reuse the preview renderer for the on-screen result when available
+      try{ if(typeof window.KODIAK_showRenderSet==='function' && Array.isArray(json.renders) && json.renders.length){ window.KODIAK_showRenderSet(json.renders, {source: json.source}); } }catch(e){}
+      renderCampaignCarousel(renders);
+      var assets = document.getElementById('campaignAssetsSection');
+      if(assets && assets.hidden){ assets.hidden = false; }
+      try{ assets.scrollIntoView({behavior:'smooth', block:'start'}); }catch(e){}
+      if(status) status.textContent = 'Campaign created — ' + renders.length + ' asset' + (renders.length===1?'':'s') + ' from ' + (json.source || 'Nova Pro') + ' (' + scope + ')';
+    }catch(err){
+      if(status) status.textContent = (err && err.name==='AbortError')
+        ? 'Campaign generate timed out — reconnect and try again.'
+        : 'Could not generate the full campaign — ' + (err && err.message ? err.message : 'try again') + '.';
+    }finally{
+      clearTimeout(timeoutId);
+      setCampaignBtnsDisabled(false);
+    }
+  }
+
+  function wireButtons(){
+    var map = {genScopeNationwide:'nationwide', genScopeNationwideLoc:'nationwide-localized', genScopeLocal:'local'};
+    Object.keys(map).forEach(function(id){
+      var b = document.getElementById(id);
+      if(b && !b.__wired){ b.__wired = true; b.addEventListener('click', function(){ runCampaign(map[id]); }); }
+    });
+    var dt = document.getElementById('downloadCampaignPackTop');
+    if(dt && !dt.__wired){ dt.__wired = true; dt.addEventListener('click', function(){ window.downloadCampaignPack(); }); }
+    var db = document.getElementById('downloadCampaignPackBottom');
+    if(db && !db.__wired){ db.__wired = true; db.addEventListener('click', function(){ window.downloadCampaignPack(); }); }
+  }
+
+  // ---- Item 8: product carousel fill — mirror selected product images into #productCarousel slots ----
+  function repaintProductCarousel(){
+    try{
+      var car = document.getElementById('productCarousel');
+      if(!car) return;
+      var checked = Array.prototype.slice.call(document.querySelectorAll('#productChooser .sku-check:checked')).map(function(c){ return c.value; });
+      var cat = (window.skuCatalog && window.skuCatalog.length) ? window.skuCatalog : [];
+      // resolve up to 3 image urls from the selected products (catalog images[0], else hidden host thumb)
+      var imgs = [];
+      checked.slice(0,3).forEach(function(name){
+        var hit = cat.find(function(p){ return p && p.name===name; });
+        var src = hit && hit.images && hit.images[0] ? hit.images[0] : '';
+        if(!src){
+          // fall back to the checkbox row thumb the chooser painted, if present
+          try{ var box = Array.prototype.slice.call(document.querySelectorAll('#productChooser .sku-check')).find(function(b){ return b.value===name; });
+            var thumb = box && box.parentNode ? box.parentNode.querySelector('img') : null; if(thumb && thumb.src) src = thumb.src; }catch(e){}
+        }
+        if(src) imgs.push({src:src, name:name});
+      });
+      // repaint exactly 3 slots: filled first, dashed placeholders after (mirror only, no selection change)
+      car.innerHTML = '';
+      for(var i=0;i<3;i++){
+        var slot = document.createElement('div');
+        slot.className = 'ff-carousel-slot';
+        if(imgs[i]){
+          var im = document.createElement('img');
+          im.src = imgs[i].src; im.loading = 'lazy'; im.alt = imgs[i].name;
+          im.setAttribute('crossorigin','anonymous');
+          im.onerror = function(){ this.style.display='none'; };
+          slot.appendChild(im);
+        } else {
+          slot.setAttribute('aria-hidden','true');
+        }
+        car.appendChild(slot);
+      }
+    }catch(e){ /* carousel fill is a visual mirror — never break selection logic */ }
+  }
+  // repaint on any sku-check change (delegation, survives chooser innerHTML swaps + Random 3)
+  document.addEventListener('change', function(e){ if(e.target && e.target.classList && e.target.classList.contains('sku-check')) repaintProductCarousel(); });
+  document.getElementById('randomProducts')?.addEventListener('click', function(){ setTimeout(repaintProductCarousel, 0); });
+
+  // ---- init ----
+  function init(){
+    mountSections();
+    // catalog paints asynchronously (~900ms) — repaint the carousel after it settles + once more later
+    setTimeout(repaintProductCarousel, 950);
+    setTimeout(repaintProductCarousel, 1600);
+    refreshAreaLabel();
+  }
+  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', init); }
+  else { init(); }
+})();
