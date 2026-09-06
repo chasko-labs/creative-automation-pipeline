@@ -1,30 +1,78 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"/>
 <link rel="stylesheet" href="https://use.typekit.net/zjt4wyq.css">
-<link rel="stylesheet" href="design/styles.css?v=0.1.011-480c79d-20260905">
+<link rel="stylesheet" href="design/styles.css?v=0.1.012-878bea8-20260906">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>KODIAK® Posts for Today's Frontier — v0.1.011-480c79d-20260905</title>
-<meta name="kodiak-version" content="0.1.011-480c79d-20260905">
+<title>KODIAK® Posts for Today's Frontier — v0.1.012-878bea8-20260906</title>
+<meta name="kodiak-version" content="0.1.012-878bea8-20260906">
 <meta name="webmcp" content="enabled">
 <meta name="mcp:server" content="kodiak-posts-frontier">
 <meta name="mcp:tools" content="places,products,recipes,market-languages,brief-yaml,preview,compose,localize">
 <link rel="mcp-manifest" href="webmcp.json">
-<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.011-480c79d-20260905","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":73,"languages":"EN + top2 per market (ACS 2022)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
+<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.012-878bea8-20260906","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":73,"languages":"EN + top2 per market (ACS 2022)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
 <meta name="robots" content="noindex, nofollow, noarchive">
 <script>
-// Password gate: cakes — unlisted from bots, simple JS gate (also respects CloudFront if added)
+// Password gate: cakes — unlisted from bots, in-page lock screen (no prompt(), no document.write)
 // Headless test bypass: ?cakes=1 or ?gate=cakes auto-sets sessionStorage
 if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParams(location.search).get('gate')==='cakes'){ try{sessionStorage.setItem('kodiak_gate','cakes')}catch(e){} }
-// Password gate: cakes — unlisted from bots, simple JS gate (also respects CloudFront if added)
 (function(){
-  try{
-    if(sessionStorage.getItem('kodiak_gate')==='cakes') return;
-    var pw=prompt('Frontier is unlisted — enter password to enter (hint: cakes):');
-    if(pw!=='cakes'){ document.write('<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#3B2316;color:#FFF8F0;font-family:system-ui;padding:24px;text-align:center"><div><h1 style="font-family:Rockwell,Georgia,serif">KODIAK® Frontier is Private</h1><p>Ask Bryan for the password — hint: <b>cakes</b><br>Also available offline at <code>web/kodiak-posts-for-todays-frontier/index.html</code> via file://</p></div></div>'); throw new Error('gate');
-    }
-    sessionStorage.setItem('kodiak_gate','cakes');
-  }catch(e){}
+  try{ if(sessionStorage.getItem('kodiak_gate')==='cakes') return; }catch(e){}
+
+  // lock the page — hide overflow while the gate is up
+  document.documentElement.style.overflow='hidden';
+
+  function mountGate(){
+    var overlay=document.createElement('div');
+    overlay.id='kodiak-gate';
+    overlay.setAttribute('role','dialog');
+    overlay.setAttribute('aria-modal','true');
+    overlay.setAttribute('aria-label','Password required');
+    overlay.style.cssText='position:fixed;inset:0;z-index:2147483647;display:flex;align-items:center;justify-content:center;background:#3B2316;color:#FFF8F0;font-family:system-ui,-apple-system,sans-serif;padding:24px;text-align:center';
+
+    overlay.innerHTML=
+      '<div style="max-width:420px;width:100%">'
+      +'<h1 style="font-family:Rockwell,Georgia,serif;font-size:1.75rem;margin:0 0 .75rem">KODIAK\u00AE Frontier is Private</h1>'
+      +'<p style="margin:0 0 1.25rem;line-height:1.5">Enter the password to continue (hint: <b>cakes</b>)</p>'
+      +'<form id="kodiak-gate-form" style="display:flex;flex-direction:column;gap:.75rem;align-items:center">'
+      +'<label for="kodiak-gate-pw" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Password</label>'
+      +'<input id="kodiak-gate-pw" type="password" autocomplete="off" autofocus placeholder="password" '
+      +'style="width:100%;max-width:260px;padding:.6rem .75rem;border:2px solid #FFF8F0;border-radius:4px;background:transparent;color:#FFF8F0;font-size:1rem;text-align:center;outline:none" />'
+      +'<button type="submit" style="padding:.6rem 1.6rem;border:none;border-radius:4px;background:#E8530E;color:#FFF8F0;font-size:1rem;font-weight:600;cursor:pointer">Enter</button>'
+      +'</form>'
+      +'<p id="kodiak-gate-error" style="margin:.75rem 0 0;color:#E8530E;font-weight:600;min-height:1.4em" aria-live="polite"></p>'
+      +'<p style="margin:1.25rem 0 0;font-size:.8rem;opacity:.7">Also available offline at <code>web/kodiak-posts-for-todays-frontier/index.html</code> via file://</p>'
+      +'</div>';
+
+    document.body.appendChild(overlay);
+
+    // focus the input once it is in the DOM
+    var inp=document.getElementById('kodiak-gate-pw');
+    if(inp) inp.focus();
+
+    document.getElementById('kodiak-gate-form').addEventListener('submit',function(e){
+      e.preventDefault();
+      var val=inp.value;
+      if(val==='cakes'){
+        try{ sessionStorage.setItem('kodiak_gate','cakes'); }catch(ex){}
+        document.documentElement.style.overflow='';
+        overlay.remove();
+        location.reload();
+      } else {
+        document.getElementById('kodiak-gate-error').textContent='Not quite \u2014 hint: cakes';
+        inp.value='';
+        inp.focus();
+      }
+    });
+  }
+
+  // body may not exist yet (we are in <head>), so wait if needed
+  if(document.body){ mountGate(); }
+  else{ document.addEventListener('DOMContentLoaded',mountGate); }
 })();
+</script>
+<script>
+// wire KODIAK_VERSION from <meta> so details.html build stamp reads the real version
+(function(){ var m=document.querySelector('meta[name="kodiak-version"]'); if(m&&m.content) window.KODIAK_VERSION=m.content; })();
 </script>
 <meta name="description" content="KODIAK® Posts for Today's Frontier — personalized pipeline that turns one brief into hundreds of local ads for every social platform, every retailer, every Frontier. Brown box stays iconic. Works offline, no server — just open this file."/>
 <style>
@@ -187,7 +235,10 @@ section.xl{padding:var(--section-space-xl) 0}
 @media(prefers-reduced-motion:reduce){.kodiak-header.is-sticky .kodiak-header__logo--primary{transition:none}}
 
 /* === Firefly-inspired prompt bar — "Create a Kodiak campaign" === */
-.ff-prompt{background:var(--gradients-kraft\.surface);border:1px solid var(--stone);border-radius:16px;padding:18px;box-shadow:var(--shadows-bear)}
+/* rizz-2: hero elevation preserved — .ff-prompt keeps --shadows-bear (heavier than the
+   card's --shadows-md: 0 12px 32px vs 0 8px 24px), so it reads elevated ABOVE the card.
+   only on-token hygiene here: raw 16px radius -> --radii-lg (same value, no visual change). */
+.ff-prompt{background:var(--gradients-kraft\.surface);border:1px solid var(--stone);border-radius:var(--radii-lg);padding:18px;box-shadow:var(--shadows-bear)}
 .ff-prompt h2{margin:0 0 4px;font:800 20px/1.1 gin,"kodiak_sans",Rockwell,Georgia,serif;letter-spacing:.03em;text-transform:none;color:var(--chocolate)}
 .ff-prompt .ff-sub{margin:0 0 14px;color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
 /* the big input row — textarea + inline upload + generate, google-simple */
@@ -336,7 +387,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   font-size:clamp(20px, 4.2vw, 38px)}
 
 /* C+D+E+F. control row — [market button] [seasonal menu] [featured-frontier + languages inline], one responsive row */
-.ff-controlrow{display:flex;flex-wrap:wrap;align-items:stretch;gap:var(--spacing-sm);margin-top:var(--spacing-md)}
+/* rizz-1: align-items:center (was stretch) so the .ff-detail block's tall wrapped
+   content no longer stretches the market/season/geo controls off their 40px height;
+   each control keeps its own min-height:40px, all three baseline-align, .ff-detail
+   stays its natural height centered against them. mobile column-stack (@640) intact. */
+.ff-controlrow{display:flex;flex-wrap:wrap;align-items:center;gap:var(--spacing-sm);margin-top:var(--spacing-md)}
 .ff-controlrow .ff-detail{flex:1 1 220px;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:2px;padding:var(--spacing-xs) var(--spacing-sm);
   background:var(--colors-neutral-100);border:1px solid var(--colors-border-default);border-radius:var(--radii-lg)}
 .ff-controlrow .ff-featured{font:600 12px/1.35 "museo-sans",sans-serif;color:var(--colors-foreground-default);white-space:normal;overflow:hidden;text-overflow:ellipsis}
@@ -388,6 +443,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-geo:focus-visible,.ff-addloc-input:focus-visible,.ff-addloc-btn:focus-visible,
 .ff-addasset-label:focus-within,.ff-addasset-input:focus-visible,.ff-pending-remove:focus-visible{
   outline:2px solid var(--colors-brand-blaze-orange);outline-offset:2px}
+/* rizz-3: focus-ring consistency — .ff-geo is a primary control-row control and must
+   share the signal-red focus indicator with .ff-market>summary / .ff-season select /
+   .ff-chip (all inherit signal-red from the global :focus-visible rule). override the
+   blaze-orange from the shared wave3 rule above for .ff-geo only; the staging affordances
+   (addloc/addasset/pending) keep their blaze-orange group treatment. */
+.ff-geo:focus-visible{outline:2px solid var(--colors-brand-signal-red);outline-offset:2px}
 
 /* D3. add-a-location affordance inside the market disclosure panel */
 .ff-addloc{display:flex;flex-wrap:wrap;gap:var(--spacing-xs);align-items:center;margin-top:var(--spacing-xs);
@@ -625,8 +686,41 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .loc-line[lang="ne"]{font-family:'Noto Sans Devanagari','Noto Sans',sans-serif}
 .loc-line[lang="ja"],.loc-line[lang="ko"],.loc-line[lang="zh"]{font-family:'Noto Sans CJK','Noto Sans',sans-serif}
 .loc-line[data-provider="source"]{font-weight:600}
-.loc-line[data-provider="human-required"],.loc-line[data-provider="pending"],.loc-line[data-provider="offline"]{opacity:.6;font-style:italic}
+/* S12 — compact localized caption inside render/preview tiles (reuses .loc-line, tighter for tile scale) */
+.loc-cap{display:block;margin-top:5px;padding-top:5px;border-top:1px solid var(--colors-border-default,rgba(140,122,112,.25))}
+.loc-cap .loc-line{display:block;margin:.1rem 0;font-size:10px;line-height:1.3;color:var(--colors-neutral-600,#8C7A70)}
+.loc-cap .loc-langtag{display:inline-block;min-width:1.6em;font-weight:700;letter-spacing:.04em;opacity:.85}
+.loc-cap .loc-review{margin-left:4px;font-size:9px;font-style:italic;opacity:.9}
+/* machine-translatable placeholders stay dimmed/italic — they are a genuine "pending real copy" state (#124) */
+.loc-line[data-provider="pending"],.loc-line[data-provider="offline"]{opacity:.6;font-style:italic}
+/* community-review languages (nv/zip) are FIRST-CLASS, not an apology: full-opacity, upright, name prominent.
+   the review state is an intentional, respectful annotation — a badge, not dimming. adobe sienna is an existing
+   brand token (warm/earthy), deliberately NOT var(--red)/signal-red (D1) so this never reads as an error. */
+.loc-line[data-provider="community-review"],.loc-line[data-provider="community-authorized"]{opacity:1;font-style:normal;font-weight:500}
+.loc-review{display:inline-flex;align-items:center;gap:.3em;font-family:"kodiak_sans","museo-sans",sans-serif;font-size:.66em;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--adobe);background:var(--adobe-10);border:1px solid var(--adobe);border-radius:999px;padding:.05em .55em;margin-inline-start:.45em;vertical-align:.05em;white-space:nowrap;cursor:help}
 .loc-langtag{font-size:.72em;opacity:.55;font-style:normal;margin-inline-end:.4em}
+
+/* === B1/B2 — input card vs output section separation === */
+/* the input card holds only inputs; the output section is its own surface below the ridge divider */
+.ff-output{margin:0 0 var(--section-space-lg);padding:16px;border:1px solid var(--stone);border-radius:var(--radii-lg);background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-md);position:relative}
+.ff-output::before{content:"";position:absolute;inset:0;background:var(--wood) repeat;opacity:.06;pointer-events:none}
+.ff-output-heading{margin:0 0 12px;font:800 16px/1.1 gin,"kodiak_sans",Rockwell,Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate);position:relative}
+/* readout of what the current selections resolved to — sits at the top of the output surface */
+.ff-output-readout{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 12px;position:relative}
+.ff-output-readout .ff-featured{flex:0 1 auto;font:600 12px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-700)}
+.ff-output-readout .ff-langs{flex:0 1 auto;font:500 12px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-600)}
+
+/* === B3 — prompt-box autocomplete dropdown, anchored to the textarea wrap === */
+/* the input row is the positioning context for the suggestion listbox */
+.ff-inputwrap{position:relative}
+/* reuse the ff-products-results visual pattern; anchor under the textarea, full width of the input row */
+.ff-briefsuggest{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:40;max-height:280px;overflow-y:auto}
+.ff-briefsuggest .ff-suggest-opt{display:flex;align-items:center;gap:8px;padding:8px 12px;cursor:pointer;font:500 13px/1.3 "museo-sans",sans-serif;color:var(--chocolate);border-bottom:1px solid var(--colors-neutral-100)}
+.ff-briefsuggest .ff-suggest-opt:last-child{border-bottom:none}
+.ff-briefsuggest .ff-suggest-opt:hover,.ff-briefsuggest .ff-suggest-opt[aria-selected="true"]{background:var(--oat)}
+.ff-briefsuggest .ff-suggest-tag{flex:0 0 auto;font:700 9px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:999px;background:var(--brown-kodiak);color:var(--parchment)}
+.ff-briefsuggest .ff-suggest-tag.is-market{background:var(--red)}
+.ff-briefsuggest .ff-suggest-name{flex:1 1 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 </style></head><body>
 <!-- Decorative overlays — aria-hidden, pointer-events:none so they never intercept clicks/focus/scroll -->
 <div id="paperGrain" aria-hidden="true"></div>
@@ -644,15 +738,9 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 
 <!-- PRIMARY: Firefly-inspired prompt bar — dominates the card -->
 <div class="ff-prompt" data-mcp="campaign-brief.prompt">
-  <h2 class="ff-sublead">Describe it in a line, tap a starting point, or upload an image or document. Defaults to Park City, Utah.</h2>
-  <div class="ff-inputwrap">
-    <textarea id="campaignBrief" rows="1" aria-label="Campaign idea — describe your Kodiak campaign in a line" placeholder="Type a campaign idea — e.g. Wasatch Back morning fuel for Park City families, feature the savory waffle. Keep It Wild."></textarea>
-    <button type="button" class="ff-iconbtn" id="promptUpload" aria-label="Upload an image or document" title="Upload an image or document">+</button>
-    <!-- D4. add-your-own-asset file input — visually-hidden, triggered by the "+" icon above. FRONTEND STAGING ONLY (no DAM upload backend); staged client-side, marker threaded into the brief via window.__userAssets. -->
-    <input type="file" id="addAssetInput" class="ff-addasset-input" accept="image/*,.pdf,.docx,.yaml,.yml,.json" aria-label="Add your own image asset to this campaign">
-    <button class="ff-go" id="generateCampaign" data-mcp="generate" data-mcp-description="Single button — fans to all formats + localized variants, shows sample">Create</button>
-  </div>
+  <h2 class="ff-sublead">Pick a market, season, product, or starting point below — each one fills the brief. Then refine the line and Create. Defaults to Park City, Utah.</h2>
 
+  <!-- B1: controls flow top-to-bottom (market/season/geo -> theme options -> products) and the prompt input is the culmination at the bottom, directly above Create. -->
   <!-- C+D+E+F. control row: market disclosure button + seasonal menu + inline featured-frontier & languages, single responsive row -->
   <div class="ff-controlrow" role="group" aria-label="Campaign market and season">
     <details class="ff-market" id="marketDisclosure">
@@ -683,14 +771,27 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
         <option value="">Season: any</option>
       </select>
     </div>
-    <div class="ff-detail">
-      <div class="ff-featured" id="featuredFrontier" aria-live="polite"></div>
-      <div class="ff-langs" id="marketLangLine" aria-live="polite">localized in languages: <b>English, Spanish, Portuguese</b></div>
-    </div>
+    <!-- B2: .ff-detail (featured-frontier + languages readout) moved OUT to the output section below — it is a readout of what selections resolved to, not an input. -->
   </div>
 
-  <!-- Shared selection tray — staged uploads + selected SKUs render here as removable chips. Zero-height when empty. -->
-  <div class="ff-tray" id="selectionTray" role="group" aria-label="Selected products and staged assets"></div>
+  <!-- G. campaign-creation options — the theme chips, regrouped INTO this create surface (not a floating block) -->
+  <div class="ff-optiongroup">
+    <span class="ff-optiongroup-label" id="promptChipsLabel">Or start from a campaign option</span>
+    <div class="ff-chips" id="promptChips" role="group" aria-labelledby="promptChipsLabel">
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="recipe-cards" data-brief="Recipe cards for Park City families — protein-packed whole grain recipes styled as shareable cards. Keep It Wild."><span class="ff-dot"></span>Recipe cards</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-costco" data-brief="Localized Costco campaign — bulk Family Size value for the warehouse aisle, Park City / Wasatch Back framing."><span class="ff-dot"></span>Localized Costco</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="riff-on-past-content" data-brief="Riff on past content — remix our existing heroes into fresh variants across all three ratios."><span class="ff-dot"></span>Riff on past content</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="zac-efron" data-brief="Zac Efron athletic-morning energy — high-protein pre-trail fuel, aspirational active lifestyle. Keep It Wild."><span class="ff-dot"></span>Zac Efron</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="bears" data-brief="Bears + Keep It Wild — lean into the KODIAK Bear, wild frontier tone, protein for epic days."><span class="ff-dot"></span>Bears</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="keep-it-wild-program" data-brief="Keep It Wild program — brand campaign tying protein-packed whole grains to the outdoor frontier lifestyle."><span class="ff-dot"></span>Keep It Wild program</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="us-ski-snowboard" data-brief="US Ski & Snowboard partner campaign — Milano Cortina 2026, Park City athlete fuel, whole-grain protein for world-class winter athletes, alpine dawn. Keep It Wild."><span class="ff-dot"></span>US Ski &amp; Snowboard</button>
+    </div>
+    <!-- partner mark — shown only when the US Ski & Snowboard chip is active (partner logo committed at assets/partners/) -->
+    <div id="ussPartnerMark" class="ff-partner-mark" role="img" aria-label="U.S. Ski &amp; Snowboard — Kodiak partner" hidden>
+      <img src="assets/partners/us-ski-snowboard-kodiak.png" alt="" width="94" height="63" class="ff-partner-mark__img" onerror="this.style.display='none'">
+      <span class="ff-partner-mark__label">Official partner mark</span>
+    </div>
+  </div>
 
   <!-- Product chooser folded into the prompt card as a CLOSED disclosure — one summary line at rest.
        FRONTEND STAGING for uploads only (no DAM upload backend); marker threaded into the brief via window.__userAssets. -->
@@ -712,52 +813,59 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
     </div>
   </details>
 
-  <!-- G. campaign-creation options — the theme chips, regrouped INTO this create surface (not a floating block) -->
-  <div class="ff-optiongroup">
-    <span class="ff-optiongroup-label" id="promptChipsLabel">Or start from a campaign option</span>
-    <div class="ff-chips" id="promptChips" role="group" aria-labelledby="promptChipsLabel">
-      <button type="button" class="ff-chip" aria-pressed="false" data-theme="recipe-cards" data-brief="Recipe cards for Park City families — protein-packed whole grain recipes styled as shareable cards. Keep It Wild."><span class="ff-dot"></span>Recipe cards</button>
-      <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-costco" data-brief="Localized Costco campaign — bulk Family Size value for the warehouse aisle, Park City / Wasatch Back framing."><span class="ff-dot"></span>Localized Costco</button>
-      <button type="button" class="ff-chip" aria-pressed="false" data-theme="riff-on-past-content" data-brief="Riff on past content — remix our existing heroes into fresh variants across all three ratios."><span class="ff-dot"></span>Riff on past content</button>
-      <button type="button" class="ff-chip" aria-pressed="false" data-theme="zac-efron" data-brief="Zac Efron athletic-morning energy — high-protein pre-trail fuel, aspirational active lifestyle. Keep It Wild."><span class="ff-dot"></span>Zac Efron</button>
-      <button type="button" class="ff-chip" aria-pressed="false" data-theme="bears" data-brief="Bears + Keep It Wild — lean into the KODIAK Bear, wild frontier tone, protein for epic days."><span class="ff-dot"></span>Bears</button>
-      <button type="button" class="ff-chip" aria-pressed="false" data-theme="keep-it-wild-program" data-brief="Keep It Wild program — brand campaign tying protein-packed whole grains to the outdoor frontier lifestyle."><span class="ff-dot"></span>Keep It Wild program</button>
-      <button type="button" class="ff-chip" aria-pressed="false" data-theme="us-ski-snowboard" data-brief="US Ski & Snowboard partner campaign — Milano Cortina 2026, Park City athlete fuel, whole-grain protein for world-class winter athletes, alpine dawn. Keep It Wild."><span class="ff-dot"></span>US Ski &amp; Snowboard</button>
-    </div>
-    <!-- partner mark — shown only when the US Ski & Snowboard chip is active (partner logo committed at assets/partners/) -->
-    <div id="ussPartnerMark" class="ff-partner-mark" role="img" aria-label="U.S. Ski &amp; Snowboard — Kodiak partner" hidden>
-      <img src="assets/partners/us-ski-snowboard-kodiak.png" alt="" width="94" height="63" class="ff-partner-mark__img" onerror="this.style.display='none'">
-      <span class="ff-partner-mark__label">Official partner mark</span>
-    </div>
+  <!-- Shared selection tray — staged uploads + selected SKUs render here as removable chips. Zero-height when empty. -->
+  <div class="ff-tray" id="selectionTray" role="group" aria-label="Selected products and staged assets"></div>
+
+  <!-- B1: the prompt input is now the CULMINATION at the bottom of the card — controls above assemble the brief, Create sits directly under the fully-assembled prompt. -->
+  <div class="ff-inputwrap">
+    <textarea id="campaignBrief" rows="1" aria-label="Campaign idea — describe your Kodiak campaign in a line" placeholder="Type a campaign idea — e.g. Wasatch Back morning fuel for Park City families, feature the savory waffle. Keep It Wild." role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="briefSuggest" autocomplete="off"></textarea>
+    <button type="button" class="ff-iconbtn" id="promptUpload" aria-label="Upload an image or document" title="Upload an image or document">+</button>
+    <!-- D4. add-your-own-asset file input — visually-hidden, triggered by the "+" icon above. FRONTEND STAGING ONLY (no DAM upload backend); staged client-side, marker threaded into the brief via window.__userAssets. -->
+    <input type="file" id="addAssetInput" class="ff-addasset-input" accept="image/*,.pdf,.docx,.yaml,.yml,.json" aria-label="Add your own image asset to this campaign">
+    <button class="ff-go" id="generateCampaign" data-mcp="generate" data-mcp-description="Single button — fans to all formats + localized variants, shows sample">Create</button>
+    <!-- B3. prompt-box autocomplete surface — product/market matches from loaded catalog + places; reuses the ff-products-results listbox visual pattern -->
+    <div id="briefSuggest" class="ff-products-results ff-briefsuggest" role="listbox" aria-label="Product and market suggestions" hidden></div>
   </div>
 </div>
 
 <!-- Product chooser + upload affordance consolidated into the prompt card above (closed <details> + shared tray + "+" icon). -->
-
-<!-- Download asset pack hidden by default; primary/secondary download actions injected under the preview after generation -->
-<div class="row ff-downloadrow"><button class="btn ghost" id="downloadPack" data-mcp="download-pack" data-mcp-description="Download the campaign assets as an ISO-labeled zip from S3">Download asset pack</button></div>
-<div class="hint ff-generatehint" id="generateHint">Park City default with a localized variant. <span id="sampleStatus" class="ff-samplestatus" role="status" aria-live="polite"></span></div>
-
-<!-- HIDDEN: single retailers channel default so generate JS never null-crashes (.channel-check never read by JS, kept for safety) -->
-<input type="checkbox" value="retailers" class="channel-check" checked hidden aria-hidden="true">
-
-<!-- HIDDEN: local-flavor block kept in DOM (updateLocalFlavor reads #localFlavorText) — not a prominent field per simplification -->
-<div id="localFlavor" class="ff-hidden" data-mcp="local-flavor" data-mcp-description="Local flavor per season & source — derived, not selectable"><b>Local flavor</b><div id="localFlavorText">Park City: Wasatch Back — Jensen Farms peaches + Copper Moose rhubarb Jun–Sep at Park City Farmers Market.</div></div>
+<!-- B2: the card above contains ONLY inputs. Everything below is the OUTPUT surface — a distinct section so a viewer sees input-card vs output-section at a glance. -->
 </div></div>
 
-<!-- no second consumer marquee — removed for tool focus (single PROMPT→CAMPAIGNS marquee above is enough) -->
+<!-- Wasatch ridge — divider between the INPUT card and the OUTPUT section -->
 <div class="ff-ridge" aria-hidden="true" title="Wasatch ridge — Frontier Green S30 #1A2F29"></div>
 
-<details class="card wide-track preview-card" id="previewCard"><summary><span>Preview</span> <span class="badge">3 sizes</span><span class="preview-sub">Your campaign previewed in three sizes: 1x1, 9x16, 16x9 — one brief, generated for every platform below.</span></summary>
-<div class="body"><div class="preview" id="preview" role="region" aria-label="Campaign preview — three sizes" data-mcp="preview.compose" data-mcp-description="Pipeline preview — displays campaign message in EN + localized on final posts"></div><div class="hint ff-filenames" id="fileNames"></div></div></details>
+<!-- ============ OUTPUT ============ -->
+<section class="ff-output" aria-labelledby="outputHeading">
+  <h2 class="ff-output-heading" id="outputHeading">Output</h2>
 
-<!-- Design system + Frontier prototype context moved to details.html -->
+  <!-- readout: what your selections resolved to (featured frontier + languages). ids preserved so the market-selection JS still writes here. -->
+  <div class="ff-detail ff-output-readout">
+    <div class="ff-featured" id="featuredFrontier" aria-live="polite"></div>
+    <div class="ff-langs" id="marketLangLine" aria-live="polite">localized in languages: <b>English, Spanish, Portuguese</b></div>
+    <!-- #locPreview (localized-copy preview) is injected here by the AXIS-3 script, beside this readout -->
+  </div>
+
+  <details class="card wide-track preview-card" id="previewCard"><summary><span>Preview</span> <span class="badge">3 sizes</span><span class="preview-sub">Your campaign previewed in three sizes: 1x1, 9x16, 16x9 — one brief, generated for every platform below.</span></summary>
+  <div class="body"><div class="preview" id="preview" role="region" aria-label="Campaign preview — three sizes" data-mcp="preview.compose" data-mcp-description="Pipeline preview — displays campaign message in EN + localized on final posts"></div><div class="hint ff-filenames" id="fileNames"></div></div></details>
+
+  <!-- Download asset pack hidden by default; primary/secondary download actions injected under the preview after generation -->
+  <div class="row ff-downloadrow"><button class="btn ghost" id="downloadPack" data-mcp="download-pack" data-mcp-description="Download the campaign assets as an ISO-labeled zip from S3">Download asset pack</button></div>
+  <div class="hint ff-generatehint" id="generateHint">Park City default with a localized variant. <span id="sampleStatus" class="ff-samplestatus" role="status" aria-live="polite"></span></div>
+
+  <!-- HIDDEN: single retailers channel default so generate JS never null-crashes (.channel-check never read by JS, kept for safety) -->
+  <input type="checkbox" value="retailers" class="channel-check" checked hidden aria-hidden="true">
+
+  <!-- HIDDEN: local-flavor block kept in DOM (updateLocalFlavor reads #localFlavorText) — not a prominent field per simplification -->
+  <div id="localFlavor" class="ff-hidden" data-mcp="local-flavor" data-mcp-description="Local flavor per season & source — derived, not selectable"><b>Local flavor</b><div id="localFlavorText">Park City: Wasatch Back — Jensen Farms peaches + Copper Moose rhubarb Jun–Sep at Park City Farmers Market.</div></div>
+</section>
+<!-- ============ /OUTPUT ============ -->
 <div class="row ff-detailslink-row"><a href="details.html" class="ff-detailslink">Design system + details &rarr;</a></div>
 
 <details class="card wide-track ff-about" id="aboutTool"><summary>About this tool</summary><div class="body"><p class="ff-about__copy">Type one line, pick a starting point, and get a ready-to-post Kodiak campaign — images and copy sized for every social platform and retailer, localized to the market you choose. See the <a href="details.html">design system + details</a> for how it works under the hood.</p></div></details>
 
 <!-- visible build stamp — confirm at a glance which version/JS is live in the browser (cache-buster verification) -->
-<div id="buildStamp">build 0.1.011-480c79d-20260905</div>
+<div id="buildStamp">build 0.1.012-878bea8-20260906</div>
 
 </div>
 <script>
@@ -770,9 +878,10 @@ const marketLangsOffline = {
   "US-CA-PESCADERO": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":12},{"lang_code":"zh","lang_name":"Chinese","translate_code":"zh","pct_home":6}],
   "US-WA-NEAHBAY": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":8},{"lang_code":"zh","lang_name":"Chinese","translate_code":"zh","pct_home":1.5}],
   "US-MW-PARKCITY-84098": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":9},{"lang_code":"de","lang_name":"German","translate_code":"de","pct_home":0.6}],
+  "US-SW-ALBQ": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":22.3},{"lang_code":"nv","lang_name":"Navajo","translate_code":"nv","pct_home":1.1,"machine_translate":false,"review":"community","review_note":"Community-authorized translation required — not machine-generated (language sovereignty)."}],
   "_default": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":8},{"lang_code":"fr","lang_name":"French","translate_code":"fr","pct_home":0.5}]
 };
-/** @param {string} code @returns {Array<{lang_code:string,lang_name:string,translate_code:string,pct_home:number}>} */
+/** @param {string} code @returns {Array<{lang_code:string,lang_name:string,translate_code:string,pct_home:number,machine_translate?:boolean,review?:string,review_note?:string}>} */
 function marketLangsFor(code){ return (marketLangsOffline[code] || marketLangsOffline._default || []).filter(Boolean); }
 /** @param {void} @returns {void} */
 function renderLangChips(){
@@ -860,13 +969,15 @@ const places = [
   {market:"US-WA-NEAHBAY", place:"Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe", retailer:"Washburn's General Store (Neah Bay), Port Angeles Safeway / Walmart (70mi), Costco Seattle / Sequim area (4-5hr)", zip:"98357", audience:"Makah families, Neah Bay mini-mart regulars, Port Angeles co — Amber", message:"KODIAK® Neah Bay frontier — huckleberry compote over Buttermilk Power Cakes, Makah water meets Wasatch grain", peppers:"—", cheeses:"—", cue:"Neah Bay harbor at dawn, Makah cedar canoe, Kodiak box on Washburn's porch with huckleberry compote, Olympic Peninsula f"},
   {market:"US-SW-TULAROSA", place:"Tularosa, NM 88352 — Tularosa Basin, provider edge", retailer:"Walmart Alamogordo, Lowe's Supermarket Tularosa", zip:"88352", audience:"Tularosa Basin families — Cory", message:"KODIAK® Keep It Wild — protein-packed whole grains for your Tularosa frontier. Nourishment for Today's Frontier", peppers:"—", cheeses:"—", cue:"White Sands, Sacramento Mountains, Tularosa Basin"}
 ];
+// B3: expose the places table globally so the prompt-box autocomplete script (a separate <script>) can read markets.
+try{ window.places = places; }catch(e){}
 const products = [
-  {id:"power-cakes", name:"KODIAK CAKES® Buttermilk Power Cakes", img:"input_assets/power-cakes/hero.png", base:"1 cup mix + 2/3 cup milk + 1 egg"},
-  {id:"protein-biscuits", name:"KODIAK CAKES® Cheddar Jalapeno Drop Biscuits", img:"input_assets/bear-bites/hero.png", base:"2 cups mix + cold butter + cheddar + jalapeno, drop bake 14 min"},
-  {id:"savory-waffles", name:"KODIAK CAKES® Savory Waffles — Regional", img:"input_assets/power-cakes/hero.png", base:"1 cup mix + 2 eggs + milk + 1/2 cup cheese + 1/4 cup roasted peppers, waffle iron 3 min"},
-  {id:"oatmeal-cup", name:"KODIAK POWER CUPS® Protein Oatmeal Cup", img:"input_assets/oatmeal-cup/hero.png", base:"1 Power Cup + water, 5 min"},
-  {id:"muffin", name:"KODIAK CAKES® Chocolate Chip Muffins", img:"input_assets/power-cakes/hero.png", base:"1 box Muffin Mix + 2 eggs + milk + oil"},
-  {id:"waffle-icecream-sandwiches", name:"KODIAK CAKES® Waffle Ice Cream Sandwiches", img:"input_assets/power-cakes/hero.png", base:"Toast 2 Power Waffles, sandwich ice cream"}
+  {id:"power-cakes", name:"KODIAK CAKES® Buttermilk Power Cakes", img:"", base:"1 cup mix + 2/3 cup milk + 1 egg"},
+  {id:"protein-biscuits", name:"KODIAK CAKES® Cheddar Jalapeno Drop Biscuits", img:"", base:"2 cups mix + cold butter + cheddar + jalapeno, drop bake 14 min"},
+  {id:"savory-waffles", name:"KODIAK CAKES® Savory Waffles — Regional", img:"", base:"1 cup mix + 2 eggs + milk + 1/2 cup cheese + 1/4 cup roasted peppers, waffle iron 3 min"},
+  {id:"oatmeal-cup", name:"KODIAK POWER CUPS® Protein Oatmeal Cup", img:"", base:"1 Power Cup + water, 5 min"},
+  {id:"muffin", name:"KODIAK CAKES® Chocolate Chip Muffins", img:"", base:"1 box Muffin Mix + 2 eggs + milk + oil"},
+  {id:"waffle-icecream-sandwiches", name:"KODIAK CAKES® Waffle Ice Cream Sandwiches", img:"", base:"Toast 2 Power Waffles, sandwich ice cream"}
 ];
 const peppersList = ["Hatch green chile roasted, diced","Red chile","Jalapeño","Chipotle","Poblano","—"];
 const cheesesList = ["Oaxaca crumble","Sharp cheddar","Pepper jack","Cotija","Oaxaca","Gruyère","Queso fresco","—"];
@@ -955,7 +1066,9 @@ function render(){
     img.src = prod.img;
     tile.appendChild(c);
     const meta=document.createElement('div'); meta.className='meta';
-    meta.innerHTML=`<b>KODIAK® ${prod.id} — ${r.k}</b><div class=small>${r.w}×${r.h}</div>`;
+    // S12 — localized caption per offline tile (EN source + market top_languages[]; offline shows honest pending)
+    let _locCap=''; try{ if(typeof window.KODIAK_locCaption==='function') _locCap='<div class="small loc-cap-wrap">'+window.KODIAK_locCaption(_loc.market)+'</div>'; }catch(e){}
+    meta.innerHTML=`<b>KODIAK® ${prod.id} — ${r.k}</b><div class=small>${r.w}×${r.h}</div>`+_locCap;
     tile.appendChild(meta);
     previewEl.appendChild(tile);
     canvases.push({canvas:c,ratio:r.k,product:prod.id});
@@ -1086,17 +1199,25 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
               const kamasMsg = sel.options[sel.selectedIndex]?.textContent?.includes('Kamas') ? (places.find(p=>p.market==='US-UT-KAMASVALLEY')?.message || "Quiet ranch country — no store, no downtown, just river valley and a hot griddle. Kodiak savory waffle + Oakley grass-fed sausage — Nourishment for Today\'s Frontier") : "Keep It Wild — protein-packed whole grains for your Wasatch frontier. Nourishment for Today\'s Frontier";
               const ratios = [{k:"1x1",w:1080,h:1080},{k:"9x16",w:1080,h:1920},{k:"16x9",w:1920,h:1080}];
               const kamasPreview=document.getElementById('kamas-preview');
-              const heroSrc = (kamasProd && kamasProd.img) ? kamasProd.img : "input_assets/power-cakes/hero.png";
-              // CDN fallback hero if input_assets missing
+              // CDN fallback hero — a real resolvable https url. only load an Image for a real
+              // http(s) url; the input_assets/*.png stubs do not exist and would 404 to console.
               const cdnFallback="https://kodiakcakes.com/cdn/shop/files/Buttermilk_Power_Cakes_24oz_Front.png";
+              const rawHero = (kamasProd && kamasProd.img) ? kamasProd.img : "";
+              const isRealUrl = (u)=> typeof u==='string' && /^https?:\/\//.test(u) && u.indexOf('input_assets/')===-1;
+              const heroSrc = isRealUrl(rawHero) ? rawHero : "";
               ratios.forEach(r=>{
                 const tile=document.createElement('div'); tile.className='tile';
                 const c=document.createElement('canvas'); c.width=r.w; c.height=r.h; c.style.maxWidth='100%'; c.style.height='auto';
                 const ctx=c.getContext('2d');
-                const img=new Image(); img.crossOrigin='anonymous';
-                img.onload=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,img); }catch(e){} };
-                img.onerror=()=>{ const fb=new Image(); fb.crossOrigin='anonymous'; fb.onload=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,fb); }catch(e){ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e2){} } }; fb.onerror=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e){} }; fb.src=cdnFallback; };
-                img.src=heroSrc;
+                // no resolvable hero -> draw with no photo (paint null), NO Image(), NO 404.
+                if(!heroSrc){
+                  try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e){}
+                } else {
+                  const img=new Image(); img.crossOrigin='anonymous';
+                  img.onload=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,img); }catch(e){} };
+                  img.onerror=()=>{ const fb=new Image(); fb.crossOrigin='anonymous'; fb.onload=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,fb); }catch(e){ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e2){} } }; fb.onerror=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e){} }; fb.src=cdnFallback; };
+                  img.src=heroSrc;
+                }
                 tile.appendChild(c);
                 const meta=document.createElement('div'); meta.className='meta';
                 meta.innerHTML=`<b>KODIAK® ${kamasProd?kamasProd.id:'savory-waffles'} — ${r.k} — Kamas Valley rural</b><div class=small>${r.w}×${r.h}</div>`;
@@ -1140,6 +1261,17 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
   const featured  = document.getElementById('featuredFrontier');
   const summary   = disclosure ? disclosure.querySelector('summary') : null;
   if(!listbox || typeof places==='undefined') return;
+
+  // === S12 — live /localize gate ===
+  // Flip localization from a permanent no-op to a real translate path on the HOSTED origin, while keeping
+  // it OFF for file:// + localhost so the honest offline degrade (EN-source + single offline note) still
+  // applies there. The renderer targets window.KODIAK_LOCALIZE_ENDPOINT via localizeText() below, which
+  // carries a 6s AbortController timeout + .catch safety net — hosted origin attempts real translation and
+  // degrades honestly to EN-source if /localize 403s or times out. NEVER fabricate translated text offline.
+  if(!window.KODIAK_LOCALIZE_ENDPOINT){
+    var _isLocal = (location.protocol==='file:') || ['127.0.0.1','localhost'].includes(location.hostname);
+    if(!_isLocal) window.KODIAK_LOCALIZE_ENDPOINT = '/localize';
+  }
 
   // --- frontier-gaps overlay (frontier:true markets). offline-tolerant multi-path fetch; overlay only. ---
   const frontierMarkets = new Set();
@@ -1235,14 +1367,51 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
   //
   // BLOCKER: no precomputed market x lang -> {text,provider} JSON exists in the repo (localize() is a backend
   // python service). So this renders PLACEHOLDERS, never fabricated machine translations:
-  //   - English source line  -> data-provider="source" (real English source string from places[].message)
-  //   - machine-translatable  -> data-provider="pending"        (placeholder "translation pending")
-  //   - nv / zip (HARD GATE)  -> data-provider="human-required" (placeholder "human translation pending")
+  //   - English source line       -> data-provider="source" (real English source string from places[].message)
+  //   - machine-translatable       -> data-provider="pending"            (placeholder "translation pending")
+  //   - community-review (nv/zip)  -> data-provider="community-review"   (FIRST-CLASS row + visible review badge)
+  //
+  // COMMUNITY-REVIEW LANGUAGES (nv/zip): these are low-resource Indigenous languages under community sovereignty.
+  // They are SUPPORTED and VISIBLE — never machine-translated, never hidden or dimmed into an apology. The row
+  // renders full-strength with the English source they'd be translated from and a respectful badge explaining WHY
+  // (community-authorized translation, not machine). SOURCE OF TRUTH is the DATA flag machine_translate:false in
+  // market-languages.json; the HUMAN_REQUIRED set below is a defense-in-depth fallback if that flag is ever absent.
   //
   // #124 populates window.KODIAK_LOCALIZED_COPY = { "<market>": { "<translate_code>": {text, provider} } }.
-  // When that object exists, real text swaps in for the placeholder with NO structural change — and the
-  // nv/zip human-required gate below still overrides any provider the data claims.
-  const HUMAN_REQUIRED = new Set(['nv','zip']); // Navajo, Zapotec — never machine-translated (ethics gate #123)
+  // When that object exists, real text swaps in for the placeholder with NO structural change. For a
+  // community-review language the authorized copy is presented as data-provider="community-authorized" with a
+  // "community-authorized" badge — it is NEVER relabeled as "machine", regardless of what provider the data claims.
+  const HUMAN_REQUIRED = new Set(['nv','zip']); // Navajo, Zapotec — fallback safety net; DATA flag is primary (#123)
+
+  // primary source of truth: the market-languages.json entry says machine_translate:false.
+  // returns true if this language must not be machine-translated (data flag OR fallback set).
+  function isCommunityReview(l, code){
+    if(l && l.machine_translate === false) return true;   // DATA is authoritative
+    return HUMAN_REQUIRED.has(code);                        // defense-in-depth fallback
+  }
+
+  // === S12 — live translate helper (single source of truth for the /localize path) ===
+  // POSTs {text, market, target_lang} to window.KODIAK_LOCALIZE_ENDPOINT and returns the translated string,
+  // or null on ANY failure (endpoint off, 403, timeout, malformed response). Callers degrade to EN-source
+  // when this returns null — translated text is NEVER fabricated. 6s AbortController timeout is the safety net.
+  // NEVER call this for community-review languages (nv/zip machine_translate:false) — that path stays human-only.
+  const _locCache = new Map(); // key: market|code|text  -> translated string (dedupe repeat renders)
+  function localizeText(text, market, code){
+    const ep = window.KODIAK_LOCALIZE_ENDPOINT;
+    if(!ep) return Promise.resolve(null);                   // offline / file:// / localhost — honest degrade
+    const key = market+'|'+code+'|'+text;
+    if(_locCache.has(key)) return Promise.resolve(_locCache.get(key));
+    const controller = new AbortController();
+    const timer = setTimeout(()=>controller.abort(), 6000); // 6s timeout — degrade if backend is slow/unreachable
+    return fetch(ep, {method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({text, market, target_lang: code}), signal: controller.signal})
+      .then(r=>{ if(!r.ok) throw new Error('localize HTTP '+r.status); return r.json(); })
+      .then(j=>{ const t=(j && (j.text || j.translated || j.translation)); const out=(typeof t==='string' && t.trim())?t:null; if(out) _locCache.set(key, out); return out; })
+      .catch(()=>null)                                       // 403 / timeout / offline -> null -> EN-source degrade
+      .finally(()=>clearTimeout(timer));
+  }
+  window.KODIAK_localizeText = localizeText;                 // reuse from tile-caption renderers in other scopes
+  window.KODIAK_isCommunityReview = isCommunityReview;
 
   // host for the localized-copy preview, injected once beside the featured/langs detail cell
   let host = document.getElementById('locPreview');
@@ -1254,7 +1423,7 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
     host.id='locPreview'; host.className='ff-locpreview'; host.setAttribute('aria-live','polite');
     host.style.cssText='flex:1 1 100%;margin-top:var(--spacing-sm)';
     const cell = featured ? featured.parentNode : null;
-    if(cell && cell.parentNode) cell.parentNode.appendChild(host); else (document.querySelector('.ff-controlrow')||document.body).appendChild(host);
+    if(cell && cell.parentNode) cell.parentNode.appendChild(host); else (document.querySelector('.ff-output')||document.querySelector('.ff-controlrow')||document.body).appendChild(host);
     return host;
   }
 
@@ -1278,20 +1447,133 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
     const rows = [];
     // English source line — real string, tagged source
     rows.push('<p class="loc-line" lang="en" data-provider="source"><span class="loc-langtag">EN</span>'+esc(source)+'</p>');
-    // one placeholder row per non-English target language
-    langs.forEach(l=>{
+    // machine rows we kicked off a live translate for — {rowId, code} — swapped in after paint
+    const liveJobs = [];
+    // one row per non-English target language
+    langs.forEach((l, i)=>{
       const code = (l.translate_code||l.lang_code||'').toLowerCase();
-      const humanGate = HUMAN_REQUIRED.has(code);           // client-side ethics gate (#123) — nv/zip
-      const pre = humanGate ? null : precomputed(market, code); // real text only when #124 data exists AND not gated
-      const provider = humanGate ? 'human-required' : (pre ? (pre.provider||'machine') : 'pending');
-      const fill = humanGate ? 'human translation pending'
-                 : (pre ? pre.text : 'translation pending');
-      rows.push('<p class="loc-line" lang="'+esc(l.lang_code||code)+'" data-provider="'+esc(provider)+'">'+
+      const community = isCommunityReview(l, code);        // DATA flag primary, HUMAN_REQUIRED set fallback
+      // #124 copy: for a community-review language, authorized copy is ALWAYS presented as community-authorized,
+      // never as "machine" — even if the data object tags it otherwise. For machine langs, real text swaps in as-is.
+      const pre = precomputed(market, code);
+      const note = l.review_note || 'Community-authorized translation required — not machine-generated (language sovereignty).';
+      let provider, fill, badge='';
+      const rowId = 'locrow-'+market+'-'+code+'-'+i;
+      if(community){
+        if(pre){
+          // authorized community copy has landed via #124 — show it, attributed as community-authorized (NOT machine)
+          provider = 'community-authorized';
+          fill = pre.text;
+          badge = '<span class="loc-review" title="'+esc(note)+'">Community-authorized</span>';
+        } else {
+          // no authorized copy yet — first-class visible row showing the English source + review annotation
+          provider = 'community-review';
+          fill = source;                                    // show the English source they'd be translated from
+          badge = '<span class="loc-review" title="'+esc(note)+'">Community review — not machine-translated</span>';
+        }
+        // community-review languages are NEVER sent to the machine translate path — no liveJobs entry
+      } else if(pre){
+        // precomputed #124 copy present — real text, no live call needed
+        provider = pre.provider||'machine';
+        fill = pre.text;
+      } else if(window.KODIAK_LOCALIZE_ENDPOINT){
+        // hosted origin — show EN source now, swap real translation in when /localize answers (else stays EN-source)
+        provider = 'pending-live';
+        fill = source;                                      // honest: EN source until the live text lands
+        liveJobs.push({rowId, code});
+      } else {
+        // offline / file:// / localhost — honest degrade, no fabricated text
+        provider = 'pending';
+        fill = 'translation pending';
+      }
+      rows.push('<p class="loc-line" id="'+esc(rowId)+'" lang="'+esc(l.lang_code||code)+'" data-provider="'+esc(provider)+'">'+
                 '<span class="loc-langtag">'+esc((l.lang_code||code).toUpperCase())+'</span>'+
-                esc(fill)+'</p>');
+                '<span class="loc-txt">'+esc(fill)+'</span>'+badge+'</p>');
     });
-    h.innerHTML = '<div class="ff-locpreview-head" style="font:700 10px/1.2 \'kodiak_sans\',\'museo-sans\',sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted);margin-bottom:2px">Localized copy preview</div>'+rows.join('');
+    // offline honest note — single line, only when the endpoint is off (never fabricate translated text)
+    const offlineNote = window.KODIAK_LOCALIZE_ENDPOINT ? '' :
+      '<p class="loc-line loc-offline" data-provider="offline-note" style="font-style:italic;color:var(--colors-foreground-muted)">localization offline — showing English source only</p>';
+    h.innerHTML = '<div class="ff-locpreview-head" style="font:700 10px/1.2 \'kodiak_sans\',\'museo-sans\',sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted);margin-bottom:2px">Localized copy preview</div>'+rows.join('')+offlineNote;
+
+    // === S12 — #featuredFrontier market-driven localized frontier note (Task 2) ===
+    // Show the featured-frontier framing (place cue / featured line) plus this market's REAL localized reach.
+    // Offline: EN cue + the market's real top_languages[] names (not the hardcoded trio). Live: swap the
+    // translated frontier line in when /localize answers. aria-live=polite is preserved on the element.
+    if(featured){
+      const cue = (p && (p.cue || p.message)) ? (p.cue || p.message) : source;
+      const names = langs.map(l=>l.lang_name).filter(Boolean);
+      const reach = names.length ? (' · localized reach: '+esc(['English'].concat(names).join(', '))) : '';
+      featured.innerHTML = '<span class="ff-cue">'+esc(cue)+'</span><span class="ff-reach" style="color:var(--colors-foreground-muted)">'+reach+'</span>';
+      // live: translate the frontier cue into the market's top machine-translatable language and prepend it
+      const firstMachine = langs.find(l=>!isCommunityReview(l,(l.translate_code||l.lang_code||'').toLowerCase()));
+      if(window.KODIAK_LOCALIZE_ENDPOINT && firstMachine){
+        const fcode = (firstMachine.translate_code||firstMachine.lang_code||'').toLowerCase();
+        localizeText(cue, market, fcode).then(t=>{
+          if(!t || !featured.isConnected) return;           // degrade honestly — leave EN cue in place
+          // guard against a stale market swap while the request was in flight
+          if((document.getElementById('locality')?.value||market)!==market) return;
+          featured.innerHTML = '<span class="ff-cue" lang="'+esc(firstMachine.lang_code||fcode)+'">'+esc(t)+'</span>'+
+            '<span class="ff-cue-en" style="color:var(--colors-foreground-muted)"> · '+esc(cue)+'</span>'+
+            '<span class="ff-reach" style="color:var(--colors-foreground-muted)">'+reach+'</span>';
+        });
+      }
+    }
+
+    // fire live translations for the machine rows; swap real text in on resolve, else leave EN-source
+    liveJobs.forEach(job=>{
+      localizeText(source, market, job.code).then(t=>{
+        const row = document.getElementById(job.rowId);
+        if(!row || !t) return;                              // null -> honest degrade, EN source stays
+        const txt = row.querySelector('.loc-txt');
+        if(txt) txt.textContent = t;
+        row.setAttribute('data-provider','machine-live');   // real machine translation landed
+      });
+    });
   }
+
+  // === S12 — compact localized tile caption (Task 3) ===
+  // Returns compact .loc-line HTML for a tile caption: EN source + this market's top_languages[]. Reuses the
+  // SAME source-of-truth (places[].message, marketLangsFor) and the SAME live/community/offline rules as the
+  // full preview, kept compact for a tile. Live machine rows swap real /localize text in after paint (via the
+  // uniqueId row + a microtask), community-review stays human-only, offline shows a single honest pending note.
+  // Exposed globally so showRenderSet (hosted) and the offline canvas render() can both call it.
+  let _capSeq = 0;
+  function locCaptionHtml(market){
+    const p = places.find(x=>x.market===market);
+    const source = (p && p.message) ? p.message : "KODIAK® — Nourishment for Today's Frontier";
+    const langs = (typeof marketLangsFor==='function') ? marketLangsFor(market) : [];
+    const seq = ++_capSeq;
+    const jobs = [];
+    const rows = ['<span class="loc-line" lang="en" data-provider="source"><span class="loc-langtag">EN</span>'+esc(source)+'</span>'];
+    langs.forEach((l,i)=>{
+      const code = (l.translate_code||l.lang_code||'').toLowerCase();
+      const community = isCommunityReview(l, code);
+      const note = l.review_note || 'Community-authorized translation required — not machine-generated (language sovereignty).';
+      const rowId = 'loccap-'+seq+'-'+code+'-'+i;
+      let provider, fill, badge='';
+      if(community){
+        provider='community-review'; fill=source;          // never machine-translated — EN source + badge, full-strength
+        badge='<span class="loc-review" title="'+esc(note)+'">community review</span>';
+      } else if(window.KODIAK_LOCALIZE_ENDPOINT){
+        provider='pending-live'; fill=source; jobs.push({rowId, code, source, market});
+      } else {
+        provider='pending'; fill='translation pending';    // offline honest state
+      }
+      rows.push('<span class="loc-line" id="'+esc(rowId)+'" lang="'+esc(l.lang_code||code)+'" data-provider="'+esc(provider)+'">'+
+                '<span class="loc-langtag">'+esc((l.lang_code||code).toUpperCase())+'</span>'+
+                '<span class="loc-txt">'+esc(fill)+'</span>'+badge+'</span>');
+    });
+    // fire the live translations on the next tick (after the caller has inserted this HTML into the DOM)
+    if(jobs.length) setTimeout(()=>{ jobs.forEach(job=>{
+      localizeText(job.source, job.market, job.code).then(t=>{
+        const row=document.getElementById(job.rowId); if(!row||!t) return;   // null -> EN-source stays (honest)
+        const txt=row.querySelector('.loc-txt'); if(txt) txt.textContent=t;
+        row.setAttribute('data-provider','machine-live');
+      });
+    }); }, 0);
+    return '<span class="loc-cap">'+rows.join('')+'</span>';
+  }
+  window.KODIAK_locCaption = locCaptionHtml;
 
   // Replace the legacy renderLangChips no-op so any caller (fillSelects, change listener, fetch upgrade)
   // now repaints the localized surface for the current market instead of deleting #lang-chips.
@@ -1308,7 +1590,7 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
 })();
 </script>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.011-480c79d-20260905","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.012-878bea8-20260906","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["73 markets","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
 
 
 <script>
@@ -1745,8 +2027,15 @@ let skuList = [
           // clean caption: "1:1 Feed · 1080×1080" + the platforms this ratio serves (no engineering noise)
           const plats = platformsForRatio(r.ratio);
           const platLine = plats.length ? '<span class="rt-platforms">' + escapeHtml(plats.join(' \u00B7 ')) + '</span>' : '';
+          // S12 — localized caption per tile: EN source + this market's top_languages[] (live /localize when on,
+          // community-review never machine, offline pending). Driven by the selected market at render time.
+          let locCap = '';
+          try{
+            const _m = document.getElementById('locality')?.value || (selectedLoc && selectedLoc.market);
+            if(_m && typeof window.KODIAK_locCaption==='function') locCap = window.KODIAK_locCaption(_m);
+          }catch(e){}
           cap.innerHTML = '<b>' + escapeHtml(ratioColon + ' ' + meta.name) + '</b>' +
-            '<span class="dims">' + escapeHtml((r.w||'') + '\u00D7' + (r.h||'')) + '</span>' + platLine;
+            '<span class="dims">' + escapeHtml((r.w||'') + '\u00D7' + (r.h||'')) + '</span>' + platLine + locCap;
           tile.appendChild(cap);
           set.appendChild(tile);
         });
@@ -1886,13 +2175,16 @@ let skuList = [
         const staleBadge = document.getElementById('genSourceBadge'); if(staleBadge) staleBadge.remove();
         const sku = String(requestedSku || 'power-cakes');
         // resolve a real thumbnail for the requested product from the catalog/products list.
-        let heroSrc = 'input_assets/power-cakes/hero.png';
+        // only a real http(s) url is loadable; input_assets/*.png stubs do not exist (404 to
+        // console). default to no hero -> paint(null) draws the ad without a photo.
+        let heroSrc = '';
         try{
           const cat = (window.skuCatalog || (typeof skuCatalog!=='undefined' ? skuCatalog : [])) || [];
           const hit = cat.find(x=>x && (x.handle===sku || x.name===sku));
           if(hit && hit.img) heroSrc = hit.img;
           else if(typeof products!=='undefined'){ const pr = products.find && products.find(x=>x && (x.id===sku)); if(pr && pr.img) heroSrc = pr.img; }
         }catch(e){}
+        const isRealHero = typeof heroSrc==='string' && /^https?:\/\//.test(heroSrc) && heroSrc.indexOf('input_assets/')===-1;
         const tile = document.createElement('div');
         tile.className = 'tile';
         tile.style.cssText = 'grid-column:1/-1;max-width:640px;margin:0 auto;border:1px dashed #B51E14';
@@ -1908,7 +2200,10 @@ let skuList = [
         const img = new Image(); img.crossOrigin='anonymous';
         img.onload = ()=>paint(img);
         img.onerror = ()=>paint(null);
-        img.src = heroSrc;
+        // only fire a network load for a real resolvable url; otherwise paint with no photo
+        // (NO Image(), NO 404). offline preview still renders with its OFFLINE watermark.
+        if(isRealHero){ img.src = heroSrc; }
+        else { paint(null); }
         tile.appendChild(c);
         const meta = document.createElement('div'); meta.className='meta';
         meta.innerHTML = `<b>Offline preview — ${sku}</b><div class="small" style="color:#B51E14">No server response. This is a local stand-in of the requested product, not a generated campaign. Reconnect and try Create again.</div>`;
@@ -2248,6 +2543,12 @@ let skuList = [
     // languages needing a human translator — render as pending, do not fetch for a final string.
     var humanRequired = { nv:1, zip:1 };
 
+    // localize backend gate. static host (cloudfront/s3) has NO /localize — so default OFFLINE
+    // and skip the POST entirely (a fetch would 403 and log to console before degrading). a
+    // dev/server context can set window.KODIAK_LOCALIZE_ENDPOINT='/localize' (or a full url) to
+    // re-enable the live path; when truthy, the fetch below targets that endpoint.
+    var LOCALIZE_ENDPOINT = (window.KODIAK_LOCALIZE_ENDPOINT || null);
+
     function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 
     // English source line, immediate + synchronous.
@@ -2293,11 +2594,20 @@ let skuList = [
       line.innerHTML = tag + '<span class="loc-pending">translating\u2026</span>';
       langLine.appendChild(line);
 
+      // no localize backend (static deploy) -> skip fetch entirely, degrade this line offline
+      // with ZERO network call. same visual result the .catch produces below.
+      if(!LOCALIZE_ENDPOINT){
+        line.setAttribute('data-provider','offline');
+        line.innerHTML = tag + esc(english);
+        noteOffline();
+        return;
+      }
+
       // async fill — short timeout, try/catch, graceful degrade. never throws into reflectMarket.
       try{
         var ctrl = (typeof AbortController!=='undefined') ? new AbortController() : null;
         var timer = ctrl ? setTimeout(function(){ ctrl.abort(); }, 6000) : null;
-        fetch('/localize', {
+        fetch(LOCALIZE_ENDPOINT, {
           method:'POST',
           headers:{'Content-Type':'application/json'},
           body: JSON.stringify({ text: english, market: market, target_lang: code }),
@@ -2685,5 +2995,435 @@ let skuList = [
   onScroll();
 })();
 </script>
-  <script src="glimmer-proxy.js?v=0.1.011-480c79d-20260905"></script>
+  <script>
+/* =============================================================================
+   PROTOTYPE VIEW — live layout overlay (dev only, gated behind ?debug=layout)
+   Draws the form+function diagram over the REAL rendered page so it cannot drift.
+   100% additive: without ?debug=layout this block adds zero DOM and no listeners
+   that touch page behavior. All overlay DOM lives under a single #proto-overlay
+   node so it is trivially removable. pointer-events:none end to end.
+   View: index.html?cakes=1&debug=layout
+   ============================================================================= */
+(function(){
+  // gate: do nothing at all unless ?debug=layout is present
+  if(!new URLSearchParams(location.search).has('debug') ||
+     new URLSearchParams(location.search).get('debug')!=='layout') return;
+
+  // role palette — DEBUG colors, not kodiak brand tokens (intentional for a dev overlay)
+  var ROLE={
+    brand:      '#1A73E8',
+    input:      '#188038',
+    control:    '#9334E6',
+    output:     '#E8710A',
+    navigation: '#00897B',
+    decorative: '#9AA0A6',
+    meta:       '#5F6368'
+  };
+  var DASHED={decorative:1, meta:1}; // dashed outline for these roles
+
+  // single source of truth: one record per structural element
+  // {sel, name, fn, role, state}
+  var PROTOTYPE_MAP=[
+    {sel:'body',                              name:'page body',       fn:'root of visible page',                      role:'meta',       state:'always'},
+    {sel:'header.kodiak-header',              name:'site header',     fn:'brand header, sticky on scroll',            role:'brand',      state:'always'},
+    {sel:'.kodiak-headline-plate',            name:'headline plate',  fn:'green plate holding page title',            role:'brand',      state:'always'},
+    {sel:'.wrap',                             name:'content wrap',    fn:'centered main content column',              role:'meta',       state:'always'},
+    {sel:'.card[data-mcp="campaign-brief"]',  name:'campaign card',   fn:'primary create-a-campaign surface',         role:'control',    state:'always'},
+    {sel:'.ff-prompt',                        name:'prompt bar',      fn:'Firefly-style campaign prompt surface',     role:'input',      state:'always'},
+    {sel:'.ff-inputwrap',                     name:'input row',       fn:'textarea + upload + create button',         role:'input',      state:'always'},
+    {sel:'#campaignBrief',                    name:'brief textarea',  fn:'type the campaign idea',                    role:'input',      state:'always'},
+    {sel:'#promptUpload',                     name:'upload button',   fn:'opens image/document upload',               role:'control',    state:'always'},
+    {sel:'#generateCampaign',                 name:'create button',   fn:'generates full campaign set',               role:'control',    state:'always'},
+    {sel:'.ff-controlrow',                    name:'control row',     fn:'market, season, location, detail controls', role:'control',    state:'always'},
+    {sel:'#marketDisclosure',                 name:'market picker',   fn:'choose target market (disclosure)',         role:'control',    state:'always'},
+    {sel:'#useMyLocation',                    name:'my location',     fn:'snap to nearest market',                    role:'control',    state:'always'},
+    {sel:'#seasonalSelect',                   name:'season select',   fn:'pick month/season/holiday',                 role:'input',      state:'always'},
+    {sel:'.ff-detail',                        name:'detail block',    fn:'featured frontier + languages readout',     role:'output',     state:'always'},
+    {sel:'#existingAssets',                   name:'product chooser', fn:'add up to 3 Kodiak SKUs (disclosure)',      role:'control',    state:'always'},
+    {sel:'.ff-tray#selectionTray',            name:'selection tray',  fn:'staged assets + chosen SKU chips',          role:'output',     state:'js-created'},
+    {sel:'.ff-optiongroup',                   name:'option group',    fn:'campaign starting-point chips',             role:'control',    state:'always'},
+    {sel:'#promptChips',                      name:'chip row',        fn:'quick-start theme pills',                   role:'control',    state:'always'},
+    {sel:'#downloadPack',                     name:'download pack',   fn:'downloads campaign zip',                    role:'control',    state:'always'},
+    {sel:'.ff-ridge',                         name:'ridge divider',   fn:'decorative Wasatch silhouette band',        role:'decorative', state:'always'},
+    {sel:'#previewCard',                      name:'preview card',    fn:'campaign preview in three sizes (disclosure)', role:'output',  state:'always'},
+    {sel:'#preview',                          name:'preview region',  fn:'renders 1x1/9x16/16x9 (built on generate)', role:'output',     state:'js-created'},
+    {sel:'.ff-detailslink-row',               name:'details link row',fn:'link to the design-system page',            role:'navigation', state:'always'},
+    {sel:'#aboutTool',                        name:'about tool',      fn:'explains what the tool does (disclosure)',  role:'output',     state:'always'},
+    {sel:'#buildStamp',                       name:'build stamp',     fn:'shows live build version',                  role:'meta',       state:'always'},
+    {sel:'.render-set',                       name:'render set',      fn:'multi-size render tiles (built on generate)', role:'output',   state:'js-created'},
+    {sel:'.provenance',                       name:'provenance panel',fn:'generation-source disclosure (built on generate)', role:'output', state:'js-created'}
+  ];
+
+  var OVERLAY_ID='proto-overlay';
+  var rafPending=false;
+  var hidden=false; // "L" toggle state
+
+  function hexToRgba(hex, a){
+    var h=hex.replace('#','');
+    var r=parseInt(h.substring(0,2),16),
+        g=parseInt(h.substring(2,4),16),
+        b=parseInt(h.substring(4,6),16);
+    return 'rgba('+r+','+g+','+b+','+a+')';
+  }
+
+  function ensureOverlay(){
+    var o=document.getElementById(OVERLAY_ID);
+    if(o) return o;
+    o=document.createElement('div');
+    o.id=OVERLAY_ID;
+    o.style.cssText='position:absolute;top:0;left:0;width:0;height:0;'+
+      'pointer-events:none;z-index:2147483000;';
+    document.body.appendChild(o);
+    return o;
+  }
+
+  function makeBox(rect, rec){
+    var color=ROLE[rec.role]||ROLE.meta;
+    var dashed=!!DASHED[rec.role];
+    var box=document.createElement('div');
+    box.style.cssText=
+      'position:absolute;pointer-events:none;box-sizing:border-box;'+
+      'top:'+(rect.top+window.scrollY)+'px;'+
+      'left:'+(rect.left+window.scrollX)+'px;'+
+      'width:'+rect.width+'px;'+
+      'height:'+rect.height+'px;'+
+      'outline:2px '+(dashed?'dashed':'solid')+' '+color+';'+
+      'outline-offset:-1px;'+
+      'background:'+hexToRgba(color,0.08)+';';
+    var chip=document.createElement('div');
+    chip.textContent=rec.name+' — '+rec.fn;
+    chip.style.cssText=
+      'position:absolute;top:0;left:0;pointer-events:none;'+
+      'font:600 10px/1.3 system-ui,-apple-system,sans-serif;'+
+      'white-space:nowrap;max-width:96vw;overflow:hidden;text-overflow:ellipsis;'+
+      'background:'+color+';color:#fff;padding:1px 5px;border-radius:0 0 3px 0;';
+    box.appendChild(chip);
+    return box;
+  }
+
+  function isVisible(el){
+    var r=el.getBoundingClientRect();
+    return r.width>0 && r.height>0;
+  }
+
+  function legendRole(){
+    var panel=document.createElement('div');
+    panel.style.cssText=
+      'position:fixed;left:8px;bottom:8px;pointer-events:none;'+
+      'font:500 11px/1.5 system-ui,-apple-system,sans-serif;color:#fff;'+
+      'background:rgba(32,33,36,0.92);padding:8px 10px;border-radius:6px;'+
+      'max-width:280px;box-shadow:0 2px 8px rgba(0,0,0,0.4);';
+    var title=document.createElement('div');
+    title.textContent='role → outline color';
+    title.style.cssText='font-weight:700;margin-bottom:4px;letter-spacing:.02em;';
+    panel.appendChild(title);
+    Object.keys(ROLE).forEach(function(role){
+      var row=document.createElement('div');
+      row.style.cssText='display:flex;align-items:center;gap:6px;';
+      var sw=document.createElement('span');
+      sw.style.cssText='display:inline-block;width:12px;height:12px;border-radius:2px;'+
+        'background:'+hexToRgba(ROLE[role],0.5)+';'+
+        'border:2px '+(DASHED[role]?'dashed':'solid')+' '+ROLE[role]+';';
+      var lbl=document.createElement('span');
+      lbl.textContent=role;
+      row.appendChild(sw); row.appendChild(lbl);
+      panel.appendChild(row);
+    });
+    var note=document.createElement('div');
+    note.textContent='?debug=layout — resize the window to see responsive form change';
+    note.style.cssText='margin-top:6px;opacity:.75;font-size:10px;';
+    panel.appendChild(note);
+    return panel;
+  }
+
+  function legendPending(items){
+    if(!items.length) return null;
+    var panel=document.createElement('div');
+    panel.style.cssText=
+      'position:fixed;right:8px;bottom:8px;pointer-events:none;'+
+      'font:500 11px/1.5 system-ui,-apple-system,sans-serif;color:#fff;'+
+      'background:rgba(32,33,36,0.92);padding:8px 10px;border-radius:6px;'+
+      'max-width:300px;box-shadow:0 2px 8px rgba(0,0,0,0.4);';
+    var title=document.createElement('div');
+    title.textContent='appears on interaction';
+    title.style.cssText='font-weight:700;margin-bottom:4px;letter-spacing:.02em;';
+    panel.appendChild(title);
+    items.forEach(function(rec){
+      var row=document.createElement('div');
+      row.style.cssText='display:flex;align-items:center;gap:6px;';
+      var sw=document.createElement('span');
+      sw.style.cssText='display:inline-block;width:10px;height:10px;border-radius:50%;'+
+        'background:'+ROLE[rec.role]+';flex:0 0 auto;';
+      var lbl=document.createElement('span');
+      lbl.textContent=rec.name+' — '+rec.fn;
+      lbl.style.cssText='white-space:nowrap;overflow:hidden;text-overflow:ellipsis;';
+      row.appendChild(sw); row.appendChild(lbl);
+      panel.appendChild(row);
+    });
+    return panel;
+  }
+
+  function render(){
+    if(hidden) return;
+    var overlay=ensureOverlay();
+    overlay.innerHTML=''; // clear + redraw
+    var pending=[];
+    PROTOTYPE_MAP.forEach(function(rec){
+      var nodes=document.querySelectorAll(rec.sel);
+      if(!nodes.length){
+        if(rec.state==='js-created') pending.push(rec);
+        return;
+      }
+      var drewOne=false;
+      Array.prototype.forEach.call(nodes, function(el){
+        if(!isVisible(el)) return;
+        overlay.appendChild(makeBox(el.getBoundingClientRect(), rec));
+        drewOne=true;
+      });
+      // js-created element exists in DOM but not yet visible -> still list as pending
+      if(!drewOne && rec.state==='js-created') pending.push(rec);
+    });
+    overlay.appendChild(legendRole());
+    var pend=legendPending(pending);
+    if(pend) overlay.appendChild(pend);
+  }
+
+  function scheduleRender(){
+    if(rafPending) return;
+    rafPending=true;
+    requestAnimationFrame(function(){ rafPending=false; render(); });
+  }
+
+  // redraw hooks — all additive, none alter existing behavior
+  window.addEventListener('resize', scheduleRender, {passive:true});
+  window.addEventListener('scroll', scheduleRender, {passive:true});
+
+  // re-run after load so js-created + disclosure elements get outlined once they exist
+  window.addEventListener('load', function(){ setTimeout(render, 600); });
+
+  // clicks on generate / any <summary> reveal js-created + disclosure-opened elements
+  document.addEventListener('click', function(e){
+    var t=e.target;
+    if(!t) return;
+    if((t.closest && (t.closest('#generateCampaign') || t.closest('summary')))){
+      setTimeout(render, 600);
+    }
+  }, true);
+
+  // "L" toggles the overlay off/on for a clean screenshot
+  document.addEventListener('keydown', function(e){
+    if(e.key==='l' || e.key==='L'){
+      hidden=!hidden;
+      var o=document.getElementById(OVERLAY_ID);
+      if(hidden){ if(o) o.innerHTML=''; }
+      else { render(); }
+    }
+  });
+
+  // first paint
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded', scheduleRender);
+  } else {
+    scheduleRender();
+  }
+})();
+</script>
+  <script>
+// === B3 + B4 — prompt-box autocomplete + two-way selection reflection ===
+// Additive only. Binds by id, reuses already-loaded window.skuCatalog (88 SKUs) + window.places (73 markets).
+// Coordinates with the existing chip/theme block via a shared programmatic-write guard so it never
+// clobbers the user's text, never spuriously clears window.__activeTheme, and never fights auto-grow.
+(function(){
+  'use strict';
+  var briefEl = document.getElementById('campaignBrief');
+  if(!briefEl) return;
+
+  // ---- shared helpers ----
+  function grow(){ try{ briefEl.style.height='auto'; briefEl.style.height=Math.min(briefEl.scrollHeight,160)+'px'; }catch(e){} }
+  function skus(){ return (window.skuCatalog && window.skuCatalog.length) ? window.skuCatalog : []; }
+  function markets(){ return (window.places && window.places.length) ? window.places : []; }
+
+  // =========================================================================
+  // B4 — two-way reflection: selections assemble a de-duped context suffix in the
+  // visible prompt so Create (which reads #campaignBrief.value) sends what the user sees.
+  //
+  // The value = <user free text> + <SUFFIX_MARKER><context suffix>. The suffix is regenerated
+  // from CURRENT selection state on every change, so unchecking a product removes it from the
+  // visible prompt. The user's free-text portion is preserved separately (recovered by stripping
+  // the marker+suffix from the end on manual edits).
+  // =========================================================================
+  var SUFFIX_MARKER = '\n\n\u2014 ';   // "\n\n— " — visually separates the auto-context from the user's line
+  window.__briefUserText = window.__briefUserText != null ? window.__briefUserText : (briefEl.value || '');
+  window.__briefReflecting = false;    // guard: our programmatic writes must not be read as manual edits
+
+  // current market label (readable place name), from the hidden #locality select generate() reads
+  function currentMarketLabel(){
+    var sel = document.getElementById('locality');
+    var code = sel && sel.value ? sel.value : '';
+    if(!code) return '';
+    var p = markets().find(function(x){ return x.market===code; });
+    return p ? (p.place || code) : code;
+  }
+  // current season — the selected option's visible text (skip the "Season: any" placeholder)
+  function currentSeasonLabel(){
+    var s = document.getElementById('seasonalSelect');
+    if(!s || !s.value) return '';
+    var opt = s.options[s.selectedIndex];
+    return opt ? opt.textContent.replace(/^Season:\s*/i,'').trim() : '';
+  }
+  // currently-checked product names
+  function currentProducts(){
+    return Array.prototype.slice.call(document.querySelectorAll('#productChooser .sku-check:checked'))
+      .map(function(c){ return c.value; }).filter(Boolean);
+  }
+  // build the de-duped, readable context suffix from current selection state ('' when nothing selected)
+  function buildSuffix(){
+    var parts = [];
+    var m = currentMarketLabel(); if(m) parts.push('market: ' + m);
+    var s = currentSeasonLabel(); if(s) parts.push('season: ' + s);
+    var prods = currentProducts(); if(prods.length) parts.push('products: ' + prods.join(', '));
+    return parts.length ? parts.join(' \u00b7 ') : '';
+  }
+  // recover the user's free-text base by stripping a trailing marker+suffix, if present
+  function stripSuffix(val){
+    var i = val.lastIndexOf(SUFFIX_MARKER);
+    if(i === -1) return val;
+    // only treat the tail as auto-context if it looks like our generated shape (starts market:/season:/products:)
+    var tail = val.slice(i + SUFFIX_MARKER.length);
+    if(/^(market:|season:|products:)/.test(tail)) return val.slice(0, i);
+    return val;
+  }
+  // rewrite the visible prompt = user base + current suffix, without clobbering the theme or cursor intent
+  function reflect(){
+    var suffix = buildSuffix();
+    var base = window.__briefUserText || '';
+    var next = suffix ? (base + SUFFIX_MARKER + suffix) : base;
+    if(briefEl.value === next) return;
+    window.__briefReflecting = true;
+    briefEl.value = next;
+    window.__briefReflecting = false;
+    grow();
+  }
+  window.__reflectBrief = reflect;
+
+  // manual edit: recover the user's base text (everything minus our trailing suffix). Runs alongside
+  // the existing input handler that clears the theme; we only update the stored base, never re-append here.
+  briefEl.addEventListener('input', function(){
+    if(window.__briefReflecting || window.__chipSettingBrief) return;
+    window.__briefUserText = stripSuffix(briefEl.value);
+  });
+  // a chip click sets briefEl.value = data-brief (its handler runs first, bubbling). Adopt that as the
+  // new user base, then re-append the current selection suffix so chip + market/season/products compose.
+  document.addEventListener('click', function(e){
+    var chip = e.target && e.target.closest ? e.target.closest('#promptChips .ff-chip[data-brief]') : null;
+    if(!chip) return;
+    // defer to end of task so the chip's own handler (value + theme + input dispatch) has completed
+    setTimeout(function(){
+      window.__briefUserText = stripSuffix(briefEl.value);
+      reflect();
+    }, 0);
+  });
+  // market (hidden #locality), season, and product checkbox changes all rebuild the suffix
+  document.addEventListener('change', function(e){
+    var t = e.target; if(!t) return;
+    if(t.id === 'locality' || t.id === 'seasonalSelect' || (t.classList && t.classList.contains('sku-check'))){
+      reflect();
+    }
+  });
+
+  // =========================================================================
+  // B3 — prompt-box autocomplete from loaded catalog + places. Suggests product names and market
+  // names matching the last token being typed. Reuses the ff-products-results listbox visual pattern.
+  // Keyboard accessible (arrow/enter/escape). Debounced. Does not touch #productSearch (its own combobox).
+  // =========================================================================
+  var box = document.getElementById('briefSuggest');
+  if(box){
+    var activeIdx = -1, items = [], debounceTimer = null;
+
+    // the token under the caret: the trailing fragment after the last separator
+    function currentToken(){
+      var pos = briefEl.selectionStart != null ? briefEl.selectionStart : briefEl.value.length;
+      var upto = briefEl.value.slice(0, pos);
+      var m = upto.match(/[^\s,\u00b7\u2014\n]+$/);   // stop at whitespace, comma, middot, em-dash, newline
+      return m ? { text:m[0], start: pos - m[0].length, end: pos } : { text:'', start: pos, end: pos };
+    }
+    function matches(frag){
+      var q = frag.toLowerCase();
+      if(q.length < 2) return [];
+      var out = [];
+      skus().forEach(function(p){
+        var name = p && p.name ? String(p.name) : '';
+        if(name && name.toLowerCase().indexOf(q) !== -1) out.push({ type:'product', name:name });
+      });
+      markets().forEach(function(p){
+        var name = p && p.place ? String(p.place) : '';
+        if(name && name.toLowerCase().indexOf(q) !== -1) out.push({ type:'market', name:name });
+      });
+      return out.slice(0, 8);
+    }
+    function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+    function close(){
+      box.hidden = true; box.innerHTML = ''; items = []; activeIdx = -1;
+      briefEl.setAttribute('aria-expanded','false');
+    }
+    function open(list){
+      items = list;
+      box.innerHTML = list.map(function(it, i){
+        return '<div class="ff-suggest-opt" role="option" id="briefSuggestOpt'+i+'" aria-selected="false" data-name="'+esc(it.name)+'">'
+          + '<span class="ff-suggest-tag'+(it.type==='market'?' is-market':'')+'">'+it.type+'</span>'
+          + '<span class="ff-suggest-name">'+esc(it.name)+'</span></div>';
+      }).join('');
+      box.hidden = false; activeIdx = -1;
+      briefEl.setAttribute('aria-expanded','true');
+    }
+    function setActive(i){
+      var opts = box.querySelectorAll('.ff-suggest-opt');
+      if(!opts.length) return;
+      if(i < 0) i = opts.length - 1; if(i >= opts.length) i = 0;
+      activeIdx = i;
+      opts.forEach(function(o, j){ o.setAttribute('aria-selected', j===i ? 'true':'false'); });
+      var el = opts[i]; if(el){ briefEl.setAttribute('aria-activedescendant', el.id); el.scrollIntoView({block:'nearest'}); }
+    }
+    // insert the canonical name at the caret, replacing the token being typed
+    function choose(name){
+      var tok = currentToken();
+      var before = briefEl.value.slice(0, tok.start);
+      var after = briefEl.value.slice(tok.end);
+      window.__briefReflecting = true;
+      briefEl.value = before + name + after;
+      var caret = (before + name).length;
+      try{ briefEl.setSelectionRange(caret, caret); }catch(e){}
+      window.__briefReflecting = false;
+      // selection insert counts as a manual edit to the base text — clear theme like a normal edit, update base
+      if(typeof window.__clearActiveTheme === 'function') window.__clearActiveTheme();
+      window.__briefUserText = stripSuffix(briefEl.value);
+      grow();
+      close();
+      briefEl.focus();
+    }
+    briefEl.addEventListener('input', function(){
+      if(window.__briefReflecting || window.__chipSettingBrief) return;
+      if(debounceTimer) clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(function(){
+        var tok = currentToken();
+        var list = tok.text ? matches(tok.text) : [];
+        if(list.length) open(list); else close();
+      }, 140);
+    });
+    briefEl.addEventListener('keydown', function(e){
+      if(box.hidden) return;
+      if(e.key === 'ArrowDown'){ e.preventDefault(); setActive(activeIdx + 1); }
+      else if(e.key === 'ArrowUp'){ e.preventDefault(); setActive(activeIdx - 1); }
+      else if(e.key === 'Enter'){ if(activeIdx >= 0 && items[activeIdx]){ e.preventDefault(); choose(items[activeIdx].name); } }
+      else if(e.key === 'Escape'){ e.preventDefault(); close(); }
+    });
+    box.addEventListener('mousedown', function(e){
+      var opt = e.target && e.target.closest ? e.target.closest('.ff-suggest-opt') : null;
+      if(opt){ e.preventDefault(); choose(opt.getAttribute('data-name')); }
+    });
+    briefEl.addEventListener('blur', function(){ setTimeout(close, 120); });   // allow mousedown to fire first
+  }
+})();
+</script>
+  <script src="glimmer-proxy.js?v=0.1.012-878bea8-20260906"></script>
 </body></html>

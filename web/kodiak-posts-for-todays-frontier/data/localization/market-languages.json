@@ -112,7 +112,10 @@
           "pct": 1.1,
           "reason": "ACS Bernalillo Navajo/Diné speakers 1.1%; Albuquerque is urban hub for Navajo Nation (Window Rock feeder)",
           "translate_code": "nv",
-          "pct_home": 1.1
+          "pct_home": 1.1,
+          "machine_translate": false,
+          "review": "community",
+          "review_note": "Community-authorized translation required — not machine-generated (language sovereignty)."
         }
       ],
       "auto_produce": true,
@@ -462,7 +465,10 @@
           "pct": 0.6,
           "reason": "ACS Maricopa Navajo speakers 0.6%; Phoenix urban Native hub + Navajo west valley",
           "translate_code": "nv",
-          "pct_home": 0.6
+          "pct_home": 0.6,
+          "machine_translate": false,
+          "review": "community",
+          "review_note": "Community-authorized translation required — not machine-generated (language sovereignty)."
         }
       ],
       "auto_produce": true,
@@ -637,7 +643,10 @@
           "pct": 0.7,
           "reason": "ACS Pima Tohono O'odham/Nava speakers 0.7%; Tucson Native urban hub",
           "translate_code": "nv",
-          "pct_home": 0.7
+          "pct_home": 0.7,
+          "machine_translate": false,
+          "review": "community",
+          "review_note": "Community-authorized translation required — not machine-generated (language sovereignty)."
         }
       ],
       "auto_produce": true,
@@ -1537,7 +1546,10 @@
           "pct": 0.8,
           "reason": "ACS Santa Fe Tewa/Navajo Keres speakers 0.8%; Santa Fe is hub for Rio Grande Pueblos + Navajo",
           "translate_code": "nv",
-          "pct_home": 0.8
+          "pct_home": 0.8,
+          "machine_translate": false,
+          "review": "community",
+          "review_note": "Community-authorized translation required — not machine-generated (language sovereignty)."
         }
       ],
       "auto_produce": true,

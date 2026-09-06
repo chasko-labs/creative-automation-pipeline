@@ -1,0 +1,836 @@
+{
+  "metadata": {
+    "generated": "2026-09-02T21:30:00Z",
+    "source": "data/raw-ingest/kodiakcakes/pages/005_pages_store-locator.html + synthesized frontier coverage",
+    "note": "Store locator page uses dynamic JS locator; synthesized markets extend 18 seeded regions from localization-table-seed.json to ~68 for frontier gap coverage. Find store locator data or synthesize store-finder-markets.json with ~50 markets plus 18 existing.",
+    "counts": {
+      "seeded_regions": 18,
+      "synthesized_new": 50,
+      "total_markets": 73,
+      "bay_area_frontier_added": 1,
+      "total": 71
+    },
+    "locator_url": "https://kodiakcakes.com/pages/store-locator",
+    "total_markets": 73
+  },
+  "markets": [
+    {
+      "market": "US-MW-PARKCITY-84098",
+      "place": "Park City, Utah 84098",
+      "audience": "Mountain families, Wasatch trail households, resort staff",
+      "message": "Keep It Wild \u2014 protein-packed whole grains for your Wasatch frontier. Nourishment for Today's Frontier",
+      "cue": "Farmers Market at Park City Mountain Resort Wed 11-5 \u2014 Jensen Farms peaches, Copper Moose rhubarb, Tagges preserves, Ballerina butter",
+      "retailer": "Target (Kimball Junction), Walmart (Kimball Junction), Smith's Food & Drug (Park City)",
+      "zip": "84098",
+      "brand": "KODIAK",
+      "coordinates": {
+        "lat": 40.6461,
+        "lon": -111.498
+      }
+    },
+    {
+      "market": "US-MW-WASATCH",
+      "place": "Park City, Wasatch Mountains",
+      "audience": "Outdoor families, ski and hike households",
+      "message": "Keep It Wild \u2014 protein-packed whole grains for today's frontier",
+      "cue": "Wasatch alpenglow, pine, boulder, snow at dawn",
+      "retailer": "Target, Walmart",
+      "zip": "84060",
+      "brand": "KODIAK",
+      "coordinates": {
+        "lat": 40.6461,
+        "lon": -111.498
+      }
+    },
+    {
+      "market": "US-SW-LASCRUCES",
+      "place": "Las Cruces + Alamogordo, New Mexico",
+      "audience": "Green chile families, Hatch roast households 28-45",
+      "message": "Green chile meets grizzly \u2014 protein for your Las Cruces frontier",
+      "cue": "Roasted Hatch green chile in flapjacks, Organ Mountains bench, trail bench",
+      "retailer": "Target, Walmart, Albertsons",
+      "zip": "88001",
+      "brand": "KODIAK",
+      "coordinates": {
+        "lat": 32.3199,
+        "lon": -106.7637
+      }
+    },
+    {
+      "market": "US-SW-ALBQ",
+      "place": "Albuquerque, New Mexico",
+      "audience": "High desert families, adobe morning",
+      "message": "Desert dawn flapjacks \u2014 14 grams for your high desert day",
+      "cue": "Red chile and pi\u00f1on, enamel mug on portal",
+      "retailer": "Target, Walmart, Smith's",
+      "zip": "87101",
+      "brand": "KODIAK",
+      "coordinates": {
+        "lat": 35.0844,
+        "lon": -106.6504
+      }
+    },
+    {
+      "market": "US-SC-AUSTIN",
+      "place": "Austin, Texas",
+      "audience": "Breakfast taco families, keep-it-weird hosts",
+      "message": "Breakfast tacos meet flapjacks \u2014 whole grains that keep up",
+      "cue": "Salsa over flapjacks, food truck corner",
+      "retailer": "Target, Whole Foods, H-E-B",
+      "zip": "78701",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SE-FL",
+      "place": "Miami + Orlando, Florida",
+      "audience": "Cuban and Puerto Rican families, porch breakfasts",
+      "message": "Family frontier \u2014 protein for your Florida morning",
+      "cue": "Guava and caf\u00e9 con leche beside stack",
+      "retailer": "Publix, Target",
+      "zip": "33101",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SE-COAST",
+      "place": "Savannah + Charleston, Coastal Southeast",
+      "audience": "Porch families, Gullah seasonality",
+      "message": "Southern porch stack \u2014 protein-packed whole grains for your family",
+      "cue": "Peach and pecan",
+      "retailer": "Publix, Harris Teeter",
+      "zip": "29401",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SE-ATL",
+      "place": "Atlanta, Georgia",
+      "audience": "Urban families, Sunday brunch",
+      "message": "Georgia pecan frontier \u2014 14 grams to start your day",
+      "cue": "Pecan praline drizzle",
+      "retailer": "Publix, Target",
+      "zip": "30301",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-MW-CHI",
+      "place": "Chicago, Illinois",
+      "audience": "City families, lake effect winters",
+      "message": "Fuel your city frontier \u2014 14 grams, 100 percent whole grains",
+      "cue": "Maple oatmeal cup on the L",
+      "retailer": "Target, Jewel-Osco, Meijer",
+      "zip": "60601",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-MW-TC",
+      "place": "Twin Cities, Minnesota",
+      "audience": "Midwest hearty families",
+      "message": "Stock the frontier \u2014 every morning, hearty and whole grain",
+      "cue": "Maple, wild rice, snow boots",
+      "retailer": "Target (home), Cub Foods",
+      "zip": "55401",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-MW-DEN",
+      "place": "Denver, Colorado",
+      "audience": "Mountain families, trailheads",
+      "message": "Cast-iron frontier \u2014 protein for your Colorado morning",
+      "cue": "Cast iron at trailhead",
+      "retailer": "Target, King Soopers, Whole Foods",
+      "zip": "80202",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-W-SEA",
+      "place": "Seattle, Washington",
+      "audience": "Seattle Costco bulk shoppers \u2014 bulk Family Size, rain-morning tech families (South Lake Union / Ballard / Capitol Hill), Target + Costco halo, evergreen frontier",
+      "message": "Evergreen frontier \u2014 protein-packed whole grains for gray mornings \u2014 bulk Costco + urban frontier awareness",
+      "cue": "Coffee beside KODIAK\u00ae flapjacks, evergreen, rain-morning griddle, bulk Costco Family Size \u2014 and Neah Bay frontier representation for Washington state awareness",
+      "retailer": "Costco (home \u2014 Seattle/SODO/Issaquah warehouses), Target, Amazon Subscribe & Save",
+      "zip": "98101",
+      "brand": "KODIAK",
+      "seattle_awareness": {
+        "shopper_profile": "Seattle Costco shoppers: bulk Family Size buyers, rain-morning griddle ritual, tech families (Amazon/Microsoft), Target halo for mid-week fill, SODO warehouse Saturday stock-up",
+        "what_seattle_sees": "Bulk Evergreen frontier creative \u2014 coffee + evergreen, 14g protein, Family Size bag \u2014 the urban bulk Washington voice",
+        "what_neah_bay_sees": "Frontier DTC creative \u2014 Washburn's General Store dusty box vs subscription & Amazon.com, huckleberry compote (Aug) / savory smoked salmon + chives, 70mi to Port Angeles grocer, 4-5hr incl ferry",
+        "why_both_visible": "If Washington state location is noted on app open (no zip filter), both US-W-SEA and US-WA-NEAHBAY are Washington \u2014 subscription & amazon.com ads for Neah Bay appear alongside Seattle bulk Evergreen ads. Intentional: training ensures urban model sees frontier, not bulk-only isolation.",
+        "training_data_rule": "Vector search for 'Seattle', 'Washington', 'Costco', or '98101' must also retrieve Neah Bay frontier representation \u2014 ensures urban folks see frontier representation in embeddings",
+        "fulfillment_contrast": "Seattle: shelf bulk (Costco next door). Neah Bay: DTC subscription + Amazon.com where nearest full grocer is 70mi away. Both are Washington \u2014 state view teaches contrast."
+      },
+      "urban_frontier_link": "US-WA-NEAHBAY \u2014 Seattle training includes Neah Bay frontier so urban embeddings see frontier"
+    },
+    {
+      "market": "US-W-PDX",
+      "place": "Portland, Oregon",
+      "audience": "Trail families, forest",
+      "message": "Forest trail fuel \u2014 protein for your cubs",
+      "cue": "Berries and hazelnut beside Bear Bites",
+      "retailer": "Target, Fred Meyer",
+      "zip": "97201",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-W-LA",
+      "place": "Los Angeles, California",
+      "audience": "Active, ingredient-aware, diverse",
+      "message": "Fuel your trail \u2014 protein oatmeal for today's frontier",
+      "cue": "Almond milk pour, trail cup on overlook",
+      "retailer": "Target, Whole Foods",
+      "zip": "90001",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SE-NASH",
+      "place": "Nashville, Tennessee",
+      "audience": "Music city families, biscuit country",
+      "message": "Honey frontier \u2014 protein for your Nashville morning",
+      "cue": "Honey beside graham Bear Bites",
+      "retailer": "Publix, Target",
+      "zip": "37201",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SE-LOU",
+      "place": "Louisville, Kentucky",
+      "audience": "Derby families, bourbon-maple adjacency",
+      "message": "Brown sugar frontier \u2014 protein for your Kentucky morning",
+      "cue": "Maple and brown sugar oatmeal",
+      "retailer": "Target, Kroger",
+      "zip": "40202",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-NE-BOS",
+      "place": "Boston + Portland ME, New England",
+      "audience": "Leaf-peep families, maple country",
+      "message": "Maple frontier \u2014 14 grams, whole grain, New England",
+      "cue": "Pure maple syrup over Power Cakes",
+      "retailer": "Target, Market Basket",
+      "zip": "02108",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SW-PHX",
+      "place": "Phoenix, Arizona",
+      "audience": "Desert families, early hot mornings",
+      "message": "Desert frontier \u2014 protein that holds up in the heat",
+      "cue": "Prickly pear and citrus",
+      "retailer": "Target, Walmart, Fry's",
+      "zip": "85001",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-NE-NYC",
+      "place": "Brooklyn + Manhattan, New York",
+      "audience": "City-active, bodega-adjacent",
+      "message": "City frontier \u2014 protein-packed whole grains for the hustle",
+      "cue": "Bodega coffee, oatmeal cup on subway platform",
+      "retailer": "Target, Whole Foods",
+      "zip": "11201",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SW-TIMBERON",
+      "place": "Timberon, New Mexico",
+      "zip": "88350",
+      "retailer": "Timberon General Store, Cloudcroft Mercantile, Alamogordo Walmart",
+      "audience": "Pi\u00f1on harvest families, Sacramento Mountains homesteaders, high-desert foragers",
+      "message": "Pi\u00f1on frontier \u2014 protein with pi\u00f1on seeds from pinonnuts.com",
+      "cue": "Pi\u00f1on pines, Sacramento Mountains, enamel mug on pi\u00f1on harvest table, Timberon pines",
+      "brand": "KODIAK",
+      "frontier": true,
+      "subscriber_variant": true,
+      "cross_promo": "pinonnuts.com \u2014 Pi\u00f1\u00f3n Seeds",
+      "coordinates": {
+        "lat": 32.6376,
+        "lon": -105.6947
+      }
+    },
+    {
+      "market": "US-MW-WASATCH-SLC",
+      "place": "Salt Lake City, Utah",
+      "zip": "84101",
+      "retailer": "Target, Walmart, Smith's",
+      "audience": "Ski families, Wasatch trailheads",
+      "message": "Wasatch fuel \u2014 14g for slope mornings",
+      "cue": "Snow-capped Wasatch, ski lodge flapjacks",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-W-SF",
+      "place": "San Francisco Bay Area, California",
+      "zip": "94102",
+      "retailer": "Target, Whole Foods, Safeway",
+      "audience": "Tech families, fog-morning hikers",
+      "message": "Bay frontier \u2014 whole grains for bridge mornings",
+      "cue": "Golden Gate fog, sourdough-adjacent stack",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-W-SD",
+      "place": "San Diego, California",
+      "zip": "92101",
+      "retailer": "Target, Vons, Whole Foods",
+      "audience": "Surf families, canyon trail runners",
+      "message": "Surf frontier \u2014 protein for wave mornings",
+      "cue": "Surfboard wax and maple, coastal stack",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-W-VEGAS",
+      "place": "Las Vegas, Nevada",
+      "zip": "89101",
+      "retailer": "Target, Walmart, Smith's",
+      "audience": "Desert neon families, Red Rock hikers",
+      "message": "Red Rock fuel \u2014 power your Vegas frontier",
+      "cue": "Red Rock canyon, desert light",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-MW-PHX2",
+      "place": "Tucson, Arizona",
+      "zip": "85701",
+      "retailer": "Target, Walmart, Fry's",
+      "audience": "Sonoran families, saguaro mornings",
+      "message": "Saguaro stack \u2014 protein for your desert frontier",
+      "cue": "Saguaro, prickly pear, desert sunrise",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SW-EL PASO",
+      "place": "El Paso, Texas",
+      "zip": "79901",
+      "retailer": "Target, Walmart, Albertsons",
+      "audience": "Border families, Franklin Mountains hikers",
+      "message": "Franklin frontier \u2014 pi\u00f1on & green chile flapjacks",
+      "cue": "Franklin Mountains, border sunrise, green chile",
+      "brand": "KODIAK",
+      "coordinates": {
+        "lat": 31.7619,
+        "lon": -106.485
+      }
+    },
+    {
+      "market": "US-SC-DALLAS",
+      "place": "Dallas, Texas",
+      "zip": "75201",
+      "retailer": "Target, Walmart, H-E-B",
+      "audience": "Lone Star brunch families",
+      "message": "Texas frontier \u2014 hearty whole grains for big mornings",
+      "cue": "Bluebonnet field, cast iron",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SC-HOUSTON",
+      "place": "Houston, Texas",
+      "zip": "77002",
+      "retailer": "Target, Walmart, H-E-B",
+      "audience": "Gulf coast families, rodeo weekends",
+      "message": "Gulf frontier \u2014 protein for humid mornings",
+      "cue": "Pecan, humidity, porch stack",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SC-SANANTONIO",
+      "place": "San Antonio, Texas",
+      "zip": "78201",
+      "retailer": "Target, H-E-B, Walmart",
+      "audience": "Alamo families, breakfast taco households",
+      "message": "Alamo frontier \u2014 whole grains meet breakfast tacos",
+      "cue": "Breakfast taco fusion, salsa drizzle",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-MW-KC",
+      "place": "Kansas City, Missouri/Kansas",
+      "zip": "64108",
+      "retailer": "Target, Walmart, Hy-Vee",
+      "audience": "BBQ families, heartland mornings",
+      "message": "Heartland frontier \u2014 whole grains, 14g smoke & maple",
+      "cue": "Smoke & maple, BBQ brunch",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-MW-STL",
+      "place": "St. Louis, Missouri",
+      "zip": "63101",
+      "retailer": "Target, Walmart, Schnucks",
+      "audience": "Gateway families, riverfront picnics",
+      "message": "Gateway frontier \u2014 fuel your river morning",
+      "cue": "Arch backdrop, maple stack",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-MW-OMAHA",
+      "place": "Omaha, Nebraska",
+      "zip": "68102",
+      "retailer": "Target, Hy-Vee",
+      "audience": "Prairie families, corn country",
+      "message": "Prairie frontier \u2014 whole grains for harvest mornings",
+      "cue": "Cornfield light, farm table",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-MW-DESMOINES",
+      "place": "Des Moines, Iowa",
+      "zip": "50309",
+      "retailer": "Target, Hy-Vee, Walmart",
+      "audience": "Farm families, state fair households",
+      "message": "Field frontier \u2014 hearty oats for Iowa mornings",
+      "cue": "Field sunrise, butter & maple",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-MW-MILWAUKEE",
+      "place": "Milwaukee, Wisconsin",
+      "zip": "53202",
+      "retailer": "Target, Pick 'n Save",
+      "audience": "Cheese country families, lake mornings",
+      "message": "Lake frontier \u2014 protein for cold mornings",
+      "cue": "Cheddar, maple, lake snow",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-MW-DETROIT",
+      "place": "Detroit, Michigan",
+      "zip": "48201",
+      "retailer": "Target, Meijer, Kroger",
+      "audience": "Motor City families, Great Lakes weekends",
+      "message": "Great Lakes frontier \u2014 fuel your Motor City morning",
+      "cue": "Lakeside, maple syrup",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-MW-CLEVELAND",
+      "place": "Cleveland, Ohio",
+      "zip": "44101",
+      "retailer": "Target, Giant Eagle",
+      "audience": "Lake Erie families, steel mornings",
+      "message": "Steel frontier \u2014 14g for cold mornings",
+      "cue": "Snow, steel, maple oatmeal",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-MW-INDY",
+      "place": "Indianapolis, Indiana",
+      "zip": "46204",
+      "retailer": "Target, Kroger, Meijer",
+      "audience": "Race families, heartland brunch",
+      "message": "Speedway frontier \u2014 hearty flapjacks for race day",
+      "cue": "Checkered flag brunch",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-NE-PHILLY",
+      "place": "Philadelphia, Pennsylvania",
+      "zip": "19102",
+      "retailer": "Target, Acme, Whole Foods",
+      "audience": "Liberty families, cheesesteak-adjacent brunch",
+      "message": "Liberty frontier \u2014 protein for Philly mornings",
+      "cue": "Soft pretzel & maple nod",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-NE-DC",
+      "place": "Washington, DC + NoVA",
+      "zip": "20001",
+      "retailer": "Target, Giant, Whole Foods",
+      "audience": "Capitol families, monument mornings",
+      "message": "Capital frontier \u2014 whole grains for the hustle",
+      "cue": "Monument dawn, coffee & stack",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-NE-BALTIMORE",
+      "place": "Baltimore, Maryland",
+      "zip": "21201",
+      "retailer": "Target, Giant",
+      "audience": "Chesapeake families, Old Bay mornings",
+      "message": "Chesapeake frontier \u2014 savory flapjacks for bay mornings",
+      "cue": "Bay crab & corn nod",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-NE-RALEIGH",
+      "place": "Raleigh-Durham, North Carolina",
+      "zip": "27601",
+      "retailer": "Publix, Target, Harris Teeter",
+      "audience": "Research Triangle families, porch science",
+      "message": "Triangle frontier \u2014 protein for porch mornings",
+      "cue": "Pine, peach, porch stack",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SE-CHARLOTTE",
+      "place": "Charlotte, North Carolina",
+      "zip": "28202",
+      "retailer": "Publix, Target, Harris Teeter",
+      "audience": "Queen City families, NASCAR weekends",
+      "message": "Queen City frontier \u2014 hearty stack for race mornings",
+      "cue": "Pecan, maple, trackside",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SE-JAX",
+      "place": "Jacksonville, Florida",
+      "zip": "32202",
+      "retailer": "Publix, Target",
+      "audience": "Beach families, St. Johns river mornings",
+      "message": "River frontier \u2014 protein for Florida beach mornings",
+      "cue": "Beach, citrus, porch",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SE-TAMPA",
+      "place": "Tampa, Florida",
+      "zip": "33602",
+      "retailer": "Publix, Target, Winn-Dixie",
+      "audience": "Gulf families, Cuban nod",
+      "message": "Gulf frontier \u2014 guava and flapjacks",
+      "cue": "Citrus, guava, caf\u00e9 con leche",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SE-NOLA",
+      "place": "New Orleans, Louisiana",
+      "zip": "70112",
+      "retailer": "Target, Rouses",
+      "audience": "Creole families, beignet mornings",
+      "message": "Bayou frontier \u2014 protein meets beignet country",
+      "cue": "Beignet powder, praline drizzle",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SE-MEMPHIS",
+      "place": "Memphis, Tennessee",
+      "zip": "38103",
+      "retailer": "Kroger, Target",
+      "audience": "Blues families, BBQ brunch",
+      "message": "River frontier \u2014 maple & BBQ fusion",
+      "cue": "Smoky maple, blues porch",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SE-BIRMINGHAM",
+      "place": "Birmingham, Alabama",
+      "zip": "35201",
+      "retailer": "Publix, Target, Piggly Wiggly",
+      "audience": "Iron City families, porch suppers",
+      "message": "Iron frontier \u2014 hearty whole grains",
+      "cue": "Peach, pecan, cast iron",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SE-JACKSON",
+      "place": "Jackson, Mississippi",
+      "zip": "39201",
+      "retailer": "Kroger, Target",
+      "audience": "Delta families, porch culture",
+      "message": "Delta frontier \u2014 protein for slow mornings",
+      "cue": "Delta maple, porch light",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SW-OKC",
+      "place": "Oklahoma City, Oklahoma",
+      "zip": "73102",
+      "retailer": "Target, Walmart, Homeland",
+      "audience": "Sooner families, prairie wind",
+      "message": "Prairie frontier \u2014 whole grains for windy mornings",
+      "cue": "Wind, wheat, maple",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-MW-BOISE",
+      "place": "Boise, Idaho",
+      "zip": "83702",
+      "retailer": "Target, Albertsons, Winfield",
+      "audience": "Idaho wheat families, river trail",
+      "message": "Wheat frontier \u2014 Idaho grains for Idaho mornings",
+      "cue": "Wheat field, river, whole grains",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-W-YAKIMA",
+      "place": "Yakima + Tri-Cities, Washington",
+      "zip": "98901",
+      "retailer": "Costco, Target, WinCo",
+      "audience": "Apple country families, hop fields",
+      "message": "Apple frontier \u2014 protein for orchard mornings",
+      "cue": "Apple orchard, flapjacks & cider",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-W-SPOKANE",
+      "place": "Spokane, Washington",
+      "zip": "99201",
+      "retailer": "Costco (home), Target",
+      "audience": "Inland Northwest families, pine trail",
+      "message": "Pine frontier \u2014 trail fuel for Inland days",
+      "cue": "Pine, river gorge, oatmeal cup",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-MW-MISSOULA",
+      "place": "Missoula, Montana",
+      "zip": "59801",
+      "retailer": "Target, Albertsons",
+      "audience": "Big Sky families, Grizzly habitat",
+      "message": "Keep It Wild \u2014 Big Sky frontier flapjacks",
+      "cue": "Glacier, grizzly corridor, wild meadow",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-W-RENO",
+      "place": "Reno + Tahoe, Nevada/California",
+      "zip": "89501",
+      "retailer": "Target, Raley's",
+      "audience": "Sierra families, lake Tahoe weekends",
+      "message": "Sierra frontier \u2014 protein for altitude mornings",
+      "cue": "Tahoe alpine, pine, snow",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-W-SACRAMENTO",
+      "place": "Sacramento, California",
+      "zip": "95814",
+      "retailer": "Target, Raley's, Safeway",
+      "audience": "Valley farm families, delta mornings",
+      "message": "Valley frontier \u2014 whole grains for farm mornings",
+      "cue": "Valley orchard, farm table",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-MW-MINNEAPOLIS2",
+      "place": "Duluth, Minnesota",
+      "zip": "55802",
+      "retailer": "Target, Cub Foods",
+      "audience": "Superior families, lake snow",
+      "message": "Superior frontier \u2014 hearty oats for cold mornings",
+      "cue": "Lake Superior ice, maple",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-MW-FARGO",
+      "place": "Fargo, North Dakota",
+      "zip": "58102",
+      "retailer": "Target, Hornbacher's",
+      "audience": "Prairie families, extreme cold",
+      "message": "Prairie frontier \u2014 protein that holds winter",
+      "cue": "Snow, wheat, hot stack",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-NE-BURLINGTON",
+      "place": "Burlington, Vermont",
+      "zip": "05401",
+      "retailer": "Target, Hannaford",
+      "audience": "Maple families, Green Mountain trail",
+      "message": "Maple frontier \u2014 Vermont whole grains",
+      "cue": "Maple syrup pour, Green Mountains",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-NE-HARTFORD",
+      "place": "Hartford, Connecticut",
+      "zip": "06103",
+      "retailer": "Target, Stop & Shop",
+      "audience": "New England leaf-peep families",
+      "message": "Leaf-peep frontier \u2014 protein for autumn mornings",
+      "cue": "Fall foliage, maple stack",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-NE-PROVIDENCE",
+      "place": "Providence, Rhode Island",
+      "zip": "02903",
+      "retailer": "Target, Stop & Shop",
+      "audience": "Ocean State families, coastal fog",
+      "message": "Ocean frontier \u2014 whole grains for coastal mornings",
+      "cue": "Coastal fog, harbor stack",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SW-SANTA FE",
+      "place": "Santa Fe, New Mexico",
+      "zip": "87501",
+      "retailer": "Target, Smith's, Albertsons",
+      "audience": "High desert adobe families, pi\u00f1on roast",
+      "message": "Pi\u00f1on & chile frontier \u2014 Santa Fe protein flapjacks",
+      "cue": "Pi\u00f1on smoke, red chile ristras, adobe portal",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SW-CLOUDCROFT",
+      "place": "Cloudcroft + Alamogordo, New Mexico",
+      "zip": "88317",
+      "retailer": "Cloudcroft Mercantile, Alamogordo Walmart",
+      "audience": "Sacramento Mountains families, ski Cloudcroft",
+      "message": "Sacramento frontier \u2014 pi\u00f1on flapjacks for mountain mornings",
+      "cue": "Mountain pines, pi\u00f1on, ski lodge",
+      "brand": "KODIAK",
+      "coordinates": {
+        "lat": 32.3199,
+        "lon": -106.7637
+      }
+    },
+    {
+      "market": "US-SW-ROSWELL",
+      "place": "Roswell + Carlsbad, New Mexico",
+      "zip": "88201",
+      "retailer": "Walmart, Albertsons",
+      "audience": "Pecos Valley families, alien-country roadtrip",
+      "message": "Pecos frontier \u2014 protein for desert highway",
+      "cue": "Desert highway, pecos valley light",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-W-ANCHORAGE",
+      "place": "Anchorage, Alaska",
+      "zip": "99501",
+      "retailer": "Target, Fred Meyer, Costco",
+      "audience": "Grizzly country families, frontier cabins",
+      "message": "Last frontier \u2014 Keep It Wild Kodiak stack",
+      "cue": "Denali light, grizzly corridor, cabin",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-W-HONOLULU",
+      "place": "Honolulu, Hawaii",
+      "zip": "96813",
+      "retailer": "Target, Costco, Safeway",
+      "audience": "Island families, surf-and-trail",
+      "message": "Island frontier \u2014 protein for island mornings",
+      "cue": "Tropic fruit, volcanic stack",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-SE-ASHEVILLE",
+      "place": "Asheville, North Carolina",
+      "zip": "28801",
+      "retailer": "Publix, Ingles, Target",
+      "audience": "Blue Ridge families, Appalachian trail",
+      "message": "Blue Ridge frontier \u2014 trail fuel for mountain mornings",
+      "cue": "Blue Ridge mist, trail bench",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-MW-JACKSONHOLE",
+      "place": "Jackson Hole, Wyoming",
+      "zip": "83001",
+      "retailer": "Albertsons, Target",
+      "audience": "Teton grizzly families, elk corridor",
+      "message": "Teton frontier \u2014 Keep It Wild protein",
+      "cue": "Teton alpenglow, elk meadow",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-W-BEND",
+      "place": "Bend, Oregon",
+      "zip": "97701",
+      "retailer": "Target, Fred Meyer",
+      "audience": "Cascade trail families, high desert",
+      "message": "Cascade frontier \u2014 protein for high-desert mornings",
+      "cue": "Cascade pines, lava rock, trail cup",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-W-BOULDER",
+      "place": "Boulder, Colorado",
+      "zip": "80302",
+      "retailer": "Target, King Soopers, Whole Foods",
+      "audience": "Flatiron trail families, alpine start",
+      "message": "Flatiron frontier \u2014 protein for alpine mornings",
+      "cue": "Flatirons alpenglow, trailhead stack",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-CA-PESCADERO",
+      "place": "Pescadero, California 94060 \u2014 San Mateo Coast",
+      "zip": "94060",
+      "retailer": "Arcangeli Grocery Co. (Norm's Market), Half Moon Bay Safeway (14 mi), Costco Redwood City (30 mi halo)",
+      "audience": "Bay Area urban frontier households \u2014 San Francisco/Oakland hinterland seekers, coastal trail fitness households, San Mateo Coast farm families",
+      "message": "KODIAK\u00ae frontier for Bay Area urban folks to see their hinterland \u2014 protein-packed whole grains for your Pescadero coast. Nourishment for Today's Frontier",
+      "cue": "Pescadero Marsh boardwalk, Half Moon Bay Coastal Trail, Stage Road farm stands \u2014 Castroville artichokes Mar-Jun centerfold April, Fifth Crow strawberries May-Sep, Harley Farms goat cheese spring peak, olive oil, Brussels sprouts",
+      "brand": "KODIAK",
+      "frontier": true,
+      "subscriber_variant": true,
+      "fulfillment": "direct",
+      "cross_promo": "Harley Farms Goat Dairy + Fifth Crow Farm",
+      "county": "San Mateo County",
+      "state": "CA",
+      "coordinates": {
+        "lat": 37.2534,
+        "lon": -122.3806
+      },
+      "population": 2000,
+      "distance_from_sf_mi": 35,
+      "seasonality": "Artichokes Mar-Jun (peak April), strawberries May-Sep, goat cheese year-round spring peak, olive oil Nov press, Brussels sprouts Sep-Feb"
+    },
+    {
+      "market": "US-WA-NEAHBAY",
+      "place": "Neah Bay, WA 98357 \u2014 northwestern tip of Olympic Peninsula, Makah Tribe",
+      "audience": "Makah families, Neah Bay mini-mart regulars, Port Angeles commuters, Seattle workers who want to see what their Washington frontier sees \u2014 Seattle Costco shoppers see bulk, Neah Bay sees subscription & Amazon.com",
+      "message": "KODIAK\u00ae Neah Bay frontier \u2014 huckleberry compote over Buttermilk Power Cakes, Makah water meets Wasatch grain",
+      "cue": "Neah Bay harbor at dawn, Makah cedar canoe, Kodiak box on Washburn's porch with huckleberry compote, Olympic Peninsula fog, 70mi road sign to Port Angeles",
+      "retailer": "Washburn's General Store (Neah Bay), Port Angeles Safeway / Walmart (70mi), Costco Seattle / Sequim area (4-5hr)",
+      "zip": "98357",
+      "brand": "KODIAK",
+      "frontier": true,
+      "subscriber_variant": true,
+      "coordinates": {
+        "lat": 48.36,
+        "lon": -124.62
+      },
+      "elevation_ft": 75,
+      "seattle_awareness": {
+        "note": "Seattle urban awareness link \u2014 Seattle Costco shoppers (bulk, rain-morning, tech families) see this Neah Bay frontier when Washington state is noted; Neah Bay sees DTC instead of bulk"
+      }
+    },
+    {
+      "market": "US-SW-TULAROSA",
+      "place": "Tularosa, NM 88352 \u2014 Tularosa Basin, provider edge",
+      "audience": "Tularosa Basin families \u2014 provider edge, White Sands",
+      "message": "KODIAK\u00ae Keep It Wild \u2014 protein-packed whole grains for your Tularosa frontier. Nourishment for Today's Frontier",
+      "cue": "White Sands, Sacramento Mountains, Tularosa Basin",
+      "retailer": "Walmart Alamogordo, Lowe's Supermarket Tularosa",
+      "zip": "88352",
+      "brand": "KODIAK",
+      "coordinates": {
+        "lat": 33.0581,
+        "lon": -106.0228
+      },
+      "frontier": false
+    },
+    {
+      "market": "US-UT-KAMASVALLEY",
+      "place": "Kamas Valley, UT 84036 \u2014 Peoa, Oakley, Kamas, pure ranching country",
+      "audience": "Peoa ranch families on acreage, Oakley Rodeo Grounds neighbors, Kamas backyard growers, Summit County Arts Council listeners",
+      "message": "KODIAK\u00ae Kamas Valley \u2014 Oakley Rodeo Grounds to your griddle. Ranch neighbors, mountain produce, 14g protein.",
+      "cue": "Peoa river valley at dawn, Oakley Rodeo Grounds with folding tables of grass-fed meats, Kodiak box with mountain greens, acoustic guitar in background, no downtown in sight",
+      "retailer": "Oakley Farmers Market (bi-weekly, Rodeo Grounds), Kamas Valley Market (monthly), No commercial retail \u2014 direct from ranchers",
+      "zip": "84036",
+      "brand": "KODIAK",
+      "frontier": true,
+      "coordinates": {
+        "lat": 40.642,
+        "lon": -111.281
+      }
+    },
+    {
+      "market": "US-SE-SANDERSVILLE",
+      "place": "Sandersville, GA 31082 \u2014 Washington County, kaolin-belt farm country, Atlanta's frontier sister",
+      "audience": "Washington County farm families, Sandersville downtown farmers market regulars, pecan/peach/sweet-potato growers, small-town central Georgia neighbors who see the same Publix shelf as metro Atlanta an hour up the road",
+      "message": "KODIAK\u00ae Sandersville frontier \u2014 Georgia pecans over Buttermilk Power Cakes, kaolin-belt farm stand to your griddle, 14g protein",
+      "cue": "central Georgia pecan orchard at dawn, Sandersville courthouse square, Kodiak box on a farm-stand table with pecans and sweet potatoes, red-clay field beyond, metro Atlanta skyline an hour off but out of frame",
+      "retailer": "Sandersville Downtown Farmers Market, Publix (regional), Walmart, Kroger \u2014 rural frontier sister to metro Atlanta Publix",
+      "zip": "31082",
+      "brand": "KODIAK",
+      "frontier": true,
+      "coordinates": {
+        "lat": 32.982,
+        "lon": -82.81
+      }
+    }
+  ]
+}
