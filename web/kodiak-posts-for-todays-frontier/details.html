@@ -111,6 +111,44 @@ header h1,header h2,header h3{color:var(--parchment)}
 .state.tbd{background:var(--oat);color:var(--chocolate);border:1px solid var(--stone)}
 .inv-section .body{padding:18px}
 .wrap>.card+.card{margin-top:14px}
+/* === specimen guide primitives (rendered design tokens, not just described) === */
+.spec-grid{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+.chip{display:flex;flex-direction:column;width:96px;border:1px solid var(--stone);border-radius:var(--radii-sm);overflow:hidden;background:#FFFBF6}
+.chip__fill{height:52px;width:100%}
+.chip__meta{padding:6px 8px;font:500 11px/1.35 "museo-sans",sans-serif;color:#6B5A53}
+.chip__hex{font:700 11px/1.3 JetBrains Mono,Menlo,monospace;color:var(--chocolate)}
+.chip__token{display:block;margin-top:2px;font:500 10px/1.3 "museo-sans",sans-serif;color:#6B5A53;word-break:break-word}
+.chip__wcag{display:inline-block;margin-top:4px;padding:1px 5px;border-radius:2px;font:700 9px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.04em;text-transform:uppercase}
+.chip__wcag.aaa{background:var(--colors-brand-frontier-green);color:#FACC7C}
+.chip__wcag.large{background:var(--colors-brand-blaze-orange);color:#fff}
+.spec-ladder-label{font:700 12px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#6B5A53;margin:14px 0 4px}
+.type-line{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid var(--stone)}
+.type-line__spec{font-family:"gin",Rockwell,Georgia,serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;line-height:1;color:var(--chocolate)}
+.type-line__meta{font:500 12px/1.4 JetBrains Mono,Menlo,monospace;color:#6B5A53}
+.type-body-spec{font:500 18px/1.5 "museo-sans",sans-serif;color:var(--chocolate);max-width:65ch;margin:12px 0 4px}
+.ruler-row{display:flex;align-items:center;gap:12px;margin:8px 0}
+.ruler-bar{height:16px;border-radius:2px;background:var(--colors-brand-bear-brown)}
+.ruler-row__label{font:700 12px/1 JetBrains Mono,Menlo,monospace;color:#6B5A53}
+.elev-grid{display:flex;flex-wrap:wrap;gap:16px;margin:12px 0}
+.elev-card{width:150px;padding:14px;background:var(--gradients-kraft\.surface);border:1px solid var(--stone);border-radius:var(--radii-sm)}
+.elev-card__label{font:700 12px/1.3 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;color:var(--chocolate);margin-top:10px}
+.elev-card__token{font:500 11px/1.4 JetBrains Mono,Menlo,monospace;color:#6B5A53;margin-top:2px}
+.elev-card__box{height:40px;border-radius:var(--radii-sm);background:#FFFBF6;border:1px solid var(--colors-neutral-200)}
+.anatomy{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;margin:12px 0}
+.anatomy__specimen{position:relative;width:220px;background:var(--gradients-kraft\.surface);border:1px solid var(--stone);border-radius:var(--radii-sm);box-shadow:var(--shadows-md);overflow:hidden}
+.anatomy__specimen::before{content:"";position:absolute;inset:0;background:var(--wood) repeat;opacity:.06;pointer-events:none}
+.anatomy__hd{padding:12px 12px 10px;background:#FFFBF6 var(--kraft);border-bottom:1px solid #E8DDD3}
+.anatomy__hd h3{margin:0;font:800 13px/1.2 gin,"museo-sans",Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate)}
+.anatomy__body{padding:14px;font:500 13px/1.5 "museo-sans",sans-serif;color:#6B5A53}
+.anatomy__legend{margin:0;padding:0;list-style:none;font:500 13px/1.6 "museo-sans",sans-serif;color:#6B5A53;max-width:46ch}
+.anatomy__legend li{padding:4px 0;border-bottom:1px solid var(--stone)}
+.anatomy__legend b{color:var(--chocolate)}
+.dodont{display:flex;gap:14px;flex-wrap:wrap;margin:12px 0}
+.dodont__panel{flex:1;min-width:240px;padding:14px;background:var(--parchment);border:1px solid var(--stone);border-radius:var(--radii-sm)}
+.dodont__flag{display:inline-block;padding:3px 9px;border-radius:2px;font:700 11px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px}
+.dodont__flag.dont{background:var(--colors-brand-signal-red);color:#fff}
+.dodont__flag.do{background:var(--colors-brand-frontier-green);color:#FACC7C}
+.dodont__body{font:500 15px/1.5 "museo-sans",sans-serif;margin:0}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head><body>
 <header class="kodiak-header" style="background:var(--brown-kodiak);color:#FFF8F0;border-bottom:none;display:flex;align-items:center;gap:16px;padding:10px 18px;flex-wrap:wrap;margin:0"><div class="header__inner">
@@ -132,6 +170,7 @@ header h1,header h2,header h3{color:var(--parchment)}
 <a href="#inv-index-page">index.html elements</a>
 <a href="#inv-details-page">details.html elements</a>
 <a href="#inv-express">Express prototyping</a>
+<a href="#inv-specimens">Specimens</a>
 <a href="#inv-responsive">Responsive axis</a>
 <a href="#inv-translation">Translation axis</a>
 <a href="#inv-taxonomy">Market taxonomy</a>
@@ -251,6 +290,128 @@ header h1,header h2,header h3{color:var(--parchment)}
 <tr><td>accent bar</td><td>8px solid blazeOrange at bottom edge (brand signature)</td></tr>
 </tbody></table>
 <span class="std"><b>S10 — the iconic-box principle.</b> bearBrown is ALWAYS primary bg/text/logo-backdrop. Orange is ONLY the 8px bar, CTA, protein callout, glow overlay (≤18% opacity or tint ≥30%). Green is secondary — borders, panels — never large enough to outshine the brown pack.</span>
+</div></div>
+
+<!-- ============================================================================
+     SPECIMENS — the tokens described above, now RENDERED. Turns this page from an
+     audit readout into a design guide. All structural styling references token vars
+     (--colors-* / --gradients-kraft.surface / --shadows-* / --radii-*). The ONLY
+     literal hex is inside swatch fills (demonstrating the exact color), each paired
+     with its --colors-* token-name label. Placed tokens-described -> tokens-SHOWN
+     -> responsive. Keyboard-reachable via #inv-specimens (section-nav "Specimens").
+     ============================================================================ -->
+<div class="card inv-section" id="inv-specimens"><div class="hd"><h2>Specimens — tokens rendered <span class="badge">guide</span></h2><p>The layers described above, shown as live specimens. Swatch fills paint the literal hex from <a href="../../docs/kodiak-shading.json" target="_blank">docs/kodiak-shading.json</a> so the color is visible; every swatch is labelled with its <span class="kbd">--colors-*</span> token so the mapping stays explicit. Structural styling (surfaces, borders, radius, shadow) resolves from tokens.</p></div><div class="body">
+
+<h3>Color — brand swatch ladders</h3>
+<p class="inv-lead">Base + tint ladder (mix toward parchment #FFF8F0) + shade ladder (mix toward ink #1A1110), per <span class="kbd">kodiak-shading.json</span>. WCAG label shown on each base for its parchment contrast.</p>
+
+<div class="spec-ladder-label">Bear Brown — <span class="kbd">--colors-brand-bear-brown</span></div>
+<div class="spec-grid">
+<div class="chip"><span class="chip__fill" style="background:#3B2316" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#3B2316</span><span class="chip__token">base</span><span class="chip__wcag aaa">10.2:1 AAA</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#4F382C" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#4F382C</span><span class="chip__token">tint 10%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#624E42" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#624E42</span><span class="chip__token">tint 20%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#766357" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#766357</span><span class="chip__token">tint 30%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#89786D" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#89786D</span><span class="chip__token">tint 40%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#9D8E83" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#9D8E83</span><span class="chip__token">tint 50%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#C4B8AF" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#C4B8AF</span><span class="chip__token">tint 70%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#382115" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#382115</span><span class="chip__token">shade 10%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#341F15" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#341F15</span><span class="chip__token">shade 20%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#311E14" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#311E14</span><span class="chip__token">shade 30%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#2E1C14" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#2E1C14</span><span class="chip__token">shade 40%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#2A1A13" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#2A1A13</span><span class="chip__token">shade 50%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#241612" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#241612</span><span class="chip__token">shade 70%</span></span></div>
+</div>
+
+<div class="spec-ladder-label">Blaze Orange — <span class="kbd">--colors-brand-blaze-orange</span></div>
+<div class="spec-grid">
+<div class="chip"><span class="chip__fill" style="background:#E8530E" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#E8530E</span><span class="chip__token">base</span><span class="chip__wcag large">3.1:1 large-only</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#EA6425" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#EA6425</span><span class="chip__token">tint 10%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#ED743B" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#ED743B</span><span class="chip__token">tint 20%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#EF8452" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#EF8452</span><span class="chip__token">tint 30%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#F19568" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#F19568</span><span class="chip__token">tint 40%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#F4A67F" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#F4A67F</span><span class="chip__token">tint 50%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#F8C6AC" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#F8C6AC</span><span class="chip__token">tint 70%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#D34C0E" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#D34C0E</span><span class="chip__token">shade 10%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#BF460E" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#BF460E</span><span class="chip__token">shade 20%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#AA3F0F" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#AA3F0F</span><span class="chip__token">shade 30%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#96390F" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#96390F</span><span class="chip__token">shade 40%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#81320F" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#81320F</span><span class="chip__token">shade 50%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#58250F" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#58250F</span><span class="chip__token">shade 70%</span></span></div>
+</div>
+
+<div class="spec-ladder-label">Frontier Green — <span class="kbd">--colors-brand-frontier-green</span></div>
+<div class="spec-grid">
+<div class="chip"><span class="chip__fill" style="background:#1A3C34" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#1A3C34</span><span class="chip__token">base</span><span class="chip__wcag aaa">12.1:1 AAA</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#314F47" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#314F47</span><span class="chip__token">tint 10%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#48625A" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#48625A</span><span class="chip__token">tint 20%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#5F746C" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#5F746C</span><span class="chip__token">tint 30%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#76877F" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#76877F</span><span class="chip__token">tint 40%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#8C9A92" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#8C9A92</span><span class="chip__token">tint 50%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#BAC0B8" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#BAC0B8</span><span class="chip__token">tint 70%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#1A3830" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#1A3830</span><span class="chip__token">shade 10%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#1A332D" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#1A332D</span><span class="chip__token">shade 20%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#1A2F29" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#1A2F29</span><span class="chip__token">shade 30%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#1A2B26" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#1A2B26</span><span class="chip__token">shade 40%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#1A2622" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#1A2622</span><span class="chip__token">shade 50%</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#1A1E1B" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#1A1E1B</span><span class="chip__token">shade 70%</span></span></div>
+</div>
+
+<div class="spec-ladder-label">Neutrals</div>
+<div class="spec-grid">
+<div class="chip"><span class="chip__fill" style="background:#FFF8F0" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#FFF8F0</span><span class="chip__token">parchment · --colors-neutral-50</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#F4EDE6" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#F4EDE6</span><span class="chip__token">oat · --colors-neutral-100</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#D9CFC6" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#D9CFC6</span><span class="chip__token">stone · --colors-neutral-300</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#1A1110" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#1A1110</span><span class="chip__token">ink · --colors-neutral-900</span></span></div>
+</div>
+<span class="std"><b>Swatch fills are the one allowed literal-hex.</b> The chip must paint the exact color to demonstrate it; each is labelled with its <span class="kbd">--colors-*</span> token so the mapping stays explicit. Everything else on this page resolves from token vars.</span>
+
+<h3 style="margin-top:22px">Type — display scale + body</h3>
+<p class="inv-lead">Display scale from <span class="kbd">--font-sizes-headline.*</span> (56 / 64 / 72px), <span class="kbd">gin</span> 800 uppercase. Body from the <span class="kbd">museo-sans</span> stack at 18px / 1.5.</p>
+<div class="type-line"><span class="type-line__spec" style="font-size:56px">Frontier</span><span class="type-line__meta">56px · gin · 800 · headline.1x1</span></div>
+<div class="type-line"><span class="type-line__spec" style="font-size:64px">Frontier</span><span class="type-line__meta">64px · gin · 800 · headline.9x16</span></div>
+<div class="type-line"><span class="type-line__spec" style="font-size:72px">Frontier</span><span class="type-line__meta">72px · gin · 800 · headline.16x9</span></div>
+<p class="type-body-spec">Museo-sans body specimen — the running-copy voice at 18px on a 1.5 line-height. Warm, legible, set in bear brown on parchment for a 10.2:1 AAA read.</p>
+<span class="type-line__meta">18px / 1.5 · museo-sans · 500</span>
+
+<h3 style="margin-top:22px">Spacing — proportion ruler</h3>
+<p class="inv-lead">The spacing scale as visual bars (<span class="kbd">--spacing-xs</span> 4 … <span class="kbd">--spacing-2xl</span> 48px). Fill is bear brown token.</p>
+<div class="ruler-row"><span class="ruler-bar" style="width:4px" aria-hidden="true"></span><span class="ruler-row__label">4px · --spacing-xs</span></div>
+<div class="ruler-row"><span class="ruler-bar" style="width:8px" aria-hidden="true"></span><span class="ruler-row__label">8px · --spacing-sm</span></div>
+<div class="ruler-row"><span class="ruler-bar" style="width:16px" aria-hidden="true"></span><span class="ruler-row__label">16px · --spacing-md</span></div>
+<div class="ruler-row"><span class="ruler-bar" style="width:24px" aria-hidden="true"></span><span class="ruler-row__label">24px · --spacing-lg</span></div>
+<div class="ruler-row"><span class="ruler-bar" style="width:32px" aria-hidden="true"></span><span class="ruler-row__label">32px · --spacing-xl</span></div>
+<div class="ruler-row"><span class="ruler-bar" style="width:48px" aria-hidden="true"></span><span class="ruler-row__label">48px · --spacing-2xl</span></div>
+
+<h3 style="margin-top:22px">Elevation — shadow scale</h3>
+<p class="inv-lead">The four elevation surfaces, each using its <span class="kbd">var(--shadows-*)</span> token so the real difference is visible.</p>
+<div class="elev-grid">
+<div class="elev-card" style="box-shadow:var(--shadows-sm)"><div class="elev-card__box" aria-hidden="true"></div><div class="elev-card__label">Raised</div><div class="elev-card__token">--shadows-sm</div></div>
+<div class="elev-card" style="box-shadow:var(--shadows-md)"><div class="elev-card__box" aria-hidden="true"></div><div class="elev-card__label">Card</div><div class="elev-card__token">--shadows-md</div></div>
+<div class="elev-card" style="box-shadow:var(--shadows-lg)"><div class="elev-card__box" aria-hidden="true"></div><div class="elev-card__label">Floating</div><div class="elev-card__token">--shadows-lg</div></div>
+<div class="elev-card" style="box-shadow:var(--shadows-bear)"><div class="elev-card__box" aria-hidden="true"></div><div class="elev-card__label">Bear hero</div><div class="elev-card__token">--shadows-bear</div></div>
+</div>
+
+<h3 style="margin-top:22px">Component anatomy — the card</h3>
+<p class="inv-lead">A card specimen beside a legend of its construction layers (S8). Positioned legend keeps the anatomy legible without fragile absolute callouts.</p>
+<div class="anatomy">
+<div class="anatomy__specimen"><div class="anatomy__hd"><h3>Header strip</h3></div><div class="anatomy__body">.body — 14px pad, kraft surface, wood-grain ::before at 6%.</div></div>
+<ul class="anatomy__legend">
+<li><b>Surface</b> — <span class="kbd">var(--gradients-kraft.surface)</span> kraft-tan gradient, zero rasters</li>
+<li><b>Border</b> — 1px <span class="kbd">var(--colors-neutral-300)</span> stone</li>
+<li><b>Radius</b> — <span class="kbd">var(--radii-sm)</span> 4px</li>
+<li><b>Elevation</b> — <span class="kbd">var(--shadows-md)</span> card depth</li>
+<li><b>Wood grain</b> — <span class="kbd">::before</span> at 6% opacity, <span class="kbd">pointer-events:none</span></li>
+<li><b>Header strip</b> — <span class="kbd">.hd</span> kraft header, 1px #E8DDD3 divider</li>
+</ul>
+</div>
+
+<h3 style="margin-top:22px">Do / Don't — body-text contrast</h3>
+<p class="inv-lead">Teaches S6 / S10 / the wcagNotes recommendation: never blaze orange for body copy on parchment.</p>
+<div class="dodont">
+<div class="dodont__panel"><span class="dodont__flag dont">Don't — 3.1:1 fails body</span><p class="dodont__body" style="color:#E8530E">Fresh from the frontier — 14g protein in every stack. Blaze orange body copy on parchment reads at only 3.1:1, below the 4.5:1 body minimum.</p></div>
+<div class="dodont__panel"><span class="dodont__flag do">Do — 10.2:1 AAA</span><p class="dodont__body" style="color:#3B2316">Fresh from the frontier — 14g protein in every stack. Bear brown body copy on parchment reads at 10.2:1, clearing AAA.</p></div>
+</div>
+<span class="std decision"><b>Body on parchment = bear brown or frontier green — never blaze orange.</b> Blaze orange is reserved for the 8px bar, CTA fills, protein callouts, and glow overlays (per S10 iconic-box).</span>
 </div></div>
 
 <div class="card inv-section" id="inv-responsive"><div class="hd"><h2>9 · Axis A — four-view responsive dimension <span class="badge">S11</span></h2><p>Grades each element's form + function across mobile 375 / tablet 768 / desktop 1440 / ultrawide 2560.</p></div><div class="body">
