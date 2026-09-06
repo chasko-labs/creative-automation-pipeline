@@ -187,7 +187,10 @@ section.xl{padding:var(--section-space-xl) 0}
 @media(prefers-reduced-motion:reduce){.kodiak-header.is-sticky .kodiak-header__logo--primary{transition:none}}
 
 /* === Firefly-inspired prompt bar — "Create a Kodiak campaign" === */
-.ff-prompt{background:var(--gradients-kraft\.surface);border:1px solid var(--stone);border-radius:16px;padding:18px;box-shadow:var(--shadows-bear)}
+/* rizz-2: hero elevation preserved — .ff-prompt keeps --shadows-bear (heavier than the
+   card's --shadows-md: 0 12px 32px vs 0 8px 24px), so it reads elevated ABOVE the card.
+   only on-token hygiene here: raw 16px radius -> --radii-lg (same value, no visual change). */
+.ff-prompt{background:var(--gradients-kraft\.surface);border:1px solid var(--stone);border-radius:var(--radii-lg);padding:18px;box-shadow:var(--shadows-bear)}
 .ff-prompt h2{margin:0 0 4px;font:800 20px/1.1 gin,"kodiak_sans",Rockwell,Georgia,serif;letter-spacing:.03em;text-transform:none;color:var(--chocolate)}
 .ff-prompt .ff-sub{margin:0 0 14px;color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
 /* the big input row — textarea + inline upload + generate, google-simple */
@@ -336,7 +339,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   font-size:clamp(20px, 4.2vw, 38px)}
 
 /* C+D+E+F. control row — [market button] [seasonal menu] [featured-frontier + languages inline], one responsive row */
-.ff-controlrow{display:flex;flex-wrap:wrap;align-items:stretch;gap:var(--spacing-sm);margin-top:var(--spacing-md)}
+/* rizz-1: align-items:center (was stretch) so the .ff-detail block's tall wrapped
+   content no longer stretches the market/season/geo controls off their 40px height;
+   each control keeps its own min-height:40px, all three baseline-align, .ff-detail
+   stays its natural height centered against them. mobile column-stack (@640) intact. */
+.ff-controlrow{display:flex;flex-wrap:wrap;align-items:center;gap:var(--spacing-sm);margin-top:var(--spacing-md)}
 .ff-controlrow .ff-detail{flex:1 1 220px;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:2px;padding:var(--spacing-xs) var(--spacing-sm);
   background:var(--colors-neutral-100);border:1px solid var(--colors-border-default);border-radius:var(--radii-lg)}
 .ff-controlrow .ff-featured{font:600 12px/1.35 "museo-sans",sans-serif;color:var(--colors-foreground-default);white-space:normal;overflow:hidden;text-overflow:ellipsis}
@@ -388,6 +395,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-geo:focus-visible,.ff-addloc-input:focus-visible,.ff-addloc-btn:focus-visible,
 .ff-addasset-label:focus-within,.ff-addasset-input:focus-visible,.ff-pending-remove:focus-visible{
   outline:2px solid var(--colors-brand-blaze-orange);outline-offset:2px}
+/* rizz-3: focus-ring consistency — .ff-geo is a primary control-row control and must
+   share the signal-red focus indicator with .ff-market>summary / .ff-season select /
+   .ff-chip (all inherit signal-red from the global :focus-visible rule). override the
+   blaze-orange from the shared wave3 rule above for .ff-geo only; the staging affordances
+   (addloc/addasset/pending) keep their blaze-orange group treatment. */
+.ff-geo:focus-visible{outline:2px solid var(--colors-brand-signal-red);outline-offset:2px}
 
 /* D3. add-a-location affordance inside the market disclosure panel */
 .ff-addloc{display:flex;flex-wrap:wrap;gap:var(--spacing-xs);align-items:center;margin-top:var(--spacing-xs);
