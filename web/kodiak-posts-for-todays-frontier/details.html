@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="https://use.typekit.net/zjt4wyq.css">
 <link rel="stylesheet" href="design/styles.css">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>KODIAK® Posts for Today's Frontier — Design system + details</title>
+<title>KODIAK® Posts for Today's Frontier — Design System Inventory</title>
 <meta name="robots" content="noindex, nofollow, noarchive">
 <style>
 /* RUGGED-ELEGANT — Kodiak Frontier | Adobe palette + paper grit + red overlay */
@@ -105,7 +105,8 @@ header h1,header h2,header h3{color:var(--parchment)}
 .inv-table tr:hover td{background:color-mix(in srgb, var(--colors-brand-blaze-orange) 5%, transparent)}
 .std{display:block;margin:12px 0;padding:10px 12px;border-left:3px solid var(--colors-brand-frontier-green);background:var(--gradients-kraft\.surface);border-radius:0 4px 4px 0}
 .std b{color:var(--chocolate)}
-.std.decision{border-left-color:var(--red)}
+/* decision callouts are reference knowledge, not alerts — structural left rule is calm frontier-green (S10: red/orange reserved for accent/alert) */
+.std.decision{border-left-color:var(--colors-brand-frontier-green)}
 .state{display:inline-block;padding:2px 7px;border-radius:999px;font:700 12px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:0;text-transform:uppercase}
 .state.built{background:var(--colors-brand-frontier-green);color:#FACC7C}
 .state.drift{background:var(--colors-brand-blaze-orange);color:#fff}
@@ -186,7 +187,7 @@ header h1,header h2,header h3{color:var(--parchment)}
 </style></head><body>
 <header class="kodiak-header" style="background:var(--brown-kodiak);color:#FFF8F0;border-bottom:none;display:flex;align-items:center;gap:16px;padding:10px 18px;flex-wrap:wrap;margin:0"><div class="header__inner">
 <a class="backlink" href="index.html">&larr; Back to campaign</a>
-<div style="flex:1;background:var(--red);border-radius:6px;padding:8px 14px"><h1 style="color:#FFF8F0;font-size:clamp(18px,3.2vw,26px)">Design system + details</h1></div>
+<div style="flex:1;background:var(--colors-brand-frontier-green);border-radius:6px;padding:8px 14px"><h1 style="color:#FFF8F0;font-size:clamp(18px,3.2vw,26px)">Design System Inventory</h1></div>
 </div>
 </header>
 
@@ -207,22 +208,18 @@ header h1,header h2,header h3{color:var(--parchment)}
 <a href="#inv-responsive">Responsive axis</a>
 <a href="#inv-translation">Translation axis</a>
 <a href="#inv-taxonomy">Market taxonomy</a>
-<a href="#inv-spectrum">Spectrum migration</a>
-<a href="#inv-decisions">Open decisions</a>
-<a href="#inv-migration">Migration record</a>
+<a href="#inv-spectrum">Spectrum + tokens</a>
+<a href="#inv-decisions">Why it's built this way</a>
+<a href="#inv-migration">Token pipeline</a>
 <a href="#design-system">Live scorecards</a>
 </div>
 </nav>
 
 <div class="wrap">
 
-<!-- location-aware island — frontier toggle, prototype defaults Park City 84098 + Kamas Valley 84036 rural -->
-<div class="card inv-section" id="frontierToggleCard" style="border-left:3px solid var(--colors-brand-frontier-green);scroll-margin-top:64px"><span id="frontier-context" style="position:absolute;top:-64px"></span><div class="hd"><h2>Frontier prototype context <span class="badge">dev</span></h2><p>Defaults: Park City 84098 + Kamas Valley 84036 rural. Tool still location-aware but not consumer-facing.</p></div><div class="body">
-<div class="row" style="gap:10px">
-<button class="btn orange" id="useLocationBtn">Use my location</button>
-<button class="btn ghost" id="showAllBtn">Choose from list below</button>
-<span class="hint" id="locationStatus" style="display:none">Pescadero 94060 / Neah Bay 98357 frontier preserved for dev.</span>
-</div>
+<!-- location-aware island — prototype defaults Park City 84098 + Kamas Valley 84036 rural -->
+<div class="card inv-section" id="frontierToggleCard" style="border-left:3px solid var(--colors-brand-frontier-green);scroll-margin-top:64px"><span id="frontier-context" style="position:absolute;top:-64px"></span><div class="hd"><h2>Prototype defaults <span class="badge">reference</span></h2></div><div class="body">
+<p class="inv-lead">The tool defaults to Park City 84098 (with Kamas Valley 84036 as the rural pairing). It stays location-aware under the hood but is not consumer-facing in this prototype — location selection is a build-time default here, not a user control.</p>
 </div></div>
 
 <!-- ============================================================================
@@ -264,7 +261,7 @@ header h1,header h2,header h3{color:var(--parchment)}
 <tr><td>Paper Fiber / Grain / Vignette</td><td>body::before, #paperGrain, #edgeVignette</td><td>svg hairlines + tiled grain + radial darkening</td><td><span class="state built">built</span></td></tr>
 <tr><td>Top Strip / Header Bar</td><td>.kodiak-topstrip, header.kodiak-header</td><td>bearBrown + kraft overlay</td><td><span class="state built">built</span> (reconciled to token)</td></tr>
 <tr><td>Logo cluster</td><td>.kodiak-header__logo*</td><td>kraft-tan radial + circular mask</td><td><span class="state built">built</span></td></tr>
-<tr><td>Title Block</td><td>header h1 block</td><td>signalRed token surface</td><td><span class="state built">built</span> (reconciled to token)</td></tr>
+<tr><td>Title Block</td><td>header h1 block</td><td>frontierGreen token surface</td><td><span class="state built">built</span> (reconciled to token)</td></tr>
 <tr><td>Buttons</td><td>.btn / .btn.orange / .btn.ghost</td><td>bearBrown / signalRed / parchment</td><td><span class="state built">built</span></td></tr>
 <tr><td>Primitives</td><td>.badge .kbd .field-label .offline .hint</td><td>bearBrown / oat / muted canyon</td><td><span class="state built">built</span></td></tr>
 </tbody></table>
@@ -450,41 +447,117 @@ header h1,header h2,header h3{color:var(--parchment)}
 
 <div class="card inv-section" id="inv-responsive"><div class="hd"><h2>9 · Axis A — three-view responsive dimension <span class="badge">S11</span></h2><p>Grades each element's form + function across mobile 375 / tablet 768 / desktop 1440.</p></div><div class="body">
 <p class="inv-lead">MEASURED drawing — headless Playwright + DOM <span class="kbd">getBoundingClientRect</span> at 375×812, 768×1024, 1440×900. Top-level layout truth: body content lives in <span class="kbd">.wrap</span>, a max-1100px column; cards stack full-width as DIRECT CHILDREN of <span class="kbd">.wrap</span> in a flex/flow column. There is NO <span class="kbd">.grid 1fr 1fr</span> top-level split — that earlier assumption was wrong. Desktop 1440 adds 23.6% side gutters; mobile 375 and tablet 768 are full-bleed (<span class="kbd">.wrap</span> = 100% viewport width). Section 9 now carries THREE complementary views — the measured vh wireframe above (proportion), the structural containment tree below (hierarchy), and the live <span class="kbd">?debug=layout</span> overlay on the app page (form + function on real pixels).</p>
+<p class="inv-lead" style="margin-bottom:6px">Role legend (shared with the containment tree below) — <span style="color:#1A73E8">brand</span> · <span style="color:#188038">input</span> · <span style="color:#9334E6">control</span> · <span style="color:#E8710A">output</span> · <span style="color:#00897B">navigation</span> · <span style="color:#9AA0A6">decorative</span> · <span style="color:#5F6368">meta</span>. Each element line below is tinted by its role so the ASCII block cross-references the tree.</p>
+<h4 class="spec-ladder-label">Mobile 375</h4>
 <pre class="inv-wire" style="overflow:auto;font:500 11px/1.35 ui-monospace,monospace;background:var(--colors-neutral-50);border:1px solid var(--stone);border-radius:var(--radii-sm);padding:12px">
-MOBILE 375 (full-bleed .wrap = 100vw)          TABLET 768 (full-bleed .wrap = 100vw)          DESKTOP 1440 (.wrap 76.4vw, 23.6% gutters)
-+------------------------------------+         +------------------------------------+         |<-11.8%->+------------------------+<-11.8%->|
-| header.kodiak-header      100%w    |         | header.kodiak-header      100%w    |         | header.kodiak-header      100%w    |
-|   .kodiak-headline-plate 73.9%     |         |   .kodiak-headline-plate 85.1%     |         |   .kodiak-headline-plate 90.4%     |
-+------------------------------------+         +------------------------------------+         +------------------------------------+
-| .wrap ---- 100vw full-bleed -------|         | .wrap ---- 100vw full-bleed -------|         | .wrap - 76.4vw (23.6% gutters) ----|
-| +--------------------------------+ |         | +--------------------------------+ |         | +--------------------------------+ |
-| | .card (primary)  100%w 154.5vh | |         | | .card (primary)  100%w 82.7vh  | |         | | .card (primary)  100%w 76.4vh  | |
-| | +----------------------------+ | |         | | +----------------------------+ | |         | | +----------------------------+ | |
-| | | .ff-prompt 100%w 139.8vh   | | |         | | | .ff-prompt 100%w 71.0vh    | | |         | | | .ff-prompt 100%w 63.0vh    | | |
-| | | +------------------------+ | | |         | | | +------------------------+ | | |         | | | +------------------------+ | | |
-| | | | .ff-inputwrap  20.7vh  | | | |         | | | | .ff-inputwrap  12.0vh  | | | |         | | | | .ff-inputwrap   6.9vh  | | | |
-| | | +------------------------+ | | |         | | | +------------------------+ | | |         | | | +------------------------+ | | |
-| | | .ff-controlrow 70.6vh      | | |         | | | .ff-controlrow 31.8vh      | | |         | | | .ff-controlrow 31.7vh      | | |
-| | |  [market]  (stacks column) | | |         | | |  [market|season|geo] row   | | |         | | |  [market|season|geo] row   | | |
-| | |  [season]                  | | |         | | |   182px | 23.2% | 19.3%    | | |         | | |   182px | 15.4% | 12.8%    | | |
-| | |  [geo]                     | | |         | | |                            | | |         | | |                            | | |
-| | | .ff-chips      18.7vh      | | |         | | | .ff-chips       7.0vh      | | |         | | | .ff-chips       3.6vh      | | |
-| | | .ff-optiongroup 23.7vh     | | |         | | | .ff-optiongroup 10.9vh     | | |         | | | .ff-optiongroup  8.0vh     | | |
-| | | +------------------------+ | | |         | | | +------------------------+ | | |         | | | +------------------------+ | | |
-| | +----------------------------+ | |         | | +----------------------------+ | |         | | +----------------------------+ | |
-| +--------------------------------+ |         | +--------------------------------+ |         | +--------------------------------+ |
-| | .ff-ridge                      | |         | | .ff-ridge                      | |         | | .ff-ridge                      | |
-| +--------------------------------+ |         | +--------------------------------+ |         | +--------------------------------+ |
-| | details#previewCard  12.0vh    | |         | | details#previewCard   7.8vh    | |         | | details#previewCard   8.9vh    | |
-| |   (.preview-card collapsed)    | |         | |   (.preview-card collapsed)    | |         | |   (.preview-card collapsed)    | |
-| +--------------------------------+ |         | +--------------------------------+ |         | +--------------------------------+ |
-| | .row.ff-detailslink-row        | |         | | .row.ff-detailslink-row        | |         | | .row.ff-detailslink-row        | |
-| +--------------------------------+ |         | +--------------------------------+ |         | +--------------------------------+ |
-| | details#aboutTool              | |         | | details#aboutTool              | |         | | details#aboutTool              | |
-| +--------------------------------+ |         | +--------------------------------+ |         | +--------------------------------+ |
-| | div#buildStamp (de-facto foot) | |         | | div#buildStamp (de-facto foot) | |         | | div#buildStamp (de-facto foot) | |
-| +--------------------------------+ |         | +--------------------------------+ |         | +--------------------------------+ |
-+------------------------------------+         +------------------------------------+         +------------------------------------+
+MOBILE 375 (full-bleed .wrap = 100vw)
++------------------------------------+
+| <span style="color:#1A73E8">header.kodiak-header</span>      100%w    |
+|   <span style="color:#1A73E8">.kodiak-headline-plate</span> 73.9%     |
++------------------------------------+
+| <span style="color:#5F6368">.wrap</span> ---- 100vw full-bleed -------|
+| +--------------------------------+ |
+| | <span style="color:#9334E6">.card</span> (primary)  100%w 154.5vh | |
+| | +----------------------------+ | |
+| | | <span style="color:#188038">.ff-prompt</span> 100%w 139.8vh   | | |
+| | | +------------------------+ | | |
+| | | | <span style="color:#188038">.ff-inputwrap</span>  20.7vh  | | | |
+| | | +------------------------+ | | |
+| | | <span style="color:#9334E6">.ff-controlrow</span> 70.6vh      | | |
+| | |  [market]  (stacks column) | | |
+| | |  [season]                  | | |
+| | |  [geo]                     | | |
+| | | <span style="color:#9334E6">.ff-chips</span>      18.7vh      | | |
+| | | <span style="color:#9334E6">.ff-optiongroup</span> 23.7vh     | | |
+| | | +------------------------+ | | |
+| | +----------------------------+ | |
+| +--------------------------------+ |
+| | <span style="color:#9AA0A6">.ff-ridge</span>                      | |
+| +--------------------------------+ |
+| | <span style="color:#E8710A">details#previewCard</span>  12.0vh    | |
+| |   (.preview-card collapsed)    | |
+| +--------------------------------+ |
+| | <span style="color:#00897B">.row.ff-detailslink-row</span>        | |
+| +--------------------------------+ |
+| | <span style="color:#E8710A">details#aboutTool</span>              | |
+| +--------------------------------+ |
+| | <span style="color:#5F6368">div#buildStamp</span> (de-facto foot) | |
+| +--------------------------------+ |
++------------------------------------+
+</pre>
+<h4 class="spec-ladder-label">Tablet 768</h4>
+<pre class="inv-wire" style="overflow:auto;font:500 11px/1.35 ui-monospace,monospace;background:var(--colors-neutral-50);border:1px solid var(--stone);border-radius:var(--radii-sm);padding:12px">
+TABLET 768 (full-bleed .wrap = 100vw)
++------------------------------------+
+| <span style="color:#1A73E8">header.kodiak-header</span>      100%w    |
+|   <span style="color:#1A73E8">.kodiak-headline-plate</span> 85.1%     |
++------------------------------------+
+| <span style="color:#5F6368">.wrap</span> ---- 100vw full-bleed -------|
+| +--------------------------------+ |
+| | <span style="color:#9334E6">.card</span> (primary)  100%w 82.7vh  | |
+| | +----------------------------+ | |
+| | | <span style="color:#188038">.ff-prompt</span> 100%w 71.0vh    | | |
+| | | +------------------------+ | | |
+| | | | <span style="color:#188038">.ff-inputwrap</span>  12.0vh  | | | |
+| | | +------------------------+ | | |
+| | | <span style="color:#9334E6">.ff-controlrow</span> 31.8vh      | | |
+| | |  [market|season|geo] row   | | |
+| | |   182px | 23.2% | 19.3%    | | |
+| | |                            | | |
+| | | <span style="color:#9334E6">.ff-chips</span>       7.0vh      | | |
+| | | <span style="color:#9334E6">.ff-optiongroup</span> 10.9vh     | | |
+| | | +------------------------+ | | |
+| | +----------------------------+ | |
+| +--------------------------------+ |
+| | <span style="color:#9AA0A6">.ff-ridge</span>                      | |
+| +--------------------------------+ |
+| | <span style="color:#E8710A">details#previewCard</span>   7.8vh    | |
+| |   (.preview-card collapsed)    | |
+| +--------------------------------+ |
+| | <span style="color:#00897B">.row.ff-detailslink-row</span>        | |
+| +--------------------------------+ |
+| | <span style="color:#E8710A">details#aboutTool</span>              | |
+| +--------------------------------+ |
+| | <span style="color:#5F6368">div#buildStamp</span> (de-facto foot) | |
+| +--------------------------------+ |
++------------------------------------+
+</pre>
+<h4 class="spec-ladder-label">Desktop 1440</h4>
+<pre class="inv-wire" style="overflow:auto;font:500 11px/1.35 ui-monospace,monospace;background:var(--colors-neutral-50);border:1px solid var(--stone);border-radius:var(--radii-sm);padding:12px">
+DESKTOP 1440 (.wrap 76.4vw, 23.6% gutters)
+|<-11.8%->+------------------------+<-11.8%->|
+| <span style="color:#1A73E8">header.kodiak-header</span>      100%w    |
+|   <span style="color:#1A73E8">.kodiak-headline-plate</span> 90.4%     |
++------------------------------------+
+| <span style="color:#5F6368">.wrap</span> - 76.4vw (23.6% gutters) ----|
+| +--------------------------------+ |
+| | <span style="color:#9334E6">.card</span> (primary)  100%w 76.4vh  | |
+| | +----------------------------+ | |
+| | | <span style="color:#188038">.ff-prompt</span> 100%w 63.0vh    | | |
+| | | +------------------------+ | | |
+| | | | <span style="color:#188038">.ff-inputwrap</span>   6.9vh  | | | |
+| | | +------------------------+ | | |
+| | | <span style="color:#9334E6">.ff-controlrow</span> 31.7vh      | | |
+| | |  [market|season|geo] row   | | |
+| | |   182px | 15.4% | 12.8%    | | |
+| | |                            | | |
+| | | <span style="color:#9334E6">.ff-chips</span>       3.6vh      | | |
+| | | <span style="color:#9334E6">.ff-optiongroup</span>  8.0vh     | | |
+| | | +------------------------+ | | |
+| | +----------------------------+ | |
+| +--------------------------------+ |
+| | <span style="color:#9AA0A6">.ff-ridge</span>                      | |
+| +--------------------------------+ |
+| | <span style="color:#E8710A">details#previewCard</span>   8.9vh    | |
+| |   (.preview-card collapsed)    | |
+| +--------------------------------+ |
+| | <span style="color:#00897B">.row.ff-detailslink-row</span>        | |
+| +--------------------------------+ |
+| | <span style="color:#E8710A">details#aboutTool</span>              | |
+| +--------------------------------+ |
+| | <span style="color:#5F6368">div#buildStamp</span> (de-facto foot) | |
+| +--------------------------------+ |
++------------------------------------+
 </pre>
 <h3>Structural containment tree</h3>
 <p class="inv-lead">Parent-child structure of the app page — the hierarchy companion to the vh wireframe above (proportion) and the live <span class="kbd">?debug=layout</span> overlay on the app page (form + function on real pixels). Nodes are color-coded by role to match the overlay palette; nodes marked "(on interaction)" are JS-created and absent at load.</p>
@@ -617,45 +690,41 @@ graph TD
 <span class="std"><b>S14 — group by class first, then alphabetize by state within each group.</b> Two labeled groups (Markets then Featured Frontier); within each, sort alpha by state, then place alpha within a state. Replaces the current flat, unsorted, ungrouped ordering.</span>
 </div></div>
 
-<div class="card inv-section" id="inv-spectrum"><div class="hd"><h2>12 · Spectrum migration candidates <span class="badge">S15</span></h2><p>Which bespoke .ff-* controls are the best candidates to migrate onto Adobe Spectrum sp-* web components — token-bridged, not token-replacing.</p></div><div class="body">
-<table class="inv-table"><thead><tr><th>Rank</th><th>Current control</th><th>sp-* target</th><th>Why migrate</th></tr></thead><tbody>
-<tr><td>1</td><td>.ff-market / #marketListbox</td><td>sp-picker + sp-menu-group</td><td>TOP — sp-menu-group delivers grouped-header + accessible listbox for free, which ALSO delivers S14 with zero hand-rolled grouping; retires bespoke role=option/aria-selected wiring</td></tr>
-<tr><td>2</td><td>.ff-season select</td><td>sp-picker</td><td>normalizes browser-inconsistent native select + keyboard nav</td></tr>
-<tr><td>3</td><td>#productSearch .ff-products-search combobox <span class="state tbd">future</span></td><td>sp-combobox</td><td>FUTURE — this control is NOT in index.html today; it is an aspirational target. sp-combobox is a confirmed-shipped package, but the kodiak combobox is not built yet. When built, hand-rolled role=combobox + autocomplete is exactly what sp-combobox ships tested.</td></tr>
-<tr><td>4</td><td>.ff-chip (x6)</td><td>sp-action-group + sp-action-button</td><td>pressed-state chips map to toggle buttons; frees manual aria-pressed</td></tr>
-<tr><td>5</td><td>.ff-products disclosure <span class="state tbd">future</span></td><td>sp-accordion / sp-accordion-item (NOTE: sp-disclosure is not a real package)</td><td>FUTURE — .ff-products does not exist as a control in index.html today. Lowest urgency — only if consolidating on spectrum primitives. Disclosure functionality lives in sp-accordion / sp-accordion-item; there is no sp-disclosure package.</td></tr>
-<tr><td>6</td><td>.ff-geo button</td><td>sp-action-button (quiet) + sp-icon</td><td>low value — migrate only for icon-system consistency</td></tr>
+<div class="card inv-section" id="inv-spectrum"><div class="hd"><h2>12 · Spectrum components + token bridge <span class="badge">reference</span></h2><p>How each native UI control maps to an Adobe Spectrum sp-* primitive, and how kodiak tokens dress that primitive through the token bridge — so an adopted sp-* component wears the kodiak brand without replacing kodiak tokens.</p></div><div class="body">
+<table class="inv-table"><thead><tr><th>Control</th><th>Spectrum primitive</th><th>Token bridge (kodiak tokens that dress it)</th></tr></thead><tbody>
+<tr><td>.ff-market / #marketListbox</td><td>sp-picker + sp-menu-group</td><td>sp-menu-group supplies the grouped-header + accessible listbox natively, so grouped ordering and role=option/aria-selected wiring come from the primitive; --colors-* dress the surface and selected fill</td></tr>
+<tr><td>.ff-season select</td><td>sp-picker</td><td>normalizes browser-inconsistent native select + keyboard nav; --colors-* / --radii-* dress the trigger and popover</td></tr>
+<tr><td>#productSearch combobox <span class="state tbd">not present</span></td><td>sp-combobox</td><td>Not present in the current UI — mapping provided for when it is added. sp-combobox is a real, shipped package that provides role=combobox + autocomplete; --colors-* / --radii-* dress the field and listbox</td></tr>
+<tr><td>.ff-chip (x6)</td><td>sp-action-group + sp-action-button</td><td>pressed-state chips map to toggle buttons; the primitive owns aria-pressed. Selected/pressed fill dresses from --colors-*</td></tr>
+<tr><td>.ff-products disclosure <span class="state tbd">not present</span></td><td>sp-accordion / sp-accordion-item</td><td>Not present in the current UI — mapping provided for when it is added. Disclosure behaviour lives in sp-accordion / sp-accordion-item; there is no sp-disclosure package. --colors-* / --radii-* dress the header and panel</td></tr>
+<tr><td>.ff-geo button</td><td>sp-action-button (quiet) + sp-icon</td><td>icon-system consistency; quiet button dresses from --colors-* with the shared icon set</td></tr>
 </tbody></table>
-<span class="std"><b>S15 — spectrum adoption is token-bridged, not token-replacing.</b> A migrated control keeps the kodiak look by mapping kodiak tokens onto the sp-* component's theming custom properties (feed --colors-* / --radii-* / --shadows-*). Never let a spectrum default palette override a kodiak token. Migrate only where sp-* removes bespoke a11y/interaction code. Do-not-migrate: the hero prompt bar, preview/render tiles, decorative overlays — brand-signature surfaces stay bespoke and on-token. Any spectrum migration touching focus styling must resolve to the signalRed TOKEN, not the raw --red var.</span>
+<span class="std"><b>The bridge dresses, it never replaces.</b> An sp-* component keeps the kodiak look by mapping kodiak tokens onto the component's theming custom properties (feed --colors-* / --radii-* / --shadows-*). A spectrum default palette never overrides a kodiak token. Do-not-bridge: the hero prompt bar, preview/render tiles, and decorative overlays are brand-signature surfaces that stay bespoke and on-token. Any focus styling on an sp-* component resolves to the signalRed <em>token</em> (<span class="kbd">var(--colors-brand-signal-red)</span>), never a raw hex or the raw --red var.</span>
 </div></div>
 
-<div class="card inv-section" id="inv-decisions"><div class="hd"><h2>8 · Open standards decisions <span class="badge">D1–D3</span></h2><p>Flag, do not silently fix — these are design-system governance calls owned by the product owner.</p></div><div class="body">
-<span class="std decision"><b>D1 — the signal red B51E14.</b> Used for links, .btn.orange, header title block. Not originally a brand token and it competed with blazeOrange as "the accent." Resolved: adopted as color.brand.signalRed token; the :root alias --red now routes through it. Blocks S1 closure until deploy confirms.</span>
-<span class="std decision"><b>D2 — inline palette duplication.</b> The :root{} block was copied into both HTML files. Resolved: reduced to token aliases only (single-sourced through styles.css); the --adobe svg literal stays as a documented exception.</span>
-<span class="std decision"><b>D3 — chocolate 382316 vs bearBrown 3B2316.</b> 3-hex drift, visually identical. Resolved: normalized to the token everywhere; --chocolate/--brown now alias bearBrown.</span>
+<div class="card inv-section" id="inv-decisions"><div class="hd"><h2>8 · Why the system is built this way <span class="badge">decisions</span></h2><p>The reasoning behind the token layer — what the system does at each contested point, and why.</p></div><div class="body">
+<span class="std decision"><b>One accent red.</b> A production red (#B51E14) drove links, filled buttons, and the header title block but was not a brand token, so it competed with blazeOrange for the role of "the accent." The system adopts it as <span class="kbd">color.brand.signalRed</span> and routes the <span class="kbd">--red</span> alias through it, so there is one named red with one job — interactive/alert accent — instead of a floating hex.</span>
+<span class="std decision"><b>One palette source.</b> The inline <span class="kbd">:root{}</span> palette had been copied into both HTML files, which drifts the moment one copy changes. The system reduces each file's block to token <em>aliases</em> that resolve through <span class="kbd">design/styles.css</span>, so styles.css is the single source of truth; the <span class="kbd">--adobe</span> svg literal stays as one documented exception.</span>
+<span class="std decision"><b>One brown.</b> Two near-identical browns (#382316 and #3B2316) existed and read as the same color, which invites silent drift. The system standardizes on the bearBrown token #3B2316 so there is a single source of truth; <span class="kbd">--chocolate</span> / <span class="kbd">--brown</span> now alias it.
+<div class="spec-grid" style="margin-top:10px">
+<div class="chip"><span class="chip__fill" style="background:#382316" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#382316</span><span class="chip__token">legacy --chocolate</span></span></div>
+<div class="chip"><span class="chip__fill" style="background:#3B2316" aria-hidden="true"></span><span class="chip__meta"><span class="chip__hex">#3B2316</span><span class="chip__token">bearBrown token</span></span></div>
+</div>
+</span>
 </div></div>
 
-<div class="card inv-section" id="inv-migration"><div class="hd"><h2>13 · S15 migration record — Option A (token-bridged) <span class="badge">S15 · how-we-migrated</span></h2><p>Why kodiak bridges its tokens INTO spectrum --mod-* rather than adopting the spectrum-web-components runtime, plus the changelog of what shipped on this branch.</p></div><div class="body">
-<p class="inv-lead">This branch chose <b>Option A — a token BRIDGE, not a component swap</b>. The six .ff-* controls stay native HTML on kodiak tokens; a spectrum <span class="kbd">--mod-*</span> alias layer was published in <a href="design/styles.css" target="_blank">design/styles.css</a> so a future spectrum adoption has a ready seam. No spectrum-web-components runtime was introduced — repo tooling is Panda CSS only (<span class="kbd">@pandacss/dev 1.12.0</span>, no bundler/Lit).</p>
+<div class="card inv-section" id="inv-migration"><div class="hd"><h2>13 · Token pipeline + Spectrum theming <span class="badge">architecture</span></h2><p>How the token layer is built and how kodiak tokens flow into Spectrum's theming contract — the two mechanics that explain why every kodiak surface styles from raw token custom properties and how an sp-* component would inherit the kodiak brand.</p></div><div class="body">
+<p class="inv-lead">The build emits a <b>token-only CSS layer</b> and the system consumes those raw tokens directly. Kodiak dresses any adopted Spectrum component by feeding its tokens into Spectrum's <span class="kbd">--mod-*</span> consumer-override layer — a bridge that dresses, never a component runtime. Repo tooling is Panda CSS only (<span class="kbd">@pandacss/dev 1.12.0</span>); there is no bundler or Lit runtime.</p>
 
-<h3>Why Option A</h3>
-<table class="inv-table"><thead><tr><th>Element</th><th>Fact</th><th>Source</th><th>Confidence</th></tr></thead><tbody>
-<tr><td>Panda emitTokensOnly</td><td>With tokens-only emission Panda emits ONLY the token CSS-variable layer; patterns, utilities, recipes, and animation-styles are NOT emitted (inert).</td><td><a href="https://github.com/chakra-ui/panda/blob/main/website/content/docs/references/config.mdx" target="_blank">panda config.mdx</a> — Emit Tokens Only: "only emit the tokens directory, excluding other generated files"</td><td>CONFIRMED HIGH</td></tr>
-<tr><td>Composite typography</td><td>Under tokens-only, primitive font vars (font-size, and any line-height/weight/letter-spacing modeled as tokens) survive, but the COMPOSITE textStyle utility that binds them into a usable text style is NOT emitted. Not overstated as "drops to fontSizes only".</td><td>Follows from emitTokensOnly excluding the utility layer (not a verbatim Panda doc claim)</td><td>INFERENCE / MEDIUM</td></tr>
-<tr><td>Spectrum theming contract</td><td>Component custom properties layer as <span class="kbd">var(--highcontrast-*, var(--mod-&lt;comp&gt;-&lt;prop&gt;, var(--spectrum-&lt;comp&gt;-&lt;prop&gt;)))</span>; --mod-* is the intended per-component CONSUMER override layer, --spectrum-* is the system default.</td><td><a href="https://github.com/adobe/spectrum-web-components/blob/main/CONTRIBUTOR-DOCS/02_style-guide/01_css/05_anti-patterns.md" target="_blank">swc anti-patterns</a> + <a href="https://github.com/adobe/spectrum-css/wiki/Ongoing-updates-and-refactoring" target="_blank">spectrum-css refactoring wiki</a></td><td>CONFIRMED HIGH</td></tr>
-<tr><td>Nuance (strengthens Option A)</td><td>SWC deprecates authoring NEW --mod-* chains INTERNALLY (component-authoring guidance), but --mod-* remains the documented external CONSUMER override contract — so bridging kodiak tokens into --mod-* targets the right seam.</td><td><a href="https://github.com/adobe/spectrum-web-components/blob/main/CONTRIBUTOR-DOCS/02_style-guide/01_css/05_anti-patterns.md" target="_blank">swc anti-patterns</a></td><td>HIGH</td></tr>
-<tr><td>sp-combobox</td><td><span class="kbd">@spectrum-web-components/combobox</span> is a real, shipped, documented package (<span class="kbd">&lt;sp-combobox&gt;</span>). Upgraded from prior low confidence.</td><td><a href="https://opensource.adobe.com/spectrum-web-components/components/combobox/" target="_blank">sp-combobox docs</a></td><td>CONFIRMED HIGH</td></tr>
-</tbody></table>
+<h3>Token-only emission</h3>
+<p><a href="design/styles.css" target="_blank">design/styles.css</a> is generated by <span class="kbd">panda cssgen</span> with tokens-only emission: the build emits ONLY the token CSS-variable layer. Patterns, utilities, recipes, and animation-styles are not emitted. This is why every kodiak surface styles from <span class="kbd">var(--colors-*)</span> / <span class="kbd">var(--radii-*)</span> / <span class="kbd">var(--shadows-*)</span> / <span class="kbd">var(--spacing-*)</span> directly and there is no utility-class layer to reach for. Composite text styles (Panda textStyles) are not emitted either — only the primitive font tokens are — so text is composed from the primitive font vars rather than a bound textStyle utility.</p>
 
-<h3>What shipped on this branch</h3>
-<table class="inv-table"><thead><tr><th>Commit</th><th>Change</th></tr></thead><tbody>
-<tr><td>D2 (115a507)</td><td>details.html specimen cards — swatches, type scale, spacing, elevation, anatomy, do/dont.</td></tr>
-<tr><td>D3 (this branch)</td><td>S15 spectrum --mod-* bridge token layer appended to design/styles.css — additive; every alias resolves to an existing kodiak <span class="kbd">--colors-*</span>/<span class="kbd">--radii-*</span>/<span class="kbd">--shadows-*</span> token; every focus-indicator resolves to <span class="kbd">var(--colors-brand-signal-red)</span>; no markup or runtime change.</td></tr>
-<tr><td>D5 (this branch)</td><td>details.html section 9 rewritten as a MEASURED three-view dimensioned drawing (375/768/1440) — ASCII wireframe + per-element form/function + %-of-space; corrected top-level layout truth (.wrap flex-column stack, NO .grid 1fr 1fr); closed the prior tbd-verify rows for .preview cols / .wrap max-1100 / border-radii; flagged .render-set/.provenance/.platform-copy as interaction-pass follow-ups (not closeable at load).</td></tr>
-<tr><td>D6 (this branch)</td><td>index.html rizz pass — .ff-controlrow align-items stretch-&gt;center (uniform control heights), .ff-prompt radius 16px-&gt;<span class="kbd">--radii-lg</span> (on-token hygiene), .ff-geo:focus-visible -&gt; signal-red (focus-ring consistency). Tokens only.</td></tr>
-</tbody></table>
+<h3>Spectrum theming contract</h3>
+<p>Spectrum component custom properties layer as <span class="kbd">var(--highcontrast-*, var(--mod-&lt;comp&gt;-&lt;prop&gt;, var(--spectrum-&lt;comp&gt;-&lt;prop&gt;)))</span>. The <span class="kbd">--mod-*</span> layer is the intended per-component consumer override; <span class="kbd">--spectrum-*</span> is the system default. This is how a Spectrum sp-* component wears the kodiak brand: kodiak tokens flow into <span class="kbd">--mod-*</span>, never into <span class="kbd">--spectrum-*</span>, so an adopted component inherits the kodiak look without overriding Spectrum's global defaults.</p>
 
-<span class="std"><b>S15 — migration is token-bridged, not token-replacing.</b> The do-not-migrate list held: .ff-prompt hero elevation, .tile/.render-tile, decorative overlays stay bespoke and on-token. Focus styling resolves to <span class="kbd">var(--colors-brand-signal-red)</span>, never raw --red.</span>
+<span class="std"><b>Gotcha — menu-item persistent selected fill.</b> sp-menu-item has no native <span class="kbd">--mod-*</span> variable for a persistent selected-fill, so a kodiak alias supplies it; the selected state on a bridged listbox item dresses from that alias rather than a stock Spectrum mod var.</span>
+
+<div class="offline" style="margin-top:12px"><b>Reference:</b> Panda tokens-only emission — <a href="https://github.com/chakra-ui/panda/blob/main/website/content/docs/references/config.mdx" target="_blank">panda config.mdx (Emit Tokens Only)</a> <span class="state tbd">confirmed</span>. Spectrum <span class="kbd">--mod-*</span> / <span class="kbd">--spectrum-*</span> theming contract — <a href="https://github.com/adobe/spectrum-web-components/blob/main/CONTRIBUTOR-DOCS/02_style-guide/01_css/05_anti-patterns.md" target="_blank">swc anti-patterns</a>, <a href="https://github.com/adobe/spectrum-css/wiki/Ongoing-updates-and-refactoring" target="_blank">spectrum-css refactoring wiki</a> <span class="state tbd">confirmed</span>. sp-combobox package — <a href="https://opensource.adobe.com/spectrum-web-components/components/combobox/" target="_blank">sp-combobox docs</a> <span class="state tbd">confirmed</span>. <span class="kbd">--mod-*</span> is the documented external consumer override seam even though authoring new internal --mod-* chains is deprecated inside Spectrum itself — which is exactly why the kodiak bridge targets it.</div>
 </div></div>
 
 <div class="card wide-track" data-mcp="design-system" id="design-system" data-mcp-description="Design System — scorecards evaluating app performance against tokens + style guide"><div class="hd"><h2>Design System — Scorecards <span class="badge score-overall-badge" id="score-overall-badge">live</span></h2><p>How we grade the Frontier app against <a href="../../design/tokens/kodiak.json" target="_blank">design/tokens/kodiak.json</a> + <a href="../../docs/kodiak-style-guide.md" target="_blank">style guide</a> + <a href="../../docs/kodiak-brand-explained.md" target="_blank">brand view</a>. Same tokens drive <span class="kbd">compose.py</span> <span class="kbd">enhance.py</span> <span class="kbd">compliance.py</span> <span class="kbd">suggest.py</span>. Scores update live after Generate / Show Suggested.</p></div><div class="body">
