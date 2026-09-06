@@ -29,6 +29,11 @@ ENV SKU_PACKSHOT_MAP_PATH=/var/task/data/products/sku-packshot-map.json
 COPY data/localization/ /var/task/data/localization/
 COPY data/vectors/image-clusters.json /var/task/data/vectors/image-clusters.json
 COPY data/prompts/blog-sample-prompts.jsonl /var/task/data/prompts/blog-sample-prompts.jsonl
+# Ship the safety blocklist — safety.check_text (localize_service's last hop) reads
+# data/safety/blocklist.json via CAP_DATA_ROOT; pip install . does not bundle data/, so
+# without this COPY every /localize degrades to error-fallback. CAP_DATA_ROOT already
+# points at /var/task/data (set below), so this lands where safety.py resolves it.
+COPY data/safety/blocklist.json /var/task/data/safety/blocklist.json
 ENV CAP_DATA_ROOT=/var/task/data
 RUN pip install --no-cache-dir --only-binary=:all: "pillow==10.4.0" && pip install --no-cache-dir . boto3
 CMD ["creative_automation.generate_lambda.handler"]

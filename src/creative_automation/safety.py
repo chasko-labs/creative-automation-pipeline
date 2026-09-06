@@ -12,11 +12,20 @@ never match real copy.
 from __future__ import annotations
 
 import json
+import os
 import re
 from functools import lru_cache
 from pathlib import Path
 
-BLOCKLIST_PATH = Path(__file__).parents[2] / "data" / "safety" / "blocklist.json"
+# CAP_DATA_ROOT is set by infra/generate.Dockerfile to /var/task/data so the runtime
+# resolves the COPYed blocklist; pip install . does not bundle data/, so parents[2]
+# only works for local/dev where the repo tree is intact.
+_DATA_ROOT = os.getenv("CAP_DATA_ROOT")
+BLOCKLIST_PATH = (
+    (Path(_DATA_ROOT) / "safety" / "blocklist.json")
+    if _DATA_ROOT
+    else (Path(__file__).parents[2] / "data" / "safety" / "blocklist.json")
+)
 
 CATEGORIES = ("profanity", "political", "slurs", "corporate_tone")
 
