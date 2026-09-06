@@ -109,6 +109,27 @@ Each worktree is a full checkout on its own branch sharing one `.git`. Team-pipe
 - Shared contracts are **seams**: design tokens, the api response shape, the sample-prompt schema, the iso naming regex, the dam bucket layout, the vector index dimension, and the dependency lockfiles. Changing one side of a seam without the other breaks the other team. Announce a seam change in the PR description and to the owning team before you merge it.
 - Dependency changes (`pyproject.toml`, `Cargo.toml`) touch every team's shared venv. Announce before `uv add`; other teams re-run `uv sync` after the merge.
 
+### The frontend is atomized — keep it that way
+
+The web app used to be one 3761-line `index.html`. Two people could not touch it at once without colliding —
+exactly the failure mode the team lanes exist to prevent. As of this sprint it is split: `index.html` is a
+thin shell (markup + an ordered list of `<script src>` tags), each behavior lives in its own `js/` file, and
+the hand-authored styles live in `design/components.css`. Full rationale and the rules are in
+[docs/frontend-architecture.md](docs/frontend-architecture.md) — read it before you touch the frontend. The
+load-bearing parts:
+
+- **Add a behavior as a new `js/` sibling**, not as more inline script in `index.html`. Wrap it in an IIFE.
+- **Classic `<script src>`, never ES modules.** The app shares one global scope by design; modules break it.
+- **Script load order is a contract.** `data-core.js` loads first (it holds the shared data). Do not reorder.
+- **Data stays inline in `js/data-core.js`** (the `places[]`/`skuList` literals) so the app works from
+  `file://`. Do not extract it to a JSON file — a `file://` page cannot fetch a sibling JSON.
+- **Two CSS files, two owners.** `design/styles.css` is Panda-generated — never hand-edit it (a token regen
+  clobbers your change). Hand-authored styles go in `design/components.css`.
+- **After extracting a block, run `node --check js/<file>.js` immediately.** A miscut IIFE over-runs the
+  `</script>` boundary and corrupts the next block silently.
+- **If you move data between frontend files, grep `tests/` for the old path.** Some tests parse the frontend
+  by file path (e.g. the 73-market-code count) and break when a file splits.
+
 ### Run ruff before you wait on anyone
 
 The codebuild gate runs `ruff check .` first and dies in about one second on any lint error. Do not discover that after a slow commit round-trip. Before you hand a change to the CI/commit agent, run it yourself from your worktree:
