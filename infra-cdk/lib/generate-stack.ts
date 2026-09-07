@@ -169,6 +169,13 @@ export class GenerateStack extends cdk.Stack {
                 Action: ["xray:PutTraceSegments", "xray:PutTelemetryRecords"],
                 Resource: "*",
               },
+              // Amazon Translate TranslateText does not support resource-level scoping -- "*" is the AWS-required shape for this action, not a privilege widening. It powers real /localize translation (replaces the offline-dictionary mock fallback).
+              {
+                Sid: "TranslateText",
+                Effect: "Allow",
+                Action: "translate:TranslateText",
+                Resource: "*",
+              },
             ],
           },
         },
