@@ -86,7 +86,7 @@ let skuList = [
     "US-MW-PARKCITY-84098": "Wasatch Back — Jensen Farms peaches + Copper Moose rhubarb compote <b>Jun–Sep</b> at Park City Farmers Market (Canyons Village)",
     "US-SW-LASCRUCES": "Hatch green chile <b>Aug–Sep roast season</b> — roasted by the bushel, Organ Mountains bench, Albertsons Las Cruces",
     "US-UT-KAMASVALLEY": "Kamas Valley — Oakley grass-fed beef + Ballerina Farm butter <b>year-round</b> at Oakley Rodeo Grounds market",
-    "_default": "Seasonal frontier flavor — protein that loves the local harvest. Source determined by locale to drive engagement & conversion."
+    "_default": "Seasonal frontier flavor — protein that loves the local harvest."
   };
   window.updateLocalFlavor = function(){
     const sel = document.getElementById('useLocationBtn')?.dataset.market || (typeof places!=='undefined' && places[0]?.market) || 'US-MW-PARKCITY-84098';
@@ -98,7 +98,7 @@ let skuList = [
     }catch(e){}
     const txt = flavorMap[market] || flavorMap._default;
     const el = document.getElementById('localFlavorText');
-    if(el) el.innerHTML = txt + ' <span style="color:#8C7A70">— not a dropdown, determined by the locale</span>';
+    if(el) el.innerHTML = txt;
   };
   setTimeout(updateLocalFlavor, 800);
   document.addEventListener('change', e=>{ if(e.target?.id==='locality') updateLocalFlavor(); });

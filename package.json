@@ -6,9 +6,12 @@
   "type": "module",
   "scripts": {
     "tokens:config": "uv run python scripts/gen-panda-config.py",
-    "tokens:css": "panda cssgen --outfile web/kodiak-posts-for-todays-frontier/design/styles.css"
+    "tokens:css": "panda cssgen --outfile web/kodiak-posts-for-todays-frontier/design/styles.css",
+    "test:vitest": "vitest run tests/vitest/"
   },
   "devDependencies": {
-    "@pandacss/dev": "1.12.0"
+    "@pandacss/dev": "1.12.0",
+    "playwright": "1.63.0",
+    "vitest": "5.0.0"
   }
 }

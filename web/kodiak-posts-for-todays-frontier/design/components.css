@@ -48,7 +48,7 @@
   --section-space-lg:1.25rem;
   --section-space-xl:1.75rem;
   /* oversize-hero-logo knob — see the .kodiak-header__logo--primary pattern block below */
-  --logo-hero-scale:1.2;
+  --logo-hero-scale:1.0;
   /* texture tokens — CDN .webp rasters removed; kraft procedural gradients now live in design/styles.css (--gradients-kraft.*) */
   /* kraft hairlines for subtle paper fiber — inline svg data-uri, not a raster */
   --kraft:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M0 10h60M0 50h60' stroke='%23624E42' stroke-opacity='.05' stroke-width='.8'/%3E%3C/svg%3E");
@@ -94,7 +94,7 @@ header{padding:0;background:var(--brown-kodiak);color:#FFF8F0;border-bottom:4px 
 header::before{content:"";position:absolute;inset:0;background:var(--gradients-kraft\.surface);opacity:.14;mix-blend-mode:multiply;pointer-events:none}
 header::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(26,17,16,.08), rgba(26,17,16,.18));pointer-events:none}
 /* header inner — brown + kraft gradient layer (red-bg raster removed) */
-.header__inner{position:relative;z-index:1;display:flex;align-items:center;gap:16px;width:100%;padding:10px 18px;background:#382316}
+.header__inner{position:relative;z-index:1;display:flex;align-items:center;gap:16px;width:100%;padding:6px 18px;background:#382316}
 /* E9 header-position root-cause guard — header is the first flow element after the thin top strip; zero any inherited/collapsed top margin and anchor the strip+header to document top so nothing offsets them downward. sticky top:0 keeps the header pinned on scroll without removing it from flow (avoids the "position:fixed over broken layout" trap). */
 .kodiak-topstrip{margin:0}
 body>.kodiak-topstrip{margin-top:0}
@@ -110,9 +110,6 @@ header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-s
 .card{background:var(--gradients-kraft\.surface); border:1px solid var(--stone); border-radius:4px; overflow:hidden; margin:10px 0; box-shadow:var(--shadows-md); position:relative}
 .card::before{content:"";position:absolute;inset:0;background:var(--wood) repeat;opacity:.06;pointer-events:none}
 .card:hover{background:var(--gradients-kraft\.surface-hover)}
-.card .hd{padding:16px 16px 12px;background:#FFFBF6 var(--kraft);border-bottom:1px solid #E8DDD3;position:relative}
-.card .hd h2{margin:0;font:800 14px/1.2 gin,"museo-sans",Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate)}
-.card .hd p{margin:6px 0 0;color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
 .body{padding:16px;position:relative}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:860px){.grid{grid-template-columns:1fr}}
@@ -156,7 +153,7 @@ header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-s
 .btn.ghost{background:var(--parchment);color:var(--chocolate)}
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .kbd{font:500 11px/1 JetBrains Mono,Menlo,monospace;background:var(--oat);border:1px solid var(--stone);padding:2px 6px;border-radius:3px;color:var(--chocolate)}
-.preview{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.preview{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));gap:14px}
 .tile{border:1px solid var(--stone);border-radius:2px;overflow:hidden;background:var(--gradients-kraft\.surface);position:relative;box-shadow:var(--shadows-sm)}
 .tile canvas{width:100%;display:block;background:var(--chocolate);box-shadow:0 8px 24px rgba(49,30,20,0.18)}
 .tile .meta{padding:10px 12px;background:var(--gradients-kraft\.surface)}
@@ -397,7 +394,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .kodiak-headline-plate h1{margin:0;width:100%;color:var(--colors-foreground-inverse);font-family:"gin",Rockwell,Clarendon,Georgia,serif;font-weight:800;line-height:1.05;letter-spacing:.02em;text-transform:none;
   /* never wrap: single line, fluid size scales against the plate (cqi) so it fills near-full plate width on desktop and shrinks on narrow screens instead of wrapping. 4.4cqi is the driver (41 chars * ~0.55em gin cap-width => <=4.44cqi keeps the ~41-char title inside 100cqi at one line, no clip); floor 12px holds one line at 375px mobile; ceiling raised to 72px so the title can grow to fill wide desktop plates instead of capping at 30px and leaving dead space on the right. */
   white-space:nowrap;overflow:hidden;text-overflow:clip;
-  font-size:clamp(12px, 4.4cqi, 72px)}
+  font-size:clamp(12px, 4.4cqi, 34px)}
 
 /* C+D+E+F. control row — [market button] [seasonal menu] [featured-frontier + languages inline], one responsive row */
 /* rizz-1: align-items:center (was stretch) so the .ff-detail block's tall wrapped
@@ -521,7 +518,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 
 /* G. theme chips regrouped INTO the create-campaign surface — a labeled section, not a floating block */
-.ff-optiongroup{margin-top:var(--spacing-md);padding-top:var(--spacing-md);border-top:1px dashed var(--colors-border-default)}
+.ff-optiongroup{margin-top:var(--spacing-sm,8px);padding-top:var(--spacing-sm,8px);border-top:1px dashed var(--colors-border-default)}
 .ff-optiongroup>.ff-optiongroup-label{display:block;margin:0 0 var(--spacing-sm);font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted)}
 
 /* item 6 - unified brainstorming surface: campaign-option chips + product picker share one panel
@@ -552,7 +549,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* item 5 - publish-targets pill strip: tidy on-brand row of small pill links (tokens only) */
 /* FIX 3: all 8 targets stay on ONE line at every viewport — no wrap. Responsive clamp() font +
    fluid gap/padding shrink the pills to fit rather than wrapping; min-width:0 lets flex compress them. */
-.ff-publish-targets{display:flex;flex-wrap:nowrap;align-items:center;gap:clamp(3px,0.8vw,var(--spacing-sm));margin-top:var(--spacing-md);min-width:0;overflow:hidden}
+.ff-publish-targets{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(3px,0.8vw,var(--spacing-sm));margin-top:var(--spacing-md);min-width:0}
 .ff-publish-targets .ff-publish-label{flex:0 0 auto;font:700 clamp(8px,1.1vw,10px)/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-foreground-muted);white-space:nowrap}
 .ff-publish-targets .ff-publish-pill{flex:0 1 auto;display:inline-flex;align-items:center;justify-content:center;min-width:0;padding:var(--spacing-xs) clamp(5px,1vw,var(--spacing-sm));
   border:1px solid var(--colors-border-default);border-radius:var(--radii-pill);
@@ -939,7 +936,15 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 /* STEP 1 — scope segmented control (WAI-ARIA radiogroup). Three mutually-exclusive segments read
    as one connected control (shared border, hairline dividers), the selected one filled with the
    frontier-green brand surface so the current scope is unmistakable at a glance. */
-.ff-scope{display:flex;flex-direction:column;gap:var(--spacing-xs,4px);margin-bottom:var(--spacing-md,16px)}
+.ff-scope{display:flex;flex-direction:column;gap:var(--spacing-xs,4px);margin-bottom:var(--spacing-sm,8px)}
+/* fold-density: collapsed scope disclosure at rest — one summary line, same tokens as the chips */
+.ff-scope-wrap{margin-bottom:var(--spacing-sm,8px)}
+.ff-scope-summary{cursor:pointer;list-style:none;font:600 12px/1.4 "museo-sans",sans-serif;color:var(--colors-foreground-default,#1A2F29);padding:6px 2px}
+.ff-scope-summary::-webkit-details-marker{display:none}
+.ff-scope-summary::before{content:"▸ ";color:var(--colors-foreground-muted,#6B5A53)}
+.ff-scope-wrap[open] .ff-scope-summary::before{content:"▾ "}
+.ff-scope-summary:focus-visible{outline:2px solid var(--colors-brand-signal-red,#B51E14);outline-offset:2px}
+.ff-scope-summary #scopeSummary{font-weight:700}
 .ff-scope-label{font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted,#6B5A53)}
 .ff-scope-seg{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--colors-border-default,#D9CFC6);border-radius:var(--radii-lg,12px);overflow:hidden;background:var(--colors-neutral-0,#fff)}
 .ff-scope-opt{flex:1 1 0;min-width:140px;display:flex;flex-direction:column;align-items:flex-start;gap:2px;
@@ -981,7 +986,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 /* STEP 3 — chip clusters. The 7 chips regroup into 4 small labeled clusters that flow horizontally;
    each cluster is a quiet label above/beside its chips, adding minimal vertical space. Reuses the
    existing .ff-chip pill styling (multi-select aria-pressed toggle handled in prompt-chips.js). */
-.ff-chipgroups{display:flex;flex-wrap:wrap;gap:var(--spacing-md,16px);margin-top:var(--spacing-sm,8px)}
+.ff-chipgroups{display:flex;flex-wrap:wrap;gap:var(--spacing-sm,8px);margin-top:var(--spacing-xs,4px)}
 .ff-chipcluster{display:flex;flex-wrap:wrap;align-items:center;gap:var(--spacing-xs,4px) var(--spacing-sm,8px)}
 .ff-chipcluster-label{flex:0 0 100%;font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted,#6B5A53)}
 @media(max-width:520px){.ff-chipgroups{gap:var(--spacing-sm,8px)}}

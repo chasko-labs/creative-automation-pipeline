@@ -136,6 +136,12 @@
       });
       window.__campaignScope = opt.getAttribute('data-scope') || 'local';
       applyScopeMode(window.__campaignScope);
+      // fold-density: keep the collapsed disclosure summary showing the active scope
+      try{
+        var sumEl = document.getElementById('scopeSummary');
+        var titleEl = opt.querySelector('.ff-scope-opt-title');
+        if(sumEl && titleEl && titleEl.textContent) sumEl.textContent = titleEl.textContent.trim();
+      }catch(e){}
       if(focus){ try{ opt.focus(); }catch(e){} }
     }
 
