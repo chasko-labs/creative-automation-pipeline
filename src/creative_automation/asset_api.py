@@ -11,6 +11,7 @@ Run locally:
 from __future__ import annotations
 
 import os
+from typing import Any
 
 try:
     from fastapi import Body, FastAPI, HTTPException, Query  # type: ignore
@@ -26,6 +27,7 @@ from .asset_library import (
     AssetNotSelectable,
     UnsupportedAssetKind,
 )
+from .asset_ingest import ingest_asset
 from .observability import get_observer
 
 DAM_S3_BUCKET = os.getenv("DAM_S3_BUCKET", "chasko-creative-dam-946179428633-us-east-1")
@@ -34,10 +36,18 @@ LIBRARY_PREFIX = "brands/kodiak/library/"
 library = AssetLibrary(bucket=DAM_S3_BUCKET, prefix=LIBRARY_PREFIX)
 obs = get_observer()
 
-app = FastAPI(title="Kodiak Asset Library", version="1.0.0") if HAS_FASTAPI else None  # type: ignore
 
+def mount_library_routes(app: Any, lib: AssetLibrary, *, obs: Any = None) -> None:
+    """Register the /library/* routes on `app`, bound to `lib`.
 
-if HAS_FASTAPI:
+    The ONE registration both the standalone asset_api app and the main api.py app call, so the
+    frontend hitting the main-API origin reaches the same routes/logic as the standalone :8183
+    surface with no drift. add_asset logic is never duplicated — the POST path calls ingest_asset,
+    which itself calls lib.add_asset then embeds on ingest. No-op when FastAPI is unavailable.
+    """
+    if not HAS_FASTAPI or app is None:
+        return
+    _obs = obs or get_observer()
 
     @app.post("/library/assets", status_code=201)  # type: ignore
     def add_asset_api(
@@ -48,12 +58,17 @@ if HAS_FASTAPI:
     ):
         tag_list = [t.strip() for t in tags.split(",")] if tags else None
         try:
-            ref = library.add_asset(
-                data=body, filename=filename, added_by=added_by, tags=tag_list
+            # embed-on-ingest: add_asset persists (S3 object + sidecar), then a RASTER/VECTOR is
+            # embedded into S3 Vectors. embed is best-effort — embed_status carries the outcome and
+            # a failure degrades to embed_pending without failing the ingest.
+            ref, embed_status = ingest_asset(
+                lib, data=body, filename=filename, added_by=added_by, tags=tag_list
             )
         except UnsupportedAssetKind as exc:
             raise HTTPException(status_code=415, detail=str(exc))
-        return ref.to_dict()
+        payload = ref.to_dict()
+        payload["embed_status"] = embed_status
+        return payload
 
     @app.get("/library/assets")  # type: ignore
     def list_assets_api(
@@ -62,12 +77,12 @@ if HAS_FASTAPI:
         cursor: str | None = Query(None),
     ):
         kind_enum = AssetKind(kind) if kind else None
-        page = library.list_assets(kind=kind_enum, limit=limit, cursor=cursor)
+        page = lib.list_assets(kind=kind_enum, limit=limit, cursor=cursor)
         return {"items": [ref.to_dict() for ref in page.items], "next_cursor": page.next_cursor}
 
     @app.get("/library/assets/{asset_id}")  # type: ignore
     def get_asset_api(asset_id: str):
-        ref = library.get_asset(asset_id)
+        ref = lib.get_asset(asset_id)
         if ref is None:
             raise HTTPException(status_code=404, detail=f"asset {asset_id} not found")
         return ref.to_dict()
@@ -75,24 +90,30 @@ if HAS_FASTAPI:
     @app.post("/library/assets/{asset_id}/select")  # type: ignore
     def select_asset_api(asset_id: str):
         try:
-            ref = library.select_for_campaign(asset_id)
+            ref = lib.select_for_campaign(asset_id)
         except AssetNotSelectable as exc:
             raise HTTPException(status_code=409, detail=str(exc))
         return ref.to_dict()
 
     @app.get("/library/health")  # type: ignore
     def health_api():
-        return library.health()
+        return lib.health()
 
     @app.get("/library/report")  # type: ignore
     def report_api():
         return JSONResponse(
             {
-                "service": obs.service,
-                "recent": [r.as_dict() for r in obs.recent()],
-                "counts": obs.counts(),
+                "service": _obs.service,
+                "recent": [r.as_dict() for r in _obs.recent()],
+                "counts": _obs.counts(),
             }
         )
+
+
+app = FastAPI(title="Kodiak Asset Library", version="1.0.0") if HAS_FASTAPI else None  # type: ignore
+
+if HAS_FASTAPI:
+    mount_library_routes(app, library, obs=obs)
 
 
 if __name__ == "__main__":

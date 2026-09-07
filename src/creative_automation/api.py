@@ -46,6 +46,7 @@ from .from_photo import (
     DEFAULT_MARKET,
     build_image_from_photo,
 )
+from .asset_api import library as asset_library_instance, mount_library_routes
 
 app = FastAPI(  # type: ignore
     title="KODIAK® Posts for Today's Frontier — Living API",
@@ -60,6 +61,13 @@ if HAS_FASTAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+
+    # Mount the DAM library routes (/library/assets POST+GET, get-by-id, select, health) onto
+    # this main app so the frontend — which hits the main-API origin — reaches them. Same
+    # registration + same AssetLibrary instance the standalone asset_api :8183 surface uses, so
+    # there is no drift and add_asset logic is not duplicated (POST goes through ingest_asset for
+    # embed-on-ingest). Matches this file's inline-route style — no include_router in this codebase.
+    mount_library_routes(app, asset_library_instance)
 
     class RunResponse(BaseModel):  # type: ignore
         report_path: str = Field(description="Local out/report.json or s3://.../brands/kodiak/renders/")
