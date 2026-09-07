@@ -35,7 +35,7 @@ from ._datapaths import data_path
 # ---------------------------------------------------------------- category model
 # raw-ingest holds the seed photography that products/recipes/lifestyle all draw from —
 # one prefix, classified per-key into three tabs. The other tabs read fixed brand paths.
-_RAW_INGEST_PREFIX = "raw-ingest/kodiakcakes/images/"
+_RAW_INGEST_PREFIX = "brands/kodiak/raw-ingest/kodiakcakes/images/"
 
 # theme-asset-map resolves via the shared data-root resolver so the same code works in a
 # repo checkout (data/ beside src/) and in the Lambda image (/var/task/data).
