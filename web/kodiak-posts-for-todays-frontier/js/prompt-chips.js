@@ -205,7 +205,20 @@
     var COPY_LOAD_MORE          = 'Load more';
     var COPY_END                = 'That\u2019s the whole stack.';
     var SPARSE_THRESHOLD        = 20;   // total <= this (but > 0) shows the "run lean" note
-    var PAGE_LIMIT              = 60;   // matches loadLibrary's initial ?limit=60
+    var PAGE_LIMIT = 24;   // #171: 60-item presign fan-out measured 6.4s > 6s abort; 24 keeps p95 under timeout
+    var DAM_TIMEOUT_MS = 12000;
+    var COPY_TIMEOUT = 'Past assets timed out. Try again.';
+    var COPY_ERROR = 'Past assets unavailable right now. Try again.';
+    function damLog(outcome, failureClass, latencyMs, extra){
+      try{ console.info('[dam] outcome=' + outcome + ' latency_ms=' + latencyMs + ' class=' + failureClass + (extra ? ' ' + extra : '')); }catch(e){}
+    }
+    function damClassify(err, json){
+      if(!navigator.onLine) return 'offline';
+      if(err && (err.name === 'AbortError' || /abort/i.test(String((err && err.message) || '')))) return 'abort';
+      if(err && /HTTP\s+\d+/.test(String((err && err.message) || ''))) return 'http';
+      if(json && json.enabled !== true) return 'empty';
+      return 'empty';
+    } // #171: must exceed 6.4s endpoint; abort race lost at 6s
 
     // client-side Type facets, scoped per active tab. A one-entry ['All'] list auto-hides (noise).
     var TYPE_FACETS = {
@@ -299,16 +312,18 @@
     function loadLibrary(){
       if(!LIB_ENDPOINT){ buildShell(); renderUnavailable(COPY_OFFLINE); loaded = true; return; }
       body.innerHTML = ''; var p=document.createElement('p'); p.className='ff-dam-status'; p.textContent=COPY_LOADING; body.appendChild(p);
+      var t0 = Date.now();
       var controller = new AbortController();
-      var timer = setTimeout(function(){ controller.abort(); }, 6000);
+      var timer = setTimeout(function(){ controller.abort(); }, DAM_TIMEOUT_MS || 12000);
       fetch(LIB_ENDPOINT + '?limit=' + PAGE_LIMIT, {signal: controller.signal})
         .then(function(r){ if(!r.ok) throw new Error('library HTTP '+r.status); return r.json(); })
         .then(function(j){
           if(!j || j.enabled !== true){ buildShell(); renderUnavailable(COPY_OFFLINE); }
-          else { ingest(j); buildShell(); renderActiveTab(); focusFirstControl(); }
+          if(!j || j.enabled !== true){ buildShell(); renderUnavailable(COPY_OFFLINE); damLog('unavailable','empty', Date.now()-t0, 'enabled!=true'); }
+          else { ingest(j); buildShell(); renderActiveTab(); focusFirstControl(); damLog('ok','none', Date.now()-t0, 'limit='+PAGE_LIMIT); }
           loaded = true;
         })
-        .catch(function(){ buildShell(); renderUnavailable(COPY_OFFLINE); loaded = true; })
+        .catch(function(err){ var lat = Date.now()-t0; var cls = damClassify(err); var msg = (cls==='offline') ? COPY_OFFLINE : (cls==='abort') ? COPY_TIMEOUT : (cls==='http') ? COPY_ERROR : COPY_OFFLINE; damLog('error', cls, lat, String((err && err.message)||err)); buildShell(); renderUnavailable(msg); loaded = true; })
         .finally(function(){ clearTimeout(timer); });
     }
 
@@ -596,7 +611,7 @@
       if(!LIB_ENDPOINT || !entry || !entry.has_more || typeof entry.next_offset !== 'number'){ return; }
       if(btn){ btn.disabled = true; btn.textContent = COPY_LOADING; }
       var controller = new AbortController();
-      var timer = setTimeout(function(){ controller.abort(); }, 6000);
+      var timer = setTimeout(function(){ controller.abort(); }, DAM_TIMEOUT_MS || 12000);
       var url = LIB_ENDPOINT + '?category=' + encodeURIComponent(cat) + '&limit=' + PAGE_LIMIT + '&offset=' + entry.next_offset;
       fetch(url, {signal: controller.signal})
         .then(function(r){ if(!r.ok) throw new Error('library HTTP '+r.status); return r.json(); })
