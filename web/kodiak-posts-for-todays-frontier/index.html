@@ -116,7 +116,7 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
 
 <div class="wrap">
 <!-- location-aware island + design-system scorecards moved to details.html (Design system + details link below) -->
-<div class="card" data-mcp="campaign-brief" data-mcp-description="Park City Utah demo — one prompt drives the campaign"><div class="hd"><h2>Nourishing Today's Frontier: Create a Kodiak Cakes Social Campaign</h2></div><div class="body">
+<div class="card" data-mcp="campaign-brief" data-mcp-description="Park City Utah demo — one prompt drives the campaign"><div class="body">
 
 <!-- PRIMARY: Firefly-inspired prompt bar — dominates the card -->
 <div class="ff-prompt" data-mcp="campaign-brief.prompt">
@@ -126,8 +126,12 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
        coherent with the Park City market default + the inline seasonal readout below. Selection
        is stored on window.__campaignScope and read by both Create (preview) and the full-campaign
        generate. Keyboard: arrow keys move + activate selection per the radiogroup pattern. -->
+  <!-- Fold-density: scope collapses into a closed disclosure at rest (default Single
+       market is preselected, so most loads need zero scope interaction). The radiogroup
+       + window.__campaignScope wiring is untouched; prompt-chips.js syncs #scopeSummary. -->
+  <details class="ff-scope-wrap" id="scopeWrap">
+    <summary class="ff-scope-summary"><span aria-hidden="true">Campaign scope</span>: <span id="scopeSummary">Single market</span></summary>
   <div class="ff-scope" id="campaignScope" role="radiogroup" aria-label="Campaign scope — how far this campaign reaches">
-    <span class="ff-scope-label" id="campaignScopeLabel">Campaign scope</span>
     <div class="ff-scope-seg" role="presentation">
       <button type="button" class="ff-scope-opt" role="radio" aria-checked="false" data-scope="nationwide" tabindex="-1">
         <span class="ff-scope-opt-title">Nationwide</span>
@@ -143,6 +147,7 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
       </button>
     </div>
   </div>
+  </details>
 
   <!-- STEP 2: market + season. B1: controls flow top-to-bottom; the prompt input is the culmination. -->
   <!-- C+D+E+F. control row: market disclosure button + seasonal menu + geo, single responsive row.
@@ -260,7 +265,7 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
   <div class="ff-inputwrap">
     <!-- Row 1 (canvas): visible kicker label + the primary textarea, full width -->
     <label class="ff-brief-label" for="campaignBrief">Your brief</label>
-    <textarea id="campaignBrief" rows="3" aria-label="Campaign idea — describe your Kodiak campaign in a line" placeholder="Describe your campaign in a line — or tap an option above to start." role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="briefSuggest" autocomplete="off"></textarea>
+    <textarea id="campaignBrief" rows="2" aria-label="Campaign idea — describe your Kodiak campaign in a line" placeholder="Describe your campaign in a line — or tap an option above to start." role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="briefSuggest" autocomplete="off"></textarea>
     <!-- D4. add-your-own-asset file input — visually-hidden, triggered by the "+" icon below. FRONTEND STAGING ONLY (no DAM upload backend); staged client-side, marker threaded into the brief via window.__userAssets. -->
     <input type="file" id="addAssetInput" class="ff-addasset-input" accept="image/*,.pdf,.docx,.yaml,.yml,.json" aria-label="Add your own image asset to this campaign">
     <!-- Row 2 (action bar): secondary staging affordances left, primary Create isolated right -->
