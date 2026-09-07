@@ -186,7 +186,7 @@ let skuList = [
     wrap.className = 'platform-matrix';
     wrap.id = 'platformMatrix';
     wrap.innerHTML =
-      '<div class="pm-head"><b>One asset pack exports these ratios for these platforms</b></div>'+
+      '<div class="pm-head"><b>Asset pack exports:</b></div>'+
       '<table><thead><tr><th scope="col">Ratio</th><th scope="col">Dimensions</th><th scope="col">Platforms</th></tr></thead>'+
       '<tbody>'+rows+'</tbody></table>';
     // matrix leads the preview (explainer sits above the render tiles)

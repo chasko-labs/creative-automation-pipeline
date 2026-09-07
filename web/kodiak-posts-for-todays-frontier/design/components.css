@@ -410,6 +410,20 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-controlrow .ff-featured{font:600 12px/1.35 "museo-sans",sans-serif;color:var(--colors-foreground-default);white-space:normal;overflow:hidden;text-overflow:ellipsis}
 .ff-controlrow .ff-langs{font:500 11px/1.35 "museo-sans",sans-serif;color:var(--colors-foreground-muted)}
 .ff-controlrow .ff-langs b{color:var(--colors-foreground-default);font-weight:700}
+/* FIX 2: #featuredFrontier framing spans — contextual lead + place + scene cue + reach summary.
+   These carry ONLY framing context; the localized headlines live once in #locPreview below.
+   Spans flow inline with small separators so the readout reads as one context line. */
+.ff-output-readout.ff-detail{display:flex;flex-wrap:wrap;flex-direction:column;gap:2px;min-width:0;
+  padding:var(--spacing-sm);margin-bottom:var(--spacing-md);
+  background:var(--colors-neutral-100);border:1px solid var(--colors-border-default);border-radius:var(--radii-lg)}
+.ff-output-readout .ff-featured{font:600 12px/1.4 "museo-sans",sans-serif;color:var(--colors-foreground-default);white-space:normal}
+.ff-output-readout .ff-langs{font:500 11px/1.35 "museo-sans",sans-serif;color:var(--colors-foreground-muted)}
+.ff-output-readout .ff-langs b{color:var(--colors-foreground-default);font-weight:700}
+.ff-featured .ff-context-lead{color:var(--colors-foreground-muted)}
+.ff-featured .ff-place{font-weight:700;color:var(--colors-foreground-default)}
+.ff-featured .ff-cue{color:var(--colors-foreground-muted)}
+.ff-featured .ff-cue::before,.ff-featured .ff-reach::before{content:" \00b7 ";color:var(--colors-foreground-muted)}
+.ff-featured .ff-reach{color:var(--colors-foreground-muted)}
 
 /* C. market selector as a rizzy disclosure button (native <details> styled as a button) */
 .ff-market{position:relative;flex:0 0 auto}
@@ -546,6 +560,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   font:700 clamp(9px,1.15vw,11px)/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.02em;text-decoration:none;white-space:nowrap}
 .ff-publish-targets .ff-publish-pill:hover{background:var(--colors-neutral-100);border-color:var(--colors-border-strong);color:var(--colors-foreground-default)}
 .ff-publish-targets .ff-publish-pill:focus-visible{outline:2px solid var(--colors-brand-signal-red);outline-offset:2px}
+/* FIX 1: header-line variant — publish targets read as preview HEADER context, sitting directly under
+   the summary. Hairline top rule + tighter spacing groups it visually with the "Output Preview / 4 sizes"
+   summary above rather than floating in the body; overrides the default top margin. */
+.ff-publish-targets.ff-output-header-line{margin-top:0;margin-bottom:var(--spacing-md);padding-bottom:var(--spacing-sm);border-bottom:1px solid var(--colors-neutral-200)}
 
 /* B. subtitle promoted to the prominent guiding line, full-width responsive */
 .ff-prompt h2.ff-sublead{margin:0 0 var(--spacing-md);width:100%;color:var(--colors-foreground-default);
