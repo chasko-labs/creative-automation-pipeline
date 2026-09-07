@@ -161,8 +161,9 @@ def test_bedrock_routing_for_gap_lang(monkeypatch):
 
 
 def test_human_required_langs_skipped(monkeypatch):
-    # nv / zip must never be machine translated and never written — only en is written
-    _patch_markets(monkeypatch, ["nv", "zip"])
+    # nv / zip / hmn must never be machine translated and never written — only en is written.
+    # hmn joined this set for quality/reachability (incoherent nova-pro Hmong), nv/zip for ethics.
+    _patch_markets(monkeypatch, ["nv", "zip", "hmn"])
     monkeypatch.setattr(
         pc,
         "_amazon_translate",
@@ -177,9 +178,10 @@ def test_human_required_langs_skipped(monkeypatch):
     _run_with_fake_dynamo(monkeypatch, _args(), fake)
 
     langs_written = {p["Item"]["lang"]["S"] for p in fake.puts}
-    assert langs_written == {"en"}  # nv and zip never written
+    assert langs_written == {"en"}  # nv, zip, hmn never written
     assert "nv" not in langs_written
     assert "zip" not in langs_written
+    assert "hmn" not in langs_written
 
 
 def test_dry_run_writes_nothing(monkeypatch):

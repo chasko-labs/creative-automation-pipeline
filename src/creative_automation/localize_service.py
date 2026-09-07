@@ -48,9 +48,15 @@ AMAZON_TRANSLATE_LANGS = frozenset(
 )
 # machine-able gaps: no Amazon Translate coverage, route to a larger Bedrock model,
 # flagged lower-confidence so the UI can badge them
-BEDROCK_GAP_LANGS = frozenset({"hmn", "ilo", "my", "ne", "pct"})
-# ethics guard: never machine-translate — human translation only
-HUMAN_REQUIRED_LANGS = frozenset({"nv", "zip"})
+BEDROCK_GAP_LANGS = frozenset({"ilo", "my", "ne", "pct"})
+# human-required — two distinct rationales coexist in this set:
+#   nv/zip: ethics rule — never machine-translate these, honest "human pending" only
+#   hmn:    quality/reachability — nova-pro (the only Bedrock model family this account
+#           can invoke; explicit IAM deny on Claude/Llama/Mistral) produces incoherent
+#           Hmong with English words left untranslated, verified by back-translation
+#           2026-09-07. honest English-source beats broken MT, same net outcome as nv/zip.
+#           real Hmong MT needs expanded (non-Nova) Bedrock access or a human translator.
+HUMAN_REQUIRED_LANGS = frozenset({"nv", "zip", "hmn"})
 
 
 def _finish(text: str, source: str, provider: str, lang: str, **extra) -> dict:

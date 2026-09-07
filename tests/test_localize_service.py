@@ -110,6 +110,22 @@ def test_zapotec_returns_human_required_no_mt_call(monkeypatch):
     assert res["text"] == BASE
 
 
+def test_hmong_returns_human_required_no_bedrock_call(monkeypatch):
+    # hmn is human-required for a quality/reachability reason (not the nv/zip ethics rule):
+    # nova-pro, the only Bedrock family this account can call, produces incoherent Hmong.
+    # it must short-circuit to the honest English-source path, never hit Bedrock.
+    _no_precompute(monkeypatch)
+    _has_creds(monkeypatch, True)  # creds present — still must NOT machine translate
+    monkeypatch.setattr(localize_service, "_amazon_translate", lambda *a, **k: (_ for _ in ()).throw(AssertionError("translate called for hmn")))
+    monkeypatch.setattr(localize_service, "_bedrock_translate", lambda *a, **k: (_ for _ in ()).throw(AssertionError("bedrock called for hmn")))
+
+    res = localize(BASE, MARKET, "hmn")
+    assert res["provider"] == "human-required"
+    assert res["source"] == "original"
+    assert res["human_pending"] is True
+    assert res["text"] == BASE  # English source unchanged, not broken MT
+
+
 def test_no_creds_returns_mock(monkeypatch):
     _no_precompute(monkeypatch)
     _has_creds(monkeypatch, False)
