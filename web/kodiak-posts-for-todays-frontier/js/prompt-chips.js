@@ -610,7 +610,7 @@
         chooseTile(tile, cat, it, kind, label);
         return;
       }
-      var visible = Array.prototype.slice.call(gridEl.querySelectorAll('.ff-dam-tile')).filter(function(t){ return t.style.display !== 'none'; });
+      var visible = Array.prototype.slice.call(gridEl.querySelectorAll('.ff-dam-tile')).filter(function(t){ return !t.hidden; });
       var i = visible.indexOf(tile);
       if(i === -1) return;
       var next = -1;
@@ -677,12 +677,16 @@
         if(show && ratioWant){
           if((t.dataset.ratio || '') !== ratioWant) show = false;
         }
-        t.style.display = show ? '' : 'none';
+        // toggle the `hidden` attribute (not inline style.display): the grid used to carry
+        // content-visibility:auto, which size/paint-contained the subtree so inline display:none
+        // mutations never reflowed. `hidden` + `.ff-dam-tile[hidden]{display:none!important}` in CSS
+        // makes the collapse robust regardless of any containment/flex interplay.
+        t.hidden = !show;
         if(show && !firstVisible) firstVisible = t;
       });
       // keep roving tabindex valid: ensure one visible tile is tabbable
       var current = gridEl.querySelector('.ff-dam-tile[tabindex="0"]');
-      if(!current || current.style.display === 'none'){
+      if(!current || current.hidden){
         tiles.forEach(function(t){ t.tabIndex = -1; });
         if(firstVisible) firstVisible.tabIndex = 0;
       }
