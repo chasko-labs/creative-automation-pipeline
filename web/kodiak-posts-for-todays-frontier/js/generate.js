@@ -567,7 +567,9 @@ let skuList = [
       //  - otherwise -> one default request (single hero)
       const doThemedOrSingle = activeTheme || !(hadExplicitSelection && products.length > 1);
       const oneGenerate = async (productSlug, wantTheme)=>{
-        const body = {prompt: brief, market: selectedLoc.market, product: productSlug, ...(wantTheme ? {theme: wantTheme} : {})};
+        // scope-first: Create reads the segmented control's selection (window.__campaignScope, default local)
+        const scope = window.__campaignScope || 'local';
+        const body = {prompt: brief, market: selectedLoc.market, product: productSlug, scope, ...(wantTheme ? {theme: wantTheme} : {})};
         const resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: controller.signal});
         if(!resp.ok) throw new Error('backend returned HTTP ' + resp.status);
         // isolate the parse so a malformed 200 body surfaces as a clear error (outer catch -> visible status)

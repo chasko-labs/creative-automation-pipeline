@@ -1,48 +1,163 @@
 // --- Simplified Park City demo wiring: prompt chips, upload affordance, textarea auto-grow ---
 (function(){
-  // Firefly-style suggestion chips — populate the prompt, mark active, set theme
+  // Creative-direction chips — ADDITIVE MULTI-SELECT toggles (aria-pressed on/off). Redesign change:
+  // chips no longer OVERWRITE the brief with canned copy. Instead we maintain window.__activeDirections
+  // (a Set of theme slugs) and rebuild a MANAGED REGION at the end of the brief on every toggle. The
+  // user's own typed text lives ABOVE the managed region and is never clobbered — toggling only rewrites
+  // the block between two sentinels. window.__activeTheme is kept for backward compat (generate.js reads
+  // it): it holds the MOST-RECENTLY-toggled-on direction (or null when none remain active).
   var briefEl = document.getElementById('campaignBrief');
   var chipWrap = document.getElementById('promptChips');
-  // Manual brief edit or product select clears the active theme (a chip is the only theme source).
-  window.__clearActiveTheme = function(){
-    window.__activeTheme = null;
-    if(chipWrap) chipWrap.querySelectorAll('.ff-chip').forEach(function(c){ c.setAttribute('aria-pressed','false'); });
-    togglePartnerMark(null);
-  };
-  // partner mark visibility — only for the US Ski & Snowboard chip; tasteful, not overused.
-  function togglePartnerMark(theme){
+
+  // Sentinel-delimited managed region. Everything between BEGIN and END is owned by the chip logic;
+  // everything before BEGIN is the user's free text. Using an HTML-comment-style sentinel keeps it
+  // visually unobtrusive if it ever surfaces, and unlikely to collide with real brief prose.
+  var DIR_BEGIN = '\u2014 directions: ';   // "— directions: " reads as natural brief prose
+  var activeDirections = window.__activeDirections instanceof Set ? window.__activeDirections : new Set();
+  window.__activeDirections = activeDirections;
+  // theme slug -> short human-readable clause (kept concise; the richer data-brief text would bloat the
+  // managed region when several chips stack, so we use short labels here for the accumulated line).
+  var DIRECTION_CLAUSES = {};
+
+  // partner mark visibility — only when the US Ski & Snowboard direction is ACTIVE within the
+  // multi-select set (not tied to a single active theme any more). Tasteful, not overused.
+  function togglePartnerMark(){
     var mark = document.getElementById('ussPartnerMark');
     if(!mark) return;
-    var on = theme === 'us-ski-snowboard';
+    var on = activeDirections.has('us-ski-snowboard');
     mark.hidden = !on;
     mark.style.display = on ? 'flex' : 'none';
   }
+
+  // split the brief into { userText, hasManaged } — the managed region is the tail from DIR_BEGIN on.
+  function splitBrief(){
+    var v = briefEl ? briefEl.value : '';
+    var idx = v.lastIndexOf(DIR_BEGIN);
+    if(idx === -1) return { userText: v, hasManaged: false };
+    return { userText: v.slice(0, idx).replace(/\s+$/,''), hasManaged: true };
+  }
+
+  // rebuild the brief = user's free text + a freshly-assembled managed directions line (or nothing
+  // when no chips are active). Never touches the user's portion. Guarded so the input handler this
+  // triggers does not treat the programmatic write as a manual edit.
+  function rebuildBrief(){
+    if(!briefEl) return;
+    var parts = splitBrief();
+    var clauses = [];
+    chipWrap.querySelectorAll('.ff-chip').forEach(function(c){
+      var slug = c.getAttribute('data-theme');
+      if(slug && activeDirections.has(slug)){
+        clauses.push(DIRECTION_CLAUSES[slug] || (c.getAttribute('data-label') || slug));
+      }
+    });
+    var next = parts.userText;
+    if(clauses.length){
+      next = (next ? next + ' ' : '') + DIR_BEGIN + clauses.join(', ');
+    }
+    window.__chipSettingBrief = true;
+    briefEl.value = next;
+    briefEl.dispatchEvent(new Event('input', {bubbles:true}));
+    window.__chipSettingBrief = false;
+  }
+
+  // clear every active direction (called on manual edit of the USER portion, or product change).
+  window.__clearActiveTheme = function(){
+    if(!activeDirections.size){ window.__activeTheme = null; return; }
+    activeDirections.clear();
+    window.__activeTheme = null;
+    if(chipWrap) chipWrap.querySelectorAll('.ff-chip').forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+    togglePartnerMark();
+    rebuildBrief();
+  };
+
   if(chipWrap && briefEl){
-    chipWrap.querySelectorAll('.ff-chip[data-brief]').forEach(function(chip){
+    chipWrap.querySelectorAll('.ff-chip[data-theme]').forEach(function(chip){
+      var slug = chip.getAttribute('data-theme');
+      // seed the short clause from data-label (falls back to the visible chip text)
+      DIRECTION_CLAUSES[slug] = chip.getAttribute('data-label') || chip.textContent.trim();
       chip.addEventListener('click', function(){
-        briefEl.value = chip.getAttribute('data-brief');
-        // Chip is the active starting point: expose its theme slug for the generate IIFE.
-        window.__activeTheme = chip.getAttribute('data-theme') || null;
-        togglePartnerMark(window.__activeTheme);
-        // dispatch input AFTER setting theme, and guard the input handler so the chip's own
-        // programmatic input event does not immediately clear the theme it just set.
-        window.__chipSettingBrief = true;
-        briefEl.dispatchEvent(new Event('input', {bubbles:true}));
-        window.__chipSettingBrief = false;
-        chipWrap.querySelectorAll('.ff-chip').forEach(function(c){ c.setAttribute('aria-pressed', c===chip ? 'true':'false'); });
+        var nowActive = !activeDirections.has(slug);
+        if(nowActive){ activeDirections.add(slug); window.__activeTheme = slug; }
+        else {
+          activeDirections.delete(slug);
+          // most-recently-toggled-on remaining direction becomes __activeTheme (back-compat single-theme)
+          if(window.__activeTheme === slug){
+            var remaining = Array.prototype.slice.call(chipWrap.querySelectorAll('.ff-chip'))
+              .filter(function(c){ return activeDirections.has(c.getAttribute('data-theme')); });
+            window.__activeTheme = remaining.length ? remaining[remaining.length-1].getAttribute('data-theme') : null;
+          }
+        }
+        chip.setAttribute('aria-pressed', nowActive ? 'true' : 'false');
+        togglePartnerMark();
+        rebuildBrief();
         briefEl.focus();
       });
     });
-    // Manual textarea edit (not driven by a chip) clears the theme.
+    // Manual textarea edit of the USER portion clears directions. Guarded against the chip's own
+    // programmatic input event. Only clears when the user actually typed into their free-text region
+    // (i.e. an edit happened while directions were active and it was not a chip-driven write).
     briefEl.addEventListener('input', function(){
       if(window.__chipSettingBrief) return;
-      window.__clearActiveTheme();
+      if(activeDirections.size) window.__clearActiveTheme();
     });
   }
-  // Selecting/deselecting a product overrides the theme too.
+  // Selecting/deselecting a product clears the active directions too (a product pick is its own start).
   document.getElementById('productChooser')?.addEventListener('change', function(e){
     if(e.target && e.target.classList && e.target.classList.contains('sku-check')) window.__clearActiveTheme();
   });
+
+  // ---- STEP 1: campaign scope segmented control (WAI-ARIA radiogroup) ----
+  // The first + most important decision. Stores the selection on window.__campaignScope (read by
+  // Create in generate.js and by the full-campaign generate in campaign-sections.js). Keyboard: arrow
+  // keys move + activate the selection per the radiogroup pattern; roving tabindex keeps one radio
+  // tabbable. scope="nationwide" flips the control row into a de-emphasized localization-anchor mode.
+  (function(){
+    var group = document.getElementById('campaignScope');
+    if(!group) return;
+    var opts = Array.prototype.slice.call(group.querySelectorAll('.ff-scope-opt'));
+    if(!opts.length) return;
+    var controlRow = document.querySelector('.ff-controlrow');
+    var scopeNote = document.getElementById('marketScopeNote');
+
+    // default from the pre-checked radio in markup (data-scope="local"); fall back to first option.
+    var initial = opts.find(function(o){ return o.getAttribute('aria-checked') === 'true'; }) || opts[0];
+    window.__campaignScope = initial.getAttribute('data-scope') || 'local';
+
+    function applyScopeMode(scope){
+      if(controlRow){ controlRow.setAttribute('data-scope-mode', scope); }
+      if(scopeNote){ scopeNote.hidden = (scope !== 'nationwide'); }
+    }
+
+    function select(opt, focus){
+      opts.forEach(function(o){
+        var on = (o === opt);
+        o.setAttribute('aria-checked', on ? 'true' : 'false');
+        o.tabIndex = on ? 0 : -1;
+      });
+      window.__campaignScope = opt.getAttribute('data-scope') || 'local';
+      applyScopeMode(window.__campaignScope);
+      if(focus){ try{ opt.focus(); }catch(e){} }
+    }
+
+    opts.forEach(function(opt){
+      opt.addEventListener('click', function(){ select(opt, false); });
+      opt.addEventListener('keydown', function(e){
+        var i = opts.indexOf(opt);
+        var next = -1;
+        if(e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (i + 1) % opts.length;
+        else if(e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (i - 1 + opts.length) % opts.length;
+        else if(e.key === 'Home') next = 0;
+        else if(e.key === 'End') next = opts.length - 1;
+        else if(e.key === ' ' || e.key === 'Enter'){ e.preventDefault(); select(opt, true); return; }
+        else return;
+        e.preventDefault();
+        select(opts[next], true);
+      });
+    });
+
+    // set the initial roving tabindex + scope-mode from the pre-checked default
+    select(initial, false);
+  })();
 
   // Upload affordance — the + icon triggers the real staging file input (#addAssetInput),
   // whose change handler stages a removable chip in the shared selection tray + threads window.__userAssets.

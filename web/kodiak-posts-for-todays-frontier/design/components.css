@@ -928,3 +928,60 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 
 /* render-set + preview tiles — variable count, each tile carries an image/canvas + meta + localized caption */
 #preview,.render-set,.preview{content-visibility:auto;contain-intrinsic-size:auto 500px}
+
+
+/* === Campaign-input redesign — scope-first sequenced flow ===
+   Added for the guided-brainstorm redesign: a scope segmented control at the top of .ff-prompt,
+   a scope-mode dimming hook on the control row, an inline "in season here" flavor readout, and
+   marketer-voice chip clusters. Tokens only (no raw hex beyond documented fallbacks that mirror
+   the existing var(--...,#fallback) pattern already used throughout this file). */
+
+/* STEP 1 — scope segmented control (WAI-ARIA radiogroup). Three mutually-exclusive segments read
+   as one connected control (shared border, hairline dividers), the selected one filled with the
+   frontier-green brand surface so the current scope is unmistakable at a glance. */
+.ff-scope{display:flex;flex-direction:column;gap:var(--spacing-xs,4px);margin-bottom:var(--spacing-md,16px)}
+.ff-scope-label{font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted,#6B5A53)}
+.ff-scope-seg{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--colors-border-default,#D9CFC6);border-radius:var(--radii-lg,12px);overflow:hidden;background:var(--colors-neutral-0,#fff)}
+.ff-scope-opt{flex:1 1 0;min-width:140px;display:flex;flex-direction:column;align-items:flex-start;gap:2px;
+  padding:var(--spacing-sm,8px) var(--spacing-md,14px);border:none;border-left:1px solid var(--colors-border-default,#D9CFC6);
+  background:transparent;color:var(--colors-foreground-default,#3B2316);cursor:pointer;text-align:left;transition:background .15s,color .15s}
+.ff-scope-opt:first-child{border-left:none}
+.ff-scope-opt-title{font:700 12px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.03em}
+.ff-scope-opt-sub{font:500 11px/1.3 "museo-sans",sans-serif;color:var(--colors-foreground-muted,#6B5A53)}
+.ff-scope-opt:hover{background:var(--colors-neutral-100,#F4EDE6)}
+.ff-scope-opt[aria-checked="true"]{background:var(--colors-background-nature,#1A2F29);color:var(--colors-foreground-inverse,#FFF8F0)}
+.ff-scope-opt[aria-checked="true"] .ff-scope-opt-sub{color:var(--colors-neutral-200,#E4D8C6)}
+.ff-scope-opt:focus-visible{outline:2px solid var(--colors-brand-signal-red,#B51E14);outline-offset:-2px}
+@media(max-width:640px){
+  .ff-scope-seg{flex-direction:column}
+  .ff-scope-opt{border-left:none;border-top:1px solid var(--colors-border-default,#D9CFC6)}
+  .ff-scope-opt:first-child{border-top:none}
+}
+
+/* STEP 2 — scope-mode dimming on the control row. When scope="nationwide" the market picker is a
+   secondary localization anchor rather than the campaign target, so the row is visually de-emphasized
+   and the annotation note appears. All controls stay fully operable (opacity only, no pointer-events off). */
+.ff-controlrow[data-scope-mode="nationwide"]{opacity:.62}
+.ff-controlrow[data-scope-mode="nationwide"]:hover,
+.ff-controlrow[data-scope-mode="nationwide"]:focus-within{opacity:1}
+.ff-scope-note{flex:1 1 100%;margin:var(--spacing-xs,4px) 0 0;font:500 11px/1.4 "museo-sans",sans-serif;font-style:italic;color:var(--colors-foreground-muted,#6B5A53)}
+.ff-scope-note[hidden]{display:none}
+
+/* STEP 3 — inline seasonal readout (re-homed #localFlavor). Supporting context, not a control:
+   a quiet kraft-tan card that sits with the market/season row and shows what is in season for the
+   selected market. Full row width so the market-tied string wraps cleanly under the controls. */
+.ff-flavor{flex:1 1 100%;display:flex;flex-direction:column;gap:2px;margin-top:var(--spacing-xs,4px);
+  padding:var(--spacing-sm,8px) var(--spacing-md,14px);
+  background:var(--colors-neutral-100,#F4EDE6);border:1px solid var(--colors-border-default,#D9CFC6);
+  border-left:3px solid var(--colors-brand-frontier-green,#1A2F29);border-radius:var(--radii-md,8px)}
+.ff-flavor-kicker{font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted,#6B5A53)}
+.ff-flavor-text{font:500 12px/1.45 "museo-sans",sans-serif;color:var(--colors-foreground-default,#3B2316)}
+.ff-flavor-text b{font-weight:700;color:var(--colors-brand-bear-brown,#3B2316)}
+
+/* STEP 3 — chip clusters. The 7 chips regroup into 4 small labeled clusters that flow horizontally;
+   each cluster is a quiet label above/beside its chips, adding minimal vertical space. Reuses the
+   existing .ff-chip pill styling (multi-select aria-pressed toggle handled in prompt-chips.js). */
+.ff-chipgroups{display:flex;flex-wrap:wrap;gap:var(--spacing-md,16px);margin-top:var(--spacing-sm,8px)}
+.ff-chipcluster{display:flex;flex-wrap:wrap;align-items:center;gap:var(--spacing-xs,4px) var(--spacing-sm,8px)}
+.ff-chipcluster-label{flex:0 0 100%;font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted,#6B5A53)}
+@media(max-width:520px){.ff-chipgroups{gap:var(--spacing-sm,8px)}}

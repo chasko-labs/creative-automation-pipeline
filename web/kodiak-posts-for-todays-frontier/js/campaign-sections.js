@@ -4,17 +4,6 @@
 // into #productCarousel. All guarded; never 500s the UI; prefers-reduced-motion respected for the pulse.
 (function(){
   'use strict';
-  var esc = function(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); };
-
-  // ---- resolve the selected market place name for the "localized to <AREA>" label ----
-  function currentAreaLabel(){
-    try{
-      var code = document.getElementById('locality')?.value || 'US-MW-PARKCITY-84098';
-      var list = (window.places && window.places.length) ? window.places : (typeof places!=='undefined' ? places : []);
-      var p = list.find(function(x){ return x && x.market===code; });
-      return (p && p.place) ? p.place : 'Park City, Utah';
-    }catch(e){ return 'Park City, Utah'; }
-  }
 
   // ---- one-time attention-pulse style (respects prefers-reduced-motion) ----
   function ensurePulseStyle(){
@@ -33,16 +22,13 @@
     if(document.getElementById('generateCampaignSection')) return true;   // idempotent
     // anchor: the forest treeline divider that precedes the placeholder comment
     var forest = document.querySelector('.ff-forest');
-    var area = currentAreaLabel();
     var wrap = document.createElement('div');
     wrap.innerHTML =
       '<section id="generateCampaignSection" class="ff-generate-campaign" aria-labelledby="generateCampaignHeading" hidden style="max-width:960px;margin:0 auto;padding:0 var(--spacing-sm)">'+
         '<h2 id="generateCampaignHeading" class="ff-output-heading">Generate Campaign</h2>'+
-        '<p class="hint" id="generateCampaignHint">Your preview is ready. Generate the full campaign — every ratio, every platform, localized.</p>'+
+        '<p class="hint" id="generateCampaignHint">Your preview is ready. Generate the full campaign — every ratio, every platform, localized to your chosen scope.</p>'+
         '<div class="row" id="generateCampaignBtns" style="gap:10px;flex-wrap:wrap">'+
-          '<button type="button" class="btn ghost" id="genScopeNationwide" data-scope="nationwide">Generate Nationwide</button>'+
-          '<button type="button" class="btn ghost" id="genScopeNationwideLoc" data-scope="nationwide-localized">Generate Nationwide with Full Localization</button>'+
-          '<button type="button" class="btn orange" id="genScopeLocal" data-scope="local">Generate Campaign Localized to '+esc(area)+'</button>'+
+          '<button type="button" class="btn orange" id="genFullCampaign">Generate full campaign</button>'+
         '</div>'+
         '<div class="hint" id="generateCampaignStatus" role="status" aria-live="polite"></div>'+
       '</section>'+
@@ -63,13 +49,6 @@
     return true;
   }
 
-  // ---- keep the "localized to <AREA>" label live on market change ----
-  function refreshAreaLabel(){
-    var btn = document.getElementById('genScopeLocal');
-    if(btn) btn.textContent = 'Generate Campaign Localized to ' + currentAreaLabel();
-  }
-  document.addEventListener('change', function(e){ if(e.target && e.target.id==='locality') refreshAreaLabel(); });
-
   // ---- reveal + scroll + pulse when a preview becomes ready ----
   window.__kodiakRevealCampaign = function(){
     try{
@@ -77,7 +56,6 @@
       var sec = document.getElementById('generateCampaignSection');
       if(!sec) return;
       if(sec.hidden){ sec.hidden = false; }
-      refreshAreaLabel();
       ensurePulseStyle();
       // scroll into center so the user never has to hunt; pulse for attention (reduced-motion => no anim)
       try{ sec.scrollIntoView({behavior:'smooth', block:'center'}); }catch(e){ try{ sec.scrollIntoView(); }catch(e2){} }
@@ -136,10 +114,14 @@
   };
 
   function setCampaignBtnsDisabled(d){
-    ['genScopeNationwide','genScopeNationwideLoc','genScopeLocal'].forEach(function(id){ var b=document.getElementById(id); if(b) b.disabled = d; });
+    var b = document.getElementById('genFullCampaign');
+    if(b) b.disabled = d;
   }
 
-  async function runCampaign(scope){
+  async function runCampaign(){
+    // scope is chosen up-front in the scope-first segmented control (window.__campaignScope);
+    // default to 'local' if the control has not initialized for any reason.
+    var scope = window.__campaignScope || 'local';
     var status = document.getElementById('generateCampaignStatus');
     var isLocal = (location.protocol==='file:') || ['127.0.0.1','localhost'].includes(location.hostname);
     if(isLocal){
@@ -184,11 +166,8 @@
   }
 
   function wireButtons(){
-    var map = {genScopeNationwide:'nationwide', genScopeNationwideLoc:'nationwide-localized', genScopeLocal:'local'};
-    Object.keys(map).forEach(function(id){
-      var b = document.getElementById(id);
-      if(b && !b.__wired){ b.__wired = true; b.addEventListener('click', function(){ runCampaign(map[id]); }); }
-    });
+    var gen = document.getElementById('genFullCampaign');
+    if(gen && !gen.__wired){ gen.__wired = true; gen.addEventListener('click', function(){ runCampaign(); }); }
     var dt = document.getElementById('downloadCampaignPackTop');
     if(dt && !dt.__wired){ dt.__wired = true; dt.addEventListener('click', function(){ window.downloadCampaignPack(); }); }
     var db = document.getElementById('downloadCampaignPackBottom');
@@ -242,7 +221,6 @@
     // catalog paints asynchronously (~900ms) — repaint the carousel after it settles + once more later
     setTimeout(repaintProductCarousel, 950);
     setTimeout(repaintProductCarousel, 1600);
-    refreshAreaLabel();
   }
   if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', init); }
   else { init(); }
