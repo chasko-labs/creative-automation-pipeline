@@ -207,21 +207,60 @@ section.xl{padding:var(--section-space-xl) 0}
 .ff-prompt{background:var(--gradients-kraft\.surface);border:1px solid var(--stone);border-radius:var(--radii-lg);padding:18px;box-shadow:var(--shadows-bear)}
 .ff-prompt h2{margin:0 0 4px;font:800 20px/1.1 gin,"kodiak_sans",Rockwell,Georgia,serif;letter-spacing:.03em;text-transform:none;color:var(--chocolate)}
 .ff-prompt .ff-sub{margin:0 0 14px;color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
-/* the big input row — textarea + inline upload + generate, google-simple */
-.ff-inputwrap{display:flex;align-items:flex-end;gap:10px;background:#fff;border:1px solid var(--stone);border-radius:14px;padding:10px 10px 10px 14px;transition:border-color .15s,box-shadow .15s}
-.ff-inputwrap:focus-within{border-color:var(--orange, #E8530E);box-shadow:0 0 0 3px rgba(232,83,14,.12)}
-.ff-inputwrap textarea{flex:1;border:none;outline:none;resize:none;min-height:28px;max-height:160px;background:transparent;font:500 15px/1.5 "museo-sans",sans-serif;color:var(--chocolate);padding:4px 0}
-.ff-iconbtn{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--stone);background:#fff;color:var(--chocolate);cursor:pointer;font-size:18px;line-height:1}
-.ff-iconbtn:hover{background:var(--oat)}
-.ff-go{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:40px;padding:0 16px;border-radius:10px;border:1px solid var(--orange, #E8530E);background:var(--orange, #E8530E);color:#fff;font:700 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+/* === HERO CANVAS: the campaign input is the primary action, styled to dominate. ===
+   Restructured from a crammed single row into a vertical canvas (label + textarea)
+   over a hairline action bar (secondary pills left, Create isolated right). The wrap
+   is the raised hero surface; the outer .ff-prompt keeps --shadows-bear so there is one
+   clear elevation story. Three-tier height rhythm: chips ~30, utility controls 40, Create 48.
+   Two radii only: --radii-lg (16) for surfaces/CTA, --radii-full (999) for pills. */
+.ff-inputwrap{display:flex;flex-direction:column;gap:var(--spacing-sm,8px);position:relative;
+  margin-top:var(--spacing-lg,24px);
+  background:var(--colors-neutral-50,#FFF8F0);border:1px solid var(--colors-neutral-300,#D9CFC6);
+  border-radius:var(--radii-lg,16px);padding:var(--spacing-md,16px);
+  box-shadow:0 1px 2px rgba(59,35,22,.06);
+  transition:border-color .15s,box-shadow .15s}
+/* visible ring on focus — clearly readable against parchment (WCAG 2.4.7) */
+.ff-inputwrap:focus-within{border-color:var(--orange, #E8530E);box-shadow:0 0 0 3px rgba(232,83,14,.4)}
+/* Row 1 canvas — the kicker label above the textarea (matches .ff-optiongroup-label) */
+.ff-brief-label{display:block;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted,#6B5A53)}
+/* textarea — body-copy weight, 16px prevents iOS zoom-on-focus; ~3 lines at rest */
+.ff-inputwrap textarea{width:100%;min-height:88px;max-height:220px;border:none;outline:none;resize:none;
+  background:transparent;font:500 16px/1.6 "museo-sans",sans-serif;color:var(--chocolate);padding:0}
+.ff-inputwrap textarea::placeholder{color:var(--colors-neutral-500,#8C7A70)}
+/* Row 2 action bar — hairline top rule, secondary pills left, Create isolated right */
+.ff-inputfoot{display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-sm,8px);
+  border-top:1px solid var(--colors-neutral-100,#F4EDE6);padding-top:var(--spacing-sm,8px)}
+.ff-inputfoot-actions{display:flex;align-items:center;gap:var(--spacing-sm,8px)}
+/* + upload — compact pill that rhymes with the chips, not a mystery square */
+.ff-iconbtn{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;
+  border-radius:var(--radii-full,999px);border:1px solid var(--colors-neutral-300,#D9CFC6);
+  background:var(--colors-neutral-0,#fff);color:var(--chocolate);cursor:pointer;font-size:18px;line-height:1}
+.ff-iconbtn:hover{background:var(--colors-neutral-100,#F4EDE6)}
+.ff-iconbtn:focus-visible{outline:2px solid var(--orange, #E8530E);outline-offset:2px}
+/* CREATE — must win. 48px tier, darkened blaze-orange (#C7440B) so #fff label clears WCAG AA
+   (4.86:1 vs 4.5:1 required); loudest element on the page via branded elevation. */
+.ff-go{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:48px;padding:0 28px;
+  border-radius:var(--radii-lg,16px);border:1px solid #C7440B;background:#C7440B;color:#fff;
+  font:700 14px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;
+  box-shadow:0 2px 8px rgba(59,35,22,.18)}
+.ff-go:hover{background:#B23C09;border-color:#B23C09}
+.ff-go:focus-visible{outline:2px solid var(--colors-brand-signal-red,#B51E14);outline-offset:2px}
 .ff-go:disabled{opacity:.5;cursor:not-allowed}
 /* suggestion chips — quick-start pills that populate the prompt */
 .ff-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .ff-chip{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;border:1px solid var(--stone);background:#fff;color:var(--chocolate);font:600 12px/1 "museo-sans",sans-serif;cursor:pointer;transition:background .15s,border-color .15s}
 .ff-chip:hover{background:var(--oat);border-color:var(--brown-kodiak)}
 .ff-chip[aria-pressed="true"]{background:var(--brown-kodiak);color:var(--parchment);border-color:var(--brown-kodiak)}
-.ff-chip .ff-dot{width:6px;height:6px;border-radius:50%;background:var(--orange, #E8530E)}
-@media(max-width:860px){.ff-inputwrap{flex-wrap:wrap}.ff-inputwrap textarea{flex:1 1 100%}.ff-go{flex:1}}
+/* dot desaturated to neutral-400 — --orange is now reserved for the focus ring + Create only */
+.ff-chip .ff-dot{width:6px;height:6px;border-radius:50%;background:var(--colors-neutral-400,#B8A99E)}
+/* MOBILE — wrap is now column-direction, so the old flex-wrap rule is retired. On narrow
+   viewports the action bar wraps and Create drops full-width to the bottom: always the
+   widest, lowest, boldest element, never a half-width tile. */
+@media(max-width:860px){
+  .ff-inputfoot{flex-wrap:wrap}
+  .ff-go{order:2;flex:1 1 100%}
+  .ff-inputfoot-actions{order:1}
+}
 
 /* === Multi-size render set — three labeled tiles, one per ratio, real aspect ratio via aspect-ratio CSS === */
 .render-set{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;align-items:start}
@@ -762,11 +801,14 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 /* PART B/C — inline user-facing error near the upload tray + fetch surfaces */
 .ff-inline-error{display:block;margin-top:var(--spacing-xs,4px);font:600 11px/1.4 "museo-sans",sans-serif;color:var(--red,#B51E14)}
 /* PART D — "Browse past assets" (DAM) affordance. ADDITIVE second staging path beside the "+" local upload.
-   Reuses the market-panel disclosure look (positioned panel + backdrop) — no heavy modal system. */
-.ff-dam-trigger{display:inline-flex;align-items:center;gap:4px;margin-top:var(--spacing-xs,4px);padding:2px 6px;border:none;background:transparent;
-  font:600 11px/1.4 "museo-sans",sans-serif;color:var(--colors-brand-frontier-green,#1A2F29);text-decoration:underline;cursor:pointer;border-radius:var(--radii-sm)}
-.ff-dam-trigger:hover{color:var(--colors-brand-bear-brown,#3B2316)}
-.ff-dam-trigger:focus-visible{outline:2px solid var(--colors-brand-frontier-green,#1A2F29);outline-offset:2px}
+   Reuses the market-panel disclosure look (positioned panel + backdrop) — no heavy modal system.
+   hero redesign: promoted from a transparent text link to a real ghost pill so it reads as a
+   matching secondary affordance beside the "+" icon, not a mystery text link. */
+.ff-dam-trigger{display:inline-flex;align-items:center;gap:var(--spacing-xs,4px);height:40px;padding:0 14px;
+  border:1px solid var(--colors-neutral-300,#D9CFC6);border-radius:var(--radii-full,999px);background:transparent;
+  color:var(--colors-neutral-700,#5A4A42);font:600 13px/1 "museo-sans",sans-serif;cursor:pointer}
+.ff-dam-trigger:hover{background:var(--colors-neutral-100,#F4EDE6)}
+.ff-dam-trigger:focus-visible{outline:2px solid var(--orange, #E8530E);outline-offset:2px}
 .ff-dam-backdrop{position:fixed;inset:0;z-index:200;background:rgba(26,47,41,.32);display:none}
 .ff-dam-backdrop.is-open{display:block}
 .ff-dam-panel{position:fixed;z-index:201;top:50%;left:50%;transform:translate(-50%,-50%);width:min(92vw,760px);max-height:82vh;overflow:auto;
