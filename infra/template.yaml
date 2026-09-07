@@ -81,14 +81,14 @@ Resources:
       TableName: !Sub ${ProjectName}-localization-memory
       BillingMode: PAY_PER_REQUEST
       AttributeDefinitions:
-        - AttributeName: market
+        - AttributeName: pk
           AttributeType: S
-        - AttributeName: place_message_id
+        - AttributeName: sk
           AttributeType: S
       KeySchema:
-        - AttributeName: market
+        - AttributeName: pk
           KeyType: HASH
-        - AttributeName: place_message_id
+        - AttributeName: sk
           KeyType: RANGE
       PointInTimeRecoverySpecification:
         PointInTimeRecoveryEnabled: true

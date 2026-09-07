@@ -176,6 +176,13 @@ export class GenerateStack extends cdk.Stack {
                 Action: "translate:TranslateText",
                 Resource: "*",
               },
+              // read-only precomputed-localization cache lookup (POST /localize hop 1). GetItem only -- the request path needs nothing else.
+              {
+                Sid: "LocalizationMemoryRead",
+                Effect: "Allow",
+                Action: "dynamodb:GetItem",
+                Resource: `arn:${this.partition}:dynamodb:${this.region}:${this.account}:table/kodiak-creatives-localization-memory`,
+              },
             ],
           },
         },
