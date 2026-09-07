@@ -17,4 +17,4 @@ chmod +x scripts/hooks/pre-push
 git config core.hooksPath scripts/hooks
 
 echo "local pre-push gate activated (core.hooksPath -> scripts/hooks)"
-echo "the pre-push hook now runs ruff -> pytest -> cfn-lint before every push"
+echo "the pre-push hook runs ruff (fast lint) before every push; run scripts/hooks/full-check.sh (pytest + cfn-lint) before opening/merging a PR"

@@ -5,7 +5,10 @@ version: 0.2
 # the three gates below command-for-command. GitHub Actions is forbidden on this
 # repo (zero budget) and the CodeBuild webhook has been disconnected. this file
 # stays in the tree as the canonical gate definition the hook is kept in sync with.
-# to disconnect CodeBuild fully: aws codebuild delete-webhook --project-name kodiak-creatives-ci
+# the CodeBuild webhook on project kodiak-creatives-ci is already deleted (2026-09-06,
+# aws codebuild delete-webhook --project-name kodiak-creatives-ci) -- auto-builds are off.
+# the CodeBuild project itself is being removed from the CDK infra on a separate branch;
+# CDK stays the infra source of truth. nothing triggers this spec any more.
 # activate the local gate after clone: scripts/hooks/install.sh
 # see docs/ci-local-gate.md.
 #

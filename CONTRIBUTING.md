@@ -78,7 +78,8 @@ As of this sprint, three teams work this repository in parallel on the same rocm
 
 - **pipeline + agentic core** — the engine: training data, Amazon Bedrock AgentCore, the python and rust tooling that drives generation
 - **app frontend** — the surface: web ui, css, the sample-prompt browser, preview rendering
-- **infra + data platform** — the ground: aws infrastructure, codebuild ci, the style-library bucket, the vector index, dns and cloudfront
+- **infra + data platform** — the ground: aws infrastructure, the local pre-push CI gate, the style-library bucket, the vector index, dns and cloudfront
+
 
 Full ownership map is in `docs/architecture/team-lanes.md`. The dispatch roster and tooling standards are in `docs/architecture/dispatch-guideline.md`. Read your lane before you touch a file.
 
@@ -101,7 +102,7 @@ Each worktree is a full checkout on its own branch sharing one `.git`. Team-pipe
 
 ### Branch naming
 
-`feat/<team>-<topic>` — e.g. `feat/pipeline-blog-corpus`, `feat/frontend-prompt-browser`, `feat/platform-codebuild-project`. The team prefix tells everyone which lane a branch belongs to at a glance.
+`feat/<team>-<topic>` — e.g. `feat/pipeline-blog-corpus`, `feat/frontend-prompt-browser`, `feat/platform-vector-index`. The team prefix tells everyone which lane a branch belongs to at a glance.
 
 ### Stay in your lane; cross a seam by announcement
 
@@ -132,7 +133,7 @@ load-bearing parts:
 
 ### Run ruff before you wait on anyone
 
-The codebuild gate runs `ruff check .` first and dies in about one second on any lint error. Do not discover that after a slow commit round-trip. Before you hand a change to the CI/commit agent, run it yourself from your worktree:
+The local pre-push gate runs `ruff check .` first and dies in about one second on any lint error. Do not discover that after a slow commit round-trip. Before you hand a change to the CI/commit agent, run it yourself from your worktree:
 
 ```
 uv run ruff check .        # the whole tree — tests/ and scripts/ count
