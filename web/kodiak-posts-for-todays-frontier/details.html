@@ -882,7 +882,8 @@ graph TD
         if(placesLen>=73){s++; subs.push('✓ places 73+ '+placesLen);} else subs.push('✗ places '+placesLen+'<73');
         const ml=typeof marketLangsOffline!=='undefined'?Object.keys(marketLangsOffline).length:0;
         if(ml>=70){s++; subs.push('✓ marketLangs '+ml+'≥70');} else subs.push('✗ langs '+ml+'<70');
-        const hasBurl=typeof marketLangsOffline!=='undefined'&&JSON.stringify(marketLangsOffline).includes('BURLINGTON')||JSON.stringify(marketLangsOffline||{}).includes('fr');
+        const hasBurlStr=typeof marketLangsOffline!=='undefined'?JSON.stringify(marketLangsOffline):'{}';
+        const hasBurl=hasBurlStr.includes('BURLINGTON')||hasBurlStr.includes('fr');
         if(hasBurl){s++; subs.push('✓ Burlington FR present');} else subs.push('✗ Burlington missing');
         const chip=document.getElementById('lang-chips');
         if(chip&&chip.textContent.includes('EN')){s++; subs.push('✓ lang-chips EN');} else subs.push('✗ lang-chips missing');
@@ -917,7 +918,8 @@ graph TD
     let weighted=0, weightSum=0, minPass=true;
     grid.innerHTML='';
     defs.forEach(d=>{
-      const r=d.check();
+      // one throwing axis must degrade to 0/max, never blank the whole grid
+      let r; try{ r=d.check(); }catch(e){ r={score:0,max:4,detail:'axis error: '+String(e).slice(0,120),pass:false,subs:[]}; }
       weighted += (r.score/r.max)*d.weight;
       weightSum += d.weight;
       if(!r.pass) minPass=false;
