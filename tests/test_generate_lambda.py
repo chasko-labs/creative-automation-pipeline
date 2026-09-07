@@ -411,3 +411,115 @@ def test_wall_does_not_fire_when_work_completes_in_time(monkeypatch, tmp_path: P
     assert body["source"] == "bedrock:stability-control-structure"
     # normal preview provenance — NOT the wall-timeout floor
     assert body["provenance"].get("fallthrough_reason") != "wall-timeout"
+
+
+
+# --------------------------------------------------------------------------- #
+# ART-DIRECTOR INNER TIMEOUT (T1): the art-director voice step (dark by default)
+# is bounded on its own inner timeout well inside the outer wall. A cold/scale-to-
+# zero model whose 4x28s retry loop blocks must degrade VOICE-OFF (original prompt),
+# NOT to the rung-D wall floor. The prompt that reaches generate_hero as brief_msg
+# is the observable — voice-off means brief_msg == the original input.
+# --------------------------------------------------------------------------- #
+
+
+def _capture_hero(captured: dict, source: str = "bedrock:stability-control-structure"):
+    """generate_hero stub that captures kwargs (brief_msg) and writes a real tiny PNG."""
+
+    def _stub(**kwargs):
+        captured.update(kwargs)
+        _fake_single_render(Path(kwargs["out_path"]))
+        return Path(kwargs["out_path"]), source, {"engine": "stability-control-structure"}
+
+    return _stub
+
+
+def test_art_director_inner_timeout_degrades_voice_off_not_wall_floor(
+    monkeypatch, tmp_path: Path
+) -> None:
+    # art-director ENABLED + the invoke hangs past the inner timeout: the response is a
+    # NORMAL hero (source is NOT brand-floor:wall-timeout) and the prompt used equals the
+    # ORIGINAL input (voice-off fallback) — the inner timeout must fire long before the
+    # outer wall, so hero composition still runs.
+    import time as _time
+
+    captured: dict = {}
+    monkeypatch.setattr(generate_lambda, "generate_hero", _capture_hero(captured))
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+
+    # turn the voice step on and shrink the inner timeout so the test is fast; behavior is
+    # identical at the 6s default. The outer wall stays at its default so we prove the INNER
+    # bound fires (not the wall).
+    monkeypatch.setattr(generate_lambda, "ART_DIRECTOR_ENABLED", True)
+    monkeypatch.setattr(generate_lambda, "ART_DIRECTOR_TIMEOUT_S", 0.3)
+
+    def _hang_art_direct(prompt, voice):
+        _time.sleep(30)  # far past the inner timeout — this worker is abandoned
+        raise AssertionError("inner timeout did not abandon the hung art-director invoke")
+
+    from creative_automation import art_director as _ad
+
+    monkeypatch.setattr(_ad, "art_direct", _hang_art_direct)
+
+    event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
+    resp = generate_lambda.handler(event, None)
+    assert resp["statusCode"] == 200
+    body = json.loads(resp["body"])
+    assert body["ok"] is True
+    # voice-off degrade, NOT the rung-D wall floor
+    assert body["source"] != "brand-floor:wall-timeout"
+    assert body["provenance"].get("fallthrough_reason") != "wall-timeout"
+    # the prompt that reached hero composition is the ORIGINAL input (voice-off)
+    assert captured["brief_msg"] == "a bear eating pancakes"
+    assert body["prompt"] == "a bear eating pancakes"
+
+
+def test_art_director_flag_off_by_default_never_invokes(monkeypatch, tmp_path: Path) -> None:
+    # default (flag off): the art-director path is not taken — art_direct is never called
+    # and the prompt flows through byte-for-byte as the brief_msg.
+    captured: dict = {}
+    monkeypatch.setattr(generate_lambda, "generate_hero", _capture_hero(captured))
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+
+    # do NOT set ART_DIRECTOR_ENABLED — assert it is off by default in this env
+    assert generate_lambda.ART_DIRECTOR_ENABLED is False
+
+    from creative_automation import art_director as _ad
+
+    calls: list = []
+    monkeypatch.setattr(_ad, "art_direct", lambda *a, **k: calls.append(a) or {"text": "brand line"})
+
+    event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
+    resp = generate_lambda.handler(event, None)
+    assert resp["statusCode"] == 200
+    body = json.loads(resp["body"])
+    assert body["ok"] is True
+    # art-director was never invoked and the original prompt passed through unchanged
+    assert calls == []
+    assert captured["brief_msg"] == "a bear eating pancakes"
+    assert body["prompt"] == "a bear eating pancakes"
+
+
+def test_art_director_flag_on_fast_return_uses_art_director_line(
+    monkeypatch, tmp_path: Path
+) -> None:
+    # art-director ENABLED + a fast return: the prompt used equals the art-director line.
+    captured: dict = {}
+    monkeypatch.setattr(generate_lambda, "generate_hero", _capture_hero(captured))
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda, "ART_DIRECTOR_ENABLED", True)
+
+    from creative_automation import art_director as _ad
+
+    monkeypatch.setattr(
+        _ad, "art_direct", lambda prompt, voice: {"text": "Keep It Wild — Frontier Fuel"}
+    )
+
+    event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
+    resp = generate_lambda.handler(event, None)
+    assert resp["statusCode"] == 200
+    body = json.loads(resp["body"])
+    assert body["ok"] is True
+    # the on-brand art-director line replaced the original prompt for hero composition
+    assert captured["brief_msg"] == "Keep It Wild — Frontier Fuel"
+    assert body["prompt"] == "Keep It Wild — Frontier Fuel"

@@ -49,6 +49,12 @@ FULL_MODE = "full"
 # Gateway edge for the post-wall composite + put + return leg.
 GENERATE_WALL_TIMEOUT_S = float(os.getenv("GENERATE_WALL_TIMEOUT_S", "22"))
 
+# Inner bound for the cross-region us-west-2 art-director invoke. Sits well inside the ~22s
+# outer wall so a cold/scale-to-zero model (art_director's 4x28s cold-start retry) can never
+# consume the hero-composition budget. On timeout: fall back to the original prompt (voice-off),
+# NOT the rung-D wall floor.
+ART_DIRECTOR_TIMEOUT_S = float(os.getenv("KODIAK_ARTDIRECTOR_TIMEOUT_S", "6"))
+
 # ART-DIRECTOR VOICE STEP (dark by default): when KODIAK_ARTDIRECTOR_ENABLED is truthy,
 # the incoming brief/prompt is run through the Kodiak brand-voice art-director model
 # (src/creative_automation/art_director.py) and the returned on-brand line replaces the
@@ -95,7 +101,24 @@ def _maybe_art_direct(data: dict[str, Any], prompt: str) -> str:
     try:
         from . import art_director  # deferred import — default-off path never loads Strands
 
-        result = art_director.art_direct(prompt, voice)  # region handled internally
+        # Bound the cross-region us-west-2 invoke on its own inner timeout, well inside the
+        # outer wall, so art_director's 4x28s cold-start retry loop can never burn the hero
+        # budget. On timeout the abandoned worker keeps sleeping through its remaining
+        # retries and then exits — it writes nothing shared, so it leaks and drains harmlessly
+        # (same leak-and-drain contract the outer wall already documents for its own worker).
+        executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+        fut = executor.submit(art_director.art_direct, prompt, voice)  # region handled internally
+        try:
+            result = fut.result(timeout=ART_DIRECTOR_TIMEOUT_S)
+        except concurrent.futures.TimeoutError:
+            print(
+                f"[generate_lambda] art-director inner timeout at {ART_DIRECTOR_TIMEOUT_S}s — "
+                "falling back to original headline (voice-off)",
+                file=sys.stderr,
+            )
+            return prompt
+        finally:
+            executor.shutdown(wait=False)
         line = (result or {}).get("text") if isinstance(result, dict) else None
         if line and line.strip():
             return line.strip()
