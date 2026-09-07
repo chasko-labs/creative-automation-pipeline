@@ -437,6 +437,58 @@
   var pendingWrap = document.getElementById('selectionTray');
   var pendingSeq = 0;
   window.__userAssets = window.__userAssets || [];
+
+  // DAM upload gate (T2). Same "hosted origin only" guard prompt-chips/data-core use: file:// +
+  // localhost have no backend, so ASSET_ENDPOINT stays null and the upload path is skipped entirely
+  // (staging-only, no fetch, no throw). A dev/server context can set window.KODIAK_LIBRARY_UPLOAD_ENDPOINT
+  // to re-enable. Mirrors prompt-chips LIB_ENDPOINT resolution exactly.
+  var _isLocal = (location.protocol==='file:') || ['127.0.0.1','localhost'].includes(location.hostname);
+  var ASSET_ENDPOINT = window.KODIAK_LIBRARY_UPLOAD_ENDPOINT || (_isLocal ? null : '/library/assets');
+
+  // POST the raw file bytes to /library/assets (T2 backend contract). ADDITIVE to client-side staging:
+  // on 201 it records the returned asset_id on the staged rec so the generate path can reference a real
+  // DAM asset later. 415 -> assetError with backend detail. network/offline/local -> silent honest degrade
+  // (the chip already staged locally). NEVER throws into stagePendingAsset. rec is already in window.__userAssets.
+  function uploadAsset(file, rec){
+    if(!ASSET_ENDPOINT || !file || !rec) return;   // offline/local -> staging-only, no fetch
+    // DAM-sourced recs never re-upload (they already live in the library); only local files reach here.
+    if(rec.source === 'dam') return;
+    var qs = '?filename=' + encodeURIComponent(rec.name || file.name || 'asset') +
+             '&added_by=' + encodeURIComponent('frontier-ui');
+    // tag with the detected kind so the DAM carries useful metadata; skip when unknown.
+    if(rec.kind && rec.kind !== 'unknown'){ qs += '&tags=' + encodeURIComponent(rec.kind); }
+    try{
+      var ctrl = (typeof AbortController!=='undefined') ? new AbortController() : null;
+      var timer = ctrl ? setTimeout(function(){ ctrl.abort(); }, 15000) : null;
+      fetch(ASSET_ENDPOINT + qs, {
+        method:'POST',
+        headers:{'Content-Type':'application/octet-stream'},
+        body: file,
+        signal: ctrl ? ctrl.signal : undefined
+      }).then(function(r){
+        if(timer){ clearTimeout(timer); timer = null; }
+        return r.text().then(function(body){
+          var data = null;
+          try{ data = body ? JSON.parse(body) : null; }catch(pe){ data = null; }   // guarded parse
+          if(r.status === 415){
+            // unsupported type per backend — surface its detail (the chip stays staged locally).
+            var detail415 = (data && data.detail) ? String(data.detail) : ('unsupported file type: ' + rec.name);
+            assetError(detail415);
+            return;
+          }
+          if(!r.ok || !data){ return; }   // any other non-2xx or unparseable body -> silent staging-only degrade
+          if(data.asset_id){ rec.asset_id = data.asset_id; }   // thread the real DAM id onto the staged rec
+          if(data.embed_status){ rec.embed_status = data.embed_status; }
+          // soft, non-blocking note for the pending-index case; not an error.
+          if(data.embed_status === 'embed_pending'){ assetError('uploaded \u2014 indexing shortly'); }
+        });
+      }).catch(function(){
+        if(timer){ clearTimeout(timer); timer = null; }
+        // network failure / abort / offline -> keep staging-only silently, never throw.
+      });
+    }catch(e){ /* fetch construction fault -> staging-only, silent honest degrade */ }
+  }
+
   function refreshUserAssetMarker(){
     // expose count for the generate path; also mark the create card so downstream can read it.
     try{
@@ -535,12 +587,14 @@
       try{ thumb.src = URL.createObjectURL(file); }
       catch(e){ /* blob url unavailable — chip still stages with an empty thumb, never throws */ }
       buildChip(rec, thumb);
+      uploadAsset(file, rec);
       return;
     }
 
     if(kind === 'pdf' || kind === 'docx'){
       window.__userAssets.push(rec);
       buildChip(rec, docLabel(kind === 'pdf' ? 'PDF' : 'DOC'));
+      uploadAsset(file, rec);
       return;
     }
 
@@ -551,6 +605,7 @@
       // stage immediately with a label so the chip appears even before the async read resolves
       window.__userAssets.push(rec);
       buildChip(rec, docLabel(kind === 'brief-json' ? 'JSON' : 'YAML'));
+      uploadAsset(file, rec);
       try{
         var reader = new FileReader();
         reader.onload = function(){
