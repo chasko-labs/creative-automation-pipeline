@@ -617,5 +617,1733 @@
     "is_default_demo": {
       "BOOL": false
     }
+  },
+  {
+    "market": {
+      "S": "US-SW-TIMBERON"
+    },
+    "place": {
+      "S": "Timberon, New Mexico"
+    },
+    "audience": {
+      "S": "Sacramento Mountain ranch families, hunters"
+    },
+    "message": {
+      "S": "Fuel the high-country ranch day — protein-packed whole grains for your Sacramento Mountain frontier"
+    },
+    "cue": {
+      "S": "Sacramento Mtns pine ridge, cattle, dawn frost"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "88350"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-MW-WASATCH-SLC"
+    },
+    "place": {
+      "S": "Salt Lake City, Utah"
+    },
+    "audience": {
+      "S": "Ski and hike households, Wasatch commuters"
+    },
+    "message": {
+      "S": "Keep It Wild — protein-packed whole grains for your Wasatch frontier"
+    },
+    "cue": {
+      "S": "Wasatch alpenglow, pine, snow at dawn"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "84101"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-W-SF"
+    },
+    "place": {
+      "S": "San Francisco Bay Area, California"
+    },
+    "audience": {
+      "S": "Bay trail runners, fog-coast families"
+    },
+    "message": {
+      "S": "From the Marin headlands to the Sunset fog — protein-packed whole grains for your Bay frontier"
+    },
+    "cue": {
+      "S": "Golden Gate fog, coastal trail, morning light"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "94102"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-W-SD"
+    },
+    "place": {
+      "S": "San Diego, California"
+    },
+    "audience": {
+      "S": "Surf and coastal-canyon households"
+    },
+    "message": {
+      "S": "Sunrise surf to Cuyamaca ridgeline — protein-packed whole grains for your San Diego frontier"
+    },
+    "cue": {
+      "S": "Pacific surf break, coastal bluff, dawn"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "92101"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-W-VEGAS"
+    },
+    "place": {
+      "S": "Las Vegas, Nevada"
+    },
+    "audience": {
+      "S": "Red Rock hikers, hospitality workers"
+    },
+    "message": {
+      "S": "Red Rock canyon to the valley floor — protein-packed whole grains for your Las Vegas frontier"
+    },
+    "cue": {
+      "S": "Red Rock sandstone, desert scrub, morning sun"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "89101"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-MW-PHX2"
+    },
+    "place": {
+      "S": "Tucson, Arizona"
+    },
+    "audience": {
+      "S": "Sonoran desert hikers, Santa Catalina families"
+    },
+    "message": {
+      "S": "Saguaro country at first light — protein-packed whole grains for your Sonoran frontier"
+    },
+    "cue": {
+      "S": "Saguaro silhouette, Santa Catalina peaks, sunrise"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "85701"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-SW-EL PASO"
+    },
+    "place": {
+      "S": "El Paso, Texas"
+    },
+    "audience": {
+      "S": "Franklin Mountain hikers, Fort Bliss families"
+    },
+    "message": {
+      "S": "Franklin Mountains at daybreak — protein-packed whole grains for your El Paso frontier"
+    },
+    "cue": {
+      "S": "Franklin Mtns, desert dawn, city below"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "79901"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-SC-DALLAS"
+    },
+    "place": {
+      "S": "Dallas, Texas"
+    },
+    "audience": {
+      "S": "Trinity trail runners, active families"
+    },
+    "message": {
+      "S": "Blackland prairie to Trinity greenbelt — protein-packed whole grains for your Dallas frontier"
+    },
+    "cue": {
+      "S": "Trinity River trail, prairie grass, morning skyline"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "75201"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-SC-HOUSTON"
+    },
+    "place": {
+      "S": "Houston, Texas"
+    },
+    "audience": {
+      "S": "Bayou trail families, active professionals"
+    },
+    "message": {
+      "S": "Buffalo Bayou to the Gulf coast — protein-packed whole grains for your Houston frontier"
+    },
+    "cue": {
+      "S": "Buffalo Bayou, live oaks, humid sunrise"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "77002"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-SC-SANANTONIO"
+    },
+    "place": {
+      "S": "San Antonio, Texas"
+    },
+    "audience": {
+      "S": "Hill Country families, Tejano households"
+    },
+    "message": {
+      "S": "Riverwalk to Hill Country limestone — protein-packed whole grains for your San Antonio frontier"
+    },
+    "cue": {
+      "S": "Hill Country limestone, oak, river bend at dawn"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "78201"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-MW-KC"
+    },
+    "place": {
+      "S": "Kansas City, Missouri/Kansas"
+    },
+    "audience": {
+      "S": "Trail-town families, active commuters"
+    },
+    "message": {
+      "S": "Where the prairie meets two rivers — protein-packed whole grains for your Kansas City frontier"
+    },
+    "cue": {
+      "S": "Missouri River bluff, tallgrass, morning light"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "64108"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-MW-STL"
+    },
+    "place": {
+      "S": "St. Louis, Missouri"
+    },
+    "audience": {
+      "S": "Riverfront runners, Gateway families"
+    },
+    "message": {
+      "S": "Under the Gateway Arch to the great river's edge — protein-packed whole grains for your St. Louis frontier"
+    },
+    "cue": {
+      "S": "Gateway Arch, Mississippi riverfront, sunrise"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "63101"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-MW-OMAHA"
+    },
+    "place": {
+      "S": "Omaha, Nebraska"
+    },
+    "audience": {
+      "S": "Missouri River trail families"
+    },
+    "message": {
+      "S": "Tallgrass prairie to the Missouri bluffs — protein-packed whole grains for your Omaha frontier"
+    },
+    "cue": {
+      "S": "Missouri River, prairie grass, dawn horizon"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "68102"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-MW-DESMOINES"
+    },
+    "place": {
+      "S": "Des Moines, Iowa"
+    },
+    "audience": {
+      "S": "River-trail families, active households"
+    },
+    "message": {
+      "S": "Where the Raccoon meets the Des Moines — protein-packed whole grains for your Iowa frontier"
+    },
+    "cue": {
+      "S": "river confluence, cottonwoods, morning mist"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "50309"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-MW-MILWAUKEE"
+    },
+    "place": {
+      "S": "Milwaukee, Wisconsin"
+    },
+    "audience": {
+      "S": "Lakefront runners, active families"
+    },
+    "message": {
+      "S": "Lake Michigan sunrise to the Menomonee bluffs — protein-packed whole grains for your Milwaukee frontier"
+    },
+    "cue": {
+      "S": "Lake Michigan shore, bluff, dawn over water"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "53202"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-MW-DETROIT"
+    },
+    "place": {
+      "S": "Detroit, Michigan"
+    },
+    "audience": {
+      "S": "Riverwalk families, active neighborhoods"
+    },
+    "message": {
+      "S": "Along the Detroit River to Belle Isle — protein-packed whole grains for your Detroit frontier"
+    },
+    "cue": {
+      "S": "Detroit River, Belle Isle, morning skyline"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "48201"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-MW-CLEVELAND"
+    },
+    "place": {
+      "S": "Cleveland, Ohio"
+    },
+    "audience": {
+      "S": "Lake Erie trail families"
+    },
+    "message": {
+      "S": "Lake Erie shore to the Cuyahoga bend — protein-packed whole grains for your Cleveland frontier"
+    },
+    "cue": {
+      "S": "Lake Erie shoreline, river valley, sunrise"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "44101"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-MW-INDY"
+    },
+    "place": {
+      "S": "Indianapolis, Indiana"
+    },
+    "audience": {
+      "S": "Monon trail runners, active families"
+    },
+    "message": {
+      "S": "White River banks to the Monon trail — protein-packed whole grains for your Indianapolis frontier"
+    },
+    "cue": {
+      "S": "White River, greenway trail, morning light"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "46204"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-NE-PHILLY"
+    },
+    "place": {
+      "S": "Philadelphia, Pennsylvania"
+    },
+    "audience": {
+      "S": "Wissahickon hikers, rowhouse families"
+    },
+    "message": {
+      "S": "Schuylkill banks to the Wissahickon gorge — protein-packed whole grains for your Philadelphia frontier"
+    },
+    "cue": {
+      "S": "Wissahickon creek, hemlock gorge, dawn"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "19102"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-NE-DC"
+    },
+    "place": {
+      "S": "Washington, DC + NoVA"
+    },
+    "audience": {
+      "S": "Rock Creek runners, active families"
+    },
+    "message": {
+      "S": "Rock Creek to the Potomac palisades — protein-packed whole grains for your Capital frontier"
+    },
+    "cue": {
+      "S": "Rock Creek woods, Potomac overlook, morning"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "20001"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-NE-BALTIMORE"
+    },
+    "place": {
+      "S": "Baltimore, Maryland"
+    },
+    "audience": {
+      "S": "Harbor trail families, Patapsco hikers"
+    },
+    "message": {
+      "S": "Inner Harbor to the Patapsco valley — protein-packed whole grains for your Baltimore frontier"
+    },
+    "cue": {
+      "S": "Patapsco river valley, harbor dawn, forest trail"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "21201"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-NE-RALEIGH"
+    },
+    "place": {
+      "S": "Raleigh-Durham, North Carolina"
+    },
+    "audience": {
+      "S": "Greenway runners, Research Triangle families"
+    },
+    "message": {
+      "S": "Piedmont pines to the Neuse greenway — protein-packed whole grains for your Triangle frontier"
+    },
+    "cue": {
+      "S": "loblolly pine, Neuse River trail, morning light"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "27601"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-SE-CHARLOTTE"
+    },
+    "place": {
+      "S": "Charlotte, North Carolina"
+    },
+    "audience": {
+      "S": "Catawba trail families, active households"
+    },
+    "message": {
+      "S": "Catawba riverbanks to the Carolina Piedmont — protein-packed whole grains for your Charlotte frontier"
+    },
+    "cue": {
+      "S": "Catawba River, Piedmont hills, sunrise"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "28202"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-SE-JAX"
+    },
+    "place": {
+      "S": "Jacksonville, Florida"
+    },
+    "audience": {
+      "S": "Beach and river families, naval households"
+    },
+    "message": {
+      "S": "St. Johns River to Atlantic surf — protein-packed whole grains for your Jacksonville frontier"
+    },
+    "cue": {
+      "S": "St. Johns River, coastal dune, morning tide"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "32202"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-SE-TAMPA"
+    },
+    "place": {
+      "S": "Tampa, Florida"
+    },
+    "audience": {
+      "S": "Bayshore runners, active families"
+    },
+    "message": {
+      "S": "Bayshore sunrise to the Hillsborough riverbank — protein-packed whole grains for your Tampa frontier"
+    },
+    "cue": {
+      "S": "Hillsborough Bay, palm, dawn over water"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "33602"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-SE-NOLA"
+    },
+    "place": {
+      "S": "New Orleans, Louisiana"
+    },
+    "audience": {
+      "S": "Levee-path families, bayou households"
+    },
+    "message": {
+      "S": "Mississippi levee to the cypress bayou — protein-packed whole grains for your New Orleans frontier"
+    },
+    "cue": {
+      "S": "Mississippi levee, cypress swamp, morning mist"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "70112"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-SE-MEMPHIS"
+    },
+    "place": {
+      "S": "Memphis, Tennessee"
+    },
+    "audience": {
+      "S": "Riverfront runners, active families"
+    },
+    "message": {
+      "S": "Mississippi bluffs to the delta flatlands — protein-packed whole grains for your Memphis frontier"
+    },
+    "cue": {
+      "S": "Mississippi River bluff, delta horizon, sunrise"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "38103"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-SE-BIRMINGHAM"
+    },
+    "place": {
+      "S": "Birmingham, Alabama"
+    },
+    "audience": {
+      "S": "Ridge-trail families, active households"
+    },
+    "message": {
+      "S": "Red Mountain ridge to the Cahaba valley — protein-packed whole grains for your Birmingham frontier"
+    },
+    "cue": {
+      "S": "Red Mountain ridge, Cahaba River, morning light"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "35201"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-SE-JACKSON"
+    },
+    "place": {
+      "S": "Jackson, Mississippi"
+    },
+    "audience": {
+      "S": "Pearl River trail families"
+    },
+    "message": {
+      "S": "Pearl River banks to the pine belt — protein-packed whole grains for your Jackson frontier"
+    },
+    "cue": {
+      "S": "Pearl River, longleaf pine, dawn"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "39201"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-SW-OKC"
+    },
+    "place": {
+      "S": "Oklahoma City, Oklahoma"
+    },
+    "audience": {
+      "S": "River-trail families, active households"
+    },
+    "message": {
+      "S": "Cross-timbers prairie to the Oklahoma River — protein-packed whole grains for your OKC frontier"
+    },
+    "cue": {
+      "S": "cross-timbers oak, river trail, prairie sunrise"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "73102"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-MW-BOISE"
+    },
+    "place": {
+      "S": "Boise, Idaho"
+    },
+    "audience": {
+      "S": "Foothills hikers, greenbelt families"
+    },
+    "message": {
+      "S": "Boise foothills to the river greenbelt — protein-packed whole grains for your Boise frontier"
+    },
+    "cue": {
+      "S": "Boise foothills, cottonwood greenbelt, dawn"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "83702"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-W-YAKIMA"
+    },
+    "place": {
+      "S": "Yakima + Tri-Cities, Washington"
+    },
+    "audience": {
+      "S": "Orchard and hop-farm families"
+    },
+    "message": {
+      "S": "Apple orchards to hop fields under Rainier's shadow — protein-packed whole grains for your Yakima frontier"
+    },
+    "cue": {
+      "S": "orchard rows, hop trellis, Mt Rainier at dawn"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "98901"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-W-SPOKANE"
+    },
+    "place": {
+      "S": "Spokane, Washington"
+    },
+    "audience": {
+      "S": "River-gorge families, active households"
+    },
+    "message": {
+      "S": "Spokane Falls to the ponderosa pines — protein-packed whole grains for your Spokane frontier"
+    },
+    "cue": {
+      "S": "Spokane Falls, ponderosa pine, morning light"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "99201"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-MW-MISSOULA"
+    },
+    "place": {
+      "S": "Missoula, Montana"
+    },
+    "audience": {
+      "S": "Trailhead families, river runners"
+    },
+    "message": {
+      "S": "Five valleys where the rivers meet — protein-packed whole grains for your Missoula frontier"
+    },
+    "cue": {
+      "S": "Clark Fork River, Bitterroot peaks, dawn"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "59801"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-W-RENO"
+    },
+    "place": {
+      "S": "Reno + Tahoe, Nevada/California"
+    },
+    "audience": {
+      "S": "Tahoe skiers, Truckee-river families"
+    },
+    "message": {
+      "S": "Truckee River to the Tahoe rim — protein-packed whole grains for your Reno-Tahoe frontier"
+    },
+    "cue": {
+      "S": "Truckee River, Sierra peaks, alpine dawn"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "89501"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-W-SACRAMENTO"
+    },
+    "place": {
+      "S": "Sacramento, California"
+    },
+    "audience": {
+      "S": "River-confluence families, delta households"
+    },
+    "message": {
+      "S": "Where two rivers meet the delta — protein-packed whole grains for your Sacramento frontier"
+    },
+    "cue": {
+      "S": "American River confluence, valley oak, sunrise"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "95814"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-MW-MINNEAPOLIS2"
+    },
+    "place": {
+      "S": "Duluth, Minnesota"
+    },
+    "audience": {
+      "S": "North Shore families, lake households"
+    },
+    "message": {
+      "S": "Lake Superior shore to the North Shore cliffs — protein-packed whole grains for your Duluth frontier"
+    },
+    "cue": {
+      "S": "Lake Superior, basalt cliff, cold dawn"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "55802"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-MW-FARGO"
+    },
+    "place": {
+      "S": "Fargo, North Dakota"
+    },
+    "audience": {
+      "S": "Red River trail families, prairie households"
+    },
+    "message": {
+      "S": "Red River flats to the endless prairie sky — protein-packed whole grains for your Fargo frontier"
+    },
+    "cue": {
+      "S": "Red River, flat prairie, wide sunrise"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "58102"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-NE-BURLINGTON"
+    },
+    "place": {
+      "S": "Burlington, Vermont"
+    },
+    "audience": {
+      "S": "Lake Champlain families, Green Mountain hikers"
+    },
+    "message": {
+      "S": "Lake Champlain shore to the Green Mountain ridgeline — protein-packed whole grains for your Vermont frontier"
+    },
+    "cue": {
+      "S": "Lake Champlain, Green Mtns, autumn dawn"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "05401"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-NE-HARTFORD"
+    },
+    "place": {
+      "S": "Hartford, Connecticut"
+    },
+    "audience": {
+      "S": "River-valley families, active households"
+    },
+    "message": {
+      "S": "Connecticut River valley to the traprock ridges — protein-packed whole grains for your Hartford frontier"
+    },
+    "cue": {
+      "S": "Connecticut River, traprock ridge, morning light"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "06103"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-NE-PROVIDENCE"
+    },
+    "place": {
+      "S": "Providence, Rhode Island"
+    },
+    "audience": {
+      "S": "Bay-path families, coastal households"
+    },
+    "message": {
+      "S": "Narragansett Bay to the Blackstone valley — protein-packed whole grains for your Providence frontier"
+    },
+    "cue": {
+      "S": "Narragansett Bay, coastal light, harbor dawn"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "02903"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-SW-SANTA FE"
+    },
+    "place": {
+      "S": "Santa Fe, New Mexico"
+    },
+    "audience": {
+      "S": "High-desert hikers, Sangre de Cristo families"
+    },
+    "message": {
+      "S": "Sangre de Cristo foothills to the high-desert light — protein-packed whole grains for your Santa Fe frontier"
+    },
+    "cue": {
+      "S": "Sangre de Cristo peaks, pinon, adobe at dawn"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "87501"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-SW-CLOUDCROFT"
+    },
+    "place": {
+      "S": "Cloudcroft + Alamogordo, New Mexico"
+    },
+    "audience": {
+      "S": "Mountain-village families, desert households"
+    },
+    "message": {
+      "S": "From the Sacramento pines down to white gypsum sands — protein-packed whole grains for your Cloudcroft frontier"
+    },
+    "cue": {
+      "S": "Sacramento pine, White Sands dunes, dawn"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "88317"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-SW-ROSWELL"
+    },
+    "place": {
+      "S": "Roswell + Carlsbad, New Mexico"
+    },
+    "audience": {
+      "S": "Pecos Valley ranch families"
+    },
+    "message": {
+      "S": "Pecos Valley ranchland under a wide desert sky — protein-packed whole grains for your Roswell frontier"
+    },
+    "cue": {
+      "S": "Pecos River, ranch grassland, big desert sky"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "88201"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-W-ANCHORAGE"
+    },
+    "place": {
+      "S": "Anchorage, Alaska"
+    },
+    "audience": {
+      "S": "Chugach hikers, coastal families"
+    },
+    "message": {
+      "S": "Chugach peaks to the Cook Inlet tide — protein-packed whole grains for your Alaska frontier"
+    },
+    "cue": {
+      "S": "Chugach Mtns, Cook Inlet, low golden light"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "99501"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-W-HONOLULU"
+    },
+    "place": {
+      "S": "Honolulu, Hawaii"
+    },
+    "audience": {
+      "S": "Trail-and-shore families, active households"
+    },
+    "message": {
+      "S": "Ko'olau ridgeline to the reef at sunrise — protein-packed whole grains for your island frontier"
+    },
+    "cue": {
+      "S": "Ko'olau green ridge, reef water, morning light"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "96813"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-SE-ASHEVILLE"
+    },
+    "place": {
+      "S": "Asheville, North Carolina"
+    },
+    "audience": {
+      "S": "Blue Ridge hikers, mountain-town families"
+    },
+    "message": {
+      "S": "Blue Ridge peaks to the French Broad riverbanks — protein-packed whole grains for your Asheville frontier"
+    },
+    "cue": {
+      "S": "Blue Ridge haze, French Broad River, dawn"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "28801"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-MW-JACKSONHOLE"
+    },
+    "place": {
+      "S": "Jackson Hole, Wyoming"
+    },
+    "audience": {
+      "S": "Teton skiers, valley service families"
+    },
+    "message": {
+      "S": "Under the Teton spires where the valley wakes — protein-packed whole grains for your Jackson Hole frontier"
+    },
+    "cue": {
+      "S": "Teton range, Snake River, alpenglow"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "83001"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-W-BEND"
+    },
+    "place": {
+      "S": "Bend, Oregon"
+    },
+    "audience": {
+      "S": "Cascade riders, high-desert families"
+    },
+    "message": {
+      "S": "Cascade volcanoes to the Deschutes rapids — protein-packed whole grains for your Bend frontier"
+    },
+    "cue": {
+      "S": "Cascade peaks, Deschutes River, high-desert dawn"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "97701"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-W-BOULDER"
+    },
+    "place": {
+      "S": "Boulder, Colorado"
+    },
+    "audience": {
+      "S": "Flatirons climbers, trail families"
+    },
+    "message": {
+      "S": "Flatirons at first light above the plains — protein-packed whole grains for your Boulder frontier"
+    },
+    "cue": {
+      "S": "Flatirons sandstone, pine, morning sun"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "80302"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-CA-PESCADERO"
+    },
+    "place": {
+      "S": "Pescadero, California — San Mateo Coast"
+    },
+    "audience": {
+      "S": "Coast-farm families, tidepool households"
+    },
+    "message": {
+      "S": "Fog-fed coastal farm fields to the Pacific bluffs — protein-packed whole grains for your Pescadero frontier"
+    },
+    "cue": {
+      "S": "coastal farm rows, ocean bluff, morning fog"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "94060"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-SW-TULAROSA"
+    },
+    "place": {
+      "S": "Tularosa, NM — Tularosa Basin"
+    },
+    "audience": {
+      "S": "High-desert basin families, ranch households"
+    },
+    "message": {
+      "S": "Tularosa Basin high desert framed by mountain walls — protein-packed whole grains for your basin frontier"
+    },
+    "cue": {
+      "S": "Tularosa Basin, San Andres range, dry dawn"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "88352"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-UT-KAMASVALLEY"
+    },
+    "place": {
+      "S": "Kamas Valley, UT — Peoa, Oakley, Kamas ranching country"
+    },
+    "audience": {
+      "S": "Ranching families, rodeo households"
+    },
+    "message": {
+      "S": "Uinta foothill ranchland from Oakley to Kamas — protein-packed whole grains for your valley frontier"
+    },
+    "cue": {
+      "S": "Uinta foothills, hay meadow, corral at dawn"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "84036"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
+  },
+  {
+    "market": {
+      "S": "US-SE-SANDERSVILLE"
+    },
+    "place": {
+      "S": "Sandersville, GA — Washington County kaolin-belt farm country"
+    },
+    "audience": {
+      "S": "Kaolin-belt farm families"
+    },
+    "message": {
+      "S": "Red-clay farm country in the kaolin belt — protein-packed whole grains for your Washington County frontier"
+    },
+    "cue": {
+      "S": "red clay field, pine treeline, morning light"
+    },
+    "retailer": {
+      "S": "Target, Walmart"
+    },
+    "zip": {
+      "S": "31082"
+    },
+    "brand": {
+      "S": "KODIAK"
+    },
+    "updated_at": {
+      "S": "2026-09-07T01:46:33.522104Z"
+    },
+    "is_default_demo": {
+      "BOOL": false
+    }
   }
 ]
