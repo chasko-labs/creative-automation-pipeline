@@ -1,8 +1,6 @@
 import * as cdk from "aws-cdk-lib";
 import { Construct } from "constructs";
-import * as codebuild from "aws-cdk-lib/aws-codebuild";
 import * as dynamodb from "aws-cdk-lib/aws-dynamodb";
-import * as iam from "aws-cdk-lib/aws-iam";
 import * as s3 from "aws-cdk-lib/aws-s3";
 import * as s3vectors from "aws-cdk-lib/aws-s3vectors";
 import {
@@ -25,10 +23,9 @@ export interface DataStackProps extends cdk.StackProps {
 /**
  * Kodiak creatives main stack (adoption base = migrated L1, stack id
  * `kodiak-creatives`). Superset of the retired hand-authored DataStack: it adds
- * the CreativePipelineLogBucket, the per-push CodeBuild CI project + its
- * service role, and the explicit TLS-only bucket policy that #122 never
- * modeled -- alongside the DAM bucket + localization-memory / retail-network
- * tables.
+ * the CreativePipelineLogBucket and the explicit TLS-only bucket policy that
+ * #122 never modeled -- alongside the DAM bucket + localization-memory /
+ * retail-network tables.
  *
  * Every stateful resource carries DeletionPolicy RETAIN so a stack delete never
  * drops live data. Generated verbatim from the live template by `cdk migrate`
@@ -45,8 +42,6 @@ export class DataStack extends cdk.Stack {
   public readonly localizationMemoryTableName: string;
   public readonly retailNetworkTableName: string;
   public readonly logBucketName: string;
-  public readonly codeBuildProjectName: string;
-  public readonly codeBuildServiceRoleArn: string;
   public readonly vectorBucketName: string;
   public readonly vectorIndexName: string;
   public readonly vectorBucketArn: string;
@@ -56,44 +51,6 @@ export class DataStack extends cdk.Stack {
     super(scope, id, props);
 
     const { projectName, damBucketName } = props;
-
-    // ---- CodeBuild CI service role (CloudWatch Logs only) ----------------
-    const codeBuildServiceRole = new iam.CfnRole(this, "CodeBuildServiceRole", {
-      roleName: `${projectName}-ci-role`,
-      assumeRolePolicyDocument: {
-        Version: "2012-10-17",
-        Statement: [
-          {
-            Effect: "Allow",
-            Principal: { Service: "codebuild.amazonaws.com" },
-            Action: "sts:AssumeRole",
-          },
-        ],
-      },
-      policies: [
-        {
-          policyName: "cloudwatch-logs",
-          policyDocument: {
-            Version: "2012-10-17",
-            Statement: [
-              {
-                Sid: "WriteOwnLogGroup",
-                Effect: "Allow",
-                Action: [
-                  "logs:CreateLogGroup",
-                  "logs:CreateLogStream",
-                  "logs:PutLogEvents",
-                ],
-                Resource: [
-                  `arn:${this.partition}:logs:${this.region}:${this.account}:log-group:/codebuild/${projectName}-ci`,
-                  `arn:${this.partition}:logs:${this.region}:${this.account}:log-group:/codebuild/${projectName}-ci:*`,
-                ],
-              },
-            ],
-          },
-        },
-      ],
-    });
 
     // ---- CI/CD access-log bucket (versioned, KMS, RETAIN) ----------------
     const creativePipelineLogBucket = new s3.CfnBucket(
@@ -260,54 +217,6 @@ export class DataStack extends cdk.Stack {
     kodiakVectorIndex.cfnOptions.updateReplacePolicy =
       cdk.CfnDeletionPolicy.RETAIN;
 
-    // ---- per-push CI gate ------------------------------------------------
-    const creativePipelineCi = new codebuild.CfnProject(
-      this,
-      "CreativePipelineCI",
-      {
-        name: `${projectName}-ci`,
-        description: `Fast per-push CI gate for ${projectName} - ruff, pytest, cfn-lint`,
-        serviceRole: codeBuildServiceRole.attrArn,
-        timeoutInMinutes: 20,
-        source: {
-          type: "GITHUB",
-          location:
-            "https://github.com/chasko-labs/creative-automation-pipeline.git",
-          buildSpec: "buildspec.yml",
-          reportBuildStatus: true,
-          gitCloneDepth: 1,
-        },
-        artifacts: { type: "NO_ARTIFACTS" },
-        environment: {
-          type: "LINUX_CONTAINER",
-          computeType: "BUILD_GENERAL1_SMALL",
-          image: "aws/codebuild/amazonlinux2-x86_64-standard:5.0",
-          environmentVariables: [
-            { name: "RUN_SLOW", value: "false", type: "PLAINTEXT" },
-          ],
-        },
-        triggers: {
-          webhook: true,
-          filterGroups: [
-            [{ type: "EVENT", pattern: "PUSH" }],
-            [
-              {
-                type: "EVENT",
-                pattern:
-                  "PULL_REQUEST_CREATED,PULL_REQUEST_UPDATED,PULL_REQUEST_REOPENED",
-              },
-            ],
-          ],
-        },
-        logsConfig: {
-          cloudWatchLogs: {
-            status: "ENABLED",
-            groupName: `/codebuild/${projectName}-ci`,
-          },
-        },
-      },
-    );
-
     // ---- TLS-only DAM bucket policy (RETAIN) -----------------------------
     const styleLibraryBucketPolicyTlsOnly = new s3.CfnBucketPolicy(
       this,
@@ -359,16 +268,6 @@ export class DataStack extends cdk.Stack {
     });
     this.logBucketName = creativePipelineLogBucket.ref;
     new cdk.CfnOutput(this, "LogBucketName", { value: this.logBucketName });
-    this.codeBuildProjectName = creativePipelineCi.ref;
-    new cdk.CfnOutput(this, "CodeBuildProjectName", {
-      value: this.codeBuildProjectName,
-      description: "Per-push CI gate project name",
-    });
-    this.codeBuildServiceRoleArn = codeBuildServiceRole.attrArn;
-    new cdk.CfnOutput(this, "CodeBuildServiceRoleArn", {
-      value: this.codeBuildServiceRoleArn,
-      description: "Least-privilege CodeBuild service role arn (CloudWatch Logs only)",
-    });
     this.vectorBucketName = kodiakVectorBucket.ref;
     new cdk.CfnOutput(this, "KodiakVectorBucketName", {
       value: this.vectorBucketName,

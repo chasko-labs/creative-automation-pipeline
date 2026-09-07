@@ -38,14 +38,14 @@ const account = process.env.CDK_DEPLOY_ACCOUNT ?? ACCOUNT;
 
 const app = new cdk.App();
 
-// main stack: DAM bucket + dynamodb tables + log bucket + CodeBuild CI + TLS
+// main stack: DAM bucket + dynamodb tables + log bucket + TLS
 // bucket policy. all stateful resources RETAIN.
 new DataStack(app, "kodiak-creatives", {
   env: { account, region: PRIMARY_REGION },
   projectName: PROJECT_NAME,
   damBucketName: DAM_BUCKET_NAME,
   description:
-    "Kodiak creatives main stack: DAM bucket + dynamodb tables + log bucket + CodeBuild CI + TLS policy (stateful RETAIN).",
+    "Kodiak creatives main stack: DAM bucket + dynamodb tables + log bucket + TLS policy (stateful RETAIN).",
 });
 
 // app log group (RETAIN) + X-Ray sampling rule + observability write policy.
