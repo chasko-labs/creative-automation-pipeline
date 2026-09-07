@@ -69,13 +69,30 @@
     // offline (file://) or localhost -> no endpoint -> honest "unavailable offline" without a fetch.
     var _isLocal = (location.protocol==='file:') || ['127.0.0.1','localhost'].includes(location.hostname);
     var LIB_ENDPOINT = window.KODIAK_LIBRARY_ENDPOINT || (_isLocal ? null : '/assets/library');
-    var CAT_LABELS = { 'zac-efron':'Zac Efron', 'renders':'Renders', 'heroes':'Heroes', 'logos':'Logos' };
-    var loaded = false;      // fetch once per session; re-open reuses rendered groups
+    var CAT_LABELS = { 'renders':'Renders', 'heroes':'Heroes', 'logos':'Logos', 'zac-efron':'Zac Efron' };
+    // Default focus = RENDERS: the literal "past campaign outputs" the user means by "past assets".
+    var TAB_ORDER = ['renders','heroes','logos','zac-efron'];
+    var loaded = false;      // fetch once per session; re-open reuses cached model
     var lastFocus = null;    // element to restore focus to on close
 
+    // --- session-scoped state (rebuilt per load; torn down on close) ---
+    var model = {};          // cat -> { items:[...], total:number }
+    var activeCat = null;    // currently shown tab
+    var selectedKey = null;  // key of the staged/selected tile (persists across tab switches)
+    var io = null;           // IntersectionObserver for lazy image load + far-scroll cleanup
+    var tablist = null;      // the tab bar element (for arrow-key nav + roving tabindex)
+    var filterInput = null;  // the search box
+    var gridEl = null;       // the active listbox grid
+
     function flash(msg){ try{ if(flashEl) flashEl.textContent = String(msg||''); }catch(e){} }
+
+    // status line lives inside #damBody but MUST NOT wipe the shell (tabs+filter) once built.
     function setStatus(msg){
-      try{ body.innerHTML = ''; var p=document.createElement('p'); p.className='ff-dam-status'; p.textContent=String(msg||''); body.appendChild(p); }catch(e){}
+      try{
+        clearGrid();
+        if(!gridEl){ body.innerHTML=''; var p=document.createElement('p'); p.className='ff-dam-status'; p.textContent=String(msg||''); body.appendChild(p); return; }
+        var s=document.createElement('p'); s.className='ff-dam-status'; s.textContent=String(msg||''); gridEl.appendChild(s);
+      }catch(e){}
     }
 
     function openPanel(){
@@ -83,111 +100,349 @@
       backdrop.hidden = false; panel.hidden = false;
       backdrop.classList.add('is-open'); panel.classList.add('is-open');
       trigger.setAttribute('aria-expanded','true');
-      try{ closeBtn.focus(); }catch(e){}
+      document.addEventListener('keydown', onDocKeydown, true);
       if(!loaded) loadLibrary();
+      else focusFirstControl();
     }
+
+    // teardown matters — this app has a leak-audit history. Disconnect the observer, drop image
+    // src refs, clear grid nodes, and remove the document-level keydown trap on every close.
     function closePanel(){
       backdrop.classList.remove('is-open'); panel.classList.remove('is-open');
       backdrop.hidden = true; panel.hidden = true;
       trigger.setAttribute('aria-expanded','false');
       flash('');
+      document.removeEventListener('keydown', onDocKeydown, true);
+      teardownGrid();
       // return focus to the trigger (or the "+" if the trigger is gone)
       var back = (lastFocus && lastFocus.isConnected) ? lastFocus : trigger;
       try{ (back || trigger).focus(); }catch(e){}
     }
 
+    // release the IntersectionObserver + null every img.src so presigned bitmaps can be GC'd.
+    function teardownGrid(){
+      if(io){ try{ io.disconnect(); }catch(e){} io = null; }
+      if(gridEl){
+        gridEl.querySelectorAll('img').forEach(function(img){ img.src=''; });
+      }
+    }
+    function clearGrid(){
+      if(io){ try{ io.disconnect(); }catch(e){} io = null; }
+      if(gridEl){ gridEl.innerHTML=''; }
+    }
+
     // GET /assets/library (no category param -> all four groups). 6s AbortController timeout, mirrors localizeText.
     function loadLibrary(){
-      if(!LIB_ENDPOINT){ renderUnavailable('Past assets unavailable offline.'); loaded = true; return; }
-      setStatus('Loading past assets\u2026');
+      if(!LIB_ENDPOINT){ buildShell(); renderUnavailable('Past assets unavailable offline.'); loaded = true; return; }
+      body.innerHTML = ''; var p=document.createElement('p'); p.className='ff-dam-status'; p.textContent='Loading past assets\u2026'; body.appendChild(p);
       var controller = new AbortController();
       var timer = setTimeout(function(){ controller.abort(); }, 6000);
       fetch(LIB_ENDPOINT + '?limit=60', {signal: controller.signal})
         .then(function(r){ if(!r.ok) throw new Error('library HTTP '+r.status); return r.json(); })
         .then(function(j){
-          if(!j || j.enabled !== true){ renderUnavailable('Past assets unavailable offline.'); }
-          else { renderLibrary(j); }
+          if(!j || j.enabled !== true){ buildShell(); renderUnavailable('Past assets unavailable offline.'); }
+          else { ingest(j); buildShell(); renderActiveTab(); focusFirstControl(); }
           loaded = true;
         })
-        .catch(function(){ renderUnavailable('Past assets unavailable offline.'); loaded = true; })
+        .catch(function(){ buildShell(); renderUnavailable('Past assets unavailable offline.'); loaded = true; })
         .finally(function(){ clearTimeout(timer); });
+    }
+
+    // normalize server payload into `model`; pick the default active tab (first non-empty in TAB_ORDER).
+    function ingest(j){
+      var cats = (j && j.categories) || {};
+      var order = TAB_ORDER.slice();
+      Object.keys(cats).forEach(function(k){ if(order.indexOf(k)===-1) order.push(k); });
+      model = {}; activeCat = null;
+      order.forEach(function(cat){
+        var entry = cats[cat];
+        if(!entry) return;
+        var items = (entry && entry.items) || [];
+        var total = (typeof entry.total === 'number') ? entry.total : items.length;
+        model[cat] = { items: items, total: total };
+        if(activeCat === null && items.length) activeCat = cat;
+      });
+      if(activeCat === null){ var ks = Object.keys(model); activeCat = ks.length ? ks[0] : null; }
     }
 
     function renderUnavailable(msg){
       setStatus(msg || 'Past assets unavailable offline.');
     }
 
-    // render four labeled groups from j.categories; each group is a content-visibility grid of thumbs.
-    function renderLibrary(j){
-      var cats = (j && j.categories) || {};
-      var order = ['zac-efron','renders','heroes','logos'];
-      // include any server-returned category not in the fixed order, defensively
-      Object.keys(cats).forEach(function(k){ if(order.indexOf(k)===-1) order.push(k); });
+    // build the persistent shell inside #damBody: tab bar + filter input + empty grid listbox.
+    // Rebuilt fresh each load; child of #damBody only (index.html untouched).
+    function buildShell(){
       body.innerHTML = '';
-      var rendered = 0;
-      order.forEach(function(cat){
-        var entry = cats[cat];
-        if(!entry) return;
-        var items = (entry && entry.items) || [];
-        var total = (typeof entry.total === 'number') ? entry.total : items.length;
-        var group = document.createElement('div');
-        group.className = 'ff-dam-group';
+      var cats = Object.keys(model);
+      if(!cats.length){ return; }  // nothing to tab over — caller shows status
 
-        var head = document.createElement('div');
-        head.className = 'ff-dam-group-head';
-        var label = document.createElement('span');
-        label.className = 'ff-dam-group-label';
-        label.textContent = CAT_LABELS[cat] || cat;
-        head.appendChild(label);
-        if(total > items.length){
-          var count = document.createElement('span');
-          count.className = 'ff-dam-group-count';
-          count.textContent = 'showing ' + items.length + ' of ' + total;
-          head.appendChild(count);
-        }
-        group.appendChild(head);
+      var controls = document.createElement('div');
+      controls.className = 'ff-dam-controls';
 
-        var grid = document.createElement('div');
-        grid.className = 'ff-dam-grid';
-        items.forEach(function(it){ var node = buildThumb(cat, it); if(node) grid.appendChild(node); });
-        group.appendChild(grid);
-        body.appendChild(group);
-        rendered += 1;
+      tablist = document.createElement('div');
+      tablist.className = 'ff-dam-tabs';
+      tablist.setAttribute('role','tablist');
+      tablist.setAttribute('aria-label','Asset categories');
+      cats.forEach(function(cat){
+        var tab = document.createElement('button');
+        tab.type = 'button';
+        tab.className = 'ff-dam-tab';
+        tab.setAttribute('role','tab');
+        tab.id = 'dam-tab-' + cat;
+        tab.dataset.cat = cat;
+        var isActive = (cat === activeCat);
+        tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        tab.tabIndex = isActive ? 0 : -1;   // roving tabindex across the tablist
+        var count = model[cat].total;
+        tab.textContent = (CAT_LABELS[cat] || cat) + (count ? ' (' + count + ')' : '');
+        tab.addEventListener('click', function(){ selectTab(cat); });
+        tab.addEventListener('keydown', onTabKeydown);
+        tablist.appendChild(tab);
       });
-      if(rendered === 0){ renderUnavailable('No past assets found.'); }
+      controls.appendChild(tablist);
+
+      var filterWrap = document.createElement('div');
+      filterWrap.className = 'ff-dam-filter';
+      filterInput = document.createElement('input');
+      filterInput.type = 'search';
+      filterInput.className = 'ff-dam-filter-input';
+      filterInput.setAttribute('placeholder','Filter by name or ratio\u2026');
+      filterInput.setAttribute('aria-label','Filter assets in this category');
+      filterInput.addEventListener('input', applyFilter);
+      filterWrap.appendChild(filterInput);
+      controls.appendChild(filterWrap);
+
+      body.appendChild(controls);
+
+      gridEl = document.createElement('div');
+      gridEl.className = 'ff-dam-grid';
+      gridEl.setAttribute('role','listbox');
+      gridEl.setAttribute('aria-label','Past assets');
+      body.appendChild(gridEl);
     }
 
-    // one thumbnail button: image -> lazy <img> (onerror hides broken thumb); video -> labeled placeholder box.
-    function buildThumb(cat, it){
+    // arrow-key navigation across the tab bar (WAI-ARIA tablist pattern) + roving tabindex.
+    function onTabKeydown(e){
+      var tabs = Array.prototype.slice.call(tablist.querySelectorAll('.ff-dam-tab'));
+      var i = tabs.indexOf(e.currentTarget);
+      if(i === -1) return;
+      var next = -1;
+      if(e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (i+1) % tabs.length;
+      else if(e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (i-1+tabs.length) % tabs.length;
+      else if(e.key === 'Home') next = 0;
+      else if(e.key === 'End') next = tabs.length-1;
+      else return;
+      e.preventDefault();
+      var cat = tabs[next].dataset.cat;
+      selectTab(cat);
+      try{ tabs[next].focus(); }catch(err){}
+    }
+
+    function selectTab(cat){
+      if(!model[cat] || cat === activeCat){ if(cat===activeCat) return; }
+      activeCat = cat;
+      if(tablist){
+        tablist.querySelectorAll('.ff-dam-tab').forEach(function(t){
+          var on = (t.dataset.cat === cat);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          t.tabIndex = on ? 0 : -1;
+        });
+      }
+      if(filterInput) filterInput.value = '';
+      renderActiveTab();
+    }
+
+    // render tiles for the active tab into the grid, wired for lazy IntersectionObserver loading.
+    function renderActiveTab(){
+      if(!gridEl){ return; }
+      clearGrid();
+      var entry = model[activeCat];
+      var items = (entry && entry.items) || [];
+      if(!items.length){ var s=document.createElement('p'); s.className='ff-dam-status'; s.textContent='No assets in this category.'; gridEl.appendChild(s); return; }
+
+      io = makeObserver();
+      var firstOption = true;
+      items.forEach(function(it){
+        var tile = buildTile(activeCat, it, firstOption);
+        if(tile){ gridEl.appendChild(tile); if(io) io.observe(tile); firstOption = false; }
+      });
+      applyFilter();  // respect any residual filter value (usually empty after tab switch)
+    }
+
+    // IntersectionObserver drives BOTH directions: load src on enter, drop src when far out of view.
+    // rootMargin gives a generous pre-load band; a tile that leaves the band releases its bitmap.
+    function makeObserver(){
+      if(typeof IntersectionObserver === 'undefined') return null;
+      return new IntersectionObserver(function(entries){
+        entries.forEach(function(ent){
+          var img = ent.target.querySelector('.ff-dam-thumb-img');
+          if(!img) return;
+          if(ent.isIntersecting){
+            if(!img.getAttribute('src') && img.dataset.src){ img.src = img.dataset.src; }
+          } else if(img.getAttribute('src')){
+            img.src = '';  // scrolled far out — release memory; re-enter reloads from data-src
+          }
+        });
+      }, { root: gridEl, rootMargin: '300px 0px', threshold: 0.01 });
+    }
+
+    // one grid tile: role=option, fixed-aspect frame, lazy <img> (data-src), ratio badge, label.
+    // On img error we DO NOT hide — we reveal a branded kraft placeholder so a failed presign
+    // still leaves a findable, labeled tile instead of collapsing into text-only "word salad".
+    function buildTile(cat, it, isFirstOption){
       if(!it || !it.url) return null;
       var kind = (it.kind === 'video') ? 'video' : 'image';
       var label = it.label || basename(it.key) || 'asset';
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'ff-dam-thumb';
-      btn.setAttribute('aria-label', 'Add ' + label + ' to campaign');
+      var ratio = it.ratio ? String(it.ratio) : '';
+      var key = it.key || it.url;
+
+      var tile = document.createElement('div');
+      tile.className = 'ff-dam-tile';
+      tile.setAttribute('role','option');
+      tile.dataset.cat = cat;
+      tile.dataset.key = key;
+      // searchable haystack for the client filter (filename/label + ratio)
+      tile.dataset.search = (label + ' ' + ratio + ' ' + basename(it.key)).toLowerCase();
+      var selected = (selectedKey !== null && key === selectedKey);
+      tile.setAttribute('aria-selected', selected ? 'true' : 'false');
+      if(selected) tile.classList.add('is-selected');
+      // roving tabindex across the listbox: exactly one option is tabbable
+      tile.tabIndex = (isFirstOption && !selectedKey) || selected ? 0 : -1;
+      // descriptive alt/label: "render, 9x16, <label>"
+      var desc = (CAT_LABELS[cat] || cat) + (ratio ? ', ' + ratio : '') + ', ' + label;
+      tile.setAttribute('aria-label', desc);
+
+      var frame = document.createElement('span');
+      frame.className = 'ff-dam-tile-frame';
 
       if(kind === 'video'){
         var vbox = document.createElement('span');
         vbox.className = 'ff-dam-thumb-video';
         vbox.textContent = 'VIDEO';
-        btn.appendChild(vbox);
+        frame.appendChild(vbox);
       } else {
         var img = document.createElement('img');
         img.className = 'ff-dam-thumb-img';
-        img.loading = 'lazy';
-        img.alt = '';
-        img.onerror = function(){ this.style.display='none'; };
-        img.src = it.url;
-        btn.appendChild(img);
+        img.alt = '';                      // decorative; the tile carries the aria-label
+        img.decoding = 'async';
+        img.width = 150; img.height = 150; // sized decode hint — kills layout shift
+        img.dataset.src = it.url;          // IntersectionObserver assigns real src on enter
+        img.addEventListener('error', function(){ showPlaceholder(frame, label); });
+        frame.appendChild(img);
       }
+
+      if(ratio){
+        var badge = document.createElement('span');
+        badge.className = 'ff-dam-ratio-badge';
+        badge.textContent = ratio;
+        frame.appendChild(badge);
+      }
+
+      var check = document.createElement('span');
+      check.className = 'ff-dam-tile-check';
+      check.setAttribute('aria-hidden','true');
+      check.textContent = '\u2713';
+      frame.appendChild(check);
+
+      tile.appendChild(frame);
+
       var lab = document.createElement('span');
       lab.className = 'ff-dam-thumb-label';
       lab.textContent = label;
-      btn.appendChild(lab);
+      tile.appendChild(lab);
 
-      btn.addEventListener('click', function(){ stageDamAsset(cat, it, kind, label); });
-      return btn;
+      tile.addEventListener('click', function(){ chooseTile(tile, cat, it, kind, label); });
+      tile.addEventListener('keydown', function(e){ onTileKeydown(e, tile, cat, it, kind, label); });
+      return tile;
+    }
+
+    // branded fallback: replace the broken <img> with a kraft-tone block carrying the label.
+    // Idempotent — only injects once even if error fires repeatedly.
+    function showPlaceholder(frame, label){
+      var img = frame.querySelector('.ff-dam-thumb-img');
+      if(img){ img.remove(); }
+      if(frame.querySelector('.ff-dam-thumb-ph')) return;
+      var ph = document.createElement('span');
+      ph.className = 'ff-dam-thumb-ph';
+      ph.textContent = label || 'asset';
+      // keep the badge/check overlays on top — insert placeholder as the first child
+      frame.insertBefore(ph, frame.firstChild);
+    }
+
+    // keyboard on a tile: arrows move roving focus, Enter/Space selects+stages.
+    function onTileKeydown(e, tile, cat, it, kind, label){
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        chooseTile(tile, cat, it, kind, label);
+        return;
+      }
+      var visible = Array.prototype.slice.call(gridEl.querySelectorAll('.ff-dam-tile')).filter(function(t){ return t.style.display !== 'none'; });
+      var i = visible.indexOf(tile);
+      if(i === -1) return;
+      var next = -1;
+      if(e.key === 'ArrowRight') next = Math.min(i+1, visible.length-1);
+      else if(e.key === 'ArrowLeft') next = Math.max(i-1, 0);
+      else if(e.key === 'ArrowDown') next = Math.min(i + gridColumns(), visible.length-1);
+      else if(e.key === 'ArrowUp') next = Math.max(i - gridColumns(), 0);
+      else if(e.key === 'Home') next = 0;
+      else if(e.key === 'End') next = visible.length-1;
+      else return;
+      e.preventDefault();
+      var target = visible[next];
+      if(!target) return;
+      visible.forEach(function(t){ t.tabIndex = -1; });
+      target.tabIndex = 0;
+      try{ target.focus(); }catch(err){}
+    }
+
+    // estimate columns from rendered tile widths so ArrowUp/Down move a visual row.
+    function gridColumns(){
+      if(!gridEl) return 1;
+      var first = gridEl.querySelector('.ff-dam-tile');
+      if(!first) return 1;
+      var gw = gridEl.clientWidth || 1;
+      var tw = first.offsetWidth || gw;
+      return Math.max(1, Math.round(gw / tw));
+    }
+
+    // stage + mark selected (ring + checkmark + aria-selected). Reuses the existing stageDamAsset path.
+    function chooseTile(tile, cat, it, kind, label){
+      selectedKey = tile.dataset.key;
+      if(gridEl){
+        gridEl.querySelectorAll('.ff-dam-tile').forEach(function(t){
+          var on = (t.dataset.key === selectedKey);
+          t.classList.toggle('is-selected', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+      }
+      stageDamAsset(cat, it, kind, label);
+    }
+
+    // client-side substring filter over the active tab's tiles (label/filename + ratio). No fetch.
+    function applyFilter(){
+      if(!gridEl) return;
+      var q = (filterInput && filterInput.value ? filterInput.value : '').trim().toLowerCase();
+      var tiles = gridEl.querySelectorAll('.ff-dam-tile');
+      var firstVisible = null;
+      tiles.forEach(function(t){
+        var hay = t.dataset.search || '';
+        var show = !q || hay.indexOf(q) !== -1;
+        t.style.display = show ? '' : 'none';
+        if(show && !firstVisible) firstVisible = t;
+      });
+      // keep roving tabindex valid: ensure one visible tile is tabbable
+      var current = gridEl.querySelector('.ff-dam-tile[tabindex="0"]');
+      if(!current || current.style.display === 'none'){
+        tiles.forEach(function(t){ t.tabIndex = -1; });
+        if(firstVisible) firstVisible.tabIndex = 0;
+      }
+    }
+
+    function focusFirstControl(){
+      try{
+        if(tablist){ var active = tablist.querySelector('.ff-dam-tab[aria-selected="true"]') || tablist.querySelector('.ff-dam-tab'); if(active){ active.focus(); return; } }
+        if(closeBtn) closeBtn.focus();
+      }catch(e){}
     }
 
     function basename(key){
