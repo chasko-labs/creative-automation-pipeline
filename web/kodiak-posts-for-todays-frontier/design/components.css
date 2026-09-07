@@ -876,6 +876,26 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-dam-tile-check{position:absolute;top:2px;left:2px;width:16px;height:16px;display:flex;align-items:center;justify-content:center;border-radius:var(--radii-full,999px);background:var(--colors-brand-frontier-green,#1A2F29);color:var(--colors-neutral-50,#FFF8F0);font:700 10px/1 "museo-sans",sans-serif;opacity:0;transform:scale(.6);transition:opacity .12s ease,transform .12s ease;pointer-events:none}
 .ff-dam-tile.is-selected .ff-dam-tile-check,.ff-dam-tile[aria-selected="true"] .ff-dam-tile-check{opacity:1;transform:scale(1)}
 .ff-dam-thumb-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:4px;text-align:center;border-radius:var(--radii-sm,6px);background:var(--colors-neutral-200,#E4D8C6);color:var(--colors-foreground-muted,#6B5D4A);font:600 10px/1.25 "museo-sans",sans-serif;overflow:hidden}
+/* PART D (taxonomy) — sparse note, secondary facet chips, load-more, end line, selection footer.
+   Stacking order in #damBody: .ff-dam-controls (tabs) -> .ff-dam-sparse -> .ff-dam-facets-type ->
+   .ff-dam-facets-ratio -> .ff-dam-grid -> .ff-dam-more -> .ff-dam-footer. Facet chips are deliberately
+   quieter than .ff-dam-tab (11px/2px-8px vs 12px/2px-10px) so tabs read as the primary category axis
+   and facets as secondary narrowing. JS toggles the hidden attribute, so [hidden]{display:none} is explicit. */
+.ff-dam-sparse{margin:0;padding:2px 0;font:500 11px/1.4 "museo-sans",sans-serif;font-style:italic;color:var(--colors-foreground-muted,#6B5D4A)}
+.ff-dam-sparse[hidden]{display:none}
+.ff-dam-facets{display:flex;flex-wrap:wrap;gap:4px;margin:var(--spacing-xs,4px) 0}
+.ff-dam-facets[hidden]{display:none}
+.ff-dam-facet-chip{display:inline-flex;align-items:center;padding:2px 8px;border:1px solid var(--colors-border-default,#C8BCA8);border-radius:var(--radii-full,999px);background:var(--colors-neutral-50,#FFF8F0);color:var(--colors-foreground-default,#1A2F29);font:600 11px/1.4 "museo-sans",sans-serif;cursor:pointer}
+.ff-dam-facet-chip:hover{border-color:var(--colors-brand-frontier-green,#1A2F29)}
+.ff-dam-facet-chip[aria-pressed="true"]{background:var(--colors-brand-frontier-green,#1A2F29);border-color:var(--colors-brand-frontier-green,#1A2F29);color:var(--colors-neutral-50,#FFF8F0)}
+.ff-dam-facet-chip:focus-visible{outline:2px solid var(--colors-brand-frontier-green,#1A2F29);outline-offset:1px}
+.ff-dam-more{display:flex;justify-content:center;padding:var(--spacing-sm,8px) 0}
+.ff-dam-load-more{padding:6px 16px;border:1px solid var(--colors-border-default,#C8BCA8);border-radius:var(--radii-full,999px);background:transparent;color:var(--colors-foreground-default,#1A2F29);font:600 12px/1 "museo-sans",sans-serif;cursor:pointer}
+.ff-dam-load-more:hover{background:var(--colors-neutral-100,#F4EDE6)}
+.ff-dam-load-more:disabled{opacity:.5;cursor:default}
+.ff-dam-load-more:focus-visible{outline:2px solid var(--colors-brand-frontier-green,#1A2F29);outline-offset:2px}
+.ff-dam-end{margin:0;padding:var(--spacing-sm,8px) 0;text-align:center;font:500 11px/1.4 "museo-sans",sans-serif;font-style:italic;color:var(--colors-foreground-muted,#6B5D4A)}
+.ff-dam-footer{margin-top:var(--spacing-sm,8px);padding-top:var(--spacing-sm,8px);border-top:1px solid var(--colors-neutral-100,#F4EDE6);font:600 11px/1.4 "museo-sans",sans-serif;color:var(--colors-foreground-muted,#6B5D4A)}
 
 
 /* === T5 DOM slimming — content-visibility:auto on the heavy repeated-DOM regions ===

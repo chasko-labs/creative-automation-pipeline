@@ -69,9 +69,37 @@
     // offline (file://) or localhost -> no endpoint -> honest "unavailable offline" without a fetch.
     var _isLocal = (location.protocol==='file:') || ['127.0.0.1','localhost'].includes(location.hostname);
     var LIB_ENDPOINT = window.KODIAK_LIBRARY_ENDPOINT || (_isLocal ? null : '/assets/library');
-    var CAT_LABELS = { 'renders':'Renders', 'heroes':'Heroes', 'logos':'Logos', 'zac-efron':'Zac Efron' };
-    // Default focus = RENDERS: the literal "past campaign outputs" the user means by "past assets".
-    var TAB_ORDER = ['renders','heroes','logos','zac-efron'];
+    // 6-tab marketer taxonomy — Products default-active (the shelf a marketer reaches for first).
+    var CAT_LABELS = { 'products':'Products', 'recipes':'Recipes', 'lifestyle':'Lifestyle', 'ideas':'Ideas', 'themes':'Themes', 'brand':'Brand' };
+    var TAB_ORDER = ['products','recipes','lifestyle','ideas','themes','brand'];
+
+    // marketer-voice copy — every user-facing string lives here so tone stays in one place.
+    var COPY_SEARCH_PLACEHOLDER = 'Search this stack\u2026';
+    var COPY_FOOTER_SELECTED    = '{n} selected \u2014 ready to stack into your brief';
+    var COPY_FOOTER_NONE        = 'Pick an asset to add it to your brief';
+    var COPY_SPARSE             = 'A small, hand-picked set \u2014 this stack is meant to run lean.';
+    var COPY_EMPTY              = 'Nothing on this shelf yet. Try another tab.';
+    var COPY_LOADING            = 'Loading past assets\u2026';
+    var COPY_OFFLINE            = 'Past assets unavailable offline.';
+    var COPY_LOAD_MORE          = 'Load more';
+    var COPY_END                = 'That\u2019s the whole stack.';
+    var SPARSE_THRESHOLD        = 20;   // total <= this (but > 0) shows the "run lean" note
+    var PAGE_LIMIT              = 60;   // matches loadLibrary's initial ?limit=60
+
+    // client-side Type facets, scoped per active tab. A one-entry ['All'] list auto-hides (noise).
+    var TYPE_FACETS = {
+      'products':  ['All','Flapjack & Waffle','Cups','Oatmeal','Bars','Granola','Frozen','Baking','Protein Balls'],
+      'recipes':   ['All'],
+      'lifestyle': ['All','People','Outdoors','Kitchen'],
+      'ideas':     ['All'],
+      'themes':    ['All'],
+      'brand':     ['All','Heroes','Logos','Zac Efron','References']
+    };
+    // multi-token chips (matched as OR against the tile haystack); everything else is its lowercased token.
+    var TYPE_KEYWORDS = { 'flapjack & waffle': ['flapjack','waffle'] };
+    // Ratio facets are AND-combined with Type + search; the whole row auto-hides when no loaded tile carries a ratio.
+    var RATIO_FACETS = ['All','1x1','4x5','9x16','16x9'];
+
     var loaded = false;      // fetch once per session; re-open reuses cached model
     var lastFocus = null;    // element to restore focus to on close
 
@@ -83,6 +111,13 @@
     var tablist = null;      // the tab bar element (for arrow-key nav + roving tabindex)
     var filterInput = null;  // the search box
     var gridEl = null;       // the active listbox grid
+    var footerEl = null;     // selection footer line (COPY_FOOTER_*)
+    var sparseEl = null;     // "run lean" note under the tab bar
+    var typeRowEl = null;    // Type facet chip row
+    var ratioRowEl = null;   // Ratio facet chip row
+    var moreEl = null;       // load-more button / end-of-stack line wrapper
+    var activeType = 'All';  // active Type facet (per tab; reset on tab switch)
+    var activeRatio = 'All'; // active Ratio facet (per tab; reset on tab switch)
 
     function flash(msg){ try{ if(flashEl) flashEl.textContent = String(msg||''); }catch(e){} }
 
@@ -139,24 +174,25 @@
       if(gridEl){ gridEl.innerHTML=''; }
     }
 
-    // GET /assets/library (no category param -> all four groups). 6s AbortController timeout, mirrors localizeText.
+    // GET /assets/library (no category param -> all groups). 6s AbortController timeout, mirrors localizeText.
     function loadLibrary(){
-      if(!LIB_ENDPOINT){ buildShell(); renderUnavailable('Past assets unavailable offline.'); loaded = true; return; }
-      body.innerHTML = ''; var p=document.createElement('p'); p.className='ff-dam-status'; p.textContent='Loading past assets\u2026'; body.appendChild(p);
+      if(!LIB_ENDPOINT){ buildShell(); renderUnavailable(COPY_OFFLINE); loaded = true; return; }
+      body.innerHTML = ''; var p=document.createElement('p'); p.className='ff-dam-status'; p.textContent=COPY_LOADING; body.appendChild(p);
       var controller = new AbortController();
       var timer = setTimeout(function(){ controller.abort(); }, 6000);
-      fetch(LIB_ENDPOINT + '?limit=60', {signal: controller.signal})
+      fetch(LIB_ENDPOINT + '?limit=' + PAGE_LIMIT, {signal: controller.signal})
         .then(function(r){ if(!r.ok) throw new Error('library HTTP '+r.status); return r.json(); })
         .then(function(j){
-          if(!j || j.enabled !== true){ buildShell(); renderUnavailable('Past assets unavailable offline.'); }
+          if(!j || j.enabled !== true){ buildShell(); renderUnavailable(COPY_OFFLINE); }
           else { ingest(j); buildShell(); renderActiveTab(); focusFirstControl(); }
           loaded = true;
         })
-        .catch(function(){ buildShell(); renderUnavailable('Past assets unavailable offline.'); loaded = true; })
+        .catch(function(){ buildShell(); renderUnavailable(COPY_OFFLINE); loaded = true; })
         .finally(function(){ clearTimeout(timer); });
     }
 
-    // normalize server payload into `model`; pick the default active tab (first non-empty in TAB_ORDER).
+    // normalize server payload into `model`; pick the default active tab.
+    // model[cat] carries items + total + pagination cursors (offset/count/has_more/next_offset).
     function ingest(j){
       var cats = (j && j.categories) || {};
       var order = TAB_ORDER.slice();
@@ -167,14 +203,20 @@
         if(!entry) return;
         var items = (entry && entry.items) || [];
         var total = (typeof entry.total === 'number') ? entry.total : items.length;
-        model[cat] = { items: items, total: total };
-        if(activeCat === null && items.length) activeCat = cat;
+        model[cat] = {
+          items: items,
+          total: total,
+          has_more: (entry.has_more === true),
+          next_offset: (typeof entry.next_offset === 'number') ? entry.next_offset : null
+        };
       });
+      // Products is the default shelf; fall back to first known tab, then first non-empty.
+      if(model[TAB_ORDER[0]]) activeCat = TAB_ORDER[0];
       if(activeCat === null){ var ks = Object.keys(model); activeCat = ks.length ? ks[0] : null; }
     }
 
     function renderUnavailable(msg){
-      setStatus(msg || 'Past assets unavailable offline.');
+      setStatus(msg || COPY_OFFLINE);
     }
 
     // build the persistent shell inside #damBody: tab bar + filter input + empty grid listbox.
@@ -214,7 +256,7 @@
       filterInput = document.createElement('input');
       filterInput.type = 'search';
       filterInput.className = 'ff-dam-filter-input';
-      filterInput.setAttribute('placeholder','Filter by name or ratio\u2026');
+      filterInput.setAttribute('placeholder', COPY_SEARCH_PLACEHOLDER);
       filterInput.setAttribute('aria-label','Filter assets in this category');
       filterInput.addEventListener('input', applyFilter);
       filterWrap.appendChild(filterInput);
@@ -222,11 +264,121 @@
 
       body.appendChild(controls);
 
+      // "run lean" note under the tab bar — shown only when the active category is a small set.
+      sparseEl = document.createElement('p');
+      sparseEl.className = 'ff-dam-sparse';
+      sparseEl.hidden = true;
+      body.appendChild(sparseEl);
+
+      // two client-side facet rows (Type, Ratio) between tab bar and grid. Populated per tab.
+      typeRowEl = document.createElement('div');
+      typeRowEl.className = 'ff-dam-facets ff-dam-facets-type';
+      typeRowEl.setAttribute('role','group');
+      typeRowEl.setAttribute('aria-label','Filter by type');
+      body.appendChild(typeRowEl);
+
+      ratioRowEl = document.createElement('div');
+      ratioRowEl.className = 'ff-dam-facets ff-dam-facets-ratio';
+      ratioRowEl.setAttribute('role','group');
+      ratioRowEl.setAttribute('aria-label','Filter by ratio');
+      body.appendChild(ratioRowEl);
+
       gridEl = document.createElement('div');
       gridEl.className = 'ff-dam-grid';
       gridEl.setAttribute('role','listbox');
       gridEl.setAttribute('aria-label','Past assets');
       body.appendChild(gridEl);
+
+      // load-more / end-of-stack line lives after the grid.
+      moreEl = document.createElement('div');
+      moreEl.className = 'ff-dam-more';
+      body.appendChild(moreEl);
+
+      // selection footer — reflects selectedKey; persists across tab switches.
+      footerEl = document.createElement('p');
+      footerEl.className = 'ff-dam-footer';
+      footerEl.setAttribute('role','status');
+      footerEl.setAttribute('aria-live','polite');
+      body.appendChild(footerEl);
+      renderFooter();
+    }
+
+    // footer line: count of DAM-staged selection, or the "pick one" prompt when nothing selected.
+    function renderFooter(){
+      if(!footerEl) return;
+      if(selectedKey){ footerEl.textContent = COPY_FOOTER_SELECTED.replace('{n}', '1'); }
+      else { footerEl.textContent = COPY_FOOTER_NONE; }
+    }
+
+    // sparse note visibility for the active category (total <= threshold but > 0).
+    function renderSparse(){
+      if(!sparseEl) return;
+      var entry = model[activeCat];
+      var total = (entry && typeof entry.total === 'number') ? entry.total : 0;
+      var show = (total > 0 && total <= SPARSE_THRESHOLD);
+      sparseEl.hidden = !show;
+      sparseEl.textContent = show ? COPY_SPARSE : '';
+    }
+
+    // build/refresh the Type + Ratio facet rows for the active tab.
+    // Type row auto-hides when the tab's list is ['All'] only. Ratio row auto-hides when no loaded
+    // tile in the active tab carries a ratio. Reset active facets to 'All' on tab switch.
+    function renderFacets(){
+      activeType = 'All';
+      activeRatio = 'All';
+      var entry = model[activeCat];
+      var items = (entry && entry.items) || [];
+
+      // --- Type row ---
+      if(typeRowEl){
+        typeRowEl.innerHTML = '';
+        var types = TYPE_FACETS[activeCat] || ['All'];
+        var showType = types.length > 1;   // a one-chip ['All'] facet is noise
+        typeRowEl.hidden = !showType;
+        if(showType){
+          types.forEach(function(t){
+            typeRowEl.appendChild(makeFacetChip(t, (t === activeType), function(){ onFacetPick('type', t); }));
+          });
+        }
+      }
+
+      // --- Ratio row --- only chips that match >=1 loaded tile; hide row if none carry a ratio.
+      if(ratioRowEl){
+        ratioRowEl.innerHTML = '';
+        var present = {};
+        items.forEach(function(it){ if(it && it.ratio){ present[String(it.ratio)] = true; } });
+        var anyRatio = Object.keys(present).length > 0;
+        ratioRowEl.hidden = !anyRatio;
+        if(anyRatio){
+          RATIO_FACETS.forEach(function(r){
+            if(r === 'All' || present[r]){   // never render a chip matching zero tiles
+              ratioRowEl.appendChild(makeFacetChip(r, (r === activeRatio), function(){ onFacetPick('ratio', r); }));
+            }
+          });
+        }
+      }
+    }
+
+    function makeFacetChip(label, isActive, onClick){
+      var chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'ff-dam-facet-chip';
+      chip.textContent = label;
+      chip.dataset.facet = label;
+      chip.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      chip.addEventListener('click', onClick);
+      return chip;
+    }
+
+    function onFacetPick(which, label){
+      if(which === 'type') activeType = label; else activeRatio = label;
+      var row = (which === 'type') ? typeRowEl : ratioRowEl;
+      if(row){
+        row.querySelectorAll('.ff-dam-facet-chip').forEach(function(c){
+          c.setAttribute('aria-pressed', (c.dataset.facet === label) ? 'true' : 'false');
+        });
+      }
+      applyFilter();
     }
 
     // arrow-key navigation across the tab bar (WAI-ARIA tablist pattern) + roving tabindex.
@@ -264,9 +416,11 @@
     function renderActiveTab(){
       if(!gridEl){ return; }
       clearGrid();
+      renderSparse();
+      renderFacets();
       var entry = model[activeCat];
       var items = (entry && entry.items) || [];
-      if(!items.length){ var s=document.createElement('p'); s.className='ff-dam-status'; s.textContent='No assets in this category.'; gridEl.appendChild(s); return; }
+      if(!items.length){ var s=document.createElement('p'); s.className='ff-dam-status'; s.textContent=COPY_EMPTY; gridEl.appendChild(s); renderMore(); return; }
 
       io = makeObserver();
       var firstOption = true;
@@ -274,7 +428,78 @@
         var tile = buildTile(activeCat, it, firstOption);
         if(tile){ gridEl.appendChild(tile); if(io) io.observe(tile); firstOption = false; }
       });
-      applyFilter();  // respect any residual filter value (usually empty after tab switch)
+      applyFilter();  // respect any residual filter value + active facets (usually reset after tab switch)
+      renderMore();
+    }
+
+    // load-more affordance under the grid: a button when has_more, else the end-of-stack line.
+    // Appended items re-run applyFilter + io.observe so lazy-load + facet/search state stay correct.
+    function renderMore(){
+      if(!moreEl) return;
+      moreEl.innerHTML = '';
+      var entry = model[activeCat];
+      if(!entry){ return; }
+      if(entry.has_more && typeof entry.next_offset === 'number'){
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'ff-dam-load-more';
+        btn.textContent = COPY_LOAD_MORE;
+        btn.addEventListener('click', function(){ loadMore(btn); });
+        moreEl.appendChild(btn);
+      } else if(entry.total > 0){
+        var end = document.createElement('p');
+        end.className = 'ff-dam-end';
+        end.textContent = COPY_END;
+        moreEl.appendChild(end);
+      }
+    }
+
+    // fetch the next page for the active category, append items, and re-render the more line.
+    function loadMore(btn){
+      var cat = activeCat;
+      var entry = model[cat];
+      if(!LIB_ENDPOINT || !entry || !entry.has_more || typeof entry.next_offset !== 'number'){ return; }
+      if(btn){ btn.disabled = true; btn.textContent = COPY_LOADING; }
+      var controller = new AbortController();
+      var timer = setTimeout(function(){ controller.abort(); }, 6000);
+      var url = LIB_ENDPOINT + '?category=' + encodeURIComponent(cat) + '&limit=' + PAGE_LIMIT + '&offset=' + entry.next_offset;
+      fetch(url, {signal: controller.signal})
+        .then(function(r){ if(!r.ok) throw new Error('library HTTP '+r.status); return r.json(); })
+        .then(function(j){
+          var cats = (j && j.categories) || {};
+          var page = cats[cat] || {};
+          var newItems = (page.items) || [];
+          // tab may have changed while the fetch was in flight — only mutate the category we fetched.
+          var target = model[cat];
+          if(!target){ return; }
+          target.items = target.items.concat(newItems);
+          target.has_more = (page.has_more === true);
+          target.next_offset = (typeof page.next_offset === 'number') ? page.next_offset : null;
+          if(cat !== activeCat){ return; }   // user switched tabs; don't paint into the wrong grid
+          // preserve the user's facet picks across the append (renderFacets resets them to 'All')
+          var keepType = activeType;
+          var keepRatio = activeRatio;
+          // append only the new tiles (keep existing ones + their loaded state)
+          newItems.forEach(function(it){
+            var tile = buildTile(cat, it, false);
+            if(tile){ gridEl.appendChild(tile); if(io) io.observe(tile); }
+          });
+          renderSparse();
+          renderFacets();   // newly appended tiles may introduce ratios -> Ratio row can appear
+          activeType = keepType; activeRatio = keepRatio;
+          reassertActiveFacets();
+          applyFilter();
+          renderMore();
+        })
+        .catch(function(){ if(btn){ btn.disabled = false; btn.textContent = COPY_LOAD_MORE; } })
+        .finally(function(){ clearTimeout(timer); });
+    }
+
+    // renderFacets resets active facets to 'All'; after a load-more we want the user's picks kept.
+    // Re-apply the aria-pressed state to match the retained activeType/activeRatio.
+    function reassertActiveFacets(){
+      if(typeRowEl){ typeRowEl.querySelectorAll('.ff-dam-facet-chip').forEach(function(c){ c.setAttribute('aria-pressed', (c.dataset.facet === activeType) ? 'true' : 'false'); }); }
+      if(ratioRowEl){ ratioRowEl.querySelectorAll('.ff-dam-facet-chip').forEach(function(c){ c.setAttribute('aria-pressed', (c.dataset.facet === activeRatio) ? 'true' : 'false'); }); }
     }
 
     // IntersectionObserver drives BOTH directions: load src on enter, drop src when far out of view.
@@ -311,6 +536,7 @@
       tile.dataset.key = key;
       // searchable haystack for the client filter (filename/label + ratio)
       tile.dataset.search = (label + ' ' + ratio + ' ' + basename(it.key)).toLowerCase();
+      tile.dataset.ratio = ratio;   // exact ratio for the Ratio facet (empty when unknown)
       var selected = (selectedKey !== null && key === selectedKey);
       tile.setAttribute('aria-selected', selected ? 'true' : 'false');
       if(selected) tile.classList.add('is-selected');
@@ -424,17 +650,33 @@
         });
       }
       stageDamAsset(cat, it, kind, label);
+      renderFooter();
     }
 
-    // client-side substring filter over the active tab's tiles (label/filename + ratio). No fetch.
+    // client-side filter over the active tab's tiles: search box AND Type facet AND Ratio facet. No fetch.
     function applyFilter(){
       if(!gridEl) return;
       var q = (filterInput && filterInput.value ? filterInput.value : '').trim().toLowerCase();
+      // Type facet -> list of lowercased keyword tokens (OR within a multi-token chip).
+      var typeTokens = null;   // null means "All" (no type constraint)
+      if(activeType && activeType !== 'All'){
+        var key = activeType.toLowerCase();
+        typeTokens = TYPE_KEYWORDS[key] || [key];
+      }
+      var ratioWant = (activeRatio && activeRatio !== 'All') ? activeRatio : null;
       var tiles = gridEl.querySelectorAll('.ff-dam-tile');
       var firstVisible = null;
       tiles.forEach(function(t){
         var hay = t.dataset.search || '';
-        var show = !q || hay.indexOf(q) !== -1;
+        var show = true;
+        if(q && hay.indexOf(q) === -1) show = false;
+        if(show && typeTokens){
+          var hit = typeTokens.some(function(tok){ return hay.indexOf(tok) !== -1; });
+          if(!hit) show = false;
+        }
+        if(show && ratioWant){
+          if((t.dataset.ratio || '') !== ratioWant) show = false;
+        }
         t.style.display = show ? '' : 'none';
         if(show && !firstVisible) firstVisible = t;
       });
