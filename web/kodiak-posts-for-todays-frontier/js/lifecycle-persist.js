@@ -20,7 +20,7 @@
       var snap = {};
       try{ snap.brief    = document.getElementById('campaignBrief')?.value; }catch(e){}
       try{ snap.locality = document.getElementById('locality')?.value; }catch(e){}
-      try{ snap.season   = document.getElementById('season')?.value; }catch(e){}   // #season may not exist — guarded
+      try{ snap.season   = document.getElementById('seasonalSelect')?.value; }catch(e){}   // real id is #seasonalSelect (a legacy #season lookup silently persisted nothing)
       try{ snap.skus     = checkedSkus(); }catch(e){}
       try{ snap.userAssetNames = (window.__userAssets || []).map(function(a){ return a && a.name; }).filter(Boolean); }catch(e){}
       snap.ts = Date.now();
@@ -74,10 +74,14 @@
       }
     }catch(e){}
 
-    // season — may not exist; dispatch change if restored
+    // season — restore against #seasonalSelect; dispatch change so market-disclosure's handler
+    // re-derives window.__activeSeason and the autocomplete suffix (reflect) rebuilds from it.
     try{
-      var seasonEl = document.getElementById('season');
-      if(seasonEl && snap.season && seasonEl.value !== snap.season){ seasonEl.value = snap.season; seasonEl.dispatchEvent(new Event('change', {bubbles:true})); }
+      var seasonEl = document.getElementById('seasonalSelect');
+      if(seasonEl && snap.season && seasonEl.value !== snap.season){
+        var hasSeasonOpt = Array.prototype.slice.call(seasonEl.options || []).some(function(o){ return o.value === snap.season; });
+        if(hasSeasonOpt){ seasonEl.value = snap.season; seasonEl.dispatchEvent(new Event('change', {bubbles:true})); }
+      }
     }catch(e){}
 
     // SKUs — re-check matching .sku-check boxes; dispatch change (bubbles) so the combobox syncSkuChips

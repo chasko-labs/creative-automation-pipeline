@@ -753,3 +753,29 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
   background:var(--brown-kodiak,#3B2316);color:var(--parchment,#FFF8F0);font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em}
 .ff-dam-thumb-label{font:500 10px/1.25 "museo-sans",sans-serif;color:var(--colors-foreground-default,#1A2F29);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ff-dam-flash{font:600 11px/1.4 "museo-sans",sans-serif;color:var(--colors-brand-bear-brown,#3B2316);padding:2px 0;min-height:16px}
+
+
+/* === T5 DOM slimming — content-visibility:auto on the heavy repeated-DOM regions ===
+   Native CSS, no library, >95% engine support. Chrome skips layout + paint for the
+   off-screen / interaction-gated subtrees below, cutting peak memory (Memory Saver
+   friendliness) and first-paint cost. contain-intrinsic-size supplies an estimated
+   collapsed height so the scrollbar + page height stay stable while the subtree is
+   render-skipped. Every target is below the fold or hidden until interaction, so
+   deferring render never blanks above-the-fold content.
+   NOTE: this lives in components.css (hand-authored) NOT styles.css — styles.css is
+   Panda-generated and `npm run tokens:css` clobbers any hand edit there. */
+
+/* 73-market listbox — always in the DOM, populated with 73 rows, scrolled off-screen inside the panel */
+#marketListbox{content-visibility:auto;contain-intrinsic-size:auto 600px}
+
+/* autocomplete results — the brief-suggest listbox (up to 88 product/market rows) + the product-search popover */
+#briefSuggest,.ff-briefsuggest,.ff-products .ff-products-results{content-visibility:auto;contain-intrinsic-size:auto 280px}
+
+/* localized rows — the per-language localized-copy preview (one row per top language) */
+#locPreview,.ff-locpreview-wrap{content-visibility:auto;contain-intrinsic-size:auto 200px}
+
+/* SKU checkbox grid — up to 88 product cards behind the products disclosure */
+#productChooser{content-visibility:auto;contain-intrinsic-size:auto 400px}
+
+/* render-set + preview tiles — variable count, each tile carries an image/canvas + meta + localized caption */
+#preview,.render-set,.preview{content-visibility:auto;contain-intrinsic-size:auto 500px}
