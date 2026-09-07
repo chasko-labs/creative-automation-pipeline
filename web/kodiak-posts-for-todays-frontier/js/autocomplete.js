@@ -117,18 +117,25 @@
       return m ? { text:m[0], start: pos - m[0].length, end: pos } : { text:'', start: pos, end: pos };
     }
     function matches(frag){
-      var q = frag.toLowerCase();
-      if(q.length < 2) return [];
-      var out = [];
-      skus().forEach(function(p){
-        var name = p && p.name ? String(p.name) : '';
-        if(name && name.toLowerCase().indexOf(q) !== -1) out.push({ type:'product', name:name });
-      });
-      markets().forEach(function(p){
-        var name = p && p.place ? String(p.place) : '';
-        if(name && name.toLowerCase().indexOf(q) !== -1) out.push({ type:'market', name:name });
-      });
-      return out.slice(0, 8);
+      // guarded: window.skuCatalog / window.places can be upgraded async from fetched JSON; a malformed
+      // payload could leave a non-array (or array of non-objects) behind. A throw here fires inside the
+      // debounced input handler and would silently kill typing autocomplete. Degrade to no suggestions.
+      try{
+        var q = frag.toLowerCase();
+        if(q.length < 2) return [];
+        var out = [];
+        var skuList = skus(); if(!Array.isArray(skuList)) skuList = [];
+        var marketList = markets(); if(!Array.isArray(marketList)) marketList = [];
+        skuList.forEach(function(p){
+          var name = p && p.name ? String(p.name) : '';
+          if(name && name.toLowerCase().indexOf(q) !== -1) out.push({ type:'product', name:name });
+        });
+        marketList.forEach(function(p){
+          var name = p && p.place ? String(p.place) : '';
+          if(name && name.toLowerCase().indexOf(q) !== -1) out.push({ type:'market', name:name });
+        });
+        return out.slice(0, 8);
+      }catch(e){ return []; }
     }
     // typed-pattern recognition — scans the FULL brief text (a URL/zip is not a clean single token),
     // returns additive actionable/note rows. All guarded; never throws into the debounced handler.
@@ -245,13 +252,18 @@
       if(window.__briefReflecting || window.__chipSettingBrief) return;
       if(debounceTimer) clearTimeout(debounceTimer);
       debounceTimer = setTimeout(function(){
-        var tok = currentToken();
-        var tokenList = tok.text ? matches(tok.text) : [];
-        var patList = patternMatches(briefEl.value);
-        // additive: pattern rows lead (actionable), then token substring matches. hard cap so the
-        // listbox never renders hundreds of nodes even with a huge brief + long catalog.
-        var list = patList.concat(tokenList).slice(0, 12);
-        if(list.length) open(list); else close();
+        // whole scan+render is guarded: a throw inside the debounce callback cannot be caught by the
+        // caller (it runs on a timer), so an unguarded throw here would silently kill autocomplete for
+        // the rest of the session. On any failure, close the listbox and keep typing responsive.
+        try{
+          var tok = currentToken();
+          var tokenList = tok.text ? matches(tok.text) : [];
+          var patList = patternMatches(briefEl.value);
+          // additive: pattern rows lead (actionable), then token substring matches. hard cap so the
+          // listbox never renders hundreds of nodes even with a huge brief + long catalog.
+          var list = patList.concat(tokenList).slice(0, 12);
+          if(list.length) open(list); else close();
+        }catch(e){ try{ close(); }catch(_e){} }
       }, 140);
     });
     briefEl.addEventListener('keydown', function(e){
