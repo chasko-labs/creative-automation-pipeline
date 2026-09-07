@@ -329,14 +329,28 @@
       var entry = model[activeCat];
       var items = (entry && entry.items) || [];
 
-      // --- Type row ---
+      // --- Type row --- only chips whose keyword tokens match >=1 loaded tile; hide row if none do.
+      // Mirrors the Ratio row + applyFilter's matcher: build each item's haystack exactly as
+      // buildTile sets tile.dataset.search ((label + ratio + basename(key)).toLowerCase()), then keep
+      // a chip only if SOME loaded item's haystack contains SOME of the chip's tokens. 'All' always
+      // leads; a lone 'All' (no type matches the loaded window) is noise, so hide the whole row.
       if(typeRowEl){
         typeRowEl.innerHTML = '';
         var types = TYPE_FACETS[activeCat] || ['All'];
-        var showType = types.length > 1;   // a one-chip ['All'] facet is noise
+        var hays = items.map(function(it){
+          return ((it && it.label || '') + ' ' + (it && it.ratio || '') + ' ' + basename(it && it.key || '')).toLowerCase();
+        });
+        var keptTypes = types.filter(function(t){
+          if(t === 'All') return false;   // 'All' is added unconditionally below, never keyword-matched
+          var toks = TYPE_KEYWORDS[t.toLowerCase()] || [t.toLowerCase()];
+          return hays.some(function(hay){
+            return toks.some(function(tok){ return hay.indexOf(tok) !== -1; });
+          });
+        });
+        var showType = keptTypes.length > 0;   // only 'All' would remain -> row is noise
         typeRowEl.hidden = !showType;
         if(showType){
-          types.forEach(function(t){
+          ['All'].concat(keptTypes).forEach(function(t){
             typeRowEl.appendChild(makeFacetChip(t, (t === activeType), function(){ onFacetPick('type', t); }));
           });
         }
