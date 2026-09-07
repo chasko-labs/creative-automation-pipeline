@@ -119,6 +119,14 @@
       try{ (back || trigger).focus(); }catch(e){}
     }
 
+    // document-level keydown trap, added with capture on open / removed on close (symmetry matters
+    // for the leak-audit history). Only job: Escape closes the modal DAM panel. Everything else
+    // passes through untouched — tab/tile arrow nav is owned by onTabKeydown/onTileKeydown on their
+    // own elements, so this handler must not preventDefault or interfere with other keys.
+    function onDocKeydown(e){
+      if(e.key === 'Escape'){ e.preventDefault(); closePanel(); }
+    }
+
     // release the IntersectionObserver + null every img.src so presigned bitmaps can be GC'd.
     function teardownGrid(){
       if(io){ try{ io.disconnect(); }catch(e){} io = null; }
