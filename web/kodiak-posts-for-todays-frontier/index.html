@@ -266,6 +266,23 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
     </summary>
 
     <div class="body">
+      <!-- FIX 1: Publish targets fold onto the preview HEADER context — they sit directly under the
+           summary as a single horizontal line (the ".ff-publish-targets.ff-output-header-line" row),
+           reading as part of "Output Preview / 4 sizes" rather than floating lower in the body.
+           Links stay OUTSIDE <summary> so the disclosure toggle is never trapped by focusable <a>s.
+           #publishTargets id + all 8 links + hrefs preserved (JS/analytics may reference it). -->
+      <nav class="ff-publish-targets ff-output-header-line" id="publishTargets" aria-label="Kodiak publish targets">
+        <span class="ff-publish-label">Publish targets</span>
+        <a class="ff-publish-pill" href="https://kodiakcakes.com" target="_blank" rel="noopener noreferrer">Homepage</a>
+        <a class="ff-publish-pill" href="https://kodiakcakes.com/blogs/news" target="_blank" rel="noopener noreferrer">Blog</a>
+        <a class="ff-publish-pill" href="https://instagram.com/kodiakcakes" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="ff-publish-pill" href="https://facebook.com/kodiakcakes" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a class="ff-publish-pill" href="https://tiktok.com/@kodiakcakes" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a class="ff-publish-pill" href="https://youtube.com/kodiakcakes" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a class="ff-publish-pill" href="https://pinterest.com/kodiakcakes" target="_blank" rel="noopener noreferrer">Pinterest</a>
+        <a class="ff-publish-pill" href="https://x.com/kodiakcakes" target="_blank" rel="noopener noreferrer">X</a>
+      </nav>
+
       <!-- readout: what your selections resolved to (featured frontier + languages). ids preserved so
            the market-selection JS still writes here; #locPreview is injected beside these by data-core.js. -->
       <div class="ff-detail ff-output-readout">
@@ -281,19 +298,6 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
       <!-- Download asset pack hidden by default; primary/secondary download actions injected under the preview after generation -->
       <div class="row ff-downloadrow"><button class="btn ghost" id="downloadPack" data-mcp="download-pack" data-mcp-description="Download the campaign assets as an ISO-labeled zip from S3">Download Preview Pack</button></div>
 
-      <!-- Publish targets - all 8 on ONE horizontal line (no wrap); responsive clamp() pill font so
-           they always fit at every viewport. #publishTargets findable; static markup (no JS href rewrite). -->
-      <nav class="ff-publish-targets" id="publishTargets" aria-label="Kodiak publish targets">
-        <span class="ff-publish-label">Publish targets</span>
-        <a class="ff-publish-pill" href="https://kodiakcakes.com" target="_blank" rel="noopener noreferrer">Homepage</a>
-        <a class="ff-publish-pill" href="https://kodiakcakes.com/blogs/news" target="_blank" rel="noopener noreferrer">Blog</a>
-        <a class="ff-publish-pill" href="https://instagram.com/kodiakcakes" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a class="ff-publish-pill" href="https://facebook.com/kodiakcakes" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a class="ff-publish-pill" href="https://tiktok.com/@kodiakcakes" target="_blank" rel="noopener noreferrer">TikTok</a>
-        <a class="ff-publish-pill" href="https://youtube.com/kodiakcakes" target="_blank" rel="noopener noreferrer">YouTube</a>
-        <a class="ff-publish-pill" href="https://pinterest.com/kodiakcakes" target="_blank" rel="noopener noreferrer">Pinterest</a>
-        <a class="ff-publish-pill" href="https://x.com/kodiakcakes" target="_blank" rel="noopener noreferrer">X</a>
-      </nav>
       <div class="hint ff-generatehint" id="generateHint">Park City default with a localized variant. <span id="sampleStatus" class="ff-samplestatus" role="status" aria-live="polite"></span></div>
     </div>
   </details>

@@ -644,30 +644,25 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
       if(_s) _hasSeed = langs.some(l=>{ const c=(l.translate_code||l.lang_code||'').toLowerCase(); const e=_s[c]; return e && typeof e.text==='string'; }); }catch(e){}
     const offlineNote = (window.KODIAK_LOCALIZE_ENDPOINT || _hasSeed) ? '' :
       '<p class="loc-line loc-offline" data-provider="offline-note" style="font-style:italic;color:var(--colors-foreground-muted)">localization offline — showing English source only</p>';
-    h.innerHTML = '<div class="ff-locpreview-head" style="font:700 10px/1.2 \'kodiak_sans\',\'museo-sans\',sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted);margin-bottom:2px">Localized copy preview</div>'+rows.join('')+offlineNote;
+    h.innerHTML = '<div class="ff-locpreview-head" style="font:700 10px/1.2 \'kodiak_sans\',\'museo-sans\',sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted);margin-bottom:2px">Localized headlines &mdash; one per language</div>'+rows.join('')+offlineNote;
 
-    // === S12 — #featuredFrontier market-driven localized frontier note (Task 2) ===
-    // Show the featured-frontier framing (place cue / featured line) plus this market's REAL localized reach.
-    // Offline: EN cue + the market's real top_languages[] names (not the hardcoded trio). Live: swap the
-    // translated frontier line in when /localize answers. aria-live=polite is preserved on the element.
+    // === S12 — #featuredFrontier: FRAMING CONTEXT ONLY (Task 2 / FIX 2 de-dup) ===
+    // featuredFrontier carries what #locPreview does NOT: a tight contextual lead, the market/place +
+    // scene cue framing, and the localized-reach summary. It NO LONGER renders the headline copy or a
+    // translated cue — those are the localized headlines that #locPreview already shows, so nothing is
+    // restated across the two surfaces. A viewer reads: [what this campaign is + who it reaches] here,
+    // then [the localized headlines] in #locPreview below. aria-live=polite is preserved on the element.
     if(featured){
-      const cue = (p && (p.cue || p.message)) ? (p.cue || p.message) : source;
+      const placeName = (p && (p.place || p.market)) ? (p.place || p.market) : market;
+      const scene = (p && p.cue) ? p.cue : '';
       const names = langs.map(l=>l.lang_name).filter(Boolean);
-      const reach = names.length ? (' · localized reach: '+esc(['English'].concat(names).join(', '))) : '';
-      featured.innerHTML = '<span class="ff-cue">'+esc(cue)+'</span><span class="ff-reach" style="color:var(--colors-foreground-muted)">'+reach+'</span>';
-      // live: translate the frontier cue into the market's top machine-translatable language and prepend it
-      const firstMachine = langs.find(l=>!isCommunityReview(l,(l.translate_code||l.lang_code||'').toLowerCase()));
-      if(window.KODIAK_LOCALIZE_ENDPOINT && firstMachine){
-        const fcode = (firstMachine.translate_code||firstMachine.lang_code||'').toLowerCase();
-        localizeText(cue, market, fcode).then(t=>{
-          if(!t || !featured.isConnected) return;           // degrade honestly — leave EN cue in place
-          // guard against a stale market swap while the request was in flight
-          if((document.getElementById('locality')?.value||market)!==market) return;
-          featured.innerHTML = '<span class="ff-cue" lang="'+esc(firstMachine.lang_code||fcode)+'">'+esc(t)+'</span>'+
-            '<span class="ff-cue-en" style="color:var(--colors-foreground-muted)"> · '+esc(cue)+'</span>'+
-            '<span class="ff-reach" style="color:var(--colors-foreground-muted)">'+reach+'</span>';
-        });
-      }
+      const reach = esc(['English'].concat(names).join(', '));
+      const sceneHtml = scene ? '<span class="ff-cue">'+esc(scene)+'</span>' : '';
+      featured.innerHTML =
+        '<span class="ff-context-lead">This campaign, localized for</span> '+
+        '<span class="ff-place">'+esc(placeName)+'</span>'+
+        sceneHtml+
+        '<span class="ff-reach">localized reach: '+reach+'</span>';
     }
 
     // fire live translations for the machine rows; swap real text in on resolve, else leave EN-source
