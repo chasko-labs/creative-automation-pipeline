@@ -87,13 +87,14 @@ export class DataStack extends cdk.Stack {
       {
         tableName: `${projectName}-localization-memory`,
         billingMode: "PAY_PER_REQUEST",
+        // single-table pk/sk keys -- pk=MARKET#<market>, sk=LANG#<lang>#MSG#<sha1-16>; matches localize_memory.build_key. The flat market/place_message_id schema had zero code consumers.
         attributeDefinitions: [
-          { attributeName: "market", attributeType: "S" },
-          { attributeName: "place_message_id", attributeType: "S" },
+          { attributeName: "pk", attributeType: "S" },
+          { attributeName: "sk", attributeType: "S" },
         ],
         keySchema: [
-          { attributeName: "market", keyType: "HASH" },
-          { attributeName: "place_message_id", keyType: "RANGE" },
+          { attributeName: "pk", keyType: "HASH" },
+          { attributeName: "sk", keyType: "RANGE" },
         ],
         pointInTimeRecoverySpecification: { pointInTimeRecoveryEnabled: true },
       },
