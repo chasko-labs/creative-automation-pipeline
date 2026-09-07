@@ -659,6 +659,28 @@ def presign_get(key: str, expires: int = 3600) -> Optional[str]:
         return None
 
 
+def head_metadata(key: str) -> dict:
+    """HEAD one DAM key and return its user metadata (x-amz-meta-*) lowercased.
+
+    Read side of the publish-time platform tags the generate Lambda stamps at
+    upload (_upload_render Metadata={"platforms": ...}). Returns {} when S3 is
+    disabled, the key is missing, or any error occurs. Never throws.
+    """
+    if not key or not _s3_enabled():
+        return {}
+    bucket, _ = _s3_bucket_and_prefix()
+    client = _s3_client()
+    if not bucket or client is None:
+        return {}
+    try:
+        resp = client.head_object(Bucket=bucket, Key=key)
+    except (ClientError, BotoCoreError, Exception) as e:
+        print(f"[dam] head_metadata failed s3://{bucket}/{key}: {e}")
+        return {}
+    meta = resp.get("Metadata") or {}
+    return {str(k).lower(): v for k, v in meta.items()}
+
+
 def sync_dam_from_s3(dam_root: Path, delete: bool = False) -> bool:
     """Optional helper: bulk sync S3 prefix -> local dam_root via boto3.
 

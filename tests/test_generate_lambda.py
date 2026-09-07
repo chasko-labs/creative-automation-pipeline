@@ -523,3 +523,46 @@ def test_art_director_flag_on_fast_return_uses_art_director_line(
     # the on-brand art-director line replaced the original prompt for hero composition
     assert captured["brief_msg"] == "Keep It Wild — Frontier Fuel"
     assert body["prompt"] == "Keep It Wild — Frontier Fuel"
+
+
+
+# --------------------------------------------------------------------------- #
+# PUBLISH-TIME PLATFORM TAGS: renders ship x-amz-meta-platforms so the DAM
+# browser can filter by platform. No real AWS — _FakeS3 captures put_object.
+# --------------------------------------------------------------------------- #
+
+
+def _tiny_render(tmp_path: Path) -> dict:
+    from PIL import Image
+
+    p = tmp_path / "hero-1x1.png"
+    Image.new("RGB", (16, 16), (200, 120, 40)).save(p, "PNG")
+    return {"ratio": "1x1", "path": p, "w": 1080, "h": 1080}
+
+
+def test_upload_render_writes_platform_metadata(tmp_path: Path) -> None:
+    s3 = _FakeS3()
+    entry = generate_lambda._upload_render(
+        s3, _tiny_render(tmp_path), "KODIAK-CAKES-X.png", ["facebook", "Insta", "x"]
+    )
+    put = s3.last_put
+    assert put["Metadata"] == {"platforms": "facebook,instagram,x"}
+    assert entry["platforms"] == ["facebook", "instagram", "x"]
+    assert put["Key"].startswith("brands/kodiak/renders/")
+    assert put["ContentType"] == "image/png"
+
+
+def test_upload_render_omits_metadata_when_untagged(tmp_path: Path) -> None:
+    s3 = _FakeS3()
+    entry = generate_lambda._upload_render(s3, _tiny_render(tmp_path), "KODIAK-CAKES-X.png")
+    assert "Metadata" not in s3.last_put
+    assert entry["platforms"] == []
+
+
+def test_normalize_platform_tags_dedupes_and_drops_junk() -> None:
+    norm = generate_lambda._normalize_platform_tags
+    assert norm(["Facebook", "facebook", "insta", "blog"]) == ["facebook", "instagram", "blog"]
+    assert norm(None) == []
+    assert norm([]) == []
+    # S3-unsafe values can never corrupt object metadata
+    assert norm(["ok-tag", "has space", "semi;colon", "", "x" * 33]) == ["ok-tag"]

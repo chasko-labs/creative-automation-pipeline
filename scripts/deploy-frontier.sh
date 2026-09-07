@@ -4,8 +4,8 @@ set -euo pipefail
 # One command replaces the manual `aws s3 cp` + invalidation dance.
 # Idempotent, local-first. Deploys the committed web source, not a worktree.
 #
-# Deploys the 5 core top-level files (index.html, details.html, design/styles.css,
-# webmcp.json, glimmer-proxy.js) AND the asset directories the page references:
+# Deploys the 6 core top-level files (index.html, details.html, design/styles.css,
+# webmcp.json, glimmer-proxy.js, llms.txt) AND the asset directories the page references:
 # assets/ (logos, textures, partners/), data/ (localization, products, ...),
 # fonts/ (NotoSans *.woff2), design/ (tokens/), js/ (extracted classic scripts). Directory syncs use `aws s3 sync`
 # so newly added files ship automatically without editing this script — this is
@@ -45,6 +45,7 @@ FILES=(
 	"design/styles.css|design/styles.css|text/css"
 	"webmcp.json|webmcp.json|application/json"
 	"glimmer-proxy.js|glimmer-proxy.js|application/javascript"
+	"llms.txt|llms.txt|text/markdown"
 )
 
 # asset directories to sync wholesale. `aws s3 sync` copies whatever is present

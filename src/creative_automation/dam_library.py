@@ -28,6 +28,7 @@ from __future__ import annotations
 import json
 import pathlib
 import re
+from collections import Counter
 
 from . import dam
 from ._datapaths import data_path
@@ -40,6 +41,14 @@ _RAW_INGEST_PREFIX = "brands/kodiak/raw-ingest/kodiakcakes/images/"
 # theme-asset-map resolves via the shared data-root resolver so the same code works in a
 # repo checkout (data/ beside src/) and in the Lambda image (/var/task/data).
 _THEME_MAP_PATH = data_path("products", "theme-asset-map.json")
+
+# product-line facet: the catalog (handle -> category) joined to raw-ingest S3 keys
+# via the sku-photo-map (handle -> photo_key + fallbacks). Same resolver story.
+_SKU_MAP_PATH = data_path("products", "sku-photo-map.json")
+_CATALOG_PATH = data_path("products", "kodiak-full-catalog.json")
+
+# module-cached key -> category index; None means "not loaded yet" (Lambda reuse).
+_PRODUCT_LINE_CACHE: dict[str, str] | None = None
 
 # Each category declares a source strategy the gatherer dispatches on:
 #   classified -> read _RAW_INGEST_PREFIX once, keep keys whose class matches; recipes may
@@ -278,14 +287,106 @@ def _brand_label_index(cfg: dict, client, bucket: str) -> dict[str, tuple[bool, 
     return index
 
 
-def _item_for(key: str, name: str, brand_index: dict | None) -> dict:
-    """Build one item dict (pre-url). ratio is OMITTED — future work; never fabricated."""
+def _load_product_line_index(map_path=_SKU_MAP_PATH, catalog_path=_CATALOG_PATH) -> dict[str, str]:
+    """Invert the sku-photo-map into raw-ingest-key -> catalog category (product line).
+
+    One DAM photo routinely serves several products (and even several product
+    lines), so photo_key claims (the map's authoritative depiction) outrank
+    fallback claims, and within each tier the most-claimed category wins with
+    an alphabetical tiebreak. Fully deterministic: map iteration order never
+    affects the result. Missing/unreadable files -> {} (soft-empty: tiles
+    carry product_line=None, never fabricated). Explicit paths are the test
+    seam; production uses the resolved defaults.
+    """
+    try:
+        sku_map = json.loads(pathlib.Path(map_path).read_text(encoding="utf-8"))
+        catalog = json.loads(pathlib.Path(catalog_path).read_text(encoding="utf-8"))
+    except Exception as e:  # noqa: BLE001 — absent/unreadable data is a soft-empty tab
+        print(f"[dam_library] product-line index skipped: {e}")
+        return {}
+    by_handle: dict[str, str] = {}
+    products = catalog.get("products", []) if isinstance(catalog, dict) else []
+    for p in products:
+        if isinstance(p, dict) and p.get("handle") and p.get("category"):
+            by_handle[p["handle"]] = p["category"]
+    # photo claims (the map's authoritative depiction) and fallback claims are
+    # tracked separately: a photo claim always outranks any number of fallback
+    # claims. Within each tier the most-claimed category wins, alphabetical
+    # tiebreak — fully deterministic, independent of map iteration order.
+    photo_claims: dict[str, list[str]] = {}
+    fallback_claims: dict[str, list[str]] = {}
+    entries = sku_map.get("map", {}) if isinstance(sku_map, dict) else {}
+    for handle, entry in entries.items():
+        if not isinstance(entry, dict):
+            continue
+        line = by_handle.get(handle)
+        if not line:
+            continue
+        photo_key = entry.get("photo_key")
+        if isinstance(photo_key, str) and photo_key:
+            photo_claims.setdefault(photo_key, []).append(line)
+        for fb in entry.get("fallbacks") or []:
+            if isinstance(fb, str) and fb:
+                fallback_claims.setdefault(fb, []).append(line)
+    index: dict[str, str] = {}
+    for key in set(photo_claims) | set(fallback_claims):
+        lines = photo_claims.get(key) or fallback_claims.get(key, [])
+        counts = Counter(lines)
+        top = max(counts.values())
+        index[key] = sorted(c for c, n in counts.items() if n == top)[0]
+    return index
+
+
+def _product_line_index() -> dict[str, str]:
+    """Module-cached product-line index (one JSON parse per Lambda container)."""
+    global _PRODUCT_LINE_CACHE
+    if _PRODUCT_LINE_CACHE is None:
+        _PRODUCT_LINE_CACHE = _load_product_line_index()
+    return _PRODUCT_LINE_CACHE
+
+
+def _platforms_from_meta(meta: dict) -> list[str]:
+    """Parse the x-amz-meta-platforms tag value into a slug list. [] when absent."""
+    raw = ""
+    if isinstance(meta, dict):
+        for k, v in meta.items():
+            if str(k).lower() == "platforms" and isinstance(v, str):
+                raw = v
+                break
+    return [p.strip().lower() for p in raw.split(",") if p.strip()]
+
+
+# tabs whose tiles draw from the classified raw-ingest pass (product-line join applies)
+_CLASSIFIED_TABS = {"products", "recipes", "lifestyle"}
+
+
+def _item_for(
+    key: str,
+    name: str,
+    brand_index: dict | None,
+    product_index: dict[str, str] | None = None,
+    platforms: list[str] | None = None,
+) -> dict:
+    """Build one item dict (pre-url). ratio is OMITTED — future work; never fabricated.
+
+    product_line carries the catalog category for classified-tab tiles whose key
+    the sku-photo-map knows, else None (never fabricated). platforms carries the
+    publish-time x-amz-meta-platforms slugs (ideas tab), else []. Both keys are
+    ALWAYS present so the frontend never branches on shape.
+    """
     if name == "brand" and brand_index is not None and key in brand_index:
         nested, tag = brand_index[key]
         label = _label_brand(key, nested, tag)
     else:
         label = _label(key) or _label_fallback(key, name)
-    return {"key": key, "label": label, "kind": _kind(key)}
+    item = {"key": key, "label": label, "kind": _kind(key)}
+    if name in _CLASSIFIED_TABS:
+        idx = product_index if product_index is not None else _product_line_index()
+        item["product_line"] = idx.get(key)
+    else:
+        item["product_line"] = None
+    item["platforms"] = list(platforms) if platforms else []
+    return item
 
 
 def _empty_page(offset: int) -> dict:
@@ -311,8 +412,12 @@ def list_library(category: str | None = None, limit: int = 60, offset: int = 0) 
     Backward-tolerant: existing callers pass (category, limit) only — offset defaults 0.
 
     Returns {"enabled": bool, "bucket": str|None, "categories": {name: page}} where each
-    page is {total, offset, count, has_more, next_offset, items[{key,label,kind,url}]}.
-    Never raises — S3-disabled and per-category failures both degrade to _empty_page.
+    page is {total, offset, count, has_more, next_offset,
+    items[{key,label,kind,url,product_line,platforms}]}. product_line is the catalog
+    category for classified-tab tiles the sku-photo-map knows (else None);
+    platforms is the publish-time x-amz-meta-platforms slugs for ideas tiles
+    (else []). Never raises — S3-disabled and per-category failures both degrade
+    to _empty_page.
     """
     cap = max(1, min(int(limit), 200))
     off = max(0, int(offset))
@@ -332,6 +437,11 @@ def list_library(category: str | None = None, limit: int = 60, offset: int = 0) 
     # memoize the single raw-ingest classification pass across products/recipes/lifestyle
     classified_cache: dict[str, dict] = {}
 
+    # one product-line index build shared across the classified tabs
+    product_index = (
+        _product_line_index() if any(n in _CLASSIFIED_TABS for n in wanted) else None
+    )
+
     for name in wanted:
         cfg = _CATEGORIES[name]
         try:
@@ -342,11 +452,18 @@ def list_library(category: str | None = None, limit: int = 60, offset: int = 0) 
             brand_index = (
                 _brand_label_index(cfg, client, bucket) if cfg["source"] == "merge" else None
             )
-            # presign ONLY the window — never mint a url outside keys[off:off+cap]
+            # presign ONLY the window — never mint a url outside keys[off:off+cap].
+            # the ideas-tab HEADs follow the same bound: one metadata read per
+            # window key, never for keys outside the page.
             window = keys[off:off + cap]
             items = []
             for key in window:
-                item = _item_for(key, name, brand_index)
+                plats = (
+                    _platforms_from_meta(dam.head_metadata(key))
+                    if name == "ideas"
+                    else None
+                )
+                item = _item_for(key, name, brand_index, product_index, plats)
                 item["url"] = dam.presign_get(key)
                 items.append(item)
             count = len(items)

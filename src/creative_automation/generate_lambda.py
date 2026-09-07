@@ -468,16 +468,48 @@ def _s3_client():
     )
 
 
-def _upload_render(s3: Any, r: dict[str, Any], download_name: str) -> dict[str, Any]:
-    """Upload one render's PNG bytes and return its {ratio, image_url, s3_uri, w, h} entry."""
+_PLATFORM_ALIASES = {"insta": "instagram"}
+_TAG_VALUE_RE = re.compile(r"^[a-z0-9-]{1,32}$")
+
+
+def _normalize_platform_tags(platforms: Any) -> list[str]:
+    """Canonicalize a platform list for the x-amz-meta-platforms object tag.
+
+    Lowercases, canonicalizes the "insta" alias, keeps only S3-safe metadata
+    characters, and dedupes preserving order. Unknown-but-safe slugs pass
+    through (forward-compat); anything outside the safe pattern is dropped so
+    a junk caller value can never corrupt object metadata.
+    """
+    out: list[str] = []
+    for p in platforms or []:
+        slug = _PLATFORM_ALIASES.get(str(p).strip().lower(), str(p).strip().lower())
+        if slug and _TAG_VALUE_RE.match(slug) and slug not in out:
+            out.append(slug)
+    return out
+
+
+def _upload_render(
+    s3: Any, r: dict[str, Any], download_name: str, platforms: Any = None
+) -> dict[str, Any]:
+    """Upload one render's PNG bytes and return its {ratio, image_url, s3_uri, w, h} entry.
+
+    platforms: optional per-platform slugs, written as x-amz-meta-platforms so the
+    DAM browser can filter renders by platform. The Metadata arg is omitted
+    entirely when the tag list is empty, so untagged objects (and existing
+    offline stubs) are byte-identical to before.
+    """
     ratio = r["ratio"]
     key = f"brands/kodiak/renders/{uuid4().hex}.png"
-    s3.put_object(
-        Bucket=DAM_S3_BUCKET,
-        Key=key,
-        Body=r["path"].read_bytes(),
-        ContentType="image/png",
-    )
+    tags = _normalize_platform_tags(platforms)
+    put_kwargs: dict[str, Any] = {
+        "Bucket": DAM_S3_BUCKET,
+        "Key": key,
+        "Body": r["path"].read_bytes(),
+        "ContentType": "image/png",
+    }
+    if tags:
+        put_kwargs["Metadata"] = {"platforms": ",".join(tags)}
+    s3.put_object(**put_kwargs)
     s3_uri = f"s3://{DAM_S3_BUCKET}/{key}"
     # per-ratio download name so each saved file names its ratio.
     disposition_name = download_name.replace(".png", f"-{ratio.upper()}.png")
@@ -490,7 +522,7 @@ def _upload_render(s3: Any, r: dict[str, Any], download_name: str) -> dict[str, 
         },
         ExpiresIn=3600,
     )
-    return {"ratio": ratio, "image_url": url, "s3_uri": s3_uri, "w": r["w"], "h": r["h"]}
+    return {"ratio": ratio, "image_url": url, "s3_uri": s3_uri, "w": r["w"], "h": r["h"], "platforms": tags}
 
 
 def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
@@ -593,10 +625,18 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     s3 = _s3_client()
     download_name = _download_filename(product, data.get("region", "us"), theme)
 
+    # The requested platform set doubles as the publish tag: every render is
+    # stamped x-amz-meta-platforms at upload so the DAM browser can filter by
+    # platform. Client may pass "platforms": [...] to scope the set; default is
+    # all seven sanctioned platforms.
+    req_platforms = data.get("platforms")
+    if not isinstance(req_platforms, list) or not req_platforms:
+        req_platforms = list(PLATFORMS)
+
     # Upload each ratio and build the renders[] response array. The 1x1 url is also
     # mirrored to the top-level image_url for the current frontend (back-compat).
     response_renders: list[dict[str, Any]] = [
-        _upload_render(s3, r, download_name) for r in renders
+        _upload_render(s3, r, download_name, req_platforms) for r in renders
     ]
     # back-compat: top-level image_url + s3_uri point at the 1x1 primary render.
     primary = next((rr for rr in response_renders if rr["ratio"] == "1x1"), response_renders[0])
@@ -614,13 +654,11 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         provenance["mode"] = FULL_MODE
 
     # Per-platform campaign copy (additive): tailor the campaign message to each
-    # social network's tone/length rules. Client may pass "platforms": [...] to
-    # scope the set; default is all seven sanctioned platforms. Offline-safe — the
-    # copy degrades to a deterministic on-brand template tagged source="fallback"
-    # when no live Nova backend, exactly like the localization path.
-    req_platforms = data.get("platforms")
-    if not isinstance(req_platforms, list) or not req_platforms:
-        req_platforms = list(PLATFORMS)
+    # social network's tone/length rules. Uses the req_platforms resolved above
+    # (the same set stamped as x-amz-meta-platforms at upload). Offline-safe —
+    # the copy degrades to a deterministic on-brand template tagged
+    # source="fallback" when no live Nova backend, exactly like the
+    # localization path.
     product_name = product.replace("-", " ").title()
     try:
         platform_copy = generate_platform_copy(

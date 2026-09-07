@@ -7,6 +7,10 @@ COPY src/ ./src/
 # var points _resolve_map_path() at this stable /var/task (LAMBDA_TASK_ROOT) location.
 COPY data/products/sku-photo-map.json /var/task/data/products/sku-photo-map.json
 ENV SKU_PHOTO_MAP_PATH=/var/task/data/products/sku-photo-map.json
+# Ship the full product catalog (112KB) — dam_library's product-line facet joins
+# raw-ingest keys to catalog categories via the sku-photo-map + this file.
+# Without it the index soft-empties and every tile carries product_line=None.
+COPY data/products/kodiak-full-catalog.json /var/task/data/products/kodiak-full-catalog.json
 COPY data/products/theme-asset-map.json /var/task/data/products/theme-asset-map.json
 ENV THEME_ASSET_MAP_PATH=/var/task/data/products/theme-asset-map.json
 # Ship the packshot manifest (sku-packshot-map.json) — the compose-fix root-cause repair.
