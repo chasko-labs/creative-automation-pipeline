@@ -163,7 +163,7 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
     <span class="ff-optiongroup-label" id="promptChipsLabel">Or start from a campaign option</span>
     <div class="ff-chips" id="promptChips" role="group" aria-labelledby="promptChipsLabel">
       <button type="button" class="ff-chip" aria-pressed="false" data-theme="recipe-cards" data-brief="Recipe cards for Park City families — protein-packed whole grain recipes styled as shareable cards. Keep It Wild."><span class="ff-dot"></span>Recipe cards</button>
-      <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-costco" data-brief="Localized Costco campaign — bulk Family Size value for the warehouse aisle, Park City / Wasatch Back framing."><span class="ff-dot"></span>Localized Costco</button>
+      <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-costco" data-brief="Localized Costco campaign — bulk Family Size value for the warehouse-club aisle, framed to the selected market."><span class="ff-dot"></span>Localized Costco</button>
       <button type="button" class="ff-chip" aria-pressed="false" data-theme="riff-on-past-content" data-brief="Riff on past content — remix our existing heroes into fresh variants across all three ratios."><span class="ff-dot"></span>Riff on past content</button>
       <button type="button" class="ff-chip" aria-pressed="false" data-theme="zac-efron" data-brief="Zac Efron athletic-morning energy — high-protein pre-trail fuel, aspirational active lifestyle. Keep It Wild."><span class="ff-dot"></span>Zac Efron</button>
       <button type="button" class="ff-chip" aria-pressed="false" data-theme="bears" data-brief="Bears + Keep It Wild — lean into the KODIAK Bear, wild frontier tone, protein for epic days."><span class="ff-dot"></span>Bears</button>
@@ -245,35 +245,51 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
 <div class="ff-ridge" aria-hidden="true" title="Wasatch ridge — Frontier Green S30 #1A2F29"></div>
 
 <!-- ============ OUTPUT ============ -->
+<!-- FIX 3: Output Preview is itself the one expandable section. The disclosure lives on the
+     "Output Preview" heading row (native <details>/<summary>, aria-expanded + keyboard-operable),
+     with the "4 sizes" context on the SAME row. #previewCard keeps its id so generate.js
+     openPreviewCard() still opens it on Create. The localized-copy readout (#featuredFrontier /
+     #marketLangLine, with #locPreview injected beside them by data-core.js) now lives INSIDE the
+     disclosure so localized copy folds within the preview region once, not sprawling around it. -->
 <section class="ff-output" aria-labelledby="outputHeading">
-  <h2 class="ff-output-heading" id="outputHeading">Output Preview</h2>
+  <details class="preview-card ff-output-details" id="previewCard" open>
+    <summary id="outputHeading">
+      <span class="ff-output-heading">Output Preview</span>
+      <span class="ff-output-sizes">4 sizes &mdash; 1x1, 4x5, 9x16, 16x9</span>
+    </summary>
 
-  <!-- readout: what your selections resolved to (featured frontier + languages). ids preserved so the market-selection JS still writes here. -->
-  <div class="ff-detail ff-output-readout">
-    <div class="ff-featured" id="featuredFrontier" aria-live="polite"></div>
-    <div class="ff-langs" id="marketLangLine" aria-live="polite">localized in languages: <b>English, Spanish, Portuguese</b></div>
-    <!-- #locPreview (localized-copy preview) is injected here by the AXIS-3 script, beside this readout -->
-  </div>
+    <div class="body">
+      <!-- readout: what your selections resolved to (featured frontier + languages). ids preserved so
+           the market-selection JS still writes here; #locPreview is injected beside these by data-core.js. -->
+      <div class="ff-detail ff-output-readout">
+        <div class="ff-featured" id="featuredFrontier" aria-live="polite"></div>
+        <div class="ff-langs" id="marketLangLine" aria-live="polite">localized in languages: <b>English, Spanish, Portuguese</b></div>
+        <!-- #locPreview (localized-copy preview) is injected here by the AXIS-3 script, beside this readout -->
+      </div>
 
-  <details class="card wide-track preview-card" id="previewCard"><summary><span>Preview</span> <span class="badge">4 sizes</span><span class="preview-sub">Four sizes - 1x1, 4x5, 9x16, 16x9 - one brief, sized for every platform below.</span></summary>
-  <div class="body"><div class="preview" id="preview" role="region" aria-label="Campaign preview — three sizes" data-mcp="preview.compose" data-mcp-description="Pipeline preview — displays campaign message in EN + localized on final posts"></div><div class="hint ff-filenames" id="fileNames"></div></div></details>
+      <!-- the rendered size tiles + filenames -->
+      <div class="preview" id="preview" role="region" aria-label="Campaign preview — four sizes" data-mcp="preview.compose" data-mcp-description="Pipeline preview — displays campaign message in EN + localized on final posts"></div>
+      <div class="hint ff-filenames" id="fileNames"></div>
 
-  <!-- Download asset pack hidden by default; primary/secondary download actions injected under the preview after generation -->
-  <div class="row ff-downloadrow"><button class="btn ghost" id="downloadPack" data-mcp="download-pack" data-mcp-description="Download the campaign assets as an ISO-labeled zip from S3">Download Preview Pack</button></div>
+      <!-- Download asset pack hidden by default; primary/secondary download actions injected under the preview after generation -->
+      <div class="row ff-downloadrow"><button class="btn ghost" id="downloadPack" data-mcp="download-pack" data-mcp-description="Download the campaign assets as an ISO-labeled zip from S3">Download Preview Pack</button></div>
 
-  <!-- Publish targets - static on-brand pill links to Kodiak owned + social channels. #publishTargets is findable; the strip is static markup (no JS href rewrite). -->
-  <nav class="ff-publish-targets" id="publishTargets" aria-label="Kodiak publish targets">
-    <span class="ff-publish-label">Publish targets</span>
-    <a class="ff-publish-pill" href="https://kodiakcakes.com" target="_blank" rel="noopener noreferrer">Homepage</a>
-    <a class="ff-publish-pill" href="https://kodiakcakes.com/blogs/news" target="_blank" rel="noopener noreferrer">Blog</a>
-    <a class="ff-publish-pill" href="https://instagram.com/kodiakcakes" target="_blank" rel="noopener noreferrer">Instagram</a>
-    <a class="ff-publish-pill" href="https://facebook.com/kodiakcakes" target="_blank" rel="noopener noreferrer">Facebook</a>
-    <a class="ff-publish-pill" href="https://tiktok.com/@kodiakcakes" target="_blank" rel="noopener noreferrer">TikTok</a>
-    <a class="ff-publish-pill" href="https://youtube.com/kodiakcakes" target="_blank" rel="noopener noreferrer">YouTube</a>
-    <a class="ff-publish-pill" href="https://pinterest.com/kodiakcakes" target="_blank" rel="noopener noreferrer">Pinterest</a>
-    <a class="ff-publish-pill" href="https://x.com/kodiakcakes" target="_blank" rel="noopener noreferrer">X</a>
-  </nav>
-  <div class="hint ff-generatehint" id="generateHint">Park City default with a localized variant. <span id="sampleStatus" class="ff-samplestatus" role="status" aria-live="polite"></span></div>
+      <!-- Publish targets - all 8 on ONE horizontal line (no wrap); responsive clamp() pill font so
+           they always fit at every viewport. #publishTargets findable; static markup (no JS href rewrite). -->
+      <nav class="ff-publish-targets" id="publishTargets" aria-label="Kodiak publish targets">
+        <span class="ff-publish-label">Publish targets</span>
+        <a class="ff-publish-pill" href="https://kodiakcakes.com" target="_blank" rel="noopener noreferrer">Homepage</a>
+        <a class="ff-publish-pill" href="https://kodiakcakes.com/blogs/news" target="_blank" rel="noopener noreferrer">Blog</a>
+        <a class="ff-publish-pill" href="https://instagram.com/kodiakcakes" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="ff-publish-pill" href="https://facebook.com/kodiakcakes" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a class="ff-publish-pill" href="https://tiktok.com/@kodiakcakes" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a class="ff-publish-pill" href="https://youtube.com/kodiakcakes" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a class="ff-publish-pill" href="https://pinterest.com/kodiakcakes" target="_blank" rel="noopener noreferrer">Pinterest</a>
+        <a class="ff-publish-pill" href="https://x.com/kodiakcakes" target="_blank" rel="noopener noreferrer">X</a>
+      </nav>
+      <div class="hint ff-generatehint" id="generateHint">Park City default with a localized variant. <span id="sampleStatus" class="ff-samplestatus" role="status" aria-live="polite"></span></div>
+    </div>
+  </details>
 
   <!-- HIDDEN: single retailers channel default so generate JS never null-crashes (.channel-check never read by JS, kept for safety) -->
   <input type="checkbox" value="retailers" class="channel-check" checked hidden aria-hidden="true">
@@ -287,9 +303,19 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
 <div class="ff-forest" aria-hidden="true" title="Frontier forest treeline - Frontier Green S30 #1A2F29"></div>
 <!-- generate-campaign section mounts here (JS track) -->
 
-<div class="row ff-detailslink-row"><a href="details.html" class="ff-detailslink">Design system + details &rarr;</a></div>
+<!-- FIX 4: the standalone details-link row is removed; the canonical link now lives inside
+     "About this tool" below as a styled .ff-doclinks affordance (renamed "Design System Inventory"). -->
 
-<details class="card wide-track ff-about" id="aboutTool"><summary>About this tool</summary><div class="body"><p class="ff-about__copy">Type one line, pick a starting point, and get a ready-to-post Kodiak campaign — images and copy sized for every social platform and retailer, localized to the market you choose. See the <a href="details.html">design system + details</a> for how it works under the hood.</p></div></details>
+<details class="card wide-track ff-about" id="aboutTool"><summary>About this tool</summary><div class="body"><p class="ff-about__copy">Type one line, pick a starting point, and get a ready-to-post Kodiak campaign — images and copy sized for every social platform and retailer, localized to the market you choose. See the <a href="details.html" class="ff-doclink">Design System Inventory</a> for how it works under the hood.</p>
+<!-- doclinks group — holds related reference links side by side. Two siblings to come in a later
+     dispatch: "AI Asset Pipeline" -> pipeline.html and "Infrastructure" -> infrastructure.html.
+     Structure the row now so those two just drop in beside this one. -->
+<div class="ff-doclinks" role="group" aria-label="Reference documentation">
+  <a href="details.html" class="ff-doclink-pill">Design System Inventory</a>
+  <!-- SIBLING (later dispatch): <a href="pipeline.html" class="ff-doclink-pill">AI Asset Pipeline</a> -->
+  <!-- SIBLING (later dispatch): <a href="infrastructure.html" class="ff-doclink-pill">Infrastructure</a> -->
+</div>
+</div></details>
 
 <!-- visible build stamp — confirm at a glance which version/JS is live in the browser (cache-buster verification) -->
 <div id="buildStamp">build 0.1.018-ecba726-20260906</div>

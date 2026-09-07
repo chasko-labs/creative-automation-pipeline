@@ -47,6 +47,8 @@
   --adobe-10:#A779571A;
   --section-space-lg:1.25rem;
   --section-space-xl:1.75rem;
+  /* oversize-hero-logo knob — see the .kodiak-header__logo--primary pattern block below */
+  --logo-hero-scale:1.2;
   /* texture tokens — CDN .webp rasters removed; kraft procedural gradients now live in design/styles.css (--gradients-kraft.*) */
   /* kraft hairlines for subtle paper fiber — inline svg data-uri, not a raster */
   --kraft:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M0 10h60M0 50h60' stroke='%23624E42' stroke-opacity='.05' stroke-width='.8'/%3E%3C/svg%3E");
@@ -175,11 +177,26 @@ section.xl{padding:var(--section-space-xl) 0}
 .wide-track + .wide-track{margin-top:10px}
 /* dual logo header — the Kodiak bear-seal sits on a rectangular kraft badge (~4:3, wider than tall).
    present it at natural aspect within the navbar height, no circular clip. primary visible, secondary sticky crossfade. */
-.kodiak-header__logos{position:relative;flex:0 0 auto;width:clamp(72px,9vw,116px);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
-.kodiak-header__logo--primary{width:100%;height:100%;object-fit:contain;opacity:1;transition:opacity .2s}
+/* === oversize-hero-logo pattern (--logo-hero-scale) ===
+   The pre-scroll PRIMARY grizzly reads HUGE without changing navbar height. Mechanism:
+   - the layout box (.kodiak-header__logos) keeps its ORIGINAL width + aspect-ratio, so the
+     flex row height and every sibling's alignment are frozen — the navbar geometry never moves.
+   - the primary IMAGE is scaled with transform:scale(var(--logo-hero-scale)) and
+     transform-origin:top center, so growth is TOP-ANCHORED: the top edge stays put and the
+     extra size spills DOWNWARD ONLY, visibly overflowing below the navbar into the next section.
+   - overflow:visible on the header + the logos container lets that downward spill paint (clip
+     would cut the grizzly off). transform does not affect layout, so no reflow/height change.
+   - the knob is --logo-hero-scale in :root. this is a design-system pattern now.
+   - scoped to the pre-sticky primary only; the sticky secondary wordmark crossfade is untouched
+     and the transform is reset under .is-sticky so no scaled overflow leaks/paints as it fades. */
+.kodiak-header__logos{position:relative;flex:0 0 auto;width:clamp(72px,9vw,116px);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:visible}
+.kodiak-header__logo--primary{width:100%;height:100%;object-fit:contain;opacity:1;transition:opacity .2s;transform:scale(var(--logo-hero-scale));transform-origin:top center}
 .kodiak-header__logo--secondary{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;pointer-events:none;transition:opacity .2s}
 .kodiak-header.is-sticky .kodiak-header__logo--primary{opacity:0}
 .kodiak-header.is-sticky .kodiak-header__logo--secondary{opacity:1}
+/* reset the hero scale once sticky — the primary is opacity:0 anyway, but clearing the transform
+   guarantees the scaled overflow never paints or triggers a scroll/paint artifact as it fades out. */
+.kodiak-header.is-sticky .kodiak-header__logo--primary{transform:none}
 @media(max-width:860px){.kodiak-header__logos{width:clamp(64px,16vw,88px)}}
 @media(prefers-reduced-motion:reduce){.kodiak-header.is-sticky .kodiak-header__logo--primary{transition:none}}
 
@@ -235,8 +252,13 @@ section.xl{padding:var(--section-space-xl) 0}
 .preview-card>summary::before{content:"\25B8";font-size:11px;color:var(--red);transition:transform .15s;flex:0 0 auto}
 .preview-card[open]>summary::before{transform:rotate(90deg)}
 .preview-card>summary:focus-visible{outline:2px solid var(--red);outline-offset:2px}
-.preview-card>summary .badge{margin-left:2px}
+.preview-card>summary>.badge{margin-left:2px}
 .preview-card>summary .preview-sub{flex:1 1 100%;margin:6px 0 0;color:var(--colors-neutral-600);font:500 12px/1.5 "museo-sans",sans-serif;text-transform:none;letter-spacing:0}
+/* FIX 3: Output Preview heading row IS the disclosure. The heading + the "4 sizes" context sit on
+   the SAME summary row; the sizes line pushes to the right and wraps under only on very narrow screens. */
+.preview-card>summary .ff-output-heading{font:800 16px/1.1 gin,"kodiak_sans",Rockwell,Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate)}
+.preview-card>summary .ff-output-sizes{margin-left:auto;color:var(--colors-neutral-600);font:600 12px/1.4 "museo-sans",sans-serif;text-transform:none;letter-spacing:.02em;white-space:nowrap}
+@media(max-width:520px){.preview-card>summary .ff-output-sizes{margin-left:calc(11px + 8px);flex:1 1 100%}}
 @media(prefers-reduced-motion:reduce){.preview-card>summary::before{transition:none}}
 
 /* === Platform -> ratio -> dimension matrix — token-styled explainer shown in the preview === */
@@ -475,12 +497,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 
 /* item 5 - publish-targets pill strip: tidy on-brand row of small pill links (tokens only) */
-.ff-publish-targets{display:flex;flex-wrap:wrap;align-items:center;gap:var(--spacing-sm);margin-top:var(--spacing-md)}
-.ff-publish-targets .ff-publish-label{font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted)}
-.ff-publish-targets .ff-publish-pill{display:inline-flex;align-items:center;padding:var(--spacing-xs) var(--spacing-sm);
+/* FIX 3: all 8 targets stay on ONE line at every viewport — no wrap. Responsive clamp() font +
+   fluid gap/padding shrink the pills to fit rather than wrapping; min-width:0 lets flex compress them. */
+.ff-publish-targets{display:flex;flex-wrap:nowrap;align-items:center;gap:clamp(3px,0.8vw,var(--spacing-sm));margin-top:var(--spacing-md);min-width:0;overflow:hidden}
+.ff-publish-targets .ff-publish-label{flex:0 0 auto;font:700 clamp(8px,1.1vw,10px)/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-foreground-muted);white-space:nowrap}
+.ff-publish-targets .ff-publish-pill{flex:0 1 auto;display:inline-flex;align-items:center;justify-content:center;min-width:0;padding:var(--spacing-xs) clamp(5px,1vw,var(--spacing-sm));
   border:1px solid var(--colors-border-default);border-radius:var(--radii-pill);
   background:var(--colors-neutral-50);color:var(--colors-foreground-default);
-  font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.04em;text-decoration:none}
+  font:700 clamp(9px,1.15vw,11px)/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.02em;text-decoration:none;white-space:nowrap}
 .ff-publish-targets .ff-publish-pill:hover{background:var(--colors-neutral-100);border-color:var(--colors-border-strong);color:var(--colors-foreground-default)}
 .ff-publish-targets .ff-publish-pill:focus-visible{outline:2px solid var(--colors-brand-signal-red);outline-offset:2px}
 
@@ -543,6 +567,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .kodiak-topstrip{display:none}
 /* header layout moved off the element's style attribute; base header{} already sets brown bg + kraft overlays */
 header.kodiak-header{border-bottom:none;display:flex;align-items:center;gap:var(--spacing-md);padding:10px var(--spacing-md);flex-wrap:wrap;margin:0}
+/* oversize-hero-logo (see --logo-hero-scale block): base header{} sets overflow:hidden, which would
+   clip the top-anchored scaled primary logo. allow the downward spill to paint below the navbar.
+   overflow:visible does NOT create a containing block/stacking context the way a filter does, so this
+   is safe for the sticky header (unlike the filter-on-sticky trap guarded on .wrap). */
+header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
 /* partner mark — hidden until the US Ski & Snowboard chip toggles it on (JS flips display); tokenized spacing */
 .ff-partner-mark{margin-top:var(--spacing-sm);display:none;align-items:center;gap:var(--spacing-sm)}
 .ff-partner-mark__img{height:auto;max-width:94px;display:block;border-radius:var(--radii-sm)}
@@ -561,9 +590,20 @@ header.kodiak-header{border-bottom:none;display:flex;align-items:center;gap:var(
 .ff-forest{height:48px;background:var(--forest) no-repeat center/100% 48px;margin:var(--spacing-sm) 0 0}
 /* preview filenames line — hidden until populated */
 .ff-filenames{margin-top:10px;display:none}
-/* details-page link row + link type */
-.ff-detailslink-row{margin:var(--spacing-sm) 0 var(--spacing-xs)}
+/* details-page link (legacy .ff-detailslink retained harmlessly; standalone row removed in FIX 4) */
 .ff-detailslink{font:700 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase}
+/* FIX 4: About-tool doc links — a flex row/group that holds related reference links side by side.
+   Ships with one link (Design System Inventory); two siblings (AI Asset Pipeline, Infrastructure)
+   drop in beside it in a later dispatch. On-brand pill affordance, not a bare underline. */
+.ff-doclinks{display:flex;flex-wrap:wrap;align-items:center;gap:var(--spacing-sm);margin-top:var(--spacing-md)}
+.ff-doclink-pill{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--colors-brand-frontier-green);border-radius:var(--radii-pill);
+  background:var(--colors-background-nature);color:var(--colors-foreground-inverse);
+  font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;text-decoration:none}
+.ff-doclink-pill:hover{background:var(--colors-brand-bear-brown);border-color:var(--colors-brand-bear-brown);color:var(--colors-foreground-inverse)}
+.ff-doclink-pill:focus-visible{outline:2px solid var(--colors-brand-signal-red);outline-offset:2px}
+/* inline "Design System Inventory" link inside the About copy — styled as a clear affordance, not a bare underline */
+.ff-about__copy .ff-doclink{font-weight:700;color:var(--colors-brand-frontier-green);text-decoration:underline;text-underline-offset:2px}
+.ff-about__copy .ff-doclink:hover{color:var(--colors-brand-bear-brown)}
 /* About-this-tool disclosure — summary + body copy, tokenized muted body colour */
 .ff-about{padding:0}
 .ff-about>summary{padding:14px 16px;cursor:pointer;font:800 13px/1.2 gin,"museo-sans",Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate)}
@@ -604,7 +644,8 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
    auto top margin on the first footer element absorbs any leftover height as a single
    graceful gap above the footer, never below it */
 .wrap>.ff-ridge{margin-top:auto}
-.wrap>.ff-detailslink-row{margin-bottom:0}
+/* FIX 4: standalone .ff-detailslink-row removed — its footer selector retired (canonical link now
+   lives inside #aboutTool as .ff-doclinks). #buildStamp still settles at the viewport floor. */
 .wrap>#buildStamp{margin-bottom:var(--spacing-md)}
 
 /* === #control-rhythm — one shared control height + one gap token across breakpoints ===
