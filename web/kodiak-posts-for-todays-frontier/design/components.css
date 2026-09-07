@@ -239,7 +239,7 @@ section.xl{padding:var(--section-space-xl) 0}
 .ff-iconbtn:focus-visible{outline:2px solid var(--orange, #E8530E);outline-offset:2px}
 /* CREATE — must win. 48px tier, darkened blaze-orange (#C7440B) so #fff label clears WCAG AA
    (4.86:1 vs 4.5:1 required); loudest element on the page via branded elevation. */
-.ff-go{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:48px;padding:0 28px;
+.ff-go{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:48px;min-height:48px;padding:0 28px;
   border-radius:var(--radii-lg,16px);border:1px solid #C7440B;background:#C7440B;color:#fff;
   font:700 14px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;
   box-shadow:0 2px 8px rgba(59,35,22,.18)}
@@ -691,8 +691,9 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
    every interactive control in the prompt row and control row shares a 40px height and
    the single --spacing-sm gap rhythm, so nothing renders ragged on desktop/tablet/mobile. */
 .ff-inputwrap{gap:var(--spacing-sm)}
-/* prompt-row controls align to a shared 40px control height */
-.ff-iconbtn,.ff-go{height:40px;min-height:40px}
+/* prompt-row controls align to a shared 40px control height — Create (.ff-go) is intentionally
+   excluded: it holds the 48px hero tier from its base rule and must not be re-pinned to 40px */
+.ff-iconbtn{height:40px;min-height:40px}
 /* control row — single shared gap token, controls stretch to a common height */
 .ff-controlrow{gap:var(--spacing-sm)}
 .ff-market>summary,.ff-season select,.ff-geo,.ff-controlrow .ff-detail{min-height:40px}
@@ -710,7 +711,8 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 /* narrow mobile <=520 — prompt row stacks, Create + upload keep the shared height + gap */
 @media(max-width:520px){
   .ff-inputwrap{gap:var(--spacing-sm)}
-  .ff-iconbtn,.ff-go{height:40px;min-height:40px}
+  /* .ff-go excluded — Create keeps its 48px hero height at narrow widths too */
+  .ff-iconbtn{height:40px;min-height:40px}
 }
 
 /* === #fileinput-chrome — guarantee the native file control renders zero visible chrome ===
