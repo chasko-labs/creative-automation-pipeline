@@ -211,14 +211,21 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
 
   <!-- B1: the prompt input is now the CULMINATION at the bottom of the card — controls above assemble the brief, Create sits directly under the fully-assembled prompt. -->
   <div class="ff-inputwrap">
-    <textarea id="campaignBrief" rows="1" aria-label="Campaign idea — describe your Kodiak campaign in a line" placeholder="Type a campaign idea — e.g. Wasatch Back morning fuel for Park City families, feature the savory waffle. Keep It Wild." role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="briefSuggest" autocomplete="off"></textarea>
-    <button type="button" class="ff-iconbtn" id="promptUpload" aria-label="Upload an image or document" title="Upload an image or document">+</button>
-    <!-- D4. add-your-own-asset file input — visually-hidden, triggered by the "+" icon above. FRONTEND STAGING ONLY (no DAM upload backend); staged client-side, marker threaded into the brief via window.__userAssets. -->
+    <!-- Row 1 (canvas): visible kicker label + the primary textarea, full width -->
+    <label class="ff-brief-label" for="campaignBrief">Your brief</label>
+    <textarea id="campaignBrief" rows="3" aria-label="Campaign idea — describe your Kodiak campaign in a line" placeholder="Describe your campaign in a line — or tap an option above to start." role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="briefSuggest" autocomplete="off"></textarea>
+    <!-- D4. add-your-own-asset file input — visually-hidden, triggered by the "+" icon below. FRONTEND STAGING ONLY (no DAM upload backend); staged client-side, marker threaded into the brief via window.__userAssets. -->
     <input type="file" id="addAssetInput" class="ff-addasset-input" accept="image/*,.pdf,.docx,.yaml,.yml,.json" aria-label="Add your own image asset to this campaign">
-    <!-- D5. Browse past assets (DAM) — ADDITIVE second staging path. Opens #damPanel, stages a chosen asset into the SAME #selectionTray. -->
-    <button type="button" class="ff-dam-trigger" id="damBrowseTrigger" aria-haspopup="dialog" aria-controls="damPanel" aria-expanded="false" title="Browse past DAM assets">Browse past assets</button>
-    <button class="ff-go" id="generateCampaign" data-mcp="generate" data-mcp-description="Single button — fans to all formats + localized variants, shows sample">Create</button>
-    <!-- B3. prompt-box autocomplete surface — product/market matches from loaded catalog + places; reuses the ff-products-results listbox visual pattern -->
+    <!-- Row 2 (action bar): secondary staging affordances left, primary Create isolated right -->
+    <div class="ff-inputfoot">
+      <div class="ff-inputfoot-actions">
+        <button type="button" class="ff-iconbtn" id="promptUpload" aria-label="Upload an image or document" title="Upload an image or document">+</button>
+        <!-- D5. Browse past assets (DAM) — ADDITIVE second staging path. Opens #damPanel, stages a chosen asset into the SAME #selectionTray. -->
+        <button type="button" class="ff-dam-trigger" id="damBrowseTrigger" aria-haspopup="dialog" aria-controls="damPanel" aria-expanded="false" title="Browse past DAM assets">Browse past assets</button>
+      </div>
+      <button class="ff-go" id="generateCampaign" data-mcp="generate" data-mcp-description="Single button — fans to all formats + localized variants, shows sample">Create</button>
+    </div>
+    <!-- B3. prompt-box autocomplete surface — product/market matches from loaded catalog + places; anchored to the positioned .ff-inputwrap; reuses the ff-products-results listbox visual pattern -->
     <div id="briefSuggest" class="ff-products-results ff-briefsuggest" role="listbox" aria-label="Product and market suggestions" hidden></div>
   </div>
 </div>
