@@ -794,6 +794,26 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
   background:var(--brown-kodiak,#3B2316);color:var(--parchment,#FFF8F0);font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em}
 .ff-dam-thumb-label{font:500 10px/1.25 "museo-sans",sans-serif;color:var(--colors-foreground-default,#1A2F29);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ff-dam-flash{font:600 11px/1.4 "museo-sans",sans-serif;color:var(--colors-brand-bear-brown,#3B2316);padding:2px 0;min-height:16px}
+/* PART D (rebuild) — tabs + filter shell and the role=option tile grid that replaced the old .ff-dam-thumb button */
+.ff-dam-controls{display:flex;flex-wrap:wrap;align-items:center;gap:var(--spacing-sm,8px);margin-bottom:var(--spacing-sm,8px)}
+.ff-dam-tabs{display:flex;flex-wrap:wrap;gap:4px;flex:1 1 auto}
+.ff-dam-tab{padding:2px 10px;border:1px solid var(--colors-border-default,#C8BCA8);border-radius:var(--radii-full,999px);background:var(--colors-neutral-100,#F2E9DC);color:var(--colors-foreground-default,#1A2F29);font:600 12px/1.4 "museo-sans",sans-serif;cursor:pointer}
+.ff-dam-tab:hover{border-color:var(--colors-brand-frontier-green,#1A2F29)}
+.ff-dam-tab[aria-selected="true"]{background:var(--colors-brand-frontier-green,#1A2F29);border-color:var(--colors-brand-frontier-green,#1A2F29);color:var(--colors-neutral-50,#FFF8F0)}
+.ff-dam-tab:focus-visible{outline:2px solid var(--colors-brand-frontier-green,#1A2F29);outline-offset:2px}
+.ff-dam-filter{flex:0 1 200px;min-width:140px}
+.ff-dam-filter-input{width:100%;box-sizing:border-box;border:1px solid var(--colors-border-default,#C8BCA8);border-radius:var(--radii-sm,6px);padding:4px 8px;background:var(--colors-neutral-50,#FFF8F0);color:var(--colors-foreground-default,#1A2F29);font:400 12px/1.4 "museo-sans",sans-serif}
+.ff-dam-filter-input:focus-visible{outline:2px solid var(--colors-brand-frontier-green,#1A2F29);outline-offset:1px}
+.ff-dam-tile{display:flex;flex-direction:column;gap:3px;padding:4px;border:1px solid var(--colors-border-default,#C8BCA8);border-radius:var(--radii-sm,6px);background:var(--colors-neutral-100,#F2E9DC);cursor:pointer;text-align:left;font:inherit}
+.ff-dam-tile:hover{border-color:var(--colors-brand-frontier-green,#1A2F29)}
+.ff-dam-tile:focus-visible{outline:2px solid var(--colors-brand-frontier-green,#1A2F29);outline-offset:1px}
+.ff-dam-tile.is-selected,.ff-dam-tile[aria-selected="true"]{border:2px solid var(--colors-brand-frontier-green,#1A2F29);padding:3px;box-shadow:inset 0 0 0 2px rgba(26,47,41,.18)}
+.ff-dam-tile-frame{position:relative;display:block;width:100%;height:72px;border-radius:var(--radii-sm,6px);overflow:hidden}
+.ff-dam-tile-frame .ff-dam-thumb-img,.ff-dam-tile-frame .ff-dam-thumb-video{height:100%}
+.ff-dam-ratio-badge{position:absolute;top:2px;right:2px;padding:1px 4px;border-radius:var(--radii-sm,6px);background:var(--colors-brand-frontier-green,#1A2F29);color:var(--colors-neutral-50,#FFF8F0);font:700 9px/1.2 "museo-sans",sans-serif;pointer-events:none}
+.ff-dam-tile-check{position:absolute;top:2px;left:2px;width:16px;height:16px;display:flex;align-items:center;justify-content:center;border-radius:var(--radii-full,999px);background:var(--colors-brand-frontier-green,#1A2F29);color:var(--colors-neutral-50,#FFF8F0);font:700 10px/1 "museo-sans",sans-serif;opacity:0;transform:scale(.6);transition:opacity .12s ease,transform .12s ease;pointer-events:none}
+.ff-dam-tile.is-selected .ff-dam-tile-check,.ff-dam-tile[aria-selected="true"] .ff-dam-tile-check{opacity:1;transform:scale(1)}
+.ff-dam-thumb-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:4px;text-align:center;border-radius:var(--radii-sm,6px);background:var(--colors-neutral-200,#E4D8C6);color:var(--colors-foreground-muted,#6B5D4A);font:600 10px/1.25 "museo-sans",sans-serif;overflow:hidden}
 
 
 /* === T5 DOM slimming — content-visibility:auto on the heavy repeated-DOM regions ===
