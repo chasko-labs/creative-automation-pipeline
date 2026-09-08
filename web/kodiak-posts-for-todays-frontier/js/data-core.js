@@ -636,6 +636,7 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
   }
   window.KODIAK_localizeText = localizeText;                 // reuse from tile-caption renderers in other scopes
   window.KODIAK_isCommunityReview = isCommunityReview;
+  window.KODIAK_marketLangsFor = marketLangsFor;             // #241: campaign copy panel lists the same top langs
 
   // Standalone #locPreview headlines retired 2026-09-08 (cleanup order): translated copy
   // lives only in the preview tile captions. renderMarketLangs now updates the language-names
