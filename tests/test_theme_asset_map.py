@@ -24,6 +24,9 @@ EXPECTED_THEMES = {
     "wild-grizzly-bears",
     "recipe-cards",
     "localized-costco",
+    "localized-publix",
+    "localized-target",
+    "kodiak-subscription",
     "riff-on-past-content",
     "us-ski-snowboard",
 }

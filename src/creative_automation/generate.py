@@ -2647,7 +2647,11 @@ def generate_hero_set(
             provenance["recipe_author"] = "default"
             recipe_fields = _recipe_card_defaults(product_name)
         else:
-            authored = _author_recipe_fields(product_name, brief_msg, region)
+            try:
+                authored = _author_recipe_fields(product_name, brief_msg, region)
+            except Exception as e:  # noqa: BLE001 — author must never break the set
+                print(f"[generate] recipe author raised, using default: {e}", file=sys.stderr)
+                authored = None
             if authored is not None:
                 provenance["recipe_author"] = "nova"
                 recipe_fields = authored

@@ -1,5 +1,21 @@
 {
   "map": {
+    "kodiak-subscription": {
+      "brief": "Kodiak subscription campaign — front-door delivery cadence for loyal households, pantry always stocked.",
+      "caption": "Powdered sugar pancakes — snowy Wasatch porch, kids reaching for stack, Keep It Wild morning.",
+      "channel": "instagram",
+      "image_file": "0100aea6ca6c--20240711-Kodiak-Baked-Pizza-Muffins-0253-38a66c_c42c89.jpg",
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/0100aea6ca6c--20240711-Kodiak-Baked-Pizza-Muffins-0253-38a66c_c42c89.jpg",
+      "pool": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/0100aea6ca6c--20240711-Kodiak-Baked-Pizza-Muffins-0253-38a66c_c42c89.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/01ab36da4a86--20240611-Kodiak-Cast-Iron-Pizza-0095-b5d307_8a078e.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/003fa9ea1e6f--Kodiak-Pumpkin-Chocolate-Chip-Muffin-Top-Cookie-1-c793b2_275320.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/00ed49a3920f--3-camping-granola-e4fa8d_53fe72.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/00ed49a3920f--4-camping-granola-de306b_82119c.jpg"
+      ],
+      "score": 18.0,
+      "theme": "kodiak-subscription"
+    },
     "localized-costco": {
       "brief": "Localized Costco campaign — bulk Family Size value for the warehouse aisle, Park City / Wasatch Back framing.",
       "caption": "Corner pocket pantry — membership bulk stack, Costco frontier family, enough for the whole week.",
@@ -15,6 +31,38 @@
       ],
       "score": 45.0,
       "theme": "localized-costco"
+    },
+    "localized-publix": {
+      "brief": "Localized Publix campaign — neighborhood-market warmth for the Southern family table, framed to the selected market.",
+      "caption": "Publix porch breakfast — Savannah family table, warm light, kids and cubs together, family's frontier.",
+      "channel": "instagram",
+      "image_file": "0272fd970269--3-74d19e_a98f09.jpg",
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/0272fd970269--3-74d19e_a98f09.jpg",
+      "pool": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/0272fd970269--3-74d19e_a98f09.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/001-05606-Kodiak_Cakes-Cups-Photoshop_Rework_Brownie-01_2c3938e5-63de-4af7-8e11-538bc87d1aef.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/00ed49a3920f--3-camping-granola-e4fa8d_53fe72.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/0100aea6ca6c--20240711-Kodiak-Baked-Pizza-Muffins-0253-38a66c_c42c89.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/01ab36da4a86--20240611-Kodiak-Cast-Iron-Pizza-0114-5c758b_8976eb.jpg"
+      ],
+      "score": 36.0,
+      "theme": "localized-publix"
+    },
+    "localized-target": {
+      "brief": "Localized Target campaign — everyday-family aisle value for the one-trip basket, framed to the selected market.",
+      "caption": "Target clean label — Gen Z turns the box: 100% whole grains, non-GMO, 14g protein, frontier bright.",
+      "channel": "instagram",
+      "image_file": "02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0351-3ef54f_4fc424.jpg",
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0351-3ef54f_4fc424.jpg",
+      "pool": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/02fe4ba69e3b--20240710-Kodiak-Apple-Stack-Cake-0351-3ef54f_4fc424.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/00ed49a3920f--3-camping-granola-e4fa8d_53fe72.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/0272fd970269--2-09b132_e70c8e.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/0272fd970269--3-74d19e_a98f09.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/030de2bb33a9--20240724-Kodiak-Cinnamon-Chocolate-Chip-Scones-0091-6ad4f0_5e97c3.jpg"
+      ],
+      "score": 18.0,
+      "theme": "localized-target"
     },
     "recipe-cards": {
       "brief": "Recipe cards for Park City families — protein-packed whole grain recipes styled as shareable cards. Keep It Wild.",
@@ -89,7 +137,7 @@
     ],
     "channel_distribution": {
       "catalog": 1,
-      "instagram": 3
+      "instagram": 6
     },
     "generated": "deterministic",
     "model_note": "deterministic keyword+metadata overlap scoring (no vector cosine); each theme scored against a fixed match-token set over caption/hashtags/image_file, channel-weighted toward blog/instagram lifestyle over catalog pack-shots; wild-grizzly-bears theme (unified Bears + Keep It Wild program angle) applies a negative captive-bear-closeup guardrail; no named-person themes ship, so no likeness boost or person front-run; primaries are globally de-duped in alphabetical slug order so all themes carry distinct primary photo_keys; top-1 + up to 4 fallbacks per theme, all reconciled to real DAM keys",
@@ -102,6 +150,9 @@
       "wild-grizzly-bears",
       "recipe-cards",
       "localized-costco",
+      "localized-publix",
+      "localized-target",
+      "kodiak-subscription",
       "riff-on-past-content"
     ]
   }

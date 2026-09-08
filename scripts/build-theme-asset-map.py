@@ -194,6 +194,67 @@ THEMES: list[dict] = [
         ],
     },
     {
+        "slug": "localized-publix",
+        "brief": (
+            "Localized Publix campaign — neighborhood-market warmth for the "
+            "Southern family table, framed to the selected market."
+        ),
+        # southern porch / family-table pool; resolves to hero food shots
+        # when the DAM carries no retailer-specific rows.
+        "tokens": [
+            "publix",
+            "southern",
+            "porch",
+            "deli",
+            "family",
+            "table",
+            "gathering",
+            "fresh",
+            "subs",
+            "neighbors",
+        ],
+    },
+    {
+        "slug": "localized-target",
+        "brief": (
+            "Localized Target campaign — everyday-family aisle value for the "
+            "one-trip basket, framed to the selected market."
+        ),
+        # bright everyday-kitchen / basket-abundance pool.
+        "tokens": [
+            "target",
+            "everyday",
+            "basket",
+            "kitchen",
+            "modern",
+            "family",
+            "value",
+            "aisle",
+            "clean",
+            "tidy",
+        ],
+    },
+    {
+        "slug": "kodiak-subscription",
+        "brief": (
+            "Kodiak subscription campaign — front-door delivery cadence for "
+            "loyal households, pantry always stocked."
+        ),
+        # doorstep-delivery / pantry-continuity pool.
+        "tokens": [
+            "subscription",
+            "delivery",
+            "doorstep",
+            "door",
+            "box",
+            "porch",
+            "pantry",
+            "package",
+            "loyal",
+            "morning",
+        ],
+    },
+    {
         "slug": "riff-on-past-content",
         "brief": (
             "Riff on past content — remix our existing heroes into fresh "
