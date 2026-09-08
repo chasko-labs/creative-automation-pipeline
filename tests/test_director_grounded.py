@@ -242,6 +242,32 @@ def test_director_headline_resamples_single_after_trio_refusal(monkeypatch):
     assert calls["n"] == 2
 
 
+def test_headline_for_runs_full_pipeline(monkeypatch):
+    # the set path must not bypass the director/normalize with raw Nova text.
+    _enable(monkeypatch)
+    monkeypatch.setattr(generate_mod, "_director_headline_text", lambda *a, **k: None)
+    monkeypatch.setattr(
+        generate_mod, "_nova_pro_caption", lambda *a, **k: "fuel wild mornings."
+    )
+    headline, source = generate_mod._headline_for(
+        Path("x.png"), "Power Cakes", "brief words here", "us", "families"
+    )
+    assert headline == "Fuel Wild Mornings"
+    assert source == "bedrock:nova-pro-caption"
+
+
+def test_headline_for_prefers_director(monkeypatch):
+    _enable(monkeypatch)
+    monkeypatch.setattr(
+        generate_mod, "_director_headline_text", lambda *a, **k: "Dawn Patrol Eats First"
+    )
+    headline, source = generate_mod._headline_for(
+        Path("x.png"), "Power Cakes", "brief words here", "us", "families"
+    )
+    assert headline == "Dawn Patrol Eats First"
+    assert source == generate_mod._DIRECTOR_LIVE_SOURCE
+
+
 def test_director_headline_no_examples_falls_back(monkeypatch):
     _enable(monkeypatch)
     monkeypatch.setattr(director_memory, "retrieve", lambda q, k=3: ([], "nova"))

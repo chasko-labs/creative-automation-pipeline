@@ -1976,8 +1976,14 @@ def generate_hero_set(
         bare_base=True,
     )
 
-    headline = _headline_for(clean_base, product_name, brief_msg, region, audience)
+    # The set headline re-runs the full pipeline (grounded director first, stock
+    # Nova normalized second) on the clean base — the base hero call above ran
+    # with overlays off and left provenance["headline"] empty, and the old
+    # Nova-only helper overwrote grounded provenance with an un-normalized line.
+    headline, headline_source = _headline_for(clean_base, product_name, brief_msg, region, audience)
     provenance["headline"] = headline if brand_overlay else None
+    if headline_source:
+        provenance["headline_source"] = headline_source
     provenance["ratios"] = {}
 
     # recipe-cards theme routes each sized hero through the deterministic Pillow card
@@ -2038,8 +2044,15 @@ def generate_hero_set(
 
 def _headline_for(
     src: Path, product_name: str, brief_msg: str, region: str, audience: str
-) -> str:
-    """Nova Pro headline for the set (module-level so generate_hero_set can reuse it)."""
+) -> tuple[str, Optional[str]]:
+    """Set headline through the full pipeline (module-level so generate_hero_set
+    can reuse it). Returns (headline, headline_source|None): the grounded
+    director first, stock Nova normalized second, raw brief last."""
+    directed = _director_headline_text(product_name, brief_msg, region, audience)
+    if directed:
+        return directed, _DIRECTOR_LIVE_SOURCE
     caption = _nova_pro_caption(src, product_name, brief_msg, region, audience) or ""
     headline, _side = _parse_layout(caption)
-    return headline or brief_msg[:48]
+    if headline:
+        return _title_case_headline(headline), "bedrock:nova-pro-caption"
+    return brief_msg[:48], None
