@@ -1,7 +1,10 @@
-"""Brutal image pipeline scorecards — 12 cards, 100% threshold, no lenient C.
+"""Brutal image pipeline scorecards — scored cards only, 100% threshold, no lenient C.
 
-Covers DAM determinism, enhance, compose template, font/logo determinism, palette, legal, variants, naming, dims, report, provenance.
+Covers DAM determinism, enhance, compose template, font/logo determinism, palette, legal, naming, dims.
 Uses Pillow histogram + regex + json schema — no generative leniency.
+Honesty rule (#203): every card either runs a real pixel/config test or is
+marked unscored ("scored": False) and excluded from totals and the overall
+verdict. No placeholder subs, no `or True`, no unconditional passes.
 """
 from __future__ import annotations
 
@@ -49,17 +52,13 @@ def score_image_determinism(image_path: Path) -> Dict:
             return False
         has_brown = has_color("#3B2316")
         has_blaze = has_color("#E8530E")
+        # Honest subs only: brown + blaze presence are the two real pixel tests.
+        # Contrast/texture/vignette magnitudes cannot be measured cheaply, so they
+        # are not scored at all (#203) rather than mirroring the color checks.
+        subs = [f"{'✓' if has_brown else '✗'} #3B2316 enhance",f"{'✓' if has_blaze else '✗'} #E8530E blaze"]
         score = (1 if has_brown else 0) + (1 if has_blaze else 0)
-        # also check for double border + vignette via edge sampling is lenient — we just check both colors present as proxy
-        s = 2 if (has_brown and has_blaze) else score
-        # need 4 subchecks: we add 2 more as placeholders that pass if colors present (brutal still 4/4 requires both)
-        # For brutal we require 4/4; we will treat missing enhance as fail
-        # Add subchecks
-        subs = [f"{'✓' if has_brown else '✗'} #3B2316 enhance","✓ contrast 1.08" if has_blaze else "✗ contrast","✓ texture 6% kraft" if has_brown else "✗ texture","✓ vignette 0.06" if has_blaze else "✗ vignette"]
-        # For determinism we require at least brown+blaze
         pass_ = has_brown and has_blaze
-        # To meet 4/4 brutal, we need all 4 — we assume enhance always does 4 when colors present
-        cards.append({"id":"enhance","title":"Enhance Determinism","max":4,"score":4 if pass_ else score,"pass":pass_,"detail":" • ".join(subs),"subs":subs})
+        cards.append({"id":"enhance","title":"Enhance Determinism","max":2,"score":score,"pass":pass_,"detail":" • ".join(subs),"subs":subs})
     except Exception as e:
         cards.append({"id":"enhance","title":"Enhance Determinism","max":4,"score":0,"pass":False,"detail":f"✗ cannot open {e}","subs":[f"✗ {e}"]*4})
     # Card 3: Compose template 6-piece
@@ -72,30 +71,33 @@ def score_image_determinism(image_path: Path) -> Dict:
         has_bar = bottom_pixel[0]>200 and 50<bottom_pixel[1]<150 and bottom_pixel[2]<50  # rough blaze
         # check bear region approx 24,24 is not pure parchment (implies logo)
         bear_pixel = img.getpixel((24+14,24+14)) if w>40 and h>40 else (255,255,255)
-        has_bear = bear_pixel != (255,248,240) and bear_pixel != (59,35,22) or True # lenient placeholder
-        # For brutal we check 4 subchecks: scrim 68% bar, pad 48, ratios, bear@24,24
-        subs = [f"{'✓' if ratio_ok else '✗'} ratio {w}x{h}","✓ 8px Blaze bar" if has_bar else "✗ bar missing","✓ bear @24,24" if has_bear else "✗ bear missing","✓ scrim 68% bar"]
-        s = (1 if ratio_ok else 0) + (1 if has_bar else 0) + (1 if has_bear else 0) + 1
-        pass_ = ratio_ok and has_bar
-        cards.append({"id":"compose","title":"Compose Template 6-Piece","max":4,"score":4 if pass_ else s,"pass":pass_,"detail":" • ".join(subs),"subs":subs})
+        has_bear = bear_pixel != (255,248,240) and bear_pixel != (59,35,22)
+        # Three real subs only: ratio, bar, bear. The scrim/pad magnitudes have
+        # no cheap pixel test, so they are unscored (#203) — no phantom +1.
+        subs = [f"{'✓' if ratio_ok else '✗'} ratio {w}x{h}","✓ 8px Blaze bar" if has_bar else "✗ bar missing","✓ bear @24,24" if has_bear else "✗ bear missing"]
+        s = (1 if ratio_ok else 0) + (1 if has_bar else 0) + (1 if has_bear else 0)
+        pass_ = ratio_ok and has_bar and has_bear
+        cards.append({"id":"compose","title":"Compose Template 6-Piece","max":3,"score":s,"pass":pass_,"detail":" • ".join(subs),"subs":subs})
     except Exception as e:
         cards.append({"id":"compose","title":"Compose Template 6-Piece","max":4,"score":0,"pass":False,"detail":f"✗ {e}","subs":[f"✗ {e}"]*4})
-    # Card 4: Font determinism — headline must be Gin not DejaVu, we check via metadata not image — placeholder brutal requires token font
+    # Card 4: Font determinism — Gin must be resolvable via tokens (real config
+    # test; no `or True` — a missing/unparseable token file fails, #203).
     tokens = None
     try:
         tokens = load_tokens()
-        has_gin = tokens and "gin" in json.dumps(tokens).lower() or True
+        has_gin = bool(tokens) and "gin" in json.dumps(tokens).lower()
     except Exception:
         has_gin = False
-    # Brutal: require Gin — we treat as pass if tokens exist (since compose loads Gin via token)
-    # To be brutal we check that image was rendered with token headline sizes 56/64/72
     cards.append({"id":"font","title":"Font Determinism","max":1,"score":1 if has_gin else 0,"pass":bool(has_gin),"detail":"✓ Gin 800 headline via tokens" if has_gin else "✗ DejaVu fallback","subs":["✓ Gin" if has_gin else "✗ Gin"]})
-    # Card 5: Logo determinism — logo PNG at 140w@24,24
+    # Card 5: Logo determinism — the 140w@24,24 region must contain a real
+    # composited mark, measured as pixel variance (a pasted PNG has dozens of
+    # distinct colors; flat fill or missing logo has ~1). Can fail (#203).
     try:
-        # check compliance logo
-        logo_present = True  # we always composite logo if brand_logo exists; check via compliance
-        # For brutal we require logo_present true
-        cards.append({"id":"logo","title":"Logo Determinism","max":1,"score":1 if logo_present else 0,"pass":logo_present,"detail":"✓ PNG 140w@24,24" if logo_present else "✗ text KODIAK","subs":["✓ PNG 140w@24,24" if logo_present else "✗ text"]})
+        logo_img = Image.open(image_path).convert("RGB")
+        lw, lh = logo_img.size
+        region = logo_img.crop((24, 24, min(lw, 164), min(lh, 164))).resize((32, 32))
+        logo_present = len(set(region.getdata())) > 16
+        cards.append({"id":"logo","title":"Logo Determinism","max":1,"score":1 if logo_present else 0,"pass":logo_present,"detail":"✓ PNG 140w@24,24" if logo_present else "✗ flat/missing mark","subs":["✓ PNG 140w@24,24" if logo_present else "✗ logo"]})
     except Exception:
         cards.append({"id":"logo","title":"Logo Determinism","max":1,"score":0,"pass":False,"detail":"✗ logo check failed","subs":["✗ logo"]})
     # Card 6: Palette probe
@@ -126,16 +128,16 @@ def score_image_determinism(image_path: Path) -> Dict:
     name = image_path.name
     ok = bool(ISO_RE.match(name))
     cards.append({"id":"naming","title":"File Naming ISO","max":1,"score":1 if ok else 0,"pass":ok,"detail":f"✓ {name}" if ok else f"✗ {name}","subs":["✓ ISO" if ok else "✗ ISO"]})
-    # Card 10: Report completeness (placeholder)
-    cards.append({"id":"report","title":"Report Completeness","max":1,"score":1,"pass":True,"detail":"✓ report.json + preview.html","subs":["✓ report"]})
-    # Card 11: Language variants (placeholder)
-    cards.append({"id":"variants","title":"Language Variants","max":1,"score":1,"pass":True,"detail":"✓ EN+top2 219","subs":["✓ variants"]})
-    # Card 12: Provenance
-    cards.append({"id":"provenance","title":"Provenance","max":1,"score":1,"pass":True,"detail":"✓ DAM + Nova unlimited documented","subs":["✓ provenance"]})
+    # Cards 10-12: unscored context, not tests (#203). They render for humans
+    # but are excluded from totals and the overall verdict.
+    cards.append({"id":"report","title":"Report Completeness","max":0,"score":0,"pass":True,"scored":False,"detail":"○ unscored — no report.json/preview.html check implemented","subs":["○ unscored"]})
+    cards.append({"id":"variants","title":"Language Variants","max":0,"score":0,"pass":True,"scored":False,"detail":"○ unscored — no EN/top-2 variant check implemented","subs":["○ unscored"]})
+    cards.append({"id":"provenance","title":"Provenance","max":0,"score":0,"pass":True,"scored":False,"detail":"○ unscored — no DAM/Nova provenance check implemented","subs":["○ unscored"]})
 
-    total = sum(c["score"] for c in cards)
-    max_total = sum(c["max"] for c in cards)
-    overall_pass = all(c["pass"] for c in cards)
+    scored = [c for c in cards if c.get("scored", True)]
+    total = sum(c["score"] for c in scored)
+    max_total = sum(c["max"] for c in scored)
+    overall_pass = all(c["pass"] for c in scored)
     return {"cards":cards,"total":total,"max":max_total,"pass":overall_pass,"pct":round(total/max_total*100) if max_total else 0}
 
 
@@ -163,11 +165,12 @@ def score_batch(out_root: Path) -> Dict:
         sc = score_image_determinism(p)
         per_image.append({"path":str(p.relative_to(out_root)),"score":sc})
 
-    # aggregate
+    # aggregate (scored cards only — unscored context never votes, #203)
     all_cards = {}
     for pi in per_image:
         for c in pi["score"]["cards"]:
-            all_cards.setdefault(c["id"], []).append(c["pass"])
+            if c.get("scored", True):
+                all_cards.setdefault(c["id"], []).append(c["pass"])
 
     brutal = []
     for cid, passes in all_cards.items():
