@@ -46,6 +46,18 @@ a{color:var(--frontier)}
 <li><span class="node"><b>bedrock-logging-stack</b></span> <span class="role">— cross-region Bedrock invocation logging + X-Ray tracing (#122).</span></li>
 <li><span class="node"><b>observability-stack</b></span> <span class="role">— pipeline observer spans, scorecard + compliance gates (#42).</span></li>
 <li><span class="node"><b>browser-observability-stack</b></span> <span class="role">— RUM + CloudFront log bucket for the live frontend.</span></li>
+<li><span class="node"><b>Example — generate-stack Lambda</b></span> <span class="role">— <span class="kbd">GenerateLambda</span>, container image, <span class="kbd">memorySize 3008</span>, <span class="kbd">timeout 300</span>, public Function URL (<span class="kbd">AuthType NONE</span>) the site POSTs <span class="kbd">/generate</span> to; Bedrock grants cover Nova Pro, Stability control-structure + outpaint, and Nova multimodal embeddings with Titan fallback (<span class="kbd">amazon.nova-2-multimodal-embeddings-v1:0</span>).</span></li>
+</ul>
+</div></div>
+
+<div class="card"><div class="hd"><h2>Database schemas <span class="badge">live</span></h2><p>Every store the pipeline reads or writes, with key layout and a real row.</p></div><div class="body">
+<ul class="tree">
+<li><span class="node"><b>DynamoDB kodiak-creatives-localization-memory</b></span> <span class="role">— pay-per-request, PITR on, RETAIN on delete. Single-table keys: <span class="kbd">pk = MARKET#&lt;market&gt;</span> (HASH), <span class="kbd">sk = LANG#&lt;lang&gt;#MSG#&lt;sha1-16&gt;</span> (RANGE) — built by <span class="kbd">localize_memory.build_key</span>. The /localize path checks it before calling Translate, so repeat captions cost a read, not a translation.</span></li>
+<li><span class="node"><b>Example row</b></span> <span class="role">— <span class="kbd">pk MARKET#US-W-SPOKANE</span> / <span class="kbd">sk LANG#en#MSG#782a7f241acbbb92</span> → text "Spokane Falls to the ponderosa pines — protein-packed whole grains for your Spokane frontier", provider <span class="kbd">precomputed</span>, source <span class="kbd">dynamodb</span> (live scan 2026-09-08).</span></li>
+<li><span class="node"><b>DynamoDB kodiak-creatives-retail-network</b></span> <span class="role">— pay-per-request, RETAIN. Key: <span class="kbd">store_id</span> (HASH) + GSI <span class="kbd">byMarket</span> on <span class="kbd">market</span> (projection ALL) for market→stores lookup. Example: 0 items as of 2026-09-08 — store discovery not yet ingested, so the API falls back to the curated JSONL.</span></li>
+<li><span class="node"><b>S3 Vectors kodiak-vectors / index kodiak-assets</b></span> <span class="role">— multimodal embeddings, <span class="kbd">1024 dims</span>, <span class="kbd">cosine</span> distance, <span class="kbd">float32</span> (Nova multimodal default; Titan embed fallback). Powers "riff on past content" similarity over past DAM renders. RETAIN on delete.</span></li>
+<li><span class="node"><b>S3 DAM chasko-creative-dam-946179428633-us-east-1</b></span> <span class="role">— versioned, KMS SSE + bucket-key, full public-access block, TLS-only policy, RETAIN. Layout under <span class="kbd">brands/kodiak/</span>: <span class="kbd">renders/</span> (per-campaign packs, e.g. <span class="kbd">renders/output_kodiak-costco/</span>), <span class="kbd">restyle-cache/</span> (content-addressed restyled seeds), <span class="kbd">raw-ingest/</span> (source photos, e.g. <span class="kbd">raw-ingest/kodiakcakes/images/705599011627_FlapjackMix_Buttermilk_Front_1.png</span>), plus <span class="kbd">heroes/ logos/ recipes/ references/ tokens/ vectors/</span>.</span></li>
+<li><span class="node"><b>S3 pipeline-log + style-library buckets</b></span> <span class="role">— <span class="kbd">kodiak-creatives-logs-946179428633-us-east-1</span> (pipeline observer spans) and the DAM style-library bucket (TLS-only, RETAIN, MPU-abort 7d + renders tiering lifecycle).</span></li>
 </ul>
 </div></div>
 
@@ -55,6 +67,7 @@ a{color:var(--frontier)}
 <li><span class="node"><b>Version stamp</b></span> <span class="role">— <span class="kbd">scripts/bump-version.sh</span> sweeps every version-shaped sink mechanically (meta, title, manifest, stamps).</span></li>
 <li><span class="node"><b>CI</b></span> <span class="role">— CodeBuild everywhere (no GitHub Actions); local pre-push gate replaces the trigger (#129).</span></li>
 <li><span class="node"><b>DAM origin</b></span> <span class="role">— S3 <span class="kbd">chasko-creative-dam-946179428633-us-east-1</span>, renders under <span class="kbd">brands/kodiak/renders/</span>, served presigned.</span></li>
+<li><span class="node"><b>Example — ship + verify</b></span> <span class="role">— <span class="kbd">./scripts/bump-version.sh 0.1.035 && ./scripts/deploy-frontier.sh</span> then read back: <span class="kbd">curl -s https://kodiak.bryanchasko.com/index.html | grep -o "build 0.1.035-[0-9a-f]*-[0-9]*"</span> must print the stamp whose SHA is the merged HEAD — the deploy is not done until the read-back matches.</span></li>
 </ul>
 </div></div>
 </div></body></html>

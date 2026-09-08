@@ -575,7 +575,7 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         # copy are the download-pack (FULL mode) concern, deferred off the sync path.
         provenance["ratios"] = {"1x1": "primary"}
         provenance["mode"] = PREVIEW_MODE
-        provenance["deferred"] = ["4x5", "2x3", "localization", "platform_copy"]
+        provenance["deferred"] = ["4x5", "9x16", "16x9", "localization", "platform_copy"]
 
     return {
         "ok": True,
@@ -730,7 +730,7 @@ def _post_wall_brand_floor(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         "incoming_prompt": prompt,
         "theme": theme,
         "ratios": {"1x1": "primary"},
-        "deferred": ["4x5", "2x3", "localization", "platform_copy"],
+        "deferred": ["4x5", "9x16", "16x9", "localization", "platform_copy"],
     }
 
     return {

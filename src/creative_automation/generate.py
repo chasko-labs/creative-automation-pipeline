@@ -10,6 +10,7 @@ mock/preview never reaches the UI. Nova Canvas is retired (Legacy) and is not a 
 from __future__ import annotations
 
 import base64
+import hashlib
 import json
 import os
 import re
@@ -94,6 +95,49 @@ BEDROCK_NOVA_READ_TIMEOUT_S = int(os.getenv("BEDROCK_NOVA_READ_TIMEOUT_S", "6"))
 # no single sub-call can consume the budget rung C needs to return real pixels by ~24s.
 _B_NOVA_SCENE_MS = int(os.getenv("GENERATE_B_NOVA_SCENE_MS", "7000"))
 _B_STABILITY_MS = int(os.getenv("GENERATE_B_STABILITY_MS", "13000"))
+# Restyled-background cache (DAM prefix): the rung-A bg restyle costs ~10s of Bedrock,
+# which fits a preview but never a full set (base + pads + uploads must clear the same
+# 22s wall). The cache is content-addressed on (seed bytes + prompt inputs): a preview
+# warms it, the set base reuses the SAME pixels — no second Bedrock call, wall holds,
+# preview and pack stay consistent. Best-effort everywhere: any S3 failure degrades to
+# the uncached behavior (fresh restyle when budget allows, else raw seed).
+_RESTYLE_CACHE_PREFIX = "brands/kodiak/restyle-cache/"
+_RESTYLE_CACHE_BUCKET = os.getenv("DAM_S3_BUCKET", "chasko-creative-dam-946179428633-us-east-1")
+
+
+def _restyle_cache_key(seed_bytes: bytes, product_name: str, brief_msg: str,
+                        region: str, audience: str, theme: str | None) -> str:
+    h = hashlib.sha256()
+    h.update(seed_bytes)
+    for part in (product_name, brief_msg, region, audience, theme or ""):
+        h.update(b"\x00")
+        h.update(str(part).encode("utf-8", "replace"))
+    return _RESTYLE_CACHE_PREFIX + h.hexdigest() + ".png"
+
+
+def _restyle_cache_get(key: str, dest: Path) -> bool:
+    """Fetch a cached restyle to dest. False on ANY failure (miss, creds, network)."""
+    try:
+        if boto3 is None:
+            return False
+        s3 = boto3.client("s3")
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        s3.download_file(_RESTYLE_CACHE_BUCKET, key, str(dest))
+        return dest.exists() and dest.stat().st_size > 0
+    except Exception:
+        return False
+
+
+def _restyle_cache_put(key: str, src: Path) -> None:
+    """Store a fresh restyle. Never raises — cache misses just cost a future restyle."""
+    try:
+        if boto3 is None:
+            return
+        s3 = boto3.client("s3")
+        s3.put_object(Bucket=_RESTYLE_CACHE_BUCKET, Key=key,
+                      Body=src.read_bytes(), ContentType="image/png")
+    except Exception:
+        pass
 
 
 class _RungBBudgetSkip(Exception):
@@ -1464,8 +1508,28 @@ def generate_hero(
             # SKU ships fresh photographic pixels instead of recycling the raw DAM
             # photo. The box is pasted over the restyle below — never an input to
             # it. Any skip/failure keeps the unstyled seed; rung A never fails.
+            #
+            # WALL ARITHMETIC: a fresh restyle (~10s Bedrock) fits a preview but never
+            # a full set (base + pads + uploads share the same 22s wall). Set bases
+            # (bare_base) therefore NEVER restyle fresh — they reuse the content-
+            # addressed cache a preview warmed, else the raw seed. Same pixels as the
+            # preview, no second Bedrock call, wall holds.
             bg_restyle = False
-            if seed is not None and remaining_ms() >= _B_BUDGET_MS + _C_RESERVATION_MS:
+            cache_key = None
+            if seed is not None:
+                try:
+                    cache_key = _restyle_cache_key(
+                        Path(seed).read_bytes(), product_name, brief_msg,
+                        region, audience, theme)
+                    cached = out_path.parent / f"{out_path.stem}-restyle-cached.png"
+                    if _restyle_cache_get(cache_key, cached):
+                        seed = cached
+                        bg_restyle = True
+                        provenance["bg_restyle_source"] = "cache"
+                except Exception:
+                    cache_key = None
+            if (seed is not None and not bg_restyle and not bare_base
+                    and remaining_ms() >= _B_BUDGET_MS + _C_RESERVATION_MS):
                 try:
                     a_scene = _nova_pro_scene_prompt(
                         seed, product_name, brief_msg, region, audience, theme
@@ -1476,6 +1540,9 @@ def generate_hero(
                         if _stability_control_hero(seed, a_scene, restyled) is not None and restyled.exists():
                             seed = restyled
                             bg_restyle = True
+                            provenance["bg_restyle_source"] = "fresh"
+                            if cache_key is not None:
+                                _restyle_cache_put(cache_key, restyled)
                 except Exception as e:  # noqa: BLE001 — unstyled seed, same as before
                     print(f"[generate] rung A bg restyle skipped: {e}", file=sys.stderr)
             provenance["bg_restyle"] = bg_restyle
