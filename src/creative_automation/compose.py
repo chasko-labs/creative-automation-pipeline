@@ -91,6 +91,7 @@ def compose_creative(
     retailer_logo: Path | None = None,
     product_layer: Path | None = None,
     bare: bool = False,
+    placement: str = "center",
 ) -> Path:
     """Produce a social creative at the requested ratio with message overlay.
 
@@ -99,6 +100,11 @@ def compose_creative(
     safe area above the message bar). It is pasted as-is — NO cover-fit, NO scrim blend,
     NO enhance — so a real box structurally cannot render as bread or candy. When None,
     the existing foreground-hero paste stands (generated-scene mode).
+
+    placement: "center" (legacy — box anchored center-frame) or "thirds" (render
+    contract #200 — box set on the right-third vertical with its base near the lower
+    safe area, so a selected product layer reads composed into the scene, never
+    center-pasted). Default "center" keeps every existing caller byte-identical.
     """
     key = CANONICAL.get(ratio_key, ratio_key)
     if key not in RATIOS and ratio_key not in RATIOS:
@@ -142,12 +148,19 @@ def compose_creative(
             box_scale = min(box_max_w / box.width, box_max_h / box.height)
             bw, bh = max(1, int(box.width * box_scale)), max(1, int(box.height * box_scale))
             box = box.resize((bw, bh), Image.BICUBIC)
-            # anchor near H*0.08, horizontally centered; clamp bottom >=24px above bar_top
-            bx = (W - bw) // 2
-            by = int(H * 0.08)
             bar_top_px = int(H * bar_top_frac)
-            if by + bh > bar_top_px - 24:
-                by = max(int(H * 0.04), bar_top_px - 24 - bh)
+            if placement == "thirds":
+                # render-contract layer compose: box on the right-third vertical,
+                # base near the lower safe area — never center-pasted.
+                bx = min(max(int(W * 0.64 - bw / 2), 8), max(W - bw - 8, 8))
+                by = min(max(int(H * 0.80 - bh), int(H * 0.06)), max(H - bh - 8, 8))
+            else:
+                # legacy: anchor near H*0.08, horizontally centered;
+                # clamp bottom >=24px above bar_top
+                bx = (W - bw) // 2
+                by = int(H * 0.08)
+                if by + bh > bar_top_px - 24:
+                    by = max(int(H * 0.04), bar_top_px - 24 - bh)
             # soft drop shadow on an RGBA scratch layer, composited UNDER the box
             shadow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
             sil = Image.new("RGBA", (bw, bh), (0, 0, 0, 102))  # ~40% black

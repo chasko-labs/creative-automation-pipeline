@@ -198,6 +198,63 @@ let skuList = [
   // show the matrix as the default preview content on load (before any campaign is generated)
   try{ renderPlatformMatrix(); }catch(e){}
 
+  // Compose layers (#199/#200) — independently-selectable, ALL OFF by default. Reads the
+  // #layerPicker checkboxes into the {product_image, retailer, partner_logo} contract the
+  // /generate backend normalizes; an empty object means a clean standalone image.
+  window.__selectedLayers = function(){
+    const layers = {};
+    try{
+      if(document.getElementById('layerProduct')?.checked) layers.product_image = true;
+      if(document.getElementById('layerRetailer')?.checked){
+        layers.retailer = document.getElementById('layerRetailerSelect')?.value || 'costco';
+      }
+      if(document.getElementById('layerPartner')?.checked) layers.partner_logo = true;
+    }catch(e){}
+    return layers;
+  };
+  const syncLayersState = ()=>{
+    const el = document.getElementById('layersState');
+    if(!el) return;
+    let n = 0;
+    try{ n = document.querySelectorAll('#layerPicker .layer-check:checked').length; }catch(e){}
+    el.textContent = n ? (n + ' on') : 'all off';
+  };
+  document.querySelectorAll('#layerPicker .layer-check').forEach(c=>{
+    c.addEventListener('change', syncLayersState);
+  });
+  document.getElementById('layerRetailerSelect')?.addEventListener('change', ()=>{
+    const box = document.getElementById('layerRetailer');
+    if(box && !box.checked){ box.checked = true; syncLayersState(); }
+  });
+  try{ syncLayersState(); }catch(e){}
+
+  // Default photographic hero (#196) — first paint is a real campaign photo, never a
+  // generic wordmark block. Same .tile frame as generated results so load and Create
+  // read as one surface. onerror removes the tile (offline/missing asset -> matrix only).
+  const DEFAULT_HERO_SRC = 'input_assets/textless/cabin-table.jpg';
+  try{ const pre = new Image(); pre.src = DEFAULT_HERO_SRC; }catch(e){}
+  function renderDefaultHero(){
+    const preview = document.getElementById('preview');
+    if(!preview || document.getElementById('defaultHeroTile')) return;
+    const tile = document.createElement('div');
+    tile.className = 'tile tile--default-hero';
+    tile.id = 'defaultHeroTile';
+    tile.style.cssText = 'grid-column:1/-1;max-width:640px;margin:0 auto';
+    const img = document.createElement('img');
+    img.src = DEFAULT_HERO_SRC;
+    img.alt = 'Kodiak frontier morning — cabin table with a protein stack, natural light';
+    img.loading = 'eager';
+    img.onerror = ()=>{ tile.remove(); };
+    tile.appendChild(img);
+    const meta = document.createElement('div');
+    meta.className = 'meta';
+    meta.innerHTML = '<b>Park City default</b><div class="small">Wasatch Back morning — hit Create for your campaign; copy ships as sidecar text/CSV, never baked in.</div>';
+    tile.appendChild(meta);
+    preview.appendChild(tile);
+  }
+  try{ renderDefaultHero(); }catch(e){}
+  window.__renderDefaultHero = renderDefaultHero;
+
   // Open the collapsible Preview card so freshly-generated output is visible immediately.
   function openPreviewCard(){
     const card = document.getElementById('previewCard');
@@ -336,6 +393,25 @@ let skuList = [
         'us-ski-snowboard':'US Ski & Snowboard'
       };
       const themeLabel = activeTheme ? (THEME_LABELS[activeTheme] || activeTheme) : null;
+      // Copy sidecars (#199) — campaign copy as text/CSV downloads, never baked into
+      // pixels. Remembers the backend copy_sidecar (or platform_copy) per response.
+      const downloadSidecar = (kind)=>{
+        const sc = window.__lastSidecar || null;
+        const text = (sc && sc[kind]) ? sc[kind] : 'KODIAK campaign copy — hit Create first for this campaign\u2019s sidecar.\n';
+        const blob = new Blob([text], {type: kind==='csv' ? 'text/csv' : 'text/plain'});
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = kind==='csv' ? 'KODIAK-copy.csv' : 'KODIAK-copy.txt';
+        document.body.appendChild(a); a.click();
+        setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 500);
+      };
+      const rememberSidecar = (j)=>{
+        try{
+          window.__lastSidecar = (j && j.copy_sidecar) || null;
+          window.__lastPlatformCopy = (j && j.platform_copy) || {};
+          window.__lastLayers = (j && j.layers) || {};
+        }catch(e){}
+      };
       // Reveal the primary "Download image" action directly under the preview.
       // Idempotent — builds the row once, then just unhides it.
       const revealDownloadActions = ()=>{
@@ -368,6 +444,25 @@ let skuList = [
           pack.setAttribute('aria-label', 'Download the full localized campaign asset pack — all ratios, platforms, retailers, languages');
           pack.addEventListener('click', function(){ window.downloadAssetPack({pack:true}); });
           row.appendChild(pack);
+          // SIDECARS (#199) — campaign copy as text/CSV, never baked into pixels.
+          const txtBtn = document.createElement('button');
+          txtBtn.type = 'button';
+          txtBtn.id = 'downloadCopyTxtBtn';
+          txtBtn.className = 'btn ghost';
+          txtBtn.style.cssText = 'justify-content:center;padding:12px 18px;font-size:13px';
+          txtBtn.textContent = 'Download copy (.txt)';
+          txtBtn.setAttribute('aria-label', 'Download the campaign copy as text');
+          txtBtn.addEventListener('click', function(){ downloadSidecar('txt'); });
+          row.appendChild(txtBtn);
+          const csvBtn = document.createElement('button');
+          csvBtn.type = 'button';
+          csvBtn.id = 'downloadCopyCsvBtn';
+          csvBtn.className = 'btn ghost';
+          csvBtn.style.cssText = 'justify-content:center;padding:12px 18px;font-size:13px';
+          csvBtn.textContent = 'Download copy (.csv)';
+          csvBtn.setAttribute('aria-label', 'Download the campaign copy as CSV');
+          csvBtn.addEventListener('click', function(){ downloadSidecar('csv'); });
+          row.appendChild(csvBtn);
           preview.parentNode?.insertBefore(row, preview.nextSibling);
         }
         row.style.display = 'flex';
@@ -596,7 +691,11 @@ let skuList = [
         // recently staged dam asset wins; absent key = today's path untouched.
         let stagedKey = null;
         try{ const staged = (window.__userAssets||[]).filter(function(a){ return a && a.source==='dam' && a.key; }); if(staged.length) stagedKey = staged[staged.length-1].key; }catch(e){}
-        const body = {prompt: brief, market: selectedLoc.market, product: productSlug, scope, ...(wantTheme ? {theme: wantTheme} : {}), ...(stagedKey ? {seed_key: stagedKey} : {})};
+        // Compose layers (#199/#200): independently-selected, default OFF. An empty
+        // object means a clean standalone image + copy sidecars from the backend.
+        let reqLayers = {};
+        try{ reqLayers = (typeof window.__selectedLayers==='function') ? window.__selectedLayers() : {}; }catch(e){ reqLayers = {}; }
+        const body = {prompt: brief, market: selectedLoc.market, product: productSlug, scope, layers: reqLayers, ...(wantTheme ? {theme: wantTheme} : {}), ...(stagedKey ? {seed_key: stagedKey} : {})};
         const resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: controller.signal});
         if(!resp.ok) throw new Error('backend returned HTTP ' + resp.status);
         // isolate the parse so a malformed 200 body surfaces as a clear error (outer catch -> visible status)
@@ -673,9 +772,11 @@ let skuList = [
         stageT2 = setTimeout(()=>{ if(status) status.textContent = 'Almost there — finishing the composition…'; }, 60000);
       }
       timeoutId = setTimeout(()=>controller.abort(), 100000); // Nova Pro composition is slow (~90s); allow headroom
+        try{ window.__lastSidecar = null; window.__lastPlatformCopy = {}; }catch(e){}
         if(doThemedOrSingle){
           // Single request (themed if a chip is active, else default product).
           const json = await oneGenerate(primarySlug, activeTheme || undefined);
+          rememberSidecar(json);
           const readyThemeLabel = json.theme ? (THEME_LABELS[json.theme] || themeLabel) : (activeTheme ? themeLabel : null);
           const readyTheme = (json.theme || activeTheme) ? (' · theme: ' + readyThemeLabel) : '';
           if(Array.isArray(json.renders) && json.renders.length){
@@ -707,7 +808,7 @@ let skuList = [
               const json = await oneGenerate(slug, undefined);
               showRealImage(json.image_url, json.source, {append:true, grid:true, productName:name, provenance: json.provenance});
               okCount++;
-              if(!firstDone){ firstDone = true; window.__lastHeroUrl = json.image_url; }
+              if(!firstDone){ firstDone = true; window.__lastHeroUrl = json.image_url; rememberSidecar(json); }
             }catch(e){
               console.warn('generate: product variant failed for', name, e && e.message ? e.message : e);
               // render a small failed-tile so the grid shows what did not compose

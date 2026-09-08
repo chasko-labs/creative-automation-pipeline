@@ -994,3 +994,30 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
    small ghost buttons under each carousel image, one gesture per file. */
 .ff-carousel-slot{display:flex;flex-direction:column;align-items:center;gap:8px}
 .ff-asset-download{padding:8px 12px;font-size:10px;text-decoration:none;justify-content:center}
+
+/* Compose layers (#199/#200) — closed disclosure mirroring .ff-products; all layers
+   OFF by default. Brand tokens only (bear-brown, parchment, signal-red); no generic
+   hero patterns. */
+.ff-brainstorm>.ff-layers{margin-top:var(--spacing-md);padding-top:var(--spacing-md);border-top:1px dashed var(--colors-border-default)}
+.ff-layers{margin-top:var(--spacing-sm)}
+.ff-layers>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:var(--spacing-xs);
+  font:700 13px/1.2 "kodiak_sans","museo-sans",sans-serif;color:var(--colors-brand-bear-brown,#3B2316);
+  padding:6px 10px;border-radius:var(--radii-md,8px)}
+.ff-layers>summary::-webkit-details-marker{display:none}
+.ff-layers>summary::before{content:"\25B8";font-size:11px;color:var(--colors-brand-signal-red);transition:transform .15s;flex:0 0 auto}
+.ff-layers[open]>summary::before{transform:rotate(90deg)}
+.ff-layers>summary:hover{background:var(--colors-neutral-200)}
+.ff-layers>summary:focus-visible{outline:2px solid var(--colors-brand-signal-red);outline-offset:2px}
+.ff-layers-state{font:500 11px/1 "museo-sans",sans-serif;color:var(--colors-foreground-muted,#6B5A53)}
+.ff-layers-panel{margin-top:var(--spacing-sm);display:flex;flex-direction:column;gap:var(--spacing-sm)}
+.ff-layer{display:flex;gap:8px;align-items:flex-start;font:500 12px/1.45 "museo-sans",sans-serif;
+  color:var(--colors-foreground-default,#3B2316);cursor:pointer}
+.ff-layer input{margin-top:2px;accent-color:var(--colors-brand-signal-red,#B51E14)}
+.ff-layer b{color:var(--colors-brand-bear-brown,#3B2316)}
+#layerRetailerSelect{margin-left:26px;max-width:220px;padding:6px 10px;border:1px solid var(--colors-border-default);
+  border-radius:var(--radii-md,8px);background:#FDF6EC;font:500 12px/1.2 "museo-sans",sans-serif;color:var(--colors-foreground-default,#3B2316)}
+.ff-layers-hint{margin:0;font:500 11px/1.45 "museo-sans",sans-serif;color:var(--colors-foreground-muted,#6B5A53)}
+
+/* Default on-load hero tile (#196) — photographic first paint; same .tile frame as
+   generated results so load and Create read as one surface. */
+.tile.tile--default-hero img{width:100%;height:auto;max-width:100%;display:block;background:var(--chocolate)}

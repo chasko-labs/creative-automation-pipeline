@@ -11,7 +11,9 @@ from __future__ import annotations
 
 import base64
 import concurrent.futures
+import csv
 import hashlib
+import io
 import json
 import os
 import re
@@ -1560,6 +1562,7 @@ def _compose_scene(
     ratio: str,
     out_path: Path,
     idx: int = 0,
+    clean: bool = False,
 ) -> Path:
     """Scene-integration composer per social-3ratio.json. The real photo is the hero.
 
@@ -1569,6 +1572,9 @@ def _compose_scene(
     bar are then drawn by the shared _apply_brand_overlay (PART C) so the pure-Pillow
     path and the Stability-hero path share one deterministic brand layer. No Kodiak
     logo/wordmark is stamped — Kodiak campaigns carry no logo per brand preference.
+
+    clean=True (render contract #199): the photographic cover + scrim stand alone —
+    no message bar, no baked-in overlay text. Copy ships as sidecar files instead.
     """
     W, H = _CANVAS.get(ratio, _CANVAS["1x1"])
 
@@ -1582,7 +1588,190 @@ def _compose_scene(
     # shared overlay so Stability heroes get the exact same message bar + accent bar.
     out_path.parent.mkdir(parents=True, exist_ok=True)
     canvas.save(out_path, "PNG")
+    if clean:
+        return out_path
     return _apply_brand_overlay(out_path, headline, ratio, out_path)
+
+
+# ------------------------------------------------- render-contract layers (#196/#199/#200)
+# Default Create returns a clean standalone image + copy sidecars; independently
+# selectable layers (product image, retailer mark, partner mark) compose into the
+# scene only when explicitly selected, default OFF. layers=None preserves the legacy
+# behavior (packshot-first + baked overlay) for existing library callers and tests;
+# ANY dict (even empty) selects the new contract.
+LAYER_PRODUCT_IMAGE = "product_image"
+LAYER_RETAILER = "retailer"
+LAYER_PARTNER = "partner_logo"
+LAYER_OVERLAY_TEXT = "overlay_text"
+
+# Packaged US Ski & Snowboard partner mark (ships inside the module like the rung-D
+# brand asset, so Lambda always has it — no S3, no web-origin fetch).
+_PARTNER_MARK_ASSET = Path(__file__).parent / "brand_assets" / "us-ski-snowboard-kodiak.png"
+
+
+def normalize_layers(layers: dict | None) -> dict | None:
+    """Normalize a raw layers request into the contract shape. None stays None (legacy).
+
+    Keeps only known keys: product_image/partner_logo/overlay_text (truthy flags) and
+    retailer (a non-empty slug string). Anything else is dropped so a stray client key
+    can never switch on a composite.
+    """
+    if layers is None:
+        return None
+    if not isinstance(layers, dict):
+        return {}
+    norm: dict = {}
+    for flag in (LAYER_PRODUCT_IMAGE, LAYER_PARTNER, LAYER_OVERLAY_TEXT):
+        if layers.get(flag):
+            norm[flag] = True
+    retailer = layers.get(LAYER_RETAILER)
+    if isinstance(retailer, str) and retailer.strip():
+        norm[LAYER_RETAILER] = retailer.strip().lower()
+    return norm
+
+
+def _resolve_retailer_mark(slug: str) -> Path | None:
+    """Best-effort raster retailer mark for a slug. None when missing/unusable.
+
+    Never raises and never fabricates: an unknown slug, a missing file, or an
+    SVG-only lockup (Pillow cannot rasterize SVG here) all resolve to None so the
+    caller records the layer unresolved and ships the clean image.
+    """
+    try:
+        from .retailers import resolve_retailer  # local import — keeps offline path light
+
+        res = resolve_retailer(slug)
+        asset = res.asset_path
+        if asset is None:
+            return None
+        asset = Path(asset)
+        if asset.suffix.lower() in (".png", ".jpg", ".jpeg", ".webp") and asset.exists():
+            return asset
+        sibling = asset.with_suffix(".png")
+        if sibling.exists():
+            return sibling
+        return None
+    except Exception:
+        return None
+
+
+def _paste_mark(canvas: Image.Image, mark: Image.Image, corner: str, frac: float) -> Image.Image:
+    """Paste a small mark with a subtle white backing. corner: right|left."""
+    W, H = canvas.size
+    mw = max(48, int(W * frac))
+    scale = mw / max(mark.width, 1)
+    mh = max(1, int(mark.height * scale))
+    mark = mark.resize((mw, mh), Image.BICUBIC)
+    pad = max(4, int(W * 0.008))
+    backing = Image.new("RGB", (mw + pad * 2, mh + pad * 2), (255, 255, 255))
+    x = W - mw - pad * 2 - pad if corner == "right" else pad
+    y = H - mh - pad * 2 - pad
+    canvas.paste(backing, (x, y))
+    canvas.paste(mark, (x + pad, y + pad), mark if mark.mode == "RGBA" else None)
+    return canvas
+
+
+def _apply_layer_marks(path: Path, layers: dict, provenance: dict) -> None:
+    """Composite selected retailer/partner marks onto a finished clean render, in place.
+
+    Best-effort and never fatal: an unresolvable mark is recorded in provenance
+    (<layer>_layer: "unresolved:…") and the clean image ships untouched.
+    """
+    if not layers:
+        return
+    retailer = layers.get(LAYER_RETAILER)
+    want_partner = bool(layers.get(LAYER_PARTNER))
+    if not retailer and not want_partner:
+        return
+    try:
+        canvas = Image.open(path).convert("RGB")
+    except Exception as e:  # noqa: BLE001 — never lose the render over a mark
+        print(f"[generate] layer marks skipped (unreadable base): {e}", file=sys.stderr)
+        return
+    applied: list[str] = []
+    if retailer:
+        mark_path = _resolve_retailer_mark(str(retailer))
+        if mark_path is not None:
+            try:
+                canvas = _paste_mark(canvas, Image.open(mark_path).convert("RGBA"), "right", 0.16)
+                applied.append(f"retailer:{retailer}")
+            except Exception as e:  # noqa: BLE001 — unresolved, ship clean
+                print(f"[generate] retailer mark paste failed: {e}", file=sys.stderr)
+                provenance["retailer_layer"] = f"unresolved:{retailer}"
+        else:
+            provenance["retailer_layer"] = f"unresolved:{retailer}"
+    if want_partner:
+        if _PARTNER_MARK_ASSET.exists():
+            try:
+                canvas = _paste_mark(
+                    canvas, Image.open(_PARTNER_MARK_ASSET).convert("RGBA"), "left", 0.14
+                )
+                applied.append("partner_logo")
+            except Exception as e:  # noqa: BLE001 — unresolved, ship clean
+                print(f"[generate] partner mark paste failed: {e}", file=sys.stderr)
+                provenance["partner_layer"] = "unresolved:paste-failed"
+        else:
+            provenance["partner_layer"] = "unresolved:asset-missing"
+    if applied:
+        try:
+            canvas.save(path, "PNG")
+            provenance["layer_marks"] = applied
+        except Exception as e:  # noqa: BLE001 — never lose the render over a mark
+            print(f"[generate] layer marks save failed: {e}", file=sys.stderr)
+
+
+def build_copy_sidecar(
+    provenance: dict | None,
+    prompt: str,
+    platform_copy: dict | None = None,
+    theme: str | None = None,
+    product: str | None = None,
+) -> dict:
+    """Build the copy sidecars (#199): campaign copy as text + CSV, never baked in.
+
+    Deterministic (no timestamps) so output is byte-stable. The headline prefers the
+    composed copy_headline the ladder recorded, then the legacy overlay headline,
+    then the raw brief — copy always ships even when the image is clean.
+    """
+    provenance = provenance or {}
+    platform_copy = platform_copy or {}
+    headline = (
+        provenance.get("copy_headline")
+        or provenance.get("headline")
+        or str(prompt or "")[:80]
+    )
+    product_label = product or "kodiak"
+    theme_line = f"theme: {theme}" if theme else "theme: none"
+    txt_lines = [
+        f"KODIAK campaign copy — {product_label}",
+        theme_line,
+        f"headline: {headline}",
+        f"brief: {prompt}",
+    ]
+    for plat in sorted(platform_copy):
+        entry = platform_copy[plat] or {}
+        body = entry.get("body") or entry.get("description") or ""
+        tags = entry.get("hashtags")
+        tags = " ".join(tags) if isinstance(tags, list) else (tags or "")
+        title = entry.get("headline") or entry.get("title") or ""
+        txt_lines.append(f"[{plat}] {title} — {body} {tags}".strip())
+    buf = io.StringIO()
+    writer = csv.writer(buf)
+    writer.writerow(["field", "value"])
+    writer.writerow(["product", product_label])
+    writer.writerow(["theme", theme or ""])
+    writer.writerow(["headline", headline])
+    writer.writerow(["brief", prompt])
+    for plat in sorted(platform_copy):
+        entry = platform_copy[plat] or {}
+        writer.writerow([f"{plat}.headline", entry.get("headline") or entry.get("title") or ""])
+        writer.writerow([f"{plat}.body", entry.get("body") or entry.get("description") or ""])
+        tags = entry.get("hashtags")
+        writer.writerow([
+            f"{plat}.hashtags",
+            " ".join(tags) if isinstance(tags, list) else (tags or ""),
+        ])
+    return {"txt": "\n".join(txt_lines) + "\n", "csv": buf.getvalue()}
 
 
 def generate_hero(
@@ -1599,8 +1788,17 @@ def generate_hero(
     paper_overlay: bool = True,
     bare_base: bool = False,
     seed_key: str | None = None,
+    layers: dict | None = None,
 ) -> tuple[Path, str, dict]:
     """Generate a real Kodiak-social-style hero. Returns (path, source, provenance).
+
+    layers selects the render contract (#199/#200): None (default) preserves the
+    legacy behavior — packshot-first composite + baked overlay text. ANY dict (even
+    empty) selects the clean contract — a standalone photographic image with NO
+    center-pasted box and NO baked-in overlay text (copy ships via build_copy_sidecar);
+    the product box composites only with layers={"product_image": True} (thirds
+    placement, never center-pasted), and retailer/partner marks only with their keys.
+    Under the clean contract the overlay_text layer alone re-enables the message bar.
 
     Never-fail degradation ladder A->B->C->D (linear, one-directional; every rung REAL
     Kodiak pixels). Each rung checks the remaining time budget against its worst-case cost
@@ -1674,6 +1872,12 @@ def generate_hero(
             return _title_case_headline(headline)
         return brief_msg[:48]
 
+    # Render-contract layers (#199/#200): normalize once; None = legacy ladder,
+    # any dict = clean contract (no default box paste, no baked overlay text).
+    layers = normalize_layers(layers)
+    overlay_on = bool(brand_overlay) if layers is None else bool(layers.get(LAYER_OVERLAY_TEXT))
+    want_box = layers is None or bool(layers.get(LAYER_PRODUCT_IMAGE))
+
     # PART A — provenance accumulator. Populated as the seed + engine paths resolve so
     # the response can explain "what was provided vs what was done to make this image".
     provenance: dict = {
@@ -1692,6 +1896,9 @@ def generate_hero(
         "overlay_applied": False,
         "paper_overlay": False,
         "packshot": None,
+        "layers": layers,
+        "clean": layers is not None,
+        "copy_headline": None,
     }
 
     def _seal(reason: str | None = None) -> None:
@@ -1782,12 +1989,14 @@ def generate_hero(
     # HARD WALL: resolve_packshot's step 3 (find_hero_asset) is another S3 fan-out on an
     # unmapped SKU. Only probe for a packshot while the wall still leaves a probe + the C
     # reservation; past the wall, skip straight to the generative ladder (rung C/D).
+    # Clean contract (#199): no probe at all unless the product_image layer is selected —
+    # default Create never center-pastes a box it went looking for.
     packshot = (
         _call_with_optional_deadline(resolve_packshot, product_id, deadline_ms=remaining_ms)
-        if _probe_ok()
+        if (want_box and _probe_ok())
         else None
     )
-    if packshot is None and not _probe_ok():
+    if packshot is None and want_box and not _probe_ok():
         print(
             f"[generate] packshot probe skipped (budget {remaining_ms():.0f}ms < "
             f"{_PROBE_BUDGET_MS + _C_RESERVATION_MS}ms) -> generative ladder",
@@ -1862,15 +2071,21 @@ def generate_hero(
             # Verbatim box composite: compose_creative pastes the real box (product_layer)
             # over the background and bakes its own message bar + accent bar, so no
             # separate _apply_brand_overlay is needed on this path (matches _render_asset).
+            # Clean contract (#199/#200): bare composite (no message bar — copy ships as
+            # sidecars) with thirds placement (composed into the scene, never
+            # center-pasted). rung A only runs here when the product_image layer was
+            # selected (want_box gate above).
             from .compose import compose_creative
 
+            layer_box = layers is not None and bool(layers.get(LAYER_PRODUCT_IMAGE))
             compose_creative(
                 hero_path=bg_path,
                 out_path=out_path,
-                message=headline if brand_overlay else "",
+                message=headline if overlay_on else "",
                 ratio_key=ratio,
                 product_layer=packshot,
-                bare=bare_base,
+                bare=bare_base or (layers is not None),
+                placement="thirds" if layer_box else "center",
             )
             provenance["engine"] = "packshot-composite"
             provenance["rung"] = "A"
@@ -1881,9 +2096,10 @@ def generate_hero(
             # drives the render — mislabelling it "packshot" hides that).
             if provenance.get("seed_selection") != "staged-dam-asset":
                 provenance["seed_selection"] = "packshot"
-            provenance["overlay_applied"] = bool(brand_overlay)
-            provenance["headline"] = headline if brand_overlay else None
-            _finalize_render(out_path, paper_overlay, provenance)
+            provenance["overlay_applied"] = bool(overlay_on)
+            provenance["headline"] = headline if overlay_on else None
+            provenance["copy_headline"] = headline
+            _finalize_render(out_path, paper_overlay, provenance, layers)
             _seal()
             return out_path, PACKSHOT_SOURCE, provenance
         except Exception as e:  # noqa: BLE001 — a composite failure falls through to generation
@@ -1950,16 +2166,19 @@ def generate_hero(
                     provenance["mascot_lock"] = _mascot_lock_on()
                     provenance["model"] = STABILITY_CONTROL_MODEL
                     # PART C — deterministic on-brand headline + accent bar ON TOP of the
-                    # GenAI hero (Nova Pro still supplies the headline). Default-on.
-                    if brand_overlay:
-                        try:
-                            headline = _headline(seed)
-                            _apply_brand_overlay(stylized, headline, ratio, stylized)
+                    # GenAI hero (Nova Pro still supplies the headline). Default-on for
+                    # the legacy ladder; clean contract (#199) keeps the hero clean and
+                    # records the line for the copy sidecars instead.
+                    try:
+                        b_headline = _headline(seed)
+                        provenance["copy_headline"] = b_headline
+                        if overlay_on:
+                            _apply_brand_overlay(stylized, b_headline, ratio, stylized)
                             provenance["overlay_applied"] = True
-                            provenance["headline"] = headline
-                        except Exception as e:  # noqa: BLE001 — never lose the GenAI hero
-                            print(f"[generate] brand overlay on stability hero failed: {e}", file=sys.stderr)
-                    _finalize_render(stylized, paper_overlay, provenance)
+                            provenance["headline"] = b_headline
+                    except Exception as e:  # noqa: BLE001 — never lose the GenAI hero
+                        print(f"[generate] brand overlay on stability hero failed: {e}", file=sys.stderr)
+                    _finalize_render(stylized, paper_overlay, provenance, layers)
                     _seal()
                     return stylized, STABILITY_SOURCE, provenance
                 # helper returned None — timeout/throttle/model-error already logged to
@@ -1991,16 +2210,22 @@ def generate_hero(
 
         # ---- RUNG C: Pillow compose overlay on the SAME seed. The guaranteed-real
         # workhorse rung B falls through to. Always available (no network).
+        # Clean contract (#199): photographic cover only — the headline is recorded
+        # for the copy sidecars, never baked into the pixels.
         try:
-            headline = _headline(seed)
-            result = _compose_scene(seed, headline, ratio, out_path, idx)
+            c_headline = _headline(seed)
+            provenance["copy_headline"] = c_headline
+            result = _compose_scene(
+                seed, c_headline if overlay_on else "", ratio, out_path, idx,
+                clean=not overlay_on,
+            )
             if result.exists():
                 provenance["engine"] = "pillow-compose"
                 provenance["rung"] = "C"
                 provenance["model"] = "pillow:compose-scene"
-                provenance["overlay_applied"] = True  # _compose_scene bakes the brand layer
-                provenance["headline"] = headline
-                _finalize_render(result, paper_overlay, provenance)
+                provenance["overlay_applied"] = bool(overlay_on)
+                provenance["headline"] = c_headline if overlay_on else None
+                _finalize_render(result, paper_overlay, provenance, layers)
                 _seal()
                 return result, "bedrock:nova-pro", provenance
         except Exception as e:  # noqa: BLE001 — falls through to rung D (brand-floor)
@@ -2016,18 +2241,30 @@ def generate_hero(
     provenance["engine"] = "brand-floor"
     provenance["rung"] = "D"
     provenance["model"] = "pillow:brand-floor"
-    _finalize_render(floor, paper_overlay, provenance)
+    provenance["copy_headline"] = provenance.get("copy_headline") or brief_msg[:48]
+    _finalize_render(floor, paper_overlay, provenance, layers)
     _seal()
     return floor, BRAND_FLOOR_SOURCE, provenance
 
 
-def _finalize_render(path: Path, paper_overlay: bool, provenance: dict) -> None:
+def _finalize_render(
+    path: Path, paper_overlay: bool, provenance: dict, layers: dict | None = None
+) -> None:
     """PART D final step — bake the ~2% kraft texture into a render in place.
 
     Applies to every returned render on every path (stability, pillow, placeholder).
     Records paper_overlay=True in provenance on success. Never raises past the render —
     a texture failure must not lose the hero.
+
+    layers (render contract #200): selected retailer/partner marks composite onto the
+    finished render BEFORE the grain, so marks sit under the paper tooth like print.
+    None (legacy) changes nothing.
     """
+    if layers:
+        try:
+            _apply_layer_marks(path, layers, provenance)
+        except Exception as e:  # noqa: BLE001 — marks are cosmetic; never lose the hero
+            print(f"[generate] layer marks failed: {e}", file=sys.stderr)
     if not paper_overlay:
         return
     try:
@@ -2049,6 +2286,7 @@ def generate_hero_set(
     brand_overlay: bool = True,
     paper_overlay: bool = True,
     seed_key: str | None = None,
+    layers: dict | None = None,
 ) -> tuple[list[dict], str, dict]:
     """Deliver all four sizes from ONE call. Returns (renders, source, provenance).
 
@@ -2069,6 +2307,8 @@ def generate_hero_set(
     # outpaint from (overlays are applied per-ratio below, after sizing).
     base_path = out_dir / "hero-1x1-base.png"
     base_path.parent.mkdir(parents=True, exist_ok=True)
+    layers = normalize_layers(layers)
+    provenance_layers = layers
     clean_base, source, provenance = generate_hero(
         product_id=product_id,
         product_name=product_name,
@@ -2083,7 +2323,10 @@ def generate_hero_set(
         paper_overlay=False,
         bare_base=True,
         seed_key=seed_key,
+        layers=layers,
     )
+    provenance["layers"] = provenance_layers
+    provenance["clean"] = provenance_layers is not None
 
     # The set headline re-runs the full pipeline (grounded director first, stock
     # Nova normalized second) on the clean base — the base hero call above ran
@@ -2091,6 +2334,7 @@ def generate_hero_set(
     # Nova-only helper overwrote grounded provenance with an un-normalized line.
     headline, headline_source = _headline_for(clean_base, product_name, brief_msg, region, audience)
     provenance["headline"] = headline if brand_overlay else None
+    provenance["copy_headline"] = provenance.get("copy_headline") or headline
     if headline_source:
         provenance["headline_source"] = headline_source
     provenance["ratios"] = {}
@@ -2186,7 +2430,8 @@ def generate_hero_set(
             except Exception as e:  # noqa: BLE001 — never lose the render over the overlay
                 print(f"[generate] brand overlay on {ratio} failed: {e}", file=sys.stderr)
         # PART D — bake the ~2% kraft texture as the final step on every render.
-        _finalize_render(ratio_path, paper_overlay, provenance)
+        # Selected retailer/partner marks (#200) composite per ratio under the grain.
+        _finalize_render(ratio_path, paper_overlay, provenance, layers)
 
         with Image.open(ratio_path) as im:
             w, h = im.size
