@@ -96,7 +96,7 @@ let skuList = [
       const loc = document.getElementById('locality')?.value || sel;
       if(loc) market = loc;
     }catch(e){}
-    // Artisanal copy first, then the 73-market places table (every market carries a
+    // Artisanal copy first, then the 75-market places table (every market carries a
     // real message + cue), generic only when the market is genuinely unknown. The old
     // chain fell to generic for 68 of 73 places.
     let txt = flavorMap[market];
@@ -402,7 +402,7 @@ let skuList = [
       let selectedLoc = null;
       try{ const locVal=document.getElementById('locality')?.value || 'US-MW-PARKCITY-84098'; selectedLoc = places.find(p=>p.market===locVal) || places.find(p=>p.market==='US-MW-PARKCITY-84098') || places[0]; }catch(e){ selectedLoc = {place:'Park City, Utah 84098', market:'US-MW-PARKCITY-84098'}; }
       const frontierLink = (typeof featuredFrontierFor==='function') ? featuredFrontierFor(selectedLoc.market) : null;
-      const frontierHint = frontierLink ? frontierLink.text : 'Nearest Frontier via haversine — same pipeline fans to all 73';
+      const frontierHint = frontierLink ? frontierLink.text : 'Nearest Frontier via haversine — same pipeline fans to all 75';
       const status = document.getElementById('sampleStatus');
       const origLabel = 'Create Campaign Preview';
       // slugify a product NAME -> API slug that resolves to a packshot map key.

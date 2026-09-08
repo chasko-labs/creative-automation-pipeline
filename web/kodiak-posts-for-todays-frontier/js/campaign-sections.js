@@ -113,10 +113,56 @@
   }
   function currentBrief(){ try{ return (document.getElementById('campaignBrief')?.value || '').trim() || 'Keep It Wild — Nourishment for Today\u0027s Frontier'; }catch(e){ return 'Keep It Wild'; } }
 
-  function renderCampaignCarousel(renders){
+  // #284 — QA failover box: honest fail state with Try again + copyable run
+  // summary. Passing runs clear it. Never fabricates — every line is a real
+  // request/response fact passed in by the caller.
+  function paintFailBox(info){
+    var status = document.getElementById('generateCampaignStatus');
+    var old = document.getElementById('campaignFailBox');
+    if(old) old.remove();
+    if(!info || !status || !status.parentNode) return;
+    var box = document.createElement('div');
+    box.id = 'campaignFailBox';
+    box.className = 'ff-failbox';
+    box.setAttribute('role', 'alert');
+    var title = info.kind==='fallback' ? 'Render miss — fallback shown, not the campaign' : 'Full campaign failed QA';
+    var head = document.createElement('b');
+    head.textContent = title;
+    box.appendChild(head);
+    var detail = document.createElement('div');
+    detail.className = 'small';
+    detail.textContent = info.detail || '';
+    box.appendChild(detail);
+    var row = document.createElement('div');
+    row.className = 'row';
+    row.style.gap = '10px';
+    var retry = document.createElement('button');
+    retry.type = 'button'; retry.className = 'btn orange'; retry.textContent = 'Try again';
+    retry.addEventListener('click', function(){ runCampaign(); });
+    row.appendChild(retry);
+    var copy = document.createElement('button');
+    copy.type = 'button'; copy.className = 'btn ghost'; copy.textContent = 'Copy run summary';
+    copy.addEventListener('click', function(){
+      var summary = 'KODIAK campaign run summary — ' + new Date().toISOString() + '\n' +
+        'market: ' + (info.market||'?') + '\nproduct: ' + (info.product||'?') + '\nscope: ' + (info.scope||'?') + '\n' +
+        'source: ' + (info.source||'?') + '\nresult: ' + (info.detail||'?');
+      function done(ok){ copy.textContent = ok ? 'Copied — paste it to support' : 'Copy failed — select and copy manually'; }
+      try{
+        if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(summary).then(function(){done(true);}, function(){done(false);}); }
+        else{ done(false); }
+      }catch(e){ done(false); }
+    });
+    row.appendChild(copy);
+    box.appendChild(row);
+    status.parentNode.insertBefore(box, status.nextSibling);
+  }
+
+  function renderCampaignCarousel(renders, source){
     var car = document.getElementById('campaignAssetsCarousel');
     if(!car) return;
     car.innerHTML = '';
+    // #284 — fallback pixels are labeled ON the tile, never presented as the campaign.
+    var isFallback = /^brand-floor/i.test(String(source||''));
     var date = new Date().toISOString().slice(0,10).replace(/-/g,'');
     var product = selectedProductSlug();
     (renders||[]).forEach(function(r, i){
@@ -129,6 +175,12 @@
       img.loading = 'lazy';
       img.alt = 'Campaign asset ' + (r.ratio ? String(r.ratio).replace('x',':') : '');
       slot.appendChild(img);
+      if(isFallback){
+        var miss = document.createElement('div');
+        miss.className = 'ff-fallback-flag';
+        miss.textContent = 'render miss — fallback pixels, not the campaign (' + String(source||'brand-floor') + ')';
+        slot.appendChild(miss);
+      }
       // per-asset download link: one real user click per file, so each download
       // carries its own gesture. Browsers block multiple programmatic downloads
       // from a single click (multi-download governor) — the pack button cannot
@@ -240,7 +292,7 @@
       try{ window.__lastCampaignSidecar = (json.copy_sidecar && typeof json.copy_sidecar==='object') ? json.copy_sidecar : null; }catch(e){}
       // reuse the preview renderer for the on-screen result when available
       try{ if(typeof window.KODIAK_showRenderSet==='function' && Array.isArray(json.renders) && json.renders.length){ window.KODIAK_showRenderSet(json.renders, {source: json.source, provenance: json.provenance}); } }catch(e){}
-      renderCampaignCarousel(renders);
+      renderCampaignCarousel(renders, json.source);
       // campaign copy panel (#241): headline + brief + language variants, same
       // rules as the preview captions; downloadable in the pack (#242 zip).
       try{
@@ -252,10 +304,23 @@
       if(assets && assets.hidden){ assets.hidden = false; }
       try{ assets.scrollIntoView({behavior:'smooth', block:'start'}); }catch(e){}
       if(status) status.textContent = 'Campaign created — ' + renders.length + ' asset' + (renders.length===1?'':'s') + ' from ' + (json.source || 'Nova Pro') + ' (' + scope + ')';
+      // #284 — wall-timeout fallback is a QA miss, not a campaign: label it and
+      // offer retry. Passing runs clear any prior fail box.
+      var runSource = json.source || 'Nova Pro';
+      if(/^brand-floor/i.test(runSource)){
+        if(status) status.textContent = 'Render miss (wall timeout) — fallback shown below, not the campaign. Try again or send the run summary to support.';
+        paintFailBox({kind:'fallback', detail:'The backend wall clock fired before the render finished; these pixels are the brand-floor stand-in.',
+          market: selectedMarket(), product: selectedProductSlug(), scope: scope, source: runSource});
+      } else {
+        paintFailBox(null);
+      }
     }catch(err){
       if(status) status.textContent = (err && err.name==='AbortError')
         ? 'Campaign generate timed out — reconnect and try again.'
         : 'Could not generate the full campaign — ' + (err && err.message ? err.message : 'try again') + '.';
+      // #284 — error runs get the same honest fail state with retry + summary.
+      try{ paintFailBox({kind:'error', detail: String((err && err.message) || err || 'unknown error'),
+        market: selectedMarket(), product: selectedProductSlug(), scope: scope, source: 'error'}); }catch(e2){}
     }finally{
       clearTimeout(timeoutId);
       setCampaignBtnsDisabled(false);

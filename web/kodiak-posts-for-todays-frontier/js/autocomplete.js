@@ -1,5 +1,5 @@
 // === B3 + B4 — prompt-box autocomplete + two-way selection reflection ===
-// Additive only. Binds by id, reuses already-loaded window.skuCatalog (88 SKUs) + window.places (73 places).
+// Additive only. Binds by id, reuses already-loaded window.skuCatalog (88 SKUs) + window.places (75 places).
 // Coordinates with the existing chip/theme block via a shared programmatic-write guard so it never
 // clobbers the user's text, never spuriously clears window.__activeTheme, and never fights auto-grow.
 (function(){

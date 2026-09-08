@@ -1,4 +1,209 @@
 {
+  "US-CA-CASTROVILLE": {
+    "aliases": [],
+    "audience": "Artichoke harvest families and row-crop crews; farm-stand shoppers with a Watsonville halo for full grocery",
+    "campaign_type_fit": {
+      "bears": {
+        "angle": "no bear-habitat hook identified",
+        "fit": "na"
+      },
+      "keep-it-wild": {
+        "angle": "marine-layer dawn over artichoke rows is a genuine wild-edge farm story",
+        "fit": "strong"
+      },
+      "localized-costco": {
+        "angle": "frontier-gap: no in-town chain grocer; farm stands + Watsonville halo",
+        "fit": "na"
+      },
+      "recipe-cards": {
+        "angle": "spring artichoke cards are the signature Castroville hook",
+        "fit": "strong"
+      },
+      "riff-on-past-content": {
+        "angle": "no existing Castroville creative corpus at all -- nothing to riff on",
+        "fit": "na"
+      },
+      "us-ski-and-snowboard": {
+        "angle": "Monterey County farm town; no ski culture",
+        "fit": "na"
+      },
+      "zac-efron": {
+        "angle": "no celebrity tie identified; archetype/partnership only, never likeness",
+        "fit": "na"
+      }
+    },
+    "city_center": {
+      "landmark": "row-crop artichoke fields around a small farm town with no in-town chain grocer; Monterey Bay marine layer mornings",
+      "name": "Castroville (unincorporated Monterey County farm town)",
+      "notes": "Castroville is a genuine frontier-gap market (farm stands, no chain grocer) and the self featured frontier for its own code plus the rural counterpart for San Jose. Standalone farmers-market URL unconfirmed -- research dispatch."
+    },
+    "classification": "frontier-gap",
+    "coordinates": {
+      "lat": 36.7656,
+      "lon": -121.7588
+    },
+    "county": "Monterey County",
+    "cultural_notes": [
+      "Castroville calls itself the Artichoke Capital -- the artichoke harvest (Mar-Jun, peak April) is the defining local season (shared with the Pescadero record's produce data)",
+      "no in-town chain grocer: farm stands plus a Watsonville halo -- a genuine frontier-gap retail pattern"
+    ],
+    "design_palette": {
+      "_provenance_note": "palette grounded in the artichoke/strawberry/Brussels-sprout produce story. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette.",
+      "building_materials": [
+        "farm-stand timber",
+        "corrugated packing-shed steel",
+        "row-crop field"
+      ],
+      "colors": [
+        {
+          "hex": "#5F7A3D",
+          "name": "artichoke green",
+          "use": "produce hero / foreground"
+        },
+        {
+          "hex": "#5A4632",
+          "name": "furrow-soil brown",
+          "use": "field / grounding"
+        },
+        {
+          "hex": "#9AA3A8",
+          "name": "marine-layer gray",
+          "use": "dawn sky / haze"
+        },
+        {
+          "hex": "#C03A2B",
+          "name": "strawberry red",
+          "use": "produce accent"
+        },
+        {
+          "hex": "#C9B489",
+          "name": "kraft stand tan",
+          "use": "farm-stand structure"
+        }
+      ],
+      "landscape_motifs": [
+        "artichoke-field rows at dawn",
+        "farm-stand tables",
+        "marine layer over the fields"
+      ],
+      "textures": [
+        "artichoke-leaf armor",
+        "row-crop furrow soil",
+        "marine-layer haze",
+        "farm-stand kraft",
+        "brussels-sprout stalk"
+      ]
+    },
+    "featured_frontier": {
+      "cross_promo": {
+        "activation": "spring artichoke cards tied to the Mar-Jun harvest; standalone market URL unconfirmed -- research dispatch",
+        "consent_status": "n/a",
+        "partner": "Castroville artichoke stands",
+        "product": "artichoke harvest recipe cards",
+        "url": ""
+      },
+      "hook": "Artichoke Capital at dawn -- artichoke rows in marine layer, farm-stand tables, savory artichoke waffle",
+      "photo_cue": "artichoke-field rows, farm-stand tables, Monterey Bay marine layer, flapjack stack",
+      "signature_ingredient": "Castroville artichokes Mar-Jun (peak April); strawberries May-Sep; Brussels sprouts Sep-Feb (shared with the Pescadero record)"
+    },
+    "languages": [
+      {
+        "lang_code": "es",
+        "lang_name": "Spanish",
+        "pct_home": 20.0,
+        "reason": "INFERRED row-crop harvest community, strongly Spanish-forward -- ACS tract refresh pending, verify before production",
+        "translate_code": "es"
+      },
+      {
+        "lang_code": "zh",
+        "lang_name": "Chinese",
+        "pct_home": 1.0,
+        "reason": "INFERRED minimal presence expected -- ACS tract refresh pending, verify before production",
+        "translate_code": "zh"
+      }
+    ],
+    "market_code": "US-CA-CASTROVILLE",
+    "place": "Castroville, California 95012 — Artichoke Capital",
+    "provenance": {
+      "generated": "2026-09-08T00:00:00Z",
+      "sourced_from": [
+        "places[] entry US-CA-CASTROVILLE (retailer/zip/audience/message/cue)",
+        "market-featured-frontiers pairing US-CA-CASTROVILLE self + US-W-SANJOSE -> US-CA-CASTROVILLE",
+        "artichoke/strawberry/Brussels-sprout seasons shared with the Pescadero record (in-repo)",
+        "INFERRED: retailers, languages, palette, seasonal detail -- verify all before production"
+      ]
+    },
+    "readiness": {
+      "fields": {
+        "audience": "thin",
+        "campaign_type_fit": "ready",
+        "city_center": "thin",
+        "cultural_notes": "thin",
+        "design_palette": "thin",
+        "featured_frontier": "ready",
+        "languages": "thin",
+        "retailers": "thin",
+        "seasonal": "thin"
+      },
+      "notes": "New seed for the Bay Area normalization. Frontier pairing + produce seasons are real (shared with the Pescadero record). Retailers, languages, and demographics are INFERRED -- verify stand URLs, ACS pct, and Watsonville distance before production.",
+      "ready_to_rock": false,
+      "score": 0.45
+    },
+    "region_id": "castroville",
+    "retailers": [
+      {
+        "name": "Watsonville halo",
+        "notes": "nearest full grocery is the Watsonville halo -- verify exact distance",
+        "role": "gap-nearest"
+      }
+    ],
+    "seasonal": [
+      {
+        "in_season_produce": [
+          {
+            "name": "Castroville artichokes",
+            "pancake_tie": "artichoke-heart savory waffle -- the signature Castroville hook",
+            "peak_month": 4
+          }
+        ],
+        "months": [
+          3,
+          4,
+          5
+        ],
+        "season": "spring-easter",
+        "where_to_buy": [
+          {
+            "name": "Castroville artichoke stands",
+            "notes": "standalone URL unconfirmed -- research dispatch",
+            "type": "farm-stand"
+          }
+        ]
+      },
+      {
+        "in_season_produce": [
+          {
+            "name": "strawberries",
+            "pancake_tie": "strawberry-topped Power Cakes -- late-summer Castroville side of the season",
+            "peak_month": 8
+          }
+        ],
+        "months": [
+          8,
+          9
+        ],
+        "season": "summer-fourth",
+        "where_to_buy": [
+          {
+            "name": "Castroville artichoke stands",
+            "type": "farm-stand"
+          }
+        ]
+      }
+    ],
+    "state": "CA",
+    "zip": "95012"
+  },
   "US-CA-PESCADERO": {
     "aliases": [
       "US-W-SF (Bay Area metro anchor / legacy market)"
@@ -28125,6 +28330,206 @@
     ],
     "state": "CA",
     "zip": "95814"
+  },
+  "US-W-SANJOSE": {
+    "aliases": [],
+    "audience": "South Bay families with orchard-valley roots; Target, Safeway, and Whole Foods shoppers",
+    "campaign_type_fit": {
+      "bears": {
+        "angle": "no bear-habitat hook identified",
+        "fit": "na"
+      },
+      "keep-it-wild": {
+        "angle": "blossom-country roots + marine-layer dawn give a mild wild edge for a metro market",
+        "fit": "weak"
+      },
+      "localized-costco": {
+        "angle": "chain-grocer metro; Costco halo unconfirmed -- verify before production",
+        "fit": "weak"
+      },
+      "recipe-cards": {
+        "angle": "spring artichoke cards via the Castroville counterpart is the natural hook",
+        "fit": "strong"
+      },
+      "riff-on-past-content": {
+        "angle": "no existing San Jose creative corpus at all -- nothing to riff on",
+        "fit": "na"
+      },
+      "us-ski-and-snowboard": {
+        "angle": "South Bay metro; no ski culture",
+        "fit": "na"
+      },
+      "zac-efron": {
+        "angle": "no celebrity tie identified; archetype/partnership only, never likeness",
+        "fit": "na"
+      }
+    },
+    "city_center": {
+      "landmark": "South Bay city at the foot of the orchard valley; tech-campus neighborhoods over former blossom country",
+      "name": "San Jose (South Bay metro anchor)",
+      "notes": "San Jose is the South Bay urban anchor paired to the Castroville featured frontier (rural counterpart). Metro produce detail is INFERRED -- verify farmers-market and retail specifics before production."
+    },
+    "classification": "metro",
+    "coordinates": {
+      "lat": 37.3382,
+      "lon": -121.8863
+    },
+    "county": "Santa Clara County",
+    "cultural_notes": [
+      "San Jose sits on former blossom country -- orchard-valley roots run under the tech campuses (general regional framing, verify exact market-copy use before production)",
+      "the rural counterpart for this market is Castroville, the Artichoke Capital (paired in market-featured-frontiers, same artichoke seasons as the Pescadero record)"
+    ],
+    "design_palette": {
+      "_provenance_note": "palette grounded in the Castroville artichoke/strawberry produce story and blossom-country roots. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette.",
+      "building_materials": [
+        "orchard-valley farm-stand timber",
+        "mission-revival stucco",
+        "tech-campus glass and steel"
+      ],
+      "colors": [
+        {
+          "hex": "#5F7A3D",
+          "name": "artichoke green",
+          "use": "produce hero / foreground"
+        },
+        {
+          "hex": "#F3EDE2",
+          "name": "blossom white",
+          "use": "backdrop / negative space"
+        },
+        {
+          "hex": "#9AA3A8",
+          "name": "marine-layer gray",
+          "use": "dawn sky / haze"
+        },
+        {
+          "hex": "#6E5138",
+          "name": "valley oak brown",
+          "use": "structure / table"
+        },
+        {
+          "hex": "#C03A2B",
+          "name": "strawberry red",
+          "use": "produce accent"
+        }
+      ],
+      "landscape_motifs": [
+        "artichoke-field rows at dawn",
+        "blossom remnants over suburbia",
+        "marine layer over the South Bay"
+      ],
+      "textures": [
+        "blossom-petal drift",
+        "artichoke-leaf armor",
+        "marine-layer haze",
+        "valley oak bark",
+        "farm-stand kraft"
+      ]
+    },
+    "featured_frontier": {
+      "cross_promo": {
+        "activation": "spring artichoke cards tied to the Castroville harvest; standalone market URL unconfirmed -- research dispatch",
+        "consent_status": "n/a",
+        "partner": "Castroville artichoke stands",
+        "product": "artichoke harvest recipe cards",
+        "url": ""
+      },
+      "hook": "South Bay mornings meet Castroville artichoke country -- artichoke-and-strawberry stack with a marine-layer dawn behind",
+      "photo_cue": "artichoke-field rows at dawn, farm-stand tables, Monterey Bay marine layer, flapjack stack",
+      "signature_ingredient": "Castroville artichokes Mar-Jun (peak April); strawberries May-Sep (shared with the Pescadero record)"
+    },
+    "languages": [
+      {
+        "lang_code": "es",
+        "lang_name": "Spanish",
+        "pct_home": 12.0,
+        "reason": "INFERRED Bay Area metro profile, Spanish-forward like SF -- ACS tract refresh pending, verify before production",
+        "translate_code": "es"
+      },
+      {
+        "lang_code": "zh",
+        "lang_name": "Chinese",
+        "pct_home": 6.0,
+        "reason": "INFERRED Bay Area metro profile -- ACS tract refresh pending, verify before production",
+        "translate_code": "zh"
+      }
+    ],
+    "market_code": "US-W-SANJOSE",
+    "place": "San Jose, California",
+    "provenance": {
+      "generated": "2026-09-08T00:00:00Z",
+      "sourced_from": [
+        "places[] entry US-W-SANJOSE (retailer/zip/audience/message/cue)",
+        "market-featured-frontiers pairing US-W-SANJOSE -> US-CA-CASTROVILLE",
+        "artichoke/strawberry seasons shared with the Pescadero record (in-repo)",
+        "INFERRED: metro profile, languages, palette, seasonal detail -- verify all before production"
+      ]
+    },
+    "readiness": {
+      "fields": {
+        "audience": "thin",
+        "campaign_type_fit": "ready",
+        "city_center": "thin",
+        "cultural_notes": "thin",
+        "design_palette": "thin",
+        "featured_frontier": "ready",
+        "languages": "thin",
+        "retailers": "ready",
+        "seasonal": "thin"
+      },
+      "notes": "New seed for the Bay Area normalization. Retailers + frontier pairing are real (places entry + market-featured-frontiers). Everything else is INFERRED metro profile -- verify farmers-market specifics, ACS language pct, and produce detail before production.",
+      "ready_to_rock": false,
+      "score": 0.5
+    },
+    "region_id": "san-jose",
+    "retailers": [
+      {
+        "name": "Target",
+        "notes": "in-market chain grocer per places entry",
+        "role": "home"
+      },
+      {
+        "name": "Safeway",
+        "notes": "in-market chain grocer per places entry",
+        "role": "home"
+      },
+      {
+        "name": "Whole Foods",
+        "notes": "in-market chain grocer per places entry",
+        "role": "home"
+      }
+    ],
+    "seasonal": [
+      {
+        "in_season_produce": [
+          {
+            "name": "Castroville artichokes",
+            "pancake_tie": "artichoke-heart savory waffle -- spring Castroville harvest via the rural counterpart",
+            "peak_month": 4
+          }
+        ],
+        "months": [
+          3,
+          4,
+          5
+        ],
+        "season": "spring-easter",
+        "where_to_buy": [
+          {
+            "name": "Castroville artichoke stands",
+            "notes": "standalone URL unconfirmed -- research dispatch",
+            "type": "farm-stand"
+          },
+          {
+            "name": "Safeway",
+            "notes": "in-market chain grocer",
+            "type": "chain-grocer"
+          }
+        ]
+      }
+    ],
+    "state": "CA",
+    "zip": "95113"
   },
   "US-W-SD": {
     "aliases": [],

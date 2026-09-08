@@ -6,12 +6,12 @@
     "counts": {
       "seeded_regions": 18,
       "synthesized_new": 50,
-      "total_markets": 73,
+      "total_markets": 76,
       "bay_area_frontier_added": 1,
       "total": 71
     },
     "locator_url": "https://kodiakcakes.com/pages/store-locator",
-    "total_markets": 73
+    "total_markets": 76
   },
   "markets": [
     {
@@ -830,6 +830,34 @@
       "coordinates": {
         "lat": 32.982,
         "lon": -82.81
+      }
+    },
+    {
+      "market": "US-W-SANJOSE",
+      "place": "San Jose, California",
+      "audience": "South Bay families, orchard-valley roots",
+      "message": "Orchard-valley frontier \u2014 protein-packed whole grains for San Jose mornings. Nourishment for Today's Frontier",
+      "cue": "Blossom remnants, tech-campus oatmeal cup",
+      "retailer": "Target, Safeway, Whole Foods",
+      "zip": "95113",
+      "brand": "kodiak",
+      "coordinates": {
+        "lat": 37.3382,
+        "lon": -121.8863
+      }
+    },
+    {
+      "market": "US-CA-CASTROVILLE",
+      "place": "Castroville, California 95012 \u2014 Artichoke Capital",
+      "audience": "Artichoke harvest families, row-crop crews",
+      "message": "Artichoke capital \u2014 protein-packed whole grains for Castroville harvest mornings. Nourishment for Today's Frontier",
+      "cue": "Artichoke fields, farm-stand tables, Monterey Bay marine layer",
+      "retailer": "Artichoke stands + farmers market (Apr-Jun), Watsonville halo \u2014 no chain grocer in town",
+      "zip": "95012",
+      "brand": "kodiak",
+      "coordinates": {
+        "lat": 36.7656,
+        "lon": -121.7588
       }
     }
   ]

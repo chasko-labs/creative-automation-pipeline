@@ -4,6 +4,8 @@ import * as dynamodb from "aws-cdk-lib/aws-dynamodb";
 import * as s3 from "aws-cdk-lib/aws-s3";
 import * as s3vectors from "aws-cdk-lib/aws-s3vectors";
 import {
+  FRONTIER_ALIASES,
+  FRONTIER_DOMAIN_NAME,
   KODIAK_VECTOR_BUCKET_NAME,
   KODIAK_VECTOR_INDEX_NAME,
   KODIAK_VECTOR_DIMENSION,
@@ -135,6 +137,20 @@ export class DataStack extends cdk.Stack {
     // `cdk import` adopts it with zero drift.
     const styleLibraryBucket = new s3.CfnBucket(this, "StyleLibraryBucket", {
       bucketName: damBucketName,
+      // #285 — the canvas + DAM tiles load presigned GETs with
+      // crossOrigin='anonymous', which fails without an ACAO header. Allow
+      // GET/HEAD from the site aliases + the distribution domain only.
+      corsConfiguration: {
+        corsRules: [
+          {
+            allowedMethods: ["GET", "HEAD"],
+            allowedOrigins: [...FRONTIER_ALIASES.map((a) => `https://${a}`), `https://${FRONTIER_DOMAIN_NAME}`],
+            allowedHeaders: ["Authorization", "Range"],
+            exposedHeaders: ["ETag", "Content-Length", "x-amz-meta-platforms"],
+            maxAge: 3000,
+          },
+        ],
+      },
       versioningConfiguration: { status: "Enabled" },
       publicAccessBlockConfiguration: {
         blockPublicAcls: true,

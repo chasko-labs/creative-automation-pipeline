@@ -692,7 +692,7 @@ graph TD
 <div class="card inv-section" id="inv-taxonomy"><div class="hd"><h2>11 · Axis C — market vs featured-frontier taxonomy <span class="badge">S13–S14</span></h2><p>Reclassifies the location control under the two-bucket product vocabulary, derived from live data shape.</p></div><div class="body">
 <p class="inv-lead"><b>market</b> = has a commercial retail footprint (store-finder-markets.json <span class="kbd">retailer</span> names a chain grocer). <b>featured frontier</b> = no retail chain — general store / farmers-market / subscription only (frontier-gaps.json <span class="kbd">retail_gap</span> + frontier:true + subscriber_variant:true).</p>
 <table class="inv-table"><thead><tr><th>Control</th><th>Today</th><th>Should</th><th>Verdict</th></tr></thead><tbody>
-<tr><td>Market disclosure listbox (#marketListbox)</td><td>flat role=listbox of 73</td><td>grouped Markets / Featured Frontier, alpha-by-state each</td><td>right home — apply S13+S14</td></tr>
+<tr><td>Market disclosure listbox (#marketListbox)</td><td>flat role=listbox of 75</td><td>grouped Markets / Featured Frontier, alpha-by-state each</td><td>right home — apply S13+S14</td></tr>
 <tr><td>Market option row (.ff-opt-sub)</td><td>sublabel slot available</td><td>sublabel shows class + state ("Market — UT")</td><td>right home</td></tr>
 <tr><td>Featured-frontier note (#featuredFrontier)</td><td>empty</td><td>render featured-frontier framing when picked</td><td>apply (also S12)</td></tr>
 <tr><td>Flat locality select (#locality)</td><td>raw order, no grouping/sort</td><td>—</td><td><span class="state stub">deprecation target</span></td></tr>
@@ -948,7 +948,7 @@ graph TD
         if(sizeKB>=20&&sizeKB<=100){s++; subs.push('✓ '+sizeKB+'k tight');} else subs.push('✗ size '+sizeKB+'k');
         return {score:s,max:m,detail:subs.join(' • '),pass:s===m,subs};
       }},
-    { id:'localization', title:'Localization Coverage', weight:2, desc:'APP 73 places + 74 language markets + Burlington FR + localized surface renders', check: function(){
+    { id:'localization', title:'Localization Coverage', weight:2, desc:'APP 75 places + 76 language markets + Burlington FR + localized surface renders', check: function(){
         if(!appReady) return noApp();
         const subs=[]; let s=0,m=4;
         let placesLen=0, mlKeys=[], mlStr='{}';

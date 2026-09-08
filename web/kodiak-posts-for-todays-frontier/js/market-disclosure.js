@@ -229,6 +229,7 @@
     'US-SE-ASHEVILLE':{lat:35.5951,lon:-82.5515}, 'US-MW-JACKSONHOLE':{lat:43.4799,lon:-110.7624},
     'US-W-BEND':{lat:44.0582,lon:-121.3153}, 'US-W-BOULDER':{lat:40.0150,lon:-105.2705},
     'US-CA-PESCADERO':{lat:37.2547,lon:-122.3833}, 'US-WA-NEAHBAY':{lat:48.3686,lon:-124.6244},
+    'US-W-SANJOSE':{lat:37.3382,lon:-121.8863}, 'US-CA-CASTROVILLE':{lat:36.7656,lon:-121.7588},
     'US-SW-TULAROSA':{lat:33.0742,lon:-106.0192}
   };
   var marketCoords = {}; // market code -> {lat, lon}; seeded offline-first, enriched by JSON if present
@@ -563,7 +564,7 @@
     summary.setAttribute('aria-expanded','false');
   }
   // places[] + #locality exist by the time DOM is parsed (scripts above are inline, synchronous).
-  // rebuild once the async 73-market file may have upgraded marketLangsOffline (language line only reads it live).
+  // rebuild once the async 75-market file may have upgraded marketLangsOffline (language line only reads it live).
   init();
   // rebuild options again shortly in case fillSelects/default ran after us
   setTimeout(function(){ if(!listbox.querySelector('[role="option"]')) buildOptions(); reflectMarket((document.getElementById('locality')||{}).value || 'US-MW-PARKCITY-84098'); }, 500);

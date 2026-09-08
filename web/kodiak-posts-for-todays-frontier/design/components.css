@@ -901,6 +901,11 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 /* #282: .badge sets display:inline-block, which beats the UA [hidden] rule the same
    way — the reveal hid the badge via hidden=true but it stayed painted. Re-hide it. */
 #generateCampaignLock[hidden]{display:none}
+/* #284 — QA failover box + fallback tile flag: honest fail state, never styled as success. */
+.ff-failbox{margin:10px 0;padding:10px 12px;border:1px solid #B51E14;background:var(--colors-neutral-50)}
+.ff-failbox>b{display:block;font:700 12px/1.4 "museo-sans",sans-serif;color:#B51E14;margin-bottom:4px}
+.ff-failbox .small{margin-bottom:8px}
+.ff-fallback-flag{padding:6px 8px;font:700 10px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#B51E14;background:rgba(181,30,20,.08)}
 /* Full-campaign scope option: the hero choice of step 1. Flag is the system .badge
    (in markup); the option gets room for its longer sub-line. */
 .ff-scope-opt--full{flex-basis:220px}

@@ -1,4 +1,75 @@
 {
+  "US-CA-CASTROVILLE": {
+    "campaign_type_fit": {
+      "bears": {
+        "angle": "no bear-habitat hook identified",
+        "fit": "na"
+      },
+      "keep-it-wild": {
+        "angle": "marine-layer dawn over artichoke rows is a genuine wild-edge farm story",
+        "fit": "strong"
+      },
+      "localized-costco": {
+        "angle": "frontier-gap: no in-town chain grocer; farm stands + Watsonville halo",
+        "fit": "na"
+      },
+      "recipe-cards": {
+        "angle": "spring artichoke cards are the signature Castroville hook",
+        "fit": "strong"
+      },
+      "riff-on-past-content": {
+        "angle": "no existing Castroville creative corpus at all -- nothing to riff on",
+        "fit": "na"
+      },
+      "us-ski-and-snowboard": {
+        "angle": "Monterey County farm town; no ski culture",
+        "fit": "na"
+      },
+      "zac-efron": {
+        "angle": "no celebrity tie identified; archetype/partnership only, never likeness",
+        "fit": "na"
+      }
+    },
+    "city_center": {
+      "landmark": "row-crop artichoke fields around a small farm town with no in-town chain grocer; Monterey Bay marine layer mornings",
+      "name": "Castroville (unincorporated Monterey County farm town)"
+    },
+    "design_palette": {
+      "colors": [
+        {
+          "hex": "#5F7A3D",
+          "name": "artichoke green"
+        },
+        {
+          "hex": "#5A4632",
+          "name": "furrow-soil brown"
+        },
+        {
+          "hex": "#9AA3A8",
+          "name": "marine-layer gray"
+        }
+      ],
+      "textures": [
+        "artichoke-leaf armor",
+        "row-crop furrow soil",
+        "marine-layer haze"
+      ]
+    },
+    "featured_frontier": {
+      "hook": "Artichoke Capital at dawn -- artichoke rows in marine layer, farm-stand tables, savory artichoke waffle",
+      "photo_cue": "artichoke-field rows, farm-stand tables, Monterey Bay marine layer, flapjack stack"
+    },
+    "languages": [
+      {
+        "lang_code": "es",
+        "lang_name": "Spanish"
+      },
+      {
+        "lang_code": "zh",
+        "lang_name": "Chinese"
+      }
+    ]
+  },
   "US-CA-PESCADERO": {
     "campaign_type_fit": {
       "bears": {
@@ -6830,6 +6901,77 @@
       {
         "lang_code": "hmn",
         "lang_name": "Hmong"
+      }
+    ]
+  },
+  "US-W-SANJOSE": {
+    "campaign_type_fit": {
+      "bears": {
+        "angle": "no bear-habitat hook identified",
+        "fit": "na"
+      },
+      "keep-it-wild": {
+        "angle": "blossom-country roots + marine-layer dawn give a mild wild edge for a metro market",
+        "fit": "weak"
+      },
+      "localized-costco": {
+        "angle": "chain-grocer metro; Costco halo unconfirmed -- verify before production",
+        "fit": "weak"
+      },
+      "recipe-cards": {
+        "angle": "spring artichoke cards via the Castroville counterpart is the natural hook",
+        "fit": "strong"
+      },
+      "riff-on-past-content": {
+        "angle": "no existing San Jose creative corpus at all -- nothing to riff on",
+        "fit": "na"
+      },
+      "us-ski-and-snowboard": {
+        "angle": "South Bay metro; no ski culture",
+        "fit": "na"
+      },
+      "zac-efron": {
+        "angle": "no celebrity tie identified; archetype/partnership only, never likeness",
+        "fit": "na"
+      }
+    },
+    "city_center": {
+      "landmark": "South Bay city at the foot of the orchard valley; tech-campus neighborhoods over former blossom country",
+      "name": "San Jose (South Bay metro anchor)"
+    },
+    "design_palette": {
+      "colors": [
+        {
+          "hex": "#5F7A3D",
+          "name": "artichoke green"
+        },
+        {
+          "hex": "#F3EDE2",
+          "name": "blossom white"
+        },
+        {
+          "hex": "#9AA3A8",
+          "name": "marine-layer gray"
+        }
+      ],
+      "textures": [
+        "blossom-petal drift",
+        "artichoke-leaf armor",
+        "marine-layer haze"
+      ]
+    },
+    "featured_frontier": {
+      "hook": "South Bay mornings meet Castroville artichoke country -- artichoke-and-strawberry stack with a marine-layer dawn behind",
+      "photo_cue": "artichoke-field rows at dawn, farm-stand tables, Monterey Bay marine layer, flapjack stack"
+    },
+    "languages": [
+      {
+        "lang_code": "es",
+        "lang_name": "Spanish"
+      },
+      {
+        "lang_code": "zh",
+        "lang_name": "Chinese"
       }
     ]
   },

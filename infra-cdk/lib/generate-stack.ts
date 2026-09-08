@@ -133,6 +133,16 @@ export class GenerateStack extends cdk.Stack {
                 Action: ["s3:PutObject", "s3:GetObject"],
                 Resource: `arn:aws:s3:::${damBucketName}/${DAM_LIBRARY_PREFIX}*`,
               },
+              // Pack zips (#204/#285). _handle_pack PUTs the finished zip to
+              // brands/kodiak/packs/* — without this grant the put fails
+              // AccessDenied and POST /assets/pack 500s ("pack upload failed").
+              // GetObject covers the presigned zip download (signer needs it).
+              {
+                Sid: "DamPacksReadWrite",
+                Effect: "Allow",
+                Action: ["s3:PutObject", "s3:GetObject"],
+                Resource: `arn:aws:s3:::${damBucketName}/brands/kodiak/packs/*`,
+              },
               // S3 Vectors read/write on the Kodiak vector bucket + index only.
               // Scoped to the specific bucket ARN and its index sub-resource --
               // no wildcards. The bucket-level ARN covers ListVectors; the

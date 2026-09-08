@@ -1,0 +1,102 @@
+{
+  "region_id": "san-jose",
+  "market_code": "US-W-SANJOSE",
+  "aliases": [],
+  "place": "San Jose, California",
+  "zip": "95113",
+  "county": "Santa Clara County",
+  "state": "CA",
+  "coordinates": { "lat": 37.3382, "lon": -121.8863 },
+  "classification": "metro",
+  "city_center": {
+    "name": "San Jose (South Bay metro anchor)",
+    "landmark": "South Bay city at the foot of the orchard valley; tech-campus neighborhoods over former blossom country",
+    "notes": "San Jose is the South Bay urban anchor paired to the Castroville featured frontier (rural counterpart). Metro produce detail is INFERRED -- verify farmers-market and retail specifics before production."
+  },
+  "featured_frontier": {
+    "hook": "South Bay mornings meet Castroville artichoke country -- artichoke-and-strawberry stack with a marine-layer dawn behind",
+    "photo_cue": "artichoke-field rows at dawn, farm-stand tables, Monterey Bay marine layer, flapjack stack",
+    "signature_ingredient": "Castroville artichokes Mar-Jun (peak April); strawberries May-Sep (shared with the Pescadero record)",
+    "cross_promo": {
+      "partner": "Castroville artichoke stands",
+      "url": "",
+      "product": "artichoke harvest recipe cards",
+      "activation": "spring artichoke cards tied to the Castroville harvest; standalone market URL unconfirmed -- research dispatch",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "South Bay families with orchard-valley roots; Target, Safeway, and Whole Foods shoppers",
+  "languages": [
+    { "lang_code": "es", "lang_name": "Spanish", "pct_home": 12.0, "translate_code": "es", "reason": "INFERRED Bay Area metro profile, Spanish-forward like SF -- ACS tract refresh pending, verify before production" },
+    { "lang_code": "zh", "lang_name": "Chinese", "pct_home": 6.0, "translate_code": "zh", "reason": "INFERRED Bay Area metro profile -- ACS tract refresh pending, verify before production" }
+  ],
+  "cultural_notes": [
+    "San Jose sits on former blossom country -- orchard-valley roots run under the tech campuses (general regional framing, verify exact market-copy use before production)",
+    "the rural counterpart for this market is Castroville, the Artichoke Capital (paired in market-featured-frontiers, same artichoke seasons as the Pescadero record)"
+  ],
+  "design_palette": {
+    "textures": ["blossom-petal drift", "artichoke-leaf armor", "marine-layer haze", "valley oak bark", "farm-stand kraft"],
+    "colors": [
+      { "name": "artichoke green", "hex": "#5F7A3D", "use": "produce hero / foreground" },
+      { "name": "blossom white", "hex": "#F3EDE2", "use": "backdrop / negative space" },
+      { "name": "marine-layer gray", "hex": "#9AA3A8", "use": "dawn sky / haze" },
+      { "name": "valley oak brown", "hex": "#6E5138", "use": "structure / table" },
+      { "name": "strawberry red", "hex": "#C03A2B", "use": "produce accent" }
+    ],
+    "building_materials": ["orchard-valley farm-stand timber", "mission-revival stucco", "tech-campus glass and steel"],
+    "landscape_motifs": ["artichoke-field rows at dawn", "blossom remnants over suburbia", "marine layer over the South Bay"],
+    "_provenance_note": "palette grounded in the Castroville artichoke/strawberry produce story and blossom-country roots. hex values are perceptual approximations, not sampled -- flag for brand-fit review against the fixed Kodiak brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "spring-easter",
+      "months": [3, 4, 5],
+      "in_season_produce": [
+        { "name": "Castroville artichokes", "peak_month": 4, "pancake_tie": "artichoke-heart savory waffle -- spring Castroville harvest via the rural counterpart" }
+      ],
+      "where_to_buy": [
+        { "name": "Castroville artichoke stands", "type": "farm-stand", "notes": "standalone URL unconfirmed -- research dispatch" },
+        { "name": "Safeway", "type": "chain-grocer", "notes": "in-market chain grocer" }
+      ]
+    }
+  ],
+  "retailers": [
+    { "name": "Target", "role": "home", "notes": "in-market chain grocer per places entry" },
+    { "name": "Safeway", "role": "home", "notes": "in-market chain grocer per places entry" },
+    { "name": "Whole Foods", "role": "home", "notes": "in-market chain grocer per places entry" }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": { "fit": "strong", "angle": "spring artichoke cards via the Castroville counterpart is the natural hook" },
+    "keep-it-wild": { "fit": "weak", "angle": "blossom-country roots + marine-layer dawn give a mild wild edge for a metro market" },
+    "bears": { "fit": "na", "angle": "no bear-habitat hook identified" },
+    "riff-on-past-content": { "fit": "na", "angle": "no existing San Jose creative corpus at all -- nothing to riff on" },
+    "localized-costco": { "fit": "weak", "angle": "chain-grocer metro; Costco halo unconfirmed -- verify before production" },
+    "zac-efron": { "fit": "na", "angle": "no celebrity tie identified; archetype/partnership only, never likeness" },
+    "us-ski-and-snowboard": { "fit": "na", "angle": "South Bay metro; no ski culture" }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "thin",
+      "featured_frontier": "ready",
+      "audience": "thin",
+      "languages": "thin",
+      "cultural_notes": "thin",
+      "design_palette": "thin",
+      "seasonal": "thin",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.5,
+    "ready_to_rock": false,
+    "notes": "New seed for the Bay Area normalization. Retailers + frontier pairing are real (places entry + market-featured-frontiers). Everything else is INFERRED metro profile -- verify farmers-market specifics, ACS language pct, and produce detail before production."
+  },
+  "provenance": {
+    "sourced_from": [
+      "places[] entry US-W-SANJOSE (retailer/zip/audience/message/cue)",
+      "market-featured-frontiers pairing US-W-SANJOSE -> US-CA-CASTROVILLE",
+      "artichoke/strawberry seasons shared with the Pescadero record (in-repo)",
+      "INFERRED: metro profile, languages, palette, seasonal detail -- verify all before production"
+    ],
+    "generated": "2026-09-08T00:00:00Z"
+  }
+}
