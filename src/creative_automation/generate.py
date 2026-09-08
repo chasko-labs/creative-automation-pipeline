@@ -105,6 +105,13 @@ _B_STABILITY_MS = int(os.getenv("GENERATE_B_STABILITY_MS", "13000"))
 # to stock Nova), so ops can flip it without a redeploy.
 _DIRECTOR_BUDGET_MS = int(os.getenv("GENERATE_DIRECTOR_BUDGET_MS", "10000"))
 _DIRECTOR_TIMEOUT_S = float(os.getenv("GENERATE_DIRECTOR_TIMEOUT_S", "8"))
+# Stock-caption reservation (ms): the Nova Pro caption fallback is entered ONLY while
+# remaining_ms() still covers its worst-case cost (the fail-fast read timeout) PLUS
+# the rung-C reservation. PROVEN IN PROD 2026-09-08: an un-gated caption after a
+# 12s director spend burns the silent seconds before rung C and the wall fires
+# during finalize. On skip the headline falls to the raw brief (the documented
+# third fallback) with a skip log, same as a caption that returns empty.
+_CAPTION_BUDGET_MS = int(os.getenv("GENERATE_CAPTION_BUDGET_MS", "7000"))
 _DIRECTOR_LIVE_SOURCE = "bedrock:kodiak-artdirector"
 # Refusal guard: a live voice model can still decline (junk retrieved examples make
 # refusal likely — PROVEN IN PROD 2026-09-08: hash-laden DAM titles as in-voice
@@ -352,8 +359,13 @@ _OUTPAINT_RATIOS = ("9x16", "16x9")
 # to the pillow pad instead of blowing the immovable 22s wall.
 _OUTPAINT_BUDGET_MS = int(os.getenv("GENERATE_OUTPAINT_BUDGET_MS", "13000"))
 # Held-back reservation (ms) for the remaining per-ratio work (pads, brand overlay,
-# kraft finalize) after an outpaint attempt. Mirrors the rung-C reservation pattern.
-_OUTPAINT_RESERVE_MS = int(os.getenv("GENERATE_OUTPAINT_RESERVE_MS", "2000"))
+# kraft finalize, S3 uploads of all four ratios) after an outpaint attempt. Mirrors
+# the rung-C reservation pattern. Sized 2026-09-08: a 12-19s stability extend plus
+# ~3-4s of uploads/finalize cannot fit the immovable 22s wall after the director +
+# caption spend, so the reserve keeps in-wall attempts to the rare case where one
+# extend plus all uploads provably fit; otherwise the request ships the pillow pad
+# and the extend story stays async (receipts under artifacts.async_extend).
+_OUTPAINT_RESERVE_MS = int(os.getenv("GENERATE_OUTPAINT_RESERVE_MS", "6000"))
 # Per-ratio headline slab size (C06: 56/64/72).
 _HEADLINE_PX = {"1x1": 56, "9x16": 64, "16x9": 72, "4x5": 60, "2x3": 64}
 
@@ -815,6 +827,31 @@ def _nova_pro_caption(
     except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — silent fallback
         print(f"[generate] Nova Pro unavailable, falling back: {e}", file=sys.stderr)
         return None
+
+
+def _caption_with_budget(src, product_name, brief_msg, region, audience, remaining_ms=None) -> str:
+    """Stock Nova caption behind the wall clock, with start/done latency logs.
+
+    Entered ONLY while remaining_ms() still covers the caption's worst-case cost
+    (_CAPTION_BUDGET_MS) PLUS the rung-C reservation, so a slow caption can never
+    starve rung C. remaining_ms None = no clock (tests/offline) -> always attempt.
+    Returns "" on skip or failure so callers fall through to the raw brief.
+    """
+    if remaining_ms is not None and remaining_ms() < _CAPTION_BUDGET_MS + _C_RESERVATION_MS:
+        print(
+            f"[generate] nova caption skipped (budget {remaining_ms():.0f}ms < "
+            f"{_CAPTION_BUDGET_MS + _C_RESERVATION_MS}ms) -> brief fallback",
+            file=sys.stderr,
+        )
+        return ""
+    _t0 = time.monotonic()
+    caption = _nova_pro_caption(src, product_name, brief_msg, region, audience) or ""
+    _dt = (time.monotonic() - _t0) * 1000.0
+    print(
+        f"[generate] nova caption {'ok' if caption else 'empty'} latency={_dt:.0f}ms",
+        file=sys.stderr,
+    )
+    return caption
 
 
 def _nova_pro_scene_prompt(
@@ -1350,7 +1387,11 @@ def _director_headline_text(
             outcome = None
     finally:
         executor.shutdown(wait=False)
-    _DIRECTOR_MEMO[memo_key] = outcome
+    # Memoize only live successes: a cold-model timeout (outcome None) must not poison
+    # later warm invocations in the same container — they retry the voice fresh and
+    # degrade to the Nova caption only if the voice fails again.
+    if outcome is not None:
+        _DIRECTOR_MEMO[memo_key] = outcome
     while len(_DIRECTOR_MEMO) > 64:
         _DIRECTOR_MEMO.pop(next(iter(_DIRECTOR_MEMO)))
     return outcome
@@ -1865,7 +1906,9 @@ def generate_hero(
                 f"{_DIRECTOR_BUDGET_MS + _C_RESERVATION_MS}ms",
                 file=sys.stderr,
             )
-        caption = _nova_pro_caption(src, product_name, brief_msg, region, audience) or ""
+        caption = _caption_with_budget(
+            src, product_name, brief_msg, region, audience, remaining_ms=remaining_ms
+        )
         headline, _side = _parse_layout(caption)
         if headline:
             provenance["headline_source"] = "bedrock:nova-pro-caption"
@@ -2303,6 +2346,16 @@ def generate_hero_set(
     back-compat = the 1x1 url. Provenance is one object for the whole set, noting which
     ratios came from outpaint vs the pillow-outpaint-fallback.
     """
+    # Request-epoch clock. The base hero call below spends most of the soft budget,
+    # so the per-ratio outpaint gates MUST measure from HERE (request start), not
+    # from after the base call — PROVEN IN PROD 2026-09-08: a clock reset after the
+    # base showed a full 24s remaining with ~10s of wall left, the gate passed a
+    # doomed 12s extend, and the wall fired during finalize (rung D).
+    _request_start = time.monotonic()
+
+    def _set_remaining_ms() -> float:
+        return GENERATE_SOFT_BUDGET_MS - (time.monotonic() - _request_start) * 1000.0
+
     # Clean 1x1 base: engine runs once, overlays OFF, so the base is a pristine hero to
     # outpaint from (overlays are applied per-ratio below, after sizing).
     base_path = out_dir / "hero-1x1-base.png"
@@ -2332,7 +2385,10 @@ def generate_hero_set(
     # Nova normalized second) on the clean base — the base hero call above ran
     # with overlays off and left provenance["headline"] empty, and the old
     # Nova-only helper overwrote grounded provenance with an un-normalized line.
-    headline, headline_source = _headline_for(clean_base, product_name, brief_msg, region, audience)
+    headline, headline_source = _headline_for(
+        clean_base, product_name, brief_msg, region, audience,
+        remaining_ms=_set_remaining_ms,
+    )
     provenance["headline"] = headline if brand_overlay else None
     provenance["copy_headline"] = provenance.get("copy_headline") or headline
     if headline_source:
@@ -2342,13 +2398,10 @@ def generate_hero_set(
     # JSON-serializable. A slow ratio degrades to the pad — never blows the wall.
     provenance["outpaint_latency_ms"] = {}
     provenance["outpaint_degraded"] = {}
-    # The base hero call above already spent most of the soft budget, so the set
-    # clock starts HERE for the per-ratio outpaint gates (same monotonic source as
-    # the ladder; remaining covers one outpaint PLUS the reserve for pads/overlays).
-    _set_start = time.monotonic()
-
-    def _set_remaining_ms() -> float:
-        return GENERATE_SOFT_BUDGET_MS - (time.monotonic() - _set_start) * 1000.0
+    # The base hero call above already spent most of the soft budget; the per-ratio
+    # outpaint gates below reuse the request-epoch _set_remaining_ms defined at
+    # function entry, so remaining covers one outpaint PLUS the reserve for
+    # pads/overlays against the TRUE wall-clock remainder.
 
     # Raw subject for the outpaint extend prompt (_stability_outpaint wraps it in
     # the frozen style sandwich). Reuse the base hero's scene prompt so NO extra
@@ -2443,15 +2496,19 @@ def generate_hero_set(
 
 
 def _headline_for(
-    src: Path, product_name: str, brief_msg: str, region: str, audience: str
+    src: Path, product_name: str, brief_msg: str, region: str, audience: str,
+    remaining_ms=None,
 ) -> tuple[str, Optional[str]]:
     """Set headline through the full pipeline (module-level so generate_hero_set
     can reuse it). Returns (headline, headline_source|None): the grounded
-    director first, stock Nova normalized second, raw brief last."""
+    director first, stock Nova normalized second, raw brief last. remaining_ms
+    (when the caller has a wall clock) budget-gates the caption fallback."""
     directed = _director_headline_text(product_name, brief_msg, region, audience)
     if directed:
         return directed, _DIRECTOR_LIVE_SOURCE
-    caption = _nova_pro_caption(src, product_name, brief_msg, region, audience) or ""
+    caption = _caption_with_budget(
+        src, product_name, brief_msg, region, audience, remaining_ms=remaining_ms
+    )
     headline, _side = _parse_layout(caption)
     if headline:
         return _title_case_headline(headline), "bedrock:nova-pro-caption"
