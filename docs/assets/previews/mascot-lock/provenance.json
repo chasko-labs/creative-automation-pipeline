@@ -1,0 +1,41 @@
+{
+  "cabin": {
+    "seed_source": "hero",
+    "seed_selection": "disk-asset",
+    "engine": "stability-restyle",
+    "rung": "B",
+    "fallthrough_reason": null,
+    "control_strength": 0.7,
+    "style": "sandwich-locked",
+    "mascot_lock": true,
+    "model": "us.stability.stable-image-control-structure-v1:0",
+    "elapsed_ms": 14618,
+    "source": "bedrock:stability-control-structure"
+  },
+  "market": {
+    "seed_source": "hero",
+    "seed_selection": "disk-asset",
+    "engine": "stability-restyle",
+    "rung": "B",
+    "fallthrough_reason": null,
+    "control_strength": 0.7,
+    "style": "sandwich-locked",
+    "mascot_lock": true,
+    "model": "us.stability.stable-image-control-structure-v1:0",
+    "elapsed_ms": 12700,
+    "source": "bedrock:stability-control-structure"
+  },
+  "campfire": {
+    "seed_source": "hero",
+    "seed_selection": "disk-asset",
+    "engine": "stability-restyle",
+    "rung": "B",
+    "fallthrough_reason": null,
+    "control_strength": 0.7,
+    "style": "sandwich-locked",
+    "mascot_lock": true,
+    "model": "us.stability.stable-image-control-structure-v1:0",
+    "elapsed_ms": 13659,
+    "source": "bedrock:stability-control-structure"
+  }
+}

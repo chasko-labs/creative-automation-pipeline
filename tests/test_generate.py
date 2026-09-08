@@ -329,3 +329,26 @@ def test_parse_layout_invalid_side_line_never_becomes_headline() -> None:
     headline, side = generate._parse_layout("LAYOUT: bottom")
     assert headline == ""
     assert side == "center"
+
+
+# --------------------------------------------------------------- mascot lock (Unit 2)
+def test_style_sandwich_default_has_no_mascot_block(monkeypatch) -> None:
+    # lock OFF (default): existing renders are byte-identical, no descriptor injected.
+    monkeypatch.delenv("KODIAK_MASCOT_LOCK", raising=False)
+    out = generate._style_sandwich("wild frontier restyle")
+    assert out == f"{generate.STYLE_HEAD}wild frontier restyle{generate.STYLE_TAIL}"
+    assert generate.MASCOT_DESCRIPTOR_BLOCK not in out
+
+
+def test_style_sandwich_mascot_lock_pins_frozen_block(monkeypatch) -> None:
+    # lock ON: the frozen descriptor lands in the SUBJECT slot ahead of the scene,
+    # inside the frozen style ends; repeated wrapping is idempotent (one block only).
+    monkeypatch.setenv("KODIAK_MASCOT_LOCK", "1")
+    once = generate._style_sandwich("log cabin at dawn")
+    assert once.startswith(generate.STYLE_HEAD)
+    assert once.endswith(generate.STYLE_TAIL)
+    assert generate.MASCOT_DESCRIPTOR_BLOCK in once
+    assert once.index(generate.MASCOT_DESCRIPTOR_BLOCK) < once.index("log cabin at dawn")
+    twice = generate._style_sandwich(once)
+    assert twice == once
+    assert twice.count(generate.MASCOT_DESCRIPTOR_BLOCK) == 1
