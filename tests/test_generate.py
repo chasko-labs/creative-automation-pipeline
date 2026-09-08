@@ -302,3 +302,30 @@ def test_sku_resolver_returns_real_committed_key() -> None:
     key = generate._resolve_dam_photo("apple-cinnamon-oatmeal-packets")
     assert key is not None and key.startswith(_DAM_PREFIX)
     assert key[len(_DAM_PREFIX):] in real
+
+
+# ------------------------------------------------------- _parse_layout LAYOUT hygiene
+def test_parse_layout_strips_inline_layout_suffix() -> None:
+    # the live bug: Nova Pro returned headline + LAYOUT on ONE line and the
+    # directive leaked into the rendered headline.
+    headline, side = generate._parse_layout("Power up family mornings! LAYOUT: right")
+    assert headline == "Power up family mornings!"
+    assert side == "right"
+
+
+def test_parse_layout_keeps_two_line_form() -> None:
+    headline, side = generate._parse_layout("Fuel Your Adventure\nLAYOUT: left")
+    assert headline == "Fuel Your Adventure"
+    assert side == "left"
+
+
+def test_parse_layout_inline_is_case_insensitive_and_unquoted() -> None:
+    headline, side = generate._parse_layout('"Wild mornings" layout: center')
+    assert headline == "Wild mornings"
+    assert side == "center"
+
+
+def test_parse_layout_invalid_side_line_never_becomes_headline() -> None:
+    headline, side = generate._parse_layout("LAYOUT: bottom")
+    assert headline == ""
+    assert side == "center"

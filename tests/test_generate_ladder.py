@@ -381,3 +381,107 @@ def test_slow_nova_scene_prompt_abandons_rung_b_to_c_failfast(tmp_path, monkeypa
     assert prov["rung"] == "C"
     assert prov["engine"] == "pillow-compose"
     assert prov["fallthrough_reason"] == "budget-exhausted"
+
+
+# --------------------------------------------------------------------------- #
+# (e) mapped SKU + seed -> rung A pastes the verbatim box over an AI-RESTYLED
+# scene (fresh photographic pixels, not the recycled DAM photo). The box is
+# pasted over the restyle — never fed into it, so the compose-fix invariant
+# (product pixels never generatively touched) holds.
+# --------------------------------------------------------------------------- #
+def _seed_and_box_fetch(seed_src: Path):
+    def _fetch(key: str, dest: Path):
+        dest = Path(dest)
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        if key and "705599" in key.rsplit("/", 1)[-1]:
+            Image.new("RGBA", (400, 600), (200, 120, 40, 255)).save(dest, "PNG")
+        else:
+            Image.open(seed_src).save(dest, "PNG")
+        return dest
+
+    return _fetch
+
+
+def _copy_stability(calls: dict):
+    def _ok(src: Path, prompt: str, out: Path):
+        calls["n"] += 1
+        calls["prompt"] = prompt
+        out = Path(out)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        Image.open(src).convert("RGB").save(out, "PNG")
+        return out
+
+    return _ok
+
+
+def test_mapped_sku_with_seed_restyles_bg_before_verbatim_paste(tmp_path, monkeypatch):
+    seed_src = tmp_path / "seed-src.png"
+    Image.new("RGB", (1024, 1024), (30, 90, 160)).save(seed_src, "PNG")
+    monkeypatch.setattr(dam, "fetch_dam_key", _seed_and_box_fetch(seed_src))
+    monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: "scene/waffle.png")
+    monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: None)
+    monkeypatch.setattr(
+        generate_mod, "_nova_pro_scene_prompt", lambda *a, **k: "wild frontier restyle"
+    )
+    # inline LAYOUT caption exercises the leak fix end to end through rung A.
+    monkeypatch.setattr(
+        generate_mod, "_nova_pro_caption", lambda *a, **k: "Fuel frontier mornings LAYOUT: left"
+    )
+    calls = {"n": 0, "prompt": None}
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", _copy_stability(calls))
+
+    out = tmp_path / "hero.png"
+    result, source, prov = generate_mod.generate_hero(
+        product_id="banana-muffin-quick-bread-mix",
+        product_name="Banana Muffin and Quick Bread Mix",
+        brief_msg="Fuel your frontier morning",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+    )
+
+    assert result.exists()
+    assert source == generate_mod.PACKSHOT_SOURCE == "dam:packshot-composite"
+    assert prov["rung"] == "A"
+    assert prov["engine"] == "packshot-composite"
+    # the seed scene went through the restyle exactly once; box pixels intact.
+    assert calls["n"] == 1
+    assert calls["prompt"] == "wild frontier restyle"
+    assert prov["bg_restyle"] is True
+    assert prov["packshot"] is not None and "705599" in prov["packshot"]
+    # the LAYOUT directive never reaches the rendered headline.
+    assert prov["headline"] == "Fuel frontier mornings"
+    assert "LAYOUT" not in (prov["headline"] or "")
+    assert _distinct_colors(result) > 20
+
+
+def test_mapped_sku_restyle_failure_keeps_unstyled_rung_a(tmp_path, monkeypatch):
+    seed_src = tmp_path / "seed-src.png"
+    Image.new("RGB", (1024, 1024), (30, 90, 160)).save(seed_src, "PNG")
+    monkeypatch.setattr(dam, "fetch_dam_key", _seed_and_box_fetch(seed_src))
+    monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: "scene/waffle.png")
+    monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: None)
+    monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
+    monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: None)
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o: None)
+
+    out = tmp_path / "hero.png"
+    result, source, prov = generate_mod.generate_hero(
+        product_id="banana-muffin-quick-bread-mix",
+        product_name="Banana Muffin and Quick Bread Mix",
+        brief_msg="Fuel your frontier morning",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+    )
+
+    assert result.exists()
+    assert source == generate_mod.PACKSHOT_SOURCE
+    assert prov["rung"] == "A"
+    assert prov["bg_restyle"] is False
+    assert prov["packshot"] is not None
+    assert _distinct_colors(result) > 20

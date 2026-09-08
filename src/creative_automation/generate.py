@@ -12,6 +12,7 @@ from __future__ import annotations
 import base64
 import json
 import os
+import re
 import sys
 import time
 from pathlib import Path
@@ -1020,12 +1021,25 @@ def _apply_paper_overlay(img: Image.Image, opacity: float = 0.02) -> Image.Image
     return Image.blend(base, tex, max(0.0, min(1.0, opacity)))
 
 
+# Nova Pro usually puts LAYOUT: on its own line, but sometimes appends it inline
+# ("Power up mornings! LAYOUT: right") — an inline suffix must never reach the
+# rendered headline. Matches a trailing LAYOUT directive anywhere in the line.
+_LAYOUT_INLINE_RE = re.compile(r"\s*LAYOUT\s*:\s*(left|right|center)\s*$", re.IGNORECASE)
+
+
 def _parse_layout(caption: str) -> tuple[str, str]:
     """Split Nova Pro text into (headline, side) where side in {left,right,center}."""
     headline, side = "", "center"
     for line in caption.splitlines():
         s = line.strip()
         if not s:
+            continue
+        m = _LAYOUT_INLINE_RE.search(s)
+        if m:
+            side = m.group(1).lower()
+            s = _LAYOUT_INLINE_RE.sub("", s).strip().strip('"')
+            if s and not headline:
+                headline = s
             continue
         if s.upper().startswith("LAYOUT:"):
             val = s.split(":", 1)[1].strip().lower()
@@ -1070,9 +1084,8 @@ def _apply_brand_overlay(
     GenAI hero (the image is already the background — no cover-fit, no scrim) OR the
     Pillow scene composer (which supplies its own cover-fit + scrim first). Draws:
     C04 the ~32% dark message bar at 68% down with the centered wrapped white headline
-    (per-ratio font), the fitted token footer just above the accent bar (shrink-to-fit,
-    so narrow frames never clip it), and C03 the 8px Blaze Orange accent bar pinned
-    to the bottom.
+    (per-ratio font), and C03 the 8px Blaze Orange accent bar pinned to the bottom.
+    (No text footer: the box art already carries the brand.)
     Never resizes the incoming image — the base is opened and drawn on at its own size.
     No Kodiak logo/wordmark (brand preference).
     """
@@ -1104,28 +1117,8 @@ def _apply_brand_overlay(
             draw.text(((W - tw) / 2, ty), line, fill="white", font=font, stroke_width=2, stroke_fill=(0, 0, 0, 180))
             ty += line_h
 
-    # fitted token footer, centered just above the accent bar (shrink-to-fit so
-    # narrow frames like 9:16 never clip it — same text as the compose footer).
-    footer_text = "KODIAK  \u2022  kodiakcakes.com  \u2022  Keep It Wild"
-    fit_px = min(34, max(20, W // 32))
-    while fit_px > 14:
-        try:
-            fit_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", fit_px)
-        except Exception:
-            fit_font = ImageFont.load_default()
-            break
-        bbox = draw.textbbox((0, 0), footer_text, font=fit_font)
-        if bbox[2] - bbox[0] <= W - 48:
-            break
-        fit_px -= 2
-    try:
-        fit_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", fit_px)
-    except Exception:
-        fit_font = ImageFont.load_default()
-    bbox = draw.textbbox((0, 0), footer_text, font=fit_font)
-    ftw = bbox[2] - bbox[0]
-    draw.text(((W - ftw) / 2, H - 14 - (bbox[3] - bbox[1])), footer_text,
-              fill=(255, 255, 255, 200), font=fit_font)
+    # (footer text removed 2026-09-08 cleanup order — the box art already carries the
+    # Kodiak identity; stamping more brand text on the photo reads off-brand.)
 
     # C03 — 8px Blaze Orange accent bar at the very bottom.
     accent = _hex_to_rgb(_accent_hex)
@@ -1309,7 +1302,8 @@ def generate_hero(
     before starting and skips a rung that will not fit; a caught failure logs cause+rung
     and CONTINUES down the ladder, never raising. Rung D cannot fail, so a well-formed call
     always ends in real pixels — 503 is unreachable from here.
-      A packshot-composite  — real product BOX pasted verbatim (tried first for a mapped SKU)
+      A packshot-composite  — real product BOX pasted verbatim over an AI-restyled
+          scene when budget allows (tried first for a mapped SKU)
       B stability-restyle   — Bedrock restyle of a resolved seed, budget-gated + fail-fast
       C pillow-compose      — Pillow composite of the seed + brand overlay (guaranteed-real)
       D brand-floor         — bundled Kodiak brand asset on a brand-color canvas, ZERO I/O
@@ -1434,9 +1428,11 @@ def generate_hero(
     # ---- PACKSHOT-FIRST (compose-fix root-cause repair): if a real product BOX resolves
     # for this SKU, paste it VERBATIM over a background scene — NO generative step touches
     # those product pixels, so it structurally cannot render as bread or candy. This
-    # mirrors campaign.py::_render_asset order a/b and MUST run before the Stability seam
-    # so a mapped SKU never reaches the restyle. Generation is only the FALLBACK below
-    # (when no packshot resolves). See docs/architecture/compose-fix/compose-fix-spec.md.
+    # mirrors campaign.py::_render_asset order a/b. The BACKGROUND scene still gets the
+    # rung-B restyle first when the budget allows (fresh AI pixels every render); the
+    # box is pasted over the restyled scene, never fed into the restyle. Generation
+    # remains the FALLBACK below for the no-packshot case. See
+    # docs/architecture/compose-fix/compose-fix-spec.md.
     from .dam import resolve_packshot  # local import — keeps the offline path import-light
 
     # HARD WALL: resolve_packshot's step 3 (find_hero_asset) is another S3 fan-out on an
@@ -1463,6 +1459,26 @@ def generate_hero(
             # only product pixels and it is pasted verbatim by compose_creative below.
             bg_path = out_path.parent / f"{out_path.stem}-bg.png"
             bg_path.parent.mkdir(parents=True, exist_ok=True)
+            # AI background: restyle the seed scene (rung-B machinery, same budget
+            # gate rung B itself uses) BEFORE the verbatim box paste, so a mapped
+            # SKU ships fresh photographic pixels instead of recycling the raw DAM
+            # photo. The box is pasted over the restyle below — never an input to
+            # it. Any skip/failure keeps the unstyled seed; rung A never fails.
+            bg_restyle = False
+            if seed is not None and remaining_ms() >= _B_BUDGET_MS + _C_RESERVATION_MS:
+                try:
+                    a_scene = _nova_pro_scene_prompt(
+                        seed, product_name, brief_msg, region, audience, theme
+                    )
+                    provenance["scene_prompt"] = a_scene
+                    if remaining_ms() >= _B_STABILITY_MS + _C_RESERVATION_MS:
+                        restyled = out_path.parent / f"{out_path.stem}-restyle.png"
+                        if _stability_control_hero(seed, a_scene, restyled) is not None and restyled.exists():
+                            seed = restyled
+                            bg_restyle = True
+                except Exception as e:  # noqa: BLE001 — unstyled seed, same as before
+                    print(f"[generate] rung A bg restyle skipped: {e}", file=sys.stderr)
+            provenance["bg_restyle"] = bg_restyle
             if seed is not None:
                 bg_src = Image.open(seed).convert("RGB")
                 bg_w, bg_h = _CANVAS.get(ratio, _CANVAS["1x1"])
@@ -1481,7 +1497,6 @@ def generate_hero(
                 message=headline if brand_overlay else "",
                 ratio_key=ratio,
                 product_layer=packshot,
-                footer=not bare_base,
                 bare=bare_base,
             )
             provenance["engine"] = "packshot-composite"
