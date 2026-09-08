@@ -453,6 +453,7 @@
       window.__userAssets = window.__userAssets.filter(function(a){ return a.id!==rec.id; });
       if(chip.parentNode) chip.parentNode.removeChild(chip);
       refreshUserAssetMarker();
+      try{ if(typeof window.__kodiakMarkDirty === 'function') window.__kodiakMarkDirty(); }catch(e){}
     });
     if(thumbNode) chip.appendChild(thumbNode);
     chip.appendChild(nm); chip.appendChild(rm);

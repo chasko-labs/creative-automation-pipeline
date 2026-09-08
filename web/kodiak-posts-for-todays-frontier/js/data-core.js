@@ -309,7 +309,10 @@ function nearestMarketForCoords(lat, lon){
 }
 // #useLocationBtn / #showAllBtn / #locationStatus moved to details.html (frontier prototype context card) — handlers removed in lockstep
 
-try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn('fillSelects', e); } render();
+try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn('fillSelects', e); }
+// Default preview hero (static #previewHero markup) owns the first impression — only
+// fall back to the offline canvas render when no hero is present.
+try{ if(!document.getElementById('previewHero') && typeof render==='function') render(); }catch(e){ console.warn('render', e); }
 // Show images right away on load for Park City 84098 and nearby Kamas Valley (Peoa/Oakley) as demanded — not generic 6-piece template text
 (() => {
   try {
