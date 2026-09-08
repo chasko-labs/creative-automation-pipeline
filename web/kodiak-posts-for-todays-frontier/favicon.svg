@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Kodiak bear tab icon</title>
+  <g fill="#3B2316">
+    <ellipse cx="38" cy="33" rx="15" ry="11"/>
+    <ellipse cx="28" cy="24" rx="7.5" ry="6.5"/>
+    <circle cx="17" cy="28" r="8.5"/>
+    <ellipse cx="9.5" cy="31" rx="4" ry="3.5"/>
+    <circle cx="18.5" cy="19.5" r="3.2"/>
+    <circle cx="53" cy="29" r="3"/>
+    <rect x="23" y="38" width="7" height="15" rx="3"/>
+    <rect x="31" y="40" width="7" height="13" rx="3"/>
+    <rect x="40" y="40" width="7" height="13" rx="3"/>
+    <rect x="46" y="37" width="6.5" height="15" rx="3"/>
+  </g>
+</svg>
