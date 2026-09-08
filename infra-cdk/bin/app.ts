@@ -3,6 +3,7 @@ import * as cdk from "aws-cdk-lib";
 import { DataStack } from "../lib/data-stack";
 import { HostingStack } from "../lib/hosting-stack";
 import { GenerateStack } from "../lib/generate-stack";
+import { CoachStack } from "../lib/coach-stack";
 import { ObservabilityStack } from "../lib/observability-stack";
 import { BrowserObservabilityStack } from "../lib/browser-observability-stack";
 import { BedrockLoggingStack } from "../lib/bedrock-logging-stack";
@@ -115,6 +116,15 @@ new BedrockLoggingStack(app, "KodiakCreativesBedrockLoggingUsWest2", {
   enableSingleton: true,
   description:
     "Kodiak creatives Bedrock model-invocation logging (us-west-2): log group + role (RETAIN) + singleton enable for the cross-region art-director model.",
+});
+
+// campaign coach (Unit 2): Nova Micro /insights + /ask for the creator's
+// insights panel + About Q&A. Net-new stack, no imports, no stateful resources.
+new CoachStack(app, "kodiak-creatives-coach", {
+  env: { account, region: PRIMARY_REGION },
+  projectName: PROJECT_NAME,
+  description:
+    "Kodiak campaign coach: Nova Micro insights + Q&A lambda + public function url (stateless).",
 });
 
 // uniform app-level tag set (project/team/managed-by=cdk/repo/environment).
