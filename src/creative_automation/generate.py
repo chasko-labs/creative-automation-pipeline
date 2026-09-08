@@ -331,15 +331,27 @@ _CANVAS = {
     "2x3": (1000, 1500),
 }
 # The four delivery ratios returned by generate_hero_set, in response order (pinned
-# v2 DoD: 1:1 1080x1080, 4:5 1080x1350, 9:16 1080x1920, 16:9 1920x1080). Talls/wides
-# are Pillow cover-pads of the photographic base — NOT live outpaints. Wall
-# arithmetic: 3 outpaint calls run ~30s sequential / ~13s parallel, and base +
-# caption + uploads already spend 8-21s of the immovable 22s wall. Pad is ~0.3s
-# per ratio with honest per-ratio engine labels; _stability_outpaint stays wired
-# for a future async mode where the wall does not apply.
+# v2 DoD: 1:1 1080x1080, 4:5 1080x1350, 9:16 1080x1920, 16:9 1920x1080). 9x16 and
+# 16x9 are composed Stability outpaint extends of the 1x1 hero when the 22s wall
+# allows; 4x5 stays a Pillow cover-pad. Wall arithmetic: base + caption + uploads
+# already spend 8-21s of the immovable 22s wall, so each outpaint is budget-gated
+# per ratio — a slow or unfitting ratio degrades to the pad, never blows the wall.
+# Pad is ~0.3s per ratio with honest per-ratio engine labels.
 # The 1x1 is the primary (also mirrored to the top-level image_url for frontend
 # back-compat).
 _DELIVERY_RATIOS = ("1x1", "4x5", "9x16", "16x9")
+# Ratios derived via live Stability outpaint when the budget gate passes. 4x5 is
+# deliberately NOT listed: it stays a deterministic Pillow cover-pad so at most two
+# outpaint invokes ever run inside the 22s wall.
+_OUTPAINT_RATIOS = ("9x16", "16x9")
+# Per-outpaint worst-case cost estimate (ms): the fail-fast read timeout (12s) plus
+# connect + decode + normalize headroom. An outpaint is attempted ONLY while the
+# set clock still covers this PLUS the outpaint reserve, so a slow extend degrades
+# to the pillow pad instead of blowing the immovable 22s wall.
+_OUTPAINT_BUDGET_MS = int(os.getenv("GENERATE_OUTPAINT_BUDGET_MS", "13000"))
+# Held-back reservation (ms) for the remaining per-ratio work (pads, brand overlay,
+# kraft finalize) after an outpaint attempt. Mirrors the rung-C reservation pattern.
+_OUTPAINT_RESERVE_MS = int(os.getenv("GENERATE_OUTPAINT_RESERVE_MS", "2000"))
 # Per-ratio headline slab size (C06: 56/64/72).
 _HEADLINE_PX = {"1x1": 56, "9x16": 64, "16x9": 72, "4x5": 60, "2x3": 64}
 
@@ -969,7 +981,7 @@ def _stability_outpaint(
 ) -> Optional[Path]:
     """Extend base_png to (target_w, target_h) via Bedrock Stability outpaint.
 
-    PART B — derive the taller delivery ratios (4x5, 2x3) from the 1x1 control-structure
+    PART B — derive the 9x16 / 16x9 delivery ratios from the 1x1 control-structure
     hero so the subject stays consistent and only one restyle call is spent. Invokes the
     us.stability.stable-outpaint-v1:0 inference profile with Stability's edit schema
     ({prompt, image, left/right/up/down, output_format}) — NOT Nova's taskType. The
@@ -979,6 +991,12 @@ def _stability_outpaint(
     (the caller then falls back to a Pillow cover-pad of the same base — see
     _pillow_outpaint_fallback). Seed dims must stay in Stability's range (>=64/dim,
     4096..9437184 total px); the 1080x1080 hero and the modest deltas sit well inside.
+
+    Uses the shared fail-fast bedrock-runtime client (rung-B pattern: connect 3s,
+    read 12s, zero retries) so a hung extend can never stall the 22s wall — a
+    timeout is re-raised so the caller records a timeout degrade, matching
+    _stability_control_hero. The prompt goes through the frozen style sandwich so
+    the extend stays on-brand.
     """
     if boto3 is None:
         print("[generate] outpaint skipped: boto3 unavailable", file=sys.stderr)
@@ -1001,9 +1019,9 @@ def _stability_outpaint(
         buf = BytesIO()
         base.save(buf, "PNG")
         image_b64 = base64.b64encode(buf.getvalue()).decode("ascii")
-        client = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
+        client = _bedrock_failfast_client()
         body = {
-            "prompt": prompt,
+            "prompt": _style_sandwich(prompt),
             "image": image_b64,
             "left": left,
             "right": right,
@@ -1039,9 +1057,16 @@ def _stability_outpaint(
             fitted.save(out_path, "PNG")
             return out_path
         return None
+    except (ReadTimeoutError, ConnectTimeoutError):
+        # Budget guard (mirrors _stability_control_hero): re-raise so the
+        # generate_hero_set per-ratio gate records a timeout degrade to the pad
+        # instead of mislabeling it as a plain unavailable outpaint.
+        raise
     except ClientError as e:  # surface the exact error code — never swallow AccessDenied
         code = e.response.get("Error", {}).get("Code", "Unknown")
         print(f"[generate] outpaint ClientError [{code}]: {e}", file=sys.stderr)
+        if "Throttl" in str(code):
+            raise
         return None
     except (BotoCoreError, Exception) as e:  # noqa: BLE001 — non-AWS failures fall through
         print(f"[generate] outpaint failed: {e}", file=sys.stderr)
@@ -2005,13 +2030,15 @@ def generate_hero_set(
     paper_overlay: bool = True,
     seed_key: str | None = None,
 ) -> tuple[list[dict], str, dict]:
-    """Deliver all three sizes (backlog item4) from ONE call. Returns (renders, source, provenance).
+    """Deliver all four sizes from ONE call. Returns (renders, source, provenance).
 
     Design (PART B): the primary 1x1 is generated once (clean, no overlays) so it can
-    seed the two taller ratios via Stability outpaint — one restyle plus two extend
-    calls, cheaper than three full restyles and keeps the subject consistent. 4x5 and
-    2x3 are derived from that clean 1x1 base. After sizing, the deterministic brand
-    layer (PART C) + the ~2% kraft texture (PART D) are applied uniformly to all three.
+    seed 9x16 + 16x9 via composed Stability outpaint extends — one restyle plus two
+    extends, cheaper than three full restyles and keeps the subject consistent. Each
+    extend is per-ratio budget-gated against the immovable 22s wall (slow ratios
+    degrade to the Pillow pad); 4x5 is always the deterministic pad. After sizing,
+    the deterministic brand layer (PART C) + the ~2% kraft texture (PART D) are
+    applied uniformly to all four.
 
     renders: [{ratio, path, w, h, engine}, ...] in _DELIVERY_RATIOS order. The caller
     (handler) uploads each and builds the response renders[] + the top-level image_url
@@ -2047,6 +2074,24 @@ def generate_hero_set(
     if headline_source:
         provenance["headline_source"] = headline_source
     provenance["ratios"] = {}
+    # Per-ratio outpaint books: measured extend latency + degrade reasons, both
+    # JSON-serializable. A slow ratio degrades to the pad — never blows the wall.
+    provenance["outpaint_latency_ms"] = {}
+    provenance["outpaint_degraded"] = {}
+    # The base hero call above already spent most of the soft budget, so the set
+    # clock starts HERE for the per-ratio outpaint gates (same monotonic source as
+    # the ladder; remaining covers one outpaint PLUS the reserve for pads/overlays).
+    _set_start = time.monotonic()
+
+    def _set_remaining_ms() -> float:
+        return GENERATE_SOFT_BUDGET_MS - (time.monotonic() - _set_start) * 1000.0
+
+    # Raw subject for the outpaint extend prompt (_stability_outpaint wraps it in
+    # the frozen style sandwich). Reuse the base hero's scene prompt so NO extra
+    # Bedrock call burns the wall; fall back to the brief when it is absent.
+    _outpaint_subject = (
+        str(provenance.get("scene_prompt") or "").strip() or brief_msg
+    )
 
     # recipe-cards theme routes each sized hero through the deterministic Pillow card
     # template (_compose_recipe_card): the GenAI hero drops into a fixed image slot and
@@ -2071,11 +2116,39 @@ def generate_hero_set(
                 centering=(0.5, 0.5),
             ).save(ratio_path, "PNG")
             ratio_engine = "primary"
+        elif ratio in _OUTPAINT_RATIOS:
+            # Composed outpaint extend of the 1x1 hero, per-ratio budget-gated:
+            # attempted ONLY while the set clock still covers one outpaint PLUS
+            # the reserve — a slow ratio degrades to the pad, never blows the
+            # immovable 22s wall. Latency is measured per ratio for the report.
+            ratio_engine = "pillow-outpaint-fallback"
+            if _set_remaining_ms() < _OUTPAINT_BUDGET_MS + _OUTPAINT_RESERVE_MS:
+                provenance["outpaint_degraded"][ratio] = "budget-exhausted"
+                _pillow_outpaint_fallback(clean_base, target_w, target_h, ratio_path)
+            else:
+                _t0 = time.monotonic()
+                try:
+                    extended = _stability_outpaint(
+                        clean_base, target_w, target_h, _outpaint_subject, ratio_path
+                    )
+                except (ReadTimeoutError, ConnectTimeoutError):
+                    extended = None
+                    provenance["outpaint_degraded"][ratio] = "bedrock-timeout"
+                except Exception as e:  # noqa: BLE001 — throttle/sabotage degrades
+                    extended = None
+                    provenance["outpaint_degraded"][ratio] = f"outpaint-error: {type(e).__name__}"
+                finally:
+                    provenance["outpaint_latency_ms"][ratio] = round(
+                        (time.monotonic() - _t0) * 1000.0, 1
+                    )
+                if extended is not None and ratio_path.exists():
+                    ratio_engine = "stability-outpaint"
+                else:
+                    provenance["outpaint_degraded"].setdefault(ratio, "outpaint-unavailable")
+                    _pillow_outpaint_fallback(clean_base, target_w, target_h, ratio_path)
         else:
-            # Cover-pad the photographic base. Live outpaint calls are deliberately
-            # NOT attempted here: 3 outpaints cost ~30s sequential / ~13s parallel
-            # against the immovable 22s wall (see _DELIVERY_RATIOS note). Pad is
-            # photographic, deterministic, and honest about what it is.
+            # 4x5 stays a deterministic Pillow cover-pad (never a live outpaint):
+            # photographic, fast (~0.3s), and honest about what it is.
             _pillow_outpaint_fallback(clean_base, target_w, target_h, ratio_path)
             ratio_engine = "pillow-outpaint-fallback"
 
