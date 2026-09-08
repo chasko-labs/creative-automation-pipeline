@@ -140,7 +140,12 @@ def test_resolve_retailer_unknown_raises():
 
 
 def test_missing_logos_lists_all_when_dir_empty(tmp_path):
-    assert set(retailers.missing_logos(logo_dir=tmp_path)) == {"costco", "publix", "target"}
+    assert set(retailers.missing_logos(logo_dir=tmp_path)) == {
+        "costco",
+        "publix",
+        "target",
+        "subscription",
+    }
 
 
 # ------------------------------------------------------------------ CLI

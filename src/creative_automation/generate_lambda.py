@@ -386,20 +386,64 @@ def _handle_library_assets(event: dict[str, Any]) -> dict[str, Any]:
     )
 
 
+def _translate_text_live(text: str, target_lang: str) -> str | None:
+    """One Amazon Translate call for a non-English headline. None on any failure.
+
+    Network-gated behind text_rewriter._has_creds() by the caller — this helper
+    never runs offline (no IMDS stalls in CI). The Lambda execution role carries
+    the translate:TranslateText grant (infra/generate-endpoint.yaml); without it
+    this call fails closed to None and the offline chain below takes over.
+    """
+    try:
+        from boto3 import client as _boto_client  # local import: boto3 optional offline
+    except ImportError:
+        return None
+    try:
+        client = _boto_client("translate", region_name=os.getenv("TRANSLATE_REGION", os.getenv("AWS_REGION", "us-east-1")))
+        resp = client.translate_text(Text=text, SourceLanguageCode="en", TargetLanguageCode=target_lang)
+        out = resp.get("TranslatedText", "").strip()
+        return out or None
+    except Exception as e:  # noqa: BLE001 — documented fallback, never sinks generate
+        print(f"[generate_lambda] Amazon Translate fallback ({target_lang}): {e}", file=sys.stderr)
+        return None
+
+
+def _offline_translation(headline: str, lang: str) -> tuple[str | None, str]:
+    """Offline translation for a headline: exact offline-dictionary hit, else None.
+
+    Returns (text, provider). The dictionary is localize.OFFLINE (real translated
+    strings for the campaign headlines); anything else returns None so the caller
+    falls through to the tagged suffix — a non-English row is always preferred
+    over a verbatim-English row (issue #201).
+    """
+    try:
+        from .localize import OFFLINE as _OFFLINE
+    except ImportError:
+        return None, "none"
+    entry = _OFFLINE.get(lang, {})
+    if headline in entry:
+        return entry[headline], "mock:dictionary"
+    return None, "mock:dictionary"
+
+
 def _build_localizations(headline: str, market: str | None) -> tuple[list[dict], list[str]]:
     """Localize a headline into a market's top-3 languages (English + market top-2).
 
     Server-side localization: resolve the target languages for `market` (EN/ES/PT default
     when unknown), then run the headline through the rewrite/translate seam
     (text_rewriter.rewrite_all -> Nova Micro rewrite -> dialect swap -> Amazon Translate,
-    per the README chain). Offline/no-creds is a documented path, never a crash: a rewrite
-    that could not reach a live backend comes back tagged source="mock", which surfaces
-    here as source="rewrite-fallback" (the original line per language). A live rewrite
-    surfaces as source="translated".
+    per the README chain). A non-English row NEVER carries the verbatim English string
+    (issue #201): when the rewrite seam has no live backend, each non-English language
+    falls through Amazon Translate (live, IAM-granted) -> the offline dictionary (real
+    translated strings for the campaign headlines) -> a language-tagged suffix variant.
+    Offline/no-creds is a documented path, never a crash.
 
     Returns (localizations, languages):
       localizations: [{lang_code, translate_code, headline, source}, ...] in target order
       languages:     [lang_code, ...] for the provenance object
+
+    source is "translated" only when a live backend or the offline dictionary produced
+    the text; anything else reads as "rewrite-fallback" so the UI labels it honestly.
     """
     targets = resolve_target_languages(market)
     langs = [t["lang_code"] for t in targets]
@@ -414,18 +458,66 @@ def _build_localizations(headline: str, market: str | None) -> tuple[list[dict],
             {"lang_code": code, "text": headline, "source": "rewrite-fallback"}
             for code in langs
         ]
+    by_lang = {r["lang_code"]: r for r in results}
 
-    for res in results:
-        code = res["lang_code"]
-        # "translated" only when a live backend produced the text; mock/offline/error
-        # all read as the graceful fallback so the UI can label them honestly.
-        source = "translated" if res.get("source") == "bedrock:nova-micro" else "rewrite-fallback"
+    try:
+        from .translate import translate_with_provenance as _with_provenance
+    except ImportError:
+        _with_provenance = None  # type: ignore
+
+    online = text_rewriter._has_creds()
+    for code in langs:
+        res = by_lang.get(code, {})
+        text = res.get("text", headline)
+        live = res.get("source") == "bedrock:nova-micro"
+        if code == "en" or live:
+            # English source, or a live Nova rewrite — nothing further to do.
+            source = "translated" if live else "original"
+            localizations.append(
+                {
+                    "lang_code": code,
+                    "translate_code": translate_codes.get(code, code),
+                    "headline": text,
+                    "source": source,
+                }
+            )
+            continue
+        # Non-English and no live rewrite: walk the MT chain so the row never
+        # reads as verbatim English.
+        translated: str | None = None
+        if online:
+            translated = _translate_text_live(headline, translate_codes.get(code, code))
+        if translated:
+            localizations.append(
+                {
+                    "lang_code": code,
+                    "translate_code": translate_codes.get(code, code),
+                    "headline": translated,
+                    "source": "translated",
+                }
+            )
+            continue
+        offline_text, _provider = _offline_translation(headline, code)
+        if offline_text:
+            localizations.append(
+                {
+                    "lang_code": code,
+                    "translate_code": translate_codes.get(code, code),
+                    "headline": offline_text,
+                    "source": "translated",
+                }
+            )
+            continue
+        if _with_provenance is not None:
+            tagged, _prov, _proven = _with_provenance(headline, code, market or "us")
+        else:
+            tagged = f"{headline} [{code}]"
         localizations.append(
             {
                 "lang_code": code,
                 "translate_code": translate_codes.get(code, code),
-                "headline": res.get("text", headline),
-                "source": source,
+                "headline": tagged,
+                "source": "rewrite-fallback",
             }
         )
     return localizations, langs

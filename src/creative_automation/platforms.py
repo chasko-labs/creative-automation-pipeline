@@ -6,10 +6,13 @@ that file; it loads it once, caches it, and hands back plain dicts/lists. Offlin
 a missing/unreadable file falls through to the deterministic embedded matrix so tests and
 CI never depend on disk state.
 
-The seven consumer-facing platform slugs are fixed:
+The seven consumer-facing social platform slugs are fixed:
     facebook  instagram  x  linkedin  pinterest  tiktok  youtube
-The four ratio slugs are fixed and carry their pixel dims:
+plus the blog publish target (issue #201):
+    blog
+The ratio slugs are fixed and carry their pixel dims:
     1x1 1080x1080   4x5 1080x1350   9x16 1080x1920   16x9 1920x1080
+    blog 1200x630 (Blog / Open Graph hero)
 """
 from __future__ import annotations
 
@@ -30,13 +33,17 @@ PLATFORMS: tuple[str, ...] = (
     "tiktok",
     "youtube",
 )
-# The four sanctioned ratio slugs -> (w, h). Kept here as the offline fallback and as
+# The sanctioned ratio slugs -> (w, h). Kept here as the offline fallback and as
 # the authoritative dims a caller can assert against without touching disk.
+# "blog" is the Blog / Open Graph hero (1200x630, photographic editorial per
+# kodiakcakes.com/blogs/news, issue #201) — not a social ratio, but a first-class
+# export-table row so Blog is a publish target with real dimensions.
 RATIO_DIMS: dict[str, tuple[int, int]] = {
     "1x1": (1080, 1080),
     "4x5": (1080, 1350),
     "9x16": (1080, 1920),
     "16x9": (1920, 1080),
+    "blog": (1200, 630),
 }
 
 # Embedded fallback matrix — mirrors platform-matrix.json exactly so a disk read
@@ -51,6 +58,8 @@ _FALLBACK_MATRIX: dict = {
                  "platforms": ["instagram", "facebook", "tiktok", "youtube", "pinterest"]},
         "16x9": {"label": "Landscape", "w": 1920, "h": 1080,
                  "platforms": ["youtube", "linkedin", "x", "facebook"]},
+        "blog": {"label": "Blog / Open Graph", "w": 1200, "h": 630,
+                 "platforms": ["blog"]},
     },
     "platforms": {
         "facebook": {"label": "Facebook", "ratios": ["1x1", "4x5", "9x16", "16x9"]},
@@ -60,6 +69,7 @@ _FALLBACK_MATRIX: dict = {
         "pinterest": {"label": "Pinterest", "ratios": ["1x1", "9x16"]},
         "tiktok": {"label": "TikTok", "ratios": ["9x16"]},
         "youtube": {"label": "YouTube", "ratios": ["9x16", "16x9"]},
+        "blog": {"label": "Blog", "ratios": ["blog"]},
     },
 }
 

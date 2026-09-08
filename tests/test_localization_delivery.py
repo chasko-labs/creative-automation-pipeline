@@ -63,18 +63,24 @@ def test_build_localizations_marks_translated_on_live_backend(monkeypatch) -> No
 
 
 def test_build_localizations_offline_is_rewrite_fallback(monkeypatch) -> None:
-    # the offline path: rewrite_all returns source="mock" -> "rewrite-fallback", original line.
+    # the offline path: rewrite_all returns source="mock" -> non-English rows walk
+    # the MT chain (issue #201) so no row reads as verbatim English. "Keep It Wild"
+    # has no offline-dictionary entry, so es/pt carry the tagged suffix variant.
     def _mock_rewrite_all(base, market, langs, **kwargs):
         return [{"lang_code": c, "text": base, "source": "mock"} for c in langs]
 
     monkeypatch.setattr(text_rewriter, "rewrite_all", _mock_rewrite_all)
     locs, _langs = generate_lambda._build_localizations("Keep It Wild", None)
-    assert all(lo["source"] == "rewrite-fallback" for lo in locs)
-    assert all(lo["headline"] == "Keep It Wild" for lo in locs)
+    by_lang = {lo["lang_code"]: lo for lo in locs}
+    assert by_lang["en"]["headline"] == "Keep It Wild"
+    for code in ("es", "pt"):
+        assert by_lang[code]["headline"] != "Keep It Wild"
+        assert by_lang[code]["source"] == "rewrite-fallback"
 
 
 def test_build_localizations_backend_raises_degrades_without_crashing(monkeypatch) -> None:
-    # a backend that raises must degrade to rewrite-fallback, never propagate.
+    # a backend that raises must degrade, never propagate — and non-English rows
+    # still must not read as verbatim English (issue #201).
     def _boom(base, market, langs, **kwargs):
         raise RuntimeError("bedrock down")
 
@@ -82,8 +88,11 @@ def test_build_localizations_backend_raises_degrades_without_crashing(monkeypatc
     locs, languages = generate_lambda._build_localizations("Wild Mornings", "US-NOWHERE")
     assert languages == ["en", "es", "pt"]
     assert [lo["lang_code"] for lo in locs] == ["en", "es", "pt"]
-    assert all(lo["source"] == "rewrite-fallback" for lo in locs)
-    assert all(lo["headline"] == "Wild Mornings" for lo in locs)
+    by_lang = {lo["lang_code"]: lo for lo in locs}
+    assert by_lang["en"]["headline"] == "Wild Mornings"
+    for code in ("es", "pt"):
+        assert by_lang[code]["headline"] != "Wild Mornings"
+        assert by_lang[code]["source"] == "rewrite-fallback"
 
 
 # ------------------------------------------------------- handler additive fields

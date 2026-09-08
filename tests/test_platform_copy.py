@@ -32,8 +32,19 @@ def test_returns_entry_per_requested_platform():
     assert set(copy.keys()) == set(want)
 
 
-def test_default_covers_all_seven_platforms():
+def test_default_covers_all_eight_publish_targets():
+    # issue #201: Homepage, Blog, Instagram, Facebook, TikTok, YouTube, Pinterest, X.
+    from creative_automation.platform_copy import PUBLISH_TARGETS
+
     copy = generate_platform_copy("Fuel your morning", "Power Cakes", "US-UT")
+    assert set(copy.keys()) == set(PUBLISH_TARGETS)
+    assert len(copy) == 8
+
+
+def test_explicit_seven_social_slugs_still_supported():
+    copy = generate_platform_copy(
+        "Fuel your morning", "Power Cakes", "US-UT", platforms=list(PLATFORMS)
+    )
     assert set(copy.keys()) == set(PLATFORMS)
 
 
@@ -75,11 +86,18 @@ def test_brand_mark_enforced_where_headline_names_brand():
 
 
 def test_hashtag_counts_per_spec():
-    copy = generate_platform_copy("Fuel your morning", "Power Cakes", "US-UT")
+    copy = generate_platform_copy(
+        "Fuel your morning",
+        "Power Cakes",
+        "US-UT",
+        platforms=["instagram", "tiktok", "pinterest", "linkedin", "homepage", "blog"],
+    )
     assert len(copy["instagram"]["hashtags"]) == 4
     assert len(copy["tiktok"]["hashtags"]) == 3
     assert len(copy["pinterest"]["hashtags"]) == 3
     assert len(copy["linkedin"]["hashtags"]) == 2
+    assert copy["homepage"]["hashtags"] == []
+    assert len(copy["blog"]["hashtags"]) == 3
 
 
 def test_pinterest_is_keyword_rich_no_hype():

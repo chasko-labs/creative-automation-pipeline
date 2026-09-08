@@ -24,7 +24,7 @@ import re
 import sys
 
 from . import text_rewriter
-from .platforms import PLATFORMS, platform_label
+from .platforms import platform_label
 
 # The two approved external taglines (docs/iso-naming-conventions.md section 2). Fixed
 # words, fixed punctuation — no paraphrase. Ampersand form is the packaging tagline.
@@ -52,7 +52,26 @@ PLATFORM_SPECS: dict[str, dict] = {
     "facebook": {"hashtags": 2, "emoji": False, "kind": "community"},
     "pinterest": {"hashtags": 3, "emoji": False, "kind": "seo"},
     "youtube": {"hashtags": 3, "emoji": False, "kind": "video"},
+    # publish targets from issue #201: copy lives with the post, never baked
+    # into pixels. Homepage carries a hero line (no hashtags); blog carries a
+    # photographic-editorial post (seo-shaped, per kodiakcakes.com/blogs/news).
+    "homepage": {"hashtags": 0, "emoji": False, "kind": "homepage"},
+    "blog": {"hashtags": 3, "emoji": False, "kind": "article"},
 }
+
+# The eight publish targets every generation must produce post copy for
+# (issue #201). LinkedIn stays a supported explicit opt-in but is not a
+# default publish target.
+PUBLISH_TARGETS: tuple[str, ...] = (
+    "homepage",
+    "blog",
+    "instagram",
+    "facebook",
+    "tiktok",
+    "youtube",
+    "pinterest",
+    "x",
+)
 
 # Deterministic hashtag pool per platform, keyed to Kodiak voice. Kept ascii, no emoji.
 _BASE_HASHTAGS = ("KeepItWild", "KodiakCakes", "ProteinPacked", "WholeGrain", "FuelYourFrontier")
@@ -127,6 +146,10 @@ def _fallback_headline(base_message: str, product_name: str, kind: str) -> str:
         return f"{name} protein pancake and waffle mix — {base}, whole grain breakfast"
     if kind == "video":
         return f"{BRAND_MARK} {name}: {base}"
+    if kind == "homepage":
+        return f"{BRAND_MARK} {name} — {base}"
+    if kind == "article":
+        return f"{name}: a photographic-editorial Kodiak breakfast — {base}"
     return f"{BRAND_MARK} {name} — {base}"
 
 
@@ -159,6 +182,17 @@ def _body_for(kind: str, headline: str, product_name: str, market: str | None) -
         return f"Protein-packed whole grains, ready fast. {TAGLINE_EPIC}."
     if kind == "trend":
         return f"14g protein. 100% whole grain. No cap. {TAGLINE_EPIC}."
+    if kind == "homepage":
+        return (
+            f"{product_name} — protein-packed 100% whole grains for the whole "
+            f"family{place}. {TAGLINE_FRONTIER}."
+        )
+    if kind == "article":
+        return (
+            f"A photographic-editorial Kodiak breakfast{place}: {product_name} "
+            f"in-scene, lifestyle, product-in-use. Whole-grain protein for slow "
+            f"mornings and big days. {TAGLINE_EPIC}."
+        )
     # x / short: keep body empty — the single line carries the whole post.
     return ""
 
@@ -200,7 +234,8 @@ def generate_platform_copy(
         base_message: the source campaign line to tailor per platform.
         product_name: display product name (e.g. "Power Cakes"); drives brand naming + tags.
         market: market key for context + hashtag localization (optional).
-        platforms: subset of the seven sanctioned slugs; None => all seven.
+        platforms: subset of the sanctioned slugs (incl. homepage/blog/linkedin);
+            None => all eight PUBLISH_TARGETS.
         region: dialect region override passed to the rewrite seam (optional).
 
     Contract:
@@ -212,7 +247,7 @@ def generate_platform_copy(
           platform and NEVER raises.
         - where the headline carries brand naming, the registered mark is enforced.
     """
-    wanted = [p for p in (platforms or list(PLATFORMS)) if p in PLATFORM_SPECS]
+    wanted = [p for p in (platforms or list(PUBLISH_TARGETS)) if p in PLATFORM_SPECS]
     out: dict[str, dict] = {}
 
     for platform in wanted:

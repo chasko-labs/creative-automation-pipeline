@@ -26,6 +26,12 @@
       "w": 1920,
       "h": 1080,
       "platforms": ["youtube", "linkedin", "x", "facebook"]
+    },
+    "blog": {
+      "label": "Blog / Open Graph",
+      "w": 1200,
+      "h": 630,
+      "platforms": ["blog"]
     }
   },
   "platforms": {
@@ -85,6 +91,13 @@
       "placements": {
         "9x16": "shorts",
         "16x9": "landscape"
+      }
+    },
+    "blog": {
+      "label": "Blog",
+      "ratios": ["blog"],
+      "placements": {
+        "blog": "hero / open graph (photographic editorial, product-in-scene)"
       }
     }
   }

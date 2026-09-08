@@ -114,7 +114,8 @@ def market_retailers(retailer_field: str | None) -> list[str]:
 
     Unknown retailers (store names not in the retailers alias table, e.g. "Smith's
     Food & Drug") are dropped — the pack manifest lists only the sanctioned lockup
-    retailers (costco/publix/target). Returns [] when nothing resolves.
+    retailers (costco/publix/target) plus the "subscription" retailer-equivalent
+    (issue #198). Returns [] when nothing resolves.
     """
     if not retailer_field:
         return []
