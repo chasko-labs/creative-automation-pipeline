@@ -75,8 +75,12 @@ describe('campaign copy panel (#241)', () => {
     await Promise.resolve();
   });
 
-  it('returns false without a headline and never throws without DOM', () => {
-    expect(window.KODIAK_paintCampaignCopy(null, 'b', 'm')).toBe(false);
+  it('falls back to the brief without a headline; false only with neither', () => {
+    expect(window.KODIAK_paintCampaignCopy(null, 'Just the brief', 'm')).toBe(true);
+    const panels = els.campaignAssetsSection.children.filter((c) => c.id === 'campaignCopyPanel');
+    const panel = panels[panels.length - 1];
+    expect(panel.innerHTML).toContain('Just the brief');
+    expect(window.KODIAK_paintCampaignCopy(null, null, 'm')).toBe(false);
   });
 
   it('reset removes the copy panel', () => {
