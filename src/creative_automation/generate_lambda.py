@@ -253,6 +253,8 @@ def _handle_assets_library(event: dict[str, Any]) -> dict[str, Any]:
 _PACK_MEMBER_PREFIX = "brands/kodiak/renders/"
 _PACK_KEY_PREFIX = "brands/kodiak/packs/"
 _PACK_MAX_FILES = 8
+_PACK_MAX_EXTRA_BYTES = 65536
+_PACK_EXTRA_NAME_RE = re.compile(r"^[A-Za-z0-9-]+\.(txt|csv)$")
 _ISO_SEG_RE = re.compile(r"[^A-Za-z0-9-]+")
 
 
@@ -282,10 +284,13 @@ def _pack_member_name(
 def _handle_pack(event: dict[str, Any]) -> dict[str, Any]:
     """POST /assets/pack — zip already-rendered DAM PNGs into an ISO-named pack.
 
-    Body: {files: [{s3_uri, ratio?}...], product?, region?, locality?, channel?}.
+    Body: {files: [{s3_uri, ratio?}...], extras?: [{name, text}...],
+    product?, region?, locality?, channel?}.
     Packs ONLY keys under brands/kodiak/renders/ in the DAM bucket (400 otherwise),
     PUTs the zip to brands/kodiak/packs/<iso-name>.zip, and returns a presigned GET
     URL with Content-Disposition: attachment so the browser saves the ISO name.
+    extras (#242: campaign copy sidecars) are small inline text members (.txt/.csv
+    only, name-validated, 64KB cap each) — no second endpoint for words.
     S3-only (no Bedrock): runs inline, no wall executor needed. A missing member
     is a 400 naming the key — a partial zip would lie about the multi-ratio pack.
     """
@@ -316,6 +321,20 @@ def _handle_pack(event: dict[str, Any]) -> dict[str, Any]:
         if not key.startswith(_PACK_MEMBER_PREFIX) or not key.endswith(".png"):
             return _response(400, {"ok": False, "error": f"files[{i}]: only PNG renders under {_PACK_MEMBER_PREFIX} can be packed"})
         members.append((key, _pack_member_name(product, region, locality, channel, ratio, day)))
+    extras: list[tuple[str, bytes]] = []
+    for i, extra in enumerate(data.get("extras") or []):
+        if not isinstance(extra, dict):
+            return _response(400, {"ok": False, "error": f"extras[{i}]: must be {{name, text}}"})
+        name = str(extra.get("name") or "")
+        text = extra.get("text")
+        if not _PACK_EXTRA_NAME_RE.match(name):
+            return _response(400, {"ok": False, "error": f"extras[{i}]: name must match [A-Za-z0-9-].txt|.csv"})
+        blob = str(text or "").encode("utf-8")
+        if len(blob) > _PACK_MAX_EXTRA_BYTES:
+            return _response(400, {"ok": False, "error": f"extras[{i}]: text over 64KB cap"})
+        extras.append((f"{product}-{name}", blob))
+    if len(members) + len(extras) > _PACK_MAX_FILES:
+        return _response(400, {"ok": False, "error": f"at most {_PACK_MAX_FILES} files per pack"})
     import io as _io
     s3 = _s3_client()
     buf = _io.BytesIO()
@@ -327,6 +346,8 @@ def _handle_pack(event: dict[str, Any]) -> dict[str, Any]:
                 except Exception as e:  # noqa: BLE001 — name the missing key, pack nothing partial
                     return _response(400, {"ok": False, "error": f"member not found: {key} ({e})"})
                 zf.writestr(name, body)
+            for name, blob in extras:
+                zf.writestr(name, blob)
     except Exception as e:  # noqa: BLE001 — zip build fault surfaces, never a crash
         print(f"[generate_lambda] /assets/pack zip failed: {e}", file=sys.stderr)
         return _response(500, {"ok": False, "error": "pack build failed"})
@@ -346,14 +367,15 @@ def _handle_pack(event: dict[str, Any]) -> dict[str, Any]:
         },
         ExpiresIn=3600,
     )
-    print(f"[generate_lambda] /assets/pack ok: {zip_name} ({len(members)} files)", file=sys.stderr)
+    names = [name for _, name in members] + [name for name, _ in extras]
+    print(f"[generate_lambda] /assets/pack ok: {zip_name} ({len(names)} files)", file=sys.stderr)
     return _response(200, {
         "ok": True,
         "zip_url": url,
         "zip_name": zip_name,
         "s3_uri": f"s3://{DAM_S3_BUCKET}/{zip_key}",
-        "files": [name for _, name in members],
-        "count": len(members),
+        "files": names,
+        "count": len(names),
     })
 
 
