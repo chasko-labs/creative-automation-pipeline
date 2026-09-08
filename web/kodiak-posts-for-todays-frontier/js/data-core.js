@@ -382,16 +382,23 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
     }
   } catch(e){ console.log('auto-preview failed', e); }
 })();
-// Headless auto-select for ?mockLat&mockLon (fixes Tularosa bug where crude bbox defaulted to Park City)
+// Consent-gated mock coordinates for ?mockLat&mockLon (#197).
+// Headless/QA helper for the tap-to-locate path: coordinates are STASHED on window.__mockGeo
+// and consumed ONLY by the explicit "My location" tap handler (market-disclosure.js). A clean
+// load never resolves location and never touches #locality — the market dropdown
+// (Park City default) is the default path. No geolocation of any kind runs until the user taps.
 (() => {
-  const params=new URLSearchParams(location.search);
-  if(params.has('mockLat') && params.has('mockLon')){
-    const m=nearestMarketForCoords(parseFloat(params.get('mockLat')), parseFloat(params.get('mockLon')));
-    const status=document.getElementById('locationStatus');
-    if(status) status.textContent=`Mocked location ${params.get('mockLat')},${params.get('mockLon')} → ${m} — auto-selected. Showing what your Costco sees vs frontier.`;
-    const sel=document.getElementById('locality');
-    if(sel){ sel.value=m; sel.dispatchEvent(new Event('change')); if(typeof onLocality==='function') onLocality(); if(typeof render==='function') render(); }
-  }
+  try{
+    const params=new URLSearchParams(location.search);
+    if(params.has('mockLat') && params.has('mockLon')){
+      const lat=parseFloat(params.get('mockLat')), lon=parseFloat(params.get('mockLon'));
+      if(Number.isFinite(lat) && Number.isFinite(lon)){
+        window.__mockGeo={lat, lon};
+        const status=document.getElementById('locationStatus');
+        if(status) status.textContent='Mocked coordinates staged — tap My location to apply.';
+      }
+    }
+  }catch(e){}
 })();
 
 // === AXIS 2 + AXIS 3 — grouped market taxonomy (derived) + per-market localized-copy surface ===
