@@ -947,7 +947,7 @@ graph TD
         if(sizeKB>=20&&sizeKB<=100){s++; subs.push('✓ '+sizeKB+'k tight');} else subs.push('✗ size '+sizeKB+'k');
         return {score:s,max:m,detail:subs.join(' • '),pass:s===m,subs};
       }},
-    { id:'localization', title:'Localization Coverage', weight:2, desc:'APP 73 markets + 70 language maps + Burlington FR + localized surface renders', check: function(){
+    { id:'localization', title:'Localization Coverage', weight:2, desc:'APP 73 places + 74 language markets + Burlington FR + localized surface renders', check: function(){
         if(!appReady) return noApp();
         const subs=[]; let s=0,m=4;
         let placesLen=0, mlKeys=[], mlStr='{}';
@@ -955,7 +955,7 @@ graph TD
         try{ mlKeys=appWin.Function('return (typeof marketLangsOffline!=="undefined")?Object.keys(marketLangsOffline):[]')()||[];
           mlStr=appWin.Function('return (typeof marketLangsOffline!=="undefined")?JSON.stringify(marketLangsOffline):"{}"')()||'{}'; }catch(e){}
         if(placesLen>=73){s++; subs.push('✓ places 73+ '+placesLen);} else subs.push('✗ places '+placesLen+'<73');
-        if(mlKeys.length>=70){s++; subs.push('✓ marketLangs '+mlKeys.length+'≥70');} else subs.push('✗ langs '+mlKeys.length+'<70');
+        if(mlKeys.length>=74){s++; subs.push('✓ marketLangs '+mlKeys.length+'≥74');} else subs.push('✗ langs '+mlKeys.length+'<74');
         const hasBurl=mlStr.includes('BURLINGTON')||mlStr.includes('fr');
         if(hasBurl){s++; subs.push('✓ Burlington FR present');} else subs.push('✗ Burlington missing');
         const locSurface=appDoc.getElementById('featuredFrontier')||appDoc.getElementById('marketLangLine');

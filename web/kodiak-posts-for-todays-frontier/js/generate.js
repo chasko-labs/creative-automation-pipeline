@@ -98,7 +98,7 @@ let skuList = [
     }catch(e){}
     // Artisanal copy first, then the 73-market places table (every market carries a
     // real message + cue), generic only when the market is genuinely unknown. The old
-    // chain fell to generic for 68 of 73 markets.
+    // chain fell to generic for 68 of 73 places.
     let txt = flavorMap[market];
     if(!txt){
       try{

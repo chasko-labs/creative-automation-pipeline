@@ -12,9 +12,9 @@ fetch('webmcp.json').then(r=>r.json()).then(console.log)
 fetch('data/localization/market-languages.json').then(r=>r.json()).then(d=>console.table(d.markets.slice(0,3)))
 
 ## WebMCP islands (agent-friendly)
-- places: [data-mcp="places"] — 73 markets (store-finder-markets.json)
+- places: [data-mcp="places"] — 73 places (places[] table; store-finder-markets.json)
 - products: [data-mcp="products"] — KODIAK catalog
-- market-languages: #lang-chips — top 2 outside English per market (ACS 2022) — market-languages.json
+- market-languages: #lang-chips — top 2 outside English per market (ACS 2023, 74 language markets) — market-languages.json
 - preview.compose: [data-mcp="preview.compose"] — message overlay on final posts (EN + localized)
 - brief-yaml: #brief — copyable campaign brief
 - webmcp.json — manifest; application/ld+json WebApplication in footer
