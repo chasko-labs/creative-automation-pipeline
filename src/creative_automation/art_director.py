@@ -91,6 +91,9 @@ def _has_creds() -> bool:
         or os.getenv("AWS_PROFILE")
         or os.getenv("AWS_SESSION_TOKEN")
         or os.getenv("AWS_CONTAINER_CREDENTIALS_RELATIVE_URI")
+        # Lambda sets the FULL uri, not the relative one — without this the director
+        # self-gates to mock even in prod where the execution role has full access.
+        or os.getenv("AWS_CONTAINER_CREDENTIALS_FULL_URI")
     )
 
 
@@ -251,3 +254,69 @@ def art_direct(
         check = safety.check_text(text)
 
     return {"text": text, "source": source, "safety": check}
+
+
+def _grounded_ask(ask: str, voice: str, examples: list[dict]) -> str:
+    """Fold retrieved brand-voice examples into the ask, inside the trained shape.
+
+    Pure function (no network) so grounding is unit-testable. The examples ride
+    inside the single instruction string because the model was fine-tuned on one
+    instruction field — a separate context field would deviate from the trained
+    shape and degrade voice fidelity. Empty examples degrade to the stock ask.
+    """
+    if not examples:
+        return _build_ask(ask, voice)
+    lines = [
+        "Write in the voice of these real Kodiak brand lines:",
+        *[f"- {str(e.get('caption', '')).strip()}" for e in examples[:3]
+          if str(e.get("caption", "")).strip()],
+        f"Now write for this request: {ask}",
+    ]
+    return _build_ask("\n".join(lines), voice)
+
+
+def art_direct_grounded(
+    ask: str,
+    voice: str = "adventurous",
+    *,
+    examples: list[dict] | None = None,
+    region: str | None = None,
+    model_arn: str | None = None,
+) -> dict:
+    """Grounded director: retrieved brand voice + trained model + safety gate.
+
+    Same transport and safety path as art_direct — the only difference is the ask
+    carries retrieved corpus examples. Returns {text, source, safety, grounded,
+    example_ids}; grounded is True only when examples were actually folded in.
+    source is "bedrock:kodiak-artdirector" on live inference, "mock" offline —
+    callers MUST require the live source before letting text near a render.
+    """
+    examples = [e for e in (examples or []) if str(e.get("caption", "")).strip()][:3]
+    prompt = _grounded_ask(ask, voice, examples)
+    resolved_region = region or KODIAK_ARTDIRECTOR_REGION
+    resolved_arn = model_arn or KODIAK_ARTDIRECTOR_MODEL_ARN
+
+    generated = (
+        _try_art_direct(prompt, region=resolved_region, model_arn=resolved_arn)
+        if _has_creds()
+        else None
+    )
+    if generated:
+        text = generated
+        source = "bedrock:kodiak-artdirector"
+    else:
+        text = _mock_copy(ask, voice)
+        source = "mock"
+
+    check = safety.check_text(text)
+    if not check["clean"]:
+        text = safety.redact(text)
+        check = safety.check_text(text)
+
+    return {
+        "text": text,
+        "source": source,
+        "safety": check,
+        "grounded": bool(examples),
+        "example_ids": [e.get("id") for e in examples],
+    }
