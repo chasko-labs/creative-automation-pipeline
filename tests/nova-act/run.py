@@ -252,9 +252,9 @@ def _eval_generate_rung(page, params: dict):
             badge = (page.inner_text("#genSourceBadge") or "").strip()
         except Exception:
             badge = ""
-        m = re.search(r"Rung ([ABCD])", badge)
+        m = re.search(r"rung ([ABCD])", badge, re.IGNORECASE)
         if m:
-            rung = m.group(1)
+            rung = m.group(1).upper()
             break
     ok = rung in allowed
     return ok, {"badge": badge[:160], "rung": rung, "allow": allowed}, \
