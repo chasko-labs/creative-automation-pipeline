@@ -220,14 +220,49 @@ STYLE_TAIL = os.getenv(
     "KODIAK_STYLE_TAIL",
     ". No text, no letters, no signage, blank surfaces only.",
 )
+# Mascot lock (Unit 2 — character consistency on the restyle rails): a FROZEN
+# descriptor block pinned into the style-sandwich SUBJECT slot so the same brand
+# bear renders recognizably identical across scenes (cabin / market / campfire).
+# Gated on KODIAK_MASCOT_LOCK (default OFF) so existing renders are byte-identical
+# unless the lock is explicitly enabled; text overridable via KODIAK_MASCOT_DESCRIPTOR.
+MASCOT_DESCRIPTOR_BLOCK = (
+    "Same Kodiak brand bear mascot in every render: friendly medium-brown grizzly "
+    "bear with rounded ears, cream muzzle, warm amber eyes, and thick frontier fur "
+    "with consistent markings"
+)
+
+
+def _mascot_lock_on() -> bool:
+    """True when the frozen mascot descriptor is pinned into the subject slot."""
+    return os.getenv("KODIAK_MASCOT_LOCK", "").strip().lower() in (
+        "1", "true", "yes", "on",
+    )
+
+
+def _mascot_block() -> str:
+    """Frozen descriptor text (env override wins, same pattern as STYLE_HEAD/TAIL)."""
+    return os.getenv("KODIAK_MASCOT_DESCRIPTOR", MASCOT_DESCRIPTOR_BLOCK).strip()
 # Seed discipline: locked seed = consistency (same brief re-renders identically);
 # swept seed = controlled variations (the variations button passes seed per call).
 STABILITY_SEED = int(os.getenv("BEDROCK_STABILITY_SEED", "42"))
 
 
 def _style_sandwich(subject: str) -> str:
-    """Wrap a varying subject in the frozen style ends. Idempotent."""
+    """Wrap a varying subject in the frozen style ends. Idempotent.
+
+    With the mascot lock on, the frozen MASCOT descriptor block is pinned into the
+    SUBJECT slot ahead of the varying scene text, so every restyle carries the same
+    bear identity no matter what the scene says. Already-wrapped prompts are
+    unwrapped-aware: the block is injected after STYLE_HEAD when missing.
+    """
     subject = (subject or "").strip()
+    if _mascot_lock_on():
+        block = _mascot_block()
+        if block and block not in subject:
+            if subject.startswith(STYLE_HEAD):
+                subject = STYLE_HEAD + block + " Scene: " + subject[len(STYLE_HEAD):]
+            else:
+                subject = f"{block} Scene: {subject}"
     if subject.startswith(STYLE_HEAD):
         return subject
     return f"{STYLE_HEAD}{subject}{STYLE_TAIL}"
@@ -1867,6 +1902,7 @@ def generate_hero(
                     provenance["control_strength"] = STABILITY_CONTROL_STRENGTH
                     provenance["seed"] = STABILITY_SEED
                     provenance["style"] = "sandwich-locked"
+                    provenance["mascot_lock"] = _mascot_lock_on()
                     provenance["model"] = STABILITY_CONTROL_MODEL
                     # PART C — deterministic on-brand headline + accent bar ON TOP of the
                     # GenAI hero (Nova Pro still supplies the headline). Default-on.
