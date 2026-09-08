@@ -58,7 +58,11 @@
     if(summary && p) summary.setAttribute('aria-label', 'Choose market — currently ' + (p.place || market));
     if(featuredEl){
       var cue = p && p.cue ? p.cue : '';
-      featuredEl.textContent = cue ? ('Featured frontier: ' + cue) : '';
+      // #257: metro markets show their data-mapped featured-frontier linkage (via
+      // their own mapping entry). Self-frontier markets already carry it in cue.
+      var link = (typeof featuredFrontierFor==='function') ? featuredFrontierFor(market) : null;
+      var linkTxt = (link && link.frontier!==market) ? (' | hinterland frontier: ' + link.text) : '';
+      featuredEl.textContent = cue ? ('Featured frontier: ' + cue + linkTxt) : (linkTxt ? ('Featured frontier: ' + link.text) : '');
     }
     if(langLine){
       try{ renderLocalizedCopy(market); }
