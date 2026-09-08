@@ -164,6 +164,7 @@ the eye to the primary action). do not stack two `bear`-shadowed elements on one
 | label                  | selector                               | surface / fill                                                 | state |
 | ---------------------- | -------------------------------------- | -------------------------------------------------------------- | ----- |
 | Campaign Prompt Bar    | `.ff-prompt`                           | kraft surface, bear shadow                                     | built |
+| Guided Setup Step      | `.ff-setup` + `data-step` badges (1-4) | neutral-100 panel; numbered badges pure CSS, no a11y DOM       | built |
 | Prompt Input Wrap      | `.ff-inputwrap`                        | white, stone border; focus-within -> blazeOrange ring          | built |
 | Prompt Textarea        | `#campaignBrief`                       | transparent inside wrap                                        | built |
 | Upload Icon Button     | `.ff-iconbtn` `#promptUpload`          | white, stone border, oat hover                                 | built |
