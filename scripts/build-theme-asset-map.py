@@ -60,7 +60,8 @@ MODEL_NOTE = (
     "pack-shots; bears theme applies a negative captive-bear-closeup guardrail; "
     "zac-efron theme applies an additive athlete/lifestyle filename boost so "
     "real licensed brand-athlete photography ranks first (rights-clean, no "
-    "likeness synthesis); primaries are globally de-duped in a fixed priority "
+    "likeness synthesis); partner-libraries person front-run puts approved DAM "
+    "keys of the person first as their theme primary; primaries are globally de-duped in a fixed priority "
     "order (zac-efron first, then alphabetical) so all themes carry distinct "
     "primary photo_keys; top-1 + up to 4 fallbacks per theme, all reconciled "
     "to real DAM keys"
@@ -451,6 +452,61 @@ def caption_for(meta: dict) -> str:
     return ""
 
 
+PARTNER_LIBS = pathlib.Path("data/products/partner-libraries.json")
+
+
+def load_partner_libs() -> dict:
+    """Partner person-libraries (approved DAM keys per person). Missing file = no partners."""
+    try:
+        return json.loads(PARTNER_LIBS.read_text(encoding="utf-8"))
+    except OSError:
+        return {}
+
+
+def partner_override(
+    slug: str,
+    ranked: list[tuple[float, dict]],
+    images: list[dict],
+    real_keys: set[str],
+    claimed_primaries: set[str],
+) -> tuple[str, dict, float, str] | None:
+    """Partner person front-run for their theme.
+
+    A partner is a PERSON, not a vibe: the first approved photo_key for the
+    person whose theme this is becomes the primary — but only when it is a
+    real, unclaimed DAM key. Anything else (absent, claimed, unscored) falls
+    back to the scored pick; approved-but-unscored keys still resolve caption
+    from their embeddings row. Never fabricated.
+    Returns (basename, meta, score, person) or None.
+    """
+    libs = load_partner_libs().get("partners", {})
+    scored_by_key: dict[str, tuple[float, dict]] = {}
+    for score, meta in ranked:
+        rk = reconcile_basename(meta.get("image_file", ""), real_keys)
+        if rk is not None:
+            scored_by_key.setdefault(rk, (score, meta))
+    for _, person in libs.items():
+        if person.get("theme") != slug:
+            continue
+        for key in person.get("photo_keys", []):
+            base = key[len(DAM_PREFIX):] if key.startswith(DAM_PREFIX) else key
+            if base not in real_keys or base in claimed_primaries:
+                continue
+            if base in scored_by_key:
+                score, meta = scored_by_key[base]
+                return base, meta, score, person.get("person", "")
+            meta = next(
+                (
+                    im
+                    for im in images
+                    if reconcile_basename(im.get("image_file", ""), real_keys) == base
+                ),
+                {},
+            )
+            return base, meta, 0.0, person.get("person", "")
+    return None
+
+
 def rank_for_theme(theme: dict, images: list[dict]) -> list[tuple[float, dict]]:
     """Ranked (weighted_score, meta) for a theme. Stable: score desc, image_file asc.
 
@@ -560,8 +616,17 @@ def build(no_verify: bool, profile: str, region: str, real_keys: set[str]) -> di
         top_meta, top_score, primary_key, fb_keys = resolve_pool(
             ranked, real_keys, claimed_primaries
         )
+        # Partner person front-run: approved DAM keys of the person lead their
+        # theme; the scored primary drops to first fallback. Scored pick stands
+        # when no approved key is real + unclaimed.
+        partner_person = ""
+        hit = partner_override(slug, ranked, images, real_keys, claimed_primaries)
+        if hit is not None:
+            pk, pk_meta, pk_score, partner_person = hit
+            fb_keys = [primary_key] + [k for k in fb_keys if k != pk]
+            top_meta, top_score, primary_key = pk_meta, pk_score, pk
         claimed_primaries.add(primary_key)
-        pool = [primary_key] + fb_keys
+        pool = ([primary_key] + fb_keys)[:POOL_SIZE]
         entry = {
             "theme": theme["slug"],
             "brief": theme["brief"],
@@ -572,6 +637,9 @@ def build(no_verify: bool, profile: str, region: str, real_keys: set[str]) -> di
             "score": round(float(top_score), 4),
             "pool": [DAM_PREFIX + k for k in pool],
         }
+        if partner_person:
+            entry["partner"] = partner_person
+            entry["partner_primary"] = True
         if theme["slug"] == "bears":
             entry["guardrail"] = (
                 "captive-bear-closeup excluded (PETA 2022): rows with "
@@ -581,6 +649,19 @@ def build(no_verify: bool, profile: str, region: str, real_keys: set[str]) -> di
         chan_dist[entry["channel"]] += 1
         result_map[theme["slug"]] = entry
 
+    # Carry-over: the builder owns THEMES; entries for slugs outside that list
+    # (e.g. us-ski-snowboard, added for #96 by another process) pass through
+    # byte-identical so a rebuild never silently drops a live theme.
+    carried: dict[str, dict] = {}
+    try:
+        prior = json.loads(OUT.read_text(encoding="utf-8")).get("map", {})
+        for slug, entry in prior.items():
+            if slug not in result_map:
+                carried[slug] = entry
+    except OSError:
+        pass
+    full_map = {slug: result_map[slug] for slug in sorted(result_map)}
+    full_map.update(carried)
     output = {
         "metadata": {
             "generated": "deterministic",
@@ -590,8 +671,9 @@ def build(no_verify: bool, profile: str, region: str, real_keys: set[str]) -> di
             "channel_distribution": dict(sorted(chan_dist.items())),
             "model_note": MODEL_NOTE,
             "reconciled_to_real_keys": True,
+            "carried_over": sorted(carried),
         },
-        "map": {slug: result_map[slug] for slug in sorted(result_map)},
+        "map": full_map,
     }
 
     if not no_verify:
@@ -649,6 +731,8 @@ def print_summary(output: dict) -> None:
         )
         if "guardrail" in e:
             print(f"      guardrail: {e['guardrail']}")
+        if e.get("partner_primary"):
+            print(f"      partner: {e.get('partner')} (approved person photo leads)")
 
 
 def main() -> int:
