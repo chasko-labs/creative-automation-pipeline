@@ -39,13 +39,14 @@ a{color:var(--frontier)}
 <a href="infrastructure.html" aria-current="page">Infrastructure as Code</a>
 </div>
 
-<div class="card"><div class="hd"><h2>CDK stacks <span class="badge">live</span></h2><p>Single canonical app, adopted in place (#122). Five stacks.</p></div><div class="body">
+<div class="card"><div class="hd"><h2>CDK stacks <span class="badge">live</span></h2><p>Single canonical app, adopted in place (#122). Six stacks.</p></div><div class="body">
 <ul class="tree">
 <li><span class="node"><b>generate-stack</b></span> <span class="role">— GenerateLambda (brief-to-hero handler) behind a public dev-open Function URL the site calls directly; Bedrock grants for Nova Pro, Stability control-structure + outpaint, Nova embed + Titan fallback.</span></li>
 <li><span class="node"><b>data-stack</b></span> <span class="role">— DynamoDB <span class="kbd">localization-memory</span> + <span class="kbd">retail-network</span> (pay-per-request); S3 pipeline-log + style-library buckets (TLS-only policy).</span></li>
 <li><span class="node"><b>bedrock-logging-stack</b></span> <span class="role">— cross-region Bedrock invocation logging + X-Ray tracing (#122).</span></li>
 <li><span class="node"><b>observability-stack</b></span> <span class="role">— pipeline observer spans, scorecard + compliance gates (#42).</span></li>
 <li><span class="node"><b>browser-observability-stack</b></span> <span class="role">— RUM + CloudFront log bucket for the live frontend.</span></li>
+<li><span class="node"><b>hosting-stack</b></span> <span class="role">— S3 <span class="kbd">frontier-bryanchasko-com</span> + CloudFront <span class="kbd">E3GEX8LSRX6OYS</span> + <span class="kbd">kodiak.bryanchasko.com</span> alias, adopted in place (#202, all RETAIN). Origin access control provisioned, not yet attached. Content still ships via <span class="kbd">scripts/deploy-frontier.sh</span>, never via CDK.</span></li>
 <li><span class="node"><b>Example — generate-stack Lambda</b></span> <span class="role">— <span class="kbd">GenerateLambda</span>, container image, <span class="kbd">memorySize 3008</span>, <span class="kbd">timeout 300</span>, public Function URL (<span class="kbd">AuthType NONE</span>) the site POSTs <span class="kbd">/generate</span> to; Bedrock grants cover Nova Pro, Stability control-structure + outpaint, and Nova multimodal embeddings with Titan fallback (<span class="kbd">amazon.nova-2-multimodal-embeddings-v1:0</span>).</span></li>
 </ul>
 </div></div>

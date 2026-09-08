@@ -16,6 +16,7 @@ cross-region concern in `us-west-2`.
 | KodiakCreativesGenerate              | us-east-1 | container-image lambda + public function url + bedrock/S3 IAM |
 | KodiakCreativesBedrockLoggingUsEast1 | us-east-1 | bedrock invocation log group + role + singleton enable        |
 | KodiakCreativesBedrockLoggingUsWest2 | us-west-2 | same, cross-region (FIX 2) for the art-director model         |
+| kodiak-creatives-hosting             | us-east-1 | frontier site bucket + CloudFront distro + OAC + DNS alias (#202, all RETAIN) |
 
 ## two observability fixes carried by this app
 
@@ -119,6 +120,56 @@ npx cdk import KodiakCreativesBedrockLoggingUsEast1 --profile bryanchasko-kiro
 for a FRESH environment (new account/region with none of these live) skip import
 and `cdk deploy` directly.
 
+## adopting the LIVE site hosting with `cdk import` (#202, zero-destroy)
+
+The site bucket (`frontier-bryanchasko-com`) and the CloudFront distribution
+(`E3GEX8LSRX6OYS`) are hand-made and serve production traffic. Do NOT
+`cdk deploy` HostingStack before importing -- a plain deploy would try to
+CREATE a duplicate bucket and fail. The stack mirrors the live config
+(L2 bucket; L1 distribution because the live default behavior uses legacy
+ForwardedValues, which L2 cannot render -- it always injects a CachePolicyId),
+so import is a no-op. Every resource in the stack is `RemovalPolicy.RETAIN`
+and the stack has terminationProtection.
+
+Two resources need special handling:
+
+- `FrontierOriginAccessControl` is NEW (provisioned, not attached). Import
+  creates it with no traffic impact. Attaching it (origin swap to S3 REST +
+  bucket-policy rewrite) is a reviewed follow-up, not part of adoption.
+- `KodiakAliasRecord` CANNOT ride along: CloudFormation refuses to import
+  `AWS::Route53::RecordSet` at all. Import with the record gated out, then
+  adopt DNS in a second pass (delete the live `kodiak` A alias, deploy to
+  recreate it identically -- seconds of resolver-cache cover).
+
+```
+# 1. synth first so the template is on disk
+npm run synth
+
+# 2. import bucket + distro (+ new OAC), record gated out
+npx cdk import kodiak-creatives-hosting -c hostingIncludeDnsRecord=false --profile bryanchasko-kiro
+```
+
+physical ids to supply when prompted:
+
+| construct path           | physical id (live)        |
+| ------------------------ | ------------------------- |
+| FrontierSiteBucket       | frontier-bryanchasko-com  |
+| FrontierDistribution     | E3GEX8LSRX6OYS            |
+
+```
+# 3. confirm clean, then adopt DNS (once): delete the live kodiak A alias in
+#    the bryanchasko.com zone (aerospaceug-admin Z09216723VDB0N04DM9LL), deploy
+#    to recreate it, verify with dig.
+npx cdk diff kodiak-creatives-hosting -c hostingIncludeDnsRecord=false --profile bryanchasko-kiro  # clean
+# ... delete live record ...
+npx cdk deploy kodiak-creatives-hosting --profile bryanchasko-kiro
+dig +short kodiak.bryanchasko.com  # CloudFront IPs
+```
+
+content publishing is NOT part of this stack -- `scripts/deploy-frontier.sh`
+keeps the s3 sync + invalidation job. The `kodiak-generate-api` second origin
+and the cf-logs bucket are referenced by string only (owned elsewhere).
+
 ## deploy order
 
 ```
@@ -127,6 +178,7 @@ npx cdk deploy KodiakCreativesObservability    --profile bryanchasko-kiro
 npx cdk deploy KodiakCreativesGenerate         --profile bryanchasko-kiro   # after ECR push
 npx cdk deploy KodiakCreativesBedrockLoggingUsEast1 --profile bryanchasko-kiro
 npx cdk deploy KodiakCreativesBedrockLoggingUsWest2 --profile bryanchasko-kiro
+npx cdk deploy kodiak-creatives-hosting             --profile bryanchasko-kiro   # import first if live, see #202 section above
 ```
 
 or all at once: `npx cdk deploy --all --profile bryanchasko-kiro`.
