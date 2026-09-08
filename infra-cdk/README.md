@@ -67,7 +67,12 @@ aws ecr get-login-password --region "$REGION" --profile bryanchasko-kiro \
   | docker login --username AWS --password-stdin "$ECR"
 
 # build context is the repo root; Dockerfile lives at infra/generate.Dockerfile
-docker build -f ../infra/generate.Dockerfile -t "$REPO:$TAG" ..
+# Lambda accepts Docker v2 manifests only: build with the default (docker)
+# driver on linux/amd64 with provenance/sbom off. The docker-container driver
+# (e.g. an arm64 builder) emits OCI mediatypes that Lambda rejects with 400
+# "image manifest ... media type ... is not supported".
+docker buildx build --builder default --platform linux/amd64 --provenance=false --sbom=false \
+  -f ../infra/generate.Dockerfile -t "$REPO:$TAG" --load ..
 docker tag "$REPO:$TAG" "$ECR/$REPO:$TAG"
 docker push "$ECR/$REPO:$TAG"
 ```
