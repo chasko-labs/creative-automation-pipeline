@@ -81,6 +81,27 @@ def test_retrieve_empty_library_yields_no_examples(monkeypatch):
     assert examples == []
 
 
+def test_load_library_drops_filename_captions(tmp_path, monkeypatch):
+    # the committed library is ~95% DAM titles; only voice-grade sentences load.
+    lib = tmp_path / "lib.jsonl"
+    lib.write_text(
+        "\n".join(
+            [
+                '{"id": "junk", "metadata": {"caption": "88b5787ee037 Kodiak Recipe Waffle 0725 4eb0b2"}, "vector": [1.0, 0.0]}',
+                '{"id": "real", "metadata": {"caption": "Fuel your frontier with whole grains and protein"}, "vector": [0.0, 1.0]}',
+            ]
+        ),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(director_memory, "data_path", lambda *a: lib)
+    director_memory.clear_cache()
+    try:
+        entries = director_memory._load_library()
+    finally:
+        director_memory.clear_cache()
+    assert [e["id"] for e in entries] == ["real"]
+
+
 def test_retrieve_blank_query_never_embeds(monkeypatch):
     calls = {"n": 0}
 
@@ -173,6 +194,52 @@ def test_director_headline_refusal_falls_back(monkeypatch):
     )
     out = generate_mod._director_headline_text("Power Cakes", "wild mornings", "us", "families")
     assert out is None
+
+
+def test_scrub_strips_markup_and_preamble():
+    text = 'Here are the requested responses:\n- **"Fuel Your Wilder Days"**\n### Explanation:\nshort'
+    out = generate_mod._scrub_director_line(
+        text, [{"id": "x", "caption": "Unrelated brand sentence here now"}]
+    )
+    assert out == "Fuel Your Wilder Days"
+
+
+def test_scrub_rejects_example_echo():
+    out = generate_mod._scrub_director_line(
+        "**Bear Bites for Cubs, Cinnamon Honey**",
+        [{"id": "x", "caption": "Bear Bites for Cubs, cinnamon honey graham bears"}],
+    )
+    assert out is None  # echo of the example, not a written line
+
+
+def test_director_headline_resamples_single_after_trio_refusal(monkeypatch):
+    # PROVEN IN PROD: a trio of fragment-grade captions declines while the
+    # top-1 alone complies — resample once with the single best example.
+    _enable(monkeypatch)
+    monkeypatch.setattr(
+        director_memory,
+        "retrieve",
+        lambda q, k=3: (
+            [
+                {"id": "j1", "caption": "fast and easy breakfast stack"},
+                {"id": "j2", "caption": "Kodiak air fryer chicken and waffles"},
+                {"id": "j3", "caption": "Kodiak carrot cake french toast bake"},
+            ],
+            "nova",
+        ),
+    )
+    calls = {"n": 0}
+
+    def _direct(ask, voice, examples=None):
+        calls["n"] += 1
+        if len(examples or []) > 1:
+            return _live_result("I can't fulfill this request.")
+        return _live_result("dawn patrol eats first")
+
+    monkeypatch.setattr(art_director, "art_direct_grounded", _direct)
+    out = generate_mod._director_headline_text("Power Cakes", "wild mornings", "us", "families")
+    assert out == "Dawn Patrol Eats First"
+    assert calls["n"] == 2
 
 
 def test_director_headline_no_examples_falls_back(monkeypatch):

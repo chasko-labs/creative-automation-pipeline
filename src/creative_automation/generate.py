@@ -119,6 +119,15 @@ _REFUSAL_PHRASES = (
     "can't help",
     "won't be able",
 )
+# Lines containing these never reach the render — model meta-preambles, not copy.
+_PREAMBLE_PATTERNS = (
+    "here are",
+    "here is",
+    "requested",
+    "headline options",
+    "options:",
+    "explanation:",
+)
 
 
 def _director_enabled() -> bool:
@@ -1143,6 +1152,39 @@ def _title_case_headline(text: str) -> str:
     )
 
 
+def _scrub_director_line(text: str, examples: list[dict]) -> Optional[str]:
+    """Extract one render-safe line from raw voice-model output.
+
+    The fine-tuned model wraps lines in markdown (**bold**, "quotes"), prepends
+    meta-preambles ("Here are the requested responses:"), and sometimes echoes
+    an in-ask example back instead of writing. Any of those reaching the render
+    is a defect, so: strip markup, drop preamble/bullet lines, take the first
+    substantial line, and reject example-echoes (>=70% word overlap with any
+    example). Returns None when nothing render-safe remains (caller resamples
+    or falls back to stock Nova).
+    """
+    t = text.replace("**", "").replace("*", "").replace('"', "").replace("#", "")
+    lines = [ln.strip(" -\u2022\t") for ln in t.strip().splitlines()]
+    lines = [ln for ln in lines if len(ln.split()) >= 2]
+    lines = [
+        ln
+        for ln in lines
+        if not any(p in ln.lower() for p in _PREAMBLE_PATTERNS)
+    ]
+    if not lines:
+        return None
+    line = lines[0].strip()
+    words = {w.strip(",.!?;:").lower() for w in line.split()} - {""}
+    for example in examples:
+        example_words = {
+            w.strip(",.!?;:").lower()
+            for w in str(example.get("caption", "")).split()
+        } - {""}
+        if example_words and words and len(words & example_words) / len(words) >= 0.7:
+            return None
+    return line or None
+
+
 def _director_headline_text(
     product_name: str, brief_msg: str, region: str, audience: str
 ) -> Optional[str]:
@@ -1150,10 +1192,14 @@ def _director_headline_text(
 
     The concept loop in one bounded call: embed the request -> top-k corpus
     captions -> trained voice model directs with those examples in-ask ->
-    layout-parse + house-style normalize. Returns None on ANY failure (no
-    examples, offline mock source, timeout, exception) so the caller falls back
-    to the stock Nova caption. The mock source is refused explicitly — a mock
-    transport must never write a production headline.
+    scrub + layout-parse + house-style normalize. Returns None on ANY failure
+    (no examples, offline mock source, refusal, unscrubbable output, timeout,
+    exception) so the caller falls back to the stock Nova caption. The mock
+    source is refused explicitly — a mock transport must never write a
+    production headline. A refused/scrubbed trio resamples ONCE with the single
+    best example (PROVEN IN PROD 2026-09-08: trios of fragment-grade captions
+    decline while the top-1 alone complies); a dead transport does not
+    resample — it falls straight through to Nova.
     """
     import sys as _sys
 
@@ -1177,24 +1223,37 @@ def _director_headline_text(
             _dnote(f"no examples (embed={model_used})")
             return None
         _dnote(f"retrieved {len(examples)} examples via {model_used}")
-        result = art_director.art_direct_grounded(
+        ask = (
             f"Write one short on-brand headline (max 6 words) for {product_name}: "
-            f"{brief_msg}. Region {region}, audience {audience}.",
-            "adventurous",
-            examples=examples,
+            f"{brief_msg}. Region {region}, audience {audience}."
         )
-        if not isinstance(result, dict) or result.get("source") != _DIRECTOR_LIVE_SOURCE:
-            _dnote(f"voice not live (source={(result or {}).get('source')})")
-            return None
-        text = str(result.get("text", "")).strip()
-        if not text:
-            return None
-        lowered = text.lower()
-        if any(phrase in lowered for phrase in _REFUSAL_PHRASES):
-            _dnote(f"voice refused ({text[:60]!r})")
-            return None
-        headline, _side = _parse_layout(text)
-        return _title_case_headline(headline) or None
+        samples = [examples[:3]]
+        if len(examples[:1]) < len(examples[:3]):
+            samples.append(examples[:1])
+        for sample in samples:
+            if not sample:
+                break
+            result = art_director.art_direct_grounded(
+                ask, "adventurous", examples=sample
+            )
+            if not isinstance(result, dict) or result.get("source") != _DIRECTOR_LIVE_SOURCE:
+                _dnote(f"voice not live (source={(result or {}).get('source')})")
+                return None
+            text = str(result.get("text", "")).strip()
+            if not text:
+                continue
+            if any(phrase in text.lower() for phrase in _REFUSAL_PHRASES):
+                _dnote(f"voice refused ({text[:60]!r}) — resampling")
+                continue
+            line = _scrub_director_line(text, sample)
+            if line is None:
+                _dnote(f"voice output unusable ({text[:60]!r}) — resampling")
+                continue
+            headline, _side = _parse_layout(line)
+            normed = _title_case_headline(headline)
+            if normed:
+                return normed
+        return None
 
     # Leak-and-drain on timeout (same contract generate_lambda documents for its own
     # inner director timeout): exiting a `with` executor would shutdown(wait=True) and
