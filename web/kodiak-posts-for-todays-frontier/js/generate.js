@@ -349,7 +349,7 @@ let skuList = [
       const frontierLink = (typeof featuredFrontierFor==='function') ? featuredFrontierFor(selectedLoc.market) : null;
       const frontierHint = frontierLink ? frontierLink.text : 'Nearest Frontier via haversine — same pipeline fans to all 73';
       const status = document.getElementById('sampleStatus');
-      const origLabel = 'Generate Kodiak campaign';
+      const origLabel = 'Create Campaign Preview';
       // slugify a product NAME -> API slug that resolves to a packshot map key.
       // The packshot map key space == catalog product .handle (per sku-packshot-map.json contract:
       // sku_id "matches ... kodiak-full-catalog.json handle"). The catalog carries .handle for every

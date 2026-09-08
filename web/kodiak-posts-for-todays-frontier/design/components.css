@@ -56,6 +56,9 @@
   --mountain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0 38 L120 8 L260 32 L380 4 L520 30 L640 10 L760 34 L880 6 L1000 28 L1120 12 L1200 36 L1200 48 L0 48Z' fill='%231A2F29'/%3E%3C/svg%3E");
   /* forest treeline divider - mirrors --mountain (same viewBox 0 0 1200 48, same fill #1A2F29) but ~36 narrow conifer spikes of varied height (peaks y=6..28) with baseline valleys at y=46, so it reads as a dense spruce/pine treeline rather than a few wide peaks */
   --forest:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0 48 L0 46 L16 10 L33 46 L49 20 L66 46 L82 6 L99 46 L116 24 L133 46 L150 14 L166 46 L183 28 L199 46 L216 8 L233 46 L250 18 L266 46 L283 12 L300 46 L316 22 L333 46 L350 10 L366 46 L383 20 L399 46 L416 6 L433 46 L450 24 L466 46 L483 14 L500 46 L516 28 L533 46 L550 8 L566 46 L583 18 L600 46 L616 12 L633 46 L650 22 L666 46 L683 10 L699 46 L716 20 L733 46 L750 6 L766 46 L783 24 L799 46 L816 14 L833 46 L850 28 L866 46 L883 8 L900 46 L916 18 L933 46 L950 12 L966 46 L983 22 L1000 46 L1016 10 L1033 46 L1050 20 L1066 46 L1083 6 L1100 46 L1116 24 L1133 46 L1150 14 L1166 46 L1183 28 L1200 46 L1200 48 Z' fill='%231A2F29'/%3E%3C/svg%3E");
+  /* corrugated flute — vertical bear-brown/parchment hairlines on a 12px tile, layered
+     OVER kraft at low alpha so hero surfaces read as lit cardboard, never stripes */
+  --flute:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M2 0 V12' stroke='%233B2316' stroke-opacity='.07' stroke-width='2'/%3E%3Cpath d='M8 0 V12' stroke='%23FFF8F0' stroke-opacity='.10' stroke-width='2'/%3E%3C/svg%3E");
 }
 *{box-sizing:border-box}
 html,body{margin:0;color:var(--chocolate);font-family:"museo-sans",system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif;font-weight:500;font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased}
@@ -202,6 +205,8 @@ section.xl{padding:var(--section-space-xl) 0}
    card's --shadows-md: 0 12px 32px vs 0 8px 24px), so it reads elevated ABOVE the card.
    only on-token hygiene here: raw 16px radius -> --radii-lg (same value, no visual change). */
 .ff-prompt{background:var(--gradients-kraft\.surface);border:1px solid var(--stone);border-radius:var(--radii-lg);padding:18px;box-shadow:var(--shadows-bear)}
+/* lit cardboard — corrugated flute tiled over the kraft on the hero prompt surface */
+.ff-prompt{background-image:var(--flute),var(--gradients-kraft\.surface)}
 .ff-prompt h2{margin:0 0 4px;font:800 20px/1.1 gin,"kodiak_sans",Rockwell,Georgia,serif;letter-spacing:.03em;text-transform:none;color:var(--chocolate)}
 .ff-prompt .ff-sub{margin:0 0 14px;color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
 /* === HERO CANVAS: the campaign input is the primary action, styled to dominate. ===
@@ -234,15 +239,24 @@ section.xl{padding:var(--section-space-xl) 0}
   background:var(--colors-neutral-0,#fff);color:var(--chocolate);cursor:pointer;font-size:18px;line-height:1}
 .ff-iconbtn:hover{background:var(--colors-neutral-100,#F4EDE6)}
 .ff-iconbtn:focus-visible{outline:2px solid var(--orange, #E8530E);outline-offset:2px}
-/* CREATE — must win. 48px tier, darkened blaze-orange (#C7440B) so #fff label clears WCAG AA
-   (4.86:1 vs 4.5:1 required); loudest element on the page via branded elevation. */
-.ff-go{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:48px;min-height:48px;padding:0 28px;
-  border-radius:var(--radii-lg,16px);border:1px solid #C7440B;background:#C7440B;color:#fff;
-  font:700 14px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;
-  box-shadow:var(--shadows-bear)}
-.ff-go:hover{background:#B23C09;border-color:#B23C09;box-shadow:var(--shadows-lg);transform:translateY(-1px)}
+/* CREATE CAMPAIGN PREVIEW — the star. Lit ember gradient (top-light like the kraft
+   sheen: every stop vs #fff clears WCAG AA — 4.81/4.93/6.33 vs 4.5 required), inset
+   top highlight + low bounce-light for dimension, bear elevation, hover light-sweep.
+   52px tier so nothing else on the page competes. */
+.ff-go{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:52px;min-height:52px;padding:0 34px;white-space:nowrap;
+  border-radius:var(--radii-lg,16px);border:1px solid #8F3005;
+  background:linear-gradient(180deg,#C9460C 0%,#C7440B 48%,#A93B07 100%);color:#fff;
+  font:700 14px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;
+  box-shadow:inset 0 1px 0 rgba(255,248,240,.4),inset 0 -2px 5px rgba(59,20,5,.4),var(--shadows-bear);
+  position:relative;overflow:hidden}
+.ff-go:hover{background:linear-gradient(180deg,#C9460C 0%,#B23C09 55%,#9E3606 100%);border-color:#8F3005;
+  box-shadow:inset 0 1px 0 rgba(255,248,240,.45),inset 0 -2px 5px rgba(59,20,5,.4),var(--shadows-lg);transform:translateY(-1px)}
 .ff-go{transition:background .15s,border-color .15s,box-shadow .15s,transform .15s}
-@media(prefers-reduced-motion:reduce){.ff-go{transition:none}.ff-go:hover{transform:none}}
+.ff-go::after{content:"";position:absolute;top:-10%;bottom:-10%;left:-70%;width:50%;pointer-events:none;
+  background:linear-gradient(105deg,transparent 0%,rgba(255,248,240,.38) 50%,transparent 100%);
+  transform:skewX(-18deg);transition:left .55s ease}
+.ff-go:hover::after,.ff-go:focus-visible::after{left:135%}
+@media(prefers-reduced-motion:reduce){.ff-go{transition:none}.ff-go:hover{transform:none}.ff-go::after{display:none}}
 /* elevation tiers — the only three depths in the app. rest: surfaces at rest (cards keep
    their current shadows = rest by convention). raised: interactive controls under hand
    (chips, primary CTA). modal: dialogs above everything (dam panel, pickers). */
@@ -847,7 +861,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-generate-campaign.is-gated>summary::before{color:var(--colors-neutral-400)}
 .ff-generate-campaign.is-gated>summary:focus-visible{outline:2px solid var(--red);outline-offset:2px}
 /* === Progress timeline — slim horizontal tracker + live heuristic line === */
-.ff-timeline{margin:0 0 var(--spacing-sm);padding:10px 14px 8px;border:1px solid var(--stone);border-radius:var(--radii-lg);background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-md)}
+.ff-timeline{margin:0 0 var(--spacing-sm);padding:10px 14px 8px;border:1px solid var(--stone);border-radius:var(--radii-lg);background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-md);background-image:var(--flute),var(--gradients-kraft\.surface)}
 .ff-timeline-steps{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
 .ff-timeline-steps li{display:inline-flex;align-items:center;gap:6px;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;color:var(--colors-foreground-muted)}
 .ff-timeline-steps li+li::before{content:"";width:18px;height:1px;background:var(--colors-border-default);margin-right:2px}
