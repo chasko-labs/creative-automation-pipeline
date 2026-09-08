@@ -1796,7 +1796,11 @@ def generate_hero(
             provenance["rung"] = "A"
             provenance["model"] = "pillow:compose-creative"
             provenance["packshot"] = str(packshot)
-            provenance["seed_selection"] = "packshot"
+            # A staged DAM pick stays labelled: the box is pasted over the exact
+            # photo the customer chose, so seed_selection must say so (the pick
+            # drives the render — mislabelling it "packshot" hides that).
+            if provenance.get("seed_selection") != "staged-dam-asset":
+                provenance["seed_selection"] = "packshot"
             provenance["overlay_applied"] = bool(brand_overlay)
             provenance["headline"] = headline if brand_overlay else None
             _finalize_render(out_path, paper_overlay, provenance)
