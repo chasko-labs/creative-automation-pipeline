@@ -10,7 +10,7 @@
     {
       "id": "places",
       "selector": "[data-mcp='places']",
-      "description": "73 markets — El Paso ES, Burlington FR, SF ZH — haversine Use my location",
+      "description": "73 places (places[] table) — El Paso ES, Burlington FR, SF ZH — haversine Use my location",
       "source": "data/localization/store-finder-markets.json"
     },
     {
@@ -27,7 +27,7 @@
     {
       "id": "market-languages",
       "selector": "#lang-chips",
-      "description": "Top 2 languages outside English per market (ACS 2022) — auto-produced EN + localized",
+      "description": "Top 2 languages outside English per market (ACS 2023, 74 language markets) — auto-produced EN + localized",
       "source": "data/localization/market-languages.json"
     },
     {
