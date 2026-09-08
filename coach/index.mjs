@@ -56,6 +56,9 @@ async function converse(messages, maxTokens, system) {
   if (!akid || !secret) throw Object.assign(new Error("no credentials"), { name: "CredentialsError" });
   const host = `bedrock-runtime.${REGION}.amazonaws.com`;
   const path = `/model/${encodeURIComponent(MODEL_ID)}/converse`;
+  // SigV4 canonical URI double-encodes the % from encodeURIComponent (matches
+  // botocore/AWS server behavior); the wire URL stays single-encoded. Without
+  // this every call fails SignatureDoesNotMatch (Bedrock 403).
   const body = JSON.stringify({
     ...(system ? { system: [{ text: system }] } : {}),
     messages,
@@ -71,8 +74,9 @@ async function converse(messages, maxTokens, system) {
     ...(token ? { "x-amz-security-token": token } : {}),
   };
   const signed = Object.keys(headers).sort();
+  const canonicalPath = path.replace(/%/g, "%25");
   const canonical =
-    `POST\n${path}\n\n` +
+    `POST\n${canonicalPath}\n\n` +
     signed.map((k) => `${k}:${headers[k]}\n`).join("") +
     `\n${signed.join(";")}\n${hashHex(body)}`;
   const scope = `${date}/${REGION}/bedrock/aws4_request`;
@@ -173,6 +177,8 @@ export const handler = async (event) => {
     const out = path.endsWith("/ask") ? await handleAsk(body) : await handleInsights(body);
     return { statusCode: out.statusCode, headers, body: JSON.stringify(out.body) };
   } catch (err) {
+    // error NAME only (never message/body — prompts may echo user PII).
+    try { console.error(JSON.stringify({ coach_error: err?.name ?? "unknown", detail: String(err?.message ?? "").slice(0, 24) })); } catch {}
     const retryable = ["ThrottlingException", "ModelTimeoutException", "ServiceUnavailableException", "InternalServerException"].includes(err?.name);
     return {
       statusCode: retryable ? 503 : 500,
