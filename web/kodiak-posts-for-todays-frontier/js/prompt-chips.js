@@ -207,8 +207,8 @@
 
     // marketer-voice copy — every user-facing string lives here so tone stays in one place.
     var COPY_SEARCH_PLACEHOLDER = 'Search this stack\u2026';
-    var COPY_FOOTER_SELECTED    = '{n} selected \u2014 ready to stack into your brief';
-    var COPY_FOOTER_NONE        = 'Pick an asset to add it to your brief';
+    var COPY_FOOTER_SELECTED    = '{n} selected \u2014 ready to stack into your campaign idea';
+    var COPY_FOOTER_NONE        = 'Pick an asset to add it to your campaign idea';
     var COPY_SPARSE             = 'A small, hand-picked set \u2014 this stack is meant to run lean.';
     var COPY_EMPTY              = 'Nothing on this shelf yet. Try another tab.';
     var COPY_LOADING            = 'Loading past assets\u2026';

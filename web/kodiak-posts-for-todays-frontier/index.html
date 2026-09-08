@@ -186,7 +186,7 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
          snapshot dropped. Brief text is kept. Wired in lifecycle-persist.js. -->
     <button type="button" class="ff-geo" id="resetDefaults"
             aria-label="Restore defaults: Park City market, clear selections and staged picks"
-            title="Restore defaults (keeps your brief text)">
+            title="Restore defaults (keeps your campaign idea text)">
       <span>Restore defaults</span>
     </button>
     <div class="ff-season" data-mcp="seasonal-context">
@@ -254,7 +254,7 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
           <div id="productResults" class="ff-products-results" role="listbox" aria-label="KODIAK product matches" hidden></div>
         </div>
         <button type="button" class="ff-products-random" id="randomProducts" aria-label="Pick 3 random products">Random 3</button>
-        <span class="ff-products-hint" id="skuHint">Pick up to 3, or leave empty — Create uses your brief/theme.</span>
+        <span class="ff-products-hint" id="skuHint">Pick up to 3, or leave empty — Create uses your campaign idea/theme.</span>
       </div>
       <!-- field-as-shell: 3-slot horizontal image carousel below the search line; JS fills the slots from selected/random SKUs. scroll-snap + content-visibility for perf; single-row horizontal scroll on narrow viewports. -->
       <div class="ff-product-carousel" id="productCarousel" role="group" aria-label="Selected product images" style="display:none">
@@ -294,7 +294,7 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
   <!-- B1: the prompt input is now the CULMINATION at the bottom of the card — controls above assemble the brief, Create sits directly under the fully-assembled prompt. -->
   <div class="ff-inputwrap">
     <!-- Row 1 (canvas): visible kicker label + the primary textarea, full width -->
-    <label class="ff-brief-label" for="campaignBrief">Your brief</label>
+    <label class="ff-brief-label" for="campaignBrief">Your campaign idea</label>
     <textarea id="campaignBrief" rows="2" aria-label="Campaign idea — describe your Kodiak campaign in a line" placeholder="Describe your campaign in a line — or tap an option above to start." role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="briefSuggest" autocomplete="off"></textarea>
     <!-- D4. add-your-own-asset file input — visually-hidden, triggered by the "+" icon below. FRONTEND STAGING ONLY (no DAM upload backend); staged client-side, marker threaded into the brief via window.__userAssets. -->
     <input type="file" id="addAssetInput" class="ff-addasset-input" accept="image/*,.pdf,.docx,.yaml,.yml,.json" aria-label="Add your own image asset to this campaign">
