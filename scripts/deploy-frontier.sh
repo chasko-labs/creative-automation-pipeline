@@ -7,7 +7,9 @@ set -euo pipefail
 # Deploys the 8 core top-level files (index.html, details.html, pipeline.html, infrastructure.html, design/styles.css,
 # webmcp.json, glimmer-proxy.js, llms.txt) AND the asset directories the page references:
 # assets/ (logos, textures, partners/), data/ (localization, products, ...),
-# fonts/ (NotoSans *.woff2), design/ (tokens/), js/ (extracted classic scripts). Directory syncs use `aws s3 sync`
+# fonts/ (NotoSans *.woff2), design/ (tokens/), js/ (extracted classic scripts),
+# input_assets/ (default heroes referenced by generate.js + preloaded in index.html).
+# Directory syncs use `aws s3 sync`
 # so newly added files ship automatically without editing this script — this is
 # the root-cause fix for prod 404s where referenced assets were never uploaded.
 #
@@ -60,6 +62,7 @@ DIRS=(
 	"fonts"
 	"design"
 	"js"
+	"input_assets"
 )
 
 run() {
