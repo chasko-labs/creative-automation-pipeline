@@ -127,7 +127,7 @@ let skuList = [
     '4x5':  {label:'Portrait',  w:1080, h:1350, platforms:['instagram','facebook']},
     '9x16': {label:'Vertical',  w:1080, h:1920, platforms:['instagram','facebook','tiktok','youtube','pinterest']},
     '16x9': {label:'Landscape', w:1920, h:1080, platforms:['youtube','linkedin','x','facebook']},
-    'blog': {label:'Blog / Open Graph', w:1200, h:630, platforms:['blog']}
+    'blog': {label:'Blog', w:1200, h:630, platforms:['blog']}
   };
   // live matrix — starts as the fallback, upgraded by the fetched JSON when reachable.
   let platformMatrix = PLATFORM_MATRIX_FALLBACK;
