@@ -1140,19 +1140,28 @@ def _director_headline_text(
     to the stock Nova caption. The mock source is refused explicitly — a mock
     transport must never write a production headline.
     """
+    import sys as _sys
+
+    def _dnote(msg: str) -> None:
+        print(f"[director] {msg}", file=_sys.stderr)
+
     if not _director_enabled():
+        _dnote("skip: kill-switch off")
         return None
     try:
         from . import art_director
         from . import director_memory
-    except ImportError:
+    except ImportError as e:
+        _dnote(f"skip: import failed ({e})")
         return None
 
     def _attempt() -> Optional[str]:
         query = f"{product_name} {brief_msg} {region} {audience}".strip()
-        examples, _model = director_memory.retrieve(query, k=3)
+        examples, model_used = director_memory.retrieve(query, k=3)
         if not examples:
+            _dnote(f"no examples (embed={model_used})")
             return None
+        _dnote(f"retrieved {len(examples)} examples via {model_used}")
         result = art_director.art_direct_grounded(
             f"Write one short on-brand headline (max 6 words) for {product_name}: "
             f"{brief_msg}. Region {region}, audience {audience}.",
@@ -1160,6 +1169,7 @@ def _director_headline_text(
             examples=examples,
         )
         if not isinstance(result, dict) or result.get("source") != _DIRECTOR_LIVE_SOURCE:
+            _dnote(f"voice not live (source={(result or {}).get('source')})")
             return None
         text = str(result.get("text", "")).strip()
         if not text:
@@ -1488,7 +1498,14 @@ def generate_hero(
             )
             if directed:
                 provenance["headline_source"] = _DIRECTOR_LIVE_SOURCE
+                print(f"[director] grounded headline: {directed}", file=sys.stderr)
                 return directed
+        else:
+            print(
+                f"[director] skip: budget {remaining_ms():.0f}ms < "
+                f"{_DIRECTOR_BUDGET_MS + _C_RESERVATION_MS}ms",
+                file=sys.stderr,
+            )
         caption = _nova_pro_caption(src, product_name, brief_msg, region, audience) or ""
         headline, _side = _parse_layout(caption)
         if headline:
