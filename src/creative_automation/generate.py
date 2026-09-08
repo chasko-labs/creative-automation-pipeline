@@ -135,6 +135,7 @@ STABILITY_OUTPAINT_MODEL = os.getenv(
 # dim is upscaled to 1024x1024 before invoke to avoid a ValidationException.
 _STABILITY_MIN_DIM = 64
 _STABILITY_UPSCALE_TO = 1024
+_STABILITY_MAX_DIM = int(os.getenv("BEDROCK_STABILITY_SEED_MAX_SIDE", "1280"))
 # us-west-2 needs an inference profile for Nova Pro; us-east-1 invokes directly.
 BEDROCK_REGION = os.getenv("BEDROCK_REGION", "us-east-1")
 
@@ -592,18 +593,39 @@ def _find_source_asset(product_id: str, product_name: str, deadline_ms=None) -> 
     return None
 
 
+_NOVA_SEED_MAX_SIDE = int(os.getenv("BEDROCK_NOVA_SEED_MAX_SIDE", "1024"))
+
+
+def _seed_small_for_nova(src: Path) -> tuple[bytes, str]:
+    """Downscaled RGB JPEG of the seed for Nova Converse vision calls.
+
+    Root-cause repair: hero-real seeds are 2400px/15MB+ PNGs and Converse drops
+    image payloads over ~3.75MB (connection closed locally, hang-to-timeout in
+    Lambda) — which starved rung B of its scene-prompt and rung C of its caption.
+    1024px JPEG is ~100-200KB: same art-direction signal, fits every timeout.
+    """
+    img = Image.open(src).convert("RGB")
+    if max(img.size) > _NOVA_SEED_MAX_SIDE:
+        img.thumbnail((_NOVA_SEED_MAX_SIDE, _NOVA_SEED_MAX_SIDE), Image.LANCZOS)
+    from io import BytesIO
+
+    buf = BytesIO()
+    img.save(buf, "JPEG", quality=82)
+    return buf.getvalue(), "jpeg"
+
+
 def _nova_pro_caption(
     src: Path, product_name: str, brief_msg: str, region: str, audience: str
 ) -> Optional[str]:
     """Ask Nova Pro (Converse) for a short on-brand caption + layout hint. None on failure."""
     if boto3 is None:
         return None
-    fmt = _CONVERSE_FMT.get(src.suffix.lower())
-    if fmt is None:
+    try:
+        img_bytes, fmt = _seed_small_for_nova(src)
+    except Exception:
         return None
     try:
         client = _bedrock_failfast_client(read_timeout=BEDROCK_NOVA_READ_TIMEOUT_S)
-        img_bytes = src.read_bytes()
         prompt = (
             f"You are an ad art director. Product: '{product_name}'. Region: {region}. "
             f"Audience: {audience}. Campaign vibe: {brief_msg}. "
@@ -651,19 +673,21 @@ def _nova_pro_scene_prompt(
     ).strip()
     if boto3 is None:
         return default_prompt
-    fmt = _CONVERSE_FMT.get(src.suffix.lower())
-    if fmt is None:
+    try:
+        img_bytes, fmt = _seed_small_for_nova(src)
+    except Exception:
         return default_prompt
     try:
         client = _bedrock_failfast_client(read_timeout=BEDROCK_NOVA_READ_TIMEOUT_S)
-        img_bytes = src.read_bytes()
         prompt = (
             f"You are an ad art director directing an image restyle. Product: "
             f"'{product_name}'. Region: {region}. Audience: {audience}. Campaign vibe: "
             f"{brief_msg}.{theme_hint} Look at the product image, which must keep its "
             "composition. Reply with ONE vivid scene/style description (max 40 words, no "
             "line breaks, no quotes) that restyles this photo to the theme — lighting, "
-            "setting, mood, palette. Keep the product recognizable. No headline text."
+            "setting, mood, palette. Keep the product recognizable. No headline text. "
+            "The scene must contain NO text, letters, numbers, signage, or labels "
+            "anywhere — blank surfaces only, since the model renders glyphs as gibberish."
         )
         resp = client.converse(
             modelId=NOVA_TEXT_MODEL,
@@ -696,6 +720,12 @@ def _seed_b64_for_stability(src: Path) -> str:
     w, h = img.size
     if w < _STABILITY_MIN_DIM or h < _STABILITY_MIN_DIM:
         img = img.resize((_STABILITY_UPSCALE_TO, _STABILITY_UPSCALE_TO), Image.LANCZOS)
+    elif max(w, h) > _STABILITY_MAX_DIM:
+        # Ceiling: a 2400px seed base64-encodes to ~20MB and burns the whole 13s
+        # Stability reservation on upload alone. 1280px still resolves past the
+        # 1080px campaign target and restyles in ~11s measured.
+        scale = _STABILITY_MAX_DIM / max(w, h)
+        img = img.resize((int(w * scale), int(h * scale)), Image.LANCZOS)
     from io import BytesIO
 
     buf = BytesIO()

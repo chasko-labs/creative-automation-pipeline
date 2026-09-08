@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Asset Pipeline, Localization &amp; AI Usage — Kodiak Creative Automation Pipeline</title>
+<meta name="kodiak-version" content="0.1.030-2dba172-20260907">
+<style>
+:root{--brown-kodiak:#3B2316;--frontier:#1A3C34;--blaze:#E8530E;--stone:#D9CFC6;--cream:#FFF8F0;--parch:#F4EDE6}
+body{margin:0;background:var(--cream);color:var(--brown-kodiak);font-family:"museo-sans",system-ui,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:18px}
+.kodiak-header{background:var(--brown-kodiak);color:#FFF8F0;padding:10px 18px}
+.header__inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.backlink{color:#FFF8F0}
+h1{font-size:clamp(18px,3.2vw,26px);margin:0}
+.card{background:#FFFDF9;border:1px solid var(--stone);border-radius:16px;margin:10px 0;box-shadow:0 8px 24px rgba(59,35,22,.08)}
+.card>.hd{padding:14px 18px 0}.card>.hd h2{margin:0 0 4px;font-size:20px}
+.card>.hd p{margin:0 0 8px;color:#6B5A53;font-size:13px}
+.card>.body{padding:0 18px 16px;font-size:14px;line-height:1.6}
+.badge{display:inline-block;background:var(--parch);border:1px solid var(--stone);border-radius:999px;padding:1px 10px;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.kbd{font-family:ui-monospace,monospace;background:var(--parch);border:1px solid var(--stone);border-radius:6px;padding:0 6px;font-size:12.5px}
+.tree,.tree ul{list-style:none;margin:8px 0;padding:0}
+.tree ul{margin-left:22px}
+.tree li{margin:5px 0}
+.tree li>.node:before{content:"▸ ";color:var(--blaze)}
+.tree ul li>.node:before{content:"– "}
+.tree .role{color:#6B5A53;font-size:12.5px}
+.siblings{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.siblings a{display:inline-block;padding:8px 14px;border:1px solid var(--frontier);border-radius:999px;color:var(--brown-kodiak);text-decoration:none}
+.siblings a[aria-current]{background:var(--brown-kodiak);border-color:var(--brown-kodiak);color:#FFF8F0}
+a{color:var(--frontier)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header class="kodiak-header"><div class="header__inner">
+<a class="backlink" href="index.html">&larr; Back to campaign</a>
+<div style="flex:1;background:var(--frontier);border-radius:6px;padding:8px 14px"><h1>Asset Pipeline, Localization &amp; AI Usage</h1></div>
+</div></header>
+<div class="wrap">
+<p>Every campaign the tool creates travels the same ladder, speaks the market's language, and lands in the DAM. Nodes marked <span class="kbd">live</span> run in production; <span class="kbd">ready</span> is built and staged but not yet wired in.</p>
+<div class="siblings" role="group" aria-label="About pages">
+<a href="details.html">Design System Inventory</a>
+<a href="pipeline.html" aria-current="page">Asset Pipeline, Localization &amp; AI Usage</a>
+<a href="infrastructure.html">Infrastructure as Code</a>
+</div>
+
+<div class="card"><div class="hd"><h2>Generation ladder <span class="badge">live</span></h2><p>POST /generate runs rungs top-down inside a 24s budget wall and returns real pixels — never a 503. The <span class="kbd">source</span> label on every response names the rung that produced it.</p></div><div class="body">
+<ul class="tree">
+<li><span class="node"><b>Rung A · packshot</b> <span class="kbd">live</span></span> <span class="role">— fastest path: SKU slug maps straight to a DAM packshot, composited with headline + tokens.</span></li>
+<li><span class="node"><b>Rung B · stability restyle</b> <span class="kbd">live</span></span> <span class="role">— Nova Pro art-directs (headline + control-structure prompt), Stable Diffusion restyles the composition. 12s cap, fail-fast.</span>
+<ul><li><span class="node">Proved #114 (ladder), hardened #117 (fail-fast rung-B calls closed the 33s silent-gap 503).</span></li></ul></li>
+<li><span class="node"><b>Rung C · pillow composite</b> <span class="kbd">live</span></span> <span class="role">— Pillow composes real brand assets under the same Nova Pro art-direction when the image model is slow.</span></li>
+<li><span class="node"><b>Rung D · brand-floor</b> <span class="kbd">live</span></span> <span class="role">— deterministic on-brand fallback labelled <span class="kbd">brand-floor:wall-timeout</span>. Looks flat next to A/B — that label is the honest signal, surfaced per #173.</span></li>
+</ul>
+<p>Nova Canvas is retired by design and is not a path — "Nova magic" means Nova Pro art-direction landing in rungs A–C. Localhost and <span class="kbd">file://</span> skip the ladder and render the offline canvas stand-in directly.</p>
+</div></div>
+
+<div class="card"><div class="hd"><h2>Models at work <span class="badge">live</span></h2><p>Bedrock model IDs, as granted in <span class="kbd">infra-cdk/lib/generate-stack.ts</span>.</p></div><div class="body">
+<ul class="tree">
+<li><span class="node"><b>Nova Pro art-director</b> <span class="kbd">live</span></span> <span class="role">— <span class="kbd">amazon.nova-pro-v1:0</span> (Converse) writes the localized headline + control prompt; custom voice model <span class="kbd">cx15b77k5nge</span> in us-west-2 via Strands BedrockModel (#121).</span></li>
+<li><span class="node"><b>Stable Diffusion family</b> <span class="kbd">live</span></span> <span class="role">— <span class="kbd">stability.stable-image-control-structure-v1:0</span> (restyle) + <span class="kbd">stability.stable-outpaint-v1:0</span>, invoked via inference profiles across us-east-1, us-east-2, us-west-2. This is the only photographic rung.</span></li>
+<li><span class="node"><b>Nova Canvas</b> <span class="kbd">dead</span></span> <span class="role">— Amazon retired it provider-side (verified denied, account-wide). Proved once end-to-end long ago; there is no console switch to bring it back. Do not confuse with Nova Pro (text art-director, alive) or Nova Act (browser automation, a separate thing entirely).</span></li>
+<li><span class="node"><b>Nova Micro translate</b> <span class="kbd">live</span></span> <span class="role">— market copy localization; data-driven machine-translate gate with community-review first-class Navajo.</span></li>
+<li><span class="node"><b>Nova multimodal embed + Titan fallback</b> <span class="kbd">live</span></span> <span class="role">— one embed invoke per new DAM asset; dedup by asset_id so re-renders cost zero invokes.</span></li>
+</ul>
+</div></div>
+
+<div class="card"><div class="hd"><h2>Localization <span class="badge">live</span></h2><p>73 markets, EN + top-2 languages per market, rendered as localized copy — never language names.</p></div><div class="body">
+<ul class="tree">
+<li><span class="node"><b>Market data</b> <span class="kbd">live</span></span> <span class="role">— <span class="kbd">data/localization/market-languages.json</span> (70+ maps), <span class="kbd">store-finder-markets.json</span> (geo-enriched), regional scoreboard build + schema (#119).</span></li>
+<li><span class="node"><b>Render surface</b> <span class="kbd">live</span></span> <span class="role">— localized surface line on the app; /localize seam + Noto <span class="kbd">.woff2</span> fonts for 23 languages (#124, #127).</span></li>
+<li><span class="node"><b>Memory</b> <span class="kbd">live</span></span> <span class="role">— DynamoDB <span class="kbd">localization-memory</span> table remembers per-market corrections.</span></li>
+</ul>
+</div></div>
+
+<div class="card"><div class="hd"><h2>DAM + data assets <span class="badge">live</span></h2><p>Everything the ladder reads and everything it produces.</p></div><div class="body">
+<ul class="tree">
+<li><span class="node"><b>Renders in</b> <span class="kbd">live</span></span> <span class="role">— S3 <span class="kbd">brands/kodiak/renders/</span> (presigned URLs), past-assets library browsable from the prompt card (#171).</span></li>
+<li><span class="node"><b>Reads</b> <span class="kbd">live</span></span> <span class="role">— 88-SKU catalog, 444 recipes, platform matrix (4 ratios), sku-photo + theme-asset maps, <span class="kbd">input_assets/</span> heroes.</span></li>
+<li><span class="node"><b>Schemas</b> <span class="kbd">live</span></span> <span class="role">— <span class="kbd">data/localization/regional-scoreboard.schema.json</span>, <span class="kbd">data/scoreboard/scoreboard.schema.json</span>.</span></li>
+</ul>
+</div></div>
+
+<div class="card"><div class="hd"><h2>At the ready <span class="badge">staged</span></h2><p>Built, proved, or tracked — not yet in the click path.</p></div><div class="body">
+<ul class="tree">
+<li><span class="node"><b>AgentCore runtime</b> <span class="kbd">ready</span></span> <span class="role">— registry tracking open (#49); C1 runtime deploy lands the orchestrator beside the Lambda.</span></li>
+<li><span class="node"><b>Invocation logging</b> <span class="kbd">ready</span></span> <span class="role">— Bedrock CFN logging stack deploys where to watch every Nova/Stability call (#50, #43).</span></li>
+<li><span class="node"><b>Photo-to-campaign</b> <span class="kbd">ready</span></span> <span class="role">— POST /campaigns/from-photo core loop: one shot to full campaign (#39).</span></li>
+</ul>
+</div></div>
+</div></body></html>

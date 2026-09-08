@@ -232,6 +232,35 @@ def _eval_about_clean(page, params: dict):
     return ok, {"hits": hits, "detailsLink": link}, f"hits={hits} link={link}"
 
 
+def _eval_generate_rung(page, params: dict):
+    """Unit 3 (#173): the standard Create must land rung A or B, never fallback.
+
+    Clicks #generateCampaign and polls #genSourceBadge (the Unit 2 badge) for
+    the rung letter. Poll budget ~100s covers load + the ~23s generation wall.
+    """
+    import re
+
+    allowed = params.get("allow", ["A", "B"])
+    clicked = page.evaluate("() => { const b = document.querySelector('#generateCampaign');"
+                            " if (!b) return false; b.click(); return true; }")
+    if not clicked:
+        return False, {"error": "#generateCampaign missing"}, ""
+    badge, rung = "", None
+    for _ in range(50):
+        page.wait_for_timeout(2000)
+        try:
+            badge = (page.inner_text("#genSourceBadge") or "").strip()
+        except Exception:
+            badge = ""
+        m = re.search(r"rung ([ABCD])", badge, re.IGNORECASE)
+        if m:
+            rung = m.group(1).upper()
+            break
+    ok = rung in allowed
+    return ok, {"badge": badge[:160], "rung": rung, "allow": allowed}, \
+        f"rung={rung} badge={badge[:120]}"
+
+
 EVALUATORS = {
     "header-background-flat": _eval_header_background_flat,
     "header-top": _eval_header_top,
@@ -239,6 +268,7 @@ EVALUATORS = {
     "no-marquee": _eval_no_marquee,
     "create-cascades": _eval_create_cascades,
     "about-clean": _eval_about_clean,
+    "generate-rung": _eval_generate_rung,
 }
 
 
