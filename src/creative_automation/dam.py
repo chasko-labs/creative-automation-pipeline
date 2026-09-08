@@ -113,6 +113,7 @@ def _s3_client():
         cfg = None
         if _BotoConfig is not None:
             cfg = _BotoConfig(
+                signature_version="s3v4",
                 connect_timeout=connect_timeout,
                 read_timeout=read_timeout,
                 retries={"max_attempts": 1, "mode": "standard"},
