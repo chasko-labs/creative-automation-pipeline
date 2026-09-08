@@ -149,7 +149,7 @@
       if(!renders.length) throw new Error('response missing renders');
       campaignRenders = renders;
       // reuse the preview renderer for the on-screen result when available
-      try{ if(typeof window.KODIAK_showRenderSet==='function' && Array.isArray(json.renders) && json.renders.length){ window.KODIAK_showRenderSet(json.renders, {source: json.source}); } }catch(e){}
+      try{ if(typeof window.KODIAK_showRenderSet==='function' && Array.isArray(json.renders) && json.renders.length){ window.KODIAK_showRenderSet(json.renders, {source: json.source, provenance: json.provenance}); } }catch(e){}
       renderCampaignCarousel(renders);
       var assets = document.getElementById('campaignAssetsSection');
       if(assets && assets.hidden){ assets.hidden = false; }

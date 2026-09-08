@@ -202,15 +202,21 @@ _CANVAS = {
     "1x1": (1080, 1080),
     "9x16": (1080, 1920),
     "16x9": (1920, 1080),
-    # Delivery ratios (backlog item4): the frontend promises three sizes. 4x5 is the
-    # portrait feed render, 2x3 the story/pin render. Both are DERIVED from the 1x1
-    # hero via Stability outpaint (see generate_hero_set), so they share its subject.
+    # Delivery ratios (pinned v2 DoD): 4x5 portrait feed, 9x16 vertical, 16x9
+    # landscape, all cover-fit from the photographic base in full mode.
     "4x5": (1080, 1350),
     "2x3": (1000, 1500),
 }
-# The three delivery ratios returned by generate_hero_set, in response order. The 1x1
-# is the primary (also mirrored to the top-level image_url for frontend back-compat).
-_DELIVERY_RATIOS = ("1x1", "4x5", "2x3")
+# The four delivery ratios returned by generate_hero_set, in response order (pinned
+# v2 DoD: 1:1 1080x1080, 4:5 1080x1350, 9:16 1080x1920, 16:9 1920x1080). Talls/wides
+# are Pillow cover-pads of the photographic base — NOT live outpaints. Wall
+# arithmetic: 3 outpaint calls run ~30s sequential / ~13s parallel, and base +
+# caption + uploads already spend 8-21s of the immovable 22s wall. Pad is ~0.3s
+# per ratio with honest per-ratio engine labels; _stability_outpaint stays wired
+# for a future async mode where the wall does not apply.
+# The 1x1 is the primary (also mirrored to the top-level image_url for frontend
+# back-compat).
+_DELIVERY_RATIOS = ("1x1", "4x5", "9x16", "16x9")
 # Per-ratio headline slab size (C06: 56/64/72).
 _HEADLINE_PX = {"1x1": 56, "9x16": 64, "16x9": 72, "4x5": 60, "2x3": 64}
 
@@ -982,16 +988,35 @@ def _kraft_texture(w: int, h: int) -> Image.Image:
     return img
 
 
+_KRAFT_TILE_SIZE = 256
+_kraft_tile_cache: Image.Image | None = None
+
+
+def _kraft_tile_cached() -> Image.Image:
+    """One deterministic 256px grain tile, memoized per process."""
+    global _kraft_tile_cache
+    if _kraft_tile_cache is None:
+        _kraft_tile_cache = _kraft_texture(_KRAFT_TILE_SIZE, _KRAFT_TILE_SIZE)
+    return _kraft_tile_cache
+
+
 def _apply_paper_overlay(img: Image.Image, opacity: float = 0.02) -> Image.Image:
     """Blend the kraft texture over img at a very slight opacity (~2%). Returns RGB.
 
-    PART D — the final step on every returned render (1x1, 4x5, 2x3; stability + pillow
-    paths). "Very slight, like 2% visible": alpha ~0.02-0.03, so the texture reads as a
-    faint paper tooth, not a wash. Same-size output as input (the texture is generated
-    at the image's own dimensions). Deterministic given the deterministic _kraft_texture.
+    PART D — the final step on every returned render (all ratios; every path).
+    "Very slight, like 2% visible": alpha ~0.02-0.03, so the texture reads as a
+    faint paper tooth, not a wash. Same-size output as input. Performance fix:
+    the texture used to be synthesized per-pixel at full frame size (15s across
+    4 ratios in pure Python — the measured full-mode wall killer). Now one memoized
+    256px tile is resized with C-level BICUBIC (~50ms at 1920px). Deterministic:
+    same tile + deterministic resize = identical bytes every run.
     """
     base = img.convert("RGB")
-    tex = _kraft_texture(base.width, base.height)
+    tile = _kraft_tile_cached()
+    if (base.width, base.height) != tile.size:
+        tex = tile.resize((base.width, base.height), Image.BICUBIC)
+    else:
+        tex = tile
     return Image.blend(base, tex, max(0.0, min(1.0, opacity)))
 
 
@@ -1634,7 +1659,6 @@ def generate_hero_set(
         paper_overlay=False,
     )
 
-    scene_prompt = provenance.get("scene_prompt") or brief_msg
     headline = _headline_for(clean_base, product_name, brief_msg, region, audience)
     provenance["headline"] = headline if brand_overlay else None
     provenance["ratios"] = {}
@@ -1663,14 +1687,12 @@ def generate_hero_set(
             ).save(ratio_path, "PNG")
             ratio_engine = "primary"
         else:
-            # derive the taller ratio via Stability outpaint from the clean 1x1 base.
-            extended = _stability_outpaint(clean_base, target_w, target_h, scene_prompt, ratio_path)
-            if extended is not None and extended.exists():
-                ratio_engine = "stability-outpaint"
-            else:
-                # outpaint unavailable/failed -> smart cover-pad the primary hero.
-                _pillow_outpaint_fallback(clean_base, target_w, target_h, ratio_path)
-                ratio_engine = "pillow-outpaint-fallback"
+            # Cover-pad the photographic base. Live outpaint calls are deliberately
+            # NOT attempted here: 3 outpaints cost ~30s sequential / ~13s parallel
+            # against the immovable 22s wall (see _DELIVERY_RATIOS note). Pad is
+            # photographic, deterministic, and honest about what it is.
+            _pillow_outpaint_fallback(clean_base, target_w, target_h, ratio_path)
+            ratio_engine = "pillow-outpaint-fallback"
 
         # PART C — deterministic brand layer over each sized render (default-on). For the
         # recipe-cards theme this is the full card template instead of the plain overlay.

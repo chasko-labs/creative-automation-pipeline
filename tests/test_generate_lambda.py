@@ -26,11 +26,11 @@ class _FakeS3:
 
 
 def _fake_renders(out_dir: Path) -> list[dict]:
-    """Build a 3-ratio renders[] list with real tiny PNGs on disk (handler reads bytes)."""
+    """Build a 4-ratio renders[] list with real tiny PNGs on disk (handler reads bytes)."""
     from PIL import Image
 
     out_dir.mkdir(parents=True, exist_ok=True)
-    dims = {"1x1": (1080, 1080), "4x5": (1080, 1350), "2x3": (1000, 1500)}
+    dims = {"1x1": (1080, 1080), "4x5": (1080, 1350), "9x16": (1080, 1920), "16x9": (1920, 1080)}
     renders = []
     for ratio, (w, h) in dims.items():
         p = out_dir / f"hero-{ratio}.png"
@@ -40,7 +40,7 @@ def _fake_renders(out_dir: Path) -> list[dict]:
 
 
 def _stub_hero_set(source: str, tmp_path: Path, provenance: dict | None = None):
-    """Return a generate_hero_set stub that yields 3 fake renders + source + provenance."""
+    """Return a generate_hero_set stub that yields 4 fake renders + source + provenance."""
 
     def _stub(**kwargs):
         out_dir = kwargs.get("out_dir") or (tmp_path / "renders")
@@ -55,7 +55,7 @@ def _stub_hero_set(source: str, tmp_path: Path, provenance: dict | None = None):
             "headline": "Keep It Wild",
             "overlay_applied": True,
             "paper_overlay": True,
-            "ratios": {"1x1": "primary", "4x5": "stability-outpaint", "2x3": "stability-outpaint"},
+            "ratios": {"1x1": "primary", "4x5": "pillow-outpaint-fallback", "9x16": "pillow-outpaint-fallback", "16x9": "pillow-outpaint-fallback"},
         }
         return _fake_renders(Path(out_dir)), source, prov
 
@@ -76,10 +76,10 @@ def test_handler_returns_200_with_image_url(monkeypatch, tmp_path: Path) -> None
     assert body["image_url"].startswith("https://presigned.example/")
     assert body["source"] == "bedrock:nova-pro"
     assert body["prompt"] == "a bear eating pancakes"
-    # PART B — three renders delivered from one call, 1x1 first, correct dims.
-    assert [r["ratio"] for r in body["renders"]] == ["1x1", "4x5", "2x3"]
+    # PART B — four renders delivered from one call, 1x1 first, correct dims.
+    assert [r["ratio"] for r in body["renders"]] == ["1x1", "4x5", "9x16", "16x9"]
     dims = {r["ratio"]: (r["w"], r["h"]) for r in body["renders"]}
-    assert dims == {"1x1": (1080, 1080), "4x5": (1080, 1350), "2x3": (1000, 1500)}
+    assert dims == {"1x1": (1080, 1080), "4x5": (1080, 1350), "9x16": (1080, 1920), "16x9": (1920, 1080)}
     # back-compat: top-level image_url == the 1x1 render url
     primary = next(r for r in body["renders"] if r["ratio"] == "1x1")
     assert body["image_url"] == primary["image_url"]
@@ -184,7 +184,7 @@ def test_presigned_url_signed_with_attachment_disposition(monkeypatch, tmp_path:
     assert resp["statusCode"] == 200
 
     # all three renders were uploaded + presigned with an attachment .png disposition
-    assert len(fake_s3.presign_calls) == 3
+    assert len(fake_s3.presign_calls) == 4
     for params in fake_s3.presign_calls:
         disposition = params["ResponseContentDisposition"]
         assert disposition.startswith("attachment; filename=")
@@ -341,15 +341,13 @@ def test_full_mode_still_produces_3size_set_localization_platform_copy(
     body = json.loads(resp["body"])
 
     assert body["mode"] == "full"
-    # three renders from one call, 1x1 first
-    assert [r["ratio"] for r in body["renders"]] == ["1x1", "4x5", "2x3"]
-    # localization block delivered (top-3 languages, English always present)
-    assert isinstance(body["localizations"], list)
-    assert len(body["localizations"]) == 3
-    assert body["localizations"][0]["lang_code"] == "en"
-    # per-platform copy delivered (seven sanctioned platforms by default)
-    assert isinstance(body["platform_copy"], dict)
-    assert len(body["platform_copy"]) >= 1
+    # four renders from one call, 1x1 first
+    assert [r["ratio"] for r in body["renders"]] == ["1x1", "4x5", "9x16", "16x9"]
+    # localization + platform copy are frontend-owned in full mode (wall
+    # arithmetic): keys present but empty, provenance says who owns them.
+    assert body["localizations"] == []
+    assert body["platform_copy"] == {}
+    assert body["provenance"]["copy_owner"] == "frontend"
 
 
 

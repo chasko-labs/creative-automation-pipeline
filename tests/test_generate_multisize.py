@@ -113,9 +113,10 @@ def test_provenance_pillow_path_records_headline_and_engine(tmp_path: Path, monk
     json.dumps(prov)
 
 
-# --------------------------------------------------------------- PART B: three sizes
+# --------------------------------------------------------------- PART B: four sizes
 def test_generate_hero_set_three_ratios_via_outpaint(tmp_path: Path, monkeypatch) -> None:
-    # one control-structure hero + two outpaint extends -> 3 renders with correct dims.
+    # one control-structure hero + cover-pads -> 4 renders with correct dims (pinned
+    # v2 DoD: live outpaints cannot fit the 22s wall, so talls/wides pad).
     seed = _make_seed(tmp_path / "seed.png")
     hero_b64 = base64.b64encode(_png_bytes((1080, 1080), color=(30, 60, 200))).decode("ascii")
 
@@ -145,19 +146,20 @@ def test_generate_hero_set_three_ratios_via_outpaint(tmp_path: Path, monkeypatch
         out_dir=tmp_path / "set",
     )
     assert source == generate.STABILITY_SOURCE
-    assert [r["ratio"] for r in renders] == ["1x1", "4x5", "2x3"]
+    assert [r["ratio"] for r in renders] == ["1x1", "4x5", "9x16", "16x9"]
     dims = {r["ratio"]: (r["w"], r["h"]) for r in renders}
-    assert dims == {"1x1": (1080, 1080), "4x5": (1080, 1350), "2x3": (1000, 1500)}
+    assert dims == {"1x1": (1080, 1080), "4x5": (1080, 1350), "9x16": (1080, 1920), "16x9": (1920, 1080)}
     for r in renders:
         assert r["path"].exists()
         with Image.open(r["path"]) as im:
             assert im.size == (r["w"], r["h"])
-    # one control-structure call + two outpaint calls were made
+    # one control-structure call; no live outpaint calls (wall arithmetic)
     assert generate.STABILITY_CONTROL_MODEL in invoked
-    assert invoked.count(generate.STABILITY_OUTPAINT_MODEL) == 2
-    # provenance notes which ratios came from outpaint
-    assert prov["ratios"]["4x5"] == "stability-outpaint"
-    assert prov["ratios"]["2x3"] == "stability-outpaint"
+    assert invoked.count(generate.STABILITY_OUTPAINT_MODEL) == 0
+    # provenance notes which ratios came from the pad
+    assert prov["ratios"]["4x5"] == "pillow-outpaint-fallback"
+    assert prov["ratios"]["9x16"] == "pillow-outpaint-fallback"
+    assert prov["ratios"]["16x9"] == "pillow-outpaint-fallback"
     json.dumps(prov)
 
 
@@ -187,9 +189,10 @@ def test_generate_hero_set_pillow_outpaint_fallback(tmp_path: Path, monkeypatch)
         out_dir=tmp_path / "set",
     )
     dims = {r["ratio"]: (r["w"], r["h"]) for r in renders}
-    assert dims == {"1x1": (1080, 1080), "4x5": (1080, 1350), "2x3": (1000, 1500)}
+    assert dims == {"1x1": (1080, 1080), "4x5": (1080, 1350), "9x16": (1080, 1920), "16x9": (1920, 1080)}
     assert prov["ratios"]["4x5"] == "pillow-outpaint-fallback"
-    assert prov["ratios"]["2x3"] == "pillow-outpaint-fallback"
+    assert prov["ratios"]["9x16"] == "pillow-outpaint-fallback"
+    assert prov["ratios"]["16x9"] == "pillow-outpaint-fallback"
 
 
 # --------------------------------------------------------------- PART C: brand overlay
@@ -342,10 +345,10 @@ def test_recipe_cards_theme_runs_card_template(tmp_path: Path, monkeypatch) -> N
         theme="recipe-cards",
     )
     assert prov.get("card_template") is True
-    assert set(called) == {"1x1", "4x5", "2x3"}
-    assert all("recipe-card-template" in prov["ratios"][r] for r in ("1x1", "4x5", "2x3"))
+    assert set(called) == {"1x1", "4x5", "9x16", "16x9"}
+    assert all("recipe-card-template" in prov["ratios"][r] for r in ("1x1", "4x5", "9x16", "16x9"))
     dims = {r["ratio"]: (r["w"], r["h"]) for r in renders}
-    assert dims == {"1x1": (1080, 1080), "4x5": (1080, 1350), "2x3": (1000, 1500)}
+    assert dims == {"1x1": (1080, 1080), "4x5": (1080, 1350), "9x16": (1080, 1920), "16x9": (1920, 1080)}
 
 
 def test_non_recipe_theme_skips_card_template(tmp_path: Path, monkeypatch) -> None:
@@ -368,4 +371,4 @@ def test_non_recipe_theme_skips_card_template(tmp_path: Path, monkeypatch) -> No
     )
     assert called == []
     assert "card_template" not in prov
-    assert all("recipe-card-template" not in prov["ratios"][r] for r in ("1x1", "4x5", "2x3"))
+    assert all("recipe-card-template" not in prov["ratios"][r] for r in ("1x1", "4x5", "9x16", "16x9"))
