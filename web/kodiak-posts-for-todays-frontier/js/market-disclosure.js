@@ -271,7 +271,26 @@
   var geoStatus = document.getElementById('geoStatus');
   function setGeoStatus(msg){ if(geoStatus) geoStatus.textContent = msg || ''; }
   if(geoBtn){
+    // #197 consent gate: this tap is the ONLY entry point to any location resolution
+    // (GPS, staged mock coords, IP inference). Nothing here runs on page load — the market
+    // dropdown (Park City default) is the default path.
     geoBtn.addEventListener('click', function(){
+      // Headless/QA path: ?mockLat&mockLon coords staged on window.__mockGeo by data-core.js.
+      // Consumed here on tap only — never on load.
+      try{
+        var mock = window.__mockGeo;
+        if(mock && isFinite(mock.lat) && isFinite(mock.lon)){
+          var hit0 = nearestMarket(mock.lat, mock.lon);
+          if(hit0){
+            selectMarket(hit0.market);
+            var p0 = placeFor(hit0.market);
+            setGeoStatus('Nearest market: ' + ((p0 && p0.place) || hit0.market) + ' (' + Math.round(hit0.miles) + ' mi)');
+          } else {
+            setGeoStatus('No nearby market — keeping Park City');
+          }
+          return;
+        }
+      }catch(e){}
       if(!('geolocation' in navigator)){ setGeoStatus('Location unavailable — keeping Park City'); return; }
       // marketCoords is seeded offline-first from GEO_FALLBACK, so it is never empty in practice;
       // the guard remains only as a defensive no-op if the table were ever cleared.
