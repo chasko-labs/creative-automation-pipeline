@@ -10,6 +10,8 @@ mock/preview never reaches the UI. Nova Canvas is retired (Legacy) and is not a 
 from __future__ import annotations
 
 import base64
+import concurrent.futures
+import hashlib
 import json
 import os
 import re
@@ -94,6 +96,64 @@ BEDROCK_NOVA_READ_TIMEOUT_S = int(os.getenv("BEDROCK_NOVA_READ_TIMEOUT_S", "6"))
 # no single sub-call can consume the budget rung C needs to return real pixels by ~24s.
 _B_NOVA_SCENE_MS = int(os.getenv("GENERATE_B_NOVA_SCENE_MS", "7000"))
 _B_STABILITY_MS = int(os.getenv("GENERATE_B_STABILITY_MS", "13000"))
+# Grounded-director headline reservation (ms): embed-the-request + retrieve + trained
+# voice-model invoke, bounded by _DIRECTOR_TIMEOUT_S inside. Entered only while the
+# clock covers this PLUS the compose reservation, so the director can never starve
+# a floor rung. Kill-switch env read per call (default ON — every failure degrades
+# to stock Nova), so ops can flip it without a redeploy.
+_DIRECTOR_BUDGET_MS = int(os.getenv("GENERATE_DIRECTOR_BUDGET_MS", "10000"))
+_DIRECTOR_TIMEOUT_S = float(os.getenv("GENERATE_DIRECTOR_TIMEOUT_S", "8"))
+_DIRECTOR_LIVE_SOURCE = "bedrock:kodiak-artdirector"
+
+
+def _director_enabled() -> bool:
+    """Kill-switch for the grounded-director headline path. ON unless opted out."""
+    return os.getenv("KODIAK_DIRECTOR_GROUNDED", "true").strip().lower() in (
+        "1", "true", "yes", "on",
+    )
+# Restyled-background cache (DAM prefix): the rung-A bg restyle costs ~10s of Bedrock,
+# which fits a preview but never a full set (base + pads + uploads must clear the same
+# 22s wall). The cache is content-addressed on (seed bytes + prompt inputs): a preview
+# warms it, the set base reuses the SAME pixels — no second Bedrock call, wall holds,
+# preview and pack stay consistent. Best-effort everywhere: any S3 failure degrades to
+# the uncached behavior (fresh restyle when budget allows, else raw seed).
+_RESTYLE_CACHE_PREFIX = "brands/kodiak/restyle-cache/"
+_RESTYLE_CACHE_BUCKET = os.getenv("DAM_S3_BUCKET", "chasko-creative-dam-946179428633-us-east-1")
+
+
+def _restyle_cache_key(seed_bytes: bytes, product_name: str, brief_msg: str,
+                        region: str, audience: str, theme: str | None) -> str:
+    h = hashlib.sha256()
+    h.update(seed_bytes)
+    for part in (product_name, brief_msg, region, audience, theme or ""):
+        h.update(b"\x00")
+        h.update(str(part).encode("utf-8", "replace"))
+    return _RESTYLE_CACHE_PREFIX + h.hexdigest() + ".png"
+
+
+def _restyle_cache_get(key: str, dest: Path) -> bool:
+    """Fetch a cached restyle to dest. False on ANY failure (miss, creds, network)."""
+    try:
+        if boto3 is None:
+            return False
+        s3 = boto3.client("s3")
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        s3.download_file(_RESTYLE_CACHE_BUCKET, key, str(dest))
+        return dest.exists() and dest.stat().st_size > 0
+    except Exception:
+        return False
+
+
+def _restyle_cache_put(key: str, src: Path) -> None:
+    """Store a fresh restyle. Never raises — cache misses just cost a future restyle."""
+    try:
+        if boto3 is None:
+            return
+        s3 = boto3.client("s3")
+        s3.put_object(Bucket=_RESTYLE_CACHE_BUCKET, Key=key,
+                      Body=src.read_bytes(), ContentType="image/png")
+    except Exception:
+        pass
 
 
 class _RungBBudgetSkip(Exception):
@@ -1050,6 +1110,68 @@ def _parse_layout(caption: str) -> tuple[str, str]:
     return headline[:48], side
 
 
+def _title_case_headline(text: str) -> str:
+    """House-style headline: Title Case, no trailing period.
+
+    str.title() mangles apostrophes ("Today's" -> "Today'S"), so capitalize per
+    word-match instead. Model-written headlines only — the raw user-brief
+    fallback stays byte-for-byte the user's words.
+    """
+    s = (text or "").strip().rstrip(".").strip()
+    return re.sub(
+        r"[A-Za-z]+(?:'[A-Za-z]+)?",
+        lambda m: m.group(0)[0].upper() + m.group(0)[1:].lower(),
+        s,
+    )
+
+
+def _director_headline_text(
+    product_name: str, brief_msg: str, region: str, audience: str
+) -> Optional[str]:
+    """Grounded-director headline: retrieve brand voice, direct, normalize.
+
+    The concept loop in one bounded call: embed the request -> top-k corpus
+    captions -> trained voice model directs with those examples in-ask ->
+    layout-parse + house-style normalize. Returns None on ANY failure (no
+    examples, offline mock source, timeout, exception) so the caller falls back
+    to the stock Nova caption. The mock source is refused explicitly — a mock
+    transport must never write a production headline.
+    """
+    if not _director_enabled():
+        return None
+    try:
+        from . import art_director
+        from . import director_memory
+    except ImportError:
+        return None
+
+    def _attempt() -> Optional[str]:
+        query = f"{product_name} {brief_msg} {region} {audience}".strip()
+        examples, _model = director_memory.retrieve(query, k=3)
+        if not examples:
+            return None
+        result = art_director.art_direct_grounded(
+            f"Write one short on-brand headline (max 6 words) for {product_name}: "
+            f"{brief_msg}. Region {region}, audience {audience}.",
+            "adventurous",
+            examples=examples,
+        )
+        if not isinstance(result, dict) or result.get("source") != _DIRECTOR_LIVE_SOURCE:
+            return None
+        text = str(result.get("text", "")).strip()
+        if not text:
+            return None
+        headline, _side = _parse_layout(text)
+        return _title_case_headline(headline) or None
+
+    try:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+            fut = executor.submit(_attempt)
+            return fut.result(timeout=_DIRECTOR_TIMEOUT_S)
+    except Exception:
+        return None
+
+
 def _wrap_headline(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont, max_w: int) -> list[str]:
     """Word-wrap headline to fit max_w, capped at 3 lines (C04)."""
     if not text:
@@ -1343,9 +1465,22 @@ def generate_hero(
         ratio = "1x1"
 
     def _headline(src: Path) -> str:
+        # grounded trained director first (budget-gated, bounded, live-source
+        # only, already house-styled); stock Nova caption second; raw brief
+        # last and verbatim. provenance records which voice wrote the line.
+        if remaining_ms() >= _DIRECTOR_BUDGET_MS + _C_RESERVATION_MS:
+            directed = _director_headline_text(
+                product_name, brief_msg, region, audience
+            )
+            if directed:
+                provenance["headline_source"] = _DIRECTOR_LIVE_SOURCE
+                return directed
         caption = _nova_pro_caption(src, product_name, brief_msg, region, audience) or ""
         headline, _side = _parse_layout(caption)
-        return headline or brief_msg[:48]
+        if headline:
+            provenance["headline_source"] = "bedrock:nova-pro-caption"
+            return _title_case_headline(headline)
+        return brief_msg[:48]
 
     # PART A — provenance accumulator. Populated as the seed + engine paths resolve so
     # the response can explain "what was provided vs what was done to make this image".
@@ -1464,8 +1599,28 @@ def generate_hero(
             # SKU ships fresh photographic pixels instead of recycling the raw DAM
             # photo. The box is pasted over the restyle below — never an input to
             # it. Any skip/failure keeps the unstyled seed; rung A never fails.
+            #
+            # WALL ARITHMETIC: a fresh restyle (~10s Bedrock) fits a preview but never
+            # a full set (base + pads + uploads share the same 22s wall). Set bases
+            # (bare_base) therefore NEVER restyle fresh — they reuse the content-
+            # addressed cache a preview warmed, else the raw seed. Same pixels as the
+            # preview, no second Bedrock call, wall holds.
             bg_restyle = False
-            if seed is not None and remaining_ms() >= _B_BUDGET_MS + _C_RESERVATION_MS:
+            cache_key = None
+            if seed is not None:
+                try:
+                    cache_key = _restyle_cache_key(
+                        Path(seed).read_bytes(), product_name, brief_msg,
+                        region, audience, theme)
+                    cached = out_path.parent / f"{out_path.stem}-restyle-cached.png"
+                    if _restyle_cache_get(cache_key, cached):
+                        seed = cached
+                        bg_restyle = True
+                        provenance["bg_restyle_source"] = "cache"
+                except Exception:
+                    cache_key = None
+            if (seed is not None and not bg_restyle and not bare_base
+                    and remaining_ms() >= _B_BUDGET_MS + _C_RESERVATION_MS):
                 try:
                     a_scene = _nova_pro_scene_prompt(
                         seed, product_name, brief_msg, region, audience, theme
@@ -1476,6 +1631,9 @@ def generate_hero(
                         if _stability_control_hero(seed, a_scene, restyled) is not None and restyled.exists():
                             seed = restyled
                             bg_restyle = True
+                            provenance["bg_restyle_source"] = "fresh"
+                            if cache_key is not None:
+                                _restyle_cache_put(cache_key, restyled)
                 except Exception as e:  # noqa: BLE001 — unstyled seed, same as before
                     print(f"[generate] rung A bg restyle skipped: {e}", file=sys.stderr)
             provenance["bg_restyle"] = bg_restyle
