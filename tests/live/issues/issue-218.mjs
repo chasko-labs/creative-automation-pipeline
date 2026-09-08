@@ -70,8 +70,8 @@ export async function run(page, { baseUrl } = {}) {
   assert(copy.aria === "How far this reaches", "radiogroup aria-label relabeled, role untouched");
   assert(!/Campaign scope/.test(copy.body), "no developer 'Campaign scope' copy left in the step");
   assert(!/Nationwide \+ localized markets/.test(copy.body), "old redundant title gone");
-  assert(copy.titles.includes("Nationwide + local versions"), "deduped title present");
-  assert(copy.subs.includes("One core campaign, adapted per market"), "deduped sub present");
+  assert(copy.titles.some((t) => t.includes("Full campaign")), "full-campaign hero title present (d9caf59)");
+  assert(copy.subs.some((s) => s.includes("Every market localized")), "full-campaign sub present (d9caf59)");
   assert(copy.titles.every((t, i) => t !== copy.subs[i]), "no title/sub pair repeats itself");
 
   // ---- scope invariant: nationwide dims the market row, keyboard moves, readers follow ----
