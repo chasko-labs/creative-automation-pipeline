@@ -773,6 +773,9 @@ let skuList = [
       // reaches the finally and clears the interval + timeouts (previously the try opened after the
       // timers were created, leaving an unguarded window where a throw would leak the elapsed-tick interval).
       try{
+      // a fresh preview generate replaces any prior campaign (#243) — clear it
+      // at START (skeleton paint) so stale assets vanish the moment Create runs.
+      try{ if(typeof window.KODIAK_resetCampaign==='function') window.KODIAK_resetCampaign(); }catch(e){}
       if(preview){
         if(willFanOut){
           preview.innerHTML = products.map((name,i)=>`<div class="tile genSkeletonTile"><div style="aspect-ratio:1/1;background:linear-gradient(90deg,#EFE6DB 25%,#F7F0E8 50%,#EFE6DB 75%);background-size:200% 100%;animation:genpulse 1.4s ease-in-out infinite;display:flex;align-items:center;justify-content:center"><span style="font:700 12px/1 'kodiak_sans','museo-sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8C7A70">Composing…</span></div><div class="meta"><b>${name}</b><div class="small" id="genElapsed${i}">0s elapsed — up to ~90s</div></div></div>`).join('');
