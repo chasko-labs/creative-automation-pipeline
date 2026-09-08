@@ -121,6 +121,28 @@ STABILITY_CONTROL_MODEL = os.getenv(
 # How strongly the seed composition constrains the restyle (0..1). ~0.7 keeps the
 # product recognizable while letting the theme drive color/lighting/scene.
 STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.7"))
+# Style sandwich (character-consistency pattern): frozen style head + varying subject
+# + frozen detail tail. Nova (or the brief fallback) supplies ONLY the subject; the
+# frozen ends keep every restyle/outpaint on-brand no matter what the subject says.
+STYLE_HEAD = os.getenv(
+    "KODIAK_STYLE_HEAD",
+    "Photorealistic Kodiak frontier lifestyle photography, natural light, high detail, on-brand earthy palette. Subject: ",
+)
+STYLE_TAIL = os.getenv(
+    "KODIAK_STYLE_TAIL",
+    ". No text, no letters, no signage, blank surfaces only.",
+)
+# Seed discipline: locked seed = consistency (same brief re-renders identically);
+# swept seed = controlled variations (the variations button passes seed per call).
+STABILITY_SEED = int(os.getenv("BEDROCK_STABILITY_SEED", "42"))
+
+
+def _style_sandwich(subject: str) -> str:
+    """Wrap a varying subject in the frozen style ends. Idempotent."""
+    subject = (subject or "").strip()
+    if subject.startswith(STYLE_HEAD):
+        return subject
+    return f"{STYLE_HEAD}{subject}{STYLE_TAIL}"
 # Stability outpaint is invoked via its INFERENCE-PROFILE id (bare stability.* raises
 # ValidationException). Confirmed ACTIVE + AUTHORIZED + AVAILABLE in us-east-1. The
 # taller ratios (4x5, 2x3) are DERIVED from the 1x1 control-structure hero via outpaint
@@ -180,15 +202,21 @@ _CANVAS = {
     "1x1": (1080, 1080),
     "9x16": (1080, 1920),
     "16x9": (1920, 1080),
-    # Delivery ratios (backlog item4): the frontend promises three sizes. 4x5 is the
-    # portrait feed render, 2x3 the story/pin render. Both are DERIVED from the 1x1
-    # hero via Stability outpaint (see generate_hero_set), so they share its subject.
+    # Delivery ratios (pinned v2 DoD): 4x5 portrait feed, 9x16 vertical, 16x9
+    # landscape, all cover-fit from the photographic base in full mode.
     "4x5": (1080, 1350),
     "2x3": (1000, 1500),
 }
-# The three delivery ratios returned by generate_hero_set, in response order. The 1x1
-# is the primary (also mirrored to the top-level image_url for frontend back-compat).
-_DELIVERY_RATIOS = ("1x1", "4x5", "2x3")
+# The four delivery ratios returned by generate_hero_set, in response order (pinned
+# v2 DoD: 1:1 1080x1080, 4:5 1080x1350, 9:16 1080x1920, 16:9 1920x1080). Talls/wides
+# are Pillow cover-pads of the photographic base — NOT live outpaints. Wall
+# arithmetic: 3 outpaint calls run ~30s sequential / ~13s parallel, and base +
+# caption + uploads already spend 8-21s of the immovable 22s wall. Pad is ~0.3s
+# per ratio with honest per-ratio engine labels; _stability_outpaint stays wired
+# for a future async mode where the wall does not apply.
+# The 1x1 is the primary (also mirrored to the top-level image_url for frontend
+# back-compat).
+_DELIVERY_RATIOS = ("1x1", "4x5", "9x16", "16x9")
 # Per-ratio headline slab size (C06: 56/64/72).
 _HEADLINE_PX = {"1x1": 56, "9x16": 64, "16x9": 72, "4x5": 60, "2x3": 64}
 
@@ -770,9 +798,10 @@ def _stability_control_hero(seed: Path, prompt: str, out_path: Path) -> Optional
     try:
         client = _bedrock_failfast_client()
         body = {
-            "prompt": prompt,
+            "prompt": _style_sandwich(prompt),
             "image": _seed_b64_for_stability(seed),
             "control_strength": STABILITY_CONTROL_STRENGTH,
+            "seed": STABILITY_SEED,
             "output_format": "png",
         }
         resp = client.invoke_model(
@@ -959,16 +988,35 @@ def _kraft_texture(w: int, h: int) -> Image.Image:
     return img
 
 
+_KRAFT_TILE_SIZE = 256
+_kraft_tile_cache: Image.Image | None = None
+
+
+def _kraft_tile_cached() -> Image.Image:
+    """One deterministic 256px grain tile, memoized per process."""
+    global _kraft_tile_cache
+    if _kraft_tile_cache is None:
+        _kraft_tile_cache = _kraft_texture(_KRAFT_TILE_SIZE, _KRAFT_TILE_SIZE)
+    return _kraft_tile_cache
+
+
 def _apply_paper_overlay(img: Image.Image, opacity: float = 0.02) -> Image.Image:
     """Blend the kraft texture over img at a very slight opacity (~2%). Returns RGB.
 
-    PART D — the final step on every returned render (1x1, 4x5, 2x3; stability + pillow
-    paths). "Very slight, like 2% visible": alpha ~0.02-0.03, so the texture reads as a
-    faint paper tooth, not a wash. Same-size output as input (the texture is generated
-    at the image's own dimensions). Deterministic given the deterministic _kraft_texture.
+    PART D — the final step on every returned render (all ratios; every path).
+    "Very slight, like 2% visible": alpha ~0.02-0.03, so the texture reads as a
+    faint paper tooth, not a wash. Same-size output as input. Performance fix:
+    the texture used to be synthesized per-pixel at full frame size (15s across
+    4 ratios in pure Python — the measured full-mode wall killer). Now one memoized
+    256px tile is resized with C-level BICUBIC (~50ms at 1920px). Deterministic:
+    same tile + deterministic resize = identical bytes every run.
     """
     base = img.convert("RGB")
-    tex = _kraft_texture(base.width, base.height)
+    tile = _kraft_tile_cached()
+    if (base.width, base.height) != tile.size:
+        tex = tile.resize((base.width, base.height), Image.BICUBIC)
+    else:
+        tex = tile
     return Image.blend(base, tex, max(0.0, min(1.0, opacity)))
 
 
@@ -1022,7 +1070,9 @@ def _apply_brand_overlay(
     GenAI hero (the image is already the background — no cover-fit, no scrim) OR the
     Pillow scene composer (which supplies its own cover-fit + scrim first). Draws:
     C04 the ~32% dark message bar at 68% down with the centered wrapped white headline
-    (per-ratio font), and C03 the 8px Blaze Orange accent bar pinned to the bottom.
+    (per-ratio font), the fitted token footer just above the accent bar (shrink-to-fit,
+    so narrow frames never clip it), and C03 the 8px Blaze Orange accent bar pinned
+    to the bottom.
     Never resizes the incoming image — the base is opened and drawn on at its own size.
     No Kodiak logo/wordmark (brand preference).
     """
@@ -1053,6 +1103,29 @@ def _apply_brand_overlay(
             tw = bbox[2] - bbox[0]
             draw.text(((W - tw) / 2, ty), line, fill="white", font=font, stroke_width=2, stroke_fill=(0, 0, 0, 180))
             ty += line_h
+
+    # fitted token footer, centered just above the accent bar (shrink-to-fit so
+    # narrow frames like 9:16 never clip it — same text as the compose footer).
+    footer_text = "KODIAK  \u2022  kodiakcakes.com  \u2022  Keep It Wild"
+    fit_px = min(34, max(20, W // 32))
+    while fit_px > 14:
+        try:
+            fit_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", fit_px)
+        except Exception:
+            fit_font = ImageFont.load_default()
+            break
+        bbox = draw.textbbox((0, 0), footer_text, font=fit_font)
+        if bbox[2] - bbox[0] <= W - 48:
+            break
+        fit_px -= 2
+    try:
+        fit_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", fit_px)
+    except Exception:
+        fit_font = ImageFont.load_default()
+    bbox = draw.textbbox((0, 0), footer_text, font=fit_font)
+    ftw = bbox[2] - bbox[0]
+    draw.text(((W - ftw) / 2, H - 14 - (bbox[3] - bbox[1])), footer_text,
+              fill=(255, 255, 255, 200), font=fit_font)
 
     # C03 — 8px Blaze Orange accent bar at the very bottom.
     accent = _hex_to_rgb(_accent_hex)
@@ -1227,6 +1300,7 @@ def generate_hero(
     theme: str | None = None,
     brand_overlay: bool = True,
     paper_overlay: bool = True,
+    bare_base: bool = False,
 ) -> tuple[Path, str, dict]:
     """Generate a real Kodiak-social-style hero. Returns (path, source, provenance).
 
@@ -1407,6 +1481,8 @@ def generate_hero(
                 message=headline if brand_overlay else "",
                 ratio_key=ratio,
                 product_layer=packshot,
+                footer=not bare_base,
+                bare=bare_base,
             )
             provenance["engine"] = "packshot-composite"
             provenance["rung"] = "A"
@@ -1477,6 +1553,8 @@ def generate_hero(
                     provenance["engine"] = "stability-restyle"
                     provenance["rung"] = "B"
                     provenance["control_strength"] = STABILITY_CONTROL_STRENGTH
+                    provenance["seed"] = STABILITY_SEED
+                    provenance["style"] = "sandwich-locked"
                     provenance["model"] = STABILITY_CONTROL_MODEL
                     # PART C — deterministic on-brand headline + accent bar ON TOP of the
                     # GenAI hero (Nova Pro still supplies the headline). Default-on.
@@ -1607,9 +1685,9 @@ def generate_hero_set(
         theme=theme,
         brand_overlay=False,
         paper_overlay=False,
+        bare_base=True,
     )
 
-    scene_prompt = provenance.get("scene_prompt") or brief_msg
     headline = _headline_for(clean_base, product_name, brief_msg, region, audience)
     provenance["headline"] = headline if brand_overlay else None
     provenance["ratios"] = {}
@@ -1638,14 +1716,12 @@ def generate_hero_set(
             ).save(ratio_path, "PNG")
             ratio_engine = "primary"
         else:
-            # derive the taller ratio via Stability outpaint from the clean 1x1 base.
-            extended = _stability_outpaint(clean_base, target_w, target_h, scene_prompt, ratio_path)
-            if extended is not None and extended.exists():
-                ratio_engine = "stability-outpaint"
-            else:
-                # outpaint unavailable/failed -> smart cover-pad the primary hero.
-                _pillow_outpaint_fallback(clean_base, target_w, target_h, ratio_path)
-                ratio_engine = "pillow-outpaint-fallback"
+            # Cover-pad the photographic base. Live outpaint calls are deliberately
+            # NOT attempted here: 3 outpaints cost ~30s sequential / ~13s parallel
+            # against the immovable 22s wall (see _DELIVERY_RATIOS note). Pad is
+            # photographic, deterministic, and honest about what it is.
+            _pillow_outpaint_fallback(clean_base, target_w, target_h, ratio_path)
+            ratio_engine = "pillow-outpaint-fallback"
 
         # PART C — deterministic brand layer over each sized render (default-on). For the
         # recipe-cards theme this is the full card template instead of the plain overlay.

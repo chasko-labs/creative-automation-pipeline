@@ -80,10 +80,10 @@ def test_stability_control_hero_request_shape_and_write(tmp_path: Path, monkeypa
 
     body = json.loads(fake.last_invoke["body"])
     # Stability schema — NOT Nova's taskType/textToImageParams
-    assert set(body) == {"prompt", "image", "control_strength", "output_format"}
+    assert set(body) == {"prompt", "image", "control_strength", "seed", "output_format"}
     assert "taskType" not in body
     assert "textToImageParams" not in body
-    assert body["prompt"] == "restyle to wild frontier"
+    assert body["prompt"] == generate._style_sandwich("restyle to wild frontier")
     assert body["output_format"] == "png"
     assert body["control_strength"] == generate.STABILITY_CONTROL_STRENGTH
     # seed carried as base64 that decodes back to a PNG
@@ -189,7 +189,7 @@ def test_generate_hero_stability_primary_on_disk_seed(tmp_path: Path, monkeypatc
     assert out.read_bytes() == base64.b64decode(canned)
     # seed carried into the invoke body
     body = json.loads(fake.last_invoke["body"])
-    assert set(body) == {"prompt", "image", "control_strength", "output_format"}
+    assert set(body) == {"prompt", "image", "control_strength", "seed", "output_format"}
 
 
 def test_generate_hero_falls_back_to_compose_when_stability_fails(tmp_path: Path, monkeypatch) -> None:

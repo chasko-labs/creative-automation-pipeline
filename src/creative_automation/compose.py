@@ -90,6 +90,8 @@ def compose_creative(
     brand_colors: list[str] | None = None,
     retailer_logo: Path | None = None,
     product_layer: Path | None = None,
+    footer: bool = True,
+    bare: bool = False,
 ) -> Path:
     """Produce a social creative at the requested ratio with message overlay.
 
@@ -176,8 +178,12 @@ def compose_creative(
     font = _load_font(font_size)
     small_font = _load_font(caption_size)
 
-    # semi-transparent bar for contrast — token scrim
+    # semi-transparent bar for contrast — token scrim (skipped for bare set bases;
+    # each derived ratio draws its own bar + footer in _apply_brand_overlay)
     bar_top = int(H * bar_pct)
+    if bare:
+        bg.save(out_path, "PNG")
+        return out_path
     # parse scrim #RRGGBBAA or #RRGGBB
     try:
         scrim_hex = _scrim.lstrip("#")
@@ -202,11 +208,21 @@ def compose_creative(
         draw.text(((W - tw) / 2, y), line, fill="white", font=font, stroke_width=2, stroke_fill=(0, 0, 0))
         y += th + 10
 
-    # brand/footer — token caption
-    footer = "KODIAK  •  kodiakcakes.com  •  Keep It Wild"
-    bbox = draw.textbbox((0, 0), footer, font=small_font)
-    tw = bbox[2] - bbox[0]
-    draw.text(((W - tw) / 2, H - 44), footer, fill=(255, 255, 255, 200), font=small_font)
+    # brand/footer — token caption, shrunk to fit narrow frames; skipped for set
+    # bases (each derived ratio draws its own fitted footer in _apply_brand_overlay)
+    if footer:
+        footer_text = "KODIAK  •  kodiakcakes.com  •  Keep It Wild"
+        fit_size = caption_size
+        while fit_size > 14:
+            fit_font = _load_font(fit_size)
+            bbox = draw.textbbox((0, 0), footer_text, font=fit_font)
+            if bbox[2] - bbox[0] <= text_max_w:
+                break
+            fit_size -= 2
+        small_font = _load_font(fit_size)
+        bbox = draw.textbbox((0, 0), footer_text, font=small_font)
+        tw = bbox[2] - bbox[0]
+        draw.text(((W - tw) / 2, H - 44), footer_text, fill=(255, 255, 255, 200), font=small_font)
 
     # logo overlay if available — token clearSpace (KODIAK Bear top-left)
     if brand_logo and brand_logo.exists():

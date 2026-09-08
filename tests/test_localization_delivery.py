@@ -99,7 +99,7 @@ def _fake_renders(out_dir: Path) -> list[dict]:
     from PIL import Image
 
     out_dir.mkdir(parents=True, exist_ok=True)
-    dims = {"1x1": (1080, 1080), "4x5": (1080, 1350), "2x3": (1000, 1500)}
+    dims = {"1x1": (1080, 1080), "4x5": (1080, 1350), "9x16": (1080, 1920), "16x9": (1920, 1080)}
     renders = []
     for ratio, (w, h) in dims.items():
         p = out_dir / f"hero-{ratio}.png"
@@ -132,14 +132,12 @@ def test_handler_surfaces_localizations_and_provenance_languages(monkeypatch, tm
     # additive: existing fields still present
     assert body["ok"] is True
     assert body["image_url"].startswith("https://presigned.example/")
-    assert [r["ratio"] for r in body["renders"]] == ["1x1", "4x5", "2x3"]
-    # new: localizations[] shape + provenance.languages
-    locs = body["localizations"]
-    assert [lo["lang_code"] for lo in locs] == ["en", "es", "pt"]
-    for lo in locs:
-        assert set(lo.keys()) == {"lang_code", "translate_code", "headline", "source"}
-        assert lo["source"] == "translated"
-    assert body["provenance"]["languages"] == ["en", "es", "pt"]
+    assert [r["ratio"] for r in body["renders"]] == ["1x1", "4x5", "9x16", "16x9"]
+    # full mode is frontend-owned for copy (wall arithmetic): keys present, empty,
+    # provenance names the owner. The seam itself is still covered below.
+    assert body["localizations"] == []
+    assert body["provenance"]["languages"] == []
+    assert body["provenance"]["copy_owner"] == "frontend"
 
 
 def test_handler_localization_offline_never_crashes(monkeypatch, tmp_path) -> None:
@@ -161,5 +159,5 @@ def test_handler_localization_offline_never_crashes(monkeypatch, tmp_path) -> No
     assert resp["statusCode"] == 200
     body = json.loads(resp["body"])
     locs = body["localizations"]
-    assert [lo["lang_code"] for lo in locs] == ["en", "es", "pt"]
-    assert all(lo["source"] == "rewrite-fallback" for lo in locs)
+    assert locs == []
+    assert body["provenance"]["copy_owner"] == "frontend"

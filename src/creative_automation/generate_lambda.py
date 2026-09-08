@@ -19,7 +19,8 @@ from . import text_rewriter
 from . import dam_library
 from .generate import _brand_floor, _safe_prompt_text, generate_hero, generate_hero_set
 from .locales import resolve_target_languages
-from .platform_copy import generate_platform_copy
+# NOTE: full mode no longer calls platform_copy/localize in-request (frontend owns
+# both — see _handle_full). The modules stay imported by tests directly.
 from .platforms import PLATFORMS
 
 # NEVER-503 CONTRACT: a well-formed POST /generate returns 200 with REAL Kodiak pixels
@@ -594,11 +595,12 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
 def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     """Complete async-pack path: 3-size set + localization + per-platform copy.
 
-    This is the original behavior — generate_hero_set delivers all three delivery ratios
-    (1x1, 4x5, 2x3) via one control-structure restyle + two outpaint extends, then the
-    headline is localized into the market's top-3 languages and per-platform copy is
-    produced. Runs ~35s so it is NOT the interactive default; the async pack builder
-    drives it via mode="full".
+    generate_hero_set delivers the four delivery ratios (1x1, 4x5, 9x16, 16x9):
+    photographic base (packshot composite when the box resolves, else one
+    control-structure restyle) with talls/wides as Pillow cover-pads. Localization
+    and platform copy are frontend-owned (live seams), not computed here — the
+    ~8-10s of Nova Micro fan-out could not fit the 22s wall. Runs ~10s (packshot
+    base) to ~21s (restyle base).
     """
     product = data.get("product", "power-cakes")
     theme = data.get("theme")
@@ -646,9 +648,13 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     # market's top-3 languages (English + market top-2, EN/ES/PT default when the
     # market is unknown). The headline is the Nova Pro line when present, else the
     # incoming prompt. Offline-safe — never crashes the generate call.
-    market = data.get("market") or data.get("region", "us")
-    headline = (provenance or {}).get("headline") or prompt
-    localizations, languages = _build_localizations(headline, market)
+    # Localization + platform copy are FRONTEND-owned in full mode: the app renders
+    # localized captions live (KODIAK_locCaption + /localize seam) and the platform
+    # panel skips gracefully on {}. Running 3 lang rewrites + 7 platform rewrites
+    # server-side costs ~8-10s of Nova Micro calls against the immovable 22s wall —
+    # the measured reason full-mode sets always hit brand-floor. Keys stay present
+    # (empty) so clients never break.
+    localizations, languages = [], []
     if isinstance(provenance, dict):
         provenance["languages"] = languages
         provenance["mode"] = FULL_MODE
@@ -659,16 +665,10 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     # the copy degrades to a deterministic on-brand template tagged
     # source="fallback" when no live Nova backend, exactly like the
     # localization path.
-    product_name = product.replace("-", " ").title()
-    try:
-        platform_copy = generate_platform_copy(
-            headline, product_name, market, platforms=req_platforms
-        )
-    except Exception as e:  # noqa: BLE001 — copy must never sink the generate call
-        print(f"[generate_lambda] platform_copy fallback: {e}", file=sys.stderr)
-        platform_copy = {}
+    platform_copy = {}
     if isinstance(provenance, dict):
         provenance["platforms"] = list(platform_copy.keys())
+        provenance["copy_owner"] = "frontend"
 
     return {
         "ok": True,
@@ -754,8 +754,9 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
     Two modes (request field "mode", default "preview"):
       - preview: ONE 1x1 control-structure hero, no outpaint, no localization — fast
         enough to return inside API Gateway's hard 30s window (the interactive default).
-      - full:    the complete 3-size set + localization + per-platform copy (~35s), for
-        the async download-pack builder.
+      - full:    the complete 4-size set (photographic base + pads, ~10-21s), for
+        the download-pack builder. Localization + platform copy render live in
+        the frontend, not in this response.
     """
     if _is_options(event):
         return {"statusCode": 200, "headers": CORS_HEADERS, "body": ""}
