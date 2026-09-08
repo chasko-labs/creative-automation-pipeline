@@ -121,6 +121,17 @@ Resources:
                   - arn:aws:bedrock:us-east-1::foundation-model/stability.stable-outpaint-v1:0
                   - arn:aws:bedrock:us-east-2::foundation-model/stability.stable-outpaint-v1:0
                   - arn:aws:bedrock:us-west-2::foundation-model/stability.stable-outpaint-v1:0
+              # Server-side localization (issue #201): _build_localizations calls
+              # Amazon Translate for non-English rows after the Nova rewrite seam.
+              # The role previously lacked this grant, so every Translate call
+              # failed closed and ES/PT rows degraded silently to verbatim
+              # English. Amazon Translate does not support resource-level
+              # permissions — Resource "*" is required, scoped to the single
+              # read-only TranslateText action.
+              - Sid: TranslateTextForLocalization
+                Effect: Allow
+                Action: translate:TranslateText
+                Resource: "*"
               - Sid: DamRendersReadWrite
                 Effect: Allow
                 Action:

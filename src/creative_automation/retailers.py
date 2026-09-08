@@ -16,23 +16,46 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from pathlib import Path
 
-# canonical logo directory — drop {costco,publix,target}.svg here
+# canonical logo directory — drop {costco,publix,target,subscription}.svg here
 LOGO_DIR = Path(__file__).parents[2] / "input_assets" / "retailer-logos"
 
 # retailers that appear in the test campaigns. Georgia retailer is Publix
 # (market US-SE-ATL: "Publix, Target"), alongside Costco and Target.
+# "subscription" is the Kodiak Cakes DTC subscription as a retailer-equivalent,
+# weighted toward rural/frontier markets with no in-town chain grocer
+# (issue #198). It carries no logo file — resolve_retailer reports it missing
+# so operators know, and campaign plans it as a fulfillment entry, not a lockup.
 _RETAILER_ALIASES: dict[str, str] = {
     "costco": "costco",
     "costco wholesale": "costco",
     "publix": "publix",
     "target": "target",
+    "subscription": "subscription",
+    "kodiak subscription": "subscription",
+    "kodiak cakes subscription": "subscription",
+    "subscribe & save": "subscription",
+    "subscribe and save": "subscription",
+    "dtc subscription": "subscription",
 }
+
+# The four surfaces the chooser/retailer UI must show where the market
+# supports them (issue #198): three chain grocers + DTC subscription.
+SUPPORTED_RETAILERS: tuple[str, ...] = ("costco", "publix", "target", "subscription")
+
+# brick-and-mortar order for surfacing — subscription always trails, it is the
+# fulfillment fallback, never the lead when a chain grocer is on file.
+_CHAIN_ORDER: tuple[str, ...] = ("costco", "publix", "target")
+
+# DTC fulfillment line for the subscription retailer-equivalent (mirrors the
+# frontier-gap fulfillment copy in api.py — one canonical string).
+SUBSCRIPTION_FULFILLMENT = "DTC subscription — free shipping $45+"
 
 # preferred vector filename per retailer; png is a raster fallback only
 _LOGO_STEMS: dict[str, str] = {
     "costco": "costco",
     "publix": "publix",
     "target": "target",
+    "subscription": "subscription",
 }
 
 # example local store addresses for the lockup — real addresses supplied per campaign.
@@ -117,3 +140,69 @@ def missing_logos(logo_dir: Path | None = None) -> list[str]:
         for key in sorted(set(_RETAILER_ALIASES.values()))
         if resolve_retailer(key, logo_dir=logo_dir).missing
     ]
+
+
+# Market text that marks a rural/frontier market with no in-town chain grocer —
+# the markets where the DTC subscription must surface (issue #198). Matched
+# case-insensitively against "market-key + place" text. "farm" alone is NOT a
+# signal (city farmers markets), but "no commercial retail" / "general store"
+# / frontier-gap markers are.
+_RURAL_HINTS = (
+    "frontier",
+    "rural",
+    "ranch",
+    "homestead",
+    "backcountry",
+    "reservation",
+    "tribal",
+    "frontier-gap",
+    "no commercial retail",
+    "general store",
+)
+
+
+def is_rural_market(market: str, place: str = "") -> bool:
+    """True when a market reads as rural/frontier with no chain grocer.
+
+    Args:
+        market: the market key (e.g. "US-UT-KAMASVALLEY").
+        place: the human place line (e.g. "Kamas Valley — Peoa / Oakley, UT
+            84036 (Wasatch Back rural)"). Retailer strings carrying "no
+            commercial retail" also count — pass the retailer field in here
+            when the place line is thin.
+    """
+    hay = f"{market} {place}".lower()
+    return any(hint in hay for hint in _RURAL_HINTS)
+
+
+def surface_retailers(
+    retailer_field: str | None,
+    market: str = "",
+    place: str = "",
+) -> list[str]:
+    """Chooser/retailer surface for a market (issue #198).
+
+    Resolves the market's retailer string to the sanctioned chain grocers
+    (costco/publix/target, deduped, in _CHAIN_ORDER) and appends the "subscription"
+    retailer-equivalent when the market is rural/frontier OR when no chain grocer
+    resolved (a frontier-gap market with nothing on file still gets DTC
+    fulfillment). Chain grocers lead; subscription always trails.
+
+    Returns [] only when the market is non-rural AND nothing resolved.
+    """
+    ordered: list[str] = []
+    if retailer_field:
+        import re as _re
+
+        for raw in str(retailer_field).split(","):
+            base = _re.sub(r"\(.*?\)", "", raw).strip()
+            key = normalize_retailer(base)
+            if key and key != "subscription" and key not in ordered:
+                ordered.append(key)
+    ordered.sort(key=lambda k: _CHAIN_ORDER.index(k))
+    hay = f"{retailer_field or ''} {place}"
+    if "subscription" not in ordered and (
+        is_rural_market(market, hay) or not ordered
+    ):
+        ordered.append("subscription")
+    return ordered

@@ -64,7 +64,8 @@ STANDARD_PLATFORMS: dict[str, list[str]] = {
     "facebook": ["1x1", "16x9"],    # feed square + landscape video
     "tiktok": ["9x16"],             # vertical only
     "youtube": ["16x9", "9x16"],    # landscape + shorts
-    "blog": ["16x9"],               # hero
+    "blog": ["16x9"],               # hero (export table carries the 1200x630 OG row)
+    "homepage": ["16x9"],           # hero (issue #201 publish target)
     "display": ["1x1"],             # ad tiles
 }
 
@@ -332,7 +333,24 @@ def _plan_lockups(
         if key is None:
             warnings.append(
                 f"retailer {name!r} has no logo lookup — no lockup plan (known: "
-                "costco, publix, target)"
+                "costco, publix, target, subscription)"
+            )
+            continue
+        if key == "subscription":
+            # DTC subscription is a fulfillment entry, not a logo lockup —
+            # there is no mark to overlay, just the fulfillment line (issue #198).
+            lockups.append(
+                {
+                    "retailer": "subscription",
+                    "store_address": None,
+                    "fulfillment": retailers.SUBSCRIPTION_FULFILLMENT,
+                    "iso_name": None,
+                    "logo_asset": None,
+                    "logo_missing": False,
+                    "executor": "fulfillment.subscription",
+                    "generated": False,
+                    "notes": [retailers.SUBSCRIPTION_FULFILLMENT],
+                }
             )
             continue
         address = _metro_address_for(market, key)

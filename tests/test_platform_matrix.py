@@ -15,11 +15,16 @@ from creative_automation import platforms
 MATRIX_PATH = pathlib.Path("data/platforms/platform-matrix.json")
 
 EXPECTED_PLATFORMS = {"facebook", "instagram", "x", "linkedin", "pinterest", "tiktok", "youtube"}
+# blog is a publish target with its own export row (issue #201), not a social slug:
+# the loader's PLATFORMS tuple stays the seven social slugs, while the matrix file
+# and the loader views additionally carry blog.
+EXPECTED_BLOG_PLATFORM = "blog"
 EXPECTED_RATIO_DIMS = {
     "1x1": (1080, 1080),
     "4x5": (1080, 1350),
     "9x16": (1080, 1920),
     "16x9": (1920, 1080),
+    "blog": (1200, 630),
 }
 
 
@@ -31,7 +36,18 @@ def test_matrix_file_loads_and_has_both_views():
     data = _load()
     assert isinstance(data, dict)
     assert set(data["ratios"].keys()) == set(EXPECTED_RATIO_DIMS)
-    assert set(data["platforms"].keys()) == EXPECTED_PLATFORMS
+    assert set(data["platforms"].keys()) == EXPECTED_PLATFORMS | {EXPECTED_BLOG_PLATFORM}
+
+
+def test_matrix_file_has_blog_export_row():
+    # issue #201: Blog is a publish target with a ratio/dimensions/platforms line
+    # (Blog / Open Graph hero 1200x630, photographic editorial).
+    data = _load()
+    blog = data["ratios"]["blog"]
+    assert (blog["w"], blog["h"]) == (1200, 630)
+    assert blog["platforms"] == ["blog"]
+    assert data["platforms"]["blog"]["label"] == "Blog"
+    assert data["platforms"]["blog"]["ratios"] == ["blog"]
 
 
 def test_all_seven_platforms_present_with_labels_and_ratios():
@@ -42,7 +58,7 @@ def test_all_seven_platforms_present_with_labels_and_ratios():
         assert entry.get("ratios"), f"{slug}: missing ratios"
 
 
-def test_all_four_ratios_have_correct_dims():
+def test_all_ratios_have_correct_dims():
     data = _load()
     for ratio, (w, h) in EXPECTED_RATIO_DIMS.items():
         entry = data["ratios"][ratio]
@@ -110,4 +126,5 @@ def test_loader_offline_fallback_on_missing_file(tmp_path):
     # a non-existent path forces the embedded fallback matrix (never raises).
     missing = tmp_path / "nope.json"
     m = platforms.load_matrix(path=missing)
-    assert set(m["platforms"].keys()) == EXPECTED_PLATFORMS
+    assert set(m["platforms"].keys()) == EXPECTED_PLATFORMS | {EXPECTED_BLOG_PLATFORM}
+    assert (m["ratios"]["blog"]["w"], m["ratios"]["blog"]["h"]) == (1200, 630)

@@ -91,8 +91,8 @@ def test_sf_campaign_fans_out_across_platforms_and_languages(tmp_path):
     langs = {a["lang"] for a in result["assets"]}
     assert "en" in langs
     assert len(langs) >= 2, f"expected multi-language, got {langs}"
-    # 1 product x 9 platform-ratios (2+2+1+2+1+1) x 3 languages = 27 planned assets
-    assert result["summary"]["asset_count"] == 27
+    # 1 product x 10 platform-ratios (2+2+1+2+1+1+1) x 3 languages = 30 planned assets
+    assert result["summary"]["asset_count"] == 30
 
 
 def test_sf_recipe_cards_reference_pescadero_september_ingredient(tmp_path):
@@ -175,8 +175,8 @@ def test_atlanta_assets_are_iso_named_and_safety_clean(tmp_path):
     for a in result["assets"]:
         assert ISO_NAME_RE.match(a["iso_name"]), f"not iso-named: {a['iso_name']}"
         assert a["safety"]["clean"] is True
-    # 2 products x 9 platform-ratios (2+2+1+2+1+1) x 3 languages (en, es, ko) = 54 assets
-    assert result["summary"]["asset_count"] == 54
+    # 2 products x 10 platform-ratios (2+2+1+2+1+1+1) x 3 languages (en, es, ko) = 60 assets
+    assert result["summary"]["asset_count"] == 60
 
 
 def test_atlanta_unknown_retailers_skipped_without_crashing(tmp_path):
@@ -209,10 +209,11 @@ def test_standard_platforms_cover_expected_channels():
         "tiktok",
         "youtube",
         "blog",
+        "homepage",
         "display",
     }
-    # total platform-ratio pairs drives the fan-out count: 2+2+1+2+1+1 = 9
-    assert sum(len(r) for r in STANDARD_PLATFORMS.values()) == 9
+    # total platform-ratio pairs drives the fan-out count: 2+2+1+2+1+1+1 = 10
+    assert sum(len(r) for r in STANDARD_PLATFORMS.values()) == 10
 
 
 # --------------------------------------------------------------------------- #
