@@ -249,6 +249,10 @@
     try{
       var old = document.getElementById('campaignCopyPanel');
       if(old && old.parentNode) old.parentNode.removeChild(old);
+      // brand-floor / fallback paths carry no composed headline — the brief is
+      // the copy source then, same rule as build_copy_sidecar server-side.
+      // copy always ships, even when the image is clean.
+      if(!headline) headline = brief;
       if(!headline) return false;
       var assets = document.getElementById('campaignAssetsSection');
       if(!assets) return false;
