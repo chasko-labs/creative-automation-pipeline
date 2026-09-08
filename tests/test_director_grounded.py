@@ -405,3 +405,58 @@ def test_rung_c_headline_stock_nova_normalized(monkeypatch, tmp_path):
     assert result.exists()
     assert prov["headline"] == "Trail Fuel"
     assert prov["headline_source"] == "bedrock:nova-pro-caption"
+
+
+# --------------------------------------- wall-math fast-follow: caption gate
+def test_headline_for_caption_skipped_on_low_budget(monkeypatch, capsys):
+    # PROVEN IN PROD 2026-09-08: an un-gated caption after a 12s director spend
+    # burned the silent seconds and the wall fired during finalize. With <7000+3000
+    # ms left the caption must not run — the brief verbatim is the fallback.
+    _enable(monkeypatch)
+    monkeypatch.setattr(generate_mod, "_director_headline_text", lambda *a, **k: None)
+
+    def _boom(*a, **k):
+        raise AssertionError("caption must not run under budget")
+
+    monkeypatch.setattr(generate_mod, "_nova_pro_caption", _boom)
+    headline, source = generate_mod._headline_for(
+        Path("x.png"), "Power Cakes", "brief words here", "us", "families",
+        remaining_ms=lambda: 1000.0,
+    )
+    assert headline == "brief words here"
+    assert source is None
+    assert "nova caption skipped" in capsys.readouterr().err
+
+
+def test_headline_for_caption_runs_with_budget(monkeypatch, capsys):
+    _enable(monkeypatch)
+    monkeypatch.setattr(generate_mod, "_director_headline_text", lambda *a, **k: None)
+    monkeypatch.setattr(
+        generate_mod, "_nova_pro_caption", lambda *a, **k: "fuel wild mornings."
+    )
+    headline, source = generate_mod._headline_for(
+        Path("x.png"), "Power Cakes", "brief words here", "us", "families",
+        remaining_ms=lambda: 20000.0,
+    )
+    assert headline == "Fuel Wild Mornings"
+    assert source == "bedrock:nova-pro-caption"
+    assert "nova caption ok latency=" in capsys.readouterr().err
+
+
+def test_director_headline_failures_retry_no_poison(monkeypatch):
+    # A cold-model timeout (outcome None) must not poison later warm calls in the
+    # same container: only live successes are memoized, failures re-invoke.
+    _enable(monkeypatch)
+    monkeypatch.setattr(
+        director_memory, "retrieve", lambda q, k=3: ([{"id": "x", "caption": "c"}], "nova")
+    )
+    calls = {"n": 0}
+
+    def _mock_voice(*a, **k):
+        calls["n"] += 1
+        return {"text": "mock line", "source": "mock", "safety": {"clean": True}}
+
+    monkeypatch.setattr(art_director, "art_direct_grounded", _mock_voice)
+    assert generate_mod._director_headline_text("P", "b", "us", "f") is None
+    assert generate_mod._director_headline_text("P", "b", "us", "f") is None
+    assert calls["n"] == 2
