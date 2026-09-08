@@ -162,7 +162,9 @@ header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-s
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .kbd{font:500 11px/1 JetBrains Mono,Menlo,monospace;background:var(--oat);border:1px solid var(--stone);padding:2px 6px;border-radius:3px;color:var(--chocolate)}
 .preview{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));gap:14px}
-.tile{border:1px solid var(--stone);border-radius:2px;overflow:hidden;background:var(--gradients-kraft\.surface);position:relative;box-shadow:var(--shadows-sm)}
+.tile{border:1px solid var(--stone);border-radius:2px;overflow:hidden;background:var(--gradients-kraft\.surface);position:relative;box-shadow:var(--shadows-sm);animation:ff-rise-in .35s ease both}
+@keyframes ff-rise-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.tile{animation:none}}
 .tile canvas{width:100%;display:block;background:var(--chocolate);box-shadow:0 8px 24px rgba(49,30,20,0.18)}
 .tile .meta{padding:10px 12px;background:var(--gradients-kraft\.surface)}
 .tile .meta b{font:700 12px/1 "museo-sans",sans-serif;color:var(--chocolate)}
