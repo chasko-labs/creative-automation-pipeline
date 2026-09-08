@@ -24,15 +24,15 @@
     var forest = document.querySelector('.ff-forest');
     var wrap = document.createElement('div');
     wrap.innerHTML =
-      '<section id="generateCampaignSection" class="ff-generate-campaign" aria-labelledby="generateCampaignHeading" hidden style="max-width:960px;margin:0 auto;padding:0 var(--spacing-sm)">'+
+      '<section id="generateCampaignSection" class="ff-output ff-generate-campaign" aria-labelledby="generateCampaignHeading" hidden>'+
         '<h2 id="generateCampaignHeading" class="ff-output-heading">Generate Campaign</h2>'+
         '<p class="hint" id="generateCampaignHint">Your preview is ready. Generate the full campaign — every ratio, every platform, localized to your chosen scope.</p>'+
         '<div class="row" id="generateCampaignBtns" style="gap:10px;flex-wrap:wrap">'+
-          '<button type="button" class="btn orange" id="genFullCampaign">Generate full campaign</button>'+
+          '<button type="button" class="btn orange ff-campaign-primary" id="genFullCampaign">Generate full campaign</button>'+
         '</div>'+
         '<div class="hint" id="generateCampaignStatus" role="status" aria-live="polite"></div>'+
       '</section>'+
-      '<section id="campaignAssetsSection" class="ff-campaign-assets" aria-labelledby="campaignAssetsHeading" hidden style="max-width:960px;margin:0 auto;padding:0 var(--spacing-sm)">'+
+      '<section id="campaignAssetsSection" class="ff-output ff-campaign-assets" aria-labelledby="campaignAssetsHeading" hidden>'+
         '<h2 id="campaignAssetsHeading" class="ff-output-heading">Campaign Assets Created</h2>'+
         '<div class="row" style="justify-content:flex-start"><button type="button" class="btn orange" id="downloadCampaignPackTop" data-mcp="download-campaign-pack">Download Campaign Pack</button></div>'+
         '<div class="ff-product-carousel" id="campaignAssetsCarousel" role="group" aria-label="Generated campaign assets" style="margin-top:var(--spacing-sm)"></div>'+
