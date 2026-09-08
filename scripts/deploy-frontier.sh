@@ -163,6 +163,13 @@ else
 		--profile "$PROFILE" --region "$REGION" \
 		--query 'Invalidation.Id' --output text)"
 	echo "[deploy-frontier] invalidation: $inv_id"
+	# Edge settle (~3 min): wait for completion so the verify below reads the
+	# new build, not stale edge cache. See docs/fleet-build-deploy-notes.md.
+	echo "[deploy-frontier] waiting for invalidation $inv_id to complete..."
+	aws cloudfront wait invalidation-completed \
+		--distribution-id "$DISTRO" --id "$inv_id" \
+		--profile "$PROFILE" --region "$REGION"
+	echo "[deploy-frontier] edge settled."
 fi
 
 echo "[deploy-frontier] done. verify: curl -sSI https://kodiak.bryanchasko.com/index.html | head -3"
