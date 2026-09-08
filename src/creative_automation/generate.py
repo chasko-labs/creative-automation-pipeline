@@ -1989,6 +1989,11 @@ def build_copy_sidecar(
     retailer_framing = _THEME_COPY_HINT.get(theme or "")
     if retailer_framing:
         txt_lines.append(f"retailer framing: {retailer_framing}")
+    # art-director voice upgrade: recorded when the post-render voice step produced
+    # a real line (never swaps the headline — the brief stays the record).
+    art_headline = provenance.get("art_headline") if provenance else None
+    if art_headline:
+        txt_lines.append(f"art-director voice: {art_headline}")
     for plat in sorted(platform_copy):
         entry = platform_copy[plat] or {}
         body = entry.get("body") or entry.get("description") or ""
@@ -2005,6 +2010,8 @@ def build_copy_sidecar(
     writer.writerow(["brief", prompt])
     if retailer_framing:
         writer.writerow(["retailer_framing", retailer_framing])
+    if art_headline:
+        writer.writerow(["art_headline", art_headline])
     for plat in sorted(platform_copy):
         entry = platform_copy[plat] or {}
         writer.writerow([f"{plat}.headline", entry.get("headline") or entry.get("title") or ""])

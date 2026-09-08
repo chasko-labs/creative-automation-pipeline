@@ -42,11 +42,12 @@ def test_prompt_uses_trained_instruction_response_shape():
 
 
 def test_model_not_ready_retries_then_succeeds(monkeypatch):
-    """Scale-to-zero cold start: first invokes throw ModelNotReadyException, then it warms.
+    """Scale-to-zero cold start: first invoke throws ModelNotReadyException, then it warms.
 
-    Strands does not retry ModelNotReadyException — _try_art_direct owns the backoff. We
-    mock the BedrockModel so no network is touched and inject a no-op sleep so the test is
-    fast. The client warms on the third attempt and returns on-brand text.
+    Strands does not retry ModelNotReadyException — _try_art_direct owns the one fast
+    probe. We mock the BedrockModel so no network is touched and inject a no-op sleep
+    so the test is fast. The client warms on the second attempt and returns on-brand
+    text; total sleep is bounded to a single interval by RETRY_ATTEMPTS.
     """
     from botocore.exceptions import ClientError
 
@@ -62,7 +63,7 @@ def test_model_not_ready_retries_then_succeeds(monkeypatch):
 
         async def stream(self, messages):
             calls["n"] += 1
-            if calls["n"] < 3:
+            if calls["n"] < 2:
                 raise not_ready
             yield {"contentBlockDelta": {"delta": {"text": "Lace up. Keep it wild."}}}
 
@@ -76,8 +77,37 @@ def test_model_not_ready_retries_then_succeeds(monkeypatch):
         sleep=lambda s: sleeps.append(s),
     )
     assert out == "Lace up. Keep it wild."
-    assert calls["n"] == 3  # two warming misses, then success
-    assert sleeps == [art_director.RETRY_SLEEP_SECONDS, art_director.RETRY_SLEEP_SECONDS]
+    assert calls["n"] == 2  # one warming miss, then success
+    assert sleeps == [art_director.RETRY_SLEEP_SECONDS]
+
+
+def test_warming_miss_never_exceeds_one_sleep(monkeypatch):
+    """Bound proof: even a model that never warms costs exactly one sleep interval."""
+    from botocore.exceptions import ClientError
+
+    not_ready = ClientError(
+        {"Error": {"Code": "ModelNotReadyException", "Message": "model is warming"}},
+        "Converse",
+    )
+
+    class AlwaysWarming:
+        def __init__(self, *a, **k):
+            pass
+
+        async def stream(self, messages):
+            raise not_ready
+            yield  # pragma: no cover — make this an async generator
+
+    monkeypatch.setattr(art_director, "BedrockModel", AlwaysWarming)
+    sleeps: list[int] = []
+    out = art_director._try_art_direct(
+        art_director._build_ask("x", "adventurous"),
+        region="us-west-2",
+        model_arn="arn:test",
+        sleep=lambda s: sleeps.append(s),
+    )
+    assert out is None
+    assert sleeps == [art_director.RETRY_SLEEP_SECONDS]
 
 
 def test_model_not_ready_exhausts_attempts_returns_none(monkeypatch):

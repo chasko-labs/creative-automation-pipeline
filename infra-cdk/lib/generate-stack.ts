@@ -2,6 +2,7 @@ import * as cdk from "aws-cdk-lib";
 import { Construct } from "constructs";
 import * as iam from "aws-cdk-lib/aws-iam";
 import * as lambda from "aws-cdk-lib/aws-lambda";
+import * as scheduler from "aws-cdk-lib/aws-scheduler";
 import {
   KODIAK_VECTOR_BUCKET_NAME,
   KODIAK_VECTOR_INDEX_NAME,
@@ -253,6 +254,48 @@ export class GenerateStack extends cdk.Stack {
     new cdk.CfnOutput(this, "LambdaRoleArn", {
       value: this.lambdaRoleArn,
       description: "ARN of the Lambda execution role",
+    });
+
+    // ---- art-director pre-warm (Unit 1, disabled by default) -----------------
+    // Imported voice models scale to zero and throw ModelNotReadyException on the
+    // first invoke after idle. This Scheduler rule pings the handler's warm path
+    // ({"warm": "art-director"}) every 4 minutes so the model stays warm. The rule
+    // is DISABLED unless deployed with `-c artDirectorPrewarm=on`, matching the
+    // dark-by-default voice flag — no ping traffic for a feature nobody enabled.
+    const prewarmState = this.node.tryGetContext("artDirectorPrewarm") === "on"
+      ? "ENABLED"
+      : "DISABLED";
+    const schedulerRole = new iam.CfnRole(this, "ArtDirectorPrewarmRole", {
+      assumeRolePolicyDocument: {
+        Version: "2012-10-17",
+        Statement: [{
+          Effect: "Allow",
+          Principal: { Service: "scheduler.amazonaws.com" },
+          Action: "sts:AssumeRole",
+        }],
+      },
+      policies: [{
+        policyName: "InvokeGenerateForWarmPing",
+        policyDocument: {
+          Version: "2012-10-17",
+          Statement: [{
+            Effect: "Allow",
+            Action: "lambda:InvokeFunction",
+            Resource: generateLambda.attrArn,
+          }],
+        },
+      }],
+    });
+    new scheduler.CfnSchedule(this, "ArtDirectorPrewarmSchedule", {
+      state: prewarmState,
+      scheduleExpression: "rate(4 minutes)",
+      flexibleTimeWindow: { mode: "OFF" },
+      target: {
+        arn: generateLambda.attrArn,
+        roleArn: schedulerRole.attrArn,
+        input: JSON.stringify({ warm: "art-director" }),
+        retryPolicy: { maximumRetryAttempts: 0 },
+      },
     });
   }
 }

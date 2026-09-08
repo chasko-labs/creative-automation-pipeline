@@ -87,6 +87,45 @@ _ART_DIRECTOR_KNOWN_VOICES = ("adventurous", "nourishing")
 _ART_DIRECTOR_DEFAULT_VOICE = "adventurous"
 
 
+def _apply_art_upgrade(data: dict[str, Any], prompt: str, provenance: Any) -> None:
+    """Post-render art-director voice upgrade (dark by default, never gating).
+
+    Runs only after pixels exist. Records provenance["art_headline"] when the voice
+    step produces a real line; records nothing when the flag is off or the voice
+    falls back (in both cases _maybe_art_direct returns the prompt unchanged).
+    Never raises — a voice failure must not break a completed render.
+    """
+    try:
+        if not isinstance(provenance, dict):
+            return
+        line = _maybe_art_direct(data, prompt)
+        if line and line.strip() and line.strip() != prompt.strip():
+            provenance["art_headline"] = line.strip()
+    except Exception as e:  # noqa: BLE001 — completed pixels always ship
+        print(f"[generate_lambda] art upgrade skipped: {e}", file=sys.stderr)
+
+
+def _handle_warm(data: dict[str, Any]) -> dict[str, Any]:
+    """Pre-warm ping target for the EventBridge Scheduler rule (Unit 1).
+
+    Runs one trivial art-director ask to keep the imported model warm. Dark-aware:
+    with the voice flag off there is nothing to warm. Always 200, never raises.
+    """
+    try:
+        if not ART_DIRECTOR_ENABLED:
+            return _response(200, {"ok": True, "warmed": False, "reason": "voice-off"})
+        from . import art_director  # deferred import — voice-off path never loads Strands
+
+        out = art_director.art_direct(
+            "morning fuel", _ART_DIRECTOR_DEFAULT_VOICE,
+        )
+        live = (out or {}).get("source") == "bedrock:kodiak-artdirector"
+        return _response(200, {"ok": True, "warmed": live, "source": (out or {}).get("source")})
+    except Exception as e:  # noqa: BLE001 — warm pings never fail loudly
+        print(f"[generate_lambda] warm ping skipped: {e}", file=sys.stderr)
+        return _response(200, {"ok": True, "warmed": False, "reason": "error"})
+
+
 def _maybe_art_direct(data: dict[str, Any], prompt: str) -> str:
     """Optionally refine the headline via the Kodiak art-director voice; else pass through.
 
@@ -806,10 +845,6 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     hero_path = out_dir / "hero-1x1.png"
     hero_path.parent.mkdir(parents=True, exist_ok=True)
 
-    # Art-director voice step (dark by default): refine the brief into an on-brand headline
-    # BEFORE it becomes brief_msg. No-op when the flag is off — prompt passes through.
-    prompt = _maybe_art_direct(data, prompt)
-
     # ONE control-structure hero at 1x1 (clean by default — copy ships as sidecars).
     # No outpaint call is made on this path — that is the whole point of preview mode.
     result_path, source, provenance = generate_hero(
@@ -841,6 +876,9 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         provenance["ratios"] = {"1x1": "primary"}
         provenance["mode"] = PREVIEW_MODE
         provenance["deferred"] = ["4x5", "9x16", "16x9", "localization", "platform_copy"]
+    # Art-director voice upgrade (dark by default): runs AFTER pixels so voice work
+    # can never gate the render; recorded as provenance + sidecar, never swaps the brief.
+    _apply_art_upgrade(data, prompt, provenance)
 
     return {
         "ok": True,
@@ -875,10 +913,6 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     # Render contract (#199/#200): default {} = clean standalone set, every layer OFF.
     layers = _request_layers(data)
     out_dir = Path(f"/tmp/{uuid4().hex}")  # noqa: S108 — Lambda only allows /tmp writes
-    # Art-director voice step (dark by default): refine the brief into an on-brand headline
-    # BEFORE it becomes brief_msg (and, downstream, the localization/platform-copy seed).
-    # No-op when the flag is off — prompt passes through byte-for-byte.
-    prompt = _maybe_art_direct(data, prompt)
     # "prompt" is the campaign brief/vibe now, not a generation seed. generate_hero_set
     # composes over a real product asset via Nova Pro vision / Stability, delivering all
     # three delivery ratios (1x1, 4x5, 2x3) from one call. When "theme" is present it
@@ -931,6 +965,9 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     if isinstance(provenance, dict):
         provenance["languages"] = languages
         provenance["mode"] = FULL_MODE
+    # Art-director voice upgrade (dark by default): runs AFTER pixels so voice work
+    # can never gate the render; recorded as provenance + sidecar, never swaps the brief.
+    _apply_art_upgrade(data, prompt, provenance)
 
     # Per-platform campaign copy (additive): tailor the campaign message to each
     # social network's tone/length rules. Uses the req_platforms resolved above
@@ -1063,6 +1100,9 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
         return _response(400, {"ok": False, "error": f"malformed request body: {e}"})
     if not isinstance(data, dict):
         return _response(400, {"ok": False, "error": "malformed request body: expected a JSON object"})
+    # Pre-warm ping (EventBridge Scheduler, Unit 1): never touches the ladder.
+    if data.get("warm") == "art-director":
+        return _handle_warm(data)
     try:
         prompt = (data.get("prompt") or "").strip()
         if not prompt:

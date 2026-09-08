@@ -509,7 +509,8 @@ def test_art_director_flag_off_by_default_never_invokes(monkeypatch, tmp_path: P
 def test_art_director_flag_on_fast_return_uses_art_director_line(
     monkeypatch, tmp_path: Path
 ) -> None:
-    # art-director ENABLED + a fast return: the prompt used equals the art-director line.
+    # art-director ENABLED + a fast return: pixels still compose from the ORIGINAL
+    # brief (post-render upgrade, Unit 1) while the voice line lands in provenance.
     captured: dict = {}
     monkeypatch.setattr(generate_lambda, "generate_hero", _capture_hero(captured))
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
@@ -526,9 +527,10 @@ def test_art_director_flag_on_fast_return_uses_art_director_line(
     assert resp["statusCode"] == 200
     body = json.loads(resp["body"])
     assert body["ok"] is True
-    # the on-brand art-director line replaced the original prompt for hero composition
-    assert captured["brief_msg"] == "Keep It Wild — Frontier Fuel"
-    assert body["prompt"] == "Keep It Wild — Frontier Fuel"
+    # pixels compose from the original brief; the voice line upgrades provenance
+    assert captured["brief_msg"] == "a bear eating pancakes"
+    assert body["prompt"] == "a bear eating pancakes"
+    assert body["provenance"].get("art_headline") == "Keep It Wild — Frontier Fuel"
 
 
 
@@ -692,3 +694,77 @@ def test_pack_rejects_oversize_extra(monkeypatch) -> None:
     ], "extras": [{"name": "big.txt", "text": "x" * 70000}]})
     assert resp["statusCode"] == 400
     assert body["ok"] is False
+
+
+def test_art_upgrade_records_headline_post_render_without_rewriting_brief(
+    monkeypatch, tmp_path: Path
+) -> None:
+    # voice ENABLED + real line: the brief driving pixels stays ORIGINAL, and the
+    # voice line lands in provenance + sidecar (post-render upgrade, never gating).
+    captured: dict = {}
+    monkeypatch.setattr(generate_lambda, "generate_hero", _capture_hero(captured))
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda, "ART_DIRECTOR_ENABLED", True)
+
+    from creative_automation import art_director as _ad
+
+    monkeypatch.setattr(
+        _ad, "art_direct",
+        lambda *a, **k: {"text": "Lace up. Keep it wild.", "source": "bedrock:kodiak-artdirector"},
+    )
+
+    event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
+    resp = generate_lambda.handler(event, None)
+    assert resp["statusCode"] == 200
+    body = json.loads(resp["body"])
+    assert captured["brief_msg"] == "a bear eating pancakes"
+    assert body["prompt"] == "a bear eating pancakes"
+    assert body["provenance"].get("art_headline") == "Lace up. Keep it wild."
+    assert "art-director voice: Lace up. Keep it wild." in body["copy_sidecar"]["txt"]
+
+
+def test_art_upgrade_records_nothing_when_voice_off(monkeypatch, tmp_path: Path) -> None:
+    # flag off: no art_headline key at all, brief byte-identical.
+    captured: dict = {}
+    monkeypatch.setattr(generate_lambda, "generate_hero", _capture_hero(captured))
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    assert generate_lambda.ART_DIRECTOR_ENABLED is False
+
+    event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
+    resp = generate_lambda.handler(event, None)
+    assert resp["statusCode"] == 200
+    body = json.loads(resp["body"])
+    assert "art_headline" not in body["provenance"]
+    assert "art-director voice:" not in body["copy_sidecar"]["txt"]
+
+
+def test_warm_ping_never_touches_ladder(monkeypatch) -> None:
+    # {"warm": "art-director"} short-circuits before body validation/ladder.
+    def _boom(*a, **k):
+        raise AssertionError("ladder must not run on a warm ping")
+
+    monkeypatch.setattr(generate_lambda, "generate_hero", _boom)
+    monkeypatch.setattr(generate_lambda, "generate_hero_set", _boom)
+
+    event = {"body": json.dumps({"warm": "art-director"})}
+    resp = generate_lambda.handler(event, None)
+    assert resp["statusCode"] == 200
+    body = json.loads(resp["body"])
+    assert body["ok"] is True
+    assert body["warmed"] is False  # voice flag off in this env — nothing to warm
+    assert body["reason"] == "voice-off"
+
+
+def test_warm_ping_reports_live_voice(monkeypatch) -> None:
+    # flag on + live voice source: warmed True.
+    monkeypatch.setattr(generate_lambda, "ART_DIRECTOR_ENABLED", True)
+    from creative_automation import art_director as _ad
+
+    monkeypatch.setattr(
+        _ad, "art_direct",
+        lambda *a, **k: {"text": "Lace up.", "source": "bedrock:kodiak-artdirector"},
+    )
+    event = {"body": json.dumps({"warm": "art-director"})}
+    resp = generate_lambda.handler(event, None)
+    assert resp["statusCode"] == 200
+    assert json.loads(resp["body"])["warmed"] is True
