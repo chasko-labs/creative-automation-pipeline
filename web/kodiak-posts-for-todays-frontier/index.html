@@ -126,25 +126,33 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
 <!-- PRIMARY: Firefly-inspired prompt bar — dominates the card -->
 <div class="ff-prompt" data-mcp="campaign-brief.prompt">
 
-  <!-- STEP 1: campaign scope — the first and most important decision. Mutually-exclusive
+<!-- #218: the four blocks below (reach, market+season, creative direction, brief) read as
+     ONE guided setup step — a single section with a clear top-to-bottom order. Wrapper +
+     heading + data-step badges only; every control keeps its id, role, and binding. -->
+<section class="ff-setup" aria-labelledby="ffSetupHeading">
+  <h2 id="ffSetupHeading" class="ff-setup-heading">Set up your campaign</h2>
+  <p class="ff-setup-sub">Four quick choices, top to bottom — Create sits under your finished brief.</p>
+
+  <!-- STEP 1: reach — the first and most important decision. Mutually-exclusive
        segmented control (WAI-ARIA radiogroup). Default = "local" (single market), which is
        coherent with the Park City market default + the inline seasonal readout below. Selection
        is stored on window.__campaignScope and read by both Create (preview) and the full-campaign
        generate. Keyboard: arrow keys move + activate selection per the radiogroup pattern. -->
-  <!-- Fold-density: scope collapses into a closed disclosure at rest (default Single
-       market is preselected, so most loads need zero scope interaction). The radiogroup
+  <!-- Fold-density: reach collapses into a closed disclosure at rest (default Single
+       market is preselected, so most loads need zero reach interaction). The radiogroup
        + window.__campaignScope wiring is untouched; prompt-chips.js syncs #scopeSummary. -->
-  <details class="ff-scope-wrap" id="scopeWrap">
-    <summary class="ff-scope-summary"><span aria-hidden="true">Campaign scope</span>: <span id="scopeSummary">Single market</span></summary>
-  <div class="ff-scope" id="campaignScope" role="radiogroup" aria-label="Campaign scope — how far this campaign reaches">
+  <!-- #223: marketer voice, copy only — ids, roles, and behavior untouched. -->
+  <details class="ff-scope-wrap" id="scopeWrap" data-step="1">
+    <summary class="ff-scope-summary"><span aria-hidden="true">How far this reaches</span>: <span id="scopeSummary">Single market</span></summary>
+  <div class="ff-scope" id="campaignScope" role="radiogroup" aria-label="How far this reaches">
     <div class="ff-scope-seg" role="presentation">
       <button type="button" class="ff-scope-opt" role="radio" aria-checked="false" data-scope="nationwide" tabindex="-1">
         <span class="ff-scope-opt-title">Nationwide</span>
         <span class="ff-scope-opt-sub">One national campaign</span>
       </button>
       <button type="button" class="ff-scope-opt" role="radio" aria-checked="false" data-scope="nationwide-localized" tabindex="-1">
-        <span class="ff-scope-opt-title">Nationwide + localized markets</span>
-        <span class="ff-scope-opt-sub">National core, localized variants</span>
+        <span class="ff-scope-opt-title">Nationwide + local versions</span>
+        <span class="ff-scope-opt-sub">One core campaign, adapted per market</span>
       </button>
       <button type="button" class="ff-scope-opt" role="radio" aria-checked="true" data-scope="local" tabindex="0">
         <span class="ff-scope-opt-title">Single market</span>
@@ -158,7 +166,7 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
   <!-- C+D+E+F. control row: market disclosure button + seasonal menu + geo, single responsive row.
        data-scope-mode is set by prompt-chips.js from window.__campaignScope: "nationwide" dims this
        row (market becomes an optional localization anchor); other scopes leave it at full weight. -->
-  <div class="ff-controlrow" role="group" aria-label="Campaign market and season" data-scope-mode="local">
+  <div class="ff-controlrow" role="group" aria-label="Campaign market and season" data-scope-mode="local" data-step="2">
     <details class="ff-market" id="marketDisclosure">
       <summary aria-haspopup="listbox" aria-expanded="false" aria-controls="marketListbox" aria-label="Choose market — currently Park City, Utah">
         <span class="ff-market-name" id="marketButtonLabel">Park City, Utah</span>
@@ -214,10 +222,14 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
   </div>
 
   <!-- ff-brainstorm - unified brainstorming surface: campaign-option chips + product picker read as ONE panel. wrapper only; every child still binds by id so the JS selectors are unaffected. -->
-  <div class="ff-brainstorm">
+  <!-- #237: the retailer/partner chips below are the SINGLE selection for those concepts — they drive
+       both the brief text and the Compose layer flags (two-way sync in prompt-chips.js); the layer
+       checkboxes are flags, not a second selection. -->
+  <div class="ff-brainstorm" data-step="3">
   <!-- STEP 3: creative direction — additive multi-select chips grouped into 4 marketer-voice clusters.
-       Chips toggle (aria-pressed) and stack; toggling does not clobber the brief textarea. Handled by
-       prompt-chips.js, which maintains window.__activeDirections (set) + window.__activeTheme (most-recent). -->
+       Chips toggle (aria-pressed) and stack; toggling assembles the brief but never clobbers typed
+       text. Handled by prompt-chips.js, which maintains window.__activeDirections (set) +
+       window.__activeTheme (most-recent). -->
   <div class="ff-optiongroup">
     <div class="ff-chipgroups" id="promptChips" role="group" aria-label="Creative direction — combine as many as you like">
       <div class="ff-chipcluster" role="group" aria-labelledby="chipClusterMake">
@@ -277,9 +289,11 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
     </div>
   </details>
 
-  <!-- Compose layers (#199/#200) — independently-selectable, ALL OFF by default. Default
+  <!-- Compose layers (#199/#200, unified with chips by #237) — ALL OFF by default. Default
        Create ships a clean standalone image + copy sidecars; a selected layer composes
-       into the scene (real box via thirds placement, marks under the paper grain). -->
+       into the scene (real box via thirds placement, marks under the paper grain).
+       Retailer + partner layers mirror their chips (one selection per concept, two-way
+       sync); the product layer is a compose flag for the products picked above. -->
   <details class="ff-layers" id="layerPicker" data-mcp="compose-layers" data-mcp-description="Optional layers — product image, retailer mark, partner mark. All off by default.">
     <summary aria-label="Compose layers — optional, all off by default">Compose layers <span class="ff-layers-state" id="layersState">all off</span></summary>
     <div class="ff-layers-panel">
@@ -301,7 +315,8 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
   <div class="ff-tray" id="selectionTray" role="group" aria-label="Selected products and staged assets"></div>
 
   <!-- B1: the prompt input is now the CULMINATION at the bottom of the card — controls above assemble the brief, Create sits directly under the fully-assembled prompt. -->
-  <div class="ff-inputwrap">
+  <!-- STEP 4 (#218): the brief is the last stop of the guided step, not a separate block. -->
+  <div class="ff-inputwrap" data-step="4">
     <!-- Row 1 (canvas): visible kicker label + the primary textarea, full width -->
     <label class="ff-brief-label" for="campaignBrief">Your campaign idea</label>
     <textarea id="campaignBrief" rows="2" aria-label="Campaign idea — describe your Kodiak campaign in a line" placeholder="Describe your campaign in a line — or tap an option above to start." role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="briefSuggest" autocomplete="off"></textarea>
@@ -319,6 +334,7 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
     <!-- B3. prompt-box autocomplete surface — product/market matches from loaded catalog + places; anchored to the positioned .ff-inputwrap; reuses the ff-products-results listbox visual pattern -->
     <div id="briefSuggest" class="ff-products-results ff-briefsuggest" role="listbox" aria-label="Product and market suggestions" hidden></div>
   </div>
+</section><!-- /ff-setup: one guided setup step (#218) -->
 </div>
 
 <!-- Product chooser + upload affordance consolidated into the prompt card above (closed <details> + shared tray + "+" icon). -->

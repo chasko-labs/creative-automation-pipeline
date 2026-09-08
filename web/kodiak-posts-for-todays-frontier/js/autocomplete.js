@@ -62,8 +62,15 @@
     if(/^(market:|season:|products:)/.test(tail)) return val.slice(0, i);
     return val;
   }
-  // rewrite the visible prompt = user base + current suffix, without clobbering the theme or cursor intent
+  // shared seams for the one brief assembly (#218/#236): prompt-chips.js owns __rebuildBrief and
+  // reads these live, so the suffix shape cannot drift between the two files.
+  window.__briefSuffixMarker = SUFFIX_MARKER;
+  window.__briefContextSuffix = buildSuffix;
+  // rewrite the visible prompt. Delegates to the one assembly in prompt-chips.js (free text + fresh
+  // suffix + fresh directions tail) so market/season/product changes never drop active chip clauses.
+  // Falls back to the local suffix-only write when that sibling is absent.
   function reflect(){
+    if(typeof window.__rebuildBrief === 'function'){ window.__rebuildBrief(); grow(); return; }
     var suffix = buildSuffix();
     var base = window.__briefUserText || '';
     var next = suffix ? (base + SUFFIX_MARKER + suffix) : base;
@@ -75,22 +82,21 @@
   }
   window.__reflectBrief = reflect;
 
-  // manual edit: recover the user's base text (everything minus our trailing suffix). Runs alongside
-  // the existing input handler that clears the theme; we only update the stored base, never re-append here.
+  // manual edit: recover the user's base text via the shared free-text definition (which also drops
+  // the chip-owned directions tail). Runs after prompt-chips' own adopter; we only update the stored
+  // base here, never re-append — the next assembly re-canonicalizes.
   briefEl.addEventListener('input', function(){
     if(window.__briefReflecting || window.__chipSettingBrief) return;
-    window.__briefUserText = stripSuffix(briefEl.value);
+    window.__briefUserText = (typeof window.__briefFreeText === 'function')
+      ? window.__briefFreeText(briefEl.value) : stripSuffix(briefEl.value);
   });
-  // a chip click sets briefEl.value = data-brief (its handler runs first, bubbling). Adopt that as the
-  // new user base, then re-append the current selection suffix so chip + market/season/products compose.
+  // a chip click reassembles the brief in its own handler (which runs first, bubbling). Re-run the
+  // one assembly deferred to end of task so chip + market/season/products compose even if the chip
+  // handler's own rebuild was a no-op ordering edge.
   document.addEventListener('click', function(e){
     var chip = e.target && e.target.closest ? e.target.closest('#promptChips .ff-chip[data-brief]') : null;
     if(!chip) return;
-    // defer to end of task so the chip's own handler (value + theme + input dispatch) has completed
-    setTimeout(function(){
-      window.__briefUserText = stripSuffix(briefEl.value);
-      reflect();
-    }, 0);
+    setTimeout(function(){ reflect(); }, 0);
   });
   // market (declared #locality), season, and product checkbox changes all rebuild the suffix
   document.addEventListener('change', function(e){
@@ -209,19 +215,43 @@
       opts.forEach(function(o, j){ o.setAttribute('aria-selected', j===i ? 'true':'false'); });
       var el = opts[i]; if(el){ briefEl.setAttribute('aria-activedescendant', el.id); el.scrollIntoView({block:'nearest'}); }
     }
-    // insert the canonical name at the caret, replacing the token being typed
+    // where the generated tail starts (-1 when the brief is pure free text)
+    function generatedStart(val){
+      var v = String(val == null ? '' : val);
+      var dir = (typeof window.__briefDirBegin === 'string' && window.__briefDirBegin) ? window.__briefDirBegin : '— directions: ';
+      var a = v.indexOf(SUFFIX_MARKER), b = v.indexOf(dir);
+      if(a === -1) return b;
+      if(b === -1) return a;
+      return Math.min(a, b);
+    }
+    // insert the canonical name at the caret, replacing the token being typed. #236: a pick is
+    // typing, not a reset — chips stay armed and typed text survives. When the caret sits inside
+    // the owned tail the insert relocates to the end of the free text (writing into owned regions
+    // would mangle them); owned regions are left byte-identical so no rebuild is needed.
     function choose(name){
-      var tok = currentToken();
-      var before = briefEl.value.slice(0, tok.start);
-      var after = briefEl.value.slice(tok.end);
+      var val = briefEl.value;
+      var caretPos = (briefEl.selectionStart != null) ? briefEl.selectionStart : val.length;
+      var gs = generatedStart(val);
       window.__briefReflecting = true;
-      briefEl.value = before + name + after;
-      var caret = (before + name).length;
+      var caret;
+      if(gs !== -1 && caretPos >= gs){
+        var prefix = val.slice(0, gs).replace(/\s+$/,'');
+        var rest = val.slice(gs);
+        var glue = prefix ? ' ' : '';
+        briefEl.value = prefix + glue + name + rest;
+        caret = (prefix + glue + name).length;
+      } else {
+        var tok = currentToken();
+        var before = val.slice(0, tok.start);
+        var after = val.slice(tok.end);
+        var sep = (before && !/\s$/.test(before)) ? ' ' : '';
+        briefEl.value = before + sep + name + after;
+        caret = (before + sep + name).length;
+      }
       try{ briefEl.setSelectionRange(caret, caret); }catch(e){}
       window.__briefReflecting = false;
-      // selection insert counts as a manual edit to the base text — clear theme like a normal edit, update base
-      if(typeof window.__clearActiveTheme === 'function') window.__clearActiveTheme();
-      window.__briefUserText = stripSuffix(briefEl.value);
+      window.__briefUserText = (typeof window.__briefFreeText === 'function')
+        ? window.__briefFreeText(briefEl.value) : stripSuffix(briefEl.value);
       grow();
       close();
       briefEl.focus();

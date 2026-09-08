@@ -535,6 +535,28 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-optiongroup{margin-top:var(--spacing-sm,8px);padding-top:var(--spacing-sm,8px);border-top:1px dashed var(--colors-border-default)}
 .ff-optiongroup>.ff-optiongroup-label{display:block;margin:0 0 var(--spacing-sm);font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted)}
 
+/* #218 - one guided setup step: reach, market+season, creative direction, and brief read as a
+   single ordered step inside .ff-setup. The section heading + numbered data-step badges carry the
+   order; every control keeps its id, role, and binding. Badges are pure CSS (attr(data-step)) so
+   no extra DOM enters the a11y tree. data-scope-mode dimming still keys off .ff-controlrow. */
+.ff-setup{display:flex;flex-direction:column;gap:var(--spacing-md);margin-top:var(--spacing-sm,8px);
+  padding:var(--spacing-md);background:var(--colors-neutral-100);border:1px solid var(--colors-border-default);
+  border-radius:var(--radii-lg)}
+.ff-setup-heading{margin:0;font:800 15px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.02em;color:var(--chocolate)}
+.ff-setup-sub{margin:0;color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
+/* inside the guided step the blocks no longer need their own top separation — the section provides it */
+.ff-setup>.ff-scope-wrap,.ff-setup>.ff-controlrow{margin-top:0}
+.ff-setup>.ff-brainstorm{margin-top:0;background:transparent;border:none;border-radius:0;padding-top:0;padding-bottom:0}
+.ff-setup>.ff-brainstorm>.ff-optiongroup{margin-top:0;padding-top:0;border-top:none}
+.ff-setup>.ff-inputwrap{margin-top:0}
+/* numbered order badges — pure CSS (attr(data-step)), no extra DOM in the a11y tree. This rule
+   stays LAST in the #218 block so its gutter survives the resets above on equal specificity. */
+.ff-setup>section[data-step],.ff-setup>div[data-step],.ff-setup>details[data-step]{position:relative;padding-left:34px}
+.ff-setup>section[data-step]::before,.ff-setup>div[data-step]::before,.ff-setup>details[data-step]::before{content:attr(data-step);position:absolute;left:0;top:2px;width:24px;height:24px;
+  display:inline-flex;align-items:center;justify-content:center;border-radius:50%;
+  background:var(--colors-brand-frontier-green);color:var(--colors-foreground-inverse);
+  font:700 12px/1 "museo-sans",sans-serif}
+
 /* item 6 - unified brainstorming surface: campaign-option chips + product picker share one panel
    (single background/border/radius + consistent inner spacing rhythm) so they read as one control
    surface instead of two disconnected blocks. wrapper only; child ids untouched. */
