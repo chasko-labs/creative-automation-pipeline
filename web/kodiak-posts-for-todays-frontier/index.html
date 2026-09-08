@@ -166,6 +166,12 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
       </summary>
       <div class="ff-market-panel">
         <div id="marketListbox" role="listbox" aria-label="Localized markets" tabindex="-1"></div>
+        <!-- #213: the real market control, declared in markup so it exists before
+             fillSelects runs — no JS-created hidden fallback, zero load warnings.
+             The listbox above is the visible face; this select hosts the market value
+             generate() and the legacy readers consume, synced both ways. Visually
+             hidden but keyboard-focusable (same clip technique as the asset input). -->
+        <select id="locality" class="ff-locality-select" aria-label="Market — same choice as the market list above"></select>
         <!-- D3. add a location the curated list does not cover — client-side custom market, degrades gracefully -->
         <div class="ff-addloc">
           <label class="ff-addloc-label" for="addLocInput">Add a location</label>
@@ -221,6 +227,9 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
       <div class="ff-chipcluster" role="group" aria-labelledby="chipClusterRetailer">
         <span class="ff-chipcluster-label" id="chipClusterRetailer">retailer</span>
         <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-costco" data-label="Localized Costco" data-brief="Localized Costco campaign — bulk Family Size value for the warehouse-club aisle, framed to the selected market."><span class="ff-dot"></span>Localized Costco</button>
+        <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-publix" data-label="Localized Publix" data-brief="Localized Publix campaign — neighborhood-market warmth for the Southern family table, framed to the selected market."><span class="ff-dot"></span>Localized Publix</button>
+        <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-target" data-label="Localized Target" data-brief="Localized Target campaign — everyday-family aisle value for the one-trip basket, framed to the selected market."><span class="ff-dot"></span>Localized Target</button>
+        <button type="button" class="ff-chip" aria-pressed="false" data-theme="kodiak-subscription" data-label="Kodiak subscription" data-brief="Kodiak subscription campaign — front-door delivery cadence for loyal households, Keep It Wild pantry always stocked."><span class="ff-dot"></span>Kodiak subscription</button>
       </div>
       <div class="ff-chipcluster" role="group" aria-labelledby="chipClusterAngle">
         <span class="ff-chipcluster-label" id="chipClusterAngle">creative angle</span>

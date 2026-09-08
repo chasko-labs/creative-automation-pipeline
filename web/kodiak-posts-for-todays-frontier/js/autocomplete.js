@@ -25,7 +25,7 @@
   window.__briefUserText = window.__briefUserText != null ? window.__briefUserText : (briefEl.value || '');
   window.__briefReflecting = false;    // guard: our programmatic writes must not be read as manual edits
 
-  // current market label (readable place name), from the hidden #locality select generate() reads
+  // current market label (readable place name), from the declared #locality select generate() reads
   function currentMarketLabel(){
     var sel = document.getElementById('locality');
     var code = sel && sel.value ? sel.value : '';
@@ -92,7 +92,7 @@
       reflect();
     }, 0);
   });
-  // market (hidden #locality), season, and product checkbox changes all rebuild the suffix
+  // market (declared #locality), season, and product checkbox changes all rebuild the suffix
   document.addEventListener('change', function(e){
     var t = e.target; if(!t) return;
     if(t.id === 'locality' || t.id === 'seasonalSelect' || (t.classList && t.classList.contains('sku-check'))){
@@ -226,7 +226,7 @@
       close();
       briefEl.focus();
     }
-    // set the market from a zip-resolved action row: drive the hidden #locality select generate() reads,
+    // set the market from a zip-resolved action row: drive the declared #locality select generate() reads,
     // fire change so onLocality + reflect + any listeners run exactly as a manual pick would.
     function setMarket(code){
       try{

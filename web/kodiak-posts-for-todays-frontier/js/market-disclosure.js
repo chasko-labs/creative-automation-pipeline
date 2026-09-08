@@ -66,7 +66,7 @@
     }
   }
 
-  // keep the hidden #locality select (the value generate() reads) in sync, firing change so
+  // keep the declared #locality select (the value generate() reads) in sync, firing change so
   // onLocality + updateLocalFlavor + any listeners run exactly as before.
   function selectMarket(market, opts){
     opts = opts || {};

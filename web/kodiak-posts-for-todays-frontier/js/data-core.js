@@ -123,7 +123,7 @@ const products = [
 const peppersList = ["Hatch green chile roasted, diced","Red chile","Jalapeño","Chipotle","Poblano","—"];
 const cheesesList = ["Oaxaca crumble","Sharp cheddar","Pepper jack","Cotija","Oaxaca","Gruyère","Queso fresco","—"];
 
-let localitySel = document.getElementById('locality'); // may be recreated above
+let localitySel = document.getElementById('locality'); // declared in markup (#213), present before scripts run
 const productSel = document.getElementById('product'); // deprecated — now productChooser checkboxes
 const peppersSel = document.getElementById('peppers'); // deprecated — now localFlavor derived
 const cheesesSel = document.getElementById('cheeses');
@@ -136,8 +136,8 @@ const fileNamesEl = document.getElementById('fileNames');
 
 /** @param {void} @returns {void} */
 function fillSelects(){
-  if(!localitySel) { console.warn('localitySel missing — creating hidden fallback'); const sel=document.createElement('select'); sel.id='locality'; sel.style.display='none'; document.body.appendChild(sel); localitySel = sel; }
-  localitySel = document.getElementById('locality') || localitySel;
+  // #213: #locality is declared in markup and present before this runs — no fallback path.
+  localitySel = document.getElementById('locality');
   const ls=localitySel;
   if(ls) {
     ls.innerHTML='';
@@ -474,7 +474,7 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
 
 // === AXIS 2 + AXIS 3 — grouped market taxonomy (derived) + per-market localized-copy surface ===
 // Self-contained: reuses the existing `places` array, `marketLangsOffline`/`marketLangsFor`, and the
-// hidden #locality <select> as the selection source of truth. The #marketDisclosure listbox was inert
+// declared #locality <select> as the selection source of truth. The #marketDisclosure listbox was inert
 // markup (never populated by any JS); this wires it as the real surface and mirrors selection into
 // #locality so all downstream plumbing (onLocality/render/updateLocalFlavor) keeps working unchanged.
 (function(){
@@ -571,13 +571,15 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
     listbox.querySelectorAll('[role="option"]').forEach(o=>o.setAttribute('aria-selected', o.dataset.market===market?'true':'false'));
   }
 
-  // --- selection: mirror into the hidden #locality select (the existing source of truth) ---
+  // --- selection: mirror into the declared #locality select (the existing source of truth) ---
   function select(market){
     const p = places.find(x=>x.market===market); if(!p) return;
     const loc = document.getElementById('locality');
-    // bubbles:true — the document-level change listener (market-disclosure.js) drives
-    // reflectMarket + brief footer + market source line from this event. Without bubbles
-    // the dropdown relabels itself but all derived state stays on the previous market (#213).
+    // bubbles:true — the document-level change listeners (market-disclosure
+    // reflectMarket + brief footer + market source line, autocomplete suffix)
+    // observe listbox-driven changes through this event. Without bubbles the
+    // dropdown relabels itself but all derived state stays on the previous
+    // market (#213).
     if(loc){ loc.value=market; loc.dispatchEvent(new Event('change', {bubbles:true})); }
     if(typeof onLocality==='function') try{ onLocality(); }catch(e){}
     markSelected(market);

@@ -497,6 +497,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-opt-badge{display:inline-block;margin-left:var(--spacing-xs);padding:1px 6px;border-radius:var(--radii-full);
   background:var(--colors-brand-blaze-orange);color:var(--colors-foreground-inverse);
   font:700 9px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;vertical-align:middle}
+/* #213: the declared market-value host. The disclosure listbox is the visible face;
+   this select stays in the a11y tree + tab order (clip technique, same as the asset
+   file input) so keyboard/AT users get a native equivalent, synced both ways. */
+.ff-locality-select{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.ff-locality-select:focus-visible{outline:2px solid var(--colors-brand-signal-red);outline-offset:2px}
 
 /* D4. add-your-own-asset affordance beside the product chooser — frontend staging only */
 .ff-addasset{margin-top:var(--spacing-sm);padding-top:var(--spacing-sm);border-top:1px dashed var(--colors-border-default)}

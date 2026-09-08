@@ -397,6 +397,8 @@ let skuList = [
       const activeTheme = window.__activeTheme || null;
       const THEME_LABELS = {
         'recipe-cards':'Recipe cards','localized-costco':'Localized Costco',
+        'localized-publix':'Localized Publix','localized-target':'Localized Target',
+        'kodiak-subscription':'Kodiak subscription',
         'riff-on-past-content':'Riff on past content','zac-efron':'Zac Efron',
         'bears':'Bears','keep-it-wild-program':'Keep It Wild program',
         'us-ski-snowboard':'US Ski & Snowboard'
