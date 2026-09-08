@@ -101,8 +101,11 @@ _B_STABILITY_MS = int(os.getenv("GENERATE_B_STABILITY_MS", "13000"))
 # warms it, the set base reuses the SAME pixels — no second Bedrock call, wall holds,
 # preview and pack stay consistent. Best-effort everywhere: any S3 failure degrades to
 # the uncached behavior (fresh restyle when budget allows, else raw seed).
-_RESTYLE_CACHE_PREFIX = "brands/kodiak/restyle-cache/"
+_RESTYLE_CACHE_PREFIX = "brands/kodiak/renders/restyle-cache/"
 _RESTYLE_CACHE_BUCKET = os.getenv("DAM_S3_BUCKET", "chasko-creative-dam-946179428633-us-east-1")
+# NOTE: the prefix MUST stay under brands/kodiak/renders/ — the GenerateLambda role grants
+# PutObject/GetObject only on renders/* and library/* (generate-stack.ts). A top-level
+# restyle-cache/ prefix is denied and the cache silently never warms.
 
 
 def _restyle_cache_key(seed_bytes: bytes, product_name: str, brief_msg: str,
