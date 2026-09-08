@@ -4,14 +4,20 @@ set -euo pipefail
 # One command replaces the manual `aws s3 cp` + invalidation dance.
 # Idempotent, local-first. Deploys the committed web source, not a worktree.
 #
-# Deploys the 8 core top-level files (index.html, details.html, pipeline.html, infrastructure.html, design/styles.css,
-# webmcp.json, glimmer-proxy.js, llms.txt) AND the asset directories the page references:
+# Deploys the 12 core top-level files (index.html, details.html, pipeline.html, infrastructure.html, design/styles.css,
+# webmcp.json, glimmer-proxy.js, llms.txt, favicon.ico, favicon.svg, apple-touch-icon.png, robots.txt)
+# AND the asset directories the page references:
 # assets/ (logos, textures, partners/), data/ (localization, products, ...),
 # fonts/ (NotoSans *.woff2), design/ (tokens/), js/ (extracted classic scripts),
-# input_assets/ (default heroes referenced by generate.js + preloaded in index.html).
-# Directory syncs use `aws s3 sync`
-# so newly added files ship automatically without editing this script — this is
-# the root-cause fix for prod 404s where referenced assets were never uploaded.
+# input_assets/ (committed campaign photos preloaded/rendered by the page).
+# Directory syncs use `aws s3 sync` so newly added files ship automatically
+# without editing this script — this is the root-cause fix for prod 404s where
+# referenced assets were never uploaded.
+#
+# Root-file lesson (#254): FILES is an explicit per-file list, so a newly merged
+# root file (favicon.ico/svg, apple-touch-icon) does NOT ship until it is added
+# here. When index.html gains a new root-level href, extend FILES in the same
+# commit. tests/vitest/deploy-asset-coverage.test.mjs pins this invariant.
 #
 # Invariant: the app version must be stamped via scripts/bump-version.sh.
 # Deploy refuses on version drift — if index.html / glimmer-proxy / webmcp.json
@@ -50,12 +56,16 @@ FILES=(
 	"webmcp.json|webmcp.json|application/json"
 	"glimmer-proxy.js|glimmer-proxy.js|application/javascript"
 	"llms.txt|llms.txt|text/markdown"
+	"favicon.ico|favicon.ico|image/x-icon"
+	"favicon.svg|favicon.svg|image/svg+xml"
+	"apple-touch-icon.png|apple-touch-icon.png|image/png"
+	"robots.txt|robots.txt|text/plain"
 )
 
 # asset directories to sync wholesale. `aws s3 sync` copies whatever is present
 # (and only what changed), so new files ship without touching this script. This
 # is the durable fix for prod 404s — the page references assets/, data/, fonts/,
-# design/tokens/, js/ that the per-file list above never uploaded.
+# design/tokens/, js/, input_assets/ that the per-file list above never uploaded.
 DIRS=(
 	"assets"
 	"data"
@@ -166,13 +176,6 @@ else
 		--profile "$PROFILE" --region "$REGION" \
 		--query 'Invalidation.Id' --output text)"
 	echo "[deploy-frontier] invalidation: $inv_id"
-	# Edge settle (~3 min): wait for completion so the verify below reads the
-	# new build, not stale edge cache. See docs/fleet-build-deploy-notes.md.
-	echo "[deploy-frontier] waiting for invalidation $inv_id to complete..."
-	aws cloudfront wait invalidation-completed \
-		--distribution-id "$DISTRO" --id "$inv_id" \
-		--profile "$PROFILE" --region "$REGION"
-	echo "[deploy-frontier] edge settled."
 fi
 
 echo "[deploy-frontier] done. verify: curl -sSI https://kodiak.bryanchasko.com/index.html | head -3"
