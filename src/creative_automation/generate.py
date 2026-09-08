@@ -416,6 +416,20 @@ _THEME_SCENE_HINT: dict[str, str] = {
         "pallet-stacked abundance, stock-up-trip value framing, bright club-aisle "
         "light, on-brand Kodiak"
     ),
+    # input-side retailer chips (#217): same aisle mood as the bare-retailer keys,
+    # namespaced to the chip theme slugs so each direction threads end to end.
+    "localized-publix": (
+        "warm neighborhood-market morning, family-table abundance, southern porch "
+        "light, welcoming deli-fresh mood, on-brand Kodiak"
+    ),
+    "localized-target": (
+        "bright everyday-family aisle, one-trip basket abundance, modern clean "
+        "value mood, morning kitchen light, on-brand Kodiak"
+    ),
+    "kodiak-subscription": (
+        "front-door subscription-box arrival, pantry always stocked, warm morning "
+        "doorstep light, loyal-household continuity mood, on-brand Kodiak"
+    ),
     "target": (
         "bright everyday-family aisle, one-trip basket abundance, modern clean "
         "value mood, morning kitchen light, on-brand Kodiak"
@@ -448,6 +462,9 @@ _THEME_SCENE_HINT: dict[str, str] = {
 # copy and echoed in the campaign panel via the brief's directions clause.
 _THEME_COPY_HINT: dict[str, str] = {
     "localized-costco": "bulk Family Size value — warehouse-club aisle, stock-up trip",
+    "localized-publix": "neighborhood warmth — southern family table",
+    "localized-target": "everyday-family aisle — one-trip basket, modern everyday value",
+    "kodiak-subscription": "subscription cadence — front-door delivery, pantry always stocked",
     "target": "everyday-family aisle — one-trip basket, modern everyday value",
     "walmart": "everyday low price pantry stock-up — family value",
     "whole-foods": "whole-ingredient shelf — ingredient-aware premium pantry",
