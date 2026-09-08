@@ -17,7 +17,14 @@ from PIL import Image
 
 from . import text_rewriter
 from . import dam_library
-from .generate import _brand_floor, _safe_prompt_text, generate_hero, generate_hero_set
+from .generate import (
+    _brand_floor,
+    _safe_prompt_text,
+    build_copy_sidecar,
+    generate_hero,
+    generate_hero_set,
+    normalize_layers,
+)
 from .locales import resolve_target_languages
 # NOTE: full mode no longer calls platform_copy/localize in-request (frontend owns
 # both — see _handle_full). The modules stay imported by tests directly.
@@ -532,6 +539,32 @@ def _download_filename(product: str, region: str, theme: str | None) -> str:
     return f"KODIAK-CAKES-{slug}.png"
 
 
+def _request_layers(data: dict[str, Any]) -> dict:
+    """Render-contract layers for this request (#199/#200): {} by default (clean).
+
+    A missing/non-dict "layers" body key normalizes to {} — default Create returns a
+    clean standalone image + copy sidecars, with every layer OFF. normalize_layers
+    drops unknown keys so a stray client field can never switch on a composite.
+    """
+    layers = normalize_layers(data.get("layers") if isinstance(data, dict) else None)
+    return layers if layers is not None else {}
+
+
+def _response_sidecar(
+    provenance: dict[str, Any] | None,
+    prompt: str,
+    platform_copy: dict | None,
+    theme: str | None,
+    product: str,
+) -> dict:
+    """Copy sidecars for the response (#199). Never raises — a sidecar failure ships {}."""
+    try:
+        return build_copy_sidecar(provenance, prompt, platform_copy, theme, product)
+    except Exception as e:  # noqa: BLE001 — sidecars are additive, never fatal
+        print(f"[generate_lambda] copy sidecar build failed: {e}", file=sys.stderr)
+        return {"txt": "", "csv": ""}
+
+
 def _s3_client():
     """Build the S3 client with SigV4 + explicit region (ASIA session-token creds need it).
 
@@ -621,8 +654,9 @@ def _upload_render(
 def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     """Fast interactive path (default): ONE 1x1 control-structure hero, under 30s.
 
-    Runs the single-ratio generate_hero (ratio=1x1, brand + paper overlay ON — the real
-    GenAI hero) and SKIPS the two serial Stability outpaint extends and the localization
+    Runs the single-ratio generate_hero (ratio=1x1, clean by default per the render
+    contract — copy ships as sidecars, kraft texture still baked) and SKIPS the two
+    serial Stability outpaint extends and the localization
     rewrites — those are the >30s killers and are deferred to the async pack (FULL mode).
     Returns the SAME response shape the frontend expects (renders[] with the 1x1 entry,
     top-level image_url = the 1x1, source + provenance), so showRenderSet keeps working
@@ -632,6 +666,9 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     product = data.get("product", "power-cakes")
     theme = data.get("theme")
     seed_key = data.get("seed_key")
+    # Render contract (#199/#200): default {} = clean standalone image, every layer
+    # OFF. Only an explicit overlay_text layer re-enables the baked message bar.
+    layers = _request_layers(data)
     out_dir = Path(f"/tmp/{uuid4().hex}")  # noqa: S108 — Lambda only allows /tmp writes
     hero_path = out_dir / "hero-1x1.png"
     hero_path.parent.mkdir(parents=True, exist_ok=True)
@@ -640,8 +677,8 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     # BEFORE it becomes brief_msg. No-op when the flag is off — prompt passes through.
     prompt = _maybe_art_direct(data, prompt)
 
-    # ONE control-structure hero at 1x1 with the brand + kraft overlays baked in. No
-    # outpaint call is made on this path — that is the whole point of preview mode.
+    # ONE control-structure hero at 1x1 (clean by default — copy ships as sidecars).
+    # No outpaint call is made on this path — that is the whole point of preview mode.
     result_path, source, provenance = generate_hero(
         product_id=product,
         product_name=product.replace("-", " ").title(),
@@ -651,9 +688,10 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         out_path=hero_path,
         ratio="1x1",
         theme=theme,
-        brand_overlay=True,
+        brand_overlay=bool(layers.get("overlay_text")),
         paper_overlay=True,
         seed_key=seed_key,
+        layers=layers,
     )
 
     with Image.open(result_path) as im:
@@ -683,6 +721,8 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         "provenance": provenance,
         "localizations": [],
         "platform_copy": {},
+        "layers": layers,
+        "copy_sidecar": _response_sidecar(provenance, prompt, {}, theme, product),
     }
 
 
@@ -699,6 +739,8 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     product = data.get("product", "power-cakes")
     theme = data.get("theme")
     seed_key = data.get("seed_key")
+    # Render contract (#199/#200): default {} = clean standalone set, every layer OFF.
+    layers = _request_layers(data)
     out_dir = Path(f"/tmp/{uuid4().hex}")  # noqa: S108 — Lambda only allows /tmp writes
     # Art-director voice step (dark by default): refine the brief into an on-brand headline
     # BEFORE it becomes brief_msg (and, downstream, the localization/platform-copy seed).
@@ -717,7 +759,9 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         audience=data.get("audience", "active families"),
         out_dir=out_dir,
         theme=theme,
+        brand_overlay=bool(layers.get("overlay_text")),
         seed_key=seed_key,
+        layers=layers,
     )
 
     s3 = _s3_client()
@@ -778,6 +822,8 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         "provenance": provenance,
         "localizations": localizations,
         "platform_copy": platform_copy,
+        "layers": layers,
+        "copy_sidecar": _response_sidecar(provenance, prompt, platform_copy, theme, product),
     }
 
 
@@ -799,6 +845,7 @@ def _post_wall_brand_floor(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     """
     product = data.get("product", "power-cakes")
     theme = data.get("theme")
+    layers = _request_layers(data)
     # DISTINCT per-invocation path — never the abandoned worker's out_dir.
     out_dir = Path(f"/tmp/{uuid4().hex}-wall")  # noqa: S108 — Lambda only allows /tmp writes
     hero_path = out_dir / "hero-1x1.png"
@@ -841,6 +888,8 @@ def _post_wall_brand_floor(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         "provenance": provenance,
         "localizations": [],
         "platform_copy": {},
+        "layers": layers,
+        "copy_sidecar": _response_sidecar(provenance, prompt, {}, theme, product),
     }
 
 
