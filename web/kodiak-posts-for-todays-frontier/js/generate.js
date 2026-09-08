@@ -309,6 +309,61 @@ let skuList = [
     anchor.parentNode?.insertBefore(panel, anchor.nextSibling);
   }
 
+  // #281 — copy BEFORE image. The copy-first panel paints at Create time from the
+  // REAL request inputs (phase 'driving') and upgrades from the REAL response
+  // (phase 'used'). It never invents marketing copy: driving shows only what the
+  // user supplied + selected; used shows only what the backend returned, plus
+  // request/response divergence flags computed from real echoed fields.
+  function paintCopyPanel(arg){
+    const preview = document.getElementById('preview');
+    if(!preview || !arg) return;
+    let panel = document.getElementById('copyFirstPanel');
+    if(arg.phase==='driving'){
+      try{ window.__lastCopyDriving = {brief:arg.brief, theme:arg.theme||null, themeLabel:arg.themeLabel||null, market:arg.market, place:arg.place||arg.market, products:(arg.products||[]).slice()}; }catch(e){}
+      if(panel) panel.remove();
+      panel = document.createElement('div');
+      panel.className = 'platform-copy';
+      panel.id = 'copyFirstPanel';
+      panel.innerHTML = '<div class="pc-head">Campaign copy — driving this preview</div>'+
+        '<details open><summary>Copy sent with this preview</summary><div class="pc-body">'+
+        '<p class="pc-text">'+escapeHtml(arg.brief||'')+'</p>'+
+        '<p class="pc-text small">theme: '+escapeHtml(arg.themeLabel||'none — generic')+' · market: '+escapeHtml(arg.place||arg.market)+' · products: '+escapeHtml((arg.products||[]).join(', ')||'—')+'</p>'+
+        '</div></details>';
+      const anchor = document.getElementById('provenancePanel') || document.getElementById('previewDownloadRow') || preview;
+      anchor.parentNode?.insertBefore(panel, anchor.nextSibling);
+      return;
+    }
+    // phase 'used' — upgrade the driving panel; never fabricate one post-hoc.
+    if(!panel) return;
+    const driving = (arg.driving || window.__lastCopyDriving) || {};
+    const json = arg.json || {};
+    const prov = (json.provenance && typeof json.provenance==='object') ? json.provenance : {};
+    const flags = [];
+    const reqTheme = driving.theme || null;
+    const gotTheme = json.theme || prov.theme || null;
+    if(reqTheme && gotTheme && String(gotTheme)!==String(reqTheme)) flags.push('theme mismatch — requested '+reqTheme+' but the response reports '+gotTheme+'; imagery may not follow the copy');
+    if(reqTheme && !gotTheme) flags.push('theme dropped — requested '+reqTheme+' but the response names no theme; imagery may be generic');
+    const src = String(json.source||'');
+    const isFallback = /^brand-floor/i.test(src);
+    if(isFallback) flags.push('render miss — fallback pixels ('+src+'), not the campaign; no copy was used');
+    const pc = (json.platform_copy && typeof json.platform_copy==='object') ? json.platform_copy : {};
+    const pcKeys = Object.keys(pc);
+    const deferred = Array.isArray(prov.deferred) ? prov.deferred : [];
+    let usedHtml;
+    if(isFallback){
+      usedHtml = '<p class="pc-text">No copy was used — the backend returned fallback pixels.</p>';
+    } else if(prov.art_headline || pcKeys.length){
+      usedHtml = (prov.art_headline ? '<p class="pc-title">'+escapeHtml(prov.art_headline)+'</p>' : '')+
+        (pcKeys.length ? '<p class="pc-text">'+pcKeys.map(k=>escapeHtml(k+': '+(((pc[k]||{}).headline||(pc[k]||{}).title)||''))).join('<br>')+'</p>' : '<p class="pc-text">Full platform copy deferred — ships with Generate Campaign.</p>');
+    } else if(deferred.indexOf('platform_copy')!==-1){
+      usedHtml = '<p class="pc-text">Preview copy only — full platform copy is deferred and ships with Generate Campaign.</p>';
+    } else {
+      usedHtml = '<p class="pc-text">The backend returned no copy with this preview.</p>';
+    }
+    panel.innerHTML = '<div class="pc-head">Campaign copy — used in this preview</div>'+usedHtml+
+      (flags.length ? '<p class="pc-text" style="color:#B51E14"><b>copy/imagery mismatch:</b> '+escapeHtml(flags.join(' '))+'</p>' : '');
+  }
+
   // Single generate: fans to ALL formats/platforms/locals, returns sample + nearest Frontier + newsletter variant
   // Dev: try GlimmerProxy (127.0.0.1:8181) for brief→SKU intelligence + diagnose, then Nova unlimited (hosted) — go ham on embeddings
   const btn = document.getElementById('generateCampaign');
@@ -681,6 +736,8 @@ let skuList = [
       if(isLocal){
         if(status) status.textContent = 'Campaign preview ready (local canvas)';
         btn.disabled=true; btn.textContent='Generating…';
+        // #281 — copy paints before the canvas pixels, from the real request inputs.
+        try{ paintCopyPanel({phase:'driving', brief, theme:activeTheme||null, themeLabel:themeLabel||null, market:selectedLoc.market, place:selectedLoc.place||selectedLoc.market, products}); }catch(e){}
         try{ render(); }catch(e){ console.warn('render() failed on generate (local)', e); }
         openPreviewCard();
         finishCommon();
@@ -781,6 +838,8 @@ let skuList = [
       // a fresh preview generate replaces any prior campaign (#243) — clear it
       // at START (skeleton paint) so stale assets vanish the moment Create runs.
       try{ if(typeof window.KODIAK_resetCampaign==='function') window.KODIAK_resetCampaign(); }catch(e){}
+      // #281 — copy paints before the image request, from the real request inputs.
+      try{ paintCopyPanel({phase:'driving', brief, theme:activeTheme||null, themeLabel:themeLabel||null, market:selectedLoc.market, place:selectedLoc.place||selectedLoc.market, products}); }catch(e){}
       if(preview){
         if(willFanOut){
           preview.innerHTML = products.map((name,i)=>`<div class="tile genSkeletonTile"><div style="aspect-ratio:1/1;background:linear-gradient(90deg,#EFE6DB 25%,#F7F0E8 50%,#EFE6DB 75%);background-size:200% 100%;animation:genpulse 1.4s ease-in-out infinite;display:flex;align-items:center;justify-content:center"><span style="font:700 12px/1 'kodiak_sans','museo-sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8C7A70">Composing…</span></div><div class="meta"><b>${name}</b><div class="small" id="genElapsed${i}">0s elapsed — up to ~90s</div></div></div>`).join('');
@@ -819,6 +878,8 @@ let skuList = [
           }
           // per-platform messaging copy panel (renders when the backend supplies platform_copy; skips gracefully otherwise)
           renderPlatformCopy(json.platform_copy);
+          // #281 — upgrade the driving panel to the copy actually used + divergence flags.
+          try{ paintCopyPanel({phase:'used', json}); }catch(e){}
           // auto-open the collapsed Preview card so the user sees the freshly-composed output
           openPreviewCard();
         } else {
@@ -832,7 +893,7 @@ let skuList = [
               const json = await oneGenerate(slug, undefined);
               showRealImage(json.image_url, json.source, {append:true, grid:true, productName:name, provenance: json.provenance});
               okCount++;
-              if(!firstDone){ firstDone = true; window.__lastHeroUrl = json.image_url; rememberSidecar(json); }
+              if(!firstDone){ firstDone = true; window.__lastHeroUrl = json.image_url; rememberSidecar(json); try{ window.__lastCopyJson = json; }catch(_){} }
             }catch(e){
               console.warn('generate: product variant failed for', name, e && e.message ? e.message : e);
               // render a small failed-tile so the grid shows what did not compose
@@ -841,6 +902,8 @@ let skuList = [
             }
           }));
           if(status) status.textContent = okCount ? ('Campaign preview ready — ' + okCount + ' of ' + products.length + ' product variants composed') : 'Some variants could not reach the server — check your connection and try again';
+          // #281 — fan-out upgrade from the first variant's real response.
+          try{ if(window.__lastCopyJson) paintCopyPanel({phase:'used', json: window.__lastCopyJson}); }catch(e){}
           openPreviewCard();
         }
         // Successful submit reached (no throw): clear the persisted lifecycle snapshot so a completed

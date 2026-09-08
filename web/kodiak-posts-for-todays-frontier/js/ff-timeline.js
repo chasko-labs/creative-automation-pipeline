@@ -21,6 +21,57 @@
   }
   window.__kodiakTimelineNote = say;   // optional direct hook; observers below are the main feed
 
+  // #283 — truthful stage timing, derived ONLY from observed status texts.
+  // Start timestamps are recorded when a run's opening line appears; elapsed is
+  // measured with Date.now() at the closing line. Nothing is estimated or staged.
+  var tPreviewStart = 0, previewDone = false;
+  var tGenerateStart = 0, generateDone = false;
+  function elapsedS(t0){
+    if(!t0) return null;
+    return Math.max(0, Math.round((Date.now()-t0)/1000));
+  }
+  function onSampleText(t){
+    if(/composing/i.test(t)){
+      // a fresh run opens (or re-opens after a previous ready) — (re)start the clock
+      if(!tPreviewStart || previewDone){ tPreviewStart = Date.now(); previewDone = false; }
+      set('preview','active');
+      say(t);
+      return;
+    }
+    if(/ready/i.test(t)){
+      var s = elapsedS(tPreviewStart);
+      previewDone = true;
+      set('preview','done');
+      // what just finished (measured) + what is next (the reveal ungates Generate Campaign)
+      say('Preview ready' + (s===null?'':' in '+s+'s') + ' — Generate Campaign unlocked, full campaign is next.');
+      return;
+    }
+    say(t);
+  }
+  function onGenStatusText(t){
+    if(/generating full campaign/i.test(t)){
+      if(!tGenerateStart || generateDone){ tGenerateStart = Date.now(); generateDone = false; }
+      set('generate','active');
+      say(t);
+      return;
+    }
+    if(/campaign created/i.test(t)){
+      var s = elapsedS(tGenerateStart);
+      generateDone = true;
+      set('generate','done');
+      var assets = document.getElementById('campaignAssetsSection');
+      var next = (assets && !assets.hidden) ? 'assets below' : 'assets section';
+      say(t + (s===null?'':' ('+s+'s)') + ' — ' + next + ' is next: review, then download the pack.');
+      return;
+    }
+    if(/timed out|could not generate|needs the hosted backend/i.test(t)){
+      set('generate','active');   // failed run leaves the gate open for retry
+      say(t);
+      return;
+    }
+    say(t);
+  }
+
   function syncFromDom(){
     try{
       var brief = document.getElementById('campaignBrief');
@@ -38,7 +89,7 @@
       // carries text once a run starts. Composing = active, ready = done.
       var createHit = sampleText.length > 0;
       set('preview', previewReady ? 'done' : (createHit ? 'active' : 'todo'));
-      set('generate', gated ? 'locked' : 'active');
+      set('generate', gated ? 'locked' : (generateDone ? 'done' : 'active'));
       set('assets','todo');
     }catch(e){ /* timeline must never break the page */ }
   }
@@ -52,7 +103,7 @@
       new MutationObserver(function(){
         try{
           var t = (sampleEl.textContent || '').trim();
-          if(t) say(t);
+          if(t) onSampleText(t);
           syncFromDom();
         }catch(e){}
       }).observe(sampleEl, {childList:true, characterData:true, subtree:true});
@@ -62,7 +113,7 @@
       new MutationObserver(function(){
         try{
           var t = (genStatus.textContent || '').trim();
-          if(t) say(t);
+          if(t) onGenStatusText(t);
         }catch(e){}
       }).observe(genStatus, {childList:true, characterData:true, subtree:true});
     }

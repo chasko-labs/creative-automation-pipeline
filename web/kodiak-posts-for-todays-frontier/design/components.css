@@ -110,9 +110,14 @@ header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-s
 .wrap{max-width:1100px;margin:0 auto;padding:18px;position:relative}
 /* product hero-product-card-bg — wood/canvas texture */
 .hero-product-card-bg{background:var(--parchment) var(--wood) repeat; border:1px solid var(--stone)}
-.card{background:var(--gradients-kraft\.surface); border:1px solid var(--stone); border-radius:4px; overflow:hidden; margin:10px 0; box-shadow:var(--shadows-md); position:relative}
+.card{background:var(--gradients-kraft\.surface); border:1px solid var(--stone); border-radius:4px; overflow:hidden; margin:10px 0; box-shadow:var(--shadows-md),inset 0 1px 0 rgba(255,248,240,.5); position:relative; transition:transform .18s ease,box-shadow .18s ease}
 .card::before{content:"";position:absolute;inset:0;background:var(--wood) repeat;opacity:.06;pointer-events:none}
-.card:hover{background:var(--gradients-kraft\.surface-hover)}
+/* frontier top-rule (service-card pattern, kodiak hues): pine-to-blaze line,
+   quiet at rest, full strength on hover. ::before is taken by wood grain. */
+.card::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent 0%,var(--colors-brand-frontier-green) 25%,var(--colors-brand-blaze-orange) 55%,var(--colors-brand-signal-red) 80%,transparent 100%);opacity:.35;pointer-events:none;transition:opacity .18s ease}
+.card:hover{background:var(--gradients-kraft\.surface-hover);transform:translateY(-2px);box-shadow:var(--shadows-bear),inset 0 1px 0 rgba(255,248,240,.6)}
+.card:hover::after{opacity:1}
+@media(prefers-reduced-motion:reduce){.card,.card::after{transition:none}.card:hover{transform:none}}
 .body{padding:16px;position:relative}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:860px){.grid{grid-template-columns:1fr}}
@@ -462,6 +467,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   background:var(--colors-neutral-50);border:1px solid var(--colors-border-strong);border-radius:var(--radii-lg);box-shadow:var(--shadows-md);padding:var(--spacing-xs);
   transform-origin:top left;animation:ff-market-spin .22s cubic-bezier(.34,1.56,.64,1)}
 @keyframes ff-market-spin{from{opacity:0;transform:scale(.96) translateY(-4px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.ff-market-filter{display:block;width:100%;margin-bottom:var(--spacing-xs);padding:8px 10px;border:1px solid var(--colors-border-default);border-radius:var(--radii-sm);
+  font:500 12px/1.4 "museo-sans",sans-serif;color:var(--colors-foreground-default);background:var(--colors-neutral-50)}
+.ff-market-filter:focus{outline:2px solid var(--colors-brand-frontier-green);outline-offset:-1px;border-color:var(--colors-brand-frontier-green)}
+.ff-market-empty{padding:10px;font:500 12px/1.4 "museo-sans",sans-serif;color:var(--colors-foreground-muted)}
 .ff-market-panel [role="option"]{display:block;width:100%;text-align:left;padding:8px 10px;border:none;background:transparent;border-radius:var(--radii-sm);
   font:500 12px/1.4 "museo-sans",sans-serif;color:var(--colors-foreground-default);cursor:pointer}
 .ff-market-panel [role="option"]:hover,.ff-market-panel [role="option"].is-active{background:var(--colors-neutral-100)}
@@ -887,6 +896,9 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 #generateCampaignLock{margin-left:10px}
 /* .btn sets display:inline-flex, which beats the UA [hidden] rule — re-hide the gated action */
 #genFullCampaign[hidden]{display:none}
+/* #282: .badge sets display:inline-block, which beats the UA [hidden] rule the same
+   way — the reveal hid the badge via hidden=true but it stayed painted. Re-hide it. */
+#generateCampaignLock[hidden]{display:none}
 /* Full-campaign scope option: the hero choice of step 1. Flag is the system .badge
    (in markup); the option gets room for its longer sub-line. */
 .ff-scope-opt--full{flex-basis:220px}

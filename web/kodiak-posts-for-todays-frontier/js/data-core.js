@@ -580,7 +580,12 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
   const langLine  = document.getElementById('marketLangLine');
   const featured  = document.getElementById('featuredFrontier');
   const summary   = disclosure ? disclosure.querySelector('summary') : null;
+  const filter    = document.getElementById('marketFilter');
   if(!listbox || typeof places==='undefined') return;
+  // #278 — type-ahead filter text; build() reads it from the closure so the
+  // async frontier-gaps rebuild (no args) keeps the current filter.
+  let filterText = '';
+  let activeOpt = null;
 
   // === S12 — live /localize gate ===
   // Flip localization from a permanent no-op to a real translate path on the HOSTED origin, while keeping
@@ -633,9 +638,18 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
 
   // --- build the two-group listbox (Axis 2) ---
   const CLASS_LABEL = {'market':'Market','featured-frontier':'Featured Frontier'};
+  // #278 — substring match over short name + place + market id + zip + state.
+  // Every whitespace-separated token must match somewhere ("san 94060" works).
+  function matchesFilter(p){
+    const q = (filterText||'').trim().toLowerCase();
+    if(!q) return true;
+    const hay = (shortName(p)+' '+(p.place||'')+' '+p.market+' '+(p.zip||'')+' '+stateOf(p)).toLowerCase();
+    return q.split(/\s+/).every(tok=>hay.indexOf(tok)!==-1);
+  }
   function build(){
     const groups = {'market':[], 'featured-frontier':[]};
-    places.forEach(p=>{ groups[locationClass(p)].push(p); });
+    places.forEach(p=>{ if(matchesFilter(p)) groups[locationClass(p)].push(p); });
+    activeOpt = null; listbox.removeAttribute('aria-activedescendant');
     const cmp = (a,b)=>{ const sa=stateOf(a), sb=stateOf(b); if(sa!==sb) return sa<sb?-1:1; const na=shortName(a).toLowerCase(), nb=shortName(b).toLowerCase(); return na<nb?-1:na>nb?1:0; };
     groups.market.sort(cmp); groups['featured-frontier'].sort(cmp);
     listbox.innerHTML='';
@@ -658,9 +672,46 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
       });
       listbox.appendChild(grp);
     });
+    // #278 — honest empty state; selection stays on the previous market.
+    if(!groups.market.length && !groups['featured-frontier'].length){
+      const empty = document.createElement('div');
+      empty.className = 'ff-market-empty'; empty.setAttribute('role','presentation');
+      empty.textContent = 'No markets match "'+filterText.trim()+'" — clear the filter to see all '+places.length+'.';
+      listbox.appendChild(empty);
+    }
     // reflect whatever #locality currently holds
     const cur = document.getElementById('locality')?.value; if(cur) markSelected(cur);
   }
+
+  // #278 — filter wiring + keyboard nav. Selection still flows through select()
+  // so snapshot/persist/brief plumbing is untouched.
+  function visibleOpts(){ return Array.prototype.slice.call(listbox.querySelectorAll('[role="option"]')); }
+  function setActive(el){
+    visibleOpts().forEach(o=>o.classList.remove('is-active'));
+    activeOpt = el || null;
+    if(activeOpt){ activeOpt.classList.add('is-active'); listbox.setAttribute('aria-activedescendant', activeOpt.id); }
+    else listbox.removeAttribute('aria-activedescendant');
+  }
+  function moveActive(dir){
+    const opts = visibleOpts(); if(!opts.length) return;
+    let i = opts.indexOf(activeOpt);
+    i = (i===-1) ? (dir>0 ? 0 : opts.length-1) : (i+dir+opts.length)%opts.length;
+    setActive(opts[i]);
+    try{ opts[i].scrollIntoView({block:'nearest'}); }catch(e){}
+  }
+  if(filter){
+    filter.addEventListener('input', ()=>{ filterText = filter.value; build(); });
+    filter.addEventListener('keydown', (e)=>{
+      if(e.key==='ArrowDown'){ e.preventDefault(); moveActive(1); }
+      else if(e.key==='ArrowUp'){ e.preventDefault(); moveActive(-1); }
+      else if(e.key==='Enter'){ if(activeOpt){ e.preventDefault(); activeOpt.click(); } }
+      else if(e.key==='Escape'){ filter.value=''; filterText=''; build(); if(disclosure) disclosure.open=false; }
+    });
+    // option clicks keep mouse behavior; hover claims the active slot.
+    listbox.addEventListener('mouseover', (e)=>{ const o=e.target&&e.target.closest?e.target.closest('[role="option"]'):null; if(o) setActive(o); });
+  }
+  // opening the disclosure lands focus in the filter so typing filters immediately.
+  if(disclosure) disclosure.addEventListener('toggle', ()=>{ if(disclosure.open && filter){ try{ filter.focus(); }catch(e){} } });
   function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
   function markSelected(market){

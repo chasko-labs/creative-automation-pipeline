@@ -191,6 +191,9 @@
         <span class="ff-caret" aria-hidden="true">&#9662;</span>
       </summary>
       <div class="ff-market-panel">
+        <input id="marketFilter" class="ff-market-filter" type="search" autocomplete="off" spellcheck="false"
+          placeholder="Filter by city, state, or zip" aria-label="Filter markets by city, state, or zip"
+          aria-controls="marketListbox">
         <div id="marketListbox" role="listbox" aria-label="Localized markets" tabindex="-1"></div>
         <!-- #213: the real market control, declared in markup so it exists before
              fillSelects runs — no JS-created hidden fallback, zero load warnings.
