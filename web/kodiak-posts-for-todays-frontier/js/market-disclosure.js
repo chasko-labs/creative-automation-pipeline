@@ -35,128 +35,17 @@
     return (r && r !== '—') ? 'market' : 'featured-frontier';
   }
 
-  // localized-copy renderer (pipeline #124). English renders immediately + synchronously from
-  // the local place.message; each non-English top language fills async via POST /localize.
-  // NEVER blocks on network — /localize failures degrade to a single muted "offline" note.
+  // language-names summary (2026-09-08 cleanup order): the per-language translated rows are
+  // retired — translated copy lives only in the preview tile captions. This keeps
+  // #marketLangLine live and truthful (names, never translated copy) with no second surface.
   function renderLocalizedCopy(market){
     if(!langLine) return;
-    var p = placeFor(market);
-    var english = p && p.message ? String(p.message) : '';
     var langs = (typeof marketLangsFor==='function') ? marketLangsFor(market) : [];
-
-    // languages needing a human translator — render as pending, do not fetch for a final string.
-    var humanRequired = { nv:1, zip:1 };
-
-    // localize backend gate. static host (cloudfront/s3) has NO /localize — so default OFFLINE
-    // and skip the POST entirely (a fetch would 403 and log to console before degrading). a
-    // dev/server context can set window.KODIAK_LOCALIZE_ENDPOINT='/localize' (or a full url) to
-    // re-enable the live path; when truthy, the fetch below targets that endpoint.
-    var LOCALIZE_ENDPOINT = (window.KODIAK_LOCALIZE_ENDPOINT || null);
-
+    var names = ['English'];
+    (langs||[]).forEach(function(l){ if(l && l.lang_name && names.indexOf(l.lang_name)===-1) names.push(l.lang_name); });
     function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
-
-    // English source line, immediate + synchronous.
-    langLine.innerHTML = '';
-    var enLine = document.createElement('p');
-    enLine.className = 'loc-line';
-    enLine.setAttribute('lang','en');
-    enLine.setAttribute('data-pct','100');
-    enLine.setAttribute('data-provider','source');
-    enLine.innerHTML = '<span class="loc-langtag">EN</span>' + esc(english);
-    langLine.appendChild(enLine);
-
-    if(!english){ return; }
-
-    var offlineNoted = false;
-    function noteOffline(){
-      if(offlineNoted) return; offlineNoted = true;
-      var n = document.createElement('p');
-      n.className = 'loc-line';
-      n.setAttribute('data-provider','offline');
-      n.textContent = 'localization offline — showing English source only';
-      langLine.appendChild(n);
-    }
-
-    langs.forEach(function(l){
-      if(!l) return;
-      var code = l.translate_code || l.lang_code;
-      if(!code || code === 'en') return;
-      var line = document.createElement('p');
-      line.className = 'loc-line';
-      line.setAttribute('lang', code);
-      if(l.pct_home != null) line.setAttribute('data-pct', l.pct_home);
-      var tag = '<span class="loc-langtag">' + esc(String(code).toUpperCase()) + '</span>';
-
-      if(humanRequired[code]){
-        line.setAttribute('data-provider','human-required');
-        line.innerHTML = tag + 'human translation required (' + esc(l.lang_name || code) + ')';
-        langLine.appendChild(line);
-        return;
-      }
-
-      // RESTING-LOCALIZATION SEED — real precomputed copy for the default resting markets. When a seed
-      // exists for market x code, render it as provider "seed" (real text, no offline apology). Live
-      // /localize on Create still overrides via the fetch path below when the endpoint is on. This is the
-      // resting "real-looking translated copy" state (never fabricated at request time — seeded ahead).
-      var seed = null;
-      try{ var _sm = window.KODIAK_LOCALIZED_COPY && window.KODIAK_LOCALIZED_COPY[market]; var _se = _sm && _sm[code]; if(_se && typeof _se.text==='string') seed = _se; }catch(e){}
-      if(seed){
-        line.setAttribute('data-provider', seed.provider || 'seed');
-        line.innerHTML = tag + esc(seed.text);
-        langLine.appendChild(line);
-        return;   // seeded line is real copy — never emit noteOffline() for it
-      }
-
-      line.setAttribute('data-provider','pending');
-      line.innerHTML = tag + '<span class="loc-pending">translating\u2026</span>';
-      langLine.appendChild(line);
-
-      // no localize backend (static deploy) -> skip fetch entirely, degrade this line offline
-      // with ZERO network call. same visual result the .catch produces below.
-      if(!LOCALIZE_ENDPOINT){
-        line.setAttribute('data-provider','offline');
-        line.innerHTML = tag + esc(english);
-        noteOffline();
-        return;
-      }
-
-      // async fill — short timeout, try/catch, graceful degrade. never throws into reflectMarket.
-      try{
-        var ctrl = (typeof AbortController!=='undefined') ? new AbortController() : null;
-        var timer = ctrl ? setTimeout(function(){ ctrl.abort(); }, 6000) : null;
-        fetch(LOCALIZE_ENDPOINT, {
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({ text: english, market: market, target_lang: code }),
-          signal: ctrl ? ctrl.signal : undefined
-        }).then(function(r){
-          if(timer) clearTimeout(timer);
-          if(!r.ok) throw new Error('localize ' + r.status);
-          return r.json();
-        }).then(function(d){
-          var provider = (d && d.provider) ? d.provider : 'offline-dictionary';
-          var outLang = (d && d.lang) ? d.lang : code;
-          line.setAttribute('lang', outLang);
-          line.setAttribute('data-provider', provider);
-          if(provider === 'human-required'){
-            line.innerHTML = tag + 'human translation required (' + esc(l.lang_name || code) + ')';
-          } else {
-            var txt = (d && d.text != null) ? String(d.text) : english;
-            line.innerHTML = '<span class="loc-langtag">' + esc(String(outLang).toUpperCase()) + '</span>' + esc(txt);
-          }
-        }).catch(function(){
-          if(timer) clearTimeout(timer);
-          // degrade this line, do not spin forever, add one shared offline note.
-          line.setAttribute('data-provider','offline');
-          line.innerHTML = tag + esc(english);
-          noteOffline();
-        });
-      }catch(e){
-        line.setAttribute('data-provider','offline');
-        line.innerHTML = tag + esc(english);
-        noteOffline();
-      }
-    });
+    langLine.innerHTML = 'localized in languages: <b>' + esc(names.join(', ')) + '</b>';
+    return;
   }
 
   // 3. user-added markets (client-side only). No curated cue/language data — degrade gracefully.
