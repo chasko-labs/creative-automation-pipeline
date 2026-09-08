@@ -199,13 +199,14 @@ function render(){
     const c=document.createElement('canvas'); c.width=r.w; c.height=r.h; c.style.maxWidth='100%'; c.style.height='auto';
     const ctx=c.getContext('2d');
     // parchment bg then brown box proxy hero (real image if loads)
-    ctx.fillStyle='#FFF8F0'; ctx.fillRect(0,0,r.w,r.h);
+    ctx.fillStyle=__kodiak.brand().parchment; ctx.fillRect(0,0,r.w,r.h);
     // Try to draw real hero image (offline file) - if fails, fallback to brown kraft with bear proxy
     let img = new Image();
     // leak-teardown: #preview innerHTML is cleared on every re-render (~line 1048); null the handlers
     // after they fire so the closure (and the retained Image) releases when the old node is dropped.
-    img.onload = ()=>{ try{ drawAd(ctx, r.w, r.h, headline, prod, img); }catch(e){} img.onload=img.onerror=null; img=null; };
-    img.onerror = ()=>{ try{ drawAd(ctx, r.w, r.h, headline, prod, null); }catch(e){} img.onload=img.onerror=null; img=null; };
+    // #221: each draw is followed by a fonts-ready re-paint so brand webfonts swap in once loaded.
+    img.onload = ()=>{ try{ drawAd(ctx, r.w, r.h, headline, prod, img); __kodiak.redrawOnFontsReady(ctx, r.w, r.h, headline, prod, img); }catch(e){} img.onload=img.onerror=null; img=null; };
+    img.onerror = ()=>{ try{ drawAd(ctx, r.w, r.h, headline, prod, null); __kodiak.redrawOnFontsReady(ctx, r.w, r.h, headline, prod, null); }catch(e){} img.onload=img.onerror=null; img=null; };
     img.src = prod.img;
     tile.appendChild(c);
     const meta=document.createElement('div'); meta.className='meta';
@@ -224,9 +225,74 @@ function render(){
   // preview is ready (offline canvas path) — reveal the Generate Campaign section (guarded no-op if absent)
   try{ if(typeof window.__kodiakRevealCampaign==='function') window.__kodiakRevealCampaign(); }catch(e){}
 }
+// #221 — canvas preview resolves colors + type from the brand layer.
+// Colors read the Panda token layer (design/styles.css --colors-*) via computed
+// CSS vars and fall back to the pre-token hex, so rendering stays pixel-compatible
+// when tokens are unreadable (stylesheet not yet applied, non-DOM embed context).
+// Type uses the brand stack from design/components.css — Gin 800 for slab/headline,
+// museo-sans for body/UI. NOTE: Panda --fonts-headline/--fonts-body still name
+// Rockwell/Inter (stale vs the brand), so the canvas reads the brand stacks directly
+// instead of those two tokens; the stacks keep Rockwell/Georgia and system sans as
+// canvas-safe fallbacks because canvas cannot synthesize the webfont before it loads.
+const __kodiak = (()=>{
+  const FALLBACK = {
+    parchment:'#FFF8F0',   // --colors-neutral-50
+    kraftCover:'#3B2316',  // --colors-brand-bear-brown
+    heroFallback:'#D9CFC6',// --colors-neutral-300
+    ink:'#1A1110',         // --colors-neutral-900
+    paper:'#FFFFFF',       // --colors-neutral-0
+    muted:'#8C7A70',       // --colors-neutral-500
+    blaze:'#E8530E',       // --colors-brand-blaze-orange
+    scrim:'rgba(26,17,16,0.80)', // --colors-overlay-scrim (#1A1110CC == alpha .8)
+  };
+  const VAR = {
+    parchment:'--colors-neutral-50',
+    kraftCover:'--colors-brand-bear-brown',
+    heroFallback:'--colors-neutral-300',
+    ink:'--colors-neutral-900',
+    paper:'--colors-neutral-0',
+    muted:'--colors-neutral-500',
+    blaze:'--colors-brand-blaze-orange',
+    scrim:'--colors-overlay-scrim',
+  };
+  function cssVar(name, fallback){
+    try{
+      const v = getComputedStyle(document.documentElement).getPropertyValue(name);
+      const t = (v||'').trim();
+      return t || fallback;
+    }catch(e){ return fallback; }
+  }
+  // Brand type stacks (design/components.css): Gin slab + museo-sans body.
+  const HEADLINE_STACK = '"gin",Rockwell,Clarendon,Georgia,serif';
+  const BODY_STACK = '"museo-sans",system-ui,Helvetica,Arial,sans-serif';
+  function brand(){
+    const out = {};
+    for(const k of Object.keys(FALLBACK)) out[k] = cssVar(VAR[k], FALLBACK[k]);
+    return out;
+  }
+  // Re-paint once brand webfonts arrive (Adobe Fonts zjt4wyq via index.html):
+  // the first paint may measure/draw with the fallback stack; this swaps in
+  // Gin/museo-sans when document.fonts is ready. Guarded no-op without the
+  // Font Loading API; harmless if a later render already cleared the tile.
+  function redrawOnFontsReady(ctx,W,H,headline,prod,heroImg){
+    try{
+      if(!document.fonts || !document.fonts.ready) return;
+      try{
+        if(typeof document.fonts.load==='function'){
+          document.fonts.load('800 52px "gin"').catch(()=>{});
+          document.fonts.load('500 12px "museo-sans"').catch(()=>{});
+        }
+      }catch(e){}
+      document.fonts.ready.then(()=>{ try{ drawAd(ctx,W,H,headline,prod,heroImg); }catch(e){} }).catch(()=>{});
+    }catch(e){}
+  }
+  return { brand, redrawOnFontsReady, HEADLINE_STACK, BODY_STACK };
+})();
 function drawAd(ctx,W,H,headline,prod,heroImg){
+  const BC = __kodiak.brand();
+  const HEAD = __kodiak.HEADLINE_STACK, BODY = __kodiak.BODY_STACK;
   // blurred cover emulation: brown kraft cover
-  ctx.fillStyle='#3B2316'; ctx.fillRect(0,0,W,H);
+  ctx.fillStyle=BC.kraftCover; ctx.fillRect(0,0,W,H);
   // hero contain at 8% down, ~82% width
   const scale = Math.min(W*0.82/400, H*0.58/400);
   const fw=400*scale, fh=400*scale, fx=(W-fw)/2, fy=H*0.08;
@@ -234,18 +300,18 @@ function drawAd(ctx,W,H,headline,prod,heroImg){
     // contain mimic
     ctx.drawImage(heroImg, fx, fy, fw, fh);
   } else {
-    ctx.fillStyle='#D9CFC6'; ctx.fillRect(fx,fy,fw,fh);
-    ctx.fillStyle='#1A1110'; ctx.font=`${Math.round(fw*0.08)}px Rockwell,Georgia,serif`; ctx.textAlign='center';
+    ctx.fillStyle=BC.heroFallback; ctx.fillRect(fx,fy,fw,fh);
+    ctx.fillStyle=BC.ink; ctx.font=`${Math.round(fw*0.08)}px ${HEAD}`; ctx.textAlign='center';
     ctx.fillText('KODIAK®', W/2, fy+fh*0.45);
-    ctx.font=`12px Inter,sans-serif`; ctx.fillText('KODIAK® — Nourishment for Today\'s Frontier', W/2, fy+fh*0.55);
+    ctx.font=`12px ${BODY}`; ctx.fillText('KODIAK® — Nourishment for Today\'s Frontier', W/2, fy+fh*0.55);
   }
   // scrim band 32% at 68%
-  const barTop=H*0.68; ctx.fillStyle='rgba(26,17,16,0.80)'; ctx.fillRect(0,barTop,W,H-barTop);
+  const barTop=H*0.68; ctx.fillStyle=BC.scrim; ctx.fillRect(0,barTop,W,H-barTop);
   // headline — slab style, centered, 3-line clamp
   const pad=48, maxW=W-pad*2;
-  ctx.fillStyle='#FFFFFF'; ctx.textAlign='center';
+  ctx.fillStyle=BC.paper; ctx.textAlign='center';
   const size = W>=1920? 52 : W>=1080 && H>=1920? 46 : 38;
-  ctx.font=`800 ${size}px Rockwell,Georgia,serif`;
+  ctx.font=`800 ${size}px ${HEAD}`;
   // wrap to 3 lines
   const words=headline.split(' '); let lines=[], cur="";
   for(const w of words){ const test=cur?cur+" "+w:w; if(ctx.measureText(test).width<=maxW) cur=test; else {lines.push(cur); cur=w; if(lines.length===2) break;} }
@@ -253,30 +319,32 @@ function drawAd(ctx,W,H,headline,prod,heroImg){
   let y=barTop+46;
   for(const line of lines){ ctx.fillText(line, W/2, y); y+= size*1.08; }
   // footer
-  ctx.font=`500 11px Inter,sans-serif`; ctx.fillStyle='rgba(255,248,240,0.85)';
+  // NON-TOKEN: footer ink is neutral-50 at 85% alpha; no such alpha-variant token
+  // exists, so it stays literal rather than inventing a one-off token read.
+  ctx.font=`500 11px ${BODY}`; ctx.fillStyle='rgba(255,248,240,0.85)';
   ctx.fillText('KODIAK® • kodiakcakes.com • Keep It Wild  •  Nourishment for Today\'s Frontier', W/2, H-18);
   // orange bar
-  ctx.fillStyle='#E8530E'; ctx.fillRect(0,H-8,W,8);
+  ctx.fillStyle=BC.blaze; ctx.fillRect(0,H-8,W,8);
   // bear mark at 24,24 — KODIAK Bear silhouette lockup (brand compliant: Blaze Orange badge, Bear Brown bear)
   // per docs/kodiak-brand-explained.md: bear silhouette does visual lifting at 24,24
   ctx.save();
-  ctx.fillStyle='#E8530E'; ctx.beginPath(); ctx.roundRect(24-4,24-4,36,36,8); ctx.fill();
+  ctx.fillStyle=BC.blaze; ctx.beginPath(); ctx.roundRect(24-4,24-4,36,36,8); ctx.fill();
   // bear silhouette path scaled to badge
   ctx.translate(24+14, 24+14);
   ctx.scale(1.2,1.2);
-  ctx.fillStyle='#3B2316';
+  ctx.fillStyle=BC.kraftCover;
   ctx.beginPath();
   ctx.moveTo(-6,-8); ctx.lineTo(-4,-10); ctx.lineTo(-2,-9); ctx.lineTo(0,-10); ctx.lineTo(2,-9); ctx.lineTo(4,-10); ctx.lineTo(6,-8);
   ctx.lineTo(7,-5); ctx.lineTo(5,-2); ctx.lineTo(4,4); ctx.lineTo(2,6); ctx.lineTo(-2,6); ctx.lineTo(-4,4); ctx.lineTo(-5,-2); ctx.lineTo(-7,-5);
   ctx.closePath(); ctx.fill();
   // eyes
-  ctx.fillStyle='#FFF8F0'; ctx.beginPath(); ctx.arc(-2,-2,1,0,Math.PI*2); ctx.arc(2,-2,1,0,Math.PI*2); ctx.fill();
+  ctx.fillStyle=BC.parchment; ctx.beginPath(); ctx.arc(-2,-2,1,0,Math.PI*2); ctx.arc(2,-2,1,0,Math.PI*2); ctx.fill();
   ctx.restore();
   // KODIAK wordmark beside bear
-  ctx.fillStyle='#3B2316'; ctx.font='800 10px Rockwell,Georgia,serif'; ctx.textAlign='left'; ctx.fillText('KODIAK®', 24+40, 24+10);
-  ctx.fillStyle='#8C7A70'; ctx.font='600 7px Inter,sans-serif'; ctx.fillText('Keep It Wild', 24+40, 24+20);
-  ctx.fillStyle='#E8530E'; ctx.beginPath(); ctx.arc(24+18,24+18,14,0,Math.PI*2); ctx.fill();
-  ctx.fillStyle='#3B2316'; ctx.font=`700 9px Inter,sans-serif`; ctx.textAlign='center'; ctx.fillText('BEAR', 42, 46);
+  ctx.fillStyle=BC.kraftCover; ctx.font=`800 10px ${HEAD}`; ctx.textAlign='left'; ctx.fillText('KODIAK®', 24+40, 24+10);
+  ctx.fillStyle=BC.muted; ctx.font=`600 7px ${BODY}`; ctx.fillText('Keep It Wild', 24+40, 24+20);
+  ctx.fillStyle=BC.blaze; ctx.beginPath(); ctx.arc(24+18,24+18,14,0,Math.PI*2); ctx.fill();
+  ctx.fillStyle=BC.kraftCover; ctx.font=`700 9px ${BODY}`; ctx.textAlign='center'; ctx.fillText('BEAR', 42, 46);
 }
 
 document.getElementById('renderBtn')?.addEventListener('click', render);
