@@ -214,6 +214,19 @@
     }
   }
 
+  // Replace-not-append (#243): a new preview generate clears the whole prior
+  // campaign (renders, pack keys, sidecar, carousel DOM, assets section, status)
+  // BEFORE painting, so stale assets never persist under fresh output. Exposed
+  // for the preview Create path; guarded end to end, never throws.
+  window.KODIAK_resetCampaign = function(){
+    try{ campaignRenders = []; }catch(e){}
+    try{ window.__lastCampaignSidecar = null; }catch(e){}
+    try{ var car = document.getElementById('campaignAssetsCarousel'); if(car) car.innerHTML = ''; }catch(e){}
+    try{ var assets = document.getElementById('campaignAssetsSection'); if(assets) assets.hidden = true; }catch(e){}
+    try{ var st = document.getElementById('generateCampaignStatus'); if(st) st.textContent = ''; }catch(e){}
+    return true;
+  };
+
   function wireButtons(){
     var gen = document.getElementById('genFullCampaign');
     if(gen && !gen.__wired){ gen.__wired = true; gen.addEventListener('click', function(){ runCampaign(); }); }
