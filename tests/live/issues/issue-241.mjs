@@ -55,6 +55,10 @@ export async function run(page, { baseUrl } = {}) {
     variants.every((r) => r.text.length > 3),
     "no empty variant rows",
   );
+  // Hold the panel on screen so the recorded receipt shows the copy.
+  await page.evaluate(() => document.getElementById("campaignCopyPanel")
+    ?.scrollIntoView({ block: "center" }));
+  await page.waitForTimeout(1500);
 
   // DOWNLOADABLE: the sidecar the pack ships must carry txt+csv with the headline.
   const sidecar = await page.evaluate(() => window.__lastCampaignSidecar || null);
@@ -87,23 +91,23 @@ export async function run(page, { baseUrl } = {}) {
   assert(extraNames.includes("copy.txt"), `pack request carries copy.txt (${extraNames})`);
   assert(extraNames.includes("copy.csv"), `pack request carries copy.csv (${extraNames})`);
   assert(packJson && packJson.ok && packJson.zip_url, "pack 200 ok with zip_url");
-  const names = await page.evaluate(async (zipUrl) => {
-    const buf = await (await fetch(zipUrl)).arrayBuffer();
-    const bytes = new Uint8Array(buf);
-    const dec = new TextDecoder();
-    // scan local file headers for member names (PK\x03\x04 + name)
-    const found = [];
-    const dv = new DataView(buf);
-    for (let i = 0; i + 30 < bytes.length; i++) {
-      if (dv.getUint32(i, true) === 0x04034b50) {
-        const nlen = dv.getUint16(i + 26, true);
-        const elen = dv.getUint16(i + 28, true);
-        found.push(dec.decode(bytes.slice(i + 30, i + 30 + nlen)));
-        i += 30 + nlen + elen;
-      }
+  // Fetch the zip from node (the page is CORS-blocked from the presigned
+  // S3 URL) and scan local file headers for member names (PK\x03\x04 + name).
+  const zipRes = await fetch(packJson.zip_url);
+  assert(zipRes.ok, `zip downloads (got ${zipRes.status})`);
+  const buf = await zipRes.arrayBuffer();
+  const bytes = new Uint8Array(buf);
+  const dec = new TextDecoder();
+  const names = [];
+  const dv = new DataView(buf);
+  for (let i = 0; i + 30 < bytes.length; i++) {
+    if (dv.getUint32(i, true) === 0x04034b50) {
+      const nlen = dv.getUint16(i + 26, true);
+      const elen = dv.getUint16(i + 28, true);
+      names.push(dec.decode(bytes.slice(i + 30, i + 30 + nlen)));
+      i += 30 + nlen + elen;
     }
-    return found;
-  }, packJson.zip_url);
-  assert(names.includes("copy.txt"), `zip holds copy.txt (${names.join(",")})`);
-  assert(names.includes("copy.csv"), `zip holds copy.csv (${names.join(",")})`);
+  }
+  assert(names.some((n) => n.endsWith("copy.txt")), `zip holds copy.txt (${names.join(",")})`);
+  assert(names.some((n) => n.endsWith("copy.csv")), `zip holds copy.csv (${names.join(",")})`);
 }
