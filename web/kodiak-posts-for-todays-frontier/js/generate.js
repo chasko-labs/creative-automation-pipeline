@@ -591,7 +591,12 @@ let skuList = [
       const oneGenerate = async (productSlug, wantTheme)=>{
         // scope-first: Create reads the segmented control's selection (window.__campaignScope, default local)
         const scope = window.__campaignScope || 'local';
-        const body = {prompt: brief, market: selectedLoc.market, product: productSlug, scope, ...(wantTheme ? {theme: wantTheme} : {})};
+        // staged DAM pick (Browse past assets) rides as the seed — the backend prefers
+        // it over all probed seeds, so the customer's pick drives the pixels. Most
+        // recently staged dam asset wins; absent key = today's path untouched.
+        let stagedKey = null;
+        try{ const staged = (window.__userAssets||[]).filter(function(a){ return a && a.source==='dam' && a.key; }); if(staged.length) stagedKey = staged[staged.length-1].key; }catch(e){}
+        const body = {prompt: brief, market: selectedLoc.market, product: productSlug, scope, ...(wantTheme ? {theme: wantTheme} : {}), ...(stagedKey ? {seed_key: stagedKey} : {})};
         const resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: controller.signal});
         if(!resp.ok) throw new Error('backend returned HTTP ' + resp.status);
         // isolate the parse so a malformed 200 body surfaces as a clear error (outer catch -> visible status)

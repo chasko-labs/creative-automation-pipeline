@@ -90,6 +90,17 @@
         chip.setAttribute('aria-pressed', nowActive ? 'true' : 'false');
         togglePartnerMark();
         rebuildBrief();
+        // honest riff: the chip directs a STAGED pick, it is not retrieval. Tell the
+        // customer what to do instead of letting the default masquerade as a remix.
+        // Non-blocking — Create still generates normally with no pick staged.
+        if(nowActive && slug === 'riff-on-past-content'){
+          try{
+            var hasStaged = (window.__userAssets||[]).some(function(a){ return a && a.source==='dam' && a.key; });
+            // NOTE: flash() lives in the DAM-browse IIFE below — not visible here.
+            // Write the status node directly (it is static markup, always present).
+            if(!hasStaged){ var cueEl = document.getElementById('damFlash'); if(cueEl) cueEl.textContent = 'Riff on past content riffs on your staged pick — Browse past assets and stage one, or Create generates fresh.'; }
+          }catch(e){}
+        }
         briefEl.focus();
       });
     });

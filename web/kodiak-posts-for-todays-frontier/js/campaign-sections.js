@@ -146,6 +146,9 @@
     var controller = new AbortController();
     var timeoutId = setTimeout(function(){ controller.abort(); }, 100000);
     try{
+      // staged DAM pick rides as the seed (same contract as the preview path above).
+      var stagedKey = null;
+      try{ var staged = (window.__userAssets||[]).filter(function(a){ return a && a.source==='dam' && a.key; }); if(staged.length) stagedKey = staged[staged.length-1].key; }catch(e){}
       var body = {
         prompt: currentBrief(),
         market: selectedMarket(),
@@ -153,6 +156,7 @@
         scope: scope,        // nationwide | nationwide-localized | local
         mode: 'full'         // full 3/4-size + localization + platform-copy path (backend FULL_MODE)
       };
+      if(stagedKey) body.seed_key = stagedKey;
       var resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: controller.signal});
       if(!resp.ok) throw new Error('backend returned HTTP ' + resp.status);
       var json;
@@ -206,6 +210,10 @@
         }
         if(src) imgs.push({src:src, name:name});
       });
+      // no checked products -> hide the shell entirely (hollow dashed squares help
+      // nobody); it reappears with the first checked product. Inline style beats the
+      // .ff-product-carousel display:flex rule, which would override [hidden].
+      car.style.display = imgs.length ? '' : 'none';
       // repaint exactly 3 slots: filled first, dashed placeholders after (mirror only, no selection change)
       car.innerHTML = '';
       for(var i=0;i<3;i++){
