@@ -28,6 +28,7 @@ except ImportError:
     HAS_FASTAPI = False  # fallback still allows import for tests without FastAPI
 
 from .brief import CampaignBrief
+from .naming import slugify
 from .pipeline import run_pipeline
 from .embeddings import embed_text, embed_multimodal
 from .enhance import enhance_hero
@@ -203,7 +204,7 @@ if HAS_FASTAPI:
         return {"src": str(src), "dst": str(out), "enhancements": ["contrast", "texture", "frame", "watermark", "vignette"]}
 
     @app.get("/campaigns")  # type: ignore
-    def campaigns(market: str | None = None, retailer: str | None = None, channel: str | None = None, ratio: str | None = None):
+    def campaigns(market: str | None = None, retailer: str | None = None, channel: str | None = None, ratio: str | None = None, product: str | None = None):
         """Served assets customized per location/retailer — frontier direct variant included.
 
         Query any combo: market=US-SW-TIMBERON&retailer=costco&channel=instagram. If market is frontier with no retailer (Timberon 88350), returns subscriber DTC variant: 'Ships to your cabin' + pinonnuts.com Piñon Seeds cross-promo. Every record is part of 'every conceivable campaign' when brief omits a field — see POST /campaigns/run-fanned.
@@ -236,6 +237,10 @@ if HAS_FASTAPI:
         # keep all filtered markets; retailer choice just drives logo + filename, not eligibility
         # Build assets: each market × 3 ratios (or requested ratio)
         ratios = [ratio] if ratio else ["1x1","9x16","16x9"]
+        # Real product threads into filenames/messages (#205) — power-cakes
+        # is only the default when the caller picks nothing.
+        prod = slugify(product) if product else "power-cakes"
+        prod = prod or "power-cakes"
         assets = []
         for m in filtered[:50]:  # cap 50 per call — use run-fanned for full 68×retailers
             is_frontier = m.get("frontier") is True
@@ -256,8 +261,6 @@ if HAS_FASTAPI:
             for r in ratios:
                 folder = r.replace(":","x")
                 date = __import__("time").strftime("%Y%m%d")
-                # product id placeholder — full catalog would fan per product; here per market demo uses power-cakes
-                prod = "power-cakes"
                 if is_frontier:
                     fname = f"KODIAK-CAKES-{prod}-{m.get('market','').lower()}-direct-{folder}-{date}-v01.png"
                     msg = m.get("localization",{}).get("message") or m.get("message","") or "Nourishment for Today's Frontier — ships to your cabin"
@@ -268,7 +271,7 @@ if HAS_FASTAPI:
                     fname = f"KODIAK-CAKES-{prod}-{m.get('market','').lower()}-{safe_retail}-{folder}-{date}-v01.png"
                     msg = m.get("message","") or "Feeding Epic Days & Wilder Lives"
                 assets.append({"market": m.get("market"), "place": m.get("place"), "zip": m.get("zip"), "retailer": retailer_label, "channel": channel or "instagram", "ratio": folder, "frontier": is_frontier, "subscriber_variant": is_frontier, "filename": fname, "message": msg, "cross_promo": cross_msg, "cross_url": cross_url, "retailer_logo": None if is_frontier else f"input_assets/retailer-logos/{retailer_label.lower().replace(' ','-')}.png"})
-        return {"query": {"market": market, "retailer": retailer, "channel": channel, "ratio": ratio}, "count": len(assets), "assets": assets[:100], "note": "Frontier direct variant shown where retailer gap exists (Timberon 88350 → pinonnuts.com). Full fan-out via POST /campaigns/run-fanned."}
+        return {"query": {"market": market, "retailer": retailer, "channel": channel, "ratio": ratio, "product": prod}, "count": len(assets), "assets": assets[:100], "note": "Frontier direct variant shown where retailer gap exists (Timberon 88350 → pinonnuts.com). Full fan-out via POST /campaigns/run-fanned."}
 
     @app.get("/assets/location/{market}/direct")  # type: ignore
     def location_direct(market: str):
