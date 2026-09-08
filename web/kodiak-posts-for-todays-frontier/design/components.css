@@ -846,6 +846,20 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-generate-campaign.is-gated>summary{opacity:.55;cursor:not-allowed}
 .ff-generate-campaign.is-gated>summary::before{color:var(--colors-neutral-400)}
 .ff-generate-campaign.is-gated>summary:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+/* === Progress timeline — slim horizontal tracker + live heuristic line === */
+.ff-timeline{margin:0 0 var(--spacing-sm);padding:10px 14px 8px;border:1px solid var(--stone);border-radius:var(--radii-lg);background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-md)}
+.ff-timeline-steps{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.ff-timeline-steps li{display:inline-flex;align-items:center;gap:6px;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;color:var(--colors-foreground-muted)}
+.ff-timeline-steps li+li::before{content:"";width:18px;height:1px;background:var(--colors-border-default);margin-right:2px}
+.ff-timeline-dot{width:8px;height:8px;border-radius:999px;background:var(--colors-neutral-300);flex:0 0 auto}
+.ff-timeline-steps li[data-state="active"]{color:var(--chocolate)}
+.ff-timeline-steps li[data-state="active"] .ff-timeline-dot{background:var(--red)}
+.ff-timeline-steps li[data-state="done"]{color:var(--colors-foreground-default)}
+.ff-timeline-steps li[data-state="done"] .ff-timeline-dot{background:var(--colors-brand-frontier-green)}
+.ff-timeline-steps li[data-state="locked"]{opacity:.55}
+.ff-timeline-steps .ff-stepnum{min-width:18px;height:18px;font-size:10px}
+.ff-timeline-note{margin-top:6px;min-height:1.2em;font:500 11px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-600)}
+.ff-timeline-note:empty::before{content:"Set up your campaign, then Create a preview.";opacity:.75}
 /* the full-campaign action is the primary next step: full-width, larger target */
 #generateCampaignBtns .ff-campaign-primary{width:100%;justify-content:center;padding:14px 22px;font-size:13px}
 /* gated Generate Campaign: same card + elevation as Output Preview, compact on load.

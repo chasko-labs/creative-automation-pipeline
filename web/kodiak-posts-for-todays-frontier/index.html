@@ -124,6 +124,18 @@
 </header>
 
 <div class="wrap">
+<!-- Progress timeline — slim numbered tracker (Setup + 5/6/7) with a live heuristic
+     line fed ONLY by real page events: ff-timeline.js mirrors #sampleStatus +
+     #generateCampaignStatus text and the gate/assets hidden states. -->
+<div class="ff-timeline" id="progressTimeline">
+  <ol class="ff-timeline-steps" aria-label="Campaign progress">
+    <li data-node="setup" data-state="active"><span class="ff-timeline-dot" aria-hidden="true"></span><span class="ff-timeline-label">Setup</span></li>
+    <li data-node="preview" data-state="todo"><span class="ff-timeline-dot" aria-hidden="true"></span><span class="ff-timeline-label"><span class="ff-stepnum" aria-hidden="true">5</span> Preview</span></li>
+    <li data-node="generate" data-state="locked"><span class="ff-timeline-dot" aria-hidden="true"></span><span class="ff-timeline-label"><span class="ff-stepnum" aria-hidden="true">6</span> Generate</span></li>
+    <li data-node="assets" data-state="todo"><span class="ff-timeline-dot" aria-hidden="true"></span><span class="ff-timeline-label"><span class="ff-stepnum" aria-hidden="true">7</span> Assets</span></li>
+  </ol>
+  <div class="ff-timeline-note" id="timelineNote" role="status" aria-live="polite"></div>
+</div>
 <!-- location-aware island + design-system scorecards moved to details.html (Design system + details link below) -->
 <div class="card" data-mcp="campaign-brief" data-mcp-description="Park City Utah demo — one prompt drives the campaign"><div class="body">
 
@@ -473,5 +485,6 @@
   <script defer src="js/autocomplete.js"></script>
 <script defer src="js/lifecycle-persist.js"></script>
   <script defer src="js/campaign-sections.js"></script>
+  <script defer src="js/ff-timeline.js"></script>
   <script defer src="glimmer-proxy.js?v=0.1.065-6f92282-20260908"></script>
 </body></html>
