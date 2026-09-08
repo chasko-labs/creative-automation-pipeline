@@ -202,8 +202,16 @@ def compose_creative(
         draw.text(((W - tw) / 2, y), line, fill="white", font=font, stroke_width=2, stroke_fill=(0, 0, 0))
         y += th + 10
 
-    # brand/footer — token caption
+    # brand/footer — token caption, shrunk to fit narrow frames (9:16 clipped it)
     footer = "KODIAK  •  kodiakcakes.com  •  Keep It Wild"
+    fit_size = caption_size
+    while fit_size > 14:
+        fit_font = _load_font(fit_size)
+        bbox = draw.textbbox((0, 0), footer, font=fit_font)
+        if bbox[2] - bbox[0] <= text_max_w:
+            break
+        fit_size -= 2
+    small_font = _load_font(fit_size)
     bbox = draw.textbbox((0, 0), footer, font=small_font)
     tw = bbox[2] - bbox[0]
     draw.text(((W - tw) / 2, H - 44), footer, fill=(255, 255, 255, 200), font=small_font)
