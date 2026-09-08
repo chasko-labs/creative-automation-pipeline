@@ -79,8 +79,6 @@ def test_typed_celebrity_name_never_reaches_model_prompt(tmp_path, monkeypatch) 
 def test_captive_bear_brief_cannot_pull_captive_seed() -> None:
     # guardrail is on the seed selection, not the words: even a hostile brief
     # lands on the wild-habitat primary, never a captive close-up.
-    import json
-
     entry = json.loads(Path("data/products/theme-asset-map.json").read_text())["map"][
         "wild-grizzly-bears"
     ]
