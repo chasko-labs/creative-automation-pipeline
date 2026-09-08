@@ -1617,6 +1617,72 @@ def _recipe_card_defaults(product_name: str) -> dict:
     }
 
 
+def _validate_recipe_fields(raw: object, product_name: str) -> dict | None:
+    """Strict-shape check on LLM-authored recipe fields. None when unusable.
+
+    Never fabricates: requires a real title + 2..6 short ingredients + 2..6
+    short steps, all plain strings. Anything else falls back to the default.
+    """
+    if not isinstance(raw, dict):
+        return None
+    title = raw.get("title")
+    ingredients = raw.get("ingredients")
+    steps = raw.get("steps")
+    if not isinstance(title, str) or not title.strip():
+        return None
+    if not isinstance(ingredients, list) or not 2 <= len(ingredients) <= 6:
+        return None
+    if not isinstance(steps, list) or not 2 <= len(steps) <= 6:
+        return None
+    if not all(isinstance(x, str) and x.strip() for x in ingredients + steps):
+        return None
+    if any(len(x) > 90 for x in ingredients + steps) or len(title) > 60:
+        return None
+    return {
+        "title": " ".join(title.split()),
+        "ingredients": [" ".join(str(x).split()) for x in ingredients],
+        "steps": [" ".join(str(x).split()) for x in steps],
+    }
+
+
+def _author_recipe_fields(
+    product_name: str, brief_msg: str, region: str
+) -> dict | None:
+    """Ask Nova (Converse, TEXT-ONLY — no image) to author recipe-card copy.
+
+    Grounded on the real product + campaign brief; the model may only use the
+    named product plus plain pantry staples (never invents SKUs). Returns
+    validated fields, or None on any failure — the caller falls back to
+    _recipe_card_defaults. Text-only keeps this cheap next to the vision calls.
+    """
+    if boto3 is None:
+        return None
+    try:
+        client = _bedrock_failfast_client(read_timeout=BEDROCK_NOVA_READ_TIMEOUT_S)
+        prompt = (
+            "You write recipe-card copy for Kodiak Cakes packaging. "
+            f"Product: '{product_name}'. Campaign vibe: {brief_msg}. Region: {region}. "
+            "Reply with ONLY a JSON object, no other text, shaped exactly like "
+            '{"title": "short recipe name", '
+            '"ingredients": ["3 to 5 short lines, first must use the product above, '
+            "rest plain pantry staples only — never invent product names\"], "
+            '"steps": ["3 to 5 short steps, max 12 words each"]}.'
+        )
+        resp = client.converse(
+            modelId=NOVA_TEXT_MODEL,
+            messages=[{"role": "user", "content": [{"text": prompt}]}],
+            inferenceConfig={"maxTokens": 300},
+        )
+        text = resp["output"]["message"]["content"][0]["text"].strip()
+        start, end = text.find("{"), text.rfind("}")
+        if start == -1 or end <= start:
+            return None
+        return _validate_recipe_fields(json.loads(text[start : end + 1]), product_name)
+    except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — default fallback
+        print(f"[generate] recipe author unavailable, using default: {e}", file=sys.stderr)
+        return None
+
+
 def _compose_recipe_card(
     hero_img_path: Path,
     title: str,
@@ -1697,13 +1763,22 @@ def _compose_recipe_card(
     line_gap = int(body_px * 1.4)
     col_x = {"left": pad, "right": W // 2 + pad // 2}
 
-    def _draw_zone(x: int, heading: str, items: list[str]) -> None:
+    # Legibility floor: body text must end above the accent bar. Each column
+    # fits what fits — items that would cross the floor are dropped, so a
+    # long LLM-authored list can never bleed off the card or under the bar.
+    floor_y = H - 8 - line_gap
+    capacity = max(0, (floor_y - body_top - line_gap) // line_gap)
+
+    def _draw_zone(x: int, heading: str, items: list[str]) -> int:
         y = body_top
         draw.text((x, y), heading, fill=(*ink, 255), font=hfont)
         y += line_gap
-        for item in items[:6]:
+        drawn = 0
+        for item in items[:capacity]:
             draw.text((x, y), f"- {item}", fill=(*ink, 255), font=bfont)
             y += line_gap
+            drawn += 1
+        return drawn
 
     _draw_zone(col_x["left"], "Ingredients", ingredients)
     _draw_zone(col_x["right"], "Steps", steps)
@@ -2556,9 +2631,29 @@ def generate_hero_set(
     # overlay path unchanged. recipe_fields default from the product name (no brief seam
     # into this function), so the card copy is deterministic and on-brand.
     is_recipe_card = theme == "recipe-cards"
-    recipe_fields = _recipe_card_defaults(product_name) if is_recipe_card else None
+    recipe_fields = None
     if is_recipe_card:
         provenance["card_template"] = True
+        # LLM-authored card copy when the wall covers it; deterministic default
+        # otherwise. Authoring is text-only and cheap, but a slow model must
+        # never starve the rung-C reservation — same gate as the caption
+        # (_set_remaining_ms is this function's wall clock).
+        if _set_remaining_ms() < _CAPTION_BUDGET_MS + _C_RESERVATION_MS:
+            print(
+                f"[generate] recipe author skipped (budget {_set_remaining_ms():.0f}ms < "
+                f"{_CAPTION_BUDGET_MS + _C_RESERVATION_MS}ms) -> default fields",
+                file=sys.stderr,
+            )
+            provenance["recipe_author"] = "default"
+            recipe_fields = _recipe_card_defaults(product_name)
+        else:
+            authored = _author_recipe_fields(product_name, brief_msg, region)
+            if authored is not None:
+                provenance["recipe_author"] = "nova"
+                recipe_fields = authored
+            else:
+                provenance["recipe_author"] = "default"
+                recipe_fields = _recipe_card_defaults(product_name)
 
     renders: list[dict] = []
     for ratio in _DELIVERY_RATIOS:
