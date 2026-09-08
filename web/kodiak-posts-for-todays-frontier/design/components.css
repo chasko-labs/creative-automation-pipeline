@@ -990,3 +990,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-chipcluster{display:flex;flex-wrap:wrap;align-items:center;gap:var(--spacing-xs,4px) var(--spacing-sm,8px)}
 .ff-chipcluster-label{flex:0 0 100%;font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted,#6B5A53)}
 @media(max-width:520px){.ff-chipgroups{gap:var(--spacing-sm,8px)}}
+/* per-asset campaign download links (campaign-sections.js renderCampaignCarousel):
+   small ghost buttons under each carousel image, one gesture per file. */
+.ff-carousel-slot{display:flex;flex-direction:column;align-items:center;gap:8px}
+.ff-asset-download{padding:8px 12px;font-size:10px;text-decoration:none;justify-content:center}

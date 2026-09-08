@@ -80,7 +80,9 @@
     var car = document.getElementById('campaignAssetsCarousel');
     if(!car) return;
     car.innerHTML = '';
-    (renders||[]).forEach(function(r){
+    var date = new Date().toISOString().slice(0,10).replace(/-/g,'');
+    var product = selectedProductSlug();
+    (renders||[]).forEach(function(r, i){
       if(!r || !r.image_url) return;
       var slot = document.createElement('div');
       slot.className = 'ff-carousel-slot';
@@ -90,6 +92,17 @@
       img.loading = 'lazy';
       img.alt = 'Campaign asset ' + (r.ratio ? String(r.ratio).replace('x',':') : '');
       slot.appendChild(img);
+      // per-asset download link: one real user click per file, so each download
+      // carries its own gesture. Browsers block multiple programmatic downloads
+      // from a single click (multi-download governor) — the pack button cannot
+      // reliably deliver all four, but four individual links always can.
+      var dl = document.createElement('a');
+      dl.href = r.image_url;
+      dl.download = 'KODIAK-CAKES-'+product+'-campaign-'+(r.ratio||(i+1))+'-'+date+'-v01.png';
+      dl.className = 'btn ghost ff-asset-download';
+      dl.setAttribute('data-mcp', 'download-campaign-asset');
+      dl.textContent = 'Download ' + (r.ratio ? String(r.ratio).replace('x',':') : ('asset ' + (i+1)));
+      slot.appendChild(dl);
       car.appendChild(slot);
     });
   }
