@@ -121,6 +121,28 @@ STABILITY_CONTROL_MODEL = os.getenv(
 # How strongly the seed composition constrains the restyle (0..1). ~0.7 keeps the
 # product recognizable while letting the theme drive color/lighting/scene.
 STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.7"))
+# Style sandwich (character-consistency pattern): frozen style head + varying subject
+# + frozen detail tail. Nova (or the brief fallback) supplies ONLY the subject; the
+# frozen ends keep every restyle/outpaint on-brand no matter what the subject says.
+STYLE_HEAD = os.getenv(
+    "KODIAK_STYLE_HEAD",
+    "Photorealistic Kodiak frontier lifestyle photography, natural light, high detail, on-brand earthy palette. Subject: ",
+)
+STYLE_TAIL = os.getenv(
+    "KODIAK_STYLE_TAIL",
+    ". No text, no letters, no signage, blank surfaces only.",
+)
+# Seed discipline: locked seed = consistency (same brief re-renders identically);
+# swept seed = controlled variations (the variations button passes seed per call).
+STABILITY_SEED = int(os.getenv("BEDROCK_STABILITY_SEED", "42"))
+
+
+def _style_sandwich(subject: str) -> str:
+    """Wrap a varying subject in the frozen style ends. Idempotent."""
+    subject = (subject or "").strip()
+    if subject.startswith(STYLE_HEAD):
+        return subject
+    return f"{STYLE_HEAD}{subject}{STYLE_TAIL}"
 # Stability outpaint is invoked via its INFERENCE-PROFILE id (bare stability.* raises
 # ValidationException). Confirmed ACTIVE + AUTHORIZED + AVAILABLE in us-east-1. The
 # taller ratios (4x5, 2x3) are DERIVED from the 1x1 control-structure hero via outpaint
@@ -770,9 +792,10 @@ def _stability_control_hero(seed: Path, prompt: str, out_path: Path) -> Optional
     try:
         client = _bedrock_failfast_client()
         body = {
-            "prompt": prompt,
+            "prompt": _style_sandwich(prompt),
             "image": _seed_b64_for_stability(seed),
             "control_strength": STABILITY_CONTROL_STRENGTH,
+            "seed": STABILITY_SEED,
             "output_format": "png",
         }
         resp = client.invoke_model(
@@ -1477,6 +1500,8 @@ def generate_hero(
                     provenance["engine"] = "stability-restyle"
                     provenance["rung"] = "B"
                     provenance["control_strength"] = STABILITY_CONTROL_STRENGTH
+                    provenance["seed"] = STABILITY_SEED
+                    provenance["style"] = "sandwich-locked"
                     provenance["model"] = STABILITY_CONTROL_MODEL
                     # PART C — deterministic on-brand headline + accent bar ON TOP of the
                     # GenAI hero (Nova Pro still supplies the headline). Default-on.
