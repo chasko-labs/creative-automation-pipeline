@@ -539,6 +539,7 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     """
     product = data.get("product", "power-cakes")
     theme = data.get("theme")
+    seed_key = data.get("seed_key")
     out_dir = Path(f"/tmp/{uuid4().hex}")  # noqa: S108 — Lambda only allows /tmp writes
     hero_path = out_dir / "hero-1x1.png"
     hero_path.parent.mkdir(parents=True, exist_ok=True)
@@ -560,6 +561,7 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         theme=theme,
         brand_overlay=True,
         paper_overlay=True,
+        seed_key=seed_key,
     )
 
     with Image.open(result_path) as im:
@@ -604,6 +606,7 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     """
     product = data.get("product", "power-cakes")
     theme = data.get("theme")
+    seed_key = data.get("seed_key")
     out_dir = Path(f"/tmp/{uuid4().hex}")  # noqa: S108 — Lambda only allows /tmp writes
     # Art-director voice step (dark by default): refine the brief into an on-brand headline
     # BEFORE it becomes brief_msg (and, downstream, the localization/platform-copy seed).
@@ -622,6 +625,7 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         audience=data.get("audience", "active families"),
         out_dir=out_dir,
         theme=theme,
+        seed_key=seed_key,
     )
 
     s3 = _s3_client()

@@ -233,7 +233,8 @@ def _install_handler_stubs(monkeypatch, tmp_path):
     monkeypatch.setattr(generate_lambda, "_s3_client", lambda: _FakeS3())
     # keep the handler fast + offline: stub generate_hero to a real on-disk floor render.
     def _stub_hero(*, product_id, product_name, brief_msg, region, audience, out_path,
-                   idx=0, ratio="1x1", theme=None, brand_overlay=True, paper_overlay=True):
+                   idx=0, ratio="1x1", theme=None, brand_overlay=True, paper_overlay=True,
+                   seed_key=None):
         p = Path(out_path)
         generate_mod._brand_floor(product_name, ratio, p)
         return p, generate_mod.BRAND_FLOOR_SOURCE, {"rung": "D", "engine": "brand-floor"}
@@ -518,3 +519,111 @@ def test_mapped_sku_restyle_failure_keeps_unstyled_rung_a(tmp_path, monkeypatch)
     assert prov["bg_restyle"] is False
     assert prov["packshot"] is not None
     assert _distinct_colors(result) > 20
+
+
+# --------------------------------------------------------------------------- #
+# (f) staged DAM pick (seed_key) beats every probed seed; failures fall through.
+# --------------------------------------------------------------------------- #
+def _staged_seed_fetch(seed_src: Path):
+    def _fetch(key: str, dest: Path):
+        dest = Path(dest)
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        Image.open(seed_src).save(dest, "PNG")
+        return dest
+
+    return _fetch
+
+
+def _make_seed_src(tmp_path: Path) -> Path:
+    src = tmp_path / "staged-src.png"
+    Image.new("RGB", (1024, 1024), (20, 120, 60)).save(src, "PNG")
+    return src
+
+
+def test_staged_seed_key_beats_sku_mapped(tmp_path, monkeypatch):
+    seed_src = _make_seed_src(tmp_path)
+    monkeypatch.setattr(dam, "fetch_dam_key", _staged_seed_fetch(seed_src))
+    monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
+    # sku-mapped lookup would also resolve — staged pick must win.
+    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: "scene/other.png")
+    monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: None)
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o: None)
+    monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
+    monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: None)
+
+    out = tmp_path / "hero.png"
+    result, source, prov = generate_mod.generate_hero(
+        product_id="apple-stack-cake",
+        product_name="Apple Stack Cake",
+        brief_msg="orchard mornings",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+        seed_key="brands/kodiak/raw-ingest/apple-stack-cake.png",
+    )
+
+    assert result.exists()
+    assert prov["seed_selection"] == "staged-dam-asset"
+    assert prov["seed_source"] == "apple-stack-cake"
+    assert _distinct_colors(result) > 20
+
+
+def test_staged_seed_marks_riff_on(tmp_path, monkeypatch):
+    seed_src = _make_seed_src(tmp_path)
+    monkeypatch.setattr(dam, "fetch_dam_key", _staged_seed_fetch(seed_src))
+    monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: None)
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o: None)
+    monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
+    monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: None)
+
+    out = tmp_path / "hero.png"
+    result, _source, prov = generate_mod.generate_hero(
+        product_id="power-cakes",
+        product_name="Power Cakes",
+        brief_msg="wild mornings",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+        theme="riff-on-past-content",
+        seed_key="brands/kodiak/renders/past-hero.png",
+    )
+
+    assert result.exists()
+    assert prov["seed_selection"] == "staged-dam-asset"
+    assert prov["riff_on"] == "brands/kodiak/renders/past-hero.png"
+
+
+def test_staged_seed_fetch_failure_falls_through(tmp_path, monkeypatch):
+    def _boom(key: str, dest: Path):
+        raise RuntimeError("S3 denied")
+
+    seed_src = _make_seed_src(tmp_path)
+    monkeypatch.setattr(dam, "fetch_dam_key", _boom)
+    monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: seed_src)
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o: None)
+    monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
+    monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: None)
+
+    out = tmp_path / "hero.png"
+    result, source, prov = generate_mod.generate_hero(
+        product_id="power-cakes",
+        product_name="Power Cakes",
+        brief_msg="wild mornings",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+        seed_key="brands/kodiak/renders/gone.png",
+    )
+
+    # stale pick never sinks the rung — normal disk resolution carries on.
+    assert result.exists()
+    assert prov["seed_selection"] == "disk-asset"
+    assert "riff_on" not in prov
+    assert source == "bedrock:nova-pro"

@@ -1518,6 +1518,7 @@ def generate_hero(
     brand_overlay: bool = True,
     paper_overlay: bool = True,
     bare_base: bool = False,
+    seed_key: str | None = None,
 ) -> tuple[Path, str, dict]:
     """Generate a real Kodiak-social-style hero. Returns (path, source, provenance).
 
@@ -1535,6 +1536,8 @@ def generate_hero(
     Seed resolution (which real photo becomes the rung-B seed), theme wins:
     0. theme provided AND _resolve_theme_photo(theme) resolves -> that thematic DAM
        photo is the seed (the chip theme drives the IMAGE, not the product default).
+    0b. staged DAM pick (seed_key from the asset browser) -> that exact photo is the
+       seed (the customer's pick drives the IMAGE). Fetched verbatim, never probed.
     a. no theme (or unresolved) -> sku-photo-map resolves the handle -> a REAL
        lifestyle DAM photo (dam.fetch_dam_key -> /tmp) is the seed.
     b. no map entry OR the DAM fetch fails -> disk _find_source_asset is the seed
@@ -1633,6 +1636,23 @@ def generate_hero(
                     provenance["seed_source"] = Path(theme_key).stem
             except Exception as e:  # noqa: BLE001 — falls through to product precedence
                 print(f"[generate] theme seed fetch failed: {e}", file=sys.stderr)
+    if seed is None and seed_key:
+        # staged DAM pick from the asset browser: the exact photo the customer chose.
+        # Fetched verbatim by full key (no prefix join — browser contract); any failure
+        # falls through to the normal resolution below, so a stale pick never sinks a rung.
+        try:
+            from .dam import fetch_dam_key
+
+            dest = Path("/tmp/kodiak-assets/staged") / Path(seed_key).name  # noqa: S108 — Lambda /tmp
+            photo = fetch_dam_key(seed_key, dest)
+            if photo is not None and photo.exists():
+                seed = photo
+                provenance["seed_selection"] = "staged-dam-asset"
+                provenance["seed_source"] = Path(seed_key).stem
+                if theme == "riff-on-past-content":
+                    provenance["riff_on"] = seed_key
+        except Exception as e:  # noqa: BLE001 — falls through to sku-mapped lookup
+            print(f"[generate] staged seed fetch failed: {e}", file=sys.stderr)
     if seed is None:
         photo_key = _resolve_dam_photo(product_id)
         if photo_key:
@@ -1943,6 +1963,7 @@ def generate_hero_set(
     theme: str | None = None,
     brand_overlay: bool = True,
     paper_overlay: bool = True,
+    seed_key: str | None = None,
 ) -> tuple[list[dict], str, dict]:
     """Deliver all three sizes (backlog item4) from ONE call. Returns (renders, source, provenance).
 
@@ -1974,6 +1995,7 @@ def generate_hero_set(
         brand_overlay=False,
         paper_overlay=False,
         bare_base=True,
+        seed_key=seed_key,
     )
 
     # The set headline re-runs the full pipeline (grounded director first, stock
