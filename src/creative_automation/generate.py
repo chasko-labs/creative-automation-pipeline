@@ -408,6 +408,52 @@ _THEME_SCENE_HINT: dict[str, str] = {
         "light, podium-energy mood, generic active winter athletes only (no faces, no "
         "real person), on-brand Kodiak"
     ),
+    # retailer directions (#245): warehouse-club bulk/value cues land in the pixels
+    # via the same scene-hint fold. Surfaces stay blank (no text, signage, logos) —
+    # the framing is pack presence + aisle mood, never rendered glyphs.
+    "localized-costco": (
+        "bulk warehouse-club aisle mood, oversized Family Size pack presence, "
+        "pallet-stacked abundance, stock-up-trip value framing, bright club-aisle "
+        "light, on-brand Kodiak"
+    ),
+    "target": (
+        "bright everyday-family aisle, one-trip basket abundance, modern clean "
+        "value mood, morning kitchen light, on-brand Kodiak"
+    ),
+    "walmart": (
+        "welcoming family pantry stock-up, shelves of abundance, everyday low price "
+        "warmth, bright morning light, on-brand Kodiak"
+    ),
+    "whole-foods": (
+        "premium natural-foods shelf, whole-ingredient styling, fresh market morning "
+        "light, ingredient-aware calm, on-brand Kodiak"
+    ),
+    "publix": (
+        "warm neighborhood-market morning, family-table abundance, southern porch "
+        "light, welcoming deli-fresh mood, on-brand Kodiak"
+    ),
+    "kroger": (
+        "friendly family grocery run, fresh-cart abundance, bright everyday market "
+        "light, on-brand Kodiak"
+    ),
+    "heb": (
+        "bold texas family-table spread, vibrant local-market color, warm morning "
+        "light, on-brand Kodiak"
+    ),
+}
+
+# Per-retailer copy framing (#245): appended to the copy sidecar (txt + csv) when
+# the request theme names a retailer. The brand headline is never rewritten — the
+# retailer direction ships as its own sidecar line, visible in the downloadable
+# copy and echoed in the campaign panel via the brief's directions clause.
+_THEME_COPY_HINT: dict[str, str] = {
+    "localized-costco": "bulk Family Size value — warehouse-club aisle, stock-up trip",
+    "target": "everyday-family aisle — one-trip basket, modern everyday value",
+    "walmart": "everyday low price pantry stock-up — family value",
+    "whole-foods": "whole-ingredient shelf — ingredient-aware premium pantry",
+    "publix": "neighborhood warmth — southern family table",
+    "kroger": "family grocery run — fresh everyday value",
+    "heb": "texas family table — bold local flavor value",
 }
 
 
@@ -1789,6 +1835,11 @@ def build_copy_sidecar(
         f"headline: {headline}",
         f"brief: {prompt}",
     ]
+    # retailer direction (#245): the theme's copy framing ships as its own line so
+    # a retailer choice visibly changes the copy. No theme (or no hint) = generic.
+    retailer_framing = _THEME_COPY_HINT.get(theme or "")
+    if retailer_framing:
+        txt_lines.append(f"retailer framing: {retailer_framing}")
     for plat in sorted(platform_copy):
         entry = platform_copy[plat] or {}
         body = entry.get("body") or entry.get("description") or ""
@@ -1803,6 +1854,8 @@ def build_copy_sidecar(
     writer.writerow(["theme", theme or ""])
     writer.writerow(["headline", headline])
     writer.writerow(["brief", prompt])
+    if retailer_framing:
+        writer.writerow(["retailer_framing", retailer_framing])
     for plat in sorted(platform_copy):
         entry = platform_copy[plat] or {}
         writer.writerow([f"{plat}.headline", entry.get("headline") or entry.get("title") or ""])

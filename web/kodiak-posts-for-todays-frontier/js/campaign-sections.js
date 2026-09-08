@@ -186,6 +186,10 @@
         scope: scope,        // nationwide | nationwide-localized | local
         mode: 'full'         // full 3/4-size + localization + platform-copy path (backend FULL_MODE)
       };
+      // retailer / creative direction (#245): the active chip theme rides as a
+      // first-class field (same contract as the preview Create path) so the
+      // backend can direct image + copy at the retailer. Absent = generic.
+      try{ var activeTheme = window.__activeTheme || null; if(activeTheme) body.theme = activeTheme; }catch(e){}
       if(stagedKey) body.seed_key = stagedKey;
       var resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: controller.signal});
       if(!resp.ok) throw new Error('backend returned HTTP ' + resp.status);
