@@ -4,7 +4,7 @@ set -euo pipefail
 # One command replaces the manual `aws s3 cp` + invalidation dance.
 # Idempotent, local-first. Deploys the committed web source, not a worktree.
 #
-# Deploys the 6 core top-level files (index.html, details.html, design/styles.css,
+# Deploys the 8 core top-level files (index.html, details.html, pipeline.html, infrastructure.html, design/styles.css,
 # webmcp.json, glimmer-proxy.js, llms.txt) AND the asset directories the page references:
 # assets/ (logos, textures, partners/), data/ (localization, products, ...),
 # fonts/ (NotoSans *.woff2), design/ (tokens/), js/ (extracted classic scripts). Directory syncs use `aws s3 sync`
@@ -42,6 +42,8 @@ WEB_SRC="${WEB_SRC:-$REPO_ROOT/web/kodiak-posts-for-todays-frontier}"
 FILES=(
 	"index.html|index.html|text/html"
 	"details.html|details.html|text/html"
+	"pipeline.html|pipeline.html|text/html"
+	"infrastructure.html|infrastructure.html|text/html"
 	"design/styles.css|design/styles.css|text/css"
 	"webmcp.json|webmcp.json|application/json"
 	"glimmer-proxy.js|glimmer-proxy.js|application/javascript"

@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Infrastructure as Code — Kodiak Creative Automation Pipeline</title>
+<meta name="kodiak-version" content="0.1.030-2dba172-20260907">
+<style>
+:root{--brown-kodiak:#3B2316;--frontier:#1A3C34;--blaze:#E8530E;--stone:#D9CFC6;--cream:#FFF8F0;--parch:#F4EDE6}
+body{margin:0;background:var(--cream);color:var(--brown-kodiak);font-family:"museo-sans",system-ui,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:18px}
+.kodiak-header{background:var(--brown-kodiak);color:#FFF8F0;padding:10px 18px}
+.header__inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.backlink{color:#FFF8F0}
+h1{font-size:clamp(18px,3.2vw,26px);margin:0}
+.card{background:#FFFDF9;border:1px solid var(--stone);border-radius:16px;margin:10px 0;box-shadow:0 8px 24px rgba(59,35,22,.08)}
+.card>.hd{padding:14px 18px 0}.card>.hd h2{margin:0 0 4px;font-size:20px}
+.card>.hd p{margin:0 0 8px;color:#6B5A53;font-size:13px}
+.card>.body{padding:0 18px 16px;font-size:14px;line-height:1.6}
+.badge{display:inline-block;background:var(--parch);border:1px solid var(--stone);border-radius:999px;padding:1px 10px;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.kbd{font-family:ui-monospace,monospace;background:var(--parch);border:1px solid var(--stone);border-radius:6px;padding:0 6px;font-size:12.5px}
+.tree,.tree ul{list-style:none;margin:8px 0;padding:0}
+.tree ul{margin-left:22px}
+.tree li{margin:5px 0}
+.tree li>.node:before{content:"▸ ";color:var(--blaze)}
+.tree ul li>.node:before{content:"– "}
+.tree .role{color:#6B5A53;font-size:12.5px}
+.siblings{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.siblings a{display:inline-block;padding:8px 14px;border:1px solid var(--frontier);border-radius:999px;color:var(--brown-kodiak);text-decoration:none}
+.siblings a[aria-current]{background:var(--brown-kodiak);border-color:var(--brown-kodiak);color:#FFF8F0}
+a{color:var(--frontier)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header class="kodiak-header"><div class="header__inner">
+<a class="backlink" href="index.html">&larr; Back to campaign</a>
+<div style="flex:1;background:var(--frontier);border-radius:6px;padding:8px 14px"><h1>Infrastructure as Code</h1></div>
+</div></header>
+<div class="wrap">
+<p>One canonical CDK app owns the cloud; two shell scripts own the edge. Everything below is read straight from <span class="kbd">infra-cdk/lib/</span> — no aspirational boxes.</p>
+<div class="siblings" role="group" aria-label="About pages">
+<a href="details.html">Design System Inventory</a>
+<a href="pipeline.html">Asset Pipeline, Localization &amp; AI Usage</a>
+<a href="infrastructure.html" aria-current="page">Infrastructure as Code</a>
+</div>
+
+<div class="card"><div class="hd"><h2>CDK stacks <span class="badge">live</span></h2><p>Single canonical app, adopted in place (#122). Five stacks.</p></div><div class="body">
+<ul class="tree">
+<li><span class="node"><b>generate-stack</b></span> <span class="role">— GenerateLambda (brief-to-hero handler) behind a public dev-open Function URL the site calls directly; Bedrock grants for Nova Pro, Stability control-structure + outpaint, Nova embed + Titan fallback.</span></li>
+<li><span class="node"><b>data-stack</b></span> <span class="role">— DynamoDB <span class="kbd">localization-memory</span> + <span class="kbd">retail-network</span> (pay-per-request); S3 pipeline-log + style-library buckets (TLS-only policy).</span></li>
+<li><span class="node"><b>bedrock-logging-stack</b></span> <span class="role">— cross-region Bedrock invocation logging + X-Ray tracing (#122).</span></li>
+<li><span class="node"><b>observability-stack</b></span> <span class="role">— pipeline observer spans, scorecard + compliance gates (#42).</span></li>
+<li><span class="node"><b>browser-observability-stack</b></span> <span class="role">— RUM + CloudFront log bucket for the live frontend.</span></li>
+</ul>
+</div></div>
+
+<div class="card"><div class="hd"><h2>Edge + ship path <span class="badge">live</span></h2><p>How pixels reach the browser and how code reaches the pixels.</p></div><div class="body">
+<ul class="tree">
+<li><span class="node"><b>Static edge</b></span> <span class="role">— S3 <span class="kbd">frontier-bryanchasko-com</span> + CloudFront, live at <span class="kbd">kodiak.bryanchasko.com</span>. <span class="kbd">scripts/deploy-frontier.sh</span> syncs the 8 top-level files + asset dirs and invalidates; it refuses on version drift.</span></li>
+<li><span class="node"><b>Version stamp</b></span> <span class="role">— <span class="kbd">scripts/bump-version.sh</span> sweeps every version-shaped sink mechanically (meta, title, manifest, stamps).</span></li>
+<li><span class="node"><b>CI</b></span> <span class="role">— CodeBuild everywhere (no GitHub Actions); local pre-push gate replaces the trigger (#129).</span></li>
+<li><span class="node"><b>DAM origin</b></span> <span class="role">— S3 <span class="kbd">chasko-creative-dam-946179428633-us-east-1</span>, renders under <span class="kbd">brands/kodiak/renders/</span>, served presigned.</span></li>
+</ul>
+</div></div>
+</div></body></html>
