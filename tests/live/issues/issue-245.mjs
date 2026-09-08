@@ -51,14 +51,29 @@ export async function run(page, { baseUrl } = {}) {
   }
 
   // 3. Copy comes back retailer-framed and visible.
-  await page.waitForFunction(
-    () => {
-      const p = document.getElementById("campaignCopyPanel");
-      return p && p.querySelectorAll(".loc-line").length >= 2;
-    },
-    null,
-    { timeout: PANEL_TIMEOUT_MS },
-  );
+  const consoleErrors = [];
+  page.on("console", (m) => { if (m.type() === "error") consoleErrors.push(m.text().slice(0, 200)); });
+  page.on("pageerror", (e) => consoleErrors.push(String(e).slice(0, 200)));
+  try {
+    await page.waitForFunction(
+      () => {
+        const p = document.getElementById("campaignCopyPanel");
+        return p && p.querySelectorAll(".loc-line").length >= 2;
+      },
+      null,
+      { timeout: PANEL_TIMEOUT_MS },
+    );
+  } catch (e) {
+    const diag = await page.evaluate(() => ({
+      status: document.getElementById("generateCampaignStatus")?.textContent || null,
+      assetsHidden: document.getElementById("campaignAssetsSection")?.hidden ?? null,
+      genBtn: !!document.getElementById("genFullCampaign"),
+      headline: window.__lastCampaignHeadline ?? null,
+      sidecar: !!window.__lastCampaignSidecar,
+      version: document.querySelector('meta[name="kodiak-version"]')?.content || null,
+    }));
+    throw new Error(`no copy panel; diag=${JSON.stringify(diag)} console=${JSON.stringify(consoleErrors.slice(0, 5))}`);
+  }
   await page.unroute("**/generate").catch(() => {});
   assert(genBody && genBody.theme === "localized-costco",
     `campaign request carries retailer theme (${JSON.stringify(genBody && Object.keys(genBody))})`);
