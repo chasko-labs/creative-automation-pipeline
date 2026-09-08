@@ -451,8 +451,9 @@ def test_mapped_sku_with_seed_restyles_bg_before_verbatim_paste(tmp_path, monkey
     assert calls["prompt"] == "wild frontier restyle"
     assert prov["bg_restyle"] is True
     assert prov["packshot"] is not None and "705599" in prov["packshot"]
-    # the LAYOUT directive never reaches the rendered headline.
-    assert prov["headline"] == "Fuel frontier mornings"
+    # the LAYOUT directive never reaches the rendered headline; stock captions
+    # normalize to house style too.
+    assert prov["headline"] == "Fuel Frontier Mornings"
     assert "LAYOUT" not in (prov["headline"] or "")
     assert _distinct_colors(result) > 20
 
