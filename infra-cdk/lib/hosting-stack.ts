@@ -236,7 +236,10 @@ export class HostingStack extends cdk.Stack {
     }
 
     // ---- tags --------------------------------------------------------------
-    cdk.Tags.of(this).add("stack", "kodiak-creatives-hosting");
+    // import gate: CFN forbids Tag changes on IMPORT change sets; skip for
+    // the CDK_IMPORT_NOTAGS=1 import pass, normal deploys keep the tag.
+    if (!process.env.CDK_IMPORT_NOTAGS)
+      cdk.Tags.of(this).add("stack", "kodiak-creatives-hosting");
 
     // ---- outputs -------------------------------------------------------------
     this.siteBucketName = siteBucket.bucketName;

@@ -121,8 +121,13 @@ new BedrockLoggingStack(app, "KodiakCreativesBedrockLoggingUsWest2", {
 // per-stack stack= tags + the DAM brand=kodiak tag are added inside each stack.
 // the migrated L1 templates' repeated inline managed-by=cloudformation tag
 // arrays were stripped when lifting the stacks, so nothing conflicts here.
-for (const [k, v] of Object.entries(STANDARD_TAGS)) {
-  cdk.Tags.of(app).add(k, v);
+// IMPORT-SAFE (#202): stack-level tags break `cdk import` (CFN forbids Tag
+// changes on import change sets). Gated out only for the import pass via
+// CDK_IMPORT_NOTAGS=1; normal deploys keep the full tag set.
+if (process.env.CDK_IMPORT_NOTAGS !== "1") {
+  for (const [k, v] of Object.entries(STANDARD_TAGS)) {
+    cdk.Tags.of(app).add(k, v);
+  }
 }
 
 app.synth();
