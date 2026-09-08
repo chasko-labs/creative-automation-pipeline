@@ -20,6 +20,8 @@ from creative_automation import generate as generate_mod
 
 def _enable(monkeypatch):
     monkeypatch.setenv("KODIAK_DIRECTOR_GROUNDED", "true")
+    # isolate the per-container director memo: each test starts unmemoized.
+    monkeypatch.setattr(generate_mod, "_DIRECTOR_MEMO", {}, raising=False)
 
 
 def _lib_entry(id_, vec, caption):
@@ -266,6 +268,26 @@ def test_headline_for_prefers_director(monkeypatch):
     )
     assert headline == "Dawn Patrol Eats First"
     assert source == generate_mod._DIRECTOR_LIVE_SOURCE
+
+
+def test_director_headline_memoizes_second_call(monkeypatch):
+    # PROVEN IN PROD: hero_set runs the pipeline twice per pack with the same
+    # brief — the second run must be a free memo hit, not a repaid invoke.
+    _enable(monkeypatch)
+    monkeypatch.setattr(
+        director_memory, "retrieve", lambda q, k=3: ([{"id": "x", "caption": "Fuel your frontier mornings now"}], "nova")
+    )
+    calls = {"n": 0}
+
+    def _direct(*a, **k):
+        calls["n"] += 1
+        return _live_result("dawn patrol eats first")
+
+    monkeypatch.setattr(art_director, "art_direct_grounded", _direct)
+    first = generate_mod._director_headline_text("P", "wild mornings here", "us", "f")
+    second = generate_mod._director_headline_text("P", "wild mornings here", "us", "f")
+    assert first == second == "Dawn Patrol Eats First"
+    assert calls["n"] == 1
 
 
 def test_director_headline_no_examples_falls_back(monkeypatch):

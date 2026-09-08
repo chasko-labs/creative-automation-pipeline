@@ -1269,6 +1269,22 @@ def _director_headline_text(
     if not _director_enabled():
         _dnote("skip: kill-switch off")
         return None
+    # Memo (PROVEN IN PROD 2026-09-08): generate_hero_set runs the headline
+    # pipeline TWICE per pack (base hero + set headline) with the same brief —
+    # the second run re-pays embed + up to two voice invokes (~14s) and burns
+    # the 22s wall to rung D. Same inputs deterministically yield the same
+    # voice line, so memoize per warm container (capped FIFO). A memo hit costs
+    # ~0 and bypasses the budget gate + executor below. The kill-switch stays
+    # above the memo so an ops flip takes effect immediately.
+    global _DIRECTOR_MEMO
+    try:
+        _DIRECTOR_MEMO
+    except NameError:
+        _DIRECTOR_MEMO = {}
+    memo_key = (product_name, brief_msg, region, audience)
+    if memo_key in _DIRECTOR_MEMO:
+        _dnote("memo hit")
+        return _DIRECTOR_MEMO[memo_key]
     try:
         from . import art_director
         from . import director_memory
@@ -1327,11 +1343,15 @@ def _director_headline_text(
     try:
         fut = executor.submit(_attempt)
         try:
-            return fut.result(timeout=_DIRECTOR_TIMEOUT_S)
+            outcome = fut.result(timeout=_DIRECTOR_TIMEOUT_S)
         except Exception:
-            return None
+            outcome = None
     finally:
         executor.shutdown(wait=False)
+    _DIRECTOR_MEMO[memo_key] = outcome
+    while len(_DIRECTOR_MEMO) > 64:
+        _DIRECTOR_MEMO.pop(next(iter(_DIRECTOR_MEMO)))
+    return outcome
 
 
 def _wrap_headline(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont, max_w: int) -> list[str]:
