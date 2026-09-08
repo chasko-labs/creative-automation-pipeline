@@ -749,7 +749,8 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
     // update #marketLangLine to reflect this market's REAL top languages (Axis 3 requirement)
     if(langLine){
       const names = langs.map(l=>l.lang_name).filter(Boolean);
-      langLine.innerHTML = 'localized in languages: <b>'+esc(['English'].concat(names).join(', '))+'</b>';
+      // English is inferred (source language) — list only the generated others.
+      langLine.innerHTML = 'localized in languages: <b>'+esc(names.length ? names.join(', ') : 'English')+'</b>';
     }
 
     // === S12 — #featuredFrontier: FRAMING CONTEXT ONLY ===
@@ -760,12 +761,14 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
       const placeName = (p && (p.place || p.market)) ? (p.place || p.market) : market;
       const scene = (p && p.cue) ? p.cue : '';
       const names = langs.map(l=>l.lang_name).filter(Boolean);
-      const reach = esc(['English'].concat(names).join(', '));
+      const reach = esc(names.length ? names.join(', ') : 'English');
       const sceneHtml = scene ? '<span class="ff-cue">'+esc(scene)+'</span>' : '';
       // #257: metro markets link their featured frontier from data (via its own
       // entry, not the frontier's cue). Self-frontier markets already carry it.
+      // The link names the RURAL COUNTERPART to the urban market — a data pairing,
+      // never the viewer's location.
       const frontierLink = (typeof featuredFrontierFor==='function') ? featuredFrontierFor(market) : null;
-      const linkHtml = (frontierLink && frontierLink.frontier!==market) ? '<span class="ff-frontier-link">'+esc('featured frontier: '+frontierLink.text)+'</span>' : '';
+      const linkHtml = (frontierLink && frontierLink.frontier!==market) ? '<span class="ff-frontier-link">'+esc('featured frontier — the rural counterpart to this market: '+frontierLink.text)+'</span>' : '';
       featured.innerHTML =
         '<span class="ff-context-lead">This campaign, localized for</span> '+
         '<span class="ff-place">'+esc(placeName)+'</span>'+

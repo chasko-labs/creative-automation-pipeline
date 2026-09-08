@@ -61,7 +61,7 @@
       // #257: metro markets show their data-mapped featured-frontier linkage (via
       // their own mapping entry). Self-frontier markets already carry it in cue.
       var link = (typeof featuredFrontierFor==='function') ? featuredFrontierFor(market) : null;
-      var linkTxt = (link && link.frontier!==market) ? (' | hinterland frontier: ' + link.text) : '';
+      var linkTxt = (link && link.frontier!==market) ? (' | featured frontier (rural counterpart): ' + link.text) : '';
       featuredEl.textContent = cue ? ('Featured frontier: ' + cue + linkTxt) : (linkTxt ? ('Featured frontier: ' + link.text) : '');
     }
     if(langLine){
