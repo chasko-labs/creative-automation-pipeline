@@ -138,6 +138,11 @@ Resources:
                   - s3:PutObject
                   - s3:GetObject
                 Resource: arn:aws:s3:::chasko-creative-dam-946179428633-us-east-1/brands/kodiak/renders/*
+              - Sid: DamPacksWrite
+                Effect: Allow
+                Action:
+                  - s3:PutObject
+                Resource: arn:aws:s3:::chasko-creative-dam-946179428633-us-east-1/brands/kodiak/packs/*
       Tags:
         - Key: project
           Value: kodiak-creatives
