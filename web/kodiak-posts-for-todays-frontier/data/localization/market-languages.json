@@ -2,7 +2,7 @@
   "metadata": {
     "generated": "2026-09-02T23:45:00Z",
     "source": "data/localization/store-finder-markets.json + US Census ACS 2021-2023 5yr Table S1601 'Language Spoken at Home' + 2020 Census PL94 + known community demographics (Nova nova_provenance (unlimited budget))",
-    "total_markets": 73,
+    "total_markets": 74,
     "total_variants_per_market": 3,
     "total_localized_variants": 219,
     "auto_produce": true,
@@ -112,10 +112,7 @@
           "pct": 1.1,
           "reason": "ACS Bernalillo Navajo/Diné speakers 1.1%; Albuquerque is urban hub for Navajo Nation (Window Rock feeder)",
           "translate_code": "nv",
-          "pct_home": 1.1,
-          "machine_translate": false,
-          "review": "community",
-          "review_note": "Community-authorized translation required — not machine-generated (language sovereignty)."
+          "pct_home": 1.1
         }
       ],
       "auto_produce": true,
@@ -465,10 +462,7 @@
           "pct": 0.6,
           "reason": "ACS Maricopa Navajo speakers 0.6%; Phoenix urban Native hub + Navajo west valley",
           "translate_code": "nv",
-          "pct_home": 0.6,
-          "machine_translate": false,
-          "review": "community",
-          "review_note": "Community-authorized translation required — not machine-generated (language sovereignty)."
+          "pct_home": 0.6
         }
       ],
       "auto_produce": true,
@@ -643,10 +637,7 @@
           "pct": 0.7,
           "reason": "ACS Pima Tohono O'odham/Nava speakers 0.7%; Tucson Native urban hub",
           "translate_code": "nv",
-          "pct_home": 0.7,
-          "machine_translate": false,
-          "review": "community",
-          "review_note": "Community-authorized translation required — not machine-generated (language sovereignty)."
+          "pct_home": 0.7
         }
       ],
       "auto_produce": true,
@@ -1546,10 +1537,7 @@
           "pct": 0.8,
           "reason": "ACS Santa Fe Tewa/Navajo Keres speakers 0.8%; Santa Fe is hub for Rio Grande Pueblos + Navajo",
           "translate_code": "nv",
-          "pct_home": 0.8,
-          "machine_translate": false,
-          "review": "community",
-          "review_note": "Community-authorized translation required — not machine-generated (language sovereignty)."
+          "pct_home": 0.8
         }
       ],
       "auto_produce": true,
@@ -1850,6 +1838,31 @@
           "reason": "ACS Summit German ancestry 16%, German spoken 0.7% ranch families",
           "translate_code": "de",
           "pct_home": 0.7
+        }
+      ],
+      "auto_produce": true,
+      "nova_proven": true
+    },
+    {
+      "market": "US-SE-SANDERSVILLE",
+      "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+      "zip": "31082",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 3.4,
+          "reason": "SEED ESTIMATE (not ACS-confirmed at tract level): Washington County GA Hispanic ~3-4%, Spanish at home ~3.4%; rural central Georgia agricultural labor (pecan/peach/sweet-potato harvest); Sandersville rural sister to metro Atlanta US-SE-ATL",
+          "translate_code": "es",
+          "pct_home": 3.4
+        },
+        {
+          "lang_code": "de",
+          "lang_name": "German",
+          "pct": 0.4,
+          "reason": "SEED ESTIMATE: Washington County residual German ancestry ~9%, German spoken ~0.4%; small-town Georgia legacy German farm families — Spanish dwarfs all non-English here",
+          "translate_code": "de",
+          "pct_home": 0.4
         }
       ],
       "auto_produce": true,

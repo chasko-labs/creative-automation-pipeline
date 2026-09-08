@@ -2,7 +2,7 @@
   "metadata": {
     "generated": "2026-09-02T23:45:00Z",
     "source": "data/localization/store-finder-markets.json + US Census ACS 2021-2023 5yr Table S1601 'Language Spoken at Home' + 2020 Census PL94 + known community demographics (Nova nova_provenance (unlimited budget))",
-    "total_markets": 73,
+    "total_markets": 74,
     "total_variants_per_market": 3,
     "total_localized_variants": 219,
     "auto_produce": true,

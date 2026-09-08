@@ -16223,5 +16223,84 @@
     "ingredients": ["1 cup mix + 1 cup milk + 1 egg"],
     "dietary": [],
     "tags": ["frontier", "sitemap_blogs_1", "pagination"]
+  },
+  {
+    "id": "waffle-mac-n-cheese-grilled-cheese",
+    "name": "Waffle Mac 'n Cheese Grilled Cheese",
+    "category": "lunch & dinner",
+    "course": "lunch & dinner",
+    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
+    "base": "1/2 cup mix prepped per package + mac & cheese + cheddar, griddled",
+    "kodiak_page": "https://kodiakcakes.com/blogs/recipes/waffle-mac-n-cheese-grilled-cheese",
+    "image": "https://kodiakcakes.com/cdn/shop/articles/Kodiak_Waffle_Grilled_Cheese_Mac_n_Cheese_4.jpg",
+    "ingredients": [
+      "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix (prepped)",
+      "1/2 tablespoon butter",
+      "1 slice cheddar cheese",
+      "1/2 cup prepared macaroni and cheese"
+    ],
+    "instructions": [
+      "Heat a waffle iron and grease. Cook the prepared waffle batter in the waffle iron to make two waffles. Remove from the waffle iron when golden brown and let cool.",
+      "Heat a skillet to medium and grease with the butter.",
+      "Sandwich the two waffles with the slice of cheddar cheese and the half cup of mac and cheese. Place on the heated skillet and cook for about one to two minutes on each side, flipping when golden brown. Remove when cheese is melted.",
+      "Slice the sandwich in half with a bread knife and serve."
+    ],
+    "description": "This Grilled Waffle Mac 'n Cheese Sandwich lunch recipe is packing some serious gains. Cheesy mac 'n cheese sandwiched between crispy buttermilk waffles makes getting a hearty serving of protein and 100% whole grains way easier than balancing those busy back-to-school schedules.",
+    "dietary": ["high-protein"],
+    "tags": [
+      "course-lunch-dinner",
+      "waffle",
+      "grilled-cheese",
+      "mac-n-cheese",
+      "protein",
+      "whole-grain",
+      "kitchen-mccabe"
+    ],
+    "yield": "1",
+    "prepTime": "10 mins",
+    "cookTime": "10 mins",
+    "author": "Kitchen McCabe",
+    "datePublished": "2024-09-17T10:16:35-0600",
+    "nutrition": {
+      "@type": "NutritionInformation",
+      "calories": "525",
+      "fatContent": "19g",
+      "carbohydrateContent": "62g",
+      "proteinContent": "26g"
+    },
+    "localize": {
+      "peppers": "Hatch green chile stirred into the mac (Las Cruces), jalapeno (Austin)",
+      "cheeses": "Sharp cheddar (national), pepper jack (Southwest), oaxaca (border markets)",
+      "fruit": "Savory only \u2014 no fruit",
+      "story": "Griddled on a waffle iron, mac n cheese between crispy buttermilk waffles"
+    },
+    "art": "kodiak-02-cast-iron-frontier",
+    "localization_slots": [
+      "region",
+      "retailer",
+      "peppers",
+      "cheeses",
+      "fruit",
+      "photo_cue",
+      "audience"
+    ],
+    "example_localization": {
+      "Las Cruces NM Target": {
+        "peppers": "Hatch green chile roasted, diced into the mac",
+        "cheeses": "Oaxaca crumble",
+        "message": "Green chile mac meets grizzly \u2014 Las Cruces waffle grilled cheese",
+        "audience": "Green chile families 28-45"
+      },
+      "Albuquerque": {
+        "peppers": "Red chile",
+        "cheeses": "Cotija",
+        "message": "Red chile mac waffle grilled cheese"
+      },
+      "Austin TX": {
+        "peppers": "Jalapeno",
+        "cheeses": "Pepper jack",
+        "message": "Keep it weird \u2014 jalapeno mac waffle grilled cheese"
+      }
+    }
   }
 ]

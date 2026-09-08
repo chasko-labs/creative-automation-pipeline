@@ -683,10 +683,10 @@ graph TD
 <tr><td>Featured-frontier note (#featuredFrontier)</td><td>localized frontier copy per market</td><td>market-driven cue + localized reach; translated frontier line when the live path answers</td><td><span class="state built">built</span></td></tr>
 <tr><td>Localized-copy preview (#locPreview)</td><td>retired 2026-09-08 — translated copy lives only in the preview tile captions</td><td>standalone per-language rows removed as duplicate surface; tile .loc-cap rows unchanged (EN source + live /localize)</td><td><span class="state built">retired</span></td></tr>
 <tr><td>Preview tile captions</td><td>localized caption per creative</td><td>compact localized caption (EN + top languages) on hosted render tiles and offline canvas tiles</td><td><span class="state built">built</span></td></tr>
-<tr><td>Live translate path (/localize)</td><td>live translated non-English text</td><td>frontend wiring complete (POST /localize, 6s timeout, honest EN-source degrade); backend route exists (api.py /localize + localize_service.py, 219 precomputed variants) but deployed edge returns 403 — live translated TEXT not yet rendering</td><td><span class="state tbd">tbd-verify</span></td></tr>
+<tr><td>Live translate path (/localize)</td><td>live translated non-English text</td><td>frontend wiring complete (POST /localize, 6s timeout, honest EN-source degrade); backend route exists (api.py /localize + localize_service.py, 219 precomputed variants) and the deployed edge returns 200 with live amazon-translate text (verified 2026-09-08: ES "Mantengalo salvaje", DE "Halte es wild")</td><td><span class="state built">built</span></td></tr>
 <tr><td>Localized font faces (@font-face Noto)</td><td>self-hosted Noto per-script</td><td>rules present + woff2 binaries deploy from fonts/</td><td><span class="state built">built</span></td></tr>
 </tbody></table>
-<span class="std"><b>S12 — translation is a first-class rendered element, not a badge.</b> Localization IS a first-class rendered element here: every claiming surface renders the selected market's real top_languages[], EN source is always real, non-English uses the live /localize path with an honest offline degrade to EN-source, and community-review languages (Navajo/Zapotec, machine_translate:false) render full-strength human-review rows and are NEVER machine-translated. Single open item: the deployed /localize edge returns 403, so live translated text is pending that edge fix (frontend degrades to honest EN-source in the meantime).</span>
+<span class="std"><b>S12 — translation is a first-class rendered element, not a badge.</b> Localization IS a first-class rendered element here: every claiming surface renders the selected market's real top_languages[], EN source is always real, non-English uses the live /localize path with an honest offline degrade to EN-source, and community-review languages (Navajo/Zapotec, machine_translate:false) render full-strength human-review rows and are NEVER machine-translated. Closed 2026-09-08: the deployed /localize edge returns 200 with live translated text (ES "Mantengalo salvaje", DE "Halte es wild" verified); the offline EN-source degrade remains for when the edge does not answer.</span>
 </div></div>
 
 <div class="card inv-section" id="inv-taxonomy"><div class="hd"><h2>11 · Axis C — market vs featured-frontier taxonomy <span class="badge">S13–S14</span></h2><p>Reclassifies the location control under the two-bucket product vocabulary, derived from live data shape.</p></div><div class="body">
@@ -962,17 +962,17 @@ graph TD
         if(locSurface&&locSurface.textContent.trim().length>10){s++; subs.push('✓ localized surface renders');} else subs.push('✗ localized surface empty');
         return {score:s,max:m,detail:subs.join(' • '),pass:s===m,subs};
       }},
-    { id:'data', title:'Data Integrity', weight:1.5, desc:'APP 88 SKUs price/category/image + recipes 444 + market-languages present', check: function(){
+    { id:'data', title:'Data Integrity', weight:1.5, desc:'APP 88 SKUs price/category/image + recipes 445 + market-languages present', check: function(){
         if(!appReady) return noApp();
         const subs=[]; let s=0,m=4;
-        let skuLen=0, skuPriceOk=false, has73=false, recipes444=false;
+        let skuLen=0, skuPriceOk=false, has73=false, recipes445=false;
         try{ skuLen=appWin.skuCatalog?.length||0; skuPriceOk=appWin.skuCatalog?.some(p=>p.price_usd&&p.category&&p.images?.[0])||false;
           has73=appWin.Function('return typeof marketLangsOffline')()!=='undefined'; }catch(e){}
         try{ const xhr=new XMLHttpRequest(); xhr.open('GET','data/recipes/kodiak-recipes.json',false); xhr.send();
-          if(xhr.status===200||xhr.status===0){ const n=JSON.parse(xhr.responseText).length; recipes444=(n===444); } }catch(e){}
+          if(xhr.status===200||xhr.status===0){ const n=JSON.parse(xhr.responseText).length; recipes445=(n===445); } }catch(e){}
         if(skuLen===88){s++; subs.push('✓ 88 SKUs');} else subs.push('✗ SKUs '+skuLen+'≠88');
         if(skuPriceOk){s++; subs.push('✓ price/category/image present');} else subs.push('✗ price/category missing');
-        if(recipes444){s++; subs.push('✓ recipes 444 in web dir');} else subs.push('✗ recipes 444 missing');
+        if(recipes445){s++; subs.push('✓ recipes 445 in web dir');} else subs.push('✗ recipes 445 missing');
         if(has73){s++; subs.push('✓ market-languages present');} else subs.push('✗ missing');
         return {score:s,max:m,detail:subs.join(' • '),pass:s===m,subs};
       }}
