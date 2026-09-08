@@ -80,6 +80,13 @@ export class HostingStack extends cdk.Stack {
     // Public-website bucket: website hosting (index.html + error index.html),
     // public GetObject, SSE-S3, NO public-access block (all false, as live),
     // BucketOwnerEnforced, unversioned.
+    // CONVERGE DISCIPLINE (#268, learned 2026-09-08): NEVER delete-bucket-policy
+    // on this live bucket to clear the way for the policy CREATE -- CFN CREATE
+    // fails with "already exists" against ANY live policy, and every
+    // policy-less second is a user-facing 403 (three outages, all mine).
+    // Pre-stage converges with `cdk deploy --no-execute`, then delete + execute
+    // back-to-back; on ANY 403, restore the policy FIRST via
+    // docs/frontier-403-runbook.md and stop -- never fight an in-flight deploy.
     const siteBucket = new s3.Bucket(this, "FrontierSiteBucket", {
       bucketName: FRONTIER_BUCKET_NAME,
       encryption: s3.BucketEncryption.S3_MANAGED,
