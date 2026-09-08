@@ -18,11 +18,13 @@
   // reflect the combobox expanded state for assistive tech
   function setExpanded(open){ search.setAttribute('aria-expanded', open ? 'true' : 'false'); results.hidden = !open; }
 
-  // render up to 12 matching SKUs into the popover as role=option rows (thumb reused from the hidden host)
+  // mirror the hidden host's staged rows into the popover (thumb reused from the host).
+  // Deliberately NO independent filter here: the host (generate.js render) owns the single
+  // name+handle+category filter, so the popover can never disagree with it, blank on a
+  // category word like "power", or lag a keystroke behind. The host never blanks (no-match
+  // falls back to the first 12), so neither does the popover.
   function renderResults(){
-    var q = (search.value || '').toLowerCase().trim();
-    var all = boxes();
-    var matched = all.filter(function(b){ return !q || b.value.toLowerCase().indexOf(q) !== -1; }).slice(0, 12);
+    var matched = boxes().slice(0, 12);
     if(!matched.length){ setExpanded(false); results.innerHTML = ''; return; }
     results.innerHTML = '';
     matched.forEach(function(b){
@@ -78,9 +80,13 @@
     });
   }
 
+  // the host repaint (generate.js render) calls window.__syncProductPopover after every
+  // repaint, so the popover tracks the staged rows with no keystroke lag; expose the sync
+  // for that cross-file hook. The input listener stays as a backstop.
+  window.__syncProductPopover = function(){ renderResults(); };
   // combobox interactions
   search.addEventListener('input', renderResults);
-  search.addEventListener('focus', function(){ if(search.value) renderResults(); });
+  search.addEventListener('focus', renderResults);
   search.addEventListener('keydown', function(e){
     var opts = Array.prototype.slice.call(results.querySelectorAll('[role="option"]'));
     if(e.key === 'Escape'){ setExpanded(false); return; }
