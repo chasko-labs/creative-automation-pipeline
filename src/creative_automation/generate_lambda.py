@@ -648,8 +648,6 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     # market's top-3 languages (English + market top-2, EN/ES/PT default when the
     # market is unknown). The headline is the Nova Pro line when present, else the
     # incoming prompt. Offline-safe — never crashes the generate call.
-    market = data.get("market") or data.get("region", "us")
-    headline = (provenance or {}).get("headline") or prompt
     # Localization + platform copy are FRONTEND-owned in full mode: the app renders
     # localized captions live (KODIAK_locCaption + /localize seam) and the platform
     # panel skips gracefully on {}. Running 3 lang rewrites + 7 platform rewrites
@@ -667,7 +665,6 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     # the copy degrades to a deterministic on-brand template tagged
     # source="fallback" when no live Nova backend, exactly like the
     # localization path.
-    product_name = product.replace("-", " ").title()
     platform_copy = {}
     if isinstance(provenance, dict):
         provenance["platforms"] = list(platform_copy.keys())
