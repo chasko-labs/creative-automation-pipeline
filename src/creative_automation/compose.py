@@ -81,6 +81,45 @@ def _wrap_text(draw: ImageDraw.ImageDraw, text: str, font, max_width: int) -> li
     return lines
 
 
+def compose_partner_cutout(
+    bg: Image.Image,
+    cutout_path: Path | str,
+    side: str = "left",
+) -> Image.Image:
+    """Composite a licensed partner cutout (a PERSON, not a vibe) onto the scene.
+
+    The cutout is an approved transparent-background photo of the partner —
+    pasted VERBATIM with a soft drop shadow: NO cover-fit, NO scrim blend, NO
+    enhance, NO face synthesis. Not a single pixel of the person is generated
+    or altered; the scene is built AROUND them. Thirds placement mirrors the
+    product layer (person left, box right) so the two never collide.
+    Raises ValueError when the cutout lacks an alpha channel.
+    """
+    cut = Image.open(cutout_path).convert("RGBA")
+    if cut.getchannel("A").getextrema() == (255, 255):
+        raise ValueError(f"partner cutout must carry transparency: {cutout_path}")
+    W, H = bg.size
+    bar_top_frac = 0.68
+    max_w, max_h = W * 0.44, (H * bar_top_frac) * 0.86
+    scale = min(max_w / cut.width, max_h / cut.height)
+    cw, ch = max(1, int(cut.width * scale)), max(1, int(cut.height * scale))
+    cut = cut.resize((cw, ch), Image.BICUBIC)
+    anchor = 0.30 if side == "left" else 0.64
+    cx = min(max(int(W * anchor - cw / 2), 8), max(W - cw - 8, 8))
+    cy = min(max(int(H * 0.80 - ch), int(H * 0.06)), max(H - ch - 8, 8))
+    shadow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    sil = Image.new("RGBA", (cw, ch), (0, 0, 0, 102))
+    sil.putalpha(cut.split()[-1].point(lambda a: int(a * 0.40)))
+    shadow.paste(sil, (cx + 8, cy + 8), sil)
+    try:
+        shadow = shadow.filter(ImageFilter.GaussianBlur(12))
+    except Exception:
+        pass
+    bg = Image.alpha_composite(bg.convert("RGBA"), shadow).convert("RGB")
+    bg.paste(cut, (cx, cy), cut)
+    return bg
+
+
 def compose_creative(
     hero_path: Path,
     out_path: Path,
@@ -92,6 +131,7 @@ def compose_creative(
     product_layer: Path | None = None,
     bare: bool = False,
     placement: str = "center",
+    partner_cutout: Path | None = None,
 ) -> Path:
     """Produce a social creative at the requested ratio with message overlay.
 
@@ -105,6 +145,10 @@ def compose_creative(
     contract #200 — box set on the right-third vertical with its base near the lower
     safe area, so a selected product layer reads composed into the scene, never
     center-pasted). Default "center" keeps every existing caller byte-identical.
+
+    partner_cutout: when set, a licensed transparent-background photo of the partner
+    person is composited via compose_partner_cutout (verbatim, thirds-left). Default
+    None keeps every existing caller byte-identical.
     """
     key = CANONICAL.get(ratio_key, ratio_key)
     if key not in RATIOS and ratio_key not in RATIOS:
@@ -175,6 +219,14 @@ def compose_creative(
             bg.paste(box, (bx, by), box)
         except Exception as e:
             print(f"[compose] product layer composite failed: {e}", file=sys.stderr)
+
+    # partner-person layer — licensed cutout composited verbatim (thirds-left,
+    # box holds thirds-right). Never synthesized, never enhanced.
+    if partner_cutout is not None and Path(partner_cutout).exists():
+        try:
+            bg = compose_partner_cutout(bg, partner_cutout, side="left")
+        except Exception as e:
+            print(f"[compose] partner cutout composite failed: {e}", file=sys.stderr)
 
     draw = ImageDraw.Draw(bg, "RGBA")
 
