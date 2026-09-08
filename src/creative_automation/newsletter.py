@@ -12,11 +12,15 @@ MJML is emitted as XML; compile to HTML with mjml CLI or use render_html fallbac
 """
 from __future__ import annotations
 
+import inspect
 import json
+import logging
 from pathlib import Path
 from typing import Any
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+
+logger = logging.getLogger(__name__)
 
 TEMPLATE_DIR = Path(__file__).parent / "templates"
 TEMPLATE_NAME = "newsletter.mjml.j2"
@@ -64,7 +68,18 @@ def get_products_by_handles(handles: list[str] | None = None) -> list[dict[str, 
             img = imgs[0] if imgs else ""
             out.append({"handle": h, "name": p.get("name", h), "url": p.get("url", f"https://kodiakcakes.com/products/{h}"), "image": img, "price": p.get("price_usd", "")})
         else:
-            # fallback stub
+            # fallback stub for unknown handles — warn so placeholder rows never slip out silently
+            try:
+                stack = inspect.stack()
+                caller_frame = stack[1] if len(stack) > 1 else None
+                if caller_frame is not None:
+                    caller_ctx = f"{caller_frame.filename}:{caller_frame.lineno} in {caller_frame.function}"
+                else:
+                    caller_ctx = "unknown"
+                del stack
+            except Exception:
+                caller_ctx = "unknown"
+            logger.warning("newsletter fallback stub for unknown product handle=%r (caller=%s)", h, caller_ctx)
             out.append({"handle": h, "name": h.replace("-", " ").title(), "url": f"https://kodiakcakes.com/products/{h}", "image": "", "price": ""})
     return out
 
