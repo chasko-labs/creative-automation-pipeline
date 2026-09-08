@@ -771,6 +771,35 @@ let skuList = [
         tile.appendChild(meta);
         p.appendChild(tile);
       };
+      // Zac Efron timeout fallback — deterministic canvas ad with the Zac theme copy
+      // (athletic-morning energy, high-protein pre-trail fuel). Same drawAd pipeline as
+      // the offline notice, but the band reads FALLBACK CREATIVE so nobody mistakes it
+      // for the Nova Pro render. Does NOT set window.__lastHeroUrl (not downloadable
+      // as a generated hero) and carries no Nova Pro badge.
+      const drawZacFallback = (requestedSku, briefText)=>{
+        const p = document.getElementById('preview');
+        if(!p) return;
+        p.innerHTML = '';
+        const staleBadge = document.getElementById('genSourceBadge'); if(staleBadge) staleBadge.remove();
+        const sku = String(requestedSku || 'power-cakes');
+        const zacBrief = 'Zac Efron athletic-morning energy — high-protein pre-trail fuel. Keep It Wild. ' + (briefText || '');
+        const tile = document.createElement('div');
+        tile.className = 'tile';
+        tile.style.cssText = 'grid-column:1/-1;max-width:640px;margin:0 auto';
+        const c = document.createElement('canvas'); c.width=1080; c.height=1080; c.style.maxWidth='100%'; c.style.height='auto';
+        const ctx = c.getContext('2d');
+        try{ drawAd(ctx, 1080, 1080, zacBrief, {id:sku}, null); }catch(e){}
+        ctx.fillStyle='rgba(26,47,41,0.94)'; ctx.fillRect(0,0,1080,64);
+        ctx.fillStyle='#FFF8F0'; ctx.textAlign='center'; ctx.font='700 26px Inter,sans-serif';
+        ctx.fillText('FALLBACK CREATIVE — Zac Efron theme (server render pending)', 540, 42);
+        tile.appendChild(c);
+        const meta = document.createElement('div'); meta.className='meta';
+        meta.innerHTML = `<b>Zac Efron fallback ad — ${sku}</b><div class="small" style="color:#1A2F29">Bedrock timed out, so this deterministic Zac creative stands in. Reconnect and hit Create again for the full Nova Pro render.</div>`;
+        tile.appendChild(meta);
+        p.appendChild(tile);
+        openPreviewCard();
+        try{ if(typeof window.__kodiakRevealCampaign==='function') window.__kodiakRevealCampaign(); }catch(e){}
+      };
       // try OPENS before any timer is created so an early throw during skeleton/timer setup still
       // reaches the finally and clears the interval + timeouts (previously the try opened after the
       // timers were created, leaving an unguarded window where a throw would leak the elapsed-tick interval).
@@ -854,10 +883,20 @@ let skuList = [
         // stand-in — never styled or badged as the real generated campaign.
         console.warn('generate: no response from backend (total network loss) —', err && err.message ? err.message : err);
         const timedOut = err && (err.name==='AbortError');
-        try{ drawNetworkLossNotice(window.__requestedSku || primarySlug, brief); }catch(e){ console.warn('offline notice render failed', e); }
+        // Zac Efron fallback: people WILL pick Zac, so a Bedrock timeout must still
+        // produce a Zac campaign ad — deterministic canvas creative with the Zac theme
+        // copy, honestly badged as a fallback (never as a Nova Pro render). Reconnect
+        // for the full server render.
+        const wantsZac = (activeTheme === 'zac-efron') || /\bzac(\s+efron)?\b/i.test(brief);
+        try{
+          if(wantsZac){ drawZacFallback(window.__requestedSku || primarySlug, brief); }
+          else{ drawNetworkLossNotice(window.__requestedSku || primarySlug, brief); }
+        }catch(e){ console.warn('offline notice render failed', e); }
         if(status) status.textContent = timedOut
-          ? 'No response from the server (timed out) — offline preview shown; reconnect and try again'
-          : 'Could not reach the server — offline preview shown; reconnect and try again';
+          ? (wantsZac ? 'Server timed out — Zac Efron fallback ad shown; reconnect and try again for the full render'
+                      : 'No response from the server (timed out) — offline preview shown; reconnect and try again')
+          : (wantsZac ? 'Could not reach the server — Zac Efron fallback ad shown; reconnect and try again for the full render'
+                      : 'Could not reach the server — offline preview shown; reconnect and try again');
       }finally{
         clearTimeout(timeoutId);
         if(stageT1) clearTimeout(stageT1);

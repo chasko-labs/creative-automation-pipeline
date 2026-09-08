@@ -41,8 +41,11 @@ describe('scope cluster (#218, #236, #237, #223)', () => {
   it('#223: marketer-voice copy, no redundant title/sub, behavior untouched', () => {
     expect(html).toMatch(/How far this reaches/);
     expect(html).toMatch(/aria-label="How far this reaches"/);
-    expect(html).toMatch(/Nationwide \+ local versions/);
-    expect(html).toMatch(/One core campaign, adapted per market/);
+    // Full campaign is the hero of step 1: every market, retailer, theme, partner variant
+    expect(html).toMatch(/Full campaign/);
+    expect(html).toMatch(/Every market localized/);
+    expect(html).toMatch(/Zac Efron/);
+    expect(html).toMatch(/id="fullCampaignBanner"/);
     expect(html).not.toMatch(/Campaign scope/);
     expect(html).not.toMatch(/Nationwide \+ localized markets/);
     expect(html).not.toMatch(/National core, localized variants/);

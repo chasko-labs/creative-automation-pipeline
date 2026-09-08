@@ -17,7 +17,15 @@ const css = readFileSync(
 // same output card surface as the preview, full-width primary action.
 describe('campaign section prominence (#239)', () => {
   it('mounts the generate section on the shared output card', () => {
-    expect(sections).toMatch(/id="generateCampaignSection" class="ff-output ff-generate-campaign"/);
+    expect(sections).toMatch(/id="generateCampaignSection" class="ff-output ff-generate-campaign/);
+  });
+
+  it('gates the generate section on load: visible, button hidden, click explains the unlock', () => {
+    expect(sections).toMatch(/data-gated="true"/);
+    expect(sections).toMatch(/id="genFullCampaign" hidden/);
+    expect(sections).toMatch(/generate campaign to preview and approve, then try again/);
+    // ungate path: preview-ready reveals the button
+    expect(sections).toMatch(/btn\.hidden = false/);
   });
 
   it('mounts the assets section on the shared output card', () => {

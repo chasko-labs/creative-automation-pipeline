@@ -790,7 +790,7 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
     const langs = (typeof marketLangsFor==='function') ? marketLangsFor(market) : [];
     const seq = ++_capSeq;
     const jobs = [];
-    const rows = ['<span class="loc-line" lang="en" data-provider="source"><span class="loc-langtag">EN</span>'+esc(source)+'</span>'];
+    const rows = ['<span class="loc-line" lang="en" data-provider="source"><span class="loc-langtag">EN</span><span class="loc-txt">'+esc(source)+'</span></span>'];
     langs.forEach((l,i)=>{
       const code = (l.translate_code||l.lang_code||'').toLowerCase();
       const community = isCommunityReview(l, code);

@@ -18,17 +18,21 @@
   }
 
   // ---- build the two sections into the placeholder location ----
+  // The Generate Campaign section is VISIBLE on load (same card width/elevation as
+  // Output Preview) but GATED: the action button stays hidden until a preview exists
+  // to approve. Clicking the gated section says so instead of failing silently.
+  var GATED_MSG = 'generate campaign to preview and approve, then try again';
   function mountSections(){
     if(document.getElementById('generateCampaignSection')) return true;   // idempotent
     // anchor: the forest treeline divider that precedes the placeholder comment
     var forest = document.querySelector('.ff-forest');
     var wrap = document.createElement('div');
     wrap.innerHTML =
-      '<section id="generateCampaignSection" class="ff-output ff-generate-campaign" aria-labelledby="generateCampaignHeading" hidden>'+
-        '<h2 id="generateCampaignHeading" class="ff-output-heading">Generate Campaign</h2>'+
-        '<p class="hint" id="generateCampaignHint">Your preview is ready. Generate the full campaign — every ratio, every platform, localized to your chosen scope.</p>'+
+      '<section id="generateCampaignSection" class="ff-output ff-generate-campaign is-gated" aria-labelledby="generateCampaignHeading" data-gated="true">'+
+        '<h2 id="generateCampaignHeading" class="ff-output-heading">Generate Campaign <span class="badge" id="generateCampaignLock">locked until preview</span></h2>'+
+        '<p class="hint" id="generateCampaignHint">The full campaign unlocks after your first preview — every ratio, every platform, localized to your chosen scope.</p>'+
         '<div class="row" id="generateCampaignBtns" style="gap:10px;flex-wrap:wrap">'+
-          '<button type="button" class="btn orange ff-campaign-primary" id="genFullCampaign">Generate full campaign</button>'+
+          '<button type="button" class="btn orange ff-campaign-primary" id="genFullCampaign" hidden>Generate full campaign</button>'+
         '</div>'+
         '<div class="hint" id="generateCampaignStatus" role="status" aria-live="polite"></div>'+
       '</section>'+
@@ -46,16 +50,39 @@
       document.body.appendChild(wrap);
     }
     wireButtons();
+    wireGate();
     return true;
   }
 
-  // ---- reveal + scroll + pulse when a preview becomes ready ----
+  // Gated clicks (button hidden, section clicked) explain the unlock instead of nothing.
+  function wireGate(){
+    var sec = document.getElementById('generateCampaignSection');
+    if(!sec || sec.__gateWired) return;
+    sec.__gateWired = true;
+    sec.addEventListener('click', function(){
+      if(sec.getAttribute('data-gated') !== 'true') return;
+      var status = document.getElementById('generateCampaignStatus');
+      if(status) status.textContent = GATED_MSG;
+    });
+  }
+  try{ window.KODIAK_GATED_MSG = GATED_MSG; }catch(e){}
+
+  // ---- ungate + scroll + pulse when a preview becomes ready ----
   window.__kodiakRevealCampaign = function(){
     try{
       mountSections();
       var sec = document.getElementById('generateCampaignSection');
       if(!sec) return;
       if(sec.hidden){ sec.hidden = false; }
+      // ungate: same card, now actionable — button appears, hint flips to ready.
+      sec.setAttribute('data-gated', 'false');
+      sec.classList.remove('is-gated');
+      var lock = document.getElementById('generateCampaignLock');
+      if(lock) lock.hidden = true;
+      var btn = document.getElementById('genFullCampaign');
+      if(btn) btn.hidden = false;
+      var hint = document.getElementById('generateCampaignHint');
+      if(hint) hint.textContent = 'Your preview is ready. Generate the full campaign — every ratio, every platform, localized to your chosen scope.';
       ensurePulseStyle();
       // scroll into center so the user never has to hunt; pulse for attention (reduced-motion => no anim)
       try{ sec.scrollIntoView({behavior:'smooth', block:'center'}); }catch(e){ try{ sec.scrollIntoView(); }catch(e2){} }

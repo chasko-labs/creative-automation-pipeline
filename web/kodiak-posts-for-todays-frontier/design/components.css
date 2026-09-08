@@ -543,7 +543,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   padding:var(--spacing-md);background:var(--colors-neutral-100);border:1px solid var(--colors-border-default);
   border-radius:var(--radii-lg)}
 .ff-setup-heading{margin:0;font:800 15px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.02em;color:var(--chocolate)}
-.ff-setup-sub{margin:0;color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
 /* inside the guided step the blocks no longer need their own top separation — the section provides it */
 .ff-setup>.ff-scope-wrap,.ff-setup>.ff-controlrow{margin-top:0}
 .ff-setup>.ff-brainstorm{margin-top:0;background:transparent;border:none;border-radius:0;padding-top:0;padding-bottom:0}
@@ -802,6 +801,9 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
   unicode-range:U+3000-303F,U+3040-309F,U+30A0-30FF,U+3100-312F,U+31F0-31FF,U+3200-32FF,U+3400-4DBF,U+4E00-9FFF,U+AC00-D7AF,U+F900-FAFF,U+FF00-FFEF}
 
 .loc-line{font-family:'Noto Sans',system-ui,sans-serif;margin:.15rem 0;line-height:1.35}
+/* language tag always carries its own trailing gap so EN/ES/PT never glue onto the copy */
+.loc-langtag{display:inline-block;margin-right:.45em;font-weight:700}
+.loc-txt{display:inline}
 .loc-line[lang="ar"]{direction:rtl;text-align:right;font-family:'Noto Sans Arabic','Noto Sans',sans-serif}
 .loc-line[lang="am"]{font-family:'Noto Sans Ethiopic','Noto Sans',sans-serif}
 .loc-line[lang="my"]{font-family:'Noto Sans Myanmar','Noto Sans',sans-serif}
@@ -831,6 +833,33 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-output.ff-generate-campaign,.ff-output.ff-campaign-assets{max-width:960px;width:100%;margin-left:auto;margin-right:auto}
 /* the full-campaign action is the primary next step: full-width, larger target */
 #generateCampaignBtns .ff-campaign-primary{width:100%;justify-content:center;padding:14px 22px;font-size:13px}
+/* gated Generate Campaign: same card + elevation as Output Preview, compact on load.
+   Gated state reads locked (cursor + dimmed action row); the button itself is hidden
+   until a preview unlocks it, so there is no dead CTA on first paint. */
+/* Gated Generate Campaign: same card + elevation as Output Preview. The lock pill is
+   the system .badge (in markup, hidden on unlock); the button is hidden until then,
+   so there is no dead CTA on first paint. */
+.ff-output.ff-generate-campaign{cursor:pointer}
+.ff-output.ff-generate-campaign:not(.is-gated){cursor:default}
+#generateCampaignLock{margin-left:10px}
+/* .btn sets display:inline-flex, which beats the UA [hidden] rule — re-hide the gated action */
+#genFullCampaign[hidden]{display:none}
+/* Full-campaign scope option: the hero choice of step 1. Flag is the system .badge
+   (in markup); the option gets room for its longer sub-line. */
+.ff-scope-opt--full{flex-basis:220px}
+/* Full-campaign banner: prominent nature-ground callout, system tokens throughout. */
+.ff-full-banner{margin:8px 0 0;padding:10px 12px;border-radius:var(--radii-md,8px);
+  background:var(--colors-background-nature,#1A2F29);color:var(--colors-foreground-inverse,#FFF8F0);
+  font:600 12px/1.5 "museo-sans",sans-serif}
+.ff-full-banner[hidden]{display:none}
+/* full campaign covers steps 2-3: dim them to "already included", brief + Create stay live */
+.ff-setup[data-full="true"] .ff-controlrow,
+.ff-setup[data-full="true"] .ff-brainstorm{opacity:.55}
+.ff-setup[data-full="true"] .ff-inputwrap{opacity:1}
+/* about-pipeline range art: mountains + interspersed pines, same frontier green as the dividers */
+.ff-about-range{display:block;width:100%;max-height:120px;margin:2px 0 10px}
+/* wide screens: use the room instead of a narrow center column */
+@media(min-width:1400px){.wrap{max-width:1280px}}
 /* readout of what the current selections resolved to — sits at the top of the output surface */
 .ff-output-readout{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 12px;position:relative}
 .ff-output-readout .ff-featured{flex:0 1 auto;font:600 12px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-700)}
@@ -839,8 +868,12 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 /* === B3 — prompt-box autocomplete dropdown, anchored to the textarea wrap === */
 /* the input row is the positioning context for the suggestion listbox */
 .ff-inputwrap{position:relative}
-/* reuse the ff-products-results visual pattern; anchor under the textarea, full width of the input row */
-.ff-briefsuggest{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:40;max-height:280px;overflow-y:auto}
+/* reuse the ff-products-results visual pattern; anchor under the textarea, full width of the input row.
+   Own elevated surface (background + border + shadow) so location/product chips never float bare over the page. */
+.ff-briefsuggest{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:40;max-height:280px;overflow-y:auto;
+  background:var(--colors-neutral-50,#FDF6EC);border:1px solid var(--colors-border-strong,#D9CFC6);
+  border-radius:var(--radii-lg,12px);box-shadow:var(--shadows-md);padding:var(--spacing-xs,4px)}
+.ff-briefsuggest[hidden]{display:none}
 .ff-briefsuggest .ff-suggest-opt{display:flex;align-items:center;gap:8px;padding:8px 12px;cursor:pointer;font:500 13px/1.3 "museo-sans",sans-serif;color:var(--chocolate);border-bottom:1px solid var(--colors-neutral-100)}
 .ff-briefsuggest .ff-suggest-opt:last-child{border-bottom:none}
 .ff-briefsuggest .ff-suggest-opt:hover,.ff-briefsuggest .ff-suggest-opt[aria-selected="true"]{background:var(--oat)}

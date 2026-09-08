@@ -295,6 +295,8 @@
     if(!opts.length) return;
     var controlRow = document.querySelector('.ff-controlrow');
     var scopeNote = document.getElementById('marketScopeNote');
+    var fullBanner = document.getElementById('fullCampaignBanner');
+    var setupSection = document.querySelector('.ff-setup');
 
     // default from the pre-checked radio in markup (data-scope="local"); fall back to first option.
     var initial = opts.find(function(o){ return o.getAttribute('aria-checked') === 'true'; }) || opts[0];
@@ -303,6 +305,14 @@
     function applyScopeMode(scope){
       if(controlRow){ controlRow.setAttribute('data-scope-mode', scope); }
       if(scopeNote){ scopeNote.hidden = (scope !== 'nationwide'); }
+      // Full campaign (nationwide-localized) covers every choice below — banner on,
+      // setup flagged so steps 2-3 dim to "already included". Brief + Create stay live.
+      var full = (scope === 'nationwide-localized');
+      if(fullBanner){ fullBanner.hidden = !full; }
+      if(setupSection){
+        if(full){ setupSection.setAttribute('data-full', 'true'); }
+        else{ setupSection.removeAttribute('data-full'); }
+      }
     }
 
     function select(opt, focus){
@@ -317,7 +327,12 @@
       try{
         var sumEl = document.getElementById('scopeSummary');
         var titleEl = opt.querySelector('.ff-scope-opt-title');
-        if(sumEl && titleEl && titleEl.textContent) sumEl.textContent = titleEl.textContent.trim();
+        if(sumEl && titleEl){
+          var clone = titleEl.cloneNode(true);
+          var flag = clone.querySelector('.badge');
+          if(flag) flag.remove();
+          if(clone.textContent) sumEl.textContent = clone.textContent.trim();
+        }
       }catch(e){}
       if(focus){ try{ opt.focus(); }catch(e){} }
     }

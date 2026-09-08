@@ -131,7 +131,6 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
      heading + data-step badges only; every control keeps its id, role, and binding. -->
 <section class="ff-setup" aria-labelledby="ffSetupHeading">
   <h2 id="ffSetupHeading" class="ff-setup-heading">Set up your campaign</h2>
-  <p class="ff-setup-sub">Four quick choices, top to bottom — Create sits under your finished brief.</p>
 
   <!-- STEP 1: reach — the first and most important decision. Mutually-exclusive
        segmented control (WAI-ARIA radiogroup). Default = "local" (single market), which is
@@ -148,11 +147,11 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
     <div class="ff-scope-seg" role="presentation">
       <button type="button" class="ff-scope-opt" role="radio" aria-checked="false" data-scope="nationwide" tabindex="-1">
         <span class="ff-scope-opt-title">Nationwide</span>
-        <span class="ff-scope-opt-sub">One national campaign</span>
+        <span class="ff-scope-opt-sub">One national campaign, every platform</span>
       </button>
-      <button type="button" class="ff-scope-opt" role="radio" aria-checked="false" data-scope="nationwide-localized" tabindex="-1">
-        <span class="ff-scope-opt-title">Nationwide + local versions</span>
-        <span class="ff-scope-opt-sub">One core campaign, adapted per market</span>
+      <button type="button" class="ff-scope-opt ff-scope-opt--full" role="radio" aria-checked="false" data-scope="nationwide-localized" tabindex="-1">
+        <span class="ff-scope-opt-title">Full campaign <span class="badge">most complete</span></span>
+        <span class="ff-scope-opt-sub">Every market localized, recipe cards, every retailer, subscription, Bears, Keep It Wild, past-content riffs — with Zac Efron + US Ski &amp; Snowboard variants</span>
       </button>
       <button type="button" class="ff-scope-opt" role="radio" aria-checked="true" data-scope="local" tabindex="0">
         <span class="ff-scope-opt-title">Single market</span>
@@ -160,6 +159,7 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
       </button>
     </div>
   </div>
+  <p class="ff-full-banner" id="fullCampaignBanner" hidden>Full campaign covers every choice below — markets, retailers, themes, and partners are all included. Just write your idea and hit Create.</p>
   </details>
 
   <!-- STEP 2: market + season. B1: controls flow top-to-bottom; the prompt input is the culmination. -->
@@ -433,7 +433,7 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
 <!-- FIX 4: the standalone details-link row is removed; the canonical link now lives inside
      "About this tool" below as a styled .ff-doclinks affordance (renamed "Design System Inventory"). -->
 
-<details class="card wide-track ff-about" id="aboutTool"><summary>About This Automation Pipeline</summary><div class="body"><p class="ff-about__copy">Type one line, pick a starting point, and get a ready-to-post Kodiak campaign — images and copy sized for every social platform and retailer, localized to the market you choose. Three reference pages document how it works under the hood.</p>
+<details class="card wide-track ff-about" id="aboutTool"><summary>About This Automation Pipeline</summary><div class="body"><svg class="ff-about-range" viewBox="0 0 640 120" role="img" aria-label="Frontier mountain range with interspersed pines" aria-hidden="true" focusable="false"><g fill="#1A2F29"><path d="M0 120 L0 96 L60 40 L104 88 L150 30 L210 96 L258 52 L310 100 L360 44 L418 98 L470 36 L528 96 L580 56 L640 104 L640 120 Z" opacity=".28"/><path d="M0 120 L0 108 L84 58 L140 104 L200 62 L280 110 L340 70 L420 112 L490 66 L560 108 L640 78 L640 120 Z"/></g><g fill="#1A2F29"><path d="M52 108 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M128 112 l8-19 8 19 h-6 v9 h-4 v-9 Z"/><path d="M238 110 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M322 112 l8-19 8 19 h-6 v9 h-4 v-9 Z"/><path d="M448 110 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M540 112 l8-19 8 19 h-6 v9 h-4 v-9 Z"/><path d="M606 108 l7-16 7 16 h-5 v8 h-4 v-8 Z"/></g><g fill="#FFF8F0"><circle cx="150" cy="30" r="3"/><circle cx="470" cy="36" r="3"/><circle cx="360" cy="44" r="2.4"/></g></svg><p class="ff-about__copy">Type one line, pick a starting point, and get a ready-to-post Kodiak campaign — images and copy sized for every social platform and retailer, localized to the market you choose. Three reference pages document how it works under the hood.</p>
 <!-- doclinks group — the three pages nested under About This Automation Pipeline. -->
 <div class="ff-doclinks" role="group" aria-label="Reference documentation">
   <a href="details.html" class="ff-doclink-pill">Design System Inventory</a>
