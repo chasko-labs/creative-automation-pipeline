@@ -20,14 +20,76 @@ Safety is the last hop and non-negotiable: the returned text always runs through
 safety.check_text; anything flagged is redacted before return. Reuses localize.py's boto3
 client pattern (env-driven region, defensive import) and text_rewriter._has_creds() as the
 network-free gate before any live call.
+
+Brand-term policy (#244, decided 2026-09-08): slogans and marks never translate.
+BRAND_TERMS are preserved verbatim (canonical casing) in every localized string, and
+everything else translates around them. Enforcement is structural, not prompted:
+source text is split on the terms, only the gaps go to machine translation, and the
+canonical terms are spliced back — so compliance holds even when the MT engine would
+otherwise translate the slogan. Precomputed hits that mangled a source term are treated
+as stale and bypassed to live MT. The Bedrock prompt ALSO carries the instruction as
+best-effort, but the splice-back is the guarantee.
 """
 from __future__ import annotations
 
 import os
+import re
 import sys
+from collections.abc import Callable
 
 from . import localize_memory, safety
 from .text_rewriter import _has_creds
+
+# Brand terms (#244): registered slogans/marks that ship verbatim in every language.
+# Canonical casing is the policy — restoration always splices the canonical form.
+BRAND_TERMS: tuple[str, ...] = (
+    "Keep It Wild",
+    "Nourishment for Today's Frontier",
+    "KODIAK",
+)
+
+_TERM_PATTERN = re.compile(
+    "(" + "|".join(re.escape(t) for t in BRAND_TERMS) + ")", re.IGNORECASE
+)
+_TERM_CANONICAL = {t.lower(): t for t in BRAND_TERMS}
+
+
+def _terms_in(text: str) -> list[str]:
+    """Canonical brand terms present in text (case-insensitive), in first-seen order."""
+    seen: list[str] = []
+    for m in _TERM_PATTERN.finditer(text or ""):
+        canon = _TERM_CANONICAL[m.group(0).lower()]
+        if canon not in seen:
+            seen.append(canon)
+    return seen
+
+
+def translate_with_terms(text: str, translate_fn: Callable[[str], str | None]) -> str | None:
+    """Translate gaps around brand terms; splice canonical terms back verbatim.
+
+    translate_fn maps one gap string -> translated string (or None on failure).
+    Returns the recombined string, or None when every gap failed AND there is no
+    brand term to carry (caller falls back to the source text). A gap that fails
+    degrades to its source slice — never to a dropped term.
+    """
+    parts = _TERM_PATTERN.split(text)
+    out: list[str] = []
+    ok = False
+    for part in parts:
+        if not part:
+            continue
+        canon = _TERM_CANONICAL.get(part.lower())
+        if canon is not None and _TERM_PATTERN.fullmatch(part):
+            out.append(canon)
+            ok = True
+        else:
+            translated = translate_fn(part)
+            if translated:
+                out.append(translated)
+                ok = True
+            else:
+                out.append(part)
+    return "".join(out) if ok else None
 
 try:
     import boto3
@@ -89,11 +151,26 @@ def _amazon_translate(text: str, target_lang: str, source_lang: str = "en") -> s
         return None
 
 
+def _bedrock_prompt(text: str, target_lang: str, market: str) -> str:
+    """Pure prompt builder (testable): carries the brand-term instruction best-effort."""
+    terms = "; ".join(f'"{t}"' for t in BRAND_TERMS)
+    return (
+        f"Translate this social ad headline to the language with ISO code "
+        f"'{target_lang}' for market {market}. Preserve meaning and brand voice, "
+        f"keep it punchy. Never translate these brand terms — keep them verbatim "
+        f"in English exactly as written: {terms}. "
+        f"Return ONLY the translation, no quotes, no notes.\n"
+        f"Text: {text}"
+    )
+
+
 def _bedrock_translate(text: str, target_lang: str, market: str) -> str | None:
     """One Bedrock Converse call for a gap language (larger model for low-resource quality).
 
     Returns translated text or None on any failure. Explicit maxTokens + low temperature
     per skill guidance keeps the translation faithful rather than wandering.
+    The brand-term guarantee is structural (translate_with_terms splice-back at the
+    caller), not this prompt — the instruction here is best-effort only.
     """
     if boto3 is None:
         return None
@@ -104,16 +181,7 @@ def _bedrock_translate(text: str, target_lang: str, market: str) -> str | None:
             messages=[
                 {
                     "role": "user",
-                    "content": [
-                        {
-                            "text": (
-                                f"Translate this social ad headline to the language with ISO code "
-                                f"'{target_lang}' for market {market}. Preserve meaning and brand voice, "
-                                f"keep it punchy. Return ONLY the translation, no quotes, no notes.\n"
-                                f"Text: {text}"
-                            )
-                        }
-                    ],
+                    "content": [{"text": _bedrock_prompt(text, target_lang, market)}],
                 }
             ],
             inferenceConfig={"maxTokens": 512, "temperature": 0.2},
@@ -141,9 +209,13 @@ def localize(text: str, market: str, target_lang: str) -> dict:
         return _finish(text, source="original", provider="passthrough", lang=lang)
 
     # 1) PRECOMPUTED — the scale path. Most reads should hit here.
+    # Stale-hit guard (#244): a hit that mangled a source brand term predates the
+    # policy — bypass it to live MT rather than serve a translated slogan.
     hit = localize_memory.get_precomputed(text, market, lang)
     if hit:
-        return _finish(hit["text"], source=hit["source"], provider=hit["provider"], lang=lang)
+        hit_terms = _terms_in(hit.get("text", ""))
+        if all(t in hit_terms for t in _terms_in(text)):
+            return _finish(hit["text"], source=hit["source"], provider=hit["provider"], lang=lang)
 
     # 2c) ETHICS GUARD — never machine-translate Navajo (nv) or Zapotec (zip).
     #     Short-circuit BEFORE any transport call so no fake MT is ever produced.
@@ -156,9 +228,9 @@ def localize(text: str, market: str, target_lang: str) -> dict:
     if not _has_creds():
         return _finish(text, source="mock", provider="offline-dictionary", lang=lang)
 
-    # 2a) Amazon-Translate-supported languages
+    # 2a) Amazon-Translate-supported languages — gaps only, terms splice back (#244)
     if lang in AMAZON_TRANSLATE_LANGS:
-        translated = _amazon_translate(text, lang)
+        translated = translate_with_terms(text, lambda seg: _amazon_translate(seg, lang))
         if translated:
             return _finish(translated, source="live", provider="amazon-translate", lang=lang)
         # transport failure — fall through to the offline mock rather than silent-fail
@@ -166,7 +238,9 @@ def localize(text: str, market: str, target_lang: str) -> dict:
 
     # 2b) machine-able gap languages — Bedrock, flagged lower-confidence
     if lang in BEDROCK_GAP_LANGS:
-        translated = _bedrock_translate(text, lang, market)
+        translated = translate_with_terms(
+            text, lambda seg: _bedrock_translate(seg, lang, market)
+        )
         if translated:
             return _finish(
                 translated, source="live", provider="bedrock", lang=lang, low_confidence=True

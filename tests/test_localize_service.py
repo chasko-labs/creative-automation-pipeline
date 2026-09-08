@@ -12,7 +12,9 @@ from creative_automation import localize_memory, localize_service
 from creative_automation.localize_service import localize
 
 MARKET = "US-SW-LASCRUCES"
-BASE = "Nourishment for Today's Frontier"
+# NOTE (#244): this fixture is deliberately brand-term-free so these tests pin
+# the routing/fallback/safety contract, not the term policy (see test_brand_terms.py).
+BASE = "Protein for the morning rush"
 
 
 def _no_precompute(monkeypatch):
@@ -29,7 +31,7 @@ def test_precomputed_hit_returns_provider_precomputed(monkeypatch):
     # a DynamoDB hit short-circuits before any live call
     def fake_get(text, market, lang):
         assert (text, market, lang) == (BASE, MARKET, "es")
-        return {"text": "Nutrición para la Frontera de Hoy", "provider": "precomputed", "source": "dynamodb"}
+        return {"text": "Proteína para la prisa matutina", "provider": "precomputed", "source": "dynamodb"}
 
     monkeypatch.setattr(localize_service.localize_memory, "get_precomputed", fake_get)
     # guard: no live path may fire on a precompute hit
@@ -40,7 +42,7 @@ def test_precomputed_hit_returns_provider_precomputed(monkeypatch):
     assert res["provider"] == "precomputed"
     assert res["source"] == "dynamodb"
     assert res["lang"] == "es"
-    assert res["text"] == "Nutrición para la Frontera de Hoy"
+    assert res["text"] == "Proteína para la prisa matutina"
 
 
 def test_supported_lang_miss_routes_to_amazon_translate(monkeypatch):
@@ -50,7 +52,7 @@ def test_supported_lang_miss_routes_to_amazon_translate(monkeypatch):
 
     def fake_translate(text, lang, source_lang="en"):
         called["lang"] = lang
-        return "Nutrición para la Frontera de Hoy"
+        return "Proteína para la prisa matutina"
 
     monkeypatch.setattr(localize_service, "_amazon_translate", fake_translate)
     # bedrock must NOT be called for an Amazon-Translate-supported lang
