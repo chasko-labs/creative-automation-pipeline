@@ -2,62 +2,157 @@
   "version": 1,
   "origin": "https://d37333alc7ojpl.cloudfront.net/",
   "gate_bypass": "?cakes=1",
-  "note": "All check urls carry the headless gate bypass (?cakes=1 seeds sessionStorage so the password gate never mounts). Live URLs only — no localhost.",
-  "viewports": {"desktop": [1440, 900], "mobile": [390, 844]},
+  "note": "All check urls carry the headless gate bypass (?cakes=1 seeds sessionStorage so the password gate never mounts). Live URLs only \u2014 no localhost.",
+  "viewports": {
+    "desktop": [
+      1440,
+      900
+    ],
+    "mobile": [
+      390,
+      844
+    ]
+  },
   "checks": [
     {
-      "id": "n2-header-texture", "issue": 17,
+      "id": "n2-header-texture",
+      "issue": 17,
       "url": "https://d37333alc7ojpl.cloudfront.net/?cakes=1",
       "viewport": "all",
-      "assert": {"type": "header-background-flat"},
-      "evidence": ["screenshot", "header-outerhtml", "computed-style"]
+      "assert": {
+        "type": "header-background-flat"
+      },
+      "evidence": [
+        "screenshot",
+        "header-outerhtml",
+        "computed-style"
+      ]
     },
     {
-      "id": "n3-header-top", "issue": 18,
+      "id": "n3-header-top",
+      "issue": 18,
       "url": "https://d37333alc7ojpl.cloudfront.net/?cakes=1",
       "viewport": "all",
-      "assert": {"type": "header-top", "max_top_px": 10},
-      "evidence": ["screenshot", "header-rect"]
+      "assert": {
+        "type": "header-top",
+        "max_top_px": 10
+      },
+      "evidence": [
+        "screenshot",
+        "header-rect"
+      ]
     },
     {
-      "id": "n4-scaffold-strings", "issue": 19,
+      "id": "n4-scaffold-strings",
+      "issue": 19,
       "url": "https://d37333alc7ojpl.cloudfront.net/?cakes=1",
       "viewport": "all",
-      "assert": {"type": "absent-strings", "scope": "body-text",
-        "strings": ["v0.4.1", "open console for MOTD", "Ask Bryan for the password"]},
-      "evidence": ["screenshot", "hit-list"]
+      "assert": {
+        "type": "absent-strings",
+        "scope": "body-text",
+        "strings": [
+          "v0.4.1",
+          "open console for MOTD",
+          "Ask Bryan for the password"
+        ]
+      },
+      "evidence": [
+        "screenshot",
+        "hit-list"
+      ]
     },
     {
-      "id": "n5-marquee", "issue": 20,
+      "id": "n5-marquee",
+      "issue": 20,
       "url": "https://d37333alc7ojpl.cloudfront.net/?cakes=1",
       "viewport": "all",
-      "assert": {"type": "no-marquee"},
-      "evidence": ["screenshot", "element-query"]
+      "assert": {
+        "type": "no-marquee"
+      },
+      "evidence": [
+        "screenshot",
+        "element-query"
+      ]
     },
     {
-      "id": "n7-audience", "issue": 21,
+      "id": "n7-audience",
+      "issue": 21,
       "url": "https://d37333alc7ojpl.cloudfront.net/?cakes=1",
       "viewport": "all",
-      "assert": {"type": "absent-strings", "scope": "body-text",
-        "strings": ["Aaron Robinson", "Madison Roberts", "Eli Curtis", "Ali Fluke", "Ashley La Barbera", "Open 23 profiles"]},
-      "evidence": ["screenshot", "hit-list"]
+      "assert": {
+        "type": "absent-strings",
+        "scope": "body-text",
+        "strings": [
+          "Aaron Robinson",
+          "Madison Roberts",
+          "Eli Curtis",
+          "Ali Fluke",
+          "Ashley La Barbera",
+          "Open 23 profiles"
+        ]
+      },
+      "evidence": [
+        "screenshot",
+        "hit-list"
+      ]
     },
     {
-      "id": "dead-buttons", "issue": 30,
+      "id": "dead-buttons",
+      "issue": 30,
       "url": "https://d37333alc7ojpl.cloudfront.net/?cakes=1",
       "viewport": "all",
-      "assert": {"type": "create-cascades",
-        "dead_copy": ["wiring pending", "POST /suggest/run", "POST /enhance/hero"]},
-      "evidence": ["screenshot", "preview-count", "sample-status"]
+      "assert": {
+        "type": "create-cascades",
+        "dead_copy": [
+          "wiring pending",
+          "POST /suggest/run",
+          "POST /enhance/hero"
+        ]
+      },
+      "evidence": [
+        "screenshot",
+        "preview-count",
+        "sample-status"
+      ]
     },
     {
-      "id": "arch-copy", "issue": 31,
+      "id": "arch-copy",
+      "issue": 31,
       "url": "https://d37333alc7ojpl.cloudfront.net/?cakes=1",
       "viewport": "all",
-      "assert": {"type": "about-clean",
-        "strings": ["Linda Film Crew", "auto-contrast", "VariantSpec", "grading spec", "international write date"],
-        "link": "a[href=\"details.html\"]"},
-      "evidence": ["screenshot", "hit-list", "link-present"]
+      "assert": {
+        "type": "about-clean",
+        "strings": [
+          "Linda Film Crew",
+          "auto-contrast",
+          "VariantSpec",
+          "grading spec",
+          "international write date"
+        ],
+        "link": "a[href=\"details.html\"]"
+      },
+      "evidence": [
+        "screenshot",
+        "hit-list",
+        "link-present"
+      ]
+    },
+    {
+      "id": "rung-gate",
+      "issue": 173,
+      "url": "https://d37333alc7ojpl.cloudfront.net/?cakes=1",
+      "viewport": "desktop",
+      "assert": {
+        "type": "generate-rung",
+        "allow": [
+          "A",
+          "B"
+        ]
+      },
+      "evidence": [
+        "screenshot",
+        "rung-badge"
+      ]
     }
   ]
 }

@@ -399,11 +399,12 @@ let skuList = [
         meta.innerHTML = `<b>KODIAK® composed hero</b><div class="small">${prodLine}source: ${label} · ${selectedLoc.market}${themeLine} · ${brief.slice(0,80)}</div>`;
         tile.appendChild(meta);
         preview.appendChild(tile);
-        // source badge above the preview
+        // source badge above the preview — provenance-driven, fallbacks flagged (#173)
         let badge = document.getElementById('genSourceBadge');
         if(!badge){ badge=document.createElement('span'); badge.id='genSourceBadge'; badge.className='badge'; preview.parentNode?.insertBefore(badge, preview); }
-        badge.textContent = opts.theme ? ('source: ' + label + ' · theme: ' + (opts.themeLabel || opts.theme)) : ('source: ' + label);
-        badge.style.cssText = 'display:inline-block;margin:0 0 8px;padding:2px 8px;border-radius:6px;font-size:11px;color:#FFF8F0;background:#1A3C34';
+        const rb = rungBadge(source, opts.provenance);
+        paintRungBadge(badge, rb);
+        if(opts.themeLabel || opts.theme) badge.textContent += ' · theme: ' + (opts.themeLabel || opts.theme);
         revealDownloadActions();
         try{ if(typeof window.__kodiakRevealCampaign==='function') window.__kodiakRevealCampaign(); }catch(e){}
       };
@@ -418,6 +419,27 @@ let skuList = [
       const ENGINE_LABELS = {
         'stability-control-structure':'Control-structure restyle (Stability)',
         'pillow-compose':'Pillow compose (brand overlay)'
+      };
+      // Unit 2 (#173) — honest rung badge. Provenance drives the label; any
+      // fallback rung (C/D or a fallthrough_reason) gets flagged, never silently
+      // relabeled "Nova Pro". Fallback sightings become counted facts.
+      const RUNG_LABELS = {
+        'A':'Rung A · packshot verbatim',
+        'B':'Rung B · Stability restyle',
+        'C':'Rung C · Pillow fallback',
+        'D':'Rung D · brand-floor fallback'
+      };
+      const rungBadge = (source, prov)=>{
+        prov = prov || {};
+        const rung = prov.rung || '';
+        const fallback = !!prov.fallthrough_reason || rung==='C' || rung==='D';
+        const base = RUNG_LABELS[rung] || ((source && String(source).toLowerCase().includes('bedrock')) ? 'Nova Pro' : (source || 'Nova Pro'));
+        const text = (fallback ? 'Fallback — ' : '') + base + (prov.fallthrough_reason ? ' (' + prov.fallthrough_reason + ')' : '');
+        return {text:text, fallback:fallback};
+      };
+      const paintRungBadge = (badge, rb)=>{
+        badge.textContent = rb.text;
+        badge.style.cssText = 'display:inline-block;margin:0 0 8px;padding:2px 8px;border-radius:6px;font-size:11px;color:#FFF8F0;background:' + (rb.fallback ? '#B51E14' : '#1A3C34');
       };
       const escapeHtml = (s)=> String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
       // TASK 1 — render THREE labeled tiles (one per ratio) at real aspect ratio; records the 1x1 as the hero.
@@ -466,12 +488,12 @@ let skuList = [
         // hero download targets the 1x1 (primary) render
         const primary = renders.find(r=>r.ratio==='1x1') || renders[0];
         if(primary) window.__lastHeroUrl = primary.image_url;
-        // source badge above the preview
-        const label = (opts.source && String(opts.source).toLowerCase().includes('bedrock')) ? 'Nova Pro' : (opts.source || 'Nova Pro');
+        // source badge above the preview — provenance-driven, fallbacks flagged (#173)
         let badge = document.getElementById('genSourceBadge');
         if(!badge){ badge=document.createElement('span'); badge.id='genSourceBadge'; badge.className='badge'; preview.parentNode?.insertBefore(badge, preview); }
-        badge.textContent = opts.themeLabel ? ('source: ' + label + ' · theme: ' + opts.themeLabel) : ('source: ' + label);
-        badge.style.cssText = 'display:inline-block;margin:0 0 8px;padding:2px 8px;border-radius:6px;font-size:11px;color:#FFF8F0;background:#1A3C34';
+        const rb2 = rungBadge(opts.source, opts.provenance);
+        paintRungBadge(badge, rb2);
+        if(opts.themeLabel) badge.textContent += ' · theme: ' + opts.themeLabel;
         revealDownloadActions();
         try{ if(typeof window.__kodiakRevealCampaign==='function') window.__kodiakRevealCampaign(); }catch(e){}
       };
@@ -653,12 +675,12 @@ let skuList = [
           const readyTheme = (json.theme || activeTheme) ? (' · theme: ' + readyThemeLabel) : '';
           if(Array.isArray(json.renders) && json.renders.length){
             // NEW backend: three real sizes — render all three labeled tiles.
-            showRenderSet(json.renders, {source: json.source, themeLabel: readyThemeLabel});
+            showRenderSet(json.renders, {source: json.source, themeLabel: readyThemeLabel, provenance: json.provenance});
             const n = json.renders.length;
             if(status) status.textContent = 'Campaign preview ready — ' + n + ' sizes composed from ' + (json.source || 'Nova Pro') + readyTheme;
           } else {
             // OLDER backend (no renders array): fall back to the single-hero behavior.
-            showRealImage(json.image_url, json.source, {theme: json.theme || activeTheme || null, themeLabel: json.theme ? (THEME_LABELS[json.theme] || json.theme) : themeLabel});
+            showRealImage(json.image_url, json.source, {theme: json.theme || activeTheme || null, themeLabel: json.theme ? (THEME_LABELS[json.theme] || json.theme) : themeLabel, provenance: json.provenance});
             if(status) status.textContent = 'Campaign preview ready — one real composed hero from ' + (json.source || 'Nova Pro') + readyTheme;
           }
           // provenance transparency panel (renders whenever the backend supplies it)
@@ -678,7 +700,7 @@ let skuList = [
             const slug = slugify(name);
             try{
               const json = await oneGenerate(slug, undefined);
-              showRealImage(json.image_url, json.source, {append:true, grid:true, productName:name});
+              showRealImage(json.image_url, json.source, {append:true, grid:true, productName:name, provenance: json.provenance});
               okCount++;
               if(!firstDone){ firstDone = true; window.__lastHeroUrl = json.image_url; }
             }catch(e){
