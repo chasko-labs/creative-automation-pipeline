@@ -170,6 +170,11 @@
   try{
     var resetBtn = document.getElementById('resetDefaults');
     if(resetBtn) resetBtn.addEventListener('click', resetToDefaults);
+    // re-render the source line on live market changes (#213) — without this it names
+    // the load-time market forever while the rest of the UI moves on.
+    document.addEventListener('change', function(e){
+      if(e.target && e.target.id === 'locality'){ try{ renderMarketSource(null); }catch(_){} }
+    });
   }catch(e){}
 
   // provenance note: which market is active and where it came from, with a one-click reset
@@ -207,8 +212,10 @@
           }catch(e){}
         });
         el.appendChild(reset);
-      } else {
+      } else if(cur === DEFAULT_MARKET){
         el.textContent = 'Market: ' + place + ' — Park City default';
+      } else {
+        el.textContent = 'Market: ' + place;
       }
     }catch(e){}
   }

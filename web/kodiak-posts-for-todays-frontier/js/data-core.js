@@ -575,7 +575,10 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
   function select(market){
     const p = places.find(x=>x.market===market); if(!p) return;
     const loc = document.getElementById('locality');
-    if(loc){ loc.value=market; loc.dispatchEvent(new Event('change')); }
+    // bubbles:true — the document-level change listener (market-disclosure.js) drives
+    // reflectMarket + brief footer + market source line from this event. Without bubbles
+    // the dropdown relabels itself but all derived state stays on the previous market (#213).
+    if(loc){ loc.value=market; loc.dispatchEvent(new Event('change', {bubbles:true})); }
     if(typeof onLocality==='function') try{ onLocality(); }catch(e){}
     markSelected(market);
     if(btnLabel) btnLabel.textContent = shortName(p);
