@@ -159,6 +159,10 @@
       try{ if(typeof window.updateLocalFlavor === 'function') window.updateLocalFlavor(); }catch(e){}
       // drop the saved snapshot so the cleared state (not the dirt) is what persists
       try{ window.__kodiakClearFFState(); }catch(e){}
+      // #250: the X-clicks above no-op on stale chips (boxes destroyed by a host
+      // re-filter), so re-sync the tray from the live boxes — otherwise removed
+      // products stay painted as staged even though storage just went clean.
+      try{ if(typeof window.__kodiakSyncSkuChips==='function') window.__kodiakSyncSkuChips(); }catch(e){}
       dirty = true; persist(); dirty = false;
       renderMarketSource(null);
     }catch(e){}

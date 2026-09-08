@@ -14,6 +14,16 @@
   function boxes(){ return Array.prototype.slice.call(chooser.querySelectorAll('.sku-check')); }
   function checkedBoxes(){ return boxes().filter(function(b){ return b.checked; }); }
   function boxFor(value){ return boxes().find(function(b){ return b.value===value; }) || null; }
+  function removeSkuChip(value){
+    // Drop the tray chip(s) for a value regardless of host state. A chip whose
+    // box was destroyed by a host re-filter is a stale claim — leaving it makes
+    // the X a silent no-op (#250). Truth lives in the live boxes; the chip is void.
+    try{
+      Array.prototype.slice.call(tray.querySelectorAll('.ff-pending-chip[data-sku]')).forEach(function(c){
+        if(c.dataset && c.dataset.sku===value && typeof c.remove==='function') c.remove();
+      });
+    }catch(e){}
+  }
 
   // reflect the combobox expanded state for assistive tech
   function setExpanded(open){ search.setAttribute('aria-expanded', open ? 'true' : 'false'); results.hidden = !open; }
@@ -46,7 +56,14 @@
   // toggle a SKU via its hidden checkbox so the existing change-delegation (3-cap, hint) runs unchanged
   function toggleSku(value){
     var b = boxFor(value);
-    if(!b) return;
+    if(!b){
+      // #250: the box is gone from the host (a re-filter destroyed it) but the
+      // stale chip remains — the X voids that one claim only. No tray re-sync
+      // here: sibling stale chips record surviving intent (their boxes may come
+      // back via another filter); reset owns the bulk truth-sync instead.
+      removeSkuChip(value);
+      return;
+    }
     if(!b.checked && checkedBoxes().length >= 3){
       var hint = document.getElementById('skuHint');
       if(hint){ hint.textContent = 'Max 3 — remove one first'; }
@@ -54,9 +71,13 @@
     }
     b.checked = !b.checked;
     b.dispatchEvent(new Event('change', {bubbles:true}));
+    removeSkuChip(value);
     syncSkuChips();
     renderResults();
   }
+  // #250: let resetToDefaults re-sync the tray after unchecking — a repaint from
+  // live boxes is the only honest chip state (stale chips must not survive reset).
+  try{ window.__kodiakSyncSkuChips = syncSkuChips; }catch(e){}
 
   // render one removable chip per selected SKU into the SHARED tray (same treatment as staged uploads)
   function syncSkuChips(){
