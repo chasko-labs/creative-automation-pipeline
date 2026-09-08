@@ -96,9 +96,18 @@ let skuList = [
       const loc = document.getElementById('locality')?.value || sel;
       if(loc) market = loc;
     }catch(e){}
-    const txt = flavorMap[market] || flavorMap._default;
+    // Artisanal copy first, then the 73-market places table (every market carries a
+    // real message + cue), generic only when the market is genuinely unknown. The old
+    // chain fell to generic for 68 of 73 markets.
+    let txt = flavorMap[market];
+    if(!txt){
+      try{
+        const p = (typeof places!=='undefined' ? places : []).find(function(x){ return x && x.market === market; });
+        if(p && (p.message || p.cue)) txt = (p.place ? p.place + ' — ' : '') + (p.message || p.cue);
+      }catch(e){}
+    }
     const el = document.getElementById('localFlavorText');
-    if(el) el.innerHTML = txt;
+    if(el) el.innerHTML = txt || flavorMap._default;
   };
   setTimeout(updateLocalFlavor, 800);
   document.addEventListener('change', e=>{ if(e.target?.id==='locality') updateLocalFlavor(); });

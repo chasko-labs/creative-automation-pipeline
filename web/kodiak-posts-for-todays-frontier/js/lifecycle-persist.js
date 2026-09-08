@@ -32,6 +32,14 @@
     try{ snap.season   = document.getElementById('seasonalSelect')?.value; }catch(e){}
     try{ snap.skus     = checkedSkus(); }catch(e){}
     try{ snap.userAssetNames = (window.__userAssets || []).map(function(a){ return a && a.name; }).filter(Boolean); }catch(e){}
+    // staged DAM picks rehydrate by KEY (small strings, re-fetchable server-side) —
+    // presigned urls and blob object urls never survive a discard, so only the key
+    // travels. Local file uploads have no key and keep the names-only re-add note.
+    try{
+      snap.userDamAssets = (window.__userAssets || [])
+        .filter(function(a){ return a && a.source === 'dam' && a.key; })
+        .map(function(a){ return {name: a.name, key: a.key, category: a.category, kind: a.kind}; });
+    }catch(e){}
     return snap;
   }
 
@@ -56,7 +64,7 @@
       var prev = readStored() || {};
       var snap = readSnapshot();
       // identical state (modulo timestamps) -> skip the write so ts/born never refresh.
-      var prevBare = {brief:prev.brief, locality:prev.locality, season:prev.season, skus:prev.skus, userAssetNames:prev.userAssetNames};
+      var prevBare = {brief:prev.brief, locality:prev.locality, season:prev.season, skus:prev.skus, userAssetNames:prev.userAssetNames, userDamAssets:prev.userDamAssets};
       if(sameSnap(prevBare, snap)) return;
       snap.ts = Date.now();
       snap.born = (typeof prev.born === 'number') ? prev.born : snap.ts;  // absolute lifetime: first persist wins
@@ -70,6 +78,9 @@
   // explicit user gestures that make the snapshot worth keeping. Restore-time programmatic
   // events are suppressed via the restoring guard.
   function markDirty(){ if(!restoring){ dirty = true; } }
+  // staging lives in prompt-chips.js (another IIFE) — chips and removals must mark
+  // dirty or the snapshot never captures them. Guarded read at call time.
+  window.__kodiakMarkDirty = function(){ markDirty(); };
   try{
     document.addEventListener('change', function(e){
       var t = e.target;
@@ -104,6 +115,58 @@
       else document.body.appendChild(note);
     }catch(e){}
   }
+
+  // restored-picks note: DAM picks came back by key and work at the next Create.
+  function showRestoredNote(names){
+    try{
+      if(document.getElementById('ffAssetRestoredNote')) return;   // idempotent
+      var note = document.createElement('div');
+      note.id = 'ffAssetRestoredNote';
+      note.setAttribute('role', 'status');
+      note.style.cssText = 'margin:6px 0 0;font:500 12px/1.4 system-ui,-apple-system,sans-serif;color:#1A3C34';
+      note.textContent = 'Restored ' + names.length + ' staged pick' + (names.length > 1 ? 's' : '') + ' (' + names.join(', ') + ') — ready at Create, no need to re-add.';
+      var dismiss = document.createElement('button');
+      dismiss.type = 'button';
+      dismiss.setAttribute('aria-label', 'Dismiss restored picks notice');
+      dismiss.textContent = '\u00d7';
+      dismiss.style.cssText = 'margin-left:8px;border:none;background:transparent;color:#1A3C34;cursor:pointer;font-size:14px;line-height:1';
+      dismiss.addEventListener('click', function(){ if(note.parentNode) note.parentNode.removeChild(note); });
+      note.appendChild(dismiss);
+      var anchor = document.querySelector('.ff-inputwrap') || document.body;
+      if(anchor && anchor.parentNode) anchor.parentNode.insertBefore(note, anchor.nextSibling);
+      else document.body.appendChild(note);
+    }catch(e){}
+  }
+
+  // Restore Defaults button: market to Park City, chips off, staged picks dropped,
+  // saved snapshot cleared. Brief text is kept. Wired to #resetDefaults when present.
+  function resetToDefaults(){
+    try{
+      // chips off via their own toggles (keeps brief clauses in sync)
+      Array.prototype.slice.call(document.querySelectorAll('.ff-chip[aria-pressed="true"]')).forEach(function(c){
+        try{ c.click(); }catch(e){}
+      });
+      // staged picks dropped via their own remove buttons (revokes blobs, updates tray)
+      Array.prototype.slice.call(document.querySelectorAll('.ff-pending-remove')).forEach(function(b){
+        try{ b.click(); }catch(e){}
+      });
+      try{ window.__userAssets = []; }catch(e){}
+      // market to the hard default with a real change event so all dependents re-run
+      try{
+        var l = document.getElementById('locality');
+        if(l){ l.value = DEFAULT_MARKET; l.dispatchEvent(new Event('change', {bubbles:true})); }
+      }catch(e){}
+      try{ if(typeof window.updateLocalFlavor === 'function') window.updateLocalFlavor(); }catch(e){}
+      // drop the saved snapshot so the cleared state (not the dirt) is what persists
+      try{ window.__kodiakClearFFState(); }catch(e){}
+      dirty = true; persist(); dirty = false;
+      renderMarketSource(null);
+    }catch(e){}
+  }
+  try{
+    var resetBtn = document.getElementById('resetDefaults');
+    if(resetBtn) resetBtn.addEventListener('click', resetToDefaults);
+  }catch(e){}
 
   // provenance note: which market is active and where it came from, with a one-click reset
   // to the Park City default. Rendered after every restore attempt (idempotent).
@@ -186,9 +249,35 @@
         });
       }catch(e){}
 
-      // staged uploads — blob URLs are gone after a discard; show a non-blocking re-add note (no fake assets)
+      // staged DAM picks — rehydrate by key: the request path re-fetches server-side
+      // (fetch_dam_key), so no presigned url is needed. Chips rebuild without thumbs;
+      // the pick is fully functional at the next Create.
       try{
-        if(Array.isArray(snap.userAssetNames) && snap.userAssetNames.length){ showAssetReAddNote(snap.userAssetNames); }
+        var damList = Array.isArray(snap.userDamAssets) ? snap.userDamAssets : [];
+        var buildChip = window.KODIAK_buildChip;
+        var rehydrated = [];
+        damList.forEach(function(d){
+          if(!d || !d.key) return;
+          try{
+            var exists = (window.__userAssets || []).some(function(a){ return a && a.source === 'dam' && a.key === d.key; });
+            if(exists) return;
+            window.__userAssets = window.__userAssets || [];
+            var rec = {id: 'dam-asset-restore-' + rehydrated.length, name: d.name || d.key, kind: d.kind, source: 'dam', key: d.key, url: null, category: d.category};
+            window.__userAssets.push(rec);
+            if(typeof buildChip === 'function'){ buildChip(rec, null); }
+            rehydrated.push(rec.name);
+          }catch(e){}
+        });
+        if(rehydrated.length){ showRestoredNote(rehydrated); }
+      }catch(e){}
+
+      // staged uploads — blob URLs are gone after a discard; show a non-blocking re-add note (no fake assets).
+      // DAM picks restored above are excluded: their keys (not names) identify them.
+      try{
+        var restoredKeys = {};
+        (Array.isArray(snap.userDamAssets) ? snap.userDamAssets : []).forEach(function(d){ if(d && d.name) restoredKeys[d.name] = true; });
+        var missing = (Array.isArray(snap.userAssetNames) ? snap.userAssetNames : []).filter(function(n){ return !restoredKeys[n]; });
+        if(missing.length){ showAssetReAddNote(missing); }
       }catch(e){}
     }finally{
       restoring = false;

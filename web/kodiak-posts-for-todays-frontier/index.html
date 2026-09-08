@@ -177,6 +177,13 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
       <span>My location</span>
       <span class="ff-geo-status" id="geoStatus" role="status" aria-live="polite"></span>
     </button>
+    <!-- Restore defaults: market back to Park City, chips + staged picks cleared, saved
+         snapshot dropped. Brief text is kept. Wired in lifecycle-persist.js. -->
+    <button type="button" class="ff-geo" id="resetDefaults"
+            aria-label="Restore defaults: Park City market, clear selections and staged picks"
+            title="Restore defaults (keeps your brief text)">
+      <span>Restore defaults</span>
+    </button>
     <div class="ff-season" data-mcp="seasonal-context">
       <select id="seasonalSelect" aria-label="Seasonal context (optional) — month, season, or holiday">
         <option value="">Season: any</option>
@@ -344,7 +351,15 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
       </div>
 
       <!-- the rendered size tiles + filenames -->
-      <div class="preview" id="preview" role="region" aria-label="Campaign preview — four sizes" data-mcp="preview.compose" data-mcp-description="Pipeline preview — displays campaign message in EN + localized on final posts"></div>
+      <div class="preview" id="preview" role="region" aria-label="Campaign preview — four sizes" data-mcp="preview.compose" data-mcp-description="Pipeline preview — displays campaign message in EN + localized on final posts">
+        <!-- Default preview hero: a real committed campaign photo + Park City headline,
+             wiped by the existing preview.innerHTML='' paths on first generate. The bare
+             matrix below used to be the whole first impression. -->
+        <figure class="ff-preview-hero" id="previewHero" style="margin:0 0 12px">
+          <img src="input_assets/power-cakes/hero.png" alt="Kodiak Power Cakes family breakfast" style="width:100%;border-radius:12px;display:block" loading="eager" onerror="this.style.display='none'">
+          <figcaption style="font:700 15px/1.4 system-ui,sans-serif;color:#3B2316;margin-top:8px">Power Up Family Mornings — Park City default. Type a brief and hit Create for your campaign.</figcaption>
+        </figure>
+      </div>
       <div class="hint ff-filenames" id="fileNames"></div>
 
       <!-- Download asset pack hidden by default; primary/secondary download actions injected under the preview after generation -->

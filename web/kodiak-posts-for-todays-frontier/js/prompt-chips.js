@@ -883,6 +883,7 @@
       var id = 'dam-asset-' + (window.__damSeq = (window.__damSeq||0) + 1);
       var rec = { id:id, name:label, kind:kind, source:'dam', key:key, url:it.url, category:cat };
       window.__userAssets.push(rec);
+      try{ if(typeof window.__kodiakMarkDirty === 'function') window.__kodiakMarkDirty(); }catch(e){}
 
       var thumbNode;
       if(kind === 'image'){
