@@ -115,8 +115,9 @@ def test_provenance_pillow_path_records_headline_and_engine(tmp_path: Path, monk
 
 # --------------------------------------------------------------- PART B: four sizes
 def test_generate_hero_set_three_ratios_via_outpaint(tmp_path: Path, monkeypatch) -> None:
-    # one control-structure hero + cover-pads -> 4 renders with correct dims (pinned
-    # v2 DoD: live outpaints cannot fit the 22s wall, so talls/wides pad).
+    # one control-structure hero + composed outpaint extends (9x16, 16x9) + 4x5 pad
+    # -> 4 renders with correct dims. Each extend is budget-gated; with budget
+    # available the faked Bedrock extends succeed and dims still match the canvas.
     seed = _make_seed(tmp_path / "seed.png")
     hero_b64 = base64.b64encode(_png_bytes((1080, 1080), color=(30, 60, 200))).decode("ascii")
 
@@ -153,13 +154,17 @@ def test_generate_hero_set_three_ratios_via_outpaint(tmp_path: Path, monkeypatch
         assert r["path"].exists()
         with Image.open(r["path"]) as im:
             assert im.size == (r["w"], r["h"])
-    # one control-structure call; no live outpaint calls (wall arithmetic)
+    # one control-structure call + two composed outpaint extends (9x16, 16x9);
+    # 4x5 is always the deterministic pad.
     assert generate.STABILITY_CONTROL_MODEL in invoked
-    assert invoked.count(generate.STABILITY_OUTPAINT_MODEL) == 0
-    # provenance notes which ratios came from the pad
+    assert invoked.count(generate.STABILITY_OUTPAINT_MODEL) == 2
     assert prov["ratios"]["4x5"] == "pillow-outpaint-fallback"
-    assert prov["ratios"]["9x16"] == "pillow-outpaint-fallback"
-    assert prov["ratios"]["16x9"] == "pillow-outpaint-fallback"
+    assert prov["ratios"]["9x16"] == "stability-outpaint"
+    assert prov["ratios"]["16x9"] == "stability-outpaint"
+    # per-ratio latency measured for the attempted extends; no degrades on success
+    assert set(prov["outpaint_latency_ms"]) == {"9x16", "16x9"}
+    assert all(v >= 0 for v in prov["outpaint_latency_ms"].values())
+    assert prov["outpaint_degraded"] == {}
     json.dumps(prov)
 
 
@@ -193,6 +198,126 @@ def test_generate_hero_set_pillow_outpaint_fallback(tmp_path: Path, monkeypatch)
     assert prov["ratios"]["4x5"] == "pillow-outpaint-fallback"
     assert prov["ratios"]["9x16"] == "pillow-outpaint-fallback"
     assert prov["ratios"]["16x9"] == "pillow-outpaint-fallback"
+    # degrades recorded honestly; latency still measured per attempted ratio
+    assert prov["outpaint_degraded"]["9x16"] == "outpaint-unavailable"
+    assert prov["outpaint_degraded"]["16x9"] == "outpaint-unavailable"
+    assert set(prov["outpaint_latency_ms"]) == {"9x16", "16x9"}
+    json.dumps(prov)
+
+
+def test_generate_hero_set_outpaint_sabotage_degrades_to_pad(tmp_path: Path, monkeypatch) -> None:
+    # SABOTAGE: the outpaint helper raises (poisoned Bedrock) -> both extends must
+    # degrade to the photographic pad; the set still returns 4 correct renders and
+    # never propagates the failure.
+    seed = _make_seed(tmp_path / "seed.png")
+    monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
+
+    def _fake_control(seed_path, prompt, out):
+        out.write_bytes(_png_bytes())
+        return out
+
+    def _sabotaged(*a, **k):
+        raise RuntimeError("bedrock poisoned")
+
+    monkeypatch.setattr(generate, "_stability_control_hero", _fake_control)
+    monkeypatch.setattr(generate, "_stability_outpaint", _sabotaged)
+    monkeypatch.setattr(generate, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
+    monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
+
+    renders, _source, prov = generate.generate_hero_set(
+        product_id="power-cakes",
+        product_name="Power Cakes",
+        brief_msg="wild",
+        region="us",
+        audience="families",
+        out_dir=tmp_path / "set",
+    )
+    dims = {r["ratio"]: (r["w"], r["h"]) for r in renders}
+    assert dims == {"1x1": (1080, 1080), "4x5": (1080, 1350), "9x16": (1080, 1920), "16x9": (1920, 1080)}
+    assert prov["ratios"]["9x16"] == "pillow-outpaint-fallback"
+    assert prov["ratios"]["16x9"] == "pillow-outpaint-fallback"
+    assert "RuntimeError" in prov["outpaint_degraded"]["9x16"]
+    assert "RuntimeError" in prov["outpaint_degraded"]["16x9"]
+    for r in renders:
+        with Image.open(r["path"]) as im:
+            assert im.size == (r["w"], r["h"])
+    json.dumps(prov)
+
+
+def test_generate_hero_set_outpaint_budget_gate_skips_without_call(tmp_path: Path, monkeypatch) -> None:
+    # WALL: with no budget left for an extend, the gate must SKIP the outpaint call
+    # entirely (helper never invoked) and pad instead.
+    seed = _make_seed(tmp_path / "seed.png")
+    monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
+
+    def _fake_control(seed_path, prompt, out):
+        out.write_bytes(_png_bytes())
+        return out
+
+    calls: list = []
+    monkeypatch.setattr(generate, "_stability_control_hero", _fake_control)
+    monkeypatch.setattr(generate, "_stability_outpaint", lambda *a, **k: calls.append(a) or None)
+    monkeypatch.setattr(generate, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
+    monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
+    # zero the per-outpaint budget so the gate always trips
+    monkeypatch.setattr(generate, "_OUTPAINT_BUDGET_MS", 10**9)
+
+    renders, _source, prov = generate.generate_hero_set(
+        product_id="power-cakes",
+        product_name="Power Cakes",
+        brief_msg="wild",
+        region="us",
+        audience="families",
+        out_dir=tmp_path / "set",
+    )
+    assert calls == []
+    assert prov["ratios"]["9x16"] == "pillow-outpaint-fallback"
+    assert prov["ratios"]["16x9"] == "pillow-outpaint-fallback"
+    assert prov["outpaint_degraded"]["9x16"] == "budget-exhausted"
+    assert prov["outpaint_degraded"]["16x9"] == "budget-exhausted"
+    assert prov["outpaint_latency_ms"] == {}
+    dims = {r["ratio"]: (r["w"], r["h"]) for r in renders}
+    assert dims["9x16"] == (1080, 1920)
+    assert dims["16x9"] == (1920, 1080)
+    json.dumps(prov)
+
+
+def test_stability_outpaint_uses_failfast_client_and_style_sandwich(tmp_path: Path, monkeypatch) -> None:
+    # the revived helper must build the rung-B fail-fast client (never a bare
+    # boto3.client) and wrap the prompt in the frozen style sandwich.
+    seed = _make_seed(tmp_path / "seed.png")
+    seen: dict = {}
+
+    class _FakeClient:
+        def invoke_model(self, **kwargs):
+            seen["modelId"] = kwargs["modelId"]
+            body = json.loads(kwargs["body"])
+            seen["prompt"] = body["prompt"]
+            seen["left"] = body["left"]
+            payload = json.dumps({"images": [base64.b64encode(_png_bytes()).decode("ascii")]}).encode()
+            return {"body": io.BytesIO(payload)}
+
+    def _fake_failfast(read_timeout=None):
+        seen["failfast"] = True
+        return _FakeClient()
+
+    def _no_bare(*a, **k):
+        raise AssertionError("bare boto3.client must not be used by outpaint")
+
+    monkeypatch.setattr(generate, "_bedrock_failfast_client", _fake_failfast)
+    monkeypatch.setattr(generate.boto3, "client", _no_bare)
+    out = tmp_path / "wide.png"
+    result = generate._stability_outpaint(seed, 1920, 1080, "campfire morning", out)
+    assert result is not None and result.exists()
+    assert seen["failfast"] is True
+    assert seen["modelId"] == generate.STABILITY_OUTPAINT_MODEL
+    assert seen["prompt"].startswith(generate.STYLE_HEAD)
+    with Image.open(out) as im:
+        assert im.size == (1920, 1080)
 
 
 # --------------------------------------------------------------- PART C: brand overlay
