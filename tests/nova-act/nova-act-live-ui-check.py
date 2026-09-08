@@ -18,11 +18,12 @@ CHECK 3  Selecting San Antonio, Texas then populating the Localized Costco brief
 Auth / entry:
   - Nova Act SDK needs NOVA_ACT_API_KEY (from https://nova.amazon.com/act).
     AWS SSO creds alone do NOT authenticate the SDK.
-  - The demo sits behind an in-page password gate (password: "cakes"). The page
-    honors a headless bypass query param ?cakes=1 that seeds sessionStorage, so
-    the flow starts there and never types into the gate. If the live build no
-    longer honors the bypass, the flow reports the gate block and stops (it does
-    NOT brute or bypass by other means).
+  - The demo sits behind an in-page courtesy screen (shared word: "cakes";
+    not security, see #229/#234). There is no URL bypass: the flow seeds the
+    sessionStorage gate token via page.evaluate after load, reloads past the
+    screen, and never types into it. If the screen is still up after seeding,
+    the flow reports the gate block and stops (it does NOT brute or bypass by
+    other means).
 
 Usage:
   NOVA_ACT_API_KEY=... python scripts/nova-act-live-ui-check.py
@@ -48,8 +49,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 LIVE_URL = "https://d37333alc7ojpl.cloudfront.net/"
-# ?cakes=1 seeds the sessionStorage gate token so the lock screen never mounts.
-ENTRY_URL = LIVE_URL + "?cakes=1"
+# No query-param bypass (#234 removed ?cakes=1): bare URL + sessionStorage seed.
+ENTRY_URL = LIVE_URL
 EXPECTED_STAMP = "v0.1.019-7e7a202-20260907"
 # The <title> and meta carry the version without the leading "v".
 EXPECTED_STAMP_BARE = EXPECTED_STAMP.lstrip("v")
@@ -112,10 +113,10 @@ def _read_build_stamp(nova) -> str | None:
 
 
 def _gate_is_up(nova) -> bool:
-    """The lock screen mounts an h1 'This demo is private'. Detect it."""
+    """The courtesy screen mounts an h1 'Request access'. Detect it."""
     try:
-        # locator count is 0 when the bypass worked
-        loc = nova.page.locator("text=This demo is private")
+        # locator count is 0 when the sessionStorage seeding worked
+        loc = nova.page.locator("text=Request access")
         return loc.count() > 0
     except Exception:
         # if the query itself failed, assume no gate rather than false-blocking
@@ -160,14 +161,24 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
     with NovaAct(starting_page=ENTRY_URL, headless=headless) as nova:
         # --- entry + build stamp gate ---------------------------------------
         time.sleep(2)  # allow CloudFront doc + gate script to settle
+        # #234: no URL bypass. Seed the sessionStorage gate token the page
+        # honors, then reload past the courtesy screen.
+        try:
+            nova.page.evaluate("try{sessionStorage.setItem('kodiak_gate','cakes')}catch(e){}")
+        except Exception:
+            pass
+        try:
+            nova.page.reload()
+        except Exception:
+            pass
+        time.sleep(2)
         if _gate_is_up(nova):
             shot = _screenshot(nova, _shot_path(shot_dir, "00-gate-block"))
             checks.append(CheckResult(
                 "entry", "BLOCKED",
-                "Password gate still mounted despite ?cakes=1 bypass. Gate asks "
-                "for a password (hint shown: 'cakes'). Not attempting to bypass "
-                "or brute. Surface to anchor: the headless bypass query param may "
-                "have been removed from the live build.",
+                "Courtesy screen still mounted despite sessionStorage seeding. "
+                "Not attempting to bypass or brute. Surface to anchor: the gate "
+                "token or screen markup may have changed in the live build.",
                 shot,
             ))
             return _finish(checks, None, out_path)
