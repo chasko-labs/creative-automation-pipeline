@@ -675,6 +675,9 @@ header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
 .ff-hidden{display:none}
 /* Wasatch ridge divider — decorative silhouette band */
 .ff-ridge{height:48px;background:var(--mountain) no-repeat center/100% 48px;margin:var(--spacing-sm) 0 0}
+/* === About art band — full-bleed mountains-with-pines above the section === */
+.ff-about-art{margin:var(--spacing-sm) 0 0;line-height:0}
+.ff-about-art .ff-about-range{width:100%;height:96px;display:block}
 /* forest treeline divider - mirrors .ff-ridge, uses the conifer --forest silhouette */
 .ff-forest{height:48px;background:var(--forest) no-repeat center/100% 48px;margin:var(--spacing-sm) 0 0}
 /* preview filenames line — hidden until populated */
