@@ -390,8 +390,9 @@ _accent_hex = "#E8530E"  # tokens kodiak.color.brand.blazeOrange
 # fall through to the plain slug-to-words form. Add entries as new named-person themes
 # appear — each is a one-line slug -> persona mapping. This map is PROMPT-ONLY; the
 # theme-asset-map seed-photo selection stays keyed on the raw slug (unchanged).
+# Currently empty (no named-person themes ship); the infrastructure stays so a
+# future partner theme cannot regress into a filter trip.
 _THEME_PERSONA_MAP: dict[str, str] = {
-    "zac-efron": "energetic athletic young man, morning-fitness lifestyle vibe",
 }
 
 # Per-theme scene guidance for the Nova Pro control-structure restyle prompt. When a
@@ -408,13 +409,13 @@ _THEME_PERSONA_MAP: dict[str, str] = {
 # bare noun ("on-brand Kodiak") means nothing to the model. No text, letters,
 # signage, or logos anywhere in frame: the model renders glyphs as gibberish.
 _THEME_SCENE_HINT: dict[str, str] = {
-    # partner-person direction: the licensed photo already carries the person —
-    # restyle the scene AROUND them, never their face.
-    "zac-efron": (
-        "trailhead at first light, the real person mid-stride and untouched in "
-        "frame left third, pine ridgeline in frontier-green behind, low golden "
-        "sun from frame left, bear-brown timber and kraft tones in the foreground, "
-        "visible grain texture, crisp athletic-morning air, no text"
+    # unified wild angle: the KODIAK Bear + Keep It Wild conservation program are
+    # one story — grizzly habitat, Vital Ground corridor, frontier morning.
+    "wild-grizzly-bears": (
+        "grizzly-country meadow at first light, pine ridgeline in frontier-green "
+        "behind, low golden sun from frame left, bear-brown timber and kraft tones "
+        "in the foreground, wildflower meadow leading to distant peaks, visible "
+        "grain texture, Keep It Wild conservation mood, no bears in close-up, no text"
     ),
     "us-ski-snowboard": (
         "Wasatch alpine dawn above Park City, fresh-snow ridgeline and pine in "
@@ -511,18 +512,29 @@ def _safe_theme_text(theme_slug: str) -> str:
     return theme_slug.replace("-", " ")
 
 
+# Retired named-person slugs: no chip ships them, but a user can still TYPE the
+# name into the brief — and that raw token trips the Stability filter the same
+# way. Scrubbed to the same filter-safe persona so free text can never regress
+# into a filter trip.
+_RETIRED_PERSONA_MAP: dict[str, str] = {
+    "zac-efron": "energetic athletic young man, morning-fitness lifestyle vibe",
+}
+
+
 def _safe_prompt_text(prompt: str) -> str:
     """Strip real celebrity names out of a free-text incoming prompt.
 
-    The frontend builds the prompt client-side and can embed a real person's display
-    name (e.g. "Zac Efron") verbatim. That name reaches Stability via brief_msg and
-    trips the content filter (finish_reasons:["Filter reason: prompt"]). For every
-    named-person slug in _THEME_PERSONA_MAP, replace the display name ("Zac Efron")
-    and the spaced-slug form ("zac efron") with the filter-safe persona text, matching
-    case-insensitively. Ordinary prompts with no named person pass through unchanged.
+    The frontend builds the prompt client-side and a user can type a real
+    person's display name (e.g. "Zac Efron") verbatim. That name reaches
+    Stability via brief_msg and trips the content filter
+    (finish_reasons:["Filter reason: prompt"]). For every named-person slug in
+    _THEME_PERSONA_MAP plus _RETIRED_PERSONA_MAP, replace the display name
+    ("Zac Efron") and the spaced-slug form ("zac efron") with the filter-safe
+    persona text, matching case-insensitively. Ordinary prompts with no named
+    person pass through unchanged.
     """
     out = prompt
-    for slug, persona in _THEME_PERSONA_MAP.items():
+    for slug, persona in {**_THEME_PERSONA_MAP, **_RETIRED_PERSONA_MAP}.items():
         words = slug.split("-")
         display_name = " ".join(words).title()  # "zac-efron" -> "Zac Efron"
         spaced_slug = " ".join(words)  # "zac efron"

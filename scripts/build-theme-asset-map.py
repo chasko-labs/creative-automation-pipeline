@@ -16,7 +16,7 @@ Mirrors scripts/build-sku-photo-map.py exactly for structure, determinism,
 DAM-key reconciliation, and channel weighting. The differences from the sku map:
   - the query is a fixed set of theme match-tokens (not product-derived)
   - each theme keeps a pool of up to 5 photo_keys (chips rotate; sku picks 1+2)
-  - the "bears" theme applies a NEGATIVE weight guardrail (see BEARS_ below)
+  - the "wild-grizzly-bears" theme applies a NEGATIVE weight guardrail (see BEARS_ below)
 
 Inputs (read-only):
   data/vectors/kodiak-embeddings.jsonl   image rows w/ metadata (gitignored, S3-hosted)
@@ -57,15 +57,18 @@ MODEL_NOTE = (
     "deterministic keyword+metadata overlap scoring (no vector cosine); "
     "each theme scored against a fixed match-token set over caption/hashtags/"
     "image_file, channel-weighted toward blog/instagram lifestyle over catalog "
-    "pack-shots; bears theme applies a negative captive-bear-closeup guardrail; "
-    "zac-efron theme applies an additive athlete/lifestyle filename boost so "
-    "real licensed brand-athlete photography ranks first (rights-clean, no "
-    "likeness synthesis); partner-libraries person front-run puts approved DAM "
-    "keys of the person first as their theme primary; primaries are globally de-duped in a fixed priority "
-    "order (zac-efron first, then alphabetical) so all themes carry distinct "
-    "primary photo_keys; top-1 + up to 4 fallbacks per theme, all reconciled "
-    "to real DAM keys"
+    "pack-shots; wild-grizzly-bears theme (unified Bears + Keep It Wild "
+    "program angle) applies a negative captive-bear-closeup guardrail; "
+    "no named-person themes ship, so no likeness boost or person front-run; "
+    "primaries are globally de-duped in alphabetical slug order "
+    "so all themes carry distinct primary photo_keys; top-1 + up to 4 "
+    "fallbacks per theme, all reconciled to real DAM keys"
 )
+
+# Retired slugs: never carried over from a prior map on rebuild. zac-efron
+# (named-person partner angle, removed), bears + keep-it-wild-program
+# (unified into wild-grizzly-bears).
+RETIRED_THEMES = frozenset({"zac-efron", "bears", "keep-it-wild-program"})
 
 POOL_SIZE = 5  # 1 primary + up to 4 fallbacks — chips rotate over a small pool
 
@@ -124,38 +127,15 @@ STOPWORDS = {
 # ---------------------------------------------------------------------------
 THEMES: list[dict] = [
     {
-        "slug": "zac-efron",
+        "slug": "wild-grizzly-bears",
         "brief": (
-            "Zac Efron athletic-morning energy — high-protein pre-trail fuel, "
-            "aspirational active lifestyle. Keep It Wild."
+            "Wild Grizzly Bears — lean into the KODIAK Bear, wild frontier "
+            "tone, protein for epic days, Keep It Wild conservation with "
+            "Vital Ground."
         ),
-        # ATHLETIC-LIFESTYLE pool: real Kodiak athlete + cooking-with-Zac +
-        # outdoor family-lifestyle photography. NO synthesized Efron likeness —
-        # these are real brand athlete/lifestyle shots.
-        "tokens": [
-            "athlete",
-            "schweizer",
-            "harrington",
-            "olson",
-            "watson",
-            "lichter",
-            "zac",
-            "cooking",
-            "outdoor",
-            "lifestyle",
-            "family",
-            "morning",
-            "active",
-        ],
-    },
-    {
-        "slug": "bears",
-        "brief": (
-            "Bears + Keep It Wild — lean into the KODIAK Bear, wild frontier "
-            "tone, protein for epic days."
-        ),
-        # GRIZZLY-SAFE / KEEP-IT-WILD pool: wild-habitat, trail, meadow,
-        # landscape cues. Bear-shaped product (Bear Bites) is fine.
+        # GRIZZLY-SAFE pool (unified Bears + Keep It Wild program angle):
+        # wild-habitat, trail, meadow, landscape, Wasatch-dawn conservation
+        # cues. Bear-shaped product (Bear Bites) is fine.
         "tokens": [
             "grizzly",
             "trail",
@@ -170,6 +150,10 @@ THEMES: list[dict] = [
             "vital",
             "ground",
             "corridor",
+            "dawn",
+            "alpenglow",
+            "conservation",
+            "mountain",
         ],
     },
     {
@@ -217,7 +201,7 @@ THEMES: list[dict] = [
         ),
         # remix pool: best-performing hero / lifestyle shots broadly. general
         # lifestyle — lean on cast-iron-stack, morning, frontier hero cues.
-        # (FLAG 2: leans remix-of-hero-food to diverge from keep-it-wild's
+        # (FLAG 2: leans remix-of-hero-food to diverge from the wild angle's
         # conservation/landscape lean; de-dup rule is the hard guarantee.)
         "tokens": [
             "hero",
@@ -232,31 +216,9 @@ THEMES: list[dict] = [
             "scones",
         ],
     },
-    {
-        "slug": "keep-it-wild-program",
-        "brief": (
-            "Keep It Wild program — brand campaign tying protein-packed whole "
-            "grains to the outdoor frontier lifestyle."
-        ),
-        # Wasatch-dawn + conservation landscape pool.
-        # (FLAG 2: leans conservation/alpenglow/mountain/grizzly-habitat to
-        # diverge from riff-on-past-content's hero-food-remix lean.)
-        "tokens": [
-            "wasatch",
-            "dawn",
-            "alpenglow",
-            "conservation",
-            "wild",
-            "mountain",
-            "landscape",
-            "pine",
-            "grizzly",
-            "habitat",
-        ],
-    },
 ]
 
-# BEARS GUARDRAIL (PETA 2022 brand guardrail): the "bears" theme must never
+# BEARS GUARDRAIL (PETA 2022 brand guardrail): the "wild-grizzly-bears" theme must never
 # route to a captive-bear close-up / live-bear portrait. Any embeddings row
 # whose caption strongly implies a live captive-bear portrait is penalized
 # hard (effectively excluded) so it can never surface as the chosen asset or a
@@ -281,38 +243,6 @@ BEARS_CAPTIVE_TOKENS = {
 }
 BEARS_HABITAT_TOKENS = {"trail", "meadow", "habitat", "wild", "landscape", "corridor"}
 BEARS_CAPTIVE_PENALTY = 1000.0  # dominant negative weight -> effective exclusion
-
-# ZAC-EFRON FILENAME BOOST (FLAG 1): the 21 real brand-athlete / lifestyle
-# assets (Schweizer, Harrington, Caleb Olson, Sam Watson, Jennifer Lichter,
-# Cooking-with-Zac, Outdoor-Cooking-Family-Lifestyle, Climbing-Lifestyle,
-# Athlete_Image, Zac-Waffle) carry the athlete signal ONLY in their filename —
-# their embedding rows land on the catalog channel (weight 0.6) with a caption
-# that merely echoes the filename, so a caption-rich instagram food shot
-# (weight 3.0) outscores them and a generic granola pack wins the primary.
-# For the zac-efron theme SPECIFICALLY we add a large additive filename boost
-# when a row's image_file matches an athlete/ambassador signal token, so real
-# licensed brand-athlete photography ranks first. Theme-scoped so it never
-# distorts the other five themes.
-# RIGHTS-CLEAN: these are real licensed brand-athlete photos already in the DAM;
-# no likeness synthesis, no scraped stills — we only surface assets that exist.
-ZAC_FILENAME_SIGNAL_TOKENS = (
-    "athlete",
-    "schweizer",
-    "harrington",
-    "olson",
-    "watson",
-    "lichter",
-    "cooking-with-zac",
-    "cooking_with_zac",
-    "outdoor-cooking-family",
-    "family-lifestyle",
-    "climbing-lifestyle",
-    "athlete_image",
-    "zac",
-    "efron",
-)
-ZAC_FILENAME_BOOST = 50.0  # dominant additive bonus -> real athlete photo wins primary
-
 
 def tokenize(text: str) -> list[str]:
     """Lowercase alnum tokens, dropping stopwords, hex/uuid fragments, 1-char noise."""
@@ -370,23 +300,6 @@ def bears_guardrail_penalty(meta: dict) -> float:
     if cap_toks & BEARS_HABITAT_TOKENS:
         return 0.0
     return -BEARS_CAPTIVE_PENALTY
-
-
-def zac_filename_boost(meta: dict) -> float:
-    """Additive boost for zac-efron when image_file carries an athlete signal.
-
-    Matches against the raw lowercased image_file (substring) so hyphen/
-    underscore-joined signals like "cooking-with-zac" and "athlete_image" hit
-    even though tokenize() would split them. See ZAC_ constants for the
-    rights-clean rationale (real licensed brand-athlete photos only).
-    """
-    fn = (meta.get("image_file") or "").lower()
-    if not fn:
-        return 0.0
-    for sig in ZAC_FILENAME_SIGNAL_TOKENS:
-        if sig in fn:
-            return ZAC_FILENAME_BOOST
-    return 0.0
 
 
 def load_images(path: pathlib.Path) -> list[dict]:
@@ -452,61 +365,6 @@ def caption_for(meta: dict) -> str:
     return ""
 
 
-PARTNER_LIBS = pathlib.Path("data/products/partner-libraries.json")
-
-
-def load_partner_libs() -> dict:
-    """Partner person-libraries (approved DAM keys per person). Missing file = no partners."""
-    try:
-        return json.loads(PARTNER_LIBS.read_text(encoding="utf-8"))
-    except OSError:
-        return {}
-
-
-def partner_override(
-    slug: str,
-    ranked: list[tuple[float, dict]],
-    images: list[dict],
-    real_keys: set[str],
-    claimed_primaries: set[str],
-) -> tuple[str, dict, float, str] | None:
-    """Partner person front-run for their theme.
-
-    A partner is a PERSON, not a vibe: the first approved photo_key for the
-    person whose theme this is becomes the primary — but only when it is a
-    real, unclaimed DAM key. Anything else (absent, claimed, unscored) falls
-    back to the scored pick; approved-but-unscored keys still resolve caption
-    from their embeddings row. Never fabricated.
-    Returns (basename, meta, score, person) or None.
-    """
-    libs = load_partner_libs().get("partners", {})
-    scored_by_key: dict[str, tuple[float, dict]] = {}
-    for score, meta in ranked:
-        rk = reconcile_basename(meta.get("image_file", ""), real_keys)
-        if rk is not None:
-            scored_by_key.setdefault(rk, (score, meta))
-    for _, person in libs.items():
-        if person.get("theme") != slug:
-            continue
-        for key in person.get("photo_keys", []):
-            base = key[len(DAM_PREFIX):] if key.startswith(DAM_PREFIX) else key
-            if base not in real_keys or base in claimed_primaries:
-                continue
-            if base in scored_by_key:
-                score, meta = scored_by_key[base]
-                return base, meta, score, person.get("person", "")
-            meta = next(
-                (
-                    im
-                    for im in images
-                    if reconcile_basename(im.get("image_file", ""), real_keys) == base
-                ),
-                {},
-            )
-            return base, meta, 0.0, person.get("person", "")
-    return None
-
-
 def rank_for_theme(theme: dict, images: list[dict]) -> list[tuple[float, dict]]:
     """Ranked (weighted_score, meta) for a theme. Stable: score desc, image_file asc.
 
@@ -514,8 +372,7 @@ def rank_for_theme(theme: dict, images: list[dict]) -> list[tuple[float, dict]]:
     guardrail penalty. Rows scoring <= 0 after weighting are dropped.
     """
     qtokens = set(theme["tokens"])
-    is_bears = theme["slug"] == "bears"
-    is_zac = theme["slug"] == "zac-efron"
+    is_wild = theme["slug"] == "wild-grizzly-bears"
     scored = []
     for meta in images:
         base = score_row(qtokens, meta)
@@ -523,13 +380,8 @@ def rank_for_theme(theme: dict, images: list[dict]) -> list[tuple[float, dict]]:
             continue
         weight = CHANNEL_WEIGHT.get(meta.get("channel"), DEFAULT_CHANNEL_WEIGHT)
         total = base * weight
-        if is_bears:
+        if is_wild:
             total += bears_guardrail_penalty(meta)
-        if is_zac:
-            # theme-scoped additive filename boost (FLAG 1): promote real
-            # licensed brand-athlete / lifestyle photography above caption-rich
-            # generic food shots. never applied to any other theme.
-            total += zac_filename_boost(meta)
         if total <= 0:
             continue
         scored.append((total, meta))
@@ -600,13 +452,10 @@ def build(no_verify: bool, profile: str, region: str, real_keys: set[str]) -> di
     chan_dist: Counter[str] = Counter()
 
     # FLAG 2 de-dup: process themes in a FIXED deterministic priority order so
-    # primary claiming is reproducible byte-for-byte. zac-efron goes first
-    # (its athlete/lifestyle primary is the most constrained requirement), then
-    # the remaining themes alphabetically by slug. A theme's primary is the
-    # best-ranked resolvable key not already claimed by an earlier theme.
-    PRIMARY_ORDER = ["zac-efron"] + sorted(
-        t["slug"] for t in THEMES if t["slug"] != "zac-efron"
-    )
+    # primary claiming is reproducible byte-for-byte: alphabetical by slug.
+    # A theme's primary is the best-ranked resolvable key not already claimed
+    # by an earlier theme.
+    PRIMARY_ORDER = sorted(t["slug"] for t in THEMES)
     themes_by_slug = {t["slug"]: t for t in THEMES}
     claimed_primaries: set[str] = set()
 
@@ -616,15 +465,6 @@ def build(no_verify: bool, profile: str, region: str, real_keys: set[str]) -> di
         top_meta, top_score, primary_key, fb_keys = resolve_pool(
             ranked, real_keys, claimed_primaries
         )
-        # Partner person front-run: approved DAM keys of the person lead their
-        # theme; the scored primary drops to first fallback. Scored pick stands
-        # when no approved key is real + unclaimed.
-        partner_person = ""
-        hit = partner_override(slug, ranked, images, real_keys, claimed_primaries)
-        if hit is not None:
-            pk, pk_meta, pk_score, partner_person = hit
-            fb_keys = [primary_key] + [k for k in fb_keys if k != pk]
-            top_meta, top_score, primary_key = pk_meta, pk_score, pk
         claimed_primaries.add(primary_key)
         pool = ([primary_key] + fb_keys)[:POOL_SIZE]
         entry = {
@@ -637,10 +477,7 @@ def build(no_verify: bool, profile: str, region: str, real_keys: set[str]) -> di
             "score": round(float(top_score), 4),
             "pool": [DAM_PREFIX + k for k in pool],
         }
-        if partner_person:
-            entry["partner"] = partner_person
-            entry["partner_primary"] = True
-        if theme["slug"] == "bears":
+        if theme["slug"] == "wild-grizzly-bears":
             entry["guardrail"] = (
                 "captive-bear-closeup excluded (PETA 2022): rows with "
                 "captive/zoo/portrait caption cues and no offsetting wild-habitat "
@@ -651,12 +488,13 @@ def build(no_verify: bool, profile: str, region: str, real_keys: set[str]) -> di
 
     # Carry-over: the builder owns THEMES; entries for slugs outside that list
     # (e.g. us-ski-snowboard, added for #96 by another process) pass through
-    # byte-identical so a rebuild never silently drops a live theme.
+    # byte-identical so a rebuild never silently drops a live theme. Retired
+    # slugs (RETIRED_THEMES) are never carried — removal is permanent.
     carried: dict[str, dict] = {}
     try:
         prior = json.loads(OUT.read_text(encoding="utf-8")).get("map", {})
         for slug, entry in prior.items():
-            if slug not in result_map:
+            if slug not in result_map and slug not in RETIRED_THEMES:
                 carried[slug] = entry
     except OSError:
         pass
@@ -731,8 +569,6 @@ def print_summary(output: dict) -> None:
         )
         if "guardrail" in e:
             print(f"      guardrail: {e['guardrail']}")
-        if e.get("partner_primary"):
-            print(f"      partner: {e.get('partner')} (approved person photo leads)")
 
 
 def main() -> int:

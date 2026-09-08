@@ -419,7 +419,7 @@
       'lifestyle': ['All','People','Outdoors','Kitchen'],
       'ideas':     ['All'],
       'themes':    ['All'],
-      'brand':     ['All','Heroes','Logos','Zac Efron','References']
+      'brand':     ['All','Heroes','Logos','References']
     };
     // multi-token chips (matched as OR against the tile haystack); everything else is its lowercased token.
     var TYPE_KEYWORDS = { 'flapjack & waffle': ['flapjack','waffle'] };

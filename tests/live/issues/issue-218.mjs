@@ -99,19 +99,19 @@ export async function run(page, { baseUrl } = {}) {
   // ---- #236: chips render into the brief; untoggle removes; typing never clobbered ----
   await page.fill("#campaignBrief", "Fuel mornings");
   await page.waitForTimeout(200);
-  assert((await clickChip(page, "bears")) === "clicked", "bears chip clicks");
+  assert((await clickChip(page, "wild-grizzly-bears")) === "clicked", "wild chip clicks");
   await page.waitForTimeout(400);
   let brief = await briefText(page);
   assert(brief.includes("Fuel mornings"), "typed text survives toggle");
-  assert(brief.includes("Bears"), `bears renders into brief (${brief})`);
+  assert(brief.includes("Wild Grizzly Bears"), `wild renders into brief (${brief})`);
   assert((await clickChip(page, "localized-costco")) === "clicked", "costco chip clicks");
   await page.waitForTimeout(400);
   brief = await briefText(page);
-  assert(brief.includes("Bears") && brief.includes("Localized Costco"), `chips stack (${brief})`);
-  assert((await clickChip(page, "bears")) === "clicked", "bears untoggles");
+  assert(brief.includes("Wild Grizzly Bears") && brief.includes("Localized Costco"), `chips stack (${brief})`);
+  assert((await clickChip(page, "wild-grizzly-bears")) === "clicked", "wild untoggles");
   await page.waitForTimeout(400);
   brief = await briefText(page);
-  assert(!brief.includes("Bears"), "untoggle removes the clause");
+  assert(!brief.includes("Wild Grizzly Bears"), "untoggle removes the clause");
   assert(brief.includes("Localized Costco") && brief.includes("Fuel mornings"),
     `rest untouched (${brief})`);
   // type AFTER the generated tail, then toggle: the typed tail must survive (#236 core)
@@ -122,13 +122,13 @@ export async function run(page, { baseUrl } = {}) {
   });
   await page.keyboard.type(" for winter");
   await page.waitForTimeout(400);
-  assert((await clickChip(page, "zac-efron")) === "clicked", "zac chip clicks after typing");
+  assert((await clickChip(page, "riff-on-past-content")) === "clicked", "riff chip clicks after typing");
   await page.waitForTimeout(400);
   brief = await briefText(page);
   assert(brief.includes("for winter"), `typed tail survives a later toggle (${brief})`);
-  assert(brief.includes("Zac Efron"), "new chip renders");
+  assert(brief.includes("Riff on past content"), "new chip renders");
   assert((await chipPressed(page, "localized-costco")) === "true", "typing never disarms chips");
-  assert((await chipPressed(page, "zac-efron")) === "true", "new chip stays armed");
+  assert((await chipPressed(page, "riff-on-past-content")) === "true", "new chip stays armed");
   // type BEFORE the generated tail: caret-safe silent adopt, chips stay armed
   await page.evaluate(() => {
     const el = document.getElementById("campaignBrief");

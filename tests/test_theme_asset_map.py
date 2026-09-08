@@ -2,8 +2,8 @@
 
 No network. Asserts the committed data/products/theme-asset-map.json is
 well-formed, covers all chip themes, resolves only real DAM keys, and that
-the thematic routing landed on-theme (zac-efron -> athlete/lifestyle set;
-bears -> not an obvious captive-bear close-up).
+the thematic routing landed on-theme (wild-grizzly-bears -> wild-habitat
+set, not an obvious captive-bear close-up).
 """
 from __future__ import annotations
 
@@ -21,28 +21,24 @@ DAM_PREFIX = "brands/kodiak/raw-ingest/kodiakcakes/images/"
 VARIANT_SUFFIX_RE = re.compile(r"_\d+x\d+(?=\.[a-z0-9]+$)", re.IGNORECASE)
 
 EXPECTED_THEMES = {
-    "zac-efron",
-    "bears",
+    "wild-grizzly-bears",
     "recipe-cards",
     "localized-costco",
     "riff-on-past-content",
-    "keep-it-wild-program",
     "us-ski-snowboard",
 }
 
-# on-theme evidence tokens for the zac-efron chip (real athlete/lifestyle set)
-ZAC_TOKENS = (
-    "athlete",
-    "zac",
-    "cooking",
-    "lifestyle",
-    "olson",
-    "harrington",
-    "schweizer",
-    "watson",
-    "lichter",
-    "outdoor",
-    "family",
+# on-theme evidence tokens for the unified wild angle (wild-habitat set)
+WILD_TOKENS = (
+    "grizzly",
+    "wild",
+    "meadow",
+    "trail",
+    "habitat",
+    "corridor",
+    "vital",
+    "frontier",
+    "wasatch",
 )
 
 # captive-bear-closeup cues that the bears theme must not obviously land on
@@ -118,41 +114,25 @@ def test_all_primaries_are_distinct_photo_keys():
     )
 
 
-# athlete/lifestyle signal regex the zac-efron primary image_file must match
-# (FLAG 1 filename boost lands a real licensed brand-athlete/lifestyle asset).
-ZAC_SIGNAL_RE = re.compile(
-    r"athlete|schweizer|harrington|olson|watson|lichter|"
-    r"cooking-with-zac|cooking_with_zac|outdoor-cooking-family|"
-    r"family-lifestyle|climbing-lifestyle|athlete_image|zac|efron",
-    re.IGNORECASE,
-)
-
-
-def test_zac_efron_primary_image_file_matches_athlete_signal():
-    # FLAG 1: zac-efron primary must be a real named-athlete / lifestyle file,
-    # not a generic food shot. Assert on the image_file basename specifically.
+def test_wild_grizzly_bears_lands_on_habitat_set():
+    # unified wild angle: the primary must read as wild-habitat, and must not
+    # obviously be a captive-bear close-up. Guardrail documented on the entry.
     data = _load_map()
-    image_file = data["map"]["zac-efron"]["image_file"]
-    assert ZAC_SIGNAL_RE.search(image_file), (
-        f"zac-efron primary image_file is not an athlete/lifestyle asset: {image_file!r}"
-    )
-
-
-def test_zac_efron_lands_on_athlete_lifestyle_set():
-    data = _load_map()
-    entry = data["map"]["zac-efron"]
+    entry = data["map"]["wild-grizzly-bears"]
     blob = (entry["image_file"] + " " + (entry.get("caption") or "")).lower()
-    assert any(tok in blob for tok in ZAC_TOKENS), (
-        f"zac-efron chosen asset is not from the athlete/lifestyle set: {blob!r}"
+    assert any(tok in blob for tok in WILD_TOKENS), (
+        f"wild-grizzly-bears primary is not from the wild-habitat set: {blob!r}"
     )
-
-
-def test_bears_not_obvious_captive_bear_closeup():
-    # best-effort guardrail assert: the chosen bears asset caption must not
-    # obviously read as a captive-bear close-up.
-    data = _load_map()
-    entry = data["map"]["bears"]
-    blob = (entry["image_file"] + " " + (entry.get("caption") or "")).lower()
     for tok in CAPTIVE_BEAR_TOKENS:
-        assert tok not in blob, f"bears asset looks like a captive-bear closeup ({tok!r}): {blob!r}"
-    assert "guardrail" in entry, "bears entry must document its guardrail"
+        assert tok not in blob, (
+            f"wild-grizzly-bears asset looks like a captive-bear closeup ({tok!r}): {blob!r}"
+        )
+    assert "guardrail" in entry, "wild-grizzly-bears entry must document its guardrail"
+
+
+def test_retired_slugs_are_gone():
+    # zac-efron (named-person angle, removed) and the two pre-unification wild
+    # slugs must not resurface in the map.
+    data = _load_map()
+    for slug in ("zac-efron", "bears", "keep-it-wild-program"):
+        assert slug not in data["map"], f"retired slug still present: {slug}"
