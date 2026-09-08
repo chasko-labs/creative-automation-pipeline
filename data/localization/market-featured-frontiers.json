@@ -1,0 +1,2546 @@
+{
+ "$schema": "https://kodiakcakes.com/schema/market-featured-frontiers-v1.json",
+ "metadata": {
+  "generated": "2026-09-08",
+  "purpose": "Issue #257: every market resolves one featured frontier (place + ingredients + seasons + farmers-market context) as data, replacing hardcoded hints in web JS.",
+  "sources": [
+   "data/localization/local-flavor.json (ingredient months)",
+   "data/localization/bay-area/pescadero-94060.json (seasonal matrix, Harley Farms anchor)",
+   "data/localization/retailer-frontier-pairs.json (muscadine Sep pick, farmers-market urls)",
+   "data/localization/store-finder-markets.json (the 74-market registry this file covers)"
+  ],
+  "frontier_count": 4,
+  "market_count": 74
+ },
+ "markets": {
+  "US-MW-PARKCITY-84098": {
+   "market": "US-MW-PARKCITY-84098",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier in data: interior-mountain kin."
+  },
+  "US-MW-WASATCH": {
+   "market": "US-MW-WASATCH",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier in data: interior-mountain kin."
+  },
+  "US-SW-LASCRUCES": {
+   "market": "US-SW-LASCRUCES",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: Sacramento Mountains neighbour."
+  },
+  "US-SW-ALBQ": {
+   "market": "US-SW-ALBQ",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: south to the Sacramento Mountains."
+  },
+  "US-SC-AUSTIN": {
+   "market": "US-SC-AUSTIN",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: west to the Sacramento Mountains."
+  },
+  "US-SE-FL": {
+   "market": "US-SE-FL",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-SE-COAST": {
+   "market": "US-SE-COAST",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-SE-ATL": {
+   "market": "US-SE-ATL",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-MW-CHI": {
+   "market": "US-MW-CHI",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Nearest featured frontier in data (exact mileage unconfirmed)."
+  },
+  "US-MW-TC": {
+   "market": "US-MW-TC",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Nearest featured frontier in data (exact mileage unconfirmed)."
+  },
+  "US-MW-DEN": {
+   "market": "US-MW-DEN",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: south along the Rockies to the Sacramento Mountains."
+  },
+  "US-W-SEA": {
+   "market": "US-W-SEA",
+   "frontier_market": "US-WA-NEAHBAY",
+   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
+   "ingredients": [
+    {
+     "name": "Makah salmon",
+     "months": [
+      5,
+      6,
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "name": "huckleberry",
+     "months": [
+      8
+     ]
+    }
+   ],
+   "seasons": "Makah salmon May-Sep; huckleberry August",
+   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: Neah Bay 98357 (70mi) — Makah salmon + huckleberry."
+  },
+  "US-W-PDX": {
+   "market": "US-W-PDX",
+   "frontier_market": "US-WA-NEAHBAY",
+   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
+   "ingredients": [
+    {
+     "name": "Makah salmon",
+     "months": [
+      5,
+      6,
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "name": "huckleberry",
+     "months": [
+      8
+     ]
+    }
+   ],
+   "seasons": "Makah salmon May-Sep; huckleberry August",
+   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: north to the Olympic Peninsula."
+  },
+  "US-W-LA": {
+   "market": "US-W-LA",
+   "frontier_market": "US-CA-PESCADERO",
+   "place": "Pescadero, California 94060 — San Mateo Coast",
+   "ingredients": [
+    {
+     "name": "Castroville artichokes",
+     "months": [
+      3,
+      4,
+      5,
+      6
+     ],
+     "peak": 4
+    },
+    {
+     "name": "Marin goat cheese",
+     "months": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ]
+    },
+    {
+     "name": "strawberries",
+     "months": [
+      5,
+      6,
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "name": "Brussels sprouts",
+     "months": [
+      9,
+      10,
+      11,
+      12,
+      1,
+      2
+     ]
+    },
+    {
+     "name": "olive oil (fall press)",
+     "months": [
+      11
+     ]
+    }
+   ],
+   "seasons": "Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press",
+   "farmers_market": "Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero",
+   "farmers_market_url": "https://www.harleyfarms.com",
+   "link_note": "Nearest featured frontier: same San Mateo Coast foodshed, Los Angeles north up Highway 1."
+  },
+  "US-SE-NASH": {
+   "market": "US-SE-NASH",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-SE-LOU": {
+   "market": "US-SE-LOU",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-NE-BOS": {
+   "market": "US-NE-BOS",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-SW-PHX": {
+   "market": "US-SW-PHX",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: east to the Sacramento Mountains."
+  },
+  "US-NE-NYC": {
+   "market": "US-NE-NYC",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-SW-TIMBERON": {
+   "market": "US-SW-TIMBERON",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Is itself a featured frontier; resolves to its own place, ingredients, and seasons."
+  },
+  "US-MW-WASATCH-SLC": {
+   "market": "US-MW-WASATCH-SLC",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier in data: interior-mountain kin."
+  },
+  "US-W-SF": {
+   "market": "US-W-SF",
+   "frontier_market": "US-CA-PESCADERO",
+   "place": "Pescadero, California 94060 — San Mateo Coast",
+   "ingredients": [
+    {
+     "name": "Castroville artichokes",
+     "months": [
+      3,
+      4,
+      5,
+      6
+     ],
+     "peak": 4
+    },
+    {
+     "name": "Marin goat cheese",
+     "months": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ]
+    },
+    {
+     "name": "strawberries",
+     "months": [
+      5,
+      6,
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "name": "Brussels sprouts",
+     "months": [
+      9,
+      10,
+      11,
+      12,
+      1,
+      2
+     ]
+    },
+    {
+     "name": "olive oil (fall press)",
+     "months": [
+      11
+     ]
+    }
+   ],
+   "seasons": "Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press",
+   "farmers_market": "Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero",
+   "farmers_market_url": "https://www.harleyfarms.com",
+   "link_note": "SF Bay hinterland frontier: Pescadero coast 35 mi south via Highway 1 / Highway 92. Replaces the generate.js hardcoded hint with this entry."
+  },
+  "US-W-SD": {
+   "market": "US-W-SD",
+   "frontier_market": "US-CA-PESCADERO",
+   "place": "Pescadero, California 94060 — San Mateo Coast",
+   "ingredients": [
+    {
+     "name": "Castroville artichokes",
+     "months": [
+      3,
+      4,
+      5,
+      6
+     ],
+     "peak": 4
+    },
+    {
+     "name": "Marin goat cheese",
+     "months": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ]
+    },
+    {
+     "name": "strawberries",
+     "months": [
+      5,
+      6,
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "name": "Brussels sprouts",
+     "months": [
+      9,
+      10,
+      11,
+      12,
+      1,
+      2
+     ]
+    },
+    {
+     "name": "olive oil (fall press)",
+     "months": [
+      11
+     ]
+    }
+   ],
+   "seasons": "Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press",
+   "farmers_market": "Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero",
+   "farmers_market_url": "https://www.harleyfarms.com",
+   "link_note": "Nearest featured frontier: California coast foodshed."
+  },
+  "US-W-VEGAS": {
+   "market": "US-W-VEGAS",
+   "frontier_market": "US-CA-PESCADERO",
+   "place": "Pescadero, California 94060 — San Mateo Coast",
+   "ingredients": [
+    {
+     "name": "Castroville artichokes",
+     "months": [
+      3,
+      4,
+      5,
+      6
+     ],
+     "peak": 4
+    },
+    {
+     "name": "Marin goat cheese",
+     "months": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ]
+    },
+    {
+     "name": "strawberries",
+     "months": [
+      5,
+      6,
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "name": "Brussels sprouts",
+     "months": [
+      9,
+      10,
+      11,
+      12,
+      1,
+      2
+     ]
+    },
+    {
+     "name": "olive oil (fall press)",
+     "months": [
+      11
+     ]
+    }
+   ],
+   "seasons": "Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press",
+   "farmers_market": "Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero",
+   "farmers_market_url": "https://www.harleyfarms.com",
+   "link_note": "Nearest featured frontier in the west: California coast foodshed."
+  },
+  "US-MW-PHX2": {
+   "market": "US-MW-PHX2",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: east to the Sacramento Mountains (Tucson)."
+  },
+  "US-SW-EL PASO": {
+   "market": "US-SW-EL PASO",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: north to the Sacramento Mountains."
+  },
+  "US-SC-DALLAS": {
+   "market": "US-SC-DALLAS",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: west to the Sacramento Mountains."
+  },
+  "US-SC-HOUSTON": {
+   "market": "US-SC-HOUSTON",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: west to the Sacramento Mountains."
+  },
+  "US-SC-SANANTONIO": {
+   "market": "US-SC-SANANTONIO",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: northwest to the Sacramento Mountains."
+  },
+  "US-MW-KC": {
+   "market": "US-MW-KC",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier in data: western-interior grouping."
+  },
+  "US-MW-STL": {
+   "market": "US-MW-STL",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Nearest featured frontier in data (exact mileage unconfirmed)."
+  },
+  "US-MW-OMAHA": {
+   "market": "US-MW-OMAHA",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier in data: western-interior grouping."
+  },
+  "US-MW-DESMOINES": {
+   "market": "US-MW-DESMOINES",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier in data: western-interior grouping."
+  },
+  "US-MW-MILWAUKEE": {
+   "market": "US-MW-MILWAUKEE",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Nearest featured frontier in data (exact mileage unconfirmed)."
+  },
+  "US-MW-DETROIT": {
+   "market": "US-MW-DETROIT",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Nearest featured frontier in data (exact mileage unconfirmed)."
+  },
+  "US-MW-CLEVELAND": {
+   "market": "US-MW-CLEVELAND",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Nearest featured frontier in data (exact mileage unconfirmed)."
+  },
+  "US-MW-INDY": {
+   "market": "US-MW-INDY",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Nearest featured frontier in data (exact mileage unconfirmed)."
+  },
+  "US-NE-PHILLY": {
+   "market": "US-NE-PHILLY",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-NE-DC": {
+   "market": "US-NE-DC",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-NE-BALTIMORE": {
+   "market": "US-NE-BALTIMORE",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-NE-RALEIGH": {
+   "market": "US-NE-RALEIGH",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-SE-CHARLOTTE": {
+   "market": "US-SE-CHARLOTTE",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-SE-JAX": {
+   "market": "US-SE-JAX",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-SE-TAMPA": {
+   "market": "US-SE-TAMPA",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-SE-NOLA": {
+   "market": "US-SE-NOLA",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-SE-MEMPHIS": {
+   "market": "US-SE-MEMPHIS",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-SE-BIRMINGHAM": {
+   "market": "US-SE-BIRMINGHAM",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-SE-JACKSON": {
+   "market": "US-SE-JACKSON",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-SW-OKC": {
+   "market": "US-SW-OKC",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier in data: southwest interior."
+  },
+  "US-MW-BOISE": {
+   "market": "US-MW-BOISE",
+   "frontier_market": "US-WA-NEAHBAY",
+   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
+   "ingredients": [
+    {
+     "name": "Makah salmon",
+     "months": [
+      5,
+      6,
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "name": "huckleberry",
+     "months": [
+      8
+     ]
+    }
+   ],
+   "seasons": "Makah salmon May-Sep; huckleberry August",
+   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: northwest to the Olympic Peninsula."
+  },
+  "US-W-YAKIMA": {
+   "market": "US-W-YAKIMA",
+   "frontier_market": "US-WA-NEAHBAY",
+   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
+   "ingredients": [
+    {
+     "name": "Makah salmon",
+     "months": [
+      5,
+      6,
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "name": "huckleberry",
+     "months": [
+      8
+     ]
+    }
+   ],
+   "seasons": "Makah salmon May-Sep; huckleberry August",
+   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: west to the Olympic Peninsula."
+  },
+  "US-W-SPOKANE": {
+   "market": "US-W-SPOKANE",
+   "frontier_market": "US-WA-NEAHBAY",
+   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
+   "ingredients": [
+    {
+     "name": "Makah salmon",
+     "months": [
+      5,
+      6,
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "name": "huckleberry",
+     "months": [
+      8
+     ]
+    }
+   ],
+   "seasons": "Makah salmon May-Sep; huckleberry August",
+   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: west across Washington to Neah Bay."
+  },
+  "US-MW-MISSOULA": {
+   "market": "US-MW-MISSOULA",
+   "frontier_market": "US-WA-NEAHBAY",
+   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
+   "ingredients": [
+    {
+     "name": "Makah salmon",
+     "months": [
+      5,
+      6,
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "name": "huckleberry",
+     "months": [
+      8
+     ]
+    }
+   ],
+   "seasons": "Makah salmon May-Sep; huckleberry August",
+   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: west to the Olympic Peninsula."
+  },
+  "US-W-RENO": {
+   "market": "US-W-RENO",
+   "frontier_market": "US-CA-PESCADERO",
+   "place": "Pescadero, California 94060 — San Mateo Coast",
+   "ingredients": [
+    {
+     "name": "Castroville artichokes",
+     "months": [
+      3,
+      4,
+      5,
+      6
+     ],
+     "peak": 4
+    },
+    {
+     "name": "Marin goat cheese",
+     "months": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ]
+    },
+    {
+     "name": "strawberries",
+     "months": [
+      5,
+      6,
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "name": "Brussels sprouts",
+     "months": [
+      9,
+      10,
+      11,
+      12,
+      1,
+      2
+     ]
+    },
+    {
+     "name": "olive oil (fall press)",
+     "months": [
+      11
+     ]
+    }
+   ],
+   "seasons": "Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press",
+   "farmers_market": "Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero",
+   "farmers_market_url": "https://www.harleyfarms.com",
+   "link_note": "Nearest featured frontier: over the Sierra to the San Mateo Coast."
+  },
+  "US-W-SACRAMENTO": {
+   "market": "US-W-SACRAMENTO",
+   "frontier_market": "US-CA-PESCADERO",
+   "place": "Pescadero, California 94060 — San Mateo Coast",
+   "ingredients": [
+    {
+     "name": "Castroville artichokes",
+     "months": [
+      3,
+      4,
+      5,
+      6
+     ],
+     "peak": 4
+    },
+    {
+     "name": "Marin goat cheese",
+     "months": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ]
+    },
+    {
+     "name": "strawberries",
+     "months": [
+      5,
+      6,
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "name": "Brussels sprouts",
+     "months": [
+      9,
+      10,
+      11,
+      12,
+      1,
+      2
+     ]
+    },
+    {
+     "name": "olive oil (fall press)",
+     "months": [
+      11
+     ]
+    }
+   ],
+   "seasons": "Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press",
+   "farmers_market": "Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero",
+   "farmers_market_url": "https://www.harleyfarms.com",
+   "link_note": "Nearest featured frontier: due west to the San Mateo Coast."
+  },
+  "US-MW-MINNEAPOLIS2": {
+   "market": "US-MW-MINNEAPOLIS2",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Nearest featured frontier in data (exact mileage unconfirmed)."
+  },
+  "US-MW-FARGO": {
+   "market": "US-MW-FARGO",
+   "frontier_market": "US-WA-NEAHBAY",
+   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
+   "ingredients": [
+    {
+     "name": "Makah salmon",
+     "months": [
+      5,
+      6,
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "name": "huckleberry",
+     "months": [
+      8
+     ]
+    }
+   ],
+   "seasons": "Makah salmon May-Sep; huckleberry August",
+   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier in data: northern tier."
+  },
+  "US-NE-BURLINGTON": {
+   "market": "US-NE-BURLINGTON",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-NE-HARTFORD": {
+   "market": "US-NE-HARTFORD",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-NE-PROVIDENCE": {
+   "market": "US-NE-PROVIDENCE",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-SW-SANTA FE": {
+   "market": "US-SW-SANTA FE",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: south to the Sacramento Mountains."
+  },
+  "US-SW-CLOUDCROFT": {
+   "market": "US-SW-CLOUDCROFT",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: Sacramento Mountains neighbour."
+  },
+  "US-SW-ROSWELL": {
+   "market": "US-SW-ROSWELL",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: west to the Sacramento Mountains."
+  },
+  "US-W-ANCHORAGE": {
+   "market": "US-W-ANCHORAGE",
+   "frontier_market": "US-WA-NEAHBAY",
+   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
+   "ingredients": [
+    {
+     "name": "Makah salmon",
+     "months": [
+      5,
+      6,
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "name": "huckleberry",
+     "months": [
+      8
+     ]
+    }
+   ],
+   "seasons": "Makah salmon May-Sep; huckleberry August",
+   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier in data: Pacific fishing-frontier kin."
+  },
+  "US-W-HONOLULU": {
+   "market": "US-W-HONOLULU",
+   "frontier_market": "US-WA-NEAHBAY",
+   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
+   "ingredients": [
+    {
+     "name": "Makah salmon",
+     "months": [
+      5,
+      6,
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "name": "huckleberry",
+     "months": [
+      8
+     ]
+    }
+   ],
+   "seasons": "Makah salmon May-Sep; huckleberry August",
+   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier in data: Pacific fishing-frontier kin."
+  },
+  "US-SE-ASHEVILLE": {
+   "market": "US-SE-ASHEVILLE",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
+  },
+  "US-MW-JACKSONHOLE": {
+   "market": "US-MW-JACKSONHOLE",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: south along the Rockies to the Sacramento Mountains."
+  },
+  "US-W-BEND": {
+   "market": "US-W-BEND",
+   "frontier_market": "US-WA-NEAHBAY",
+   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
+   "ingredients": [
+    {
+     "name": "Makah salmon",
+     "months": [
+      5,
+      6,
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "name": "huckleberry",
+     "months": [
+      8
+     ]
+    }
+   ],
+   "seasons": "Makah salmon May-Sep; huckleberry August",
+   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: north to the Olympic Peninsula."
+  },
+  "US-W-BOULDER": {
+   "market": "US-W-BOULDER",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: south along the Rockies to the Sacramento Mountains."
+  },
+  "US-CA-PESCADERO": {
+   "market": "US-CA-PESCADERO",
+   "frontier_market": "US-CA-PESCADERO",
+   "place": "Pescadero, California 94060 — San Mateo Coast",
+   "ingredients": [
+    {
+     "name": "Castroville artichokes",
+     "months": [
+      3,
+      4,
+      5,
+      6
+     ],
+     "peak": 4
+    },
+    {
+     "name": "Marin goat cheese",
+     "months": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ]
+    },
+    {
+     "name": "strawberries",
+     "months": [
+      5,
+      6,
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "name": "Brussels sprouts",
+     "months": [
+      9,
+      10,
+      11,
+      12,
+      1,
+      2
+     ]
+    },
+    {
+     "name": "olive oil (fall press)",
+     "months": [
+      11
+     ]
+    }
+   ],
+   "seasons": "Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press",
+   "farmers_market": "Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero",
+   "farmers_market_url": "https://www.harleyfarms.com",
+   "link_note": "Is itself a featured frontier; resolves to its own place, ingredients, and seasons."
+  },
+  "US-WA-NEAHBAY": {
+   "market": "US-WA-NEAHBAY",
+   "frontier_market": "US-WA-NEAHBAY",
+   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
+   "ingredients": [
+    {
+     "name": "Makah salmon",
+     "months": [
+      5,
+      6,
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "name": "huckleberry",
+     "months": [
+      8
+     ]
+    }
+   ],
+   "seasons": "Makah salmon May-Sep; huckleberry August",
+   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Is itself a featured frontier; resolves to its own place, ingredients, and seasons."
+  },
+  "US-SW-TULAROSA": {
+   "market": "US-SW-TULAROSA",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier: Tularosa Basin neighbour under the Sacramento Mountains."
+  },
+  "US-UT-KAMASVALLEY": {
+   "market": "US-UT-KAMASVALLEY",
+   "frontier_market": "US-SW-TIMBERON",
+   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "ingredients": [
+    {
+     "name": "piñon nuts",
+     "months": null,
+     "note": "fall harvest; exact months unconfirmed — research dispatch"
+    }
+   ],
+   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "farmers_market_url": null,
+   "link_note": "Nearest featured frontier in data: interior ranch-country kin."
+  },
+  "US-SE-SANDERSVILLE": {
+   "market": "US-SE-SANDERSVILLE",
+   "frontier_market": "US-SE-SANDERSVILLE",
+   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+   "ingredients": [
+    {
+     "name": "Georgia pecans",
+     "months": [
+      10,
+      11,
+      12
+     ],
+     "peak": 11
+    },
+    {
+     "name": "Georgia peaches",
+     "months": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "peak": 7
+    },
+    {
+     "name": "sweet potatoes",
+     "months": [
+      9,
+      10,
+      11
+     ],
+     "peak": 10
+    },
+    {
+     "name": "muscadine grapes",
+     "months": [
+      8,
+      9
+     ]
+    }
+   ],
+   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+   "link_note": "Is itself a featured frontier; resolves to its own place, ingredients, and seasons."
+  }
+ }
+}

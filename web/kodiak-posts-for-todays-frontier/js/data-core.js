@@ -112,6 +112,102 @@ const places = [
 ];
 // B3: expose the places table globally so the prompt-box autocomplete script (a separate <script>) can read markets.
 try{ window.places = places; }catch(e){}
+// #257 mapping start — market -> featured-frontier (data mirror of
+// data/localization/market-featured-frontiers.json; inline so this page stays
+// offline-first). Every market resolves one featured frontier.
+const featuredFrontierDetail = {
+  "US-CA-PESCADERO": {place:"Pescadero, California 94060 — San Mateo Coast", items:["Castroville artichokes","Marin goat cheese","strawberries","Brussels sprouts","olive oil (fall press)"], seasons:"Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press", farmersMarket:"Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero"},
+  "US-WA-NEAHBAY": {place:"Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe", items:["Makah salmon","huckleberry"], seasons:"Makah salmon May-Sep; huckleberry August", farmersMarket:"Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)"},
+  "US-SE-SANDERSVILLE": {place:"Sandersville, GA 31082 — Washington County, kaolin-belt farm country", items:["Georgia pecans","Georgia peaches","sweet potatoes","muscadine grapes"], seasons:"Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep", farmersMarket:"Sandersville downtown farmers market + Washington County farm stands"},
+  "US-SW-TIMBERON": {place:"Timberon, New Mexico 88350 — Sacramento Mountains", items:["piñon nuts"], seasons:"Pinon harvest in fall (exact months unconfirmed — research dispatch)", farmersMarket:"Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)"}
+};
+const marketFeaturedFrontier = {
+  "US-CA-PESCADERO": "US-CA-PESCADERO",
+  "US-MW-BOISE": "US-WA-NEAHBAY",
+  "US-MW-CHI": "US-SE-SANDERSVILLE",
+  "US-MW-CLEVELAND": "US-SE-SANDERSVILLE",
+  "US-MW-DEN": "US-SW-TIMBERON",
+  "US-MW-DESMOINES": "US-SW-TIMBERON",
+  "US-MW-DETROIT": "US-SE-SANDERSVILLE",
+  "US-MW-FARGO": "US-WA-NEAHBAY",
+  "US-MW-INDY": "US-SE-SANDERSVILLE",
+  "US-MW-JACKSONHOLE": "US-SW-TIMBERON",
+  "US-MW-KC": "US-SW-TIMBERON",
+  "US-MW-MILWAUKEE": "US-SE-SANDERSVILLE",
+  "US-MW-MINNEAPOLIS2": "US-SE-SANDERSVILLE",
+  "US-MW-MISSOULA": "US-WA-NEAHBAY",
+  "US-MW-OMAHA": "US-SW-TIMBERON",
+  "US-MW-PARKCITY-84098": "US-SW-TIMBERON",
+  "US-MW-PHX2": "US-SW-TIMBERON",
+  "US-MW-STL": "US-SE-SANDERSVILLE",
+  "US-MW-TC": "US-SE-SANDERSVILLE",
+  "US-MW-WASATCH": "US-SW-TIMBERON",
+  "US-MW-WASATCH-SLC": "US-SW-TIMBERON",
+  "US-NE-BALTIMORE": "US-SE-SANDERSVILLE",
+  "US-NE-BOS": "US-SE-SANDERSVILLE",
+  "US-NE-BURLINGTON": "US-SE-SANDERSVILLE",
+  "US-NE-DC": "US-SE-SANDERSVILLE",
+  "US-NE-HARTFORD": "US-SE-SANDERSVILLE",
+  "US-NE-NYC": "US-SE-SANDERSVILLE",
+  "US-NE-PHILLY": "US-SE-SANDERSVILLE",
+  "US-NE-PROVIDENCE": "US-SE-SANDERSVILLE",
+  "US-NE-RALEIGH": "US-SE-SANDERSVILLE",
+  "US-SC-AUSTIN": "US-SW-TIMBERON",
+  "US-SC-DALLAS": "US-SW-TIMBERON",
+  "US-SC-HOUSTON": "US-SW-TIMBERON",
+  "US-SC-SANANTONIO": "US-SW-TIMBERON",
+  "US-SE-ASHEVILLE": "US-SE-SANDERSVILLE",
+  "US-SE-ATL": "US-SE-SANDERSVILLE",
+  "US-SE-BIRMINGHAM": "US-SE-SANDERSVILLE",
+  "US-SE-CHARLOTTE": "US-SE-SANDERSVILLE",
+  "US-SE-COAST": "US-SE-SANDERSVILLE",
+  "US-SE-FL": "US-SE-SANDERSVILLE",
+  "US-SE-JACKSON": "US-SE-SANDERSVILLE",
+  "US-SE-JAX": "US-SE-SANDERSVILLE",
+  "US-SE-LOU": "US-SE-SANDERSVILLE",
+  "US-SE-MEMPHIS": "US-SE-SANDERSVILLE",
+  "US-SE-NASH": "US-SE-SANDERSVILLE",
+  "US-SE-NOLA": "US-SE-SANDERSVILLE",
+  "US-SE-SANDERSVILLE": "US-SE-SANDERSVILLE",
+  "US-SE-TAMPA": "US-SE-SANDERSVILLE",
+  "US-SW-ALBQ": "US-SW-TIMBERON",
+  "US-SW-CLOUDCROFT": "US-SW-TIMBERON",
+  "US-SW-EL PASO": "US-SW-TIMBERON",
+  "US-SW-LASCRUCES": "US-SW-TIMBERON",
+  "US-SW-OKC": "US-SW-TIMBERON",
+  "US-SW-PHX": "US-SW-TIMBERON",
+  "US-SW-ROSWELL": "US-SW-TIMBERON",
+  "US-SW-SANTA FE": "US-SW-TIMBERON",
+  "US-SW-TIMBERON": "US-SW-TIMBERON",
+  "US-SW-TULAROSA": "US-SW-TIMBERON",
+  "US-UT-KAMASVALLEY": "US-SW-TIMBERON",
+  "US-W-ANCHORAGE": "US-WA-NEAHBAY",
+  "US-W-BEND": "US-WA-NEAHBAY",
+  "US-W-BOULDER": "US-SW-TIMBERON",
+  "US-W-HONOLULU": "US-WA-NEAHBAY",
+  "US-W-LA": "US-CA-PESCADERO",
+  "US-W-PDX": "US-WA-NEAHBAY",
+  "US-W-RENO": "US-CA-PESCADERO",
+  "US-W-SACRAMENTO": "US-CA-PESCADERO",
+  "US-W-SD": "US-CA-PESCADERO",
+  "US-W-SEA": "US-WA-NEAHBAY",
+  "US-W-SF": "US-CA-PESCADERO",
+  "US-W-SPOKANE": "US-WA-NEAHBAY",
+  "US-W-VEGAS": "US-CA-PESCADERO",
+  "US-W-YAKIMA": "US-WA-NEAHBAY",
+  "US-WA-NEAHBAY": "US-WA-NEAHBAY"
+};
+function featuredFrontierFor(market){
+  try{
+    const fk = marketFeaturedFrontier[market]; if(!fk) return null;
+    const d = featuredFrontierDetail[fk]; if(!d) return null;
+    const items = d.items || [];
+    return {frontier: fk, place: d.place, items: items, seasons: d.seasons, farmersMarket: d.farmersMarket,
+      text: d.place + " — " + items.slice(0,3).join(", ") + " — " + d.seasons + " — " + d.farmersMarket};
+  }catch(e){ return null; }
+}
+try{ window.featuredFrontierFor = featuredFrontierFor; }catch(e){}
+// #257 mapping end
 const products = [
   {id:"power-cakes", name:"KODIAK CAKES® Buttermilk Power Cakes", img:"", base:"1 cup mix + 2/3 cup milk + 1 egg"},
   {id:"protein-biscuits", name:"KODIAK CAKES® Cheddar Jalapeno Drop Biscuits", img:"", base:"2 cups mix + cold butter + cheddar + jalapeno, drop bake 14 min"},
@@ -661,10 +757,15 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
       const names = langs.map(l=>l.lang_name).filter(Boolean);
       const reach = esc(['English'].concat(names).join(', '));
       const sceneHtml = scene ? '<span class="ff-cue">'+esc(scene)+'</span>' : '';
+      // #257: metro markets link their featured frontier from data (via its own
+      // entry, not the frontier's cue). Self-frontier markets already carry it.
+      const frontierLink = (typeof featuredFrontierFor==='function') ? featuredFrontierFor(market) : null;
+      const linkHtml = (frontierLink && frontierLink.frontier!==market) ? '<span class="ff-frontier-link">'+esc('featured frontier: '+frontierLink.text)+'</span>' : '';
       featured.innerHTML =
         '<span class="ff-context-lead">This campaign, localized for</span> '+
         '<span class="ff-place">'+esc(placeName)+'</span>'+
         sceneHtml+
+        linkHtml+
         '<span class="ff-reach">localized reach: '+reach+'</span>';
     }
 
