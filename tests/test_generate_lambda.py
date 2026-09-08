@@ -653,3 +653,42 @@ def test_pack_requires_files(monkeypatch) -> None:
     resp, body = _pack_body(monkeypatch, {"product": "x"})
     assert resp["statusCode"] == 400
     assert body["ok"] is False
+
+
+def test_pack_includes_text_extras(monkeypatch) -> None:
+    import io as _io
+    import zipfile as _zf
+
+    s3 = _pack_s3()
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: s3)
+    resp = generate_lambda.handler(_pack_event({
+        "files": [
+            {"s3_uri": f"s3://{generate_lambda.DAM_S3_BUCKET}/brands/kodiak/renders/a1.png", "ratio": "1x1"},
+        ],
+        "extras": [
+            {"name": "copy.txt", "text": "Keep It Wild"},
+            {"name": "copy.csv", "text": "ratio,headline\n1x1,Keep It Wild\n"},
+        ],
+        "product": "blueberry-muffin-mix",
+    }), None)
+    assert resp["statusCode"] == 200
+    body = json.loads(resp["body"])
+    assert body["count"] == 3
+    with _zf.ZipFile(_io.BytesIO(s3.last_put["Body"])) as zf:
+        assert zf.read("blueberry-muffin-mix-copy.txt") == b"Keep It Wild"
+
+
+def test_pack_rejects_bad_extra_name(monkeypatch) -> None:
+    resp, body = _pack_body(monkeypatch, {"files": [
+        {"s3_uri": f"s3://{generate_lambda.DAM_S3_BUCKET}/brands/kodiak/renders/a1.png", "ratio": "1x1"},
+    ], "extras": [{"name": "../evil.sh", "text": "x"}]})
+    assert resp["statusCode"] == 400
+    assert body["ok"] is False
+
+
+def test_pack_rejects_oversize_extra(monkeypatch) -> None:
+    resp, body = _pack_body(monkeypatch, {"files": [
+        {"s3_uri": f"s3://{generate_lambda.DAM_S3_BUCKET}/brands/kodiak/renders/a1.png", "ratio": "1x1"},
+    ], "extras": [{"name": "big.txt", "text": "x" * 70000}]})
+    assert resp["statusCode"] == 400
+    assert body["ok"] is False

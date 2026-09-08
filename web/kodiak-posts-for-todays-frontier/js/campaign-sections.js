@@ -107,12 +107,42 @@
     });
   }
 
-  // download all campaign renders (hosted urls). Mirrors the download-all-preview approach for full renders.
+  // Download Campaign Pack (#242) — one click, one ISO zip via the #204 endpoint.
+  // POSTs the campaign renders' DAM keys (+ copy sidecars where present) to
+  // /assets/pack and saves the single presigned zip. Browsers cap automatic
+  // multi-downloads, which is why the old per-file loop saved 1 photo instead
+  // of 4. Falls back to the per-file loop only when no DAM keys exist.
   window.downloadCampaignPack = function(){
     var status = document.getElementById('generateCampaignStatus');
     if(!campaignRenders.length){ if(status) status.textContent = 'Generate a campaign first, then download the pack.'; return 0; }
-    var date = new Date().toISOString().slice(0,10).replace(/-/g,'');
     var product = selectedProductSlug();
+    var keyed = campaignRenders.filter(function(r){ return r && r.s3_uri; });
+    if(keyed.length){
+      var files = keyed.map(function(r){ return {s3_uri: r.s3_uri, ratio: r.ratio || '1x1'}; });
+      var extras = [];
+      try{
+        var sc = window.__lastCampaignSidecar || {};
+        if(sc.txt) extras.push({name: 'copy.txt', text: String(sc.txt).slice(0, 65536)});
+        if(sc.csv) extras.push({name: 'copy.csv', text: String(sc.csv).slice(0, 65536)});
+      }catch(e){}
+      if(status) status.textContent = 'Building campaign pack zip…';
+      fetch('/assets/pack', {method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({files: files, extras: extras, product: product, channel: 'campaign'})})
+      .then(function(resp){ if(!resp.ok) throw new Error('pack HTTP '+resp.status); return resp.json(); })
+      .then(function(json){
+        if(!json || !json.ok || !json.zip_url) throw new Error('pack missing zip_url');
+        var a = document.createElement('a'); a.href = json.zip_url; a.download = json.zip_name || 'pack.zip';
+        a.rel = 'noopener'; document.body.appendChild(a); a.click(); a.remove();
+        if(status) status.textContent = 'Downloaded ' + (json.zip_name || 'campaign pack') + ' (' + (json.count||0) + ' files)';
+      })
+      .catch(function(){ window.downloadCampaignPackPng(product, status); });
+      return 'pack-requested';
+    }
+    return window.downloadCampaignPackPng(product, status);
+  };
+  // Per-file fallback (pre-#242 behavior): save each campaign render individually.
+  window.downloadCampaignPackPng = function(product, status){
+    var date = new Date().toISOString().slice(0,10).replace(/-/g,'');
     var saved = 0;
     campaignRenders.forEach(function(r, i){
       if(!r || !r.image_url) return;
@@ -165,6 +195,8 @@
                     : (json.image_url ? [{image_url: json.image_url, ratio: json.ratio || '1x1', w: json.w, h: json.h}] : []);
       if(!renders.length) throw new Error('response missing renders');
       campaignRenders = renders;
+      // pack download (#242) needs the copy sidecars too — record them alongside.
+      try{ window.__lastCampaignSidecar = (json.copy_sidecar && typeof json.copy_sidecar==='object') ? json.copy_sidecar : null; }catch(e){}
       // reuse the preview renderer for the on-screen result when available
       try{ if(typeof window.KODIAK_showRenderSet==='function' && Array.isArray(json.renders) && json.renders.length){ window.KODIAK_showRenderSet(json.renders, {source: json.source, provenance: json.provenance}); } }catch(e){}
       renderCampaignCarousel(renders);
