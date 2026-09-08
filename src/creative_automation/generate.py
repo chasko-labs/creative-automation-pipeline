@@ -1070,7 +1070,9 @@ def _apply_brand_overlay(
     GenAI hero (the image is already the background — no cover-fit, no scrim) OR the
     Pillow scene composer (which supplies its own cover-fit + scrim first). Draws:
     C04 the ~32% dark message bar at 68% down with the centered wrapped white headline
-    (per-ratio font), and C03 the 8px Blaze Orange accent bar pinned to the bottom.
+    (per-ratio font), the fitted token footer just above the accent bar (shrink-to-fit,
+    so narrow frames never clip it), and C03 the 8px Blaze Orange accent bar pinned
+    to the bottom.
     Never resizes the incoming image — the base is opened and drawn on at its own size.
     No Kodiak logo/wordmark (brand preference).
     """
@@ -1101,6 +1103,29 @@ def _apply_brand_overlay(
             tw = bbox[2] - bbox[0]
             draw.text(((W - tw) / 2, ty), line, fill="white", font=font, stroke_width=2, stroke_fill=(0, 0, 0, 180))
             ty += line_h
+
+    # fitted token footer, centered just above the accent bar (shrink-to-fit so
+    # narrow frames like 9:16 never clip it — same text as the compose footer).
+    footer_text = "KODIAK  \u2022  kodiakcakes.com  \u2022  Keep It Wild"
+    fit_px = min(34, max(20, W // 32))
+    while fit_px > 14:
+        try:
+            fit_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", fit_px)
+        except Exception:
+            fit_font = ImageFont.load_default()
+            break
+        bbox = draw.textbbox((0, 0), footer_text, font=fit_font)
+        if bbox[2] - bbox[0] <= W - 48:
+            break
+        fit_px -= 2
+    try:
+        fit_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", fit_px)
+    except Exception:
+        fit_font = ImageFont.load_default()
+    bbox = draw.textbbox((0, 0), footer_text, font=fit_font)
+    ftw = bbox[2] - bbox[0]
+    draw.text(((W - ftw) / 2, H - 14 - (bbox[3] - bbox[1])), footer_text,
+              fill=(255, 255, 255, 200), font=fit_font)
 
     # C03 — 8px Blaze Orange accent bar at the very bottom.
     accent = _hex_to_rgb(_accent_hex)
@@ -1275,6 +1300,7 @@ def generate_hero(
     theme: str | None = None,
     brand_overlay: bool = True,
     paper_overlay: bool = True,
+    bare_base: bool = False,
 ) -> tuple[Path, str, dict]:
     """Generate a real Kodiak-social-style hero. Returns (path, source, provenance).
 
@@ -1455,6 +1481,8 @@ def generate_hero(
                 message=headline if brand_overlay else "",
                 ratio_key=ratio,
                 product_layer=packshot,
+                footer=not bare_base,
+                bare=bare_base,
             )
             provenance["engine"] = "packshot-composite"
             provenance["rung"] = "A"
@@ -1657,6 +1685,7 @@ def generate_hero_set(
         theme=theme,
         brand_overlay=False,
         paper_overlay=False,
+        bare_base=True,
     )
 
     headline = _headline_for(clean_base, product_name, brief_msg, region, audience)

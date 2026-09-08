@@ -67,11 +67,11 @@ def test_theme_routes_through_generate_hero_set(tmp_path, monkeypatch):
         out_dir=out_dir,
         theme="us-ski-snowboard",
     )
-    # three delivery ratios produced
-    assert [r["ratio"] for r in renders] == ["1x1", "4x5", "2x3"]
+    # four delivery ratios produced (pinned v2 DoD delivery set)
+    assert [r["ratio"] for r in renders] == ["1x1", "4x5", "9x16", "16x9"]
     for r in renders:
         assert r["path"].exists()
     # provenance carries the theme + per-ratio engine record
     assert provenance.get("theme") == "us-ski-snowboard"
-    assert set(provenance.get("ratios", {}).keys()) == {"1x1", "4x5", "2x3"}
+    assert set(provenance.get("ratios", {}).keys()) == {"1x1", "4x5", "9x16", "16x9"}
     assert provenance.get("overlay_applied") is True
