@@ -445,6 +445,9 @@ def _seeded_hero_set(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(generate, "_stability_outpaint", lambda *a, **k: None)
     monkeypatch.setattr(generate, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: "Keep It Wild\nLAYOUT: center")
+    # recipe author is a Nova text call like the caption — stubbed offline so no
+    # test ever touches the network; the default-fields fallback is exercised.
+    monkeypatch.setattr(generate, "_author_recipe_fields", lambda *a, **k: None)
 
 
 def test_recipe_cards_theme_runs_card_template(tmp_path: Path, monkeypatch) -> None:
@@ -470,6 +473,7 @@ def test_recipe_cards_theme_runs_card_template(tmp_path: Path, monkeypatch) -> N
         theme="recipe-cards",
     )
     assert prov.get("card_template") is True
+    assert prov.get("recipe_author") == "default"
     assert set(called) == {"1x1", "4x5", "9x16", "16x9"}
     assert all("recipe-card-template" in prov["ratios"][r] for r in ("1x1", "4x5", "9x16", "16x9"))
     dims = {r["ratio"]: (r["w"], r["h"]) for r in renders}

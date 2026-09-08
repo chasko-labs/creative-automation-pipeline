@@ -56,6 +56,9 @@
   --mountain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0 38 L120 8 L260 32 L380 4 L520 30 L640 10 L760 34 L880 6 L1000 28 L1120 12 L1200 36 L1200 48 L0 48Z' fill='%231A2F29'/%3E%3C/svg%3E");
   /* forest treeline divider - mirrors --mountain (same viewBox 0 0 1200 48, same fill #1A2F29) but ~36 narrow conifer spikes of varied height (peaks y=6..28) with baseline valleys at y=46, so it reads as a dense spruce/pine treeline rather than a few wide peaks */
   --forest:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0 48 L0 46 L16 10 L33 46 L49 20 L66 46 L82 6 L99 46 L116 24 L133 46 L150 14 L166 46 L183 28 L199 46 L216 8 L233 46 L250 18 L266 46 L283 12 L300 46 L316 22 L333 46 L350 10 L366 46 L383 20 L399 46 L416 6 L433 46 L450 24 L466 46 L483 14 L500 46 L516 28 L533 46 L550 8 L566 46 L583 18 L600 46 L616 12 L633 46 L650 22 L666 46 L683 10 L699 46 L716 20 L733 46 L750 6 L766 46 L783 24 L799 46 L816 14 L833 46 L850 28 L866 46 L883 8 L900 46 L916 18 L933 46 L950 12 L966 46 L983 22 L1000 46 L1016 10 L1033 46 L1050 20 L1066 46 L1083 6 L1100 46 L1116 24 L1133 46 L1150 14 L1166 46 L1183 28 L1200 46 L1200 48 Z' fill='%231A2F29'/%3E%3C/svg%3E");
+  /* corrugated flute — vertical bear-brown/parchment hairlines on a 12px tile, layered
+     OVER kraft at low alpha so hero surfaces read as lit cardboard, never stripes */
+  --flute:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M2 0 V12' stroke='%233B2316' stroke-opacity='.07' stroke-width='2'/%3E%3Cpath d='M8 0 V12' stroke='%23FFF8F0' stroke-opacity='.10' stroke-width='2'/%3E%3C/svg%3E");
 }
 *{box-sizing:border-box}
 html,body{margin:0;color:var(--chocolate);font-family:"museo-sans",system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif;font-weight:500;font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased}
@@ -202,6 +205,8 @@ section.xl{padding:var(--section-space-xl) 0}
    card's --shadows-md: 0 12px 32px vs 0 8px 24px), so it reads elevated ABOVE the card.
    only on-token hygiene here: raw 16px radius -> --radii-lg (same value, no visual change). */
 .ff-prompt{background:var(--gradients-kraft\.surface);border:1px solid var(--stone);border-radius:var(--radii-lg);padding:18px;box-shadow:var(--shadows-bear)}
+/* lit cardboard — corrugated flute tiled over the kraft on the hero prompt surface */
+.ff-prompt{background-image:var(--flute),var(--gradients-kraft\.surface)}
 .ff-prompt h2{margin:0 0 4px;font:800 20px/1.1 gin,"kodiak_sans",Rockwell,Georgia,serif;letter-spacing:.03em;text-transform:none;color:var(--chocolate)}
 .ff-prompt .ff-sub{margin:0 0 14px;color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
 /* === HERO CANVAS: the campaign input is the primary action, styled to dominate. ===
@@ -234,15 +239,24 @@ section.xl{padding:var(--section-space-xl) 0}
   background:var(--colors-neutral-0,#fff);color:var(--chocolate);cursor:pointer;font-size:18px;line-height:1}
 .ff-iconbtn:hover{background:var(--colors-neutral-100,#F4EDE6)}
 .ff-iconbtn:focus-visible{outline:2px solid var(--orange, #E8530E);outline-offset:2px}
-/* CREATE — must win. 48px tier, darkened blaze-orange (#C7440B) so #fff label clears WCAG AA
-   (4.86:1 vs 4.5:1 required); loudest element on the page via branded elevation. */
-.ff-go{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:48px;min-height:48px;padding:0 28px;
-  border-radius:var(--radii-lg,16px);border:1px solid #C7440B;background:#C7440B;color:#fff;
-  font:700 14px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;
-  box-shadow:var(--shadows-bear)}
-.ff-go:hover{background:#B23C09;border-color:#B23C09;box-shadow:var(--shadows-lg);transform:translateY(-1px)}
+/* CREATE CAMPAIGN PREVIEW — the star. Lit ember gradient (top-light like the kraft
+   sheen: every stop vs #fff clears WCAG AA — 4.81/4.93/6.33 vs 4.5 required), inset
+   top highlight + low bounce-light for dimension, bear elevation, hover light-sweep.
+   52px tier so nothing else on the page competes. */
+.ff-go{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:52px;min-height:52px;padding:0 34px;white-space:nowrap;
+  border-radius:var(--radii-lg,16px);border:1px solid #8F3005;
+  background:linear-gradient(180deg,#C9460C 0%,#C7440B 48%,#A93B07 100%);color:#fff;
+  font:700 14px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;
+  box-shadow:inset 0 1px 0 rgba(255,248,240,.4),inset 0 -2px 5px rgba(59,20,5,.4),var(--shadows-bear);
+  position:relative;overflow:hidden}
+.ff-go:hover{background:linear-gradient(180deg,#C9460C 0%,#B23C09 55%,#9E3606 100%);border-color:#8F3005;
+  box-shadow:inset 0 1px 0 rgba(255,248,240,.45),inset 0 -2px 5px rgba(59,20,5,.4),var(--shadows-lg);transform:translateY(-1px)}
 .ff-go{transition:background .15s,border-color .15s,box-shadow .15s,transform .15s}
-@media(prefers-reduced-motion:reduce){.ff-go{transition:none}.ff-go:hover{transform:none}}
+.ff-go::after{content:"";position:absolute;top:-10%;bottom:-10%;left:-70%;width:50%;pointer-events:none;
+  background:linear-gradient(105deg,transparent 0%,rgba(255,248,240,.38) 50%,transparent 100%);
+  transform:skewX(-18deg);transition:left .55s ease}
+.ff-go:hover::after,.ff-go:focus-visible::after{left:135%}
+@media(prefers-reduced-motion:reduce){.ff-go{transition:none}.ff-go:hover{transform:none}.ff-go::after{display:none}}
 /* elevation tiers — the only three depths in the app. rest: surfaces at rest (cards keep
    their current shadows = rest by convention). raised: interactive controls under hand
    (chips, primary CTA). modal: dialogs above everything (dam panel, pickers). */
@@ -497,6 +511,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-opt-badge{display:inline-block;margin-left:var(--spacing-xs);padding:1px 6px;border-radius:var(--radii-full);
   background:var(--colors-brand-blaze-orange);color:var(--colors-foreground-inverse);
   font:700 9px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;vertical-align:middle}
+/* #213: the declared market-value host. The disclosure listbox is the visible face;
+   this select stays in the a11y tree + tab order (clip technique, same as the asset
+   file input) so keyboard/AT users get a native equivalent, synced both ways. */
+.ff-locality-select{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.ff-locality-select:focus-visible{outline:2px solid var(--colors-brand-signal-red);outline-offset:2px}
 
 /* D4. add-your-own-asset affordance beside the product chooser — frontend staging only */
 .ff-addasset{margin-top:var(--spacing-sm);padding-top:var(--spacing-sm);border-top:1px dashed var(--colors-border-default)}
@@ -530,6 +549,27 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-optiongroup{margin-top:var(--spacing-sm,8px);padding-top:var(--spacing-sm,8px);border-top:1px dashed var(--colors-border-default)}
 .ff-optiongroup>.ff-optiongroup-label{display:block;margin:0 0 var(--spacing-sm);font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted)}
 
+/* #218 - one guided setup step: reach, market+season, creative direction, and brief read as a
+   single ordered step inside .ff-setup. The section heading + numbered data-step badges carry the
+   order; every control keeps its id, role, and binding. Badges are pure CSS (attr(data-step)) so
+   no extra DOM enters the a11y tree. data-scope-mode dimming still keys off .ff-controlrow. */
+.ff-setup{display:flex;flex-direction:column;gap:var(--spacing-md);margin-top:var(--spacing-sm,8px);
+  padding:var(--spacing-md);background:var(--colors-neutral-100);border:1px solid var(--colors-border-default);
+  border-radius:var(--radii-lg)}
+.ff-setup-heading{margin:0;font:800 15px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.02em;color:var(--chocolate)}
+/* inside the guided step the blocks no longer need their own top separation — the section provides it */
+.ff-setup>.ff-scope-wrap,.ff-setup>.ff-controlrow{margin-top:0}
+.ff-setup>.ff-brainstorm{margin-top:0;background:transparent;border:none;border-radius:0;padding-top:0;padding-bottom:0}
+.ff-setup>.ff-brainstorm>.ff-optiongroup{margin-top:0;padding-top:0;border-top:none}
+.ff-setup>.ff-inputwrap{margin-top:0}
+/* numbered order badges — pure CSS (attr(data-step)), no extra DOM in the a11y tree. This rule
+   stays LAST in the #218 block so its gutter survives the resets above on equal specificity. */
+.ff-setup>section[data-step],.ff-setup>div[data-step],.ff-setup>details[data-step]{position:relative;padding-left:34px}
+.ff-setup>section[data-step]::before,.ff-setup>div[data-step]::before,.ff-setup>details[data-step]::before{content:attr(data-step);position:absolute;left:0;top:2px;width:24px;height:24px;
+  display:inline-flex;align-items:center;justify-content:center;border-radius:50%;
+  background:var(--colors-brand-frontier-green);color:var(--colors-foreground-inverse);
+  font:700 12px/1 "museo-sans",sans-serif}
+
 /* item 6 - unified brainstorming surface: campaign-option chips + product picker share one panel
    (single background/border/radius + consistent inner spacing rhythm) so they read as one control
    surface instead of two disconnected blocks. wrapper only; child ids untouched. */
@@ -537,6 +577,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   background:var(--colors-neutral-100);border:1px solid var(--colors-border-default);border-radius:var(--radii-lg)}
 /* inside the unified panel the option-group no longer needs its own top border/margin - the panel provides the separation */
 .ff-brainstorm>.ff-optiongroup{margin-top:0;padding-top:0;border-top:none}
+/* === Creative direction disclosure (fold density) — pill summary inherited from
+   .ff-products; the wrapped optiongroup keeps its flush rules inside === */
+.ff-brainstorm>.ff-directions{margin-top:var(--spacing-sm)}
+.ff-directions>.ff-optiongroup{margin-top:0;padding-top:var(--spacing-xs);border-top:none}
 /* products disclosure sits directly below the chips inside the same panel, separated by a hairline rhythm line */
 .ff-brainstorm>.ff-products{margin-top:var(--spacing-md);padding-top:var(--spacing-md);border-top:1px dashed var(--colors-border-default)}
 
@@ -649,6 +693,9 @@ header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
 .ff-hidden{display:none}
 /* Wasatch ridge divider — decorative silhouette band */
 .ff-ridge{height:48px;background:var(--mountain) no-repeat center/100% 48px;margin:var(--spacing-sm) 0 0}
+/* === About art band — full-bleed mountains-with-pines above the section === */
+.ff-about-art{margin:var(--spacing-sm) 0 0;line-height:0}
+.ff-about-art .ff-about-range{width:100%;height:96px;display:block}
 /* forest treeline divider - mirrors .ff-ridge, uses the conifer --forest silhouette */
 .ff-forest{height:48px;background:var(--forest) no-repeat center/100% 48px;margin:var(--spacing-sm) 0 0}
 /* preview filenames line — hidden until populated */
@@ -775,6 +822,9 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
   unicode-range:U+3000-303F,U+3040-309F,U+30A0-30FF,U+3100-312F,U+31F0-31FF,U+3200-32FF,U+3400-4DBF,U+4E00-9FFF,U+AC00-D7AF,U+F900-FAFF,U+FF00-FFEF}
 
 .loc-line{font-family:'Noto Sans',system-ui,sans-serif;margin:.15rem 0;line-height:1.35}
+/* language tag always carries its own trailing gap so EN/ES/PT never glue onto the copy */
+.loc-langtag{display:inline-block;margin-right:.45em;font-weight:700}
+.loc-txt{display:inline}
 .loc-line[lang="ar"]{direction:rtl;text-align:right;font-family:'Noto Sans Arabic','Noto Sans',sans-serif}
 .loc-line[lang="am"]{font-family:'Noto Sans Ethiopic','Noto Sans',sans-serif}
 .loc-line[lang="my"]{font-family:'Noto Sans Myanmar','Noto Sans',sans-serif}
@@ -800,23 +850,76 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-output{margin:0 0 var(--section-space-lg);padding:16px;border:1px solid var(--stone);border-radius:var(--radii-lg);background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-md);position:relative}
 .ff-output::before{content:"";position:absolute;inset:0;background:var(--wood) repeat;opacity:.06;pointer-events:none}
 .ff-output-heading{margin:0 0 12px;font:800 16px/1.1 gin,"kodiak_sans",Rockwell,Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate);position:relative}
-/* === #239 — campaign sections ride the same output card, centered like the preview === */
-.ff-output.ff-generate-campaign,.ff-output.ff-campaign-assets{max-width:960px;width:100%;margin-left:auto;margin-right:auto}
+/* === #239 — campaign assets ride the same output card, centered like the preview === */
+.ff-output.ff-campaign-assets{max-width:960px;width:100%;margin-left:auto;margin-right:auto}
+/* === numbered flow 5/6/7 — step chips shared by Output Preview, Generate Campaign, assets === */
+.ff-stepnum{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--colors-brand-bear-brown);color:#FFF8F0;font:800 12px/1 "museo-sans",sans-serif;flex:0 0 auto}
+/* === Generate Campaign collapsed gate — same disclosure styling as Output Preview
+   (.preview-card), greyed marker while locked until preview === */
+.ff-output.ff-generate-campaign{width:100%}
+.ff-generate-campaign.is-gated>summary{opacity:.55;cursor:not-allowed}
+.ff-generate-campaign.is-gated>summary::before{color:var(--colors-neutral-400)}
+.ff-generate-campaign.is-gated>summary:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+/* === Progress timeline — slim horizontal tracker + live heuristic line === */
+.ff-timeline{margin:0 0 var(--spacing-sm);padding:10px 14px 8px;border:1px solid var(--stone);border-radius:var(--radii-lg);background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-md);background-image:var(--flute),var(--gradients-kraft\.surface)}
+.ff-timeline-steps{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.ff-timeline-steps li{display:inline-flex;align-items:center;gap:6px;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;color:var(--colors-foreground-muted)}
+.ff-timeline-steps li+li::before{content:"";width:18px;height:1px;background:var(--colors-border-default);margin-right:2px}
+.ff-timeline-dot{width:8px;height:8px;border-radius:999px;background:var(--colors-neutral-300);flex:0 0 auto}
+.ff-timeline-steps li[data-state="active"]{color:var(--chocolate)}
+.ff-timeline-steps li[data-state="active"] .ff-timeline-dot{background:var(--red)}
+.ff-timeline-steps li[data-state="done"]{color:var(--colors-foreground-default)}
+.ff-timeline-steps li[data-state="done"] .ff-timeline-dot{background:var(--colors-brand-frontier-green)}
+.ff-timeline-steps li[data-state="locked"]{opacity:.55}
+.ff-timeline-steps .ff-stepnum{min-width:18px;height:18px;font-size:10px}
+.ff-timeline-note{margin-top:6px;min-height:1.2em;font:500 11px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-600)}
+.ff-timeline-note:empty::before{content:"Set up your campaign, then Create a preview.";opacity:.75}
 /* the full-campaign action is the primary next step: full-width, larger target */
 #generateCampaignBtns .ff-campaign-primary{width:100%;justify-content:center;padding:14px 22px;font-size:13px}
+/* gated Generate Campaign: same card + elevation as Output Preview, compact on load.
+   Gated state reads locked (cursor + dimmed action row); the button itself is hidden
+   until a preview unlocks it, so there is no dead CTA on first paint. */
+/* Gated Generate Campaign: same card + elevation as Output Preview. The lock pill is
+   the system .badge (in markup, hidden on unlock); the button is hidden until then,
+   so there is no dead CTA on first paint. */
+.ff-output.ff-generate-campaign{cursor:pointer}
+.ff-output.ff-generate-campaign:not(.is-gated){cursor:default}
+#generateCampaignLock{margin-left:10px}
+/* .btn sets display:inline-flex, which beats the UA [hidden] rule — re-hide the gated action */
+#genFullCampaign[hidden]{display:none}
+/* Full-campaign scope option: the hero choice of step 1. Flag is the system .badge
+   (in markup); the option gets room for its longer sub-line. */
+.ff-scope-opt--full{flex-basis:220px}
+/* Full-campaign banner: prominent nature-ground callout, system tokens throughout. */
+.ff-full-banner{margin:8px 0 0;padding:10px 12px;border-radius:var(--radii-md,8px);
+  background:var(--colors-background-nature,#1A2F29);color:var(--colors-foreground-inverse,#FFF8F0);
+  font:600 12px/1.5 "museo-sans",sans-serif}
+.ff-full-banner[hidden]{display:none}
+/* full campaign covers steps 2-3: dim them to "already included", brief + Create stay live */
+.ff-setup[data-full="true"] .ff-controlrow,
+.ff-setup[data-full="true"] .ff-brainstorm{opacity:.55}
+.ff-setup[data-full="true"] .ff-inputwrap{opacity:1}
+/* about-pipeline range art: mountains + interspersed pines, same frontier green as the dividers */
+.ff-about-range{display:block;width:100%;max-height:120px;margin:2px 0 10px}
+/* wide screens: use the room instead of a narrow center column */
+@media(min-width:1400px){.wrap{max-width:1280px}}
 /* readout of what the current selections resolved to — sits at the top of the output surface */
 .ff-output-readout{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 12px;position:relative}
 .ff-output-readout .ff-featured{flex:0 1 auto;font:600 12px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-700)}
 .ff-output-readout .ff-langs{flex:0 1 auto;font:500 12px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-600)}
 
 /* === B3 — prompt-box autocomplete dropdown, anchored to the textarea wrap === */
-/* the input row is the positioning context for the suggestion listbox */
+/* the input row keeps its positioning context; the suggestion strip is in-flow */
 .ff-inputwrap{position:relative}
-/* reuse the ff-products-results visual pattern; anchor under the textarea, full width of the input row */
-.ff-briefsuggest{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:40;max-height:280px;overflow-y:auto}
-.ff-briefsuggest .ff-suggest-opt{display:flex;align-items:center;gap:8px;padding:8px 12px;cursor:pointer;font:500 13px/1.3 "museo-sans",sans-serif;color:var(--chocolate);border-bottom:1px solid var(--colors-neutral-100)}
-.ff-briefsuggest .ff-suggest-opt:last-child{border-bottom:none}
-.ff-briefsuggest .ff-suggest-opt:hover,.ff-briefsuggest .ff-suggest-opt[aria-selected="true"]{background:var(--oat)}
+/* inline pill strip INSIDE the prompt (in-flow, never a floating overlay): suggestions
+   reinforce the market/season context line instead of duplicating it in a detached box.
+   Listbox semantics + keyboard model untouched (autocomplete.js). */
+.ff-briefsuggest{position:static;margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;max-height:none;overflow:visible;
+  background:transparent;border:none;border-radius:0;box-shadow:none;padding:0}
+.ff-briefsuggest[hidden]{display:none}
+.ff-briefsuggest .ff-suggest-opt{display:inline-flex;align-items:center;gap:6px;padding:4px 10px 4px 4px;cursor:pointer;font:500 12px/1.3 "museo-sans",sans-serif;color:var(--chocolate);
+  border:1px solid var(--colors-border-default);border-radius:999px;background:var(--colors-neutral-100)}
+.ff-briefsuggest .ff-suggest-opt:hover,.ff-briefsuggest .ff-suggest-opt[aria-selected="true"]{background:var(--oat);border-color:var(--colors-brand-signal-red)}
 .ff-briefsuggest .ff-suggest-tag{flex:0 0 auto;font:700 9px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:999px;background:var(--brown-kodiak);color:var(--parchment)}
 .ff-briefsuggest .ff-suggest-tag.is-market{background:var(--red)}
 /* typed-pattern rows: actionable (zip->market) vs muted note (url/mention/unmapped-zip) */

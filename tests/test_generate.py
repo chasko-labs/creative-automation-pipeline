@@ -114,40 +114,43 @@ def test_stability_returns_none_on_client_error(tmp_path: Path, monkeypatch) -> 
 
 
 # --------------------------------------------------------------- persona sanitization
-def test_safe_theme_text_maps_celebrity_to_name_free_persona() -> None:
-    # a named-person slug maps to its filter-safe persona; the raw name is gone.
-    persona = generate._safe_theme_text("zac-efron")
-    assert persona == generate._THEME_PERSONA_MAP["zac-efron"]
-    assert "zac" not in persona.lower()
-    assert "efron" not in persona.lower()
-    # an ordinary slug falls through to the plain slug-to-words form
+# No named-person themes ship; the map stays empty and every slug falls through
+# to the plain slug-to-words form. The mechanism is pinned with a synthetic entry
+# so a future partner theme cannot regress into a filter trip.
+def test_safe_theme_text_falls_through_with_empty_persona_map() -> None:
+    assert generate._THEME_PERSONA_MAP == {}
+    assert generate._safe_theme_text("wild-grizzly-bears") == "wild grizzly bears"
     assert generate._safe_theme_text("wild-frontier") == "wild frontier"
 
 
-def test_default_scene_prompt_omits_raw_celebrity_token(monkeypatch) -> None:
-    # with boto3 unavailable the deterministic default prompt is built directly — the
-    # raw celebrity token must NOT appear; the persona text must.
+def test_persona_mechanism_still_sanitizes_when_populated(monkeypatch) -> None:
+    # synthetic entry only — proves the filter-safe indirection works if a
+    # named-person theme ever returns; no real person ships in the map.
+    monkeypatch.setitem(
+        generate._THEME_PERSONA_MAP, "example-person", "filter-safe persona text"
+    )
+    assert generate._safe_theme_text("example-person") == "filter-safe persona text"
+    out = generate._safe_prompt_text("Example Person morning energy. Keep It Wild.")
+    assert "example person" not in out.lower()
+    assert "filter-safe persona text" in out
+    assert "Keep It Wild." in out
+
+
+def test_default_scene_prompt_carries_wild_dispatch(monkeypatch) -> None:
+    # with boto3 unavailable the deterministic default prompt is built directly —
+    # the unified wild dispatch must be present, palette spelled out.
     monkeypatch.setattr(generate, "boto3", None)
     prompt = generate._nova_pro_scene_prompt(
-        Path("seed.png"), "Power Cakes", "wild mornings", "us", "active families", "zac-efron"
+        Path("seed.png"),
+        "Power Cakes",
+        "wild mornings",
+        "us",
+        "active families",
+        "wild-grizzly-bears",
     )
-    assert "zac" not in prompt.lower()
-    assert "efron" not in prompt.lower()
-    assert generate._THEME_PERSONA_MAP["zac-efron"] in prompt
-
-
-def test_safe_prompt_text_rewrites_incoming_celebrity_name() -> None:
-    # a client-built prompt embedding a real name is rewritten name-free, persona in,
-    # and the rest of the brief survives intact.
-    out = generate._safe_prompt_text(
-        "Zac Efron athletic-morning energy — high-protein pre-trail fuel, "
-        "aspirational active lifestyle. Keep It Wild."
-    )
-    assert "zac" not in out.lower()
-    assert "efron" not in out.lower()
-    assert generate._THEME_PERSONA_MAP["zac-efron"] in out
-    assert "Keep It Wild." in out
-    assert "pre-trail fuel" in out
+    assert "wild grizzly bears" in prompt.lower()
+    assert "frontier-green" in prompt.lower()
+    assert "on-brand Kodiak" not in prompt
 
 
 def test_safe_prompt_text_passes_through_when_no_celebrity() -> None:
@@ -267,12 +270,12 @@ def test_generate_hero_theme_seed_wins_and_conditions(tmp_path: Path, monkeypatc
     result, source, _prov = generate.generate_hero(
         product_id="power-cakes",
         product_name="Power Cakes",
-        brief_msg="athletic mornings",
+        brief_msg="wild mornings",
         region="us",
         audience="active families",
         out_path=out,
         idx=0,
-        theme="zac-efron",
+        theme="wild-grizzly-bears",
     )
     assert result.exists()
     assert source == generate.STABILITY_SOURCE
@@ -292,7 +295,7 @@ def test_theme_resolver_returns_real_committed_key() -> None:
     # a known chip theme resolves to a full DAM key whose basename is in the committed
     # real-key fixture — the resolved seed is a real asset, not a fabricated path.
     real = _real_key_basenames()
-    key = generate._resolve_theme_photo("bears")
+    key = generate._resolve_theme_photo("wild-grizzly-bears")
     assert key is not None and key.startswith(_DAM_PREFIX)
     assert key[len(_DAM_PREFIX):] in real
 

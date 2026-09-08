@@ -72,7 +72,6 @@ _CATEGORIES: dict[str, dict] = {
         "members": (
             ("brands/kodiak/heroes/", True, "hero"),
             ("brands/kodiak/logos/", False, "logo"),
-            ("brands/kodiak/zac-efron/", False, "zac-efron"),
             ("brands/kodiak/references/", False, "reference"),
         ),
     },
@@ -186,8 +185,6 @@ def _label_brand(key: str, nested: bool, tag: str) -> str:
     base = _label(key)
     if tag == "logo":
         return f"{base} logo" if base else _label_fallback(key, "brand")
-    if tag == "zac-efron":
-        return f"Zac Efron {base}".strip() if base else "Zac Efron"
     if tag == "reference":
         return f"{base} reference" if base else _label_fallback(key, "brand")
     return base or _label_fallback(key, "brand")

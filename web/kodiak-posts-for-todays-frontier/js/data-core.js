@@ -112,6 +112,102 @@ const places = [
 ];
 // B3: expose the places table globally so the prompt-box autocomplete script (a separate <script>) can read markets.
 try{ window.places = places; }catch(e){}
+// #257 mapping start — market -> featured-frontier (data mirror of
+// data/localization/market-featured-frontiers.json; inline so this page stays
+// offline-first). Every market resolves one featured frontier.
+const featuredFrontierDetail = {
+  "US-CA-PESCADERO": {place:"Pescadero, California 94060 — San Mateo Coast", items:["Castroville artichokes","Marin goat cheese","strawberries","Brussels sprouts","olive oil (fall press)"], seasons:"Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press", farmersMarket:"Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero"},
+  "US-WA-NEAHBAY": {place:"Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe", items:["Makah salmon","huckleberry"], seasons:"Makah salmon May-Sep; huckleberry August", farmersMarket:"Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)"},
+  "US-SE-SANDERSVILLE": {place:"Sandersville, GA 31082 — Washington County, kaolin-belt farm country", items:["Georgia pecans","Georgia peaches","sweet potatoes","muscadine grapes"], seasons:"Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep", farmersMarket:"Sandersville downtown farmers market + Washington County farm stands"},
+  "US-SW-TIMBERON": {place:"Timberon, New Mexico 88350 — Sacramento Mountains", items:["piñon nuts"], seasons:"Pinon harvest in fall (exact months unconfirmed — research dispatch)", farmersMarket:"Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)"}
+};
+const marketFeaturedFrontier = {
+  "US-CA-PESCADERO": "US-CA-PESCADERO",
+  "US-MW-BOISE": "US-WA-NEAHBAY",
+  "US-MW-CHI": "US-SE-SANDERSVILLE",
+  "US-MW-CLEVELAND": "US-SE-SANDERSVILLE",
+  "US-MW-DEN": "US-SW-TIMBERON",
+  "US-MW-DESMOINES": "US-SW-TIMBERON",
+  "US-MW-DETROIT": "US-SE-SANDERSVILLE",
+  "US-MW-FARGO": "US-WA-NEAHBAY",
+  "US-MW-INDY": "US-SE-SANDERSVILLE",
+  "US-MW-JACKSONHOLE": "US-SW-TIMBERON",
+  "US-MW-KC": "US-SW-TIMBERON",
+  "US-MW-MILWAUKEE": "US-SE-SANDERSVILLE",
+  "US-MW-MINNEAPOLIS2": "US-SE-SANDERSVILLE",
+  "US-MW-MISSOULA": "US-WA-NEAHBAY",
+  "US-MW-OMAHA": "US-SW-TIMBERON",
+  "US-MW-PARKCITY-84098": "US-SW-TIMBERON",
+  "US-MW-PHX2": "US-SW-TIMBERON",
+  "US-MW-STL": "US-SE-SANDERSVILLE",
+  "US-MW-TC": "US-SE-SANDERSVILLE",
+  "US-MW-WASATCH": "US-SW-TIMBERON",
+  "US-MW-WASATCH-SLC": "US-SW-TIMBERON",
+  "US-NE-BALTIMORE": "US-SE-SANDERSVILLE",
+  "US-NE-BOS": "US-SE-SANDERSVILLE",
+  "US-NE-BURLINGTON": "US-SE-SANDERSVILLE",
+  "US-NE-DC": "US-SE-SANDERSVILLE",
+  "US-NE-HARTFORD": "US-SE-SANDERSVILLE",
+  "US-NE-NYC": "US-SE-SANDERSVILLE",
+  "US-NE-PHILLY": "US-SE-SANDERSVILLE",
+  "US-NE-PROVIDENCE": "US-SE-SANDERSVILLE",
+  "US-NE-RALEIGH": "US-SE-SANDERSVILLE",
+  "US-SC-AUSTIN": "US-SW-TIMBERON",
+  "US-SC-DALLAS": "US-SW-TIMBERON",
+  "US-SC-HOUSTON": "US-SW-TIMBERON",
+  "US-SC-SANANTONIO": "US-SW-TIMBERON",
+  "US-SE-ASHEVILLE": "US-SE-SANDERSVILLE",
+  "US-SE-ATL": "US-SE-SANDERSVILLE",
+  "US-SE-BIRMINGHAM": "US-SE-SANDERSVILLE",
+  "US-SE-CHARLOTTE": "US-SE-SANDERSVILLE",
+  "US-SE-COAST": "US-SE-SANDERSVILLE",
+  "US-SE-FL": "US-SE-SANDERSVILLE",
+  "US-SE-JACKSON": "US-SE-SANDERSVILLE",
+  "US-SE-JAX": "US-SE-SANDERSVILLE",
+  "US-SE-LOU": "US-SE-SANDERSVILLE",
+  "US-SE-MEMPHIS": "US-SE-SANDERSVILLE",
+  "US-SE-NASH": "US-SE-SANDERSVILLE",
+  "US-SE-NOLA": "US-SE-SANDERSVILLE",
+  "US-SE-SANDERSVILLE": "US-SE-SANDERSVILLE",
+  "US-SE-TAMPA": "US-SE-SANDERSVILLE",
+  "US-SW-ALBQ": "US-SW-TIMBERON",
+  "US-SW-CLOUDCROFT": "US-SW-TIMBERON",
+  "US-SW-EL PASO": "US-SW-TIMBERON",
+  "US-SW-LASCRUCES": "US-SW-TIMBERON",
+  "US-SW-OKC": "US-SW-TIMBERON",
+  "US-SW-PHX": "US-SW-TIMBERON",
+  "US-SW-ROSWELL": "US-SW-TIMBERON",
+  "US-SW-SANTA FE": "US-SW-TIMBERON",
+  "US-SW-TIMBERON": "US-SW-TIMBERON",
+  "US-SW-TULAROSA": "US-SW-TIMBERON",
+  "US-UT-KAMASVALLEY": "US-SW-TIMBERON",
+  "US-W-ANCHORAGE": "US-WA-NEAHBAY",
+  "US-W-BEND": "US-WA-NEAHBAY",
+  "US-W-BOULDER": "US-SW-TIMBERON",
+  "US-W-HONOLULU": "US-WA-NEAHBAY",
+  "US-W-LA": "US-CA-PESCADERO",
+  "US-W-PDX": "US-WA-NEAHBAY",
+  "US-W-RENO": "US-CA-PESCADERO",
+  "US-W-SACRAMENTO": "US-CA-PESCADERO",
+  "US-W-SD": "US-CA-PESCADERO",
+  "US-W-SEA": "US-WA-NEAHBAY",
+  "US-W-SF": "US-CA-PESCADERO",
+  "US-W-SPOKANE": "US-WA-NEAHBAY",
+  "US-W-VEGAS": "US-CA-PESCADERO",
+  "US-W-YAKIMA": "US-WA-NEAHBAY",
+  "US-WA-NEAHBAY": "US-WA-NEAHBAY"
+};
+function featuredFrontierFor(market){
+  try{
+    const fk = marketFeaturedFrontier[market]; if(!fk) return null;
+    const d = featuredFrontierDetail[fk]; if(!d) return null;
+    const items = d.items || [];
+    return {frontier: fk, place: d.place, items: items, seasons: d.seasons, farmersMarket: d.farmersMarket,
+      text: d.place + " — " + items.slice(0,3).join(", ") + " — " + d.seasons + " — " + d.farmersMarket};
+  }catch(e){ return null; }
+}
+try{ window.featuredFrontierFor = featuredFrontierFor; }catch(e){}
+// #257 mapping end
 const products = [
   {id:"power-cakes", name:"KODIAK CAKES® Buttermilk Power Cakes", img:"", base:"1 cup mix + 2/3 cup milk + 1 egg"},
   {id:"protein-biscuits", name:"KODIAK CAKES® Cheddar Jalapeno Drop Biscuits", img:"", base:"2 cups mix + cold butter + cheddar + jalapeno, drop bake 14 min"},
@@ -123,7 +219,7 @@ const products = [
 const peppersList = ["Hatch green chile roasted, diced","Red chile","Jalapeño","Chipotle","Poblano","—"];
 const cheesesList = ["Oaxaca crumble","Sharp cheddar","Pepper jack","Cotija","Oaxaca","Gruyère","Queso fresco","—"];
 
-let localitySel = document.getElementById('locality'); // may be recreated above
+let localitySel = document.getElementById('locality'); // declared in markup (#213), present before scripts run
 const productSel = document.getElementById('product'); // deprecated — now productChooser checkboxes
 const peppersSel = document.getElementById('peppers'); // deprecated — now localFlavor derived
 const cheesesSel = document.getElementById('cheeses');
@@ -136,8 +232,8 @@ const fileNamesEl = document.getElementById('fileNames');
 
 /** @param {void} @returns {void} */
 function fillSelects(){
-  if(!localitySel) { console.warn('localitySel missing — creating hidden fallback'); const sel=document.createElement('select'); sel.id='locality'; sel.style.display='none'; document.body.appendChild(sel); localitySel = sel; }
-  localitySel = document.getElementById('locality') || localitySel;
+  // #213: #locality is declared in markup and present before this runs — no fallback path.
+  localitySel = document.getElementById('locality');
   const ls=localitySel;
   if(ls) {
     ls.innerHTML='';
@@ -474,7 +570,7 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
 
 // === AXIS 2 + AXIS 3 — grouped market taxonomy (derived) + per-market localized-copy surface ===
 // Self-contained: reuses the existing `places` array, `marketLangsOffline`/`marketLangsFor`, and the
-// hidden #locality <select> as the selection source of truth. The #marketDisclosure listbox was inert
+// declared #locality <select> as the selection source of truth. The #marketDisclosure listbox was inert
 // markup (never populated by any JS); this wires it as the real surface and mirrors selection into
 // #locality so all downstream plumbing (onLocality/render/updateLocalFlavor) keeps working unchanged.
 (function(){
@@ -571,18 +667,20 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
     listbox.querySelectorAll('[role="option"]').forEach(o=>o.setAttribute('aria-selected', o.dataset.market===market?'true':'false'));
   }
 
-  // --- selection: mirror into the hidden #locality select (the existing source of truth) ---
+  // --- selection: mirror into the declared #locality select (the existing source of truth) ---
   function select(market){
     const p = places.find(x=>x.market===market); if(!p) return;
     const loc = document.getElementById('locality');
-    // bubbles:true — the document-level change listener (market-disclosure.js) drives
-    // reflectMarket + brief footer + market source line from this event. Without bubbles
-    // the dropdown relabels itself but all derived state stays on the previous market (#213).
+    // bubbles:true — the document-level change listeners (market-disclosure
+    // reflectMarket + brief footer + market source line, autocomplete suffix)
+    // observe listbox-driven changes through this event. Without bubbles the
+    // dropdown relabels itself but all derived state stays on the previous
+    // market (#213).
     if(loc){ loc.value=market; loc.dispatchEvent(new Event('change', {bubbles:true})); }
     if(typeof onLocality==='function') try{ onLocality(); }catch(e){}
     markSelected(market);
     if(btnLabel) btnLabel.textContent = shortName(p);
-    if(summary) summary.setAttribute('aria-label','Choose market — currently '+shortName(p));
+    if(summary) summary.setAttribute('aria-label','Location — currently '+shortName(p));
     renderMarketLangs(market);
     if(disclosure) disclosure.open=false;
     if(summary) summary.setAttribute('aria-expanded','false');
@@ -651,7 +749,8 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
     // update #marketLangLine to reflect this market's REAL top languages (Axis 3 requirement)
     if(langLine){
       const names = langs.map(l=>l.lang_name).filter(Boolean);
-      langLine.innerHTML = 'localized in languages: <b>'+esc(['English'].concat(names).join(', '))+'</b>';
+      // English is inferred (source language) — list only the generated others.
+      langLine.innerHTML = 'localized in languages: <b>'+esc(names.length ? names.join(', ') : 'English')+'</b>';
     }
 
     // === S12 — #featuredFrontier: FRAMING CONTEXT ONLY ===
@@ -662,12 +761,19 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
       const placeName = (p && (p.place || p.market)) ? (p.place || p.market) : market;
       const scene = (p && p.cue) ? p.cue : '';
       const names = langs.map(l=>l.lang_name).filter(Boolean);
-      const reach = esc(['English'].concat(names).join(', '));
+      const reach = esc(names.length ? names.join(', ') : 'English');
       const sceneHtml = scene ? '<span class="ff-cue">'+esc(scene)+'</span>' : '';
+      // #257: metro markets link their featured frontier from data (via its own
+      // entry, not the frontier's cue). Self-frontier markets already carry it.
+      // The link names the RURAL COUNTERPART to the urban market — a data pairing,
+      // never the viewer's location.
+      const frontierLink = (typeof featuredFrontierFor==='function') ? featuredFrontierFor(market) : null;
+      const linkHtml = (frontierLink && frontierLink.frontier!==market) ? '<span class="ff-frontier-link">'+esc('featured frontier — the rural counterpart to this market: '+frontierLink.text)+'</span>' : '';
       featured.innerHTML =
         '<span class="ff-context-lead">This campaign, localized for</span> '+
         '<span class="ff-place">'+esc(placeName)+'</span>'+
         sceneHtml+
+        linkHtml+
         '<span class="ff-reach">localized reach: '+reach+'</span>';
     }
 
@@ -687,7 +793,7 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
     const langs = (typeof marketLangsFor==='function') ? marketLangsFor(market) : [];
     const seq = ++_capSeq;
     const jobs = [];
-    const rows = ['<span class="loc-line" lang="en" data-provider="source"><span class="loc-langtag">EN</span>'+esc(source)+'</span>'];
+    const rows = ['<span class="loc-line" lang="en" data-provider="source"><span class="loc-langtag">EN</span><span class="loc-txt">'+esc(source)+'</span></span>'];
     langs.forEach((l,i)=>{
       const code = (l.translate_code||l.lang_code||'').toLowerCase();
       const community = isCommunityReview(l, code);

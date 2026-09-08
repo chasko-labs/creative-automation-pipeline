@@ -18,22 +18,29 @@
   }
 
   // ---- build the two sections into the placeholder location ----
+  // Generate Campaign is a COLLAPSED native <details> (same card + summary styling
+  // as Output Preview via .preview-card) with a greyed-out marker while GATED:
+  // the action button stays hidden until a preview exists to approve. A gated
+  // toggle is refused with the message instead of failing silently.
+  var GATED_MSG = 'generate campaign to preview and approve, then try again';
   function mountSections(){
     if(document.getElementById('generateCampaignSection')) return true;   // idempotent
     // anchor: the forest treeline divider that precedes the placeholder comment
     var forest = document.querySelector('.ff-forest');
     var wrap = document.createElement('div');
     wrap.innerHTML =
-      '<section id="generateCampaignSection" class="ff-output ff-generate-campaign" aria-labelledby="generateCampaignHeading" hidden>'+
-        '<h2 id="generateCampaignHeading" class="ff-output-heading">Generate Campaign</h2>'+
-        '<p class="hint" id="generateCampaignHint">Your preview is ready. Generate the full campaign — every ratio, every platform, localized to your chosen scope.</p>'+
+      '<details id="generateCampaignSection" class="ff-output ff-generate-campaign preview-card is-gated" data-gated="true">'+
+        '<summary aria-labelledby="generateCampaignHeading"><span class="ff-stepnum" aria-hidden="true">6</span>'+
+        '<span id="generateCampaignHeading" class="ff-output-heading">Generate Campaign</span>'+
+        ' <span class="badge" id="generateCampaignLock">locked until preview</span></summary>'+
+        '<p class="hint" id="generateCampaignHint">The full campaign unlocks after your first preview — every ratio, every platform, localized to your chosen scope.</p>'+
         '<div class="row" id="generateCampaignBtns" style="gap:10px;flex-wrap:wrap">'+
-          '<button type="button" class="btn orange ff-campaign-primary" id="genFullCampaign">Generate full campaign</button>'+
+          '<button type="button" class="btn orange ff-campaign-primary" id="genFullCampaign" hidden>Generate full campaign</button>'+
         '</div>'+
         '<div class="hint" id="generateCampaignStatus" role="status" aria-live="polite"></div>'+
-      '</section>'+
+      '</details>'+
       '<section id="campaignAssetsSection" class="ff-output ff-campaign-assets" aria-labelledby="campaignAssetsHeading" hidden>'+
-        '<h2 id="campaignAssetsHeading" class="ff-output-heading">Campaign Assets Created</h2>'+
+        '<h2 id="campaignAssetsHeading" class="ff-output-heading"><span class="ff-stepnum" aria-hidden="true">7</span> Campaign Assets Created</h2>'+
         '<div class="row" style="justify-content:flex-start"><button type="button" class="btn orange" id="downloadCampaignPackTop" data-mcp="download-campaign-pack">Download Campaign Pack</button></div>'+
         '<div class="ff-product-carousel" id="campaignAssetsCarousel" role="group" aria-label="Generated campaign assets" style="margin-top:var(--spacing-sm)"></div>'+
         '<div class="row" style="justify-content:flex-start;margin-top:var(--spacing-sm)"><button type="button" class="btn orange" id="downloadCampaignPackBottom" data-mcp="download-campaign-pack">Download Campaign Pack</button></div>'+
@@ -46,16 +53,46 @@
       document.body.appendChild(wrap);
     }
     wireButtons();
+    wireGate();
     return true;
   }
 
-  // ---- reveal + scroll + pulse when a preview becomes ready ----
+  // Gated toggles are refused: the disclosure stays collapsed while gated and the
+  // lock badge pulses for attention (reduced-motion safe via the shared pulse CSS).
+  function wireGate(){
+    var sec = document.getElementById('generateCampaignSection');
+    if(!sec || sec.__gateWired) return;
+    sec.__gateWired = true;
+    sec.addEventListener('toggle', function(){
+      if(sec.getAttribute('data-gated') !== 'true') return;
+      if(sec.open){
+        sec.open = false;
+        var status = document.getElementById('generateCampaignStatus');
+        if(status) status.textContent = GATED_MSG;
+        var lock = document.getElementById('generateCampaignLock');
+        if(lock){ lock.classList.remove('ff-campaign-pulse'); void lock.offsetWidth; lock.classList.add('ff-campaign-pulse'); }
+      }
+    });
+  }
+  try{ window.KODIAK_GATED_MSG = GATED_MSG; }catch(e){}
+
+  // ---- ungate + scroll + pulse when a preview becomes ready ----
   window.__kodiakRevealCampaign = function(){
     try{
       mountSections();
       var sec = document.getElementById('generateCampaignSection');
       if(!sec) return;
       if(sec.hidden){ sec.hidden = false; }
+      // ungate: same card, now actionable — disclosure opens, button appears, hint flips to ready.
+      try{ sec.open = true; }catch(e){}
+      sec.setAttribute('data-gated', 'false');
+      sec.classList.remove('is-gated');
+      var lock = document.getElementById('generateCampaignLock');
+      if(lock) lock.hidden = true;
+      var btn = document.getElementById('genFullCampaign');
+      if(btn) btn.hidden = false;
+      var hint = document.getElementById('generateCampaignHint');
+      if(hint) hint.textContent = 'Your preview is ready. Generate the full campaign — every ratio, every platform, localized to your chosen scope.';
       ensurePulseStyle();
       // scroll into center so the user never has to hunt; pulse for attention (reduced-motion => no anim)
       try{ sec.scrollIntoView({behavior:'smooth', block:'center'}); }catch(e){ try{ sec.scrollIntoView(); }catch(e2){} }

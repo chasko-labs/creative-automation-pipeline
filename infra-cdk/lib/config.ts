@@ -59,6 +59,44 @@ export const BEDROCK_LOGGING_ROLE_NAME = "kodiak-bedrock-logging-role";
 export const APP_LOG_GROUP_NAME = "/kodiak/creative-pipeline";
 export const XRAY_SAMPLING_RULE_NAME = "kodiak-creative";
 
+// ---- Frontier site hosting (issue #202) ------------------------------------
+// Hand-made hosting adopted in place: S3 bucket + CloudFront distribution +
+// Route53 alias. Every value below was read off the live resources (2026-09-08);
+// hosting-stack.ts mirrors them so `cdk import` is a no-op. Content publishing
+// stays in scripts/deploy-frontier.sh -- bytes are not infrastructure.
+export const FRONTIER_BUCKET_NAME = "frontier-bryanchasko-com";
+export const FRONTIER_DISTRIBUTION_ID = "E3GEX8LSRX6OYS";
+export const FRONTIER_DOMAIN_NAME = "d37333alc7ojpl.cloudfront.net";
+export const FRONTIER_SITE_DOMAIN = "kodiak.bryanchasko.com";
+// Alias order matches the live distribution config (frontier, kodiak, adobechallenge).
+export const FRONTIER_ALIASES = [
+  "frontier.bryanchasko.com",
+  "kodiak.bryanchasko.com",
+  "adobechallenge.bryanchasko.com",
+];
+export const FRONTIER_CERT_ARN = `arn:aws:acm:${PRIMARY_REGION}:${ACCOUNT}:certificate/5da84625-8072-4923-9e9e-b0907419419f`;
+// Live distribution comment, verbatim (includes the pending-cert note).
+// IMPORT NOTE (#268): CFN IMPORT change sets validate in-stack resources
+// against LIVE state (not the stored template) -- this comment must match the
+// live distribution exactly, as must the absence of resource Tags (live has
+// none). The stored template's "?" mojibake is stale history, do NOT mirror it.
+export const FRONTIER_COMMENT =
+  "KODIAK Frontier \u2014 unlisted, password cakes, noindex \u2014 frontier.bryanchasko.com pending cert";
+// Second origin: the hand-made `kodiak-generate-api` HTTP API the /generate*,
+// /localize*, /library/*, /pack* behaviors route to. NOT owned by this stack
+// (out of scope) -- referenced by domain string only, never managed.
+export const FRONTIER_API_ORIGIN_DOMAIN = `mcaptnm7vh.execute-api.${PRIMARY_REGION}.amazonaws.com`;
+// CloudFront access-log destination owned by BrowserObservabilityStack
+// (RumCloudFrontLogBucket) -- referenced by domain string, never managed here.
+export const FRONTIER_LOG_BUCKET_DOMAIN = `kodiak-creatives-cf-logs-${ACCOUNT}-${PRIMARY_REGION}.s3.amazonaws.com`;
+export const FRONTIER_LOG_PREFIX = "cloudfront/";
+// DNS zone lives in the aerospaceug-admin account (211125425201), NOT in this
+// app's account. Route53 has no account boundary on zone ARNs, so an admin
+// deploy in this account can manage the record; no lookup is used (attributes
+// only) so synth needs no cross-account read.
+export const FRONTIER_ZONE_ID = "Z09216723VDB0N04DM9LL";
+export const FRONTIER_ZONE_NAME = "bryanchasko.com";
+
 // Standard tag set applied at the app level in bin/app.ts. managed-by=cdk marks
 // the migration off the cloudformation/terraform-managed lineage.
 export const STANDARD_TAGS: Record<string, string> = {

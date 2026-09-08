@@ -54,11 +54,15 @@
   // update the three derived lines (button label, featured frontier, language line) for a market
   function reflectMarket(market){
     var p = placeFor(market);
-    if(label && p) label.textContent = (p.place || market);
+    if(label && p) label.textContent = 'Location: ' + (p.place || market);
     if(summary && p) summary.setAttribute('aria-label', 'Choose market — currently ' + (p.place || market));
     if(featuredEl){
       var cue = p && p.cue ? p.cue : '';
-      featuredEl.textContent = cue ? ('Featured frontier: ' + cue) : '';
+      // #257: metro markets show their data-mapped featured-frontier linkage (via
+      // their own mapping entry). Self-frontier markets already carry it in cue.
+      var link = (typeof featuredFrontierFor==='function') ? featuredFrontierFor(market) : null;
+      var linkTxt = (link && link.frontier!==market) ? (' | featured frontier (rural counterpart): ' + link.text) : '';
+      featuredEl.textContent = cue ? ('Featured frontier: ' + cue + linkTxt) : (linkTxt ? ('Featured frontier: ' + link.text) : '');
     }
     if(langLine){
       try{ renderLocalizedCopy(market); }
@@ -66,7 +70,7 @@
     }
   }
 
-  // keep the hidden #locality select (the value generate() reads) in sync, firing change so
+  // keep the declared #locality select (the value generate() reads) in sync, firing change so
   // onLocality + updateLocalFlavor + any listeners run exactly as before.
   function selectMarket(market, opts){
     opts = opts || {};

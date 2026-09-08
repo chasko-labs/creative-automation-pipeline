@@ -386,7 +386,7 @@ if HAS_FASTAPI:
 
     @app.get("/assets/library")  # type: ignore
     def asset_library(
-        category: str | None = Query(None, description="Filter to one of zac-efron|renders|heroes|logos; all four when absent"),
+        category: str | None = Query(None, description="Filter to one of products|recipes|lifestyle|ideas|themes|brand; all six when absent"),
         limit: int = Query(60, description="Max presigned URLs minted per category (default 60, hard max 200)"),
     ):
         """Read-only DAM asset browser — curated Kodiak picker prefixes with presigned GETs.

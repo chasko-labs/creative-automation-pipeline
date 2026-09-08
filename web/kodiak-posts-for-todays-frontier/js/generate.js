@@ -322,8 +322,11 @@ let skuList = [
       if(activeSeason && !new RegExp('season:\\s*'+activeSeason.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i').test(brief)){
         brief = brief + ' — season: ' + activeSeason;
       }
-      // 4. user-supplied assets are staged frontend-only (no DAM upload). Thread a marker so the
-      // generate path is aware a user asset was supplied. TODO: server DAM-upload endpoint — staging only.
+      // 4. user-supplied assets: staged locally, uploaded to the DAM on hosted origins
+      // (market-disclosure uploadAsset POSTs raw bytes to /library/assets and threads
+      // the returned asset_id onto the staged rec; file:// + localhost stay
+      // staging-only with no fetch). Thread a marker so the generate path is aware
+      // a user asset was supplied. (#206 closed: the upload endpoint is real.)
       try{
         const userAssets = window.__userAssets || [];
         if(userAssets.length && !/user assets?:/i.test(brief)){
@@ -338,15 +341,15 @@ let skuList = [
       }
       const products = selectedProducts.length ? selectedProducts : [...skuList].sort(()=>0.5-Math.random()).slice(0,3);
       const audience = 'KODIAK design guide audience — see UX Profiles (23 cards)';
-      // Determine selected location and nearest Frontier (Pescadero for SF, Neah Bay for Seattle)
+      // Nearest Frontier resolves from the market-to-featured-frontier mapping in data
+      // (#257: featuredFrontierFor in data-core.js mirrors
+      // data/localization/market-featured-frontiers.json) — no hardcoded market checks.
       let selectedLoc = null;
       try{ const locVal=document.getElementById('locality')?.value || 'US-MW-PARKCITY-84098'; selectedLoc = places.find(p=>p.market===locVal) || places.find(p=>p.market==='US-MW-PARKCITY-84098') || places[0]; }catch(e){ selectedLoc = {place:'Park City, Utah 84098', market:'US-MW-PARKCITY-84098'}; }
-      const frontierHint = selectedLoc.market.includes('US-W-SF') ? 'Pescadero 94060 (35mi) — Castroville artichokes + Marin goat cheese' :
-                           selectedLoc.market.includes('US-W-SEA') ? 'Neah Bay 98357 (70mi) — Makah salmon + huckleberry' :
-                           selectedLoc.market.includes('US-WA-NEAHBAY') ? 'Neah Bay harbor — Makah water meets Wasatch grain' :
-                           selectedLoc.market.includes('US-CA-PESCADERO') ? 'Pescadero Marsh boardwalk — Half Moon Bay Coastal Trail' : 'Nearest Frontier via haversine — same pipeline fans to all 73';
+      const frontierLink = (typeof featuredFrontierFor==='function') ? featuredFrontierFor(selectedLoc.market) : null;
+      const frontierHint = frontierLink ? frontierLink.text : 'Nearest Frontier via haversine — same pipeline fans to all 73';
       const status = document.getElementById('sampleStatus');
-      const origLabel = 'Generate Kodiak campaign';
+      const origLabel = 'Create Campaign Preview';
       // slugify a product NAME -> API slug that resolves to a packshot map key.
       // The packshot map key space == catalog product .handle (per sku-packshot-map.json contract:
       // sku_id "matches ... kodiak-full-catalog.json handle"). The catalog carries .handle for every
@@ -397,8 +400,10 @@ let skuList = [
       const activeTheme = window.__activeTheme || null;
       const THEME_LABELS = {
         'recipe-cards':'Recipe cards','localized-costco':'Localized Costco',
-        'riff-on-past-content':'Riff on past content','zac-efron':'Zac Efron',
-        'bears':'Bears','keep-it-wild-program':'Keep It Wild program',
+        'localized-publix':'Localized Publix','localized-target':'Localized Target',
+        'kodiak-subscription':'Kodiak subscription',
+        'riff-on-past-content':'Riff on past content',
+        'wild-grizzly-bears':'Wild Grizzly Bears',
         'us-ski-snowboard':'US Ski & Snowboard'
       };
       const themeLabel = activeTheme ? (THEME_LABELS[activeTheme] || activeTheme) : null;
@@ -852,7 +857,9 @@ let skuList = [
         // stand-in — never styled or badged as the real generated campaign.
         console.warn('generate: no response from backend (total network loss) —', err && err.message ? err.message : err);
         const timedOut = err && (err.name==='AbortError');
-        try{ drawNetworkLossNotice(window.__requestedSku || primarySlug, brief); }catch(e){ console.warn('offline notice render failed', e); }
+        try{
+          drawNetworkLossNotice(window.__requestedSku || primarySlug, brief);
+        }catch(e){ console.warn('offline notice render failed', e); }
         if(status) status.textContent = timedOut
           ? 'No response from the server (timed out) — offline preview shown; reconnect and try again'
           : 'Could not reach the server — offline preview shown; reconnect and try again';

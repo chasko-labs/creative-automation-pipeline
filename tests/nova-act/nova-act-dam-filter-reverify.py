@@ -32,7 +32,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 LIVE_URL = "https://d37333alc7ojpl.cloudfront.net/"
-ENTRY_URL = LIVE_URL + "?cakes=1"
+# No query-param bypass (#234 removed ?cakes=1): bare URL + sessionStorage seed.
+ENTRY_URL = LIVE_URL
 EXPECTED_STAMP = "0.1.025-aaf77f2-20260907"
 STAMP_RE = re.compile(r"0\.1\.0\d{2}-[0-9a-f]{7}-\d{8}")
 # anything strictly older than 025 => stale, reload once after 60s
@@ -212,10 +213,21 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
             report["screenshot"] = _shot(page, shot_dir, "00-goto-error")
             return _finish(report, out_path, browser, console_errors, page_errors)
         time.sleep(2)
+        # #234: no URL bypass. Seed the sessionStorage gate token the page
+        # honors, then reload past the courtesy screen.
+        try:
+            page.evaluate("try{sessionStorage.setItem('kodiak_gate','cakes')}catch(e){}")
+        except Exception:
+            pass
+        try:
+            page.reload(wait_until="networkidle")
+        except Exception:
+            pass
+        time.sleep(2)
 
-        if _panel(page) and page.locator("text=This demo is private").count() > 0:
+        if _panel(page) and page.locator("text=Request access").count() > 0:
             report["overall"] = "BLOCKED"
-            report["blocked"] = "password gate still mounted despite ?cakes=1"
+            report["blocked"] = "courtesy screen still mounted despite sessionStorage seeding"
             report["screenshot"] = _shot(page, shot_dir, "00-gate")
             return _finish(report, out_path, browser, console_errors, page_errors)
 

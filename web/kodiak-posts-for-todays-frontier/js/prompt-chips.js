@@ -1,18 +1,25 @@
 // --- Simplified Park City demo wiring: prompt chips, upload affordance, textarea auto-grow ---
 (function(){
-  // Creative-direction chips — ADDITIVE MULTI-SELECT toggles (aria-pressed on/off). Redesign change:
-  // chips no longer OVERWRITE the brief with canned copy. Instead we maintain window.__activeDirections
-  // (a Set of theme slugs) and rebuild a MANAGED REGION at the end of the brief on every toggle. The
-  // user's own typed text lives ABOVE the managed region and is never clobbered — toggling only rewrites
-  // the block between two sentinels. window.__activeTheme is kept for backward compat (generate.js reads
-  // it): it holds the MOST-RECENTLY-toggled-on direction (or null when none remain active).
+  // Creative-direction chips — ADDITIVE MULTI-SELECT toggles (aria-pressed on/off). #218/#236:
+  // chips never OVERWRITE the brief with canned copy. Instead we maintain window.__activeDirections
+  // (a Set of theme slugs) and reassemble the brief on every toggle as
+  //   <free text> + <auto context suffix> + <managed directions tail>
+  // Typed text is never clobbered in either direction: toggling preserves the free-text portion
+  // (including text typed after the generated regions), and typing never disarms the chips — the
+  // managed tail is re-canonicalized around the edit. window.__activeTheme is kept for backward
+  // compat (generate.js reads it): the MOST-RECENTLY-toggled-on direction (or null when none remain).
   var briefEl = document.getElementById('campaignBrief');
   var chipWrap = document.getElementById('promptChips');
 
-  // Sentinel-delimited managed region. Everything between BEGIN and END is owned by the chip logic;
-  // everything before BEGIN is the user's free text. Using an HTML-comment-style sentinel keeps it
-  // visually unobtrusive if it ever surfaces, and unlikely to collide with real brief prose.
-  var DIR_BEGIN = '\u2014 directions: ';   // "— directions: " reads as natural brief prose
+  // Managed directions tail. Owned by the chip logic; reads as natural brief prose.
+  var DIR_BEGIN = '\u2014 directions: ';
+  window.__briefDirBegin = DIR_BEGIN;
+  // The auto context suffix marker lives in autocomplete.js (B4 reflection); read it live so the
+  // two assemblers cannot drift. Falls back to the same literal when that sibling is absent.
+  function suffixMarker(){
+    return (typeof window.__briefSuffixMarker === 'string' && window.__briefSuffixMarker)
+      ? window.__briefSuffixMarker : '\n\n\u2014 ';
+  }
   var activeDirections = window.__activeDirections instanceof Set ? window.__activeDirections : new Set();
   window.__activeDirections = activeDirections;
   // theme slug -> short human-readable clause (kept concise; the richer data-brief text would bloat the
@@ -29,44 +36,201 @@
     mark.style.display = on ? 'flex' : 'none';
   }
 
-  // split the brief into { userText, hasManaged } — the managed region is the tail from DIR_BEGIN on.
-  function splitBrief(){
-    var v = briefEl ? briefEl.value : '';
-    var idx = v.lastIndexOf(DIR_BEGIN);
-    if(idx === -1) return { userText: v, hasManaged: false };
-    return { userText: v.slice(0, idx).replace(/\s+$/,''), hasManaged: true };
-  }
-
-  // rebuild the brief = user's free text + a freshly-assembled managed directions line (or nothing
-  // when no chips are active). Never touches the user's portion. Guarded so the input handler this
-  // triggers does not treat the programmatic write as a manual edit.
-  function rebuildBrief(){
-    if(!briefEl) return;
-    var parts = splitBrief();
-    var clauses = [];
+  // active direction clauses in DOM order (stable no matter what order chips were toggled).
+  function currentClauses(){
+    var out = [];
+    if(!chipWrap) return out;
     chipWrap.querySelectorAll('.ff-chip').forEach(function(c){
       var slug = c.getAttribute('data-theme');
       if(slug && activeDirections.has(slug)){
-        clauses.push(DIRECTION_CLAUSES[slug] || (c.getAttribute('data-label') || slug));
+        out.push(DIRECTION_CLAUSES[slug] || (c.getAttribute('data-label') || slug));
       }
     });
-    var next = parts.userText;
-    if(clauses.length){
-      next = (next ? next + ' ' : '') + DIR_BEGIN + clauses.join(', ');
-    }
-    window.__chipSettingBrief = true;
-    briefEl.value = next;
-    briefEl.dispatchEvent(new Event('input', {bubbles:true}));
-    window.__chipSettingBrief = false;
+    return out;
   }
 
-  // clear every active direction (called on manual edit of the USER portion, or product change).
+  // cut a trailing auto context suffix ("market: … · season: … · products: …") — shape-checked so
+  // real prose that happens to contain the marker is never eaten.
+  function stripSuffixTail(s){
+    var str = String(s);
+    var m = suffixMarker();
+    var i = str.lastIndexOf(m);
+    if(i !== -1){
+      if(/^(market:|season:|products:)/.test(str.slice(i + m.length))) return str.slice(0, i);
+      return str;
+    }
+    // display form of an empty-base assembly (leading newlines stripped): the marker core leads
+    // the string. The suffix runs to the directions tail or end — cut the run, keep the rest.
+    var core = m.replace(/^\n+/, '');
+    if(core && str.indexOf(core) === 0){
+      var rest = str.slice(core.length);
+      if(/^(market:|season:|products:)/.test(rest)){
+        var dm = DIR_BEGIN;
+        var di2 = rest.indexOf(dm);
+        return di2 === -1 ? '' : dm + rest.slice(di2 + dm.length);
+      }
+    }
+    return str;
+  }
+
+  // known clause labels, longest first, regex-escaped — for telling stale managed text apart
+  // from genuine user prose during rescue.
+  function knownClauseRes(){
+    var labels = [];
+    Object.keys(DIRECTION_CLAUSES).forEach(function(k){ if(DIRECTION_CLAUSES[k]) labels.push(DIRECTION_CLAUSES[k]); });
+    labels.sort(function(a, b){ return b.length - a.length; });
+    return labels.map(function(l){ return l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); });
+  }
+  // peel leading stale clause segments (", Bears" left behind by a just-removed chip). A segment only
+  // peels on a clause boundary (comma or end) — "Bears rocks" the user typed is kept whole.
+  function peelStaleClauses(tail){
+    var res = knownClauseRes();
+    if(!res.length) return tail;
+    var t = String(tail);
+    var re = new RegExp('^\\s*,?\\s*(?:' + res.join('|') + ')(?=\\s*,|\\s*$)');
+    var m, guard = 32;
+    while(guard-- && (m = t.match(re))){ t = t.slice(m[0].length); }
+    return t;
+  }
+
+  // recover the user's free text from a possibly-assembled brief value: drop the managed tail
+  // (rescuing text the user typed after the clauses WE wrote) and the auto suffix tail.
+  // Exposed for autocomplete.js so both assemblers share one definition of "free text".
+  // lastBuilt remembers the exact clause line the last assembly wrote: anything past it is
+  // definitionally user tail, so a just-removed clause is never mistaken for typed text.
+  var lastBuilt = '';
+  function stripFreeText(v){
+    var s = String(v == null ? '' : v);
+    var tail = '';
+    var canon = currentClauses().join(', ');
+    var di = s.lastIndexOf(DIR_BEGIN);
+    if(di !== -1){
+      var after = s.slice(di + DIR_BEGIN.length);
+      if(canon && after.indexOf(canon) === 0){
+        tail = peelStaleClauses(stripSuffixTail(after.slice(canon.length)));
+      } else if(lastBuilt && after.indexOf(lastBuilt) === 0){
+        tail = peelStaleClauses(stripSuffixTail(after.slice(lastBuilt.length)));
+      } else if(!canon){
+        // foreign or stale text with no chips armed: peel clause-shaped runs, rescue the rest.
+        // Untouched user prose (marker with no clause shape) is left entirely alone.
+        tail = peelStaleClauses(stripSuffixTail(after));
+        if(tail === stripSuffixTail(after)) return stripSuffixTail(s);
+      }
+      // else: the owned region was edited beyond recognition — drop it with the region.
+      s = s.slice(0, di);
+    }
+    s = stripSuffixTail(s);
+    return s.replace(/\s+$/,'') + tail;
+  }
+  window.__briefFreeText = stripFreeText;
+
+  // THE one brief assembly (#236 + #237): free text + fresh context suffix + fresh directions tail.
+  // Also refreshes window.__briefUserText so autocomplete's reflection never works from a stale base.
+  function rebuildBrief(){
+    if(!briefEl) return;
+    var base = stripFreeText(briefEl.value);
+    window.__briefUserText = base;
+    var clauses = currentClauses();
+    var suffix = '';
+    try{ suffix = (typeof window.__briefContextSuffix === 'function') ? (window.__briefContextSuffix() || '') : ''; }catch(e){ suffix = ''; }
+    var next = base;
+    // the marker is ALWAYS emitted with a suffix (even on an empty base): a bare suffix would
+    // re-parse as user text on the next assembly and duplicate. Leading blank lines are harmless.
+    if(suffix){ next = (base ? base + suffixMarker() + suffix : suffixMarker() + suffix).replace(/^\n+/, ''); }
+    if(clauses.length){ next = (next ? next + ' ' : '') + DIR_BEGIN + clauses.join(', '); }
+    lastBuilt = clauses.join(', ');
+    if(briefEl.value === next) return;   // no-op: no caret jump, no event storm
+    window.__chipSettingBrief = true;
+    briefEl.value = next;
+    try{ briefEl.dispatchEvent(new Event('input', {bubbles:true})); }catch(e){}
+    window.__chipSettingBrief = false;
+  }
+  window.__rebuildBrief = rebuildBrief;
+
+  function chipFor(slug){
+    return chipWrap ? chipWrap.querySelector('.ff-chip[data-theme="' + slug + '"]') : null;
+  }
+
+  // shared chip setter — the ONLY writer of chip state, used by chip clicks AND layer sync (#237).
+  function setChip(slug, on, opts){
+    var chip = chipFor(slug);
+    if(!chip) return false;
+    var isOn = activeDirections.has(slug);
+    if(on === isOn){
+      if(chip.getAttribute('aria-pressed') === (on ? 'true' : 'false')) return true;
+    }
+    if(on){ activeDirections.add(slug); window.__activeTheme = slug; }
+    else {
+      activeDirections.delete(slug);
+      if(window.__activeTheme === slug){
+        var remaining = Array.prototype.slice.call(chipWrap.querySelectorAll('.ff-chip'))
+          .filter(function(c){ return activeDirections.has(c.getAttribute('data-theme')); });
+        window.__activeTheme = remaining.length ? remaining[remaining.length-1].getAttribute('data-theme') : null;
+      }
+    }
+    chip.setAttribute('aria-pressed', on ? 'true' : 'false');
+    if(slug === 'us-ski-snowboard') togglePartnerMark();
+    if(!opts || !opts.deferRebuild) rebuildBrief();
+    return true;
+  }
+
+  // ---- #237: one selection per concept drives brief text AND layer flags ----
+  // The retailer/partner chips are the selection; the Compose checkboxes mirror them. Guarded so a
+  // chip-driven check does not echo back into a chip toggle (generate.js's own summary listener
+  // still runs — the "n on" label stays correct).
+  var __syncingLayers = false;
+  function setLayer(id, on){
+    var el = document.getElementById(id);
+    if(!el || el.checked === on) return;
+    __syncingLayers = true;
+    el.checked = on;
+    try{ el.dispatchEvent(new Event('change', {bubbles:true})); }catch(e){}
+    __syncingLayers = false;
+  }
+  function syncLayersFromChips(){
+    // costco is the shared concept: chip on forces the layer to costco+checked; chip off only
+    // clears a layer that still claims costco (a publix/target mark is the retailer's own select
+    // concept and is left alone).
+    var costco = activeDirections.has('localized-costco');
+    var sel = document.getElementById('layerRetailerSelect');
+    var ret = document.getElementById('layerRetailer');
+    if(costco){
+      if(sel) sel.value = 'costco';
+      setLayer('layerRetailer', true);
+    } else if(ret && ret.checked && sel && sel.value === 'costco'){
+      setLayer('layerRetailer', false);
+    }
+    setLayer('layerPartner', activeDirections.has('us-ski-snowboard'));
+  }
+  function syncChipsFromLayers(){
+    if(__syncingLayers) return;
+    var sel = document.getElementById('layerRetailerSelect');
+    var ret = document.getElementById('layerRetailer');
+    var part = document.getElementById('layerPartner');
+    if(ret && sel) setChip('localized-costco', ret.checked && sel.value === 'costco', {deferRebuild:true});
+    if(part) setChip('us-ski-snowboard', !!part.checked, {deferRebuild:true});
+    syncLayersFromChips();   // normalize (e.g. select=publix keeps the costco chip off + layer as-is)
+    rebuildBrief();
+  }
+  function currentStagedProducts(){
+    return Array.prototype.slice.call(document.querySelectorAll('#productChooser .sku-check:checked'))
+      .map(function(c){ return c.value; }).filter(Boolean);
+  }
+  // Product concept: the chooser is the single which-selection (it already threads the brief via the
+  // context suffix); the product layer is only a compose flag. A flag with zero staged products is
+  // stale divergence, so drop it — never invent a selection the user did not make.
+  function maybeClearProductLayer(){
+    if(!currentStagedProducts().length) setLayer('layerProduct', false);
+  }
+
+  // clear every active direction (product pick is its own start; suggestion insert keeps its own path).
   window.__clearActiveTheme = function(){
     if(!activeDirections.size){ window.__activeTheme = null; return; }
     activeDirections.clear();
     window.__activeTheme = null;
     if(chipWrap) chipWrap.querySelectorAll('.ff-chip').forEach(function(c){ c.setAttribute('aria-pressed','false'); });
     togglePartnerMark();
+    syncLayersFromChips();
     rebuildBrief();
   };
 
@@ -77,18 +241,8 @@
       DIRECTION_CLAUSES[slug] = chip.getAttribute('data-label') || chip.textContent.trim();
       chip.addEventListener('click', function(){
         var nowActive = !activeDirections.has(slug);
-        if(nowActive){ activeDirections.add(slug); window.__activeTheme = slug; }
-        else {
-          activeDirections.delete(slug);
-          // most-recently-toggled-on remaining direction becomes __activeTheme (back-compat single-theme)
-          if(window.__activeTheme === slug){
-            var remaining = Array.prototype.slice.call(chipWrap.querySelectorAll('.ff-chip'))
-              .filter(function(c){ return activeDirections.has(c.getAttribute('data-theme')); });
-            window.__activeTheme = remaining.length ? remaining[remaining.length-1].getAttribute('data-theme') : null;
-          }
-        }
-        chip.setAttribute('aria-pressed', nowActive ? 'true' : 'false');
-        togglePartnerMark();
+        setChip(slug, nowActive);
+        syncLayersFromChips();
         rebuildBrief();
         // honest riff: the chip directs a STAGED pick, it is not retrieval. Tell the
         // customer what to do instead of letting the default masquerade as a remix.
@@ -104,20 +258,32 @@
         briefEl.focus();
       });
     });
-    // Manual textarea edit of the USER portion clears directions. Guarded against the chip's own
-    // programmatic input event. Only clears when the user actually typed into their free-text region
-    // (i.e. an edit happened while directions were active and it was not a chip-driven write).
+    // Manual textarea edit (#236): adopt, never clear and never rewrite. Rewriting per keystroke
+    // would shred words typed after the managed tail (each rebuild re-trims the base) and jump the
+    // caret; instead the edit is adopted into __briefUserText and the NEXT assembly (toggle, layer,
+    // market/season/product change) rescues the whole typed tail at once via stripFreeText. Chips
+    // stay armed either way — typing never disarms a selection.
     briefEl.addEventListener('input', function(){
-      if(window.__chipSettingBrief) return;
-      if(activeDirections.size) window.__clearActiveTheme();
+      if(window.__chipSettingBrief || window.__briefReflecting) return;
+      window.__briefUserText = stripFreeText(briefEl.value);
     });
+    // layer -> chip direction of the unification (#237).
+    document.getElementById('layerRetailer')?.addEventListener('change', syncChipsFromLayers);
+    document.getElementById('layerPartner')?.addEventListener('change', syncChipsFromLayers);
+    document.getElementById('layerRetailerSelect')?.addEventListener('change', syncChipsFromLayers);
   }
   // Selecting/deselecting a product clears the active directions too (a product pick is its own start).
   document.getElementById('productChooser')?.addEventListener('change', function(e){
-    if(e.target && e.target.classList && e.target.classList.contains('sku-check')) window.__clearActiveTheme();
+    if(e.target && e.target.classList && e.target.classList.contains('sku-check')){
+      window.__clearActiveTheme();
+      maybeClearProductLayer();
+    }
   });
+  // product removals via tray X / restore-defaults leave zero staged -> drop the stale product flag.
+  document.getElementById('selectionTray')?.addEventListener('click', function(){ setTimeout(maybeClearProductLayer, 0); });
+  document.getElementById('resetDefaults')?.addEventListener('click', function(){ setTimeout(maybeClearProductLayer, 0); });
 
-  // ---- STEP 1: campaign scope segmented control (WAI-ARIA radiogroup) ----
+  // ---- STEP 1 (#218): reach segmented control (WAI-ARIA radiogroup) ----
   // The first + most important decision. Stores the selection on window.__campaignScope (read by
   // Create in generate.js and by the full-campaign generate in campaign-sections.js). Keyboard: arrow
   // keys move + activate the selection per the radiogroup pattern; roving tabindex keeps one radio
@@ -129,6 +295,8 @@
     if(!opts.length) return;
     var controlRow = document.querySelector('.ff-controlrow');
     var scopeNote = document.getElementById('marketScopeNote');
+    var fullBanner = document.getElementById('fullCampaignBanner');
+    var setupSection = document.querySelector('.ff-setup');
 
     // default from the pre-checked radio in markup (data-scope="local"); fall back to first option.
     var initial = opts.find(function(o){ return o.getAttribute('aria-checked') === 'true'; }) || opts[0];
@@ -137,6 +305,14 @@
     function applyScopeMode(scope){
       if(controlRow){ controlRow.setAttribute('data-scope-mode', scope); }
       if(scopeNote){ scopeNote.hidden = (scope !== 'nationwide'); }
+      // Full campaign (nationwide-localized) covers every choice below — banner on,
+      // setup flagged so steps 2-3 dim to "already included". Brief + Create stay live.
+      var full = (scope === 'nationwide-localized');
+      if(fullBanner){ fullBanner.hidden = !full; }
+      if(setupSection){
+        if(full){ setupSection.setAttribute('data-full', 'true'); }
+        else{ setupSection.removeAttribute('data-full'); }
+      }
     }
 
     function select(opt, focus){
@@ -151,7 +327,12 @@
       try{
         var sumEl = document.getElementById('scopeSummary');
         var titleEl = opt.querySelector('.ff-scope-opt-title');
-        if(sumEl && titleEl && titleEl.textContent) sumEl.textContent = titleEl.textContent.trim();
+        if(sumEl && titleEl){
+          var clone = titleEl.cloneNode(true);
+          var flag = clone.querySelector('.badge');
+          if(flag) flag.remove();
+          if(clone.textContent) sumEl.textContent = clone.textContent.trim();
+        }
       }catch(e){}
       if(focus){ try{ opt.focus(); }catch(e){} }
     }
@@ -238,7 +419,7 @@
       'lifestyle': ['All','People','Outdoors','Kitchen'],
       'ideas':     ['All'],
       'themes':    ['All'],
-      'brand':     ['All','Heroes','Logos','Zac Efron','References']
+      'brand':     ['All','Heroes','Logos','References']
     };
     // multi-token chips (matched as OR against the tile haystack); everything else is its lowercased token.
     var TYPE_KEYWORDS = { 'flapjack & waffle': ['flapjack','waffle'] };

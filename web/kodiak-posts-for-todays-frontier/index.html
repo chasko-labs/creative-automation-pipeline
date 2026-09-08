@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"/>
 <link rel="stylesheet" href="https://use.typekit.net/zjt4wyq.css">
-<link rel="stylesheet" href="design/styles.css?v=0.1.058-10298e8-20260908">
-<link rel="stylesheet" href="design/components.css?v=0.1.058-10298e8-20260908">
+<link rel="stylesheet" href="design/styles.css?v=0.1.067-60739d5-20260908">
+<link rel="stylesheet" href="design/components.css?v=0.1.067-60739d5-20260908">
 <!-- #196: first paint is photographic — preload the default campaign hero so a clean-cache load never shows a generic block -->
 <link rel="preload" as="image" href="input_assets/textless/cabin-table.jpg" fetchpriority="high">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>KODIAK® Posts for Today's Frontier — v0.1.058-10298e8-20260908</title>
-<meta name="kodiak-version" content="0.1.058-10298e8-20260908">
+<title>KODIAK® Posts for Today's Frontier — v0.1.067-60739d5-20260908</title>
+<meta name="kodiak-version" content="0.1.067-60739d5-20260908">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,16 +15,19 @@
 <meta name="mcp:server" content="kodiak-posts-frontier">
 <meta name="mcp:tools" content="places,products,recipes,market-languages,brief-yaml,preview,compose,localize">
 <link rel="mcp-manifest" href="webmcp.json">
-<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.058-10298e8-20260908","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":74,"markets_source":"market-languages.json (74 language markets; places[] inline table holds 73 places)","languages":"EN + top2 per market (ACS 2023)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
+<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.067-60739d5-20260908","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":74,"markets_source":"market-languages.json (74 language markets; places[] inline table holds 73 places)","languages":"EN + top2 per market (ACS 2023)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
 <meta name="robots" content="noindex, nofollow, noarchive">
 <script>
-// Password gate: cakes — unlisted from bots, in-page lock screen (no prompt(), no document.write)
-// Headless test bypass: ?cakes=1 or ?gate=cakes auto-sets sessionStorage
-if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParams(location.search).get('gate')==='cakes'){ try{sessionStorage.setItem('kodiak_gate','cakes')}catch(e){} }
+// Courtesy screen, NOT security: the shared word ('cakes') ships in this file and
+// anyone with the link can view source or clear sessionStorage to walk in.
+// Deliberately no query-param bypass: a shared link must never skip this
+// screen. Remember the choice per-tab via sessionStorage only.
+// If this preview must actually be private, gate it at the edge (CloudFront
+// signed URLs, WAF, or basic auth) — see issue #229.
 (function(){
   try{ if(sessionStorage.getItem('kodiak_gate')==='cakes') return; }catch(e){}
 
-  // lock the page — hide overflow while the gate is up
+  // hold the page behind the welcome screen — hide overflow while it is up
   document.documentElement.style.overflow='hidden';
 
   function mountGate(){
@@ -32,7 +35,7 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
     overlay.id='kodiak-gate';
     overlay.setAttribute('role','dialog');
     overlay.setAttribute('aria-modal','true');
-    overlay.setAttribute('aria-label','Password required');
+    overlay.setAttribute('aria-label','Request access to this preview');
     // brand tokens inlined (gate paints before design/*.css load): bear-brown bg, parchment text,
     // signal-red CTA (#B51E14 — the real brand red; NOT the off-token #E8530E orange), ink for depth.
     // texture data-URIs (forest treeline, kraft hairline) copied verbatim from design/components.css.
@@ -50,11 +53,12 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
       // forest treeline band anchored to the bottom edge — frontier motif, decorative only
       '<div aria-hidden="true" style="position:absolute;left:0;right:0;bottom:0;height:56px;background:'+FOREST+' repeat-x bottom center;background-size:auto 56px;opacity:.85;pointer-events:none"></div>'
       +'<div style="position:relative;z-index:1;max-width:420px;width:100%;background:#3B2316;border:1px solid #2A190F;border-radius:4px;box-shadow:0 10px 30px rgba(26,17,16,.55),0 2px 8px rgba(26,17,16,.4);padding:2.25rem 1.75rem 2rem">'
-      +'<h1 style="font-family:'+GIN+';font-weight:800;text-transform:uppercase;letter-spacing:.05em;line-height:1.05;font-size:clamp(24px,4vw,34px);margin:0 0 .9rem;color:#FFF8F0">This demo is private</h1>'
-      +'<p style="margin:0 0 1.4rem;line-height:1.5;font-family:'+MUSEO+';font-size:1rem;color:#FFEDE0">Enter the password to continue (hint: <b>cakes</b>)</p>'
+      +'<h1 style="font-family:'+GIN+';font-weight:800;text-transform:uppercase;letter-spacing:.05em;line-height:1.05;font-size:clamp(24px,4vw,34px);margin:0 0 .9rem;color:#FFF8F0">Request access</h1>'
+      +'<p style="margin:0 0 1.4rem;line-height:1.5;font-family:'+MUSEO+';font-size:1rem;color:#FFEDE0">This preview is shared by link &mdash; enter the shared word to step inside (hint: <b>cakes</b>).</p>'
+      +'<p style="margin:-1rem 0 1.4rem;line-height:1.4;font-family:'+MUSEO+';font-size:.8rem;color:#FFEDE0;opacity:.75">A courtesy screen, not security: anyone with the link and the word can enter.</p>'
       +'<form id="kodiak-gate-form" style="display:flex;flex-direction:column;gap:.9rem;align-items:center">'
-      +'<label for="kodiak-gate-pw" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Password</label>'
-      +'<input id="kodiak-gate-pw" type="password" autocomplete="off" autofocus placeholder="password" '
+      +'<label for="kodiak-gate-pw" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Shared word</label>'
+      +'<input id="kodiak-gate-pw" type="password" autocomplete="off" autofocus placeholder="shared word" '
       +'style="width:100%;max-width:260px;padding:.65rem .75rem;border:2px solid #FFF8F0;border-radius:4px;background:rgba(255,248,240,.06);color:#FFF8F0;font-family:'+MUSEO+';font-size:1rem;text-align:center;outline:none" '
       +'onfocus="this.style.borderColor=\'#B51E14\';this.style.boxShadow=\'0 0 0 3px rgba(181,30,20,.45)\'" '
       +'onblur="this.style.borderColor=\'#FFF8F0\';this.style.boxShadow=\'none\'" />'
@@ -120,31 +124,50 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
 </header>
 
 <div class="wrap">
+<!-- Progress timeline — slim numbered tracker (Setup + 5/6/7) with a live heuristic
+     line fed ONLY by real page events: ff-timeline.js mirrors #sampleStatus +
+     #generateCampaignStatus text and the gate/assets hidden states. -->
+<div class="ff-timeline" id="progressTimeline">
+  <ol class="ff-timeline-steps" aria-label="Campaign progress">
+    <li data-node="setup" data-state="active"><span class="ff-timeline-dot" aria-hidden="true"></span><span class="ff-timeline-label">Setup</span></li>
+    <li data-node="preview" data-state="todo"><span class="ff-timeline-dot" aria-hidden="true"></span><span class="ff-timeline-label"><span class="ff-stepnum" aria-hidden="true">5</span> Preview</span></li>
+    <li data-node="generate" data-state="locked"><span class="ff-timeline-dot" aria-hidden="true"></span><span class="ff-timeline-label"><span class="ff-stepnum" aria-hidden="true">6</span> Generate</span></li>
+    <li data-node="assets" data-state="todo"><span class="ff-timeline-dot" aria-hidden="true"></span><span class="ff-timeline-label"><span class="ff-stepnum" aria-hidden="true">7</span> Assets</span></li>
+  </ol>
+  <div class="ff-timeline-note" id="timelineNote" role="status" aria-live="polite"></div>
+</div>
 <!-- location-aware island + design-system scorecards moved to details.html (Design system + details link below) -->
 <div class="card" data-mcp="campaign-brief" data-mcp-description="Park City Utah demo — one prompt drives the campaign"><div class="body">
 
 <!-- PRIMARY: Firefly-inspired prompt bar — dominates the card -->
 <div class="ff-prompt" data-mcp="campaign-brief.prompt">
 
-  <!-- STEP 1: campaign scope — the first and most important decision. Mutually-exclusive
+<!-- #218: the four blocks below (reach, market+season, creative direction, brief) read as
+     ONE guided setup step — a single section with a clear top-to-bottom order. Wrapper +
+     heading + data-step badges only; every control keeps its id, role, and binding. -->
+<section class="ff-setup" aria-labelledby="ffSetupHeading">
+  <h2 id="ffSetupHeading" class="ff-setup-heading">Set up your campaign</h2>
+
+  <!-- STEP 1: reach — the first and most important decision. Mutually-exclusive
        segmented control (WAI-ARIA radiogroup). Default = "local" (single market), which is
        coherent with the Park City market default + the inline seasonal readout below. Selection
        is stored on window.__campaignScope and read by both Create (preview) and the full-campaign
        generate. Keyboard: arrow keys move + activate selection per the radiogroup pattern. -->
-  <!-- Fold-density: scope collapses into a closed disclosure at rest (default Single
-       market is preselected, so most loads need zero scope interaction). The radiogroup
+  <!-- Fold-density: reach collapses into a closed disclosure at rest (default Single
+       market is preselected, so most loads need zero reach interaction). The radiogroup
        + window.__campaignScope wiring is untouched; prompt-chips.js syncs #scopeSummary. -->
-  <details class="ff-scope-wrap" id="scopeWrap">
-    <summary class="ff-scope-summary"><span aria-hidden="true">Campaign scope</span>: <span id="scopeSummary">Single market</span></summary>
-  <div class="ff-scope" id="campaignScope" role="radiogroup" aria-label="Campaign scope — how far this campaign reaches">
+  <!-- #223: marketer voice, copy only — ids, roles, and behavior untouched. -->
+  <details class="ff-scope-wrap" id="scopeWrap" data-step="1">
+    <summary class="ff-scope-summary"><span aria-hidden="true">How far this reaches</span>: <span id="scopeSummary">Single market</span></summary>
+  <div class="ff-scope" id="campaignScope" role="radiogroup" aria-label="How far this reaches">
     <div class="ff-scope-seg" role="presentation">
       <button type="button" class="ff-scope-opt" role="radio" aria-checked="false" data-scope="nationwide" tabindex="-1">
         <span class="ff-scope-opt-title">Nationwide</span>
-        <span class="ff-scope-opt-sub">One national campaign</span>
+        <span class="ff-scope-opt-sub">One national campaign, every platform</span>
       </button>
-      <button type="button" class="ff-scope-opt" role="radio" aria-checked="false" data-scope="nationwide-localized" tabindex="-1">
-        <span class="ff-scope-opt-title">Nationwide + localized markets</span>
-        <span class="ff-scope-opt-sub">National core, localized variants</span>
+      <button type="button" class="ff-scope-opt ff-scope-opt--full" role="radio" aria-checked="false" data-scope="nationwide-localized" tabindex="-1">
+        <span class="ff-scope-opt-title">Full campaign <span class="badge">most complete</span></span>
+        <span class="ff-scope-opt-sub">Every market localized, recipe cards, every retailer, subscription, Wild Grizzly Bears, past-content riffs — with US Ski &amp; Snowboard variants</span>
       </button>
       <button type="button" class="ff-scope-opt" role="radio" aria-checked="true" data-scope="local" tabindex="0">
         <span class="ff-scope-opt-title">Single market</span>
@@ -152,20 +175,27 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
       </button>
     </div>
   </div>
+  <p class="ff-full-banner" id="fullCampaignBanner" hidden>Full campaign covers every choice below — markets, retailers, themes, and partners are all included. Just write your idea and hit Create.</p>
   </details>
 
   <!-- STEP 2: market + season. B1: controls flow top-to-bottom; the prompt input is the culmination. -->
   <!-- C+D+E+F. control row: market disclosure button + seasonal menu + geo, single responsive row.
        data-scope-mode is set by prompt-chips.js from window.__campaignScope: "nationwide" dims this
        row (market becomes an optional localization anchor); other scopes leave it at full weight. -->
-  <div class="ff-controlrow" role="group" aria-label="Campaign market and season" data-scope-mode="local">
+  <div class="ff-controlrow" role="group" aria-label="Campaign market and season" data-scope-mode="local" data-step="2">
     <details class="ff-market" id="marketDisclosure">
-      <summary aria-haspopup="listbox" aria-expanded="false" aria-controls="marketListbox" aria-label="Choose market — currently Park City, Utah">
-        <span class="ff-market-name" id="marketButtonLabel">Park City, Utah</span>
+      <summary aria-haspopup="listbox" aria-expanded="false" aria-controls="marketListbox" aria-label="Location — currently Park City, Utah">
+        <span class="ff-market-name" id="marketButtonLabel">Location: Park City, Utah</span>
         <span class="ff-caret" aria-hidden="true">&#9662;</span>
       </summary>
       <div class="ff-market-panel">
         <div id="marketListbox" role="listbox" aria-label="Localized markets" tabindex="-1"></div>
+        <!-- #213: the real market control, declared in markup so it exists before
+             fillSelects runs — no JS-created hidden fallback, zero load warnings.
+             The listbox above is the visible face; this select hosts the market value
+             generate() and the legacy readers consume, synced both ways. Visually
+             hidden but keyboard-focusable (same clip technique as the asset input). -->
+        <select id="locality" class="ff-locality-select" aria-label="Market — same choice as the market list above"></select>
         <!-- D3. add a location the curated list does not cover — client-side custom market, degrades gracefully -->
         <div class="ff-addloc">
           <label class="ff-addloc-label" for="addLocInput">Add a location</label>
@@ -208,10 +238,18 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
   </div>
 
   <!-- ff-brainstorm - unified brainstorming surface: campaign-option chips + product picker read as ONE panel. wrapper only; every child still binds by id so the JS selectors are unaffected. -->
-  <div class="ff-brainstorm">
+  <!-- #237: the retailer/partner chips below are the SINGLE selection for those concepts — they drive
+       both the brief text and the Compose layer flags (two-way sync in prompt-chips.js); the layer
+       checkboxes are flags, not a second selection. -->
+  <div class="ff-brainstorm" data-step="3">
   <!-- STEP 3: creative direction — additive multi-select chips grouped into 4 marketer-voice clusters.
-       Chips toggle (aria-pressed) and stack; toggling does not clobber the brief textarea. Handled by
-       prompt-chips.js, which maintains window.__activeDirections (set) + window.__activeTheme (most-recent). -->
+       Chips toggle (aria-pressed) and stack; toggling assembles the brief but never clobbers typed
+       text. Handled by prompt-chips.js, which maintains window.__activeDirections (set) +
+       window.__activeTheme (most-recent). -->
+  <!-- Creative direction rides a CLOSED disclosure by default (fold density: the clusters
+       collapse so Your campaign idea stays the star). Chip bindings are by id, unaffected. -->
+  <details class="ff-products ff-directions" id="creativeDirection">
+    <summary aria-label="Creative direction — combine as many as you like">Creative direction</summary>
   <div class="ff-optiongroup">
     <div class="ff-chipgroups" id="promptChips" role="group" aria-label="Creative direction — combine as many as you like">
       <div class="ff-chipcluster" role="group" aria-labelledby="chipClusterMake">
@@ -221,16 +259,17 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
       <div class="ff-chipcluster" role="group" aria-labelledby="chipClusterRetailer">
         <span class="ff-chipcluster-label" id="chipClusterRetailer">retailer</span>
         <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-costco" data-label="Localized Costco" data-brief="Localized Costco campaign — bulk Family Size value for the warehouse-club aisle, framed to the selected market."><span class="ff-dot"></span>Localized Costco</button>
+        <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-publix" data-label="Localized Publix" data-brief="Localized Publix campaign — neighborhood-market warmth for the Southern family table, framed to the selected market."><span class="ff-dot"></span>Localized Publix</button>
+        <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-target" data-label="Localized Target" data-brief="Localized Target campaign — everyday-family aisle value for the one-trip basket, framed to the selected market."><span class="ff-dot"></span>Localized Target</button>
+        <button type="button" class="ff-chip" aria-pressed="false" data-theme="kodiak-subscription" data-label="Kodiak subscription" data-brief="Kodiak subscription campaign — front-door delivery cadence for loyal households, Keep It Wild pantry always stocked."><span class="ff-dot"></span>Kodiak subscription</button>
       </div>
       <div class="ff-chipcluster" role="group" aria-labelledby="chipClusterAngle">
         <span class="ff-chipcluster-label" id="chipClusterAngle">creative angle</span>
-        <button type="button" class="ff-chip" aria-pressed="false" data-theme="bears" data-label="Bears" data-brief="Bears + Keep It Wild — lean into the KODIAK Bear, wild frontier tone, protein for epic days."><span class="ff-dot"></span>Bears</button>
-        <button type="button" class="ff-chip" aria-pressed="false" data-theme="keep-it-wild-program" data-label="Keep It Wild program" data-brief="Keep It Wild program — brand campaign tying protein-packed whole grains to the outdoor frontier lifestyle."><span class="ff-dot"></span>Keep It Wild program</button>
+        <button type="button" class="ff-chip" aria-pressed="false" data-theme="wild-grizzly-bears" data-label="Wild Grizzly Bears" data-brief="Wild Grizzly Bears — lean into the KODIAK Bear, wild frontier tone, protein for epic days, Keep It Wild conservation with Vital Ground."><span class="ff-dot"></span>Wild Grizzly Bears</button>
         <button type="button" class="ff-chip" aria-pressed="false" data-theme="riff-on-past-content" data-label="Riff on past content" data-brief="Riff on past content — remix our existing heroes into fresh variants across all three ratios."><span class="ff-dot"></span>Riff on past content</button>
       </div>
       <div class="ff-chipcluster" role="group" aria-labelledby="chipClusterPartner">
         <span class="ff-chipcluster-label" id="chipClusterPartner">partner</span>
-        <button type="button" class="ff-chip" aria-pressed="false" data-theme="zac-efron" data-label="Zac Efron" data-brief="Zac Efron athletic-morning energy — high-protein pre-trail fuel, aspirational active lifestyle. Keep It Wild."><span class="ff-dot"></span>Zac Efron</button>
         <button type="button" class="ff-chip" aria-pressed="false" data-theme="us-ski-snowboard" data-label="US Ski &amp; Snowboard" data-brief="US Ski & Snowboard partner campaign — Milano Cortina 2026, Park City athlete fuel, whole-grain protein for world-class winter athletes, alpine dawn. Keep It Wild."><span class="ff-dot"></span>US Ski &amp; Snowboard</button>
       </div>
     </div>
@@ -240,6 +279,7 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
       <span class="ff-partner-mark__label">Official partner mark</span>
     </div>
   </div>
+  </details>
 
   <!-- Product chooser folded into the prompt card as a CLOSED disclosure — one summary line at rest.
        FRONTEND STAGING for uploads only (no DAM upload backend); marker threaded into the brief via window.__userAssets. -->
@@ -268,9 +308,11 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
     </div>
   </details>
 
-  <!-- Compose layers (#199/#200) — independently-selectable, ALL OFF by default. Default
+  <!-- Compose layers (#199/#200, unified with chips by #237) — ALL OFF by default. Default
        Create ships a clean standalone image + copy sidecars; a selected layer composes
-       into the scene (real box via thirds placement, marks under the paper grain). -->
+       into the scene (real box via thirds placement, marks under the paper grain).
+       Retailer + partner layers mirror their chips (one selection per concept, two-way
+       sync); the product layer is a compose flag for the products picked above. -->
   <details class="ff-layers" id="layerPicker" data-mcp="compose-layers" data-mcp-description="Optional layers — product image, retailer mark, partner mark. All off by default.">
     <summary aria-label="Compose layers — optional, all off by default">Compose layers <span class="ff-layers-state" id="layersState">all off</span></summary>
     <div class="ff-layers-panel">
@@ -292,7 +334,8 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
   <div class="ff-tray" id="selectionTray" role="group" aria-label="Selected products and staged assets"></div>
 
   <!-- B1: the prompt input is now the CULMINATION at the bottom of the card — controls above assemble the brief, Create sits directly under the fully-assembled prompt. -->
-  <div class="ff-inputwrap">
+  <!-- STEP 4 (#218): the brief is the last stop of the guided step, not a separate block. -->
+  <div class="ff-inputwrap" data-step="4">
     <!-- Row 1 (canvas): visible kicker label + the primary textarea, full width -->
     <label class="ff-brief-label" for="campaignBrief">Your campaign idea</label>
     <textarea id="campaignBrief" rows="2" aria-label="Campaign idea — describe your Kodiak campaign in a line" placeholder="Describe your campaign in a line — or tap an option above to start." role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="briefSuggest" autocomplete="off"></textarea>
@@ -305,11 +348,12 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
         <!-- D5. Browse past assets (DAM) — ADDITIVE second staging path. Opens #damPanel, stages a chosen asset into the SAME #selectionTray. -->
         <button type="button" class="ff-dam-trigger" id="damBrowseTrigger" aria-haspopup="dialog" aria-controls="damPanel" aria-expanded="false" title="Browse past DAM assets">Browse past assets</button>
       </div>
-      <button class="ff-go" id="generateCampaign" data-mcp="generate" data-mcp-description="Single button — fans to all formats + localized variants, shows sample">Create</button>
+      <button class="ff-go" id="generateCampaign" data-mcp="generate" data-mcp-description="Single button — fans to all formats + localized variants, shows sample">Create Campaign Preview</button>
     </div>
     <!-- B3. prompt-box autocomplete surface — product/market matches from loaded catalog + places; anchored to the positioned .ff-inputwrap; reuses the ff-products-results listbox visual pattern -->
     <div id="briefSuggest" class="ff-products-results ff-briefsuggest" role="listbox" aria-label="Product and market suggestions" hidden></div>
   </div>
+</section><!-- /ff-setup: one guided setup step (#218) -->
 </div>
 
 <!-- Product chooser + upload affordance consolidated into the prompt card above (closed <details> + shared tray + "+" icon). -->
@@ -343,6 +387,7 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
 <section class="ff-output" aria-labelledby="outputHeading">
   <details class="preview-card ff-output-details" id="previewCard">
     <summary id="outputHeading">
+      <span class="ff-stepnum" aria-hidden="true">5</span>
       <span class="ff-output-heading">Output Preview</span>
       <span class="ff-output-sizes">4 sizes &mdash; 1x1, 4x5, 9x16, 16x9</span>
     </summary>
@@ -369,7 +414,7 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
            the market-selection JS still writes here; #locPreview is injected beside these by data-core.js. -->
       <div class="ff-detail ff-output-readout">
         <div class="ff-featured" id="featuredFrontier" aria-live="polite"></div>
-        <div class="ff-langs" id="marketLangLine" aria-live="polite">localized in languages: <b>English, Spanish, Portuguese</b></div>
+        <div class="ff-langs" id="marketLangLine" aria-live="polite">localized in languages: <b>Spanish, Portuguese</b></div>
         <!-- #locPreview (localized-copy preview) is injected here by the AXIS-3 script, beside this readout -->
       </div>
 
@@ -408,6 +453,9 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
 <!-- FIX 4: the standalone details-link row is removed; the canonical link now lives inside
      "About this tool" below as a styled .ff-doclinks affordance (renamed "Design System Inventory"). -->
 
+<!-- About art band — full-bleed mountains-with-pines ABOVE the section, mirroring
+     the ff-ridge / ff-forest dividers (never inside .body where padding buries it) -->
+<div class="ff-about-art" aria-hidden="true"><svg class="ff-about-range" viewBox="0 0 640 120" preserveAspectRatio="xMidYMid slice" focusable="false"><g fill="#1A2F29"><path d="M0 120 L0 96 L60 40 L104 88 L150 30 L210 96 L258 52 L310 100 L360 44 L418 98 L470 36 L528 96 L580 56 L640 104 L640 120 Z" opacity=".28"/><path d="M0 120 L0 108 L84 58 L140 104 L200 62 L280 110 L340 70 L420 112 L490 66 L560 108 L640 78 L640 120 Z"/></g><g fill="#1A2F29"><path d="M22 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M52 108 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M88 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M128 112 l8-19 8 19 h-6 v9 h-4 v-9 Z"/><path d="M168 110 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M205 112 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M238 110 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M278 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M322 112 l8-19 8 19 h-6 v9 h-4 v-9 Z"/><path d="M362 110 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M398 112 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M448 110 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M486 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M540 112 l8-19 8 19 h-6 v9 h-4 v-9 Z"/><path d="M576 110 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M606 108 l7-16 7 16 h-5 v8 h-4 v-8 Z"/></g><g fill="#FFF8F0"><circle cx="150" cy="30" r="3"/><circle cx="470" cy="36" r="3"/><circle cx="360" cy="44" r="2.4"/></g></svg></div>
 <details class="card wide-track ff-about" id="aboutTool"><summary>About This Automation Pipeline</summary><div class="body"><p class="ff-about__copy">Type one line, pick a starting point, and get a ready-to-post Kodiak campaign — images and copy sized for every social platform and retailer, localized to the market you choose. Three reference pages document how it works under the hood.</p>
 <!-- doclinks group — the three pages nested under About This Automation Pipeline. -->
 <div class="ff-doclinks" role="group" aria-label="Reference documentation">
@@ -418,12 +466,12 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
 </div></details>
 
 <!-- visible build stamp — confirm at a glance which version/JS is live in the browser (cache-buster verification) -->
-<div id="buildStamp">build 0.1.058-10298e8-20260908</div>
+<div id="buildStamp">build 0.1.067-60739d5-20260908</div>
 
 </div>
 <script defer src="js/data-core.js"></script>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.058-10298e8-20260908","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["74 language markets (market-languages.json)","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.067-60739d5-20260908","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["74 language markets (market-languages.json)","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
 
 
 <script defer src="js/generate.js"></script>
@@ -437,5 +485,6 @@ if(new URLSearchParams(location.search).get('cakes')==='1' || new URLSearchParam
   <script defer src="js/autocomplete.js"></script>
 <script defer src="js/lifecycle-persist.js"></script>
   <script defer src="js/campaign-sections.js"></script>
-  <script defer src="glimmer-proxy.js?v=0.1.058-10298e8-20260908"></script>
+  <script defer src="js/ff-timeline.js"></script>
+  <script defer src="glimmer-proxy.js?v=0.1.067-60739d5-20260908"></script>
 </body></html>

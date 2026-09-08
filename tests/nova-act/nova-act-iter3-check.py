@@ -24,7 +24,8 @@ AREA 2 — Output Preview cleanup
               between #featuredFrontier framing and #locPreview headlines).
   2c TERSE    export label reads "Asset pack exports:" not the long sentence.
 
-Entry: ?cakes=1 seeds the sessionStorage gate token so the lock screen never mounts.
+Entry: the sessionStorage gate token is seeded via page.evaluate after load
+(?cakes=1 URL bypass removed in #234); the page then reloads past the screen.
 
 Usage:
   python scripts/nova-act-iter3-check.py --headless \
@@ -48,7 +49,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 LIVE_URL = "https://d37333alc7ojpl.cloudfront.net/"
-ENTRY_URL = LIVE_URL + "?cakes=1"
+# No query-param bypass (#234 removed ?cakes=1): bare URL + sessionStorage seed.
+ENTRY_URL = LIVE_URL
 EXPECTED_STAMP = "0.1.024-7c9222d-20260907"
 STALE_MARKER_RE = re.compile(r"0\.1\.0(0\d|1\d|2[0-3])-")  # anything <= 023
 STAMP_RE = re.compile(r"0\.1\.0\d{2}-[0-9a-f]{7}-\d{8}")
@@ -112,7 +114,7 @@ def _read_stamp(page) -> str | None:
 
 def _gate_up(page) -> bool:
     try:
-        return page.locator("text=This demo is private").count() > 0
+        return page.locator("text=Request access").count() > 0
     except Exception:
         return False
 
@@ -270,12 +272,23 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
             return _finish(checks, None, _console_summary(console_errors, page_errors), out_path)
 
         time.sleep(2)
+        # #234: no URL bypass. Seed the sessionStorage gate token the page
+        # honors, then reload past the courtesy screen.
+        try:
+            page.evaluate("try{sessionStorage.setItem('kodiak_gate','cakes')}catch(e){}")
+        except Exception:
+            pass
+        try:
+            page.reload(wait_until="networkidle")
+        except Exception:
+            pass
+        time.sleep(2)
 
         if _gate_up(page):
             shot = _shot(page, shot_dir, "00-gate-block")
             checks.append(CheckResult("entry", "BLOCKED",
-                "Password gate still mounted despite ?cakes=1 bypass. Not "
-                "attempting to bypass. Surface to anchor.", shot))
+                "Courtesy screen still mounted despite sessionStorage seeding. "
+                "Not attempting to bypass. Surface to anchor.", shot))
             return _finish(checks, None, _console_summary(console_errors, page_errors), out_path)
 
         stamp_seen = _read_stamp(page)

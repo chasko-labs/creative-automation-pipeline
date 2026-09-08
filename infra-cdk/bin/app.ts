@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import * as cdk from "aws-cdk-lib";
 import { DataStack } from "../lib/data-stack";
+import { HostingStack } from "../lib/hosting-stack";
 import { GenerateStack } from "../lib/generate-stack";
 import { ObservabilityStack } from "../lib/observability-stack";
 import { BrowserObservabilityStack } from "../lib/browser-observability-stack";
@@ -89,6 +90,17 @@ new BedrockLoggingStack(app, "KodiakCreativesBedrockLoggingUsEast1", {
     "Kodiak creatives Bedrock model-invocation logging (us-east-1): log group + role (RETAIN) + singleton enable.",
 });
 
+// site hosting (#202): S3 bucket + CloudFront distro + OAC + DNS alias, all
+// RETAIN, adopted in place. First deploy MUST be `cdk import` (see README) --
+// never plain-deploy before import. terminationProtection guards the live site.
+new HostingStack(app, "kodiak-creatives-hosting", {
+  env: { account, region: PRIMARY_REGION },
+  projectName: PROJECT_NAME,
+  terminationProtection: true,
+  description:
+    "Kodiak frontier site hosting: S3 bucket + CloudFront distro + OAC + DNS alias (all RETAIN, adopted in place #202).",
+});
+
 // bedrock model-invocation logging in us-west-2, where the custom art-director
 // model runs. model-invocation logging is an account+region SINGLETON, so the
 // us-east-1 configuration does NOT cover us-west-2 invocations. This second
@@ -109,8 +121,13 @@ new BedrockLoggingStack(app, "KodiakCreativesBedrockLoggingUsWest2", {
 // per-stack stack= tags + the DAM brand=kodiak tag are added inside each stack.
 // the migrated L1 templates' repeated inline managed-by=cloudformation tag
 // arrays were stripped when lifting the stacks, so nothing conflicts here.
-for (const [k, v] of Object.entries(STANDARD_TAGS)) {
-  cdk.Tags.of(app).add(k, v);
+// IMPORT-SAFE (#202): stack-level tags break `cdk import` (CFN forbids Tag
+// changes on import change sets). Gated out only for the import pass via
+// CDK_IMPORT_NOTAGS=1; normal deploys keep the full tag set.
+if (process.env.CDK_IMPORT_NOTAGS !== "1") {
+  for (const [k, v] of Object.entries(STANDARD_TAGS)) {
+    cdk.Tags.of(app).add(k, v);
+  }
 }
 
 app.synth();

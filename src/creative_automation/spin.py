@@ -3,7 +3,7 @@
 Three always-on operations Bryan wants for every campaign, each with PREDEFINED
 Kodiak standards (not ad-hoc params):
 
-1. remove_background — free the subject (the bear, Zac Efron, the product) by
+1. remove_background — free the subject (the bear, the partner, the product) by
    removing ONLY distracting background so it can be re-spun. Modes:
      transparent | solid (Kodiak color) | image (provided background plate).
 2. batch_crop — crop many files at once, subject-aware center, per platform ratio.

@@ -114,7 +114,7 @@ def test_resolve_map_path_env_override(tmp_path: Path, monkeypatch) -> None:
 
 
 def test_resolve_theme_photo_known_theme() -> None:
-    key = generate._resolve_theme_photo("zac-efron")
+    key = generate._resolve_theme_photo("wild-grizzly-bears")
     assert key is not None
     assert key.startswith("brands/kodiak/raw-ingest/")
 
@@ -136,12 +136,12 @@ def test_generate_hero_theme_dam_disabled_falls_back_gracefully(tmp_path: Path, 
     result, source, _prov = generate.generate_hero(
         product_id="power-cakes",
         product_name="Power Cakes",
-        brief_msg="athletic mornings",
+        brief_msg="wild mornings",
         region="us",
         audience="active families",
         out_path=out,
         idx=0,
-        theme="zac-efron",
+        theme="wild-grizzly-bears",
     )
     assert result.exists()
     assert source == generate.BRAND_FLOOR_SOURCE
@@ -165,12 +165,12 @@ def test_generate_hero_theme_composes_on_fetched_photo(tmp_path: Path, monkeypat
     result, source, _prov = generate.generate_hero(
         product_id="power-cakes",
         product_name="Power Cakes",
-        brief_msg="athletic mornings",
+        brief_msg="wild mornings",
         region="us",
         audience="active families",
         out_path=out,
         idx=0,
-        theme="zac-efron",
+        theme="wild-grizzly-bears",
     )
     assert result.exists()
     assert source == "bedrock:nova-pro"
@@ -219,3 +219,45 @@ def test_generate_hero_theme_none_preserves_product_path(tmp_path: Path, monkeyp
     assert source == "bedrock:nova-pro"
     # theme=None short-circuits before the theme resolver is ever consulted
     assert called["theme_resolver"] == 0
+
+
+def test_theme_photo_seed_skips_nova_scene_prompt(tmp_path: Path, monkeypatch) -> None:
+    # Theme-photo fast path: the seed already carries the theme, so rung B must
+    # NOT spend a Nova vision call — deterministic default instead, rung C kept.
+    photo = _make_photo(tmp_path / "wild-src.png")
+    import creative_automation.dam as dam
+
+    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: photo)
+    monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
+    monkeypatch.setattr(generate, "_stability_control_hero", lambda seed, prompt, out: None)
+    calls: list = []
+    monkeypatch.setattr(
+        generate, "_nova_pro_scene_prompt", lambda *a, **k: calls.append(1) or "scene"
+    )
+
+    out = tmp_path / "hero-wild-fast.png"
+    result, source, prov = generate.generate_hero(
+        product_id="power-cakes",
+        product_name="Power Cakes",
+        brief_msg="wild mornings",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+        theme="wild-grizzly-bears",
+    )
+    assert result.exists()
+    assert calls == [], "theme-photo seed must skip the Nova scene vision call"
+    assert prov["seed_selection"] == "theme-photo"
+    assert "grizzly-country meadow" in prov["scene_prompt"]
+    assert "no bears in close-up" in prov["scene_prompt"]
+
+
+def test_default_scene_prompt_deterministic_and_themed() -> None:
+    a = generate._default_scene_prompt("Power Cakes", "brief", "us", "families", "wild-grizzly-bears")
+    b = generate._default_scene_prompt("Power Cakes", "brief", "us", "families", "wild-grizzly-bears")
+    assert a == b
+    assert "Power Cakes" in a and "frontier morning light" in a
+    assert "on-brand Kodiak" not in a
+    c = generate._default_scene_prompt("Power Cakes", "brief", "us", "families", None)
+    assert "brief" in c

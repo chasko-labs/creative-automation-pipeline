@@ -390,8 +390,9 @@ _accent_hex = "#E8530E"  # tokens kodiak.color.brand.blazeOrange
 # fall through to the plain slug-to-words form. Add entries as new named-person themes
 # appear — each is a one-line slug -> persona mapping. This map is PROMPT-ONLY; the
 # theme-asset-map seed-photo selection stays keyed on the raw slug (unchanged).
+# Currently empty (no named-person themes ship); the infrastructure stays so a
+# future partner theme cannot regress into a filter trip.
 _THEME_PERSONA_MAP: dict[str, str] = {
-    "zac-efron": "energetic athletic young man, morning-fitness lifestyle vibe",
 }
 
 # Per-theme scene guidance for the Nova Pro control-structure restyle prompt. When a
@@ -401,44 +402,82 @@ _THEME_PERSONA_MAP: dict[str, str] = {
 # US Ski & Snowboard partner campaign this honors the real partnership (Milano Cortina
 # 2026, Park City, Kodiak Kitchen at the USANA Center of Excellence) without naming or
 # implying endorsement by any individual athlete.
+# Shared frontier palette, spelled out anywhere a hint names it: bear-brown timber
+# (#3B2316), frontier-green pine (#1A2F29), warm kraft paper (#C8A97E), cream
+# whole-grain tones, low golden morning sun. Every hint below is a complete
+# artist dispatch — setting, light, palette, material, composition — because a
+# bare noun ("on-brand Kodiak") means nothing to the model. No text, letters,
+# signage, or logos anywhere in frame: the model renders glyphs as gibberish.
 _THEME_SCENE_HINT: dict[str, str] = {
+    # unified wild angle: the KODIAK Bear + Keep It Wild conservation program are
+    # one story — grizzly habitat, Vital Ground corridor, frontier morning.
+    "wild-grizzly-bears": (
+        "grizzly-country meadow at first light, pine ridgeline in frontier-green "
+        "behind, low golden sun from frame left, bear-brown timber and kraft tones "
+        "in the foreground, wildflower meadow leading to distant peaks, visible "
+        "grain texture, Keep It Wild conservation mood, no bears in close-up, no text"
+    ),
     "us-ski-snowboard": (
-        "winter Wasatch alpine dawn, fresh snow and pine ridgeline above Park City, "
-        "cast-iron protein stack as athlete fuel before the training day, crisp cold "
-        "light, podium-energy mood, generic active winter athletes only (no faces, no "
-        "real person), on-brand Kodiak"
+        "Wasatch alpine dawn above Park City, fresh-snow ridgeline and pine in "
+        "frontier-green and white, cast-iron skillet with a protein stack steaming "
+        "in the lower third, cold blue-shadow light warming to gold at the ridge, "
+        "generic active winter athletes only with no faces and no real person, no text"
     ),
     # retailer directions (#245): warehouse-club bulk/value cues land in the pixels
     # via the same scene-hint fold. Surfaces stay blank (no text, signage, logos) —
     # the framing is pack presence + aisle mood, never rendered glyphs.
     "localized-costco": (
-        "bulk warehouse-club aisle mood, oversized Family Size pack presence, "
-        "pallet-stacked abundance, stock-up-trip value framing, bright club-aisle "
-        "light, on-brand Kodiak"
+        "warehouse-club aisle in bright flat morning light, pallet-stacked abundance "
+        "receding to a vanishing point, one oversized Family Size pack dominant in "
+        "the right third, kraft and bear-brown packaging tones, concrete floor sheen, "
+        "stock-up-trip scale, no text"
+    ),
+    # input-side retailer chips (#217): same aisle mood as the bare-retailer keys,
+    # namespaced to the chip theme slugs so each direction threads end to end.
+    "localized-publix": (
+        "southern porch morning, family table spread in the lower third, warm white "
+        "light through slats, cream and kraft tones with frontier-green foliage "
+        "beyond the rail, steam rising off the stack, welcoming deli-fresh calm, no text"
+    ),
+    "localized-target": (
+        "bright modern kitchen aisle of morning light, one-trip basket abundance on "
+        "a clean counter in the right third, white and cream surfaces with bear-brown "
+        "timber accents, soft window key from frame left, tidy everyday value, no text"
+    ),
+    "kodiak-subscription": (
+        "front doorstep at sunrise, kraft subscription box centered with its flaps "
+        "open, warm low sun raking across bear-brown timber, frontier-green doormat "
+        "pine sprig beside it, pantry continuity and always-stocked calm, no text"
     ),
     "target": (
-        "bright everyday-family aisle, one-trip basket abundance, modern clean "
-        "value mood, morning kitchen light, on-brand Kodiak"
+        "bright modern kitchen aisle of morning light, one-trip basket abundance on "
+        "a clean counter in the right third, white and cream surfaces with bear-brown "
+        "timber accents, soft window key from frame left, tidy everyday value, no text"
     ),
     "walmart": (
-        "welcoming family pantry stock-up, shelves of abundance, everyday low price "
-        "warmth, bright morning light, on-brand Kodiak"
+        "family pantry shelves stocked deep in warm morning light, rows of kraft and "
+        "cream abundance receding symmetrically, bear-brown timber shelf edges, "
+        "everyday low-price fullness, bright welcoming value, no text"
     ),
     "whole-foods": (
-        "premium natural-foods shelf, whole-ingredient styling, fresh market morning "
-        "light, ingredient-aware calm, on-brand Kodiak"
+        "premium natural-foods shelf in soft market-morning light, whole ingredients "
+        "styled in cream ceramic against frontier-green foliage, visible grain and "
+        "honey texture, quiet ingredient-aware calm, no text"
     ),
     "publix": (
-        "warm neighborhood-market morning, family-table abundance, southern porch "
-        "light, welcoming deli-fresh mood, on-brand Kodiak"
+        "southern porch morning, family table spread in the lower third, warm white "
+        "light through slats, cream and kraft tones with frontier-green foliage "
+        "beyond the rail, steam rising off the stack, welcoming deli-fresh calm, no text"
     ),
     "kroger": (
-        "friendly family grocery run, fresh-cart abundance, bright everyday market "
-        "light, on-brand Kodiak"
+        "friendly grocery run at morning opening, fresh cart abundance center frame, "
+        "bright clean market light, cream and kraft tones with produce green, "
+        "everyday family value in motion, no text"
     ),
     "heb": (
-        "bold texas family-table spread, vibrant local-market color, warm morning "
-        "light, on-brand Kodiak"
+        "bold texas family-table spread in vibrant morning color, local-market "
+        "produce reds and greens against cream linen, warm direct sun from frame "
+        "left, bear-brown timber table, festive local flavor, no text"
     ),
 }
 
@@ -448,6 +487,9 @@ _THEME_SCENE_HINT: dict[str, str] = {
 # copy and echoed in the campaign panel via the brief's directions clause.
 _THEME_COPY_HINT: dict[str, str] = {
     "localized-costco": "bulk Family Size value — warehouse-club aisle, stock-up trip",
+    "localized-publix": "neighborhood warmth — southern family table",
+    "localized-target": "everyday-family aisle — one-trip basket, modern everyday value",
+    "kodiak-subscription": "subscription cadence — front-door delivery, pantry always stocked",
     "target": "everyday-family aisle — one-trip basket, modern everyday value",
     "walmart": "everyday low price pantry stock-up — family value",
     "whole-foods": "whole-ingredient shelf — ingredient-aware premium pantry",
@@ -470,18 +512,29 @@ def _safe_theme_text(theme_slug: str) -> str:
     return theme_slug.replace("-", " ")
 
 
+# Retired named-person slugs: no chip ships them, but a user can still TYPE the
+# name into the brief — and that raw token trips the Stability filter the same
+# way. Scrubbed to the same filter-safe persona so free text can never regress
+# into a filter trip.
+_RETIRED_PERSONA_MAP: dict[str, str] = {
+    "zac-efron": "energetic athletic young man, morning-fitness lifestyle vibe",
+}
+
+
 def _safe_prompt_text(prompt: str) -> str:
     """Strip real celebrity names out of a free-text incoming prompt.
 
-    The frontend builds the prompt client-side and can embed a real person's display
-    name (e.g. "Zac Efron") verbatim. That name reaches Stability via brief_msg and
-    trips the content filter (finish_reasons:["Filter reason: prompt"]). For every
-    named-person slug in _THEME_PERSONA_MAP, replace the display name ("Zac Efron")
-    and the spaced-slug form ("zac efron") with the filter-safe persona text, matching
-    case-insensitively. Ordinary prompts with no named person pass through unchanged.
+    The frontend builds the prompt client-side and a user can type a real
+    person's display name (e.g. "Zac Efron") verbatim. That name reaches
+    Stability via brief_msg and trips the content filter
+    (finish_reasons:["Filter reason: prompt"]). For every named-person slug in
+    _THEME_PERSONA_MAP plus _RETIRED_PERSONA_MAP, replace the display name
+    ("Zac Efron") and the spaced-slug form ("zac efron") with the filter-safe
+    persona text, matching case-insensitively. Ordinary prompts with no named
+    person pass through unchanged.
     """
     out = prompt
-    for slug, persona in _THEME_PERSONA_MAP.items():
+    for slug, persona in {**_THEME_PERSONA_MAP, **_RETIRED_PERSONA_MAP}.items():
         words = slug.split("-")
         display_name = " ".join(words).title()  # "zac-efron" -> "Zac Efron"
         spaced_slug = " ".join(words)  # "zac efron"
@@ -900,6 +953,31 @@ def _caption_with_budget(src, product_name, brief_msg, region, audience, remaini
     return caption
 
 
+def _default_scene_prompt(
+    product_name: str, brief_msg: str, region: str, audience: str, theme: str | None
+) -> str:
+    """Deterministic restyle direction for a photo seed — no network.
+
+    Used as the Nova scene-prompt fallback AND as the whole scene-prompt step
+    for theme-photo seeds (the photo already carries the theme, so a second
+    vision call buys nothing and burns rung C's budget).
+    """
+    scene_hint = _THEME_SCENE_HINT.get(theme or "", "")
+    # Who + where: the filter-safe persona names the person (never the raw
+    # celebrity token), the hint dispatches the scene. Theme without a hint
+    # falls back to the persona alone; no theme falls back to the brief.
+    if theme:
+        who = _safe_theme_text(theme)
+        direction = f"{scene_hint} Featuring {who}." if scene_hint else who
+    else:
+        direction = brief_msg
+    return (
+        f"{product_name} product photo restyled for "
+        f"{direction}, "
+        f"{region} {audience}, frontier morning light, natural grain texture, high detail"
+    ).strip()
+
+
 def _nova_pro_scene_prompt(
     src: Path, product_name: str, brief_msg: str, region: str, audience: str, theme: str | None
 ) -> str:
@@ -914,11 +992,7 @@ def _nova_pro_scene_prompt(
     scene_hint = _THEME_SCENE_HINT.get(theme or "", "")
     if scene_hint:
         theme_hint += f" Scene direction: {scene_hint}."
-    default_prompt = (
-        f"{product_name} product photo restyled for "
-        f"{scene_hint or (_safe_theme_text(theme) if theme else brief_msg)}, "
-        f"{region} {audience}, on-brand Kodiak lifestyle scene, natural light, high detail"
-    ).strip()
+    default_prompt = _default_scene_prompt(product_name, brief_msg, region, audience, theme)
     if boto3 is None:
         return default_prompt
     try:
@@ -1543,6 +1617,72 @@ def _recipe_card_defaults(product_name: str) -> dict:
     }
 
 
+def _validate_recipe_fields(raw: object, product_name: str) -> dict | None:
+    """Strict-shape check on LLM-authored recipe fields. None when unusable.
+
+    Never fabricates: requires a real title + 2..6 short ingredients + 2..6
+    short steps, all plain strings. Anything else falls back to the default.
+    """
+    if not isinstance(raw, dict):
+        return None
+    title = raw.get("title")
+    ingredients = raw.get("ingredients")
+    steps = raw.get("steps")
+    if not isinstance(title, str) or not title.strip():
+        return None
+    if not isinstance(ingredients, list) or not 2 <= len(ingredients) <= 6:
+        return None
+    if not isinstance(steps, list) or not 2 <= len(steps) <= 6:
+        return None
+    if not all(isinstance(x, str) and x.strip() for x in ingredients + steps):
+        return None
+    if any(len(x) > 90 for x in ingredients + steps) or len(title) > 60:
+        return None
+    return {
+        "title": " ".join(title.split()),
+        "ingredients": [" ".join(str(x).split()) for x in ingredients],
+        "steps": [" ".join(str(x).split()) for x in steps],
+    }
+
+
+def _author_recipe_fields(
+    product_name: str, brief_msg: str, region: str
+) -> dict | None:
+    """Ask Nova (Converse, TEXT-ONLY — no image) to author recipe-card copy.
+
+    Grounded on the real product + campaign brief; the model may only use the
+    named product plus plain pantry staples (never invents SKUs). Returns
+    validated fields, or None on any failure — the caller falls back to
+    _recipe_card_defaults. Text-only keeps this cheap next to the vision calls.
+    """
+    if boto3 is None:
+        return None
+    try:
+        client = _bedrock_failfast_client(read_timeout=BEDROCK_NOVA_READ_TIMEOUT_S)
+        prompt = (
+            "You write recipe-card copy for Kodiak Cakes packaging. "
+            f"Product: '{product_name}'. Campaign vibe: {brief_msg}. Region: {region}. "
+            "Reply with ONLY a JSON object, no other text, shaped exactly like "
+            '{"title": "short recipe name", '
+            '"ingredients": ["3 to 5 short lines, first must use the product above, '
+            "rest plain pantry staples only — never invent product names\"], "
+            '"steps": ["3 to 5 short steps, max 12 words each"]}.'
+        )
+        resp = client.converse(
+            modelId=NOVA_TEXT_MODEL,
+            messages=[{"role": "user", "content": [{"text": prompt}]}],
+            inferenceConfig={"maxTokens": 300},
+        )
+        text = resp["output"]["message"]["content"][0]["text"].strip()
+        start, end = text.find("{"), text.rfind("}")
+        if start == -1 or end <= start:
+            return None
+        return _validate_recipe_fields(json.loads(text[start : end + 1]), product_name)
+    except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — default fallback
+        print(f"[generate] recipe author unavailable, using default: {e}", file=sys.stderr)
+        return None
+
+
 def _compose_recipe_card(
     hero_img_path: Path,
     title: str,
@@ -1623,13 +1763,22 @@ def _compose_recipe_card(
     line_gap = int(body_px * 1.4)
     col_x = {"left": pad, "right": W // 2 + pad // 2}
 
-    def _draw_zone(x: int, heading: str, items: list[str]) -> None:
+    # Legibility floor: body text must end above the accent bar. Each column
+    # fits what fits — items that would cross the floor are dropped, so a
+    # long LLM-authored list can never bleed off the card or under the bar.
+    floor_y = H - 8 - line_gap
+    capacity = max(0, (floor_y - body_top - line_gap) // line_gap)
+
+    def _draw_zone(x: int, heading: str, items: list[str]) -> int:
         y = body_top
         draw.text((x, y), heading, fill=(*ink, 255), font=hfont)
         y += line_gap
-        for item in items[:6]:
+        drawn = 0
+        for item in items[:capacity]:
             draw.text((x, y), f"- {item}", fill=(*ink, 255), font=bfont)
             y += line_gap
+            drawn += 1
+        return drawn
 
     _draw_zone(col_x["left"], "Ingredients", ingredients)
     _draw_zone(col_x["right"], "Steps", steps)
@@ -2228,17 +2377,30 @@ def generate_hero(
                 # fit, skip the rest of B and drop to C. The scene call itself also
                 # degrades to a deterministic default on timeout, but this gate keeps the
                 # WALL-CLOCK bounded even before the timeout fires.
-                if remaining_ms() < _B_NOVA_SCENE_MS + _B_STABILITY_MS + _C_RESERVATION_MS:
+                if provenance.get("seed_selection") == "theme-photo":
+                    # Theme-photo fast path: the seed photo already carries the
+                    # theme, so the Nova scene vision call buys nothing — skip
+                    # it outright (up to ~12s) and protect rung C's reservation.
+                    scene_prompt = _default_scene_prompt(
+                        product_name, brief_msg, region, audience, theme
+                    )
                     print(
-                        f"[generate] rung B scene-prompt skipped (budget {remaining_ms():.0f}ms < "
-                        f"{_B_NOVA_SCENE_MS + _B_STABILITY_MS + _C_RESERVATION_MS}ms) -> rung C",
+                        "[generate] rung B scene-prompt fast-pathed "
+                        "(theme-photo seed, deterministic default)",
                         file=sys.stderr,
                     )
-                    provenance["fallthrough_reason"] = "budget-exhausted"
-                    raise _RungBBudgetSkip
-                scene_prompt = _nova_pro_scene_prompt(
-                    seed, product_name, brief_msg, region, audience, theme
-                )
+                else:
+                    if remaining_ms() < _B_NOVA_SCENE_MS + _B_STABILITY_MS + _C_RESERVATION_MS:
+                        print(
+                            f"[generate] rung B scene-prompt skipped (budget {remaining_ms():.0f}ms < "
+                            f"{_B_NOVA_SCENE_MS + _B_STABILITY_MS + _C_RESERVATION_MS}ms) -> rung C",
+                            file=sys.stderr,
+                        )
+                        provenance["fallthrough_reason"] = "budget-exhausted"
+                        raise _RungBBudgetSkip
+                    scene_prompt = _nova_pro_scene_prompt(
+                        seed, product_name, brief_msg, region, audience, theme
+                    )
                 provenance["scene_prompt"] = scene_prompt
                 # Per-subcall budget gate 2 — the Stability invoke (fail-fast, capped at
                 # BEDROCK_READ_TIMEOUT_S). Re-check AFTER the scene call actually spent its
@@ -2469,9 +2631,33 @@ def generate_hero_set(
     # overlay path unchanged. recipe_fields default from the product name (no brief seam
     # into this function), so the card copy is deterministic and on-brand.
     is_recipe_card = theme == "recipe-cards"
-    recipe_fields = _recipe_card_defaults(product_name) if is_recipe_card else None
+    recipe_fields = None
     if is_recipe_card:
         provenance["card_template"] = True
+        # LLM-authored card copy when the wall covers it; deterministic default
+        # otherwise. Authoring is text-only and cheap, but a slow model must
+        # never starve the rung-C reservation — same gate as the caption
+        # (_set_remaining_ms is this function's wall clock).
+        if _set_remaining_ms() < _CAPTION_BUDGET_MS + _C_RESERVATION_MS:
+            print(
+                f"[generate] recipe author skipped (budget {_set_remaining_ms():.0f}ms < "
+                f"{_CAPTION_BUDGET_MS + _C_RESERVATION_MS}ms) -> default fields",
+                file=sys.stderr,
+            )
+            provenance["recipe_author"] = "default"
+            recipe_fields = _recipe_card_defaults(product_name)
+        else:
+            try:
+                authored = _author_recipe_fields(product_name, brief_msg, region)
+            except Exception as e:  # noqa: BLE001 — author must never break the set
+                print(f"[generate] recipe author raised, using default: {e}", file=sys.stderr)
+                authored = None
+            if authored is not None:
+                provenance["recipe_author"] = "nova"
+                recipe_fields = authored
+            else:
+                provenance["recipe_author"] = "default"
+                recipe_fields = _recipe_card_defaults(product_name)
 
     renders: list[dict] = []
     for ratio in _DELIVERY_RATIOS:
