@@ -76,7 +76,7 @@ these appear on both pages. prototype them once in adobe express as reusable com
 | ------------------- | --------------- | -------------------------------------------------------------------------------- | ----- |
 | Page Background     | `body`          | `--gradients-kraft.background` (corrugated kraft box) over parchment             | built |
 | Paper Fiber Overlay | `body::before`  | inline svg hairlines, opacity .18, multiply                                      | built |
-| Kraft Grain Overlay | `#paperGrain`   | `assets/kraft-paper-texture.png` tiled 256px, opacity .025, multiply, fixed z900 | built |
+| Kraft Grain Overlay | `#paperGrain`   | inline SVG feTurbulence data-URI tiled 240px, opacity .05, multiply, fixed z900 (PNG retired: 261KB for an invisible texture) | built |
 | Edge Vignette       | `#edgeVignette` | radial darkening at far corners only, fixed z901                                 | built |
 
 **standard S3 — decorative overlays never intercept events.** every fixed decorative layer carries
