@@ -569,6 +569,49 @@ def test_staged_seed_key_beats_sku_mapped(tmp_path, monkeypatch):
     assert _distinct_colors(result) > 20
 
 
+def test_staged_seed_label_survives_packshot_paste(tmp_path, monkeypatch):
+    # PROVEN LIVE: with a mapped SKU the packshot branch pasted the box over the
+    # staged photo but relabelled seed_selection "packshot" — the pick must stay
+    # labelled staged-dam-asset since its pixels drive the render.
+    seed_src = _make_seed_src(tmp_path)
+
+    def _fetch(key: str, dest: Path):
+        dest = Path(dest)
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        if key and "705599" in key.rsplit("/", 1)[-1]:
+            Image.new("RGBA", (400, 600), (200, 120, 40, 255)).save(dest, "PNG")
+        else:
+            Image.open(seed_src).save(dest, "PNG")
+        return dest
+
+    monkeypatch.setattr(dam, "fetch_dam_key", _fetch)
+    monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: None)
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o: None)
+    monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
+    monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: None)
+
+    out = tmp_path / "hero.png"
+    result, source, prov = generate_mod.generate_hero(
+        product_id="banana-muffin-quick-bread-mix",
+        product_name="Banana Muffin and Quick Bread Mix",
+        brief_msg="orchard mornings",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+        seed_key="brands/kodiak/raw-ingest/apple-stack-cake.png",
+    )
+
+    assert result.exists()
+    assert source == generate_mod.PACKSHOT_SOURCE
+    assert prov["packshot"] is not None and "705599" in prov["packshot"]
+    assert prov["seed_selection"] == "staged-dam-asset"
+    assert prov["seed_source"] == "apple-stack-cake"
+    assert _distinct_colors(result) > 20
+
+
 def test_staged_seed_marks_riff_on(tmp_path, monkeypatch):
     seed_src = _make_seed_src(tmp_path)
     monkeypatch.setattr(dam, "fetch_dam_key", _staged_seed_fetch(seed_src))
