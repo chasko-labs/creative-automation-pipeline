@@ -200,6 +200,13 @@
       // reuse the preview renderer for the on-screen result when available
       try{ if(typeof window.KODIAK_showRenderSet==='function' && Array.isArray(json.renders) && json.renders.length){ window.KODIAK_showRenderSet(json.renders, {source: json.source, provenance: json.provenance}); } }catch(e){}
       renderCampaignCarousel(renders);
+      // campaign copy panel (#241): headline + brief + language variants, same
+      // rules as the preview captions; downloadable in the pack (#242 zip).
+      try{
+        var cpHeadline = (json.provenance && json.provenance.copy_headline) || null;
+        window.__lastCampaignHeadline = cpHeadline;
+        paintCampaignCopy(cpHeadline, currentBrief(), selectedMarket());
+      }catch(e){}
       var assets = document.getElementById('campaignAssetsSection');
       if(assets && assets.hidden){ assets.hidden = false; }
       try{ assets.scrollIntoView({behavior:'smooth', block:'start'}); }catch(e){}
@@ -221,11 +228,75 @@
   window.KODIAK_resetCampaign = function(){
     try{ campaignRenders = []; }catch(e){}
     try{ window.__lastCampaignSidecar = null; }catch(e){}
+    try{ window.__lastCampaignHeadline = null; }catch(e){}
     try{ var car = document.getElementById('campaignAssetsCarousel'); if(car) car.innerHTML = ''; }catch(e){}
+    try{ var cp = document.getElementById('campaignCopyPanel'); if(cp && cp.parentNode) cp.parentNode.removeChild(cp); }catch(e){}
     try{ var assets = document.getElementById('campaignAssetsSection'); if(assets) assets.hidden = true; }catch(e){}
     try{ var st = document.getElementById('generateCampaignStatus'); if(st) st.textContent = ''; }catch(e){}
     return true;
   };
+
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+  // Campaign copy (#241): the thing you ship needs words with it. Paints the
+  // campaign headline + brief plus the market's top-language variants under the
+  // assets, on the SAME rules as the preview tile captions — EN source first,
+  // machine langs swap live /localize text in after paint, community-review
+  // languages stay EN-source with a badge (never machine-translated), offline
+  // shows an honest pending note. Downloadable via the pack (#242 zip).
+  // Exposed as KODIAK_paintCampaignCopy for tests; guarded, never throws.
+  function paintCampaignCopy(headline, brief, market){
+    try{
+      var old = document.getElementById('campaignCopyPanel');
+      if(old && old.parentNode) old.parentNode.removeChild(old);
+      if(!headline) return false;
+      var assets = document.getElementById('campaignAssetsSection');
+      if(!assets) return false;
+      var langs = [];
+      try{ if(typeof window.KODIAK_marketLangsFor==='function') langs = window.KODIAK_marketLangsFor(market) || []; }catch(e){ langs = []; }
+      var rows = ['<div class="loc-line" lang="en" data-provider="source"><span class="loc-langtag">EN</span><span class="loc-text">'+esc(headline)+'</span></div>'];
+      if(brief) rows.push('<div class="loc-line loc-brief" data-provider="source"><span class="loc-langtag">brief</span><span class="loc-text">'+esc(brief)+'</span></div>');
+      var jobs = [];
+      langs.forEach(function(l, i){
+        if(!l) return;
+        var code = String(l.translate_code || l.lang_code || '').toLowerCase();
+        var name = l.lang_name || code;
+        if(!code) return;
+        var community = false;
+        try{ if(typeof window.KODIAK_isCommunityReview==='function') community = !!window.KODIAK_isCommunityReview(l, code); }catch(e){}
+        if(community){
+          rows.push('<div class="loc-line" lang="'+esc(code)+'" data-provider="community-review"><span class="loc-langtag">'+esc(name)+'</span><span class="loc-text">'+esc(headline)+'</span> <span class="loc-review">community review</span></div>');
+        } else if(typeof window.KODIAK_localizeText==='function'){
+          var rowId = 'campcopy-'+i+'-'+code;
+          rows.push('<div class="loc-line" lang="'+esc(code)+'" data-provider="pending-live" id="'+rowId+'"><span class="loc-langtag">'+esc(name)+'</span><span class="loc-text">'+esc(headline)+'</span></div>');
+          jobs.push({rowId: rowId, code: code});
+        } else {
+          rows.push('<div class="loc-line" lang="'+esc(code)+'" data-provider="pending"><span class="loc-langtag">'+esc(name)+'</span><span class="loc-text">translation pending</span></div>');
+        }
+      });
+      var panel = document.createElement('div');
+      panel.id = 'campaignCopyPanel';
+      panel.className = 'platform-copy';
+      panel.innerHTML = '<div class="pc-head">Campaign copy</div>' + rows.join('');
+      var car = document.getElementById('campaignAssetsCarousel');
+      if(car && car.parentNode) car.parentNode.insertBefore(panel, car.nextSibling);
+      else assets.appendChild(panel);
+      jobs.forEach(function(j){
+        try{
+          window.KODIAK_localizeText(headline, market, j.code).then(function(t){
+            if(typeof t!=='string' || !t.trim()) return;
+            var el = document.getElementById(j.rowId);
+            if(!el) return;
+            el.setAttribute('data-provider', 'live');
+            var tx = el.querySelector ? el.querySelector('.loc-text') : null;
+            if(tx) tx.textContent = t;
+          });
+        }catch(e){}
+      });
+      return true;
+    }catch(e){ return false; }
+  }
+  try{ window.KODIAK_paintCampaignCopy = paintCampaignCopy; }catch(e){}
 
   function wireButtons(){
     var gen = document.getElementById('genFullCampaign');
