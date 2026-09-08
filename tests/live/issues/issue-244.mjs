@@ -58,6 +58,13 @@ export async function run(page, { baseUrl } = {}) {
     null,
     { timeout: PANEL_TIMEOUT_MS },
   );
+  // Rows paint pending-live first; the /localize swaps land async after.
+  await page.waitForFunction(
+    () => Array.from(document.querySelectorAll("#campaignCopyPanel .loc-line"))
+      .some((r) => r.getAttribute("lang") !== "en" && r.getAttribute("data-provider") === "live"),
+    null,
+    { timeout: 60000 },
+  );
   const rows = await page.evaluate(() => {
     const p = document.getElementById("campaignCopyPanel");
     return Array.from(p.querySelectorAll(".loc-line")).map((r) => ({

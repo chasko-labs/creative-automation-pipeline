@@ -80,15 +80,19 @@ def translate_with_terms(text: str, translate_fn: Callable[[str], str | None]) -
             continue
         canon = _TERM_CANONICAL.get(part.lower())
         if canon is not None and _TERM_PATTERN.fullmatch(part):
-            out.append(canon)
-            ok = True
+            piece, ok = canon, True
         else:
             translated = translate_fn(part)
-            if translated:
-                out.append(translated)
-                ok = True
-            else:
-                out.append(part)
+            # a failed gap degrades to its source slice — but only a real
+            # translation or a term counts toward success, so total transport
+            # failure still surfaces None (caller falls back to mock).
+            piece = translated if translated else part
+            ok = ok or bool(translated)
+        # MT often drops boundary whitespace on short gaps (" mornings" ->
+        # "las mañanas") — re-glue words that would otherwise fuse.
+        if out and out[-1][-1:].isalnum() and piece[:1].isalnum():
+            out.append(" ")
+        out.append(piece)
     return "".join(out) if ok else None
 
 try:

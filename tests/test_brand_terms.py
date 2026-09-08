@@ -59,6 +59,12 @@ def test_canonical_casing_restored():
     assert out.startswith("Keep It Wild")
 
 
+def test_boundary_whitespace_reglued():
+    # MT drops the leading space on short gaps — words must not fuse.
+    out = translate_with_terms("Keep It Wild mornings", lambda s: "las mañanas")
+    assert out == "Keep It Wild las mañanas"
+
+
 def test_pure_term_text_never_calls_mt():
     def boom(seg):
         raise AssertionError("MT called for pure-term text")
