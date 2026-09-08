@@ -104,6 +104,21 @@ _B_STABILITY_MS = int(os.getenv("GENERATE_B_STABILITY_MS", "13000"))
 _DIRECTOR_BUDGET_MS = int(os.getenv("GENERATE_DIRECTOR_BUDGET_MS", "10000"))
 _DIRECTOR_TIMEOUT_S = float(os.getenv("GENERATE_DIRECTOR_TIMEOUT_S", "8"))
 _DIRECTOR_LIVE_SOURCE = "bedrock:kodiak-artdirector"
+# Refusal guard: a live voice model can still decline (junk retrieved examples make
+# refusal likely — PROVEN IN PROD 2026-09-08: hash-laden DAM titles as in-voice
+# examples produced "I Can't Fulfill This Request" as the campaign headline). A
+# refusal is a failed attempt, not a headline — fall back to stock Nova.
+_REFUSAL_PHRASES = (
+    "i can't",
+    "i cannot",
+    "i'm sorry",
+    "i am sorry",
+    "as an ai",
+    "unable to",
+    "can't fulfill",
+    "can't help",
+    "won't be able",
+)
 
 
 def _director_enabled() -> bool:
@@ -1173,6 +1188,10 @@ def _director_headline_text(
             return None
         text = str(result.get("text", "")).strip()
         if not text:
+            return None
+        lowered = text.lower()
+        if any(phrase in lowered for phrase in _REFUSAL_PHRASES):
+            _dnote(f"voice refused ({text[:60]!r})")
             return None
         headline, _side = _parse_layout(text)
         return _title_case_headline(headline) or None

@@ -159,6 +159,22 @@ def test_director_headline_mock_source_falls_back(monkeypatch):
     assert out is None  # a mock transport must never write a production headline
 
 
+def test_director_headline_refusal_falls_back(monkeypatch):
+    # PROVEN IN PROD: junk retrieved captions make the live model decline — a
+    # refusal is a failed attempt, never a headline (falls back to stock Nova).
+    _enable(monkeypatch)
+    monkeypatch.setattr(
+        director_memory, "retrieve", lambda q, k=3: ([{"id": "x", "caption": "88b5787ee037 waffle 0725"}], "nova")
+    )
+    monkeypatch.setattr(
+        art_director,
+        "art_direct_grounded",
+        lambda *a, **k: _live_result("I can't fulfill this request."),
+    )
+    out = generate_mod._director_headline_text("Power Cakes", "wild mornings", "us", "families")
+    assert out is None
+
+
 def test_director_headline_no_examples_falls_back(monkeypatch):
     _enable(monkeypatch)
     monkeypatch.setattr(director_memory, "retrieve", lambda q, k=3: ([], "nova"))
