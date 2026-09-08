@@ -94,13 +94,13 @@ header{padding:0;background:var(--brown-kodiak);color:#FFF8F0;border-bottom:4px 
 header::before{content:"";position:absolute;inset:0;background:var(--gradients-kraft\.surface);opacity:.14;mix-blend-mode:multiply;pointer-events:none}
 header::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(26,17,16,.08), rgba(26,17,16,.18));pointer-events:none}
 /* header inner — brown + kraft gradient layer (red-bg raster removed) */
-.header__inner{position:relative;z-index:1;display:flex;align-items:center;gap:16px;width:100%;padding:6px 18px;background:#382316}
+.header__inner{position:relative;z-index:1;display:flex;align-items:center;gap:16px;width:100%;padding:6px 18px;background:var(--chocolate)}
 /* E9 header-position root-cause guard — header is the first flow element after the thin top strip; zero any inherited/collapsed top margin and anchor the strip+header to document top so nothing offsets them downward. sticky top:0 keeps the header pinned on scroll without removing it from flow (avoids the "position:fixed over broken layout" trap). */
 .kodiak-topstrip{margin:0}
 body>.kodiak-topstrip{margin-top:0}
 header.kodiak-header{margin-top:0;position:sticky;top:0;z-index:50}
 header h1{margin:0;font:800 22px/1 gin,"kodiak_sans",Rockwell,Georgia,serif;letter-spacing:.04em;text-transform:uppercase;color:#FFF8F0}
-/* R1 contrast root-cause fix — global rule h1,h2,h3{color:var(--chocolate)} = #382316 brown; on the brown header that renders ~1.01:1 (near-invisible). Force parchment #FFF8F0 (~12:1, passes AA) for every heading on the brown header/top strip so no heading can fall back to brown-on-brown. */
+/* R1 contrast root-cause fix — global rule h1,h2,h3{color:var(--chocolate)} = bear brown; on the brown header that renders ~1.01:1 (near-invisible). Force parchment #FFF8F0 (~12:1, passes AA) for every heading on the brown header/top strip so no heading can fall back to brown-on-brown. */
 header h1,header h2,header h3,.kodiak-header h1,.kodiak-header h2,.kodiak-header h3{color:var(--parchment)}
 header h1 small{font:700 11px/1 "museo-sans","kodiak_sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#FFDCC3;display:block;margin-top:4px}
 header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-sans",sans-serif}
