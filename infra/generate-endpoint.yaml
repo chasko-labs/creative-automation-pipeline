@@ -83,6 +83,23 @@ Resources:
                 Effect: Allow
                 Action: bedrock:InvokeModel
                 Resource: arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-pro-v1:0
+              # Grounded-director embeddings (us-east-1): Nova multimodal primary,
+              # Titan text fallback. Without these retrieve() fails closed to []
+              # and every headline degrades to stock Nova even with the kill-switch on.
+              - Sid: BedrockInvokeDirectorEmbeddings
+                Effect: Allow
+                Action: bedrock:InvokeModel
+                Resource:
+                  - arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-2-multimodal-embeddings-v1:0
+                  - arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0
+              # Grounded-director voice model: imported fine-tune in us-west-2
+              # (own region on purpose — KODIAK_ARTDIRECTOR_REGION). Same failure
+              # mode: without this grant art_direct_grounded returns mock source
+              # and the headline falls back to stock Nova.
+              - Sid: BedrockInvokeArtDirectorVoice
+                Effect: Allow
+                Action: bedrock:InvokeModel
+                Resource: arn:aws:bedrock:us-west-2:946179428633:imported-model/cx15b77k5nge
               # Stability control-structure (1:1 real GenAI). us.* inference
               # profile invoke authorizes against BOTH the profile ARN AND every
               # foundation-model ARN the profile routes to (us-east-1/-2, us-west-2).

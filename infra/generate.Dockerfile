@@ -3,8 +3,8 @@ COPY pyproject.toml ./
 COPY README.md ./
 COPY src/ ./src/
 # Ship ONLY the sku-photo-map into the image (single file — never COPY data/ wholesale;
-# data/vectors/ carries a 46MB embeddings file that must not bloat the image). The env
-# var points _resolve_map_path() at this stable /var/task (LAMBDA_TASK_ROOT) location.
+# large data/ files ship only via their own single-file COPY lines with rationale).
+# The env var points _resolve_map_path() at this stable /var/task location.
 COPY data/products/sku-photo-map.json /var/task/data/products/sku-photo-map.json
 ENV SKU_PHOTO_MAP_PATH=/var/task/data/products/sku-photo-map.json
 # Ship the full product catalog (112KB) — dam_library's product-line facet joins
@@ -28,10 +28,16 @@ ENV SKU_PACKSHOT_MAP_PATH=/var/task/data/products/sku-packshot-map.json
 # "[Errno 2] .../data/localization/retailer-frontier-pairs.json" — pip install . does
 # NOT bundle data/, so parents[2]/data does not exist in the image. CAP_DATA_ROOT points
 # _datapaths.data_root() at this stable /var/task/data location. Copy the localization
-# dir + the two context-pack files ONLY — never data/vectors/kodiak-embeddings.jsonl
-# (46MB) which would bloat the image.
+# dir + the two context-pack files ONLY (the embeddings library ships via its own
+# COPY below with rationale).
 COPY data/localization/ /var/task/data/localization/
 COPY data/vectors/image-clusters.json /var/task/data/vectors/image-clusters.json
+# Ship the brand-voice embedding library (46MB) — director_memory.retrieve() reads it
+# via CAP_DATA_ROOT. Without this COPY the library is absent in the image, retrieve()
+# yields [], and every headline silently degrades to stock Nova even with the
+# kill-switch on. Shipped as a single file (never data/ wholesale); 46MB is well
+# within the container image limit and it parses once per warm container (lazy).
+COPY data/vectors/kodiak-embeddings.jsonl /var/task/data/vectors/kodiak-embeddings.jsonl
 COPY data/prompts/blog-sample-prompts.jsonl /var/task/data/prompts/blog-sample-prompts.jsonl
 # Ship the safety blocklist — safety.check_text (localize_service's last hop) reads
 # data/safety/blocklist.json via CAP_DATA_ROOT; pip install . does not bundle data/, so
