@@ -559,29 +559,11 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
   window.KODIAK_localizeText = localizeText;                 // reuse from tile-caption renderers in other scopes
   window.KODIAK_isCommunityReview = isCommunityReview;
 
-  // host for the localized-copy preview, injected once beside the featured/langs detail cell
-  let host = document.getElementById('locPreview');
-  function ensureHost(){
-    if(host && host.isConnected) return host;
-    host = document.getElementById('locPreview');
-    if(host) return host;
-    host = document.createElement('div');
-    host.id='locPreview'; host.className='ff-locpreview'; host.setAttribute('aria-live','polite');
-    host.style.cssText='flex:1 1 100%;margin-top:var(--spacing-sm)';
-    const cell = featured ? featured.parentNode : null;
-    if(cell && cell.parentNode) cell.parentNode.appendChild(host); else (document.querySelector('.ff-output')||document.querySelector('.ff-controlrow')||document.body).appendChild(host);
-    return host;
-  }
-
-  // resolve a precomputed entry from the (future) #124 data structure; null until it lands
-  function precomputed(market, code){
-    try{ const t = window.KODIAK_LOCALIZED_COPY && window.KODIAK_LOCALIZED_COPY[market] && window.KODIAK_LOCALIZED_COPY[market][code]; return (t && typeof t.text==='string') ? t : null; }catch(e){ return null; }
-  }
-
+  // Standalone #locPreview headlines retired 2026-09-08 (cleanup order): translated copy
+  // lives only in the preview tile captions. renderMarketLangs now updates the language-names
+  // line + the featured framing only — no headline rows, no host, no live jobs.
   function renderMarketLangs(market){
-    const h = ensureHost(); if(!h) return;
     const p = places.find(x=>x.market===market);
-    const source = (p && p.message) ? p.message : "KODIAK® — Nourishment for Today's Frontier";
     const langs = (typeof marketLangsFor==='function') ? marketLangsFor(market) : [];
 
     // update #marketLangLine to reflect this market's REAL top languages (Axis 3 requirement)
@@ -590,68 +572,10 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
       langLine.innerHTML = 'localized in languages: <b>'+esc(['English'].concat(names).join(', '))+'</b>';
     }
 
-    const rows = [];
-    // English source line — real string, tagged source
-    rows.push('<p class="loc-line" lang="en" data-provider="source"><span class="loc-langtag">EN</span>'+esc(source)+'</p>');
-    // machine rows we kicked off a live translate for — {rowId, code} — swapped in after paint
-    const liveJobs = [];
-    // one row per non-English target language
-    langs.forEach((l, i)=>{
-      const code = (l.translate_code||l.lang_code||'').toLowerCase();
-      const community = isCommunityReview(l, code);        // DATA flag primary, HUMAN_REQUIRED set fallback
-      // #124 copy: for a community-review language, authorized copy is ALWAYS presented as community-authorized,
-      // never as "machine" — even if the data object tags it otherwise. For machine langs, real text swaps in as-is.
-      const pre = precomputed(market, code);
-      const note = l.review_note || 'Community-authorized translation required — not machine-generated (language sovereignty).';
-      let provider, fill, badge='';
-      const rowId = 'locrow-'+market+'-'+code+'-'+i;
-      if(community){
-        if(pre){
-          // authorized community copy has landed via #124 — show it, attributed as community-authorized (NOT machine)
-          provider = 'community-authorized';
-          fill = pre.text;
-          badge = '<span class="loc-review" title="'+esc(note)+'">Community-authorized</span>';
-        } else {
-          // no authorized copy yet — first-class visible row showing the English source + review annotation
-          provider = 'community-review';
-          fill = source;                                    // show the English source they'd be translated from
-          badge = '<span class="loc-review" title="'+esc(note)+'">Community review — not machine-translated</span>';
-        }
-        // community-review languages are NEVER sent to the machine translate path — no liveJobs entry
-      } else if(pre){
-        // precomputed #124 copy present — real text, no live call needed
-        provider = pre.provider||'machine';
-        fill = pre.text;
-      } else if(window.KODIAK_LOCALIZE_ENDPOINT){
-        // hosted origin — show EN source now, swap real translation in when /localize answers (else stays EN-source)
-        provider = 'pending-live';
-        fill = source;                                      // honest: EN source until the live text lands
-        liveJobs.push({rowId, code});
-      } else {
-        // offline / file:// / localhost — honest degrade, no fabricated text
-        provider = 'pending';
-        fill = 'translation pending';
-      }
-      rows.push('<p class="loc-line" id="'+esc(rowId)+'" lang="'+esc(l.lang_code||code)+'" data-provider="'+esc(provider)+'">'+
-                '<span class="loc-langtag">'+esc((l.lang_code||code).toUpperCase())+'</span>'+
-                '<span class="loc-txt">'+esc(fill)+'</span>'+badge+'</p>');
-    });
-    // offline honest note — single line, only when the endpoint is off (never fabricate translated text).
-    // Suppressed when this market carries resting seed copy (provider "seed"): a seeded market shows real
-    // localized text, so the "showing English source only" apology must never appear for it.
-    let _hasSeed = false;
-    try{ const _s = window.KODIAK_LOCALIZED_COPY && window.KODIAK_LOCALIZED_COPY[market];
-      if(_s) _hasSeed = langs.some(l=>{ const c=(l.translate_code||l.lang_code||'').toLowerCase(); const e=_s[c]; return e && typeof e.text==='string'; }); }catch(e){}
-    const offlineNote = (window.KODIAK_LOCALIZE_ENDPOINT || _hasSeed) ? '' :
-      '<p class="loc-line loc-offline" data-provider="offline-note" style="font-style:italic;color:var(--colors-foreground-muted)">localization offline — showing English source only</p>';
-    h.innerHTML = '<div class="ff-locpreview-head" style="font:700 10px/1.2 \'kodiak_sans\',\'museo-sans\',sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted);margin-bottom:2px">Localized headlines &mdash; one per language</div>'+rows.join('')+offlineNote;
-
-    // === S12 — #featuredFrontier: FRAMING CONTEXT ONLY (Task 2 / FIX 2 de-dup) ===
-    // featuredFrontier carries what #locPreview does NOT: a tight contextual lead, the market/place +
-    // scene cue framing, and the localized-reach summary. It NO LONGER renders the headline copy or a
-    // translated cue — those are the localized headlines that #locPreview already shows, so nothing is
-    // restated across the two surfaces. A viewer reads: [what this campaign is + who it reaches] here,
-    // then [the localized headlines] in #locPreview below. aria-live=polite is preserved on the element.
+    // === S12 — #featuredFrontier: FRAMING CONTEXT ONLY ===
+    // featuredFrontier carries framing only: a tight contextual lead, the market/place + scene cue,
+    // and the localized-reach summary (language names, never translated copy — that lives only in
+    // the preview tile captions since the 2026-09-08 cleanup). aria-live=polite is preserved.
     if(featured){
       const placeName = (p && (p.place || p.market)) ? (p.place || p.market) : market;
       const scene = (p && p.cue) ? p.cue : '';
@@ -665,16 +589,7 @@ try{ if(typeof fillSelects==='function') fillSelects(); }catch(e){ console.warn(
         '<span class="ff-reach">localized reach: '+reach+'</span>';
     }
 
-    // fire live translations for the machine rows; swap real text in on resolve, else leave EN-source
-    liveJobs.forEach(job=>{
-      localizeText(source, market, job.code).then(t=>{
-        const row = document.getElementById(job.rowId);
-        if(!row || !t) return;                              // null -> honest degrade, EN source stays
-        const txt = row.querySelector('.loc-txt');
-        if(txt) txt.textContent = t;
-        row.setAttribute('data-provider','machine-live');   // real machine translation landed
-      });
-    });
+    // (standalone rows retired — no live jobs; tile captions run their own.)
   }
 
   // === S12 — compact localized tile caption (Task 3) ===

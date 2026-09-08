@@ -90,7 +90,6 @@ def compose_creative(
     brand_colors: list[str] | None = None,
     retailer_logo: Path | None = None,
     product_layer: Path | None = None,
-    footer: bool = True,
     bare: bool = False,
 ) -> Path:
     """Produce a social creative at the requested ratio with message overlay.
@@ -115,20 +114,25 @@ def compose_creative(
     # darken bg slightly for text legibility
     bg = Image.blend(bg, Image.new("RGB", (W, H), (0, 0, 0)), 0.18)
 
-    # foreground hero centered, contain
-    # compute contain size: keep hero fully visible in safe area
-    scale = min(W * 0.82 / hero.width, H * 0.58 / hero.height)
-    fw, fh = int(hero.width * scale), int(hero.height * scale)
-    fg = hero.resize((fw, fh), Image.BICUBIC)
-    # paste fg centered upper
-    bg.paste(fg, ((W - fw) // 2, int(H * 0.08)))
+    # foreground hero centered, contain — SKIPPED when a verbatim box is pasted: the
+    # background already shows the full photo, and a smaller sharp copy nested inside it
+    # reads as a tunneled frame-within-frame (plus a brightness seam, since only the bg is
+    # darkened). Box-on-photo over full-bleed ambiance is the cleaner composite.
+    has_box = product_layer is not None and Path(product_layer).exists()
+    if not has_box:
+        # compute contain size: keep hero fully visible in safe area
+        scale = min(W * 0.82 / hero.width, H * 0.58 / hero.height)
+        fw, fh = int(hero.width * scale), int(hero.height * scale)
+        fg = hero.resize((fw, fh), Image.BICUBIC)
+        # paste fg centered upper
+        bg.paste(fg, ((W - fw) // 2, int(H * 0.08)))
 
     # product-composite layer — the compose-fix root-cause repair. When a real product
     # box resolves, paste it VERBATIM (with a soft drop shadow) over the background in the
     # upper safe area. It overlays the generated/lifestyle fg hero so the actual retail box
     # is what the eye reads. No cover-fit, no scrim, no enhance — those pixels are fixed
     # brand art. See docs/architecture/compose-fix/compose-fix-spec.md section 3.
-    if product_layer is not None and Path(product_layer).exists():
+    if has_box:
         try:
             box = Image.open(product_layer).convert("RGBA")
             # safe area: box must stay above the message bar (H*0.68) and below the logo slot
@@ -171,15 +175,13 @@ def compose_creative(
         else:
             # fallback per canvas width
             font_size = 72 if ratio_key == "16x9" else (64 if ratio_key == "9x16" else 56)
-        caption_size = int(_tokens["kodiak"]["typography"]["caption"][ratio_key]["$value"]["fontSize"].replace("px","")) if _tokens and ratio_key in _tokens["kodiak"]["typography"]["caption"] else max(22, font_size - 22)
     except Exception:
-        pad, bar_pct, font_size, caption_size = 48, 0.68, (56 if W >= 1080 else 42), max(22, (56 if W >= 1080 else 42) - 22)
+        pad, bar_pct, font_size = 48, 0.68, (56 if W >= 1080 else 42)
     text_max_w = W - pad * 2
     font = _load_font(font_size)
-    small_font = _load_font(caption_size)
 
     # semi-transparent bar for contrast — token scrim (skipped for bare set bases;
-    # each derived ratio draws its own bar + footer in _apply_brand_overlay)
+    # each derived ratio draws its own bar in _apply_brand_overlay)
     bar_top = int(H * bar_pct)
     if bare:
         bg.save(out_path, "PNG")
@@ -208,21 +210,9 @@ def compose_creative(
         draw.text(((W - tw) / 2, y), line, fill="white", font=font, stroke_width=2, stroke_fill=(0, 0, 0))
         y += th + 10
 
-    # brand/footer — token caption, shrunk to fit narrow frames; skipped for set
-    # bases (each derived ratio draws its own fitted footer in _apply_brand_overlay)
-    if footer:
-        footer_text = "KODIAK  •  kodiakcakes.com  •  Keep It Wild"
-        fit_size = caption_size
-        while fit_size > 14:
-            fit_font = _load_font(fit_size)
-            bbox = draw.textbbox((0, 0), footer_text, font=fit_font)
-            if bbox[2] - bbox[0] <= text_max_w:
-                break
-            fit_size -= 2
-        small_font = _load_font(fit_size)
-        bbox = draw.textbbox((0, 0), footer_text, font=small_font)
-        tw = bbox[2] - bbox[0]
-        draw.text(((W - tw) / 2, H - 44), footer_text, fill=(255, 255, 255, 200), font=small_font)
+    # brand/footer REMOVED (2026-09-08 cleanup order): the box art already carries the
+    # Kodiak identity, so a stamped text footer on the photo reads off-brand and hacky.
+    # The message bar + headline + accent bar remain the on-image brand layer.
 
     # logo overlay if available — token clearSpace (KODIAK Bear top-left)
     if brand_logo and brand_logo.exists():
