@@ -680,7 +680,7 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
     if(typeof onLocality==='function') try{ onLocality(); }catch(e){}
     markSelected(market);
     if(btnLabel) btnLabel.textContent = shortName(p);
-    if(summary) summary.setAttribute('aria-label','Choose market — currently '+shortName(p));
+    if(summary) summary.setAttribute('aria-label','Location — currently '+shortName(p));
     renderMarketLangs(market);
     if(disclosure) disclosure.open=false;
     if(summary) summary.setAttribute('aria-expanded','false');

@@ -563,6 +563,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   background:var(--colors-neutral-100);border:1px solid var(--colors-border-default);border-radius:var(--radii-lg)}
 /* inside the unified panel the option-group no longer needs its own top border/margin - the panel provides the separation */
 .ff-brainstorm>.ff-optiongroup{margin-top:0;padding-top:0;border-top:none}
+/* === Creative direction disclosure (fold density) — pill summary inherited from
+   .ff-products; the wrapped optiongroup keeps its flush rules inside === */
+.ff-brainstorm>.ff-directions{margin-top:var(--spacing-sm)}
+.ff-directions>.ff-optiongroup{margin-top:0;padding-top:var(--spacing-xs);border-top:none}
 /* products disclosure sits directly below the chips inside the same panel, separated by a hairline rhythm line */
 .ff-brainstorm>.ff-products{margin-top:var(--spacing-md);padding-top:var(--spacing-md);border-top:1px dashed var(--colors-border-default)}
 

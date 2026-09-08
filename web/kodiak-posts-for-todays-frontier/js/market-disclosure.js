@@ -54,7 +54,7 @@
   // update the three derived lines (button label, featured frontier, language line) for a market
   function reflectMarket(market){
     var p = placeFor(market);
-    if(label && p) label.textContent = (p.place || market);
+    if(label && p) label.textContent = 'Location: ' + (p.place || market);
     if(summary && p) summary.setAttribute('aria-label', 'Choose market — currently ' + (p.place || market));
     if(featuredEl){
       var cue = p && p.cue ? p.cue : '';

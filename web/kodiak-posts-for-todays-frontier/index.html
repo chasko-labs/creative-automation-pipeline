@@ -172,8 +172,8 @@
        row (market becomes an optional localization anchor); other scopes leave it at full weight. -->
   <div class="ff-controlrow" role="group" aria-label="Campaign market and season" data-scope-mode="local" data-step="2">
     <details class="ff-market" id="marketDisclosure">
-      <summary aria-haspopup="listbox" aria-expanded="false" aria-controls="marketListbox" aria-label="Choose market — currently Park City, Utah">
-        <span class="ff-market-name" id="marketButtonLabel">Park City, Utah</span>
+      <summary aria-haspopup="listbox" aria-expanded="false" aria-controls="marketListbox" aria-label="Location — currently Park City, Utah">
+        <span class="ff-market-name" id="marketButtonLabel">Location: Park City, Utah</span>
         <span class="ff-caret" aria-hidden="true">&#9662;</span>
       </summary>
       <div class="ff-market-panel">
@@ -234,6 +234,10 @@
        Chips toggle (aria-pressed) and stack; toggling assembles the brief but never clobbers typed
        text. Handled by prompt-chips.js, which maintains window.__activeDirections (set) +
        window.__activeTheme (most-recent). -->
+  <!-- Creative direction rides a CLOSED disclosure by default (fold density: the clusters
+       collapse so Your campaign idea stays the star). Chip bindings are by id, unaffected. -->
+  <details class="ff-products ff-directions" id="creativeDirection">
+    <summary aria-label="Creative direction — combine as many as you like">Creative direction</summary>
   <div class="ff-optiongroup">
     <div class="ff-chipgroups" id="promptChips" role="group" aria-label="Creative direction — combine as many as you like">
       <div class="ff-chipcluster" role="group" aria-labelledby="chipClusterMake">
@@ -263,6 +267,7 @@
       <span class="ff-partner-mark__label">Official partner mark</span>
     </div>
   </div>
+  </details>
 
   <!-- Product chooser folded into the prompt card as a CLOSED disclosure — one summary line at rest.
        FRONTEND STAGING for uploads only (no DAM upload backend); marker threaded into the brief via window.__userAssets. -->
