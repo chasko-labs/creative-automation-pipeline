@@ -1590,7 +1590,13 @@ def generate_hero(
         provenance["fallthrough_reason"] = "budget-exhausted"
     if packshot is not None:
         try:
-            headline = _headline(seed) if seed is not None else brief_msg[:48]
+            # Headline pipeline runs on the packshot-first path too: the grounded
+            # director + stock Nova caption both need an image source, and the
+            # resolved packshot box photo serves when no seed photo resolved.
+            # Without this the mapped-SKU path used the raw brief verbatim and
+            # the director never ran in prod.
+            headline_src = seed if seed is not None else packshot
+            headline = _headline(headline_src) if headline_src is not None else brief_msg[:48]
             # Background scene: the already-resolved real seed photo (theme/sku/disk) is
             # the backdrop; when there is no seed, a deterministic on-brand background is
             # synthesized. Neither is a generative render of the PRODUCT — the box is the

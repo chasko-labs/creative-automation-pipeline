@@ -87,6 +87,38 @@ def test_mapped_sku_returns_rung_a(tmp_path, monkeypatch):
     assert stability_calls["n"] == 0
 
 
+def test_packshot_without_seed_runs_director_headline(tmp_path, monkeypatch):
+    # Regression: the packshot-first branch used brief_msg[:48] verbatim whenever
+    # no seed photo resolved, so the grounded director never ran for mapped SKUs
+    # in prod. The resolved packshot box photo feeds the headline pipeline.
+    monkeypatch.setattr(dam, "fetch_dam_key", _local_box_fetch(tmp_path))
+    monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: None)
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o: None)
+    monkeypatch.setenv("KODIAK_DIRECTOR_GROUNDED", "true")
+    monkeypatch.setattr(
+        generate_mod, "_director_headline_text", lambda *a, **k: "Wild Mornings Start Here"
+    )
+
+    out = tmp_path / "hero.png"
+    result, source, prov = generate_mod.generate_hero(
+        product_id="banana-muffin-quick-bread-mix",
+        product_name="Banana Muffin and Quick Bread Mix",
+        brief_msg="Fuel your frontier morning",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+    )
+
+    assert result.exists()
+    assert source == generate_mod.PACKSHOT_SOURCE
+    assert prov["rung"] == "A"
+    assert prov["headline"] == "Wild Mornings Start Here"
+    assert prov["headline_source"] == generate_mod._DIRECTOR_LIVE_SOURCE
+
+
 # --------------------------------------------------------------------------- #
 # (b) Bedrock ReadTimeoutError on rung B -> falls through to rung C, NOT a 503
 # --------------------------------------------------------------------------- #
