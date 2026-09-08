@@ -32,8 +32,12 @@
       if(assetsShown){ set('setup','done'); set('preview','done'); set('generate','done'); set('assets','done'); return; }
       set('setup', briefFull ? 'done' : 'active');
       var sample = document.getElementById('sampleStatus');
-      var previewReady = !!(sample && /ready/i.test(sample.textContent || ''));
-      set('preview', previewReady ? 'done' : (briefFull ? 'active' : 'todo'));
+      var sampleText = (sample && sample.textContent || '').trim();
+      var previewReady = /ready/i.test(sampleText);
+      // Preview stays greyed (todo) until Create is hit — sampleStatus only
+      // carries text once a run starts. Composing = active, ready = done.
+      var createHit = sampleText.length > 0;
+      set('preview', previewReady ? 'done' : (createHit ? 'active' : 'todo'));
       set('generate', gated ? 'locked' : 'active');
       set('assets','todo');
     }catch(e){ /* timeline must never break the page */ }

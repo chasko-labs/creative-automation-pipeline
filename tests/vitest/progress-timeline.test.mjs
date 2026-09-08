@@ -18,8 +18,17 @@ describe('progress timeline', () => {
   it('tracker carries Setup + numbered 5/6/7 with honest initial states', () => {
     expect(index).toMatch(/id="progressTimeline"/);
     expect(index).toMatch(/data-node="setup" data-state="active"/);
+    expect(index).toMatch(/data-node="preview" data-state="todo"/);
     expect(index).toMatch(/data-node="generate" data-state="locked"/);
     expect(index).toMatch(/id="timelineNote" role="status" aria-live="polite"/);
+  });
+
+  it('preview stays greyed until Create is hit, never lights on typing', () => {
+    // greyed = todo while sampleStatus is empty (typing only fills the brief);
+    // first status text (composing) flips it active, ready flips it done.
+    expect(timeline).toMatch(/createHit/);
+    expect(timeline).toMatch(/'preview', previewReady \? 'done' : \(createHit \? 'active' : 'todo'\)/);
+    expect(timeline).not.toMatch(/briefFull \? 'active' : 'todo'\)/);
   });
 
   it('driver mirrors real events only and never throws into the page', () => {
