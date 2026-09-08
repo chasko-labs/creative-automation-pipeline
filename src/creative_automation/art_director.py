@@ -69,10 +69,14 @@ INSTRUCTION_TEMPLATE = "### Instruction:\n{ask}\n\n### Response:\n"
 KNOWN_VOICES = ("adventurous", "nourishing")
 
 # Cold-start retry policy — custom-imported models scale to zero and throw
-# ModelNotReadyException on the first invoke after idle. 4 attempts x ~28s covers a typical
-# warm-up without hanging CI (CI never reaches this path — it has no creds).
-RETRY_ATTEMPTS = 4
-RETRY_SLEEP_SECONDS = 28
+# ModelNotReadyException on the first invoke after idle. Bounded HARD: 3 attempts x
+# 2s sleeps (worst case ~6s of sleep + inference) so the retry loop always fits
+# inside the grounded-director 8s bound and can never burn the 22s Lambda wall.
+# PROVEN IN PROD (2026-09-08): 4x28s sleeps blew the wall to rung-D brand-floor on
+# every request while the model warmed — a retry must never outlive its caller.
+# CI never reaches this path (it has no creds); `sleep` stays injectable for tests.
+RETRY_ATTEMPTS = 3
+RETRY_SLEEP_SECONDS = 2
 
 # Inference shaping. temperature ~0.4 keeps the brand voice expressive but on-brand.
 MAX_TOKENS = 256

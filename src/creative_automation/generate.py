@@ -1167,12 +1167,23 @@ def _director_headline_text(
         headline, _side = _parse_layout(text)
         return _title_case_headline(headline) or None
 
+    # Leak-and-drain on timeout (same contract generate_lambda documents for its own
+    # inner director timeout): exiting a `with` executor would shutdown(wait=True) and
+    # block until the abandoned worker finishes its retries — the timeout would be a
+    # lie and the wall would burn. shutdown(wait=False) abandons the worker; it writes
+    # nothing shared, retries out, and drains harmlessly.
     try:
-        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
-            fut = executor.submit(_attempt)
-            return fut.result(timeout=_DIRECTOR_TIMEOUT_S)
+        executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
     except Exception:
         return None
+    try:
+        fut = executor.submit(_attempt)
+        try:
+            return fut.result(timeout=_DIRECTOR_TIMEOUT_S)
+        except Exception:
+            return None
+    finally:
+        executor.shutdown(wait=False)
 
 
 def _wrap_headline(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont, max_w: int) -> list[str]:

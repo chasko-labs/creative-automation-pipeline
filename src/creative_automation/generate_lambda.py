@@ -103,7 +103,7 @@ def _maybe_art_direct(data: dict[str, Any], prompt: str) -> str:
         from . import art_director  # deferred import — default-off path never loads Strands
 
         # Bound the cross-region us-west-2 invoke on its own inner timeout, well inside the
-        # outer wall, so art_director's 4x28s cold-start retry loop can never burn the hero
+        # outer wall, so art_director's cold-start retry loop can never burn the hero
         # budget. On timeout the abandoned worker keeps sleeping through its remaining
         # retries and then exits — it writes nothing shared, so it leaks and drains harmlessly
         # (same leak-and-drain contract the outer wall already documents for its own worker).
