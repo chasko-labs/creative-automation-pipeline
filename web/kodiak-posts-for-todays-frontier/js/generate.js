@@ -322,8 +322,11 @@ let skuList = [
       if(activeSeason && !new RegExp('season:\\s*'+activeSeason.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i').test(brief)){
         brief = brief + ' — season: ' + activeSeason;
       }
-      // 4. user-supplied assets are staged frontend-only (no DAM upload). Thread a marker so the
-      // generate path is aware a user asset was supplied. TODO: server DAM-upload endpoint — staging only.
+      // 4. user-supplied assets: staged locally, uploaded to the DAM on hosted origins
+      // (market-disclosure uploadAsset POSTs raw bytes to /library/assets and threads
+      // the returned asset_id onto the staged rec; file:// + localhost stay
+      // staging-only with no fetch). Thread a marker so the generate path is aware
+      // a user asset was supplied. (#206 closed: the upload endpoint is real.)
       try{
         const userAssets = window.__userAssets || [];
         if(userAssets.length && !/user assets?:/i.test(brief)){

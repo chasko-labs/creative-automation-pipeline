@@ -76,6 +76,10 @@ export const FRONTIER_ALIASES = [
 ];
 export const FRONTIER_CERT_ARN = `arn:aws:acm:${PRIMARY_REGION}:${ACCOUNT}:certificate/5da84625-8072-4923-9e9e-b0907419419f`;
 // Live distribution comment, verbatim (includes the pending-cert note).
+// IMPORT NOTE (#268): CFN IMPORT change sets validate in-stack resources
+// against LIVE state (not the stored template) -- this comment must match the
+// live distribution exactly, as must the absence of resource Tags (live has
+// none). The stored template's "?" mojibake is stale history, do NOT mirror it.
 export const FRONTIER_COMMENT =
   "KODIAK Frontier \u2014 unlisted, password cakes, noindex \u2014 frontier.bryanchasko.com pending cert";
 // Second origin: the hand-made `kodiak-generate-api` HTTP API the /generate*,

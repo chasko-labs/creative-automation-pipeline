@@ -401,58 +401,82 @@ _THEME_PERSONA_MAP: dict[str, str] = {
 # US Ski & Snowboard partner campaign this honors the real partnership (Milano Cortina
 # 2026, Park City, Kodiak Kitchen at the USANA Center of Excellence) without naming or
 # implying endorsement by any individual athlete.
+# Shared frontier palette, spelled out anywhere a hint names it: bear-brown timber
+# (#3B2316), frontier-green pine (#1A2F29), warm kraft paper (#C8A97E), cream
+# whole-grain tones, low golden morning sun. Every hint below is a complete
+# artist dispatch — setting, light, palette, material, composition — because a
+# bare noun ("on-brand Kodiak") means nothing to the model. No text, letters,
+# signage, or logos anywhere in frame: the model renders glyphs as gibberish.
 _THEME_SCENE_HINT: dict[str, str] = {
+    # partner-person direction: the licensed photo already carries the person —
+    # restyle the scene AROUND them, never their face.
+    "zac-efron": (
+        "trailhead at first light, the real person mid-stride and untouched in "
+        "frame left third, pine ridgeline in frontier-green behind, low golden "
+        "sun from frame left, bear-brown timber and kraft tones in the foreground, "
+        "visible grain texture, crisp athletic-morning air, no text"
+    ),
     "us-ski-snowboard": (
-        "winter Wasatch alpine dawn, fresh snow and pine ridgeline above Park City, "
-        "cast-iron protein stack as athlete fuel before the training day, crisp cold "
-        "light, podium-energy mood, generic active winter athletes only (no faces, no "
-        "real person), on-brand Kodiak"
+        "Wasatch alpine dawn above Park City, fresh-snow ridgeline and pine in "
+        "frontier-green and white, cast-iron skillet with a protein stack steaming "
+        "in the lower third, cold blue-shadow light warming to gold at the ridge, "
+        "generic active winter athletes only with no faces and no real person, no text"
     ),
     # retailer directions (#245): warehouse-club bulk/value cues land in the pixels
     # via the same scene-hint fold. Surfaces stay blank (no text, signage, logos) —
     # the framing is pack presence + aisle mood, never rendered glyphs.
     "localized-costco": (
-        "bulk warehouse-club aisle mood, oversized Family Size pack presence, "
-        "pallet-stacked abundance, stock-up-trip value framing, bright club-aisle "
-        "light, on-brand Kodiak"
+        "warehouse-club aisle in bright flat morning light, pallet-stacked abundance "
+        "receding to a vanishing point, one oversized Family Size pack dominant in "
+        "the right third, kraft and bear-brown packaging tones, concrete floor sheen, "
+        "stock-up-trip scale, no text"
     ),
     # input-side retailer chips (#217): same aisle mood as the bare-retailer keys,
     # namespaced to the chip theme slugs so each direction threads end to end.
     "localized-publix": (
-        "warm neighborhood-market morning, family-table abundance, southern porch "
-        "light, welcoming deli-fresh mood, on-brand Kodiak"
+        "southern porch morning, family table spread in the lower third, warm white "
+        "light through slats, cream and kraft tones with frontier-green foliage "
+        "beyond the rail, steam rising off the stack, welcoming deli-fresh calm, no text"
     ),
     "localized-target": (
-        "bright everyday-family aisle, one-trip basket abundance, modern clean "
-        "value mood, morning kitchen light, on-brand Kodiak"
+        "bright modern kitchen aisle of morning light, one-trip basket abundance on "
+        "a clean counter in the right third, white and cream surfaces with bear-brown "
+        "timber accents, soft window key from frame left, tidy everyday value, no text"
     ),
     "kodiak-subscription": (
-        "front-door subscription-box arrival, pantry always stocked, warm morning "
-        "doorstep light, loyal-household continuity mood, on-brand Kodiak"
+        "front doorstep at sunrise, kraft subscription box centered with its flaps "
+        "open, warm low sun raking across bear-brown timber, frontier-green doormat "
+        "pine sprig beside it, pantry continuity and always-stocked calm, no text"
     ),
     "target": (
-        "bright everyday-family aisle, one-trip basket abundance, modern clean "
-        "value mood, morning kitchen light, on-brand Kodiak"
+        "bright modern kitchen aisle of morning light, one-trip basket abundance on "
+        "a clean counter in the right third, white and cream surfaces with bear-brown "
+        "timber accents, soft window key from frame left, tidy everyday value, no text"
     ),
     "walmart": (
-        "welcoming family pantry stock-up, shelves of abundance, everyday low price "
-        "warmth, bright morning light, on-brand Kodiak"
+        "family pantry shelves stocked deep in warm morning light, rows of kraft and "
+        "cream abundance receding symmetrically, bear-brown timber shelf edges, "
+        "everyday low-price fullness, bright welcoming value, no text"
     ),
     "whole-foods": (
-        "premium natural-foods shelf, whole-ingredient styling, fresh market morning "
-        "light, ingredient-aware calm, on-brand Kodiak"
+        "premium natural-foods shelf in soft market-morning light, whole ingredients "
+        "styled in cream ceramic against frontier-green foliage, visible grain and "
+        "honey texture, quiet ingredient-aware calm, no text"
     ),
     "publix": (
-        "warm neighborhood-market morning, family-table abundance, southern porch "
-        "light, welcoming deli-fresh mood, on-brand Kodiak"
+        "southern porch morning, family table spread in the lower third, warm white "
+        "light through slats, cream and kraft tones with frontier-green foliage "
+        "beyond the rail, steam rising off the stack, welcoming deli-fresh calm, no text"
     ),
     "kroger": (
-        "friendly family grocery run, fresh-cart abundance, bright everyday market "
-        "light, on-brand Kodiak"
+        "friendly grocery run at morning opening, fresh cart abundance center frame, "
+        "bright clean market light, cream and kraft tones with produce green, "
+        "everyday family value in motion, no text"
     ),
     "heb": (
-        "bold texas family-table spread, vibrant local-market color, warm morning "
-        "light, on-brand Kodiak"
+        "bold texas family-table spread in vibrant morning color, local-market "
+        "produce reds and greens against cream linen, warm direct sun from frame "
+        "left, bear-brown timber table, festive local flavor, no text"
     ),
 }
 
@@ -917,6 +941,31 @@ def _caption_with_budget(src, product_name, brief_msg, region, audience, remaini
     return caption
 
 
+def _default_scene_prompt(
+    product_name: str, brief_msg: str, region: str, audience: str, theme: str | None
+) -> str:
+    """Deterministic restyle direction for a photo seed — no network.
+
+    Used as the Nova scene-prompt fallback AND as the whole scene-prompt step
+    for theme-photo seeds (the photo already carries the theme, so a second
+    vision call buys nothing and burns rung C's budget).
+    """
+    scene_hint = _THEME_SCENE_HINT.get(theme or "", "")
+    # Who + where: the filter-safe persona names the person (never the raw
+    # celebrity token), the hint dispatches the scene. Theme without a hint
+    # falls back to the persona alone; no theme falls back to the brief.
+    if theme:
+        who = _safe_theme_text(theme)
+        direction = f"{scene_hint} Featuring {who}." if scene_hint else who
+    else:
+        direction = brief_msg
+    return (
+        f"{product_name} product photo restyled for "
+        f"{direction}, "
+        f"{region} {audience}, frontier morning light, natural grain texture, high detail"
+    ).strip()
+
+
 def _nova_pro_scene_prompt(
     src: Path, product_name: str, brief_msg: str, region: str, audience: str, theme: str | None
 ) -> str:
@@ -931,11 +980,7 @@ def _nova_pro_scene_prompt(
     scene_hint = _THEME_SCENE_HINT.get(theme or "", "")
     if scene_hint:
         theme_hint += f" Scene direction: {scene_hint}."
-    default_prompt = (
-        f"{product_name} product photo restyled for "
-        f"{scene_hint or (_safe_theme_text(theme) if theme else brief_msg)}, "
-        f"{region} {audience}, on-brand Kodiak lifestyle scene, natural light, high detail"
-    ).strip()
+    default_prompt = _default_scene_prompt(product_name, brief_msg, region, audience, theme)
     if boto3 is None:
         return default_prompt
     try:
@@ -2245,17 +2290,30 @@ def generate_hero(
                 # fit, skip the rest of B and drop to C. The scene call itself also
                 # degrades to a deterministic default on timeout, but this gate keeps the
                 # WALL-CLOCK bounded even before the timeout fires.
-                if remaining_ms() < _B_NOVA_SCENE_MS + _B_STABILITY_MS + _C_RESERVATION_MS:
+                if provenance.get("seed_selection") == "theme-photo":
+                    # Theme-photo fast path: the seed photo already carries the
+                    # theme, so the Nova scene vision call buys nothing — skip
+                    # it outright (up to ~12s) and protect rung C's reservation.
+                    scene_prompt = _default_scene_prompt(
+                        product_name, brief_msg, region, audience, theme
+                    )
                     print(
-                        f"[generate] rung B scene-prompt skipped (budget {remaining_ms():.0f}ms < "
-                        f"{_B_NOVA_SCENE_MS + _B_STABILITY_MS + _C_RESERVATION_MS}ms) -> rung C",
+                        "[generate] rung B scene-prompt fast-pathed "
+                        "(theme-photo seed, deterministic default)",
                         file=sys.stderr,
                     )
-                    provenance["fallthrough_reason"] = "budget-exhausted"
-                    raise _RungBBudgetSkip
-                scene_prompt = _nova_pro_scene_prompt(
-                    seed, product_name, brief_msg, region, audience, theme
-                )
+                else:
+                    if remaining_ms() < _B_NOVA_SCENE_MS + _B_STABILITY_MS + _C_RESERVATION_MS:
+                        print(
+                            f"[generate] rung B scene-prompt skipped (budget {remaining_ms():.0f}ms < "
+                            f"{_B_NOVA_SCENE_MS + _B_STABILITY_MS + _C_RESERVATION_MS}ms) -> rung C",
+                            file=sys.stderr,
+                        )
+                        provenance["fallthrough_reason"] = "budget-exhausted"
+                        raise _RungBBudgetSkip
+                    scene_prompt = _nova_pro_scene_prompt(
+                        seed, product_name, brief_msg, region, audience, theme
+                    )
                 provenance["scene_prompt"] = scene_prompt
                 # Per-subcall budget gate 2 — the Stability invoke (fail-fast, capped at
                 # BEDROCK_READ_TIMEOUT_S). Re-check AFTER the scene call actually spent its

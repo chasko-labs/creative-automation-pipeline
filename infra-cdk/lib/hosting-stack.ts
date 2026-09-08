@@ -80,6 +80,13 @@ export class HostingStack extends cdk.Stack {
     // Public-website bucket: website hosting (index.html + error index.html),
     // public GetObject, SSE-S3, NO public-access block (all false, as live),
     // BucketOwnerEnforced, unversioned.
+    // CONVERGE DISCIPLINE (#268, learned 2026-09-08): NEVER delete-bucket-policy
+    // on this live bucket to clear the way for the policy CREATE -- CFN CREATE
+    // fails with "already exists" against ANY live policy, and every
+    // policy-less second is a user-facing 403 (three outages, all mine).
+    // Pre-stage converges with `cdk deploy --no-execute`, then delete + execute
+    // back-to-back; on ANY 403, restore the policy FIRST via
+    // docs/frontier-403-runbook.md and stop -- never fight an in-flight deploy.
     const siteBucket = new s3.Bucket(this, "FrontierSiteBucket", {
       bucketName: FRONTIER_BUCKET_NAME,
       encryption: s3.BucketEncryption.S3_MANAGED,
@@ -202,15 +209,20 @@ export class HostingStack extends cdk.Stack {
     );
     originAccessControl.applyRemovalPolicy(cdk.RemovalPolicy.RETAIN);
 
-    // ---- DNS alias -- L2, context-gated for the import pass ----------------
+    // ---- DNS alias -- L2, context-gated (default OFF) -----------------------
     // CloudFormation cannot import AWS::Route53::RecordSet, so the record
     // cannot ride along in `cdk import` (its CREATE would fail as a duplicate
-    // and roll back the whole adoption). Import with
-    // `-c hostingIncludeDnsRecord=false`, then adopt DNS in a second pass
-    // (brief record delete + deploy recreates it identically -- see README).
-    // `-c` values arrive as strings, so compare against both spellings.
+    // and roll back the whole adoption). DECISION (#268, verified 2026-09-08):
+    // the alias stays HAND-MANAGED, not stack-owned. The zone lives in the
+    // website account (aerospaceug-admin), unreachable from the deploy role,
+    // and the live record is correct (kodiak.bryanchasko.com A ->
+    // d37333alc7ojpl.cloudfront.net = E3GEX8LSRX6OYS). The record is opt-in
+    // (`-c hostingIncludeDnsRecord=true`) for use only if the zone ever moves
+    // into this account.
     const dnsFlag = this.node.tryGetContext("hostingIncludeDnsRecord");
-    const includeDnsRecord = dnsFlag !== false && dnsFlag !== "false";
+    // Opt-in (default OFF): a bare deploy must never attempt the cross-account
+    // record CREATE. `-c` values arrive as strings, so accept both spellings.
+    const includeDnsRecord = dnsFlag === true || dnsFlag === "true";
     if (includeDnsRecord) {
       const zone = route53.HostedZone.fromHostedZoneAttributes(
         this,
@@ -236,7 +248,10 @@ export class HostingStack extends cdk.Stack {
     }
 
     // ---- tags --------------------------------------------------------------
-    cdk.Tags.of(this).add("stack", "kodiak-creatives-hosting");
+    // import gate: CFN forbids Tag changes on IMPORT change sets; skip for
+    // the CDK_IMPORT_NOTAGS=1 import pass, normal deploys keep the tag.
+    if (!process.env.CDK_IMPORT_NOTAGS)
+      cdk.Tags.of(this).add("stack", "kodiak-creatives-hosting");
 
     // ---- outputs -------------------------------------------------------------
     this.siteBucketName = siteBucket.bucketName;

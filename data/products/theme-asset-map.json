@@ -100,28 +100,33 @@
     },
     "zac-efron": {
       "brief": "Zac Efron athletic-morning energy — high-protein pre-trail fuel, aspirational active lifestyle. Keep It Wild.",
-      "caption": "2023 Outdoor Cooking Family Lifestyle 2051 fe0443fc 5504 4627 a3dd d35d4ce3508f",
+      "caption": "2023 Cooking with Zac 2636 1 59086e86 8776 4fbe 980a 9167bc5e19fb",
       "channel": "catalog",
-      "image_file": "2023-Outdoor-Cooking-Family-Lifestyle-2051_fe0443fc-5504-4627-a3dd-d35d4ce3508f.jpg",
-      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/2023-Outdoor-Cooking-Family-Lifestyle-2051_fe0443fc-5504-4627-a3dd-d35d4ce3508f.jpg",
+      "image_file": "2023-Cooking-with-Zac-2636_1_59086e86-8776-4fbe-980a-9167bc5e19fb.jpg",
+      "partner": "Zac Efron",
+      "partner_primary": true,
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/2023-Cooking-with-Zac-2636_1_59086e86-8776-4fbe-980a-9167bc5e19fb.jpg",
       "pool": [
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2023-Cooking-with-Zac-2636_1_59086e86-8776-4fbe-980a-9167bc5e19fb.jpg",
         "brands/kodiak/raw-ingest/kodiakcakes/images/2023-Outdoor-Cooking-Family-Lifestyle-2051_fe0443fc-5504-4627-a3dd-d35d4ce3508f.jpg",
         "brands/kodiak/raw-ingest/kodiakcakes/images/2020.6_Karissa_Schweizer_Athlete-769.jpg",
         "brands/kodiak/raw-ingest/kodiakcakes/images/2020.9_Emily_Harrington_Athlete-187.jpg",
-        "brands/kodiak/raw-ingest/kodiakcakes/images/2020.9_Emily_Harrington_Athlete-305.jpg",
-        "brands/kodiak/raw-ingest/kodiakcakes/images/2023-Cooking-with-Zac-2636_1_59086e86-8776-4fbe-980a-9167bc5e19fb.jpg"
+        "brands/kodiak/raw-ingest/kodiakcakes/images/2020.9_Emily_Harrington_Athlete-305.jpg"
       ],
-      "score": 58.4,
+      "score": 54.2,
       "theme": "zac-efron"
     }
   },
   "metadata": {
+    "carried_over": [
+      "us-ski-snowboard"
+    ],
     "channel_distribution": {
       "catalog": 2,
-      "instagram": 5
+      "instagram": 4
     },
     "generated": "deterministic",
-    "model_note": "deterministic keyword+metadata overlap scoring (no vector cosine); each theme scored against a fixed match-token set over caption/hashtags/image_file, channel-weighted toward blog/instagram lifestyle over catalog pack-shots; bears theme applies a negative captive-bear-closeup guardrail; zac-efron theme applies an additive athlete/lifestyle filename boost so real licensed brand-athlete photography ranks first (rights-clean, no likeness synthesis); primaries are globally de-duped in a fixed priority order (zac-efron first, then alphabetical) so all themes carry distinct primary photo_keys; top-1 + up to 4 fallbacks per theme, all reconciled to real DAM keys",
+    "model_note": "deterministic keyword+metadata overlap scoring (no vector cosine); each theme scored against a fixed match-token set over caption/hashtags/image_file, channel-weighted toward blog/instagram lifestyle over catalog pack-shots; bears theme applies a negative captive-bear-closeup guardrail; zac-efron theme applies an additive athlete/lifestyle filename boost so real licensed brand-athlete photography ranks first (rights-clean, no likeness synthesis); partner-libraries person front-run puts approved DAM keys of the person first as their theme primary; primaries are globally de-duped in a fixed priority order (zac-efron first, then alphabetical) so all themes carry distinct primary photo_keys; top-1 + up to 4 fallbacks per theme, all reconciled to real DAM keys",
     "pool_size": 5,
     "reconciled_to_real_keys": true,
     "source": {
@@ -133,8 +138,7 @@
       "recipe-cards",
       "localized-costco",
       "riff-on-past-content",
-      "keep-it-wild-program",
-      "us-ski-snowboard"
+      "keep-it-wild-program"
     ]
   }
 }

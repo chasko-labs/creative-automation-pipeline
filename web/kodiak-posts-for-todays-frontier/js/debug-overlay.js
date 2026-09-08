@@ -4,7 +4,7 @@
    100% additive: without ?debug=layout this block adds zero DOM and no listeners
    that touch page behavior. All overlay DOM lives under a single #proto-overlay
    node so it is trivially removable. pointer-events:none end to end.
-   View: index.html?cakes=1&debug=layout
+   View: index.html?debug=layout (then enter the shared word on the courtesy screen)
    ============================================================================= */
 (function(){
   // gate: do nothing at all unless ?debug=layout is present
