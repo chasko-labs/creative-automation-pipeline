@@ -28,6 +28,8 @@ def test_cache_key_deterministic_and_sensitive() -> None:
     assert a == b
     assert a != c
     assert a.startswith(generate._RESTYLE_CACHE_PREFIX) and a.endswith(".png")
+    # IAM guard: the Lambda role only allows renders/* + library/* — the cache MUST live there.
+    assert generate._RESTYLE_CACHE_PREFIX.startswith("brands/kodiak/renders/")
 
 
 def test_cache_hit_skips_bedrock(tmp_path: Path, monkeypatch) -> None:
