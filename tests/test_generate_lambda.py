@@ -10,14 +10,22 @@ from creative_automation import generate_lambda
 class _FakeS3:
     """Stub s3 client capturing put_object and returning a canned presigned url."""
 
-    def __init__(self) -> None:
+    def __init__(self, objects: dict | None = None) -> None:
         self.puts: list[dict] = []
         self.presign_calls: list[dict] = []
+        self.objects = objects or {}
 
     def put_object(self, **kwargs) -> dict:
         self.last_put = kwargs
         self.puts.append(kwargs)
         return {}
+
+    def get_object(self, Bucket, Key) -> dict:  # noqa: N803 — boto3 kwarg names
+        import io as _io
+
+        if Key not in self.objects:
+            raise Exception(f"NoSuchKey: {Key}")
+        return {"Body": _io.BytesIO(self.objects[Key])}
 
     def generate_presigned_url(self, op, Params, ExpiresIn) -> str:  # noqa: N803 — boto3 kwarg name
         self.last_presign_params = Params
@@ -564,3 +572,84 @@ def test_normalize_platform_tags_dedupes_and_drops_junk() -> None:
     assert norm([]) == []
     # S3-unsafe values can never corrupt object metadata
     assert norm(["ok-tag", "has space", "semi;colon", "", "x" * 33]) == ["ok-tag"]
+
+
+# ----------------------------------------------- #204 ISO asset-pack zip
+def _pack_event(payload: dict) -> dict:
+    return {"rawPath": "/assets/pack", "body": json.dumps(payload)}
+
+
+def _pack_s3() -> _FakeS3:
+    return _FakeS3(objects={
+        "brands/kodiak/renders/a1.png": b"PNG-A",
+        "brands/kodiak/renders/b2.png": b"PNG-B",
+    })
+
+
+def _pack_body(monkeypatch, payload: dict) -> dict:
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _pack_s3())
+    resp = generate_lambda.handler(_pack_event(payload), None)
+    return resp, json.loads(resp["body"])
+
+
+def test_pack_zips_renders_with_iso_names(monkeypatch) -> None:
+    import io as _io
+    import zipfile as _zf
+
+    s3 = _pack_s3()
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: s3)
+    resp = generate_lambda.handler(_pack_event({
+        "files": [
+            {"s3_uri": f"s3://{generate_lambda.DAM_S3_BUCKET}/brands/kodiak/renders/a1.png", "ratio": "1x1"},
+            {"s3_uri": f"s3://{generate_lambda.DAM_S3_BUCKET}/brands/kodiak/renders/b2.png", "ratio": "9x16"},
+        ],
+        "product": "blueberry-muffin-mix",
+        "region": "US-UT",
+        "locality": "park-city-84098",
+        "channel": "retailers",
+    }), None)
+    assert resp["statusCode"] == 200
+    body = json.loads(resp["body"])
+    assert body["ok"] is True and body["count"] == 2
+    assert body["zip_name"].startswith(
+        "KODIAK-CAKES-blueberry-muffin-mix-US-UT-park-city-84098-retailers-multi-"
+    ) and body["zip_name"].endswith("-v01.zip")
+    assert body["s3_uri"].endswith(f"brands/kodiak/packs/{body['zip_name']}")
+    assert body["zip_url"].startswith("https://presigned.example/")
+    put = s3.last_put
+    assert put["ContentType"] == "application/zip"
+    with _zf.ZipFile(_io.BytesIO(put["Body"])) as zf:
+        assert sorted(zf.namelist()) == sorted(body["files"])
+        assert zf.read(body["files"][0]) == b"PNG-A"
+    # presign carries attachment disposition so the browser saves the ISO name
+    assert body["zip_name"] in s3.last_presign_params["ResponseContentDisposition"]
+
+
+def test_pack_rejects_non_render_keys(monkeypatch) -> None:
+    resp, body = _pack_body(monkeypatch, {"files": [
+        {"s3_uri": f"s3://{generate_lambda.DAM_S3_BUCKET}/brands/kodiak/tokens/secret.json", "ratio": "1x1"},
+    ]})
+    assert resp["statusCode"] == 400
+    assert body["ok"] is False
+
+
+def test_pack_rejects_foreign_bucket(monkeypatch) -> None:
+    resp, body = _pack_body(monkeypatch, {"files": [
+        {"s3_uri": "s3://someone-else/evil.png", "ratio": "1x1"},
+    ]})
+    assert resp["statusCode"] == 400
+    assert body["ok"] is False
+
+
+def test_pack_missing_member_is_400_not_partial(monkeypatch) -> None:
+    resp, body = _pack_body(monkeypatch, {"files": [
+        {"s3_uri": f"s3://{generate_lambda.DAM_S3_BUCKET}/brands/kodiak/renders/nope.png", "ratio": "1x1"},
+    ]})
+    assert resp["statusCode"] == 400
+    assert "nope.png" in body["error"]
+
+
+def test_pack_requires_files(monkeypatch) -> None:
+    resp, body = _pack_body(monkeypatch, {"product": "x"})
+    assert resp["statusCode"] == 400
+    assert body["ok"] is False

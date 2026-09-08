@@ -967,6 +967,31 @@
     var date = new Date().toISOString().slice(0,10).replace(/-/g,'');
     var product = window.__requestedSku || 'savory-waffles';
     var region = 'US-UT', locality = 'park-city-84098', channel = 'retailers';
+    // #204: the real ISO asset-pack zip. When a hosted set was rendered, its DAM
+    // keys are on window.__lastPack — POST them to /assets/pack and save the
+    // presigned zip (the button's data-mcp-description promise, kept). Any
+    // failure falls through to the per-PNG flow below, so the button never dies.
+    try{
+      if(Array.isArray(window.__lastPack) && window.__lastPack.length){
+        if(status) status.textContent = 'Building ISO asset-pack zip…';
+        fetch('/assets/pack', {method:'POST', headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({files: window.__lastPack, product: product, region: region, locality: locality, channel: channel})})
+        .then(function(resp){ if(!resp.ok) throw new Error('pack HTTP '+resp.status); return resp.json(); })
+        .then(function(json){
+          if(!json || !json.ok || !json.zip_url) throw new Error('pack missing zip_url');
+          var a = document.createElement('a'); a.href = json.zip_url; a.download = json.zip_name || 'pack.zip';
+          a.rel = 'noopener'; document.body.appendChild(a); a.click(); a.remove();
+          if(status) status.textContent = 'Downloaded ' + (json.zip_name || 'asset pack') + ' (' + (json.count||0) + ' files)';
+        })
+        .catch(function(){ window.downloadAllPreviewPng(product, region, locality, channel, date, status); });
+        return 'pack-requested';
+      }
+    }catch(e){}
+    return window.downloadAllPreviewPng(product, region, locality, channel, date, status);
+  };
+  // Per-PNG fallback for downloadAllPreview (pre-#204 behavior, unchanged): save
+  // each preview image individually with ISO per-file names.
+  window.downloadAllPreviewPng = function(product, region, locality, channel, date, status){
     var saved = 0;
     var clickDL = function(href, dl){
       try{ var a=document.createElement('a'); a.href=href; if(dl) a.download=dl; a.rel='noopener'; document.body.appendChild(a); a.click(); a.remove(); saved++; }catch(e){}

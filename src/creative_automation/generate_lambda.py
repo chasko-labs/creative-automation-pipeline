@@ -7,6 +7,8 @@ import os
 import re
 import sys
 import base64
+import zipfile
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from uuid import uuid4
@@ -244,6 +246,115 @@ def _handle_assets_library(event: dict[str, Any]) -> dict[str, Any]:
     except Exception as e:  # noqa: BLE001 — a path handler error is a clean JSON, never a crash
         print(f"[generate_lambda] /assets/library failed: {e}", file=sys.stderr)
         return _response(500, {"ok": False, "error": str(e)})
+
+
+# Asset-pack zip (#204): only keys under this prefix may enter a pack, so a pack
+# request can never exfiltrate arbitrary DAM objects — it packs renders, nothing else.
+_PACK_MEMBER_PREFIX = "brands/kodiak/renders/"
+_PACK_KEY_PREFIX = "brands/kodiak/packs/"
+_PACK_MAX_FILES = 8
+_ISO_SEG_RE = re.compile(r"[^A-Za-z0-9-]+")
+
+
+def _iso_segment(value: Any, default: str) -> str:
+    """One ISO filename segment: caller value sanitized S3-safe, else the default."""
+    text = str(value or "").strip() or default
+    return _ISO_SEG_RE.sub("-", text).strip("-") or default
+
+
+def _pack_zip_name(product: str, region: str, locality: str, channel: str, date: str) -> str:
+    """ISO pack name. The RATIO slot of the file contract carries 'multi' — one zip
+    holds the whole multi-ratio set, and each member file names its own ratio."""
+    return (
+        f"KODIAK-CAKES-{product}-{region}-{locality}-{channel}-multi-{date}-v01.zip"
+    )
+
+
+def _pack_member_name(
+    product: str, region: str, locality: str, channel: str, ratio: str, date: str
+) -> str:
+    """Per-member ISO name — matches the frontend single-download convention."""
+    return (
+        f"KODIAK-CAKES-{product}-{region}-{locality}-{channel}-{ratio}-{date}-v01.png"
+    )
+
+
+def _handle_pack(event: dict[str, Any]) -> dict[str, Any]:
+    """POST /assets/pack — zip already-rendered DAM PNGs into an ISO-named pack.
+
+    Body: {files: [{s3_uri, ratio?}...], product?, region?, locality?, channel?}.
+    Packs ONLY keys under brands/kodiak/renders/ in the DAM bucket (400 otherwise),
+    PUTs the zip to brands/kodiak/packs/<iso-name>.zip, and returns a presigned GET
+    URL with Content-Disposition: attachment so the browser saves the ISO name.
+    S3-only (no Bedrock): runs inline, no wall executor needed. A missing member
+    is a 400 naming the key — a partial zip would lie about the multi-ratio pack.
+    """
+    try:
+        data = _parse_body(event)
+    except (json.JSONDecodeError, ValueError, TypeError) as e:
+        return _response(400, {"ok": False, "error": f"malformed request body: {e}"})
+    if not isinstance(data, dict):
+        return _response(400, {"ok": False, "error": "malformed request body: expected a JSON object"})
+    files = data.get("files")
+    if not isinstance(files, list) or not files:
+        return _response(400, {"ok": False, "error": "files is required: [{s3_uri, ratio?}...]"})
+    if len(files) > _PACK_MAX_FILES:
+        return _response(400, {"ok": False, "error": f"at most {_PACK_MAX_FILES} files per pack"})
+    product = _iso_segment(data.get("product"), "savory-waffles")
+    region = _iso_segment(data.get("region"), "US-UT")
+    locality = _iso_segment(data.get("locality"), "park-city-84098")
+    channel = _iso_segment(data.get("channel"), "retailers")
+    day = datetime.now(timezone.utc).strftime("%Y%m%d")
+    prefix = f"s3://{DAM_S3_BUCKET}/"
+    members: list[tuple[str, str]] = []
+    for i, entry in enumerate(files):
+        uri = (entry.get("s3_uri") or "") if isinstance(entry, dict) else ""
+        ratio = _iso_segment((entry.get("ratio") if isinstance(entry, dict) else ""), f"{i + 1}")
+        if not uri.startswith(prefix):
+            return _response(400, {"ok": False, "error": f"files[{i}]: s3_uri must be in this DAM bucket"})
+        key = uri[len(prefix):]
+        if not key.startswith(_PACK_MEMBER_PREFIX) or not key.endswith(".png"):
+            return _response(400, {"ok": False, "error": f"files[{i}]: only PNG renders under {_PACK_MEMBER_PREFIX} can be packed"})
+        members.append((key, _pack_member_name(product, region, locality, channel, ratio, day)))
+    import io as _io
+    s3 = _s3_client()
+    buf = _io.BytesIO()
+    try:
+        with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zf:
+            for key, name in members:
+                try:
+                    body = s3.get_object(Bucket=DAM_S3_BUCKET, Key=key)["Body"].read()
+                except Exception as e:  # noqa: BLE001 — name the missing key, pack nothing partial
+                    return _response(400, {"ok": False, "error": f"member not found: {key} ({e})"})
+                zf.writestr(name, body)
+    except Exception as e:  # noqa: BLE001 — zip build fault surfaces, never a crash
+        print(f"[generate_lambda] /assets/pack zip failed: {e}", file=sys.stderr)
+        return _response(500, {"ok": False, "error": "pack build failed"})
+    zip_name = _pack_zip_name(product, region, locality, channel, day)
+    zip_key = f"{_PACK_KEY_PREFIX}{zip_name}"
+    try:
+        s3.put_object(Bucket=DAM_S3_BUCKET, Key=zip_key, Body=buf.getvalue(), ContentType="application/zip")
+    except Exception as e:  # noqa: BLE001 — persist fault surfaces, never a crash
+        print(f"[generate_lambda] /assets/pack put failed: {e}", file=sys.stderr)
+        return _response(500, {"ok": False, "error": "pack upload failed"})
+    url = s3.generate_presigned_url(
+        "get_object",
+        Params={
+            "Bucket": DAM_S3_BUCKET,
+            "Key": zip_key,
+            "ResponseContentDisposition": f'attachment; filename="{zip_name}"',
+        },
+        ExpiresIn=3600,
+    )
+    print(f"[generate_lambda] /assets/pack ok: {zip_name} ({len(members)} files)", file=sys.stderr)
+    return _response(200, {
+        "ok": True,
+        "zip_url": url,
+        "zip_name": zip_name,
+        "s3_uri": f"s3://{DAM_S3_BUCKET}/{zip_key}",
+        "files": [name for _, name in members],
+        "count": len(members),
+    })
 
 
 def _handle_library_assets(event: dict[str, Any]) -> dict[str, Any]:
@@ -918,6 +1029,8 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
         return _handle_assets_library(event)
     if _p == "/library/assets":
         return _handle_library_assets(event)  # T2 asset ingest — store + best-effort embed
+    if _p == "/assets/pack":
+        return _handle_pack(event)  # #204 ISO asset-pack zip — S3-only, no wall needed
     # TOP-LEVEL VALIDATION (before the ladder): a genuinely malformed request — an
     # unparseable JSON body — is the ONLY non-200 (a 400). A well-formed POST always
     # reaches the never-fail ladder in generate_hero, which returns 200 real pixels
