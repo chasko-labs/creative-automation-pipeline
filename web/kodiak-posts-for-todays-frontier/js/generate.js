@@ -592,6 +592,13 @@ let skuList = [
         // hero download targets the 1x1 (primary) render
         const primary = renders.find(r=>r.ratio==='1x1') || renders[0];
         if(primary) window.__lastHeroUrl = primary.image_url;
+        // pack download (#204) needs the DAM keys, not the presigned urls — record
+        // the set's s3_uris + ratios alongside the hero so downloadAllPreview can
+        // POST them to /assets/pack for a real ISO-named zip.
+        try{
+          const pack = (Array.isArray(renders)?renders:[]).filter(r=>r && r.s3_uri).map(r=>({s3_uri:r.s3_uri, ratio:r.ratio||'1x1'}));
+          window.__lastPack = pack.length ? pack : null;
+        }catch(e){ try{ window.__lastPack = null; }catch(_){} }
         // source badge above the preview — provenance-driven, fallbacks flagged (#173)
         let badge = document.getElementById('genSourceBadge');
         if(!badge){ badge=document.createElement('span'); badge.id='genSourceBadge'; badge.className='badge'; preview.parentNode?.insertBefore(badge, preview); }
