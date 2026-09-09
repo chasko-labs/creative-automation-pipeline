@@ -195,7 +195,8 @@
       var cur = (locEl && locEl.value) || restoredMarket || DEFAULT_MARKET;
       var label = document.getElementById('marketButtonLabel');
       var place = (label && label.textContent.trim()) || cur;
-      if(place.indexOf('Location: ') === 0) place = place.slice('Location: '.length);
+      if(place.indexOf('Market: ') === 0) place = place.slice('Market: '.length);
+      else if(place.indexOf('Location: ') === 0) place = place.slice('Location: '.length);
       if(restoredMarket && cur === restoredMarket && cur !== DEFAULT_MARKET){
         el.innerHTML = '';
         el.appendChild(document.createTextNode('Market: ' + place + ' — saved from last visit '));

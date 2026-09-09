@@ -54,11 +54,16 @@
   // update the three derived lines (button label, featured frontier, language line) for a market
   function reflectMarket(market){
     var p = placeFor(market);
-    if(label && p) label.textContent = 'Location: ' + (p.place || market);
-    // outer step-2 summary mirrors the same place (no "Location: " prefix — the summary owns it).
+    if(label && p) label.textContent = 'Market: ' + (p.place || market);
+    // outer step-2 summary pairs the market with its featured frontier
+    // (no "Market: " prefix — the summary owns it).
     // Season has its own step-3 row now, so it stays out of this line.
     var outer = document.getElementById('locationSectionLabel');
-    if(outer && p) outer.textContent = (p.place || market);
+    if(outer && p){
+      var ff = (typeof featuredFrontierFor==='function') ? featuredFrontierFor(market) : null;
+      var ffShort = (ff && ff.place) ? String(ff.place).split(' — ')[0] : '';
+      outer.textContent = (p.place || market) + (ffShort ? ' · ' + ffShort : '');
+    }
     if(summary && p) summary.setAttribute('aria-label', 'Choose market — currently ' + (p.place || market));
     if(featuredEl){
       var cue = p && p.cue ? p.cue : '';

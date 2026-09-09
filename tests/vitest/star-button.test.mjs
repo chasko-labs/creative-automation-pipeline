@@ -21,8 +21,9 @@ describe('star button + lit cardboard', () => {
     expect(generate).toMatch(/const origLabel = 'Create Campaign Preview'/);
   });
 
-  it('ember gradient keeps every stop AA-safe vs white', () => {
-    expect(css).toMatch(/\.ff-go\{[^}]*background:linear-gradient\(180deg,#C9460C 0%,#C7440B 48%,#A93B07 100%\)/);
+  it('deep ember gradient keeps every stop AA-safe vs white', () => {
+    expect(css).toMatch(/\.ff-go\{[^}]*background:linear-gradient\(180deg,#B53E09 0%,#A83806 48%,#93300A 100%\)/);
+    expect(css).toMatch(/\.ff-go::before\{[^}]*repeating-linear-gradient/);
   });
 
   it('hover light-sweep exists with a reduced-motion off-ramp', () => {

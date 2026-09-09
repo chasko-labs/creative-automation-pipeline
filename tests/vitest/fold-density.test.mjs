@@ -15,7 +15,8 @@ const css = readFileSync(
 
 // Fold density: creative-direction clusters collapse by default so Your
 // campaign idea stays the star; the market control reads as a closed
-// "Location: <place>" row defaulting to Park City.
+// "Market: <place>" row defaulting to Park City, paired with its featured
+// frontier on the step-2 summary line.
 describe('fold density', () => {
   it('creative direction rides a closed disclosure', () => {
     expect(index).toMatch(/<details class="ff-products ff-directions" id="creativeDirection">/);
@@ -24,10 +25,11 @@ describe('fold density', () => {
     expect(index).toMatch(/id="promptChips"/);
   });
 
-  it('market control reads as Location defaulting to Park City', () => {
-    expect(index).toMatch(/id="marketButtonLabel">Location: Park City, Utah</);
-    expect(disclosure).toMatch(/label\.textContent = 'Location: ' \+ \(p\.place \|\| market\)/);
-    expect(core).toMatch(/aria-label','Location — currently '/);
+  it('market control reads as Market defaulting to Park City + frontier', () => {
+    expect(index).toMatch(/id="marketButtonLabel">Market: Park City, Utah</);
+    expect(disclosure).toMatch(/label\.textContent = 'Market: ' \+ \(p\.place \|\| market\)/);
+    expect(disclosure).toMatch(/featuredFrontierFor\(market\)/);
+    expect(core).toMatch(/aria-label','Market — currently '/);
   });
 
   it('directions disclosure keeps flush optiongroup rules', () => {
