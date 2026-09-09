@@ -272,7 +272,9 @@ section.xl{padding:var(--section-space-xl) 0}
   box-shadow:inset 0 1px 0 rgba(255,248,240,.35),inset 0 -2px 5px rgba(59,20,5,.45),var(--shadows-bear);
   position:relative;overflow:hidden}
 .ff-go::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background:repeating-linear-gradient(90deg,rgba(255,244,230,.055) 0 2px,transparent 2px 5px)}
+  background:linear-gradient(180deg,rgba(255,240,220,.12),transparent 42%),var(--wood);
+  background-size:auto,180px 180px}
+.ff-go{text-shadow:0 -1px 0 rgba(43,16,4,.65),0 1px 0 rgba(255,240,220,.28)}
 .ff-go:hover{background:linear-gradient(180deg,#B53E09 0%,#9E3408 55%,#86300A 100%);border-color:#7E2A05;
   box-shadow:inset 0 1px 0 rgba(255,248,240,.45),inset 0 -2px 5px rgba(59,20,5,.4),var(--shadows-lg);transform:translateY(-1px)}
 .ff-go{transition:background .15s,border-color .15s,box-shadow .15s,transform .15s}
@@ -933,12 +935,12 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-timeline-steps{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
 .ff-timeline-steps li{display:inline-flex;align-items:center;gap:6px;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;color:var(--colors-foreground-muted)}
 .ff-timeline-steps li+li::before{content:"";width:18px;height:1px;background:var(--colors-border-default);margin-right:2px}
-.ff-timeline-dot{width:8px;height:8px;border-radius:999px;background:var(--colors-neutral-300);flex:0 0 auto}
 .ff-timeline-steps li[data-state="active"]{color:var(--chocolate)}
-.ff-timeline-steps li[data-state="active"] .ff-timeline-dot{background:var(--red)}
+.ff-timeline-steps li[data-state="active"] .ff-stepnum{background:var(--red);color:#FFF8F0}
 .ff-timeline-steps li[data-state="done"]{color:var(--colors-foreground-default)}
-.ff-timeline-steps li[data-state="done"] .ff-timeline-dot{background:var(--colors-brand-frontier-green)}
+.ff-timeline-steps li[data-state="done"] .ff-stepnum{background:var(--colors-brand-frontier-green);color:#FFF8F0}
 .ff-timeline-steps li[data-state="locked"]{opacity:.55}
+.ff-timeline-steps li[data-state="locked"] .ff-stepnum{background:var(--colors-neutral-300);color:var(--colors-neutral-600)}
 .ff-timeline-steps .ff-stepnum{min-width:18px;height:18px;font-size:10px}
 .ff-timeline-note{margin-top:6px;min-height:1.2em;font:500 11px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-600)}
 .ff-timeline-note:empty::before{content:"Set up your campaign, then Create a preview.";opacity:.75}

@@ -23,7 +23,8 @@ describe('star button + lit cardboard', () => {
 
   it('deep ember gradient keeps every stop AA-safe vs white', () => {
     expect(css).toMatch(/\.ff-go\{[^}]*background:linear-gradient\(180deg,#B53E09 0%,#A83806 48%,#93300A 100%\)/);
-    expect(css).toMatch(/\.ff-go::before\{[^}]*repeating-linear-gradient/);
+    expect(css).toMatch(/\.ff-go::before\{[^}]*var\(--wood\)/);
+    expect(css).toMatch(/\.ff-go\{[^}]*text-shadow:0 -1px 0 rgba\(43,16,4/);
   });
 
   it('hover light-sweep exists with a reduced-motion off-ramp', () => {
