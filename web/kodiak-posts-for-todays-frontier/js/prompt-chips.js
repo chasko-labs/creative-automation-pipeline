@@ -177,7 +177,8 @@
   // ---- #237: one selection per concept drives brief text AND layer flags ----
   // The retailer/partner chips are the selection; the Compose checkboxes mirror them. Guarded so a
   // chip-driven check does not echo back into a chip toggle (generate.js's own summary listener
-  // still runs — the "n on" label stays correct).
+  // still runs — the "n on" label stays correct). Choosing implies the layer; 3.3 stays a slim
+  // manual override, never a second selection step.
   var __syncingLayers = false;
   function setLayer(id, on){
     var el = document.getElementById(id);
@@ -187,18 +188,30 @@
     try{ el.dispatchEvent(new Event('change', {bubbles:true})); }catch(e){}
     __syncingLayers = false;
   }
+  // retailer chips share one layer + select. Most-recent pick wins (via __activeTheme),
+  // else first found — one mark composed, never a stack.
+  var RETAILER_CHIP_VALUES = {'localized-costco':'costco','localized-publix':'publix','localized-target':'target'};
+  var RETAILER_CHIP_ORDER = ['localized-costco','localized-publix','localized-target'];
+  var RETAILER_CHIP_VALUES_INV = {'costco':true,'publix':true,'target':true};
+  // last chip-driven select value — lets chip-off clear only a layer the chips set,
+  // so a hand-checked manual mark is never clobbered.
+  var __chipRetailerValue = null;
+  function activeRetailerValue(){
+    if(window.__activeTheme && RETAILER_CHIP_VALUES[window.__activeTheme] && activeDirections.has(window.__activeTheme)) return RETAILER_CHIP_VALUES[window.__activeTheme];
+    for(var i = 0; i < RETAILER_CHIP_ORDER.length; i++) if(activeDirections.has(RETAILER_CHIP_ORDER[i])) return RETAILER_CHIP_VALUES[RETAILER_CHIP_ORDER[i]];
+    return null;
+  }
   function syncLayersFromChips(){
-    // costco is the shared concept: chip on forces the layer to costco+checked; chip off only
-    // clears a layer that still claims costco (a publix/target mark is the retailer's own select
-    // concept and is left alone).
-    var costco = activeDirections.has('localized-costco');
+    var val = activeRetailerValue();
     var sel = document.getElementById('layerRetailerSelect');
     var ret = document.getElementById('layerRetailer');
-    if(costco){
-      if(sel) sel.value = 'costco';
+    if(val){
+      if(sel) sel.value = val;
+      __chipRetailerValue = val;
       setLayer('layerRetailer', true);
-    } else if(ret && ret.checked && sel && sel.value === 'costco'){
-      setLayer('layerRetailer', false);
+    } else {
+      if(ret && ret.checked && sel && sel.value === __chipRetailerValue) setLayer('layerRetailer', false);
+      __chipRetailerValue = null;
     }
     setLayer('layerPartner', activeDirections.has('us-ski-snowboard'));
   }
@@ -207,9 +220,13 @@
     var sel = document.getElementById('layerRetailerSelect');
     var ret = document.getElementById('layerRetailer');
     var part = document.getElementById('layerPartner');
-    if(ret && sel) setChip('localized-costco', ret.checked && sel.value === 'costco', {deferRebuild:true});
+    if(ret && sel){
+      var v = sel.value;
+      RETAILER_CHIP_ORDER.forEach(function(slug){ setChip(slug, ret.checked && RETAILER_CHIP_VALUES[slug] === v, {deferRebuild:true}); });
+      if(ret.checked && RETAILER_CHIP_VALUES_INV[v]) __chipRetailerValue = v;
+    }
     if(part) setChip('us-ski-snowboard', !!part.checked, {deferRebuild:true});
-    syncLayersFromChips();   // normalize (e.g. select=publix keeps the costco chip off + layer as-is)
+    syncLayersFromChips();
     rebuildBrief();
   }
   function currentStagedProducts(){
@@ -221,6 +238,12 @@
   // stale divergence, so drop it — never invent a selection the user did not make.
   function maybeClearProductLayer(){
     if(!currentStagedProducts().length) setLayer('layerProduct', false);
+  }
+  // Staging a product implies the box layer — choosing serves the compose flag, no second
+  // checkbox step. Clear-only paths (tray removals to zero, restore defaults) keep using
+  // maybeClearProductLayer so a deliberate manual uncheck is never re-armed behind your back.
+  function maybeSetProductLayer(){
+    if(currentStagedProducts().length) setLayer('layerProduct', true);
   }
 
   // clear every active direction (product pick is its own start; suggestion insert keeps its own path).
@@ -273,12 +296,16 @@
     document.getElementById('layerRetailerSelect')?.addEventListener('change', syncChipsFromLayers);
   }
   // Selecting/deselecting a product clears the active directions too (a product pick is its own start).
+  // Staging implies the box layer; clearing to zero drops it (maybeClear runs first).
   document.getElementById('productChooser')?.addEventListener('change', function(e){
     if(e.target && e.target.classList && e.target.classList.contains('sku-check')){
       window.__clearActiveTheme();
       maybeClearProductLayer();
+      maybeSetProductLayer();
     }
   });
+  // Random 3 checks boxes programmatically (no change event) — imply the layer on the next tick.
+  document.getElementById('randomProducts')?.addEventListener('click', function(){ setTimeout(maybeSetProductLayer, 0); });
   // product removals via tray X / restore-defaults leave zero staged -> drop the stale product flag.
   document.getElementById('selectionTray')?.addEventListener('click', function(){ setTimeout(maybeClearProductLayer, 0); });
   document.getElementById('resetDefaults')?.addEventListener('click', function(){ setTimeout(maybeClearProductLayer, 0); });

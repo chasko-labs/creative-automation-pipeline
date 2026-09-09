@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"/>
 <link rel="stylesheet" href="https://use.typekit.net/zjt4wyq.css">
-<link rel="stylesheet" href="design/styles.css?v=0.1.012-2770764-20260909">
-<link rel="stylesheet" href="design/components.css?v=0.1.012-2770764-20260909">
+<link rel="stylesheet" href="design/styles.css?v=0.1.012-f334e1b-20260909">
+<link rel="stylesheet" href="design/components.css?v=0.1.012-f334e1b-20260909">
 <!-- #196: first paint is photographic — preload the default campaign hero so a clean-cache load never shows a generic block -->
 <link rel="preload" as="image" href="input_assets/textless/cabin-table.jpg" fetchpriority="high">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>KODIAK® Posts for Today's Frontier — v0.1.012-2770764-20260909</title>
-<meta name="kodiak-version" content="0.1.012-2770764-20260909">
+<title>KODIAK® Posts for Today's Frontier — v0.1.012-f334e1b-20260909</title>
+<meta name="kodiak-version" content="0.1.012-f334e1b-20260909">
 <!-- coach endpoint for insights + About Q&A (Units 3-4). Empty = coach dark: no button, no box, no fetch. Stamped at coach deploy. -->
 <meta name="kodiak-coach-url" content="https://voi3j76ie7.execute-api.us-east-1.amazonaws.com">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -17,7 +17,7 @@
 <meta name="mcp:server" content="kodiak-posts-frontier">
 <meta name="mcp:tools" content="places,products,recipes,market-languages,brief-yaml,preview,compose,localize">
 <link rel="mcp-manifest" href="webmcp.json">
-<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.012-2770764-20260909","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":75,"markets_source":"market-languages.json (76 language markets; places[] inline table holds 75 places)","languages":"EN + top2 per market (ACS 2023)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
+<script type="application/json" id="webmcp-manifest">{"name":"KODIAK Posts for Today's Frontier","version":"0.1.012-f334e1b-20260909","mcp":"enabled","tools":["places","products","recipes","market-languages","brief-yaml","preview"],"architecture":"offline-first static + Bedrock AgentCore + Nova Pro/Micro + S3 DAM","markets":75,"markets_source":"market-languages.json (76 language markets; places[] inline table holds 75 places)","languages":"EN + top2 per market (ACS 2023)","origin":"https://d37333alc7ojpl.cloudfront.net/"}</script>
 <meta name="robots" content="noindex, nofollow, noarchive">
 <script>
 // Courtesy screen, NOT security: the shared word ('cakes') ships in this file and
@@ -230,11 +230,6 @@
             title="Restore defaults (keeps your campaign idea text)">
       <span>Restore defaults</span>
     </button>
-    <div class="ff-season" data-mcp="seasonal-context">
-      <select id="seasonalSelect" aria-label="Seasonal context (optional) — month, season, or holiday">
-        <option value="">Season: any</option>
-      </select>
-    </div>
     <!-- scope="nationwide" annotation — market becomes an optional localization anchor rather than
          the campaign target. Shown/hidden by prompt-chips.js alongside data-scope-mode. -->
     <p class="ff-scope-note" id="marketScopeNote" hidden>Nationwide campaign — market is an optional localization anchor.</p>
@@ -248,6 +243,17 @@
     <!-- B2: .ff-detail (featured-frontier + languages readout) moved OUT to the output section below — it is a readout of what selections resolved to, not an input. -->
   </div>
   </details>
+
+  <!-- season picker rides its own slim always-visible row (was buried one click deep in
+       the location controlrow; all bindings are by id so relocation is behavior-safe) -->
+  <div class="ff-season-standalone">
+    <span class="ff-location-kicker">Season</span>
+    <div class="ff-season" data-mcp="seasonal-context">
+      <select id="seasonalSelect" aria-label="Seasonal context (optional) — month, season, or holiday">
+        <option value="">Season: any</option>
+      </select>
+    </div>
+  </div>
 
   <!-- ff-brainstorm - unified brainstorming surface: campaign-option chips + product picker read as ONE panel. wrapper only; every child still binds by id so the JS selectors are unaffected. -->
   <!-- #237: the retailer/partner chips below are the SINGLE selection for those concepts — they drive
@@ -342,28 +348,30 @@
   </div>
   <!-- /ff-brainstorm -->
 
-  <!-- Shared selection tray — staged uploads + selected SKUs render here as removable chips. Zero-height when empty. -->
-  <div class="ff-tray" id="selectionTray" role="group" aria-label="Selected products and staged assets"></div>
-
-  <!-- B1: the prompt input is now the CULMINATION at the bottom of the card — controls above assemble the brief, Create sits directly under the fully-assembled prompt. -->
+  <!-- B1: prep → massage → preview. Row 1 stages assets (upload, past assets, tray);
+       Row 2 is the idea canvas with attached suggestions; Row 3 creates. -->
   <!-- STEP 4 (#218): the brief is the last stop of the guided step, not a separate block. -->
   <div class="ff-inputwrap" data-step="4">
-    <!-- Row 1 (canvas): visible kicker label + the primary textarea, full width -->
+    <!-- Row 1 (prep): stage new uploads + past assets BEFORE the idea — tray fills inline -->
+    <div class="ff-assetrow">
+      <button type="button" class="ff-iconbtn" id="promptUpload" aria-label="Upload an image or document" title="Upload an image or document">+</button>
+      <!-- D5. Browse past assets (DAM) — ADDITIVE second staging path. Opens #damPanel, stages a chosen asset into the SAME #selectionTray. -->
+      <button type="button" class="ff-dam-trigger" id="damBrowseTrigger" aria-haspopup="dialog" aria-controls="damPanel" aria-expanded="false" title="Browse past DAM assets">Browse past assets</button>
+      <!-- Shared selection tray — staged uploads + selected SKUs render here as removable chips. Zero-height when empty. -->
+      <div class="ff-tray" id="selectionTray" role="group" aria-label="Selected products and staged assets"></div>
+    </div>
+    <!-- Row 2 (canvas): visible kicker label + the primary textarea, full width -->
     <label class="ff-brief-label" for="campaignBrief"><span class="ff-stepnum" aria-hidden="true">4</span>Your campaign idea</label>
     <textarea id="campaignBrief" rows="2" aria-label="Campaign idea — describe your Kodiak campaign in a line" placeholder="Describe your campaign in a line — or tap an option above to start." role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="briefSuggest" autocomplete="off"></textarea>
-    <!-- D4. add-your-own-asset file input — visually-hidden, triggered by the "+" icon below. FRONTEND STAGING ONLY (no DAM upload backend); staged client-side, marker threaded into the brief via window.__userAssets. -->
+    <!-- D4. add-your-own-asset file input — visually-hidden, triggered by the "+" icon above. FRONTEND STAGING ONLY (no DAM upload backend); staged client-side, marker threaded into the brief via window.__userAssets. -->
     <input type="file" id="addAssetInput" class="ff-addasset-input" accept="image/*,.pdf,.docx,.yaml,.yml,.json" aria-label="Add your own image asset to this campaign">
-    <!-- Row 2 (action bar): secondary staging affordances left, primary Create isolated right -->
+    <!-- B3. prompt-box autocomplete surface — attached directly under the canvas it completes,
+         not stranded below Create; reuses the ff-products-results listbox visual pattern -->
+    <div id="briefSuggest" class="ff-products-results ff-briefsuggest" role="listbox" aria-label="Product and market suggestions" hidden></div>
+    <!-- Row 3 (preview): primary Create, full width -->
     <div class="ff-inputfoot">
-      <div class="ff-inputfoot-actions">
-        <button type="button" class="ff-iconbtn" id="promptUpload" aria-label="Upload an image or document" title="Upload an image or document">+</button>
-        <!-- D5. Browse past assets (DAM) — ADDITIVE second staging path. Opens #damPanel, stages a chosen asset into the SAME #selectionTray. -->
-        <button type="button" class="ff-dam-trigger" id="damBrowseTrigger" aria-haspopup="dialog" aria-controls="damPanel" aria-expanded="false" title="Browse past DAM assets">Browse past assets</button>
-      </div>
       <button class="ff-go" id="generateCampaign" data-mcp="generate" data-mcp-description="Single button — fans to all formats + localized variants, shows sample">Create Campaign Preview</button>
     </div>
-    <!-- B3. prompt-box autocomplete surface — product/market matches from loaded catalog + places; anchored to the positioned .ff-inputwrap; reuses the ff-products-results listbox visual pattern -->
-    <div id="briefSuggest" class="ff-products-results ff-briefsuggest" role="listbox" aria-label="Product and market suggestions" hidden></div>
   </div>
 </section><!-- /ff-setup: one guided setup step (#218) -->
 </div>
@@ -478,27 +486,27 @@
 </div></details>
 
 <!-- visible build stamp — confirm at a glance which version/JS is live in the browser (cache-buster verification) -->
-<div id="buildStamp">build 0.1.012-2770764-20260909</div>
+<div id="buildStamp">build 0.1.012-f334e1b-20260909</div>
 
 </div>
-<script defer src="js/data-core.js?v=0.1.012-2770764-20260909"></script>
+<script defer src="js/data-core.js?v=0.1.012-f334e1b-20260909"></script>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.012-2770764-20260909","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["74 language markets (market-languages.json)","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.012-f334e1b-20260909","url":"https://d37333alc7ojpl.cloudfront.net/","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["74 language markets (market-languages.json)","EN + top2 languages per market","offline pipeline","Nova Pro hero + Nova Micro translate","S3 DAM brands/kodiak/","webmcp enabled"]}</script>
 
 
-<script defer src="js/generate.js?v=0.1.012-2770764-20260909"></script>
+<script defer src="js/generate.js?v=0.1.012-f334e1b-20260909"></script>
 
-<script defer src="js/product-combobox.js?v=0.1.012-2770764-20260909"></script>
+<script defer src="js/product-combobox.js?v=0.1.012-f334e1b-20260909"></script>
 <!-- Design System Scorecards script moved to details.html (window.KODIAK_SCORECARDS defined there; catalog render guards with if(window.KODIAK_SCORECARDS)) -->
-<script defer src="js/prompt-chips.js?v=0.1.012-2770764-20260909"></script>
-  <script defer src="js/market-disclosure.js?v=0.1.012-2770764-20260909"></script>
-  <script defer src="js/scroll-swap.js?v=0.1.012-2770764-20260909"></script>
+<script defer src="js/prompt-chips.js?v=0.1.012-f334e1b-20260909"></script>
+  <script defer src="js/market-disclosure.js?v=0.1.012-f334e1b-20260909"></script>
+  <script defer src="js/scroll-swap.js?v=0.1.012-f334e1b-20260909"></script>
   <script>(function(){if(new URLSearchParams(location.search).get('debug')==='layout'){var s=document.createElement('script');s.defer=true;s.src='js/debug-overlay.js';document.currentScript.after(s);}})();</script>
-  <script defer src="js/autocomplete.js?v=0.1.012-2770764-20260909"></script>
-<script defer src="js/lifecycle-persist.js?v=0.1.012-2770764-20260909"></script>
-  <script defer src="js/campaign-sections.js?v=0.1.012-2770764-20260909"></script>
-  <script defer src="js/ff-timeline.js?v=0.1.012-2770764-20260909"></script>
-  <script defer src="js/coach-insights.js?v=0.1.012-2770764-20260909"></script>
-  <script defer src="js/coach-about.js?v=0.1.012-2770764-20260909"></script>
-  <script defer src="glimmer-proxy.js?v=0.1.012-2770764-20260909"></script>
+  <script defer src="js/autocomplete.js?v=0.1.012-f334e1b-20260909"></script>
+<script defer src="js/lifecycle-persist.js?v=0.1.012-f334e1b-20260909"></script>
+  <script defer src="js/campaign-sections.js?v=0.1.012-f334e1b-20260909"></script>
+  <script defer src="js/ff-timeline.js?v=0.1.012-f334e1b-20260909"></script>
+  <script defer src="js/coach-insights.js?v=0.1.012-f334e1b-20260909"></script>
+  <script defer src="js/coach-about.js?v=0.1.012-f334e1b-20260909"></script>
+  <script defer src="glimmer-proxy.js?v=0.1.012-f334e1b-20260909"></script>
 </body></html>
