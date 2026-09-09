@@ -72,7 +72,7 @@ body{
     linear-gradient(0deg,color-mix(in srgb,var(--colors-brand-bear-brown) 6%,transparent) 0%,transparent var(--spacing-5xl,128px)),
     var(--gradients-kraft\.background);
   background-repeat:no-repeat,no-repeat,repeat;
-  background-size:100% var(--spacing-5xl,128px),100% var(--spacing-5xl,128px),auto;
+  background-size:100% 100dvh,100% 100dvh,auto;
   position:relative;
 }
 /* paper texture layers — base kc-paper declared on body; secondary canvas on .wrap via layered gradient */
@@ -1251,8 +1251,8 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
    kept texture = faint kraft fiber (body::before) + paper grain overlay.
    Surfaces lift toward parchment so chocolate ink reads; every tappable
    summary gets a real control box so actions stop blending into body copy. */
-/* page: smooth kraft vignette only — pinstripe layer removed */
-body{background-image:radial-gradient(130% 130% at 50% 30%,rgba(59,35,22,.10) 0%,rgba(59,35,22,0) 65%),linear-gradient(#E9D6BE,#DFC9AC)}
+/* page: the base body rule above governs (warm vignette + house wash) — no override here,
+   or the wash below it dies in the cascade and the page falls back to a flat field */
 /* cards + tiles + timeline: lighter lift, no stripes, stronger edge */
 .card,.tile,.tile .meta,.offline,.ff-timeline{background-image:none}
 .card{background:linear-gradient(#F8F1E3,#F3E6D1);border-color:var(--colors-border-strong)}
