@@ -116,7 +116,7 @@ header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-s
 .card::before{content:"";position:absolute;inset:0;background-image:var(--flute),var(--wood);background-repeat:repeat;opacity:.06;pointer-events:none}
 /* frontier top-rule (service-card pattern, kodiak hues): pine-to-blaze line,
    quiet at rest, full strength on hover. ::before is taken by wood grain. */
-.card::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent 0%,var(--colors-brand-frontier-green) 25%,var(--colors-brand-blaze-orange) 55%,var(--colors-brand-signal-red) 80%,transparent 100%);opacity:.35;pointer-events:none;transition:opacity .18s ease}
+.card::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent 0%,var(--colors-brand-frontier-green) 25%,var(--colors-brand-blaze-orange) 55%,var(--colors-brand-ember-hi) 80%,transparent 100%);opacity:.35;pointer-events:none;transition:opacity .18s ease}
 .card:hover{background:var(--gradients-kraft\.surface-hover);transform:translateY(-2px);box-shadow:var(--shadows-bear),inset 0 1px 0 rgba(255,248,240,.6)}
 .card:hover::after{opacity:1}
 @media(prefers-reduced-motion:reduce){.card,.card::after{transition:none}.card:hover{transform:none}}
@@ -128,7 +128,7 @@ header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-s
 .card--wild .hd h2,.card--wild .hd p{color:var(--parchment)}
 .card--wild .hd .badge{background:var(--parchment);color:var(--colors-brand-frontier-green)}
 .card--ember{background:linear-gradient(180deg,var(--colors-neutral-100) 0%,var(--parchment) 90px);border-color:var(--colors-brand-blaze-orange)}
-.card--ember::after{background:linear-gradient(90deg,transparent 0%,var(--colors-brand-blaze-orange) 30%,var(--colors-brand-signal-red) 70%,transparent 100%)}
+.card--ember::after{background:linear-gradient(90deg,transparent 0%,var(--colors-brand-blaze-orange) 30%,var(--colors-brand-ember-hi) 70%,transparent 100%)}
 .card--night{background:var(--colors-brand-frontier-green);border-color:var(--colors-brand-frontier-green);color:var(--parchment)}
 .card--night .body,.card--night .hd h2,.card--night .hd p{color:var(--parchment)}
 .card--night a{color:#FFDCC3}
@@ -172,7 +172,7 @@ header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-s
 .hint{color:#8C7A70;font:500 11px/1.5 "museo-sans",sans-serif;margin-top:6px}
 .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:2px;border:1px solid var(--chocolate);background:var(--chocolate);color:var(--parchment);font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;box-shadow:0 1px 0 rgba(0,0,0,.2)}
-.btn.orange{background:var(--red);border-color:var(--red);color:#fff}
+.btn.orange{background:var(--colors-brand-bear-brown);border-color:var(--colors-brand-bear-brown);color:var(--colors-neutral-50)}
 .btn.ghost{background:var(--parchment);color:var(--chocolate)}
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .kbd{font:500 11px/1 JetBrains Mono,Menlo,monospace;background:var(--oat);border:1px solid var(--stone);padding:2px 6px;border-radius:3px;color:var(--chocolate)}
@@ -289,7 +289,7 @@ section.xl{padding:var(--section-space-xl) 0}
 .elev-rest{box-shadow:var(--shadows-sm)}
 .elev-raised{box-shadow:var(--shadows-bear)}
 .elev-modal{box-shadow:var(--shadows-lg)}
-.ff-go:focus-visible{outline:2px solid var(--colors-brand-signal-red,#B51E14);outline-offset:2px}
+.ff-go:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 .ff-go:disabled{opacity:.5;cursor:not-allowed}
 /* suggestion chips — quick-start pills that populate the prompt */
 .ff-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
@@ -333,9 +333,9 @@ section.xl{padding:var(--section-space-xl) 0}
   font:800 14px/1.2 gin,"museo-sans",Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate);
   display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .preview-card>summary::-webkit-details-marker{display:none}
-.preview-card>summary::before{content:"\25B8";font-size:11px;color:var(--red);transition:transform .15s;flex:0 0 auto}
+.preview-card>summary::before{content:"\25B8";font-size:11px;color:var(--colors-brand-frontier-green);transition:transform .15s;flex:0 0 auto}
 .preview-card[open]>summary::before{transform:rotate(90deg)}
-.preview-card>summary:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.preview-card>summary:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 .preview-card>summary>.badge{margin-left:2px}
 .preview-card>summary .preview-sub{flex:1 1 100%;margin:6px 0 0;color:var(--colors-neutral-600);font:500 12px/1.5 "museo-sans",sans-serif;text-transform:none;letter-spacing:0}
 /* FIX 3: Output Preview heading row IS the disclosure. The heading + the "4 sizes" context sit on
@@ -371,9 +371,9 @@ section.xl{padding:var(--section-space-xl) 0}
 .platform-copy summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;padding:9px 12px;
   font:700 12px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.03em;color:var(--chocolate)}
 .platform-copy summary::-webkit-details-marker{display:none}
-.platform-copy summary::before{content:"\25B8";font-size:10px;color:var(--red);transition:transform .15s;flex:0 0 auto}
+.platform-copy summary::before{content:"\25B8";font-size:10px;color:var(--colors-brand-frontier-green);transition:transform .15s;flex:0 0 auto}
 .platform-copy details[open]>summary::before{transform:rotate(90deg)}
-.platform-copy summary:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.platform-copy summary:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 .platform-copy .pc-src{margin-left:auto;padding:1px 7px;border-radius:var(--radii-pill);font:700 9px/1.6 "museo-sans",sans-serif;letter-spacing:.03em;text-transform:uppercase}
 .platform-copy .pc-src.generated{background:var(--colors-brand-frontier-green);color:var(--colors-foreground-inverse)}
 .platform-copy .pc-src.fallback{background:var(--colors-neutral-100);color:var(--colors-neutral-600);border:1px solid var(--colors-border-default)}
@@ -387,12 +387,12 @@ section.xl{padding:var(--section-space-xl) 0}
 .provenance{margin-top:14px;border:1px solid var(--stone);border-radius:6px;background:var(--gradients-kraft\.surface);overflow:hidden}
 .provenance>summary{list-style:none;cursor:pointer;padding:12px 14px;font:800 12px/1.2 gin,"museo-sans",Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate);display:flex;align-items:center;gap:8px}
 .provenance>summary::-webkit-details-marker{display:none}
-.provenance>summary::before{content:"\25B8";font-size:11px;color:var(--red);transition:transform .15s}
+.provenance>summary::before{content:"\25B8";font-size:11px;color:var(--colors-brand-frontier-green);transition:transform .15s}
 .provenance[open]>summary::before{transform:rotate(90deg)}
-.provenance>summary:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.provenance>summary:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 .provenance .prov-body{padding:4px 14px 14px}
 .provenance .prov-group{margin-top:12px}
-.provenance .prov-group>h4{margin:0 0 6px;font:700 11px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--red)}
+.provenance .prov-group>h4{margin:0 0 6px;font:700 11px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--chocolate)}
 .provenance dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px}
 /* #5A4A43 on parchment = ~6.4:1 (AA normal) — labels */
 .provenance dt{font:700 11px/1.5 "museo-sans",sans-serif;color:var(--colors-neutral-700);white-space:nowrap}
@@ -414,7 +414,7 @@ section.xl{padding:var(--section-space-xl) 0}
 
 /* === WCAG 2.1 AA focus + contrast polish === */
 /* visible focus indicator on every interactive control — replaces any UA outline removal */
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:2px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px;border-radius:2px}
 /* slight global contrast increase — mild polish, keeps brand palette + WCAG.
    #18 root-cause fix: filter must NOT sit on the sticky header or the topstrip.
    a CSS filter on a position:sticky box turns that box into its own containing
@@ -524,7 +524,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    .ff-chip (all inherit signal-red from the global :focus-visible rule). override the
    blaze-orange from the shared wave3 rule above for .ff-geo only; the staging affordances
    (addloc/addasset/pending) keep their blaze-orange group treatment. */
-.ff-geo:focus-visible{outline:2px solid var(--colors-brand-signal-red);outline-offset:2px}
+.ff-geo:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 
 /* D3. add-a-location affordance inside the market disclosure panel */
 .ff-addloc{display:flex;flex-wrap:wrap;gap:var(--spacing-xs);align-items:center;margin-top:var(--spacing-xs);
@@ -544,7 +544,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    this select stays in the a11y tree + tab order (clip technique, same as the asset
    file input) so keyboard/AT users get a native equivalent, synced both ways. */
 .ff-locality-select{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-.ff-locality-select:focus-visible{outline:2px solid var(--colors-brand-signal-red);outline-offset:2px}
+.ff-locality-select:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 
 /* D4. add-your-own-asset affordance beside the product chooser — frontend staging only */
 .ff-addasset{margin-top:var(--spacing-sm);padding-top:var(--spacing-sm);border-top:1px dashed var(--colors-border-default)}
@@ -622,9 +622,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    open reveals the control. same box, same voice. */
 .ff-season-details>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);font:600 14px/1.4 "museo-sans",sans-serif;color:var(--chocolate);padding:10px 12px}
 .ff-season-details>summary::-webkit-details-marker{display:none}
-.ff-season-details>summary::before{content:"▸";font-size:11px;color:var(--red);transition:transform .15s;flex:0 0 auto}
+.ff-season-details>summary::before{content:"▸";font-size:11px;color:var(--colors-brand-frontier-green);transition:transform .15s;flex:0 0 auto}
 #locationSection>summary::-webkit-details-marker{display:none}
-#locationSection>summary::before{content:"\25B8";font-size:11px;color:var(--red);transition:transform .15s;flex:0 0 auto}
+#locationSection>summary::before{content:"\25B8";font-size:11px;color:var(--colors-brand-frontier-green);transition:transform .15s;flex:0 0 auto}
 #locationSection[open]>summary::before{transform:rotate(90deg)}
 .ff-season-details[open]>summary::before{transform:rotate(90deg)}
 .ff-season-details[open]>summary{background:rgba(26,60,52,.07)}
@@ -676,7 +676,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   background:var(--colors-neutral-50);color:var(--colors-foreground-default);
   font:700 clamp(9px,1.15vw,11px)/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.02em;text-decoration:none;white-space:nowrap}
 .ff-publish-targets .ff-publish-pill:hover{background:var(--colors-neutral-100);border-color:var(--colors-border-strong);color:var(--colors-foreground-default)}
-.ff-publish-targets .ff-publish-pill:focus-visible{outline:2px solid var(--colors-brand-signal-red);outline-offset:2px}
+.ff-publish-targets .ff-publish-pill:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 /* FIX 1: header-line variant — publish targets read as preview HEADER context, sitting directly under
    the summary. Hairline top rule + tighter spacing groups it visually with the "Output Preview / 4 sizes"
    summary above rather than floating in the body; overrides the default top margin. */
@@ -703,10 +703,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   background:var(--colors-neutral-100);color:var(--colors-foreground-default);
   font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase}
 .ff-products>summary::-webkit-details-marker{display:none}
-.ff-products>summary::before{content:"\25B8";font-size:11px;color:var(--colors-brand-signal-red);transition:transform .15s;flex:0 0 auto}
+.ff-products>summary::before{content:"\25B8";font-size:11px;color:var(--colors-brand-frontier-green);transition:transform .15s;flex:0 0 auto}
 .ff-products[open]>summary::before{transform:rotate(90deg)}
 .ff-products>summary:hover{background:var(--colors-neutral-200)}
-.ff-products>summary:focus-visible{outline:2px solid var(--colors-brand-signal-red);outline-offset:2px}
+.ff-products>summary:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 /* open panel — combobox input + Random 3 + a compact results popover; not a giant grid */
 .ff-products .ff-products-panel{margin-top:var(--spacing-sm);display:flex;flex-direction:column;gap:var(--spacing-sm)}
 .ff-products .ff-products-row{display:flex;flex-wrap:wrap;gap:var(--spacing-sm);align-items:center}
@@ -780,7 +780,7 @@ header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
   background:var(--colors-background-nature);color:var(--colors-foreground-inverse);
   font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;text-decoration:none}
 .ff-doclink-pill:hover{background:var(--colors-brand-bear-brown);border-color:var(--colors-brand-bear-brown);color:var(--colors-foreground-inverse)}
-.ff-doclink-pill:focus-visible{outline:2px solid var(--colors-brand-signal-red);outline-offset:2px}
+.ff-doclink-pill:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 /* inline "Design System Inventory" link inside the About copy — styled as a clear affordance, not a bare underline */
 .ff-about__copy .ff-doclink{font-weight:700;color:var(--colors-brand-frontier-green);text-decoration:underline;text-underline-offset:2px}
 .ff-about__copy .ff-doclink:hover{color:var(--colors-brand-bear-brown)}
@@ -929,19 +929,19 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-output.ff-generate-campaign{width:100%}
 .ff-generate-campaign.is-gated>summary{opacity:.55;cursor:not-allowed}
 .ff-generate-campaign.is-gated>summary::before{color:var(--colors-neutral-400)}
-.ff-generate-campaign.is-gated>summary:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.ff-generate-campaign.is-gated>summary:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 /* === Progress timeline — slim horizontal tracker + live heuristic line === */
 .ff-timeline{margin:0 0 var(--spacing-sm);padding:10px 14px 8px;border:1px solid var(--stone);border-radius:var(--radii-lg);background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-md);background-image:var(--flute),var(--gradients-kraft\.surface)}
 .ff-timeline-steps{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
 .ff-timeline-steps li{display:inline-flex;align-items:center;gap:6px;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;color:var(--colors-foreground-muted)}
 .ff-timeline-steps li+li::before{content:"";width:18px;height:1px;background:var(--colors-border-default);margin-right:2px}
 .ff-timeline-steps li[data-state="active"]{color:var(--chocolate)}
-.ff-timeline-steps li[data-state="active"] .ff-stepnum{background:var(--red);color:#FFF8F0}
+.ff-timeline-steps li[data-state="active"] .ff-stepnum{background:var(--colors-brand-frontier-green);color:var(--colors-neutral-50)}
 .ff-timeline-steps li[data-state="done"]{color:var(--colors-foreground-default)}
-.ff-timeline-steps li[data-state="done"] .ff-stepnum{background:var(--colors-brand-frontier-green);color:#FFF8F0}
+.ff-timeline-steps li[data-state="done"] .ff-stepnum{background:var(--colors-brand-bear-brown);color:var(--colors-neutral-50)}
 .ff-timeline-steps li[data-state="locked"]{opacity:.55}
 .ff-timeline-steps li[data-state="locked"] .ff-stepnum{background:var(--colors-neutral-300);color:var(--colors-neutral-600)}
-.ff-timeline-steps .ff-stepnum{min-width:18px;height:18px;font-size:10px}
+.ff-timeline-steps .ff-stepnum{min-width:18px;height:18px;font-size:10px;background:transparent;border:1px solid var(--colors-border-strong);color:var(--chocolate)}
 .ff-timeline-note{margin-top:6px;min-height:1.2em;font:500 11px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-600)}
 .ff-timeline-note:empty::before{content:"Set up your campaign, then Create a preview.";opacity:.75}
 /* the full-campaign action is the primary next step: full-width, larger target */
@@ -997,9 +997,9 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-briefsuggest[hidden]{display:none}
 .ff-briefsuggest .ff-suggest-opt{display:inline-flex;align-items:center;gap:6px;padding:4px 10px 4px 4px;cursor:pointer;font:500 12px/1.3 "museo-sans",sans-serif;color:var(--chocolate);
   border:1px solid var(--colors-border-default);border-radius:999px;background:var(--colors-neutral-100)}
-.ff-briefsuggest .ff-suggest-opt:hover,.ff-briefsuggest .ff-suggest-opt[aria-selected="true"]{background:var(--oat);border-color:var(--colors-brand-signal-red)}
+.ff-briefsuggest .ff-suggest-opt:hover,.ff-briefsuggest .ff-suggest-opt[aria-selected="true"]{background:var(--oat);border-color:var(--colors-brand-frontier-green)}
 .ff-briefsuggest .ff-suggest-tag{flex:0 0 auto;font:700 9px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:999px;background:var(--brown-kodiak);color:var(--parchment)}
-.ff-briefsuggest .ff-suggest-tag.is-market{background:var(--red)}
+.ff-briefsuggest .ff-suggest-tag.is-market{background:var(--colors-brand-frontier-green)}
 /* typed-pattern rows: actionable (zip->market) vs muted note (url/mention/unmapped-zip) */
 .ff-briefsuggest .ff-suggest-tag.is-action{background:var(--green,#2E5E2E)}
 .ff-briefsuggest .ff-suggest-tag.is-note{background:var(--stone,#8C7A70)}
@@ -1135,9 +1135,9 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-scope-wrap{margin-bottom:var(--spacing-sm,8px)}
 .ff-scope-summary{cursor:pointer;list-style:none;font:600 12px/1.4 "museo-sans",sans-serif;color:var(--colors-foreground-default,#1A2F29);padding:6px 2px}
 .ff-scope-summary::-webkit-details-marker{display:none}
-.ff-scope-summary::before{content:"▸ ";color:var(--red)}
+.ff-scope-summary::before{content:"▸ ";color:var(--colors-brand-frontier-green)}
 .ff-scope-wrap[open] .ff-scope-summary::before{content:"▾ "}
-.ff-scope-summary:focus-visible{outline:2px solid var(--colors-brand-signal-red,#B51E14);outline-offset:2px}
+.ff-scope-summary:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 .ff-scope-summary #scopeSummary{font-weight:700}
 .ff-scope-label{font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted,#6B5A53)}
 .ff-scope-seg{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--colors-border-default,#D9CFC6);border-radius:var(--radii-lg,12px);overflow:hidden;background:var(--colors-neutral-0,#fff)}
@@ -1150,7 +1150,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-scope-opt:hover{background:var(--colors-neutral-100,#F4EDE6)}
 .ff-scope-opt[aria-checked="true"]{background:var(--colors-background-nature,#1A2F29);color:var(--colors-foreground-inverse,#FFF8F0)}
 .ff-scope-opt[aria-checked="true"] .ff-scope-opt-sub{color:var(--colors-neutral-200,#E4D8C6)}
-.ff-scope-opt:focus-visible{outline:2px solid var(--colors-brand-signal-red,#B51E14);outline-offset:-2px}
+.ff-scope-opt:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:-2px}
 @media(max-width:640px){
   .ff-scope-seg{flex-direction:column}
   .ff-scope-opt{border-left:none;border-top:1px solid var(--colors-border-default,#D9CFC6)}
@@ -1198,10 +1198,10 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
   font:700 13px/1.2 "kodiak_sans","museo-sans",sans-serif;color:var(--colors-brand-bear-brown,#3B2316);
   padding:6px 10px;border-radius:var(--radii-md,8px)}
 .ff-layers>summary::-webkit-details-marker{display:none}
-.ff-layers>summary::before{content:"\25B8";font-size:11px;color:var(--colors-brand-signal-red);transition:transform .15s;flex:0 0 auto}
+.ff-layers>summary::before{content:"\25B8";font-size:11px;color:var(--colors-brand-frontier-green);transition:transform .15s;flex:0 0 auto}
 .ff-layers[open]>summary::before{transform:rotate(90deg)}
 .ff-layers>summary:hover{background:var(--colors-neutral-200)}
-.ff-layers>summary:focus-visible{outline:2px solid var(--colors-brand-signal-red);outline-offset:2px}
+.ff-layers>summary:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 .ff-layers-state{font:500 11px/1 "museo-sans",sans-serif;color:var(--colors-foreground-muted,#6B5A53)}
 .ff-layers-panel{margin-top:var(--spacing-sm);display:flex;flex-direction:column;gap:var(--spacing-sm)}
 .ff-layer{display:flex;gap:8px;align-items:flex-start;font:500 12px/1.45 "museo-sans",sans-serif;

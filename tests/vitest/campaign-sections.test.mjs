@@ -52,3 +52,32 @@ describe('numbered collapse flow 6/7/8', () => {
     expect(css).toMatch(/\.ff-output\.ff-campaign-assets\{[^}]*max-width:960px/);
   });
 });
+
+describe('de-reddened decorative UI', () => {
+  it('chevrons read pine, never signal red', () => {
+    for (const sel of ['\\.preview-card>summary::before', '\\.platform-copy summary::before',
+        '\\.provenance>summary::before', '\\.ff-season-details>summary::before',
+        '#locationSection>summary::before', '\\.ff-products>summary::before',
+        '\\.ff-layers>summary::before', '\\.ff-scope-summary::before']) {
+      expect(css).toMatch(new RegExp(sel + '\\{[^}]*color:var\\(--colors-brand-frontier-green\\)'));
+    }
+    expect(css).not.toMatch(/summary::before\{[^}]*signal-red/);
+  });
+
+  it('timeline badges carry four earth states, active is pine', () => {
+    expect(css).toMatch(/\.ff-timeline-steps li\[data-state="active"\] \.ff-stepnum\{background:var\(--colors-brand-frontier-green\)/);
+    expect(css).toMatch(/\.ff-timeline-steps li\[data-state="done"\] \.ff-stepnum\{background:var\(--colors-brand-bear-brown\)/);
+    expect(css).toMatch(/\.ff-timeline-steps \.ff-stepnum\{[^}]*background:transparent/);
+    expect(css).not.toMatch(/\.ff-timeline-steps[^}]*signal-red/);
+  });
+
+  it('secondary action buttons ride bear-brown, not red', () => {
+    expect(css).toMatch(/\.btn\.orange\{background:var\(--colors-brand-bear-brown\);border-color:var\(--colors-brand-bear-brown\)/);
+  });
+
+  it('focus rings read pine; red stays on links, alerts, and removal', () => {
+    expect(css).toMatch(/a:focus-visible,button:focus-visible,[^}]*outline:2px solid var\(--colors-brand-frontier-green\)/);
+    expect(css).toMatch(/a\{color:var\(--red\)/);
+    expect(css).toMatch(/\.ff-pending-remove:hover\{background:var\(--colors-brand-signal-red\)/);
+  });
+});
