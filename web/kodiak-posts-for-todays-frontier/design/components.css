@@ -724,10 +724,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-products .ff-products-results [role="option"]:hover,.ff-products .ff-products-results [role="option"].is-active{background:var(--colors-neutral-100)}
 .ff-products .ff-products-results [role="option"][aria-selected="true"]{background:var(--colors-brand-frontier-green);color:var(--colors-foreground-inverse);font-weight:700}
 .ff-products .ff-products-results [role="option"] .ff-opt-thumb{width:24px;height:24px;flex:0 0 auto;object-fit:cover;border-radius:var(--radii-sm);background:var(--colors-neutral-200)}
-.ff-products .ff-products-random{flex:0 0 auto;padding:8px 12px;border:1px solid var(--colors-border-default);border-radius:var(--radii-md);
-  background:var(--colors-neutral-50);color:var(--colors-foreground-default);
-  font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;cursor:pointer}
-.ff-products .ff-products-random:hover{background:var(--colors-neutral-100);border-color:var(--colors-border-strong)}
+.ff-products .ff-products-random{flex:0 0 auto;padding:8px 12px;border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);
+  background:transparent;color:var(--chocolate);
+  font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;
+  transition:background .15s,border-color .15s,transform .15s}
+.ff-products .ff-products-random:hover{background:var(--colors-neutral-100);border-color:var(--colors-brand-bear-brown);transform:translateY(-1px)}
+@media(prefers-reduced-motion:reduce){.ff-products .ff-products-random:hover{transform:none}}
 .ff-products .ff-products-hint{flex:1 1 100%;color:var(--colors-foreground-muted);font:500 11px/1.5 "museo-sans",sans-serif}
 @media(max-width:520px){
   .ff-products .ff-products-results{position:fixed;left:var(--spacing-sm);right:var(--spacing-sm)}
@@ -1016,10 +1018,17 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
    hero redesign: promoted from a transparent text link to a real ghost pill so it reads as a
    matching secondary affordance beside the "+" icon, not a mystery text link. */
 .ff-dam-trigger{display:inline-flex;align-items:center;gap:var(--spacing-xs,4px);height:40px;padding:0 14px;
-  border:1px solid var(--colors-neutral-300,#D9CFC6);border-radius:var(--radii-full,999px);background:transparent;
-  color:var(--colors-neutral-700,#5A4A42);font:600 13px/1 "museo-sans",sans-serif;cursor:pointer}
-.ff-dam-trigger:hover{background:var(--colors-neutral-100,#F4EDE6)}
-.ff-dam-trigger:focus-visible{outline:2px solid var(--orange, #E8530E);outline-offset:2px}
+  border:1px solid var(--colors-border-strong);border-radius:var(--radii-full,999px);background:transparent;
+  color:var(--chocolate);font:600 13px/1 "museo-sans",sans-serif;cursor:pointer;
+  transition:background .15s,border-color .15s,box-shadow .15s,transform .15s}
+.ff-dam-trigger:hover{background:var(--colors-neutral-100);border-color:var(--colors-brand-bear-brown);transform:translateY(-1px)}
+.ff-dam-trigger:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.ff-dam-trigger:hover{transform:none}}
+/* Add new assets is the row primary: bear-brown solid with a leading + */
+#promptUpload{background:var(--colors-brand-bear-brown);border-color:var(--colors-brand-bear-brown);
+  color:var(--colors-neutral-50);box-shadow:var(--shadows-sm)}
+#promptUpload::before{content:"+";font:800 15px/1 "museo-sans",sans-serif}
+#promptUpload:hover{background:var(--colors-brand-bear-brown);filter:brightness(1.12)}
 .ff-dam-backdrop{position:fixed;inset:0;z-index:200;background:rgba(26,47,41,.32);display:none}
 .ff-dam-backdrop.is-open{display:block}
 .ff-dam-panel{position:fixed;z-index:201;top:50%;left:50%;transform:translate(-50%,-50%);width:min(92vw,760px);max-height:82vh;overflow:auto;
