@@ -1,2546 +1,4276 @@
 {
- "$schema": "https://kodiakcakes.com/schema/market-featured-frontiers-v1.json",
- "metadata": {
-  "generated": "2026-09-08",
-  "purpose": "Issue #257: every market resolves one featured frontier (place + ingredients + seasons + farmers-market context) as data, replacing hardcoded hints in web JS.",
-  "sources": [
-   "data/localization/local-flavor.json (ingredient months)",
-   "data/localization/bay-area/pescadero-94060.json (seasonal matrix, Harley Farms anchor)",
-   "data/localization/retailer-frontier-pairs.json (muscadine Sep pick, farmers-market urls)",
-   "data/localization/store-finder-markets.json (the 74-market registry this file covers)"
-  ],
-  "frontier_count": 4,
-  "market_count": 74
- },
- "markets": {
-  "US-MW-PARKCITY-84098": {
-   "market": "US-MW-PARKCITY-84098",
-   "frontier_market": "US-UT-OAKLEY",
-   "place": "Oakley, Utah 84055 — Wasatch Back ranch country",
-   "ingredients": [
-    {
-     "name": "Splendor Valley Farms produce",
-     "months": null,
-     "note": "user-sourced anchor farm; seasons unconfirmed — research dispatch"
+  "$schema": "https://kodiakcakes.com/schema/market-featured-frontiers-v1.json",
+  "metadata": {
+    "generated": "2026-09-09T15:04:49Z",
+    "source": "generated from web/kodiak-posts-for-todays-frontier/js/data-core.js via scripts/build-frontier-mapping.py — do not hand-edit",
+    "markets": 76,
+    "frontier_self_entries": 69,
+    "model": "1:1 — every market resolves its own nearby frontier; no shared frontiers"
+  },
+  "markets": {
+    "US-CA-PESCADERO": {
+      "market": "US-CA-PESCADERO",
+      "frontier_market": "US-CA-PESCADERO",
+      "place": "Pescadero, California 94060 — San Mateo Coast",
+      "ingredients": [
+        {
+          "name": "Castroville artichokes",
+          "months": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "peak": 4
+        },
+        {
+          "name": "Marin goat cheese",
+          "months": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "Brussels sprouts",
+          "months": [
+            9,
+            10,
+            11,
+            12,
+            1,
+            2
+          ]
+        },
+        {
+          "name": "olive oil (fall press)",
+          "months": [
+            11
+          ]
+        }
+      ],
+      "seasons": "Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press",
+      "farmers_market": "Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero",
+      "farmers_market_url": "https://www.harleyfarms.com",
+      "link_note": "Self-frontier market; no-retail gap served by subscription."
+    },
+    "US-CA-CASTROVILLE": {
+      "market": "US-CA-CASTROVILLE",
+      "frontier_market": "US-CA-CASTROVILLE",
+      "place": "Castroville, California 95012 — Artichoke Capital",
+      "ingredients": [
+        {
+          "name": "Castroville artichokes",
+          "months": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "peak": 4
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "Brussels sprouts",
+          "months": [
+            1,
+            2,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Castroville artichokes Mar-Jun (peak April); strawberries May-Sep; Brussels sprouts Sep-Feb",
+      "farmers_market": "Castroville artichoke stands + Monterey Bay farmers markets (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Self-frontier market; no-retail gap served by subscription."
+    },
+    "US-W-SANJOSE": {
+      "market": "US-W-SANJOSE",
+      "frontier_market": "US-CA-BRENTWOOD",
+      "place": "Brentwood, California 94513 — Delta farm town",
+      "ingredients": [
+        {
+          "name": "Delta cherries",
+          "months": [
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            7,
+            8
+          ]
+        }
+      ],
+      "seasons": "Cherry season May-Jun; corn Jul-Aug",
+      "farmers_market": "Brentwood U-pick stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to San Jose, California; subscription-credible."
+    },
+    "US-MW-BOISE": {
+      "market": "US-MW-BOISE",
+      "frontier_market": "US-ID-KUNA",
+      "place": "Kuna, Idaho 83634 — Treasure Valley dairy town",
+      "ingredients": [
+        {
+          "name": "dairy",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "Idaho potatoes",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Year-round dairy; potato harvest Sep-Oct",
+      "farmers_market": "Kuna farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Boise, Idaho; subscription-credible."
+    },
+    "US-MW-CHI": {
+      "market": "US-MW-CHI",
+      "frontier_market": "US-IL-HARVARD",
+      "place": "Harvard, Illinois 60033 — McHenry dairy town",
+      "ingredients": [
+        {
+          "name": "McHenry dairy",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Corn season Jul-Sep",
+      "farmers_market": "McHenry farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Chicago, Illinois; subscription-credible."
+    },
+    "US-MW-CLEVELAND": {
+      "market": "US-MW-CLEVELAND",
+      "frontier_market": "US-OH-BURTON",
+      "place": "Burton, Ohio 44021 — Geauga maple country",
+      "ingredients": [
+        {
+          "name": "Geauga maple",
+          "months": [
+            3,
+            4
+          ]
+        },
+        {
+          "name": "apples",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Maple season Mar-Apr; apples Sep-Oct",
+      "farmers_market": "Geauga farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Cleveland, Ohio; subscription-credible."
+    },
+    "US-MW-DEN": {
+      "market": "US-MW-DEN",
+      "frontier_market": "US-CO-ELIZABETH",
+      "place": "Elizabeth, Colorado 80107 — Elbert County ranch country",
+      "ingredients": [
+        {
+          "name": "grass-fed beef",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "ranch eggs",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Year-round ranch; summer stands Jun-Sep",
+      "farmers_market": "Elbert County farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Denver, Colorado; subscription-credible."
+    },
+    "US-MW-DESMOINES": {
+      "market": "US-MW-DESMOINES",
+      "frontier_market": "US-IA-PELLA",
+      "place": "Pella, Iowa 50219 — Marion ag town",
+      "ingredients": [
+        {
+          "name": "Marion sweet corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "tulip-time produce",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Corn season Jul-Sep",
+      "farmers_market": "Marion farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Des Moines, Iowa; subscription-credible."
+    },
+    "US-MW-DETROIT": {
+      "market": "US-MW-DETROIT",
+      "frontier_market": "US-MI-ARMADA",
+      "place": "Armada, Michigan 48005 — Macomb orchard town",
+      "ingredients": [
+        {
+          "name": "Armada apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "peaches",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Peach season Aug; apples Sep-Oct",
+      "farmers_market": "Armada orchard stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Detroit, Michigan; subscription-credible."
+    },
+    "US-MW-FARGO": {
+      "market": "US-MW-FARGO",
+      "frontier_market": "US-MN-BARNESVILLE",
+      "place": "Barnesville, Minnesota 56514 — Clay County potato town",
+      "ingredients": [
+        {
+          "name": "Red River potatoes",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "sugar beets",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Harvest Sep-Oct",
+      "farmers_market": "Clay County farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Fargo, North Dakota; subscription-credible."
+    },
+    "US-MW-INDY": {
+      "market": "US-MW-INDY",
+      "frontier_market": "US-IN-DANVILLE",
+      "place": "Danville, Indiana 46122 — Hendricks farm town",
+      "ingredients": [
+        {
+          "name": "Hendricks corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Corn season Jul-Sep",
+      "farmers_market": "Hendricks farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Indianapolis, Indiana; subscription-credible."
+    },
+    "US-MW-JACKSONHOLE": {
+      "market": "US-MW-JACKSONHOLE",
+      "frontier_market": "US-WY-ALPINE",
+      "place": "Alpine, Wyoming 83128 — Star Valley dairy country",
+      "ingredients": [
+        {
+          "name": "Star Valley dairy",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "root vegetables",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer dairy season Jun-Sep",
+      "farmers_market": "Star Valley farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Jackson Hole, Wyoming; subscription-credible."
+    },
+    "US-MW-KC": {
+      "market": "US-MW-KC",
+      "frontier_market": "US-MO-WESTON",
+      "place": "Weston, Missouri 64098 — Platte orchard town",
+      "ingredients": [
+        {
+          "name": "Weston apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Apple season Sep-Oct",
+      "farmers_market": "Weston orchard stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Kansas City, Missouri/Kansas; subscription-credible."
+    },
+    "US-MW-MILWAUKEE": {
+      "market": "US-MW-MILWAUKEE",
+      "frontier_market": "US-WI-CEDARBURG",
+      "place": "Cedarburg, Wisconsin 53012 — Ozaukee farm town",
+      "ingredients": [
+        {
+          "name": "Ozaukee strawberries",
+          "months": [
+            6,
+            7
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            6,
+            7
+          ]
+        }
+      ],
+      "seasons": "Strawberry season Jun-Jul",
+      "farmers_market": "Cedarburg farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Milwaukee, Wisconsin; subscription-credible."
+    },
+    "US-MW-MINNEAPOLIS2": {
+      "market": "US-MW-MINNEAPOLIS2",
+      "frontier_market": "US-MN-CLOQUET",
+      "place": "Cloquet, Minnesota 55720 — Carlton farm town",
+      "ingredients": [
+        {
+          "name": "Carlton produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "wild-rice halo",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jul-Sep",
+      "farmers_market": "Carlton farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Duluth, Minnesota; subscription-credible."
+    },
+    "US-MW-MISSOULA": {
+      "market": "US-MW-MISSOULA",
+      "frontier_market": "US-MT-FRENCHTOWN",
+      "place": "Frenchtown, Montana 59834 — Missoula County farm town",
+      "ingredients": [
+        {
+          "name": "Flathead cherry halo",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Cherry season Jul; corn Aug-Sep",
+      "farmers_market": "Frenchtown farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Missoula, Montana; subscription-credible."
+    },
+    "US-MW-OMAHA": {
+      "market": "US-MW-OMAHA",
+      "frontier_market": "US-NE-WAHOO",
+      "place": "Wahoo, Nebraska 68066 — Saunders farm town",
+      "ingredients": [
+        {
+          "name": "Saunders corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "soy-country produce",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Corn season Jul-Sep",
+      "farmers_market": "Saunders farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Omaha, Nebraska; subscription-credible."
+    },
+    "US-MW-PARKCITY-84098": {
+      "market": "US-MW-PARKCITY-84098",
+      "frontier_market": "US-UT-OAKLEY",
+      "place": "Oakley, Utah 84055 — Wasatch Back ranch country",
+      "ingredients": [
+        {
+          "name": "Splendor Valley Farms produce",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "Oakley Rodeo Grounds farm stands",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        }
+      ],
+      "seasons": "Summer market season (exact months unconfirmed — research dispatch)",
+      "farmers_market": "Oakley Farmers Market at Oakley Rodeo Grounds (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Park City, Utah 84098; subscription-credible."
+    },
+    "US-MW-PHX2": {
+      "market": "US-MW-PHX2",
+      "frontier_market": "US-AZ-MARANA",
+      "place": "Marana, Arizona 85653 — Santa Cruz Valley farm town",
+      "ingredients": [
+        {
+          "name": "Marana corn",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "cotton-country produce",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        }
+      ],
+      "seasons": "Corn season Jun-Aug",
+      "farmers_market": "Marana farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Tucson, Arizona; subscription-credible."
+    },
+    "US-MW-STL": {
+      "market": "US-MW-STL",
+      "frontier_market": "US-IL-WATERLOO",
+      "place": "Waterloo, Illinois 62298 — Monroe farm town",
+      "ingredients": [
+        {
+          "name": "Monroe produce",
+          "months": [
+            7,
+            8
+          ]
+        },
+        {
+          "name": "peaches",
+          "months": [
+            7,
+            8
+          ]
+        }
+      ],
+      "seasons": "Peach season Jul-Aug",
+      "farmers_market": "Monroe farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to St. Louis, Missouri; subscription-credible."
+    },
+    "US-MW-TC": {
+      "market": "US-MW-TC",
+      "frontier_market": "US-MN-STILLWATER",
+      "place": "Stillwater, Minnesota 55082 — St Croix orchard town",
+      "ingredients": [
+        {
+          "name": "St Croix apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Apple season Sep-Oct",
+      "farmers_market": "Stillwater orchard stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Twin Cities, Minnesota; subscription-credible."
+    },
+    "US-MW-WASATCH": {
+      "market": "US-MW-WASATCH",
+      "frontier_market": "US-UT-MIDWAY",
+      "place": "Midway, Utah 84049 — Wasatch County farm town",
+      "ingredients": [
+        {
+          "name": "Swiss-cheese dairy",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "root vegetables",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        }
+      ],
+      "seasons": "Summer market season Jun-Sep (exact months unconfirmed — research dispatch)",
+      "farmers_market": "Midway Town Square market stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Park City, Wasatch Mountains; subscription-credible."
+    },
+    "US-MW-WASATCH-SLC": {
+      "market": "US-MW-WASATCH-SLC",
+      "frontier_market": "US-UT-GRANTSVILLE",
+      "place": "Grantsville, Utah 84029 — Tooele County ranch town",
+      "ingredients": [
+        {
+          "name": "grass-fed beef",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "ranch eggs",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Year-round ranch; summer stands Jun-Sep",
+      "farmers_market": "Grantsville farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Salt Lake City, Utah; subscription-credible."
+    },
+    "US-NE-BALTIMORE": {
+      "market": "US-NE-BALTIMORE",
+      "frontier_market": "US-MD-WESTMINSTER",
+      "place": "Westminster, Maryland 21157 — Carroll farm town",
+      "ingredients": [
+        {
+          "name": "Carroll corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "dairy",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Corn season Jul-Sep",
+      "farmers_market": "Carroll farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Baltimore, Maryland; subscription-credible."
+    },
+    "US-NE-BOS": {
+      "market": "US-NE-BOS",
+      "frontier_market": "US-MA-BOLTON",
+      "place": "Bolton, Massachusetts 01740 — orchard town",
+      "ingredients": [
+        {
+          "name": "Bolton apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "cider",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Apple season Sep-Oct",
+      "farmers_market": "Bolton orchard stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Boston + Portland ME, New England; subscription-credible."
+    },
+    "US-NE-BURLINGTON": {
+      "market": "US-NE-BURLINGTON",
+      "frontier_market": "US-VT-SHELBURNE",
+      "place": "Shelburne, Vermont 05482 — lake farm town",
+      "ingredients": [
+        {
+          "name": "Shelburne cheddar",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "orchard fruit",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Cheddar year-round; apples Sep-Oct",
+      "farmers_market": "Shelburne Farms stand + farm stands",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Burlington, Vermont; subscription-credible."
+    },
+    "US-NE-DC": {
+      "market": "US-NE-DC",
+      "frontier_market": "US-VA-PURCELLVILLE",
+      "place": "Purcellville, Virginia 20132 — Loudoun farm town",
+      "ingredients": [
+        {
+          "name": "Loudoun produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "orchard fruit",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jun-Sep",
+      "farmers_market": "Loudoun farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Washington, DC + NoVA; subscription-credible."
+    },
+    "US-NE-HARTFORD": {
+      "market": "US-NE-HARTFORD",
+      "frontier_market": "US-CT-SUFFIELD",
+      "place": "Suffield, Connecticut 06078 — river-valley farm town",
+      "ingredients": [
+        {
+          "name": "valley produce",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Corn season Jul-Sep",
+      "farmers_market": "Suffield farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Hartford, Connecticut; subscription-credible."
+    },
+    "US-NE-NYC": {
+      "market": "US-NE-NYC",
+      "frontier_market": "US-NY-WARWICK",
+      "place": "Warwick, New York 10990 — black-dirt farm town",
+      "ingredients": [
+        {
+          "name": "black-dirt onions",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Onion harvest Aug-Sep",
+      "farmers_market": "Warwick farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Brooklyn + Manhattan, New York; subscription-credible."
+    },
+    "US-NE-PHILLY": {
+      "market": "US-NE-PHILLY",
+      "frontier_market": "US-PA-KENNETT",
+      "place": "Kennett Square, Pennsylvania 19348 — mushroom capital",
+      "ingredients": [
+        {
+          "name": "Kennett mushrooms",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "produce",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Mushrooms year-round",
+      "farmers_market": "Kennett Square farm stands",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Philadelphia, Pennsylvania; subscription-credible."
+    },
+    "US-NE-PROVIDENCE": {
+      "market": "US-NE-PROVIDENCE",
+      "frontier_market": "US-RI-SCITUATE",
+      "place": "Scituate, Rhode Island 02857 — rural farm town",
+      "ingredients": [
+        {
+          "name": "Scituate produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jul-Sep",
+      "farmers_market": "Scituate farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Providence, Rhode Island; subscription-credible."
+    },
+    "US-NE-RALEIGH": {
+      "market": "US-NE-RALEIGH",
+      "frontier_market": "US-NC-PITTSBORO",
+      "place": "Pittsboro, North Carolina 27312 — Chatham farm belt",
+      "ingredients": [
+        {
+          "name": "Chatham produce",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "pastured meats",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Year-round market town",
+      "farmers_market": "Pittsboro farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Raleigh-Durham, North Carolina; subscription-credible."
+    },
+    "US-SC-AUSTIN": {
+      "market": "US-SC-AUSTIN",
+      "frontier_market": "US-TX-FREDERICKSBURG",
+      "place": "Fredericksburg, Texas 78624 — Hill Country peach town",
+      "ingredients": [
+        {
+          "name": "Hill Country peaches",
+          "months": [
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "wine-country produce",
+          "months": [
+            5,
+            6,
+            7,
+            8
+          ]
+        }
+      ],
+      "seasons": "Peach season May-Aug",
+      "farmers_market": "Fredericksburg orchard stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Austin, Texas; subscription-credible."
+    },
+    "US-SC-DALLAS": {
+      "market": "US-SC-DALLAS",
+      "frontier_market": "US-TX-WAXAHACHIE",
+      "place": "Waxahachie, Texas 75165 — Ellis County farm country",
+      "ingredients": [
+        {
+          "name": "blackland corn",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jun-Sep",
+      "farmers_market": "Ellis County farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Dallas, Texas; subscription-credible."
+    },
+    "US-SC-HOUSTON": {
+      "market": "US-SC-HOUSTON",
+      "frontier_market": "US-TX-CHAPPELLHILL",
+      "place": "Chappell Hill, Texas 77426 — Washington County farms",
+      "ingredients": [
+        {
+          "name": "bluebonnet-country produce",
+          "months": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        }
+      ],
+      "seasons": "Spring-summer produce Mar-Aug",
+      "farmers_market": "Chappell Hill farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Houston, Texas; subscription-credible."
+    },
+    "US-SC-SANANTONIO": {
+      "market": "US-SC-SANANTONIO",
+      "frontier_market": "US-TX-POTEET",
+      "place": "Poteet, Texas 78065 — strawberry capital",
+      "ingredients": [
+        {
+          "name": "strawberries",
+          "months": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "name": "spring produce",
+          "months": [
+            3,
+            4,
+            5
+          ]
+        }
+      ],
+      "seasons": "Strawberry season Mar-May",
+      "farmers_market": "Poteet farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to San Antonio, Texas; subscription-credible."
+    },
+    "US-SE-ASHEVILLE": {
+      "market": "US-SE-ASHEVILLE",
+      "frontier_market": "US-NC-MARSHALL",
+      "place": "Marshall, North Carolina 28753 — Madison farm mountains",
+      "ingredients": [
+        {
+          "name": "mountain apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "heirloom corn",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Apple season Sep-Oct",
+      "farmers_market": "Marshall farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Asheville, North Carolina; subscription-credible."
+    },
+    "US-SE-ATL": {
+      "market": "US-SE-ATL",
+      "frontier_market": "US-GA-SENOIA",
+      "place": "Senoia, Georgia 30276 — Coweta farm country",
+      "ingredients": [
+        {
+          "name": "Coweta peaches",
+          "months": [
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "butterbeans",
+          "months": [
+            5,
+            6,
+            7,
+            8
+          ]
+        }
+      ],
+      "seasons": "Peach season May-Aug",
+      "farmers_market": "Coweta farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Atlanta, Georgia; subscription-credible."
+    },
+    "US-SE-BIRMINGHAM": {
+      "market": "US-SE-BIRMINGHAM",
+      "frontier_market": "US-AL-CLANTON",
+      "place": "Clanton, Alabama 35045 — Chilton peach county",
+      "ingredients": [
+        {
+          "name": "Chilton peaches",
+          "months": [
+            5,
+            6,
+            7,
+            8,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "pecans",
+          "months": [
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Peach season May-Aug; pecans Oct-Dec",
+      "farmers_market": "Clanton peach stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Birmingham, Alabama; subscription-credible."
+    },
+    "US-SE-CHARLOTTE": {
+      "market": "US-SE-CHARLOTTE",
+      "frontier_market": "US-NC-DALLAS",
+      "place": "Dallas, North Carolina 28034 — Gaston farm town",
+      "ingredients": [
+        {
+          "name": "Gaston produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet potatoes",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jun-Sep",
+      "farmers_market": "Gaston farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Charlotte, North Carolina; subscription-credible."
+    },
+    "US-SE-COAST": {
+      "market": "US-SE-COAST",
+      "frontier_market": "US-SC-RIDGELAND",
+      "place": "Ridgeland, South Carolina 29936 — Jasper farm country",
+      "ingredients": [
+        {
+          "name": "Jasper tomatoes",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "watermelon",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        }
+      ],
+      "seasons": "Tomato season Jun-Jul; melon Jul-Aug",
+      "farmers_market": "Ridgeland farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Savannah + Charleston, Coastal Southeast; subscription-credible."
+    },
+    "US-SE-FL": {
+      "market": "US-SE-FL",
+      "frontier_market": "US-FL-HOMESTEAD",
+      "place": "Homestead, Florida 33030 — Redland farm belt",
+      "ingredients": [
+        {
+          "name": "Redland tropical fruit",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "winter tomatoes",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Tropical fruit summer; tomatoes Nov-Apr",
+      "farmers_market": "Redland farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Miami + Orlando, Florida; subscription-credible."
+    },
+    "US-SE-JACKSON": {
+      "market": "US-SE-JACKSON",
+      "frontier_market": "US-MS-FLORA",
+      "place": "Flora, Mississippi 39071 — Madison County farms",
+      "ingredients": [
+        {
+          "name": "Flora produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "field peas",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jun-Sep",
+      "farmers_market": "Flora farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Jackson, Mississippi; subscription-credible."
+    },
+    "US-SE-JAX": {
+      "market": "US-SE-JAX",
+      "frontier_market": "US-FL-STARKE",
+      "place": "Starke, Florida 32091 — Bradford farm town",
+      "ingredients": [
+        {
+          "name": "Bradford produce",
+          "months": [
+            4,
+            5
+          ]
+        },
+        {
+          "name": "blueberries",
+          "months": [
+            4,
+            5
+          ]
+        }
+      ],
+      "seasons": "Blueberry season Apr-May",
+      "farmers_market": "Starke farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Jacksonville, Florida; subscription-credible."
+    },
+    "US-SE-LOU": {
+      "market": "US-SE-LOU",
+      "frontier_market": "US-KY-SHELBYVILLE",
+      "place": "Shelbyville, Kentucky 40065 — Shelby County ag",
+      "ingredients": [
+        {
+          "name": "KY sweet corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Corn season Jul-Sep",
+      "farmers_market": "Shelby County farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Louisville, Kentucky; subscription-credible."
+    },
+    "US-SE-MEMPHIS": {
+      "market": "US-SE-MEMPHIS",
+      "frontier_market": "US-MS-HERNANDO",
+      "place": "Hernando, Mississippi 38632 — DeSoto farm town",
+      "ingredients": [
+        {
+          "name": "DeSoto produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet potatoes",
+          "months": [
+            9,
+            10,
+            11
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jun-Sep; sweets Sep-Nov",
+      "farmers_market": "Hernando farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Memphis, Tennessee; subscription-credible."
+    },
+    "US-SE-NASH": {
+      "market": "US-SE-NASH",
+      "frontier_market": "US-TN-LEIPERSFORK",
+      "place": "Leipers Fork, Tennessee 37064 — Williamson rural",
+      "ingredients": [
+        {
+          "name": "Williamson produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sorghum",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jun-Sep",
+      "farmers_market": "Leipers Fork farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Nashville, Tennessee; subscription-credible."
+    },
+    "US-SE-NOLA": {
+      "market": "US-SE-NOLA",
+      "frontier_market": "US-LA-COVINGTON",
+      "place": "Covington, Louisiana 70433 — northshore farm stands",
+      "ingredients": [
+        {
+          "name": "northshore strawberries",
+          "months": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "name": "creole tomatoes",
+          "months": [
+            6,
+            7
+          ]
+        }
+      ],
+      "seasons": "Strawberry season Mar-May; tomatoes Jun-Jul",
+      "farmers_market": "Covington farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to New Orleans, Louisiana; subscription-credible."
+    },
+    "US-SE-SANDERSVILLE": {
+      "market": "US-SE-SANDERSVILLE",
+      "frontier_market": "US-SE-SANDERSVILLE",
+      "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
+      "ingredients": [
+        {
+          "name": "Georgia pecans",
+          "months": [
+            10,
+            11,
+            12
+          ],
+          "peak": 11
+        },
+        {
+          "name": "Georgia peaches",
+          "months": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "peak": 7
+        },
+        {
+          "name": "sweet potatoes",
+          "months": [
+            9,
+            10,
+            11
+          ],
+          "peak": 10
+        },
+        {
+          "name": "muscadine grapes",
+          "months": [
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
+      "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Self-frontier market; no-retail gap served by subscription."
+    },
+    "US-SE-TAMPA": {
+      "market": "US-SE-TAMPA",
+      "frontier_market": "US-FL-PLANTCTY",
+      "place": "Plant City, Florida 33563 — strawberry capital",
+      "ingredients": [
+        {
+          "name": "Plant City strawberries",
+          "months": [
+            1,
+            2,
+            3,
+            12
+          ]
+        },
+        {
+          "name": "winter produce",
+          "months": [
+            1,
+            2,
+            3,
+            12
+          ]
+        }
+      ],
+      "seasons": "Strawberry season Dec-Mar",
+      "farmers_market": "Plant City farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
+      "link_note": "Nearby rural counterpart to Tampa, Florida; subscription-credible."
+    },
+    "US-SW-ALBQ": {
+      "market": "US-SW-ALBQ",
+      "frontier_market": "US-NM-CORRALES",
+      "place": "Corrales, New Mexico 87048 — Rio Grande bosque farms",
+      "ingredients": [
+        {
+          "name": "Corrales corn",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "valley produce",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        }
+      ],
+      "seasons": "Summer market season Jun-Sep (exact months unconfirmed — research dispatch)",
+      "farmers_market": "Corrales Growers Market (schedule unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Albuquerque, New Mexico; subscription-credible."
+    },
+    "US-SW-CLOUDCROFT": {
+      "market": "US-SW-CLOUDCROFT",
+      "frontier_market": "US-SW-CLOUDCROFT",
+      "place": "Cloudcroft, New Mexico 88317 — Sacramento Mountain lodge town",
+      "ingredients": [
+        {
+          "name": "pinon nuts",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "mountain berries",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        }
+      ],
+      "seasons": "Summer season Jun-Sep; pinon fall (exact months unconfirmed — research dispatch)",
+      "farmers_market": "Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Self-frontier market; no-retail gap served by subscription."
+    },
+    "US-SW-EL PASO": {
+      "market": "US-SW-EL PASO",
+      "frontier_market": "US-TX-FABENS",
+      "place": "Fabens, Texas 79838 — lower Rio Grande Valley farms",
+      "ingredients": [
+        {
+          "name": "valley chile",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "pecans",
+          "months": [
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Chile roast Aug-Sep; pecans Oct-Dec",
+      "farmers_market": "Fabens farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to El Paso, Texas; subscription-credible."
+    },
+    "US-SW-LASCRUCES": {
+      "market": "US-SW-LASCRUCES",
+      "frontier_market": "US-NM-HATCH",
+      "place": "Hatch, New Mexico 87937 — chile capital of the world",
+      "ingredients": [
+        {
+          "name": "Hatch green chile",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "chile ristras",
+          "months": [
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Hatch roast Aug-Sep",
+      "farmers_market": "Hatch roadside stands + roasters (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Las Cruces + Alamogordo, New Mexico; subscription-credible."
+    },
+    "US-SW-OKC": {
+      "market": "US-SW-OKC",
+      "frontier_market": "US-OK-GUTHRIE",
+      "place": "Guthrie, Oklahoma 73044 — Logan County farm town",
+      "ingredients": [
+        {
+          "name": "wheat-country produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jun-Sep",
+      "farmers_market": "Logan County farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Oklahoma City, Oklahoma; subscription-credible."
+    },
+    "US-SW-PHX": {
+      "market": "US-SW-PHX",
+      "frontier_market": "US-AZ-QUEENCREEK",
+      "place": "Queen Creek, Arizona 85142 — Schnepf farm country",
+      "ingredients": [
+        {
+          "name": "Schnepf peaches",
+          "months": [
+            4,
+            5,
+            6,
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            4,
+            5,
+            6,
+            9,
+            10,
+            11
+          ]
+        }
+      ],
+      "seasons": "Peach season Apr-Jun; fall festival Oct",
+      "farmers_market": "Schnepf Farms farm stand, Queen Creek",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Phoenix, Arizona; subscription-credible."
+    },
+    "US-SW-ROSWELL": {
+      "market": "US-SW-ROSWELL",
+      "frontier_market": "US-NM-ARTESIA",
+      "place": "Artesia, New Mexico 88210 — Pecos Valley dairy + pecan country",
+      "ingredients": [
+        {
+          "name": "pecans",
+          "months": [
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "dairy",
+          "months": [
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Pecan harvest Oct-Dec",
+      "farmers_market": "Artesia farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Roswell + Carlsbad, New Mexico; subscription-credible."
+    },
+    "US-SW-SANTA FE": {
+      "market": "US-SW-SANTA FE",
+      "frontier_market": "US-NM-CHIMAYO",
+      "place": "Chimayo, New Mexico 87522 — high-road chile country",
+      "ingredients": [
+        {
+          "name": "Chimayo chile",
+          "months": [
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "name": "heirloom corn",
+          "months": [
+            8,
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Chile harvest Aug-Oct",
+      "farmers_market": "Chimayo farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Santa Fe, New Mexico; subscription-credible."
+    },
+    "US-SW-TIMBERON": {
+      "market": "US-SW-TIMBERON",
+      "frontier_market": "US-SW-TIMBERON",
+      "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+      "ingredients": [
+        {
+          "name": "piñon nuts",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        }
+      ],
+      "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
+      "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Self-frontier market; no-retail gap served by subscription."
+    },
+    "US-SW-TULAROSA": {
+      "market": "US-SW-TULAROSA",
+      "frontier_market": "US-NM-LALUZ",
+      "place": "La Luz, New Mexico 88337 — Sacramento foothill orchards",
+      "ingredients": [
+        {
+          "name": "canyon apples",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "stone fruit",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        }
+      ],
+      "seasons": "Orchard season Jul-Sep (exact months unconfirmed — research dispatch)",
+      "farmers_market": "La Luz farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Tularosa, NM 88352; subscription-credible."
+    },
+    "US-UT-KAMASVALLEY": {
+      "market": "US-UT-KAMASVALLEY",
+      "frontier_market": "US-UT-KAMASVALLEY",
+      "place": "Kamas Valley, Utah 84036 — Peoa/Oakley ranch country",
+      "ingredients": [
+        {
+          "name": "Oakley grass-fed beef",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "mountain produce",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        }
+      ],
+      "seasons": "Summer market season (exact months unconfirmed — research dispatch)",
+      "farmers_market": "Oakley Farmers Market at Oakley Rodeo Grounds (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Self-frontier market; no-retail gap served by subscription."
+    },
+    "US-W-ANCHORAGE": {
+      "market": "US-W-ANCHORAGE",
+      "frontier_market": "US-AK-PALMER",
+      "place": "Palmer, Alaska 99645 — Matanuska Valley farm belt",
+      "ingredients": [
+        {
+          "name": "Matanuska potatoes",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "giant cabbage",
+          "months": [
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Harvest Aug-Sep",
+      "farmers_market": "Palmer Friday Fling + valley stands (schedule unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Anchorage, Alaska; subscription-credible."
+    },
+    "US-W-BEND": {
+      "market": "US-W-BEND",
+      "frontier_market": "US-OR-SISTERS",
+      "place": "Sisters, Oregon 97759 — High desert farm town",
+      "ingredients": [
+        {
+          "name": "high-desert produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "ponderosa honey",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jul-Sep",
+      "farmers_market": "Sisters farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Bend, Oregon; subscription-credible."
+    },
+    "US-W-BOULDER": {
+      "market": "US-W-BOULDER",
+      "frontier_market": "US-CO-LYONS",
+      "place": "Lyons, Colorado 80540 — St Vrain farm belt",
+      "ingredients": [
+        {
+          "name": "St Vrain produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "orchard fruit",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jun-Sep",
+      "farmers_market": "Lyons farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Boulder, Colorado; subscription-credible."
+    },
+    "US-W-HONOLULU": {
+      "market": "US-W-HONOLULU",
+      "frontier_market": "US-HI-WAIALUA",
+      "place": "Waialua, Oahu 96791 — North Shore farm town",
+      "ingredients": [
+        {
+          "name": "Waialua cacao",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "tropical fruit",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Tropical produce year-round",
+      "farmers_market": "Waialua farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Honolulu, Hawaii; subscription-credible."
+    },
+    "US-W-LA": {
+      "market": "US-W-LA",
+      "frontier_market": "US-CA-FILLMORE",
+      "place": "Fillmore, California 93015 — Santa Clara Valley citrus",
+      "ingredients": [
+        {
+          "name": "Fillmore citrus",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "avocados",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Citrus Nov-Apr; avocado spring",
+      "farmers_market": "Fillmore farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.harleyfarms.com",
+      "link_note": "Nearby rural counterpart to Los Angeles, California; subscription-credible."
+    },
+    "US-W-PDX": {
+      "market": "US-W-PDX",
+      "frontier_market": "US-OR-SAUVIE",
+      "place": "Sauvie Island, Oregon 97231 — Portland farm island",
+      "ingredients": [
+        {
+          "name": "island berries",
+          "months": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Berry season Jun-Aug; pumpkin patch Sep-Oct",
+      "farmers_market": "Sauvie Island farm stands",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Portland, Oregon; subscription-credible."
+    },
+    "US-W-RENO": {
+      "market": "US-W-RENO",
+      "frontier_market": "US-NV-FALLON",
+      "place": "Fallon, Nevada 89406 — Lahontan Valley ag town",
+      "ingredients": [
+        {
+          "name": "Fallon melons",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "alfalfa-country produce",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Melon season Jul-Sep",
+      "farmers_market": "Fallon farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.harleyfarms.com",
+      "link_note": "Nearby rural counterpart to Reno + Tahoe, Nevada/California; subscription-credible."
+    },
+    "US-W-SACRAMENTO": {
+      "market": "US-W-SACRAMENTO",
+      "frontier_market": "US-CA-DIXON",
+      "place": "Dixon, California 95620 — Solano farm town",
+      "ingredients": [
+        {
+          "name": "Dixon lamb",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        }
+      ],
+      "seasons": "Corn season Jun-Aug",
+      "farmers_market": "Dixon farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.harleyfarms.com",
+      "link_note": "Nearby rural counterpart to Sacramento, California; subscription-credible."
+    },
+    "US-W-SD": {
+      "market": "US-W-SD",
+      "frontier_market": "US-CA-JULIAN",
+      "place": "Julian, California 92036 — Cuyamaca mountain apple country",
+      "ingredients": [
+        {
+          "name": "Julian apples",
+          "months": [
+            8,
+            9,
+            10
+          ],
+          "peak": 9
+        },
+        {
+          "name": "pear cider",
+          "months": [
+            8,
+            9,
+            10
+          ],
+          "peak": 9
+        },
+        {
+          "name": "gold-rush main street",
+          "months": [
+            8,
+            9,
+            10
+          ],
+          "peak": 9
+        }
+      ],
+      "seasons": "Apple season late Aug–Oct (peak September)",
+      "farmers_market": "Julian farm stands + mountain orchards (standalone market URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.harleyfarms.com",
+      "link_note": "Nearby rural counterpart to San Diego, California; subscription-credible."
+    },
+    "US-W-SEA": {
+      "market": "US-W-SEA",
+      "frontier_market": "US-WA-CARNATION",
+      "place": "Carnation, Washington 98014 — Snoqualmie Valley farm town",
+      "ingredients": [
+        {
+          "name": "Remlinger berries",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "valley corn",
+          "months": [
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Berry season Jun-Aug; corn Aug-Sep",
+      "farmers_market": "Remlinger Farms stand + valley farm stands",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Seattle, Washington; subscription-credible."
+    },
+    "US-W-SF": {
+      "market": "US-W-SF",
+      "frontier_market": "US-CA-BOLINAS",
+      "place": "Bolinas, California 94924 — Marin farm coast",
+      "ingredients": [
+        {
+          "name": "Marin goat cheese",
+          "months": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "coastal produce",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Goat cheese Feb-Jun; produce year-round",
+      "farmers_market": "Bolinas + Point Reyes farm stands",
+      "farmers_market_url": "https://www.harleyfarms.com",
+      "link_note": "Nearby rural counterpart to San Francisco Bay Area, California; subscription-credible."
+    },
+    "US-W-SPOKANE": {
+      "market": "US-W-SPOKANE",
+      "frontier_market": "US-WA-GREENBLUFF",
+      "place": "Green Bluff, Washington 99025 — Spokane growers loop",
+      "ingredients": [
+        {
+          "name": "Green Bluff apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "peaches",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Peach season Aug; apples Sep-Oct",
+      "farmers_market": "Green Bluff growers stands",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Spokane, Washington; subscription-credible."
+    },
+    "US-W-VEGAS": {
+      "market": "US-W-VEGAS",
+      "frontier_market": "US-NV-MOAPA",
+      "place": "Moapa Valley, Nevada 89011 — Overton farm oasis",
+      "ingredients": [
+        {
+          "name": "Moapa greens",
+          "months": [
+            1,
+            2,
+            3,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "desert produce",
+          "months": [
+            1,
+            2,
+            3,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Winter greens Nov-Mar",
+      "farmers_market": "Moapa Valley farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": "https://www.harleyfarms.com",
+      "link_note": "Nearby rural counterpart to Las Vegas, Nevada; subscription-credible."
+    },
+    "US-W-YAKIMA": {
+      "market": "US-W-YAKIMA",
+      "frontier_market": "US-WA-TIETON",
+      "place": "Tieton, Washington 98947 — Yakima orchard town",
+      "ingredients": [
+        {
+          "name": "Tieton apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "stone fruit",
+          "months": [
+            7,
+            8
+          ]
+        }
+      ],
+      "seasons": "Stone fruit Jul-Aug; apples Sep-Oct",
+      "farmers_market": "Tieton farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Yakima + Tri-Cities, Washington; subscription-credible."
+    },
+    "US-WA-NEAHBAY": {
+      "market": "US-WA-NEAHBAY",
+      "frontier_market": "US-WA-NEAHBAY",
+      "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
+      "ingredients": [
+        {
+          "name": "Makah salmon",
+          "months": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "huckleberry",
+          "months": [
+            8
+          ]
+        }
+      ],
+      "seasons": "Makah salmon May-Sep; huckleberry August",
+      "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Self-frontier market; no-retail gap served by subscription."
+    },
+    "US-CA-JULIAN": {
+      "market": "US-CA-JULIAN",
+      "frontier_market": "US-CA-JULIAN",
+      "place": "Julian, California 92036 — Cuyamaca mountain apple country",
+      "ingredients": [
+        {
+          "name": "Julian apples",
+          "months": [
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "name": "pear cider",
+          "months": [
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "name": "gold-rush main street",
+          "months": [
+            8,
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Apple season late Aug–Oct (peak September)",
+      "farmers_market": "Julian farm stands + mountain orchards (standalone market URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-UT-OAKLEY": {
+      "market": "US-UT-OAKLEY",
+      "frontier_market": "US-UT-OAKLEY",
+      "place": "Oakley, Utah 84055 — Wasatch Back ranch country",
+      "ingredients": [
+        {
+          "name": "Splendor Valley Farms produce",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "Oakley Rodeo Grounds farm stands",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        }
+      ],
+      "seasons": "Summer market season (exact months unconfirmed — research dispatch)",
+      "farmers_market": "Oakley Farmers Market at Oakley Rodeo Grounds (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-UT-MIDWAY": {
+      "market": "US-UT-MIDWAY",
+      "frontier_market": "US-UT-MIDWAY",
+      "place": "Midway, Utah 84049 — Wasatch County farm town",
+      "ingredients": [
+        {
+          "name": "Swiss-cheese dairy",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "root vegetables",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        }
+      ],
+      "seasons": "Summer market season Jun-Sep (exact months unconfirmed — research dispatch)",
+      "farmers_market": "Midway Town Square market stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-UT-GRANTSVILLE": {
+      "market": "US-UT-GRANTSVILLE",
+      "frontier_market": "US-UT-GRANTSVILLE",
+      "place": "Grantsville, Utah 84029 — Tooele County ranch town",
+      "ingredients": [
+        {
+          "name": "grass-fed beef",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "ranch eggs",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Year-round ranch; summer stands Jun-Sep",
+      "farmers_market": "Grantsville farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-NM-HATCH": {
+      "market": "US-NM-HATCH",
+      "frontier_market": "US-NM-HATCH",
+      "place": "Hatch, New Mexico 87937 — chile capital of the world",
+      "ingredients": [
+        {
+          "name": "Hatch green chile",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "chile ristras",
+          "months": [
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Hatch roast Aug-Sep",
+      "farmers_market": "Hatch roadside stands + roasters (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-NM-CORRALES": {
+      "market": "US-NM-CORRALES",
+      "frontier_market": "US-NM-CORRALES",
+      "place": "Corrales, New Mexico 87048 — Rio Grande bosque farms",
+      "ingredients": [
+        {
+          "name": "Corrales corn",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "valley produce",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        }
+      ],
+      "seasons": "Summer market season Jun-Sep (exact months unconfirmed — research dispatch)",
+      "farmers_market": "Corrales Growers Market (schedule unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-NM-CHIMAYO": {
+      "market": "US-NM-CHIMAYO",
+      "frontier_market": "US-NM-CHIMAYO",
+      "place": "Chimayo, New Mexico 87522 — high-road chile country",
+      "ingredients": [
+        {
+          "name": "Chimayo chile",
+          "months": [
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "name": "heirloom corn",
+          "months": [
+            8,
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Chile harvest Aug-Oct",
+      "farmers_market": "Chimayo farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-NM-ARTESIA": {
+      "market": "US-NM-ARTESIA",
+      "frontier_market": "US-NM-ARTESIA",
+      "place": "Artesia, New Mexico 88210 — Pecos Valley dairy + pecan country",
+      "ingredients": [
+        {
+          "name": "pecans",
+          "months": [
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "dairy",
+          "months": [
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Pecan harvest Oct-Dec",
+      "farmers_market": "Artesia farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-NM-LALUZ": {
+      "market": "US-NM-LALUZ",
+      "frontier_market": "US-NM-LALUZ",
+      "place": "La Luz, New Mexico 88337 — Sacramento foothill orchards",
+      "ingredients": [
+        {
+          "name": "canyon apples",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "stone fruit",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        }
+      ],
+      "seasons": "Orchard season Jul-Sep (exact months unconfirmed — research dispatch)",
+      "farmers_market": "La Luz farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-TX-FABENS": {
+      "market": "US-TX-FABENS",
+      "frontier_market": "US-TX-FABENS",
+      "place": "Fabens, Texas 79838 — lower Rio Grande Valley farms",
+      "ingredients": [
+        {
+          "name": "valley chile",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "pecans",
+          "months": [
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Chile roast Aug-Sep; pecans Oct-Dec",
+      "farmers_market": "Fabens farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-TX-FREDERICKSBURG": {
+      "market": "US-TX-FREDERICKSBURG",
+      "frontier_market": "US-TX-FREDERICKSBURG",
+      "place": "Fredericksburg, Texas 78624 — Hill Country peach town",
+      "ingredients": [
+        {
+          "name": "Hill Country peaches",
+          "months": [
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "wine-country produce",
+          "months": [
+            5,
+            6,
+            7,
+            8
+          ]
+        }
+      ],
+      "seasons": "Peach season May-Aug",
+      "farmers_market": "Fredericksburg orchard stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-TX-WAXAHACHIE": {
+      "market": "US-TX-WAXAHACHIE",
+      "frontier_market": "US-TX-WAXAHACHIE",
+      "place": "Waxahachie, Texas 75165 — Ellis County farm country",
+      "ingredients": [
+        {
+          "name": "blackland corn",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jun-Sep",
+      "farmers_market": "Ellis County farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-TX-CHAPPELLHILL": {
+      "market": "US-TX-CHAPPELLHILL",
+      "frontier_market": "US-TX-CHAPPELLHILL",
+      "place": "Chappell Hill, Texas 77426 — Washington County farms",
+      "ingredients": [
+        {
+          "name": "bluebonnet-country produce",
+          "months": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        }
+      ],
+      "seasons": "Spring-summer produce Mar-Aug",
+      "farmers_market": "Chappell Hill farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-TX-POTEET": {
+      "market": "US-TX-POTEET",
+      "frontier_market": "US-TX-POTEET",
+      "place": "Poteet, Texas 78065 — strawberry capital",
+      "ingredients": [
+        {
+          "name": "strawberries",
+          "months": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "name": "spring produce",
+          "months": [
+            3,
+            4,
+            5
+          ]
+        }
+      ],
+      "seasons": "Strawberry season Mar-May",
+      "farmers_market": "Poteet farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-OK-GUTHRIE": {
+      "market": "US-OK-GUTHRIE",
+      "frontier_market": "US-OK-GUTHRIE",
+      "place": "Guthrie, Oklahoma 73044 — Logan County farm town",
+      "ingredients": [
+        {
+          "name": "wheat-country produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jun-Sep",
+      "farmers_market": "Logan County farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-AZ-QUEENCREEK": {
+      "market": "US-AZ-QUEENCREEK",
+      "frontier_market": "US-AZ-QUEENCREEK",
+      "place": "Queen Creek, Arizona 85142 — Schnepf farm country",
+      "ingredients": [
+        {
+          "name": "Schnepf peaches",
+          "months": [
+            4,
+            5,
+            6,
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            4,
+            5,
+            6,
+            9,
+            10,
+            11
+          ]
+        }
+      ],
+      "seasons": "Peach season Apr-Jun; fall festival Oct",
+      "farmers_market": "Schnepf Farms farm stand, Queen Creek",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-AZ-MARANA": {
+      "market": "US-AZ-MARANA",
+      "frontier_market": "US-AZ-MARANA",
+      "place": "Marana, Arizona 85653 — Santa Cruz Valley farm town",
+      "ingredients": [
+        {
+          "name": "Marana corn",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "cotton-country produce",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        }
+      ],
+      "seasons": "Corn season Jun-Aug",
+      "farmers_market": "Marana farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-CO-ELIZABETH": {
+      "market": "US-CO-ELIZABETH",
+      "frontier_market": "US-CO-ELIZABETH",
+      "place": "Elizabeth, Colorado 80107 — Elbert County ranch country",
+      "ingredients": [
+        {
+          "name": "grass-fed beef",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "ranch eggs",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Year-round ranch; summer stands Jun-Sep",
+      "farmers_market": "Elbert County farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-CO-LYONS": {
+      "market": "US-CO-LYONS",
+      "frontier_market": "US-CO-LYONS",
+      "place": "Lyons, Colorado 80540 — St Vrain farm belt",
+      "ingredients": [
+        {
+          "name": "St Vrain produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "orchard fruit",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jun-Sep",
+      "farmers_market": "Lyons farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-WY-ALPINE": {
+      "market": "US-WY-ALPINE",
+      "frontier_market": "US-WY-ALPINE",
+      "place": "Alpine, Wyoming 83128 — Star Valley dairy country",
+      "ingredients": [
+        {
+          "name": "Star Valley dairy",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "root vegetables",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer dairy season Jun-Sep",
+      "farmers_market": "Star Valley farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-MT-FRENCHTOWN": {
+      "market": "US-MT-FRENCHTOWN",
+      "frontier_market": "US-MT-FRENCHTOWN",
+      "place": "Frenchtown, Montana 59834 — Missoula County farm town",
+      "ingredients": [
+        {
+          "name": "Flathead cherry halo",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Cherry season Jul; corn Aug-Sep",
+      "farmers_market": "Frenchtown farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-ID-KUNA": {
+      "market": "US-ID-KUNA",
+      "frontier_market": "US-ID-KUNA",
+      "place": "Kuna, Idaho 83634 — Treasure Valley dairy town",
+      "ingredients": [
+        {
+          "name": "dairy",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "Idaho potatoes",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Year-round dairy; potato harvest Sep-Oct",
+      "farmers_market": "Kuna farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-WA-CARNATION": {
+      "market": "US-WA-CARNATION",
+      "frontier_market": "US-WA-CARNATION",
+      "place": "Carnation, Washington 98014 — Snoqualmie Valley farm town",
+      "ingredients": [
+        {
+          "name": "Remlinger berries",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "valley corn",
+          "months": [
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Berry season Jun-Aug; corn Aug-Sep",
+      "farmers_market": "Remlinger Farms stand + valley farm stands",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-OR-SAUVIE": {
+      "market": "US-OR-SAUVIE",
+      "frontier_market": "US-OR-SAUVIE",
+      "place": "Sauvie Island, Oregon 97231 — Portland farm island",
+      "ingredients": [
+        {
+          "name": "island berries",
+          "months": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Berry season Jun-Aug; pumpkin patch Sep-Oct",
+      "farmers_market": "Sauvie Island farm stands",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-WA-TIETON": {
+      "market": "US-WA-TIETON",
+      "frontier_market": "US-WA-TIETON",
+      "place": "Tieton, Washington 98947 — Yakima orchard town",
+      "ingredients": [
+        {
+          "name": "Tieton apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "stone fruit",
+          "months": [
+            7,
+            8
+          ]
+        }
+      ],
+      "seasons": "Stone fruit Jul-Aug; apples Sep-Oct",
+      "farmers_market": "Tieton farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-WA-GREENBLUFF": {
+      "market": "US-WA-GREENBLUFF",
+      "frontier_market": "US-WA-GREENBLUFF",
+      "place": "Green Bluff, Washington 99025 — Spokane growers loop",
+      "ingredients": [
+        {
+          "name": "Green Bluff apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "peaches",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Peach season Aug; apples Sep-Oct",
+      "farmers_market": "Green Bluff growers stands",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-OR-SISTERS": {
+      "market": "US-OR-SISTERS",
+      "frontier_market": "US-OR-SISTERS",
+      "place": "Sisters, Oregon 97759 — High desert farm town",
+      "ingredients": [
+        {
+          "name": "high-desert produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "ponderosa honey",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jul-Sep",
+      "farmers_market": "Sisters farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-NV-FALLON": {
+      "market": "US-NV-FALLON",
+      "frontier_market": "US-NV-FALLON",
+      "place": "Fallon, Nevada 89406 — Lahontan Valley ag town",
+      "ingredients": [
+        {
+          "name": "Fallon melons",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "alfalfa-country produce",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Melon season Jul-Sep",
+      "farmers_market": "Fallon farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-CA-DIXON": {
+      "market": "US-CA-DIXON",
+      "frontier_market": "US-CA-DIXON",
+      "place": "Dixon, California 95620 — Solano farm town",
+      "ingredients": [
+        {
+          "name": "Dixon lamb",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        }
+      ],
+      "seasons": "Corn season Jun-Aug",
+      "farmers_market": "Dixon farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-CA-BOLINAS": {
+      "market": "US-CA-BOLINAS",
+      "frontier_market": "US-CA-BOLINAS",
+      "place": "Bolinas, California 94924 — Marin farm coast",
+      "ingredients": [
+        {
+          "name": "Marin goat cheese",
+          "months": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "coastal produce",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Goat cheese Feb-Jun; produce year-round",
+      "farmers_market": "Bolinas + Point Reyes farm stands",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-CA-BRENTWOOD": {
+      "market": "US-CA-BRENTWOOD",
+      "frontier_market": "US-CA-BRENTWOOD",
+      "place": "Brentwood, California 94513 — Delta farm town",
+      "ingredients": [
+        {
+          "name": "Delta cherries",
+          "months": [
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            7,
+            8
+          ]
+        }
+      ],
+      "seasons": "Cherry season May-Jun; corn Jul-Aug",
+      "farmers_market": "Brentwood U-pick stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-CA-FILLMORE": {
+      "market": "US-CA-FILLMORE",
+      "frontier_market": "US-CA-FILLMORE",
+      "place": "Fillmore, California 93015 — Santa Clara Valley citrus",
+      "ingredients": [
+        {
+          "name": "Fillmore citrus",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "avocados",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Citrus Nov-Apr; avocado spring",
+      "farmers_market": "Fillmore farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-NV-MOAPA": {
+      "market": "US-NV-MOAPA",
+      "frontier_market": "US-NV-MOAPA",
+      "place": "Moapa Valley, Nevada 89011 — Overton farm oasis",
+      "ingredients": [
+        {
+          "name": "Moapa greens",
+          "months": [
+            1,
+            2,
+            3,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "desert produce",
+          "months": [
+            1,
+            2,
+            3,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Winter greens Nov-Mar",
+      "farmers_market": "Moapa Valley farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-AK-PALMER": {
+      "market": "US-AK-PALMER",
+      "frontier_market": "US-AK-PALMER",
+      "place": "Palmer, Alaska 99645 — Matanuska Valley farm belt",
+      "ingredients": [
+        {
+          "name": "Matanuska potatoes",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "giant cabbage",
+          "months": [
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Harvest Aug-Sep",
+      "farmers_market": "Palmer Friday Fling + valley stands (schedule unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-HI-WAIALUA": {
+      "market": "US-HI-WAIALUA",
+      "frontier_market": "US-HI-WAIALUA",
+      "place": "Waialua, Oahu 96791 — North Shore farm town",
+      "ingredients": [
+        {
+          "name": "Waialua cacao",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "tropical fruit",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Tropical produce year-round",
+      "farmers_market": "Waialua farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-GA-SENOIA": {
+      "market": "US-GA-SENOIA",
+      "frontier_market": "US-GA-SENOIA",
+      "place": "Senoia, Georgia 30276 — Coweta farm country",
+      "ingredients": [
+        {
+          "name": "Coweta peaches",
+          "months": [
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "butterbeans",
+          "months": [
+            5,
+            6,
+            7,
+            8
+          ]
+        }
+      ],
+      "seasons": "Peach season May-Aug",
+      "farmers_market": "Coweta farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-TN-LEIPERSFORK": {
+      "market": "US-TN-LEIPERSFORK",
+      "frontier_market": "US-TN-LEIPERSFORK",
+      "place": "Leipers Fork, Tennessee 37064 — Williamson rural",
+      "ingredients": [
+        {
+          "name": "Williamson produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sorghum",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jun-Sep",
+      "farmers_market": "Leipers Fork farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-KY-SHELBYVILLE": {
+      "market": "US-KY-SHELBYVILLE",
+      "frontier_market": "US-KY-SHELBYVILLE",
+      "place": "Shelbyville, Kentucky 40065 — Shelby County ag",
+      "ingredients": [
+        {
+          "name": "KY sweet corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Corn season Jul-Sep",
+      "farmers_market": "Shelby County farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-MS-HERNANDO": {
+      "market": "US-MS-HERNANDO",
+      "frontier_market": "US-MS-HERNANDO",
+      "place": "Hernando, Mississippi 38632 — DeSoto farm town",
+      "ingredients": [
+        {
+          "name": "DeSoto produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet potatoes",
+          "months": [
+            9,
+            10,
+            11
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jun-Sep; sweets Sep-Nov",
+      "farmers_market": "Hernando farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-AL-CLANTON": {
+      "market": "US-AL-CLANTON",
+      "frontier_market": "US-AL-CLANTON",
+      "place": "Clanton, Alabama 35045 — Chilton peach county",
+      "ingredients": [
+        {
+          "name": "Chilton peaches",
+          "months": [
+            5,
+            6,
+            7,
+            8,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "pecans",
+          "months": [
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Peach season May-Aug; pecans Oct-Dec",
+      "farmers_market": "Clanton peach stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-MS-FLORA": {
+      "market": "US-MS-FLORA",
+      "frontier_market": "US-MS-FLORA",
+      "place": "Flora, Mississippi 39071 — Madison County farms",
+      "ingredients": [
+        {
+          "name": "Flora produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "field peas",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jun-Sep",
+      "farmers_market": "Flora farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-LA-COVINGTON": {
+      "market": "US-LA-COVINGTON",
+      "frontier_market": "US-LA-COVINGTON",
+      "place": "Covington, Louisiana 70433 — northshore farm stands",
+      "ingredients": [
+        {
+          "name": "northshore strawberries",
+          "months": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "name": "creole tomatoes",
+          "months": [
+            6,
+            7
+          ]
+        }
+      ],
+      "seasons": "Strawberry season Mar-May; tomatoes Jun-Jul",
+      "farmers_market": "Covington farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-NC-DALLAS": {
+      "market": "US-NC-DALLAS",
+      "frontier_market": "US-NC-DALLAS",
+      "place": "Dallas, North Carolina 28034 — Gaston farm town",
+      "ingredients": [
+        {
+          "name": "Gaston produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet potatoes",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jun-Sep",
+      "farmers_market": "Gaston farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-NC-PITTSBORO": {
+      "market": "US-NC-PITTSBORO",
+      "frontier_market": "US-NC-PITTSBORO",
+      "place": "Pittsboro, North Carolina 27312 — Chatham farm belt",
+      "ingredients": [
+        {
+          "name": "Chatham produce",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "pastured meats",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Year-round market town",
+      "farmers_market": "Pittsboro farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-SC-RIDGELAND": {
+      "market": "US-SC-RIDGELAND",
+      "frontier_market": "US-SC-RIDGELAND",
+      "place": "Ridgeland, South Carolina 29936 — Jasper farm country",
+      "ingredients": [
+        {
+          "name": "Jasper tomatoes",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "watermelon",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        }
+      ],
+      "seasons": "Tomato season Jun-Jul; melon Jul-Aug",
+      "farmers_market": "Ridgeland farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-FL-STARKE": {
+      "market": "US-FL-STARKE",
+      "frontier_market": "US-FL-STARKE",
+      "place": "Starke, Florida 32091 — Bradford farm town",
+      "ingredients": [
+        {
+          "name": "Bradford produce",
+          "months": [
+            4,
+            5
+          ]
+        },
+        {
+          "name": "blueberries",
+          "months": [
+            4,
+            5
+          ]
+        }
+      ],
+      "seasons": "Blueberry season Apr-May",
+      "farmers_market": "Starke farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-FL-PLANTCTY": {
+      "market": "US-FL-PLANTCTY",
+      "frontier_market": "US-FL-PLANTCTY",
+      "place": "Plant City, Florida 33563 — strawberry capital",
+      "ingredients": [
+        {
+          "name": "Plant City strawberries",
+          "months": [
+            1,
+            2,
+            3,
+            12
+          ]
+        },
+        {
+          "name": "winter produce",
+          "months": [
+            1,
+            2,
+            3,
+            12
+          ]
+        }
+      ],
+      "seasons": "Strawberry season Dec-Mar",
+      "farmers_market": "Plant City farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-FL-HOMESTEAD": {
+      "market": "US-FL-HOMESTEAD",
+      "frontier_market": "US-FL-HOMESTEAD",
+      "place": "Homestead, Florida 33030 — Redland farm belt",
+      "ingredients": [
+        {
+          "name": "Redland tropical fruit",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "winter tomatoes",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Tropical fruit summer; tomatoes Nov-Apr",
+      "farmers_market": "Redland farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-NC-MARSHALL": {
+      "market": "US-NC-MARSHALL",
+      "frontier_market": "US-NC-MARSHALL",
+      "place": "Marshall, North Carolina 28753 — Madison farm mountains",
+      "ingredients": [
+        {
+          "name": "mountain apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "heirloom corn",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Apple season Sep-Oct",
+      "farmers_market": "Marshall farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-IL-HARVARD": {
+      "market": "US-IL-HARVARD",
+      "frontier_market": "US-IL-HARVARD",
+      "place": "Harvard, Illinois 60033 — McHenry dairy town",
+      "ingredients": [
+        {
+          "name": "McHenry dairy",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Corn season Jul-Sep",
+      "farmers_market": "McHenry farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-MN-STILLWATER": {
+      "market": "US-MN-STILLWATER",
+      "frontier_market": "US-MN-STILLWATER",
+      "place": "Stillwater, Minnesota 55082 — St Croix orchard town",
+      "ingredients": [
+        {
+          "name": "St Croix apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Apple season Sep-Oct",
+      "farmers_market": "Stillwater orchard stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-WI-CEDARBURG": {
+      "market": "US-WI-CEDARBURG",
+      "frontier_market": "US-WI-CEDARBURG",
+      "place": "Cedarburg, Wisconsin 53012 — Ozaukee farm town",
+      "ingredients": [
+        {
+          "name": "Ozaukee strawberries",
+          "months": [
+            6,
+            7
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            6,
+            7
+          ]
+        }
+      ],
+      "seasons": "Strawberry season Jun-Jul",
+      "farmers_market": "Cedarburg farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-MI-ARMADA": {
+      "market": "US-MI-ARMADA",
+      "frontier_market": "US-MI-ARMADA",
+      "place": "Armada, Michigan 48005 — Macomb orchard town",
+      "ingredients": [
+        {
+          "name": "Armada apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "peaches",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Peach season Aug; apples Sep-Oct",
+      "farmers_market": "Armada orchard stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-OH-BURTON": {
+      "market": "US-OH-BURTON",
+      "frontier_market": "US-OH-BURTON",
+      "place": "Burton, Ohio 44021 — Geauga maple country",
+      "ingredients": [
+        {
+          "name": "Geauga maple",
+          "months": [
+            3,
+            4
+          ]
+        },
+        {
+          "name": "apples",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Maple season Mar-Apr; apples Sep-Oct",
+      "farmers_market": "Geauga farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-IN-DANVILLE": {
+      "market": "US-IN-DANVILLE",
+      "frontier_market": "US-IN-DANVILLE",
+      "place": "Danville, Indiana 46122 — Hendricks farm town",
+      "ingredients": [
+        {
+          "name": "Hendricks corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Corn season Jul-Sep",
+      "farmers_market": "Hendricks farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-IL-WATERLOO": {
+      "market": "US-IL-WATERLOO",
+      "frontier_market": "US-IL-WATERLOO",
+      "place": "Waterloo, Illinois 62298 — Monroe farm town",
+      "ingredients": [
+        {
+          "name": "Monroe produce",
+          "months": [
+            7,
+            8
+          ]
+        },
+        {
+          "name": "peaches",
+          "months": [
+            7,
+            8
+          ]
+        }
+      ],
+      "seasons": "Peach season Jul-Aug",
+      "farmers_market": "Monroe farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-MO-WESTON": {
+      "market": "US-MO-WESTON",
+      "frontier_market": "US-MO-WESTON",
+      "place": "Weston, Missouri 64098 — Platte orchard town",
+      "ingredients": [
+        {
+          "name": "Weston apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Apple season Sep-Oct",
+      "farmers_market": "Weston orchard stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-NE-WAHOO": {
+      "market": "US-NE-WAHOO",
+      "frontier_market": "US-NE-WAHOO",
+      "place": "Wahoo, Nebraska 68066 — Saunders farm town",
+      "ingredients": [
+        {
+          "name": "Saunders corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "soy-country produce",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Corn season Jul-Sep",
+      "farmers_market": "Saunders farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-IA-PELLA": {
+      "market": "US-IA-PELLA",
+      "frontier_market": "US-IA-PELLA",
+      "place": "Pella, Iowa 50219 — Marion ag town",
+      "ingredients": [
+        {
+          "name": "Marion sweet corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "tulip-time produce",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Corn season Jul-Sep",
+      "farmers_market": "Marion farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-MN-BARNESVILLE": {
+      "market": "US-MN-BARNESVILLE",
+      "frontier_market": "US-MN-BARNESVILLE",
+      "place": "Barnesville, Minnesota 56514 — Clay County potato town",
+      "ingredients": [
+        {
+          "name": "Red River potatoes",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "sugar beets",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Harvest Sep-Oct",
+      "farmers_market": "Clay County farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-MN-CLOQUET": {
+      "market": "US-MN-CLOQUET",
+      "frontier_market": "US-MN-CLOQUET",
+      "place": "Cloquet, Minnesota 55720 — Carlton farm town",
+      "ingredients": [
+        {
+          "name": "Carlton produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "wild-rice halo",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jul-Sep",
+      "farmers_market": "Carlton farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-MA-BOLTON": {
+      "market": "US-MA-BOLTON",
+      "frontier_market": "US-MA-BOLTON",
+      "place": "Bolton, Massachusetts 01740 — orchard town",
+      "ingredients": [
+        {
+          "name": "Bolton apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "cider",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ],
+      "seasons": "Apple season Sep-Oct",
+      "farmers_market": "Bolton orchard stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-NY-WARWICK": {
+      "market": "US-NY-WARWICK",
+      "frontier_market": "US-NY-WARWICK",
+      "place": "Warwick, New York 10990 — black-dirt farm town",
+      "ingredients": [
+        {
+          "name": "black-dirt onions",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Onion harvest Aug-Sep",
+      "farmers_market": "Warwick farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-PA-KENNETT": {
+      "market": "US-PA-KENNETT",
+      "frontier_market": "US-PA-KENNETT",
+      "place": "Kennett Square, Pennsylvania 19348 — mushroom capital",
+      "ingredients": [
+        {
+          "name": "Kennett mushrooms",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "produce",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Mushrooms year-round",
+      "farmers_market": "Kennett Square farm stands",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-VA-PURCELLVILLE": {
+      "market": "US-VA-PURCELLVILLE",
+      "frontier_market": "US-VA-PURCELLVILLE",
+      "place": "Purcellville, Virginia 20132 — Loudoun farm town",
+      "ingredients": [
+        {
+          "name": "Loudoun produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "orchard fruit",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jun-Sep",
+      "farmers_market": "Loudoun farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-MD-WESTMINSTER": {
+      "market": "US-MD-WESTMINSTER",
+      "frontier_market": "US-MD-WESTMINSTER",
+      "place": "Westminster, Maryland 21157 — Carroll farm town",
+      "ingredients": [
+        {
+          "name": "Carroll corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "dairy",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Corn season Jul-Sep",
+      "farmers_market": "Carroll farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-VT-SHELBURNE": {
+      "market": "US-VT-SHELBURNE",
+      "frontier_market": "US-VT-SHELBURNE",
+      "place": "Shelburne, Vermont 05482 — lake farm town",
+      "ingredients": [
+        {
+          "name": "Shelburne cheddar",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "orchard fruit",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "seasons": "Cheddar year-round; apples Sep-Oct",
+      "farmers_market": "Shelburne Farms stand + farm stands",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-CT-SUFFIELD": {
+      "market": "US-CT-SUFFIELD",
+      "frontier_market": "US-CT-SUFFIELD",
+      "place": "Suffield, Connecticut 06078 — river-valley farm town",
+      "ingredients": [
+        {
+          "name": "valley produce",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Corn season Jul-Sep",
+      "farmers_market": "Suffield farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+    },
+    "US-RI-SCITUATE": {
+      "market": "US-RI-SCITUATE",
+      "frontier_market": "US-RI-SCITUATE",
+      "place": "Scituate, Rhode Island 02857 — rural farm town",
+      "ingredients": [
+        {
+          "name": "Scituate produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Summer produce Jul-Sep",
+      "farmers_market": "Scituate farm stands (standalone URL unconfirmed — research dispatch)",
+      "farmers_market_url": null,
+      "link_note": "Frontier self-entry; no-retail gap served by subscription."
     }
-   ],
-   "seasons": "Summer market season (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Oakley Farmers Market at Oakley Rodeo Grounds (standalone URL unconfirmed — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Wasatch Back rural counterpart to Park City; close, same-state, subscription-credible."
-  },
-  "US-MW-WASATCH": {
-   "market": "US-MW-WASATCH",
-   "frontier_market": "US-UT-OAKLEY",
-   "place": "Oakley, Utah 84055 — Wasatch Back ranch country",
-   "ingredients": [
-    {
-     "name": "Splendor Valley Farms produce",
-     "months": null,
-     "note": "user-sourced anchor farm; seasons unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Summer market season (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Oakley Farmers Market at Oakley Rodeo Grounds (standalone URL unconfirmed — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Wasatch Back rural counterpart to Park City; close, same-state, subscription-credible."
-  },
-  "US-SW-LASCRUCES": {
-   "market": "US-SW-LASCRUCES",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: Sacramento Mountains neighbour."
-  },
-  "US-SW-ALBQ": {
-   "market": "US-SW-ALBQ",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: south to the Sacramento Mountains."
-  },
-  "US-SC-AUSTIN": {
-   "market": "US-SC-AUSTIN",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: west to the Sacramento Mountains."
-  },
-  "US-SE-FL": {
-   "market": "US-SE-FL",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-SE-COAST": {
-   "market": "US-SE-COAST",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-SE-ATL": {
-   "market": "US-SE-ATL",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-MW-CHI": {
-   "market": "US-MW-CHI",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Nearest featured frontier in data (exact mileage unconfirmed)."
-  },
-  "US-MW-TC": {
-   "market": "US-MW-TC",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Nearest featured frontier in data (exact mileage unconfirmed)."
-  },
-  "US-MW-DEN": {
-   "market": "US-MW-DEN",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: south along the Rockies to the Sacramento Mountains."
-  },
-  "US-W-SEA": {
-   "market": "US-W-SEA",
-   "frontier_market": "US-WA-NEAHBAY",
-   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
-   "ingredients": [
-    {
-     "name": "Makah salmon",
-     "months": [
-      5,
-      6,
-      7,
-      8,
-      9
-     ]
-    },
-    {
-     "name": "huckleberry",
-     "months": [
-      8
-     ]
-    }
-   ],
-   "seasons": "Makah salmon May-Sep; huckleberry August",
-   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: Neah Bay 98357 (70mi) — Makah salmon + huckleberry."
-  },
-  "US-W-PDX": {
-   "market": "US-W-PDX",
-   "frontier_market": "US-WA-NEAHBAY",
-   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
-   "ingredients": [
-    {
-     "name": "Makah salmon",
-     "months": [
-      5,
-      6,
-      7,
-      8,
-      9
-     ]
-    },
-    {
-     "name": "huckleberry",
-     "months": [
-      8
-     ]
-    }
-   ],
-   "seasons": "Makah salmon May-Sep; huckleberry August",
-   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: north to the Olympic Peninsula."
-  },
-  "US-W-LA": {
-   "market": "US-W-LA",
-   "frontier_market": "US-CA-PESCADERO",
-   "place": "Pescadero, California 94060 — San Mateo Coast",
-   "ingredients": [
-    {
-     "name": "Castroville artichokes",
-     "months": [
-      3,
-      4,
-      5,
-      6
-     ],
-     "peak": 4
-    },
-    {
-     "name": "Marin goat cheese",
-     "months": [
-      2,
-      3,
-      4,
-      5,
-      6
-     ]
-    },
-    {
-     "name": "strawberries",
-     "months": [
-      5,
-      6,
-      7,
-      8,
-      9
-     ]
-    },
-    {
-     "name": "Brussels sprouts",
-     "months": [
-      9,
-      10,
-      11,
-      12,
-      1,
-      2
-     ]
-    },
-    {
-     "name": "olive oil (fall press)",
-     "months": [
-      11
-     ]
-    }
-   ],
-   "seasons": "Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press",
-   "farmers_market": "Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero",
-   "farmers_market_url": "https://www.harleyfarms.com",
-   "link_note": "Nearest featured frontier: same San Mateo Coast foodshed, Los Angeles north up Highway 1."
-  },
-  "US-SE-NASH": {
-   "market": "US-SE-NASH",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-SE-LOU": {
-   "market": "US-SE-LOU",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-NE-BOS": {
-   "market": "US-NE-BOS",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-SW-PHX": {
-   "market": "US-SW-PHX",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: east to the Sacramento Mountains."
-  },
-  "US-NE-NYC": {
-   "market": "US-NE-NYC",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-SW-TIMBERON": {
-   "market": "US-SW-TIMBERON",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Is itself a featured frontier; resolves to its own place, ingredients, and seasons."
-  },
-  "US-MW-WASATCH-SLC": {
-   "market": "US-MW-WASATCH-SLC",
-   "frontier_market": "US-UT-OAKLEY",
-   "place": "Oakley, Utah 84055 — Wasatch Back ranch country",
-   "ingredients": [
-    {
-     "name": "Splendor Valley Farms produce",
-     "months": null,
-     "note": "user-sourced anchor farm; seasons unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Summer market season (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Oakley Farmers Market at Oakley Rodeo Grounds (standalone URL unconfirmed — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Wasatch Back rural counterpart to Park City; close, same-state, subscription-credible."
-  },
-  "US-W-SF": {
-   "market": "US-W-SF",
-   "frontier_market": "US-CA-PESCADERO",
-   "place": "Pescadero, California 94060 — San Mateo Coast",
-   "ingredients": [
-    {
-     "name": "Castroville artichokes",
-     "months": [
-      3,
-      4,
-      5,
-      6
-     ],
-     "peak": 4
-    },
-    {
-     "name": "Marin goat cheese",
-     "months": [
-      2,
-      3,
-      4,
-      5,
-      6
-     ]
-    },
-    {
-     "name": "strawberries",
-     "months": [
-      5,
-      6,
-      7,
-      8,
-      9
-     ]
-    },
-    {
-     "name": "Brussels sprouts",
-     "months": [
-      9,
-      10,
-      11,
-      12,
-      1,
-      2
-     ]
-    },
-    {
-     "name": "olive oil (fall press)",
-     "months": [
-      11
-     ]
-    }
-   ],
-   "seasons": "Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press",
-   "farmers_market": "Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero",
-   "farmers_market_url": "https://www.harleyfarms.com",
-   "link_note": "SF Bay hinterland frontier: Pescadero coast 35 mi south via Highway 1 / Highway 92. Replaces the generate.js hardcoded hint with this entry."
-  },
-  "US-W-SD": {
-   "market": "US-W-SD",
-   "frontier_market": "US-CA-PESCADERO",
-   "place": "Pescadero, California 94060 — San Mateo Coast",
-   "ingredients": [
-    {
-     "name": "Castroville artichokes",
-     "months": [
-      3,
-      4,
-      5,
-      6
-     ],
-     "peak": 4
-    },
-    {
-     "name": "Marin goat cheese",
-     "months": [
-      2,
-      3,
-      4,
-      5,
-      6
-     ]
-    },
-    {
-     "name": "strawberries",
-     "months": [
-      5,
-      6,
-      7,
-      8,
-      9
-     ]
-    },
-    {
-     "name": "Brussels sprouts",
-     "months": [
-      9,
-      10,
-      11,
-      12,
-      1,
-      2
-     ]
-    },
-    {
-     "name": "olive oil (fall press)",
-     "months": [
-      11
-     ]
-    }
-   ],
-   "seasons": "Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press",
-   "farmers_market": "Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero",
-   "farmers_market_url": "https://www.harleyfarms.com",
-   "link_note": "Nearest featured frontier: California coast foodshed."
-  },
-  "US-W-VEGAS": {
-   "market": "US-W-VEGAS",
-   "frontier_market": "US-CA-PESCADERO",
-   "place": "Pescadero, California 94060 — San Mateo Coast",
-   "ingredients": [
-    {
-     "name": "Castroville artichokes",
-     "months": [
-      3,
-      4,
-      5,
-      6
-     ],
-     "peak": 4
-    },
-    {
-     "name": "Marin goat cheese",
-     "months": [
-      2,
-      3,
-      4,
-      5,
-      6
-     ]
-    },
-    {
-     "name": "strawberries",
-     "months": [
-      5,
-      6,
-      7,
-      8,
-      9
-     ]
-    },
-    {
-     "name": "Brussels sprouts",
-     "months": [
-      9,
-      10,
-      11,
-      12,
-      1,
-      2
-     ]
-    },
-    {
-     "name": "olive oil (fall press)",
-     "months": [
-      11
-     ]
-    }
-   ],
-   "seasons": "Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press",
-   "farmers_market": "Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero",
-   "farmers_market_url": "https://www.harleyfarms.com",
-   "link_note": "Nearest featured frontier in the west: California coast foodshed."
-  },
-  "US-MW-PHX2": {
-   "market": "US-MW-PHX2",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: east to the Sacramento Mountains (Tucson)."
-  },
-  "US-SW-EL PASO": {
-   "market": "US-SW-EL PASO",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: north to the Sacramento Mountains."
-  },
-  "US-SC-DALLAS": {
-   "market": "US-SC-DALLAS",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: west to the Sacramento Mountains."
-  },
-  "US-SC-HOUSTON": {
-   "market": "US-SC-HOUSTON",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: west to the Sacramento Mountains."
-  },
-  "US-SC-SANANTONIO": {
-   "market": "US-SC-SANANTONIO",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: northwest to the Sacramento Mountains."
-  },
-  "US-MW-KC": {
-   "market": "US-MW-KC",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier in data: western-interior grouping."
-  },
-  "US-MW-STL": {
-   "market": "US-MW-STL",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Nearest featured frontier in data (exact mileage unconfirmed)."
-  },
-  "US-MW-OMAHA": {
-   "market": "US-MW-OMAHA",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier in data: western-interior grouping."
-  },
-  "US-MW-DESMOINES": {
-   "market": "US-MW-DESMOINES",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier in data: western-interior grouping."
-  },
-  "US-MW-MILWAUKEE": {
-   "market": "US-MW-MILWAUKEE",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Nearest featured frontier in data (exact mileage unconfirmed)."
-  },
-  "US-MW-DETROIT": {
-   "market": "US-MW-DETROIT",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Nearest featured frontier in data (exact mileage unconfirmed)."
-  },
-  "US-MW-CLEVELAND": {
-   "market": "US-MW-CLEVELAND",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Nearest featured frontier in data (exact mileage unconfirmed)."
-  },
-  "US-MW-INDY": {
-   "market": "US-MW-INDY",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Nearest featured frontier in data (exact mileage unconfirmed)."
-  },
-  "US-NE-PHILLY": {
-   "market": "US-NE-PHILLY",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-NE-DC": {
-   "market": "US-NE-DC",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-NE-BALTIMORE": {
-   "market": "US-NE-BALTIMORE",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-NE-RALEIGH": {
-   "market": "US-NE-RALEIGH",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-SE-CHARLOTTE": {
-   "market": "US-SE-CHARLOTTE",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-SE-JAX": {
-   "market": "US-SE-JAX",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-SE-TAMPA": {
-   "market": "US-SE-TAMPA",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-SE-NOLA": {
-   "market": "US-SE-NOLA",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-SE-MEMPHIS": {
-   "market": "US-SE-MEMPHIS",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-SE-BIRMINGHAM": {
-   "market": "US-SE-BIRMINGHAM",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-SE-JACKSON": {
-   "market": "US-SE-JACKSON",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-SW-OKC": {
-   "market": "US-SW-OKC",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier in data: southwest interior."
-  },
-  "US-MW-BOISE": {
-   "market": "US-MW-BOISE",
-   "frontier_market": "US-WA-NEAHBAY",
-   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
-   "ingredients": [
-    {
-     "name": "Makah salmon",
-     "months": [
-      5,
-      6,
-      7,
-      8,
-      9
-     ]
-    },
-    {
-     "name": "huckleberry",
-     "months": [
-      8
-     ]
-    }
-   ],
-   "seasons": "Makah salmon May-Sep; huckleberry August",
-   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: northwest to the Olympic Peninsula."
-  },
-  "US-W-YAKIMA": {
-   "market": "US-W-YAKIMA",
-   "frontier_market": "US-WA-NEAHBAY",
-   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
-   "ingredients": [
-    {
-     "name": "Makah salmon",
-     "months": [
-      5,
-      6,
-      7,
-      8,
-      9
-     ]
-    },
-    {
-     "name": "huckleberry",
-     "months": [
-      8
-     ]
-    }
-   ],
-   "seasons": "Makah salmon May-Sep; huckleberry August",
-   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: west to the Olympic Peninsula."
-  },
-  "US-W-SPOKANE": {
-   "market": "US-W-SPOKANE",
-   "frontier_market": "US-WA-NEAHBAY",
-   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
-   "ingredients": [
-    {
-     "name": "Makah salmon",
-     "months": [
-      5,
-      6,
-      7,
-      8,
-      9
-     ]
-    },
-    {
-     "name": "huckleberry",
-     "months": [
-      8
-     ]
-    }
-   ],
-   "seasons": "Makah salmon May-Sep; huckleberry August",
-   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: west across Washington to Neah Bay."
-  },
-  "US-MW-MISSOULA": {
-   "market": "US-MW-MISSOULA",
-   "frontier_market": "US-WA-NEAHBAY",
-   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
-   "ingredients": [
-    {
-     "name": "Makah salmon",
-     "months": [
-      5,
-      6,
-      7,
-      8,
-      9
-     ]
-    },
-    {
-     "name": "huckleberry",
-     "months": [
-      8
-     ]
-    }
-   ],
-   "seasons": "Makah salmon May-Sep; huckleberry August",
-   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: west to the Olympic Peninsula."
-  },
-  "US-W-RENO": {
-   "market": "US-W-RENO",
-   "frontier_market": "US-CA-PESCADERO",
-   "place": "Pescadero, California 94060 — San Mateo Coast",
-   "ingredients": [
-    {
-     "name": "Castroville artichokes",
-     "months": [
-      3,
-      4,
-      5,
-      6
-     ],
-     "peak": 4
-    },
-    {
-     "name": "Marin goat cheese",
-     "months": [
-      2,
-      3,
-      4,
-      5,
-      6
-     ]
-    },
-    {
-     "name": "strawberries",
-     "months": [
-      5,
-      6,
-      7,
-      8,
-      9
-     ]
-    },
-    {
-     "name": "Brussels sprouts",
-     "months": [
-      9,
-      10,
-      11,
-      12,
-      1,
-      2
-     ]
-    },
-    {
-     "name": "olive oil (fall press)",
-     "months": [
-      11
-     ]
-    }
-   ],
-   "seasons": "Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press",
-   "farmers_market": "Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero",
-   "farmers_market_url": "https://www.harleyfarms.com",
-   "link_note": "Nearest featured frontier: over the Sierra to the San Mateo Coast."
-  },
-  "US-W-SACRAMENTO": {
-   "market": "US-W-SACRAMENTO",
-   "frontier_market": "US-CA-PESCADERO",
-   "place": "Pescadero, California 94060 — San Mateo Coast",
-   "ingredients": [
-    {
-     "name": "Castroville artichokes",
-     "months": [
-      3,
-      4,
-      5,
-      6
-     ],
-     "peak": 4
-    },
-    {
-     "name": "Marin goat cheese",
-     "months": [
-      2,
-      3,
-      4,
-      5,
-      6
-     ]
-    },
-    {
-     "name": "strawberries",
-     "months": [
-      5,
-      6,
-      7,
-      8,
-      9
-     ]
-    },
-    {
-     "name": "Brussels sprouts",
-     "months": [
-      9,
-      10,
-      11,
-      12,
-      1,
-      2
-     ]
-    },
-    {
-     "name": "olive oil (fall press)",
-     "months": [
-      11
-     ]
-    }
-   ],
-   "seasons": "Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press",
-   "farmers_market": "Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero",
-   "farmers_market_url": "https://www.harleyfarms.com",
-   "link_note": "Nearest featured frontier: due west to the San Mateo Coast."
-  },
-  "US-MW-MINNEAPOLIS2": {
-   "market": "US-MW-MINNEAPOLIS2",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Nearest featured frontier in data (exact mileage unconfirmed)."
-  },
-  "US-MW-FARGO": {
-   "market": "US-MW-FARGO",
-   "frontier_market": "US-WA-NEAHBAY",
-   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
-   "ingredients": [
-    {
-     "name": "Makah salmon",
-     "months": [
-      5,
-      6,
-      7,
-      8,
-      9
-     ]
-    },
-    {
-     "name": "huckleberry",
-     "months": [
-      8
-     ]
-    }
-   ],
-   "seasons": "Makah salmon May-Sep; huckleberry August",
-   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier in data: northern tier."
-  },
-  "US-NE-BURLINGTON": {
-   "market": "US-NE-BURLINGTON",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-NE-HARTFORD": {
-   "market": "US-NE-HARTFORD",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-NE-PROVIDENCE": {
-   "market": "US-NE-PROVIDENCE",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-SW-SANTA FE": {
-   "market": "US-SW-SANTA FE",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: south to the Sacramento Mountains."
-  },
-  "US-SW-CLOUDCROFT": {
-   "market": "US-SW-CLOUDCROFT",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: Sacramento Mountains neighbour."
-  },
-  "US-SW-ROSWELL": {
-   "market": "US-SW-ROSWELL",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: west to the Sacramento Mountains."
-  },
-  "US-W-ANCHORAGE": {
-   "market": "US-W-ANCHORAGE",
-   "frontier_market": "US-WA-NEAHBAY",
-   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
-   "ingredients": [
-    {
-     "name": "Makah salmon",
-     "months": [
-      5,
-      6,
-      7,
-      8,
-      9
-     ]
-    },
-    {
-     "name": "huckleberry",
-     "months": [
-      8
-     ]
-    }
-   ],
-   "seasons": "Makah salmon May-Sep; huckleberry August",
-   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier in data: Pacific fishing-frontier kin."
-  },
-  "US-W-HONOLULU": {
-   "market": "US-W-HONOLULU",
-   "frontier_market": "US-WA-NEAHBAY",
-   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
-   "ingredients": [
-    {
-     "name": "Makah salmon",
-     "months": [
-      5,
-      6,
-      7,
-      8,
-      9
-     ]
-    },
-    {
-     "name": "huckleberry",
-     "months": [
-      8
-     ]
-    }
-   ],
-   "seasons": "Makah salmon May-Sep; huckleberry August",
-   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier in data: Pacific fishing-frontier kin."
-  },
-  "US-SE-ASHEVILLE": {
-   "market": "US-SE-ASHEVILLE",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Southeast/East-Coast grouping: Sandersville kaolin-belt farm country."
-  },
-  "US-MW-JACKSONHOLE": {
-   "market": "US-MW-JACKSONHOLE",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: south along the Rockies to the Sacramento Mountains."
-  },
-  "US-W-BEND": {
-   "market": "US-W-BEND",
-   "frontier_market": "US-WA-NEAHBAY",
-   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
-   "ingredients": [
-    {
-     "name": "Makah salmon",
-     "months": [
-      5,
-      6,
-      7,
-      8,
-      9
-     ]
-    },
-    {
-     "name": "huckleberry",
-     "months": [
-      8
-     ]
-    }
-   ],
-   "seasons": "Makah salmon May-Sep; huckleberry August",
-   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: north to the Olympic Peninsula."
-  },
-  "US-W-BOULDER": {
-   "market": "US-W-BOULDER",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: south along the Rockies to the Sacramento Mountains."
-  },
-  "US-CA-PESCADERO": {
-   "market": "US-CA-PESCADERO",
-   "frontier_market": "US-CA-PESCADERO",
-   "place": "Pescadero, California 94060 — San Mateo Coast",
-   "ingredients": [
-    {
-     "name": "Castroville artichokes",
-     "months": [
-      3,
-      4,
-      5,
-      6
-     ],
-     "peak": 4
-    },
-    {
-     "name": "Marin goat cheese",
-     "months": [
-      2,
-      3,
-      4,
-      5,
-      6
-     ]
-    },
-    {
-     "name": "strawberries",
-     "months": [
-      5,
-      6,
-      7,
-      8,
-      9
-     ]
-    },
-    {
-     "name": "Brussels sprouts",
-     "months": [
-      9,
-      10,
-      11,
-      12,
-      1,
-      2
-     ]
-    },
-    {
-     "name": "olive oil (fall press)",
-     "months": [
-      11
-     ]
-    }
-   ],
-   "seasons": "Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press",
-   "farmers_market": "Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero",
-   "farmers_market_url": "https://www.harleyfarms.com",
-   "link_note": "Is itself a featured frontier; resolves to its own place, ingredients, and seasons."
-  },
-  "US-WA-NEAHBAY": {
-   "market": "US-WA-NEAHBAY",
-   "frontier_market": "US-WA-NEAHBAY",
-   "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
-   "ingredients": [
-    {
-     "name": "Makah salmon",
-     "months": [
-      5,
-      6,
-      7,
-      8,
-      9
-     ]
-    },
-    {
-     "name": "huckleberry",
-     "months": [
-      8
-     ]
-    }
-   ],
-   "seasons": "Makah salmon May-Sep; huckleberry August",
-   "farmers_market": "Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Is itself a featured frontier; resolves to its own place, ingredients, and seasons."
-  },
-  "US-SW-TULAROSA": {
-   "market": "US-SW-TULAROSA",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
-   "ingredients": [
-    {
-     "name": "piñon nuts",
-     "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Nearest featured frontier: Tularosa Basin neighbour under the Sacramento Mountains."
-  },
-  "US-UT-KAMASVALLEY": {
-   "market": "US-UT-KAMASVALLEY",
-   "frontier_market": "US-UT-OAKLEY",
-   "place": "Oakley, Utah 84055 — Wasatch Back ranch country",
-   "ingredients": [
-    {
-     "name": "Splendor Valley Farms produce",
-     "months": null,
-     "note": "user-sourced anchor farm; seasons unconfirmed — research dispatch"
-    }
-   ],
-   "seasons": "Summer market season (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Oakley Farmers Market at Oakley Rodeo Grounds (standalone URL unconfirmed — research dispatch)",
-   "farmers_market_url": null,
-   "link_note": "Wasatch Back rural counterpart to Park City; close, same-state, subscription-credible."
-  },
-  "US-SE-SANDERSVILLE": {
-   "market": "US-SE-SANDERSVILLE",
-   "frontier_market": "US-SE-SANDERSVILLE",
-   "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
-   "ingredients": [
-    {
-     "name": "Georgia pecans",
-     "months": [
-      10,
-      11,
-      12
-     ],
-     "peak": 11
-    },
-    {
-     "name": "Georgia peaches",
-     "months": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "peak": 7
-    },
-    {
-     "name": "sweet potatoes",
-     "months": [
-      9,
-      10,
-      11
-     ],
-     "peak": 10
-    },
-    {
-     "name": "muscadine grapes",
-     "months": [
-      8,
-      9
-     ]
-    }
-   ],
-   "seasons": "Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep",
-   "farmers_market": "Sandersville downtown farmers market + Washington County farm stands",
-   "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-   "link_note": "Is itself a featured frontier; resolves to its own place, ingredients, and seasons."
   }
- }
 }

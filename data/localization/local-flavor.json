@@ -4,39 +4,117 @@
     "generated": "2026-09-03",
     "purpose": "Canonical locale -> season -> local produce/source lookup for the 'Local flavor' island. Month-aware: each market lists produce entries with an inclusive month window (1-12). local_flavor_for(market_code, month) returns the in-season entries for that month plus the sourcing string. Seeded from the frontend flavorMap so the DATA layer is authoritative and the UI can fetch this file instead of hardcoding JS.",
     "month_convention": "months are integers 1-12 (January=1). Windows are inclusive and may wrap the year end (e.g. start 11, end 2 spans Nov-Feb). year_round entries use months 1-12.",
-    "consumed_by": "src/creative_automation/local_flavor.py :: local_flavor_for(market_code, month) -> {produce, source, months, in_season}"
+    "consumed_by": "src/creative_automation/local_flavor.py :: local_flavor_for(market_code, month) -> {produce, source, months, in_season}",
+    "markets": 77,
+    "model": "1:1 — every market carries its own frontier produce; unconfirmed seasons stay unscheduled (produce:[]) with the sourcing line intact"
   },
   "markets": {
     "US-CA-PESCADERO": {
       "place": "Pescadero, CA 94060",
       "source": "Pescadero farm stands + Half Moon Bay / Santa Cruz stands",
       "produce": [
-        { "name": "Castroville artichokes", "months": [3, 4, 5, 6], "peak": 4 },
-        { "name": "Marin goat cheese", "months": [2, 3, 4, 5, 6] },
-        { "name": "strawberries", "months": [5, 6, 7, 8, 9] },
-        { "name": "Brussels sprouts", "months": [9, 10, 11, 12, 1, 2] }
+        {
+          "name": "Castroville artichokes",
+          "months": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "peak": 4
+        },
+        {
+          "name": "Marin goat cheese",
+          "months": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "Brussels sprouts",
+          "months": [
+            9,
+            10,
+            11,
+            12,
+            1,
+            2
+          ]
+        }
       ]
     },
     "US-WA-NEAHBAY": {
       "place": "Neah Bay, WA 98357",
       "source": "Neah Bay harbor, Washburn's General Store & Makah Days",
       "produce": [
-        { "name": "Makah salmon", "months": [5, 6, 7, 8, 9] },
-        { "name": "huckleberry", "months": [8] }
+        {
+          "name": "Makah salmon",
+          "months": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "huckleberry",
+          "months": [
+            8
+          ]
+        }
       ]
     },
     "US-MW-PARKCITY-84098": {
       "place": "Park City, Utah 84098 (Wasatch Back)",
       "source": "Park City Farmers Market (Canyons Village)",
       "produce": [
-        { "name": "Jensen Farms peaches", "months": [6, 7, 8, 9] },
-        { "name": "Copper Moose rhubarb", "months": [6, 7, 8, 9] }
+        {
+          "name": "Jensen Farms peaches",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "Copper Moose rhubarb",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
       ]
     },
     "US-SW-LASCRUCES": {
       "place": "Las Cruces + Alamogordo, New Mexico",
       "source": "roasted by the bushel, Organ Mountains bench, Albertsons Las Cruces",
-      "produce": [{ "name": "Hatch green chile", "months": [8, 9], "peak": 9 }]
+      "produce": [
+        {
+          "name": "Hatch green chile",
+          "months": [
+            8,
+            9
+          ],
+          "peak": 9
+        }
+      ]
     },
     "US-UT-KAMASVALLEY": {
       "place": "Kamas Valley — Peoa / Oakley, UT 84036 (Wasatch Back rural)",
@@ -44,11 +122,37 @@
       "produce": [
         {
           "name": "Oakley grass-fed beef",
-          "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
         },
         {
           "name": "Ballerina Farm butter",
-          "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
         }
       ]
     },
@@ -56,9 +160,34 @@
       "place": "Sandersville, GA 31082 (Washington County — kaolin-belt farm country, Atlanta's frontier sister)",
       "source": "Sandersville downtown farmers market + Washington County farm stands, regional Publix",
       "produce": [
-        { "name": "Georgia pecans", "months": [10, 11, 12], "peak": 11 },
-        { "name": "Georgia peaches", "months": [5, 6, 7, 8], "peak": 7 },
-        { "name": "sweet potatoes", "months": [9, 10, 11], "peak": 10 }
+        {
+          "name": "Georgia pecans",
+          "months": [
+            10,
+            11,
+            12
+          ],
+          "peak": 11
+        },
+        {
+          "name": "Georgia peaches",
+          "months": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "peak": 7
+        },
+        {
+          "name": "sweet potatoes",
+          "months": [
+            9,
+            10,
+            11
+          ],
+          "peak": 10
+        }
       ]
     },
     "_default": {
@@ -67,7 +196,1667 @@
       "produce": [
         {
           "name": "seasonal frontier flavor",
-          "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    "US-CA-CASTROVILLE": {
+      "place": "Castroville, California 95012 — Artichoke Capital",
+      "source": "Castroville, California 95012 — Castroville artichoke stands + Monterey Bay farmers markets (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Castroville artichokes",
+          "months": [
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "Brussels sprouts",
+          "months": [
+            1,
+            2,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    "US-W-SANJOSE": {
+      "place": "San Jose, California",
+      "source": "Brentwood, California 94513 — Brentwood U-pick stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Delta cherries",
+          "months": [
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    "US-MW-BOISE": {
+      "place": "Boise, Idaho",
+      "source": "Kuna, Idaho 83634 — Kuna farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "dairy",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "Idaho potatoes",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    "US-MW-CHI": {
+      "place": "Chicago, Illinois",
+      "source": "Harvard, Illinois 60033 — McHenry farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "McHenry dairy",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-MW-CLEVELAND": {
+      "place": "Cleveland, Ohio",
+      "source": "Burton, Ohio 44021 — Geauga farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Geauga maple",
+          "months": [
+            3,
+            4
+          ]
+        },
+        {
+          "name": "apples",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    "US-MW-DEN": {
+      "place": "Denver, Colorado",
+      "source": "Elizabeth, Colorado 80107 — Elbert County farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "grass-fed beef",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "ranch eggs",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    "US-MW-DESMOINES": {
+      "place": "Des Moines, Iowa",
+      "source": "Pella, Iowa 50219 — Marion farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Marion sweet corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "tulip-time produce",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-MW-DETROIT": {
+      "place": "Detroit, Michigan",
+      "source": "Armada, Michigan 48005 — Armada orchard stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Armada apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "peaches",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    "US-MW-FARGO": {
+      "place": "Fargo, North Dakota",
+      "source": "Barnesville, Minnesota 56514 — Clay County farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Red River potatoes",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "sugar beets",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    "US-MW-INDY": {
+      "place": "Indianapolis, Indiana",
+      "source": "Danville, Indiana 46122 — Hendricks farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Hendricks corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-MW-JACKSONHOLE": {
+      "place": "Jackson Hole, Wyoming",
+      "source": "Alpine, Wyoming 83128 — Star Valley farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Star Valley dairy",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "root vegetables",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-MW-KC": {
+      "place": "Kansas City, Missouri/Kansas",
+      "source": "Weston, Missouri 64098 — Weston orchard stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Weston apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    "US-MW-MILWAUKEE": {
+      "place": "Milwaukee, Wisconsin",
+      "source": "Cedarburg, Wisconsin 53012 — Cedarburg farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Ozaukee strawberries",
+          "months": [
+            6,
+            7
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            6,
+            7
+          ]
+        }
+      ]
+    },
+    "US-MW-MINNEAPOLIS2": {
+      "place": "Duluth, Minnesota",
+      "source": "Cloquet, Minnesota 55720 — Carlton farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Carlton produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "wild-rice halo",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-MW-MISSOULA": {
+      "place": "Missoula, Montana",
+      "source": "Frenchtown, Montana 59834 — Frenchtown farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Flathead cherry halo",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-MW-OMAHA": {
+      "place": "Omaha, Nebraska",
+      "source": "Wahoo, Nebraska 68066 — Saunders farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Saunders corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "soy-country produce",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-MW-PHX2": {
+      "place": "Tucson, Arizona",
+      "source": "Marana, Arizona 85653 — Marana farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Marana corn",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "cotton-country produce",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    "US-MW-STL": {
+      "place": "St. Louis, Missouri",
+      "source": "Waterloo, Illinois 62298 — Monroe farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Monroe produce",
+          "months": [
+            7,
+            8
+          ]
+        },
+        {
+          "name": "peaches",
+          "months": [
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    "US-MW-TC": {
+      "place": "Twin Cities, Minnesota",
+      "source": "Stillwater, Minnesota 55082 — Stillwater orchard stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "St Croix apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    "US-MW-WASATCH": {
+      "place": "Park City, Wasatch Mountains",
+      "source": "Midway, Utah 84049 — Midway Town Square market stands (standalone URL unconfirmed — research dispatch)",
+      "produce": []
+    },
+    "US-MW-WASATCH-SLC": {
+      "place": "Salt Lake City, Utah",
+      "source": "Grantsville, Utah 84029 — Grantsville farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "grass-fed beef",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "ranch eggs",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    "US-NE-BALTIMORE": {
+      "place": "Baltimore, Maryland",
+      "source": "Westminster, Maryland 21157 — Carroll farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Carroll corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "dairy",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-NE-BOS": {
+      "place": "Boston + Portland ME, New England",
+      "source": "Bolton, Massachusetts 01740 — Bolton orchard stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Bolton apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "cider",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    "US-NE-BURLINGTON": {
+      "place": "Burlington, Vermont",
+      "source": "Shelburne, Vermont 05482 — Shelburne Farms stand + farm stands",
+      "produce": [
+        {
+          "name": "Shelburne cheddar",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "orchard fruit",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    "US-NE-DC": {
+      "place": "Washington, DC + NoVA",
+      "source": "Purcellville, Virginia 20132 — Loudoun farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Loudoun produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "orchard fruit",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-NE-HARTFORD": {
+      "place": "Hartford, Connecticut",
+      "source": "Suffield, Connecticut 06078 — Suffield farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "valley produce",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-NE-NYC": {
+      "place": "Brooklyn + Manhattan, New York",
+      "source": "Warwick, New York 10990 — Warwick farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "black-dirt onions",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-NE-PHILLY": {
+      "place": "Philadelphia, Pennsylvania",
+      "source": "Kennett Square, Pennsylvania 19348 — Kennett Square farm stands",
+      "produce": [
+        {
+          "name": "Kennett mushrooms",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "produce",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    "US-NE-PROVIDENCE": {
+      "place": "Providence, Rhode Island",
+      "source": "Scituate, Rhode Island 02857 — Scituate farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Scituate produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-NE-RALEIGH": {
+      "place": "Raleigh-Durham, North Carolina",
+      "source": "Pittsboro, North Carolina 27312 — Pittsboro farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Chatham produce",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "pastured meats",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    "US-SC-AUSTIN": {
+      "place": "Austin, Texas",
+      "source": "Fredericksburg, Texas 78624 — Fredericksburg orchard stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Hill Country peaches",
+          "months": [
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "wine-country produce",
+          "months": [
+            5,
+            6,
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    "US-SC-DALLAS": {
+      "place": "Dallas, Texas",
+      "source": "Waxahachie, Texas 75165 — Ellis County farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "blackland corn",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-SC-HOUSTON": {
+      "place": "Houston, Texas",
+      "source": "Chappell Hill, Texas 77426 — Chappell Hill farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "bluebonnet-country produce",
+          "months": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    "US-SC-SANANTONIO": {
+      "place": "San Antonio, Texas",
+      "source": "Poteet, Texas 78065 — Poteet farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "strawberries",
+          "months": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "name": "spring produce",
+          "months": [
+            3,
+            4,
+            5
+          ]
+        }
+      ]
+    },
+    "US-SE-ASHEVILLE": {
+      "place": "Asheville, North Carolina",
+      "source": "Marshall, North Carolina 28753 — Marshall farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "mountain apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "heirloom corn",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    "US-SE-ATL": {
+      "place": "Atlanta, Georgia",
+      "source": "Senoia, Georgia 30276 — Coweta farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Coweta peaches",
+          "months": [
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "butterbeans",
+          "months": [
+            5,
+            6,
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    "US-SE-BIRMINGHAM": {
+      "place": "Birmingham, Alabama",
+      "source": "Clanton, Alabama 35045 — Clanton peach stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Chilton peaches",
+          "months": [
+            5,
+            6,
+            7,
+            8,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "pecans",
+          "months": [
+            10,
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    "US-SE-CHARLOTTE": {
+      "place": "Charlotte, North Carolina",
+      "source": "Dallas, North Carolina 28034 — Gaston farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Gaston produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet potatoes",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-SE-COAST": {
+      "place": "Savannah + Charleston, Coastal Southeast",
+      "source": "Ridgeland, South Carolina 29936 — Ridgeland farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Jasper tomatoes",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "watermelon",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    "US-SE-FL": {
+      "place": "Miami + Orlando, Florida",
+      "source": "Homestead, Florida 33030 — Redland farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Redland tropical fruit",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "winter tomatoes",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    "US-SE-JACKSON": {
+      "place": "Jackson, Mississippi",
+      "source": "Flora, Mississippi 39071 — Flora farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Flora produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "field peas",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-SE-JAX": {
+      "place": "Jacksonville, Florida",
+      "source": "Starke, Florida 32091 — Starke farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Bradford produce",
+          "months": [
+            4,
+            5
+          ]
+        },
+        {
+          "name": "blueberries",
+          "months": [
+            4,
+            5
+          ]
+        }
+      ]
+    },
+    "US-SE-LOU": {
+      "place": "Louisville, Kentucky",
+      "source": "Shelbyville, Kentucky 40065 — Shelby County farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "KY sweet corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-SE-MEMPHIS": {
+      "place": "Memphis, Tennessee",
+      "source": "Hernando, Mississippi 38632 — Hernando farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "DeSoto produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet potatoes",
+          "months": [
+            9,
+            10,
+            11
+          ]
+        }
+      ]
+    },
+    "US-SE-NASH": {
+      "place": "Nashville, Tennessee",
+      "source": "Leipers Fork, Tennessee 37064 — Leipers Fork farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Williamson produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sorghum",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-SE-NOLA": {
+      "place": "New Orleans, Louisiana",
+      "source": "Covington, Louisiana 70433 — Covington farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "northshore strawberries",
+          "months": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "name": "creole tomatoes",
+          "months": [
+            6,
+            7
+          ]
+        }
+      ]
+    },
+    "US-SE-TAMPA": {
+      "place": "Tampa, Florida",
+      "source": "Plant City, Florida 33563 — Plant City farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Plant City strawberries",
+          "months": [
+            1,
+            2,
+            3,
+            12
+          ]
+        },
+        {
+          "name": "winter produce",
+          "months": [
+            1,
+            2,
+            3,
+            12
+          ]
+        }
+      ]
+    },
+    "US-SW-ALBQ": {
+      "place": "Albuquerque, New Mexico",
+      "source": "Corrales, New Mexico 87048 — Corrales Growers Market (schedule unconfirmed — research dispatch)",
+      "produce": []
+    },
+    "US-SW-CLOUDCROFT": {
+      "place": "Cloudcroft + Alamogordo, New Mexico",
+      "source": "Cloudcroft, New Mexico 88317 — Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+      "produce": []
+    },
+    "US-SW-EL PASO": {
+      "place": "El Paso, Texas",
+      "source": "Fabens, Texas 79838 — Fabens farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "valley chile",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "pecans",
+          "months": [
+            10,
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    "US-SW-OKC": {
+      "place": "Oklahoma City, Oklahoma",
+      "source": "Guthrie, Oklahoma 73044 — Logan County farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "wheat-country produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-SW-PHX": {
+      "place": "Phoenix, Arizona",
+      "source": "Queen Creek, Arizona 85142 — Schnepf Farms farm stand, Queen Creek",
+      "produce": [
+        {
+          "name": "Schnepf peaches",
+          "months": [
+            4,
+            5,
+            6,
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            4,
+            5,
+            6,
+            9,
+            10,
+            11
+          ]
+        }
+      ]
+    },
+    "US-SW-ROSWELL": {
+      "place": "Roswell + Carlsbad, New Mexico",
+      "source": "Artesia, New Mexico 88210 — Artesia farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "pecans",
+          "months": [
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "dairy",
+          "months": [
+            10,
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    "US-SW-SANTA FE": {
+      "place": "Santa Fe, New Mexico",
+      "source": "Chimayo, New Mexico 87522 — Chimayo farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Chimayo chile",
+          "months": [
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "name": "heirloom corn",
+          "months": [
+            8,
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    "US-SW-TIMBERON": {
+      "place": "Timberon, New Mexico",
+      "source": "Timberon, New Mexico 88350 — Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+      "produce": []
+    },
+    "US-SW-TULAROSA": {
+      "place": "Tularosa, NM 88352 — Tularosa Basin, provider edge",
+      "source": "La Luz, New Mexico 88337 — La Luz farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": []
+    },
+    "US-W-ANCHORAGE": {
+      "place": "Anchorage, Alaska",
+      "source": "Palmer, Alaska 99645 — Palmer Friday Fling + valley stands (schedule unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Matanuska potatoes",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "giant cabbage",
+          "months": [
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-W-BEND": {
+      "place": "Bend, Oregon",
+      "source": "Sisters, Oregon 97759 — Sisters farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "high-desert produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "ponderosa honey",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-W-BOULDER": {
+      "place": "Boulder, Colorado",
+      "source": "Lyons, Colorado 80540 — Lyons farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "St Vrain produce",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "orchard fruit",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-W-HONOLULU": {
+      "place": "Honolulu, Hawaii",
+      "source": "Waialua, Oahu 96791 — Waialua farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Waialua cacao",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "tropical fruit",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    "US-W-LA": {
+      "place": "Los Angeles, California",
+      "source": "Fillmore, California 93015 — Fillmore farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Fillmore citrus",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "avocados",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    "US-W-PDX": {
+      "place": "Portland, Oregon",
+      "source": "Sauvie Island, Oregon 97231 — Sauvie Island farm stands",
+      "produce": [
+        {
+          "name": "island berries",
+          "months": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    "US-W-RENO": {
+      "place": "Reno + Tahoe, Nevada/California",
+      "source": "Fallon, Nevada 89406 — Fallon farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Fallon melons",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "alfalfa-country produce",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-W-SACRAMENTO": {
+      "place": "Sacramento, California",
+      "source": "Dixon, California 95620 — Dixon farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Dixon lamb",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    "US-W-SD": {
+      "place": "San Diego, California",
+      "source": "Julian, California 92036 — Julian farm stands + mountain orchards (standalone market URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Julian apples",
+          "months": [
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "name": "pear cider",
+          "months": [
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "name": "gold-rush main street",
+          "months": [
+            8,
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    "US-W-SEA": {
+      "place": "Seattle, Washington",
+      "source": "Carnation, Washington 98014 — Remlinger Farms stand + valley farm stands",
+      "produce": [
+        {
+          "name": "Remlinger berries",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "valley corn",
+          "months": [
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "US-W-SF": {
+      "place": "San Francisco Bay Area, California",
+      "source": "Bolinas, California 94924 — Bolinas + Point Reyes farm stands",
+      "produce": [
+        {
+          "name": "Marin goat cheese",
+          "months": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "coastal produce",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    "US-W-SPOKANE": {
+      "place": "Spokane, Washington",
+      "source": "Green Bluff, Washington 99025 — Green Bluff growers stands",
+      "produce": [
+        {
+          "name": "Green Bluff apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "peaches",
+          "months": [
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    "US-W-VEGAS": {
+      "place": "Las Vegas, Nevada",
+      "source": "Moapa Valley, Nevada 89011 — Moapa Valley farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Moapa greens",
+          "months": [
+            1,
+            2,
+            3,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "desert produce",
+          "months": [
+            1,
+            2,
+            3,
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    "US-W-YAKIMA": {
+      "place": "Yakima + Tri-Cities, Washington",
+      "source": "Tieton, Washington 98947 — Tieton farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "Tieton apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "stone fruit",
+          "months": [
+            7,
+            8
+          ]
         }
       ]
     }

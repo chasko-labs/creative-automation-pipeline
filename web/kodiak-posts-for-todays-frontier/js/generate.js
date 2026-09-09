@@ -395,9 +395,9 @@ let skuList = [
       }
       const products = selectedProducts.length ? selectedProducts : [...skuList].sort(()=>0.5-Math.random()).slice(0,3);
       const audience = 'KODIAK design guide audience — see UX Profiles (23 cards)';
-      // Nearest Frontier resolves from the market-to-featured-frontier mapping in data
-      // (#257: featuredFrontierFor in data-core.js mirrors
-      // data/localization/market-featured-frontiers.json) — no hardcoded market checks.
+      // Nearest Frontier resolves from the 1:1 market-to-featured-frontier mapping
+      // (#257: featuredFrontierFor in data-core.js, canonical — the backend JSON
+      // is generated from it) — no hardcoded market checks.
       let selectedLoc = null;
       try{ const locVal=document.getElementById('locality')?.value || 'US-MW-PARKCITY-84098'; selectedLoc = places.find(p=>p.market===locVal) || places.find(p=>p.market==='US-MW-PARKCITY-84098') || places[0]; }catch(e){ selectedLoc = {place:'Park City, Utah 84098', market:'US-MW-PARKCITY-84098'}; }
       const frontierLink = (typeof featuredFrontierFor==='function') ? featuredFrontierFor(selectedLoc.market) : null;

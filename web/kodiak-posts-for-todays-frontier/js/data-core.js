@@ -116,9 +116,11 @@ const places = [
 ];
 // B3: expose the places table globally so the prompt-box autocomplete script (a separate <script>) can read markets.
 try{ window.places = places; }catch(e){}
-// #257 mapping start — market -> featured-frontier (data mirror of
-// data/localization/market-featured-frontiers.json; inline so this page stays
-// offline-first). Every market resolves one featured frontier.
+// #257 mapping start — market -> featured-frontier, 1:1 (every market owns
+// one nearby frontier; no shared frontiers). THIS FILE is canonical:
+// data/localization/market-featured-frontiers.json is generated from here via
+// scripts/build-frontier-mapping.py `--check` pins the agreement. Inline so
+// this page stays offline-first.
 const featuredFrontierDetail = {
   "US-CA-PESCADERO": {place:"Pescadero, California 94060 — San Mateo Coast", items:["Castroville artichokes","Marin goat cheese","strawberries","Brussels sprouts","olive oil (fall press)"], seasons:"Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press", farmersMarket:"Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero"},
   "US-CA-JULIAN": {place:"Julian, California 92036 — Cuyamaca mountain apple country", items:["Julian apples","pear cider","gold-rush main street"], seasons:"Apple season late Aug–Oct (peak September)", farmersMarket:"Julian farm stands + mountain orchards (standalone market URL unconfirmed — research dispatch)"},

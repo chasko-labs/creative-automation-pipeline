@@ -1,13 +1,16 @@
-"""Market-to-featured-frontier mapping contract (issue #257).
+"""Market-to-featured-frontier mapping contract (issue #257, 1:1 model).
 
-Every market in the 74-market registry resolves one featured frontier with
-place + ingredients + seasons + farmers-market context as data
-(data/localization/market-featured-frontiers.json). The web runtime mirrors
-that file inline in js/data-core.js and generate.js resolves its hint from
-the mapping — no hardcoded market checks.
+Every registry market resolves its OWN nearby frontier (no shared frontiers)
+with place + ingredients + seasons + farmers-market context as data
+(data/localization/market-featured-frontiers.json). That JSON is GENERATED from
+web/kodiak-posts-for-todays-frontier/js/data-core.js via
+scripts/build-frontier-mapping.py `--check` pins the agreement — data-core.js
+is the single source of truth, the JSON is its mirror.
 """
 import json
 import re
+import subprocess
+import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -20,13 +23,7 @@ FRONTEND_DATA = (
 GENERATE_JS = (
     REPO_ROOT / "web" / "kodiak-posts-for-todays-frontier" / "js" / "generate.js"
 )
-
-FRONTIERS = {
-    "US-CA-PESCADERO",
-    "US-WA-NEAHBAY",
-    "US-SE-SANDERSVILLE",
-    "US-SW-TIMBERON",
-}
+BUILDER = REPO_ROOT / "scripts" / "build-frontier-mapping.py"
 
 
 def _load(path: Path) -> dict:
@@ -37,9 +34,8 @@ def _load(path: Path) -> dict:
 def test_mapping_covers_every_registry_market() -> None:
     registry = {m["market"] for m in _load(REGISTRY)["markets"]}
     mapping = _load(MAPPING)["markets"]
-    assert set(mapping) == registry, (
-        f"only_registry={sorted(registry - set(mapping))} "
-        f"only_mapping={sorted(set(mapping) - registry)}"
+    assert not (registry - set(mapping)), (
+        f"registry markets without a frontier: {sorted(registry - set(mapping))}"
     )
 
 
@@ -55,30 +51,50 @@ def test_every_entry_has_place_ingredients_seasons_market_context() -> None:
         for ing in ingredients:
             if not ing.get("name"):
                 failures.append(f"{code}: ingredient without name")
+            months = ing.get("months")
+            if months is not None:
+                bad = [m for m in months if not 1 <= int(m) <= 12]
+                if bad:
+                    failures.append(f"{code}: months out of 1-12: {bad}")
     assert not failures, "mapping gaps:\n" + "\n".join(failures)
 
 
-def test_frontier_targets_are_real_and_self_resolve() -> None:
+def test_no_shared_frontiers_every_target_self_resolves() -> None:
     mapping = _load(MAPPING)["markets"]
+    served: dict[str, list[str]] = {}
     for code, entry in mapping.items():
-        assert entry["frontier_market"] in FRONTIERS, (
-            f"{code} points at unknown frontier {entry['frontier_market']}"
+        fk = entry["frontier_market"]
+        assert fk in mapping, f"{code} points at unknown frontier {fk}"
+        assert mapping[fk]["frontier_market"] == fk, (
+            f"frontier {fk} does not self-resolve"
         )
-    for frontier in FRONTIERS:
-        assert mapping[frontier]["frontier_market"] == frontier, (
-            f"{frontier} does not self-resolve"
-        )
+        if code != fk:
+            served.setdefault(fk, []).append(code)
+    shared = {k: v for k, v in served.items() if len(v) > 1}
+    assert not shared, f"shared frontiers are back: {shared}"
 
 
-def test_sf_bay_links_castroville_artichokes_mar_jun_via_own_entry() -> None:
+def test_sf_bay_links_bolinas_goat_cheese_via_own_entry() -> None:
     entry = _load(MAPPING)["markets"]["US-W-SF"]
-    assert entry["frontier_market"] == "US-CA-PESCADERO"
-    artichokes = [i for i in entry["ingredients"] if "artichoke" in i["name"].lower()]
-    assert artichokes, "US-W-SF entry carries no artichokes"
-    assert artichokes[0]["months"] == [3, 4, 5, 6]
-    assert "Mar-Jun" in entry["seasons"]
-    assert "Pescadero" in entry["place"]
+    assert entry["frontier_market"] == "US-CA-BOLINAS"
+    cheese = [i for i in entry["ingredients"] if "goat cheese" in i["name"].lower()]
+    assert cheese, "US-W-SF entry carries no goat cheese"
+    assert cheese[0]["months"] == [2, 3, 4, 5, 6]
+    assert "Bolinas" in entry["place"]
     assert entry["farmers_market"]
+
+
+def test_repointed_markets_keep_no_stale_ingredients() -> None:
+    mapping = _load(MAPPING)["markets"]
+    atl_ings = " ".join(i["name"] for i in mapping["US-SE-ATL"]["ingredients"])
+    assert "Sandersville" not in mapping["US-SE-ATL"]["place"]
+    assert "pecan" not in atl_ings.lower() or "Senoia" in atl_ings, (
+        "Atlanta kept its old Georgia-frontier ingredients after the Senoia re-point"
+    )
+    sf_ings = " ".join(i["name"] for i in mapping["US-W-SF"]["ingredients"])
+    assert "artichoke" not in sf_ings.lower(), (
+        "SF kept Pescadero artichokes after the Bolinas re-point"
+    )
 
 
 def test_generate_js_has_no_hardcoded_market_hint() -> None:
@@ -112,3 +128,16 @@ def test_inline_mirror_covers_every_frontend_market() -> None:
     assert mirror["US-W-SF"] == mapping["frontier_market"]
     assert mapping["place"] in text
     assert mapping["seasons"] in text
+
+
+def test_committed_json_regenerates_from_data_core() -> None:
+    proc = subprocess.run(
+        [sys.executable, str(BUILDER), "--check"],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+    )
+    assert proc.returncode == 0, (
+        "backend mapping JSON drifted from data-core.js — "
+        f"run scripts/build-frontier-mapping.py\n{proc.stdout}{proc.stderr}"
+    )

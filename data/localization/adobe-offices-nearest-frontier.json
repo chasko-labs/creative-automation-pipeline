@@ -22,42 +22,42 @@
     {
       "office": "Adobe San Francisco",
       "address": "601 Townsend St, San Francisco, CA 94107",
-      "nearest_frontier": "US-CA-PESCADERO",
-      "place": "Pescadero, CA 94060",
-      "distance_mi": 35,
+      "nearest_frontier": "US-CA-BOLINAS",
+      "place": "Bolinas, California 94924 — Marin farm coast",
+      "distance_mi": 30,
       "drive_min": 50,
-      "retailer_gap": "Same as above — 35mi, one farm road, no chain grocer",
-      "seasonal_flavor": "Same artichoke + Marin goat cheese — spring workforce helps SF see frontier around them",
-      "ad_example_message": "KODIAK® Pescadero frontier — Castroville artichokes meet Marin chèvre, 14g protein, Half Moon Bay near",
+      "retailer_gap": "No chain grocer in Bolinas (Bolinas Market + farm stands only); nearest full grocer ~20mi. One farm road in.",
+      "seasonal_flavor": "Marin goat cheese Feb-Jun + coastal produce year-round — the closest frontier to SF",
+      "ad_example_message": "KODIAK® Bolinas frontier — Marin chèvre meets coastal greens, 14g protein, 30mi from your office",
       "fitness_angle": "Help urban folks see representation of the frontier around them — SF fitness is trail, not brunch",
-      "what_costco_shoppers_see": "SF Costco shoppers see 30-bulk, Pescadero sees farm-stand direct"
+      "what_costco_shoppers_see": "SF Costco shoppers see 30-bulk, Bolinas sees farm-stand direct"
     },
     {
       "office": "Adobe Seattle",
       "address": "8005 34th Ave S, Seattle, WA 98108",
-      "nearest_frontier": "US-WA-NEAHBAY",
-      "place": "Neah Bay, WA 98357 — Makah Tribe",
-      "distance_mi": 168,
-      "drive_min": 240,
-      "retailer_gap": "Only Washburn's General Store; true grocer Port Angeles 70mi winding two-lane; 4-5hr to Seattle incl ferry",
-      "seasonal_flavor": "Makah salmon May–Sep, halibut Mar–Jun, huckleberries Aug — Washington water + Washington grain",
-      "ad_example_message": "KODIAK® Neah Bay frontier — huckleberry compote over Buttermilk Power Cakes, Makah water meets Wasatch grain. Where Washburn's has the dusty box, we ship.",
-      "ad_example_visual": "Neah Bay harbor, Makah cedar canoe, Kodiak box on Washburn's porch, 70mi sign to Port Angeles",
-      "fitness_angle": "Seattle rain-morning bulk vs Neah Bay trail/harbor — same Washington state, different frontier. Subscription & amazon.com ads seen alongside Seattle if Washington noted on app open — ask use your location or choose from list.",
-      "what_costco_shoppers_see": "Seattle Costco (home) bulk families see 'Evergreen frontier — protein-packed whole grains for gray mornings'; Neah Bay sees subscription huckleberry + smoked salmon savory, elevating Makah frontiersfolks"
+      "nearest_frontier": "US-WA-CARNATION",
+      "place": "Carnation, Washington 98014 — Snoqualmie Valley farm town",
+      "distance_mi": 25,
+      "drive_min": 35,
+      "retailer_gap": "Carnation farm stands + Remlinger Farms only; nearest full grocer ~10mi, Costco Issaquah ~15mi. One valley road in.",
+      "seasonal_flavor": "Remlinger berries Jun-Aug + valley corn Aug-Sep — the closest frontier to Seattle",
+      "ad_example_message": "KODIAK® Carnation frontier — Snoqualmie Valley berries over Buttermilk Power Cakes, 25mi from your office. Where the farm stand has the dusty box, we ship.",
+      "ad_example_visual": "Snoqualmie Valley berry rows, Remlinger Farms stand, Kodiak box with valley corn on a farm table, Cascades behind",
+      "fitness_angle": "Seattle rain-morning bulk vs valley trail/harvest — same Washington, different frontier. Subscription & amazon.com ads seen alongside Seattle if Washington noted on app open — ask use your location or choose from list.",
+      "what_costco_shoppers_see": "Seattle Costco (home) bulk families see 'Evergreen frontier — protein-packed whole grains for gray mornings'; Carnation sees subscription berry + valley-corn savory, elevating valley growers"
     },
     {
       "office": "Adobe Lehi, UT",
       "address": "3900 Adobe Way, Lehi, UT 84043",
-      "nearest_frontier": "US-MW-PARKCITY-84098",
-      "place": "Park City, UT 84098",
-      "distance_mi": 32,
-      "drive_min": 40,
-      "retailer_gap": "Target Kimball Junction is nearby but Loa 84747 / Pescadero analogues are farther; Park City Farmers Market Wed 11-5 is local frontier flavor",
-      "seasonal_flavor": "Jensen Farms peaches diced thin + cinnamon, Copper Moose rhubarb compote orange juice, Tagges preserves, Ballerina butter Kamas — Utah summer",
-      "ad_example_message": "KODIAK® Park City 84098 — Keep It Wild from Farmers Market at base of Park City Mountain Resort. Jensen Farms peaches + Ballerina butter.",
-      "fitness_angle": "Lehi tech + Park City trail — Wasatch fitness is ski before work, trail after",
-      "what_costco_shoppers_see": "Lehi Costco shoppers see Utah bulk; Park City sees market-direct peach + butter"
+      "nearest_frontier": "US-UT-GRANTSVILLE",
+      "place": "Grantsville, Utah 84029 — Tooele County ranch town",
+      "distance_mi": 40,
+      "drive_min": 45,
+      "retailer_gap": "No commercial retail in Grantsville; nearest full grocer Tooele ~15mi. Ranch stands only.",
+      "seasonal_flavor": "Grass-fed beef + ranch eggs year-round; summer stands Jun-Sep — the closest frontier to Lehi",
+      "ad_example_message": "KODIAK® Grantsville frontier — ranch-country protein 40mi from your office. Grass-fed beef + ranch eggs.",
+      "fitness_angle": "Lehi tech + Tooele County ranch — Wasatch fitness is ski before work, trail after",
+      "what_costco_shoppers_see": "Lehi Costco shoppers see Utah bulk; Grantsville sees ranch-direct beef + eggs via subscription"
     }
   ]
 }
