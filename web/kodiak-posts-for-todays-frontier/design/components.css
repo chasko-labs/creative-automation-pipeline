@@ -118,6 +118,19 @@ header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-s
 .card:hover{background:var(--gradients-kraft\.surface-hover);transform:translateY(-2px);box-shadow:var(--shadows-bear),inset 0 1px 0 rgba(255,248,240,.6)}
 .card:hover::after{opacity:1}
 @media(prefers-reduced-motion:reduce){.card,.card::after{transition:none}.card:hover{transform:none}}
+/* card skins (deka skin-system idea, kodiak tokens only): tinted surfaces for
+   section identity. Grain (::before) and top-rule (::after) carry over; each
+   skin re-tints the rule to its own hue. Exemplar: Testing + proof wears --wild. */
+.card--wild{background:linear-gradient(180deg,var(--colors-brand-frontier-green) 0%,var(--parchment) 90px);border-color:var(--colors-brand-frontier-green)}
+.card--wild::after{background:linear-gradient(90deg,transparent 0%,var(--colors-brand-frontier-green) 30%,var(--colors-brand-blaze-orange) 70%,transparent 100%)}
+.card--wild .hd h2,.card--wild .hd p{color:var(--parchment)}
+.card--wild .hd .badge{background:var(--parchment);color:var(--colors-brand-frontier-green)}
+.card--ember{background:linear-gradient(180deg,var(--colors-neutral-100) 0%,var(--parchment) 90px);border-color:var(--colors-brand-blaze-orange)}
+.card--ember::after{background:linear-gradient(90deg,transparent 0%,var(--colors-brand-blaze-orange) 30%,var(--colors-brand-signal-red) 70%,transparent 100%)}
+.card--night{background:var(--colors-brand-frontier-green);border-color:var(--colors-brand-frontier-green);color:var(--parchment)}
+.card--night .body,.card--night .hd h2,.card--night .hd p{color:var(--parchment)}
+.card--night a{color:#FFDCC3}
+.card--night::after{background:linear-gradient(90deg,transparent 0%,var(--colors-brand-blaze-orange) 50%,transparent 100%);opacity:.8}
 .body{padding:16px;position:relative}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:860px){.grid{grid-template-columns:1fr}}
