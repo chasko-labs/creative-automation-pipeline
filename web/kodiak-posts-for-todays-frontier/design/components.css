@@ -254,7 +254,7 @@ section.xl{padding:var(--section-space-xl) 0}
 /* Row 2 action bar — hairline top rule, secondary pills left, Create isolated right */
 .ff-inputfoot{display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-sm,8px);
   border-top:1px solid var(--colors-neutral-100,#F4EDE6);padding-top:var(--spacing-sm,8px)}
-.ff-inputfoot-actions{display:flex;align-items:center;gap:var(--spacing-sm,8px)}
+/* ff-inputfoot-actions retired with the 4.4 move (staging lives in the group now) */
 /* + upload — compact pill that rhymes with the chips, not a mystery square */
 .ff-iconbtn{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;
   border-radius:var(--radii-full,999px);border:1px solid var(--colors-neutral-300,#D9CFC6);
@@ -301,7 +301,6 @@ section.xl{padding:var(--section-space-xl) 0}
 @media(max-width:860px){
   .ff-inputfoot{flex-wrap:wrap}
   .ff-go{order:2;flex:1 1 100%}
-  .ff-inputfoot-actions{order:1}
 }
 
 /* === Multi-size render set — three labeled tiles, one per ratio, real aspect ratio via aspect-ratio CSS === */
@@ -1299,7 +1298,6 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   .ff-timeline-steps li{font-size:10px}
   .ff-timeline-steps li+li::before{width:8px}
   .ff-inputfoot{flex-direction:column;align-items:stretch}
-  .ff-inputfoot-actions{justify-content:flex-start}
   .ff-go{flex:1 1 100%;white-space:normal;padding:0 16px;height:auto;min-height:52px}
   .ff-publish-targets{flex-wrap:wrap}
   .ff-publish-targets .ff-publish-pill{flex:1 1 auto}
