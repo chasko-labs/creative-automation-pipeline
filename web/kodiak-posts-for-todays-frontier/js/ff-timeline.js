@@ -1,4 +1,4 @@
-// === Progress timeline — slim tracker (Setup + 5/6/7) with a live heuristic line ===
+// === Progress timeline — slim tracker (Setup + 6/7/8) with a live heuristic line ===
 // The note mirrors ONLY real page events: #sampleStatus + #generateCampaignStatus
 // text (the exact strings generate.js / campaign-sections.js already write) and the
 // gate/assets hidden states. No invented events, no new instrumentation — if a

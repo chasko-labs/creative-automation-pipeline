@@ -17,13 +17,14 @@ const index = readFileSync(
   'utf8',
 );
 
-// Numbered flow 5/6/7: Generate Campaign is a collapsed native <details> with
-// the same card + summary styling as Output Preview (.preview-card), greyed
-// while gated, full width like the preview. Assets carry 7; About is unnumbered.
-describe('numbered collapse flow 5/6/7', () => {
+// Numbered flow 6/7/8 (season is step 3, the group is step 4): Generate Campaign
+// is a collapsed native <details> with the same card + summary styling as Output
+// Preview (.preview-card), greyed while gated, full width like the preview.
+// Assets carry 8; About is unnumbered.
+describe('numbered collapse flow 6/7/8', () => {
   it('mounts generate as a collapsed details on the shared output card', () => {
     expect(sections).toMatch(/<details id="generateCampaignSection" class="ff-output ff-generate-campaign preview-card is-gated"/);
-    expect(sections).toMatch(/<span class="ff-stepnum" aria-hidden="true">6<\/span>/);
+    expect(sections).toMatch(/<span class="ff-stepnum" aria-hidden="true">7<\/span>/);
   });
 
   it('refuses gated toggles: stays collapsed, explains, pulses the lock', () => {
@@ -39,9 +40,9 @@ describe('numbered collapse flow 5/6/7', () => {
     expect(sections).toMatch(/btn\.hidden = false/);
   });
 
-  it('numbers preview 5 and assets 7', () => {
-    expect(index).toMatch(/<span class="ff-stepnum" aria-hidden="true">5<\/span>/);
-    expect(sections).toMatch(/<span class="ff-stepnum" aria-hidden="true">7<\/span>/);
+  it('numbers preview 6 and assets 8', () => {
+    expect(index).toMatch(/<span class="ff-stepnum" aria-hidden="true">6<\/span>/);
+    expect(sections).toMatch(/<span class="ff-stepnum" aria-hidden="true">8<\/span>/);
   });
 
   it('shares step-chip + gated-grey styling, generate at preview width', () => {

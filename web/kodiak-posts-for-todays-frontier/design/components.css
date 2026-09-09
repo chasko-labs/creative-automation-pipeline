@@ -605,18 +605,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-setup>.ff-brainstorm{margin-top:0;background:transparent;border:none;border-radius:0;padding-top:0;padding-bottom:0}
 .ff-setup>.ff-brainstorm>.ff-optiongroup{margin-top:0;padding-top:0;border-top:none}
 .ff-setup>.ff-inputwrap{margin-top:0}
-/* step order lives in integrated .ff-stepnum badges inside each summary/label
-   (1/2/4 match the 5/6/7 pattern, 3.1-3.3 mark the substeps); data-step attrs
-   stay on the blocks as quiet hooks. the old left-gutter badges are retired. */
+/* step order lives in integrated .ff-stepnum badges inside each summary/label/row
+   (1/2/3/5 match the 6/7/8 pattern, 4.1-4.4 mark the group substeps); data-step
+   attrs stay on the blocks as quiet hooks. the old left-gutter badges are retired. */
 .ff-stepnum.ff-stepnum--sub{background:transparent;color:var(--colors-brand-frontier-green);border:1.5px solid var(--colors-brand-frontier-green);font-size:11px;min-width:0}
 .ff-brief-label{display:flex;align-items:center;gap:8px}
-/* season rides its own slim always-visible row between step 2 and the step-3 group */
-.ff-season-standalone{display:flex;align-items:center;gap:10px;padding:2px 2px 0}
-.ff-season-standalone .ff-season{flex:0 1 auto;min-width:0}
-/* step-3 group reads as one family: pine rail + corner 3 badge, so 3.1-3.3
-   never scan as step-2 bullets */
-.ff-brainstorm{position:relative;border-left:3px solid var(--colors-brand-frontier-green);border-radius:0 var(--radii-lg) var(--radii-lg) 0;padding-left:12px;margin-top:10px}
-.ff-brainstorm::before{content:"3";position:absolute;left:-15px;top:-13px;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:var(--colors-brand-frontier-green);color:var(--colors-foreground-inverse);font:700 12px/1 "museo-sans",sans-serif;box-shadow:var(--shadows-sm)}
+/* step 3 is a real control-box row like steps 1/2: solid badge, kicker, live select */
+.ff-season-standalone{display:flex;align-items:center;gap:8px;background:#FFFDF7;border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);font:600 14px/1.4 "museo-sans",sans-serif;color:var(--chocolate);padding:10px 12px}
+.ff-season-standalone .ff-season{flex:1 1 auto;min-width:0}
+.ff-season-standalone .ff-season select{width:100%}
+/* step-4 group reads as one family: the pine rail alone groups 4.1-4.4, no stray badges */
+.ff-brainstorm{position:relative;border-left:3px solid var(--colors-brand-frontier-green);border-radius:0 var(--radii-lg) var(--radii-lg) 0;padding-left:12px}
 
 /* item 6 - unified brainstorming surface: campaign-option chips + product picker share one panel
    (single background/border/radius + consistent inner spacing rhythm) so they read as one control
@@ -1248,7 +1247,7 @@ html,body{overflow-x:clip}
 .ff-scope-opt-title{font-size:13px}
 .ff-scope-opt-sub,.ff-layers-hint,.ff-products-hint,.ff-layer{font-size:12px}
 .ff-layer{font-size:13px}
-/* === section 3: three full-width control rows, zero dashed separators === */
+/* === step-4 group: four full-width control rows, zero dashed separators === */
 .ff-brainstorm{display:flex;flex-direction:column;gap:8px}
 .ff-brainstorm>.ff-directions,.ff-brainstorm>.ff-products,.ff-brainstorm>.ff-layers{margin-top:0;padding-top:0;border-top:none}
 .ff-directions>.ff-optiongroup{padding-top:0}
@@ -1265,8 +1264,8 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 @media(prefers-reduced-motion:reduce){details[open]>*:not(summary){animation:none}.btn:hover{transform:none}}
 /* preview figcaption (was an inline style) */
 .ff-figcap{font:600 13px/1.4 "museo-sans",sans-serif;color:#3B2316;margin-top:8px}
-/* step-4 prep row: staging affordances + inline tray sit ABOVE the idea canvas */
-.ff-assetrow{display:flex;align-items:center;gap:var(--spacing-sm);flex-wrap:wrap;margin-bottom:var(--spacing-sm)}
+/* 4.4 staging row: same control-box voice as the other rows, tray fills the rest */
+.ff-assetrow{display:flex;align-items:center;gap:var(--spacing-sm);flex-wrap:wrap;background:#FFFDF7;border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);padding:10px 12px}
 .ff-assetrow .ff-tray{margin-top:0;flex:1 1 auto}
 .ff-assetrow .ff-dam-trigger{flex:0 0 auto}
 /* suggestions attach under the canvas they complete */
@@ -1308,6 +1307,6 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   .platform-matrix{overflow-x:auto}
   .ff-setup-heading,.ff-output-heading{font-size:18px}
   .kodiak-headline-plate h1{white-space:normal;font-size:19px}
-  .ff-setup .ff-scope-summary,#locationSection>summary,.ff-brainstorm .ff-products>summary,.ff-brainstorm .ff-layers>summary{font-size:13px}
+  .ff-setup .ff-scope-summary,#locationSection>summary,.ff-brainstorm .ff-products>summary,.ff-brainstorm .ff-layers>summary,.ff-season-standalone{font-size:13px}
   .ff-go{font-size:12px;letter-spacing:.06em}
 }

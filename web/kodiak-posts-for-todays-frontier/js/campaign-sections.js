@@ -30,7 +30,7 @@
     var wrap = document.createElement('div');
     wrap.innerHTML =
       '<details id="generateCampaignSection" class="ff-output ff-generate-campaign preview-card is-gated" data-gated="true">'+
-        '<summary aria-labelledby="generateCampaignHeading"><span class="ff-stepnum" aria-hidden="true">6</span>'+
+        '<summary aria-labelledby="generateCampaignHeading"><span class="ff-stepnum" aria-hidden="true">7</span>'+
         '<span id="generateCampaignHeading" class="ff-output-heading">Generate Campaign</span>'+
         ' <span class="badge" id="generateCampaignLock">locked until preview</span></summary>'+
         '<p class="hint" id="generateCampaignHint">The full campaign unlocks after your first preview — every ratio, every platform, localized to your chosen scope.</p>'+
@@ -40,7 +40,7 @@
         '<div class="hint" id="generateCampaignStatus" role="status" aria-live="polite"></div>'+
       '</details>'+
       '<section id="campaignAssetsSection" class="ff-output ff-campaign-assets" aria-labelledby="campaignAssetsHeading" hidden>'+
-        '<h2 id="campaignAssetsHeading" class="ff-output-heading"><span class="ff-stepnum" aria-hidden="true">7</span> Campaign Assets Created</h2>'+
+        '<h2 id="campaignAssetsHeading" class="ff-output-heading"><span class="ff-stepnum" aria-hidden="true">8</span> Campaign Assets Created</h2>'+
         '<div class="row"><button type="button" class="btn orange" id="downloadCampaignPackTop" data-mcp="download-campaign-pack">Download Campaign Pack</button></div>'+
         '<div class="ff-product-carousel" id="campaignAssetsCarousel" role="group" aria-label="Generated campaign assets" class="ff-product-carousel mt-sm"></div>'+
         '<div class="row mt-sm"><button type="button" class="btn orange" id="downloadCampaignPackBottom" data-mcp="download-campaign-pack">Download Campaign Pack</button></div>'+
