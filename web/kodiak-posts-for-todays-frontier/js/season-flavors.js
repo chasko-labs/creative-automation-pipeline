@@ -57,7 +57,7 @@
       off:'high-country stands dormant \u2014 Cloudcroft Mercantile halo (research dispatch)',
       market:'Timberon General Store + Cloudcroft Mercantile halo'},
     'US-UT-OAKLEY': {
-      items:[{m:[5,6,7,8],t:'Splendor Valley Farms produce (exact months unconfirmed \u2014 research dispatch)'},{m:[0,1,2,3,4,5,6,7,8,9,10,11],t:'Oakley grass-fed beef + ranch butter, year-round'}],
+      items:[{m:[5,6,7,8],t:'Oakley Farmers Market at Rodeo Grounds (Jun-Sep, 2023 season)'},{m:[],t:'Splendor Valley Farms produce (exact months unconfirmed \u2014 research dispatch)'},{m:[0,1,2,3,4,5,6,7,8,9,10,11],t:'Oakley grass-fed beef + ranch butter, year-round'}],
       off:'ranch beef + butter, year-round (market dormant)',
       market:'Oakley Farmers Market at Oakley Rodeo Grounds'}
   };

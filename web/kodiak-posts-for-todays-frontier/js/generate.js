@@ -238,7 +238,10 @@ let skuList = [
   try{ const pre = new Image(); pre.src = DEFAULT_HERO_SRC; }catch(e){}
   function renderDefaultHero(){
     const preview = document.getElementById('preview');
-    if(!preview || document.getElementById('defaultHeroTile')) return;
+    // the resting showcase (#previewHero) owns the first impression — never
+    // append a second competing default hero on top of it. Offline/no-hero
+    // path below stays intact.
+    if(!preview || document.getElementById('defaultHeroTile') || document.getElementById('previewHero')) return;
     const tile = document.createElement('div');
     tile.className = 'tile tile--default-hero';
     tile.id = 'defaultHeroTile';

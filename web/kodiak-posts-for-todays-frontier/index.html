@@ -398,7 +398,7 @@
      #marketLangLine, with #locPreview injected beside them by data-core.js) now lives INSIDE the
      disclosure so localized copy folds within the preview region once, not sprawling around it. -->
 <section class="ff-output" aria-labelledby="outputHeading">
-  <details class="preview-card ff-output-details" id="previewCard">
+  <details class="preview-card ff-output-details" id="previewCard" open>
     <summary id="outputHeading">
       <span class="ff-stepnum" aria-hidden="true">6</span>
       <span class="ff-output-heading">Output Preview</span>
@@ -433,14 +433,49 @@
 
       <!-- the rendered size tiles + filenames -->
       <div class="preview" id="preview" role="region" aria-label="Campaign preview — four sizes" data-mcp="preview.compose" data-mcp-description="Pipeline preview — displays campaign message in EN + localized on final posts">
-        <!-- Default preview hero: a real committed campaign photo + Park City headline,
-             wiped by the existing preview.innerHTML='' paths on first generate. The bare
-             matrix below used to be the whole first impression. -->
+        <!-- Resting showcase: premade Park City example in all four export sizes,
+             reusing the .render-tile/.r-* frame pattern + committed input_assets
+             photos only (nothing vendored — licensing rule: committed
+             input_assets only; any image with licensing doubt stays out,
+             never copied in). Dims +
+             platform lines mirror data/platforms/platform-matrix.json. Wiped by
+             the existing preview.innerHTML='' paths on first generate; the
+             #previewHero id stays so the offline-canvas fallback in data-core.js
+             keeps its "hero present, stay quiet" behavior. -->
         <figure class="ff-preview-hero" id="previewHero" style="margin:0 0 12px">
-          <img src="input_assets/power-cakes/hero.png" alt="Kodiak Power Cakes family breakfast" style="width:100%;border-radius:12px;display:block" loading="eager" onerror="this.style.display='none'">
-          <figcaption class="ff-figcap">Power Up Family Mornings — Park City default. Type a brief and hit Create for your campaign.</figcaption>
+          <div class="render-set" aria-label="Park City example — four export sizes">
+            <div class="render-tile r-1x1"><div class="render-frame"><img src="input_assets/power-cakes/hero.png" alt="Kodiak Power Cakes family breakfast — Park City example" loading="eager" onerror="this.style.display='none'"></div><div class="render-cap"><b>1:1 Feed</b><span class="dims">1080&#215;1080</span><span class="rt-platforms">Facebook &#183; Instagram &#183; X &#183; LinkedIn &#183; Pinterest</span></div></div>
+            <div class="render-tile r-4x5"><div class="render-frame"><img src="input_assets/textless/cabin-table.jpg" alt="Cabin table stack in morning light — Park City example" loading="lazy" onerror="this.style.display='none'"></div><div class="render-cap"><b>4:5 Portrait</b><span class="dims">1080&#215;1350</span><span class="rt-platforms">Instagram &#183; Facebook</span></div></div>
+            <div class="render-tile r-9x16"><div class="render-frame"><img src="input_assets/textless/campfire-pot.jpg" alt="Campfire pot at dawn — Park City example" loading="lazy" onerror="this.style.display='none'"></div><div class="render-cap"><b>9:16 Vertical</b><span class="dims">1080&#215;1920</span><span class="rt-platforms">Instagram &#183; Facebook &#183; TikTok &#183; YouTube &#183; Pinterest</span></div></div>
+            <div class="render-tile r-16x9"><div class="render-frame"><img src="input_assets/textless/market-stand.jpg" alt="Market stand morning — Park City example" loading="lazy" onerror="this.style.display='none'"></div><div class="render-cap"><b>16:9 Landscape</b><span class="dims">1920&#215;1080</span><span class="rt-platforms">YouTube &#183; LinkedIn &#183; X &#183; Facebook</span></div></div>
+          </div>
+          <figcaption class="ff-figcap">Park City example — flapjacks for a Wasatch Back morning. In-season notes ride the readout above; hit Create to generate these four sizes for your market.</figcaption>
         </figure>
       </div>
+      <!-- Premade resume card: lives OUTSIDE #preview so Create wipes never kill
+           it. One tap restores the Park City example brief + market so the
+           showcase is a starting point, not a dead picture. -->
+      <div class="preview-resume" id="previewResume">
+        <span class="preview-resume-text"><b>Premade example.</b> Resume the Park City breakfast brief any time.</span>
+        <button type="button" class="btn ghost" id="resumeExample">Resume example</button>
+      </div>
+      <script>
+      (function(){
+        var b = document.getElementById('resumeExample');
+        if(!b || b.__wired) return; b.__wired = true;
+        b.addEventListener('click', function(){
+          try{
+            var sel = document.getElementById('locality');
+            if(sel){ sel.value = 'US-MW-PARKCITY-84098'; sel.dispatchEvent(new Event('change')); }
+            var brief = document.getElementById('campaignBrief');
+            if(brief){ brief.value = 'Buttermilk Power Cakes family breakfast, Park City Farmers Market morning'; brief.dispatchEvent(new Event('input')); }
+            if(typeof window.updateLocalFlavor === 'function') window.updateLocalFlavor();
+            var card = document.getElementById('previewCard');
+            if(card && !card.open) card.open = true;
+          }catch(e){}
+        });
+      })();
+      </script>
       <div class="hint ff-filenames" id="fileNames"></div>
 
       <!-- Download asset pack hidden by default; primary/secondary download actions injected under the preview after generation -->

@@ -71,8 +71,12 @@ body{
     linear-gradient(180deg,color-mix(in srgb,var(--colors-brand-frontier-green) 7%,transparent) 0%,transparent var(--spacing-5xl,128px)),
     linear-gradient(0deg,color-mix(in srgb,var(--colors-brand-bear-brown) 6%,transparent) 0%,transparent var(--spacing-5xl,128px)),
     var(--gradients-kraft\.background);
-  background-repeat:no-repeat,no-repeat,repeat;
-  background-size:100% 100dvh,100% 100dvh,auto;
+  /* FIVE layers: 2 house washes + the kraft token's 3 (pinstripe, radial,
+     tan base). Size/repeat lists MUST stay 5 long — a short list cycles and
+     strands the tan base as a no-repeat strip at the top, leaving flat
+     parchment below the fold. */
+  background-repeat:no-repeat,no-repeat,repeat,no-repeat,repeat;
+  background-size:100% 100dvh,100% 100dvh,auto,100% 100dvh,auto;
   position:relative;
 }
 /* paper texture layers — base kc-paper declared on body; secondary canvas on .wrap via layered gradient */
@@ -499,7 +503,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-market[open]>summary{background:var(--colors-brand-bear-brown);border-color:var(--colors-brand-bear-brown)}
 /* the disclosure panel — accessible listbox of the 73 places */
 .ff-market-panel{position:absolute;z-index:60;top:calc(100% + 6px);left:0;min-width:280px;max-width:min(92vw,420px);max-height:340px;overflow:auto;
-  background:var(--colors-neutral-50);border:1px solid var(--colors-border-strong);border-radius:var(--radii-lg);box-shadow:var(--shadows-md);padding:var(--spacing-xs);
+  background:var(--colors-brand-box-parchment,#F5EAD3);border:1px solid var(--colors-border-strong);border-radius:var(--radii-lg);box-shadow:var(--shadows-md);padding:var(--spacing-xs);
   transform-origin:top left;animation:ff-market-spin .22s cubic-bezier(.34,1.56,.64,1)}
 @keyframes ff-market-spin{from{opacity:0;transform:scale(.96) translateY(-4px)}to{opacity:1;transform:scale(1) translateY(0)}}
 .ff-market-filter{display:block;width:100%;margin-bottom:var(--spacing-xs);padding:8px 10px;border:1px solid var(--colors-border-default);border-radius:var(--radii-sm);
@@ -646,7 +650,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-season-details .ff-season-body{padding:10px 2px 0}
 .ff-season-details .ff-season select{width:100%}
 /* idea canvas + controls share one parchment — no bright-white holes */
-.ff-setup select,.ff-setup input[type="text"],.ff-setup input[type="search"]{background-color:#FFFDF7}
+.ff-setup select,.ff-setup input[type="text"],.ff-setup input[type="search"]{background-color:var(--colors-brand-box-parchment,#F5EAD3)}
 .ff-inputwrap{background:linear-gradient(var(--colors-brand-kraft-hi),var(--colors-brand-kraft-lo));border-color:var(--colors-border-strong)}
 .ff-inputwrap::after{content:"";position:absolute;top:-1px;left:12px;right:12px;height:3px;border-radius:0 0 3px 3px;background:linear-gradient(90deg,transparent 0%,var(--colors-brand-frontier-green) 30%,var(--colors-brand-blaze-orange) 70%,transparent 100%);pointer-events:none}
 /* step-4 group: plain panel like every other row — numbering alone carries the family,
@@ -727,10 +731,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-products .ff-products-row{display:flex;flex-wrap:wrap;gap:var(--spacing-sm);align-items:center}
 .ff-products .ff-products-search{position:relative;flex:1 1 220px;min-width:0}
 .ff-products .ff-products-search input{width:100%;padding:8px 12px;border:1px solid var(--colors-border-default);border-radius:var(--radii-md);
-  background:var(--colors-neutral-50,#FFF8F0);color:var(--colors-foreground-default);font:500 13px/1.4 "museo-sans",sans-serif}
+  background:var(--colors-brand-box-parchment,#F5EAD3);color:var(--colors-foreground-default);font:500 13px/1.4 "museo-sans",sans-serif}
 /* compact results popover — reuses the market-panel treatment (shadows-md, radii-lg, capped height) */
 .ff-products .ff-products-results{position:absolute;z-index:60;top:calc(100% + var(--spacing-xs));left:0;right:0;
-  max-height:240px;overflow:auto;background:var(--colors-neutral-50);border:1px solid var(--colors-border-strong);
+  max-height:240px;overflow:auto;background:var(--colors-brand-box-parchment,#F5EAD3);border:1px solid var(--colors-border-strong);
   border-radius:var(--radii-lg);box-shadow:var(--shadows-md);padding:var(--spacing-xs)}
 .ff-products .ff-products-results:empty,.ff-products .ff-products-results[hidden]{display:none}
 .ff-products .ff-products-results [role="option"]{display:flex;align-items:center;gap:var(--spacing-sm);width:100%;text-align:left;
@@ -1049,7 +1053,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-dam-backdrop{position:fixed;inset:0;z-index:200;background:rgba(26,47,41,.32);display:none}
 .ff-dam-backdrop.is-open{display:block}
 .ff-dam-panel{position:fixed;z-index:201;top:50%;left:50%;transform:translate(-50%,-50%);width:min(92vw,760px);max-height:82vh;overflow:auto;
-  background:var(--colors-neutral-50,#FFF8F0);border:1px solid var(--colors-border-strong,#3B2316);border-radius:var(--radii-lg,12px);
+  background:var(--colors-brand-box-parchment,#F5EAD3);border:1px solid var(--colors-border-strong,#3B2316);border-radius:var(--radii-lg,12px);
   box-shadow:var(--shadows-md,0 8px 28px rgba(0,0,0,.28));padding:var(--spacing-md,16px);display:none}
 .ff-dam-panel.is-open{display:block}
 .ff-dam-head{display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-sm,8px);margin-bottom:var(--spacing-sm,8px)}
@@ -1145,6 +1149,8 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 
 /* render-set + preview tiles — variable count, each tile carries an image/canvas + meta + localized caption */
 #preview,.render-set,.preview{content-visibility:auto;contain-intrinsic-size:auto 500px}
+/* resting showcase is the first impression — always paint it, never defer */
+#previewHero .render-set{content-visibility:visible}
 
 
 /* === Campaign-input redesign — scope-first sequenced flow ===
@@ -1239,7 +1245,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-layer input{margin-top:2px;accent-color:var(--colors-brand-frontier-green)}
 .ff-layer b{color:var(--colors-brand-bear-brown,#3B2316)}
 #layerRetailerSelect{margin-left:26px;max-width:220px;padding:6px 10px;border:1px solid var(--colors-border-default);
-  border-radius:var(--radii-md,8px);background:#FDF6EC;font:500 12px/1.2 "museo-sans",sans-serif;color:var(--colors-foreground-default,#3B2316)}
+  border-radius:var(--radii-md,8px);background:var(--colors-brand-box-parchment,#F5EAD3);font:500 12px/1.2 "museo-sans",sans-serif;color:var(--colors-foreground-default,#3B2316)}
 .ff-layers-hint{margin:0;font:500 11px/1.45 "museo-sans",sans-serif;color:var(--colors-foreground-muted,#6B5A53)}
 
 /* Default on-load hero tile (#196) — photographic first paint; same .tile frame as
@@ -1253,24 +1259,27 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
    summary gets a real control box so actions stop blending into body copy. */
 /* page: the base body rule above governs (warm vignette + house wash) — no override here,
    or the wash below it dies in the cascade and the page falls back to a flat field */
-/* cards + tiles + timeline: lighter lift, no stripes, stronger edge */
+/* cards + tiles + timeline: lighter lift, no stripes, stronger edge.
+   SECTION RHYTHM (deliberate, top to bottom): flute timeline board (token
+   kraft+flute) -> transparent setup spacing layer (page kraft shows through,
+   final rule at file end wins) -> parchment output card (kraft-surface token)
+   -> flat parchment render tiles with badge-parchment caps. Below-fold
+   surfaces never go near-white: box-parchment token, never neutral-50. */
 .card,.tile,.tile .meta,.offline,.ff-timeline{background-image:none}
-.card{background:linear-gradient(#F8F1E3,#F3E6D1);border-color:var(--colors-border-strong)}
+.card{background:var(--gradients-kraft\.surface);border-color:var(--colors-border-strong)}
 .card::before{background-image:var(--wood)}
-.card:hover{background:linear-gradient(#FAF4E8,#F5E8D3)}
-.tile,.tile .meta,.offline,.ff-timeline,.ff-output{background-color:#F7F0E1}
-.ff-output{background:linear-gradient(#F8F1E3,#F3E6D1);border-color:var(--colors-border-strong);padding:20px 22px}
-.preview-card>summary{background-image:none;background-color:#F8F1E3}
+.card:hover{background:var(--gradients-kraft\.surface-hover)}
+.tile,.tile .meta,.offline,.ff-timeline,.ff-output{background-color:var(--colors-brand-box-parchment,#F5EAD3)}
+.ff-output{background:var(--gradients-kraft\.surface);border-color:var(--colors-border-strong);padding:20px 22px}
+.preview-card>summary{background-image:none;background-color:var(--colors-brand-box-parchment,#F5EAD3)}
 /* post-generation surfaces ride the same smooth treatment */
-.render-tile,.platform-matrix,.platform-copy,.provenance{background-image:none;background-color:#F7F0E1;border-color:var(--colors-border-strong)}
-.render-tile .render-cap,.platform-matrix .pm-head,.platform-copy>.pc-head{background-image:none;background-color:#F3E8D4}
+.render-tile,.platform-matrix,.platform-copy,.provenance{background-image:none;background-color:var(--colors-brand-box-parchment,#F5EAD3);border-color:var(--colors-border-strong)}
+.render-tile .render-cap,.platform-matrix .pm-head,.platform-copy>.pc-head{background-image:none;background-color:var(--colors-brand-badge-parchment,#F2E2C6)}
 header::before{background:none}
-.ff-setup{background-image:none;background:linear-gradient(#F8F1E3,#F3E6D1);gap:var(--spacing-md);padding:var(--spacing-lg)}
-.ff-prompt{background-image:none;background-color:#F8F1E3}
-.ff-brainstorm{background:#F2E7D3}
+.ff-setup{gap:var(--spacing-md);padding:var(--spacing-lg)}
 /* summaries read as controls: near-white box + strong edge (open/hover states keep their specificity-won treatments) */
 .ff-setup .ff-scope-summary,#locationSection>summary{background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-strong)}
-.ff-controlrow select,.ff-controlrow input,.ff-controlrow textarea{background:var(--colors-neutral-50,#FFF8F0);border:1px solid var(--colors-border-strong)}
+.ff-controlrow select,.ff-controlrow input,.ff-controlrow textarea{background:var(--colors-brand-box-parchment,#F5EAD3);border:1px solid var(--colors-border-strong)}
 /* kickers carry the pine so labels scan apart from chocolate values */
 .ff-location-kicker{color:var(--colors-brand-frontier-green)}
 .ff-optiongroup>.ff-optiongroup-label{color:var(--colors-brand-frontier-green)}
@@ -1313,7 +1322,12 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-scope-opt{transition:background .15s,border-color .15s,box-shadow .15s}
 @media(prefers-reduced-motion:reduce){details[open]>*:not(summary){animation:none}.btn:hover{transform:none}}
 /* preview figcaption (was an inline style) */
-.ff-figcap{font:600 13px/1.4 "museo-sans",sans-serif;color:#3B2316;margin-top:8px}
+.ff-figcap{font:600 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate);margin-top:8px}
+/* premade resume card: same control-box voice as the step summaries, parchment
+   token surface, pine kicker text. Lives outside #preview so Create wipes keep it. */
+.preview-resume{display:flex;align-items:center;gap:var(--spacing-sm);flex-wrap:wrap;background:var(--colors-brand-box-parchment,#F5EAD3);border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);padding:10px 12px;margin:0 0 12px}
+.preview-resume-text{font:500 12px/1.4 "museo-sans",sans-serif;color:var(--colors-brand-frontier-green)}
+@media(prefers-reduced-motion:reduce){.preview-resume{transition:none}}
 /* 4.4 staging row: same control-box voice as the other rows, tray fills the rest */
 .ff-assetrow{display:flex;align-items:center;gap:var(--spacing-sm);flex-wrap:wrap;background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);padding:10px 12px}
 .ff-assetrow .ff-tray{margin-top:0;flex:1 1 auto}
@@ -1352,17 +1366,18 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 }
 /* === JS-rendered surfaces — token classes so templates carry zero inline style === */
 .is-hidden{display:none!important}
-.sku-pick{display:flex;gap:8px;align-items:center;font-size:12px;border:1px solid var(--stone);border-radius:8px;padding:6px;background:#FDF6EC;box-shadow:var(--shadows-sm)}
+.sku-pick{display:flex;gap:8px;align-items:center;font-size:12px;border:1px solid var(--stone);border-radius:8px;padding:6px;background:var(--colors-brand-box-parchment,#F5EAD3);box-shadow:var(--shadows-sm)}
 .sku-pick img{width:32px;height:32px;object-fit:cover;border-radius:6px}
 .sku-sub{color:#8C7A70;font-size:10px}
 .flag-err{color:#B51E14}
 .flag-pine{color:#1A3C34}
-.gen-pulse{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;background:linear-gradient(90deg,#EFE6DB 25%,#F7F0E8 50%,#EFE6DB 75%);background-size:200% 100%;animation:genpulse 1.4s ease-in-out infinite}
+.gen-pulse{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;background:linear-gradient(90deg,var(--colors-neutral-200,#E8DDD3) 25%,var(--colors-neutral-100,#F4EDE6) 50%,var(--colors-neutral-200,#E8DDD3) 75%);background-size:200% 100%;animation:genpulse 1.4s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.gen-pulse{animation:none}}
 .gen-pulse-label{font:700 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8C7A70}
 .gen-pulse-label--lg{font-size:13px;letter-spacing:.08em}
 #genSkeleton{grid-column:1/-1;max-width:640px;margin:0 auto}
-.kamas-vibe{margin-top:16px;padding:12px;border:1px solid #D9CFC6;border-radius:10px;background:var(--colors-neutral-50,#FFF8F0)}
-.kamas-vibe-title{font-family:Roar,kodiak_sans,sans-serif;font-weight:800;color:#3B2316}
+.kamas-vibe{margin-top:16px;padding:12px;border:1px solid var(--stone);border-radius:10px;background:var(--colors-brand-box-parchment,#F5EAD3)}
+.kamas-vibe-title{font-family:Roar,kodiak_sans,sans-serif;font-weight:800;color:var(--chocolate)}
 .kamas-vibe-market{font-size:11px;color:#8C7A70;margin:6px 0}
 .kamas-preview{margin-top:10px}
 /* one hero frame (LAST so it beats the older panel overrides): the outer card
