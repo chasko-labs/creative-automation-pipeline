@@ -65,10 +65,14 @@ html,body{margin:0;color:var(--chocolate);font-family:"museo-sans",system-ui,-ap
 html{background:var(--parchment)}
 body{
   background-color:var(--parchment);
-  /* kraft procedural background — replaces kodiakcakes.com CDN .webp rasters (kc-paper / kc-paper-fallback removed) */
-  background-image:var(--gradients-kraft\.background);
-  background-repeat:repeat;
-  background-size:auto;
+  /* layered house wash at low alpha OVER the kraft procedural background — pine light from the
+     top, bear-brown warmth from the bottom. Token refs only (color-mix for the alpha). */
+  background-image:
+    linear-gradient(180deg,color-mix(in srgb,var(--colors-brand-frontier-green) 7%,transparent) 0%,transparent var(--spacing-5xl,128px)),
+    linear-gradient(0deg,color-mix(in srgb,var(--colors-brand-bear-brown) 6%,transparent) 0%,transparent var(--spacing-5xl,128px)),
+    var(--gradients-kraft\.background);
+  background-repeat:no-repeat,no-repeat,repeat;
+  background-size:100% var(--spacing-5xl,128px),100% var(--spacing-5xl,128px),auto;
   position:relative;
 }
 /* paper texture layers — base kc-paper declared on body; secondary canvas on .wrap via layered gradient */
@@ -167,7 +171,7 @@ header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-s
   .render-set,.preview{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 }
 .field label{display:block;font:700 11px/1 "museo-sans","kodiak_sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#6B5A53;margin:12px 0 6px}
-.field input,.field select,.field textarea{width:100%;padding:10px 12px;border:1px solid var(--stone);border-radius:4px;background:#fff;font:500 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate)}
+.field input,.field select,.field textarea{width:100%;padding:10px 12px;border:1px solid var(--stone);border-radius:4px;background:var(--colors-neutral-50,#FFF8F0);font:500 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate)}
 .field textarea{min-height:72px;resize:vertical}
 .hint{color:#8C7A70;font:500 11px/1.5 "museo-sans",sans-serif;margin-top:6px}
 .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
@@ -258,7 +262,7 @@ section.xl{padding:var(--section-space-xl) 0}
 /* + upload — compact pill that rhymes with the chips, not a mystery square */
 .ff-iconbtn{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;
   border-radius:var(--radii-full,999px);border:1px solid var(--colors-neutral-300,#D9CFC6);
-  background:var(--colors-neutral-0,#fff);color:var(--chocolate);cursor:pointer;font-size:18px;line-height:1}
+  background:var(--colors-brand-box-parchment,#F5EAD3);color:var(--chocolate);cursor:pointer;font-size:18px;line-height:1}
 .ff-iconbtn:hover{background:var(--colors-neutral-100,#F4EDE6)}
 .ff-iconbtn:focus-visible{outline:2px solid var(--orange, #E8530E);outline-offset:2px}
 /* CREATE CAMPAIGN PREVIEW — the star. Deep ember gradient (every stop vs #fff clears
@@ -293,10 +297,21 @@ section.xl{padding:var(--section-space-xl) 0}
 .ff-go:disabled{opacity:.5;cursor:not-allowed}
 /* suggestion chips — quick-start pills that populate the prompt */
 .ff-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.ff-chip{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;border:1px solid var(--stone);background:#fff;color:var(--chocolate);font:600 12px/1 "museo-sans",sans-serif;cursor:pointer;transition:background .15s,border-color .15s,box-shadow .15s,transform .15s;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),var(--shadows-sm)}
+.ff-chip{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;border:1px solid var(--stone);background:var(--colors-brand-box-parchment,#F5EAD3);color:var(--chocolate);font:600 12px/1 "museo-sans",sans-serif;cursor:pointer;transition:background .15s,border-color .15s,box-shadow .15s,transform .15s;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),var(--shadows-sm)}
 .ff-chip:hover{background:var(--oat);border-color:var(--brown-kodiak);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),var(--shadows-md);transform:translateY(-1px)}
-.ff-chip[aria-pressed="true"]{background:var(--brown-kodiak);color:var(--parchment);border-color:var(--brown-kodiak);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),var(--shadows-bear)}
 @media(prefers-reduced-motion:reduce){.ff-chip{transition:none}.ff-chip:hover{transform:none}}
+/* === Creative-direction checkbox cards — one card carries selection AND mark ===
+   A label wrapping a visually-hidden native checkbox: keyboard + screen-reader semantics come
+   free, checked state paints via :has(). Token refs only; reduced-motion guarded. */
+.ff-check-card{position:relative}
+.ff-check-card__input{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;opacity:0}
+.ff-check-card:has(.ff-check-card__input:checked){background:var(--brown-kodiak);color:var(--parchment);border-color:var(--brown-kodiak);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),var(--shadows-bear)}
+.ff-check-card:has(.ff-check-card__input:checked) .ff-dot{background:var(--colors-brand-blaze-orange)}
+.ff-check-card:has(.ff-check-card__input:focus-visible){outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.ff-check-card{transition:none}.ff-check-card:hover{transform:none}}
+/* run-lock dimming during generate — class-driven, no inline styles */
+#promptChips.is-locked{opacity:.55}
+#promptChips.is-locked .ff-check-card{cursor:wait}
 /* dot desaturated to neutral-400 — --orange is now reserved for the focus ring + Create only */
 .ff-chip .ff-dot{width:6px;height:6px;border-radius:50%;background:var(--colors-neutral-400,#B8A99E)}
 /* MOBILE — wrap is now column-direction, so the old flex-wrap rule is retired. On narrow
@@ -531,7 +546,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   padding-top:var(--spacing-sm);border-top:1px dashed var(--colors-border-default)}
 .ff-addloc-label{flex:1 1 100%;font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted)}
 .ff-addloc-input{flex:1 1 140px;min-width:0;padding:8px 10px;border:1px solid var(--colors-border-default);border-radius:var(--radii-sm);
-  background:var(--colors-neutral-0);color:var(--colors-foreground-default);font:500 12px/1.4 "museo-sans",sans-serif}
+  background:var(--colors-neutral-50,#FFF8F0);color:var(--colors-foreground-default);font:500 12px/1.4 "museo-sans",sans-serif}
 .ff-addloc-btn{flex:0 0 auto;padding:8px 12px;border:1px solid var(--colors-brand-frontier-green);border-radius:var(--radii-sm);
   background:var(--colors-background-nature);color:var(--colors-foreground-inverse);
   font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;cursor:pointer}
@@ -656,7 +671,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    content-visibility:auto for off-screen slot perf. Random 3 stays inline on the search row (item 7c). */
 .ff-product-carousel{display:flex;gap:var(--spacing-sm);overflow-x:auto;scroll-snap-type:x proximity;
   padding:var(--spacing-xs);border:1px solid var(--colors-border-default);border-radius:var(--radii-md);
-  background:var(--colors-neutral-0);content-visibility:auto;contain-intrinsic-size:auto 96px;-webkit-overflow-scrolling:touch}
+  background:var(--colors-brand-box-parchment,#F5EAD3);content-visibility:auto;contain-intrinsic-size:auto 96px;-webkit-overflow-scrolling:touch}
 .ff-carousel-slot{flex:0 0 33%;min-width:96px;aspect-ratio:1/1;scroll-snap-align:start;
   border:1px dashed var(--colors-border-default);border-radius:var(--radii-sm);background:var(--colors-neutral-100);
   display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -712,7 +727,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-products .ff-products-row{display:flex;flex-wrap:wrap;gap:var(--spacing-sm);align-items:center}
 .ff-products .ff-products-search{position:relative;flex:1 1 220px;min-width:0}
 .ff-products .ff-products-search input{width:100%;padding:8px 12px;border:1px solid var(--colors-border-default);border-radius:var(--radii-md);
-  background:var(--colors-neutral-0);color:var(--colors-foreground-default);font:500 13px/1.4 "museo-sans",sans-serif}
+  background:var(--colors-neutral-50,#FFF8F0);color:var(--colors-foreground-default);font:500 13px/1.4 "museo-sans",sans-serif}
 /* compact results popover — reuses the market-panel treatment (shadows-md, radii-lg, capped height) */
 .ff-products .ff-products-results{position:absolute;z-index:60;top:calc(100% + var(--spacing-xs));left:0;right:0;
   max-height:240px;overflow:auto;background:var(--colors-neutral-50);border:1px solid var(--colors-border-strong);
@@ -751,8 +766,9 @@ header.kodiak-header{background:linear-gradient(135deg,var(--colors-brand-fronti
    overflow:visible does NOT create a containing block/stacking context the way a filter does, so this
    is safe for the sticky header (unlike the filter-on-sticky trap guarded on .wrap). */
 header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
-/* partner mark — hidden until the US Ski & Snowboard chip toggles it on (JS flips display); tokenized spacing */
+/* partner mark — hidden until the US Ski & Snowboard card is checked (JS toggles .is-on); tokenized spacing */
 .ff-partner-mark{margin-top:var(--spacing-sm);display:none;align-items:center;gap:var(--spacing-sm)}
+.ff-partner-mark.is-on{display:flex}
 .ff-partner-mark__img{height:auto;max-width:94px;display:block;border-radius:var(--radii-sm)}
 .ff-partner-mark__label{font:600 12px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-600)}
 /* download row + hidden download button */
@@ -763,13 +779,14 @@ header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
 .ff-generatehint .ff-samplestatus{color:var(--colors-neutral-600)}
 /* derived local-flavor block — kept in DOM for JS, never shown */
 .ff-hidden{display:none}
-/* Wasatch ridge divider — decorative silhouette band */
-.ff-ridge{height:48px;background:var(--mountain) no-repeat center/100% 48px;margin:var(--spacing-sm) 0 0}
-/* === About art band — full-bleed mountains-with-pines above the section === */
-.ff-about-art{margin:var(--spacing-sm) 0 0;line-height:0}
-.ff-about-art .ff-about-range{width:100%;height:96px;display:block}
+/* Wasatch ridge divider — decorative silhouette band; cap height from the shared spacing scale */
+.ff-ridge{height:var(--spacing-xl,32px);background:var(--mountain) no-repeat center/100% var(--spacing-xl,32px);margin:var(--spacing-sm) 0 0}
+/* === About art band — full-bleed mountains-with-pines, FLUSH with the section below ===
+   (no top margin: the art is the section's cap, not a separate stacked block) */
+.ff-about-art{margin:0;line-height:0}
+.ff-about-art .ff-about-range{width:100%;height:var(--spacing-2xl,48px);display:block}
 /* forest treeline divider - mirrors .ff-ridge, uses the conifer --forest silhouette */
-.ff-forest{height:48px;background:var(--forest) no-repeat center/100% 48px;margin:var(--spacing-sm) 0 0}
+.ff-forest{height:var(--spacing-xl,32px);background:var(--forest) no-repeat center/100% var(--spacing-xl,32px);margin:var(--spacing-sm) 0 0}
 /* preview filenames line — hidden until populated */
 .ff-filenames{margin-top:10px;display:none}
 /* details-page link (legacy .ff-detailslink retained harmlessly; standalone row removed in FIX 4) */
@@ -1149,7 +1166,9 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-scope-summary:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 .ff-scope-summary #scopeSummary{font-weight:700}
 .ff-scope-label{font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted,#6B5A53)}
-.ff-scope-seg{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--colors-border-default,#D9CFC6);border-radius:var(--radii-lg,12px);overflow:hidden;background:var(--colors-neutral-0,#fff)}
+/* White policy: no pure-white surfaces. Boxes/segments/chips use box-parchment, editable fields use
+   neutral-50. neutral-0 (#fff) stays reserved for CTA text on dark + light-sweep highlights. */
+.ff-scope-seg{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--colors-border-default,#D9CFC6);border-radius:var(--radii-lg,12px);overflow:hidden;background:var(--colors-brand-box-parchment,#F5EAD3)}
 .ff-scope-opt{flex:1 1 0;min-width:140px;display:flex;flex-direction:column;align-items:flex-start;gap:2px;
   padding:var(--spacing-sm,8px) var(--spacing-md,14px);border:none;border-left:1px solid var(--colors-border-default,#D9CFC6);
   background:transparent;color:var(--colors-foreground-default,#3B2316);cursor:pointer;text-align:left;transition:background .15s,color .15s}
@@ -1191,11 +1210,9 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
    existing .ff-chip pill styling (multi-select aria-pressed toggle handled in prompt-chips.js). */
 .ff-chipgroups{display:flex;flex-wrap:wrap;gap:var(--spacing-sm,8px);margin-top:var(--spacing-xs,4px)}
 .ff-chipcluster{display:flex;flex-wrap:wrap;align-items:center;gap:var(--spacing-xs,4px) var(--spacing-sm,8px)}
-/* concept rows: the compose flag rides the same row as the chips that drive it,
-   pushed to the row end; the partner-mark preview drops full-width beneath. */
-.ff-concept .ff-layer{margin-left:auto}
+/* concept rows: each checkbox card drives its own mark directly (no standalone flags);
+   the partner-mark preview drops full-width beneath its card. */
 .ff-concept .ff-partner-mark{flex:1 1 100%}
-@media(max-width:520px){.ff-concept .ff-layer{margin-left:0}}
 .ff-chipcluster-label{flex:0 0 100%;font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted,#6B5A53)}
 @media(max-width:520px){.ff-chipgroups{gap:var(--spacing-sm,8px)}}
 /* per-asset campaign download links (campaign-sections.js renderCampaignCarousel):
@@ -1253,7 +1270,7 @@ header::before{background:none}
 .ff-brainstorm{background:#F2E7D3}
 /* summaries read as controls: near-white box + strong edge (open/hover states keep their specificity-won treatments) */
 .ff-setup .ff-scope-summary,#locationSection>summary{background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-strong)}
-.ff-controlrow select,.ff-controlrow input,.ff-controlrow textarea{background:#fff;border:1px solid var(--colors-border-strong)}
+.ff-controlrow select,.ff-controlrow input,.ff-controlrow textarea{background:var(--colors-neutral-50,#FFF8F0);border:1px solid var(--colors-border-strong)}
 /* kickers carry the pine so labels scan apart from chocolate values */
 .ff-location-kicker{color:var(--colors-brand-frontier-green)}
 .ff-optiongroup>.ff-optiongroup-label{color:var(--colors-brand-frontier-green)}
@@ -1344,7 +1361,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .gen-pulse-label{font:700 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8C7A70}
 .gen-pulse-label--lg{font-size:13px;letter-spacing:.08em}
 #genSkeleton{grid-column:1/-1;max-width:640px;margin:0 auto}
-.kamas-vibe{margin-top:16px;padding:12px;border:1px solid #D9CFC6;border-radius:10px;background:#FFF8F0}
+.kamas-vibe{margin-top:16px;padding:12px;border:1px solid #D9CFC6;border-radius:10px;background:var(--colors-neutral-50,#FFF8F0)}
 .kamas-vibe-title{font-family:Roar,kodiak_sans,sans-serif;font-weight:800;color:#3B2316}
 .kamas-vibe-market{font-size:11px;color:#8C7A70;margin:6px 0}
 .kamas-preview{margin-top:10px}

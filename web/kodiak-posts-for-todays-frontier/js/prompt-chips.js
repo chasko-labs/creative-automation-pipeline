@@ -1,13 +1,13 @@
-// --- Simplified Park City demo wiring: prompt chips, upload affordance, textarea auto-grow ---
+// --- Simplified Park City demo wiring: creative-direction checkbox cards, upload affordance, textarea auto-grow ---
 (function(){
-  // Creative-direction chips — ADDITIVE MULTI-SELECT toggles (aria-pressed on/off). #218/#236:
-  // chips never OVERWRITE the brief with canned copy. Instead we maintain window.__activeDirections
+  // Creative-direction cards — ADDITIVE MULTI-SELECT native checkboxes. #218/#236:
+  // cards never OVERWRITE the brief with canned copy. Instead we maintain window.__activeDirections
   // (a Set of theme slugs) and reassemble the brief on every toggle as
   //   <free text> + <auto context suffix> + <managed directions tail>
   // Typed text is never clobbered in either direction: toggling preserves the free-text portion
-  // (including text typed after the generated regions), and typing never disarms the chips — the
+  // (including text typed after the generated regions), and typing never disarms the cards — the
   // managed tail is re-canonicalized around the edit. window.__activeTheme is kept for backward
-  // compat (generate.js reads it): the MOST-RECENTLY-toggled-on direction (or null when none remain).
+  // compat (generate.js reads it): the MOST-RECENTLY-checked direction (or null when none remain).
   var briefEl = document.getElementById('campaignBrief');
   var chipWrap = document.getElementById('promptChips');
 
@@ -28,22 +28,25 @@
 
   // partner mark visibility — only when the US Ski & Snowboard direction is ACTIVE within the
   // multi-select set (not tied to a single active theme any more). Tasteful, not overused.
+  // Class-driven (no inline styles): .ff-partner-mark.is-on paints flex in components.css.
   function togglePartnerMark(){
     var mark = document.getElementById('ussPartnerMark');
     if(!mark) return;
     var on = activeDirections.has('us-ski-snowboard');
     mark.hidden = !on;
-    mark.style.display = on ? 'flex' : 'none';
+    if(on){ mark.classList.add('is-on'); }
+    else{ mark.classList.remove('is-on'); }
   }
 
-  // active direction clauses in DOM order (stable no matter what order chips were toggled).
+  // active direction clauses in DOM order (stable no matter what order cards were checked).
   function currentClauses(){
     var out = [];
     if(!chipWrap) return out;
-    chipWrap.querySelectorAll('.ff-chip').forEach(function(c){
-      var slug = c.getAttribute('data-theme');
+    chipWrap.querySelectorAll('.ff-check-card__input[data-theme]').forEach(function(input){
+      var slug = input.getAttribute('data-theme');
       if(slug && activeDirections.has(slug)){
-        out.push(DIRECTION_CLAUSES[slug] || (c.getAttribute('data-label') || slug));
+        var card = input.closest('.ff-check-card');
+        out.push(DIRECTION_CLAUSES[slug] || ((card && card.getAttribute('data-label')) || slug));
       }
     });
     return out;
@@ -147,99 +150,67 @@
   }
   window.__rebuildBrief = rebuildBrief;
 
-  function chipFor(slug){
-    return chipWrap ? chipWrap.querySelector('.ff-chip[data-theme="' + slug + '"]') : null;
+  function cardInputFor(slug){
+    return chipWrap ? chipWrap.querySelector('.ff-check-card__input[data-theme="' + slug + '"]') : null;
   }
 
-  // shared chip setter — the ONLY writer of chip state, used by chip clicks AND layer sync (#237).
+  // shared card setter — the ONLY writer of card state, used by card changes AND programmatic
+  // paths (suggestion apply, coach confirm, restore defaults). The native checkbox IS the state;
+  // __activeDirections + __activeTheme mirror it for the brief assembly + generate.js readers.
   function setChip(slug, on, opts){
-    var chip = chipFor(slug);
-    if(!chip) return false;
+    var input = cardInputFor(slug);
+    if(!input) return false;
     var isOn = activeDirections.has(slug);
-    if(on === isOn){
-      if(chip.getAttribute('aria-pressed') === (on ? 'true' : 'false')) return true;
+    if(on === isOn && input.checked === on) return true;
+    if(on){
+      activeDirections.add(slug);
+      window.__activeTheme = slug;
+      trackRetailerCheck(slug);
     }
-    if(on){ activeDirections.add(slug); window.__activeTheme = slug; }
     else {
       activeDirections.delete(slug);
+      untrackRetailerCheck(slug);
       if(window.__activeTheme === slug){
-        var remaining = Array.prototype.slice.call(chipWrap.querySelectorAll('.ff-chip'))
-          .filter(function(c){ return activeDirections.has(c.getAttribute('data-theme')); });
+        var remaining = Array.prototype.slice.call(chipWrap.querySelectorAll('.ff-check-card__input[data-theme]'))
+          .filter(function(el){ return activeDirections.has(el.getAttribute('data-theme')); });
         window.__activeTheme = remaining.length ? remaining[remaining.length-1].getAttribute('data-theme') : null;
       }
     }
-    chip.setAttribute('aria-pressed', on ? 'true' : 'false');
+    if(input.checked !== on) input.checked = on;
     if(slug === 'us-ski-snowboard') togglePartnerMark();
     if(!opts || !opts.deferRebuild) rebuildBrief();
     return true;
   }
 
-  // ---- #237: one selection per concept drives brief text AND layer flags ----
-  // The retailer/partner chips are the selection; the Compose checkboxes mirror them. Guarded so a
-  // chip-driven check does not echo back into a chip toggle (generate.js's own summary listener
-  // still runs — the "n on" label stays correct). Choosing implies the layer; 3.3 stays a slim
-  // manual override, never a second selection step.
-  var __syncingLayers = false;
+  // ---- retailer mark: composed iff a SPECIFIC retailer card is checked ----
+  // localized-all sets brief text only (never a mark). Most-recently checked specific wins —
+  // tracked explicitly so unchecking All never steals the mark from a still-checked retailer.
+  var RETAILER_CARD_VALUES = {'localized-costco':'costco','localized-publix':'publix'};
+  var __retailerCheckOrder = [];
+  function trackRetailerCheck(slug){
+    if(!RETAILER_CARD_VALUES[slug]) return;
+    untrackRetailerCheck(slug);
+    __retailerCheckOrder.push(slug);
+  }
+  function untrackRetailerCheck(slug){
+    __retailerCheckOrder = __retailerCheckOrder.filter(function(s){ return s !== slug; });
+  }
+  // generate.js reads the composed retailer mark through this getter: the value of the
+  // most-recently checked SPECIFIC retailer, or null when none (All alone -> brief only).
+  function activeRetailerValue(){
+    for(var i = __retailerCheckOrder.length - 1; i >= 0; i--){
+      if(activeDirections.has(__retailerCheckOrder[i])) return RETAILER_CARD_VALUES[__retailerCheckOrder[i]];
+    }
+    return null;
+  }
+  window.__activeRetailerValue = activeRetailerValue;
+  // staging-driven product flag only — the retailer/partner mark flags are retired (each card
+  // drives its own mark directly), so this helper serves layerProduct alone.
   function setLayer(id, on){
     var el = document.getElementById(id);
     if(!el || el.checked === on) return;
-    __syncingLayers = true;
     el.checked = on;
     try{ el.dispatchEvent(new Event('change', {bubbles:true})); }catch(e){}
-    __syncingLayers = false;
-  }
-  // retailer chips share one layer + select. Most-recent pick wins (via __activeTheme),
-  // else first found — one mark composed, never a stack.
-  var RETAILER_CHIP_VALUES = {'localized-costco':'costco','localized-publix':'publix','localized-target':'target'};
-  var RETAILER_CHIP_ORDER = ['localized-costco','localized-publix','localized-target'];
-  var RETAILER_CHIP_VALUES_INV = {'costco':true,'publix':true,'target':true};
-  // last chip-driven select value — lets chip-off clear only a layer the chips set,
-  // so a hand-checked manual mark is never clobbered.
-  var __chipRetailerValue = null;
-  function activeRetailerValue(){
-    if(window.__activeTheme && RETAILER_CHIP_VALUES[window.__activeTheme] && activeDirections.has(window.__activeTheme)) return RETAILER_CHIP_VALUES[window.__activeTheme];
-    for(var i = 0; i < RETAILER_CHIP_ORDER.length; i++) if(activeDirections.has(RETAILER_CHIP_ORDER[i])) return RETAILER_CHIP_VALUES[RETAILER_CHIP_ORDER[i]];
-    return null;
-  }
-  // generate.js reads the retailer from the chips through this getter — the old
-  // #layerRetailerSelect dropdown is retired, it duplicated the chips.
-  window.__activeRetailerValue = activeRetailerValue;
-  function syncLayersFromChips(){
-    var val = activeRetailerValue();
-    var sel = document.getElementById('layerRetailerSelect');
-    var ret = document.getElementById('layerRetailer');
-    if(val){
-      if(sel) sel.value = val;
-      __chipRetailerValue = val;
-      setLayer('layerRetailer', true);
-    } else {
-      if(ret && ret.checked && __chipRetailerValue && (!sel || sel.value === __chipRetailerValue)) setLayer('layerRetailer', false);
-      __chipRetailerValue = null;
-    }
-    setLayer('layerPartner', activeDirections.has('us-ski-snowboard'));
-  }
-  function syncChipsFromLayers(){
-    if(__syncingLayers) return;
-    var sel = document.getElementById('layerRetailerSelect');
-    var ret = document.getElementById('layerRetailer');
-    var part = document.getElementById('layerPartner');
-    if(ret){
-      var v = (sel && sel.value) || __chipRetailerValue;
-      if(ret.checked && v){
-        RETAILER_CHIP_ORDER.forEach(function(slug){ setChip(slug, RETAILER_CHIP_VALUES[slug] === v, {deferRebuild:true}); });
-        if(RETAILER_CHIP_VALUES_INV[v]) __chipRetailerValue = v;
-      } else if(ret.checked){
-        // manual check with no retailer chip: adopt the fallback concept (matches the
-        // retired select's 'costco' default) so flag and chips stay one selection.
-        setChip('localized-costco', true, {deferRebuild:true});
-      } else {
-        RETAILER_CHIP_ORDER.forEach(function(slug){ setChip(slug, false, {deferRebuild:true}); });
-        __chipRetailerValue = null;
-      }
-    }
-    if(part) setChip('us-ski-snowboard', !!part.checked, {deferRebuild:true});
-    syncLayersFromChips();
-    rebuildBrief();
   }
   function currentStagedProducts(){
     return Array.prototype.slice.call(document.querySelectorAll('#productChooser .sku-check:checked'))
@@ -263,26 +234,27 @@
     if(!activeDirections.size){ window.__activeTheme = null; return; }
     activeDirections.clear();
     window.__activeTheme = null;
-    if(chipWrap) chipWrap.querySelectorAll('.ff-chip').forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+    __retailerCheckOrder = [];
+    if(chipWrap) chipWrap.querySelectorAll('.ff-check-card__input[data-theme]').forEach(function(el){ el.checked = false; });
     togglePartnerMark();
-    syncLayersFromChips();
     rebuildBrief();
   };
 
   if(chipWrap && briefEl){
-    chipWrap.querySelectorAll('.ff-chip[data-theme]').forEach(function(chip){
-      var slug = chip.getAttribute('data-theme');
-      // seed the short clause from data-label (falls back to the visible chip text)
-      DIRECTION_CLAUSES[slug] = chip.getAttribute('data-label') || chip.textContent.trim();
-      chip.addEventListener('click', function(){
-        var nowActive = !activeDirections.has(slug);
-        setChip(slug, nowActive);
-        syncLayersFromChips();
+    chipWrap.querySelectorAll('.ff-check-card__input[data-theme]').forEach(function(input){
+      var slug = input.getAttribute('data-theme');
+      var card = input.closest('.ff-check-card');
+      // seed the short clause from data-label (falls back to the visible card text)
+      DIRECTION_CLAUSES[slug] = (card && card.getAttribute('data-label')) || (card ? card.textContent.trim() : slug);
+      // native change: label activation, keyboard space, and programmatic .click() all land here.
+      // The checkbox IS the state — mirror it into __activeDirections/__activeTheme and rebuild.
+      input.addEventListener('change', function(){
+        setChip(slug, !!input.checked);
         rebuildBrief();
-        // honest riff: the chip directs a STAGED pick, it is not retrieval. Tell the
+        // honest riff: the card directs a STAGED pick, it is not retrieval. Tell the
         // customer what to do instead of letting the default masquerade as a remix.
         // Non-blocking — Create still generates normally with no pick staged.
-        if(nowActive && slug === 'riff-on-past-content'){
+        if(input.checked && slug === 'riff-on-past-content'){
           try{
             var hasStaged = (window.__userAssets||[]).some(function(a){ return a && a.source==='dam' && a.key; });
             // NOTE: flash() lives in the DAM-browse IIFE below — not visible here.
@@ -295,16 +267,13 @@
     });
     // Manual textarea edit (#236): adopt, never clear and never rewrite. Rewriting per keystroke
     // would shred words typed after the managed tail (each rebuild re-trims the base) and jump the
-    // caret; instead the edit is adopted into __briefUserText and the NEXT assembly (toggle, layer,
-    // market/season/product change) rescues the whole typed tail at once via stripFreeText. Chips
+    // caret; instead the edit is adopted into __briefUserText and the NEXT assembly (card toggle,
+    // market/season/product change) rescues the whole typed tail at once via stripFreeText. Cards
     // stay armed either way — typing never disarms a selection.
     briefEl.addEventListener('input', function(){
       if(window.__chipSettingBrief || window.__briefReflecting) return;
       window.__briefUserText = stripFreeText(briefEl.value);
     });
-    // layer -> chip direction of the unification (#237).
-    document.getElementById('layerRetailer')?.addEventListener('change', syncChipsFromLayers);
-    document.getElementById('layerPartner')?.addEventListener('change', syncChipsFromLayers);
   }
   // Selecting/deselecting a product clears the active directions too (a product pick is its own start).
   // Staging implies the box layer; clearing to zero drops it (maybeClear runs first).

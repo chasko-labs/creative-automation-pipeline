@@ -142,8 +142,8 @@
   // saved snapshot cleared. Brief text is kept. Wired to #resetDefaults when present.
   function resetToDefaults(){
     try{
-      // chips off via their own toggles (keeps brief clauses in sync)
-      Array.prototype.slice.call(document.querySelectorAll('.ff-chip[aria-pressed="true"]')).forEach(function(c){
+      // cards off via their own inputs (native .click() toggles + fires change, keeps brief clauses in sync)
+      Array.prototype.slice.call(document.querySelectorAll('#promptChips .ff-check-card__input[data-theme]:checked')).forEach(function(c){
         try{ c.click(); }catch(e){}
       });
       // staged picks dropped via their own remove buttons (revokes blobs, updates tray)

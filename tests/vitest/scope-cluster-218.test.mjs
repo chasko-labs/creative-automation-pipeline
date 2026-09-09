@@ -82,39 +82,68 @@ describe('scope cluster (#218, #236, #237, #223)', () => {
 
   it('#236: suggestion picks keep chips armed (no clear on insert)', () => {
     expect(auto).not.toMatch(/__clearActiveTheme/);
+    expect(auto).toMatch(/#promptChips \.ff-check-card\[data-brief\]/);
     expect(auto).toMatch(/window\.__briefSuffixMarker\s*=\s*SUFFIX_MARKER/);
     expect(auto).toMatch(/window\.__briefContextSuffix\s*=\s*buildSuffix/);
     expect(auto).toMatch(/typeof window\.__rebuildBrief === 'function'/);
   });
 
-  it('#237: retailer/partner chips two-way sync with layer flags, single setter', () => {
+  it('checkbox cards: one shared setter, no layer sync, no standalone mark flags', () => {
     expect(chips).toMatch(/function setChip\(slug, on/);
-    expect(chips).toMatch(/function syncLayersFromChips/);
-    expect(chips).toMatch(/function syncChipsFromLayers/);
-    expect(chips).toMatch(/getElementById\('layerRetailer'\)\?\.addEventListener\('change', syncChipsFromLayers\)/);
-    expect(chips).toMatch(/getElementById\('layerPartner'\)\?\.addEventListener\('change', syncChipsFromLayers\)/);
+    expect(chips).toMatch(/\.ff-check-card__input\[data-theme\]/);
+    // the two-way sync is retired — each card drives its own mark directly
+    expect(chips).not.toMatch(/function syncLayersFromChips/);
+    expect(chips).not.toMatch(/function syncChipsFromLayers/);
+    expect(chips).not.toMatch(/getElementById\('layerRetailer'\)/);
+    expect(chips).not.toMatch(/getElementById\('layerPartner'\)/);
+    expect(html).not.toMatch(/id="layerRetailer"/);
+    expect(html).not.toMatch(/id="layerPartner"/);
     // layers still read by id in generate.js — the __selectedLayers contract is unchanged
     expect(generate).toMatch(/window\.__selectedLayers\s*=\s*function/);
     expect(generate).toMatch(/getElementById\('layerProduct'\)\?\.checked/);
+    expect(generate).not.toMatch(/getElementById\('layerRetailer'\)/);
+    expect(generate).not.toMatch(/getElementById\('layerPartner'\)/);
     // product flag drops when nothing is staged (no stale compose flag)
     expect(chips).toMatch(/function maybeClearProductLayer/);
   });
 
-  it('concept rows: flags ride with their chips, retailer select retired', () => {
-    // retailer flag lives inside the retailer cluster; partner flag + mark inside partner's
-    expect(html).toMatch(/ff-chipcluster ff-concept" role="group" aria-labelledby="chipClusterRetailer"[\s\S]*?id="layerRetailer"/);
-    expect(html).toMatch(/ff-chipcluster ff-concept" role="group" aria-labelledby="chipClusterPartner"[\s\S]*?id="layerPartner"[\s\S]*?id="ussPartnerMark"/);
-    // select element gone from markup (retirement comments may name it); retailer comes from the chips
-    expect(html).not.toMatch(/id="layerRetailerSelect"/);
-    expect(html).not.toMatch(/<select id="layerRetailerSelect"/);
-    expect(chips).not.toMatch(/layerRetailerSelect'\)\?\.addEventListener/);
+  it('concept rows: cards carry data-theme + data-brief, retailer mark iff specific', () => {
+    // retailer cards: two specifics + All (brief only); Target retired
+    expect(html).toMatch(/ff-check-card__input" data-theme="localized-costco"/);
+    expect(html).toMatch(/ff-check-card__input" data-theme="localized-publix"/);
+    expect(html).toMatch(/ff-check-card__input" data-theme="localized-all"/);
+    expect(html).not.toMatch(/localized-target/);
+    // partner: ONE card carries data-theme + data-brief, mark preview inline in the same cluster
+    expect(html).toMatch(/ff-chipcluster ff-concept" role="group" aria-labelledby="chipClusterPartner"[\s\S]*?ff-check-card" data-theme="us-ski-snowboard"[\s\S]*?id="ussPartnerMark"/);
+    // every card keeps its slug + brief contract
+    for (const slug of ['recipe-cards', 'kodiak-subscription', 'wild-grizzly-bears', 'riff-on-past-content', 'us-ski-snowboard']) {
+      expect(html).toMatch(new RegExp('ff-check-card" data-theme="' + slug + '"[^>]*data-brief="[^"]+'));
+    }
+    // retailer mark composes iff a SPECIFIC retailer is checked, most-recent wins
+    expect(chips).toMatch(/RETAILER_CARD_VALUES/);
+    expect(chips).toMatch(/__retailerCheckOrder/);
     expect(chips).toMatch(/window\.__activeRetailerValue = activeRetailerValue/);
     expect(generate).toMatch(/window\.__activeRetailerValue\(\)/);
+    expect(generate).toMatch(/ff-check-card__input\[data-theme="us-ski-snowboard"\]/);
     expect(generate).not.toMatch(/layerPicker/);
-    // no Compose subheadings remain; layer checkbox accent reads pine
+    // no Compose subheadings remain; layer checkbox accent reads pine; card checked state is class-free :has()
     expect(html).not.toMatch(/ff-optiongroup-label">Compose</);
     expect(css).toMatch(/\.ff-layer input\{[^}]*accent-color:var\(--colors-brand-frontier-green\)/);
-    expect(css).toMatch(/\.ff-concept \.ff-layer\{margin-left:auto/);
+    expect(css).toMatch(/\.ff-check-card:has\(\.ff-check-card__input:checked\)/);
+    expect(css).toMatch(/\.ff-partner-mark\.is-on\{display:flex\}/);
+    expect(css).not.toMatch(/\.ff-concept \.ff-layer/);
+  });
+
+  it('unified style: house-token background wash, flush about art, spacing-token caps', () => {
+    // layered page wash from house tokens at low alpha — token refs only, never raw hex
+    expect(css).toMatch(/color-mix\(in srgb,var\(--colors-brand-frontier-green\)/);
+    expect(css).toMatch(/color-mix\(in srgb,var\(--colors-brand-bear-brown\)/);
+    // about art flush with its section (no stacked top margin)
+    expect(css).toMatch(/\.ff-about-art\{margin:0/);
+    // inter-section caps shrink via shared spacing tokens
+    expect(css).toMatch(/\.ff-ridge\{height:var\(--spacing-xl/);
+    expect(css).toMatch(/\.ff-forest\{height:var\(--spacing-xl/);
+    expect(css).toMatch(/\.ff-about-art \.ff-about-range\{[^}]*height:var\(--spacing-2xl/);
   });
 
   it('product picks still reset directions (documented own-start semantics)', () => {

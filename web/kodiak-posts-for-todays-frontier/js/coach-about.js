@@ -44,7 +44,7 @@
     try{
       var chips = [];
       Array.prototype.forEach.call(
-        document.querySelectorAll('#promptChips .ff-chip[aria-pressed="true"]'),
+        document.querySelectorAll('#promptChips .ff-check-card__input[data-theme]:checked'),
         function(c){ chips.push(c.getAttribute('data-theme')); });
       var brief = document.getElementById('campaignBrief');
       var market = document.getElementById('marketButtonLabel');
@@ -102,7 +102,7 @@
       var note = document.createElement('p');
       note.className = 'hint';
       if(e.op === 'toggle-chip'){
-        var chip = document.querySelector('#promptChips .ff-chip[data-theme="' + e.target.replace(/"/g, '') + '"]');
+        var chip = document.querySelector('#promptChips .ff-check-card__input[data-theme="' + e.target.replace(/"/g, '') + '"]');
         if(chip){ chip.click(); note.textContent = 'Toggled ' + e.target + '.'; }
         else{ note.textContent = 'Could not find that direction (' + e.target + ').'; }
       } else if(e.op === 'append-brief'){

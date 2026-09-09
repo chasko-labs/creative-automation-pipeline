@@ -258,14 +258,14 @@
   </details>
 
   <!-- ff-brainstorm - unified brainstorming surface: campaign-option chips + product picker read as ONE panel. wrapper only; every child still binds by id so the JS selectors are unaffected. -->
-  <!-- #237: the retailer/partner chips below are the SINGLE selection for those concepts — they drive
-       both the brief text and the Compose layer flags (two-way sync in prompt-chips.js); the layer
-       checkboxes are flags, not a second selection. -->
+  <!-- the retailer/partner checkbox cards below are the SINGLE selection for those concepts — each
+       card drives both the brief text and its compose mark directly (prompt-chips.js); there is no
+       second flag step. -->
   <div class="ff-brainstorm" data-step="4">
-  <!-- STEP 3: creative direction — additive multi-select chips grouped into 4 marketer-voice clusters.
-       Chips toggle (aria-pressed) and stack; toggling assembles the brief but never clobbers typed
-       text. Handled by prompt-chips.js, which maintains window.__activeDirections (set) +
-       window.__activeTheme (most-recent). -->
+  <!-- STEP 3: creative direction — additive multi-select checkbox cards grouped into 4
+       marketer-voice clusters. Cards check/uncheck (native checkboxes) and stack; toggling
+       assembles the brief but never clobbers typed text. Handled by prompt-chips.js, which
+       maintains window.__activeDirections (set) + window.__activeTheme (most-recent). -->
   <!-- Creative direction rides a CLOSED disclosure by default (fold density: the clusters
        collapse so Your campaign idea stays the star). Chip bindings are by id, unaffected. -->
   <details class="ff-products ff-directions" id="creativeDirection">
@@ -274,33 +274,31 @@
     <div class="ff-chipgroups" id="promptChips" role="group" aria-label="Creative direction — combine as many as you like">
       <div class="ff-chipcluster" role="group" aria-labelledby="chipClusterMake">
         <span class="ff-chipcluster-label" id="chipClusterMake">what to make</span>
-        <button type="button" class="ff-chip" aria-pressed="false" data-theme="recipe-cards" data-label="Recipe cards" data-brief="Recipe cards for Park City families — protein-packed whole grain recipes styled as shareable cards. Keep It Wild."><span class="ff-dot"></span>Recipe cards</button>
-        <button type="button" class="ff-chip" aria-pressed="false" data-theme="kodiak-subscription" data-label="Kodiak subscription" data-brief="Kodiak subscription campaign — front-door delivery cadence for loyal households, Keep It Wild pantry always stocked."><span class="ff-dot"></span>Kodiak subscription</button>
+        <label class="ff-chip ff-check-card" data-theme="recipe-cards" data-label="Recipe cards" data-brief="Recipe cards for Park City families — protein-packed whole grain recipes styled as shareable cards. Keep It Wild."><input type="checkbox" class="ff-check-card__input" data-theme="recipe-cards" value="recipe-cards"><span class="ff-dot" aria-hidden="true"></span><span>Recipe cards</span></label>
+        <label class="ff-chip ff-check-card" data-theme="kodiak-subscription" data-label="Kodiak subscription" data-brief="Kodiak subscription campaign — front-door delivery cadence for loyal households, Keep It Wild pantry always stocked."><input type="checkbox" class="ff-check-card__input" data-theme="kodiak-subscription" value="kodiak-subscription"><span class="ff-dot" aria-hidden="true"></span><span>Kodiak subscription</span></label>
       </div>
-      <!-- retailer concept row: the retailer chips ARE the retailer choice, so the
-           retailer-mark compose flag rides in the same row (chips auto-check it;
-           checking it checks the matching chip — one selection, never two steps).
-           The old #layerRetailerSelect dropdown is retired: it duplicated the chips. -->
+      <!-- retailer concept row: the retailer checkbox cards ARE the retailer choice — checking a
+           SPECIFIC retailer composes its mark (most-recent checked wins); All retailers sets brief
+           text only, no mark. No standalone mark flag: one selection, never two steps. -->
       <div class="ff-chipcluster ff-concept" role="group" aria-labelledby="chipClusterRetailer">
         <span class="ff-chipcluster-label" id="chipClusterRetailer">retailer</span>
-        <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-costco" data-label="Localized Costco" data-brief="Localized Costco campaign — bulk Family Size value for the warehouse-club aisle, framed to the selected market."><span class="ff-dot"></span>Localized Costco</button>
-        <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-publix" data-label="Localized Publix" data-brief="Localized Publix campaign — neighborhood-market warmth for the Southern family table, framed to the selected market."><span class="ff-dot"></span>Localized Publix</button>
-        <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-target" data-label="Localized Target" data-brief="Localized Target campaign — everyday-family aisle value for the one-trip basket, framed to the selected market."><span class="ff-dot"></span>Localized Target</button>
-        <label class="ff-layer"><input type="checkbox" id="layerRetailer" class="layer-check"> <span><b>Retailer mark</b> — composed under the grain</span></label>
+        <label class="ff-chip ff-check-card" data-theme="localized-costco" data-label="Localized Costco" data-brief="Localized Costco campaign — bulk Family Size value for the warehouse-club aisle, framed to the selected market."><input type="checkbox" class="ff-check-card__input" data-theme="localized-costco" value="localized-costco"><span class="ff-dot" aria-hidden="true"></span><span>Localized Costco</span></label>
+        <label class="ff-chip ff-check-card" data-theme="localized-publix" data-label="Localized Publix" data-brief="Localized Publix campaign — neighborhood-market warmth for the Southern family table, framed to the selected market."><input type="checkbox" class="ff-check-card__input" data-theme="localized-publix" value="localized-publix"><span class="ff-dot" aria-hidden="true"></span><span>Localized Publix</span></label>
+        <label class="ff-chip ff-check-card" data-theme="localized-all" data-label="All retailers" data-brief="All retailers campaign — everyday-family aisle value across every retail shelf, framed to the selected market."><input type="checkbox" class="ff-check-card__input" data-theme="localized-all" value="localized-all"><span class="ff-dot" aria-hidden="true"></span><span>All retailers</span></label>
       </div>
       <div class="ff-chipcluster" role="group" aria-labelledby="chipClusterAngle">
         <span class="ff-chipcluster-label" id="chipClusterAngle">creative angle</span>
-        <button type="button" class="ff-chip" aria-pressed="false" data-theme="wild-grizzly-bears" data-label="Wild Grizzly Bears" data-brief="Wild Grizzly Bears — lean into the KODIAK Bear, wild frontier tone, protein for epic days, Keep It Wild conservation with Vital Ground."><span class="ff-dot"></span>Wild Grizzly Bears</button>
-        <button type="button" class="ff-chip" aria-pressed="false" data-theme="riff-on-past-content" data-label="Riff on past content" data-brief="Riff on past content — remix our existing heroes into fresh variants across all three ratios."><span class="ff-dot"></span>Riff on past content</button>
+        <label class="ff-chip ff-check-card" data-theme="wild-grizzly-bears" data-label="Wild Grizzly Bears" data-brief="Wild Grizzly Bears — lean into the KODIAK Bear, wild frontier tone, protein for epic days, Keep It Wild conservation with Vital Ground."><input type="checkbox" class="ff-check-card__input" data-theme="wild-grizzly-bears" value="wild-grizzly-bears"><span class="ff-dot" aria-hidden="true"></span><span>Wild Grizzly Bears</span></label>
+        <label class="ff-chip ff-check-card" data-theme="riff-on-past-content" data-label="Riff on past content" data-brief="Riff on past content — remix our existing heroes into fresh variants across all three ratios."><input type="checkbox" class="ff-check-card__input" data-theme="riff-on-past-content" value="riff-on-past-content"><span class="ff-dot" aria-hidden="true"></span><span>Riff on past content</span></label>
       </div>
-      <!-- partner concept row: chip + partner-mark flag + the mark preview itself -->
+      <!-- partner concept row: ONE checkbox card carries the selection AND the mark — checking it
+           composes the partner mark, with the mark preview inline below -->
       <div class="ff-chipcluster ff-concept" role="group" aria-labelledby="chipClusterPartner">
         <span class="ff-chipcluster-label" id="chipClusterPartner">partner</span>
-        <button type="button" class="ff-chip" aria-pressed="false" data-theme="us-ski-snowboard" data-label="US Ski &amp; Snowboard" data-brief="US Ski & Snowboard partner campaign — Milano Cortina 2026, Park City athlete fuel, whole-grain protein for world-class winter athletes, alpine dawn. Keep It Wild."><span class="ff-dot"></span>US Ski &amp; Snowboard</button>
-        <label class="ff-layer"><input type="checkbox" id="layerPartner" class="layer-check"> <span><b>US Ski &amp; Snowboard</b> — partner mark, composed under the grain</span></label>
-        <!-- partner mark — shown only when the US Ski & Snowboard chip is active (partner logo committed at assets/partners/) -->
+        <label class="ff-chip ff-check-card" data-theme="us-ski-snowboard" data-label="US Ski &amp; Snowboard" data-brief="US Ski & Snowboard partner campaign — Milano Cortina 2026, Park City athlete fuel, whole-grain protein for world-class winter athletes, alpine dawn. Keep It Wild."><input type="checkbox" class="ff-check-card__input" data-theme="us-ski-snowboard" value="us-ski-snowboard"><span class="ff-dot" aria-hidden="true"></span><span>US Ski &amp; Snowboard — partner mark, composed under the grain</span></label>
+        <!-- partner mark — shown only when the US Ski & Snowboard card is checked (partner logo committed at assets/partners/) -->
         <div id="ussPartnerMark" class="ff-partner-mark" role="img" aria-label="U.S. Ski &amp; Snowboard — Kodiak partner" hidden>
-          <img src="assets/partners/us-ski-snowboard-kodiak.png" alt="" width="94" height="63" class="ff-partner-mark__img" onerror="this.style.display='none'">
+          <img src="assets/partners/us-ski-snowboard-kodiak.png" alt="" width="94" height="63" class="ff-partner-mark__img" onerror="this.setAttribute('hidden','')">
           <span class="ff-partner-mark__label">Official partner mark</span>
         </div>
       </div>
@@ -332,8 +330,7 @@
       </div>
       <!-- product compose flag rides the products row that drives it (staging auto-checks it) -->
       <div class="ff-optiongroup">
-        <label class="ff-layer"><input type="checkbox" id="layerProduct" class="layer-check"> <span><b>Product image</b> — compose the real box into the scene, never center-pasted</span></label>
-        <p class="ff-layers-hint">Copy always ships as sidecar text/CSV downloads — never baked into pixels.</p>
+        <label class="ff-layer"><input type="checkbox" id="layerProduct" class="layer-check"> <span><b>Product image</b> — compose the real box into the scene</span></label>
       </div>
       <!-- hidden host for the SKU checkboxes — the change-delegation handlers + Random 3 still bind here; the tray mirrors the checked state -->
       <div id="productChooser" role="group" aria-label="KODIAK product choices" hidden></div>
@@ -471,7 +468,7 @@
 
 <!-- About art band — full-bleed mountains-with-pines ABOVE the section, mirroring
      the ff-ridge / ff-forest dividers (never inside .body where padding buries it) -->
-<div class="ff-about-art" aria-hidden="true"><svg class="ff-about-range" viewBox="0 0 640 120" preserveAspectRatio="xMidYMid slice" focusable="false"><g fill="#1A2F29"><path d="M0 120 L0 96 L60 40 L104 88 L150 30 L210 96 L258 52 L310 100 L360 44 L418 98 L470 36 L528 96 L580 56 L640 104 L640 120 Z" opacity=".28"/><path d="M0 120 L0 108 L84 58 L140 104 L200 62 L280 110 L340 70 L420 112 L490 66 L560 108 L640 78 L640 120 Z"/></g><g fill="#1A2F29"><path d="M22 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M52 108 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M88 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M128 112 l8-19 8 19 h-6 v9 h-4 v-9 Z"/><path d="M168 110 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M205 112 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M238 110 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M278 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M322 112 l8-19 8 19 h-6 v9 h-4 v-9 Z"/><path d="M362 110 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M398 112 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M448 110 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M486 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M540 112 l8-19 8 19 h-6 v9 h-4 v-9 Z"/><path d="M576 110 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M606 108 l7-16 7 16 h-5 v8 h-4 v-8 Z"/></g><g fill="#FFF8F0"><circle cx="150" cy="30" r="3"/><circle cx="470" cy="36" r="3"/><circle cx="360" cy="44" r="2.4"/></g></svg></div>
+<div class="ff-about-art" aria-hidden="true"><svg class="ff-about-range" viewBox="0 0 640 120" preserveAspectRatio="xMidYMid slice" focusable="false"><g fill="#1A2F29"><path d="M0 120 L0 100 L60 52 L104 93 L150 44 L210 100 L258 62 L310 103 L360 55 L418 101 L470 49 L528 100 L580 66 L640 106 L640 120 Z" opacity=".28"/><path d="M0 120 L0 110 L84 67 L140 106 L200 71 L280 112 L340 78 L420 113 L490 74 L560 110 L640 84 L640 120 Z"/></g><g fill="#1A2F29"><path d="M22 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M52 108 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M88 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M128 112 l8-19 8 19 h-6 v9 h-4 v-9 Z"/><path d="M168 110 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M205 112 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M238 110 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M278 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M322 112 l8-19 8 19 h-6 v9 h-4 v-9 Z"/><path d="M362 110 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M398 112 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M448 110 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M486 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M540 112 l8-19 8 19 h-6 v9 h-4 v-9 Z"/><path d="M576 110 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M606 108 l7-16 7 16 h-5 v8 h-4 v-8 Z"/></g><g fill="#FFF8F0"><circle cx="150" cy="30" r="3"/><circle cx="470" cy="36" r="3"/><circle cx="360" cy="44" r="2.4"/></g></svg></div>
 <details class="card wide-track ff-about" id="aboutTool"><summary>About This Automation Pipeline</summary><div class="body"><p class="ff-about__copy">Type one line, pick a starting point, and get a ready-to-post Kodiak campaign — images and copy sized for every social platform and retailer, localized to the market you choose. Three reference pages document how it works under the hood.</p>
 <!-- doclinks group — the three pages nested under About This Automation Pipeline. -->
 <div class="ff-doclinks" role="group" aria-label="Reference documentation">

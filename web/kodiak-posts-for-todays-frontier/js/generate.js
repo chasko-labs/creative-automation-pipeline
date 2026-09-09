@@ -215,20 +215,18 @@ let skuList = [
   // show the matrix as the default preview content on load (before any campaign is generated)
   try{ renderPlatformMatrix(); }catch(e){}
 
-  // Compose layers — independently-selectable, ALL OFF by default. Reads the
-  // concept-row checkboxes into the {product_image, retailer, partner_logo} contract the
-  // /generate backend normalizes; an empty object means a clean standalone image.
-  // The retailer comes from the retailer chips (window.__activeRetailerValue) — the old
-  // picker-dropdown controls are retired (see prompt-chips.js).
+  // Compose layers — independently-selectable, ALL OFF by default. Reads the creative-direction
+  // checkbox cards into the {product_image, retailer, partner_logo} contract the /generate backend
+  // normalizes; an empty object means a clean standalone image. Each card drives its own mark
+  // directly — no standalone mark flags. Retailer composes iff a SPECIFIC retailer is checked
+  // (window.__activeRetailerValue, most-recent checked wins; All alone -> brief only, no mark).
   window.__selectedLayers = function(){
     const layers = {};
     try{
       if(document.getElementById('layerProduct')?.checked) layers.product_image = true;
-      if(document.getElementById('layerRetailer')?.checked){
-        layers.retailer = (typeof window.__activeRetailerValue === 'function' && window.__activeRetailerValue())
-          || document.getElementById('layerRetailerSelect')?.value || 'costco';
-      }
-      if(document.getElementById('layerPartner')?.checked) layers.partner_logo = true;
+      const retailerVal = (typeof window.__activeRetailerValue === 'function' && window.__activeRetailerValue()) || null;
+      if(retailerVal) layers.retailer = retailerVal;
+      if(document.querySelector('#promptChips .ff-check-card__input[data-theme="us-ski-snowboard"]')?.checked) layers.partner_logo = true;
     }catch(e){}
     return layers;
   };
@@ -449,12 +447,12 @@ let skuList = [
       // Record the SKU this Create actually requested so a graceful-degrade fallback (canvas render /
       // asset-pack download) names the requested product instead of a hardcoded "savory-waffles".
       try{ window.__requestedSku = primarySlug; }catch(e){}
-      // Theme is active only when a chip is the starting point (set on window by the chip IIFE).
+      // Theme is active only when a card is the starting point (set on window by the prompt-chips IIFE).
       // A manual brief edit or product selection clears window.__activeTheme.
       const activeTheme = window.__activeTheme || null;
       const THEME_LABELS = {
         'recipe-cards':'Recipe cards','localized-costco':'Localized Costco',
-        'localized-publix':'Localized Publix','localized-target':'Localized Target',
+        'localized-publix':'Localized Publix','localized-all':'All retailers',
         'kodiak-subscription':'Kodiak subscription',
         'riff-on-past-content':'Riff on past content',
         'wild-grizzly-bears':'Wild Grizzly Bears',
@@ -724,10 +722,12 @@ let skuList = [
         console.log('KODIAK generate — sample', {brief, products, primarySlug, audience, selectedLoc: selectedLoc.market, frontierHint});
       };
       // Lock competing controls during generation so nothing changes mid-request; restore after.
+      // Class-driven dimming on #promptChips (no inline styles): .is-locked paints it in components.css.
       const lockIds = ['generateCampaign','productSearch','randomProducts','downloadPack','promptUpload'];
       const lockControls = (locked)=>{
         lockIds.forEach(id=>{ const el=document.getElementById(id); if(el) el.disabled=locked; });
-        document.querySelectorAll('#promptChips .ff-chip').forEach(c=>{ c.disabled=locked; c.style.pointerEvents = locked?'none':''; c.style.opacity = locked?'.5':''; });
+        document.querySelectorAll('#promptChips .ff-check-card__input').forEach(c=>{ c.disabled=locked; });
+        document.getElementById('promptChips')?.classList.toggle('is-locked', locked);
         document.querySelectorAll('#productChooser .sku-check').forEach(c=>{ c.disabled=locked; });
       };
       // Preserve local/offline behavior: file:// or localhost has no /generate — go straight to canvas.

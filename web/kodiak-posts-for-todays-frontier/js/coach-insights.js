@@ -63,7 +63,7 @@
       p.innerHTML = '<summary>Why this works</summary><div class="prov-body"><p>Asking the coach…</p></div>';
       if(!p.open) p.open = true;
       var briefEl = document.getElementById('campaignBrief');
-      var themeEl = document.querySelector('#promptChips .ff-chip[aria-pressed="true"]');
+      var themeEl = document.querySelector('#promptChips .ff-check-card__input[data-theme]:checked');
       var marketEl = document.getElementById('marketSummary');
       // Ground the coach in what is ACTUALLY selected — ungrounded theme claims
       // ("aligns with X") are worse than none. Products, season, scope included.

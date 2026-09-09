@@ -90,12 +90,12 @@
     window.__briefUserText = (typeof window.__briefFreeText === 'function')
       ? window.__briefFreeText(briefEl.value) : stripSuffix(briefEl.value);
   });
-  // a chip click reassembles the brief in its own handler (which runs first, bubbling). Re-run the
-  // one assembly deferred to end of task so chip + market/season/products compose even if the chip
-  // handler's own rebuild was a no-op ordering edge.
+  // a card change reassembles the brief in its own handler. Re-run the one assembly deferred to
+  // end of task so card + market/season/products compose even if the card handler's own rebuild
+  // was a no-op ordering edge.
   document.addEventListener('click', function(e){
-    var chip = e.target && e.target.closest ? e.target.closest('#promptChips .ff-chip[data-brief]') : null;
-    if(!chip) return;
+    var card = e.target && e.target.closest ? e.target.closest('#promptChips .ff-check-card[data-brief]') : null;
+    if(!card) return;
     setTimeout(function(){ reflect(); }, 0);
   });
   // market (declared #locality), season, and product checkbox changes all rebuild the suffix

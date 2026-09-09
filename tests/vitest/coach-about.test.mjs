@@ -23,7 +23,7 @@ describe('coach about Q&A', () => {
     expect(about).toMatch(/coach-confirm/);
     expect(about).toMatch(/addEventListener\('click', function\(\)\{ applyEdit/);
     // all three ops reuse the page's own controls — no shadow state
-    expect(about).toMatch(/\.ff-chip\[data-theme="/);
+    expect(about).toMatch(/\.ff-check-card__input\[data-theme="/);
     expect(about).toMatch(/dispatchEvent\(new Event\('input'/);
     expect(about).toMatch(/#marketListbox/);
   });

@@ -32,8 +32,8 @@ describe('about art band', () => {
     expect(pines.length).toBeGreaterThan(7);
   });
 
-  it('band is full-bleed with a fixed height', () => {
+  it('band is full-bleed with a spacing-token cap height', () => {
     expect(css).toMatch(/\.ff-about-art\{[^}]*line-height:0/);
-    expect(css).toMatch(/\.ff-about-art \.ff-about-range\{[^}]*width:100%;height:96px/);
+    expect(css).toMatch(/\.ff-about-art \.ff-about-range\{[^}]*width:100%;height:var\(--spacing-2xl/);
   });
 });
