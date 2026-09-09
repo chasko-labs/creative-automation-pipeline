@@ -133,13 +133,28 @@ const exe = findChrome();
 if (!exe) { console.log('FAIL chromium binary: no ms-playwright chromium found'); process.exit(1); }
 
 const srv = await serve();
-const base = `http://127.0.0.1:${srv.address().port}/index.html?cakes=1`;
+const base = `http://127.0.0.1:${srv.address().port}/index.html`;
 const browser = await chromium.launch({ executablePath: exe, args: ['--no-sandbox'] });
 let failed = 0;
 try {
   for (const [name, vp] of Object.entries(VIEWPORTS)) {
     const page = await browser.newPage({ viewport: vp });
-    await page.goto(base, { waitUntil: 'networkidle', timeout: 45000 });
+    await page.goto(base, { waitUntil: 'domcontentloaded', timeout: 45000 });
+    // Step through the share-gate (courtesy screen): fill the word field
+    // with 'cakes', submit, and wait for the app to mount. There is
+    // deliberately no query-param bypass, so baselines must exercise this
+    // path to guard the real campaign UI.
+    try {
+      await page.waitForSelector('#kodiak-gate-pw', { timeout: 10000 });
+      await page.fill('#kodiak-gate-pw', 'cakes');
+      await page.click('#kodiak-gate-form button[type="submit"]');
+      await page.waitForSelector('#kodiak-gate', { state: 'detached', timeout: 10000 });
+      // submit triggers location.reload(); wait for the reloaded app to settle
+      try { await page.waitForLoadState('networkidle', { timeout: 30000 }); } catch (e) {}
+      await page.waitForSelector('#generateCampaign', { timeout: 15000 });
+    } catch (e) {
+      // No gate present (already stepped through) — continue to capture.
+    }
     await page.waitForTimeout(2500);
     await page.evaluate(MASK_JS, ['#preview', '#sampleStatus', '#fileNames', '#featuredFrontier']);
     const shot = await page.screenshot();
