@@ -609,6 +609,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    attrs stay on the blocks as quiet hooks. the old left-gutter badges are retired. */
 /* sub Badges wear the same solid voice as every other stepnum — color matches, number differs. */
 .ff-stepnum.ff-stepnum--sub{font-size:11px;min-width:0}
+/* static labels whisper in lowercase at one scale — displayed values (markets,
+   seasons, picks) keep their own case. display headings + CTA stay brand caps. */
+.ff-setup .ff-scope-summary>span[aria-hidden="true"],.ff-setup .ff-location-kicker,.ff-season-details .ff-location-kicker,.ff-brainstorm .ff-products>summary,.ff-brief-label,.ff-optiongroup>.ff-optiongroup-label,.ff-chipcluster-label,.ff-flavor-kicker,.ff-addloc-label{text-transform:lowercase}
+.ff-brief-label{font:600 14px/1.4 "museo-sans",sans-serif;letter-spacing:0;color:var(--colors-brand-frontier-green)}
 .ff-brief-label{display:flex;align-items:center;gap:8px}
 /* step 3 is a disclosure exactly like steps 1/2: closed row shows the pick,
    open reveals the control. same box, same voice. */
@@ -1260,7 +1264,7 @@ html,body{overflow-x:clip}
 .ff-brainstorm{display:flex;flex-direction:column;gap:8px}
 .ff-brainstorm>.ff-directions,.ff-brainstorm>.ff-products,.ff-brainstorm>.ff-layers{margin-top:0;padding-top:0;border-top:none}
 .ff-directions>.ff-optiongroup{padding-top:0}
-.ff-brainstorm .ff-products>summary,.ff-brainstorm .ff-layers>summary{display:flex;width:100%;align-items:center;background:#FFFDF7;border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);font:600 14px/1.4 "museo-sans",sans-serif;letter-spacing:0;text-transform:none;color:var(--chocolate);padding:10px 12px}
+.ff-brainstorm .ff-products>summary,.ff-brainstorm .ff-layers>summary{display:flex;width:100%;align-items:center;background:#FFFDF7;border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);font:600 14px/1.4 "museo-sans",sans-serif;letter-spacing:0;text-transform:lowercase;color:var(--chocolate);padding:10px 12px}
 .ff-brainstorm .ff-layers-state{margin-left:auto}
 /* === texture comeback (whisper, cards only) + motion === */
 .card::before{opacity:.09}

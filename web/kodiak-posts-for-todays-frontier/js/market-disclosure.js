@@ -103,7 +103,11 @@
       opt.dataset.market = p.market;
       opt.setAttribute('aria-selected','false');
       var badge = isCustom ? '<span class="ff-opt-badge">custom</span>' : '';
-      opt.innerHTML = '<span>'+ (p.place||p.market) + badge +'</span><span class="ff-opt-sub">'+ p.market +'</span>';
+      // options feature the market WITH its Kodiak retailers (raw code to tooltip).
+      var ret = (p.retailer && String(p.retailer).trim()) || '';
+      var sub = ret ? ('<span class="ff-opt-sub" title="'+ p.market +'">'+ ret +'</span>')
+                    : ('<span class="ff-opt-sub">'+ p.market +'</span>');
+      opt.innerHTML = '<span>'+ (p.place||p.market) + badge +'</span>' + sub;
       opt.addEventListener('click', function(){ selectMarket(p.market); });
       listbox.appendChild(opt);
     }

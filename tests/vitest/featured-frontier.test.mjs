@@ -31,6 +31,8 @@ describe('market-to-featured-frontier mapping (#257)', () => {
     expect(sf.seasons).toContain('Mar-Jun');
     expect(sf.text).toContain('Castroville artichokes');
     expect(for_('US-W-SEA').frontier).toBe('US-WA-NEAHBAY');
+    expect(for_('US-W-SD').frontier).toBe('US-CA-JULIAN');
+    expect(for_('US-W-SD').place).toContain('Julian');
     expect(for_('US-SE-ATL').frontier).toBe('US-SE-SANDERSVILLE');
     expect(for_('US-CA-PESCADERO').frontier).toBe('US-CA-PESCADERO');
     expect(for_('US-XX-NOWHERE')).toBeNull();

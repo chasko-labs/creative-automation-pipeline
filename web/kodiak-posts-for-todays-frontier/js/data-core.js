@@ -121,6 +121,7 @@ try{ window.places = places; }catch(e){}
 // offline-first). Every market resolves one featured frontier.
 const featuredFrontierDetail = {
   "US-CA-PESCADERO": {place:"Pescadero, California 94060 — San Mateo Coast", items:["Castroville artichokes","Marin goat cheese","strawberries","Brussels sprouts","olive oil (fall press)"], seasons:"Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press", farmersMarket:"Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero"},
+  "US-CA-JULIAN": {place:"Julian, California 92036 — Cuyamaca mountain apple country", items:["Julian apples","pear cider","gold-rush main street"], seasons:"Apple season late Aug–Oct (peak September)", farmersMarket:"Julian farm stands + mountain orchards (standalone market URL unconfirmed — research dispatch)"},
   "US-CA-CASTROVILLE": {place:"Castroville, California 95012 — Artichoke Capital", items:["Castroville artichokes","strawberries","Brussels sprouts"], seasons:"Castroville artichokes Mar-Jun (peak April); strawberries May-Sep; Brussels sprouts Sep-Feb", farmersMarket:"Castroville artichoke stands + Monterey Bay farmers markets (standalone URL unconfirmed — research dispatch)"},
   "US-WA-NEAHBAY": {place:"Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe", items:["Makah salmon","huckleberry"], seasons:"Makah salmon May-Sep; huckleberry August", farmersMarket:"Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)"},
   "US-SE-SANDERSVILLE": {place:"Sandersville, GA 31082 — Washington County, kaolin-belt farm country", items:["Georgia pecans","Georgia peaches","sweet potatoes","muscadine grapes"], seasons:"Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep", farmersMarket:"Sandersville downtown farmers market + Washington County farm stands"},
@@ -196,7 +197,7 @@ const marketFeaturedFrontier = {
   "US-W-PDX": "US-WA-NEAHBAY",
   "US-W-RENO": "US-CA-PESCADERO",
   "US-W-SACRAMENTO": "US-CA-PESCADERO",
-  "US-W-SD": "US-CA-PESCADERO",
+  "US-W-SD": "US-CA-JULIAN",
   "US-W-SEA": "US-WA-NEAHBAY",
   "US-W-SF": "US-CA-PESCADERO",
   "US-W-SPOKANE": "US-WA-NEAHBAY",
