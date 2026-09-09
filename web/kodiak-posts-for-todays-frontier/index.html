@@ -136,6 +136,16 @@
     <li data-node="generate" data-state="locked"><span class="ff-timeline-label"><span class="ff-stepnum" aria-hidden="true">7</span> Generate</span></li>
     <li data-node="assets" data-state="todo"><span class="ff-timeline-label"><span class="ff-stepnum" aria-hidden="true">8</span> Assets</span></li>
   </ol>
+  <!-- Step 0: start over — the reset lives here, prominent in the timeline, not
+       buried in step 2. Same id so lifecycle-persist.js, prompt-chips.js, and
+       the live issue tests keep their binding. Disabled until something
+       differs from default (see refreshResetBtn). Brief text is kept on reset. -->
+  <button type="button" class="ff-reset" id="resetDefaults"
+          aria-label="Start over: restore Park City market default, clear selections and staged picks"
+          title="Start over (keeps your campaign idea text)" disabled>
+    <svg class="ff-reset-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.9 9.2a8 8 0 1 1-.7 5.1"/><path d="M4.4 4v5h5"/></svg>
+    <span class="ff-reset-text"><span class="ff-reset-title">Restore defaults</span><span class="ff-reset-sub">(start over)</span></span>
+  </button>
   <div class="ff-timeline-note" id="timelineNote" role="status" aria-live="polite"></div>
 </div>
 <!-- location-aware island + design-system scorecards moved to details.html (Design system + details link below) -->
@@ -223,13 +233,7 @@
       <span>My location</span>
       <span class="ff-geo-status" id="geoStatus" role="status" aria-live="polite"></span>
     </button>
-    <!-- Restore defaults: market back to Park City, chips + staged picks cleared, saved
-         snapshot dropped. Brief text is kept. Wired in lifecycle-persist.js. -->
-    <button type="button" class="ff-geo" id="resetDefaults"
-            aria-label="Restore defaults: Park City market, clear selections and staged picks"
-            title="Restore defaults (keeps your campaign idea text)">
-      <span>Restore defaults</span>
-    </button>
+    <!-- Reset moved to the timeline as step 0 (see #progressTimeline). -->
     <!-- scope="nationwide" annotation — market becomes an optional localization anchor rather than
          the campaign target. Shown/hidden by prompt-chips.js alongside data-scope-mode. -->
     <p class="ff-scope-note" id="marketScopeNote" hidden>Nationwide campaign — market is an optional localization anchor.</p>
@@ -275,7 +279,7 @@
       <div class="ff-chipcluster" role="group" aria-labelledby="chipClusterMake">
         <span class="ff-chipcluster-label" id="chipClusterMake">what to make</span>
         <label class="ff-chip ff-check-card" data-theme="recipe-cards" data-label="Recipe cards" data-brief="Recipe cards for Park City families — protein-packed whole grain recipes styled as shareable cards. Keep It Wild."><input type="checkbox" class="ff-check-card__input" data-theme="recipe-cards" value="recipe-cards"><span class="ff-dot" aria-hidden="true"></span><span>Recipe cards</span></label>
-        <label class="ff-chip ff-check-card" data-theme="kodiak-subscription" data-label="Kodiak subscription" data-brief="Kodiak subscription campaign — front-door delivery cadence for loyal households, Keep It Wild pantry always stocked."><input type="checkbox" class="ff-check-card__input" data-theme="kodiak-subscription" value="kodiak-subscription"><span class="ff-dot" aria-hidden="true"></span><span>Kodiak subscription</span></label>
+        <label class="ff-chip ff-check-card" data-theme="kodiak-subscription" data-label="Kodiak Cakes subscription" data-brief="Kodiak Cakes subscription campaign — front-door delivery cadence for loyal households, Keep It Wild pantry always stocked."><input type="checkbox" class="ff-check-card__input" data-theme="kodiak-subscription" value="kodiak-subscription"><span class="ff-dot" aria-hidden="true"></span><span>Kodiak Cakes subscription</span></label>
       </div>
       <!-- retailer concept row: the retailer checkbox cards ARE the retailer choice — checking a
            SPECIFIC retailer composes its mark (most-recent checked wins); All retailers sets brief
@@ -288,7 +292,7 @@
       </div>
       <div class="ff-chipcluster" role="group" aria-labelledby="chipClusterAngle">
         <span class="ff-chipcluster-label" id="chipClusterAngle">creative angle</span>
-        <label class="ff-chip ff-check-card" data-theme="wild-grizzly-bears" data-label="Wild Grizzly Bears" data-brief="Wild Grizzly Bears — lean into the KODIAK Bear, wild frontier tone, protein for epic days, Keep It Wild conservation with Vital Ground."><input type="checkbox" class="ff-check-card__input" data-theme="wild-grizzly-bears" value="wild-grizzly-bears"><span class="ff-dot" aria-hidden="true"></span><span>Wild Grizzly Bears</span></label>
+        <label class="ff-chip ff-check-card" data-theme="wild-grizzly-bears" data-label="Wild Grizzly Bears" data-brief="Wild Grizzly Bears — lean into the grizzly bear, wild frontier tone, protein for epic days, Keep It Wild conservation with Vital Ground."><input type="checkbox" class="ff-check-card__input" data-theme="wild-grizzly-bears" value="wild-grizzly-bears"><span class="ff-dot" aria-hidden="true"></span><span>Wild Grizzly Bears</span></label>
         <label class="ff-chip ff-check-card" data-theme="riff-on-past-content" data-label="Riff on past content" data-brief="Riff on past content — remix our existing heroes into fresh variants across all three ratios."><input type="checkbox" class="ff-check-card__input" data-theme="riff-on-past-content" value="riff-on-past-content"><span class="ff-dot" aria-hidden="true"></span><span>Riff on past content</span></label>
       </div>
       <!-- partner concept row: ONE checkbox card carries the selection AND the mark — checking it
@@ -297,7 +301,7 @@
         <span class="ff-chipcluster-label" id="chipClusterPartner">partner</span>
         <label class="ff-chip ff-check-card" data-theme="us-ski-snowboard" data-label="US Ski &amp; Snowboard" data-brief="US Ski & Snowboard partner campaign — Milano Cortina 2026, Park City athlete fuel, whole-grain protein for world-class winter athletes, alpine dawn. Keep It Wild."><input type="checkbox" class="ff-check-card__input" data-theme="us-ski-snowboard" value="us-ski-snowboard"><span class="ff-dot" aria-hidden="true"></span><span>US Ski &amp; Snowboard — partner mark, composed under the grain</span></label>
         <!-- partner mark — shown only when the US Ski & Snowboard card is checked (partner logo committed at assets/partners/) -->
-        <div id="ussPartnerMark" class="ff-partner-mark" role="img" aria-label="U.S. Ski &amp; Snowboard — Kodiak partner" hidden>
+        <div id="ussPartnerMark" class="ff-partner-mark" role="img" aria-label="U.S. Ski &amp; Snowboard — Kodiak Cakes partner" hidden>
           <img src="assets/partners/us-ski-snowboard-kodiak.png" alt="" width="94" height="63" class="ff-partner-mark__img" onerror="this.setAttribute('hidden','')">
           <span class="ff-partner-mark__label">Official partner mark</span>
         </div>
@@ -308,15 +312,15 @@
 
   <!-- Product chooser folded into the prompt card as a CLOSED disclosure — one summary line at rest.
        FRONTEND STAGING for uploads only (no DAM upload backend); marker threaded into the brief via window.__userAssets. -->
-  <details class="ff-products" id="existingAssets" data-mcp="products" data-mcp-description="Real KODIAK SKUs — choose up to 3, autocomplete as you type">
+  <details class="ff-products" id="existingAssets" data-mcp="products" data-mcp-description="Real Kodiak Cakes SKUs — choose up to 3, autocomplete as you type">
     <summary aria-label="Feature products — up to 3"><span class="ff-stepnum ff-stepnum--sub" aria-hidden="true">4.2</span>Feature products (up to 3)</summary>
     <div class="ff-products-panel">
       <div class="ff-products-row">
         <div class="ff-products-search">
           <input type="text" id="productSearch" role="combobox" aria-expanded="false" aria-autocomplete="list"
-                 aria-controls="productResults" aria-label="Search KODIAK products by name" autocomplete="off"
+                 aria-controls="productResults" aria-label="Search Kodiak Cakes products by name" autocomplete="off"
                  placeholder="Search SKUs — flapjack, blueberry, power cakes, muffin, oatmeal, cup, waffle, bar…">
-          <div id="productResults" class="ff-products-results" role="listbox" aria-label="KODIAK product matches" hidden></div>
+          <div id="productResults" class="ff-products-results" role="listbox" aria-label="Kodiak Cakes product matches" hidden></div>
         </div>
         <button type="button" class="ff-products-random" id="randomProducts" aria-label="Pick 3 random products">Random 3</button>
         <span class="ff-products-hint" id="skuHint">Pick up to 3, or leave empty — Create uses your campaign idea/theme.</span>
@@ -333,7 +337,7 @@
         <label class="ff-layer"><input type="checkbox" id="layerProduct" class="layer-check"> <span><b>Product image</b> — compose the real box into the scene</span></label>
       </div>
       <!-- hidden host for the SKU checkboxes — the change-delegation handlers + Random 3 still bind here; the tray mirrors the checked state -->
-      <div id="productChooser" role="group" aria-label="KODIAK product choices" hidden></div>
+      <div id="productChooser" role="group" aria-label="Kodiak Cakes product choices" hidden></div>
     </div>
   </details>
 
@@ -355,7 +359,7 @@
   <div class="ff-inputwrap" data-step="5">
     <!-- Row 1 (canvas): visible kicker label + the primary textarea, full width -->
     <label class="ff-brief-label" for="campaignBrief"><span class="ff-stepnum" aria-hidden="true">5</span>Your campaign idea</label>
-    <textarea id="campaignBrief" rows="2" aria-label="Campaign idea — describe your Kodiak campaign in a line" placeholder="Describe your social campaign idea — or tap options above to build it." role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="briefSuggest" autocomplete="off"></textarea>
+    <textarea id="campaignBrief" rows="2" aria-label="Campaign idea — describe your Kodiak Cakes campaign in a line" placeholder="Describe your social campaign idea — or tap options above to build it." role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="briefSuggest" autocomplete="off"></textarea>
     <!-- D4. add-your-own-asset file input — visually-hidden, triggered by the "+" icon above. FRONTEND STAGING ONLY (no DAM upload backend); staged client-side, marker threaded into the brief via window.__userAssets. -->
     <input type="file" id="addAssetInput" class="ff-addasset-input" accept="image/*,.pdf,.docx,.yaml,.yml,.json" aria-label="Add your own image asset to this campaign">
     <!-- B3. prompt-box autocomplete surface — attached directly under the canvas it completes,
@@ -411,7 +415,7 @@
            reading as part of "Output Preview / 4 sizes" rather than floating lower in the body.
            Links stay OUTSIDE <summary> so the disclosure toggle is never trapped by focusable <a>s.
            #publishTargets id + all 8 links + hrefs preserved (JS/analytics may reference it). -->
-      <nav class="ff-publish-targets ff-output-header-line" id="publishTargets" aria-label="Kodiak publish targets">
+      <nav class="ff-publish-targets ff-output-header-line" id="publishTargets" aria-label="Kodiak Cakes publish targets">
         <span class="ff-publish-label">Publish targets</span>
         <a class="ff-publish-pill" href="https://kodiakcakes.com" target="_blank" rel="noopener noreferrer">Homepage</a>
         <a class="ff-publish-pill" href="https://kodiakcakes.com/blogs/news" target="_blank" rel="noopener noreferrer">Blog</a>
@@ -455,9 +459,9 @@
             <span class="loc-line" lang="pt" data-provider="pending"><span class="loc-langtag">PT</span><span class="loc-txt">Keep It Wild — protein-packed whole grains for your Wasatch frontier. Nourishment for Today&#39;s Frontier</span><span class="loc-review">translation pending</span></span>
           </blockquote>
           <div class="render-set" aria-label="Park City example — four export sizes">
-            <div class="render-tile r-1x1"><div class="render-frame"><img src="input_assets/power-cakes/hero.png" alt="Kodiak Power Cakes family breakfast — Park City example" loading="eager" onerror="this.style.display='none'"></div><div class="render-cap"><b>1:1 Feed</b><span class="dims">1080&#215;1080</span><span class="rt-platforms">Facebook &#183; Instagram &#183; X &#183; LinkedIn &#183; Pinterest</span></div></div>
+            <div class="render-tile r-1x1"><div class="render-frame"><img src="input_assets/power-cakes/hero.png" alt="Kodiak Cakes Power Cakes family breakfast — Park City example" loading="eager" onerror="this.style.display='none'"></div><div class="render-cap"><b>1:1 Feed</b><span class="dims">1080&#215;1080</span><span class="rt-platforms">Facebook &#183; Instagram &#183; X &#183; LinkedIn &#183; Pinterest</span></div></div>
             <div class="render-tile r-4x5"><div class="render-frame"><img src="input_assets/textless/cabin-table.jpg" alt="Cabin table stack in morning light — Park City example" loading="lazy" onerror="this.style.display='none'"></div><div class="render-cap"><b>4:5 Portrait</b><span class="dims">1080&#215;1350</span><span class="rt-platforms">Instagram &#183; Facebook</span></div></div>
-            <div class="render-tile r-9x16"><div class="render-frame"><img src="input_assets/oatmeal-cup/hero.png" alt="Kodiak oatmeal cup breakfast — Park City example" loading="lazy" onerror="this.style.display='none'"></div><div class="render-cap"><b>9:16 Vertical</b><span class="dims">1080&#215;1920</span><span class="rt-platforms">Instagram &#183; Facebook &#183; TikTok &#183; YouTube &#183; Pinterest</span></div></div>
+            <div class="render-tile r-9x16"><div class="render-frame"><img src="input_assets/oatmeal-cup/hero.png" alt="Kodiak Cakes oatmeal cup breakfast — Park City example" loading="lazy" onerror="this.style.display='none'"></div><div class="render-cap"><b>9:16 Vertical</b><span class="dims">1080&#215;1920</span><span class="rt-platforms">Instagram &#183; Facebook &#183; TikTok &#183; YouTube &#183; Pinterest</span></div></div>
             <div class="render-tile r-16x9"><div class="render-frame"><img src="input_assets/textless/market-stand.jpg" alt="Market stand morning — Park City example" loading="lazy" onerror="this.style.display='none'"></div><div class="render-cap"><b>16:9 Landscape</b><span class="dims">1920&#215;1080</span><span class="rt-platforms">YouTube &#183; LinkedIn &#183; X &#183; Facebook</span></div></div>
           </div>
           <figcaption class="ff-figcap">Park City example — Power Cakes flapjacks for a Wasatch Back morning. In season Jun–Sep: Jensen Farms peaches + Copper Moose rhubarb at the Park City Farmers Market. Hit Create to generate these four sizes for your market.</figcaption>
@@ -491,7 +495,7 @@
 <!-- About art band — full-bleed mountains-with-pines ABOVE the section, mirroring
      the ff-ridge / ff-forest dividers (never inside .body where padding buries it) -->
 <div class="ff-about-art" aria-hidden="true"><svg class="ff-about-range" viewBox="0 0 640 120" preserveAspectRatio="xMidYMid slice" focusable="false"><g fill="#1A2F29"><path d="M0 120 L0 100 L60 52 L104 93 L150 44 L210 100 L258 62 L310 103 L360 55 L418 101 L470 49 L528 100 L580 66 L640 106 L640 120 Z" opacity=".28"/><path d="M0 120 L0 110 L84 67 L140 106 L200 71 L280 112 L340 78 L420 113 L490 74 L560 110 L640 84 L640 120 Z"/></g><g fill="#1A2F29"><path d="M22 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M52 108 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M88 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M128 112 l8-19 8 19 h-6 v9 h-4 v-9 Z"/><path d="M168 110 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M205 112 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M238 110 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M278 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M322 112 l8-19 8 19 h-6 v9 h-4 v-9 Z"/><path d="M362 110 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M398 112 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M448 110 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M486 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M540 112 l8-19 8 19 h-6 v9 h-4 v-9 Z"/><path d="M576 110 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M606 108 l7-16 7 16 h-5 v8 h-4 v-8 Z"/></g><g fill="#FFF8F0"><circle cx="150" cy="30" r="3"/><circle cx="470" cy="36" r="3"/><circle cx="360" cy="44" r="2.4"/></g></svg></div>
-<details class="card wide-track ff-about" id="aboutTool"><summary>About This Automation Pipeline</summary><div class="body"><p class="ff-about__copy">Type one line, pick a starting point, and get a ready-to-post Kodiak campaign — images and copy sized for every social platform and retailer, localized to the market you choose. Three reference pages document how it works under the hood.</p>
+<details class="card wide-track ff-about" id="aboutTool"><summary>About This Automation Pipeline</summary><div class="body"><p class="ff-about__copy">Here to brainstorm with you through creation of a Kodiak Cakes campaign. Here&#39;s how things work behind the scenes:</p>
 <!-- doclinks group — the three pages nested under About This Automation Pipeline. -->
 <div class="ff-doclinks" role="group" aria-label="Reference documentation">
   <a href="details.html" class="ff-doclink-pill">Design System Inventory</a>
@@ -504,6 +508,7 @@
 <div id="buildStamp">build 0.1.012-78e7baf-20260909</div>
 
 </div>
+<script defer src="js/brand-guard.js?v=0.1.012-78e7baf-20260909"></script>
 <script defer src="js/data-core.js?v=0.1.012-78e7baf-20260909"></script>
 <script defer src="js/season-flavors.js?v=0.1.012-78e7baf-20260909"></script>
 
@@ -523,7 +528,7 @@
 <script defer src="js/lifecycle-persist.js?v=0.1.012-78e7baf-20260909"></script>
   <script defer src="js/campaign-sections.js?v=0.1.012-78e7baf-20260909"></script>
   <script defer src="js/ff-timeline.js?v=0.1.012-78e7baf-20260909"></script>
-  <script defer src="js/coach-insights.js?v=0.1.012-78e7baf-20260909"></script>
+  <script defer src="js/coach-counsel.js?v=0.1.012-78e7baf-20260909"></script>
   <script defer src="js/coach-about.js?v=0.1.012-78e7baf-20260909"></script>
   <script defer src="glimmer-proxy.js?v=0.1.012-78e7baf-20260909"></script>
 </body></html>

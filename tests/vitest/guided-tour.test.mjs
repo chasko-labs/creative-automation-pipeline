@@ -41,6 +41,13 @@ describe('guided arrow tour', () => {
     expect(tour).toMatch(/removeChild/);
   });
 
+  it('advances on arrow click/Enter, dismisses on x/Escape — no panel buttons', () => {
+    expect(tour).toMatch(/ffTourWrap/);
+    expect(tour).toMatch(/ffTourX/);
+    expect(tour).toMatch(/function advance/);
+    expect(tour).toMatch(/'Enter'/);
+  });
+
   it('handles reduced motion (static arrow, no float/shimmer)', () => {
     expect(tour).toMatch(/prefers-reduced-motion/);
     expect(tour).toMatch(/is-still/);
@@ -51,12 +58,14 @@ describe('guided arrow tour', () => {
     expect(css).toMatch(/\.ff-tour\{[^}]*pointer-events:none/);
   });
 
-  it('arrow SVG uses kraft fill, sharpie stroke, pine label, ember CTA — token var() only', () => {
+  it('arrow SVG uses kraft fill, sharpie stroke, pine label — token var() only, no floating panel', () => {
     expect(tour).toMatch(/<svg/);
     expect(tour).toMatch(/<text/);
+    expect(tour).not.toMatch(/ff-tour-bar/);
+    expect(tour).not.toMatch(/ffTourNext/);
     expect(css).toMatch(/\.ff-tour-arrow-shape\{[^}]*fill:var\(--colors-brand-box-parchment\)/);
     expect(css).toMatch(/\.ff-tour-label\{[^}]*fill:var\(--colors-brand-frontier-green\)/);
-    expect(css).toMatch(/\.ff-tour-btn\{[^}]*var\(--colors-brand-ember-hi\)/);
+    expect(css).not.toMatch(/\.ff-tour-btn\{/);
     const start = css.indexOf('/* === Guided arrow tour');
     expect(start, 'tour CSS marker').toBeGreaterThan(-1);
     const block = css.slice(start);

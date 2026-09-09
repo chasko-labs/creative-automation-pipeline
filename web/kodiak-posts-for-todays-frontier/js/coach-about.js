@@ -29,7 +29,7 @@
         '<h4>Ask the coach</h4>' +
         '<p class="hint">How do I get a Costco version? Why did Preview stay grey? Answers cite the steps; suggested edits apply only when you confirm.</p>' +
         '<div class="coach-row"><input id="coachQ" type="text" maxlength="500" placeholder="Ask how to get the result you want…" aria-label="Ask the campaign coach">' +
-        '<button type="button" class="btn ghost" id="coachGo">Ask</button></div>' +
+        '<button type="button" class="btn ghost" id="coachGo">ask about this automation tool</button></div>' +
         '<div id="coachAnswer" role="status" aria-live="polite"></div>' +
         '<div id="coachEdits"></div>';
       body.appendChild(wrap);

@@ -88,3 +88,27 @@ describe('de-reddened decorative UI', () => {
     expect(css).toMatch(/\.ff-products \.ff-products-random\{[^}]*border:1px solid var\(--colors-border-strong\)/);
   });
 });
+
+// Layout law — campaign assets ride the main page scroll: no inner scrollbar,
+// download actions in normal flow, nothing clipped at 1600px or 390px.
+describe('layout law (no inner scroll on assets)', () => {
+  it('assets sections refuse inner scroll; carousel shell never scrolls', () => {
+    expect(css).toMatch(/\.ff-output\.ff-campaign-assets,\.ff-output\.ff-generate-campaign\{[^}]*overflow:visible[^}]*max-height:none/);
+    expect(css).toMatch(/\.ff-campaign-assets \.ff-product-carousel\{[^}]*overflow-x:visible/);
+  });
+
+  it('narrow slots share the row instead of scrolling', () => {
+    expect(css).toMatch(/\.ff-carousel-slot\{flex:1 1 0;min-width:0/);
+  });
+
+  it('platform matrix stacks instead of scrolling sideways', () => {
+    expect(css).not.toMatch(/\.platform-matrix\{overflow-x:auto/);
+    expect(css).toMatch(/\.platform-matrix\{overflow-x:visible/);
+  });
+
+  it('download pack actions stay in normal flow, top and bottom', () => {
+    expect(sections).toMatch(/id="downloadCampaignPackTop"/);
+    expect(sections).toMatch(/id="downloadCampaignPackBottom"/);
+    expect(sections).not.toMatch(/downloadCampaignPackTop[^]*position:(fixed|absolute)/);
+  });
+});

@@ -142,11 +142,12 @@ def test_handler_surfaces_localizations_and_provenance_languages(monkeypatch, tm
     assert body["ok"] is True
     assert body["image_url"].startswith("https://presigned.example/")
     assert [r["ratio"] for r in body["renders"]] == ["1x1", "4x5", "9x16", "16x9"]
-    # full mode is frontend-owned for copy (wall arithmetic): keys present, empty,
-    # provenance names the owner. The seam itself is still covered below.
-    assert body["localizations"] == []
-    assert body["provenance"]["languages"] == []
-    assert body["provenance"]["copy_owner"] == "frontend"
+    # Atlanta H: the pack ships deterministic fallback messaging server-side
+    # (offline chain — the live rewrite seam stays frontend-owned for wall
+    # arithmetic). Park City resolves to en/es/pt with tagged-fallback rows.
+    assert [loc["lang_code"] for loc in body["localizations"]] == ["en", "es", "pt"]
+    assert body["provenance"]["languages"] == ["en", "es", "pt"]
+    assert body["provenance"]["copy_owner"] == "backend-pack-fallback"
 
 
 def test_handler_localization_offline_never_crashes(monkeypatch, tmp_path) -> None:
@@ -168,5 +169,9 @@ def test_handler_localization_offline_never_crashes(monkeypatch, tmp_path) -> No
     assert resp["statusCode"] == 200
     body = json.loads(resp["body"])
     locs = body["localizations"]
-    assert locs == []
-    assert body["provenance"]["copy_owner"] == "frontend"
+    # unknown market falls back to en/es/pt; non-English rows are honestly
+    # tagged (never verbatim English, never invented translations).
+    assert [loc["lang_code"] for loc in locs] == ["en", "es", "pt"]
+    assert locs[0]["headline"] == "Keep It Wild"
+    assert locs[1]["headline"] == "Keep It Wild [es]"
+    assert body["provenance"]["copy_owner"] == "backend-pack-fallback"

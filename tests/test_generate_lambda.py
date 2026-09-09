@@ -299,10 +299,19 @@ def test_preview_mode_is_default_single_1x1_no_outpaint_no_localization(
     assert body["provenance"]["engine"] == "stability-control-structure"
     assert body["provenance"]["ratios"] == {"1x1": "primary"}
     assert body["provenance"]["mode"] == "preview"
-    # localization + platform copy are deferred to the async pack (empty on preview)
-    assert body["localizations"] == []
-    assert body["platform_copy"] == {}
-    # the two >30s killers never ran on the preview path
+    # Atlanta D/E/H: deterministic campaign messaging ships IN the preview —
+    # full platform copy + top-3 localizations + recipe tease (offline chain,
+    # zero model calls). Only the taller-ratio outpaints stay deferred.
+    assert [loc["lang_code"] for loc in body["localizations"]] == ["en", "es", "pt"]
+    from creative_automation.platform_copy import PUBLISH_TARGETS
+    assert set(body["platform_copy"].keys()) == set(PUBLISH_TARGETS)
+    assert body["provenance"]["copy_owner"] == "backend-preview-fallback"
+    assert body["provenance"]["deferred"] == ["4x5", "9x16", "16x9"]
+    assert body["retailer"] is None
+    assert body["recipe_fields"]["title"]
+    assert "recipe.title" in body["copy_sidecar"]["csv"]
+    # the two >30s killers never ran on the preview path (outpaint + LIVE
+    # localization chain — the preview rows come from the offline chain)
     assert outpaint_calls == []
     assert localize_calls == []
 
@@ -351,11 +360,15 @@ def test_full_mode_still_produces_3size_set_localization_platform_copy(
     assert body["mode"] == "full"
     # four renders from one call, 1x1 first
     assert [r["ratio"] for r in body["renders"]] == ["1x1", "4x5", "9x16", "16x9"]
-    # localization + platform copy are frontend-owned in full mode (wall
-    # arithmetic): keys present but empty, provenance says who owns them.
-    assert body["localizations"] == []
-    assert body["platform_copy"] == {}
-    assert body["provenance"]["copy_owner"] == "frontend"
+    # Atlanta H: the pack ships true campaign messaging — deterministic fallback
+    # copy + localizations + recipe + retailer in the response AND the sidecars
+    # (live rewrites would cost ~8-10s against the wall, so they stay frontend).
+    assert [loc["lang_code"] for loc in body["localizations"]] == ["en", "es", "pt"]
+    from creative_automation.platform_copy import PUBLISH_TARGETS
+    assert set(body["platform_copy"].keys()) == set(PUBLISH_TARGETS)
+    assert body["provenance"]["copy_owner"] == "backend-pack-fallback"
+    assert "retailer" in body["copy_sidecar"]["csv"] or "retailer_framing" in body["copy_sidecar"]["csv"] \
+        or "recipe.title" in body["copy_sidecar"]["csv"]
 
 
 

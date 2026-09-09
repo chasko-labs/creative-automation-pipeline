@@ -21,13 +21,16 @@ from . import text_rewriter
 from . import dam_library
 from .generate import (
     _brand_floor,
+    _recipe_card_defaults,
     _safe_prompt_text,
+    _validate_recipe_fields,
     build_copy_sidecar,
     generate_hero,
     generate_hero_set,
     normalize_layers,
 )
 from .locales import resolve_target_languages
+from .platform_copy import clean_brand_copy, fallback_platform_copy
 # NOTE: full mode no longer calls platform_copy/localize in-request (frontend owns
 # both — see _handle_full). The modules stay imported by tests directly.
 from .platforms import PLATFORMS
@@ -728,13 +731,116 @@ def _response_sidecar(
     platform_copy: dict | None,
     theme: str | None,
     product: str,
+    localizations: list[dict] | None = None,
+    languages: list[str] | None = None,
+    recipe_fields: dict | None = None,
+    retailer: str | None = None,
 ) -> dict:
-    """Copy sidecars for the response (#199). Never raises — a sidecar failure ships {}."""
+    """Copy sidecars for the response (#199, Atlanta H). Never raises."""
     try:
-        return build_copy_sidecar(provenance, prompt, platform_copy, theme, product)
+        return build_copy_sidecar(
+            provenance, prompt, platform_copy, theme, product,
+            localizations=localizations, languages=languages,
+            recipe_fields=recipe_fields, retailer=retailer,
+        )
     except Exception as e:  # noqa: BLE001 — sidecars are additive, never fatal
         print(f"[generate_lambda] copy sidecar build failed: {e}", file=sys.stderr)
         return {"txt": "", "csv": ""}
+
+
+# Retailer proof (Atlanta E/H): theme slug -> retailer display name. An explicit
+# request retailer always wins; Atlanta-like markets default to Publix below.
+_THEME_RETAILER = {
+    "localized-publix": "Publix",
+    "localized-costco": "Costco",
+    "localized-target": "Target",
+    "publix": "Publix",
+    "costco": "Costco",
+    "target": "Target",
+}
+
+# Markets whose preview defaults to Publix proof when the request names no
+# retailer/theme (US-SE-ATL: Atlanta 30301, retailer "Publix, Target" with Publix
+# first per the market record; Spanish + Korean per market-languages.json).
+_PUBLIX_DEFAULT_MARKETS = {"US-SE-ATL"}
+
+
+def _preview_campaign_data(
+    data: dict[str, Any], prompt: str, provenance: dict[str, Any] | None
+) -> dict[str, Any]:
+    """Deterministic campaign messaging for a response — zero model calls.
+
+    Builds (platform_copy, localizations, languages, recipe_fields, retailer)
+    from the campaign brief with the offline template + offline-dictionary chain
+    only: no Nova/Translate calls, no spend, microseconds against the wall, so
+    the copy can ship IN the preview instead of being deferred to the pack.
+    Live platform copy + live translations stay frontend-owned (rendered live
+    via the /localize + rewrite seams when creds exist).
+
+    Retailer: explicit data.retailer > retailer theme > Publix default for
+    Atlanta-like markets. Recipe: explicit data.recipe_fields (validated, never
+    fabricated) else the deterministic per-product defaults — the preview tease.
+    """
+    product = data.get("product", "power-cakes")
+    product_name = str(product).replace("-", " ").title()
+    theme = data.get("theme")
+    market = data.get("market") or data.get("region") or "us"
+    prov = provenance or {}
+    base = clean_brand_copy(
+        str(prov.get("copy_headline") or prov.get("headline") or prompt or "")[:80]
+    ) or clean_brand_copy(str(prompt or ""))
+
+    platform_copy = fallback_platform_copy(base, product_name, market)
+
+    targets = resolve_target_languages(market)
+    languages = [t["lang_code"] for t in targets]
+    localizations: list[dict] = []
+    for t in targets:
+        code = t["lang_code"]
+        if code == "en":
+            localizations.append({
+                "lang_code": code,
+                "translate_code": t.get("translate_code", code),
+                "headline": base,
+                "source": "original",
+            })
+            continue
+        offline_text, _provider = _offline_translation(base, code)
+        if offline_text:
+            localizations.append({
+                "lang_code": code,
+                "translate_code": t.get("translate_code", code),
+                "headline": clean_brand_copy(offline_text),
+                "source": "translated",
+            })
+        else:
+            # No invented translations: a language-tagged suffix keeps the row
+            # honestly non-English until a live backend translates it.
+            localizations.append({
+                "lang_code": code,
+                "translate_code": t.get("translate_code", code),
+                "headline": clean_brand_copy(f"{base} [{code}]"),
+                "source": "rewrite-fallback",
+            })
+
+    raw_recipe = data.get("recipe_fields")
+    recipe_fields = _validate_recipe_fields(raw_recipe, product_name)
+    if recipe_fields is None:
+        recipe_fields = _recipe_card_defaults(product_name)
+
+    retailer = data.get("retailer")
+    if not isinstance(retailer, str) or not retailer.strip():
+        retailer = _THEME_RETAILER.get(str(theme or ""))
+    if not retailer and market in _PUBLIX_DEFAULT_MARKETS:
+        retailer = "Publix"
+
+    return {
+        "platform_copy": platform_copy,
+        "localizations": localizations,
+        "languages": languages,
+        "recipe_fields": recipe_fields,
+        "retailer": retailer,
+    }
 
 
 def _s3_client():
@@ -828,12 +934,19 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
 
     Runs the single-ratio generate_hero (ratio=1x1, clean by default per the render
     contract — copy ships as sidecars, kraft texture still baked) and SKIPS the two
-    serial Stability outpaint extends and the localization
-    rewrites — those are the >30s killers and are deferred to the async pack (FULL mode).
+    serial Stability outpaint extends — those are the >30s killers and are deferred
+    to the async pack (FULL mode), which is the real multi-ratio image path
+    (generate_hero_set: 1x1 + 4x5 + 9x16 + 16x9 composed imagery). The preview keeps
+    ONE model call (the 1x1 hero); ratios beyond 1x1 stay deferred (see "deferred").
     Returns the SAME response shape the frontend expects (renders[] with the 1x1 entry,
     top-level image_url = the 1x1, source + provenance), so showRenderSet keeps working
-    with a single-entry renders[]. Localizations + platform_copy come back empty on the
-    preview and provenance notes the taller ratios + copy are deferred to the pack.
+    with a single-entry renders[].
+
+    Campaign messaging (Atlanta D/E/H) ships IN the preview via the deterministic
+    offline chain (zero model calls, zero spend): full per-platform copy
+    (X/Facebook meat + hashtags), the market's top-3 localizations (Spanish +
+    Korean for Atlanta US-SE-ATL), the recipe tease, and retailer proof (Publix
+    for Atlanta-like markets). Live copy/i18n stay frontend-owned.
     """
     product = data.get("product", "power-cakes")
     theme = data.get("theme")
@@ -871,14 +984,27 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     entry = _upload_render(s3, render, download_name)
 
     if isinstance(provenance, dict):
-        # the preview only ships the 1x1; taller ratios + localization + per-platform
-        # copy are the download-pack (FULL mode) concern, deferred off the sync path.
+        # the preview only ships the 1x1; the taller-ratio composed outpaints are
+        # the download-pack (FULL mode) concern, deferred off the sync path.
         provenance["ratios"] = {"1x1": "primary"}
         provenance["mode"] = PREVIEW_MODE
-        provenance["deferred"] = ["4x5", "9x16", "16x9", "localization", "platform_copy"]
+        provenance["deferred"] = ["4x5", "9x16", "16x9"]
     # Art-director voice upgrade (dark by default): runs AFTER pixels so voice work
     # can never gate the render; recorded as provenance + sidecar, never swaps the brief.
     _apply_art_upgrade(data, prompt, provenance)
+
+    # Campaign messaging IN the preview (Atlanta D/E/H): deterministic offline
+    # chain — zero model calls, so it cannot blow the wall. Runs after the art
+    # upgrade so a recorded art_headline lands in the sidecar too.
+    campaign = _preview_campaign_data(data, prompt, provenance)
+    if isinstance(provenance, dict):
+        provenance["languages"] = campaign["languages"]
+        provenance["retailer"] = campaign["retailer"]
+        recipe = campaign["recipe_fields"] or {}
+        if recipe.get("title"):
+            provenance["recipe"] = recipe.get("title")
+        provenance["platforms"] = sorted(campaign["platform_copy"].keys())
+        provenance["copy_owner"] = "backend-preview-fallback"
 
     return {
         "ok": True,
@@ -890,10 +1016,18 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         "mode": PREVIEW_MODE,
         "renders": [entry],
         "provenance": provenance,
-        "localizations": [],
-        "platform_copy": {},
+        "localizations": campaign["localizations"],
+        "platform_copy": campaign["platform_copy"],
         "layers": layers,
-        "copy_sidecar": _response_sidecar(provenance, prompt, {}, theme, product),
+        "recipe_fields": campaign["recipe_fields"],
+        "retailer": campaign["retailer"],
+        "copy_sidecar": _response_sidecar(
+            provenance, prompt, campaign["platform_copy"], theme, product,
+            localizations=campaign["localizations"],
+            languages=campaign["languages"],
+            recipe_fields=campaign["recipe_fields"],
+            retailer=campaign["retailer"],
+        ),
     }
 
 
@@ -951,34 +1085,31 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     primary = next((rr for rr in response_renders if rr["ratio"] == "1x1"), response_renders[0])
     primary_url = primary["image_url"]
 
-    # Server-side localization (additive): deliver the campaign headline in the
-    # market's top-3 languages (English + market top-2, EN/ES/PT default when the
-    # market is unknown). The headline is the Nova Pro line when present, else the
-    # incoming prompt. Offline-safe — never crashes the generate call.
-    # Localization + platform copy are FRONTEND-owned in full mode: the app renders
-    # localized captions live (KODIAK_locCaption + /localize seam) and the platform
-    # panel skips gracefully on {}. Running 3 lang rewrites + 7 platform rewrites
-    # server-side costs ~8-10s of Nova Micro calls against the immovable 22s wall —
-    # the measured reason full-mode sets always hit brand-floor. Keys stay present
-    # (empty) so clients never break.
-    localizations, languages = [], []
+    # Server-side campaign messaging (Atlanta H): the deterministic offline chain
+    # (zero model calls) ships full platform copy + top-3 localizations + recipe
+    # tease + retailer proof in the pack response and sidecars. Live Nova rewrites
+    # server-side would cost ~8-10s against the immovable 22s wall — the measured
+    # reason full-mode sets hit brand-floor — so live copy + live translations stay
+    # frontend-owned (rendered live via the /localize + rewrite seams).
     if isinstance(provenance, dict):
-        provenance["languages"] = languages
         provenance["mode"] = FULL_MODE
     # Art-director voice upgrade (dark by default): runs AFTER pixels so voice work
     # can never gate the render; recorded as provenance + sidecar, never swaps the brief.
     _apply_art_upgrade(data, prompt, provenance)
 
-    # Per-platform campaign copy (additive): tailor the campaign message to each
-    # social network's tone/length rules. Uses the req_platforms resolved above
-    # (the same set stamped as x-amz-meta-platforms at upload). Offline-safe —
-    # the copy degrades to a deterministic on-brand template tagged
-    # source="fallback" when no live Nova backend, exactly like the
-    # localization path.
-    platform_copy = {}
+    campaign = _preview_campaign_data(data, prompt, provenance)
+    # The requested platform set doubles as the publish tag (stamped above); the
+    # deterministic copy covers the full publish set so the sidecar is complete.
+    platform_copy = campaign["platform_copy"]
+    localizations = campaign["localizations"]
     if isinstance(provenance, dict):
-        provenance["platforms"] = list(platform_copy.keys())
-        provenance["copy_owner"] = "frontend"
+        provenance["languages"] = campaign["languages"]
+        provenance["retailer"] = campaign["retailer"]
+        recipe = campaign["recipe_fields"] or {}
+        if recipe.get("title"):
+            provenance["recipe"] = recipe.get("title")
+        provenance["platforms"] = sorted(platform_copy.keys())
+        provenance["copy_owner"] = "backend-pack-fallback"
 
     return {
         "ok": True,
@@ -993,7 +1124,15 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         "localizations": localizations,
         "platform_copy": platform_copy,
         "layers": layers,
-        "copy_sidecar": _response_sidecar(provenance, prompt, platform_copy, theme, product),
+        "recipe_fields": campaign["recipe_fields"],
+        "retailer": campaign["retailer"],
+        "copy_sidecar": _response_sidecar(
+            provenance, prompt, platform_copy, theme, product,
+            localizations=localizations,
+            languages=campaign["languages"],
+            recipe_fields=campaign["recipe_fields"],
+            retailer=campaign["retailer"],
+        ),
     }
 
 
@@ -1043,8 +1182,16 @@ def _post_wall_brand_floor(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         "incoming_prompt": prompt,
         "theme": theme,
         "ratios": {"1x1": "primary"},
-        "deferred": ["4x5", "9x16", "16x9", "localization", "platform_copy"],
+        "deferred": ["4x5", "9x16", "16x9"],
     }
+
+    # Wall floor still ships deterministic campaign messaging (offline chain —
+    # pure local, cannot stall the return leg).
+    campaign = _preview_campaign_data(data, prompt, provenance)
+    provenance["languages"] = campaign["languages"]
+    provenance["retailer"] = campaign["retailer"]
+    provenance["platforms"] = sorted(campaign["platform_copy"].keys())
+    provenance["copy_owner"] = "backend-wall-fallback"
 
     return {
         "ok": True,
@@ -1056,10 +1203,18 @@ def _post_wall_brand_floor(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         "mode": PREVIEW_MODE,
         "renders": [entry],
         "provenance": provenance,
-        "localizations": [],
-        "platform_copy": {},
+        "localizations": campaign["localizations"],
+        "platform_copy": campaign["platform_copy"],
         "layers": layers,
-        "copy_sidecar": _response_sidecar(provenance, prompt, {}, theme, product),
+        "recipe_fields": campaign["recipe_fields"],
+        "retailer": campaign["retailer"],
+        "copy_sidecar": _response_sidecar(
+            provenance, prompt, campaign["platform_copy"], theme, product,
+            localizations=campaign["localizations"],
+            languages=campaign["languages"],
+            recipe_fields=campaign["recipe_fields"],
+            retailer=campaign["retailer"],
+        ),
     }
 
 

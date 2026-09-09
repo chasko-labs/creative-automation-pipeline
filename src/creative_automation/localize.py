@@ -1,7 +1,16 @@
-"""Message localization — Bedrock Nova Micro with offline fallback."""
+"""Message localization — Bedrock Nova Micro with offline fallback.
+
+Standing copy law (Atlanta shakedown): the word KODIAK never ships in copy.
+Every localized string passes through clean_brand_copy — bare Kodiak/KODIAK
+reads as "Kodiak Cakes"; #hashtags and "Kodiak Park City" pass through.
+No translations are invented: offline misses fall back to a language-tagged
+suffix so the row still reads non-English.
+"""
 from __future__ import annotations
 
 import os
+
+from .platform_copy import clean_brand_copy
 
 try:
     import boto3
@@ -67,7 +76,9 @@ def _try_bedrock_translate(text: str, target_lang: str, region: str) -> str | No
                     "content": [
                         {
                             "text": f"Translate this social ad headline to {target_lang} for market {region}. "
-                            f"Keep it punchy, under 60 chars, preserve brand voice. Return ONLY the translation, no quotes.\nText: {text}"
+                            f"Keep it punchy, under 60 chars, preserve brand voice. Brand law: never emit the "
+                            f"bare words KODIAK or Kodiak — always write the full name 'Kodiak Cakes' "
+                            f"(or keep a #KodiakCakes-style hashtag verbatim). Return ONLY the translation, no quotes.\nText: {text}"
                         }
                     ],
                 }
@@ -98,25 +109,25 @@ def _try_translate_api(text: str, target_lang: str, source_lang: str = "en") -> 
 
 
 def localize_message(text: str, lang: str, region: str, explicit_map: dict | None = None) -> tuple[str, str]:
-    """Return (localized_text, source)."""
+    """Return (localized_text, source) — always standing-law cleaned."""
     if explicit_map and region in explicit_map:
-        return explicit_map[region], "brief"
+        return clean_brand_copy(explicit_map[region]), "brief"
     if explicit_map and lang in explicit_map:
-        return explicit_map[lang], "brief"
+        return clean_brand_copy(explicit_map[lang]), "brief"
     if lang == "en":
-        return text, "original"
+        return clean_brand_copy(text), "original"
     # try bedrock (Nova Micro) first, then Translate API (via Nova Micro + Amazon Translate)
     tr = _try_bedrock_translate(text, lang, region)
     if tr:
-        return tr, "bedrock:nova-micro"
+        return clean_brand_copy(tr), "bedrock:nova-micro"
     tr2 = _try_translate_api(text, lang)
     if tr2:
-        return tr2, "translate:amazon"
+        return clean_brand_copy(tr2), "translate:amazon"
     # offline
     if lang in OFFLINE and text in OFFLINE[lang]:
-        return OFFLINE[lang][text], "mock:dictionary"
+        return clean_brand_copy(OFFLINE[lang][text]), "mock:dictionary"
     # generic offline suffix so message still displays localized tag on final post
     if lang in ("es", "fr", "de", "zh", "vi", "pt", "ar", "pl", "ko", "ja", "tl", "ru"):
-        return f"{text} [{lang}]", "mock:tagged"
+        return clean_brand_copy(f"{text} [{lang}]"), "mock:tagged"
     # fallback: return original with lang tag
-    return text, "mock:passthrough"
+    return clean_brand_copy(text), "mock:passthrough"

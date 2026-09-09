@@ -35,6 +35,30 @@ describe('coach about Q&A', () => {
     expect(about).toMatch(/The coach is busy — try again\./);
   });
 
+  it('about copy is the exact brainstorm line; coach button carries the exact label', () => {
+    expect(index).toContain(
+      '<p class="ff-about__copy">Here to brainstorm with you through creation of a Kodiak Cakes campaign. Here&#39;s how things work behind the scenes:</p>'
+    );
+    // reference links survive the copy swap
+    expect(index).toMatch(/ff-doclinks/);
+    expect(index).toMatch(/pipeline\.html/);
+    expect(about).toContain('id="coachGo">ask about this automation tool</button>');
+  });
+
+  it('coach ask box is styled with token var()s only', () => {
+    const css = readFileSync(
+      resolve(root, 'web/kodiak-posts-for-todays-frontier/design/components.css'), 'utf8');
+    const block = css.slice(css.indexOf('#coachAsk{'));
+    expect(block.length).toBeGreaterThan(100);
+    const rules = block.slice(0, block.indexOf('/* About-this-tool'));
+    expect(rules).toMatch(/#coachAsk/);
+    // no raw hex / rgb slop outside var() fallbacks (fallbacks mirror the
+    // repo's own var(--colors-brand-box-parchment,#F5EAD3) pattern)
+    const bare = rules.replace(/var\([^)]*\)/g, 'var()');
+    expect(bare).not.toMatch(/#[0-9a-fA-F]{3,8}\b/);
+    expect(bare).not.toMatch(/rgba?\(/);
+  });
+
   it('sends page state, never secrets', () => {
     expect(about).toMatch(/pageState/);
     expect(about).toMatch(/briefLength/);

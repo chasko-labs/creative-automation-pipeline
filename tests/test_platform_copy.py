@@ -73,16 +73,17 @@ def test_youtube_has_title_and_description():
 
 
 def test_brand_mark_enforced_where_headline_names_brand():
-    # the deterministic fallback headlines for these tones name the brand; assert the
-    # registered mark is present and no bare "Kodiak" survives in the headline.
+    # Standing law (Atlanta backlog): bare KODIAK never ships — the allowed
+    # naming "Kodiak Cakes" is present and no bare "Kodiak"/"KODIAK" survives.
     copy = generate_platform_copy("Fuel your morning", "Power Cakes", "US-UT",
                                   platforms=["linkedin", "facebook"])
     for entry in copy.values():
         headline = entry["headline"]
-        assert "KODIAK(R)" in headline
-        # no bare 'Kodiak' word without the mark following (hashtags excluded).
+        assert "Kodiak Cakes" in headline
+        # no bare brand word (hashtags and allowed namings excluded).
         import re
-        assert re.search(r"(?<!#)\bKodiak\b(?!\s*\(R\))", headline) is None
+        assert re.search(r"(?<!#)\bKODIAK\b", headline) is None
+        assert re.search(r"(?<!#)\bKodiak\b(?!\s+(Cakes?|Park\s+City))", headline) is None
 
 
 def test_hashtag_counts_per_spec():
@@ -112,7 +113,7 @@ def test_pinterest_is_keyword_rich_no_hype():
 def test_generated_source_when_backend_live(monkeypatch):
     # simulate a live Nova rewrite: patch rewrite_headline to return the bedrock source.
     def _live(base, market, **kwargs):
-        return {"text": "KODIAK(R) Power Cakes fuel your frontier",
+        return {"text": "Kodiak Cakes Power Cakes fuel your frontier",
                 "source": "bedrock:nova-micro", "safety": {"clean": True},
                 "dialect_applied": []}
 
@@ -120,7 +121,7 @@ def test_generated_source_when_backend_live(monkeypatch):
     copy = generate_platform_copy("Fuel your morning", "Power Cakes", "US-UT",
                                   platforms=["instagram"])
     assert copy["instagram"]["source"] == "generated"
-    assert "KODIAK(R)" in copy["instagram"]["headline"]
+    assert "Kodiak Cakes" in copy["instagram"]["headline"]
 
 
 def test_one_bad_platform_never_sinks_the_set(monkeypatch):

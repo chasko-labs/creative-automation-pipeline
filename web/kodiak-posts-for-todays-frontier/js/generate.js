@@ -29,7 +29,7 @@ let skuList = [
     "Buttermilk Power Cakes Flapjack & Waffle Mix","Cinnamon Oat Power Cakes","Dark Chocolate Power Cakes",
     "Oatmeal Chocolate Chip Power Cup","Blueberry Honey Frontier Cakes","Pumpkin Power Cakes",
     "Chocolate Almond Trail Bars","Cinnamon Oat & Apple Breakfast Bars","Protein Oatmeal Packets",
-    "Kodiak Cakes Blueberry Lemon Muffin Mix","KODIAK POWER CUPS® Protein Oatmeal Cup","KODIAK CAKES® Cheddar Jalapeno Drop Biscuits",
+    "Kodiak Cakes Blueberry Lemon Muffin Mix","Kodiak Cakes Power Cups Protein Oatmeal Cup","Kodiak Cakes Cheddar Jalapeno Drop Biscuits",
     "Savory Waffles — Regional","Waffle Ice Cream Sandwiches","Protein Biscuits"
   ];
   const employees = [
@@ -132,6 +132,37 @@ let skuList = [
     facebook:'Facebook', instagram:'Instagram', linkedin:'LinkedIn',
     pinterest:'Pinterest', tiktok:'TikTok', x:'X', youtube:'YouTube', blog:'Blog'
   };
+  // G — provenance/rung-badge foundation, hoisted to IIFE top-level so the
+  // click-handler badge + panel AND the exposed heuristics hook share one
+  // source (extended, not reinvented). provenanceHeuristics is pure: prov
+  // fields in, honest English lines out — absent fields read as
+  // "not reported", never a guess, never an invented translation.
+  const ENGINE_LABELS = {
+    'stability-control-structure':'Control-structure restyle (Stability)',
+    'pillow-compose':'Pillow compose (brand overlay)'
+  };
+  const RUNG_LABELS = {
+    'A':'Rung A · packshot verbatim',
+    'B':'Rung B · Stability restyle',
+    'C':'Rung C · Pillow fallback',
+    'D':'Rung D · brand-floor fallback'
+  };
+  const provenanceHeuristics = (prov)=>{
+    prov = (prov && typeof prov==='object') ? prov : {};
+    var lines = [];
+    var rung = prov.rung || '';
+    lines.push('Rung: ' + (RUNG_LABELS[rung] || 'not reported'));
+    var eng = ENGINE_LABELS[prov.engine] || prov.engine || '';
+    lines.push('Engine: ' + (eng || 'not reported'));
+    if(prov.seed_selection || prov.seed_source){
+      lines.push('Seed: ' + [prov.seed_selection, prov.seed_source ? 'via ' + prov.seed_source : null].filter(Boolean).join(' '));
+    } else {
+      lines.push('Seed: not reported');
+    }
+    lines.push('Fallback: ' + (prov.fallthrough_reason || 'none reported'));
+    return lines;
+  };
+  try{ window.KODIAK_provenanceHeuristics = provenanceHeuristics; }catch(e){}
   // Inline fallback — ratio order matches the summary copy (1x1, then portrait, then vertical, then landscape).
   const PLATFORM_MATRIX_FALLBACK = {
     '1x1':  {label:'Square',    w:1080, h:1080, platforms:['facebook','instagram','x','linkedin','pinterest']},
@@ -251,7 +282,7 @@ let skuList = [
     tile.style.cssText = 'grid-column:1/-1;max-width:640px;margin:0 auto';
     const img = document.createElement('img');
     img.src = DEFAULT_HERO_SRC;
-    img.alt = 'Kodiak frontier morning — cabin table with a protein stack, natural light';
+    img.alt = 'Kodiak Cakes frontier morning — cabin table with a protein stack, natural light';
     img.loading = 'eager';
     img.onerror = ()=>{ tile.remove(); };
     tile.appendChild(img);
@@ -283,12 +314,14 @@ let skuList = [
     const scope = ['x','linkedin','instagram','tiktok','facebook','pinterest','youtube'];
     const keys = scope.filter(k=>platformCopy[k]).concat(Object.keys(platformCopy).filter(k=>scope.indexOf(k)<0));
     if(!keys.length) return;
+    const clean = (typeof window.KODIAK_brandClean==='function') ? window.KODIAK_brandClean : function(x){ return x; };
     const items = keys.map(k=>{
       const c = platformCopy[k] || {};
       const name = PLATFORM_LABELS[k] || k;
-      const title = c.headline!=null ? c.headline : (c.title!=null ? c.title : '');
-      const bodyTxt = c.body!=null ? c.body : (c.description!=null ? c.description : '');
-      const tags = Array.isArray(c.hashtags) ? c.hashtags.join(' ') : (c.hashtags!=null ? c.hashtags : '');
+      // KODIAK-forbidden-in-copy law: backend copy predates the law — clean at paint time.
+      const title = clean(c.headline!=null ? c.headline : (c.title!=null ? c.title : ''));
+      const bodyTxt = clean(c.body!=null ? c.body : (c.description!=null ? c.description : ''));
+      const tags = clean(Array.isArray(c.hashtags) ? c.hashtags.join(' ') : (c.hashtags!=null ? c.hashtags : ''));
       const src = String(c.source||'').toLowerCase()==='generated' ? 'generated' : (c.source ? 'fallback' : '');
       const srcPill = src ? '<span class="pc-src '+src+'">source: '+escapeHtml(src)+'</span>' : '';
       return '<details>'+
@@ -319,6 +352,8 @@ let skuList = [
     if(!preview || !arg) return;
     let panel = document.getElementById('copyFirstPanel');
     if(arg.phase==='driving'){
+      // KODIAK-forbidden-in-copy law: user/seed briefs predate the law — clean at paint time.
+      try{ if(typeof window.KODIAK_brandClean==='function' && arg.brief) arg.brief = window.KODIAK_brandClean(arg.brief); }catch(e){}
       try{ window.__lastCopyDriving = {brief:arg.brief, theme:arg.theme||null, themeLabel:arg.themeLabel||null, market:arg.market, place:arg.place||arg.market, products:(arg.products||[]).slice()}; }catch(e){}
       if(panel) panel.remove();
       panel = document.createElement('div');
@@ -353,8 +388,10 @@ let skuList = [
     if(isFallback){
       usedHtml = '<p class="pc-text">No copy was used — the backend returned fallback pixels.</p>';
     } else if(prov.art_headline || pcKeys.length){
-      usedHtml = (prov.art_headline ? '<p class="pc-title">'+escapeHtml(prov.art_headline)+'</p>' : '')+
-        (pcKeys.length ? '<p class="pc-text">'+pcKeys.map(k=>escapeHtml(k+': '+(((pc[k]||{}).headline||(pc[k]||{}).title)||''))).join('<br>')+'</p>' : '<p class="pc-text">Full platform copy deferred — ships with Generate Campaign.</p>');
+      // KODIAK-forbidden-in-copy law: backend copy predates the law — clean at paint time.
+      var cleanUsed = (typeof window.KODIAK_brandClean==='function') ? window.KODIAK_brandClean : function(x){ return x; };
+      usedHtml = (prov.art_headline ? '<p class="pc-title">'+escapeHtml(cleanUsed(prov.art_headline))+'</p>' : '')+
+        (pcKeys.length ? '<p class="pc-text">'+pcKeys.map(k=>escapeHtml(k+': '+cleanUsed(((pc[k]||{}).headline||(pc[k]||{}).title)||''))).join('<br>')+'</p>' : '<p class="pc-text">Full platform copy deferred — ships with Generate Campaign.</p>');
     } else if(deferred.indexOf('platform_copy')!==-1){
       // The localized tile captions ARE the preview copy — a second section saying
       // so adds noise. Drop the panel unless mismatch flags need surfacing.
@@ -459,7 +496,7 @@ let skuList = [
       const THEME_LABELS = {
         'recipe-cards':'Recipe cards','localized-costco':'Localized Costco',
         'localized-publix':'Localized Publix','localized-all':'All retailers',
-        'kodiak-subscription':'Kodiak subscription',
+        'kodiak-subscription':'Kodiak Cakes subscription',
         'riff-on-past-content':'Riff on past content',
         'wild-grizzly-bears':'Wild Grizzly Bears',
         'us-ski-snowboard':'US Ski & Snowboard'
@@ -469,11 +506,11 @@ let skuList = [
       // pixels. Remembers the backend copy_sidecar (or platform_copy) per response.
       const downloadSidecar = (kind)=>{
         const sc = window.__lastSidecar || null;
-        const text = (sc && sc[kind]) ? sc[kind] : 'KODIAK campaign copy — hit Create first for this campaign\u2019s sidecar.\n';
+        const text = (sc && sc[kind]) ? sc[kind] : 'Kodiak Cakes campaign copy — hit Create first for this campaign\u2019s sidecar.\n';
         const blob = new Blob([text], {type: kind==='csv' ? 'text/csv' : 'text/plain'});
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
-        a.download = kind==='csv' ? 'KODIAK-copy.csv' : 'KODIAK-copy.txt';
+        a.download = kind==='csv' ? 'Kodiak-Cakes-copy.csv' : 'Kodiak-Cakes-copy.txt';
         document.body.appendChild(a); a.click();
         setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 500);
       };
@@ -563,7 +600,7 @@ let skuList = [
         meta.className = 'meta';
         const themeLine = opts.theme ? ` · theme: ${opts.themeLabel || opts.theme}` : '';
         const prodLine = opts.productName ? `${opts.productName} · ` : '';
-        meta.innerHTML = `<b>KODIAK® composed hero</b><div class="small">${prodLine}source: ${label} · ${selectedLoc.market}${themeLine} · ${brief.slice(0,80)}</div>`;
+        meta.innerHTML = `<b>Kodiak Cakes composed hero</b><div class="small">${prodLine}source: ${label} · ${selectedLoc.market}${themeLine} · ${brief.slice(0,80)}</div>`;
         tile.appendChild(meta);
         preview.appendChild(tile);
         // source badge above the preview — provenance-driven, fallbacks flagged (#173)
@@ -583,19 +620,9 @@ let skuList = [
         '16x9': {name:'Landscape', cls:'r-16x9'},
         '2x3': {name:'Story', cls:'r-2x3'}
       };
-      const ENGINE_LABELS = {
-        'stability-control-structure':'Control-structure restyle (Stability)',
-        'pillow-compose':'Pillow compose (brand overlay)'
-      };
       // Unit 2 (#173) — honest rung badge. Provenance drives the label; any
       // fallback rung (C/D or a fallthrough_reason) gets flagged, never silently
       // relabeled "Nova Pro". Fallback sightings become counted facts.
-      const RUNG_LABELS = {
-        'A':'Rung A · packshot verbatim',
-        'B':'Rung B · Stability restyle',
-        'C':'Rung C · Pillow fallback',
-        'D':'Rung D · brand-floor fallback'
-      };
       const rungBadge = (source, prov)=>{
         prov = prov || {};
         const rung = prov.rung || '';
@@ -628,7 +655,7 @@ let skuList = [
           frame.className = 'render-frame';
           const img = document.createElement('img');
           img.src = r.image_url;
-          img.alt = 'KODIAK campaign hero, ' + r.ratio.replace('x',':') + ' ' + meta.name + themeBit;
+          img.alt = 'Kodiak Cakes campaign hero, ' + r.ratio.replace('x',':') + ' ' + meta.name + themeBit;
           img.loading = i === 0 ? 'eager' : 'lazy';
           frame.appendChild(img);
           tile.appendChild(frame);
@@ -711,11 +738,20 @@ let skuList = [
         const panel = document.createElement('details');
         panel.className = 'provenance';
         panel.id = 'provenancePanel';
+        // G — heuristics readout rides the same panel: how it was decided,
+        // from the same prov object (no new data source, nothing invented).
+        var heurHtml = '';
+        try{
+          heurHtml = provenanceHeuristics(prov).map(function(h){
+            return '<p class="prov-heur">' + escapeHtml(h) + '</p>';
+          }).join('');
+        }catch(e){ heurHtml = ''; }
         panel.innerHTML =
           '<summary>How this was made</summary>' +
           '<div class="prov-body">' +
             '<div class="prov-group"><h4>You provided</h4><dl>' + provided + '</dl></div>' +
             '<div class="prov-group"><h4>What we did</h4><dl>' + did + '</dl></div>' +
+            '<div class="prov-group prov-heuristics"><h4>How it was decided</h4>' + heurHtml + '</div>' +
           '</div>';
         // place directly under the preview (after any download row if present)
         const anchor = document.getElementById('previewDownloadRow') || preview;

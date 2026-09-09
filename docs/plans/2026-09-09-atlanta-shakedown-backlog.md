@@ -74,3 +74,71 @@ mapping --check, panda-parity, render gate, deploy + curl-verify).
   `KODIAK-copy.csv` / `.txt` filenames.
 - Validate: build Atlanta pack, open csv/txt, check fields per language +
   recipe + retailer rows.
+
+## I — asset browser: thumbnails, not full files
+
+- Owner diagnosis confirmed: the DAM grid (`prompt-chips.js` ~line 871+)
+  lazy-loads via IntersectionObserver with 150px decode hints — good
+  foundation, do NOT overhaul — but `data-src` is the FULL presigned file.
+- Serve thumbnail variants in the grid (backend thumb URLs or resized
+  derivatives); hand the pipeline the full asset only on select
+  (select path at ~line 1072 already carries `url` + `key` — split into
+  thumb/full).
+- Reference bryanchasko.com/mom for serving patterns; learn, don't copy.
+- Validate: Browse past assets opens fast on a cold cache; selection still
+  composes the full file.
+
+## J — Ideas tab: rank by strength, omit slop
+
+- Ideas (904+) currently unranked: mock-hero slop (orange oval placeholder)
+  sits beside keepers (bear cake, muffin table).
+- Add a strength score to the library items (backend `/assets/library`
+  response or a local curation list — prefer data over hardcoded ids where
+  possible), sort strongest-first, omit below-threshold slop from the grid.
+- The grayscale/sepia treatment on some ideas tiles presumably marks
+  something — confirm what before changing it.
+- Validate: Ideas opens with the bear/muffin keepers first, no mock ovals.
+
+## L — adversarial coach with Apply (replaces "Why this works")
+
+- Today `coach-insights.js` renders "Why this works" bullets that inform
+  nothing and go nowhere (odd title, no campaign effect). Replace with an
+  adversarial recommender: the coach critiques the CURRENT brief/market/
+  season/products (off-season pick? missing retailer? weak brief?) and
+  returns discrete recommendations, each with its own Apply.
+- Apply (only on explicit approval per item, or apply-all) writes into the
+  real controls — brief text + input event, market select + change, theme
+  cards, product checkboxes — then reruns Create so the preview visibly
+  changes. Reuse the resume-card-era wiring pattern (set value + dispatch
+  real events so all dependents re-run); never set state behind the UI's back.
+- Retitle: section reads as campaign counsel, not trivia (name TBD with owner).
+- Coach endpoint contract extends `/insights` (or new action) with structured
+  {recommendations:[{label, reason, patch:{brief?, market?, theme?, products?}}]}.
+  Frontend applies patches through the same code paths as user input.
+- No auto-apply, no auto-fetch changes (still one click, still never blocks
+  Create/Download). KODIAK copy law applies to recommended brief text.
+- Validate: seed a weak Atlanta brief, coach counters with Publix + recipe
+  angle, Apply rewrites the brief + reruns preview; vitest asserts patch
+  application via real events.
+- RAG INFUSION (endpoint half — frontend already accepts the shape): the
+  `/insights` backend fuses `context_pack.py` (deterministic: market,
+  retailer, ingredient, languages, image clusters, sample prompts, brand
+  rules — no network, no new deps) with Bedrock KB retrieval over past
+  social posts + brand standards, and returns `recommendations[]` patches.
+  Retrieval mode `retrieve` (raw chunks, custom prompt via Converse with
+  explicit maxTokens) keeps the design-director voice under our control;
+  KB needs S3-backed ingestion with GetObject/ListBucket on its role.
+  Sources in-repo: `data/vectors/` embeddings, `references/` inventory,
+  `scripts/embed-*.py`. Frontend renders server patches preferred, local
+  rules as fallback — already implemented in `coach-counsel.js`.
+
+## K — Recipes means recipe cards
+
+- The `recipes` tab currently holds food/table/kitchen photography — those
+  belong in `food`/`table`/`kitchen` (new tabs or lifestyle sub-filters).
+- `Recipes` must mean recipe cards: ingredients-as-listed cards. Develop the
+  recipe-card pipeline output (design + data) so real cards display among
+  past assets. This is the important part — don't stub it.
+- Validate: Recipes tab shows ingredient-listed cards; food photography
+  lives under its own taxonomy.
+

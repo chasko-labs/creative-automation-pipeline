@@ -24,6 +24,8 @@ from typing import Optional
 
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
+from .platform_copy import clean_brand_copy
+
 # Attempt boto3 import lazily — local-only mode still works without it
 try:
     import boto3
@@ -907,7 +909,9 @@ def _nova_pro_caption(
             f"Audience: {audience}. Campaign vibe: {brief_msg}. "
             "Look at the product image and reply with ONE short on-brand headline "
             "(max 6 words) on the first line, then one line 'LAYOUT: <left|right|center>' "
-            "naming which side to leave as negative space for the product. No other text."
+            "naming which side to leave as negative space for the product. No other text. "
+            "Brand law: never write the bare words KODIAK or Kodiak — the only allowed "
+            "brand namings are 'Kodiak Cakes' and 'Kodiak Park City'."
         )
         resp = client.converse(
             modelId=NOVA_TEXT_MODEL,
@@ -1638,10 +1642,11 @@ def _validate_recipe_fields(raw: object, product_name: str) -> dict | None:
         return None
     if any(len(x) > 90 for x in ingredients + steps) or len(title) > 60:
         return None
+    # Standing copy law: the authoring model may emit a bare brand word.
     return {
-        "title": " ".join(title.split()),
-        "ingredients": [" ".join(str(x).split()) for x in ingredients],
-        "steps": [" ".join(str(x).split()) for x in steps],
+        "title": clean_brand_copy(" ".join(title.split())),
+        "ingredients": [clean_brand_copy(" ".join(str(x).split())) for x in ingredients],
+        "steps": [clean_brand_copy(" ".join(str(x).split())) for x in steps],
     }
 
 
@@ -1661,6 +1666,8 @@ def _author_recipe_fields(
         client = _bedrock_failfast_client(read_timeout=BEDROCK_NOVA_READ_TIMEOUT_S)
         prompt = (
             "You write recipe-card copy for Kodiak Cakes packaging. "
+            "Brand law: never write the bare words KODIAK or Kodiak — the only allowed "
+            "brand namings are 'Kodiak Cakes' and 'Kodiak Park City'. "
             f"Product: '{product_name}'. Campaign vibe: {brief_msg}. Region: {region}. "
             "Reply with ONLY a JSON object, no other text, shaped exactly like "
             '{"title": "short recipe name", '
@@ -1962,65 +1969,119 @@ def build_copy_sidecar(
     platform_copy: dict | None = None,
     theme: str | None = None,
     product: str | None = None,
+    *,
+    localizations: list[dict] | None = None,
+    languages: list[str] | None = None,
+    recipe_fields: dict | None = None,
+    retailer: str | None = None,
 ) -> dict:
-    """Build the copy sidecars (#199): campaign copy as text + CSV, never baked in.
+    """Build the copy sidecars (#199, Atlanta H): campaign copy as text + CSV, never baked in.
 
     Deterministic (no timestamps) so output is byte-stable. The headline prefers the
     composed copy_headline the ladder recorded, then the legacy overlay headline,
     then the raw brief — copy always ships even when the image is clean.
+
+    True campaign messaging (Atlanta H): full per-platform copy, multilingual
+    variants (i18n.{lang}.headline rows), the local recipe (recipe.* rows), and
+    retailer proof (retailer + retailer_framing rows) all ship as field,value
+    rows in the CSV and as lines in the txt. Every string passes through the
+    standing-law brand cleaner, so no bare KODIAK/Kodiak ships.
     """
     provenance = provenance or {}
     platform_copy = platform_copy or {}
-    headline = (
+    headline = clean_brand_copy(
         provenance.get("copy_headline")
         or provenance.get("headline")
         or str(prompt or "")[:80]
     )
+    brief = clean_brand_copy(str(prompt or ""))
     product_label = product or "kodiak"
     theme_line = f"theme: {theme}" if theme else "theme: none"
     txt_lines = [
-        f"KODIAK campaign copy — {product_label}",
+        f"Kodiak Cakes campaign copy — {product_label}",
         theme_line,
         f"headline: {headline}",
-        f"brief: {prompt}",
+        f"brief: {brief}",
     ]
-    # retailer direction (#245): the theme's copy framing ships as its own line so
-    # a retailer choice visibly changes the copy. No theme (or no hint) = generic.
+    # retailer direction (#245, Atlanta E/H): the theme's copy framing ships as its
+    # own line so a retailer choice visibly changes the copy. An explicit retailer
+    # (e.g. Publix for Atlanta-like markets) ships as its own row too.
     retailer_framing = _THEME_COPY_HINT.get(theme or "")
+    if retailer:
+        txt_lines.append(f"retailer: {retailer}")
     if retailer_framing:
         txt_lines.append(f"retailer framing: {retailer_framing}")
+    # recipe tease (Atlanta E/H): the local recipe card ships in the sidecar.
+    recipe_fields = recipe_fields or {}
+    recipe_title = recipe_fields.get("title") if isinstance(recipe_fields, dict) else None
+    if recipe_title:
+        txt_lines.append(f"recipe: {clean_brand_copy(str(recipe_title))}")
     # art-director voice upgrade: recorded when the post-render voice step produced
     # a real line (never swaps the headline — the brief stays the record).
     art_headline = provenance.get("art_headline") if provenance else None
     if art_headline:
-        txt_lines.append(f"art-director voice: {art_headline}")
+        txt_lines.append(f"art-director voice: {clean_brand_copy(str(art_headline))}")
+
+    def _plat_title(entry: dict) -> str:
+        return clean_brand_copy(str(entry.get("headline") or entry.get("title") or ""))
+
+    def _plat_body(entry: dict) -> str:
+        return clean_brand_copy(str(entry.get("body") or entry.get("description") or ""))
+
+    def _plat_tags(entry: dict) -> str:
+        tags = entry.get("hashtags")
+        return " ".join(tags) if isinstance(tags, list) else (tags or "")
+
     for plat in sorted(platform_copy):
         entry = platform_copy[plat] or {}
-        body = entry.get("body") or entry.get("description") or ""
-        tags = entry.get("hashtags")
-        tags = " ".join(tags) if isinstance(tags, list) else (tags or "")
-        title = entry.get("headline") or entry.get("title") or ""
-        txt_lines.append(f"[{plat}] {title} — {body} {tags}".strip())
+        txt_lines.append(f"[{plat}] {_plat_title(entry)} — {_plat_body(entry)} {_plat_tags(entry)}".strip())
+    # multilingual variants: one tease line per non-English localization.
+    for loc in localizations or []:
+        if not isinstance(loc, dict):
+            continue
+        code = loc.get("lang_code", "")
+        if code and code != "en":
+            txt_lines.append(
+                f"[{code}] {clean_brand_copy(str(loc.get('headline', '')))}".strip()
+            )
     buf = io.StringIO()
     writer = csv.writer(buf)
     writer.writerow(["field", "value"])
     writer.writerow(["product", product_label])
     writer.writerow(["theme", theme or ""])
     writer.writerow(["headline", headline])
-    writer.writerow(["brief", prompt])
+    writer.writerow(["brief", brief])
+    if retailer:
+        writer.writerow(["retailer", retailer])
     if retailer_framing:
         writer.writerow(["retailer_framing", retailer_framing])
+    if recipe_title:
+        writer.writerow(["recipe.title", clean_brand_copy(str(recipe_title))])
+        ingredients = recipe_fields.get("ingredients") if isinstance(recipe_fields, dict) else None
+        if isinstance(ingredients, list):
+            for i, ing in enumerate(ingredients):
+                writer.writerow([f"recipe.ingredient_{i + 1}", clean_brand_copy(str(ing))])
+        steps = recipe_fields.get("steps") if isinstance(recipe_fields, dict) else None
+        if isinstance(steps, list):
+            for i, step in enumerate(steps):
+                writer.writerow([f"recipe.step_{i + 1}", clean_brand_copy(str(step))])
     if art_headline:
-        writer.writerow(["art_headline", art_headline])
+        writer.writerow(["art_headline", clean_brand_copy(str(art_headline))])
     for plat in sorted(platform_copy):
         entry = platform_copy[plat] or {}
-        writer.writerow([f"{plat}.headline", entry.get("headline") or entry.get("title") or ""])
-        writer.writerow([f"{plat}.body", entry.get("body") or entry.get("description") or ""])
-        tags = entry.get("hashtags")
-        writer.writerow([
-            f"{plat}.hashtags",
-            " ".join(tags) if isinstance(tags, list) else (tags or ""),
-        ])
+        writer.writerow([f"{plat}.headline", _plat_title(entry)])
+        writer.writerow([f"{plat}.body", _plat_body(entry)])
+        writer.writerow([f"{plat}.hashtags", _plat_tags(entry)])
+    for loc in localizations or []:
+        if not isinstance(loc, dict):
+            continue
+        code = loc.get("lang_code", "")
+        if not code:
+            continue
+        writer.writerow([f"i18n.{code}.headline", clean_brand_copy(str(loc.get("headline", "")))])
+        writer.writerow([f"i18n.{code}.source", str(loc.get("source", ""))])
+    if languages:
+        writer.writerow(["languages", ",".join(languages)])
     return {"txt": "\n".join(txt_lines) + "\n", "csv": buf.getvalue()}
 
 
@@ -2751,11 +2812,13 @@ def _headline_for(
     (when the caller has a wall clock) budget-gates the caption fallback."""
     directed = _director_headline_text(product_name, brief_msg, region, audience)
     if directed:
-        return directed, _DIRECTOR_LIVE_SOURCE
+        # Standing copy law: the voice model may echo a bare brand word from its
+        # examples — normalize on the way out (idempotent on compliant lines).
+        return clean_brand_copy(directed), _DIRECTOR_LIVE_SOURCE
     caption = _caption_with_budget(
         src, product_name, brief_msg, region, audience, remaining_ms=remaining_ms
     )
     headline, _side = _parse_layout(caption)
     if headline:
-        return _title_case_headline(headline), "bedrock:nova-pro-caption"
-    return brief_msg[:48], None
+        return clean_brand_copy(_title_case_headline(headline)), "bedrock:nova-pro-caption"
+    return clean_brand_copy(brief_msg[:48]), None

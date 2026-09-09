@@ -143,7 +143,7 @@
     var copy = document.createElement('button');
     copy.type = 'button'; copy.className = 'btn ghost'; copy.textContent = 'Copy run summary';
     copy.addEventListener('click', function(){
-      var summary = 'KODIAK campaign run summary — ' + new Date().toISOString() + '\n' +
+      var summary = 'Kodiak Cakes campaign run summary — ' + new Date().toISOString() + '\n' +
         'market: ' + (info.market||'?') + '\nproduct: ' + (info.product||'?') + '\nscope: ' + (info.scope||'?') + '\n' +
         'source: ' + (info.source||'?') + '\nresult: ' + (info.detail||'?');
       function done(ok){ copy.textContent = ok ? 'Copied — paste it to support' : 'Copy failed — select and copy manually'; }
@@ -362,6 +362,15 @@
       // copy always ships, even when the image is clean.
       if(!headline) headline = brief;
       if(!headline) return false;
+      // KODIAK-forbidden-in-copy law: bare KODIAK never ships in copy.
+      try{
+        if(typeof window.KODIAK_brandClean==='function'){
+          headline = window.KODIAK_brandClean(headline);
+          if(brief) brief = window.KODIAK_brandClean(brief);
+          if(!headline) headline = brief;
+          if(!headline) return false;
+        }
+      }catch(e){}
       var assets = document.getElementById('campaignAssetsSection');
       if(!assets) return false;
       var langs = [];
@@ -397,6 +406,9 @@
         try{
           window.KODIAK_localizeText(headline, market, j.code).then(function(t){
             if(typeof t!=='string' || !t.trim()) return;
+            // KODIAK-forbidden-in-copy law: never invent translations — the
+            // cleaner rewrites only the brand mark, never surrounding words.
+            try{ if(typeof window.KODIAK_brandClean==='function') t = window.KODIAK_brandClean(t); }catch(e){}
             var el = document.getElementById(j.rowId);
             if(!el) return;
             el.setAttribute('data-provider', 'live');

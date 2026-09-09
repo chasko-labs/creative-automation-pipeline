@@ -391,7 +391,7 @@ section.xl{padding:var(--section-space-xl) 0}
 .platform-matrix .pm-plat{display:inline-block;margin:2px 4px 2px 0;padding:2px 8px;border-radius:var(--radii-pill);
   background:var(--colors-neutral-100);border:1px solid var(--colors-border-default);color:var(--colors-foreground-default);
   font:600 10px/1.5 "museo-sans",sans-serif}
-@media(max-width:520px){.platform-matrix thead{display:none}.platform-matrix td{display:block;border-top:none;padding:4px 12px}.platform-matrix tr{border-top:1px solid var(--colors-border-default);padding:6px 0;display:block}}
+@media(max-width:640px){.platform-matrix{overflow-x:visible}.platform-matrix thead{display:none}.platform-matrix td{display:block;border-top:none;padding:4px 12px}.platform-matrix tr{border-top:1px solid var(--colors-border-default);padding:6px 0;display:block}}
 
 /* === Per-platform messaging copy — accordion of native <details>, one per platform === */
 .platform-copy{margin-top:14px;border:1px solid var(--colors-border-default);border-radius:var(--radii-md);overflow:hidden;background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-sm)}
@@ -432,6 +432,8 @@ section.xl{padding:var(--section-space-xl) 0}
 .provenance .prov-pill{display:inline-block;padding:1px 7px;border-radius:999px;font:700 10px/1.6 "museo-sans",sans-serif;letter-spacing:.03em}
 .provenance .prov-pill.primary{background:var(--brown-kodiak);color:var(--parchment)}
 .provenance .prov-pill.outpaint{background:var(--oat);color:var(--brown-kodiak);border:1px solid var(--stone)}
+.provenance .prov-heur{margin:0 0 var(--spacing-xs);padding-left:var(--spacing-sm);border-left:3px solid var(--colors-brand-frontier-green);font:500 12px/1.5 "museo-sans",sans-serif;color:var(--brown-kodiak)}
+.provenance .prov-heur:last-child{margin-bottom:0}
 .provenance .prov-pill.on{background:#1A3C34;color:#EAF5F0}
 .provenance .prov-pill.off{background:var(--oat);color:#6B5A53;border:1px solid var(--stone)}
 @media(max-width:520px){.provenance dl{grid-template-columns:1fr}.provenance dt{white-space:normal}}
@@ -692,9 +694,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   border:1px dashed var(--colors-border-default);border-radius:var(--radii-sm);background:var(--colors-neutral-100);
   display:flex;align-items:center;justify-content:center;overflow:hidden}
 .ff-carousel-slot>img{width:100%;height:100%;object-fit:cover;display:block}
-/* narrow viewport - slots stay a single-row horizontal scroll and never overflow the shell */
+/* Layout law — campaign assets ride the main page scroll: no inner scrollbar.
+   Three slots share the row exactly (flex-basis 0, no min-width floor), so the
+   shell never overflows at 390px or 1600px; download buttons above/below stay
+   in normal flow. Token var() only; no motion touched (epilepsy-safe). */
+.ff-output.ff-campaign-assets,.ff-output.ff-generate-campaign{overflow:visible;max-height:none}
+.ff-campaign-assets .ff-product-carousel{overflow-x:visible;flex-wrap:nowrap}
 @media(max-width:520px){
-  .ff-carousel-slot{flex:0 0 46%;min-width:120px}
+  .ff-carousel-slot{flex:1 1 0;min-width:0}
 }
 
 /* item 5 - publish-targets pill strip: tidy on-brand row of small pill links (tokens only) */
@@ -820,6 +827,17 @@ header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
 /* inline "Design System Inventory" link inside the About copy — styled as a clear affordance, not a bare underline */
 .ff-about__copy .ff-doclink{font-weight:700;color:var(--colors-brand-frontier-green);text-decoration:underline;text-underline-offset:2px}
 .ff-about__copy .ff-doclink:hover{color:var(--colors-brand-bear-brown)}
+/* Unit 4 coach ask box (JS-injected into #aboutTool .body) — token var()s only, no raw values. */
+#coachAsk{margin:var(--spacing-md) 0 0;padding:var(--spacing-md);border:1px solid var(--colors-border-default);border-radius:var(--radii-md);background:var(--colors-brand-box-parchment,#F5EAD3)}
+#coachAsk>h4{margin:0 0 var(--spacing-xs);font-family:var(--fonts-headline);font-size:var(--font-sizes-md);font-weight:var(--font-weights-bold);color:var(--chocolate)}
+#coachAsk>.hint{color:var(--colors-neutral-600);font-size:var(--font-sizes-sm)}
+#coachAsk .coach-row{display:flex;flex-wrap:wrap;gap:var(--spacing-sm);margin-top:var(--spacing-sm)}
+#coachAsk #coachQ{flex:1 1 auto;min-width:var(--spacing-5xl,128px);padding:var(--spacing-sm);border:1px solid var(--colors-border-strong);border-radius:var(--radii-sm);background:var(--colors-background-default);color:var(--colors-neutral-700);font-size:var(--font-sizes-sm)}
+#coachAsk #coachQ:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
+#coachAsk #coachGo{opacity:1;text-transform:none}
+#coachAsk #coachAnswer{margin-top:var(--spacing-sm);color:var(--colors-neutral-700);font-size:var(--font-sizes-sm)}
+#coachAsk .coach-confirm{margin:var(--spacing-xs) var(--spacing-xs) 0 0;border-color:var(--colors-brand-frontier-green);color:var(--colors-brand-frontier-green)}
+#coachAsk .coach-confirm:hover{background:var(--colors-brand-frontier-green);color:var(--colors-foreground-inverse)}
 /* About-this-tool disclosure — summary + body copy, tokenized muted body colour */
 .ff-about{padding:0}
 .ff-about>summary{padding:14px 16px;cursor:pointer;font:800 13px/1.2 gin,"museo-sans",Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--chocolate)}
@@ -967,8 +985,23 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-generate-campaign.is-gated>summary::before{color:var(--colors-neutral-400)}
 .ff-generate-campaign.is-gated>summary:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 /* === Progress timeline — slim horizontal tracker + live heuristic line === */
-.ff-timeline{margin:0 0 var(--spacing-sm);padding:10px 14px 8px;border:1px solid var(--stone);border-radius:var(--radii-lg);background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-md)}
-.ff-timeline-steps{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.ff-timeline{margin:0 0 var(--spacing-sm);padding:10px 14px 8px;border:1px solid var(--stone);border-radius:var(--radii-lg);background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-md);display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.ff-timeline-steps{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:4px;flex-wrap:wrap;flex:1 1 auto}
+/* step 0: start over — prominent reset riding the timeline row. Timeline type
+   voice (kodiak_sans caps) with a two-row label; custom circular-arrow mark;
+   greyed until something differs from default. */
+.ff-reset{flex:0 0 auto;display:inline-flex;align-items:center;gap:9px;padding:8px 14px 8px 10px;cursor:pointer;
+  background:linear-gradient(180deg,var(--colors-brand-bear-brown),var(--chocolate));color:var(--colors-brand-badge-parchment);
+  border:2px solid var(--chocolate);border-radius:var(--radii-md);box-shadow:var(--shadows-md),inset 0 1px 0 rgba(255,248,240,.25);
+  transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+.ff-reset:hover:not(:disabled){transform:translateY(-1px);border-color:var(--colors-brand-ember-mid);box-shadow:var(--shadows-bear),0 0 0 2px var(--colors-brand-ember-mid)}
+.ff-reset:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+.ff-reset-icon{width:22px;height:22px;flex:0 0 auto;fill:none;stroke:var(--colors-brand-badge-parchment);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.ff-reset:disabled .ff-reset-icon{stroke:var(--colors-neutral-400)}
+.ff-reset-text{display:flex;flex-direction:column;align-items:flex-start;line-height:1.25}
+.ff-reset-title{font:700 12px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.ff-reset-sub{font:500 10px/1.3 "museo-sans",sans-serif;opacity:.8}
+.ff-timeline-note{flex:1 1 100%}
 .ff-timeline-steps li{display:inline-flex;align-items:center;gap:6px;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;color:var(--colors-foreground-muted)}
 .ff-timeline-steps li+li::before{content:"";width:18px;height:1px;background:var(--colors-border-default);margin-right:2px}
 .ff-timeline-steps li[data-state="active"]{color:var(--chocolate)}
@@ -1367,7 +1400,6 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   .ff-publish-targets{flex-wrap:wrap}
   .ff-publish-targets .ff-publish-pill{flex:1 1 auto}
   .ff-controlrow .ff-detail{flex:1 1 100%}
-  .platform-matrix{overflow-x:auto}
   .ff-setup-heading,.ff-output-heading{font-size:18px}
   .kodiak-headline-plate h1{white-space:normal;font-size:19px}
   .ff-setup .ff-scope-summary,#locationSection>summary,.ff-brainstorm .ff-products>summary,.ff-brainstorm .ff-layers>summary,.ff-season-details>summary{font-size:13px}
@@ -1438,10 +1470,20 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-tour-sheen{position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 42%,var(--parchment) 50%,transparent 58%);background-size:260% 100%;opacity:.3;animation:ff-tour-sheen 5.6s ease-in-out infinite}
 @keyframes ff-tour-bob{0%,100%{transform:translateY(-3px)}50%{transform:translateY(3px)}}
 @keyframes ff-tour-sheen{0%{background-position:120% 0}60%,100%{background-position:-30% 0}}
-.ff-tour-bar{pointer-events:auto;display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center;margin-top:6px;padding:7px 8px;background:var(--colors-brand-box-parchment);border:1px solid var(--chocolate);border-radius:var(--radii-md);box-shadow:var(--shadows-bear)}
-.ff-tour-step{flex:1 1 100%;text-align:center;font:700 10px/1.3 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;color:var(--colors-brand-frontier-green)}
-.ff-tour-btn{font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-neutral-50);background:linear-gradient(180deg,var(--colors-brand-ember-hi) 0%,var(--colors-brand-ember-mid) 48%,var(--colors-brand-ember-lo) 100%);border:1px solid var(--colors-brand-ember-lo);border-radius:var(--radii-md);padding:8px 11px;cursor:pointer}
-.ff-tour-btn--quiet{background:transparent;color:var(--chocolate);border-color:var(--chocolate)}
+.ff-tour-svgwrap{pointer-events:auto;cursor:pointer}
+.ff-tour:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:4px}
+.ff-tour-count{fill:var(--colors-brand-frontier-green);font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive;font-size:13px;font-weight:700}
+.ff-tour-x{position:absolute;top:-6px;right:2px;width:26px;height:26px;border-radius:50%;background:var(--colors-brand-box-parchment);border:2px solid var(--chocolate);color:var(--chocolate);font:700 15px/1 "museo-sans",sans-serif;cursor:pointer;box-shadow:var(--shadows-sm)}
+/* === Campaign counsel — adversarial recommendations with Apply. Same card
+   voice as provenance; Apply buttons reuse the ember CTA gradient at small
+   size so approval reads as an action, never decoration. Token var() only. */
+.ff-counsel-list{list-style:none;margin:8px 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.ff-counsel-item{display:flex;align-items:center;gap:10px;padding:9px 11px;background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);box-shadow:var(--shadows-sm)}
+.ff-counsel-item>div{display:flex;flex-direction:column;gap:2px;flex:1 1 auto}
+.ff-counsel-item b{font:700 12px/1.3 "museo-sans",sans-serif;color:var(--chocolate)}
+.ff-counsel-item span{font:500 11px/1.45 "museo-sans",sans-serif;color:var(--colors-foreground-muted)}
+.ff-counsel-apply{flex:0 0 auto;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-neutral-50);background:linear-gradient(180deg,var(--colors-brand-ember-hi) 0%,var(--colors-brand-ember-mid) 48%,var(--colors-brand-ember-lo) 100%);border:1px solid var(--colors-brand-ember-lo);border-radius:var(--radii-md);padding:9px 13px;cursor:pointer}
+.ff-counsel-apply-all{margin-top:4px;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-neutral-50);background:linear-gradient(180deg,var(--colors-brand-ember-hi) 0%,var(--colors-brand-ember-mid) 48%,var(--colors-brand-ember-lo) 100%);border:1px solid var(--colors-brand-ember-lo);border-radius:var(--radii-md);padding:10px 14px;cursor:pointer}
 /* prefers-reduced-motion: tour goes fully static — no float, no sheen, arrow
    stays usable; js/tour.js also switches scrolling to instant. */
 .ff-tour.is-still,.ff-tour.is-still .ff-tour-sheen{animation:none}

@@ -165,11 +165,34 @@
       try{ if(typeof window.__kodiakSyncSkuChips==='function') window.__kodiakSyncSkuChips(); }catch(e){}
       dirty = true; persist(); dirty = false;
       renderMarketSource(null);
+      refreshResetBtn();
+    }catch(e){}
+  }
+  // Step-0 reset stays greyed until something differs from default: a
+  // non-default market, a checked theme card, or a staged pick/chip.
+  // (Season/brief/scope are untouched by reset, so they don't count.)
+  function resetIsDirty(){
+    try{
+      var l = document.getElementById('locality');
+      if(l && l.value && l.value !== DEFAULT_MARKET) return true;
+      if(document.querySelector('#promptChips .ff-check-card__input[data-theme]:checked')) return true;
+      if(document.querySelector('.ff-pending-remove')) return true;
+    }catch(e){}
+    return false;
+  }
+  function refreshResetBtn(){
+    try{
+      var b = document.getElementById('resetDefaults');
+      if(b) b.disabled = !resetIsDirty();
     }catch(e){}
   }
   try{
     var resetBtn = document.getElementById('resetDefaults');
     if(resetBtn) resetBtn.addEventListener('click', resetToDefaults);
+    document.addEventListener('change', function(){ refreshResetBtn(); });
+    document.addEventListener('click', function(){ setTimeout(refreshResetBtn, 0); });
+    refreshResetBtn();
+    setTimeout(refreshResetBtn, 900);
     // re-render the source line on live market changes (#213) — without this it names
     // the load-time market forever while the rest of the UI moves on.
     document.addEventListener('change', function(e){

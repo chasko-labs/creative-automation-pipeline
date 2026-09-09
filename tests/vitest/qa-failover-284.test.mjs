@@ -16,7 +16,7 @@ describe('qa failover (#284)', () => {
     expect(sections).toMatch(/function paintFailBox/);
     expect(sections).toMatch(/Try again/);
     expect(sections).toMatch(/Copy run summary/);
-    expect(sections).toMatch(/KODIAK campaign run summary/);
+    expect(sections).toMatch(/Kodiak Cakes campaign run summary/);
   });
 
   it('wall-timeout fallback is named a render miss, passing runs clear the box', () => {

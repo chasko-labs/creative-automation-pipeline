@@ -25,7 +25,7 @@
     { sel: '#outputHeading',                           label: 'preview',         hint: 'Your four sizes' }
   ];
   var idx = 0;
-  var el = null, labelEl = null, stepEl = null, backBtn = null, nextBtn = null;
+  var el = null, labelEl = null, stepEl = null;
 
   // Jittered down-arrow polygon: shaft + head with slightly uneven vertices so
   // the cut edge reads hand-torn, not machined. Kraft fill + sharpie stroke
@@ -36,36 +36,45 @@
     try{ return document.querySelector(sel); }catch(e){ return null; }
   }
 
+  // Arrow-only: no floating panel. Click/tap/Enter on the arrow advances,
+  // the x dismisses, Escape dismisses. The step count lives in the SVG so
+  // nothing but the arrow floats over the page.
+  function advance(){
+    if(idx >= STOPS.length - 1){ teardown(); return; }
+    go(idx + 1);
+  }
   function build(){
     el = document.createElement('div');
     el.className = 'ff-tour' + (reduced ? ' is-still' : '');
     el.id = 'ffTour';
-    el.setAttribute('role', 'dialog');
-    el.setAttribute('aria-label', 'Guided tour of the campaign setup');
+    el.setAttribute('role', 'button');
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('aria-label', 'Guided tour of the campaign setup. Activate to advance.');
     el.innerHTML =
-      '<div class="ff-tour-svgwrap" aria-hidden="true">' +
-      '<svg class="ff-tour-svg" viewBox="0 0 160 132" focusable="false">' +
+      '<div class="ff-tour-svgwrap" id="ffTourWrap">' +
+      '<svg class="ff-tour-svg" viewBox="0 0 160 148" focusable="false" aria-hidden="true">' +
       '<path class="ff-tour-arrow-shape" d="' + ARROW_D + '"/>' +
       '<text class="ff-tour-label" id="ffTourLabel" x="80" y="20" text-anchor="middle">start here</text>' +
+      '<text class="ff-tour-count" id="ffTourStep" x="80" y="142" text-anchor="middle"></text>' +
       '</svg>' +
-      '<div class="ff-tour-sheen"></div>' +
-      '</div>' +
-      '<div class="ff-tour-bar">' +
-      '<span class="ff-tour-step" id="ffTourStep"></span>' +
-      '<button type="button" class="ff-tour-btn ff-tour-btn--quiet" id="ffTourBack">Back</button>' +
-      '<button type="button" class="ff-tour-btn" id="ffTourNext">Next</button>' +
-      '<button type="button" class="ff-tour-btn ff-tour-btn--quiet" id="ffTourDismiss">Dismiss</button>' +
+      '<div class="ff-tour-sheen" aria-hidden="true"></div>' +
+      '<button type="button" class="ff-tour-x" id="ffTourX" aria-label="Dismiss the guided tour">\u00d7</button>' +
       '</div>';
     document.body.appendChild(el);
     labelEl = document.getElementById('ffTourLabel');
     stepEl = document.getElementById('ffTourStep');
-    backBtn = document.getElementById('ffTourBack');
-    nextBtn = document.getElementById('ffTourNext');
-    document.getElementById('ffTourDismiss').addEventListener('click', teardown);
-    backBtn.addEventListener('click', function(){ go(idx - 1); });
-    nextBtn.addEventListener('click', function(){
-      if(idx >= STOPS.length - 1){ teardown(); return; }
-      go(idx + 1);
+    document.getElementById('ffTourWrap').addEventListener('click', function(e){
+      if(e.target && e.target.id === 'ffTourX') return;
+      advance();
+    });
+    document.getElementById('ffTourX').addEventListener('click', function(e){
+      if(e.stopPropagation) e.stopPropagation();
+      teardown();
+    });
+    el.addEventListener('keydown', function(e){
+      if(!e) return;
+      if(e.key === 'Escape'){ teardown(); }
+      else if(e.key === 'Enter' || e.key === ' '){ if(e.preventDefault) e.preventDefault(); advance(); }
     });
     document.addEventListener('keydown', function onKey(e){
       if(e && e.key === 'Escape'){ teardown(); }
@@ -104,9 +113,7 @@
       try{ t.scrollIntoView(); }catch(e2){}
     }
     if(labelEl) labelEl.textContent = stop.label;
-    if(stepEl) stepEl.textContent = (idx + 1) + ' / ' + STOPS.length + ' · ' + stop.hint;
-    if(backBtn) backBtn.style.display = idx === 0 ? 'none' : '';
-    if(nextBtn) nextBtn.textContent = idx >= STOPS.length - 1 ? 'Done' : 'Next';
+    if(stepEl) stepEl.textContent = (idx + 1) + ' / ' + STOPS.length;
     // Layout settles after scroll/open; place on the next frame.
     try{ requestAnimationFrame(place); }catch(e){ place(); }
   }

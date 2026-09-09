@@ -6,34 +6,61 @@ import { dirname, resolve } from 'node:path';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const index = readFileSync(
   resolve(root, 'web/kodiak-posts-for-todays-frontier/index.html'), 'utf8');
-const insights = readFileSync(
-  resolve(root, 'web/kodiak-posts-for-todays-frontier/js/coach-insights.js'), 'utf8');
+const counsel = readFileSync(
+  resolve(root, 'web/kodiak-posts-for-todays-frontier/js/coach-counsel.js'), 'utf8');
+const css = readFileSync(
+  resolve(root, 'web/kodiak-posts-for-todays-frontier/design/components.css'), 'utf8');
 
-// Coach insights (Unit 3): on-demand "Why this works" on the preview card.
-// Never auto-fetches, never blocks Create/Download, dark without a coach URL.
-describe('coach insights', () => {
-  it('script loads after the preview it observes, coach URL meta-gated', () => {
-    expect(index).toMatch(/js\/coach-insights\.js/);
-    expect(index).toMatch(/meta name="kodiak-coach-url"/);
-    expect(insights).toMatch(/function coachUrl/);
-    expect(insights).toMatch(/if\(!prov \|\| !coachUrl\(\)\) return/);
+// Campaign counsel (replaces passive "Why this works"): adversarial
+// recommendations with per-item Apply that writes through real controls via
+// real events and reruns Create — approval only, never auto.
+describe('campaign counsel', () => {
+  it('script is wired into the page, old insights retired', () => {
+    expect(index).toMatch(/js\/coach-counsel\.js/);
+    expect(index).not.toMatch(/js\/coach-insights\.js/);
   });
 
-  it('button mounts only after the provenance panel, one fetch max per preview', () => {
-    expect(insights).toMatch(/getElementById\('provenancePanel'\)/);
-    expect(insights).toMatch(/id = 'insightsBtn'/);
-    expect(insights).toMatch(/one fetch max per preview/);
-    expect(insights).toMatch(/lastKey/);
+  it('renders recommendations with per-item Apply plus apply-all', () => {
+    expect(counsel).toMatch(/ff-counsel-apply/);
+    expect(counsel).toMatch(/data-counsel-all/);
+    expect(counsel).toMatch(/Apply all/);
   });
 
-  it('fetches only on button click and fails honestly', () => {
-    // exactly one fetch call site in the file, inside the click-driven fetchInsights
-    expect(insights.match(/[^.]fetch\(/g).length).toBe(1);
-    expect(insights).toMatch(/addEventListener\('click', fetchInsights\)/);
-    expect(insights).toMatch(/Insights are busy — try again\./);
+  it('applies through real controls and real events, then reruns Create', () => {
+    // brief: set value + input event
+    expect(counsel).toMatch(/getElementById\('campaignBrief'\)/);
+    expect(counsel).toMatch(/dispatchEvent\(new Event\('input', \{ bubbles: true \}\)\)/);
+    // market: select + change event
+    expect(counsel).toMatch(/getElementById\('locality'\)/);
+    expect(counsel).toMatch(/dispatchEvent\(new Event\('change', \{ bubbles: true \}\)\)/);
+    // theme + products via native clicks (all delegated handlers run)
+    expect(counsel).toMatch(/getElementById\('randomProducts'\)/);
+    expect(counsel).toMatch(/function checkTheme\(dataTheme\)/);
+    expect(counsel).toMatch(/\.ff-check-card__input\[data-theme=/);
+    // rerun is a real Create click
+    expect(counsel).toMatch(/getElementById\('generateCampaign'\)/);
   });
 
-  it('never throws into the page', () => {
-    expect(insights).toMatch(/never break the page/);
+  it('counsel rules are local, deterministic, and grounded in live state', () => {
+    expect(counsel).toMatch(/ruleThinBrief/);
+    expect(counsel).toMatch(/ruleNoProducts/);
+    expect(counsel).toMatch(/ruleRetailer/);
+    expect(counsel).toMatch(/store-finder-markets\.json/);
+  });
+
+  it('KODIAK copy law holds on applied briefs (refuse, never launder)', () => {
+    expect(counsel).toMatch(/KODIAK/);
+    expect(counsel).toMatch(/return ok/);
+  });
+
+  it('no auto-apply, no auto-fetch; counsel-token CSS only', () => {
+    // counsel runs only from its button; reruns only from Apply handlers
+    expect(counsel).toMatch(/addEventListener\('click', counsel\)/);
+    expect((counsel.match(/rerunPreview\(\);/g) || []).length).toBe(2);
+    expect(counsel).not.toMatch(/setTimeout\(counsel|setInterval\(/);
+    const start = css.indexOf('/* === Campaign counsel');
+    expect(start, 'counsel CSS marker').toBeGreaterThan(-1);
+    const block = css.slice(start);
+    expect(block).not.toMatch(/#[0-9a-fA-F]{3,8}\b/);
   });
 });

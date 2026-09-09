@@ -14,9 +14,11 @@ platform's copy is built from a deterministic on-brand template and tagged
 source="fallback"; a live rewrite is tagged source="generated". A single platform that
 raises never sinks the set — it degrades to its fallback template.
 
-Brand discipline (docs/iso-naming-conventions.md): where a headline carries brand naming
-the registered mark is enforced — a bare "Kodiak" is rewritten to "KODIAK(R)". The two
-approved taglines are the only ones this module ever emits.
+Brand discipline (docs/plans/2026-09-09-atlanta-shakedown-backlog.md standing law):
+the word KODIAK never ships in generated copy (logo lockups only). A bare
+"Kodiak"/"KODIAK" is rewritten to "Kodiak Cakes"; the only other allowed naming
+is "Kodiak Park City". Social voice uses #KodiakCakes-style hashtags (untouched).
+The two approved taglines are the only ones this module ever emits.
 """
 from __future__ import annotations
 
@@ -31,9 +33,11 @@ from .platforms import platform_label
 TAGLINE_EPIC = "Feeding Epic Days & Wilder Lives"
 TAGLINE_FRONTIER = "Nourishment for Today's Frontier"
 
-# Registered brand mark. The ascii-safe (R) is used in generated copy so the mark is
-# never dropped and the file stays ascii (house rule); the frontend may render (R)->®.
-BRAND_MARK = "KODIAK(R)"
+# Allowed brand naming in generated copy (standing law: bare KODIAK never ships;
+# logo lockups only). BRAND_MARK is kept as an alias so older callers/tests that
+# import the name keep working — it now resolves to the allowed naming.
+BRAND_NAME = "Kodiak Cakes"
+BRAND_MARK = BRAND_NAME
 
 # X hard character ceiling (headline + body + hashtags, one post).
 X_MAX_CHARS = 280
@@ -77,26 +81,47 @@ PUBLISH_TARGETS: tuple[str, ...] = (
 _BASE_HASHTAGS = ("KeepItWild", "KodiakCakes", "ProteinPacked", "WholeGrain", "FuelYourFrontier")
 
 
-def _enforce_brand_mark(text: str) -> str:
-    """Ensure a headline carrying the Kodiak name carries the registered mark.
+# Bare-brand matcher: the standalone word Kodiak/KODIAK in any case, except inside
+# a hashtag token (#KodiakCakes) and except the two allowed namings ("Kodiak Cakes",
+# "Kodiak Park City", case-insensitive on the trailing words). A legacy (R)/® mark
+# after the word is consumed too, normalizing old "KODIAK(R)" copy to the allowed form.
+_BARE_BRAND_RE = re.compile(
+    r"(?<![#\w])[Kk][Oo][Dd][Ii][Aa][Kk]\b"
+    r"(?!\s+(Cakes?|Park\s+City))",
+    re.IGNORECASE,
+)
+_LEGACY_MARK_RE = re.compile(r"\s*(\(R\)|®)")
 
-    A bare 'Kodiak' (not already followed by the mark, not part of 'KodiakCakes' as a
-    hashtag token) is rewritten to 'KODIAK(R)'. Case-insensitive on the word, but only
-    the standalone brand word — the hashtag form '#KodiakCakes' is left untouched.
+
+def clean_brand_copy(text: str) -> str:
+    """Rewrite every bare Kodiak/KODIAK to the allowed "Kodiak Cakes" naming.
+
+    Hashtag tokens (#KodiakCakes), "Kodiak Cakes", and "Kodiak Park City" pass
+    through untouched; surrounding words are never reworded. Idempotent.
     """
-    # skip replacement inside hashtag tokens (#Kodiak...) by only matching a Kodiak
-    # word that is NOT preceded by '#' and NOT already carrying (R)/®.
-    def _sub(m: re.Match) -> str:
-        return BRAND_MARK
+    if not text:
+        return text
+    out: list[str] = []
+    pos = 0
+    for m in _BARE_BRAND_RE.finditer(text):
+        out.append(text[pos:m.start()])
+        out.append(BRAND_NAME)
+        pos = m.end()
+        mark = _LEGACY_MARK_RE.match(text, pos)
+        if mark:
+            pos = mark.end()
+    out.append(text[pos:])
+    return "".join(out)
 
-    # (?<![#\w]) — not part of a hashtag or a longer word; (?!\s*\(R\)|®) — not already marked
-    pattern = re.compile(r"(?<![#\w])[Kk]odiak\b(?!\s*\(R\)|®|\s+CAKES\(R\))")
-    return pattern.sub(_sub, text)
+
+def _enforce_brand_mark(text: str) -> str:
+    """Legacy name — now the standing-law cleaner (bare brand -> "Kodiak Cakes")."""
+    return clean_brand_copy(text)
 
 
 def _has_brand_naming(text: str) -> bool:
-    """True when the headline references the brand by name (so the mark must be present)."""
-    return bool(re.search(r"(?<!#)[Kk]odiak", text))
+    """True when the text references the brand by name (bare or allowed form)."""
+    return bool(re.search(r"(?<!#)[Kk]odiak", text, re.IGNORECASE))
 
 
 def _hashtags_for(platform: str, product_name: str, market: str | None, count: int) -> list[str]:
@@ -145,12 +170,12 @@ def _fallback_headline(base_message: str, product_name: str, kind: str) -> str:
     if kind == "seo":
         return f"{name} protein pancake and waffle mix — {base}, whole grain breakfast"
     if kind == "video":
-        return f"{BRAND_MARK} {name}: {base}"
+        return f"{BRAND_NAME} {name}: {base}"
     if kind == "homepage":
         return f"{BRAND_MARK} {name} — {base}"
     if kind == "article":
-        return f"{name}: a photographic-editorial Kodiak breakfast — {base}"
-    return f"{BRAND_MARK} {name} — {base}"
+        return f"{name}: a photographic-editorial Kodiak Cakes breakfast — {base}"
+    return f"{BRAND_NAME} {name} — {base}"
 
 
 def _body_for(kind: str, headline: str, product_name: str, market: str | None) -> str:
@@ -175,7 +200,7 @@ def _body_for(kind: str, headline: str, product_name: str, market: str | None) -
     if kind == "video":
         return (
             f"{product_name} is protein-packed whole-grain fuel for whatever your day holds"
-            f"{place}. Watch how a real Kodiak breakfast comes together in minutes. "
+            f"{place}. Watch how a real Kodiak Cakes breakfast comes together in minutes. "
             f"{TAGLINE_EPIC}."
         )
     if kind == "hooky":
@@ -189,7 +214,7 @@ def _body_for(kind: str, headline: str, product_name: str, market: str | None) -
         )
     if kind == "article":
         return (
-            f"A photographic-editorial Kodiak breakfast{place}: {product_name} "
+            f"A photographic-editorial Kodiak Cakes breakfast{place}: {product_name} "
             f"in-scene, lifestyle, product-in-use. Whole-grain protein for slow "
             f"mornings and big days. {TAGLINE_EPIC}."
         )
@@ -245,7 +270,9 @@ def generate_platform_copy(
         - source is "generated" when a live Nova rewrite produced the headline, else
           "fallback". A failing backend degrades to the deterministic template per
           platform and NEVER raises.
-        - where the headline carries brand naming, the registered mark is enforced.
+        - standing copy law: no bare KODIAK/Kodiak ships in any headline, body,
+          title, description, or post — bare brand words read as "Kodiak Cakes";
+          #hashtags, "Kodiak Cakes", and "Kodiak Park City" pass through.
     """
     wanted = [p for p in (platforms or list(PUBLISH_TARGETS)) if p in PLATFORM_SPECS]
     out: dict[str, dict] = {}
@@ -270,9 +297,10 @@ def generate_platform_copy(
             headline = _fallback_headline(base_message, product_name, kind)
             source = "fallback"
 
-        # brand-mark enforcement — only meaningful when the headline names the brand.
-        if _has_brand_naming(headline):
-            headline = _enforce_brand_mark(headline)
+        # Standing-law enforcement — the base message itself may carry a bare
+        # brand word (Atlanta: "Winter Nights With Kodiak"), so the cleaner runs
+        # unconditionally on the headline AND every body/title/description/post.
+        headline = clean_brand_copy(headline)
 
         hashtags = _hashtags_for(platform, product_name, market, spec["hashtags"])
         entry: dict = {
@@ -289,20 +317,74 @@ def generate_platform_copy(
                 if " " in cut:
                     cut = cut[: cut.rfind(" ")]
                 title = f"{cut}\u2026"
-            entry["title"] = title
-            entry["description"] = _body_for(kind, headline, product_name, market)
+            entry["title"] = clean_brand_copy(title)
+            entry["description"] = clean_brand_copy(
+                _body_for(kind, headline, product_name, market))
             entry["hashtags"] = hashtags
         elif platform == "x":
             # single post, hard <=280 including hashtags.
             entry["headline"] = headline
             entry["body"] = ""
             entry["hashtags"] = hashtags
-            entry["post"] = _assemble_x(headline, hashtags)
+            entry["post"] = clean_brand_copy(_assemble_x(headline, hashtags))
         else:
             entry["headline"] = headline
-            entry["body"] = _body_for(kind, headline, product_name, market)
+            entry["body"] = clean_brand_copy(
+                _body_for(kind, headline, product_name, market))
             entry["hashtags"] = hashtags
 
         out[platform] = entry
 
+    return out
+
+
+def fallback_platform_copy(
+    base_message: str,
+    product_name: str,
+    market: str | None = None,
+    platforms: list[str] | None = None,
+) -> dict:
+    """Deterministic offline platform copy — zero model calls, zero spend.
+
+    Same shape as generate_platform_copy's fallback branch for every platform
+    (headline/body/hashtags + X post + YouTube title/description, all
+    standing-law cleaned), tagged source="fallback". Used by the preview/pack
+    response builders so copy + sidecars ship without spending the ~8s of Nova
+    Micro fan-out against the immovable wall (live copy stays frontend-owned).
+    """
+    cleaned = clean_brand_copy(base_message)
+    wanted = [p for p in (platforms or list(PUBLISH_TARGETS)) if p in PLATFORM_SPECS]
+    out: dict[str, dict] = {}
+    for platform in wanted:
+        spec = PLATFORM_SPECS[platform]
+        kind = spec["kind"]
+        headline = _fallback_headline(cleaned, product_name, kind)
+        hashtags = _hashtags_for(platform, product_name, market, spec["hashtags"])
+        entry: dict = {
+            "platform": platform,
+            "label": platform_label(platform),
+            "source": "fallback",
+        }
+        if platform == "youtube":
+            title = headline
+            if len(title) > YOUTUBE_TITLE_MAX:
+                cut = title[: YOUTUBE_TITLE_MAX - 1]
+                if " " in cut:
+                    cut = cut[: cut.rfind(" ")]
+                title = f"{cut}\u2026"
+            entry["title"] = clean_brand_copy(title)
+            entry["description"] = clean_brand_copy(
+                _body_for(kind, headline, product_name, market))
+            entry["hashtags"] = hashtags
+        elif platform == "x":
+            entry["headline"] = headline
+            entry["body"] = ""
+            entry["hashtags"] = hashtags
+            entry["post"] = clean_brand_copy(_assemble_x(headline, hashtags))
+        else:
+            entry["headline"] = headline
+            entry["body"] = clean_brand_copy(
+                _body_for(kind, headline, product_name, market))
+            entry["hashtags"] = hashtags
+        out[platform] = entry
     return out
