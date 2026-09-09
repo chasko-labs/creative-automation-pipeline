@@ -244,7 +244,7 @@ function fillSelects(){
   const ls=localitySel;
   if(ls) {
     ls.innerHTML='';
-    places.forEach(p=>{ const o=document.createElement('option'); o.value=p.market; o.textContent=`${p.place} — ${p.market} (${p.retailer.split(',')[0]})`; ls.appendChild(o); });
+    places.forEach(p=>{ const o=document.createElement('option'); o.value=p.market; o.textContent=`${p.place} — ${p.retailer.split(',')[0]}`; o.title=p.market; ls.appendChild(o); });
   }
   if(productSel){ try{ productSel.innerHTML=''; products.forEach(p=>{ const o=document.createElement('option'); o.value=p.id; o.textContent=p.name; productSel.appendChild(o); }); }catch(e){} }
   if(peppersSel){ try{ peppersSel.innerHTML=''; peppersList.forEach(v=>{ const o=document.createElement('option'); o.value=v; o.textContent=v; peppersSel.appendChild(o); }); }catch(e){} }
