@@ -222,19 +222,19 @@ export default defineConfig({
         gradients: {
           "kraft.surface": {
             value:
-              "repeating-linear-gradient(90deg, rgba(59, 35, 22, 0.09) 0px, rgba(59, 35, 22, 0.09) 2px, rgba(255, 248, 240, 0.05) 2px, rgba(255, 248, 240, 0.05) 4px, rgba(59, 35, 22, 0) 4px, rgba(59, 35, 22, 0) 6px), linear-gradient(#F0E4D4, #EAD9C4)",
+              "linear-gradient(180deg, rgba(255, 248, 240, 0.14) 0%, rgba(255, 248, 240, 0.05) 28%, rgba(255, 248, 240, 0) 55%), linear-gradient(#F0E4D4, #EAD9C4)",
           },
           "kraft.background": {
             value:
-              "repeating-linear-gradient(90deg, rgba(59, 35, 22, 0.09) 0px, rgba(59, 35, 22, 0.09) 2px, rgba(255, 248, 240, 0.05) 2px, rgba(255, 248, 240, 0.05) 4px, rgba(59, 35, 22, 0) 4px, rgba(59, 35, 22, 0) 6px), radial-gradient(130% 130% at 50% 30%, rgba(59, 35, 22, 0.10) 0%, rgba(59, 35, 22, 0) 65%), linear-gradient(#E8D5BE, #DFC9AC)",
+              "linear-gradient(180deg, rgba(255, 248, 240, 0.10) 0%, rgba(255, 248, 240, 0) 40%), radial-gradient(120% 90% at 50% 0%, rgba(255, 248, 240, 0) 55%, rgba(59, 35, 22, 0.10) 100%), linear-gradient(#E8D5BE, #DFC9AC)",
           },
           "kraft.surfaceHover": {
             value:
-              "radial-gradient(90% 90% at 100% 0%, rgba(232, 83, 14, 0.12) 0%, rgba(232, 83, 14, 0) 55%), repeating-linear-gradient(90deg, rgba(59, 35, 22, 0.09) 0px, rgba(59, 35, 22, 0.09) 2px, rgba(255, 248, 240, 0.05) 2px, rgba(255, 248, 240, 0.05) 4px, rgba(59, 35, 22, 0) 4px, rgba(59, 35, 22, 0) 6px), linear-gradient(#F0E4D4, #F0E4D4)",
+              "radial-gradient(90% 90% at 100% 0%, rgba(232, 83, 14, 0.12) 0%, rgba(232, 83, 14, 0) 55%), linear-gradient(180deg, rgba(255, 248, 240, 0.10) 0%, rgba(255, 248, 240, 0) 50%), linear-gradient(#F0E4D4, #F0E4D4)",
           },
           "kraft.sheen": {
             value:
-              "linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.14) 18%, rgba(255, 255, 255, 0) 44%, rgba(59, 35, 22, 0.05) 82%, rgba(59, 35, 22, 0.10) 100%)",
+              "linear-gradient(180deg, rgba(255, 248, 240, 0.08) 0%, rgba(255, 248, 240, 0) 44%, rgba(59, 35, 22, 0.05) 82%, rgba(59, 35, 22, 0.08) 100%)",
           },
         },
       },

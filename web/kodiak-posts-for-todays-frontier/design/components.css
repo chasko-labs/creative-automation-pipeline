@@ -56,9 +56,9 @@
   --mountain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0 38 L120 8 L260 32 L380 4 L520 30 L640 10 L760 34 L880 6 L1000 28 L1120 12 L1200 36 L1200 48 L0 48Z' fill='%231A2F29'/%3E%3C/svg%3E");
   /* forest treeline divider - mirrors --mountain (same viewBox 0 0 1200 48, same fill #1A2F29) but ~36 narrow conifer spikes of varied height (peaks y=6..28) with baseline valleys at y=46, so it reads as a dense spruce/pine treeline rather than a few wide peaks */
   --forest:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0 48 L0 46 L16 10 L33 46 L49 20 L66 46 L82 6 L99 46 L116 24 L133 46 L150 14 L166 46 L183 28 L199 46 L216 8 L233 46 L250 18 L266 46 L283 12 L300 46 L316 22 L333 46 L350 10 L366 46 L383 20 L399 46 L416 6 L433 46 L450 24 L466 46 L483 14 L500 46 L516 28 L533 46 L550 8 L566 46 L583 18 L600 46 L616 12 L633 46 L650 22 L666 46 L683 10 L699 46 L716 20 L733 46 L750 6 L766 46 L783 24 L799 46 L816 14 L833 46 L850 28 L866 46 L883 8 L900 46 L916 18 L933 46 L950 12 L966 46 L983 22 L1000 46 L1016 10 L1033 46 L1050 20 L1066 46 L1083 6 L1100 46 L1116 24 L1133 46 L1150 14 L1166 46 L1183 28 L1200 46 L1200 48 Z' fill='%231A2F29'/%3E%3C/svg%3E");
-  /* corrugated flute — vertical bear-brown/parchment hairlines on a 12px tile, layered
-     OVER kraft at low alpha so hero surfaces read as lit cardboard, never stripes */
-  --flute:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M2 0 V12' stroke='%233B2316' stroke-opacity='.07' stroke-width='2'/%3E%3Cpath d='M8 0 V12' stroke='%23FFF8F0' stroke-opacity='.10' stroke-width='2'/%3E%3C/svg%3E");
+  /* lit kraft — no repeating stripes anywhere: card/page depth comes from the
+     top-light + vignette token washes (--gradients-kraft.*) and shadow insets;
+     grit comes from --kraft paper fiber + #paperGrain turbulence, never lines. */
 }
 *{box-sizing:border-box}
 html,body{margin:0;color:var(--chocolate);font-family:"museo-sans",system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif;font-weight:500;font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased}
@@ -71,7 +71,7 @@ body{
     linear-gradient(180deg,color-mix(in srgb,var(--colors-brand-frontier-green) 7%,transparent) 0%,transparent var(--spacing-5xl,128px)),
     linear-gradient(0deg,color-mix(in srgb,var(--colors-brand-bear-brown) 6%,transparent) 0%,transparent var(--spacing-5xl,128px)),
     var(--gradients-kraft\.background);
-  /* FIVE layers: 2 house washes + the kraft token's 3 (pinstripe, radial,
+  /* FIVE layers: 2 house washes + the kraft token's 3 (top-light wash, vignette,
      tan base). Size/repeat lists MUST stay 5 long — a short list cycles and
      strands the tan base as a no-repeat strip at the top, leaving flat
      parchment below the fold. */
@@ -80,7 +80,7 @@ body{
   position:relative;
 }
 /* paper texture layers — base kc-paper declared on body; secondary canvas on .wrap via layered gradient */
-body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:var(--kraft);mix-blend-mode:multiply}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.06;background-image:var(--kraft);mix-blend-mode:multiply}
 a{color:var(--red);text-decoration:none;border-bottom:1px solid #B51E1433}a:hover{border-bottom-color:var(--red);color:var(--chocolate)}
 /* Gin headings — 800 Gin zjt4wyq, uppercase wide tracking, ink-trap */
 h1,h2,h3,.gin,.headline{font-family:"gin",Rockwell,Clarendon,Georgia,serif;font-weight:800;font-style:normal;text-transform:uppercase;letter-spacing:.06em;line-height:1; font-feature-settings:"ss01" 1,"liga" 1; font-variant-ligatures:common-ligatures; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
@@ -119,9 +119,9 @@ header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-s
 /* product hero-product-card-bg — wood/canvas texture */
 .hero-product-card-bg{background:var(--parchment) var(--wood) repeat; border:1px solid var(--stone)}
 .card{background:var(--gradients-kraft\.surface); border:1px solid var(--stone); border-radius:4px; overflow:hidden; margin:10px 0; box-shadow:var(--shadows-md),inset 0 1px 0 rgba(255,248,240,.5); position:relative; transition:transform .18s ease,box-shadow .18s ease}
-/* linerboard + flutes: the rib tile leads so surfaces read as lit cardboard;
-   wood grain rides behind at the same low alpha (fiber, not threads). */
-.card::before{content:"";position:absolute;inset:0;background-image:var(--flute),var(--wood);background-repeat:repeat;opacity:.06;pointer-events:none}
+/* lit kraft: the flat top-light token wash lights the card; wood fiber rides
+   behind at low alpha for grit (fiber, not threads — no repeating stripes). */
+.card::before{content:"";position:absolute;inset:0;background-image:var(--wood);background-repeat:repeat;opacity:.06;pointer-events:none}
 /* frontier top-rule (service-card pattern, kodiak hues): pine-to-blaze line,
    quiet at rest, full strength on hover. ::before is taken by wood grain. */
 .card::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent 0%,var(--colors-brand-frontier-green) 25%,var(--colors-brand-blaze-orange) 55%,var(--colors-brand-ember-hi) 80%,transparent 100%);opacity:.35;pointer-events:none;transition:opacity .18s ease}
@@ -196,7 +196,7 @@ header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-s
 .swatch span{width:48px;height:28px;border-radius:2px;border:1px solid var(--stone);display:inline-block}
 .badge{display:inline-block;padding:3px 8px;border-radius:2px;background:var(--chocolate);color:#FFDCC3;font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase}
 .offline{padding:10px 12px;border-radius:2px;background:var(--gradients-kraft\.surface);border:1px dashed var(--stone);color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 /* spacing sections — use semantic vars */
 section{padding:var(--section-space-lg) 0}
 section.xl{padding:var(--section-space-xl) 0}
@@ -235,8 +235,7 @@ section.xl{padding:var(--section-space-xl) 0}
    card's --shadows-md: 0 12px 32px vs 0 8px 24px), so it reads elevated ABOVE the card.
    only on-token hygiene here: raw 16px radius -> --radii-lg (same value, no visual change). */
 .ff-prompt{background:var(--gradients-kraft\.surface);border:1px solid var(--stone);border-radius:var(--radii-lg);padding:18px;box-shadow:var(--shadows-bear)}
-/* lit cardboard — corrugated flute tiled over the kraft on the hero prompt surface */
-.ff-prompt{background-image:var(--flute),var(--gradients-kraft\.surface)}
+/* lit kraft — the hero prompt surface is the flat top-light token wash; no stripes. */
 .ff-prompt h2{margin:0 0 4px;font:800 20px/1.1 gin,"kodiak_sans",Rockwell,Georgia,serif;letter-spacing:.03em;text-transform:none;color:var(--chocolate)}
 .ff-prompt .ff-sub{margin:0 0 14px;color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
 /* === HERO CANVAS: the campaign input is the primary action, styled to dominate. ===
@@ -271,7 +270,7 @@ section.xl{padding:var(--section-space-xl) 0}
 .ff-iconbtn:focus-visible{outline:2px solid var(--orange, #E8530E);outline-offset:2px}
 /* CREATE CAMPAIGN PREVIEW — the star. Deep ember gradient (every stop vs #fff clears
    WCAG AA with room — darker than the old lit ember so it sits IN the kraft page),
-   inset top highlight + low bounce-light for dimension, fluted print texture,
+   inset top highlight + low bounce-light for dimension, paper-fiber print texture,
    bear elevation, hover light-sweep. 52px tier so nothing else competes. */
 .ff-go{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:52px;min-height:52px;padding:0 34px;white-space:nowrap;
   border-radius:var(--radii-lg,16px);border:1px solid var(--colors-brand-ember-lo);
@@ -602,10 +601,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    order; every control keeps its id, role, and binding. Badges are pure CSS (attr(data-step)) so
    no extra DOM enters the a11y tree. data-scope-mode dimming still keys off .ff-controlrow. */
 .ff-setup{display:flex;flex-direction:column;gap:var(--spacing-sm);margin-top:var(--spacing-sm,8px);
-  padding:var(--spacing-md);background-image:var(--flute),var(--gradients-kraft\.surface);border:1px solid var(--stone);
+  padding:var(--spacing-md);background:var(--gradients-kraft\.surface);border:1px solid var(--stone);
   border-radius:var(--radii-lg);box-shadow:var(--shadows-md),inset 0 1px 0 rgba(255,248,240,.5);position:relative}
-/* exposed flute edge: the torn bottom of the setup board shows the arch ends,
-   like looking at the cut edge of a corrugated sheet. Decorative, aria-hidden by context. */
+/* torn edge: the bottom of the setup board shows a dotted cut edge,
+   like looking at the cut edge of a cardboard sheet. Decorative, aria-hidden by context. */
 .ff-setup::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:8px;pointer-events:none;opacity:.5;
   background-image:radial-gradient(circle at 8px 10px, transparent 5px, rgba(59,35,22,.30) 5px, rgba(59,35,22,.30) 6.5px, transparent 6.5px);
   background-size:16px 8px;background-repeat:repeat-x}
@@ -954,7 +953,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-generate-campaign.is-gated>summary::before{color:var(--colors-neutral-400)}
 .ff-generate-campaign.is-gated>summary:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 /* === Progress timeline — slim horizontal tracker + live heuristic line === */
-.ff-timeline{margin:0 0 var(--spacing-sm);padding:10px 14px 8px;border:1px solid var(--stone);border-radius:var(--radii-lg);background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-md);background-image:var(--flute),var(--gradients-kraft\.surface)}
+.ff-timeline{margin:0 0 var(--spacing-sm);padding:10px 14px 8px;border:1px solid var(--stone);border-radius:var(--radii-lg);background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-md)}
 .ff-timeline-steps{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
 .ff-timeline-steps li{display:inline-flex;align-items:center;gap:6px;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;color:var(--colors-foreground-muted)}
 .ff-timeline-steps li+li::before{content:"";width:18px;height:1px;background:var(--colors-border-default);margin-right:2px}
@@ -1260,8 +1259,8 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 /* page: the base body rule above governs (warm vignette + house wash) — no override here,
    or the wash below it dies in the cascade and the page falls back to a flat field */
 /* cards + tiles + timeline: lighter lift, no stripes, stronger edge.
-   SECTION RHYTHM (deliberate, top to bottom): flute timeline board (token
-   kraft+flute) -> transparent setup spacing layer (page kraft shows through,
+   SECTION RHYTHM (deliberate, top to bottom): lit-kraft timeline board (flat
+   top-light token wash) -> transparent setup spacing layer (page kraft shows through,
    final rule at file end wins) -> parchment output card (kraft-surface token)
    -> flat parchment render tiles with badge-parchment caps. Below-fold
    surfaces never go near-white: box-parchment token, never neutral-50. */

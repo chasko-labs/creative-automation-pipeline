@@ -1,14 +1,14 @@
 {
   "$schema": "https://design-tokens.github.io/community-group/format/",
   "kodiak": {
-    "$description": "Kodiak Cakes / Kodiak style library — Wilderness frontier palette. Bear Brown #3B2316, Blaze Orange #E8530E, Frontier Green #1A3C34. W3C Design Tokens Format (DTFM) + Style Dictionary compatible.",
+    "$description": "Kodiak Cakes / Kodiak style library \u2014 Wilderness frontier palette. Bear Brown #3B2316, Blaze Orange #E8530E, Frontier Green #1A3C34. W3C Design Tokens Format (DTFM) + Style Dictionary compatible.",
     "color": {
       "$description": "Brand and neutral palettes",
       "brand": {
         "bearBrown": {
           "$type": "color",
           "$value": "#3B2316",
-          "$description": "Bear Brown — primary. Deep roasted brown, kraft/parchment contrast. Use for headings, backgrounds, bear logo backdrop.",
+          "$description": "Bear Brown \u2014 primary. Deep roasted brown, kraft/parchment contrast. Use for headings, backgrounds, bear logo backdrop.",
           "$extensions": {
             "org.kodiak": {
               "name": "Bear Brown",
@@ -19,7 +19,7 @@
         "blazeOrange": {
           "$type": "color",
           "$value": "#E8530E",
-          "$description": "Blaze Orange — accent/CTA. High-contrast signal for buttons, accent bar, protein callouts.",
+          "$description": "Blaze Orange \u2014 accent/CTA. High-contrast signal for buttons, accent bar, protein callouts.",
           "$extensions": {
             "org.kodiak": {
               "name": "Blaze Orange",
@@ -30,7 +30,7 @@
         "frontierGreen": {
           "$type": "color",
           "$value": "#1A3C34",
-          "$description": "Frontier Green — secondary/evergreen. Forest/trail balance to orange. Use for secondary buttons, borders, outdoor narrative.",
+          "$description": "Frontier Green \u2014 secondary/evergreen. Forest/trail balance to orange. Use for secondary buttons, borders, outdoor narrative.",
           "$extensions": {
             "org.kodiak": {
               "name": "Frontier Green",
@@ -41,7 +41,7 @@
         "signalRed": {
           "$type": "color",
           "$value": "#B51E14",
-          "$description": "Signal Red — narrowing to alert/error/links per docs/plans/2026-09-09-unify-compose-colors.md. Off-limits for chevrons, badges, secondary buttons, focus rings (pine/bear-brown own those now). Links grandfathered pending a link-color pass.",
+          "$description": "Signal Red \u2014 narrowing to alert/error/links per docs/plans/2026-09-09-unify-compose-colors.md. Off-limits for chevrons, badges, secondary buttons, focus rings (pine/bear-brown own those now). Links grandfathered pending a link-color pass.",
           "$extensions": {
             "org.kodiak": {
               "name": "Signal Red",
@@ -52,7 +52,7 @@
         "boxParchment": {
           "$type": "color",
           "$value": "#F5EAD3",
-          "$description": "Box Parchment — warm control-box fill (step summaries, asset tray). Sits in the kraft page instead of glowing near-white.",
+          "$description": "Box Parchment \u2014 warm control-box fill (step summaries, asset tray). Sits in the kraft page instead of glowing near-white.",
           "$extensions": {
             "org.kodiak": {
               "name": "Box Parchment",
@@ -63,7 +63,7 @@
         "badgeParchment": {
           "$type": "color",
           "$value": "#F2E2C6",
-          "$description": "Badge Parchment — step-numeral ink on bear-brown badges. Softer than near-white.",
+          "$description": "Badge Parchment \u2014 step-numeral ink on bear-brown badges. Softer than near-white.",
           "$extensions": {
             "org.kodiak": {
               "name": "Badge Parchment",
@@ -74,7 +74,7 @@
         "emberHi": {
           "$type": "color",
           "$value": "#B53E09",
-          "$description": "Ember Hi — Create Campaign Preview gradient top stop. CTA ember lives here, nowhere else.",
+          "$description": "Ember Hi \u2014 Create Campaign Preview gradient top stop. CTA ember lives here, nowhere else.",
           "$extensions": {
             "org.kodiak": {
               "name": "Ember Hi",
@@ -85,7 +85,7 @@
         "emberMid": {
           "$type": "color",
           "$value": "#A83806",
-          "$description": "Ember Mid — Create Campaign Preview gradient middle stop.",
+          "$description": "Ember Mid \u2014 Create Campaign Preview gradient middle stop.",
           "$extensions": {
             "org.kodiak": {
               "name": "Ember Mid",
@@ -96,7 +96,7 @@
         "emberLo": {
           "$type": "color",
           "$value": "#93300A",
-          "$description": "Ember Lo — Create Campaign Preview gradient bottom stop + button edge.",
+          "$description": "Ember Lo \u2014 Create Campaign Preview gradient bottom stop + button edge.",
           "$extensions": {
             "org.kodiak": {
               "name": "Ember Lo",
@@ -107,7 +107,7 @@
         "kraftHi": {
           "$type": "color",
           "$value": "#F2E5CB",
-          "$description": "Kraft Hi — campaign-idea panel gradient top. Darker bed so the ember CTA sits in it.",
+          "$description": "Kraft Hi \u2014 campaign-idea panel gradient top. Darker bed so the ember CTA sits in it.",
           "$extensions": {
             "org.kodiak": {
               "name": "Kraft Hi",
@@ -118,7 +118,7 @@
         "kraftLo": {
           "$type": "color",
           "$value": "#E9D2B0",
-          "$description": "Kraft Lo — campaign-idea panel gradient bottom.",
+          "$description": "Kraft Lo \u2014 campaign-idea panel gradient bottom.",
           "$extensions": {
             "org.kodiak": {
               "name": "Kraft Lo",
@@ -137,52 +137,52 @@
         "50": {
           "$type": "color",
           "$value": "#FFF8F0",
-          "$description": "Parchment — warm paper, primary page background"
+          "$description": "Parchment \u2014 warm paper, primary page background"
         },
         "100": {
           "$type": "color",
           "$value": "#F4EDE6",
-          "$description": "Oatmeal — card / kraft bag"
+          "$description": "Oatmeal \u2014 card / kraft bag"
         },
         "200": {
           "$type": "color",
           "$value": "#E8DDD3",
-          "$description": "Stone Light — subtle section divider"
+          "$description": "Stone Light \u2014 subtle section divider"
         },
         "300": {
           "$type": "color",
           "$value": "#D9CFC6",
-          "$description": "Stone — border, disabled"
+          "$description": "Stone \u2014 border, disabled"
         },
         "400": {
           "$type": "color",
           "$value": "#B8A99E",
-          "$description": "Driftwood — placeholder, secondary border"
+          "$description": "Driftwood \u2014 placeholder, secondary border"
         },
         "500": {
           "$type": "color",
           "$value": "#8C7A70",
-          "$description": "Taupe — secondary text on light"
+          "$description": "Taupe \u2014 secondary text on light"
         },
         "600": {
           "$type": "color",
           "$value": "#6B5A53",
-          "$description": "Canyon — muted body on parchment"
+          "$description": "Canyon \u2014 muted body on parchment"
         },
         "700": {
           "$type": "color",
           "$value": "#5A4A42",
-          "$description": "Espresso — body text alternative to bear brown"
+          "$description": "Espresso \u2014 body text alternative to bear brown"
         },
         "800": {
           "$type": "color",
           "$value": "#2E1D14",
-          "$description": "Burnt Umber — near-primary darker variant"
+          "$description": "Burnt Umber \u2014 near-primary darker variant"
         },
         "900": {
           "$type": "color",
           "$value": "#1A1110",
-          "$description": "Ink — darkest text, near-black with brown warmth"
+          "$description": "Ink \u2014 darkest text, near-black with brown warmth"
         },
         "1000": {
           "$type": "color",
@@ -195,79 +195,79 @@
           "default": {
             "$type": "color",
             "$value": "{kodiak.color.neutral.50}",
-            "$description": "Page background → parchment"
+            "$description": "Page background \u2192 parchment"
           },
           "inverse": {
             "$type": "color",
             "$value": "{kodiak.color.brand.bearBrown}",
-            "$description": "Inverse background → bear brown"
+            "$description": "Inverse background \u2192 bear brown"
           },
           "accent": {
             "$type": "color",
             "$value": "{kodiak.color.brand.blazeOrange}",
-            "$description": "Accent background → blaze orange"
+            "$description": "Accent background \u2192 blaze orange"
           },
           "nature": {
             "$type": "color",
             "$value": "{kodiak.color.brand.frontierGreen}",
-            "$description": "Nature background → frontier green"
+            "$description": "Nature background \u2192 frontier green"
           }
         },
         "foreground": {
           "default": {
             "$type": "color",
             "$value": "{kodiak.color.brand.bearBrown}",
-            "$description": "Default text on light → bear brown"
+            "$description": "Default text on light \u2192 bear brown"
           },
           "muted": {
             "$type": "color",
             "$value": "{kodiak.color.neutral.600}",
-            "$description": "Muted text → canyon"
+            "$description": "Muted text \u2192 canyon"
           },
           "inverse": {
             "$type": "color",
             "$value": "{kodiak.color.neutral.50}",
-            "$description": "Text on dark → parchment"
+            "$description": "Text on dark \u2192 parchment"
           },
           "accent": {
             "$type": "color",
             "$value": "{kodiak.color.brand.blazeOrange}",
-            "$description": "Accent text / links → blaze orange"
+            "$description": "Accent text / links \u2192 blaze orange"
           }
         },
         "border": {
           "default": {
             "$type": "color",
             "$value": "{kodiak.color.neutral.300}",
-            "$description": "Default border → stone"
+            "$description": "Default border \u2192 stone"
           },
           "strong": {
             "$type": "color",
             "$value": "{kodiak.color.brand.bearBrown}",
-            "$description": "Strong border → bear brown"
+            "$description": "Strong border \u2192 bear brown"
           },
           "accent": {
             "$type": "color",
             "$value": "{kodiak.color.brand.blazeOrange}",
-            "$description": "Accent border → blaze orange"
+            "$description": "Accent border \u2192 blaze orange"
           }
         },
         "overlay": {
           "scrim": {
             "$type": "color",
             "$value": "#1A1110CC",
-            "$description": "Scrim 80% ink for text legibility over hero (used as bottom message bar fill: rgba 0,0,0 140/255 ≈ #0000008C, here warmer #1A1110CC)"
+            "$description": "Scrim 80% ink for text legibility over hero (used as bottom message bar fill: rgba 0,0,0 140/255 \u2248 #0000008C, here warmer #1A1110CC)"
           },
           "scrimAlt": {
             "$type": "color",
             "$value": "#0000008C",
-            "$description": "Exact compose.py bar: rgba(0,0,0,0.55) ≈ #0000008C — matches legacy overlay"
+            "$description": "Exact compose.py bar: rgba(0,0,0,0.55) \u2248 #0000008C \u2014 matches legacy overlay"
           }
         }
       }
     },
     "brand": {
-      "$description": "Multi-format brand color definitions — single source of truth for cross-media (digital, print, spot). CMYK/pantone are approximate.",
+      "$description": "Multi-format brand color definitions \u2014 single source of truth for cross-media (digital, print, spot). CMYK/pantone are approximate.",
       "bearBrown": {
         "hex": {
           "$type": "color",
@@ -277,7 +277,7 @@
         "rgb": {
           "$type": "color",
           "$value": "#3B2316",
-          "$description": "Bear Brown sRGB — rgb(59,35,22)",
+          "$description": "Bear Brown sRGB \u2014 rgb(59,35,22)",
           "$extensions": {
             "org.kodiak": {
               "rgb": "rgb(59 35 22)",
@@ -291,12 +291,12 @@
         "cmyk": {
           "$type": "string",
           "$value": "0% 41% 63% 77%",
-          "$description": "Bear Brown CMYK approx (US Web Coated SWOP v2) — C0 M41 Y63 K77"
+          "$description": "Bear Brown CMYK approx (US Web Coated SWOP v2) \u2014 C0 M41 Y63 K77"
         },
         "pantone": {
           "$type": "string",
-          "$value": "Pantone 4975 C (≈ 19-0712 TCX Seal Brown)",
-          "$description": "Closest Pantone spot approximate — verify with coated swatch"
+          "$value": "Pantone 4975 C (\u2248 19-0712 TCX Seal Brown)",
+          "$description": "Closest Pantone spot approximate \u2014 verify with coated swatch"
         },
         "hsl": {
           "$type": "string",
@@ -313,7 +313,7 @@
         "rgb": {
           "$type": "color",
           "$value": "#E8530E",
-          "$description": "Blaze Orange sRGB — rgb(232,83,14)",
+          "$description": "Blaze Orange sRGB \u2014 rgb(232,83,14)",
           "$extensions": {
             "org.kodiak": {
               "rgb": "rgb(232 83 14)",
@@ -327,11 +327,11 @@
         "cmyk": {
           "$type": "string",
           "$value": "0% 64% 94% 9%",
-          "$description": "Blaze Orange CMYK approx — C0 M64 Y94 K9"
+          "$description": "Blaze Orange CMYK approx \u2014 C0 M64 Y94 K9"
         },
         "pantone": {
           "$type": "string",
-          "$value": "Pantone 1655 C (≈ 16-1364 TCX Vibrant Orange)",
+          "$value": "Pantone 1655 C (\u2248 16-1364 TCX Vibrant Orange)",
           "$description": "Closest Pantone spot approximate"
         },
         "hsl": {
@@ -349,7 +349,7 @@
         "rgb": {
           "$type": "color",
           "$value": "#1A3C34",
-          "$description": "Frontier Green sRGB — rgb(26,60,52)",
+          "$description": "Frontier Green sRGB \u2014 rgb(26,60,52)",
           "$extensions": {
             "org.kodiak": {
               "rgb": "rgb(26 60 52)",
@@ -363,11 +363,11 @@
         "cmyk": {
           "$type": "string",
           "$value": "57% 0% 13% 76%",
-          "$description": "Frontier Green CMYK approx — C57 M0 Y13 K76"
+          "$description": "Frontier Green CMYK approx \u2014 C57 M0 Y13 K76"
         },
         "pantone": {
           "$type": "string",
-          "$value": "Pantone 5463 C (≈ 19-5420 TCX Deep Teal / Balsam Green)",
+          "$value": "Pantone 5463 C (\u2248 19-5420 TCX Deep Teal / Balsam Green)",
           "$description": "Closest Pantone spot approximate"
         },
         "hsl": {
@@ -378,7 +378,7 @@
       }
     },
     "typography": {
-      "$description": "Kodiak type scale — headline: rugged slab/serif (Rockwell/National Park/Clarendon), body/caption: humanist sans (Inter). Sizes tuned per ratio to preserve hierarchy on distinct canvases.",
+      "$description": "Kodiak type scale \u2014 headline: rugged slab/serif (Rockwell/National Park/Clarendon), body/caption: humanist sans (Inter). Sizes tuned per ratio to preserve hierarchy on distinct canvases.",
       "fontFamily": {
         "headline": {
           "$type": "fontFamily",
@@ -389,21 +389,35 @@
             "Georgia",
             "serif"
           ],
-          "$description": "Headline — slab serif, frontier/rugged. Style-Dictionary: array → CSS stack."
+          "$description": "Headline \u2014 slab serif, frontier/rugged. Style-Dictionary: array \u2192 CSS stack."
         },
         "body": {
           "$type": "fontFamily",
-          "$value": ["Inter", "Helvetica Neue", "Arial", "sans-serif"],
-          "$description": "Body — humanist sans, protein/field notes legibility"
+          "$value": [
+            "Inter",
+            "Helvetica Neue",
+            "Arial",
+            "sans-serif"
+          ],
+          "$description": "Body \u2014 humanist sans, protein/field notes legibility"
         },
         "caption": {
           "$type": "fontFamily",
-          "$value": ["Inter", "Helvetica Neue", "Arial", "sans-serif"],
-          "$description": "Caption — same as body, smaller + tracked"
+          "$value": [
+            "Inter",
+            "Helvetica Neue",
+            "Arial",
+            "sans-serif"
+          ],
+          "$description": "Caption \u2014 same as body, smaller + tracked"
         },
         "mono": {
           "$type": "fontFamily",
-          "$value": ["JetBrains Mono", "Menlo", "monospace"],
+          "$value": [
+            "JetBrains Mono",
+            "Menlo",
+            "monospace"
+          ],
           "$description": "Mono for nutritional facts / SKU badges"
         }
       },
@@ -426,7 +440,7 @@
         }
       },
       "headline": {
-        "$description": "Headline / campaign message — extraBold slab, tight leading, slight negative tracking. 3-line clamp in compose.",
+        "$description": "Headline / campaign message \u2014 extraBold slab, tight leading, slight negative tracking. 3-line clamp in compose.",
         "1x1": {
           "$type": "typography",
           "$value": {
@@ -437,7 +451,7 @@
             "letterSpacing": "-0.02em",
             "textTransform": "none"
           },
-          "$description": "Square 1080×1080 — primary. Matches compose.py 56px baseline.",
+          "$description": "Square 1080\u00d71080 \u2014 primary. Matches compose.py 56px baseline.",
           "$extensions": {
             "org.kodiak": {
               "ratio": "1x1",
@@ -458,7 +472,7 @@
             "letterSpacing": "-0.02em",
             "textTransform": "none"
           },
-          "$description": "Vertical 1080×1920 — taller safe area allows larger headline, same strokeWidth 2 in compose.",
+          "$description": "Vertical 1080\u00d71920 \u2014 taller safe area allows larger headline, same strokeWidth 2 in compose.",
           "$extensions": {
             "org.kodiak": {
               "ratio": "9x16",
@@ -479,7 +493,7 @@
             "letterSpacing": "-0.015em",
             "textTransform": "none"
           },
-          "$description": "Horizontal 1920×1080 — widest canvas, headline scales to 72px, barTop 68% → ample width.",
+          "$description": "Horizontal 1920\u00d71080 \u2014 widest canvas, headline scales to 72px, barTop 68% \u2192 ample width.",
           "$extensions": {
             "org.kodiak": {
               "ratio": "16x9",
@@ -492,7 +506,7 @@
         }
       },
       "body": {
-        "$description": "Body / product description — regular sans, comfortable reading. Used for secondary message or product detail in stories.",
+        "$description": "Body / product description \u2014 regular sans, comfortable reading. Used for secondary message or product detail in stories.",
         "1x1": {
           "$type": "typography",
           "$value": {
@@ -543,7 +557,7 @@
         }
       },
       "caption": {
-        "$description": "Caption / footer / legal — small sans, upper + tracked. Maps to compose.py footer 'KODIAK • kodiakcakes.com • Keep It Wild' at 22/24 uppercase.",
+        "$description": "Caption / footer / legal \u2014 small sans, upper + tracked. Maps to compose.py footer 'KODIAK \u2022 kodiakcakes.com \u2022 Keep It Wild' at 22/24 uppercase.",
         "1x1": {
           "$type": "typography",
           "$value": {
@@ -598,7 +612,7 @@
       }
     },
     "spacing": {
-      "$description": "8pt base scale + semantic aliases for creative composition. Canvas padding in compose.py is 48px → maps to xl (32) + lg (24) composition.",
+      "$description": "8pt base scale + semantic aliases for creative composition. Canvas padding in compose.py is 48px \u2192 maps to xl (32) + lg (24) composition.",
       "0": {
         "$type": "dimension",
         "$value": "0px"
@@ -606,53 +620,53 @@
       "xs": {
         "$type": "dimension",
         "$value": "4px",
-        "$description": "4 — hair gap"
+        "$description": "4 \u2014 hair gap"
       },
       "sm": {
         "$type": "dimension",
         "$value": "8px",
-        "$description": "8 — tight"
+        "$description": "8 \u2014 tight"
       },
       "md": {
         "$type": "dimension",
         "$value": "16px",
-        "$description": "16 — default"
+        "$description": "16 \u2014 default"
       },
       "lg": {
         "$type": "dimension",
         "$value": "24px",
-        "$description": "24 — logo offset, card gap"
+        "$description": "24 \u2014 logo offset, card gap"
       },
       "xl": {
         "$type": "dimension",
         "$value": "32px",
-        "$description": "32 — section"
+        "$description": "32 \u2014 section"
       },
       "2xl": {
         "$type": "dimension",
         "$value": "48px",
-        "$description": "48 — canvas side pad (compose.py pad=48)"
+        "$description": "48 \u2014 canvas side pad (compose.py pad=48)"
       },
       "3xl": {
         "$type": "dimension",
         "$value": "64px",
-        "$description": "64 — stacked sections"
+        "$description": "64 \u2014 stacked sections"
       },
       "4xl": {
         "$type": "dimension",
         "$value": "96px",
-        "$description": "96 — hero breathing room"
+        "$description": "96 \u2014 hero breathing room"
       },
       "5xl": {
         "$type": "dimension",
         "$value": "128px",
-        "$description": "128 — billboard"
+        "$description": "128 \u2014 billboard"
       },
       "semantic": {
         "canvasPad": {
           "$type": "dimension",
           "$value": "{kodiak.spacing.2xl}",
-          "$description": "Canvas side padding → 48px on 1080w (4.4%)"
+          "$description": "Canvas side padding \u2192 48px on 1080w (4.4%)"
         },
         "messageBarTop": {
           "$type": "dimension",
@@ -662,7 +676,7 @@
         "logoOffset": {
           "$type": "dimension",
           "$value": "{kodiak.spacing.lg}",
-          "$description": "Logo top-left → 24px"
+          "$description": "Logo top-left \u2192 24px"
         },
         "accentBarHeight": {
           "$type": "dimension",
@@ -672,11 +686,11 @@
       }
     },
     "radius": {
-      "$description": "Border radius scale — Kodiak kraft is mostly straight-cut, soft rounding for digital cards.",
+      "$description": "Border radius scale \u2014 Kodiak kraft is mostly straight-cut, soft rounding for digital cards.",
       "none": {
         "$type": "dimension",
         "$value": "0px",
-        "$description": "Sharp — default creative edge (hero covers full bleed)"
+        "$description": "Sharp \u2014 default creative edge (hero covers full bleed)"
       },
       "sm": {
         "$type": "dimension",
@@ -703,11 +717,11 @@
       "pill": {
         "$type": "dimension",
         "$value": "999px",
-        "$description": "Pill — protein badge"
+        "$description": "Pill \u2014 protein badge"
       }
     },
     "shadow": {
-      "$description": "Shadow levels — neutral + brand-tinted warm shadow for kraft depth.",
+      "$description": "Shadow levels \u2014 neutral + brand-tinted warm shadow for kraft depth.",
       "none": {
         "$type": "shadow",
         "$value": {
@@ -727,7 +741,7 @@
           "blur": "8px",
           "spread": "0px"
         },
-        "$description": "Subtle lift — card"
+        "$description": "Subtle lift \u2014 card"
       },
       "md": {
         "$type": "shadow",
@@ -738,7 +752,7 @@
           "blur": "24px",
           "spread": "0px"
         },
-        "$description": "Default — hero / modal"
+        "$description": "Default \u2014 hero / modal"
       },
       "lg": {
         "$type": "shadow",
@@ -749,7 +763,7 @@
           "blur": "48px",
           "spread": "0px"
         },
-        "$description": "Strong — billboard"
+        "$description": "Strong \u2014 billboard"
       },
       "bear": {
         "$type": "shadow",
@@ -771,42 +785,42 @@
           "blur": "4px",
           "spread": "0px"
         },
-        "$description": "Text stroke alternative — compose uses stroke_width 2 + shadow for legibility"
+        "$description": "Text stroke alternative \u2014 compose uses stroke_width 2 + shadow for legibility"
       }
     },
     "gradient": {
-      "$description": "CSS-gradient kraft textures — resolution-independent, zero rasters (cloud-del-norte precedent). Fiber via repeating-linear-gradient, corrugated flute + wash/bloom via radial-gradient. Alphas raised to 0.06–0.12 so the kraft cardboard is clearly visible over warm kraft-tan bases (#F0E4D4 / #E8D5BE / #DFC9AC); those tans stay light enough that bearBrown #3B2316 body text holds WCAG AA (~7:1+). No backdrop-filter (Safari text-blur bug).",
+      "$description": "CSS-gradient kraft textures \u2014 resolution-independent, zero rasters (cloud-del-norte precedent). Lit flat washes + vignette via linear/radial-gradient; grit via paper-fiber SVG, no repeating stripes. Alphas capped at 0.14 so the kraft cardboard reads lit over warm kraft-tan bases (#F0E4D4 / #E8D5BE / #DFC9AC); those tans stay light enough that bearBrown #3B2316 body text holds WCAG AA (~7:1+). No backdrop-filter (Safari text-blur bug).",
       "kraft": {
-        "$description": "Layered kraft-paper texture set — replaces the stretched raster kodiakcakes CDN .webp background with pure CSS.",
+        "$description": "Layered kraft-paper texture set \u2014 replaces the stretched raster kodiakcakes CDN .webp background with pure CSS.",
         "surface": {
           "$type": "gradient",
-          "$value": "repeating-linear-gradient(90deg, rgba(59, 35, 22, 0.09) 0px, rgba(59, 35, 22, 0.09) 2px, rgba(255, 248, 240, 0.05) 2px, rgba(255, 248, 240, 0.05) 4px, rgba(59, 35, 22, 0) 4px, rgba(59, 35, 22, 0) 6px), linear-gradient(#F0E4D4, #EAD9C4)",
-          "$description": "CSS-gradient kraft texture — visible kraft-paper card: vertical flute ribs (90deg, 6px period \u2014 bear-brown ridge, parchment valley) over a warm kraft-tan base (#F0E4D4 → #EAD9C4). Intended surface: cards. Reads clearly as kraft cardboard, not flat parchment. bearBrown #3B2316 body text holds WCAG AA on the warm tan."
+          "$value": "linear-gradient(180deg, rgba(255, 248, 240, 0.14) 0%, rgba(255, 248, 240, 0.05) 28%, rgba(255, 248, 240, 0) 55%), linear-gradient(#F0E4D4, #EAD9C4)",
+          "$description": "Lit kraft card surface \u2014 soft top-light wash over a warm kraft-tan base (#F0E4D4 \u2192 #EAD9C4). No repeating stripes: depth comes from light + shadow, grit from paper fiber. bearBrown #3B2316 body text holds WCAG AA on the warm tan."
         },
         "background": {
           "$type": "gradient",
-          "$value": "repeating-linear-gradient(90deg, rgba(59, 35, 22, 0.09) 0px, rgba(59, 35, 22, 0.09) 2px, rgba(255, 248, 240, 0.05) 2px, rgba(255, 248, 240, 0.05) 4px, rgba(59, 35, 22, 0) 4px, rgba(59, 35, 22, 0) 6px), radial-gradient(130% 130% at 50% 30%, rgba(59, 35, 22, 0.10) 0%, rgba(59, 35, 22, 0) 65%), linear-gradient(#E8D5BE, #DFC9AC)",
-          "$description": "CSS-gradient kraft texture — corrugated cardboard page ground: soft vertical flute ridges (90deg, 0.08→0.02→0.08 alpha over 6px) plus a warm centered vignette, over a deeper kraft-tan base (#E8D5BE → #DFC9AC). Intended surface: page background. Reads as a real corrugated kraft box. bearBrown #3B2316 body text holds WCAG AA on the warm tan."
+          "$value": "linear-gradient(180deg, rgba(255, 248, 240, 0.10) 0%, rgba(255, 248, 240, 0) 40%), radial-gradient(120% 90% at 50% 0%, rgba(255, 248, 240, 0) 55%, rgba(59, 35, 22, 0.10) 100%), linear-gradient(#E8D5BE, #DFC9AC)",
+          "$description": "Corrugated-cardboard page ground without stripes: top-light wash plus a soft ambient edge vignette over a deeper kraft-tan base (#E8D5BE \u2192 #DFC9AC). Three layers so the body 5-layer stack (2 house washes + 3 token layers) keeps its size/repeat discipline. bearBrown #3B2316 body text holds WCAG AA on the warm tan."
         },
         "surfaceHover": {
           "$type": "gradient",
-          "$value": "radial-gradient(90% 90% at 100% 0%, rgba(232, 83, 14, 0.12) 0%, rgba(232, 83, 14, 0) 55%), repeating-linear-gradient(90deg, rgba(59, 35, 22, 0.09) 0px, rgba(59, 35, 22, 0.09) 2px, rgba(255, 248, 240, 0.05) 2px, rgba(255, 248, 240, 0.05) 4px, rgba(59, 35, 22, 0) 4px, rgba(59, 35, 22, 0) 6px), linear-gradient(#F0E4D4, #F0E4D4)",
-          "$description": "CSS-gradient kraft texture — interactive variant of surface: the same flute ribs over #F0E4D4, topped with a warm blaze-orange #E8530E bloom (0.12 alpha, top-right corner). Intended surface: hovered/active cards. bearBrown #3B2316 body text holds WCAG AA on the warm tan."
+          "$value": "radial-gradient(90% 90% at 100% 0%, rgba(232, 83, 14, 0.12) 0%, rgba(232, 83, 14, 0) 55%), linear-gradient(180deg, rgba(255, 248, 240, 0.10) 0%, rgba(255, 248, 240, 0) 50%), linear-gradient(#F0E4D4, #F0E4D4)",
+          "$description": "Interactive variant of surface: warm blaze-orange #E8530E bloom (0.12 alpha, top-right corner) plus top-light over #F0E4D4. No stripes. bearBrown #3B2316 body text holds WCAG AA on the warm tan."
         },
         "sheen": {
           "$type": "gradient",
-          "$value": "linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.14) 18%, rgba(255, 255, 255, 0) 44%, rgba(59, 35, 22, 0.05) 82%, rgba(59, 35, 22, 0.10) 100%)",
-          "$description": "Top-light sheen — a directional overlay that reads as a lit surface: a soft white highlight rolls off the top edge (0.42→0 across the top 44%) then a faint bear-brown shade settles into the bottom (0.05→0.10). Composited ABOVE gradients-kraft.surface on render tiles + captions so headline/caption text sits on a lit kraft surface, not flat parchment. White highlight is decorative only; caption text (bearBrown #3B2316 or neutral-600 #6B5A53) sits in the lower band where the surface stays warm-tan, so WCAG AA (>=4.5:1) still holds."
+          "$value": "linear-gradient(180deg, rgba(255, 248, 240, 0.08) 0%, rgba(255, 248, 240, 0) 44%, rgba(59, 35, 22, 0.05) 82%, rgba(59, 35, 22, 0.08) 100%)",
+          "$description": "Top-light sheen \u2014 a directional overlay that reads as a lit surface: a soft white highlight rolls off the top edge (0.42\u21920 across the top 44%) then a faint bear-brown shade settles into the bottom (0.05\u21920.10). Composited ABOVE gradients-kraft.surface on render tiles + captions so headline/caption text sits on a lit kraft surface, not flat parchment. White highlight is decorative only; caption text (bearBrown #3B2316 or neutral-600 #6B5A53) sits in the lower band where the surface stays warm-tan, so WCAG AA (>=4.5:1) still holds."
         }
       }
     },
     "dimension": {
-      "$description": "Canvas dimensions — mirrors compose.RATIOS",
+      "$description": "Canvas dimensions \u2014 mirrors compose.RATIOS",
       "canvas": {
         "1x1": {
           "$type": "dimension",
           "$value": "1080px",
-          "$description": "Square — 1080×1080. $extensions holds both axes.",
+          "$description": "Square \u2014 1080\u00d71080. $extensions holds both axes.",
           "$extensions": {
             "org.kodiak": {
               "width": 1080,

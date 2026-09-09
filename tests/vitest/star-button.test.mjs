@@ -13,8 +13,8 @@ const generate = readFileSync(
 
 // The star button: full "Create Campaign Preview" label (restored after every
 // generate), lit ember gradient where every stop clears WCAG AA vs white,
-// hover light-sweep with a reduced-motion off-ramp, and corrugated flute over
-// the kraft on hero surfaces — lit cardboard, never stripes.
+// hover light-sweep with a reduced-motion off-ramp, and flat lit kraft on
+// hero surfaces — lit cardboard, never stripes, never flute.
 describe('star button + lit cardboard', () => {
   it('button reads Create Campaign Preview and restores it', () => {
     expect(index).toMatch(/id="generateCampaign"[^>]*>Create Campaign Preview</);
@@ -33,9 +33,9 @@ describe('star button + lit cardboard', () => {
     expect(css).toMatch(/prefers-reduced-motion.*\.ff-go::after\{display:none\}/s);
   });
 
-  it('corrugated flute tiles over kraft on hero surfaces', () => {
-    expect(css).toMatch(/--flute:url\("data:image\/svg\+xml/);
-    expect(css).toMatch(/\.ff-prompt\{background-image:var\(--flute\),var\(--gradients-kraft\\\.surface\)\}/);
-    expect(css).toMatch(/\.ff-timeline\{[^}]*background-image:var\(--flute\)/);
+  it('hero surfaces carry flat lit kraft, never flute', () => {
+    expect(css).not.toMatch(/--flute/);
+    expect(css).toMatch(/\.ff-prompt\{background:var\(--gradients-kraft\\\.surface\)/);
+    expect(css).toMatch(/\.ff-timeline\{[^}]*background:var\(--gradients-kraft\\\.surface\)/);
   });
 });
