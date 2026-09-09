@@ -15,35 +15,35 @@
  "markets": {
   "US-MW-PARKCITY-84098": {
    "market": "US-MW-PARKCITY-84098",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "frontier_market": "US-UT-OAKLEY",
+   "place": "Oakley, Utah 84055 — Wasatch Back ranch country",
    "ingredients": [
     {
-     "name": "piñon nuts",
+     "name": "Splendor Valley Farms produce",
      "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
+     "note": "user-sourced anchor farm; seasons unconfirmed — research dispatch"
     }
    ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "seasons": "Summer market season (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Oakley Farmers Market at Oakley Rodeo Grounds (standalone URL unconfirmed — research dispatch)",
    "farmers_market_url": null,
-   "link_note": "Nearest featured frontier in data: interior-mountain kin."
+   "link_note": "Wasatch Back rural counterpart to Park City; close, same-state, subscription-credible."
   },
   "US-MW-WASATCH": {
    "market": "US-MW-WASATCH",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "frontier_market": "US-UT-OAKLEY",
+   "place": "Oakley, Utah 84055 — Wasatch Back ranch country",
    "ingredients": [
     {
-     "name": "piñon nuts",
+     "name": "Splendor Valley Farms produce",
      "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
+     "note": "user-sourced anchor farm; seasons unconfirmed — research dispatch"
     }
    ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "seasons": "Summer market season (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Oakley Farmers Market at Oakley Rodeo Grounds (standalone URL unconfirmed — research dispatch)",
    "farmers_market_url": null,
-   "link_note": "Nearest featured frontier in data: interior-mountain kin."
+   "link_note": "Wasatch Back rural counterpart to Park City; close, same-state, subscription-credible."
   },
   "US-SW-LASCRUCES": {
    "market": "US-SW-LASCRUCES",
@@ -669,19 +669,19 @@
   },
   "US-MW-WASATCH-SLC": {
    "market": "US-MW-WASATCH-SLC",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "frontier_market": "US-UT-OAKLEY",
+   "place": "Oakley, Utah 84055 — Wasatch Back ranch country",
    "ingredients": [
     {
-     "name": "piñon nuts",
+     "name": "Splendor Valley Farms produce",
      "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
+     "note": "user-sourced anchor farm; seasons unconfirmed — research dispatch"
     }
    ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "seasons": "Summer market season (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Oakley Farmers Market at Oakley Rodeo Grounds (standalone URL unconfirmed — research dispatch)",
    "farmers_market_url": null,
-   "link_note": "Nearest featured frontier in data: interior-mountain kin."
+   "link_note": "Wasatch Back rural counterpart to Park City; close, same-state, subscription-credible."
   },
   "US-W-SF": {
    "market": "US-W-SF",
@@ -2482,19 +2482,19 @@
   },
   "US-UT-KAMASVALLEY": {
    "market": "US-UT-KAMASVALLEY",
-   "frontier_market": "US-SW-TIMBERON",
-   "place": "Timberon, New Mexico 88350 — Sacramento Mountains",
+   "frontier_market": "US-UT-OAKLEY",
+   "place": "Oakley, Utah 84055 — Wasatch Back ranch country",
    "ingredients": [
     {
-     "name": "piñon nuts",
+     "name": "Splendor Valley Farms produce",
      "months": null,
-     "note": "fall harvest; exact months unconfirmed — research dispatch"
+     "note": "user-sourced anchor farm; seasons unconfirmed — research dispatch"
     }
    ],
-   "seasons": "Pinon harvest in fall (exact months unconfirmed — research dispatch)",
-   "farmers_market": "Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
+   "seasons": "Summer market season (exact months unconfirmed — research dispatch)",
+   "farmers_market": "Oakley Farmers Market at Oakley Rodeo Grounds (standalone URL unconfirmed — research dispatch)",
    "farmers_market_url": null,
-   "link_note": "Nearest featured frontier in data: interior ranch-country kin."
+   "link_note": "Wasatch Back rural counterpart to Park City; close, same-state, subscription-credible."
   },
   "US-SE-SANDERSVILLE": {
    "market": "US-SE-SANDERSVILLE",

@@ -29,6 +29,7 @@ describe('fold density', () => {
     expect(index).toMatch(/id="marketButtonLabel">Market: Park City, Utah</);
     expect(disclosure).toMatch(/label\.textContent = 'Market: ' \+ \(p\.place \|\| market\)/);
     expect(disclosure).toMatch(/featuredFrontierFor\(market\)/);
+    expect(disclosure).toMatch(/' · Featured Frontier: ' \+ ffShort/);
     expect(core).toMatch(/aria-label','Market — currently '/);
   });
 

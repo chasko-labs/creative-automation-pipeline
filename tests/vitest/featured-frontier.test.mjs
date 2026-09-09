@@ -38,6 +38,16 @@ describe('market-to-featured-frontier mapping (#257)', () => {
     expect(for_('US-XX-NOWHERE')).toBeNull();
   });
 
+  it('Wasatch markets resolve Oakley, Utah — close, same-state, subscription-credible', () => {
+    const for_ = loadMapping();
+    for (const m of ['US-MW-PARKCITY-84098', 'US-MW-WASATCH', 'US-MW-WASATCH-SLC', 'US-UT-KAMASVALLEY']) {
+      const ff = for_(m);
+      expect(ff.frontier).toBe('US-UT-OAKLEY');
+      expect(ff.place).toContain('Oakley, Utah 84055');
+    }
+    expect(for_('US-MW-PARKCITY-84098').text).toContain('Splendor Valley Farms');
+  });
+
   it('generate.js resolves its hint from the mapping, not hardcoded markets', () => {
     for (const code of ['US-W-SF', 'US-W-SEA', 'US-WA-NEAHBAY', 'US-CA-PESCADERO']) {
       expect(generateJs.includes(`.includes('${code}')`), `hardcode ${code}`).toBe(false);

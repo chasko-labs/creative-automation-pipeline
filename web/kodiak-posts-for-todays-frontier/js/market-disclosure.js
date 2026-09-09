@@ -62,7 +62,7 @@
     if(outer && p){
       var ff = (typeof featuredFrontierFor==='function') ? featuredFrontierFor(market) : null;
       var ffShort = (ff && ff.place) ? String(ff.place).split(' — ')[0] : '';
-      outer.textContent = (p.place || market) + (ffShort ? ' · ' + ffShort : '');
+      outer.textContent = (p.place || market) + (ffShort ? ' · Featured Frontier: ' + ffShort : '');
     }
     if(summary && p) summary.setAttribute('aria-label', 'Choose market — currently ' + (p.place || market));
     if(featuredEl){

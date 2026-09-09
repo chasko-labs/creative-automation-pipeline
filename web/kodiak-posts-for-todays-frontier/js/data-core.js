@@ -125,7 +125,8 @@ const featuredFrontierDetail = {
   "US-CA-CASTROVILLE": {place:"Castroville, California 95012 — Artichoke Capital", items:["Castroville artichokes","strawberries","Brussels sprouts"], seasons:"Castroville artichokes Mar-Jun (peak April); strawberries May-Sep; Brussels sprouts Sep-Feb", farmersMarket:"Castroville artichoke stands + Monterey Bay farmers markets (standalone URL unconfirmed — research dispatch)"},
   "US-WA-NEAHBAY": {place:"Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe", items:["Makah salmon","huckleberry"], seasons:"Makah salmon May-Sep; huckleberry August", farmersMarket:"Washburn's General Store porch stands + Makah Days, Neah Bay (no confirmed standalone farmers-market URL — research dispatch)"},
   "US-SE-SANDERSVILLE": {place:"Sandersville, GA 31082 — Washington County, kaolin-belt farm country", items:["Georgia pecans","Georgia peaches","sweet potatoes","muscadine grapes"], seasons:"Georgia pecans Oct-Dec (peak November); Georgia peaches May-Aug (peak July); sweet potatoes Sep-Nov (peak October); muscadine grapes Aug-Sep", farmersMarket:"Sandersville downtown farmers market + Washington County farm stands"},
-  "US-SW-TIMBERON": {place:"Timberon, New Mexico 88350 — Sacramento Mountains", items:["piñon nuts"], seasons:"Pinon harvest in fall (exact months unconfirmed — research dispatch)", farmersMarket:"Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)"}
+  "US-SW-TIMBERON": {place:"Timberon, New Mexico 88350 — Sacramento Mountains", items:["piñon nuts"], seasons:"Pinon harvest in fall (exact months unconfirmed — research dispatch)", farmersMarket:"Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)"},
+  "US-UT-OAKLEY": {place:"Oakley, Utah 84055 — Wasatch Back ranch country", items:["Splendor Valley Farms produce","Oakley Rodeo Grounds farm stands"], seasons:"Summer market season (exact months unconfirmed — research dispatch)", farmersMarket:"Oakley Farmers Market at Oakley Rodeo Grounds (standalone URL unconfirmed — research dispatch)"}
 };
 const marketFeaturedFrontier = {
   "US-CA-PESCADERO": "US-CA-PESCADERO",
@@ -145,12 +146,12 @@ const marketFeaturedFrontier = {
   "US-MW-MINNEAPOLIS2": "US-SE-SANDERSVILLE",
   "US-MW-MISSOULA": "US-WA-NEAHBAY",
   "US-MW-OMAHA": "US-SW-TIMBERON",
-  "US-MW-PARKCITY-84098": "US-SW-TIMBERON",
+  "US-MW-PARKCITY-84098": "US-UT-OAKLEY",
   "US-MW-PHX2": "US-SW-TIMBERON",
   "US-MW-STL": "US-SE-SANDERSVILLE",
   "US-MW-TC": "US-SE-SANDERSVILLE",
-  "US-MW-WASATCH": "US-SW-TIMBERON",
-  "US-MW-WASATCH-SLC": "US-SW-TIMBERON",
+  "US-MW-WASATCH": "US-UT-OAKLEY",
+  "US-MW-WASATCH-SLC": "US-UT-OAKLEY",
   "US-NE-BALTIMORE": "US-SE-SANDERSVILLE",
   "US-NE-BOS": "US-SE-SANDERSVILLE",
   "US-NE-BURLINGTON": "US-SE-SANDERSVILLE",
@@ -188,7 +189,7 @@ const marketFeaturedFrontier = {
   "US-SW-SANTA FE": "US-SW-TIMBERON",
   "US-SW-TIMBERON": "US-SW-TIMBERON",
   "US-SW-TULAROSA": "US-SW-TIMBERON",
-  "US-UT-KAMASVALLEY": "US-SW-TIMBERON",
+  "US-UT-KAMASVALLEY": "US-UT-OAKLEY",
   "US-W-ANCHORAGE": "US-WA-NEAHBAY",
   "US-W-BEND": "US-WA-NEAHBAY",
   "US-W-BOULDER": "US-SW-TIMBERON",
