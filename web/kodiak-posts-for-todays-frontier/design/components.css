@@ -1323,11 +1323,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 @media(prefers-reduced-motion:reduce){details[open]>*:not(summary){animation:none}.btn:hover{transform:none}}
 /* preview figcaption (was an inline style) */
 .ff-figcap{font:600 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate);margin-top:8px}
-/* premade resume card: same control-box voice as the step summaries, parchment
-   token surface, pine kicker text. Lives outside #preview so Create wipes keep it. */
-.preview-resume{display:flex;align-items:center;gap:var(--spacing-sm);flex-wrap:wrap;background:var(--colors-brand-box-parchment,#F5EAD3);border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);padding:10px 12px;margin:0 0 12px}
-.preview-resume-text{font:500 12px/1.4 "museo-sans",sans-serif;color:var(--colors-brand-frontier-green)}
-@media(prefers-reduced-motion:reduce){.preview-resume{transition:none}}
+
 /* 4.4 staging row: same control-box voice as the other rows, tray fills the rest */
 .ff-assetrow{display:flex;align-items:center;gap:var(--spacing-sm);flex-wrap:wrap;background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);padding:10px 12px}
 .ff-assetrow .ff-tray{margin-top:0;flex:1 1 auto}

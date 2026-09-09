@@ -452,30 +452,6 @@
           <figcaption class="ff-figcap">Park City example — flapjacks for a Wasatch Back morning. In-season notes ride the readout above; hit Create to generate these four sizes for your market.</figcaption>
         </figure>
       </div>
-      <!-- Premade resume card: lives OUTSIDE #preview so Create wipes never kill
-           it. One tap restores the Park City example brief + market so the
-           showcase is a starting point, not a dead picture. -->
-      <div class="preview-resume" id="previewResume">
-        <span class="preview-resume-text"><b>Premade example.</b> Resume the Park City breakfast brief any time.</span>
-        <button type="button" class="btn ghost" id="resumeExample">Resume example</button>
-      </div>
-      <script>
-      (function(){
-        var b = document.getElementById('resumeExample');
-        if(!b || b.__wired) return; b.__wired = true;
-        b.addEventListener('click', function(){
-          try{
-            var sel = document.getElementById('locality');
-            if(sel){ sel.value = 'US-MW-PARKCITY-84098'; sel.dispatchEvent(new Event('change')); }
-            var brief = document.getElementById('campaignBrief');
-            if(brief){ brief.value = 'Buttermilk Power Cakes family breakfast, Park City Farmers Market morning'; brief.dispatchEvent(new Event('input')); }
-            if(typeof window.updateLocalFlavor === 'function') window.updateLocalFlavor();
-            var card = document.getElementById('previewCard');
-            if(card && !card.open) card.open = true;
-          }catch(e){}
-        });
-      })();
-      </script>
       <div class="hint ff-filenames" id="fileNames"></div>
 
       <!-- Download asset pack hidden by default; primary/secondary download actions injected under the preview after generation -->
