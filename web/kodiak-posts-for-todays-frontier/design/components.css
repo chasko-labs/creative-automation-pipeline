@@ -1265,11 +1265,15 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   .wrap{width:100%;max-width:1560px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:0 var(--spacing-lg);align-items:start}
   .ff-timeline{grid-column:1/-1;grid-row:1}
   .ff-ridge{grid-column:1/-1;grid-row:2}
-  .ff-prompt{grid-column:1;grid-row:3/span 4;position:sticky;top:76px;align-self:start}
-  section.ff-output{grid-column:2;grid-row:3}
-  .ff-forest{grid-column:2;grid-row:4}
-  .ff-generate-campaign{grid-column:2;grid-row:5;align-self:start}
-  .ff-campaign-assets{grid-column:2;grid-row:6}
+  .ff-prompt{grid-column:1;grid-row:3;align-self:start}
+  section.ff-output{grid-column:2;grid-row:3;align-self:start}
+  .ff-forest{grid-column:1/-1;grid-row:4}
+  .ff-generate-campaign{grid-column:1/-1;grid-row:5}
+  .ff-campaign-assets{grid-column:1/-1;grid-row:6}
+  /* about reads as a balanced block: copy left, doc links right */
+  .ff-about .body{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--spacing-md);align-items:center}
+  .ff-about .ff-about__copy{margin:0}
+  .ff-about .ff-doclinks{margin-top:0}
 .mt-sm{margin-top:var(--spacing-sm)}
   .ff-about-art,.ff-about,#buildStamp{grid-column:1/-1}
 }
