@@ -34,16 +34,16 @@
         '<span id="generateCampaignHeading" class="ff-output-heading">Generate Campaign</span>'+
         ' <span class="badge" id="generateCampaignLock">locked until preview</span></summary>'+
         '<p class="hint" id="generateCampaignHint">The full campaign unlocks after your first preview — every ratio, every platform, localized to your chosen scope.</p>'+
-        '<div class="row" id="generateCampaignBtns" style="gap:10px;flex-wrap:wrap">'+
+        '<div class="row" id="generateCampaignBtns">'+
           '<button type="button" class="btn orange ff-campaign-primary" id="genFullCampaign" hidden>Generate full campaign</button>'+
         '</div>'+
         '<div class="hint" id="generateCampaignStatus" role="status" aria-live="polite"></div>'+
       '</details>'+
       '<section id="campaignAssetsSection" class="ff-output ff-campaign-assets" aria-labelledby="campaignAssetsHeading" hidden>'+
         '<h2 id="campaignAssetsHeading" class="ff-output-heading"><span class="ff-stepnum" aria-hidden="true">7</span> Campaign Assets Created</h2>'+
-        '<div class="row" style="justify-content:flex-start"><button type="button" class="btn orange" id="downloadCampaignPackTop" data-mcp="download-campaign-pack">Download Campaign Pack</button></div>'+
-        '<div class="ff-product-carousel" id="campaignAssetsCarousel" role="group" aria-label="Generated campaign assets" style="margin-top:var(--spacing-sm)"></div>'+
-        '<div class="row" style="justify-content:flex-start;margin-top:var(--spacing-sm)"><button type="button" class="btn orange" id="downloadCampaignPackBottom" data-mcp="download-campaign-pack">Download Campaign Pack</button></div>'+
+        '<div class="row"><button type="button" class="btn orange" id="downloadCampaignPackTop" data-mcp="download-campaign-pack">Download Campaign Pack</button></div>'+
+        '<div class="ff-product-carousel" id="campaignAssetsCarousel" role="group" aria-label="Generated campaign assets" class="ff-product-carousel mt-sm"></div>'+
+        '<div class="row mt-sm"><button type="button" class="btn orange" id="downloadCampaignPackBottom" data-mcp="download-campaign-pack">Download Campaign Pack</button></div>'+
       '</section>';
     // insert right after the forest divider (the placeholder comment sits there); fallback to body append
     if(forest && forest.parentNode){

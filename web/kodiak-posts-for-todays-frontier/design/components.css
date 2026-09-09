@@ -1225,3 +1225,72 @@ header::before{background:none}
 .ff-timeline{padding:12px 16px 10px}
 /* mono only for machine strings: build stamp */
 #buildStamp{font:600 11px/1.4 "JetBrains Mono",Menlo,monospace}
+/* === Unify pass: type scale, section-3 rows, widescreen grid, texture, motion, mobile.
+   TYPE SYSTEM (4 roles, nothing else): display = Gin (headings only);
+   label = kodiak_sans 11px/800/uppercase/.07em (kickers, buttons, badges);
+   control+body = museo-sans (summaries + inputs 14/600, help 12-13/500);
+   data = JetBrains Mono (build stamp, dims, codes). === */
+html,body{overflow-x:clip}
+/* display headings — one voice */
+.ff-setup-heading,.ff-output-heading,.ff-about>summary{font-family:"gin",Rockwell,Clarendon,Georgia,serif;font-weight:800;font-size:21px;letter-spacing:.05em;text-transform:uppercase;color:var(--chocolate)}
+/* kickers — one size, pine */
+.ff-flavor-kicker,.ff-chipcluster-label{font-size:11px}
+.ff-flavor-kicker,.ff-chipcluster-label,.ff-brief-label{color:var(--colors-brand-frontier-green)}
+/* control text — 14/600 museo on every summary + input */
+.ff-setup .ff-scope-summary,#locationSection>summary{font:600 14px/1.4 "museo-sans",sans-serif}
+.ff-controlrow select,.ff-controlrow input[type="text"],.ff-controlrow input[type="search"],.ff-controlrow textarea{font:600 14px/1.4 "museo-sans",sans-serif}
+/* help text — 12-13px floor, no 10-11px body copy */
+.ff-scope-opt-title{font-size:13px}
+.ff-scope-opt-sub,.ff-layers-hint,.ff-products-hint,.ff-layer{font-size:12px}
+.ff-layer{font-size:13px}
+/* === section 3: three full-width control rows, zero dashed separators === */
+.ff-brainstorm{display:flex;flex-direction:column;gap:8px}
+.ff-brainstorm>.ff-directions,.ff-brainstorm>.ff-products,.ff-brainstorm>.ff-layers{margin-top:0;padding-top:0;border-top:none}
+.ff-directions>.ff-optiongroup{padding-top:0}
+.ff-brainstorm .ff-products>summary,.ff-brainstorm .ff-layers>summary{display:flex;width:100%;align-items:center;background:#FFFDF7;border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);font:600 14px/1.4 "museo-sans",sans-serif;letter-spacing:0;text-transform:none;color:var(--chocolate);padding:10px 12px}
+.ff-brainstorm .ff-layers-state{margin-left:auto}
+/* === texture comeback (whisper, cards only) + motion === */
+.card::before{opacity:.09}
+#paperGrain{opacity:.08}
+details[open]>*:not(summary){animation:ff-fadein .22s ease}
+@keyframes ff-fadein{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
+.btn{transition:background .15s,border-color .15s,box-shadow .15s,transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.ff-scope-opt{transition:background .15s,border-color .15s,box-shadow .15s}
+@media(prefers-reduced-motion:reduce){details[open]>*:not(summary){animation:none}.btn:hover{transform:none}}
+/* preview figcaption (was an inline style) */
+.ff-figcap{font:600 13px/1.4 "museo-sans",sans-serif;color:#3B2316;margin-top:8px}
+/* === widescreen grid: setup left, output+generate right === */
+@media(min-width:1150px){
+  .wrap{width:100%;max-width:1560px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:0 var(--spacing-lg);align-items:start}
+  .ff-timeline{grid-column:1/-1;grid-row:1}
+  .ff-ridge{grid-column:1/-1;grid-row:2}
+  .ff-prompt{grid-column:1;grid-row:3/span 4;position:sticky;top:76px;align-self:start}
+  section.ff-output{grid-column:2;grid-row:3}
+  .ff-forest{grid-column:2;grid-row:4}
+  .ff-generate-campaign{grid-column:2;grid-row:5;align-self:start}
+  .ff-campaign-assets{grid-column:2;grid-row:6}
+.mt-sm{margin-top:var(--spacing-sm)}
+  .ff-about-art,.ff-about,#buildStamp{grid-column:1/-1}
+}
+/* === mobile: no spill, stacked CTA, wrapped pills === */
+@media(max-width:640px){
+  .wrap{padding:12px}
+  .ff-setup{padding:var(--spacing-md)}
+  .body{padding:16px}
+  .ff-setup>section[data-step],.ff-setup>div[data-step],.ff-setup>details[data-step]{padding-left:30px}
+  .ff-timeline-steps{gap:2px}
+  .ff-timeline-steps li{font-size:10px}
+  .ff-timeline-steps li+li::before{width:8px}
+  .ff-inputfoot{flex-direction:column;align-items:stretch}
+  .ff-inputfoot-actions{justify-content:flex-start}
+  .ff-go{flex:1 1 100%;white-space:normal;padding:0 16px;height:auto;min-height:52px}
+  .ff-publish-targets{flex-wrap:wrap}
+  .ff-publish-targets .ff-publish-pill{flex:1 1 auto}
+  .ff-controlrow .ff-detail{flex:1 1 100%}
+  .platform-matrix{overflow-x:auto}
+  .ff-setup-heading,.ff-output-heading{font-size:18px}
+  .kodiak-headline-plate h1{white-space:normal;font-size:19px}
+  .ff-setup .ff-scope-summary,#locationSection>summary,.ff-brainstorm .ff-products>summary,.ff-brainstorm .ff-layers>summary{font-size:13px}
+  .ff-go{font-size:12px;letter-spacing:.06em}
+}
