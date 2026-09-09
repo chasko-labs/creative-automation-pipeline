@@ -51,13 +51,24 @@
   // 3. user-added markets (client-side only). No curated cue/language data — degrade gracefully.
   var customMarkets = [];
 
+  // current season suffix for the step-2 summary — slim one-line signal, picker stays inside
+  function seasonSuffix(){
+    try{ var v = document.getElementById('seasonalSelect').value; return v ? (' · ' + v) : ''; }
+    catch(e){ return ''; }
+  }
+  // repaint the step-2 summary from the live market + season (called by reflectMarket + season change)
+  function paintOuterSummary(market){
+    var outer = document.getElementById('locationSectionLabel');
+    if(!outer) return;
+    var p = placeFor(market);
+    if(p) outer.textContent = (p.place || market) + seasonSuffix();
+  }
   // update the three derived lines (button label, featured frontier, language line) for a market
   function reflectMarket(market){
     var p = placeFor(market);
     if(label && p) label.textContent = 'Location: ' + (p.place || market);
     // outer step-2 summary mirrors the same place (no "Location: " prefix — the summary owns it)
-    var outer = document.getElementById('locationSectionLabel');
-    if(outer && p) outer.textContent = (p.place || market);
+    paintOuterSummary(market);
     if(summary && p) summary.setAttribute('aria-label', 'Choose market — currently ' + (p.place || market));
     if(featuredEl){
       var cue = p && p.cue ? p.cue : '';
@@ -178,6 +189,7 @@
     window.__activeSeason = null;
     seasonSel.addEventListener('change', function(){
       window.__activeSeason = seasonSel.value || null;
+      try{ paintOuterSummary(document.getElementById('locality').value); }catch(e){}
     });
     // 1. default to the CURRENT calendar month by name (not "any"). "Season: any" stays selectable.
     // seed activeSeason so the brief carries "season: <month>" by default.
