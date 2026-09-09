@@ -25,11 +25,13 @@ describe('bay area markets (#279)', () => {
     expect(core).toMatch(/market:"US-CA-CASTROVILLE"/);
   });
 
-  it('urban markets pair to their rural featured frontiers', () => {
-    expect(core).toMatch(/"US-W-SF": "US-CA-PESCADERO"/);
-    expect(core).toMatch(/"US-W-SANJOSE": "US-CA-CASTROVILLE"/);
+  it('urban markets pair to their own nearby rural featured frontiers', () => {
+    expect(core).toMatch(/"US-W-SF": "US-CA-BOLINAS"/);
+    expect(core).toMatch(/"US-W-SANJOSE": "US-CA-BRENTWOOD"/);
     expect(core).toMatch(/"US-CA-CASTROVILLE": "US-CA-CASTROVILLE"/);
     expect(core).toMatch(/"US-CA-CASTROVILLE": \{place:"Castroville/);
+    expect(core).toMatch(/"US-CA-BOLINAS": \{place:"Bolinas/);
+    expect(core).toMatch(/"US-CA-BRENTWOOD": \{place:"Brentwood/);
   });
 
   it('new markets carry coords in both tables', () => {

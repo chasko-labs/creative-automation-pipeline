@@ -26,26 +26,38 @@ describe('market-to-featured-frontier mapping (#257)', () => {
   it('every evaluated market resolves one frontier; unknown returns null', () => {
     const for_ = loadMapping();
     const sf = for_('US-W-SF');
-    expect(sf.frontier).toBe('US-CA-PESCADERO');
-    expect(sf.items).toContain('Castroville artichokes');
-    expect(sf.seasons).toContain('Mar-Jun');
-    expect(sf.text).toContain('Castroville artichokes');
-    expect(for_('US-W-SEA').frontier).toBe('US-WA-NEAHBAY');
+    expect(sf.frontier).toBe('US-CA-BOLINAS');
+    expect(sf.items).toContain('Marin goat cheese');
+    expect(sf.text).toContain('Bolinas');
+    expect(for_('US-W-SEA').frontier).toBe('US-WA-CARNATION');
     expect(for_('US-W-SD').frontier).toBe('US-CA-JULIAN');
     expect(for_('US-W-SD').place).toContain('Julian');
-    expect(for_('US-SE-ATL').frontier).toBe('US-SE-SANDERSVILLE');
+    expect(for_('US-SE-ATL').frontier).toBe('US-GA-SENOIA');
     expect(for_('US-CA-PESCADERO').frontier).toBe('US-CA-PESCADERO');
     expect(for_('US-XX-NOWHERE')).toBeNull();
   });
 
-  it('Wasatch markets resolve Oakley, Utah — close, same-state, subscription-credible', () => {
-    const for_ = loadMapping();
-    for (const m of ['US-MW-PARKCITY-84098', 'US-MW-WASATCH', 'US-MW-WASATCH-SLC', 'US-UT-KAMASVALLEY']) {
-      const ff = for_(m);
-      expect(ff.frontier).toBe('US-UT-OAKLEY');
-      expect(ff.place).toContain('Oakley, Utah 84055');
+  it('no shared frontiers — every target serves exactly one market', () => {
+    const pairs = [...dataCore.matchAll(/"(US-[A-Z0-9\- ]+)": "(US-[A-Z0-9\-]+)"/g)]
+      .map((m) => [m[1], m[2]]);
+    expect(pairs.length).toBeGreaterThan(70);
+    const counts = {};
+    for (const [, v] of pairs) counts[v] = (counts[v] || 0) + 1;
+    const shared = Object.entries(counts).filter(([, n]) => n > 1);
+    expect(shared, 'shared frontiers').toEqual([]);
+    for (const [k, v] of pairs) {
+      expect(dataCore).toMatch(new RegExp('"' + v + '": \\{place:'));
     }
+  });
+
+  it('Wasatch markets resolve their own close frontiers — no sharing', () => {
+    const for_ = loadMapping();
+    expect(for_('US-MW-PARKCITY-84098').frontier).toBe('US-UT-OAKLEY');
+    expect(for_('US-MW-PARKCITY-84098').place).toContain('Oakley, Utah 84055');
     expect(for_('US-MW-PARKCITY-84098').text).toContain('Splendor Valley Farms');
+    expect(for_('US-MW-WASATCH').frontier).toBe('US-UT-MIDWAY');
+    expect(for_('US-MW-WASATCH-SLC').frontier).toBe('US-UT-GRANTSVILLE');
+    expect(for_('US-UT-KAMASVALLEY').frontier).toBe('US-UT-KAMASVALLEY');
   });
 
   it('generate.js resolves its hint from the mapping, not hardcoded markets', () => {

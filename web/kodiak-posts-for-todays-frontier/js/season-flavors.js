@@ -62,25 +62,59 @@
       market:'Oakley Farmers Market at Oakley Rodeo Grounds'}
   };
 
-  function frontierFor(market){
+  function frontierDetail(market){
     try{
-      if(typeof featuredFrontierFor === 'function'){
-        var ff = featuredFrontierFor(market);
-        if(ff && ff.frontier) return ff.frontier;
-      }
+      if(typeof featuredFrontierFor === 'function') return featuredFrontierFor(market);
     }catch(e){}
     return null;
   }
 
-  // month items for a frontier: matching window texts, or [off] shoulder.
-  function frontierMonthItems(fk, month){
-    var cal = FRONTIER_CAL[fk];
-    if(!cal) return {items:[], shoulder:true};
-    if(month === -1) return {items:[cal.items.length ? cal.items[0].t : cal.off], shoulder:false};
-    var hits = [];
-    cal.items.forEach(function(w){ if(w.m.indexOf(month) !== -1) hits.push(w.t); });
-    if(hits.length) return {items:hits.slice(0,2), shoulder:false};
-    return {items:[cal.off], shoulder:true};
+  // Climate month-windows for frontiers without a researched calendar: honest
+  // region-level produce timing keyed by the MARKET's archetype. No farm names.
+  var CLIMATE_WIN = {
+    wasatch: [{m:[5,6,7,8],t:'stone fruit + sweet corn'},{m:[8,9],t:'orchard apples + pumpkins'},{m:[11,0,1],t:'storage roots + holiday baking'},{m:[2,3,4],t:'spring greens + ranch dairy'}],
+    rockies: [{m:[6,7,8],t:'peaches + sweet corn'},{m:[8,9],t:'chile roast + apples'},{m:[9,10],t:'pumpkins + squash'},{m:[11,0,1,2,3,4,5],t:'root cellar + citrus halo'}],
+    southwest: [{m:[7,8],t:'chile roast season'},{m:[8,9,10],t:'pinon + chile harvest'},{m:[11,0,1,2],t:'citrus + winter markets'},{m:[3,4,5,6],t:'spring greens + desert produce'}],
+    southplains: [{m:[2,3,4],t:'strawberries + spring produce'},{m:[5,6,7],t:'peaches + corn + tomatoes'},{m:[8,9,10],t:'pecans + sweet potatoes'},{m:[11,0,1],t:'citrus + hearty greens'}],
+    southeast: [{m:[3,4],t:'strawberries'},{m:[5,6,7],t:'peaches + butterbeans'},{m:[7,8],t:'muscadines'},{m:[8,9,10],t:'sweet potatoes + pecans'},{m:[11,0,1,2],t:'stored pecans + citrus + greens'}],
+    tropical: [{m:[11,0,1,2,3],t:'citrus peak'},{m:[5,6,7],t:'mango season'},{m:[4,8,9,10],t:'tropical produce + tomatoes'}],
+    newengland: [{m:[2,3],t:'maple sugaring'},{m:[5,6],t:'strawberries + greens'},{m:[6,7],t:'blueberries + sweet corn'},{m:[8,9],t:'apples + foliage markets'},{m:[10],t:'cranberries'},{m:[11,0,1],t:'root cellar + cider'}],
+    heartland: [{m:[6,7,8],t:'sweet corn + tomatoes'},{m:[8,9],t:'apples + pumpkins'},{m:[10,11,0,1,2,3,4,5],t:'cellar apples + storage roots'}],
+    north: [{m:[6,7],t:'short-season berries'},{m:[7,8],t:'wheat + sweet-corn harvest'},{m:[8,9],t:'apples + squash'},{m:[10,11,0,1,2,3,4,5],t:'storage + baking season'}],
+    pacific: [{m:[1,2,3,4,5],t:'artichokes + asparagus + strawberries'},{m:[6,7,8],t:'stone fruit + berries'},{m:[8,9,10],t:'apples + pears + grapes'},{m:[11,0],t:'citrus + winter greens'}],
+    desert: [{m:[11,0,1,2],t:'citrus + dates peak'},{m:[3,4],t:'spring greens + early fruit'},{m:[5,6],t:'melons'},{m:[7,8],t:'heat lull, early markets'},{m:[9,10],t:'date harvest + citrus arrives'}],
+    alaska: [{m:[5,6,7],t:'salmon runs + berries'},{m:[7,8],t:'harvest + berries'},{m:[9,10,11,0,1,2,3,4],t:'cellar + preserved salmon'}]
+  };
+
+  // month items for a frontier: researched calendar first, climate windows
+  // second, frontier detail items as the year-round fallback. Never empty
+  // when a detail object exists.
+  function frontierMonthItems(det, month, arch){
+    var fk = det && det.frontier;
+    var cal = fk && FRONTIER_CAL[fk];
+    if(cal){
+      if(month === -1) return {items:[cal.items.length ? cal.items[0].t : cal.off], shoulder:false, cal:true};
+      var hits = [];
+      cal.items.forEach(function(w){ if(w.m.indexOf(month) !== -1) hits.push(w.t); });
+      if(hits.length) return {items:hits.slice(0,2), shoulder:false, cal:true};
+      return {items:[cal.off], shoulder:true, cal:true};
+    }
+    var wins = CLIMATE_WIN[arch] || CLIMATE_WIN.heartland;
+    if(month === -1){
+      var base = (det && det.items && det.items[0]) || 'seasonal produce';
+      return {items:[base], shoulder:false, cal:false};
+    }
+    var found = [];
+    wins.forEach(function(w){ if(w.m.indexOf(month) !== -1) found.push(w.t); });
+    if(found.length) return {items:found.slice(0,2), shoulder:false, cal:false};
+    return {items:[(det && det.items && det.items[0]) || 'seasonal produce'], shoulder:true, cal:false};
+  }
+
+  function frontierTownShort(det){
+    try{
+      if(det && det.place) return String(det.place).split(' \u2014 ')[0];
+    }catch(e){}
+    return null;
   }
 
   // Regional archetypes — honest region-level seasonality, no invented farm names.
@@ -166,11 +200,12 @@
     try{
       var mk = market || 'US-MW-PARKCITY-84098';
       var r = resolveSeason(season);
-      var fk = frontierFor(mk);
-      var fm = fk ? frontierMonthItems(fk, r.month) : {items:[], shoulder:true};
+      var det = frontierDetail(mk);
       var arch = archetypeFor(mk);
+      var fm = det ? frontierMonthItems(det, r.month, arch) : {items:[], shoulder:true, cal:false};
       var line = archetypeLine(arch, r.month);
       var place = placeName(mk);
+      var town = frontierTownShort(det);
       var text, source;
       if(MARKET_BASE[mk] && r.month !== -1){
         text = place + ': ' + r.label + ' brings ' + fm.items.join(' + ') + ' \u2014 ' + MARKET_BASE[mk] + '.';
@@ -178,18 +213,18 @@
       } else if(MARKET_BASE[mk]){
         text = place + ': ' + MARKET_BASE[mk] + ' \u2014 ' + line + '.';
         source = 'curated';
-      } else if(fm.items.length && !fm.shoulder){
-        text = place + ': ' + r.label + ' brings ' + fm.items.join(' + ') + ' \u2014 ' + line + '.';
-        source = 'curated';
-      } else if(fm.items.length){
-        text = place + ': ' + r.label + ' \u2014 ' + line + ' (' + fm.items[0] + ').';
+      } else if(town && fm.items.length && !fm.shoulder){
+        text = place + ': ' + r.label + ' brings ' + fm.items.join(' + ') + ' \u2014 Featured Frontier: ' + town + '.';
+        source = fm.cal ? 'curated' : 'frontier';
+      } else if(town && fm.items.length){
+        text = place + ': ' + r.label + ' \u2014 ' + line + ' \u2014 Featured Frontier: ' + town + ' (' + fm.items[0] + ').';
         source = 'frontier';
       } else {
         text = place + ': ' + r.label + ' \u2014 ' + line + '.';
         source = 'archetype';
       }
       try{ window.__seasonFlavorSource = source; }catch(e){}
-      return {text:text, source:source, frontier:fk};
+      return {text:text, source:source, frontier:(det && det.frontier) || null};
     }catch(e){
       return {text:String(market || '') + ': seasonal frontier flavor.', source:'archetype', frontier:null};
     }

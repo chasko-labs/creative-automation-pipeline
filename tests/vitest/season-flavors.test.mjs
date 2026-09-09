@@ -51,9 +51,10 @@ describe('season flavors — 100% market x season coverage', () => {
         else archetype++;
       }
     }
-    // curated must be a real share (frontier in-season months), frontier the shoulder
-    expect(curated, 'curated lines').toBeGreaterThan(200);
-    expect(frontier, 'frontier shoulder lines').toBeGreaterThan(0);
+    // curated = researched calendars (7 frontiers + market bases); frontier =
+    // the 1:1 close-frontier tier that replaced sharing — the bulk of the matrix
+    expect(curated, 'curated lines').toBeGreaterThan(100);
+    expect(frontier, 'frontier lines').toBeGreaterThan(1000);
     // unknown markets fall to the archetype tier, never empty
     const unknown = flavorFor('US-XX-NOWHERE', 'March');
     expect(unknown.source).toBe('archetype');
@@ -71,6 +72,14 @@ describe('season flavors — 100% market x season coverage', () => {
     const sd = flavorFor('US-W-SD', 'September');
     expect(sd.frontier).toBe('US-CA-JULIAN');
     expect(sd.text).toMatch(/apple/i);
+    // 1:1 frontiers surface in the readout: Burlington names Shelburne, not Georgia
+    const burl = flavorFor('US-NE-BURLINGTON', 'October');
+    expect(burl.frontier).toBe('US-VT-SHELBURNE');
+    expect(burl.text).toMatch(/Shelburne/);
+    expect(burl.text).not.toMatch(/Georgia|Sandersville/);
+    const atl = flavorFor('US-SE-ATL', 'July');
+    expect(atl.frontier).toBe('US-GA-SENOIA');
+    expect(atl.text).toMatch(/Senoia/);
   });
 
   it('readout is season-reactive and the engine ships with the page', () => {
