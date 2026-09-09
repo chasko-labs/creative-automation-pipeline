@@ -175,15 +175,24 @@
     // thread selection into the campaign context. window.__activeSeason is read by generate();
     // empty selection = no seasonal hint (optional).
     window.__activeSeason = null;
+    function paintSeasonLabel(){
+      try{
+        var l = document.getElementById('seasonSectionLabel');
+        if(l) l.textContent = seasonSel.value || 'any';
+      }catch(e){}
+    }
     seasonSel.addEventListener('change', function(){
       window.__activeSeason = seasonSel.value || null;
+      paintSeasonLabel();
     });
+    paintSeasonLabel();
     // 1. default to the CURRENT calendar month by name (not "any"). "Season: any" stays selectable.
     // seed activeSeason so the brief carries "season: <month>" by default.
     try{
       var cm = months[new Date().getMonth()];
       seasonSel.value = cm;
       window.__activeSeason = seasonSel.value || null;
+      paintSeasonLabel();
     }catch(e){}
   }
 

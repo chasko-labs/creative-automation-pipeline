@@ -610,10 +610,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* sub Badges wear the same solid voice as every other stepnum — color matches, number differs. */
 .ff-stepnum.ff-stepnum--sub{font-size:11px;min-width:0}
 .ff-brief-label{display:flex;align-items:center;gap:8px}
-/* step 3 is a real control-box row like steps 1/2: solid badge, kicker, live select */
-.ff-season-standalone{display:flex;align-items:center;gap:8px;background:#FFFDF7;border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);font:600 14px/1.4 "museo-sans",sans-serif;color:var(--chocolate);padding:10px 12px}
-.ff-season-standalone .ff-season{flex:1 1 auto;min-width:0}
-.ff-season-standalone .ff-season select{width:100%}
+/* step 3 is a disclosure exactly like steps 1/2: closed row shows the pick,
+   open reveals the control. same box, same voice. */
+.ff-season-details>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;background:#FFFDF7;border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);font:600 14px/1.4 "museo-sans",sans-serif;color:var(--chocolate);padding:10px 12px}
+.ff-season-details>summary::-webkit-details-marker{display:none}
+.ff-season-details>summary::before{content:"▸";font-size:11px;color:var(--red);transition:transform .15s;flex:0 0 auto}
+.ff-season-details[open]>summary::before{transform:rotate(90deg)}
+.ff-season-details[open]>summary{background:rgba(26,60,52,.07)}
+.ff-season-details .ff-season-body{padding:10px 2px 0}
+.ff-season-details .ff-season select{width:100%}
+/* idea canvas + controls share one parchment — no bright-white holes */
+.ff-setup select,.ff-setup input[type="text"],.ff-setup input[type="search"]{background-color:#FFFDF7}
+.ff-inputwrap{background:linear-gradient(#F8F1E3,#F1E3CC);border-color:var(--colors-border-strong)}
+.ff-inputwrap::after{content:"";position:absolute;top:-1px;left:12px;right:12px;height:3px;border-radius:0 0 3px 3px;background:linear-gradient(90deg,transparent 0%,var(--colors-brand-frontier-green) 30%,var(--colors-brand-blaze-orange) 70%,transparent 100%);pointer-events:none}
 /* step-4 group: plain panel like every other row — numbering alone carries the family,
    indent and color match steps 1/2/3/5 exactly. */
 
@@ -1297,7 +1306,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   .platform-matrix{overflow-x:auto}
   .ff-setup-heading,.ff-output-heading{font-size:18px}
   .kodiak-headline-plate h1{white-space:normal;font-size:19px}
-  .ff-setup .ff-scope-summary,#locationSection>summary,.ff-brainstorm .ff-products>summary,.ff-brainstorm .ff-layers>summary,.ff-season-standalone{font-size:13px}
+  .ff-setup .ff-scope-summary,#locationSection>summary,.ff-brainstorm .ff-products>summary,.ff-brainstorm .ff-layers>summary,.ff-season-details>summary{font-size:13px}
   .ff-go{font-size:12px;letter-spacing:.06em}
 }
 /* === JS-rendered surfaces — token classes so templates carry zero inline style === */
@@ -1315,3 +1324,10 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .kamas-vibe-title{font-family:Roar,kodiak_sans,sans-serif;font-weight:800;color:#3B2316}
 .kamas-vibe-market{font-size:11px;color:#8C7A70;margin:6px 0}
 .kamas-preview{margin-top:10px}
+/* one hero frame (LAST so it beats the older panel overrides): the outer card
+   owns the surface; prompt + setup + group are flat spacing layers, not nested
+   cards. .body stays the shared padding primitive (spacing, never paint). */
+.ff-prompt{background:transparent;border:none;box-shadow:none;padding:0}
+.ff-setup{background:transparent;background-image:none;border:none;box-shadow:none;border-radius:0;padding:0}
+.ff-setup::after{display:none}
+.ff-brainstorm{background:transparent;background-image:none;border:none;padding:0}
