@@ -72,7 +72,7 @@ body{
   position:relative;
 }
 /* paper texture layers — base kc-paper declared on body; secondary canvas on .wrap via layered gradient */
-body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:var(--kraft);mix-blend-mode:multiply}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:var(--kraft);mix-blend-mode:multiply}
 a{color:var(--red);text-decoration:none;border-bottom:1px solid #B51E1433}a:hover{border-bottom-color:var(--red);color:var(--chocolate)}
 /* Gin headings — 800 Gin zjt4wyq, uppercase wide tracking, ink-trap */
 h1,h2,h3,.gin,.headline{font-family:"gin",Rockwell,Clarendon,Georgia,serif;font-weight:800;font-style:normal;text-transform:uppercase;letter-spacing:.06em;line-height:1; font-feature-settings:"ss01" 1,"liga" 1; font-variant-ligatures:common-ligatures; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
@@ -111,7 +111,9 @@ header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-s
 /* product hero-product-card-bg — wood/canvas texture */
 .hero-product-card-bg{background:var(--parchment) var(--wood) repeat; border:1px solid var(--stone)}
 .card{background:var(--gradients-kraft\.surface); border:1px solid var(--stone); border-radius:4px; overflow:hidden; margin:10px 0; box-shadow:var(--shadows-md),inset 0 1px 0 rgba(255,248,240,.5); position:relative; transition:transform .18s ease,box-shadow .18s ease}
-.card::before{content:"";position:absolute;inset:0;background:var(--wood) repeat;opacity:.06;pointer-events:none}
+/* linerboard + flutes: the rib tile leads so surfaces read as lit cardboard;
+   wood grain rides behind at the same low alpha (fiber, not threads). */
+.card::before{content:"";position:absolute;inset:0;background-image:var(--flute),var(--wood);background-repeat:repeat;opacity:.06;pointer-events:none}
 /* frontier top-rule (service-card pattern, kodiak hues): pine-to-blaze line,
    quiet at rest, full strength on hover. ::before is taken by wood grain. */
 .card::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent 0%,var(--colors-brand-frontier-green) 25%,var(--colors-brand-blaze-orange) 55%,var(--colors-brand-signal-red) 80%,transparent 100%);opacity:.35;pointer-events:none;transition:opacity .18s ease}
@@ -578,8 +580,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    order; every control keeps its id, role, and binding. Badges are pure CSS (attr(data-step)) so
    no extra DOM enters the a11y tree. data-scope-mode dimming still keys off .ff-controlrow. */
 .ff-setup{display:flex;flex-direction:column;gap:var(--spacing-sm);margin-top:var(--spacing-sm,8px);
-  padding:var(--spacing-md);background:var(--gradients-kraft\.surface);border:1px solid var(--stone);
-  border-radius:var(--radii-lg);box-shadow:var(--shadows-md),inset 0 1px 0 rgba(255,248,240,.5)}
+  padding:var(--spacing-md);background-image:var(--flute),var(--gradients-kraft\.surface);border:1px solid var(--stone);
+  border-radius:var(--radii-lg);box-shadow:var(--shadows-md),inset 0 1px 0 rgba(255,248,240,.5);position:relative}
+/* exposed flute edge: the torn bottom of the setup board shows the arch ends,
+   like looking at the cut edge of a corrugated sheet. Decorative, aria-hidden by context. */
+.ff-setup::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:8px;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(circle at 8px 10px, transparent 5px, rgba(59,35,22,.30) 5px, rgba(59,35,22,.30) 6.5px, transparent 6.5px);
+  background-size:16px 8px;background-repeat:repeat-x}
 .ff-setup-heading{margin:0;font:800 15px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.02em;color:var(--chocolate)}
 /* inside the guided step the blocks no longer need their own top separation — the section provides it */
 .ff-setup>.ff-scope-wrap,.ff-setup>.ff-location{margin-top:0}

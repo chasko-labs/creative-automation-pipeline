@@ -703,18 +703,18 @@
         "$description": "Layered kraft-paper texture set — replaces the stretched raster kodiakcakes CDN .webp background with pure CSS.",
         "surface": {
           "$type": "gradient",
-          "$value": "repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.10) 0px, rgba(59, 35, 22, 0.10) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 4px), repeating-linear-gradient(45deg, rgba(59, 35, 22, 0.06) 0px, rgba(59, 35, 22, 0.06) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 5px), linear-gradient(#F0E4D4, #EAD9C4)",
-          "$description": "CSS-gradient kraft texture — visible kraft-paper card: dense fine fiber (135deg brown stripes at 0.10 alpha every 4px) crossed with 45deg fiber (0.06 alpha every 5px) over a warm kraft-tan base (#F0E4D4 → #EAD9C4). Intended surface: cards. Reads clearly as kraft cardboard, not flat parchment. bearBrown #3B2316 body text holds WCAG AA on the warm tan."
+          "$value": "repeating-linear-gradient(90deg, rgba(59, 35, 22, 0.09) 0px, rgba(59, 35, 22, 0.09) 2px, rgba(255, 248, 240, 0.05) 2px, rgba(255, 248, 240, 0.05) 4px, rgba(59, 35, 22, 0) 4px, rgba(59, 35, 22, 0) 6px), linear-gradient(#F0E4D4, #EAD9C4)",
+          "$description": "CSS-gradient kraft texture — visible kraft-paper card: vertical flute ribs (90deg, 6px period \u2014 bear-brown ridge, parchment valley) over a warm kraft-tan base (#F0E4D4 → #EAD9C4). Intended surface: cards. Reads clearly as kraft cardboard, not flat parchment. bearBrown #3B2316 body text holds WCAG AA on the warm tan."
         },
         "background": {
           "$type": "gradient",
-          "$value": "repeating-linear-gradient(90deg, rgba(59, 35, 22, 0.08) 0px, rgba(59, 35, 22, 0.02) 3px, rgba(59, 35, 22, 0.08) 6px), repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.06) 0px, rgba(59, 35, 22, 0.06) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 5px), radial-gradient(130% 130% at 50% 30%, rgba(59, 35, 22, 0.10) 0%, rgba(59, 35, 22, 0) 65%), linear-gradient(#E8D5BE, #DFC9AC)",
-          "$description": "CSS-gradient kraft texture — corrugated cardboard page ground: soft vertical flute ridges (90deg, 0.08→0.02→0.08 alpha over 6px) plus 135deg paper fiber (0.06 alpha every 5px) plus a warm centered vignette, over a deeper kraft-tan base (#E8D5BE → #DFC9AC). Intended surface: page background. Reads as a real corrugated kraft box. bearBrown #3B2316 body text holds WCAG AA on the warm tan."
+          "$value": "repeating-linear-gradient(90deg, rgba(59, 35, 22, 0.09) 0px, rgba(59, 35, 22, 0.09) 2px, rgba(255, 248, 240, 0.05) 2px, rgba(255, 248, 240, 0.05) 4px, rgba(59, 35, 22, 0) 4px, rgba(59, 35, 22, 0) 6px), radial-gradient(130% 130% at 50% 30%, rgba(59, 35, 22, 0.10) 0%, rgba(59, 35, 22, 0) 65%), linear-gradient(#E8D5BE, #DFC9AC)",
+          "$description": "CSS-gradient kraft texture — corrugated cardboard page ground: soft vertical flute ridges (90deg, 0.08→0.02→0.08 alpha over 6px) plus a warm centered vignette, over a deeper kraft-tan base (#E8D5BE → #DFC9AC). Intended surface: page background. Reads as a real corrugated kraft box. bearBrown #3B2316 body text holds WCAG AA on the warm tan."
         },
         "surfaceHover": {
           "$type": "gradient",
-          "$value": "radial-gradient(90% 90% at 100% 0%, rgba(232, 83, 14, 0.12) 0%, rgba(232, 83, 14, 0) 55%), repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.10) 0px, rgba(59, 35, 22, 0.10) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 4px), repeating-linear-gradient(45deg, rgba(59, 35, 22, 0.06) 0px, rgba(59, 35, 22, 0.06) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 5px), linear-gradient(#F0E4D4, #F0E4D4)",
-          "$description": "CSS-gradient kraft texture — interactive variant of surface: the same visible kraft fiber (135deg 0.10 + 45deg 0.06) over #F0E4D4, topped with a warm blaze-orange #E8530E bloom (0.12 alpha, top-right corner). Intended surface: hovered/active cards. bearBrown #3B2316 body text holds WCAG AA on the warm tan."
+          "$value": "radial-gradient(90% 90% at 100% 0%, rgba(232, 83, 14, 0.12) 0%, rgba(232, 83, 14, 0) 55%), repeating-linear-gradient(90deg, rgba(59, 35, 22, 0.09) 0px, rgba(59, 35, 22, 0.09) 2px, rgba(255, 248, 240, 0.05) 2px, rgba(255, 248, 240, 0.05) 4px, rgba(59, 35, 22, 0) 4px, rgba(59, 35, 22, 0) 6px), linear-gradient(#F0E4D4, #F0E4D4)",
+          "$description": "CSS-gradient kraft texture — interactive variant of surface: the same flute ribs over #F0E4D4, topped with a warm blaze-orange #E8530E bloom (0.12 alpha, top-right corner). Intended surface: hovered/active cards. bearBrown #3B2316 body text holds WCAG AA on the warm tan."
         },
         "sheen": {
           "$type": "gradient",

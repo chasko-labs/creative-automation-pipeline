@@ -505,9 +505,9 @@
     --shadows-lg: 0px 16px 48px 0px #1A111040;
     --shadows-bear: 0px 12px 32px 0px #3B231633;
     --shadows-text: 0px 2px 4px 0px #000000CC;
-    --gradients-kraft\.surface: repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.10) 0px, rgba(59, 35, 22, 0.10) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 4px), repeating-linear-gradient(45deg, rgba(59, 35, 22, 0.06) 0px, rgba(59, 35, 22, 0.06) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 5px), linear-gradient(#F0E4D4, #EAD9C4);
-    --gradients-kraft\.background: repeating-linear-gradient(90deg, rgba(59, 35, 22, 0.08) 0px, rgba(59, 35, 22, 0.02) 3px, rgba(59, 35, 22, 0.08) 6px), repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.06) 0px, rgba(59, 35, 22, 0.06) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 5px), radial-gradient(130% 130% at 50% 30%, rgba(59, 35, 22, 0.10) 0%, rgba(59, 35, 22, 0) 65%), linear-gradient(#E8D5BE, #DFC9AC);
-    --gradients-kraft\.surface-hover: radial-gradient(90% 90% at 100% 0%, rgba(232, 83, 14, 0.12) 0%, rgba(232, 83, 14, 0) 55%), repeating-linear-gradient(135deg, rgba(59, 35, 22, 0.10) 0px, rgba(59, 35, 22, 0.10) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 4px), repeating-linear-gradient(45deg, rgba(59, 35, 22, 0.06) 0px, rgba(59, 35, 22, 0.06) 1px, rgba(59, 35, 22, 0) 1px, rgba(59, 35, 22, 0) 5px), linear-gradient(#F0E4D4, #F0E4D4);
+    --gradients-kraft\.surface: repeating-linear-gradient(90deg, rgba(59, 35, 22, 0.09) 0px, rgba(59, 35, 22, 0.09) 2px, rgba(255, 248, 240, 0.05) 2px, rgba(255, 248, 240, 0.05) 4px, rgba(59, 35, 22, 0) 4px, rgba(59, 35, 22, 0) 6px), linear-gradient(#F0E4D4, #EAD9C4);
+    --gradients-kraft\.background: repeating-linear-gradient(90deg, rgba(59, 35, 22, 0.09) 0px, rgba(59, 35, 22, 0.09) 2px, rgba(255, 248, 240, 0.05) 2px, rgba(255, 248, 240, 0.05) 4px, rgba(59, 35, 22, 0) 4px, rgba(59, 35, 22, 0) 6px), radial-gradient(130% 130% at 50% 30%, rgba(59, 35, 22, 0.10) 0%, rgba(59, 35, 22, 0) 65%), linear-gradient(#E8D5BE, #DFC9AC);
+    --gradients-kraft\.surface-hover: radial-gradient(90% 90% at 100% 0%, rgba(232, 83, 14, 0.12) 0%, rgba(232, 83, 14, 0) 55%), repeating-linear-gradient(90deg, rgba(59, 35, 22, 0.09) 0px, rgba(59, 35, 22, 0.09) 2px, rgba(255, 248, 240, 0.05) 2px, rgba(255, 248, 240, 0.05) 4px, rgba(59, 35, 22, 0) 4px, rgba(59, 35, 22, 0) 6px), linear-gradient(#F0E4D4, #F0E4D4);
     --gradients-kraft\.sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.14) 18%, rgba(255, 255, 255, 0) 44%, rgba(59, 35, 22, 0.05) 82%, rgba(59, 35, 22, 0.10) 100%);
     --breakpoints-sm: 640px;
     --breakpoints-md: 768px;
@@ -563,66 +563,4 @@
       animation-timing-function: cubic-bezier(0,0,0.2,1);
 }
 }
-}
-
-
-/* ==========================================================================
-   S15 spectrum bridge layer (Option A: token-bridged, NOT token-replacing)
-   --------------------------------------------------------------------------
-   Inert until Adobe spectrum-web-components is ever adopted. This block only
-   publishes spectrum-named --mod-* custom-property aliases that resolve onto
-   EXISTING kodiak Panda tokens. No spectrum runtime, no HTML change, no
-   selector change — the six native controls (.ff-market details/summary,
-   .ff-season select, .ff-chip pills, .ff-geo button, native <details>
-   accordions) keep rendering on kodiak tokens exactly as before.
-
-   Every --mod-* below === var(<existing kodiak token>). The only literals are
-   documented fallbacks (#fff, 999px) that mirror values already used in the
-   current CSS. Every focus-indicator alias resolves to --colors-brand-signal-red.
-   ========================================================================== */
-:root {
-  /* picker — maps .ff-market button + .ff-season select surface */
-  --mod-picker-background-color-default: var(--colors-background-nature);
-  --mod-picker-background-color-open: var(--colors-brand-bear-brown);
-  --mod-picker-font-color: var(--colors-foreground-inverse);
-  --mod-picker-border-color: var(--colors-brand-frontier-green);
-  --mod-picker-border-radius: var(--radii-lg);
-  --mod-picker-focus-indicator-color: var(--colors-brand-signal-red);
-
-  /* menu / menu-item — maps .ff-market-panel role=option list */
-  --mod-menu-item-background-color-default: transparent;
-  --mod-menu-item-background-color-hover: var(--colors-neutral-100);
-  /* NOTE: spectrum has NO native persistent-selected-fill --mod var on
-     menu-item; the -selected alias below is a kodiak design decision to
-     preserve the current aria-selected fill. */
-  --mod-menu-item-background-color-selected: var(--colors-brand-frontier-green);
-  --mod-menu-item-label-content-color-default: var(--colors-foreground-default);
-  --mod-menu-item-label-content-color-selected: var(--colors-foreground-inverse);
-
-  /* combobox — bridge only; no #productSearch control exists in this page yet.
-     Published for future product-search adoption. */
-  --mod-combobox-background-color: var(--colors-neutral-0, #fff);
-  --mod-combobox-border-color: var(--colors-border-default);
-  --mod-combobox-border-radius: var(--radii-sm);
-  --mod-combobox-focus-indicator-color: var(--colors-brand-signal-red);
-  --mod-combobox-font-color-default: var(--colors-foreground-default);
-
-  /* actionbutton — maps .ff-chip toggle pills */
-  --mod-actionbutton-background-color-default: #fff;
-  --mod-actionbutton-background-color-hover: var(--colors-neutral-100);
-  --mod-actionbutton-background-color-default-selected: var(--colors-brand-bear-brown);
-  --mod-actionbutton-content-color-default: var(--colors-foreground-default);
-  --mod-actionbutton-content-color-selected: var(--colors-neutral-50);
-  --mod-actionbutton-border-radius: var(--radii-full, 999px);
-  --mod-actionbutton-focus-indicator-color: var(--colors-brand-signal-red);
-
-  /* accordion — maps native <details> accordions .preview-card/.platform-copy/.provenance */
-  --mod-accordion-background-color-default: var(--colors-neutral-50);
-  --mod-accordion-corner-radius: var(--radii-md);
-  --mod-accordion-divider-color: var(--colors-border-default);
-  --mod-accordion-item-header-color-default: var(--colors-foreground-default);
-  --mod-accordion-focus-indicator-color: var(--colors-brand-signal-red);
-
-  /* icon — maps .ff-geo-pin */
-  --mod-icon-color: var(--colors-brand-signal-red);
 }
