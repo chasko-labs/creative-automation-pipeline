@@ -51,32 +51,20 @@
   // 3. user-added markets (client-side only). No curated cue/language data — degrade gracefully.
   var customMarkets = [];
 
-  // current season suffix for the step-2 summary — slim one-line signal, picker stays inside
-  function seasonSuffix(){
-    try{ var v = document.getElementById('seasonalSelect').value; return v ? (' · ' + v) : ''; }
-    catch(e){ return ''; }
-  }
-  // repaint the step-2 summary from the live market + season (called by reflectMarket + season change)
-  function paintOuterSummary(market){
-    var outer = document.getElementById('locationSectionLabel');
-    if(!outer) return;
-    var p = placeFor(market);
-    if(p) outer.textContent = (p.place || market) + seasonSuffix();
-  }
   // update the three derived lines (button label, featured frontier, language line) for a market
   function reflectMarket(market){
     var p = placeFor(market);
     if(label && p) label.textContent = 'Location: ' + (p.place || market);
-    // outer step-2 summary mirrors the same place (no "Location: " prefix — the summary owns it)
-    paintOuterSummary(market);
+    // outer step-2 summary mirrors the same place (no "Location: " prefix — the summary owns it).
+    // Season has its own step-3 row now, so it stays out of this line.
+    var outer = document.getElementById('locationSectionLabel');
+    if(outer && p) outer.textContent = (p.place || market);
     if(summary && p) summary.setAttribute('aria-label', 'Choose market — currently ' + (p.place || market));
     if(featuredEl){
       var cue = p && p.cue ? p.cue : '';
-      // #257: metro markets show their data-mapped featured-frontier linkage (via
-      // their own mapping entry). Self-frontier markets already carry it in cue.
-      var link = (typeof featuredFrontierFor==='function') ? featuredFrontierFor(market) : null;
-      var linkTxt = (link && link.frontier!==market) ? (' | featured frontier (rural counterpart): ' + link.text) : '';
-      featuredEl.textContent = cue ? ('Featured frontier: ' + cue + linkTxt) : (linkTxt ? ('Featured frontier: ' + link.text) : '');
+      // Rural-counterpart display retired: the readout names this market's own
+      // frontier only. (featuredFrontierFor data still feeds the backend hint.)
+      featuredEl.textContent = cue ? ('Featured frontier: ' + cue) : '';
     }
     if(langLine){
       try{ renderLocalizedCopy(market); }
@@ -189,7 +177,6 @@
     window.__activeSeason = null;
     seasonSel.addEventListener('change', function(){
       window.__activeSeason = seasonSel.value || null;
-      try{ paintOuterSummary(document.getElementById('locality').value); }catch(e){}
     });
     // 1. default to the CURRENT calendar month by name (not "any"). "Season: any" stays selectable.
     // seed activeSeason so the brief carries "season: <month>" by default.

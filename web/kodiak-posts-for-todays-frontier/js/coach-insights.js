@@ -65,10 +65,21 @@
       var briefEl = document.getElementById('campaignBrief');
       var themeEl = document.querySelector('#promptChips .ff-chip[aria-pressed="true"]');
       var marketEl = document.getElementById('marketSummary');
+      // Ground the coach in what is ACTUALLY selected — ungrounded theme claims
+      // ("aligns with X") are worse than none. Products, season, scope included.
+      var prodEl = document.getElementById('productChooser');
+      var prodNames = [];
+      try{
+        prodNames = Array.from(prodEl ? prodEl.querySelectorAll('.sku-check:checked') : []).map(function(b){ return b.value; });
+      }catch(e){}
+      var seasonEl = document.getElementById('seasonalSelect');
       var payload = {
         brief: briefEl ? briefEl.value : '',
         theme: themeEl ? themeEl.getAttribute('data-theme') : 'none',
         market: marketEl ? marketEl.textContent : 'us',
+        products: prodNames,
+        season: seasonEl ? seasonEl.value : '',
+        scope: (window.__campaignScope && window.__campaignScope.mode) || '',
       };
       fetch(url + '/insights', {
         method: 'POST',

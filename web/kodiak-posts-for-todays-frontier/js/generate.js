@@ -356,7 +356,10 @@ let skuList = [
       usedHtml = (prov.art_headline ? '<p class="pc-title">'+escapeHtml(prov.art_headline)+'</p>' : '')+
         (pcKeys.length ? '<p class="pc-text">'+pcKeys.map(k=>escapeHtml(k+': '+(((pc[k]||{}).headline||(pc[k]||{}).title)||''))).join('<br>')+'</p>' : '<p class="pc-text">Full platform copy deferred — ships with Generate Campaign.</p>');
     } else if(deferred.indexOf('platform_copy')!==-1){
-      usedHtml = '<p class="pc-text">Preview copy only — full platform copy is deferred and ships with Generate Campaign.</p>';
+      // The localized tile captions ARE the preview copy — a second section saying
+      // so adds noise. Drop the panel unless mismatch flags need surfacing.
+      if(!flags.length){ try{ panel.remove(); }catch(e){} return; }
+      usedHtml = '<p class="pc-text">Preview copy lives with each size below — full platform copy ships with Generate Campaign.</p>';
     } else {
       usedHtml = '<p class="pc-text">The backend returned no copy with this preview.</p>';
     }

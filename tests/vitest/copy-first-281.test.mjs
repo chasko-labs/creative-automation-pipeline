@@ -18,10 +18,13 @@ describe('copy-first preview (#281)', () => {
     expect(gen.indexOf("phase:'driving'")).toBeLessThan(gen.indexOf('oneGenerate(primarySlug'));
   });
 
-  it('used phase shows only backend-returned copy, honestly labeled when deferred', () => {
+  it('used phase shows only backend-returned copy; deferred-only with no flags drops the panel', () => {
     expect(gen).toMatch(/phase:'used'/);
     expect(gen).toMatch(/Campaign copy — used in this preview/);
-    expect(gen).toMatch(/full platform copy is deferred and ships with Generate Campaign/);
+    // the localized tile captions ARE the preview copy — a deferred-only panel with
+    // nothing to flag is removed instead of stating the obvious; flags still surface.
+    expect(gen).toMatch(/Drop the panel unless mismatch flags need surfacing/);
+    expect(gen).toMatch(/Preview copy lives with each size below/);
   });
 
   it('mismatch flag fires on real divergence: theme changed/dropped, fallback pixels', () => {

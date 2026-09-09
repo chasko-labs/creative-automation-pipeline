@@ -821,17 +821,12 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
       const names = langs.map(l=>l.lang_name).filter(Boolean);
       const reach = esc(names.length ? names.join(', ') : 'English');
       const sceneHtml = scene ? '<span class="ff-cue">'+esc(scene)+'</span>' : '';
-      // #257: metro markets link their featured frontier from data (via its own
-      // entry, not the frontier's cue). Self-frontier markets already carry it.
-      // The link names the RURAL COUNTERPART to the urban market — a data pairing,
-      // never the viewer's location.
-      const frontierLink = (typeof featuredFrontierFor==='function') ? featuredFrontierFor(market) : null;
-      const linkHtml = (frontierLink && frontierLink.frontier!==market) ? '<span class="ff-frontier-link">'+esc('featured frontier — the rural counterpart to this market: '+frontierLink.text)+'</span>' : '';
+      // Rural-counterpart display retired: the caption names this market only.
+      // (featuredFrontierFor data still feeds the backend nearest-frontier hint.)
       featured.innerHTML =
         '<span class="ff-context-lead">This campaign, localized for</span> '+
         '<span class="ff-place">'+esc(placeName)+'</span>'+
         sceneHtml+
-        linkHtml+
         '<span class="ff-reach">localized reach: '+reach+'</span>';
     }
 

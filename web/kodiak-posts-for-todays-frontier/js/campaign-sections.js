@@ -302,7 +302,9 @@
       }catch(e){}
       var assets = document.getElementById('campaignAssetsSection');
       if(assets && assets.hidden){ assets.hidden = false; }
-      try{ assets.scrollIntoView({behavior:'smooth', block:'start'}); }catch(e){}
+      // block:'nearest' reveals without yanking the section to viewport top — the
+      // assets belong below generate, not snapped over it.
+      try{ assets.scrollIntoView({behavior:'smooth', block:'nearest'}); }catch(e){}
       if(status) status.textContent = 'Campaign created — ' + renders.length + ' asset' + (renders.length===1?'':'s') + ' from ' + (json.source || 'Nova Pro') + ' (' + scope + ')';
       // #284 — wall-timeout fallback is a QA miss, not a campaign: label it and
       // offer retry. Passing runs clear any prior fail box.

@@ -607,14 +607,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* step order lives in integrated .ff-stepnum badges inside each summary/label/row
    (1/2/3/5 match the 6/7/8 pattern, 4.1-4.4 mark the group substeps); data-step
    attrs stay on the blocks as quiet hooks. the old left-gutter badges are retired. */
-.ff-stepnum.ff-stepnum--sub{background:transparent;color:var(--colors-brand-frontier-green);border:1.5px solid var(--colors-brand-frontier-green);font-size:11px;min-width:0}
+/* sub Badges wear the same solid voice as every other stepnum — color matches, number differs. */
+.ff-stepnum.ff-stepnum--sub{font-size:11px;min-width:0}
 .ff-brief-label{display:flex;align-items:center;gap:8px}
 /* step 3 is a real control-box row like steps 1/2: solid badge, kicker, live select */
 .ff-season-standalone{display:flex;align-items:center;gap:8px;background:#FFFDF7;border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);font:600 14px/1.4 "museo-sans",sans-serif;color:var(--chocolate);padding:10px 12px}
 .ff-season-standalone .ff-season{flex:1 1 auto;min-width:0}
 .ff-season-standalone .ff-season select{width:100%}
-/* step-4 group reads as one family: the pine rail alone groups 4.1-4.4, no stray badges */
-.ff-brainstorm{position:relative;border-left:3px solid var(--colors-brand-frontier-green);border-radius:0 var(--radii-lg) var(--radii-lg) 0;padding-left:12px}
+/* step-4 group: plain panel like every other row — numbering alone carries the family,
+   indent and color match steps 1/2/3/5 exactly. */
 
 /* item 6 - unified brainstorming surface: campaign-option chips + product picker share one panel
    (single background/border/radius + consistent inner spacing rhythm) so they read as one control
@@ -1271,23 +1272,14 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-inputwrap .ff-briefsuggest{margin-top:var(--spacing-xs)}
 /* Create owns the last row, full width */
 .ff-inputfoot .ff-go{flex:1 1 100%}
-/* === widescreen grid: setup left, output+generate right === */
+/* === widescreen: single-column flow (timeline -> setup -> output -> generate -> about).
+   Two columns crammed setup+output onto one row; the ordered stack is the product.
+   width:100% defeats the flex auto-margin shrink (the load-time pop fix); the
+   1100/1440/1680 caps above govern the column. === */
 @media(min-width:1150px){
-  .wrap{width:100%;max-width:1560px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:0 var(--spacing-lg);align-items:start}
-  .ff-timeline{grid-column:1/-1;grid-row:1}
-  .ff-ridge{grid-column:1/-1;grid-row:2}
-  .ff-prompt{grid-column:1;grid-row:3;align-self:start}
-  section.ff-output{grid-column:2;grid-row:3;align-self:start}
-  .ff-forest{grid-column:1/-1;grid-row:4}
-  .ff-generate-campaign{grid-column:1/-1;grid-row:5}
-  .ff-campaign-assets{grid-column:1/-1;grid-row:6}
-  /* about reads as a balanced block: copy left, doc links right */
-  .ff-about .body{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--spacing-md);align-items:center}
-  .ff-about .ff-about__copy{margin:0}
-  .ff-about .ff-doclinks{margin-top:0}
-.mt-sm{margin-top:var(--spacing-sm)}
-  .ff-about-art,.ff-about,#buildStamp{grid-column:1/-1}
+  .wrap{width:100%}
 }
+.mt-sm{margin-top:var(--spacing-sm)}
 /* === mobile: no spill, stacked CTA, wrapped pills === */
 @media(max-width:640px){
   .wrap{padding:12px}
