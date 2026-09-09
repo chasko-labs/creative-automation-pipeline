@@ -41,11 +41,88 @@
         "signalRed": {
           "$type": "color",
           "$value": "#B51E14",
-          "$description": "Signal Red — live production accent. Links, header title block, .btn.orange CTA. Governs the previously-inline --red so flat UI and future 3D never drift.",
+          "$description": "Signal Red — narrowing to alert/error/links per docs/plans/2026-09-09-unify-compose-colors.md. Off-limits for chevrons, badges, secondary buttons, focus rings (pine/bear-brown own those now). Links grandfathered pending a link-color pass.",
           "$extensions": {
             "org.kodiak": {
               "name": "Signal Red",
-              "usage": "accent / link / cta"
+              "usage": "alert / error / links"
+            }
+          }
+        },
+        "boxParchment": {
+          "$type": "color",
+          "$value": "#F5EAD3",
+          "$description": "Box Parchment — warm control-box fill (step summaries, asset tray). Sits in the kraft page instead of glowing near-white.",
+          "$extensions": {
+            "org.kodiak": {
+              "name": "Box Parchment",
+              "usage": "control boxes / readouts"
+            }
+          }
+        },
+        "badgeParchment": {
+          "$type": "color",
+          "$value": "#F2E2C6",
+          "$description": "Badge Parchment — step-numeral ink on bear-brown badges. Softer than near-white.",
+          "$extensions": {
+            "org.kodiak": {
+              "name": "Badge Parchment",
+              "usage": "badge numerals"
+            }
+          }
+        },
+        "emberHi": {
+          "$type": "color",
+          "$value": "#B53E09",
+          "$description": "Ember Hi — Create Campaign Preview gradient top stop. CTA ember lives here, nowhere else.",
+          "$extensions": {
+            "org.kodiak": {
+              "name": "Ember Hi",
+              "usage": "CTA gradient"
+            }
+          }
+        },
+        "emberMid": {
+          "$type": "color",
+          "$value": "#A83806",
+          "$description": "Ember Mid — Create Campaign Preview gradient middle stop.",
+          "$extensions": {
+            "org.kodiak": {
+              "name": "Ember Mid",
+              "usage": "CTA gradient"
+            }
+          }
+        },
+        "emberLo": {
+          "$type": "color",
+          "$value": "#93300A",
+          "$description": "Ember Lo — Create Campaign Preview gradient bottom stop + button edge.",
+          "$extensions": {
+            "org.kodiak": {
+              "name": "Ember Lo",
+              "usage": "CTA gradient / edge"
+            }
+          }
+        },
+        "kraftHi": {
+          "$type": "color",
+          "$value": "#F2E5CB",
+          "$description": "Kraft Hi — campaign-idea panel gradient top. Darker bed so the ember CTA sits in it.",
+          "$extensions": {
+            "org.kodiak": {
+              "name": "Kraft Hi",
+              "usage": "idea panel gradient"
+            }
+          }
+        },
+        "kraftLo": {
+          "$type": "color",
+          "$value": "#E9D2B0",
+          "$description": "Kraft Lo — campaign-idea panel gradient bottom.",
+          "$extensions": {
+            "org.kodiak": {
+              "name": "Kraft Lo",
+              "usage": "idea panel gradient"
             }
           }
         }

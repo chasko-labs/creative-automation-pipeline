@@ -266,8 +266,8 @@ section.xl{padding:var(--section-space-xl) 0}
    inset top highlight + low bounce-light for dimension, fluted print texture,
    bear elevation, hover light-sweep. 52px tier so nothing else competes. */
 .ff-go{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:52px;min-height:52px;padding:0 34px;white-space:nowrap;
-  border-radius:var(--radii-lg,16px);border:1px solid #7E2A05;
-  background:linear-gradient(180deg,#B53E09 0%,#A83806 48%,#93300A 100%);color:#fff;
+  border-radius:var(--radii-lg,16px);border:1px solid var(--colors-brand-ember-lo);
+  background:linear-gradient(180deg,var(--colors-brand-ember-hi) 0%,var(--colors-brand-ember-mid) 48%,var(--colors-brand-ember-lo) 100%);color:#fff;
   font:700 14px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;
   box-shadow:inset 0 1px 0 rgba(255,248,240,.35),inset 0 -2px 5px rgba(59,20,5,.45),var(--shadows-bear);
   position:relative;overflow:hidden}
@@ -275,9 +275,9 @@ section.xl{padding:var(--section-space-xl) 0}
   background:linear-gradient(180deg,rgba(255,240,220,.12),transparent 42%),var(--wood);
   background-size:auto,180px 180px}
 .ff-go{text-shadow:0 -1px 0 rgba(43,16,4,.65),0 1px 0 rgba(255,240,220,.28)}
-.ff-go:hover{background:linear-gradient(180deg,#B53E09 0%,#9E3408 55%,#86300A 100%);border-color:#7E2A05;
+.ff-go:hover{filter:brightness(1.06);border-color:var(--colors-brand-ember-lo);
   box-shadow:inset 0 1px 0 rgba(255,248,240,.45),inset 0 -2px 5px rgba(59,20,5,.4),var(--shadows-lg);transform:translateY(-1px)}
-.ff-go{transition:background .15s,border-color .15s,box-shadow .15s,transform .15s}
+.ff-go{transition:background .15s,border-color .15s,box-shadow .15s,transform .15s,filter .15s}
 .ff-go::after{content:"";position:absolute;top:-10%;bottom:-10%;left:-70%;width:50%;pointer-events:none;
   background:linear-gradient(105deg,transparent 0%,rgba(255,248,240,.38) 50%,transparent 100%);
   transform:skewX(-18deg);transition:left .55s ease}
@@ -620,7 +620,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-brief-label{display:flex;align-items:center;gap:8px}
 /* step 3 is a disclosure exactly like steps 1/2: closed row shows the pick,
    open reveals the control. same box, same voice. */
-.ff-season-details>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;background:#F5EAD3;border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);font:600 14px/1.4 "museo-sans",sans-serif;color:var(--chocolate);padding:10px 12px}
+.ff-season-details>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);font:600 14px/1.4 "museo-sans",sans-serif;color:var(--chocolate);padding:10px 12px}
 .ff-season-details>summary::-webkit-details-marker{display:none}
 .ff-season-details>summary::before{content:"▸";font-size:11px;color:var(--red);transition:transform .15s;flex:0 0 auto}
 #locationSection>summary::-webkit-details-marker{display:none}
@@ -632,7 +632,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-season-details .ff-season select{width:100%}
 /* idea canvas + controls share one parchment — no bright-white holes */
 .ff-setup select,.ff-setup input[type="text"],.ff-setup input[type="search"]{background-color:#FFFDF7}
-.ff-inputwrap{background:linear-gradient(#F2E5CB,#E9D2B0);border-color:var(--colors-border-strong)}
+.ff-inputwrap{background:linear-gradient(var(--colors-brand-kraft-hi),var(--colors-brand-kraft-lo));border-color:var(--colors-border-strong)}
 .ff-inputwrap::after{content:"";position:absolute;top:-1px;left:12px;right:12px;height:3px;border-radius:0 0 3px 3px;background:linear-gradient(90deg,transparent 0%,var(--colors-brand-frontier-green) 30%,var(--colors-brand-blaze-orange) 70%,transparent 100%);pointer-events:none}
 /* step-4 group: plain panel like every other row — numbering alone carries the family,
    indent and color match steps 1/2/3/5 exactly. */
@@ -923,7 +923,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 /* === #239 — campaign assets ride the same output card, centered like the preview === */
 .ff-output.ff-campaign-assets{max-width:960px;width:100%;margin-left:auto;margin-right:auto}
 /* === numbered flow 5/6/7 — step chips shared by Output Preview, Generate Campaign, assets === */
-.ff-stepnum{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--colors-brand-bear-brown);color:#F2E2C6;font:800 12px/1 "museo-sans",sans-serif;flex:0 0 auto}
+.ff-stepnum{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--colors-brand-bear-brown);color:var(--colors-brand-badge-parchment);font:800 12px/1 "museo-sans",sans-serif;flex:0 0 auto}
 /* === Generate Campaign collapsed gate — same disclosure styling as Output Preview
    (.preview-card), greyed marker while locked until preview === */
 .ff-output.ff-generate-campaign{width:100%}
@@ -1239,7 +1239,7 @@ header::before{background:none}
 .ff-prompt{background-image:none;background-color:#F8F1E3}
 .ff-brainstorm{background:#F2E7D3}
 /* summaries read as controls: near-white box + strong edge (open/hover states keep their specificity-won treatments) */
-.ff-setup .ff-scope-summary,#locationSection>summary{background:#F5EAD3;border:1px solid var(--colors-border-strong)}
+.ff-setup .ff-scope-summary,#locationSection>summary{background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-strong)}
 .ff-controlrow select,.ff-controlrow input,.ff-controlrow textarea{background:#fff;border:1px solid var(--colors-border-strong)}
 /* kickers carry the pine so labels scan apart from chocolate values */
 .ff-location-kicker{color:var(--colors-brand-frontier-green)}
@@ -1271,7 +1271,7 @@ html,body{overflow-x:clip}
 .ff-brainstorm{display:flex;flex-direction:column;gap:8px}
 .ff-brainstorm>.ff-directions,.ff-brainstorm>.ff-products,.ff-brainstorm>.ff-layers{margin-top:0;padding-top:0;border-top:none}
 .ff-directions>.ff-optiongroup{padding-top:0}
-.ff-brainstorm .ff-products>summary,.ff-brainstorm .ff-layers>summary{display:flex;width:100%;align-items:center;background:#F5EAD3;border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);font:600 14px/1.4 "museo-sans",sans-serif;letter-spacing:0;text-transform:lowercase;color:var(--chocolate);padding:10px 12px}
+.ff-brainstorm .ff-products>summary,.ff-brainstorm .ff-layers>summary{display:flex;width:100%;align-items:center;background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);font:600 14px/1.4 "museo-sans",sans-serif;letter-spacing:0;text-transform:lowercase;color:var(--chocolate);padding:10px 12px}
 .ff-brainstorm .ff-layers-state{margin-left:auto}
 /* === texture comeback (whisper, cards only) + motion === */
 .card::before{opacity:.09}
@@ -1285,7 +1285,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 /* preview figcaption (was an inline style) */
 .ff-figcap{font:600 13px/1.4 "museo-sans",sans-serif;color:#3B2316;margin-top:8px}
 /* 4.4 staging row: same control-box voice as the other rows, tray fills the rest */
-.ff-assetrow{display:flex;align-items:center;gap:var(--spacing-sm);flex-wrap:wrap;background:#F5EAD3;border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);padding:10px 12px}
+.ff-assetrow{display:flex;align-items:center;gap:var(--spacing-sm);flex-wrap:wrap;background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);padding:10px 12px}
 .ff-assetrow .ff-tray{margin-top:0;flex:1 1 auto}
 .ff-assetrow .ff-dam-trigger{flex:0 0 auto}
 /* suggestions attach under the canvas they complete */

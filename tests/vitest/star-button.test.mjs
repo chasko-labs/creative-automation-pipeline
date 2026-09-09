@@ -21,8 +21,8 @@ describe('star button + lit cardboard', () => {
     expect(generate).toMatch(/const origLabel = 'Create Campaign Preview'/);
   });
 
-  it('deep ember gradient keeps every stop AA-safe vs white', () => {
-    expect(css).toMatch(/\.ff-go\{[^}]*background:linear-gradient\(180deg,#B53E09 0%,#A83806 48%,#93300A 100%\)/);
+  it('deep ember gradient keeps every stop token-fed and AA-safe vs white', () => {
+    expect(css).toMatch(/\.ff-go\{[^}]*background:linear-gradient\(180deg,var\(--colors-brand-ember-hi\) 0%,var\(--colors-brand-ember-mid\) 48%,var\(--colors-brand-ember-lo\) 100%\)/);
     expect(css).toMatch(/\.ff-go::before\{[^}]*var\(--wood\)/);
     expect(css).toMatch(/\.ff-go\{[^}]*text-shadow:0 -1px 0 rgba\(43,16,4/);
   });

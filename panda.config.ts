@@ -26,6 +26,27 @@ export default defineConfig({
             signalRed: {
               value: "#B51E14",
             },
+            boxParchment: {
+              value: "#F5EAD3",
+            },
+            badgeParchment: {
+              value: "#F2E2C6",
+            },
+            emberHi: {
+              value: "#B53E09",
+            },
+            emberMid: {
+              value: "#A83806",
+            },
+            emberLo: {
+              value: "#93300A",
+            },
+            kraftHi: {
+              value: "#F2E5CB",
+            },
+            kraftLo: {
+              value: "#E9D2B0",
+            },
           },
           neutral: {
             "0": {
