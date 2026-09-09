@@ -184,7 +184,13 @@
   <!-- C+D+E+F. control row: market disclosure button + seasonal menu + geo, single responsive row.
        data-scope-mode is set by prompt-chips.js from window.__campaignScope: "nationwide" dims this
        row (market becomes an optional localization anchor); other scopes leave it at full weight. -->
-  <div class="ff-controlrow" role="group" aria-label="Campaign market and season" data-scope-mode="local" data-step="2">
+  <!-- STEP 2 rides a CLOSED disclosure at rest like step 1: one summary line
+       (Location: current market) instead of the full control row. The inner
+       picker + all ids/bindings are untouched; data-scope-mode stays on the
+       inner row where prompt-chips.js already keys it. -->
+  <details class="ff-location" id="locationSection" data-step="2">
+    <summary aria-label="Location — change market, season, and local flavor"><span class="ff-location-kicker">Location</span>: <span id="locationSectionLabel">Park City, Utah</span></summary>
+  <div class="ff-controlrow" role="group" aria-label="Campaign market and season" data-scope-mode="local">
     <details class="ff-market" id="marketDisclosure">
       <summary aria-haspopup="listbox" aria-expanded="false" aria-controls="marketListbox" aria-label="Location — currently Park City, Utah">
         <span class="ff-market-name" id="marketButtonLabel">Location: Park City, Utah</span>
@@ -241,6 +247,7 @@
     </div>
     <!-- B2: .ff-detail (featured-frontier + languages readout) moved OUT to the output section below — it is a readout of what selections resolved to, not an input. -->
   </div>
+  </details>
 
   <!-- ff-brainstorm - unified brainstorming surface: campaign-option chips + product picker read as ONE panel. wrapper only; every child still binds by id so the JS selectors are unaffected. -->
   <!-- #237: the retailer/partner chips below are the SINGLE selection for those concepts — they drive

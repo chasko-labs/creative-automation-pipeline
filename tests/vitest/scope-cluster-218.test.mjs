@@ -12,6 +12,8 @@ const auto = readFileSync(
   resolve(root, 'web/kodiak-posts-for-todays-frontier/js/autocomplete.js'), 'utf8');
 const generate = readFileSync(
   resolve(root, 'web/kodiak-posts-for-todays-frontier/js/generate.js'), 'utf8');
+const disclosure = readFileSync(
+  resolve(root, 'web/kodiak-posts-for-todays-frontier/js/market-disclosure.js'), 'utf8');
 
 // #218/#236/#237/#223 scope cluster: one guided setup step, chips render into the brief,
 // one selection per concept drives brief + layers, marketer-voice copy.
@@ -26,6 +28,15 @@ describe('scope cluster (#218, #236, #237, #223)', () => {
     expect(html.indexOf('data-step="1"')).toBeLessThan(html.indexOf('data-step="2"'));
     expect(html.indexOf('data-step="2"')).toBeLessThan(html.indexOf('data-step="3"'));
     expect(html.indexOf('data-step="3"')).toBeLessThan(html.indexOf('data-step="4"'));
+  });
+
+  it('step 2 collapses to one summary line at rest, label mirrored by JS', () => {
+    // locationSection is a CLOSED disclosure (no open attr); the control row
+    // nests inside with bindings intact, dimming hook untouched.
+    expect(html).toMatch(/<details class="ff-location" id="locationSection" data-step="2">/);
+    expect(html).toMatch(/<span id="locationSectionLabel">Park City, Utah<\/span>/);
+    expect(html).toMatch(/<div class="ff-controlrow" role="group"[^>]*data-scope-mode="local">/);
+    expect(disclosure).toMatch(/locationSectionLabel/);
   });
 
   it('#218 invariants: radiogroup/listbox semantics, dimming hook, scope readers', () => {

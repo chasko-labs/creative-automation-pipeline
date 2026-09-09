@@ -55,6 +55,9 @@
   function reflectMarket(market){
     var p = placeFor(market);
     if(label && p) label.textContent = 'Location: ' + (p.place || market);
+    // outer step-2 summary mirrors the same place (no "Location: " prefix — the summary owns it)
+    var outer = document.getElementById('locationSectionLabel');
+    if(outer && p) outer.textContent = (p.place || market);
     if(summary && p) summary.setAttribute('aria-label', 'Choose market — currently ' + (p.place || market));
     if(featuredEl){
       var cue = p && p.cue ? p.cue : '';

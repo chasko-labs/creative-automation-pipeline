@@ -577,12 +577,24 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    single ordered step inside .ff-setup. The section heading + numbered data-step badges carry the
    order; every control keeps its id, role, and binding. Badges are pure CSS (attr(data-step)) so
    no extra DOM enters the a11y tree. data-scope-mode dimming still keys off .ff-controlrow. */
-.ff-setup{display:flex;flex-direction:column;gap:var(--spacing-md);margin-top:var(--spacing-sm,8px);
-  padding:var(--spacing-md);background:var(--colors-neutral-100);border:1px solid var(--colors-border-default);
-  border-radius:var(--radii-lg)}
+.ff-setup{display:flex;flex-direction:column;gap:var(--spacing-sm);margin-top:var(--spacing-sm,8px);
+  padding:var(--spacing-md);background:var(--gradients-kraft\.surface);border:1px solid var(--stone);
+  border-radius:var(--radii-lg);box-shadow:var(--shadows-md),inset 0 1px 0 rgba(255,248,240,.5)}
 .ff-setup-heading{margin:0;font:800 15px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.02em;color:var(--chocolate)}
 /* inside the guided step the blocks no longer need their own top separation — the section provides it */
-.ff-setup>.ff-scope-wrap,.ff-setup>.ff-controlrow{margin-top:0}
+.ff-setup>.ff-scope-wrap,.ff-setup>.ff-location{margin-top:0}
+/* step summaries at rest: one quiet line each (the minimalist load). Hover lifts,
+   open state warms — the prompt card stays the visual star, not the chrome. */
+.ff-setup .ff-scope-summary,#locationSection>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;
+  padding:9px 12px;border-radius:var(--radii-md);font:600 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate);
+  transition:background .15s,box-shadow .15s}
+.ff-setup .ff-scope-summary:hover,#locationSection>summary:hover{background:rgba(255,248,240,.6);box-shadow:var(--shadows-sm)}
+.ff-setup .ff-scope-wrap[open] .ff-scope-summary,.ff-location[open]>summary{background:rgba(26,60,52,.07)}
+#locationSection .ff-controlrow{margin-top:var(--spacing-sm)}
+.ff-location-kicker{font:800 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase}
+/* chip love: rest is paper, hover lifts a hair, pressed stays timber. Reduced-motion
+   guard for the hover lift already covers .ff-chip:hover (line ~293). */
+.ff-chip:hover{transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),var(--shadows-md);border-color:var(--chocolate)}
 .ff-setup>.ff-brainstorm{margin-top:0;background:transparent;border:none;border-radius:0;padding-top:0;padding-bottom:0}
 .ff-setup>.ff-brainstorm>.ff-optiongroup{margin-top:0;padding-top:0;border-top:none}
 .ff-setup>.ff-inputwrap{margin-top:0}
@@ -698,6 +710,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .kodiak-topstrip{display:none}
 /* header layout moved off the element's style attribute; base header{} already sets brown bg + kraft overlays */
 header.kodiak-header{border-bottom:none;display:flex;align-items:center;gap:var(--spacing-md);padding:10px var(--spacing-md);flex-wrap:wrap;margin:0}
+/* hero treatment (matrix item 7, CSS-only): full-bleed pine-to-timber gradient
+   with a blaze rule under it; headline stays parchment. Sticky + logos untouched. */
+header.kodiak-header{background:linear-gradient(135deg,var(--colors-brand-frontier-green) 0%,var(--brown-kodiak) 72%,var(--chocolate) 100%);border-bottom:3px solid var(--colors-brand-blaze-orange)}
 /* oversize-hero-logo (see --logo-hero-scale block): base header{} sets overflow:hidden, which would
    clip the top-anchored scaled primary logo. allow the downward spill to paint below the navbar.
    overflow:visible does NOT create a containing block/stacking context the way a filter does, so this
