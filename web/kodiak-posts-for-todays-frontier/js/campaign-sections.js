@@ -449,7 +449,7 @@
           var im = document.createElement('img');
           im.src = imgs[i].src; im.loading = 'lazy'; im.alt = imgs[i].name;
           im.setAttribute('crossorigin','anonymous');
-          im.onerror = function(){ this.style.display='none'; };
+          im.onerror = function(){ this.classList.add('is-hidden'); };
           slot.appendChild(im);
         } else {
           slot.setAttribute('aria-hidden','true');

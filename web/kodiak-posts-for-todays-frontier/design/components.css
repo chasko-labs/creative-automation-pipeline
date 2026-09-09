@@ -959,8 +959,8 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-setup[data-full="true"] .ff-inputwrap{opacity:1}
 /* about-pipeline range art: mountains + interspersed pines, same frontier green as the dividers */
 .ff-about-range{display:block;width:100%;max-height:120px;margin:2px 0 10px}
-/* wide screens: use the room instead of a narrow center column */
-@media(min-width:1400px){.wrap{max-width:1280px}}
+/* wide screens are governed by the >=1150px grid block (1560px cap, two columns);
+   the old 1280px clamp here fought it and shadowed the 1600/2200 caps — removed. */
 /* readout of what the current selections resolved to — sits at the top of the output surface */
 .ff-output-readout{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 12px;position:relative}
 .ff-output-readout .ff-featured{flex:0 1 auto;font:600 12px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-700)}
@@ -1310,3 +1310,18 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   .ff-setup .ff-scope-summary,#locationSection>summary,.ff-brainstorm .ff-products>summary,.ff-brainstorm .ff-layers>summary,.ff-season-standalone{font-size:13px}
   .ff-go{font-size:12px;letter-spacing:.06em}
 }
+/* === JS-rendered surfaces — token classes so templates carry zero inline style === */
+.is-hidden{display:none!important}
+.sku-pick{display:flex;gap:8px;align-items:center;font-size:12px;border:1px solid var(--stone);border-radius:8px;padding:6px;background:#FDF6EC;box-shadow:var(--shadows-sm)}
+.sku-pick img{width:32px;height:32px;object-fit:cover;border-radius:6px}
+.sku-sub{color:#8C7A70;font-size:10px}
+.flag-err{color:#B51E14}
+.flag-pine{color:#1A3C34}
+.gen-pulse{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;background:linear-gradient(90deg,#EFE6DB 25%,#F7F0E8 50%,#EFE6DB 75%);background-size:200% 100%;animation:genpulse 1.4s ease-in-out infinite}
+.gen-pulse-label{font:700 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8C7A70}
+.gen-pulse-label--lg{font-size:13px;letter-spacing:.08em}
+#genSkeleton{grid-column:1/-1;max-width:640px;margin:0 auto}
+.kamas-vibe{margin-top:16px;padding:12px;border:1px solid #D9CFC6;border-radius:10px;background:#FFF8F0}
+.kamas-vibe-title{font-family:Roar,kodiak_sans,sans-serif;font-weight:800;color:#3B2316}
+.kamas-vibe-market{font-size:11px;color:#8C7A70;margin:6px 0}
+.kamas-preview{margin-top:10px}

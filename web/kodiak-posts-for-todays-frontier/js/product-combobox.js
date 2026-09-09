@@ -45,7 +45,7 @@
       opt.dataset.value = b.value;
       // reuse the thumbnail painted into the hidden host, if any
       var hostImg = b.parentNode ? b.parentNode.querySelector('img') : null;
-      var thumbHtml = (hostImg && hostImg.src) ? '<img class="ff-opt-thumb" src="' + hostImg.src + '" alt="" onerror="this.style.display=\'none\'">' : '';
+      var thumbHtml = (hostImg && hostImg.src) ? '<img class="ff-opt-thumb" src="' + hostImg.src + '" alt="" onerror="this.classList.add(\'is-hidden\')">' : '';
       opt.innerHTML = thumbHtml + '<span>' + b.value + '</span>';
       opt.addEventListener('click', function(){ toggleSku(b.value); search.focus(); });
       results.appendChild(opt);

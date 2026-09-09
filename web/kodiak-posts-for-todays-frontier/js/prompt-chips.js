@@ -1098,7 +1098,7 @@
         thumbNode = document.createElement('img');
         thumbNode.className = 'ff-pending-thumb';
         thumbNode.alt = '';
-        thumbNode.onerror = function(){ this.style.display='none'; };
+        thumbNode.onerror = function(){ this.classList.add('is-hidden'); };
         thumbNode.src = it.url;                 // presigned GET, not a blob: — remove handler's revoke guard skips it
       } else {
         thumbNode = (typeof docLabel === 'function') ? docLabel('VIDEO') : null;

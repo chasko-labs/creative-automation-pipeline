@@ -10,14 +10,14 @@
       const render=(filter="")=>{ const kept=preserveChecked(); const q=(filter||"").toLowerCase(); let filtered=skuCatalog.filter(p=>!q||(p.name||"").toLowerCase().includes(q)||(p.handle||"").toLowerCase().includes(q)||(p.category||"").toLowerCase().includes(q)).slice(0,12);
         // never blank the chooser: a no-match filter (e.g. a brief keyword) falls back to the first 12 SKUs
         if(!filtered.length) filtered=skuCatalog.slice(0,12);
-        chooser.innerHTML=filtered.map(p=>`<label style="display:flex;gap:8px;align-items:center;font-size:12px;border:1px solid var(--stone);border-radius:8px;padding:6px;background:#FDF6EC;box-shadow:var(--shadows-sm)"><input type="checkbox" value="${p.name}" class="sku-check"${kept.has(p.name)?" checked":""}> <img src="${p.images?.[0]||""}" style="width:32px;height:32px;object-fit:cover;border-radius:6px" onerror="this.style.display='none'" crossorigin="anonymous" loading="lazy"><span>${p.name}<br><span style="color:#8C7A70;font-size:10px">${p.category} • $${p.price_usd||""}</span></span></label>`).join(""); const hint2=document.getElementById('skuHint'); if(hint2) hint2.textContent=`${skuCatalog.length} SKUs loaded — ${kept.size} / 3 selected`; if(window.KODIAK_SCORECARDS) window.KODIAK_SCORECARDS.render(); try{ if(typeof window.__syncProductPopover==='function') window.__syncProductPopover(); }catch(e){} };
+        chooser.innerHTML=filtered.map(p=>`<label class="sku-pick"><input type="checkbox" value="${p.name}" class="sku-check"${kept.has(p.name)?" checked":""}> <img src="${p.images?.[0]||""}" onerror="this.classList.add('is-hidden')" crossorigin="anonymous" loading="lazy"><span>${p.name}<br><span class="sku-sub">${p.category} • $${p.price_usd||""}</span></span></label>`).join(""); const hint2=document.getElementById('skuHint'); if(hint2) hint2.textContent=`${skuCatalog.length} SKUs loaded — ${kept.size} / 3 selected`; if(window.KODIAK_SCORECARDS) window.KODIAK_SCORECARDS.render(); try{ if(typeof window.__syncProductPopover==='function') window.__syncProductPopover(); }catch(e){} };
       render(""); document.getElementById("productSearch")?.addEventListener("input",e=>render(e.target.value)); document.getElementById("campaignBrief")?.addEventListener("input",e=>{ const v=e.target.value.toLowerCase().split(/\s+/).filter(Boolean).pop(); if(v&&v.length>2) render(v); });
     } else { console.warn('[catalog] empty after fetch — falling back to static skuList checkboxes');
       // Guaranteed non-empty fallback. window.skuCatalog is seeded from skuList names so slugify() has a
       // consistent lookup path (no .handle here — slugify's lowercase/hyphenate path yields the real handle,
       // e.g. "Blueberry Muffin Mix" -> "blueberry-muffin-mix").
       window.skuCatalog=skuList.map(n=>({name:n}));
-      if(!chooser.querySelector('.sku-check')){ chooser.innerHTML=skuList.slice(0,12).map(n=>`<label style="display:flex;gap:8px;align-items:center;font-size:12px;border:1px solid var(--stone);border-radius:8px;padding:6px;background:#FDF6EC;box-shadow:var(--shadows-sm)"><input type="checkbox" value="${n}" class="sku-check"> ${n}</label>`).join(''); }
+      if(!chooser.querySelector('.sku-check')){ chooser.innerHTML=skuList.slice(0,12).map(n=>`<label class="sku-pick"><input type="checkbox" value="${n}" class="sku-check"> ${n}</label>`).join(''); }
       const hint2=document.getElementById('skuHint'); if(hint2) hint2.textContent=`${skuList.length} SKUs (offline) — 0 / 3 selected`; if(window.KODIAK_SCORECARDS) window.KODIAK_SCORECARDS.render();
     }
   });
@@ -56,7 +56,7 @@ let skuList = [
     // async catalog resolves. The catalog .then above is the single owner afterward — it upgrades these to rich
     // rows on success or re-affirms skuList on empty. The change/random handlers below bind to the chooser
     // ELEMENT (event delegation), so they keep working across every innerHTML swap regardless of which renderer paints.
-    chooser.innerHTML = skuList.slice(0,12).map((n,i)=>`<label style="display:flex;gap:8px;align-items:center;font-size:12px;border:1px solid var(--stone);border-radius:8px;padding:6px;background:#FDF6EC;box-shadow:var(--shadows-sm)"><input type="checkbox" value="${n}" class="sku-check"> ${n}</label>`).join('');
+    chooser.innerHTML = skuList.slice(0,12).map((n,i)=>`<label class="sku-pick"><input type="checkbox" value="${n}" class="sku-check"> ${n}</label>`).join('');
     const checks = ()=> Array.from(chooser.querySelectorAll('.sku-check:checked'));
     chooser.addEventListener('change', (e)=>{
       if(e.target.classList.contains('sku-check')){
@@ -361,7 +361,7 @@ let skuList = [
       usedHtml = '<p class="pc-text">The backend returned no copy with this preview.</p>';
     }
     panel.innerHTML = '<div class="pc-head">Campaign copy — used in this preview</div>'+usedHtml+
-      (flags.length ? '<p class="pc-text" style="color:#B51E14"><b>copy/imagery mismatch:</b> '+escapeHtml(flags.join(' '))+'</p>' : '');
+      (flags.length ? '<p class="pc-text flag-err"><b>copy/imagery mismatch:</b> '+escapeHtml(flags.join(' '))+'</p>' : '');
   }
 
   // Single generate: fans to ALL formats/platforms/locals, returns sample + nearest Frontier + newsletter variant
@@ -721,7 +721,7 @@ let skuList = [
       const finishCommon = ()=>{
         // Update local flavor with brief context (runs after either path)
         const lf = document.getElementById('localFlavorText');
-        if(lf) lf.innerHTML += `<br><span style="color:#1A3C34"><b>Brief applied:</b> “${brief}” — fans to all formats</span>`;
+        if(lf) lf.innerHTML += `<br><span class="flag-pine"><b>Brief applied:</b> “${brief}” — fans to all formats</span>`;
         console.log('KODIAK generate — sample', {brief, products, primarySlug, audience, selectedLoc: selectedLoc.market, frontierHint});
       };
       // Lock competing controls during generation so nothing changes mid-request; restore after.
@@ -827,7 +827,7 @@ let skuList = [
         else { paint(null); img.onload=img.onerror=null; img=null; }
         tile.appendChild(c);
         const meta = document.createElement('div'); meta.className='meta';
-        meta.innerHTML = `<b>Offline preview — ${sku}</b><div class="small" style="color:#B51E14">No server response. This is a local stand-in of the requested product, not a generated campaign. Reconnect and try Create again.</div>`;
+        meta.innerHTML = `<b>Offline preview — ${sku}</b><div class="small flag-err">No server response. This is a local stand-in of the requested product, not a generated campaign. Reconnect and try Create again.</div>`;
         tile.appendChild(meta);
         p.appendChild(tile);
       };
@@ -842,9 +842,9 @@ let skuList = [
       try{ paintCopyPanel({phase:'driving', brief, theme:activeTheme||null, themeLabel:themeLabel||null, market:selectedLoc.market, place:selectedLoc.place||selectedLoc.market, products}); }catch(e){}
       if(preview){
         if(willFanOut){
-          preview.innerHTML = products.map((name,i)=>`<div class="tile genSkeletonTile"><div style="aspect-ratio:1/1;background:linear-gradient(90deg,#EFE6DB 25%,#F7F0E8 50%,#EFE6DB 75%);background-size:200% 100%;animation:genpulse 1.4s ease-in-out infinite;display:flex;align-items:center;justify-content:center"><span style="font:700 12px/1 'kodiak_sans','museo-sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8C7A70">Composing…</span></div><div class="meta"><b>${name}</b><div class="small" id="genElapsed${i}">0s elapsed — up to ~90s</div></div></div>`).join('');
+          preview.innerHTML = products.map((name,i)=>`<div class="tile genSkeletonTile"><div class="gen-pulse"><span class="gen-pulse-label">Composing…</span></div><div class="meta"><b>${name}</b><div class="small" id="genElapsed${i}">0s elapsed — up to ~90s</div></div></div>`).join('');
         } else {
-          preview.innerHTML = `<div class="tile" id="genSkeleton" style="grid-column:1/-1;max-width:640px;margin:0 auto"><div style="aspect-ratio:1/1;background:linear-gradient(90deg,#EFE6DB 25%,#F7F0E8 50%,#EFE6DB 75%);background-size:200% 100%;animation:genpulse 1.4s ease-in-out infinite;display:flex;align-items:center;justify-content:center"><span style="font:700 13px/1 'kodiak_sans','museo-sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8C7A70">Composing…</span></div><div class="meta"><b>Composing your campaign with Nova Pro${activeTheme ? ' — theme: ' + themeLabel : ''}</b><div class="small" id="genElapsed">0s elapsed — up to ~90s</div></div></div>`;
+          preview.innerHTML = `<div class="tile" id="genSkeleton"><div class="gen-pulse"><span class="gen-pulse-label gen-pulse-label--lg">Composing…</span></div><div class="meta"><b>Composing your campaign with Nova Pro${activeTheme ? ' — theme: ' + themeLabel : ''}</b><div class="small" id="genElapsed">0s elapsed — up to ~90s</div></div></div>`;
         }
         if(!document.getElementById('genPulseKeyframes')){ const st=document.createElement('style'); st.id='genPulseKeyframes'; st.textContent='@keyframes genpulse{0%{background-position:200% 0}100%{background-position:-200% 0}}'; document.head.appendChild(st); }
         tick = setInterval(()=>{ elapsed++; document.querySelectorAll('[id^="genElapsed"]').forEach(e=>{ e.textContent = elapsed+'s elapsed — up to ~90s'; }); }, 1000);
@@ -898,7 +898,7 @@ let skuList = [
               console.warn('generate: product variant failed for', name, e && e.message ? e.message : e);
               // render a small failed-tile so the grid shows what did not compose
               const p = document.getElementById('preview');
-              if(p){ const t=document.createElement('div'); t.className='tile'; t.innerHTML=`<div class="meta"><b>${name}</b><div class="small" style="color:#B51E14">variant failed — try again</div></div>`; p.appendChild(t); }
+              if(p){ const t=document.createElement('div'); t.className='tile'; t.innerHTML=`<div class="meta"><b>${name}</b><div class="small flag-err">variant failed — try again</div></div>`; p.appendChild(t); }
             }
           }));
           if(status) status.textContent = okCount ? ('Campaign preview ready — ' + okCount + ' of ' + products.length + ' product variants composed') : 'Some variants could not reach the server — check your connection and try again';
