@@ -160,7 +160,7 @@
        + window.__campaignScope wiring is untouched; prompt-chips.js syncs #scopeSummary. -->
   <!-- #223: marketer voice, copy only — ids, roles, and behavior untouched. -->
   <details class="ff-scope-wrap" id="scopeWrap" data-step="1">
-    <summary class="ff-scope-summary"><span aria-hidden="true">How far this reaches</span>: <span id="scopeSummary">Single market</span></summary>
+    <summary class="ff-scope-summary"><span class="ff-stepnum" aria-hidden="true">1</span><span aria-hidden="true">How far this reaches</span>: <span id="scopeSummary">Single market</span></summary>
   <div class="ff-scope" id="campaignScope" role="radiogroup" aria-label="How far this reaches">
     <div class="ff-scope-seg" role="presentation">
       <button type="button" class="ff-scope-opt" role="radio" aria-checked="false" data-scope="nationwide" tabindex="-1">
@@ -189,7 +189,7 @@
        picker + all ids/bindings are untouched; data-scope-mode stays on the
        inner row where prompt-chips.js already keys it. -->
   <details class="ff-location" id="locationSection" data-step="2">
-    <summary aria-label="Location — change market, season, and local flavor"><span class="ff-location-kicker">Location</span>: <span id="locationSectionLabel">Park City, Utah</span></summary>
+    <summary aria-label="Location — change market, season, and local flavor"><span class="ff-stepnum" aria-hidden="true">2</span><span class="ff-location-kicker">Location</span>: <span id="locationSectionLabel">Park City, Utah</span></summary>
   <div class="ff-controlrow" role="group" aria-label="Campaign market and season" data-scope-mode="local">
     <details class="ff-market" id="marketDisclosure">
       <summary aria-haspopup="listbox" aria-expanded="false" aria-controls="marketListbox" aria-label="Location — currently Park City, Utah">
@@ -261,7 +261,7 @@
   <!-- Creative direction rides a CLOSED disclosure by default (fold density: the clusters
        collapse so Your campaign idea stays the star). Chip bindings are by id, unaffected. -->
   <details class="ff-products ff-directions" id="creativeDirection">
-    <summary aria-label="Creative direction — combine as many as you like">Creative direction</summary>
+    <summary aria-label="Creative direction — combine as many as you like"><span class="ff-stepnum ff-stepnum--sub" aria-hidden="true">3.1</span>Creative direction</summary>
   <div class="ff-optiongroup">
     <div class="ff-chipgroups" id="promptChips" role="group" aria-label="Creative direction — combine as many as you like">
       <div class="ff-chipcluster" role="group" aria-labelledby="chipClusterMake">
@@ -296,7 +296,7 @@
   <!-- Product chooser folded into the prompt card as a CLOSED disclosure — one summary line at rest.
        FRONTEND STAGING for uploads only (no DAM upload backend); marker threaded into the brief via window.__userAssets. -->
   <details class="ff-products" id="existingAssets" data-mcp="products" data-mcp-description="Real KODIAK SKUs — choose up to 3, autocomplete as you type">
-    <summary aria-label="Feature products — up to 3">Feature products (up to 3)</summary>
+    <summary aria-label="Feature products — up to 3"><span class="ff-stepnum ff-stepnum--sub" aria-hidden="true">3.2</span>Feature products (up to 3)</summary>
     <div class="ff-products-panel">
       <div class="ff-products-row">
         <div class="ff-products-search">
@@ -326,7 +326,7 @@
        Retailer + partner layers mirror their chips (one selection per concept, two-way
        sync); the product layer is a compose flag for the products picked above. -->
   <details class="ff-layers" id="layerPicker" data-mcp="compose-layers" data-mcp-description="Optional layers — product image, retailer mark, partner mark. All off by default.">
-    <summary aria-label="Compose layers — optional, all off by default">Compose layers <span class="ff-layers-state" id="layersState">all off</span></summary>
+    <summary aria-label="Compose layers — optional, all off by default"><span class="ff-stepnum ff-stepnum--sub" aria-hidden="true">3.3</span>Compose layers <span class="ff-layers-state" id="layersState">all off</span></summary>
     <div class="ff-layers-panel">
       <label class="ff-layer"><input type="checkbox" id="layerProduct" class="layer-check"> <span><b>Product image</b> — compose the real box into the scene, never center-pasted</span></label>
       <label class="ff-layer"><input type="checkbox" id="layerRetailer" class="layer-check"> <span><b>Retailer mark</b> — composed under the grain</span></label>
@@ -349,7 +349,7 @@
   <!-- STEP 4 (#218): the brief is the last stop of the guided step, not a separate block. -->
   <div class="ff-inputwrap" data-step="4">
     <!-- Row 1 (canvas): visible kicker label + the primary textarea, full width -->
-    <label class="ff-brief-label" for="campaignBrief">Your campaign idea</label>
+    <label class="ff-brief-label" for="campaignBrief"><span class="ff-stepnum" aria-hidden="true">4</span>Your campaign idea</label>
     <textarea id="campaignBrief" rows="2" aria-label="Campaign idea — describe your Kodiak campaign in a line" placeholder="Describe your campaign in a line — or tap an option above to start." role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="briefSuggest" autocomplete="off"></textarea>
     <!-- D4. add-your-own-asset file input — visually-hidden, triggered by the "+" icon below. FRONTEND STAGING ONLY (no DAM upload backend); staged client-side, marker threaded into the brief via window.__userAssets. -->
     <input type="file" id="addAssetInput" class="ff-addasset-input" accept="image/*,.pdf,.docx,.yaml,.yml,.json" aria-label="Add your own image asset to this campaign">

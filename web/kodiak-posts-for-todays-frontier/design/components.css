@@ -605,13 +605,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-setup>.ff-brainstorm{margin-top:0;background:transparent;border:none;border-radius:0;padding-top:0;padding-bottom:0}
 .ff-setup>.ff-brainstorm>.ff-optiongroup{margin-top:0;padding-top:0;border-top:none}
 .ff-setup>.ff-inputwrap{margin-top:0}
-/* numbered order badges — pure CSS (attr(data-step)), no extra DOM in the a11y tree. This rule
-   stays LAST in the #218 block so its gutter survives the resets above on equal specificity. */
-.ff-setup>section[data-step],.ff-setup>div[data-step],.ff-setup>details[data-step]{position:relative;padding-left:34px}
-.ff-setup>section[data-step]::before,.ff-setup>div[data-step]::before,.ff-setup>details[data-step]::before{content:attr(data-step);position:absolute;left:0;top:2px;width:24px;height:24px;
-  display:inline-flex;align-items:center;justify-content:center;border-radius:50%;
-  background:var(--colors-brand-frontier-green);color:var(--colors-foreground-inverse);
-  font:700 12px/1 "museo-sans",sans-serif}
+/* step order lives in integrated .ff-stepnum badges inside each summary/label
+   (1/2/4 match the 5/6/7 pattern, 3.1-3.3 mark the substeps); data-step attrs
+   stay on the blocks as quiet hooks. the old left-gutter badges are retired. */
+.ff-stepnum.ff-stepnum--sub{background:transparent;color:var(--colors-brand-frontier-green);border:1.5px solid var(--colors-brand-frontier-green);font-size:11px;min-width:0}
+.ff-brief-label{display:flex;align-items:center;gap:8px}
 
 /* item 6 - unified brainstorming surface: campaign-option chips + product picker share one panel
    (single background/border/radius + consistent inner spacing rhythm) so they read as one control
@@ -1282,7 +1280,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   .wrap{padding:12px}
   .ff-setup{padding:var(--spacing-md)}
   .body{padding:16px}
-  .ff-setup>section[data-step],.ff-setup>div[data-step],.ff-setup>details[data-step]{padding-left:30px}
+  .ff-setup .ff-stepnum{flex:0 0 auto}
   .ff-timeline-steps{gap:2px}
   .ff-timeline-steps li{font-size:10px}
   .ff-timeline-steps li+li::before{width:8px}
