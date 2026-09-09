@@ -10,6 +10,9 @@
       const render=(filter="")=>{ const kept=preserveChecked(); const q=(filter||"").toLowerCase(); let filtered=skuCatalog.filter(p=>!q||(p.name||"").toLowerCase().includes(q)||(p.handle||"").toLowerCase().includes(q)||(p.category||"").toLowerCase().includes(q)).slice(0,12);
         // never blank the chooser: a no-match filter (e.g. a brief keyword) falls back to the first 12 SKUs
         if(!filtered.length) filtered=skuCatalog.slice(0,12);
+        // never erase a selection: checked SKUs outside the filter ride along on top,
+        // so typing a second product (or brief word) cannot destroy the first pick
+        if(kept.size){ const seen=new Set(filtered.map(p=>p.name)); const missing=skuCatalog.filter(p=>kept.has(p.name)&&!seen.has(p.name)); if(missing.length) filtered=missing.concat(filtered).slice(0,12+missing.length); }
         chooser.innerHTML=filtered.map(p=>`<label class="sku-pick"><input type="checkbox" value="${p.name}" class="sku-check"${kept.has(p.name)?" checked":""}> <img src="${p.images?.[0]||""}" onerror="this.classList.add('is-hidden')" crossorigin="anonymous" loading="lazy"><span>${p.name}<br><span class="sku-sub">${p.category} • $${p.price_usd||""}</span></span></label>`).join(""); const hint2=document.getElementById('skuHint'); if(hint2) hint2.textContent=`${skuCatalog.length} SKUs loaded — ${kept.size} / 3 selected`; if(window.KODIAK_SCORECARDS) window.KODIAK_SCORECARDS.render(); try{ if(typeof window.__syncProductPopover==='function') window.__syncProductPopover(); }catch(e){} };
       render(""); document.getElementById("productSearch")?.addEventListener("input",e=>render(e.target.value)); document.getElementById("campaignBrief")?.addEventListener("input",e=>{ const v=e.target.value.toLowerCase().split(/\s+/).filter(Boolean).pop(); if(v&&v.length>2) render(v); });
     } else { console.warn('[catalog] empty after fetch — falling back to static skuList checkboxes');

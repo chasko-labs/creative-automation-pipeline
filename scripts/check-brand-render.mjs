@@ -44,6 +44,11 @@ const MASK_JS = `(sels) => {
   document.querySelectorAll('*').forEach((el) => {
     el.style.animation = 'none'; el.style.transition = 'none'; el.style.caretColor = 'transparent';
   });
+  // inline animation:none does not reach ::before/::after (e.g. the tour sheen
+  // sweep) — kill those too so captures are deterministic.
+  const freeze = document.createElement('style');
+  freeze.textContent = '*,*::before,*::after{animation:none!important;transition:none!important}';
+  document.head.appendChild(freeze);
 }`;
 
 function findChrome() {
@@ -139,6 +144,11 @@ let failed = 0;
 try {
   for (const [name, vp] of Object.entries(VIEWPORTS)) {
     const page = await browser.newPage({ viewport: vp });
+    // Dismiss the guided tour before load: it is a dismissible animated guide
+    // (covered by vitest + screenshots), and its stop-0 auto-scroll would move
+    // the resting viewport run to run. Dismissed, the page rests at top —
+    // the same resting state this gate has always guarded.
+    await page.addInitScript(() => { try{ localStorage.setItem('kodiak_tour', 'dismissed'); }catch(e){} });
     await page.goto(base, { waitUntil: 'domcontentloaded', timeout: 45000 });
     // Step through the share-gate (courtesy screen): fill the word field
     // with 'cakes', submit, and wait for the app to mount. There is
@@ -156,7 +166,29 @@ try {
       // No gate present (already stepped through) — continue to capture.
     }
     await page.waitForTimeout(2500);
-    await page.evaluate(MASK_JS, ['#preview', '#sampleStatus', '#fileNames', '#featuredFrontier']);
+    // settle webfonts before capture — a late Typekit swap re-rasterizes text
+    // (and shifts composited edges) nondeterministically between runs.
+    try{ await page.evaluate(() => Promise.race([document.fonts.ready, new Promise((r)=>setTimeout(r,8000))])); }catch(e){}
+    // pin scroll: the tour's smooth scrollIntoView may still be mid-flight at
+    // capture time, shifting every pixel nondeterministically between runs.
+    try{ await page.evaluate(() => window.scrollTo(0, 0)); }catch(e){}
+    await page.waitForTimeout(400);
+    // settle lazy images: a tile decoding between mask and capture shifts
+    // ~1k pixels nondeterministically (mobile is the canary).
+    try{
+      await page.evaluate(() => Promise.race([
+        Promise.all([...document.images].map((img) => img.complete || new Promise((res) => {
+          img.addEventListener('load', res, { once: true });
+          img.addEventListener('error', res, { once: true });
+        }))),
+        new Promise((r) => setTimeout(r, 8000)),
+      ]));
+    }catch(e){}
+    await page.waitForTimeout(400);
+    // #ffTour masked: it is a dismissible animated guide whose live position
+    // tracks layout — brand chrome around it stays guarded, and the tour
+    // itself is covered by vitest structural tests + screenshots.
+    await page.evaluate(MASK_JS, ['#preview', '#sampleStatus', '#fileNames', '#featuredFrontier', '#ffTour']);
     const shot = await page.screenshot();
     await page.close();
     const basePath = join(BASE_DIR, `${name}.png`);

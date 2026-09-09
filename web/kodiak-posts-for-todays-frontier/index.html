@@ -426,7 +426,7 @@
       <!-- readout: what your selections resolved to (featured frontier + languages). ids preserved so
            the market-selection JS still writes here; #locPreview is injected beside these by data-core.js. -->
       <div class="ff-detail ff-output-readout">
-        <div class="ff-featured" id="featuredFrontier" aria-live="polite"></div>
+        <div class="ff-featured" id="featuredFrontier" aria-live="polite"><span class="ff-context-lead">This campaign, localized for</span> <span class="ff-place">Park City, Utah 84098</span><span class="ff-cue">Farmers Market at Park City Mountain Resort Wed 11-5 — Jensen Farms peaches, Copper Moose rhubarb, Tagges preserves, Bal</span><span class="ff-reach">localized reach: Spanish, Portuguese</span></div>
         <div class="ff-langs" id="marketLangLine" aria-live="polite">localized in languages: <b>Spanish, Portuguese</b></div>
         <!-- #locPreview (localized-copy preview) is injected here by the AXIS-3 script, beside this readout -->
       </div>
@@ -443,13 +443,24 @@
              #previewHero id stays so the offline-canvas fallback in data-core.js
              keeps its "hero present, stay quiet" behavior. -->
         <figure class="ff-preview-hero" id="previewHero" style="margin:0 0 12px">
+          <!-- Resting campaign copy: headline-style message + localized variants for the
+               resting market (Park City — EN source from places[].message, ES from the
+               committed KODIAK_LOCALIZED_COPY seed in js/data-core.js). No committed PT
+               line exists, so PT carries the EN source in the same variant structure
+               with an honest pending note (mirrors the offline data-provider="pending"
+               renderer) — never an invented translation. Wiped with the figure on Create. -->
+          <blockquote class="ff-resting-copy" aria-label="Park City campaign copy — English, Spanish, Portuguese">
+            <span class="loc-line" lang="en" data-provider="source"><span class="loc-langtag">EN</span><span class="loc-txt">Keep It Wild — protein-packed whole grains for your Wasatch frontier. Nourishment for Today&#39;s Frontier</span></span>
+            <span class="loc-line" lang="es" data-provider="seed"><span class="loc-langtag">ES</span><span class="loc-txt">Mantente Salvaje — cereales integrales ricos en proteína para tu frontera Wasatch. Nutrición para la Frontera de Hoy</span></span>
+            <span class="loc-line" lang="pt" data-provider="pending"><span class="loc-langtag">PT</span><span class="loc-txt">Keep It Wild — protein-packed whole grains for your Wasatch frontier. Nourishment for Today&#39;s Frontier</span><span class="loc-review">translation pending</span></span>
+          </blockquote>
           <div class="render-set" aria-label="Park City example — four export sizes">
             <div class="render-tile r-1x1"><div class="render-frame"><img src="input_assets/power-cakes/hero.png" alt="Kodiak Power Cakes family breakfast — Park City example" loading="eager" onerror="this.style.display='none'"></div><div class="render-cap"><b>1:1 Feed</b><span class="dims">1080&#215;1080</span><span class="rt-platforms">Facebook &#183; Instagram &#183; X &#183; LinkedIn &#183; Pinterest</span></div></div>
             <div class="render-tile r-4x5"><div class="render-frame"><img src="input_assets/textless/cabin-table.jpg" alt="Cabin table stack in morning light — Park City example" loading="lazy" onerror="this.style.display='none'"></div><div class="render-cap"><b>4:5 Portrait</b><span class="dims">1080&#215;1350</span><span class="rt-platforms">Instagram &#183; Facebook</span></div></div>
-            <div class="render-tile r-9x16"><div class="render-frame"><img src="input_assets/textless/campfire-pot.jpg" alt="Campfire pot at dawn — Park City example" loading="lazy" onerror="this.style.display='none'"></div><div class="render-cap"><b>9:16 Vertical</b><span class="dims">1080&#215;1920</span><span class="rt-platforms">Instagram &#183; Facebook &#183; TikTok &#183; YouTube &#183; Pinterest</span></div></div>
+            <div class="render-tile r-9x16"><div class="render-frame"><img src="input_assets/oatmeal-cup/hero.png" alt="Kodiak oatmeal cup breakfast — Park City example" loading="lazy" onerror="this.style.display='none'"></div><div class="render-cap"><b>9:16 Vertical</b><span class="dims">1080&#215;1920</span><span class="rt-platforms">Instagram &#183; Facebook &#183; TikTok &#183; YouTube &#183; Pinterest</span></div></div>
             <div class="render-tile r-16x9"><div class="render-frame"><img src="input_assets/textless/market-stand.jpg" alt="Market stand morning — Park City example" loading="lazy" onerror="this.style.display='none'"></div><div class="render-cap"><b>16:9 Landscape</b><span class="dims">1920&#215;1080</span><span class="rt-platforms">YouTube &#183; LinkedIn &#183; X &#183; Facebook</span></div></div>
           </div>
-          <figcaption class="ff-figcap">Park City example — flapjacks for a Wasatch Back morning. In-season notes ride the readout above; hit Create to generate these four sizes for your market.</figcaption>
+          <figcaption class="ff-figcap">Park City example — Power Cakes flapjacks for a Wasatch Back morning. In season Jun–Sep: Jensen Farms peaches + Copper Moose rhubarb at the Park City Farmers Market. Hit Create to generate these four sizes for your market.</figcaption>
         </figure>
       </div>
       <div class="hint ff-filenames" id="fileNames"></div>
@@ -500,6 +511,7 @@
 
 
 <script defer src="js/generate.js?v=0.1.012-78e7baf-20260909"></script>
+<script defer src="js/tour.js?v=0.1.012-78e7baf-20260909"></script>
 
 <script defer src="js/product-combobox.js?v=0.1.012-78e7baf-20260909"></script>
 <!-- Design System Scorecards script moved to details.html (window.KODIAK_SCORECARDS defined there; catalog render guards with if(window.KODIAK_SCORECARDS)) -->
