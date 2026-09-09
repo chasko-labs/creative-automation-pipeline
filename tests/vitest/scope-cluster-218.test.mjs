@@ -14,6 +14,8 @@ const generate = readFileSync(
   resolve(root, 'web/kodiak-posts-for-todays-frontier/js/generate.js'), 'utf8');
 const disclosure = readFileSync(
   resolve(root, 'web/kodiak-posts-for-todays-frontier/js/market-disclosure.js'), 'utf8');
+const css = readFileSync(
+  resolve(root, 'web/kodiak-posts-for-todays-frontier/design/components.css'), 'utf8');
 
 // #218/#236/#237/#223 scope cluster: one guided setup step, chips render into the brief,
 // one selection per concept drives brief + layers, marketer-voice copy.
@@ -91,12 +93,28 @@ describe('scope cluster (#218, #236, #237, #223)', () => {
     expect(chips).toMatch(/function syncChipsFromLayers/);
     expect(chips).toMatch(/getElementById\('layerRetailer'\)\?\.addEventListener\('change', syncChipsFromLayers\)/);
     expect(chips).toMatch(/getElementById\('layerPartner'\)\?\.addEventListener\('change', syncChipsFromLayers\)/);
-    expect(chips).toMatch(/getElementById\('layerRetailerSelect'\)\?\.addEventListener\('change', syncChipsFromLayers\)/);
     // layers still read by id in generate.js — the __selectedLayers contract is unchanged
     expect(generate).toMatch(/window\.__selectedLayers\s*=\s*function/);
     expect(generate).toMatch(/getElementById\('layerProduct'\)\?\.checked/);
     // product flag drops when nothing is staged (no stale compose flag)
     expect(chips).toMatch(/function maybeClearProductLayer/);
+  });
+
+  it('concept rows: flags ride with their chips, retailer select retired', () => {
+    // retailer flag lives inside the retailer cluster; partner flag + mark inside partner's
+    expect(html).toMatch(/ff-chipcluster ff-concept" role="group" aria-labelledby="chipClusterRetailer"[\s\S]*?id="layerRetailer"/);
+    expect(html).toMatch(/ff-chipcluster ff-concept" role="group" aria-labelledby="chipClusterPartner"[\s\S]*?id="layerPartner"[\s\S]*?id="ussPartnerMark"/);
+    // select element gone from markup (retirement comments may name it); retailer comes from the chips
+    expect(html).not.toMatch(/id="layerRetailerSelect"/);
+    expect(html).not.toMatch(/<select id="layerRetailerSelect"/);
+    expect(chips).not.toMatch(/layerRetailerSelect'\)\?\.addEventListener/);
+    expect(chips).toMatch(/window\.__activeRetailerValue = activeRetailerValue/);
+    expect(generate).toMatch(/window\.__activeRetailerValue\(\)/);
+    expect(generate).not.toMatch(/layerPicker/);
+    // no Compose subheadings remain; layer checkbox accent reads pine
+    expect(html).not.toMatch(/ff-optiongroup-label">Compose</);
+    expect(css).toMatch(/\.ff-layer input\{[^}]*accent-color:var\(--colors-brand-frontier-green\)/);
+    expect(css).toMatch(/\.ff-concept \.ff-layer\{margin-left:auto/);
   });
 
   it('product picks still reset directions (documented own-start semantics)', () => {

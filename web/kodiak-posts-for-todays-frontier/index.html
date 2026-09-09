@@ -275,40 +275,35 @@
       <div class="ff-chipcluster" role="group" aria-labelledby="chipClusterMake">
         <span class="ff-chipcluster-label" id="chipClusterMake">what to make</span>
         <button type="button" class="ff-chip" aria-pressed="false" data-theme="recipe-cards" data-label="Recipe cards" data-brief="Recipe cards for Park City families — protein-packed whole grain recipes styled as shareable cards. Keep It Wild."><span class="ff-dot"></span>Recipe cards</button>
+        <button type="button" class="ff-chip" aria-pressed="false" data-theme="kodiak-subscription" data-label="Kodiak subscription" data-brief="Kodiak subscription campaign — front-door delivery cadence for loyal households, Keep It Wild pantry always stocked."><span class="ff-dot"></span>Kodiak subscription</button>
       </div>
-      <div class="ff-chipcluster" role="group" aria-labelledby="chipClusterRetailer">
+      <!-- retailer concept row: the retailer chips ARE the retailer choice, so the
+           retailer-mark compose flag rides in the same row (chips auto-check it;
+           checking it checks the matching chip — one selection, never two steps).
+           The old #layerRetailerSelect dropdown is retired: it duplicated the chips. -->
+      <div class="ff-chipcluster ff-concept" role="group" aria-labelledby="chipClusterRetailer">
         <span class="ff-chipcluster-label" id="chipClusterRetailer">retailer</span>
         <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-costco" data-label="Localized Costco" data-brief="Localized Costco campaign — bulk Family Size value for the warehouse-club aisle, framed to the selected market."><span class="ff-dot"></span>Localized Costco</button>
         <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-publix" data-label="Localized Publix" data-brief="Localized Publix campaign — neighborhood-market warmth for the Southern family table, framed to the selected market."><span class="ff-dot"></span>Localized Publix</button>
         <button type="button" class="ff-chip" aria-pressed="false" data-theme="localized-target" data-label="Localized Target" data-brief="Localized Target campaign — everyday-family aisle value for the one-trip basket, framed to the selected market."><span class="ff-dot"></span>Localized Target</button>
-        <button type="button" class="ff-chip" aria-pressed="false" data-theme="kodiak-subscription" data-label="Kodiak subscription" data-brief="Kodiak subscription campaign — front-door delivery cadence for loyal households, Keep It Wild pantry always stocked."><span class="ff-dot"></span>Kodiak subscription</button>
+        <label class="ff-layer"><input type="checkbox" id="layerRetailer" class="layer-check"> <span><b>Retailer mark</b> — composed under the grain</span></label>
       </div>
       <div class="ff-chipcluster" role="group" aria-labelledby="chipClusterAngle">
         <span class="ff-chipcluster-label" id="chipClusterAngle">creative angle</span>
         <button type="button" class="ff-chip" aria-pressed="false" data-theme="wild-grizzly-bears" data-label="Wild Grizzly Bears" data-brief="Wild Grizzly Bears — lean into the KODIAK Bear, wild frontier tone, protein for epic days, Keep It Wild conservation with Vital Ground."><span class="ff-dot"></span>Wild Grizzly Bears</button>
         <button type="button" class="ff-chip" aria-pressed="false" data-theme="riff-on-past-content" data-label="Riff on past content" data-brief="Riff on past content — remix our existing heroes into fresh variants across all three ratios."><span class="ff-dot"></span>Riff on past content</button>
       </div>
-      <div class="ff-chipcluster" role="group" aria-labelledby="chipClusterPartner">
+      <!-- partner concept row: chip + partner-mark flag + the mark preview itself -->
+      <div class="ff-chipcluster ff-concept" role="group" aria-labelledby="chipClusterPartner">
         <span class="ff-chipcluster-label" id="chipClusterPartner">partner</span>
         <button type="button" class="ff-chip" aria-pressed="false" data-theme="us-ski-snowboard" data-label="US Ski &amp; Snowboard" data-brief="US Ski & Snowboard partner campaign — Milano Cortina 2026, Park City athlete fuel, whole-grain protein for world-class winter athletes, alpine dawn. Keep It Wild."><span class="ff-dot"></span>US Ski &amp; Snowboard</button>
+        <label class="ff-layer"><input type="checkbox" id="layerPartner" class="layer-check"> <span><b>US Ski &amp; Snowboard</b> — partner mark, composed under the grain</span></label>
+        <!-- partner mark — shown only when the US Ski & Snowboard chip is active (partner logo committed at assets/partners/) -->
+        <div id="ussPartnerMark" class="ff-partner-mark" role="img" aria-label="U.S. Ski &amp; Snowboard — Kodiak partner" hidden>
+          <img src="assets/partners/us-ski-snowboard-kodiak.png" alt="" width="94" height="63" class="ff-partner-mark__img" onerror="this.style.display='none'">
+          <span class="ff-partner-mark__label">Official partner mark</span>
+        </div>
       </div>
-    </div>
-    <!-- compose flags live with the concepts that drive them (chips auto-check them;
-         checking here is the same single selection, never a second step) -->
-    <div class="ff-optiongroup">
-      <p class="ff-optiongroup-label">Compose</p>
-      <label class="ff-layer"><input type="checkbox" id="layerRetailer" class="layer-check"> <span><b>Retailer mark</b> — composed under the grain</span></label>
-      <select id="layerRetailerSelect" aria-label="Retailer for the retailer mark">
-        <option value="costco">Costco</option>
-        <option value="publix">Publix</option>
-        <option value="target">Target</option>
-      </select>
-      <label class="ff-layer"><input type="checkbox" id="layerPartner" class="layer-check"> <span><b>US Ski &amp; Snowboard</b> — partner mark, composed under the grain</span></label>
-    </div>
-    <!-- partner mark — shown only when the US Ski & Snowboard chip is active (partner logo committed at assets/partners/) -->
-    <div id="ussPartnerMark" class="ff-partner-mark" role="img" aria-label="U.S. Ski &amp; Snowboard — Kodiak partner" hidden>
-      <img src="assets/partners/us-ski-snowboard-kodiak.png" alt="" width="94" height="63" class="ff-partner-mark__img" onerror="this.style.display='none'">
-      <span class="ff-partner-mark__label">Official partner mark</span>
     </div>
   </div>
   </details>
@@ -335,9 +330,8 @@
         <div class="ff-carousel-slot" aria-hidden="true"></div>
         <div class="ff-carousel-slot" aria-hidden="true"></div>
       </div>
-      <!-- compose flag lives with the products that drive it (staging auto-checks it) -->
+      <!-- product compose flag rides the products row that drives it (staging auto-checks it) -->
       <div class="ff-optiongroup">
-        <p class="ff-optiongroup-label">Compose</p>
         <label class="ff-layer"><input type="checkbox" id="layerProduct" class="layer-check"> <span><b>Product image</b> — compose the real box into the scene, never center-pasted</span></label>
         <p class="ff-layers-hint">Copy always ships as sidecar text/CSV downloads — never baked into pixels.</p>
       </div>

@@ -201,6 +201,9 @@
     for(var i = 0; i < RETAILER_CHIP_ORDER.length; i++) if(activeDirections.has(RETAILER_CHIP_ORDER[i])) return RETAILER_CHIP_VALUES[RETAILER_CHIP_ORDER[i]];
     return null;
   }
+  // generate.js reads the retailer from the chips through this getter — the old
+  // #layerRetailerSelect dropdown is retired, it duplicated the chips.
+  window.__activeRetailerValue = activeRetailerValue;
   function syncLayersFromChips(){
     var val = activeRetailerValue();
     var sel = document.getElementById('layerRetailerSelect');
@@ -210,7 +213,7 @@
       __chipRetailerValue = val;
       setLayer('layerRetailer', true);
     } else {
-      if(ret && ret.checked && sel && sel.value === __chipRetailerValue) setLayer('layerRetailer', false);
+      if(ret && ret.checked && __chipRetailerValue && (!sel || sel.value === __chipRetailerValue)) setLayer('layerRetailer', false);
       __chipRetailerValue = null;
     }
     setLayer('layerPartner', activeDirections.has('us-ski-snowboard'));
@@ -220,10 +223,19 @@
     var sel = document.getElementById('layerRetailerSelect');
     var ret = document.getElementById('layerRetailer');
     var part = document.getElementById('layerPartner');
-    if(ret && sel){
-      var v = sel.value;
-      RETAILER_CHIP_ORDER.forEach(function(slug){ setChip(slug, ret.checked && RETAILER_CHIP_VALUES[slug] === v, {deferRebuild:true}); });
-      if(ret.checked && RETAILER_CHIP_VALUES_INV[v]) __chipRetailerValue = v;
+    if(ret){
+      var v = (sel && sel.value) || __chipRetailerValue;
+      if(ret.checked && v){
+        RETAILER_CHIP_ORDER.forEach(function(slug){ setChip(slug, RETAILER_CHIP_VALUES[slug] === v, {deferRebuild:true}); });
+        if(RETAILER_CHIP_VALUES_INV[v]) __chipRetailerValue = v;
+      } else if(ret.checked){
+        // manual check with no retailer chip: adopt the fallback concept (matches the
+        // retired select's 'costco' default) so flag and chips stay one selection.
+        setChip('localized-costco', true, {deferRebuild:true});
+      } else {
+        RETAILER_CHIP_ORDER.forEach(function(slug){ setChip(slug, false, {deferRebuild:true}); });
+        __chipRetailerValue = null;
+      }
     }
     if(part) setChip('us-ski-snowboard', !!part.checked, {deferRebuild:true});
     syncLayersFromChips();
@@ -293,7 +305,6 @@
     // layer -> chip direction of the unification (#237).
     document.getElementById('layerRetailer')?.addEventListener('change', syncChipsFromLayers);
     document.getElementById('layerPartner')?.addEventListener('change', syncChipsFromLayers);
-    document.getElementById('layerRetailerSelect')?.addEventListener('change', syncChipsFromLayers);
   }
   // Selecting/deselecting a product clears the active directions too (a product pick is its own start).
   // Staging implies the box layer; clearing to zero drops it (maybeClear runs first).

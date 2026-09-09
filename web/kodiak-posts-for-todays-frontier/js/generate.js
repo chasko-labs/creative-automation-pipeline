@@ -207,35 +207,23 @@ let skuList = [
   // show the matrix as the default preview content on load (before any campaign is generated)
   try{ renderPlatformMatrix(); }catch(e){}
 
-  // Compose layers (#199/#200) — independently-selectable, ALL OFF by default. Reads the
-  // #layerPicker checkboxes into the {product_image, retailer, partner_logo} contract the
+  // Compose layers — independently-selectable, ALL OFF by default. Reads the
+  // concept-row checkboxes into the {product_image, retailer, partner_logo} contract the
   // /generate backend normalizes; an empty object means a clean standalone image.
+  // The retailer comes from the retailer chips (window.__activeRetailerValue) — the old
+  // picker-dropdown controls are retired (see prompt-chips.js).
   window.__selectedLayers = function(){
     const layers = {};
     try{
       if(document.getElementById('layerProduct')?.checked) layers.product_image = true;
       if(document.getElementById('layerRetailer')?.checked){
-        layers.retailer = document.getElementById('layerRetailerSelect')?.value || 'costco';
+        layers.retailer = (typeof window.__activeRetailerValue === 'function' && window.__activeRetailerValue())
+          || document.getElementById('layerRetailerSelect')?.value || 'costco';
       }
       if(document.getElementById('layerPartner')?.checked) layers.partner_logo = true;
     }catch(e){}
     return layers;
   };
-  const syncLayersState = ()=>{
-    const el = document.getElementById('layersState');
-    if(!el) return;
-    let n = 0;
-    try{ n = document.querySelectorAll('#layerPicker .layer-check:checked').length; }catch(e){}
-    el.textContent = n ? (n + ' on') : 'all off';
-  };
-  document.querySelectorAll('#layerPicker .layer-check').forEach(c=>{
-    c.addEventListener('change', syncLayersState);
-  });
-  document.getElementById('layerRetailerSelect')?.addEventListener('change', ()=>{
-    const box = document.getElementById('layerRetailer');
-    if(box && !box.checked){ box.checked = true; syncLayersState(); }
-  });
-  try{ syncLayersState(); }catch(e){}
 
   // Default photographic hero (#196) — first paint is a real campaign photo, never a
   // generic wordmark block. Same .tile frame as generated results so load and Create

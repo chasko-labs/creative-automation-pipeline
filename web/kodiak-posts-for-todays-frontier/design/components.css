@@ -1191,6 +1191,11 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
    existing .ff-chip pill styling (multi-select aria-pressed toggle handled in prompt-chips.js). */
 .ff-chipgroups{display:flex;flex-wrap:wrap;gap:var(--spacing-sm,8px);margin-top:var(--spacing-xs,4px)}
 .ff-chipcluster{display:flex;flex-wrap:wrap;align-items:center;gap:var(--spacing-xs,4px) var(--spacing-sm,8px)}
+/* concept rows: the compose flag rides the same row as the chips that drive it,
+   pushed to the row end; the partner-mark preview drops full-width beneath. */
+.ff-concept .ff-layer{margin-left:auto}
+.ff-concept .ff-partner-mark{flex:1 1 100%}
+@media(max-width:520px){.ff-concept .ff-layer{margin-left:0}}
 .ff-chipcluster-label{flex:0 0 100%;font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted,#6B5A53)}
 @media(max-width:520px){.ff-chipgroups{gap:var(--spacing-sm,8px)}}
 /* per-asset campaign download links (campaign-sections.js renderCampaignCarousel):
@@ -1198,9 +1203,8 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-carousel-slot{display:flex;flex-direction:column;align-items:center;gap:8px}
 .ff-asset-download{padding:8px 12px;font-size:10px;text-decoration:none;justify-content:center}
 
-/* Compose layers (#199/#200) — closed disclosure mirroring .ff-products; all layers
-   OFF by default. Brand tokens only (bear-brown, parchment, signal-red); no generic
-   hero patterns. */
+/* Compose flags — one per concept row, all OFF by default. Brand tokens only
+   (bear-brown, parchment, pine); no generic hero patterns. */
 .ff-brainstorm>.ff-layers{margin-top:var(--spacing-md);padding-top:var(--spacing-md);border-top:1px dashed var(--colors-border-default)}
 .ff-layers{margin-top:var(--spacing-sm)}
 .ff-layers>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:var(--spacing-xs);
@@ -1215,7 +1219,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-layers-panel{margin-top:var(--spacing-sm);display:flex;flex-direction:column;gap:var(--spacing-sm)}
 .ff-layer{display:flex;gap:8px;align-items:flex-start;font:500 12px/1.45 "museo-sans",sans-serif;
   color:var(--colors-foreground-default,#3B2316);cursor:pointer}
-.ff-layer input{margin-top:2px;accent-color:var(--colors-brand-signal-red,#B51E14)}
+.ff-layer input{margin-top:2px;accent-color:var(--colors-brand-frontier-green)}
 .ff-layer b{color:var(--colors-brand-bear-brown,#3B2316)}
 #layerRetailerSelect{margin-left:26px;max-width:220px;padding:6px 10px;border:1px solid var(--colors-border-default);
   border-radius:var(--radii-md,8px);background:#FDF6EC;font:500 12px/1.2 "museo-sans",sans-serif;color:var(--colors-foreground-default,#3B2316)}
