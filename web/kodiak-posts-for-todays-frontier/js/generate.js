@@ -96,10 +96,18 @@ let skuList = [
       const loc = document.getElementById('locality')?.value || sel;
       if(loc) market = loc;
     }catch(e){}
-    // Artisanal copy first, then the 75-market places table (every market carries a
-    // real message + cue), generic only when the market is genuinely unknown. The old
-    // chain fell to generic for 68 of 73 places.
-    let txt = flavorMap[market];
+    // Season-aware engine first (every market x every season resolves a line).
+    // Artisanal flavorMap second, places table third, generic only when unknown.
+    let txt = null;
+    try{
+      var season = null;
+      try{ season = (typeof window.__activeSeason !== 'undefined') ? window.__activeSeason : document.getElementById('seasonalSelect')?.value || null; }catch(se){ season = null; }
+      if(typeof window.seasonFlavorFor === 'function'){
+        var r = window.seasonFlavorFor(market, season);
+        if(r && r.text) txt = r.text;
+      }
+    }catch(e){}
+    if(!txt) txt = flavorMap[market];
     if(!txt){
       try{
         const p = (typeof places!=='undefined' ? places : []).find(function(x){ return x && x.market === market; });
@@ -107,10 +115,10 @@ let skuList = [
       }catch(e){}
     }
     const el = document.getElementById('localFlavorText');
-    if(el) el.innerHTML = txt || flavorMap._default;
+    if(el) el.textContent = txt || flavorMap._default;
   };
   setTimeout(updateLocalFlavor, 800);
-  document.addEventListener('change', e=>{ if(e.target?.id==='locality') updateLocalFlavor(); });
+  document.addEventListener('change', e=>{ if(e.target?.id==='locality' || e.target?.id==='seasonalSelect') updateLocalFlavor(); });
 
   // === Platform -> ratio -> dimension matrix ===
   // Authoritative source: data/platforms/platform-matrix.json (offline-tolerant multi-path fetch,
