@@ -49,6 +49,51 @@ Every change must pass these checks:
    aws cloudformation describe-events --stack-name kodiak-creatives --filters FailedEvents=true --region us-east-1
    ```
 
+### Frontend verify + ship loop (the frontier app)
+
+The hosted demo at `https://kodiak.bryanchasko.com` serves `web/kodiak-posts-for-todays-frontier/` as static files — no build step. Every frontend change must pass these before it ships:
+
+```
+npx vitest run                                        # 29 files / 127 tests
+python3 scripts/build-frontier-mapping.py --check    # backend JSON mirrors agree with data-core.js
+python3 scripts/check-panda-tokens.py                # panda-parity PASS
+node scripts/check-brand-render.mjs                  # pixel baselines guard the real app UI
+```
+
+The render gate steps through the share-gate (word `cakes` — a courtesy screen, not security) before capture, so baselines in `tests/fixtures/brand-baseline/` guard the campaign UI, not the gate overlay. Re-capture with `--update-baselines` only for an intended visual change you have eyeballed — never to silence red.
+
+Ship it:
+
+```
+./scripts/deploy-frontier.sh                          # syncs to S3, invalidates CloudFront (profile bryanchasko-kiro, us-east-1)
+curl -s https://kodiak.bryanchasko.com/design/components.css | grep -c "<your-marker>"
+```
+
+Reviewer zip (clean `origin/main` export + rendered docs + auto-unlocking file:// copy):
+
+```
+./scripts/build-reviewer-package.sh
+aws s3 cp /tmp/kodiak-reviewer/kodiak-reviewer-package.zip s3://frontier-bryanchasko-com/kodiak-reviewer-package.zip --content-type application/zip --profile bryanchasko-kiro --region us-east-1
+```
+
+Local visual check without deploying: serve the app dir statically and screenshot past the gate (see `scripts/check-brand-render.mjs` for the stepping-through pattern). Never pixel-sample PNGs by hand — read computed styles and look at real screenshots.
+
+### Data contract — uncertainty flags are load-bearing
+
+`js/data-core.js` + `js/season-flavors.js` are frontend truth; `data/localization/*.json` and `data/platforms/*.json` are mirrors. Change both sides together so `--check` agrees. Rules:
+
+- Never present an unconfirmed month/season as fact. `m:[]` + a `research dispatch` note means "can never render as in-season" — that is the correct state for unverified data, not a gap to fill with a guess. UNCONFIRMED beats guess.
+- Month arrays use 0-based months in `season-flavors.js` FRONTIER_CAL and 1-based months in the JSON mirrors — check both when editing seasons.
+
+### Design law — token-sovereign CSS only
+
+- `var()` refs with hex fallbacks (e.g. `var(--colors-brand-box-parchment,#F5EAD3)`). No raw hex, no inline styles for surfaces.
+- `design/styles.css` is Panda-generated — never hand-edit. Hand styles go in `design/components.css`.
+- Below-fold surfaces never go near-white: box-parchment token, never neutral-50. The page background is one base `body` rule (house wash + kraft token) — no later `body` override, or the wash dies in the cascade.
+- Gotcha (paid for 2026-09-09): the kraft token expands to 3 layers, so `background-size`/`background-repeat` lists on `body` must stay 5 long. A short list cycles and strands the tan base at the top, leaving flat parchment below the fold. The comment in `components.css` says so — believe it.
+- Keep the ember CTA white-on-ember, keep `prefers-reduced-motion` coverage, no flashing or rapid animation anywhere. Resting first-impression content stays exempt from `content-visibility` deferral.
+- `#preview` innerHTML is wiped on Create — anything that must survive (resume card) lives outside it.
+
 ### How to add something new — dispatched development
 
 When you want to add a new channel (for example, a diner menu board or a subscription email) or a new region (for example, Las Cruces green chile):
@@ -62,7 +107,7 @@ When you want to add a new channel (for example, a diner menu board or a subscri
 ### What we expect in every pull request
 
 - Human description: who is this for (Maya the brand manager, Diego the field ambassador, Priya the paid media lead), what place and store does it serve, and what will marketing see?
-- No short forms in docs or code comments — write "cloud storage," "photo library," "style tokens" instead of initials.
+- No short forms in human-facing docs — write "cloud storage," "photo library," "style tokens" instead of initials. Code identifiers and comments may use standard technical abbreviations (DOM, CSS, URL, JSON).
 - Updated human docs if you changed the experience: `docs/ux-persona-kodiak.md`, `docs/kodiak-brand-explained.md`, or `docs/regional-cultural-database.md`.
 - Screenshots of `preview.html` for the new campaign (one per size) attached to the pull request — the reviewer should not need to run the code to see the result.
 
@@ -70,7 +115,7 @@ When you want to add a new channel (for example, a diner menu board or a subscri
 
 - Work on the main branch is continuous — we commit small and push often to the private repository at https://github.com/chasko-labs/creative-automation-pipeline .
 - The cloud bucket `chasko-creative-dam-946179428633-us-east-1` always holds the latest approved style tokens, references, and renders under `brands/kodiak/`. Pull before you branch, push after your change is approved.
-- worktrees: three teams share one clone — see [docs/architecture/worktree-workflow.md](docs/architecture/worktree-workflow.md)
+- worktrees: three teams share one clone — one worktree per team off the same clone (commands below), separate branches, shared host venv; remove a worktree when its branch merges
 
 ## Three teams, one repo — how we avoid collisions
 
@@ -144,7 +189,7 @@ If ruff is dirty, fix it before the handoff. The recurring offenders that have b
 
 ### Commits and merges
 
-- Coders (human or agent) do not commit feature work directly — commits go through the CI/git owner (`ghost-orin-ci-cd`) on a branch, then a pull request. Never push to `main`.
+- Multi-team feature work goes up on a branch as a pull request — never push another lane's work to `main` directly. Solo frontier-app work (web demo + its data mirrors) may commit and push to `main` directly once every gate in the Frontend verify loop above is green, then deploy; each deploy is one `git revert` + redeploy away from a rollback.
 - Keep pull requests under 500 lines and one lane where possible, so the reviewer sees a coherent change and the other teams are not surprised.
 - The slow path (full render, browser visual check, the multi-thousand-item embedding corpus run) stays behind `RUN_SLOW=true` — nightly or manual, never the per-push gate. Do not move a slow or networked step into the fast gate.
 
