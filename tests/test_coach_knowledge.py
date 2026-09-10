@@ -29,3 +29,23 @@ def test_knowledge_covers_every_shipped_theme() -> None:
     for slug in slugs:
         assert slug in text, f"theme missing from coach grounding: {slug}"
     assert "zac-efron" not in text
+
+
+def test_knowledge_carries_brand_law_voice_and_pipeline() -> None:
+    import pathlib
+
+    text = pathlib.Path("coach/knowledge.md").read_text(encoding="utf-8")
+    assert "## Brand standards (copy law" in text
+    assert "bare Kodiak appears nowhere" in text
+    assert "## Past social voice" in text
+    assert "@kodiakcakes" in text
+    assert "#KodiakCakes" in text
+    assert "## Pipeline tools" in text
+    assert "compliance.py" in text
+
+
+def test_knowledge_fits_lambda_slice_budget() -> None:
+    import pathlib
+
+    # coach/index.mjs slices knowledge to 12000 chars for the zip prompt.
+    assert len(pathlib.Path("coach/knowledge.md").read_text(encoding="utf-8")) < 9000

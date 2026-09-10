@@ -16,6 +16,30 @@
 - localized-publix: neighborhood warmth — southern family table
 - localized-target: everyday-family aisle — one-trip basket, modern everyday value
 
+## Brand standards (copy law — hard rules, never negotiable)
+- the word KODIAK (all caps) never ships in copy, except inside a hashtag token
+- title-case Kodiak only as Kodiak Cakes or Kodiak Park City; bare Kodiak appears nowhere
+- social voice uses #kodiakcakes-style hashtags, never invented translations or frontier data
+- thin-month event suggestions are UNVERIFIED until confirmed — say so plainly
+- canon: tests/test_atlanta_copy_law.py, src/creative_automation/platform_copy.py
+
+## Past social voice (observed @kodiakcakes — steer toward this)
+- instagram @kodiakcakes (458,000 followers): 🐻 Feeding Epic Days and Wilder Lives 🥞 100% Whole Grains 💪 Protein-packed
+- primary tags: #KodiakCakes #KeepItWild #FeedingEpicDays
+- secondary tags: #VitalGround #BearBites #ProteinPacked #KodiaksFindTheGood
+- post window: Morning 7-10am MT / 9-11am ET (breakfast window) + secondary evening 5-7pm MT for athlete/trail content
+- recent cadence (12 observed): 2026-09-01 Reel (Leadville 100 map); 2026-08-27 Reel (blueberry muffin); 2026-08-26 Carousel
+- tiktok @kodiakcakes: Kodiak Cakes — Feeding Epic Days & Wilder Lives; 100% Whole Grains; Protein-packed (mirrors Instagra
+- facebook KodiakCakes:
+
+## Pipeline tools the counsel can steer toward
+- 16x9: YouTube player + thumbnail base 1920x1080 → export 1280x720 JPG for thumbnails.set
+- 1x1: Community post / cross-post square crop — not uploaded via videos.insert but useful for YouTube Community tab
+- 9x16: YouTube Shorts 1080x1920 — 7–18s cutdown, #Shorts tag, vertical hero crop
+- dam reuse: DAM hero.mp4 / hero.png at input_assets/power-cakes/ + data/raw-ingest/kodiakcakes/images/* — find_hero_asset() prioritizes DAM before generation
+- compliance: src/creative_automation/compliance.py — caption, hashtag, scrim checks run per creative
+- recipe cards: Nova-authored copy with deterministic fallback; card template runs in full mode
+
 ## How to steer (section map for answers)
 
 - Step 1 "How far this reaches": scope radio — Single market, Nationwide, Full campaign (hero: every market, retailer, theme, partner variant).

@@ -79,6 +79,30 @@ describe('coach handler', () => {
     expect(JSON.parse(r.body).insights).toEqual(['one']);
   });
 
+  it('recommendations returns strict-shape patches the counsel panel can apply', async () => {
+    process.env.AWS_ACCESS_KEY_ID = 'x';
+    process.env.AWS_SECRET_ACCESS_KEY = 'y';
+    vi.stubGlobal('fetch', () => converseOk(JSON.stringify({ recommendations: [
+      { label: 'Angle it for Costco', reason: 'Bulk value fits the brief.', patch: { theme: 'localized-costco', brief: 'Camp mornings in bulk' } },
+      { label: 'Bad theme', reason: 'Invented slug.', patch: { theme: 'no-such-theme' } },
+      { label: 'Banned copy', reason: 'All caps.', patch: { brief: 'Fuel it with KODIAK' } },
+      { label: 'Empty', reason: 'No patch.', patch: {} },
+    ] })));
+    const r = await handler(post('/insights', { brief: 'wild mornings', theme: 'none', market: 'us', products: [], want: 'recommendations' }));
+    expect(r.statusCode).toBe(200);
+    expect(JSON.parse(r.body).recommendations).toEqual([
+      { label: 'Angle it for Costco', reason: 'Bulk value fits the brief.', patch: { theme: 'localized-costco', brief: 'Camp mornings in bulk' } },
+    ]);
+  });
+
+  it('recommendations still requires a brief and stays JSON-honest', async () => {
+    const f = vi.fn();
+    vi.stubGlobal('fetch', f);
+    const r = await handler(post('/insights', { brief: '  ', want: 'recommendations' }));
+    expect(r.statusCode).toBe(400);
+    expect(f).not.toHaveBeenCalled();
+  });
+
   it('disallowed origin still answers with default CORS host', async () => {
     process.env.AWS_ACCESS_KEY_ID = 'x';
     process.env.AWS_SECRET_ACCESS_KEY = 'y';

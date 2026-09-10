@@ -1,0 +1,5 @@
+{
+  "_note": "Ideas-tab curation: strength ranks strongest-first, omit hides slop (mock-hero placeholders). Keys are full DAM keys. Unrated keys keep listing order behind rated ones. Add keys by inspection — see backlog item J.",
+  "strength": {},
+  "omit": []
+}

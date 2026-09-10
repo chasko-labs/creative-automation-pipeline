@@ -1,9 +1,11 @@
 """Build coach/knowledge.md from committed repo sources (deterministic).
 
 Reads data/products/theme-asset-map.json (theme briefs) plus the retailer copy
-framings, appends coach/knowledge-static.md (how-to-steer recipes). A test
-asserts the committed knowledge.md regenerates byte-identical, so grounding can
-never drift from the shipped themes.
+framings, brand copy law, past-post voice digests from data/raw-ingest, and the
+pipeline-tool map (already encoded in youtube-deep.json), then appends
+coach/knowledge-static.md (how-to-steer recipes). A test asserts the committed
+knowledge.md regenerates byte-identical, so grounding can never drift from the
+shipped themes.
 """
 from __future__ import annotations
 
@@ -15,6 +17,7 @@ ROOT = pathlib.Path(__file__).parents[1]
 MAP = ROOT / "data" / "products" / "theme-asset-map.json"
 STATIC = ROOT / "coach" / "knowledge-static.md"
 OUT = ROOT / "coach" / "knowledge.md"
+INGEST = ROOT / "data" / "raw-ingest" / "kodiakcakes"
 
 # Retailer copy framings, mirrored from _THEME_COPY_HINT in generate.py.
 COPY_HINTS = {
@@ -23,6 +26,66 @@ COPY_HINTS = {
     "localized-target": "everyday-family aisle — one-trip basket, modern everyday value",
     "kodiak-subscription": "subscription cadence — front-door delivery, pantry always stocked",
 }
+
+
+def _clean(text: str, limit: int) -> str:
+    return re.sub(r"\s+", " ", str(text or "")).strip()[:limit]
+
+
+def _voice_lines() -> list[str]:
+    """Deterministic past-post voice digest from committed raw-ingest deeps."""
+    lines = ["", "## Past social voice (observed @kodiakcakes — steer toward this)"]
+    try:
+        insta = json.loads((INGEST / "insta-deep.json").read_text(encoding="utf-8"))
+    except OSError:
+        return lines
+    lines.append(f"- instagram {insta.get('handle', '')} ({insta.get('followers', 0):,} followers): {_clean(insta.get('bio'), 120)}")
+    tags = insta.get("hashtag_families", {}) or {}
+    lines.append(f"- primary tags: {' '.join(tags.get('primary_brand', [])[:4])}".rstrip())
+    lines.append(f"- secondary tags: {' '.join(tags.get('secondary_brand', [])[:6])}".rstrip())
+    when = insta.get("when_they_post", {}) or {}
+    if when.get("time_of_day"):
+        lines.append(f"- post window: {_clean(when['time_of_day'], 140)}")
+    cadence = (insta.get("posting_cadence", {}) or {}).get("observed_dates_2026", [])
+    if cadence:
+        lines.append(f"- recent cadence ({len(cadence)} observed): {'; '.join(cadence[:3])}")
+    for name in ("tiktok-deep", "facebook-deep"):
+        try:
+            deep = json.loads((INGEST / f"{name}.json").read_text(encoding="utf-8"))
+        except OSError:
+            continue
+        handle = deep.get("handle") or deep.get("title", "")
+        bio = _clean(deep.get("bio"), 100)
+        lines.append(f"- {deep.get('platform', name)} {handle}: {bio}".rstrip())
+    return lines
+
+
+def _pipeline_lines() -> list[str]:
+    """Pipeline-tool map, mirrored from the committed youtube-deep mapping."""
+    lines = ["", "## Pipeline tools the counsel can steer toward"]
+    try:
+        mapping = json.loads((INGEST / "youtube-deep.json").read_text(encoding="utf-8")).get("pipeline_mapping", {})
+    except OSError:
+        mapping = {}
+    ratios = mapping.get("compose_ratios", {}) or {}
+    for ratio in sorted(ratios):
+        lines.append(f"- {ratio}: {_clean(ratios[ratio], 140)}")
+    if mapping.get("dam_reuse"):
+        lines.append(f"- dam reuse: {_clean(mapping['dam_reuse'], 160)}")
+    lines.append("- compliance: src/creative_automation/compliance.py — caption, hashtag, scrim checks run per creative")
+    lines.append("- recipe cards: Nova-authored copy with deterministic fallback; card template runs in full mode")
+    return lines
+
+
+COPY_LAW_LINES = [
+    "",
+    "## Brand standards (copy law — hard rules, never negotiable)",
+    "- the word KODIAK (all caps) never ships in copy, except inside a hashtag token",
+    "- title-case Kodiak only as Kodiak Cakes or Kodiak Park City; bare Kodiak appears nowhere",
+    "- social voice uses #kodiakcakes-style hashtags, never invented translations or frontier data",
+    "- thin-month event suggestions are UNVERIFIED until confirmed — say so plainly",
+    "- canon: tests/test_atlanta_copy_law.py, src/creative_automation/platform_copy.py",
+]
 
 
 def build() -> str:
@@ -35,6 +98,9 @@ def build() -> str:
     lines += ["", "## Retailer copy framings (ship in the copy sidecar)"]
     for slug in sorted(COPY_HINTS):
         lines.append(f"- {slug}: {COPY_HINTS[slug]}")
+    lines += COPY_LAW_LINES
+    lines += _voice_lines()
+    lines += _pipeline_lines()
     lines += ["", STATIC.read_text(encoding="utf-8").rstrip(), ""]
     return "\n".join(lines)
 

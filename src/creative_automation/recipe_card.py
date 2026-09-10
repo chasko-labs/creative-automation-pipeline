@@ -28,7 +28,12 @@ from PIL import Image, ImageDraw, ImageFont
 
 from . import naming, safety
 from .locales import resolve_this_month
+from .platform_copy import clean_brand_copy
 from .text_rewriter import rewrite_headline
+
+# Composed cards publish here so the recipes DAM tab (extra_prefixes) picks
+# them up among past assets. Publish is opt-in and never fails a card.
+DAM_RECIPES_PREFIX = "brands/kodiak/recipes/"
 
 _ROOT = Path(__file__).parents[2]
 RECIPES_PATH = _ROOT / "data" / "recipes" / "kodiak-recipes.json"
@@ -169,19 +174,44 @@ def _clean_step(raw: str) -> str:
     return re.sub(r"\s+", " ", str(raw).replace("\r", " ").replace("\t", " ")).strip()
 
 
+def publish_card(card_path: str | Path) -> str | None:
+    """Upload a composed card PNG so the recipes DAM tab lists it. Returns the
+    full DAM key, or None when DAM is unconfigured or the upload fails. Never
+    throws — publishing must never fail a campaign.
+
+    s3_upload_and_presign joins keys to the configured DAM prefix, so the key
+    is relativized against it (brands/kodiak/recipes/x.jpg under the standard
+    brands/kodiak/ prefix uploads as recipes/x.jpg and reads back verbatim).
+    """
+    try:
+        from . import dam as _dam
+
+        full = DAM_RECIPES_PREFIX + Path(card_path).name
+        _, prefix = _dam._s3_bucket_and_prefix()
+        rel = full[len(prefix):] if prefix and full.startswith(prefix) else full.lstrip("/")
+        if _dam.s3_upload_and_presign(str(card_path), rel) is None:
+            return None
+        return full
+    except Exception:
+        return None
+
+
 def build_recipe_card(
     market: str,
     *,
     month: str | None = None,
     lang: str = "en",
     out_dir: str | Path | None = None,
+    publish: bool = False,
 ) -> dict:
     """Generate a recipe card for a market + month.
 
     Returns:
-        {card_path, ingredient, recipe, text_blocks, safety} on success, or a
-        no-ingredient result {ingredient: None, reason, ...} when the month has no
-        seeded local ingredient (never fabricated).
+        {card_path, ingredient, recipe, text_blocks, safety[, dam_key]} on
+        success, or a no-ingredient result {ingredient: None, reason, ...} when
+        the month has no seeded local ingredient (never fabricated).
+        publish=True also uploads the PNG to the DAM recipes prefix (best
+        effort — dam_key None when DAM is unavailable).
     """
     resolved = resolve_this_month(market, ym=month)
     if resolved is None:
@@ -246,10 +276,11 @@ def build_recipe_card(
         step_texts.append(res["text"])
         step_results.append(res)
 
+    # Standing copy law: bare KODIAK never ships on a card (logo lockups only).
     text_blocks = {
-        "title": title["text"],
-        "ingredient_line": ing_line["text"],
-        "steps": step_texts,
+        "title": clean_brand_copy(title["text"]),
+        "ingredient_line": clean_brand_copy(ing_line["text"]),
+        "steps": [clean_brand_copy(s) for s in step_texts],
     }
 
     # aggregate safety across every emitted block — all flow through B1, so all are
@@ -269,6 +300,7 @@ def build_recipe_card(
     out_root = Path(out_dir) if out_dir else DEFAULT_OUT_DIR
     card_path = _compose_card(hero, text_blocks, out_root / iso_name)
 
+    dam_key = publish_card(card_path) if publish else None
     return {
         "card_path": str(card_path),
         "ingredient": ingredient,
@@ -277,4 +309,5 @@ def build_recipe_card(
         "safety": card_safety,
         "month": resolved_month,
         "step_results": step_results,
+        "dam_key": dam_key,
     }

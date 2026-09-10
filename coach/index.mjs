@@ -136,11 +136,79 @@ function asOps(raw) {
   return out;
 }
 
+function shippedSlugs() {
+  // Theme slugs the page can actually check — parsed from the same KNOWLEDGE
+  // the model sees, so validation can never drift from shipped chips.
+  const out = new Set();
+  for (const m of KNOWLEDGE.matchAll(/^- ([\w-]+):/gm)) out.add(m[1]);
+  return out;
+}
+
+// Copy law, mirrored from tests/test_atlanta_copy_law.py: all-caps KODIAK
+// never ships except inside a hashtag; title-case Kodiak only as
+// Kodiak Cakes / Kodiak Park City.
+const ALLCAPS_RE = /(?<!#)\bKODIAK\b/;
+const BARE_RE = /(?<!#)\bKodiak\b(?!\s+(Cakes?|Park\s+City))/;
+
+function asRecs(raw, slugs) {
+  // Strict-shape counsel recommendations: unknown keys dropped, banned copy
+  // refused (rec dropped when its brief patch violates copy law and carries
+  // nothing else), empty patches dropped, max 3.
+  if (!Array.isArray(raw)) return [];
+  const out = [];
+  for (const r of raw.slice(0, 3)) {
+    if (!r || typeof r !== "object") continue;
+    const label = String(r.label ?? "").slice(0, 80);
+    if (!label.trim()) continue;
+    const reason = String(r.reason ?? "Coach recommendation.").slice(0, 300);
+    const p = r.patch && typeof r.patch === "object" ? r.patch : null;
+    if (!p) continue;
+    const patch = {};
+    if (typeof p.brief === "string" && p.brief.trim()) {
+      const brief = p.brief.slice(0, MAX_INPUT);
+      if (ALLCAPS_RE.test(brief) || BARE_RE.test(brief)) continue;
+      patch.brief = brief;
+    }
+    if (typeof p.market === "string" && p.market.trim()) patch.market = p.market.slice(0, 120);
+    if (typeof p.theme === "string" && slugs.has(p.theme)) patch.theme = p.theme;
+    if (Array.isArray(p.products)) {
+      const prods = p.products.filter((x) => typeof x === "string" && x.trim()).slice(0, 8)
+        .map((x) => x.slice(0, 120));
+      if (prods.length) patch.products = prods;
+    }
+    if (!Object.keys(patch).length) continue;
+    out.push({ label, reason, patch });
+  }
+  return out;
+}
+
+async function handleRecommendations(body, brief) {
+  const theme = String(body.theme ?? "none").slice(0, 80);
+  const market = String(body.market ?? "us").slice(0, 120);
+  const products = Array.isArray(body.products)
+    ? body.products.filter((x) => typeof x === "string").slice(0, 8).join(", ").slice(0, 400)
+    : "";
+  const slugs = shippedSlugs();
+  const prompt =
+    `You are an adversarial design director reviewing a Kodiak Cakes campaign draft. Be blunt: name what is weakest.\n` +
+    `Draft brief: ${brief}\nTheme: ${theme}\nMarket: ${market}\nProducts: ${products || "none selected"}\n` +
+    `Shipped theme slugs (patch.theme MUST be one of these): ${[...slugs].sort().join(", ")}\n` +
+    `Reply with ONLY JSON: {"recommendations": [{"label": "<=10 words", "reason": "<=40 words, why this fixes the draft>", "patch": {"brief": "...", "market": "...", "theme": "<slug>", "products": [...]}}]}. ` +
+    `Max 3 recommendations, each patch carries ONLY keys the draft needs (omit the rest). ` +
+    `Copy law is absolute: no all-caps KODIAK except inside a hashtag; title-case Kodiak only as Kodiak Cakes or Kodiak Park City.`;
+  const text = await converse([{ role: "user", content: [{ text: prompt }] }], MAX_TOKENS, SYSTEM);
+  const i = text.indexOf("{"), j = text.lastIndexOf("}");
+  if (i === -1 || j <= i) throw new Error("unparseable recommendations");
+  const j_ = JSON.parse(text.slice(i, j + 1));
+  return { statusCode: 200, body: { recommendations: asRecs(j_.recommendations, slugs) } };
+}
+
 async function handleInsights(body) {
   const brief = String(body.brief ?? "").slice(0, MAX_INPUT);
   const theme = String(body.theme ?? "none").slice(0, 80);
   const market = String(body.market ?? "us").slice(0, 120);
   if (!brief.trim()) return { statusCode: 400, body: { error: "brief is required" } };
+  if (body.want === "recommendations") return handleRecommendations(body, brief);
   const prompt =
     `Campaign brief: ${brief}\nTheme: ${theme}\nMarket: ${market}\n` +
     `Reply with ONLY a JSON array of 3-5 short insight strings (why this seed/photo fits, what the theme changed, one concrete thing to try next). No other text.`;

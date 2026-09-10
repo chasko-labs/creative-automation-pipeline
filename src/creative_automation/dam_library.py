@@ -50,6 +50,76 @@ _CATALOG_PATH = data_path("products", "kodiak-full-catalog.json")
 # module-cached key -> category index; None means "not loaded yet" (Lambda reuse).
 _PRODUCT_LINE_CACHE: dict[str, str] | None = None
 
+# ---------------------------------------------------------------- thumbnails
+# Grid tiles must never pull full files: list_library mints a presigned thumb
+# url per item when a cached 320px derivative exists under _THUMB_PREFIX.
+# Derivatives are filled by scripts/build-thumb-cache.py (never generated
+# inline — a cold 40-tile grid would blow the Lambda wall). Missing thumb ->
+# thumb=None and the frontend falls back to the full url for that tile.
+_THUMB_PREFIX = "thumbs/"
+_THUMB_WIDTH = 320
+
+
+def _thumb_key(key: str) -> str:
+    return f"{_THUMB_PREFIX}{key}.thumb.jpg"
+
+
+def thumb_url(key: str, client, bucket: str) -> str | None:
+    """Presigned GET for the cached thumb derivative, or None when absent.
+
+    HEAD-hit only — never generates, never throws. The frontend falls back
+    to the full url on None, so a cold thumb cache only costs speed.
+    """
+    try:
+        if not key or client is None or not bucket:
+            return None
+        client.head_object(Bucket=bucket, Key=_thumb_key(key))
+    except Exception:
+        return None
+    try:
+        return dam.presign_get(_thumb_key(key))
+    except Exception:
+        return None
+
+
+# ---------------------------------------------------------------- curation
+# data/dam/curation.json (optional): {"strength": {key: number}, "omit": [key]}.
+# Ideas tab ranks strongest-first; omitted keys (mock-hero slop) never list.
+# Unrated keys keep listing order behind rated ones. Missing file -> no-op.
+_CURATION_PATH = data_path("dam", "curation.json")
+_CURATION_CACHE: dict | None = None
+
+
+def _curation() -> dict:
+    global _CURATION_CACHE
+    if _CURATION_CACHE is None:
+        try:
+            import json as _json
+
+            _CURATION_CACHE = _json.loads(_CURATION_PATH.read_text())
+            if not isinstance(_CURATION_CACHE, dict):
+                _CURATION_CACHE = {}
+        except Exception:
+            _CURATION_CACHE = {}
+    return _CURATION_CACHE
+
+
+def _apply_curation(keys: list[str]) -> list[str]:
+    cur = _curation()
+    if not cur:
+        return keys
+    omit = set(cur.get("omit") or [])
+    strength = cur.get("strength") or {}
+    kept = [k for k in keys if k not in omit]
+    if not isinstance(strength, dict) or not strength:
+        return kept
+    rated = sorted(
+        [k for k in kept if k in strength],
+        key=lambda k: (-float(strength[k]), kept.index(k)),
+    )
+    unrated = [k for k in kept if k not in strength]
+    return rated + unrated
+
 # Each category declares a source strategy the gatherer dispatches on:
 #   classified -> read _RAW_INGEST_PREFIX once, keep keys whose class matches; recipes may
 #                 append extra fixed prefixes.
@@ -64,6 +134,7 @@ _CATEGORIES: dict[str, dict] = {
         "class": "recipes",
         "extra_prefixes": ("brands/kodiak/recipes/",),
     },
+    "food": {"source": "classified", "prefix": _RAW_INGEST_PREFIX, "class": "food"},
     "lifestyle": {"source": "classified", "prefix": _RAW_INGEST_PREFIX, "class": "lifestyle"},
     "ideas": {"source": "prefix", "prefixes": ("brands/kodiak/renders/",)},
     "themes": {"source": "themes", "map_path": _THEME_MAP_PATH},
@@ -80,12 +151,17 @@ _CATEGORIES: dict[str, dict] = {
 _VIDEO_EXTS = {".mp4", ".mov", ".webm"}
 
 # ---------------------------------------------------------------- classifier
-# Precedence recipes -> lifestyle -> products, fallback products. A key is NEVER dropped.
+# Precedence recipes -> food -> lifestyle -> products, fallback products. A key
+# is NEVER dropped. "recipes" is reserved for real recipe cards (recipe-named
+# assets + brands/kodiak/recipes/); food photography lives in "food".
 _RECIPE_KEYWORDS = (
-    "recipe", "recipes", "stack-cake", "stack", "plated", "plate", "syrup", "drizzle",
-    "topped", "topping", "breakfast-spread", "spread", "bowl", "served", "serving",
-    "batter", "cooked", "cooking", "griddle", "fresh-off", "brunch", "meal", "dish",
-    "prepared",
+    "recipe", "recipes", "stack-cake",
+)
+_FOOD_KEYWORDS = (
+    "stack", "plated", "plate", "syrup", "drizzle", "topped", "topping",
+    "breakfast-spread", "spread", "bowl", "served", "serving", "batter",
+    "cooked", "cooking", "griddle", "fresh-off", "brunch", "meal", "dish",
+    "prepared", "table", "kitchen", "food",
 )
 _PRODUCT_KEYWORDS = (
     "flapjack", "waffle", "waffles", "power-waffle", "power-waffles", "pancake", "cup",
@@ -104,14 +180,17 @@ _LIFESTYLE_KEYWORDS = (
 
 
 def classify_raw_ingest(key: str) -> str:
-    """Classify a raw-ingest key into recipes | lifestyle | products.
+    """Classify a raw-ingest key into recipes | food | lifestyle | products.
 
-    Precedence recipes -> lifestyle -> products; fallback products. Matches keyword
-    substrings against the lowercased filename stem so a key is never dropped.
+    Precedence recipes -> food -> lifestyle -> products; fallback products.
+    Matches keyword substrings against the lowercased filename stem so a key
+    is never dropped.
     """
     stem = pathlib.Path(key).stem.lower()
     if any(kw in stem for kw in _RECIPE_KEYWORDS):
         return "recipes"
+    if any(kw in stem for kw in _FOOD_KEYWORDS):
+        return "food"
     if any(kw in stem for kw in _LIFESTYLE_KEYWORDS):
         return "lifestyle"
     if any(kw in stem for kw in _PRODUCT_KEYWORDS):
@@ -247,7 +326,7 @@ def _gather_keys(name: str, cfg: dict, client, bucket: str, classified_cache: di
     if source == "classified":
         prefix = cfg["prefix"]
         if prefix not in classified_cache:
-            buckets: dict[str, list[str]] = {"products": [], "recipes": [], "lifestyle": []}
+            buckets: dict[str, list[str]] = {"products": [], "recipes": [], "food": [], "lifestyle": []}
             for key in _list_prefix(client, bucket, prefix):
                 buckets[classify_raw_ingest(key)].append(key)
             classified_cache[prefix] = buckets
@@ -354,7 +433,7 @@ def _platforms_from_meta(meta: dict) -> list[str]:
 
 
 # tabs whose tiles draw from the classified raw-ingest pass (product-line join applies)
-_CLASSIFIED_TABS = {"products", "recipes", "lifestyle"}
+_CLASSIFIED_TABS = {"products", "recipes", "food", "lifestyle"}
 
 
 def _item_for(
@@ -400,9 +479,10 @@ def _empty_page(offset: int) -> dict:
 
 # ---------------------------------------------------------------- public API
 def list_library(category: str | None = None, limit: int = 60, offset: int = 0) -> dict:
-    """List a marketer-facing DAM tab (or all six) with presigned GET urls, paginated.
+    """List a marketer-facing DAM tab (or all seven) with presigned GET urls, paginated.
 
-    category: products|recipes|lifestyle|ideas|themes|brand; all six when absent/unknown.
+    category: products|recipes|food|lifestyle|ideas|themes|brand; all seven when
+    absent/unknown.
     limit:    max presigned URLs minted per category this page (default 60, clamped 1..200).
     offset:   0-based window start into the category's FULL ordered key list (default 0).
 
@@ -410,11 +490,13 @@ def list_library(category: str | None = None, limit: int = 60, offset: int = 0) 
 
     Returns {"enabled": bool, "bucket": str|None, "categories": {name: page}} where each
     page is {total, offset, count, has_more, next_offset,
-    items[{key,label,kind,url,product_line,platforms}]}. product_line is the catalog
-    category for classified-tab tiles the sku-photo-map knows (else None);
-    platforms is the publish-time x-amz-meta-platforms slugs for ideas tiles
-    (else []). Never raises — S3-disabled and per-category failures both degrade
-    to _empty_page.
+    items[{key,label,kind,url,thumb,product_line,platforms}]}. thumb is the cached
+    320px derivative presign (None until scripts/build-thumb-cache.py fills it —
+    the grid falls back to url). product_line is the catalog category for
+    classified-tab tiles the sku-photo-map knows (else None); platforms is the
+    publish-time x-amz-meta-platforms slugs for ideas tiles (else []).
+    data/dam/curation.json optionally omits keys and ranks ideas strongest-first.
+    Never raises — S3-disabled and per-category failures both degrade to _empty_page.
     """
     cap = max(1, min(int(limit), 200))
     off = max(0, int(offset))
@@ -445,6 +527,7 @@ def list_library(category: str | None = None, limit: int = 60, offset: int = 0) 
             if client is None:
                 raise RuntimeError("s3 client init failed")
             keys = _gather_keys(name, cfg, client, bucket, classified_cache)
+            keys = _apply_curation(keys)
             total = len(keys)
             brand_index = (
                 _brand_label_index(cfg, client, bucket) if cfg["source"] == "merge" else None
@@ -462,6 +545,9 @@ def list_library(category: str | None = None, limit: int = 60, offset: int = 0) 
                 )
                 item = _item_for(key, name, brand_index, product_index, plats)
                 item["url"] = dam.presign_get(key)
+                # grid tiles use thumb (cached 320px derivative) and fall back
+                # to the full url when no derivative exists yet.
+                item["thumb"] = thumb_url(key, client, bucket)
                 items.append(item)
             count = len(items)
             has_more = (off + count) < total

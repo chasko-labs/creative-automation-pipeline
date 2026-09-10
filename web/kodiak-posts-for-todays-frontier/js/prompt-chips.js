@@ -390,8 +390,8 @@
     var _isLocal = (location.protocol==='file:') || ['127.0.0.1','localhost'].includes(location.hostname);
     var LIB_ENDPOINT = window.KODIAK_LIBRARY_ENDPOINT || (_isLocal ? null : '/assets/library');
     // 6-tab marketer taxonomy — Products default-active (the shelf a marketer reaches for first).
-    var CAT_LABELS = { 'products':'Products', 'recipes':'Recipes', 'lifestyle':'Lifestyle', 'ideas':'Ideas', 'themes':'Themes', 'brand':'Brand' };
-    var TAB_ORDER = ['products','recipes','lifestyle','ideas','themes','brand'];
+    var CAT_LABELS = { 'products':'Products', 'recipes':'Recipes', 'food':'Food', 'lifestyle':'Lifestyle', 'ideas':'Ideas', 'themes':'Themes', 'brand':'Brand' };
+    var TAB_ORDER = ['products','recipes','food','lifestyle','ideas','themes','brand'];
 
     // marketer-voice copy — every user-facing string lives here so tone stays in one place.
     var COPY_SEARCH_PLACEHOLDER = 'Search this stack\u2026';
@@ -423,7 +423,8 @@
     var TYPE_FACETS = {
       'products':  ['All','Flapjack & Waffle','Cups','Oatmeal','Bars','Granola','Frozen','Baking','Protein Balls'],
       'recipes':   ['All'],
-      'lifestyle': ['All','People','Outdoors','Kitchen'],
+      'food':      ['All','Table','Kitchen'],
+      'lifestyle': ['All','People','Outdoors'],
       'ideas':     ['All'],
       'themes':    ['All'],
       'brand':     ['All','Heroes','Logos','References']
@@ -909,7 +910,9 @@
         img.alt = '';                      // decorative; the tile carries the aria-label
         img.decoding = 'async';
         img.width = 150; img.height = 150; // sized decode hint — kills layout shift
-        img.dataset.src = it.url;          // IntersectionObserver assigns real src on enter
+        // Grid tiles pull the 320px thumb derivative, never the full file — the
+        // full url ships to the pipeline only on select (see selectItem).
+        img.dataset.src = it.thumb || it.url; // IntersectionObserver assigns real src on enter
         img.addEventListener('error', function(){ showPlaceholder(frame, label); });
         frame.appendChild(img);
       }

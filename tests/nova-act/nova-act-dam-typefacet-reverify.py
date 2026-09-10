@@ -322,12 +322,12 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
         _click_tab(page, "Products")
         time.sleep(0.8)
         tabs_report["switching_works"] = switched
-        if len(tabs) == 6 and len(with_counts) >= 1:
+        if len(tabs) == 7 and len(with_counts) >= 1:
             tabs_report["verdict"] = "PASS"
-            tabs_report["note"] = f"6 categories with counts; products={tabs_report['products_count']}"
+            tabs_report["note"] = f"7 categories with counts; products={tabs_report['products_count']}"
         else:
             tabs_report["verdict"] = "FAIL"
-            tabs_report["note"] = f"expected 6 categories with counts, saw {len(tabs)} ({tabs_report['labels']})"
+            tabs_report["note"] = f"expected 7 categories with counts, saw {len(tabs)} ({tabs_report['labels']})"
         report["tabs"] = tabs_report
 
         # ---- enumerate Type facet chips ----
