@@ -1132,13 +1132,25 @@ def _bedrock_failfast_client(read_timeout: int | None = None):
     return boto3.client("bedrock-runtime", region_name=BEDROCK_REGION, config=cfg)
 
 
-def _stability_control_hero(seed: Path, prompt: str, out_path: Path) -> Optional[Path]:
+def _stability_control_hero(
+    seed: Path,
+    prompt: str,
+    out_path: Path,
+    *,
+    control_strength: float | None = None,
+    seed_value: int | None = None,
+) -> Optional[Path]:
     """Restyle the seed photo to the theme via Bedrock Stability control-structure.
 
     Invokes the us.stability.stable-image-control-structure-v1:0 inference profile with
     Stability's schema ({prompt, image, control_strength, output_format}) — NOT Nova's
     taskType schema. Decodes images[0] (base64 PNG) and writes it to out_path. Returns
     the path on success, None on any failure.
+
+    control_strength and seed_value are optional overrides for parameter sweeps (see
+    param_sweep.py). When None they fall back to the module defaults
+    STABILITY_CONTROL_STRENGTH / STABILITY_SEED — so every existing caller is unchanged.
+    The sweep harness MUST drive this production function, never re-implement the invoke.
 
     AccessDenied is surfaced with its exact error code (a Bryan SSO refresh issue) — it
     is NOT swallowed silently into a mock. The caller downgrades to the Pillow compose
@@ -1152,8 +1164,10 @@ def _stability_control_hero(seed: Path, prompt: str, out_path: Path) -> Optional
         body = {
             "prompt": _style_sandwich(prompt),
             "image": _seed_b64_for_stability(seed),
-            "control_strength": STABILITY_CONTROL_STRENGTH,
-            "seed": STABILITY_SEED,
+            "control_strength": (
+                control_strength if control_strength is not None else STABILITY_CONTROL_STRENGTH
+            ),
+            "seed": seed_value if seed_value is not None else STABILITY_SEED,
             "output_format": "png",
         }
         resp = client.invoke_model(
