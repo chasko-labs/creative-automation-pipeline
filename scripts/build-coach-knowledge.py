@@ -60,6 +60,74 @@ def _voice_lines() -> list[str]:
     return lines
 
 
+def _pack_lines() -> list[str]:
+    """Deterministic half of context_pack.py fused at build time (no network).
+
+    Brand rules are parsed (ast) from the module constant so they cannot drift;
+    image-cluster topics, sample-prompt voice, and market-language coverage are
+    digested from the same committed files the pack reads per request.
+    """
+    import ast as _ast
+
+    lines = ["", "## Context pack (deterministic grounding, fused at build)"]
+    try:
+        tree = _ast.parse((ROOT / "src" / "creative_automation" / "context_pack.py").read_text(encoding="utf-8"))
+        consts: dict[str, str] = {}
+        for node in tree.body:
+            if isinstance(node, _ast.Assign) and len(node.targets) == 1 and isinstance(node.targets[0], _ast.Name):
+                try:
+                    val = _ast.literal_eval(node.value)
+                except ValueError:
+                    continue
+                if isinstance(val, str):
+                    consts[node.targets[0].id] = val
+        rules = consts.get("BRAND_RULES", "")
+        if not rules:
+            # BRAND_RULES is a tuple of literals with one f-string seam
+            # (PALETTE_ANCHOR); join it the way the module does.
+            for node in tree.body:
+                if isinstance(node, _ast.Assign) and getattr(node.targets[0], "id", "") == "BRAND_RULES":
+                    parts = []
+                    elts = node.value.elts if isinstance(node.value, _ast.Tuple) else [node.value]
+                    for e in elts:
+                        if isinstance(e, _ast.Constant):
+                            parts.append(str(e.value))
+                        elif isinstance(e, _ast.JoinedStr):
+                            for v in e.values:
+                                if isinstance(v, _ast.Constant):
+                                    parts.append(str(v.value))
+                                elif isinstance(v, _ast.FormattedValue) and isinstance(v.value, _ast.Name):
+                                    parts.append(consts.get(v.value.id, ""))
+                    rules = "".join(parts)
+        if rules:
+            lines.append(f"- brand rules: {_clean(rules, 400)}")
+    except (OSError, SyntaxError):
+        pass
+    try:
+        clusters = json.loads((ROOT / "data" / "vectors" / "image-clusters.json").read_text(encoding="utf-8"))
+        subs = []
+        for cid in sorted(clusters.get("clusters", {}), key=int):
+            c = clusters["clusters"][cid]
+            terms = ", ".join((c.get("common_terms") or [])[:5])
+            subs.append(f"c{cid} (n={c.get('size', 0)}, {c.get('dominant_channel', '?')}): {terms}")
+        lines.append(f"- image topics ({clusters.get('k', 0)} clusters): {'; '.join(subs)}"[:1200])
+    except (OSError, ValueError, KeyError):
+        pass
+    try:
+        prompts = (ROOT / "data" / "prompts" / "blog-sample-prompts.jsonl").read_text(encoding="utf-8").splitlines()
+        for i, line in enumerate([p for p in prompts if p.strip()][:2]):
+            prompt = json.loads(line).get("prompt", "")
+            lines.append(f"- sample voice {i + 1}: {_clean(prompt, 160)}")
+    except (OSError, ValueError):
+        pass
+    try:
+        meta = json.loads((ROOT / "data" / "localization" / "market-languages.json").read_text(encoding="utf-8")).get("metadata", {})
+        lines.append(f"- market languages: {meta.get('total_markets', '?')} markets, {meta.get('total_localized_variants', '?')} localized variants")
+    except (OSError, ValueError):
+        pass
+    return lines
+
+
 def _pipeline_lines() -> list[str]:
     """Pipeline-tool map, mirrored from the committed youtube-deep mapping."""
     lines = ["", "## Pipeline tools the counsel can steer toward"]
@@ -100,6 +168,7 @@ def build() -> str:
         lines.append(f"- {slug}: {COPY_HINTS[slug]}")
     lines += COPY_LAW_LINES
     lines += _voice_lines()
+    lines += _pack_lines()
     lines += _pipeline_lines()
     lines += ["", STATIC.read_text(encoding="utf-8").rstrip(), ""]
     return "\n".join(lines)

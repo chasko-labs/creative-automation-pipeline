@@ -49,3 +49,14 @@ def test_knowledge_fits_lambda_slice_budget() -> None:
 
     # coach/index.mjs slices knowledge to 12000 chars for the zip prompt.
     assert len(pathlib.Path("coach/knowledge.md").read_text(encoding="utf-8")) < 9000
+
+
+def test_knowledge_fuses_context_pack() -> None:
+    import pathlib
+
+    text = pathlib.Path("coach/knowledge.md").read_text(encoding="utf-8")
+    assert "## Context pack (deterministic grounding" in text
+    assert "- brand rules: no text or logo inside the image (cr-1)" in text
+    assert "image topics (12 clusters)" in text
+    assert "sample voice 1" in text
+    assert "74 markets" in text

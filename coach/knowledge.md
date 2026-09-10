@@ -32,6 +32,13 @@
 - tiktok @kodiakcakes: Kodiak Cakes — Feeding Epic Days & Wilder Lives; 100% Whole Grains; Protein-packed (mirrors Instagra
 - facebook KodiakCakes:
 
+## Context pack (deterministic grounding, fused at build)
+- brand rules: no text or logo inside the image (cr-1); palette anchor Bear Brown #3B2316, Blaze Orange #E8530E, Frontier Green #1A3C34; match an existing food-subject cluster above its cohesion floor (cr-2/cr-3); iso-name every asset KODIAK-CAKES-{product}-{region}-{locality}-{channel}-{ratio}-{date}-{version}.png
+- image topics (12 clusters): c0 (n=332, catalog): pancakes, power, waffles, flapjack, waffle; c1 (n=324, catalog): waffle, waffles, power, breakfast, buttermilk; c2 (n=305, catalog): ingredients, power, chocolate, cup, oatmeal; c3 (n=293, catalog): oatmeal, granola, banana, breakfast, protein; c4 (n=265, catalog): buttermilk, power, waffle, protein, flapjack; c5 (n=235, catalog): chocolate, brownie, waffle, power, cake; c6 (n=229, catalog): chocolate, cookies, chip, protein, banana; c7 (n=225, catalog): blueberry, lemon, power, cake, waffle; c8 (n=221, catalog): apple, cinnamon, power, flapjack, buttermilk; c9 (n=219, catalog): news, 0526, protein, blueberry, chocolate; c10 (n=208, catalog): cookies, power, buttermilk, waffle, flapjack; c11 (n=192, catalog): muffins, muffin, protein, desserts, prep
+- sample voice 1: Sometimes your scrumptious flapjacks call for apple cinnamon compote that’s worth drooling over. Finish your homemade breakfast with a heap of spiced, tart flav
+- sample voice 2: Whole grains, refined grains, and enriched grains—what’s the difference? We're breaking this down for you and talking about the benefits of whole grains.
+- market languages: 74 markets, 219 localized variants
+
 ## Pipeline tools the counsel can steer toward
 - 16x9: YouTube player + thumbnail base 1920x1080 → export 1280x720 JPG for thumbnails.set
 - 1x1: Community post / cross-post square crop — not uploaded via videos.insert but useful for YouTube Community tab
