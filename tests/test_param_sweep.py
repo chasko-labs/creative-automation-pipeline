@@ -175,6 +175,110 @@ def test_sweep_records_failed_render(monkeypatch, tmp_path: Path) -> None:
     assert "render returned None" in results[0].notes
 
 
+def test_sweep_survives_raising_render(monkeypatch, tmp_path: Path, capsys) -> None:
+    """A per-render RAISE must land ok=False + continue, not abort the batch.
+
+    generate._stability_control_hero uses the rung-B fail-fast client that RE-RAISES on
+    timeout/throttle by design (correct for the production ladder). In the sweep harness
+    one slow response must NOT kill the queued renders: the raising value is recorded
+    ok=False with the exception summary in notes, every other value still renders, the
+    loop completes all M values, and the sidecar records all M results. Mocked, zero
+    live renders.
+    """
+    boom_value = 105
+
+    def flaky_render(seed, prompt, out_path, *, control_strength=None, seed_value=None):
+        if seed_value == boom_value:
+            # mirror the production re-raise: a ReadTimeoutError from the invoke.
+            # botocore's ReadTimeoutError takes endpoint_url; the offline stub takes a
+            # plain message. Build it the way the resolved class expects so this test is
+            # honest to whatever generate resolved.
+            try:
+                raise generate.ReadTimeoutError(endpoint_url="bedrock", error="seed 105")
+            except TypeError:
+                raise generate.ReadTimeoutError("read timed out on seed 105") from None
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_bytes(b"\x89PNG\r\n\x1a\n" + str(seed_value).encode())
+        return out_path
+
+    monkeypatch.setattr(generate, "_stability_control_hero", flaky_render)
+
+    def fake_judge(image_path: Path, question: str) -> tuple[bool, str]:
+        return (True, f"ok {image_path.stem}")
+
+    values = [104, 105, 106]
+    results = param_sweep.sweep_param(
+        param="seed_value",
+        seed=tmp_path / "hero.png",
+        prompt="a product with a ROSITAR signpost risk",
+        values=values,
+        out_dir=tmp_path / "seedsweep",
+        assertions={"has_text": "Any text?"},
+        judge=fake_judge,
+    )
+
+    # loop completed all M values
+    assert [r.value for r in results] == values
+
+    by_value = {r.value: r for r in results}
+
+    # the raising value landed ok=False with the exception summary in notes
+    assert by_value[105].ok is False
+    assert by_value[105].verdicts == {}
+    assert "ReadTimeoutError" in by_value[105].notes
+    # not the generic None note — this was a raise, not a None return
+    assert "render returned None" not in by_value[105].notes
+    assert by_value[105].notes.startswith("render raised ")
+
+    # the other values still rendered and were judged
+    assert by_value[104].ok is True
+    assert by_value[106].ok is True
+    assert by_value[104].verdicts == {"has_text": True}
+    assert by_value[106].verdicts == {"has_text": True}
+
+    # tally line printed: 2/3 renders ok
+    out = capsys.readouterr().out
+    assert "2/3 renders ok" in out
+
+    # sidecar recorded all M results even though one failed
+    payload = json.loads((tmp_path / "seedsweep" / "sweep-summary.json").read_text())
+    assert len(payload["results"]) == 3
+    assert [r["value"] for r in payload["results"]] == values
+    failed = next(r for r in payload["results"] if r["value"] == 105)
+    assert failed["ok"] is False
+    assert "ReadTimeoutError" in failed["notes"]
+
+
+def test_sweep_survives_plain_exception(monkeypatch, tmp_path: Path) -> None:
+    """A non-botocore RuntimeError from the invoke is caught too (broad catch-all)."""
+
+    def flaky_render(seed, prompt, out_path, *, control_strength=None, seed_value=None):
+        if seed_value == 2:
+            raise RuntimeError("unexpected blowup")
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_bytes(b"stub")
+        return out_path
+
+    monkeypatch.setattr(generate, "_stability_control_hero", flaky_render)
+
+    results = param_sweep.sweep_param(
+        param="seed_value",
+        seed=tmp_path / "hero.png",
+        prompt="x",
+        values=[1, 2, 3],
+        out_dir=tmp_path / "out",
+        judge=lambda p, q: (True, "ok"),
+    )
+
+    by_value = {r.value: r for r in results}
+    assert [r.value for r in results] == [1, 2, 3]
+    assert by_value[1].ok is True
+    assert by_value[3].ok is True
+    assert by_value[2].ok is False
+    assert "RuntimeError" in by_value[2].notes
+    assert "unexpected blowup" in by_value[2].notes
+
+
 def test_parse_assertions() -> None:
     parsed = param_sweep._parse_assertions(["no_text=Is there any text?", "sky=Orange sky?"])
     assert parsed == {"no_text": "Is there any text?", "sky": "Orange sky?"}

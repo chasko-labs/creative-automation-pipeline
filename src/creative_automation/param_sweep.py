@@ -42,6 +42,20 @@ from pathlib import Path
 
 from . import generate
 
+# Exception set the sweep survives per-render. generate.py resolves these names either to
+# real botocore classes or to its offline stub subclasses of Exception; referencing them
+# through the generate module keeps this harness honest to whatever generate resolved
+# rather than re-importing botocore (which may be absent in local-only mode). Any of these
+# from a single _stability_control_hero call is recorded ok=False and the loop continues.
+# Exception is included as the final catch-all so no invoke raise ever aborts the batch.
+_INVOKE_ERRORS: tuple[type[BaseException], ...] = (
+    generate.ReadTimeoutError,
+    generate.ConnectTimeoutError,
+    generate.ClientError,
+    generate.BotoCoreError,
+    Exception,
+)
+
 # Judge contract: (image_path, question) -> (verdict, detail)
 Judge = Callable[[Path, str], tuple[bool, str]]
 
@@ -139,6 +153,16 @@ def sweep_param(
     assertions = {label: question}; judge is the pluggable read. Defaults to local qwen
     VQA via not-nova-act. A render that returns None is recorded ok=False and its
     assertions are skipped (nothing to judge).
+
+    ROBUSTNESS: the production invoke (generate._stability_control_hero) uses the rung-B
+    fail-fast client that RE-RAISES ReadTimeoutError/ConnectTimeoutError, throttle
+    ClientError, and other BotoCoreError by design — correct for the production ladder,
+    which must classify the fallthrough and drop to rung C. But the sweep's job is to
+    survey many renders, so no single render may abort the batch. The invoke is wrapped:
+    any raise is RECORDED as ok=False with the exception text in notes and the loop
+    CONTINUES to the next value. The exception types are referenced through the generate
+    module so the harness stays honest to whatever generate resolved (real botocore vs
+    its offline stub classes) — plus a bare Exception catch so nothing escapes.
     """
     if param not in SWEEP_PARAMS:
         raise ValueError(
@@ -153,18 +177,22 @@ def sweep_param(
     for raw in values:
         value = coerce(raw)
         out_path = out_dir / f"{param}-{value}.png"
-        rendered = generate._stability_control_hero(
-            seed, prompt, out_path=out_path, **{param: value}
-        )
-        ok = rendered is not None
         verdicts: dict[str, bool] = {}
         note_parts: list[str] = []
+        try:
+            rendered = generate._stability_control_hero(
+                seed, prompt, out_path=out_path, **{param: value}
+            )
+        except _INVOKE_ERRORS as exc:  # noqa: BLE001 — no single render may kill the sweep
+            rendered = None
+            note_parts.append(f"render raised {type(exc).__name__}: {exc}")
+        ok = rendered is not None
         if ok:
             for label, question in assertions.items():
                 verdict, detail = judge(out_path, question)
                 verdicts[label] = verdict
                 note_parts.append(f"{label}: {detail}")
-        else:
+        elif not note_parts:
             note_parts.append("render returned None (see stderr for the exact Bedrock error)")
         results.append(
             SweepResult(
@@ -176,6 +204,8 @@ def sweep_param(
             )
         )
 
+    ok_count = sum(1 for r in results if r.ok)
+    print(f"\n{ok_count}/{len(results)} renders ok")
     _print_matrix(param, results, list(assertions))
     _write_sidecar(param, out_dir, prompt, seed, results, list(assertions))
     return results
