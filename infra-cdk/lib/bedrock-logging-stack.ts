@@ -146,10 +146,12 @@ export class BedrockLoggingStack extends cdk.Stack {
 
     // ---- tags ------------------------------------------------------------
     // project/team/managed-by/repo/environment come from the app-level tag set.
-    cdk.Tags.of(this).add(
-      "stack",
-      `kodiak-creatives-bedrock-logging-${this.region}`,
-    );
+    if (process.env.CDK_IMPORT_NOTAGS !== "1") {
+      cdk.Tags.of(this).add(
+        "stack",
+        `kodiak-creatives-bedrock-logging-${this.region}`,
+      );
+    }
 
     // ---- outputs ---------------------------------------------------------
     new cdk.CfnOutput(this, "BedrockLoggingLogGroupName", {

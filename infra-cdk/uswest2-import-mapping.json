@@ -1,0 +1,5 @@
+{
+  "BedrockLoggingLogGroupC57BD65F": {
+    "LogGroupName": "/aws/bedrock/kodiak-model-invocations"
+  }
+}
