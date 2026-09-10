@@ -124,6 +124,17 @@ describe('coach handler', () => {
     expect(converseBody).toMatch(/Post at 7-10am MT/);
   });
 
+  it('drops a slug masquerading as brief text, keeps the theme patch', async () => {
+    process.env.AWS_ACCESS_KEY_ID = 'x';
+    process.env.AWS_SECRET_ACCESS_KEY = 'y';
+    vi.stubGlobal('fetch', () => converseOk('{"recommendations": [{"label": "Go subscription", "reason": "Cadence fits.", "patch": {"brief": "kodiak-subscription", "theme": "kodiak-subscription"}}]}'));
+    const r = await handler(post('/insights', { brief: 'mornings', want: 'recommendations' }));
+    expect(r.statusCode).toBe(200);
+    expect(JSON.parse(r.body).recommendations).toEqual([
+      { label: 'Go subscription', reason: 'Cadence fits.', patch: { theme: 'kodiak-subscription' } },
+    ]);
+  });
+
   it('KB retrieve failure degrades to rag:false with recs intact', async () => {
     process.env.AWS_ACCESS_KEY_ID = 'x';
     process.env.AWS_SECRET_ACCESS_KEY = 'y';

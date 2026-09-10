@@ -209,7 +209,10 @@ function asRecs(raw, slugs) {
     if (typeof p.brief === "string" && p.brief.trim()) {
       const brief = p.brief.slice(0, MAX_INPUT);
       if (ALLCAPS_RE.test(brief) || BARE_RE.test(brief)) continue;
-      patch.brief = brief;
+      // A slug masquerading as brief text is not human copy — the slug
+      // belongs in patch.theme, so drop it here rather than painting it
+      // into the brief control on Apply.
+      if (!slugs.has(brief.trim())) patch.brief = brief;
     }
     if (typeof p.market === "string" && p.market.trim()) patch.market = p.market.slice(0, 120);
     if (typeof p.theme === "string" && slugs.has(p.theme)) patch.theme = p.theme;
