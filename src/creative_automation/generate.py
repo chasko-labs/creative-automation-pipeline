@@ -243,12 +243,19 @@ STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.7"))
 #   blaze orange #E8530E high-contrast accent (single hero accent, sparingly)
 #   frontier green #1A3C34 evergreen / forest (cool balance)
 #   box parchment #F5EAD3 warm cream (highlight / negative space)
+# Wording note (2026-09-10, after a live render): describe the palette as a COLOR
+# GRADE, not as scene objects. "forest-green" rendered a literal pine forest and
+# "alpenglow / dawn light" rendered a large orange sunset sky — the model paints the
+# noun. So: brown/cream is the DOMINANT grade, green is a muted UNDERTONE (not a
+# forest), orange is a small ACCENT DETAIL (explicitly not the sky), light is warm
+# neutral daylight (not a sunset).
 KODIAK_PALETTE = os.getenv(
     "KODIAK_PALETTE",
-    "earthy frontier palette of deep roasted bear-brown and warm parchment cream "
-    "grounded by evergreen forest-green, with a single blaze-orange accent used "
-    "sparingly for contrast; warm dawn / alpenglow light against cool alpine rock, "
-    "high tonal contrast, no oversaturated stock color",
+    "graded in a warm earthy color scheme dominated by deep roasted bear-brown and "
+    "soft parchment cream across the whole image, with muted sage and olive-green "
+    "undertones for cool balance (not a green forest scene), and only a single small "
+    "blaze-orange accent detail; warm neutral daylight, not an orange sunset sky; "
+    "high tonal contrast, natural and understated, no oversaturated stock color",
 )
 STYLE_HEAD = os.getenv(
     "KODIAK_STYLE_HEAD",
