@@ -410,6 +410,7 @@
     var COPY_ERROR = 'Past assets unavailable right now. Try again.';
     function damLog(outcome, failureClass, latencyMs, extra){
       try{ console.info('[dam] outcome=' + outcome + ' latency_ms=' + latencyMs + ' class=' + failureClass + (extra ? ' ' + extra : '')); }catch(e){}
+      try{ if(window.ffLog) window.ffLog('dam', {outcome: outcome, latency_ms: latencyMs, failureClass: failureClass}); }catch(e){}
     }
     function damClassify(err, json){
       if(!navigator.onLine) return 'offline';

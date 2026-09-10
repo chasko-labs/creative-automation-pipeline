@@ -762,6 +762,7 @@ let skuList = [
         const lf = document.getElementById('localFlavorText');
         if(lf) lf.innerHTML += `<br><span class="flag-pine"><b>Brief applied:</b> “${brief}” — fans to all formats</span>`;
         console.log('KODIAK generate — sample', {brief, products, primarySlug, audience, selectedLoc: selectedLoc.market, frontierHint});
+        try{ if(window.ffLog) window.ffLog('create', {brief: brief, products: products, theme: primarySlug, market: selectedLoc.market}); }catch(e){}
       };
       // Lock competing controls during generation so nothing changes mid-request; restore after.
       // Class-driven dimming on #promptChips (no inline styles): .is-locked paints it in components.css.

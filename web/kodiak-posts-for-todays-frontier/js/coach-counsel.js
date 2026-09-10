@@ -104,6 +104,7 @@
     if(!bits.length) return null;
     return {
       label: 'Sharpen the brief',
+      keys: ['brief'],
       reason: 'Your brief is empty — the preview is running on defaults. Counsel drafts one from your live market, season, and picks.',
       apply: function(){
         return setBrief('Camp morning ' + bits.join(' · '));
@@ -114,6 +115,7 @@
     if(st.products.length) return null;
     return {
       label: 'Pick 3 products',
+      keys: ['products'],
       reason: 'Nothing is selected, so generate rolls Random 3. Counsel rolls it now so you see exactly what ships.',
       apply: pickRandom3
     };
@@ -129,14 +131,23 @@
     var first = String(retailer).split(',')[0].trim();
     return {
       label: 'Angle it for ' + first,
+      keys: ['theme'],
       reason: st.marketLabel + ' shops at ' + retailer + ' — but no retailer angle is checked. Counsel checks the ' + first + ' card.',
       apply: function(){ return checkTheme(want); }
     };
   }
 
-  function renderRecs(list){
+  function renderRecs(list, meta){
     var p = panel();
     if(!p) return;
+    try{
+      if(window.ffLog) window.ffLog('counsel', {
+        mode: (meta && meta.mode) || 'local',
+        count: list.length,
+        rag: !!(meta && meta.rag),
+        labels: list.map(function(r){ return r.label; }).slice(0, 4)
+      });
+    }catch(e){}
     var html = '<summary>Campaign counsel</summary><div class="prov-body">';
     if(!list.length){
       html += '<p>Nothing to counter — brief, picks, and angle read coherent. Create when ready.</p>';
@@ -154,14 +165,20 @@
     Array.prototype.forEach.call(p.querySelectorAll('[data-counsel]'), function(btn){
       btn.addEventListener('click', function(){
         var r = list[Number(btn.getAttribute('data-counsel'))];
-        if(r && typeof r.apply === 'function' && r.apply() !== false) rerunPreview();
+        if(r && typeof r.apply === 'function' && r.apply() !== false){
+          try{ if(window.ffLog) window.ffLog('counsel-apply', {label: r.label, keys: r.keys || []}); }catch(e){}
+          rerunPreview();
+        }
       });
     });
     var all = p.querySelector('[data-counsel-all]');
     if(all) all.addEventListener('click', function(){
       var ok = false;
       list.forEach(function(r){ if(typeof r.apply === 'function' && r.apply() !== false) ok = true; });
-      if(ok) rerunPreview();
+      if(ok){
+        try{ if(window.ffLog) window.ffLog('counsel-apply', {label: 'apply-all', keys: []}); }catch(e){}
+        rerunPreview();
+      }
     });
   }
 
@@ -196,9 +213,10 @@
           return r && r.label && r.patch;
         }).map(function(r){
           return { label: r.label, reason: r.reason || 'Coach recommendation.',
+            keys: Object.keys(r.patch || {}),
             apply: function(){ return applyPatch(r.patch); } };
         });
-        if(patched.length) renderRecs(patched);
+        if(patched.length) renderRecs(patched, { mode: 'server', rag: !!j.rag });
       }).catch(function(){ /* local list already rendered */ });
     });
   }
