@@ -495,3 +495,86 @@ def test_headline_for_director_runs_with_budget(monkeypatch):
     )
     assert headline == "Dawn Patrol Eats First"
     assert source == generate_mod._DIRECTOR_LIVE_SOURCE
+
+
+def _write_seed(tmp_path: Path) -> None:
+    from PIL import Image as _Image
+
+    d = tmp_path / "input_assets" / "power-cakes"
+    d.mkdir(parents=True, exist_ok=True)
+    _Image.new("RGB", (64, 64), (200, 120, 40)).save(d / "hero-real.png", "PNG")
+
+
+def test_concurrent_director_headline_lands_through_ladder(monkeypatch, tmp_path):
+    # The ladder kick submits the director at hero start; rung C collects it.
+    # Instant live line + local seed (pure-local rung C) -> grounded headline.
+    monkeypatch.chdir(tmp_path)
+    _write_seed(tmp_path)
+    monkeypatch.setattr(
+        generate_mod, "_director_headline_text", lambda *a, **k: "Dawn Patrol Eats First"
+    )
+    out = tmp_path / "hero.png"
+    result, source, prov = generate_mod.generate_hero(
+        product_id="power-cakes",
+        product_name="Power Cakes",
+        brief_msg="Fuel your frontier morning",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+    )
+    assert result.exists()
+    assert prov.get("headline_source") == generate_mod._DIRECTOR_LIVE_SOURCE
+
+
+def test_concurrent_director_slow_voice_bounded_wait(monkeypatch, tmp_path):
+    # A stalled voice (30s — longer than any ladder cascade, so the done()
+    # poll can never pick it up mid-run) must not stall the ladder: the first
+    # budget-shaped collect gives up at ~10s grace, the slow-voice latch holds
+    # later rungs at ~0, and the degrade chain bottoms out at the brief
+    # verbatim (the 10s wait leaves the clock too thin for the caption gate —
+    # wall safety first, copy still ships via sidecar brief).
+    import time as _time
+
+    monkeypatch.chdir(tmp_path)
+    _write_seed(tmp_path)
+
+    def _slow(*a, **k):
+        _time.sleep(30)
+        return "Too Late To Matter"
+
+    monkeypatch.setattr(generate_mod, "_director_headline_text", _slow)
+    monkeypatch.setattr(
+        generate_mod, "_nova_pro_caption", lambda *a, **k: "fuel wild mornings."
+    )
+    out = tmp_path / "hero.png"
+    start = _time.monotonic()
+    result, source, prov = generate_mod.generate_hero(
+        product_id="power-cakes",
+        product_name="Power Cakes",
+        brief_msg="Fuel your frontier morning",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+    )
+    elapsed = _time.monotonic() - start
+    assert result.exists()
+    assert prov.get("headline") == "Fuel your frontier morning"
+    assert prov.get("headline_source") is None
+    assert elapsed < 16, f"slow voice gated the ladder — {elapsed:.1f}s"
+
+
+def test_embed_client_carries_fail_fast_config():
+    from creative_automation import embeddings as _emb
+
+    client = _emb._boto_client()
+    if client is None:
+        import pytest as _pytest
+
+        _pytest.skip("boto3 unavailable in this env")
+    cfg = client.meta.config
+    assert cfg.connect_timeout == 2
+    assert cfg.read_timeout == 5
+    # merged client config normalizes max_attempts -> total_max_attempts
+    assert cfg.retries.get("total_max_attempts") == 2

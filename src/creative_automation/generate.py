@@ -115,6 +115,15 @@ _DIRECTOR_TIMEOUT_S = float(os.getenv("GENERATE_DIRECTOR_TIMEOUT_S", "8"))
 # third fallback) with a skip log, same as a caption that returns empty.
 _CAPTION_BUDGET_MS = int(os.getenv("GENERATE_CAPTION_BUDGET_MS", "7000"))
 _DIRECTOR_LIVE_SOURCE = "bedrock:kodiak-artdirector"
+# Grounded-director concurrency (wall repair): the director voice (embed +
+# up to two invokes, ~8s worst case) used to run SERIALLY inside _headline —
+# after seed resolution, before rung B — so director + restyle alone exceeded
+# the 22s wall on cold containers. _kick_director submits it once at ladder
+# start; _headline collects with a budget-shaped wait (rich clock waits for a
+# real headline, thin clock takes ~0 and falls to caption). Same leak-and-drain
+# contract as the other bounded executors: an abandoned voice worker writes
+# nothing shared. The per-container memo still makes repeat calls ~free.
+_DIRECTOR_POOL = concurrent.futures.ThreadPoolExecutor(max_workers=2)
 # Refusal guard: a live voice model can still decline (junk retrieved examples make
 # refusal likely — PROVEN IN PROD 2026-09-08: hash-laden DAM titles as in-voice
 # examples produced "I Can't Fulfill This Request" as the campaign headline). A
@@ -225,12 +234,24 @@ STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.7"))
 # frozen ends keep every restyle/outpaint on-brand no matter what the subject says.
 STYLE_HEAD = os.getenv(
     "KODIAK_STYLE_HEAD",
-    "Photorealistic Kodiak frontier lifestyle photography, natural light, high detail, on-brand earthy palette. Subject: ",
+    # no brand token in the image prompt: the model renders any brand word it
+    # sees as packaging glyphs and garbles it ("KODA CAKTS"). brand identity
+    # ships via the composited real DAM packshot/logo (Pillow), never pixels.
+    "Photorealistic mountain frontier lifestyle photography, natural light, high detail, on-brand earthy palette. Subject: ",
 )
 STYLE_TAIL = os.getenv(
     "KODIAK_STYLE_TAIL",
-    ". No text, no letters, no signage, blank surfaces only.",
+    # explicit anti-gibberish: control-structure preserves seed structure, so
+    # text-shaped regions in the seed photo restyle into fake lettering unless
+    # told otherwise. every surface blank and unmarked, no exceptions.
+    ". Absolutely no text of any kind — no words, no letters, no numbers, no "
+    "logos, no labels, no signage, no packaging copy, no readable or garbled "
+    "lettering. All packaging, paper, tags, and surfaces blank and unmarked.",
 )
+# Brand tokens scrubbed out of every stability-bound prompt (proven 2026-09-10:
+# the word in the prompt renders as hallucinated pack copy). Applied to the
+# whole assembled prompt so subject, scene hints, and mascot block are covered.
+_BRAND_SCRUB_RE = re.compile(r"(?i)(?:on-brand\s+)?\bkodiak(?:\s+cakes)?\b[\s-]*")
 # Mascot lock (Unit 2 — character consistency on the restyle rails): a FROZEN
 # descriptor block pinned into the style-sandwich SUBJECT slot so the same brand
 # bear renders recognizably identical across scenes (cabin / market / campfire).
@@ -275,8 +296,12 @@ def _style_sandwich(subject: str) -> str:
             else:
                 subject = f"{block} Scene: {subject}"
     if subject.startswith(STYLE_HEAD):
-        return subject
-    return f"{STYLE_HEAD}{subject}{STYLE_TAIL}"
+        assembled = subject
+    else:
+        assembled = f"{STYLE_HEAD}{subject}{STYLE_TAIL}"
+    # brand scrub last: no brand word ever reaches the image model.
+    scrubbed = _BRAND_SCRUB_RE.sub("", assembled)
+    return re.sub(r"\s{2,}", " ", scrubbed).strip()
 # Stability outpaint is invoked via its INFERENCE-PROFILE id (bare stability.* raises
 # ValidationException). Confirmed ACTIVE + AUTHORIZED + AVAILABLE in us-east-1. The
 # taller ratios (4x5, 2x3) are DERIVED from the 1x1 control-structure hero via outpaint
@@ -2158,14 +2183,47 @@ def generate_hero(
     if ratio not in _CANVAS:
         ratio = "1x1"
 
+    # Director kicked once at ladder start so the voice overlaps seed
+    # resolution + rung composition instead of serializing after them.
+    try:
+        _director_fut = _DIRECTOR_POOL.submit(
+            _director_headline_text, product_name, brief_msg, region, audience
+        )
+    except Exception:
+        _director_fut = None
+    # Slow-voice latch: the ladder calls _headline once per attempted rung
+    # (A/B/C) — without this, three budget-shaped waits could stack past the
+    # grace the wall allows. The first wait that times out marks the voice
+    # dead; later calls only poll an already-done future (free) and otherwise
+    # fall straight to caption.
+    _voice_state = {"dead": False}
+
     def _headline(src: Path) -> str:
-        # grounded trained director first (budget-gated, bounded, live-source
+        # grounded trained director first (budget-gated collect, live-source
         # only, already house-styled); stock Nova caption second; raw brief
         # last and verbatim. provenance records which voice wrote the line.
+        # The collect wait is budget-shaped: a rich clock waits up to the
+        # director bound for a real headline; a thin clock takes ~0 and falls
+        # through to caption immediately.
         if remaining_ms() >= _DIRECTOR_BUDGET_MS + _C_RESERVATION_MS:
-            directed = _director_headline_text(
-                product_name, brief_msg, region, audience
-            )
+            directed = None
+            if _director_fut is not None:
+                if _director_fut.done():
+                    try:
+                        directed = _director_fut.result(timeout=0)
+                    except Exception:
+                        directed = None
+                        _voice_state["dead"] = True
+                elif not _voice_state["dead"]:
+                    try:
+                        grace_s = min(
+                            (_DIRECTOR_TIMEOUT_S + 2.0),
+                            max(0.3, (remaining_ms() - _C_RESERVATION_MS - 500.0) / 1000.0),
+                        )
+                        directed = _director_fut.result(timeout=grace_s)
+                    except Exception:
+                        directed = None  # slow voice -> caption path, pixels unaffected
+                        _voice_state["dead"] = True
             if directed:
                 provenance["headline_source"] = _DIRECTOR_LIVE_SOURCE
                 print(f"[director] grounded headline: {directed}", file=sys.stderr)
