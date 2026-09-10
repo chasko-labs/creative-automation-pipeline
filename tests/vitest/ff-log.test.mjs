@@ -14,6 +14,8 @@ const generate = readFileSync(
   resolve(root, 'web/kodiak-posts-for-todays-frontier/js/generate.js'), 'utf8');
 const chips = readFileSync(
   resolve(root, 'web/kodiak-posts-for-todays-frontier/js/prompt-chips.js'), 'utf8');
+const sections = readFileSync(
+  resolve(root, 'web/kodiak-posts-for-todays-frontier/js/campaign-sections.js'), 'utf8');
 
 // ff-log: structured client event bus. Console spew alone is not shareable —
 // every meaningful action lands one JSON line in the console AND in a capped
@@ -51,5 +53,15 @@ describe('ff-log console bus', () => {
 
   it('dam outcomes flow into the buffer', () => {
     expect(chips).toMatch(/window\.ffLog\('dam', \{outcome: outcome, latency_ms: latencyMs/);
+  });
+
+  it('full-campaign runs emit start/done/fail with wall-timing', () => {
+    expect(sections).toMatch(/window\.ffLog\('campaign-start', \{scope: scope/);
+    expect(sections).toMatch(/window\.ffLog\('campaign-done', \{scope: scope, source: runSource, ms: runMs/);
+    expect(sections).toMatch(/fallthrough_reason/);
+    expect(sections).toMatch(/window\.ffLog\('campaign-fail', \{kind: 'fallback'/);
+    expect(sections).toMatch(/window\.ffLog\('campaign-fail', \{kind: 'error'/);
+    expect(sections).toMatch(/fallthrough: ' \+ \(info\.fallthrough/);
+    expect(sections).toMatch(/client_ms: ' \+ \(info\.ms/);
   });
 });

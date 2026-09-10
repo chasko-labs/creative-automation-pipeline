@@ -145,7 +145,7 @@
     copy.addEventListener('click', function(){
       var summary = 'Kodiak Cakes campaign run summary — ' + new Date().toISOString() + '\n' +
         'market: ' + (info.market||'?') + '\nproduct: ' + (info.product||'?') + '\nscope: ' + (info.scope||'?') + '\n' +
-        'source: ' + (info.source||'?') + '\nresult: ' + (info.detail||'?');
+        'source: ' + (info.source||'?') + '\nfallthrough: ' + (info.fallthrough||'none') + '\nclient_ms: ' + (info.ms == null ? '?' : info.ms) + '\nresult: ' + (info.detail||'?');
       function done(ok){ copy.textContent = ok ? 'Copied — paste it to support' : 'Copy failed — select and copy manually'; }
       try{
         if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(summary).then(function(){done(true);}, function(){done(false);}); }
@@ -262,6 +262,8 @@
     }
     setCampaignBtnsDisabled(true);
     if(status) status.textContent = 'Generating full campaign (' + scope + ')\u2026 up to ~90s';
+    var t0 = Date.now();
+    try{ if(window.ffLog) window.ffLog('campaign-start', {scope: scope, market: selectedMarket(), product: selectedProductSlug(), brief: currentBrief().slice(0, 120)}); }catch(e){}
     var controller = new AbortController();
     var timeoutId = setTimeout(function(){ controller.abort(); }, 100000);
     try{
@@ -309,10 +311,14 @@
       // #284 — wall-timeout fallback is a QA miss, not a campaign: label it and
       // offer retry. Passing runs clear any prior fail box.
       var runSource = json.source || 'Nova Pro';
+      var runMs = Date.now() - t0;
+      var fallthrough = (json.provenance && json.provenance.fallthrough_reason) || (/^brand-floor/i.test(runSource) ? 'wall-timeout' : null);
+      try{ if(window.ffLog) window.ffLog('campaign-done', {scope: scope, source: runSource, ms: runMs, renders: renders.length, fallthrough: fallthrough || 'none'}); }catch(e){}
       if(/^brand-floor/i.test(runSource)){
         if(status) status.textContent = 'Render miss (wall timeout) — fallback shown below, not the campaign. Try again or send the run summary to support.';
+        try{ if(window.ffLog) window.ffLog('campaign-fail', {kind: 'fallback', source: runSource, ms: runMs, fallthrough: fallthrough || 'wall-timeout', scope: scope}); }catch(e){}
         paintFailBox({kind:'fallback', detail:'The backend wall clock fired before the render finished; these pixels are the brand-floor stand-in.',
-          market: selectedMarket(), product: selectedProductSlug(), scope: scope, source: runSource});
+          market: selectedMarket(), product: selectedProductSlug(), scope: scope, source: runSource, fallthrough: fallthrough || 'wall-timeout', ms: runMs});
       } else {
         paintFailBox(null);
       }
@@ -320,9 +326,10 @@
       if(status) status.textContent = (err && err.name==='AbortError')
         ? 'Campaign generate timed out — reconnect and try again.'
         : 'Could not generate the full campaign — ' + (err && err.message ? err.message : 'try again') + '.';
+      try{ if(window.ffLog) window.ffLog('campaign-fail', {kind: 'error', message: String((err && err.message) || err || '').slice(0, 200), ms: Date.now() - t0, scope: scope}); }catch(e3){}
       // #284 — error runs get the same honest fail state with retry + summary.
       try{ paintFailBox({kind:'error', detail: String((err && err.message) || err || 'unknown error'),
-        market: selectedMarket(), product: selectedProductSlug(), scope: scope, source: 'error'}); }catch(e2){}
+        market: selectedMarket(), product: selectedProductSlug(), scope: scope, source: 'error', ms: Date.now() - t0}); }catch(e2){}
     }finally{
       clearTimeout(timeoutId);
       setCampaignBtnsDisabled(false);
