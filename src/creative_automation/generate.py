@@ -232,12 +232,31 @@ STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.7"))
 # Style sandwich (character-consistency pattern): frozen style head + varying subject
 # + frozen detail tail. Nova (or the brief fallback) supplies ONLY the subject; the
 # frozen ends keep every restyle/outpaint on-brand no matter what the subject says.
+# Brand palette rendered as COLOR LANGUAGE, not hex — diffusion models read
+# color words, not "#3B2316". Values traced to design/tokens/kodiak.json (single
+# source, drift-guarded by tests/test_kodiak_parity.py) and the contrast direction
+# in references/keep-it-wild/photography-direction.json ("cool rock + warm sunrise
+# vs #3B2316/#E8530E/#1A3C34 accent"). "on-brand earthy palette" alone was inert —
+# the model had no way to know what on-brand meant. Env-overridable like the other
+# style knobs.
+#   bear brown  #3B2316  deep roasted brown (warm base / shadow)
+#   blaze orange #E8530E high-contrast accent (single hero accent, sparingly)
+#   frontier green #1A3C34 evergreen / forest (cool balance)
+#   box parchment #F5EAD3 warm cream (highlight / negative space)
+KODIAK_PALETTE = os.getenv(
+    "KODIAK_PALETTE",
+    "earthy frontier palette of deep roasted bear-brown and warm parchment cream "
+    "grounded by evergreen forest-green, with a single blaze-orange accent used "
+    "sparingly for contrast; warm dawn / alpenglow light against cool alpine rock, "
+    "high tonal contrast, no oversaturated stock color",
+)
 STYLE_HEAD = os.getenv(
     "KODIAK_STYLE_HEAD",
     # no brand token in the image prompt: the model renders any brand word it
     # sees as packaging glyphs and garbles it ("KODA CAKTS"). brand identity
     # ships via the composited real DAM packshot/logo (Pillow), never pixels.
-    "Photorealistic mountain frontier lifestyle photography, natural light, high detail, on-brand earthy palette. Subject: ",
+    "Photorealistic mountain frontier lifestyle photography, natural light, high "
+    f"detail, {KODIAK_PALETTE}. Subject: ",
 )
 STYLE_TAIL = os.getenv(
     "KODIAK_STYLE_TAIL",
