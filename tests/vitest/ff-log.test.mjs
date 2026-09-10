@@ -37,6 +37,10 @@ describe('ff-log console bus', () => {
     expect(fflog).toMatch(/unhandledrejection/);
     expect(fflog).toMatch(/ffLogExport/);
     expect(fflog).toMatch(/Export log/);
+    // at rest there is no provenancePanel — the button docks at the
+    // campaign status line instead, and retries on document mutations.
+    expect(fflog).toMatch(/generateCampaignStatus/);
+    expect(fflog).toMatch(/document\.documentElement \|\| document\.body/);
   });
 
   it('create emits brief, products, theme, market', () => {

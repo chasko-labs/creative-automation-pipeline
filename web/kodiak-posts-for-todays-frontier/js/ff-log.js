@@ -69,24 +69,33 @@
     // the counsel button. Reuses .btn.ghost — no new tokens.
     var mountExport = function(){
       try {
-        if (document.getElementById('ffLogExport')) return;
+        if (document.getElementById('ffLogExport')) return true;
+        // provenancePanel only exists after a preview Create — at rest,
+        // dock next to the campaign status line instead so the button is
+        // always one click away. Whichever mounts first wins.
         var prov = document.getElementById('provenancePanel');
-        if (!prov || !prov.parentNode) return;
+        var host = null, ref = null;
+        if (prov && prov.parentNode) { host = prov.parentNode; ref = prov.nextSibling; }
+        else {
+          var st = document.getElementById('generateCampaignStatus');
+          if (st && st.parentNode) { host = st.parentNode; ref = st.nextSibling; }
+        }
+        if (!host) return false;
         var b = document.createElement('button');
         b.type = 'button';
         b.id = 'ffLogExport';
         b.className = 'btn ghost';
         b.textContent = 'Export log';
         b.addEventListener('click', function(){ exportLog(); });
-        prov.parentNode.insertBefore(b, prov.nextSibling);
-      } catch (e) {}
+        host.insertBefore(b, ref);
+        return true;
+      } catch (e) { return false; }
     };
     try {
       mountExport();
-      var grid = document.getElementById('preview');
-      if (grid && typeof MutationObserver !== 'undefined') {
+      if (typeof MutationObserver !== 'undefined') {
         new MutationObserver(function(){ try { mountExport(); } catch (e) {} })
-          .observe(grid, { childList: true, subtree: true });
+          .observe(document.documentElement || document.body, { childList: true, subtree: true });
       }
     } catch (e) {}
   } catch (e) {}
