@@ -2809,8 +2809,34 @@ def _headline_for(
     """Set headline through the full pipeline (module-level so generate_hero_set
     can reuse it). Returns (headline, headline_source|None): the grounded
     director first, stock Nova normalized second, raw brief last. remaining_ms
-    (when the caller has a wall clock) budget-gates the caption fallback."""
-    directed = _director_headline_text(product_name, brief_msg, region, audience)
+    (when the caller has a wall clock) budget-gates the director AND the
+    caption fallback.
+
+    Wall repair: the set path used to re-pay the full director cost (embed +
+    up to two voice invokes, ~8s) unconditionally — on a cold container after
+    a restyle base, director + render alone exceed the 22s wall and the pack
+    falls to rung D. Gated like the base-hero _headline: thin budget skips
+    straight to caption/brief. The per-container memo still makes the adequate-
+    budget second call ~free."""
+    directed = None
+    if remaining_ms is None:
+        directed = _director_headline_text(product_name, brief_msg, region, audience)
+    else:
+        try:
+            director_ok = remaining_ms() >= _DIRECTOR_BUDGET_MS + _C_RESERVATION_MS
+        except Exception:
+            director_ok = True
+        if director_ok:
+            directed = _director_headline_text(product_name, brief_msg, region, audience)
+        else:
+            try:
+                print(
+                    f"[director] set-headline skip: budget {remaining_ms():.0f}ms < "
+                    f"{_DIRECTOR_BUDGET_MS + _C_RESERVATION_MS}ms",
+                    file=sys.stderr,
+                )
+            except Exception:
+                pass
     if directed:
         # Standing copy law: the voice model may echo a bare brand word from its
         # examples — normalize on the way out (idempotent on compliant lines).

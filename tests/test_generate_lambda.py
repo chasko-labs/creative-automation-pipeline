@@ -781,3 +781,96 @@ def test_warm_ping_reports_live_voice(monkeypatch) -> None:
     resp = generate_lambda.handler(event, None)
     assert resp["statusCode"] == 200
     assert json.loads(resp["body"])["warmed"] is True
+
+
+# --------------------------------------------------------------------------- #
+# Concurrent voice (wall repair): _kick_voice overlaps hero composition, and
+# _apply_art_upgrade_future collects with a short grace wait. A slow voice can
+# never gate the render and finished pixels are never discarded for a headline.
+# --------------------------------------------------------------------------- #
+
+def test_kick_voice_dark_resolves_prompt_instantly() -> None:
+    import concurrent.futures as _fut
+
+    assert generate_lambda.ART_DIRECTOR_ENABLED is False
+    fut = generate_lambda._kick_voice({"product": "power-cakes"}, "wild mornings")
+    assert isinstance(fut, _fut.Future)
+    assert fut.result(timeout=5) == "wild mornings"
+
+
+def test_apply_future_records_real_headline() -> None:
+    import concurrent.futures as _fut
+
+    fut = _fut.Future()
+    fut.set_result("Lace up for the Wasatch dawn")
+    prov: dict = {}
+    generate_lambda._apply_art_upgrade_future(fut, {}, "wild mornings", prov)
+    assert prov.get("art_headline") == "Lace up for the Wasatch dawn"
+
+
+def test_apply_future_fallback_text_records_nothing() -> None:
+    import concurrent.futures as _fut
+
+    fut = _fut.Future()
+    fut.set_result("wild mornings")  # voice-off: same as the prompt
+    prov: dict = {}
+    generate_lambda._apply_art_upgrade_future(fut, {}, "wild mornings", prov)
+    assert "art_headline" not in prov
+
+
+def test_apply_future_slow_voice_returns_instantly_without_raise() -> None:
+    import concurrent.futures as _fut
+    import time as _time
+
+    pool = _fut.ThreadPoolExecutor(max_workers=1)
+    try:
+        fut = pool.submit(_time.sleep, 30)  # cold-model worker, abandoned
+        prov: dict = {}
+        start = _time.monotonic()
+        generate_lambda._apply_art_upgrade_future(fut, {}, "wild mornings", prov, timeout_s=0.2)
+        assert _time.monotonic() - start < 5
+        assert "art_headline" not in prov
+    finally:
+        pool.shutdown(wait=False)
+
+
+def test_apply_future_none_and_nondict_never_raise() -> None:
+    import concurrent.futures as _fut
+
+    fut = _fut.Future()
+    fut.set_result("Lace up.")
+    generate_lambda._apply_art_upgrade_future(None, {}, "p", {})
+    generate_lambda._apply_art_upgrade_future(fut, {}, "p", None)
+    generate_lambda._apply_art_upgrade_future(fut, {}, "p", "not-a-dict")
+
+
+def test_concurrent_voice_hang_costs_no_wall(monkeypatch, tmp_path: Path) -> None:
+    # Discriminating test for the repair: hanging voice + instant hero must
+    # return a NORMAL hero in ~collect-grace time, not inner-timeout + pixels.
+    # Serial order at the 6s default would take 6s+; concurrent takes ~2s.
+    import time as _time
+
+    captured: dict = {}
+    monkeypatch.setattr(generate_lambda, "generate_hero", _capture_hero(captured))
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda, "ART_DIRECTOR_ENABLED", True)
+    assert generate_lambda.ART_DIRECTOR_TIMEOUT_S == 6  # default, not squeezed
+
+    def _hang_art_direct(prompt, voice):
+        _time.sleep(7)  # past the 6s inner bound — worker abandoned, harmless
+        return {"text": "too late", "source": "bedrock:kodiak-artdirector"}
+
+    from creative_automation import art_director as _ad
+
+    monkeypatch.setattr(_ad, "art_direct", _hang_art_direct)
+
+    start = _time.monotonic()
+    event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
+    resp = generate_lambda.handler(event, None)
+    elapsed = _time.monotonic() - start
+    assert resp["statusCode"] == 200
+    body = json.loads(resp["body"])
+    assert body["ok"] is True
+    assert body["source"] != "brand-floor:wall-timeout"
+    assert captured["brief_msg"] == "a bear eating pancakes"  # voice-off pixels
+    assert elapsed < 5, f"voice gated the render — {elapsed:.1f}s (want ~2s collect grace)"

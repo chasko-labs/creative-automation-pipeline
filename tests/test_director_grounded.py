@@ -460,3 +460,38 @@ def test_director_headline_failures_retry_no_poison(monkeypatch):
     assert generate_mod._director_headline_text("P", "b", "us", "f") is None
     assert generate_mod._director_headline_text("P", "b", "us", "f") is None
     assert calls["n"] == 2
+
+
+def test_headline_for_director_skipped_on_low_budget(monkeypatch, capsys):
+    # Wall repair: the set path re-paid the full director cost (~8s) even with
+    # the wall thin — director + render then exceed 22s and the pack falls to
+    # rung D. With <10000+3000 ms left the director must not run at all.
+    _enable(monkeypatch)
+
+    def _boom(*a, **k):
+        raise AssertionError("director must not run under budget")
+
+    monkeypatch.setattr(generate_mod, "_director_headline_text", _boom)
+    monkeypatch.setattr(generate_mod, "_nova_pro_caption", _boom)
+    headline, source = generate_mod._headline_for(
+        Path("x.png"), "Power Cakes", "brief words here", "us", "families",
+        remaining_ms=lambda: 1000.0,
+    )
+    assert headline == "brief words here"
+    assert source is None
+    assert "set-headline skip" in capsys.readouterr().err
+
+
+def test_headline_for_director_runs_with_budget(monkeypatch):
+    # Adequate budget -> director still runs on the set path (memo makes the
+    # repeat call ~free on warm containers).
+    _enable(monkeypatch)
+    monkeypatch.setattr(
+        generate_mod, "_director_headline_text", lambda *a, **k: "Dawn Patrol Eats First"
+    )
+    headline, source = generate_mod._headline_for(
+        Path("x.png"), "Power Cakes", "brief words here", "us", "families",
+        remaining_ms=lambda: 20000.0,
+    )
+    assert headline == "Dawn Patrol Eats First"
+    assert source == generate_mod._DIRECTOR_LIVE_SOURCE

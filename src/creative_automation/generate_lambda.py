@@ -90,18 +90,49 @@ _ART_DIRECTOR_KNOWN_VOICES = ("adventurous", "nourishing")
 _ART_DIRECTOR_DEFAULT_VOICE = "adventurous"
 
 
-def _apply_art_upgrade(data: dict[str, Any], prompt: str, provenance: Any) -> None:
-    """Post-render art-director voice upgrade (dark by default, never gating).
+# Voice runs CONCURRENTLY with hero composition (wall repair): _kick_voice is
+# called FIRST in _handle_preview/_handle_full, the returned future overlaps the
+# whole pixel ladder, and _apply_art_upgrade_future collects it AFTER pixels
+# exist with a short grace wait. PROVEN IN PROD: the old serial order (pixels,
+# then up to 6s of voice against the same 22s wall) meant a cold art-director
+# model plus any restyle render guaranteed wall-timeout fallthrough — finished
+# pixels discarded for a headline nicety. Concurrent voice costs ~0s of wall:
+# the inner 6s bound resolves long before pixels land, so the collect is instant
+# and a slow voice can never gate the render. Same leak-and-drain contract as
+# the outer wall: an abandoned voice worker writes nothing shared.
+_VOICE_POOL = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+_VOICE_COLLECT_TIMEOUT_S = 2.0
 
-    Runs only after pixels exist. Records provenance["art_headline"] when the voice
-    step produces a real line; records nothing when the flag is off or the voice
-    falls back (in both cases _maybe_art_direct returns the prompt unchanged).
-    Never raises — a voice failure must not break a completed render.
+
+def _kick_voice(data: dict[str, Any], prompt: str):
+    """Submit the art-director voice upgrade; returns a future, never raises.
+
+    Call FIRST in the walled handlers so voice overlaps hero composition.
+    _maybe_art_direct only reads data (never mutates), so sharing the dict with
+    the pixel path is safe; a shallow copy is passed anyway as belt-and-braces.
+    When the voice flag is dark this resolves near-instantly to the prompt.
     """
     try:
-        if not isinstance(provenance, dict):
+        return _VOICE_POOL.submit(_maybe_art_direct, dict(data), prompt)
+    except Exception as e:  # noqa: BLE001 — voice must never break the kick
+        print(f"[generate_lambda] voice kick failed: {e}", file=sys.stderr)
+        return None
+
+
+def _apply_art_upgrade_future(fut, data: dict[str, Any], prompt: str, provenance: Any, timeout_s: float = _VOICE_COLLECT_TIMEOUT_S) -> None:
+    """Collect a kicked voice future after pixels exist. Never raises.
+
+    Records provenance["art_headline"] when the voice produced a real line;
+    records nothing on timeout, worker fault, or fallback (voice-off). Pixels
+    always ship regardless.
+    """
+    try:
+        if fut is None or not isinstance(provenance, dict):
             return
-        line = _maybe_art_direct(data, prompt)
+        try:
+            line = fut.result(timeout=timeout_s)
+        except Exception:
+            return  # slow voice -> voice-off, pixels ship
         if line and line.strip() and line.strip() != prompt.strip():
             provenance["art_headline"] = line.strip()
     except Exception as e:  # noqa: BLE001 — completed pixels always ship
@@ -948,6 +979,9 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     Korean for Atlanta US-SE-ATL), the recipe tease, and retailer proof (Publix
     for Atlanta-like markets). Live copy/i18n stay frontend-owned.
     """
+    # Voice kicked FIRST so it overlaps the whole pixel ladder (~0s of wall —
+    # see _VOICE_POOL contract above). Never serial after pixels.
+    voice_fut = _kick_voice(data, prompt)
     product = data.get("product", "power-cakes")
     theme = data.get("theme")
     seed_key = data.get("seed_key")
@@ -989,9 +1023,9 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         provenance["ratios"] = {"1x1": "primary"}
         provenance["mode"] = PREVIEW_MODE
         provenance["deferred"] = ["4x5", "9x16", "16x9"]
-    # Art-director voice upgrade (dark by default): runs AFTER pixels so voice work
-    # can never gate the render; recorded as provenance + sidecar, never swaps the brief.
-    _apply_art_upgrade(data, prompt, provenance)
+    # Collect the voice kicked at handler entry (overlapped pixels, ~0s wall);
+    # recorded as provenance + sidecar, never swaps the brief.
+    _apply_art_upgrade_future(voice_fut, data, prompt, provenance)
 
     # Campaign messaging IN the preview (Atlanta D/E/H): deterministic offline
     # chain — zero model calls, so it cannot blow the wall. Runs after the art
@@ -1041,6 +1075,9 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     ~8-10s of Nova Micro fan-out could not fit the 22s wall. Runs ~10s (packshot
     base) to ~21s (restyle base).
     """
+    # Voice kicked FIRST so it overlaps the whole pixel ladder (~0s of wall —
+    # see _VOICE_POOL contract above). Never serial after pixels.
+    voice_fut = _kick_voice(data, prompt)
     product = data.get("product", "power-cakes")
     theme = data.get("theme")
     seed_key = data.get("seed_key")
@@ -1093,9 +1130,9 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     # frontend-owned (rendered live via the /localize + rewrite seams).
     if isinstance(provenance, dict):
         provenance["mode"] = FULL_MODE
-    # Art-director voice upgrade (dark by default): runs AFTER pixels so voice work
-    # can never gate the render; recorded as provenance + sidecar, never swaps the brief.
-    _apply_art_upgrade(data, prompt, provenance)
+    # Collect the voice kicked at handler entry (overlapped pixels, ~0s wall);
+    # recorded as provenance + sidecar, never swaps the brief.
+    _apply_art_upgrade_future(voice_fut, data, prompt, provenance)
 
     campaign = _preview_campaign_data(data, prompt, provenance)
     # The requested platform set doubles as the publish tag (stamped above); the

@@ -267,6 +267,34 @@ def _heroes_prefix() -> str:
     return prefix
 
 
+# Deterministic hero preference: retouched hero-real before hero, lossless
+# .png before lossy exts. ASSET_EXTS is a set (no stable order), so ranking is
+# explicit here — the serial fallback below iterates this same order.
+_HERO_FILE_RANK = (
+    "hero-real.png",
+    "hero-real.jpg",
+    "hero-real.jpeg",
+    "hero-real.webp",
+    "hero.png",
+    "hero.jpg",
+    "hero.jpeg",
+    "hero.webp",
+)
+
+
+def _rank_hero_key(key: str) -> tuple[int, int]:
+    """Sort key for hero candidates: hero-real before hero, .png first.
+
+    Unknown names sort last (never dropped — a key is still downloadable).
+    """
+    fname = Path(key).name.lower()
+    try:
+        return (0, _HERO_FILE_RANK.index(fname))
+    except ValueError:
+        stem = Path(fname).stem
+        return (0 if stem == "hero-real" else 1, len(_HERO_FILE_RANK))
+
+
 def fetch_hero_to_tmp(product_id: str, cache_root: Path = Path("/tmp/kodiak-assets"), deadline_ms=None) -> Optional[Path]:  # noqa: S108 — Lambda only allows /tmp writes
     """Materialize a product hero from the S3 DAM into a Lambda-safe /tmp cache.
 
@@ -274,14 +302,21 @@ def fetch_hero_to_tmp(product_id: str, cache_root: Path = Path("/tmp/kodiak-asse
     (the retouched real asset), then hero.png. Downloads the first hit to
     cache_root/<product_id>/<name> and returns that local Path.
 
+    LIST-FIRST (wall repair): one list_objects_v2 on the product prefix resolves
+    or misses the whole directory in a single round trip. The old serial loop
+    issued up to 8 GETs (hero-real/hero x 4 exts) — on a total miss that was 8
+    failed round trips against the 22s handler wall, PROVEN IN PROD (8x
+    NoSuchKey immediately before wall-timeout fallthrough). The serial loop is
+    kept ONLY as a fallback for narrow IAM without ListBucket.
+
     Offline-safe: returns None when S3 is disabled (DAM_S3_BUCKET unset or boto3
     missing), when the client cannot init, or when neither key is present. Never
     raises — mirrors the graceful guards the rest of this module uses so local dev
     and CI (no S3 configured) fall through to the caller's local / mock path.
 
-    deadline_ms (optional zero-arg callable -> remaining ms) bounds the fan-out: the
-    hero-real/hero x ext loop ABANDONS mid-flight once remaining < DAM_PROBE_FLOOR_MS,
-    returning None so the ladder drops to rung C/D instead of blowing the 30s edge.
+    deadline_ms (optional zero-arg callable -> remaining ms) bounds the fan-out:
+    the probe ABANDONS once remaining < DAM_PROBE_FLOOR_MS, returning None so the
+    ladder drops to rung C/D instead of blowing the 30s edge.
     """
     if not _s3_enabled():
         return None
@@ -289,27 +324,76 @@ def fetch_hero_to_tmp(product_id: str, cache_root: Path = Path("/tmp/kodiak-asse
     if not bucket:
         return None
     base_prefix = f"{_heroes_prefix()}{product_id}/"
-    # hero-real preferred over hero — matches _find_source_asset's local order
-    for name in ("hero-real", "hero"):
-        for ext in ASSET_EXTS:
-            if _deadline_exceeded(deadline_ms):
-                print(f"[dam] hero probe abandoned mid-fan-out (budget floor) s3://{bucket}/{base_prefix}")
-                return None
-            fname = f"{name}{ext}"
-            key = f"{base_prefix}{fname}"
-            dest = cache_root / product_id / fname
+    # warm-container cache first — no S3 round trip at all, deterministic order.
+    for fname in _HERO_FILE_RANK:
+        dest = cache_root / product_id / fname
+        try:
             if dest.exists() and dest.stat().st_size > 0:
                 return dest
-            if _s3_download(bucket, key, dest):
-                print(f"[dam] hero s3 hit s3://{bucket}/{key} -> {dest}")
-                return dest
-            # _s3_download only creates the file on success, but guard against a
-            # zero-byte partial from an interrupted transfer.
-            if dest.exists() and dest.stat().st_size == 0:
+        except OSError:
+            pass
+    if _deadline_exceeded(deadline_ms):
+        print(f"[dam] hero probe abandoned (budget floor) s3://{bucket}/{base_prefix}")
+        return None
+    # list-first: one round trip resolves-or-misses the whole product dir.
+    try:
+        client = _s3_client()
+        if client is not None:
+            resp = client.list_objects_v2(Bucket=bucket, Prefix=base_prefix, MaxKeys=32)
+            keys = sorted(
+                (
+                    obj["Key"]
+                    for obj in resp.get("Contents", [])
+                    if obj.get("Key", "").lower().endswith(tuple(sorted(ASSET_EXTS)))
+                ),
+                key=_rank_hero_key,
+            )
+            for key in keys:
+                if _deadline_exceeded(deadline_ms):
+                    print(f"[dam] hero probe abandoned mid-list (budget floor) s3://{bucket}/{base_prefix}")
+                    return None
+                dest = cache_root / product_id / Path(key).name
                 try:
-                    dest.unlink()
-                except Exception:
+                    if dest.exists() and dest.stat().st_size > 0:
+                        return dest
+                except OSError:
                     pass
+                if _s3_download(bucket, key, dest):
+                    print(f"[dam] hero s3 hit (list) s3://{bucket}/{key} -> {dest}")
+                    return dest
+                if dest.exists() and dest.stat().st_size == 0:
+                    try:
+                        dest.unlink()
+                    except Exception:
+                        pass
+            # listed authoritatively: nothing usable under the prefix — a miss
+            # costs exactly 1 LIST and 0 GETs. No serial fan-out.
+            print(f"[dam] hero list miss s3://{bucket}/{base_prefix}")
+            return None
+    except Exception as e:  # noqa: BLE001 — narrow IAM (no ListBucket) etc.
+        print(f"[dam] hero list unavailable, serial fallback s3://{bucket}/{base_prefix}: {e}")
+    # serial fallback — hero-real preferred over hero, deterministic ext order.
+    for fname in _HERO_FILE_RANK:
+        if _deadline_exceeded(deadline_ms):
+            print(f"[dam] hero probe abandoned mid-fan-out (budget floor) s3://{bucket}/{base_prefix}")
+            return None
+        key = f"{base_prefix}{fname}"
+        dest = cache_root / product_id / fname
+        try:
+            if dest.exists() and dest.stat().st_size > 0:
+                return dest
+        except OSError:
+            pass
+        if _s3_download(bucket, key, dest):
+            print(f"[dam] hero s3 hit s3://{bucket}/{key} -> {dest}")
+            return dest
+        # _s3_download only creates the file on success, but guard against a
+        # zero-byte partial from an interrupted transfer.
+        if dest.exists() and dest.stat().st_size == 0:
+            try:
+                dest.unlink()
+            except Exception:
+                pass
     return None
 
 
