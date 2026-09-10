@@ -1,0 +1,5 @@
+- **rule cr-1 no-in-image-text**: reject assets with detected baked-in text. evidence: 644/644 blog rows are `in_image_text=false`, zero true. severity high.
+- **rule cr-2 subject-family match**: classify each asset into its nearest food-subject cluster (waffles, blueberry, apple-cinnamon, cookies, muffins, nutrition-panel, etc) and score it against that cluster's cohesion band, not the global mean. evidence: clusters are subject-coherent and catalog+blog of one subject co-locate. severity high.
+- **rule cr-3 cohesion floor**: an asset's cosine similarity to its nearest cluster centroid must clear that cluster's cohesion floor (see per-cluster cohesion in image-clusters.json). below-floor = off-brand outlier, route to human review. severity medium.
+- **rule cr-4 palette adherence**: score against Bear Brown #3B2316 + earthen neutrals. evidence: brand-lore text vectors (asserted, not pixel-measured). severity medium.
+- **rule cr-5 subject vocabulary**: caption/alt copy should hit the prepared-stack / protein / whole-grain / frontier vocabulary. evidence: blog+instagram common terms. severity low (copy hint).

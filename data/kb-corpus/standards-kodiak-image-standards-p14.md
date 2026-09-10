@@ -1,0 +1,4 @@
+- clustering: spherical k-means (cosine), k=12, seed=20260902, numpy-only (no scikit-learn). deterministic — re-running regenerates this doc identically.
+- this is metadata-informed clustering, **not pixel analysis**. cluster geometry is real (nova vectors); subject/composition reads are inferred from co-occurring metadata and carry confidence flags.
+- catalog/amazon captions are filename-derived and contribute little text signal; those clusters are shaped by vector geometry alone.
+- machine-readable form: `data/vectors/image-clusters.json`.

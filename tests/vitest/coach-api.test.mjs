@@ -18,6 +18,7 @@ beforeEach(() => {
   vi.unstubAllGlobals();
   delete process.env.AWS_ACCESS_KEY_ID;
   delete process.env.AWS_SECRET_ACCESS_KEY;
+  delete process.env.KNOWLEDGE_BASE_ID;
 });
 
 describe('coach handler', () => {
@@ -93,6 +94,49 @@ describe('coach handler', () => {
     expect(JSON.parse(r.body).recommendations).toEqual([
       { label: 'Angle it for Costco', reason: 'Bulk value fits the brief.', patch: { theme: 'localized-costco', brief: 'Camp mornings in bulk' } },
     ]);
+    expect(JSON.parse(r.body).rag).toBe(false);
+  });
+
+  it('recommendations fuses KB chunks into the prompt and reports rag:true', async () => {
+    process.env.AWS_ACCESS_KEY_ID = 'x';
+    process.env.AWS_SECRET_ACCESS_KEY = 'y';
+    process.env.KNOWLEDGE_BASE_ID = 'kb-123';
+    let converseBody = '';
+    vi.stubGlobal('fetch', (url, opts) => {
+      if (String(url).includes('bedrock-agent-runtime')) {
+        return Promise.resolve({
+          ok: true,
+          status: 200,
+          json: () => Promise.resolve({ retrievalResults: [
+            { content: { text: 'Post at 7-10am MT with #KodiakCakes' }, score: 0.9 },
+            { content: { text: '' }, score: 0.1 },
+          ] }),
+        });
+      }
+      converseBody = opts.body;
+      return converseOk('{"recommendations": [{"label": "Morning window", "reason": "Matches the observed post window.", "patch": {"brief": "Camp mornings at dawn"}}]}');
+    });
+    const r = await handler(post('/insights', { brief: 'wild mornings', theme: 'none', market: 'us', products: [], want: 'recommendations' }));
+    expect(r.statusCode).toBe(200);
+    const b = JSON.parse(r.body);
+    expect(b.rag).toBe(true);
+    expect(b.recommendations).toHaveLength(1);
+    expect(converseBody).toMatch(/Post at 7-10am MT/);
+  });
+
+  it('KB retrieve failure degrades to rag:false with recs intact', async () => {
+    process.env.AWS_ACCESS_KEY_ID = 'x';
+    process.env.AWS_SECRET_ACCESS_KEY = 'y';
+    process.env.KNOWLEDGE_BASE_ID = 'kb-123';
+    vi.stubGlobal('fetch', (url) =>
+      String(url).includes('bedrock-agent-runtime')
+        ? Promise.resolve({ ok: false, status: 403 })
+        : converseOk('{"recommendations": [{"label": "Morning window", "reason": "r.", "patch": {"brief": "Camp mornings"}}]}'));
+    const r = await handler(post('/insights', { brief: 'wild mornings', want: 'recommendations' }));
+    expect(r.statusCode).toBe(200);
+    const b = JSON.parse(r.body);
+    expect(b.rag).toBe(false);
+    expect(b.recommendations).toHaveLength(1);
   });
 
   it('recommendations still requires a brief and stays JSON-honest', async () => {
