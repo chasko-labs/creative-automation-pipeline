@@ -350,8 +350,26 @@ def test_style_sandwich_mascot_lock_pins_frozen_block(monkeypatch) -> None:
     once = generate._style_sandwich("log cabin at dawn")
     assert once.startswith(generate.STYLE_HEAD)
     assert once.endswith(generate.STYLE_TAIL)
-    assert generate.MASCOT_DESCRIPTOR_BLOCK in once
-    assert once.index(generate.MASCOT_DESCRIPTOR_BLOCK) < once.index("log cabin at dawn")
+    # brand scrub: the bear-identity words survive but the brand token never
+    # reaches the image model, even inside the frozen mascot block.
+    assert "kodiak" not in once.lower()
+    scrubbed_block = generate._BRAND_SCRUB_RE.sub(
+        "", generate.MASCOT_DESCRIPTOR_BLOCK
+    ).strip()
+    assert scrubbed_block in once
+    assert once.index(scrubbed_block) < once.index("log cabin at dawn")
     twice = generate._style_sandwich(once)
     assert twice == once
-    assert twice.count(generate.MASCOT_DESCRIPTOR_BLOCK) == 1
+
+
+def test_style_sandwich_scrubs_brand_token() -> None:
+    # proven 2026-09-10: any brand word in the stability prompt renders as
+    # hallucinated pack copy ("KODA CAKTS"). the scrub removes the token and
+    # its "on-brand" prefix; brand identity ships via composited DAM art.
+    p = generate._style_sandwich(
+        "Buttermilk Power Cakes family breakfast, Kodiak Cakes subscription, "
+        "on-brand Kodiak"
+    )
+    assert "kodiak" not in p.lower()
+    assert "on-brand ." not in p
+    assert "Buttermilk Power Cakes family breakfast" in p

@@ -290,7 +290,10 @@ def _style_sandwich(subject: str) -> str:
     subject = (subject or "").strip()
     if _mascot_lock_on():
         block = _mascot_block()
-        if block and block not in subject:
+        # containment is scrub-aware: an already-wrapped prompt carries the
+        # scrubbed block, so check for that too or re-wrapping duplicates it.
+        scrubbed_block = _BRAND_SCRUB_RE.sub("", block).strip()
+        if block and block not in subject and scrubbed_block not in subject:
             if subject.startswith(STYLE_HEAD):
                 subject = STYLE_HEAD + block + " Scene: " + subject[len(STYLE_HEAD):]
             else:
