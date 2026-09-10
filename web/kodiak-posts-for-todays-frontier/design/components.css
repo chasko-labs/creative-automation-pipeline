@@ -383,7 +383,7 @@ section.xl{padding:var(--section-space-xl) 0}
 .platform-matrix .pm-head .pm-sub{display:block;margin-top:3px;color:var(--colors-neutral-600);font:500 11px/1.4 "museo-sans",sans-serif}
 .platform-matrix table{width:100%;border-collapse:collapse;font:500 12px/1.4 "museo-sans",sans-serif}
 .platform-matrix th,.platform-matrix td{text-align:left;padding:8px 12px;border-top:1px solid var(--colors-border-default);vertical-align:top}
-.platform-matrix thead th{font:700 10px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-neutral-700);border-top:none;background:var(--colors-neutral-100)}
+.platform-matrix thead th{font:700 10px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-neutral-700);border-top:none;background:var(--colors-neutral-100);white-space:nowrap}
 /* ratio cell — chocolate on kraft-tan = >=7:1 */
 .platform-matrix td.pm-ratio b{color:var(--chocolate);font-weight:800}
 .platform-matrix td.pm-ratio .pm-role{display:block;color:var(--colors-neutral-600);font-size:10px;margin-top:2px}
