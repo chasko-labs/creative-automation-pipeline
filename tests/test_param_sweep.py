@@ -52,10 +52,10 @@ def test_sweep_matrix_and_sidecar(monkeypatch, tmp_path: Path) -> None:
     assert verdicts_by_value[0.4]["no_text"] is True
     assert all(v["product_recognizable"] for v in verdicts_by_value.values())
 
-    # each render lands on disk with the value encoded in the name
+    # each render lands on disk with the param+value encoded in the name
     for r in results:
         assert r.out_path.exists()
-        assert r.out_path.name == f"cs-{r.value}.png"
+        assert r.out_path.name == f"control_strength-{r.value}.png"
 
     # sidecar written and faithful
     sidecar = tmp_path / "sweep" / "sweep-summary.json"
@@ -66,6 +66,87 @@ def test_sweep_matrix_and_sidecar(monkeypatch, tmp_path: Path) -> None:
     assert len(payload["results"]) == 3
     assert payload["results"][2]["value"] == 0.4
     assert payload["results"][2]["verdicts"]["no_text"] is True
+
+
+def test_sweep_seed_value_dispatch_and_int_coercion(monkeypatch, tmp_path: Path) -> None:
+    """seed_value sweep: proves param dispatch, int coercion, per-value out_path naming.
+
+    The frequency probe for the ROSITAR hallucination varies seed_value across many
+    renders. This mocks the production invoke to capture exactly which keyword override it
+    received per call and asserts seed_value (an int) arrived — no control_strength, no
+    live render.
+    """
+    calls: list[dict] = []
+
+    def capture_render(seed, prompt, out_path, *, control_strength=None, seed_value=None):
+        calls.append(
+            {
+                "out_path": out_path,
+                "control_strength": control_strength,
+                "seed_value": seed_value,
+            }
+        )
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_bytes(b"\x89PNG\r\n\x1a\n" + str(seed_value).encode())
+        return out_path
+
+    monkeypatch.setattr(generate, "_stability_control_hero", capture_render)
+
+    # Fake judge keyed off the seed encoded in the filename: hallucination on odd seeds.
+    def fake_judge(image_path: Path, question: str) -> tuple[bool, str]:
+        seed_tag = int(image_path.stem.split("-")[-1])
+        # "has_text" true when the signpost hallucinated (odd seeds in this fixture)
+        return (seed_tag % 2 == 1, f"seed={seed_tag}")
+
+    # pass raw strings to prove coercion happens inside the harness
+    results = param_sweep.sweep_param(
+        param="seed_value",
+        seed=tmp_path / "hero.png",
+        prompt="a product with a ROSITAR signpost risk",
+        values=["1", "2", "3"],
+        out_dir=tmp_path / "seedsweep",
+        assertions={"has_text": "Is there a ROSITAR signpost or any text?"},
+        judge=fake_judge,
+    )
+
+    # values coerced to int, in order
+    assert [r.value for r in results] == [1, 2, 3]
+    assert all(isinstance(r.value, int) for r in results)
+
+    # dispatch drove seed_value (int), never control_strength
+    assert [c["seed_value"] for c in calls] == [1, 2, 3]
+    assert all(isinstance(c["seed_value"], int) for c in calls)
+    assert all(c["control_strength"] is None for c in calls)
+
+    # per-value out_path naming uses the param name and the int value
+    for r in results:
+        assert r.out_path.exists()
+        assert r.out_path.name == f"seed_value-{r.value}.png"
+
+    # verdicts follow the fixture: odd seeds hallucinate text
+    verdicts_by_value = {r.value: r.verdicts for r in results}
+    assert verdicts_by_value[1]["has_text"] is True
+    assert verdicts_by_value[2]["has_text"] is False
+    assert verdicts_by_value[3]["has_text"] is True
+
+    # sidecar records the param name as seed_value
+    payload = json.loads((tmp_path / "seedsweep" / "sweep-summary.json").read_text())
+    assert payload["param"] == "seed_value"
+    assert payload["assertions"] == ["has_text"]
+    assert [r["value"] for r in payload["results"]] == [1, 2, 3]
+
+
+def test_sweep_param_rejects_unwired_param(tmp_path: Path) -> None:
+    import pytest
+
+    with pytest.raises(ValueError, match="unsupported sweep param"):
+        param_sweep.sweep_param(
+            param="cfg_scale",
+            seed=tmp_path / "hero.png",
+            prompt="x",
+            values=[1.0],
+            out_dir=tmp_path / "out",
+        )
 
 
 def test_sweep_records_failed_render(monkeypatch, tmp_path: Path) -> None:
@@ -122,3 +203,64 @@ def test_cli_exit_nonzero_when_all_fail(monkeypatch, tmp_path: Path) -> None:
         ]
     )
     assert rc == 1
+
+
+def test_cli_seed_value_parses_int_values(monkeypatch, tmp_path: Path) -> None:
+    """CLI --param seed_value must parse --values as int and dispatch seed_value."""
+    calls: list[dict] = []
+
+    def capture_render(seed, prompt, out_path, *, control_strength=None, seed_value=None):
+        calls.append({"seed_value": seed_value, "control_strength": control_strength})
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_bytes(b"stub")
+        return out_path
+
+    monkeypatch.setattr(generate, "_stability_control_hero", capture_render)
+    monkeypatch.setattr(
+        param_sweep, "default_not_nova_act_judge", lambda p, q: (False, "stub")
+    )
+    seed = tmp_path / "hero.png"
+    seed.write_bytes(b"stub")
+    rc = param_sweep.main(
+        [
+            "--seed",
+            str(seed),
+            "--prompt",
+            "x",
+            "--param",
+            "seed_value",
+            "--values",
+            "1,2,3",
+            "--out",
+            str(tmp_path / "out"),
+            "--assert",
+            "has_text=Any text?",
+        ]
+    )
+    assert rc == 0
+    assert [c["seed_value"] for c in calls] == [1, 2, 3]
+    assert all(isinstance(c["seed_value"], int) for c in calls)
+    assert all(c["control_strength"] is None for c in calls)
+
+
+def test_cli_seed_value_rejects_float(monkeypatch, tmp_path: Path) -> None:
+    """--values 0.5 with --param seed_value must error (int coercion fails cleanly)."""
+    import pytest
+
+    seed = tmp_path / "hero.png"
+    seed.write_bytes(b"stub")
+    with pytest.raises(SystemExit, match="must be a comma list of int"):
+        param_sweep.main(
+            [
+                "--seed",
+                str(seed),
+                "--prompt",
+                "x",
+                "--param",
+                "seed_value",
+                "--values",
+                "0.5",
+                "--out",
+                str(tmp_path / "out"),
+            ]
+        )

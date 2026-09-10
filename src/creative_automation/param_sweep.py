@@ -5,16 +5,22 @@ ONE parameter across N values against the REAL production invoke path
 (generate._stability_control_hero — never a re-implementation), gets an objective
 per-output read from a pluggable vision judge, and reports a comparison matrix.
 
-First invocation: ROSITAR text-bleed (control_strength). But the harness is generic —
-the same code serves the orange-sky gap, cfg_scale, seed choice, and future model swaps
-with zero new code, because the judge is an injectable Callable and the swept values are
-just a list of floats.
+First invocation: ROSITAR text-bleed (control_strength). Second: seed_value, to measure
+how often a stochastic text hallucination appears across many renders. The harness is
+generic — the same code serves the orange-sky gap, cfg_scale, seed choice, and future
+model swaps with zero new code, because the judge is an injectable Callable, the swept
+param is named at call time, and its values are coerced to the right type per param.
 
 Public surface:
   SweepResult                 — one render + its per-assertion verdicts
-  sweep_control_strength(...) — drive the sweep, return list[SweepResult], write sidecar
+  sweep_param(*, param, ...)  — drive a sweep of any wired param, return list[SweepResult]
+  sweep_control_strength(...) — back-compat alias for sweep_param(param="control_strength")
   default_not_nova_act_judge  — the default judge (local qwen VQA via not-nova-act)
   main()                      — thin CLI wrapper (python -m creative_automation.param_sweep)
+
+Wired params (SWEEP_PARAMS): each maps a --param name to the coercion applied to its
+values. control_strength -> float, seed_value -> int. Adding a new sweepable param is a
+one-line entry here plus a matching keyword override on _stability_control_hero.
 
 The judge contract:
   Callable[[Path, str], tuple[bool, str]]
@@ -39,6 +45,15 @@ from . import generate
 # Judge contract: (image_path, question) -> (verdict, detail)
 Judge = Callable[[Path, str], tuple[bool, str]]
 
+# Wired sweepable params: --param name -> value coercion. Each key must have a matching
+# keyword override on generate._stability_control_hero. control_strength is a float
+# guidance term; seed_value is the integer RNG seed (vary it to measure how often a
+# stochastic hallucination like the ROSITAR signpost appears across renders).
+SWEEP_PARAMS: dict[str, Callable[[str], object]] = {
+    "control_strength": float,
+    "seed_value": int,
+}
+
 # Default judge shells the not-nova-act assert_visual path (local qwen3-vl VQA via
 # ollama). NOT_NOVA_ACT_DIR points at the checkout; assert_visual reads the PNG and
 # returns a TRUE/FALSE verdict with no AWS, no API key. To route through the running
@@ -54,7 +69,7 @@ NOT_NOVA_ACT_DIR = os.getenv(
 class SweepResult:
     """One swept value: the render it produced and the judge verdicts on it."""
 
-    value: float
+    value: float | int
     out_path: Path
     ok: bool
     verdicts: dict[str, bool] = field(default_factory=dict)
@@ -99,35 +114,47 @@ def default_not_nova_act_judge(image_path: Path, question: str) -> tuple[bool, s
         return False, f"judge invocation failed: {exc}"
 
 
-def sweep_control_strength(
+def sweep_param(
     *,
+    param: str,
     seed: Path,
     prompt: str,
-    values: list[float],
+    values: list[float | int],
     out_dir: Path,
     assertions: dict[str, str] | None = None,
     judge: Judge | None = None,
 ) -> list[SweepResult]:
-    """Sweep control_strength across `values` against the production invoke path.
+    """Sweep any wired `param` across `values` against the production invoke path.
 
-    Per value: call generate._stability_control_hero with the override control_strength,
-    write to out_dir/cs-<value>.png, then run each assertion through the judge. Records
-    ok + path + per-assertion verdicts. Prints a matrix to stdout and writes
-    out_dir/sweep-summary.json. Returns the list of SweepResult.
+    Per value: call generate._stability_control_hero with the override passed as the
+    keyword named by `param` (**{param: value}), write to out_dir/<param>-<value>.png,
+    then run each assertion through the judge. Records ok + path + per-assertion verdicts.
+    Prints a matrix to stdout and writes out_dir/sweep-summary.json. Returns the list of
+    SweepResult.
+
+    `param` must be a key of SWEEP_PARAMS; each value is coerced to that param's type
+    (float for control_strength, int for seed_value) before it reaches the invoke. The
+    caller may pass already-typed values or raw strings — both coerce cleanly.
 
     assertions = {label: question}; judge is the pluggable read. Defaults to local qwen
     VQA via not-nova-act. A render that returns None is recorded ok=False and its
     assertions are skipped (nothing to judge).
     """
+    if param not in SWEEP_PARAMS:
+        raise ValueError(
+            f"unsupported sweep param {param!r}; wired params: {sorted(SWEEP_PARAMS)}"
+        )
+    coerce = SWEEP_PARAMS[param]
     assertions = assertions or {}
     judge = judge or default_not_nova_act_judge
     out_dir.mkdir(parents=True, exist_ok=True)
     results: list[SweepResult] = []
 
-    for value in values:
-        out_path = out_dir / f"cs-{value}.png"
+    for raw in values:
+        value = coerce(raw)
+        out_path = out_dir / f"{param}-{value}.png"
         rendered = generate._stability_control_hero(
-            seed, prompt, out_path=out_path, control_strength=value
+            seed, prompt, out_path=out_path, **{param: value}
         )
         ok = rendered is not None
         verdicts: dict[str, bool] = {}
@@ -149,21 +176,53 @@ def sweep_control_strength(
             )
         )
 
-    _print_matrix(results, list(assertions))
-    _write_sidecar(out_dir, prompt, seed, results, list(assertions))
+    _print_matrix(param, results, list(assertions))
+    _write_sidecar(param, out_dir, prompt, seed, results, list(assertions))
     return results
 
 
-def _print_matrix(results: list[SweepResult], labels: list[str]) -> None:
-    """Print value -> ok + per-assertion verdict matrix to stdout."""
-    header = ["control_strength", "ok", *labels]
+def sweep_control_strength(
+    *,
+    seed: Path,
+    prompt: str,
+    values: list[float],
+    out_dir: Path,
+    assertions: dict[str, str] | None = None,
+    judge: Judge | None = None,
+) -> list[SweepResult]:
+    """Back-compat alias: sweep_param(param="control_strength", ...).
+
+    Kept so existing callers and the ROSITAR text-bleed workflow keep working unchanged.
+    New code should call sweep_param directly and name the param.
+    """
+    return sweep_param(
+        param="control_strength",
+        seed=seed,
+        prompt=prompt,
+        values=list(values),
+        out_dir=out_dir,
+        assertions=assertions,
+        judge=judge,
+    )
+
+
+def _print_matrix(param: str, results: list[SweepResult], labels: list[str]) -> None:
+    """Print value -> ok + per-assertion verdict matrix to stdout.
+
+    Display polarity fix: each assertion prints its raw boolean verdict as true/false,
+    not a yes/no that reads like pass/fail. For an assertion phrased as a question
+    (no_text = "is there text?") a verdict of false is the *good* outcome — printing the
+    literal boolean keeps the matrix from being misread. The JSON sidecar carries the same
+    booleans, so the display now matches the detail.
+    """
+    header = [param, "ok", *labels]
     rows = [header]
     for r in results:
         row = [str(r.value), "yes" if r.ok else "NO"]
-        row.extend("yes" if r.verdicts.get(lbl) else "no" for lbl in labels)
+        row.extend("true" if r.verdicts.get(lbl) else "false" for lbl in labels)
         rows.append(row)
     widths = [max(len(row[i]) for row in rows) for i in range(len(header))]
-    print("\nsweep matrix (control_strength):")
+    print(f"\nsweep matrix ({param}); assertion cells are the raw verdict (true/false):")
     for i, row in enumerate(rows):
         line = "  ".join(cell.ljust(widths[j]) for j, cell in enumerate(row))
         print(f"  {line}")
@@ -172,6 +231,7 @@ def _print_matrix(results: list[SweepResult], labels: list[str]) -> None:
 
 
 def _write_sidecar(
+    param: str,
     out_dir: Path,
     prompt: str,
     seed: Path,
@@ -181,7 +241,7 @@ def _write_sidecar(
     """Write out_dir/sweep-summary.json with the full run record."""
     sidecar = out_dir / "sweep-summary.json"
     payload = {
-        "param": "control_strength",
+        "param": param,
         "seed": str(seed),
         "prompt": prompt,
         "assertions": labels,
@@ -215,8 +275,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--param",
         default="control_strength",
-        choices=["control_strength"],
-        help="parameter to sweep (only control_strength wired today)",
+        choices=sorted(SWEEP_PARAMS),
+        help="parameter to sweep (control_strength=float, seed_value=int)",
     )
     parser.add_argument(
         "--values", required=True, help="comma list of values, e.g. 0.7,0.55,0.4"
@@ -231,17 +291,18 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
 
+    coerce = SWEEP_PARAMS[args.param]
     try:
-        values = [float(v) for v in args.values.split(",") if v.strip()]
+        values = [coerce(v.strip()) for v in args.values.split(",") if v.strip()]
     except ValueError as exc:
-        raise SystemExit(f"--values must be a comma list of floats: {exc}") from exc
+        raise SystemExit(
+            f"--values must be a comma list of {coerce.__name__} for --param {args.param}: {exc}"
+        ) from exc
 
     assertions = _parse_assertions(args.assertions)
 
-    if args.param != "control_strength":  # defensive; choices already gate this
-        raise SystemExit(f"unsupported --param {args.param}")
-
-    results = sweep_control_strength(
+    results = sweep_param(
+        param=args.param,
         seed=args.seed,
         prompt=args.prompt,
         values=values,
