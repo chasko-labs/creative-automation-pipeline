@@ -11,7 +11,7 @@ import pathlib
 import pytest
 from PIL import Image
 
-from src.creative_automation.compose import compose_creative, compose_partner_cutout
+from creative_automation.compose import compose_creative, compose_partner_cutout
 
 TMP = pathlib.Path("/tmp/partner-cutout-tests")
 TMP.mkdir(exist_ok=True)
