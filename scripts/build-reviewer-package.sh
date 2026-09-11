@@ -22,6 +22,14 @@ LIVE_URL="${LIVE_URL:-https://kodiak.bryanchasko.com/}"
 PREFIX="creative-automation-pipeline"
 STAGE="$OUT_DIR/$PREFIX"
 
+# The 2:55 walkthrough is a REQUIRED artifact. It lives in S3 (stable source),
+# not /tmp (ephemeral — the old /tmp-only path warned+skipped and shipped a ZIP
+# with START-HERE video links but zero MP4 entries). Fetch fails closed below.
+REVIEWER_VIDEO_S3_URI="${REVIEWER_VIDEO_S3_URI:-s3://frontier-bryanchasko-com/kodiak-demo-2m55.mp4}"
+AWS_PROFILE_PKG="${AWS_PROFILE:-bryanchasko-kiro}"
+AWS_REGION_PKG="${AWS_REGION:-us-east-1}"
+VIDEO_NAME="kodiak-demo-2m55.mp4"
+
 echo "[pkg] ref=$REF  out=$OUT_DIR"
 cd "$REPO_ROOT"
 git fetch origin --quiet || true
@@ -173,22 +181,55 @@ cat >"$STAGE/START-HERE.html" <<HTML
 HTML
 echo "[pkg] wrote START-HERE.html + README.html"
 
-# 3b. bundle the demo video into the staged package (before zip)
-if [ -f /tmp/kodiak-video/kodiak-demo-2m55.mp4 ]; then
-	cp /tmp/kodiak-video/kodiak-demo-2m55.mp4 "$STAGE/kodiak-demo-2m55.mp4"
-	echo "[pkg] bundled demo video"
-else
-	echo "[pkg] WARN: demo video not found, skipping"
+# 3b. fetch the REQUIRED demo video from S3 into the staged package (before zip).
+#     Fail closed: a missing/empty video is a hard error, never a warn+skip. The
+#     old /tmp-only path shipped a broken ZIP (video links, no MP4). Never again.
+echo "[pkg] fetching required video: $REVIEWER_VIDEO_S3_URI (profile $AWS_PROFILE_PKG region $AWS_REGION_PKG)"
+if ! aws s3 cp "$REVIEWER_VIDEO_S3_URI" "$STAGE/$VIDEO_NAME" \
+	--profile "$AWS_PROFILE_PKG" --region "$AWS_REGION_PKG"; then
+	echo "[pkg] FATAL: could not fetch required video from $REVIEWER_VIDEO_S3_URI" >&2
+	echo "[pkg]        the reviewer package is not shippable without the walkthrough." >&2
+	exit 1
 fi
+if [ ! -s "$STAGE/$VIDEO_NAME" ]; then
+	echo "[pkg] FATAL: fetched video is missing or zero bytes: $STAGE/$VIDEO_NAME" >&2
+	exit 1
+fi
+echo "[pkg] bundled demo video ($(wc -c <"$STAGE/$VIDEO_NAME" | tr -d ' ') bytes)"
 
 # 4. zip it
 cd "$OUT_DIR"
 rm -f kodiak-reviewer-package.zip
 zip -rq kodiak-reviewer-package.zip "$PREFIX" -x "*.pyc" -x "*__pycache__*" -x "*.DS_Store"
 echo "[pkg] built $OUT_DIR/kodiak-reviewer-package.zip ($(du -h kodiak-reviewer-package.zip | cut -f1))"
-# CloudFront serves the reviewer URL from the adobechallenge/ PREFIX, not the bucket
-# root. Upload MUST target s3://frontier-bryanchasko-com/adobechallenge/... or the
-# refresh lands at a dead key and never goes live. Invalidate after upload so the new
-# build is served immediately (distribution E3GEX8LSRX6OYS).
-echo "[pkg] upload:     aws s3 cp $OUT_DIR/kodiak-reviewer-package.zip s3://frontier-bryanchasko-com/adobechallenge/kodiak-reviewer-package.zip --content-type application/zip --profile bryanchasko-kiro --region us-east-1"
-echo "[pkg] invalidate: aws cloudfront create-invalidation --distribution-id E3GEX8LSRX6OYS --paths '/adobechallenge/kodiak-reviewer-package.zip' --profile bryanchasko-kiro --region us-east-1"
+
+# 4b. fail-closed ZIP verification: the video entry MUST exist and be non-empty
+#     inside the archive. This is the gate that catches the exact failure mode
+#     that shipped before — START-HERE video links with no MP4 in the ZIP.
+python3 - "$OUT_DIR/kodiak-reviewer-package.zip" "$PREFIX/$VIDEO_NAME" <<'PY'
+import sys
+import zipfile
+
+zip_path, entry = sys.argv[1], sys.argv[2]
+with zipfile.ZipFile(zip_path) as z:
+    try:
+        info = z.getinfo(entry)
+    except KeyError:
+        print(f"[pkg] FATAL: required entry missing from ZIP: {entry}", file=sys.stderr)
+        raise SystemExit(1)
+    if info.file_size <= 0:
+        print(f"[pkg] FATAL: required entry is zero bytes in ZIP: {entry}", file=sys.stderr)
+        raise SystemExit(1)
+    print(f"[pkg] verified video in ZIP: {entry} = {info.file_size} bytes")
+PY
+
+# The canonical package key is served by CloudFront from the adobechallenge/ PREFIX,
+# not the bucket root. Upload MUST target s3://frontier-bryanchasko-com/adobechallenge/...
+# or the refresh lands at a dead key and never goes live. The canonical key is
+# uploaded no-cache so a re-push is served immediately; invalidate after upload
+# (distribution E3GEX8LSRX6OYS). A content-addressed versioned key is also emitted
+# so emergency links can bypass any stale canonical cache — that key is immutable.
+SHORT_SHA="$(git -C "$REPO_ROOT" rev-parse --short HEAD 2>/dev/null || date -u +%Y%m%d%H%M%S)"
+echo "[pkg] canonical upload:  aws s3 cp $OUT_DIR/kodiak-reviewer-package.zip s3://frontier-bryanchasko-com/adobechallenge/kodiak-reviewer-package.zip --content-type application/zip --cache-control 'no-cache, max-age=0, must-revalidate' --profile $AWS_PROFILE_PKG --region $AWS_REGION_PKG"
+echo "[pkg] versioned upload:  aws s3 cp $OUT_DIR/kodiak-reviewer-package.zip s3://frontier-bryanchasko-com/adobechallenge/kodiak-reviewer-package-$SHORT_SHA.zip --content-type application/zip --cache-control 'public, max-age=31536000, immutable' --profile $AWS_PROFILE_PKG --region $AWS_REGION_PKG"
+echo "[pkg] invalidate:        aws cloudfront create-invalidation --distribution-id E3GEX8LSRX6OYS --paths '/adobechallenge/kodiak-reviewer-package.zip' --profile $AWS_PROFILE_PKG --region $AWS_REGION_PKG"
