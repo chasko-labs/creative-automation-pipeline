@@ -147,7 +147,35 @@ let skuList = [
     'C':'Rung C · Pillow fallback',
     'D':'Rung D · brand-floor fallback'
   };
-  const provenanceHeuristics = (prov)=>{
+  // Human labels for the per-platform slugs the copy narrative names, and for
+  // the language codes the backend echoes on prov.languages. Absent codes fall
+  // through to the raw value (honest), never a guess.
+  const PLATFORM_COPY_LABELS = {
+    x:'X', linkedin:'LinkedIn', instagram:'Instagram', tiktok:'TikTok',
+    facebook:'Facebook', pinterest:'Pinterest', youtube:'YouTube',
+    homepage:'homepage', home:'homepage', blog:'Blog', web:'homepage'
+  };
+  const LANGUAGE_LABELS = {
+    en:'English', es:'Spanish', ko:'Korean', 'zh':'Chinese', 'zh-cn':'Chinese',
+    fr:'French', de:'German', ja:'Japanese', pt:'Portuguese', it:'Italian',
+    vi:'Vietnamese', tl:'Tagalog', hi:'Hindi'
+  };
+  const humanCopyOwner = (owner)=>{
+    var o = String(owner||'').toLowerCase();
+    if(!o) return null;
+    if(o==='backend-preview-fallback') return 'built by the backend preview path';
+    if(o.indexOf('backend-')===0) return 'built by the backend ' + o.slice(8).replace(/-/g,' ') + ' path';
+    if(o.indexOf('nova')!==-1) return 'built by a live Nova model call';
+    return 'built by ' + o.replace(/-/g,' ');
+  };
+  // provenanceHeuristics(prov[, platformCopy]) — pure, prov fields in, honest
+  // plainspoken English out. Called with ONE arg it returns the original four
+  // decision lines (rung/engine/seed/fallback) unchanged — that contract is what
+  // the vitest suite pins. Called with the platform_copy map as a second arg it
+  // ALSO narrates how the campaign was built (copy path, who built it, platforms,
+  // languages, retailer theme, mode) from fields the backend ALREADY returns.
+  // Nothing is invented: an absent field reads "not reported" / is simply skipped.
+  const provenanceHeuristics = (prov, platformCopy)=>{
     prov = (prov && typeof prov==='object') ? prov : {};
     var lines = [];
     var rung = prov.rung || '';
@@ -160,6 +188,37 @@ let skuList = [
       lines.push('Seed: not reported');
     }
     lines.push('Fallback: ' + (prov.fallthrough_reason || 'none reported'));
+    // ---- build narrative (only when the panel passes the second arg) ----
+    // Single-arg callers (tests, the exposed hook used bare) get exactly the four
+    // lines above. The lines below are additive and plainspoken for a marketer.
+    if(arguments.length < 2) return lines;
+    var pc = (platformCopy && typeof platformCopy==='object') ? platformCopy : {};
+    var pcKeys = Object.keys(pc);
+    // Copy path — did a live model write the copy, or did the on-brand template?
+    var anyGenerated = pcKeys.some(function(k){ return String((pc[k]||{}).source||'').toLowerCase()==='generated'; });
+    var anyFallback = pcKeys.some(function(k){ return String((pc[k]||{}).source||'').toLowerCase()==='fallback'; });
+    if(anyGenerated){
+      lines.push('Copy: live Nova Micro rewrite — a model wrote each platform post');
+    } else if(anyFallback){
+      lines.push('Copy: on-brand template — deterministic, no model call (keeps the preview under the time budget; the live rewrite runs on the full campaign)');
+    }
+    // Who built it — humanize copy_owner without inventing anything.
+    var owner = humanCopyOwner(prov.copy_owner);
+    if(owner) lines.push('Copy path: ' + owner);
+    // Platforms — count + human names, from prov.platforms the backend returns.
+    if(Array.isArray(prov.platforms) && prov.platforms.length){
+      var pnames = prov.platforms.map(function(p){ return PLATFORM_COPY_LABELS[String(p).toLowerCase()] || p; });
+      lines.push('Platforms: ' + prov.platforms.length + ' — ' + pnames.join(', '));
+    }
+    // Languages — human names, from prov.languages.
+    if(Array.isArray(prov.languages) && prov.languages.length){
+      var lnames = prov.languages.map(function(l){ return LANGUAGE_LABELS[String(l).toLowerCase()] || l; });
+      lines.push('Localized: ' + lnames.join(', '));
+    }
+    // Retailer theme / recipe / mode — surfaced only when the backend names them.
+    if(prov.retailer) lines.push('Retailer theme: ' + prov.retailer);
+    if(prov.recipe) lines.push('Recipe: ' + prov.recipe);
+    if(prov.mode) lines.push('Mode: ' + prov.mode);
     return lines;
   };
   try{ window.KODIAK_provenanceHeuristics = provenanceHeuristics; }catch(e){}
@@ -323,10 +382,19 @@ let skuList = [
       const bodyTxt = clean(c.body!=null ? c.body : (c.description!=null ? c.description : ''));
       const tags = clean(Array.isArray(c.hashtags) ? c.hashtags.join(' ') : (c.hashtags!=null ? c.hashtags : ''));
       const src = String(c.source||'').toLowerCase()==='generated' ? 'generated' : (c.source ? 'fallback' : '');
-      const srcPill = src ? '<span class="pc-src '+src+'">source: '+escapeHtml(src)+'</span>' : '';
+      // #fallback-is-not-an-error: the fallback pill gets a plainspoken title +
+      // adjacent micro-copy so "fallback" reads as "on-brand template", never a failure.
+      const srcTitle = src==='generated'
+        ? 'Written by a live Nova Micro model call'
+        : 'On-brand template (no model call) — deterministic copy that keeps the preview fast; the live rewrite runs on the full campaign';
+      const srcNote = src==='fallback'
+        ? '<span class="pc-src-note">on-brand template (no model call) — live rewrite runs on the full campaign</span>'
+        : '';
+      const srcPill = src ? '<span class="pc-src '+src+'" title="'+escapeHtml(srcTitle)+'">source: '+escapeHtml(src)+'</span>' : '';
       return '<details>'+
         '<summary>'+escapeHtml(name)+srcPill+'</summary>'+
         '<div class="pc-body">'+
+          srcNote+
           (title? '<p class="pc-title">'+escapeHtml(title)+'</p>':'')+
           (bodyTxt? '<p class="pc-text">'+escapeHtml(bodyTxt)+'</p>':'')+
           (tags? '<p class="pc-tags">'+escapeHtml(tags)+'</p>':'')+
@@ -704,7 +772,10 @@ let skuList = [
       const renderProvenancePanel = (prov, ctx)=>{
         ctx = ctx || {};
         const preview = document.getElementById('preview');
-        if(!preview || !prov) return;
+        if(!preview) return;
+        // build-tracing is ALWAYS shown: an absent/empty provenance still renders
+        // the panel, with the honest "not reported" lines — never a blank surface.
+        prov = (prov && typeof prov==='object') ? prov : {};
         // remove a prior panel so re-generate replaces cleanly
         const old = document.getElementById('provenancePanel');
         if(old) old.remove();
@@ -740,17 +811,33 @@ let skuList = [
         panel.id = 'provenancePanel';
         // G — heuristics readout rides the same panel: how it was decided,
         // from the same prov object (no new data source, nothing invented).
-        var heurHtml = '';
+        // The single-arg call keeps the pinned four decision lines
+        // (rung/engine/seed/fallback); the panel then re-runs with the
+        // platform_copy map to append the plainspoken build narrative so a
+        // marketer reads WHAT the machine did, not just decision labels.
+        var decisionLines = [], buildLines = [];
         try{
-          heurHtml = provenanceHeuristics(prov).map(function(h){
-            return '<p class="prov-heur">' + escapeHtml(h) + '</p>';
-          }).join('');
-        }catch(e){ heurHtml = ''; }
+          decisionLines = provenanceHeuristics(prov);
+          var allLines = provenanceHeuristics(prov, ctx.platformCopy || {});
+          buildLines = allLines.slice(decisionLines.length);
+        }catch(e){ decisionLines = []; buildLines = []; }
+        var heurHtml = decisionLines.map(function(h){
+          return '<p class="prov-heur">' + escapeHtml(h) + '</p>';
+        }).join('');
+        var buildHtml = buildLines.map(function(h){
+          return '<p class="prov-heur prov-heur--build">' + escapeHtml(h) + '</p>';
+        }).join('');
+        // build narrative is the always-on plainspoken "how the campaign was built"
+        // group — reuses the same model-call-stats real estate + the .prov-heur token styling.
+        var buildGroup = buildHtml
+          ? '<div class="prov-group prov-heuristics prov-build"><h4>How this campaign was built</h4>' + buildHtml + '</div>'
+          : '';
         panel.innerHTML =
           '<summary>How this was made</summary>' +
           '<div class="prov-body">' +
             '<div class="prov-group"><h4>You provided</h4><dl>' + provided + '</dl></div>' +
             '<div class="prov-group"><h4>What we did</h4><dl>' + did + '</dl></div>' +
+            buildGroup +
             '<div class="prov-group prov-heuristics"><h4>How it was decided</h4>' + heurHtml + '</div>' +
           '</div>';
         // place directly under the preview (after any download row if present)
@@ -914,10 +1001,11 @@ let skuList = [
             showRealImage(json.image_url, json.source, {theme: json.theme || activeTheme || null, themeLabel: json.theme ? (THEME_LABELS[json.theme] || json.theme) : themeLabel, provenance: json.provenance});
             if(status) status.textContent = 'Campaign preview ready — one real composed hero from ' + (json.source || 'Nova Pro') + readyTheme;
           }
-          // provenance transparency panel (renders whenever the backend supplies it)
-          if(json.provenance){
-            renderProvenancePanel(json.provenance, {brief, theme: json.theme || activeTheme, themeLabel: readyThemeLabel, market: selectedLoc.market, product: primarySlug});
-          }
+          // provenance transparency panel — ALWAYS renders so every preview
+          // narrates how it was built, in the same model-call-stats real estate.
+          // Passing platform_copy lets the build narrative say whether the copy
+          // came from a live model or the on-brand template.
+          renderProvenancePanel(json.provenance || {}, {brief, theme: json.theme || activeTheme, themeLabel: readyThemeLabel, market: selectedLoc.market, product: primarySlug, platformCopy: json.platform_copy || {}});
           // per-platform messaging copy panel (renders when the backend supplies platform_copy; skips gracefully otherwise)
           renderPlatformCopy(json.platform_copy);
           // #281 — upgrade the driving panel to the copy actually used + divergence flags.
