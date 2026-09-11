@@ -30,7 +30,12 @@ from .generate import (
     normalize_layers,
 )
 from .locales import resolve_target_languages
-from .platform_copy import clean_brand_copy, fallback_platform_copy
+from .platform_copy import (
+    PlatformCopyValidationError,
+    build_platform_copy_response,
+    clean_brand_copy,
+    fallback_platform_copy,
+)
 # NOTE: full mode no longer calls platform_copy/localize in-request (frontend owns
 # both — see _handle_full). The modules stay imported by tests directly.
 from .platforms import PLATFORMS
@@ -256,6 +261,29 @@ def _request_path(event: dict[str, Any]) -> str:
     rc = event.get("requestContext") or {}
     http = rc.get("http") or {}
     return http.get("path") or event.get("rawPath") or event.get("path") or "/generate"
+
+
+def _handle_platform_copy(event: dict[str, Any]) -> dict[str, Any]:
+    """POST /campaigns/platform-copy, outside the image-generation wall."""
+    rc = event.get("requestContext") or {}
+    http = rc.get("http") or {}
+    method = (http.get("method") or event.get("httpMethod") or "POST").upper()
+    if method != "POST":
+        return _response(
+            405,
+            {
+                "ok": False,
+                "error": f"method {method} not allowed on /campaigns/platform-copy",
+            },
+        )
+    try:
+        data = _parse_body(event)
+    except (json.JSONDecodeError, ValueError, TypeError) as e:
+        return _response(400, {"ok": False, "error": f"malformed request body: {e}"})
+    try:
+        return _response(200, build_platform_copy_response(data))
+    except PlatformCopyValidationError as e:
+        return _response(400, {"ok": False, "error": str(e)})
 
 
 def _handle_localize(event: dict[str, Any]) -> dict[str, Any]:
@@ -1276,6 +1304,8 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
     _p = _path.rstrip("/") or "/"  # strip trailing slash for matching; keep root "/" as-is
     if _p == "/localize":
         return _handle_localize(event)
+    if _p == "/campaigns/platform-copy":
+        return _handle_platform_copy(event)
     if _p == "/assets/library":
         return _handle_assets_library(event)
     if _p == "/library/assets":

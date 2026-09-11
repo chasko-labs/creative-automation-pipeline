@@ -130,7 +130,7 @@ let skuList = [
   const escapeHtml = (s)=> String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const PLATFORM_LABELS = {
     facebook:'Facebook', instagram:'Instagram', linkedin:'LinkedIn',
-    pinterest:'Pinterest', tiktok:'TikTok', x:'X', youtube:'YouTube', blog:'Blog'
+    pinterest:'Pinterest', tiktok:'TikTok', x:'X', youtube:'YouTube', homepage:'Homepage', blog:'Blog'
   };
   // G — provenance/rung-badge foundation, hoisted to IIFE top-level so the
   // click-handler badge + panel AND the exposed heuristics hook share one
@@ -197,10 +197,12 @@ let skuList = [
     // Copy path — did a live model write the copy, or did the on-brand template?
     var anyGenerated = pcKeys.some(function(k){ return String((pc[k]||{}).source||'').toLowerCase()==='generated'; });
     var anyFallback = pcKeys.some(function(k){ return String((pc[k]||{}).source||'').toLowerCase()==='fallback'; });
-    if(anyGenerated){
-      lines.push('Copy: live Nova Micro rewrite — a model wrote each platform post');
-    } else if(anyFallback){
+    if(anyFallback){
+      // A mixed response is still a template/fallback result: never claim a full
+      // live rewrite when even one returned platform fell back.
       lines.push('Copy: on-brand template — deterministic, no model call (keeps the preview under the time budget; the live rewrite runs on the full campaign)');
+    } else if(anyGenerated){
+      lines.push('Copy: live Nova Micro rewrite — a model wrote each platform post');
     }
     // Who built it — humanize copy_owner without inventing anything.
     var owner = humanCopyOwner(prov.copy_owner);
@@ -361,54 +363,138 @@ let skuList = [
   }
 
   // Render per-platform messaging copy — an accordion of native <details>, one per platform.
-  // Consumes /generate response `platform_copy` = { platform: {headline|title, body|description, hashtags, source} }.
-  // Idempotent + offline-graceful: absent platform_copy simply skips.
+  // Consumes /generate and /campaigns/platform-copy response entries without dropping
+  // platform-specific fields such as X post or YouTube title/description.
+  const PLATFORM_COPY_ORDER = ['homepage','blog','instagram','facebook','tiktok','youtube','pinterest','x','linkedin'];
+  let platformCopyGeneration = 0;
+  let renderedPlatformCopy = {};
+  function orderedPlatformCopyKeys(platformCopy){
+    return PLATFORM_COPY_ORDER.filter(k=>platformCopy[k]).concat(
+      Object.keys(platformCopy).filter(k=>PLATFORM_COPY_ORDER.indexOf(k)<0)
+    );
+  }
+  function platformCopyEntryHtml(k, entry){
+    const c = (entry && typeof entry==='object') ? entry : {};
+    const clean = (typeof window.KODIAK_brandClean==='function') ? window.KODIAK_brandClean : function(x){ return x; };
+    const name = c.label || PLATFORM_LABELS[k] || k;
+    const title = clean(c.headline!=null ? c.headline : (c.title!=null ? c.title : ''));
+    const bodyTxt = clean(c.body!=null ? c.body : (c.description!=null ? c.description : ''));
+    const postTxt = clean(c.post!=null ? c.post : '');
+    const tags = clean(Array.isArray(c.hashtags) ? c.hashtags.join(' ') : (c.hashtags!=null ? c.hashtags : ''));
+    const src = String(c.source||'').toLowerCase()==='generated' ? 'generated' : 'fallback';
+    const srcTitle = src==='generated'
+      ? 'Written by a live Nova Micro model call'
+      : 'On-brand template (no model call) — deterministic copy retained as the honest fallback';
+    const srcNote = src==='fallback'
+      ? '<span class="pc-src-note">on-brand template (no model call) — live rewrite may be unavailable</span>'
+      : '';
+    const srcPill = '<span class="pc-src '+src+'" title="'+escapeHtml(srcTitle)+'">source: '+escapeHtml(src)+'</span>';
+    return '<summary>'+escapeHtml(name)+srcPill+'</summary>'+
+      '<div class="pc-body">'+srcNote+
+      (title? '<p class="pc-title">'+escapeHtml(title)+'</p>':'')+
+      (bodyTxt? '<p class="pc-text">'+escapeHtml(bodyTxt)+'</p>':'')+
+      (postTxt? '<p class="pc-text pc-post">'+escapeHtml(postTxt)+'</p>':'')+
+      (tags? '<p class="pc-tags">'+escapeHtml(tags)+'</p>':'')+
+      '</div>';
+  }
+  function setPlatformCopyStatus(text, visible){
+    const status = document.getElementById('platformCopyStatus');
+    if(!status) return;
+    status.textContent = text || '';
+    status.hidden = !visible;
+  }
+  function updatePlatformCopyPanel(nextCopy){
+    const panel = document.getElementById('platformCopyPanel');
+    if(!panel || !nextCopy || typeof nextCopy!=='object') return false;
+    Object.keys(nextCopy).forEach(k=>{
+      const entry = (nextCopy[k] && typeof nextCopy[k]==='object' && !Array.isArray(nextCopy[k])) ? nextCopy[k] : {};
+      renderedPlatformCopy[k] = Object.assign({}, renderedPlatformCopy[k] || {}, entry);
+    });
+    orderedPlatformCopyKeys(renderedPlatformCopy).forEach(k=>{
+      let details = Array.from(panel.querySelectorAll('details')).find(d=>d.dataset.platform===k);
+      if(!details){
+        details = document.createElement('details');
+        details.dataset.platform = k;
+      }
+      details.innerHTML = platformCopyEntryHtml(k, renderedPlatformCopy[k]);
+      // append moves an existing node without replacing it, preserving open state
+      panel.appendChild(details);
+    });
+    return true;
+  }
   function renderPlatformCopy(platformCopy){
     const preview = document.getElementById('preview');
-    if(!preview) return;
+    if(!preview) return 0;
+    platformCopyGeneration++;
+    renderedPlatformCopy = {};
     const old = document.getElementById('platformCopyPanel');
     if(old) old.remove();
-    if(!platformCopy || typeof platformCopy!=='object') return;
-    // stable ordering: known scope first, then any extras the backend adds
-    const scope = ['x','linkedin','instagram','tiktok','facebook','pinterest','youtube'];
-    const keys = scope.filter(k=>platformCopy[k]).concat(Object.keys(platformCopy).filter(k=>scope.indexOf(k)<0));
-    if(!keys.length) return;
-    const clean = (typeof window.KODIAK_brandClean==='function') ? window.KODIAK_brandClean : function(x){ return x; };
-    const items = keys.map(k=>{
-      const c = platformCopy[k] || {};
-      const name = PLATFORM_LABELS[k] || k;
-      // KODIAK-forbidden-in-copy law: backend copy predates the law — clean at paint time.
-      const title = clean(c.headline!=null ? c.headline : (c.title!=null ? c.title : ''));
-      const bodyTxt = clean(c.body!=null ? c.body : (c.description!=null ? c.description : ''));
-      const tags = clean(Array.isArray(c.hashtags) ? c.hashtags.join(' ') : (c.hashtags!=null ? c.hashtags : ''));
-      const src = String(c.source||'').toLowerCase()==='generated' ? 'generated' : (c.source ? 'fallback' : '');
-      // #fallback-is-not-an-error: the fallback pill gets a plainspoken title +
-      // adjacent micro-copy so "fallback" reads as "on-brand template", never a failure.
-      const srcTitle = src==='generated'
-        ? 'Written by a live Nova Micro model call'
-        : 'On-brand template (no model call) — deterministic copy that keeps the preview fast; the live rewrite runs on the full campaign';
-      const srcNote = src==='fallback'
-        ? '<span class="pc-src-note">on-brand template (no model call) — live rewrite runs on the full campaign</span>'
-        : '';
-      const srcPill = src ? '<span class="pc-src '+src+'" title="'+escapeHtml(srcTitle)+'">source: '+escapeHtml(src)+'</span>' : '';
-      return '<details>'+
-        '<summary>'+escapeHtml(name)+srcPill+'</summary>'+
-        '<div class="pc-body">'+
-          srcNote+
-          (title? '<p class="pc-title">'+escapeHtml(title)+'</p>':'')+
-          (bodyTxt? '<p class="pc-text">'+escapeHtml(bodyTxt)+'</p>':'')+
-          (tags? '<p class="pc-tags">'+escapeHtml(tags)+'</p>':'')+
-        '</div>'+
-      '</details>';
-    }).join('');
+    if(!platformCopy || typeof platformCopy!=='object') return platformCopyGeneration;
+    const keys = orderedPlatformCopyKeys(platformCopy);
+    if(!keys.length) return platformCopyGeneration;
+    renderedPlatformCopy = Object.assign({}, platformCopy);
     const panel = document.createElement('div');
     panel.className = 'platform-copy';
     panel.id = 'platformCopyPanel';
-    panel.innerHTML = '<div class="pc-head">Per-platform messaging</div>' + items;
-    // place after the provenance panel / download row / preview, whichever is last
+    panel.innerHTML = '<div class="pc-head">Per-platform messaging <span id="platformCopyStatus" class="pc-status" role="status" aria-live="polite" hidden></span></div>';
     const anchor = document.getElementById('provenancePanel') || document.getElementById('previewDownloadRow') || preview;
     anchor.parentNode?.insertBefore(panel, anchor.nextSibling);
+    updatePlatformCopyPanel(platformCopy);
+    return platformCopyGeneration;
   }
+
+  function platformCopyLanguages(market, provenance){
+    const raw = Array.isArray(provenance && provenance.languages) && provenance.languages.length
+      ? provenance.languages
+      : (typeof marketLangsFor==='function' ? marketLangsFor(market) : []);
+    const codes = raw.map(l=>{
+      if(typeof l==='string') return l;
+      return l && (l.translate_code || l.lang_code || l.code);
+    }).filter(Boolean).map(code=>String(code).toLowerCase());
+    return Array.from(new Set(['en'].concat(codes)));
+  }
+  async function sharpenPlatformCopy(options){
+    options = options || {};
+    if((location.protocol==='file:') || ['127.0.0.1','localhost'].includes(location.hostname)) return false;
+    const generation = platformCopyGeneration;
+    if(!generation || !document.getElementById('platformCopyPanel')) return false;
+    const body = {
+      base_message: String(options.baseMessage || '').trim(),
+      product_name: String(options.productName || '').trim(),
+      market: String(options.market || '').trim(),
+      languages: platformCopyLanguages(options.market, options.provenance)
+    };
+    if(!body.base_message || !body.product_name || !body.market) return false;
+    setPlatformCopyStatus('sharpening copy...', true);
+    const controller = new AbortController();
+    const timeoutId = setTimeout(()=>controller.abort(), 20000);
+    try{
+      const response = await fetch('/campaigns/platform-copy', {
+        method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body), signal:controller.signal
+      });
+      if(!response.ok) throw new Error('platform copy HTTP '+response.status);
+      const json = await response.json();
+      const returned = json && json.platform_copy;
+      if(!returned || typeof returned!=='object' || Array.isArray(returned) || !Object.keys(returned).length ||
+          Object.keys(returned).some(k=>!returned[k] || typeof returned[k]!=='object' || Array.isArray(returned[k]))) throw new Error('malformed platform copy response');
+      if(generation !== platformCopyGeneration) return false;
+      updatePlatformCopyPanel(returned);
+      setPlatformCopyStatus('copy sharpened', true);
+      try{ if(typeof window.__kodiakUpdateProvenanceCopy==='function') window.__kodiakUpdateProvenanceCopy(renderedPlatformCopy); }catch(e){}
+      return true;
+    }catch(err){
+      if(generation !== platformCopyGeneration) return false;
+      const fallback = {};
+      Object.keys(renderedPlatformCopy).forEach(k=>{ fallback[k] = Object.assign({}, renderedPlatformCopy[k], {source:'fallback'}); });
+      updatePlatformCopyPanel(fallback);
+      setPlatformCopyStatus('template copy retained', true);
+      try{ if(typeof window.__kodiakUpdateProvenanceCopy==='function') window.__kodiakUpdateProvenanceCopy(renderedPlatformCopy); }catch(e){}
+      return false;
+    }finally{
+      clearTimeout(timeoutId);
+    }
+  }
+  try{ window.KODIAK_sharpenPlatformCopy = sharpenPlatformCopy; }catch(e){}
 
   // #281 — copy BEFORE image. The copy-first panel paints at Create time from the
   // REAL request inputs (phase 'driving') and upgrades from the REAL response
@@ -840,9 +926,13 @@ let skuList = [
             buildGroup +
             '<div class="prov-group prov-heuristics"><h4>How it was decided</h4>' + heurHtml + '</div>' +
           '</div>';
-        // place directly under the preview (after any download row if present)
-        const anchor = document.getElementById('previewDownloadRow') || preview;
-        anchor.parentNode?.insertBefore(panel, anchor.nextSibling);
+        // Keep provenance updates on the same renderer/state path when the separate
+        // platform-copy request completes or falls back.
+        try{
+          window.__kodiakUpdateProvenanceCopy = function(platformCopy){
+            renderProvenancePanel(prov, Object.assign({}, ctx, {platformCopy: platformCopy || {}}));
+          };
+        }catch(e){}
       };
       const finishCommon = ()=>{
         // Update local flavor with brief context (runs after either path)
@@ -1006,8 +1096,19 @@ let skuList = [
           // Passing platform_copy lets the build narrative say whether the copy
           // came from a live model or the on-brand template.
           renderProvenancePanel(json.provenance || {}, {brief, theme: json.theme || activeTheme, themeLabel: readyThemeLabel, market: selectedLoc.market, product: primarySlug, platformCopy: json.platform_copy || {}});
-          // per-platform messaging copy panel (renders when the backend supplies platform_copy; skips gracefully otherwise)
+          // per-platform messaging copy paints the deterministic fallback first, then
+          // sharpens it through the separate bounded endpoint without hiding it.
           renderPlatformCopy(json.platform_copy);
+          try{
+            const previewProv = (json.provenance && typeof json.provenance==='object') ? json.provenance : {};
+            const previewBaseMessage = previewProv.copy_headline || previewProv.incoming_prompt || json.headline || json.message || brief;
+            void sharpenPlatformCopy({
+              baseMessage: previewBaseMessage,
+              productName: products[0] || primarySlug,
+              market: selectedLoc.market,
+              provenance: previewProv
+            });
+          }catch(e){}
           // #281 — upgrade the driving panel to the copy actually used + divergence flags.
           try{ paintCopyPanel({phase:'used', json}); }catch(e){}
           // auto-open the collapsed Preview card so the user sees the freshly-composed output
