@@ -407,6 +407,8 @@ section.xl{padding:var(--section-space-xl) 0}
 /* #5A4A42 neutral-700 on kraft-tan = >=6:1 (AA) */
 .platform-copy .pc-text{margin:0;font:500 12px/1.55 "museo-sans",sans-serif;color:var(--colors-neutral-700);white-space:pre-wrap;word-break:break-word}
 .platform-copy .pc-tags{margin:6px 0 0;color:var(--colors-foreground-accent);font:600 11px/1.5 "museo-sans",sans-serif;word-break:break-word}
+/* fallback micro-copy — makes clear the template is by design, not an error */
+.platform-copy .pc-src-note{display:block;margin:0 0 6px;font:500 11px/1.45 "museo-sans",sans-serif;color:var(--colors-neutral-600);font-style:italic}
 
 /* === Provenance transparency panel — native <details>/<summary> disclosure === */
 .provenance{margin-top:14px;border:1px solid var(--stone);border-radius:6px;background:var(--gradients-kraft\.surface);overflow:hidden}
@@ -428,6 +430,11 @@ section.xl{padding:var(--section-space-xl) 0}
 .provenance .prov-pill.outpaint{background:var(--oat);color:var(--brown-kodiak);border:1px solid var(--stone)}
 .provenance .prov-heur{margin:0 0 var(--spacing-xs);padding-left:var(--spacing-sm);border-left:3px solid var(--colors-brand-frontier-green);font:500 12px/1.5 "museo-sans",sans-serif;color:var(--brown-kodiak)}
 .provenance .prov-heur:last-child{margin-bottom:0}
+/* build-narrative lines — same real estate + token styling as the decision
+   heuristics, tinted with the bear-brown accent so "how it was built" reads
+   as its own plainspoken group. token var()s only. */
+.provenance .prov-build>h4{color:var(--colors-brand-bear-brown,var(--brown-kodiak))}
+.provenance .prov-heur--build{border-left-color:var(--colors-brand-bear-brown,var(--brown-kodiak))}
 .provenance .prov-pill.on{background:#1A3C34;color:#EAF5F0}
 .provenance .prov-pill.off{background:var(--oat);color:#6B5A53;border:1px solid var(--stone)}
 @media(max-width:520px){.provenance dl{grid-template-columns:1fr}.provenance dt{white-space:normal}}
