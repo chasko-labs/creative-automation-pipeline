@@ -16,12 +16,17 @@ const marketLangsOffline = {
 // shows genuine localized text (not 3x English) before the live /localize is ever called on Create. Seed
 // entries carry provider:"seed" and are treated by both localized renderers exactly like precomputed #124
 // copy: real text, no "showing English source only" note. Live /localize on Create still overrides. Park
-// City real top_languages are es + de. NEVER seed community-review languages (nv/zip) — those stay human-only.
+// City seeds es + de + pt (canonical top_languages in market-languages.json are es + pt; de retained as a
+// resting-preview seed). pt is machine-translatable (Amazon Translate, provider amazon-translate) — its text
+// is the real /localize pipeline output persisted to the localization-memory table
+// (pk=MARKET#US-MW-PARKCITY-84098, sk=LANG#pt#MSG#dde08b787ca6bcee). NEVER seed community-review languages
+// (nv/zip) — those stay human-only; pt is NOT one of them.
 window.KODIAK_LOCALIZED_COPY = window.KODIAK_LOCALIZED_COPY || {};
 if(!window.KODIAK_LOCALIZED_COPY["US-MW-PARKCITY-84098"]){
   window.KODIAK_LOCALIZED_COPY["US-MW-PARKCITY-84098"] = {
     "es": {text:"Mantente Salvaje — cereales integrales ricos en proteína para tu frontera Wasatch. Nutrición para la Frontera de Hoy", provider:"seed"},
-    "de": {text:"Bleib wild — proteinreiche Vollkornprodukte für deine Wasatch-Frontier. Nahrung für die Frontier von heute", provider:"seed"}
+    "de": {text:"Bleib wild — proteinreiche Vollkornprodukte für deine Wasatch-Frontier. Nahrung für die Frontier von heute", provider:"seed"},
+    "pt": {text:"Mantenha-o Selvagem — grãos integrais repletos de proteínas para sua fronteira Wasatch. Nutrição para a Fronteira de Hoje", provider:"seed"}
   };
 }
 /** @param {string} code @returns {Array<{lang_code:string,lang_name:string,translate_code:string,pct_home:number,machine_translate?:boolean,review?:string,review_note?:string}>} */
