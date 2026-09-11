@@ -56,19 +56,6 @@
   --mountain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0 38 L120 8 L260 32 L380 4 L520 30 L640 10 L760 34 L880 6 L1000 28 L1120 12 L1200 36 L1200 48 L0 48Z' fill='%231A2F29'/%3E%3C/svg%3E");
   /* forest treeline divider - mirrors --mountain (same viewBox 0 0 1200 48, same fill #1A2F29) but ~36 narrow conifer spikes of varied height (peaks y=6..28) with baseline valleys at y=46, so it reads as a dense spruce/pine treeline rather than a few wide peaks */
   --forest:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0 48 L0 46 L16 10 L33 46 L49 20 L66 46 L82 6 L99 46 L116 24 L133 46 L150 14 L166 46 L183 28 L199 46 L216 8 L233 46 L250 18 L266 46 L283 12 L300 46 L316 22 L333 46 L350 10 L366 46 L383 20 L399 46 L416 6 L433 46 L450 24 L466 46 L483 14 L500 46 L516 28 L533 46 L550 8 L566 46 L583 18 L600 46 L616 12 L633 46 L650 22 L666 46 L683 10 L699 46 L716 20 L733 46 L750 6 L766 46 L783 24 L799 46 L816 14 L833 46 L850 28 L866 46 L883 8 L900 46 L916 18 L933 46 L950 12 L966 46 L983 22 L1000 46 L1016 10 L1033 46 L1050 20 L1066 46 L1083 6 L1100 46 L1116 24 L1133 46 L1150 14 L1166 46 L1183 28 L1200 46 L1200 48 Z' fill='%231A2F29'/%3E%3C/svg%3E");
-  /* === Wordmark texture layers (whisper, static) — LOCAL custom properties, NOT
-     design-system tokens: nothing repeats beyond already-tokenized inks, so per the
-     architecture contract above they live here beside --kraft/--wood/--mountain.
-     TOKEN SOVEREIGNTY: the only color sampled inside these tiles is bear-brown
-     #3B2316 (= --colors-brand-bear-brown); every CSS property around them refs a
-     token var(). All five surfaces are light kraft, so one dark-on-light ink serves
-     every layer. Lines render step-style as `NN · WORD` ingredient prefixes.
-     Static, no animation; alphas whisper-quiet so real copy keeps full contrast. */
-  --wordmark-01:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360'%3E%3Cg fill='%233B2316' fill-opacity='.32' font-family='Georgia,serif' font-size='20' font-weight='700' letter-spacing='3' transform='rotate(-12 180 180)'%3E%3Ctext x='-60' y='70'%3E01 %C2%B7 WHEAT%3C/text%3E%3Ctext x='-20' y='150'%3E01 %C2%B7 OATS%3C/text%3E%3Ctext x='-60' y='230'%3E01 %C2%B7 PEA PROTEIN%3C/text%3E%3Ctext x='-20' y='310'%3E01 %C2%B7 RICE PROTEIN%3C/text%3E%3C/g%3E%3C/svg%3E");
-  --wordmark-02:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cg fill='%233B2316' fill-opacity='.3' font-family='Georgia,serif' font-size='19' font-weight='700' letter-spacing='3' transform='rotate(8 160 160)'%3E%3Ctext x='-40' y='65'%3E02 %C2%B7 BARLEY%3C/text%3E%3Ctext x='-10' y='135'%3E02 %C2%B7 QUINOA%3C/text%3E%3Ctext x='-40' y='205'%3E02 %C2%B7 MILLET%3C/text%3E%3Ctext x='-10' y='275'%3E02 %C2%B7 SORGHUM%3C/text%3E%3C/g%3E%3C/svg%3E");
-  --wordmark-03:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cg fill='%233B2316' fill-opacity='.25' font-family='Georgia,serif' font-size='20' font-weight='700' letter-spacing='3' transform='rotate(-8 200 200)'%3E%3Ctext x='-60' y='80'%3E03 %C2%B7 BLUEBERRY%3C/text%3E%3Ctext x='-20' y='170'%3E03 %C2%B7 APPLE%3C/text%3E%3Ctext x='-60' y='260'%3E03 %C2%B7 CINNAMON%3C/text%3E%3Ctext x='-20' y='350'%3E03 %C2%B7 PUMPKIN%3C/text%3E%3C/g%3E%3C/svg%3E");
-  --wordmark-04:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cg fill='%233B2316' fill-opacity='.3' font-family='Georgia,serif' font-size='18' font-weight='700' letter-spacing='3' transform='rotate(12 150 150)'%3E%3Ctext x='-40' y='60'%3E04 %C2%B7 ALMOND%3C/text%3E%3Ctext x='-10' y='125'%3E04 %C2%B7 CHIA%3C/text%3E%3Ctext x='-40' y='190'%3E04 %C2%B7 MAPLE%3C/text%3E%3Ctext x='-10' y='255'%3E04 %C2%B7 MOLASSES%3C/text%3E%3C/g%3E%3C/svg%3E");
-  --wordmark-05:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='480'%3E%3Cg fill='%233B2316' fill-opacity='.28' font-family='Georgia,serif' font-size='22' font-weight='700' letter-spacing='3' transform='rotate(-6 240 240)'%3E%3Ctext x='-60' y='120'%3E05 %C2%B7 TAPIOCA%3C/text%3E%3Ctext x='-20' y='250'%3E05 %C2%B7 PECTIN%3C/text%3E%3Ctext x='-60' y='380'%3E05 %C2%B7 GUAR%3C/text%3E%3C/g%3E%3C/svg%3E");
   /* lit kraft — no repeating stripes anywhere: card/page depth comes from the
      top-light + vignette token washes (--gradients-kraft.*) and shadow insets;
      grit comes from --kraft paper fiber + #paperGrain turbulence, never lines. */
@@ -93,7 +80,7 @@ body{
   position:relative;
 }
 /* paper texture layers — base kc-paper declared on body; secondary canvas on .wrap via layered gradient */
-body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.06;background-image:var(--wordmark-01),var(--kraft);background-size:360px 360px,auto;background-repeat:repeat,repeat;mix-blend-mode:multiply}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.06;background-image:var(--kraft);background-size:auto;background-repeat:repeat;mix-blend-mode:multiply}
 a{color:var(--red);text-decoration:none;border-bottom:1px solid #B51E1433}a:hover{border-bottom-color:var(--red);color:var(--chocolate)}
 /* Gin headings — 800 Gin zjt4wyq, uppercase wide tracking, ink-trap */
 h1,h2,h3,.gin,.headline{font-family:"gin",Rockwell,Clarendon,Georgia,serif;font-weight:800;font-style:normal;text-transform:uppercase;letter-spacing:.06em;line-height:1; font-feature-settings:"ss01" 1,"liga" 1; font-variant-ligatures:common-ligatures; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
@@ -287,7 +274,12 @@ section.xl{padding:var(--section-space-xl) 0}
    bear elevation, hover light-sweep. 52px tier so nothing else competes. */
 .ff-go{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:52px;min-height:52px;padding:0 34px;white-space:nowrap;
   border-radius:var(--radii-lg,16px);border:1px solid var(--colors-brand-ember-lo);
-  background:linear-gradient(180deg,var(--colors-brand-ember-hi) 0%,var(--colors-brand-ember-mid) 48%,var(--colors-brand-ember-lo) 100%);color:#fff;
+  background:linear-gradient(180deg,var(--colors-brand-ember-hi) 0%,var(--colors-brand-ember-mid) 48%,var(--colors-brand-ember-lo) 100%);
+  /* solid ember base UNDER the identical gradient — the visible look is unchanged, but it
+     gives the surface a resolved backgroundColor so contrast reads against ember (white on
+     ember-lo #93300A = ~7.85:1, clears WCAG AA/AAA) instead of the transparent gradient box
+     climbing to parchment (which measured white-on-parchment 1.05:1). */
+  background-color:var(--colors-brand-ember-lo);color:#fff;
   font:700 14px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;
   box-shadow:inset 0 1px 0 rgba(255,248,240,.35),inset 0 -2px 5px rgba(59,20,5,.45),var(--shadows-bear);
   position:relative;overflow:hidden}
@@ -313,8 +305,10 @@ section.xl{padding:var(--section-space-xl) 0}
 .ff-go:disabled{opacity:.5;cursor:not-allowed}
 /* suggestion chips — quick-start pills that populate the prompt */
 .ff-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.ff-chip{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;border:1px solid var(--stone);background:var(--colors-brand-box-parchment,#F5EAD3);color:var(--chocolate);font:600 12px/1 "museo-sans",sans-serif;cursor:pointer;transition:background .15s,border-color .15s,box-shadow .15s,transform .15s;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),var(--shadows-sm)}
+.ff-chip{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:7px 12px;border-radius:999px;border:1px solid var(--stone);background:var(--colors-brand-box-parchment,#F5EAD3);color:var(--chocolate);font:600 12px/1 "museo-sans",sans-serif;cursor:pointer;transition:background .15s,border-color .15s,box-shadow .15s,transform .15s;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),var(--shadows-sm)}
 .ff-chip:hover{background:var(--oat);border-color:var(--brown-kodiak);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),var(--shadows-md);transform:translateY(-1px)}
+/* visible focus ring — matches the .ff-go / .ff-check-card frontier-green convention (WCAG 2.4.7) */
+.ff-chip:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 @media(prefers-reduced-motion:reduce){.ff-chip{transition:none}.ff-chip:hover{transform:none}}
 /* === Creative-direction checkbox cards — one card carries selection AND mark ===
    A label wrapping a visually-hidden native checkbox: keyboard + screen-reader semantics come
@@ -515,6 +509,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-market>summary .ff-caret{display:inline-block;font-size:11px;transition:transform .28s cubic-bezier(.34,1.56,.64,1)}
 .ff-market[open]>summary .ff-caret{transform:rotate(180deg)}
 .ff-market[open]>summary{background:var(--colors-brand-bear-brown);border-color:var(--colors-brand-bear-brown)}
+/* visible focus ring on the market disclosure summary — frontier-green convention (WCAG 2.4.7) */
+.ff-market>summary:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 /* the disclosure panel — accessible listbox of the 73 places */
 .ff-market-panel{position:absolute;z-index:60;top:calc(100% + 6px);left:0;min-width:280px;max-width:min(92vw,420px);max-height:340px;overflow:auto;
   background:var(--colors-brand-box-parchment,#F5EAD3);border:1px solid var(--colors-border-strong);border-radius:var(--radii-lg);box-shadow:var(--shadows-md);padding:var(--spacing-xs);
@@ -1428,19 +1424,18 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-setup{background:transparent;background-image:none;border:none;box-shadow:none;border-radius:0;padding:0}
 .ff-setup::after{display:none}
 .ff-brainstorm{background:transparent;background-image:none;border:none;padding:0}
-/* === Wordmark texture layers — placement (whisper, static, epilepsy-safe) ===
-   01 rides body::before (see base rule). 02 setup, 03 preview, 04 generate +
-   assets, 05 about/footer ride contained ::before layers that stack WITH the
-   existing wood/torn-edge treatments instead of replacing them. Fully static:
-   no animation, no transition, nothing flashes — compliant by construction, so
-   no reduced-motion off-switch is needed (the global guard already covers the
+/* === Wood-grain texture layers (whisper, static, epilepsy-safe) ===
+   preview, generate + assets, and about/footer ride contained ::before layers
+   that stack WITH the existing wood/torn-edge treatments. Fully static: no
+   animation, no transition, nothing flashes — compliant by construction, so no
+   reduced-motion off-switch is needed (the global guard already covers the
    file's other motion). pointer-events:none throughout; texture never
-   intercepts input. Ember CTA (.ff-go) untouched: opaque gradient preserved. */
+   intercepts input. Ember CTA (.ff-go) untouched: opaque gradient preserved.
+   (Faint ingredient-wordmark layers removed per brand request.) */
 .ff-setup,.ff-output,.card.ff-about{isolation:isolate}
-.ff-setup::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:var(--wordmark-02);background-size:320px 320px;background-repeat:repeat;opacity:.07;pointer-events:none}
-.ff-output::before{background-image:var(--wordmark-03),var(--wood);background-size:400px 400px,auto;background-repeat:repeat,repeat;border-radius:inherit}
-.ff-output.ff-generate-campaign::before,.ff-output.ff-campaign-assets::before{background-image:var(--wordmark-04),var(--wood);background-size:300px 300px,auto}
-.card.ff-about::before{background-image:var(--wordmark-05),var(--wood);background-size:480px 480px,auto;border-radius:inherit}
+.ff-output::before{background-image:var(--wood);background-size:auto;background-repeat:repeat;border-radius:inherit}
+.ff-output.ff-generate-campaign::before,.ff-output.ff-campaign-assets::before{background-image:var(--wood);background-size:auto}
+.card.ff-about::before{background-image:var(--wood);background-size:auto;border-radius:inherit}
 /* === Resting campaign copy — headline-style EN + localized variants above the
    resting size tiles. Pine rule for the frontier voice, kraft wash behind the
    lines; the EN source reads as the headline. Token var() only. Wiped on Create
@@ -1448,11 +1443,10 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-resting-copy{margin:0 0 10px;padding:10px 12px 10px 14px;border-left:3px solid var(--colors-brand-frontier-green);background:var(--colors-brand-box-parchment);border-radius:0 var(--radii-md) var(--radii-md) 0}
 .ff-resting-copy .loc-line{display:block;margin:.2rem 0;font-size:13px;color:var(--chocolate)}
 .ff-resting-copy .loc-line[lang="en"]{font-size:15px}
-/* high-contrast + forced-colors: wordmarks off, wood fiber stays — real copy
-   keeps maximum contrast; texture is decorative and never essential. */
+/* high-contrast + forced-colors: decorative wood fiber stays subordinate —
+   real copy keeps maximum contrast; texture is decorative and never essential. */
 @media (forced-colors:active),(prefers-contrast:more){
   body::before{background-image:var(--kraft)}
-  .ff-setup::before{display:none}
   .ff-output::before{background-image:var(--wood)}
   .card.ff-about::before{background-image:var(--wood)}
 }

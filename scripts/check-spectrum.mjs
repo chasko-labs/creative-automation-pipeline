@@ -84,7 +84,10 @@ try {
 
   // disclosures that hide their controls at rest must be opened before sampling —
   // a collapsed control has no box and no focus ring by design, not by defect.
-  for (const det of ['#scopeWrap', '#existingAssets']) {
+  // #locationSection wraps #marketDisclosure's summary; #creativeDirection wraps
+  // the .ff-chip controls — both stay collapsed at rest, so their controls have no
+  // rendered box or focus ring until opened. Open all four before sampling.
+  for (const det of ['#scopeWrap', '#existingAssets', '#locationSection', '#creativeDirection']) {
     await page.evaluate((s) => { const d = document.querySelector(s); if (d && !d.open) d.open = true; }, det);
   }
   await page.waitForTimeout(300);
@@ -126,7 +129,13 @@ try {
     const o = await page.evaluate((s) => {
       const el = document.querySelector(s);
       if (!el) return null;
-      el.focus();
+      // .ff-chip is a <label> — labels can't take focus. The real focusable control
+      // is the visually-hidden .ff-check-card__input it wraps; the visible ring paints
+      // on the .ff-check-card (same element) via :has(.ff-check-card__input:focus-visible).
+      // Focus the input, read the outline off the label that actually carries the ring.
+      const input = el.classList.contains('ff-chip')
+        ? el.querySelector('.ff-check-card__input') : null;
+      (input || el).focus();
       const cs = getComputedStyle(el);
       return { style: cs.outlineStyle, width: cs.outlineWidth };
     }, sel);
