@@ -73,8 +73,11 @@ Reviewer zip (clean `origin/main` export + rendered docs + auto-unlocking file:/
 
 ```
 ./scripts/build-reviewer-package.sh
-aws s3 cp /tmp/kodiak-reviewer/kodiak-reviewer-package.zip s3://frontier-bryanchasko-com/kodiak-reviewer-package.zip --content-type application/zip --profile bryanchasko-kiro --region us-east-1
+aws s3 cp /tmp/kodiak-reviewer/kodiak-reviewer-package.zip s3://frontier-bryanchasko-com/adobechallenge/kodiak-reviewer-package.zip --content-type application/zip --profile bryanchasko-kiro --region us-east-1
+aws cloudfront create-invalidation --distribution-id E3GEX8LSRX6OYS --paths '/adobechallenge/kodiak-reviewer-package.zip' --profile bryanchasko-kiro --region us-east-1
 ```
+
+The reviewer URL (`https://kodiak.bryanchasko.com/adobechallenge/kodiak-reviewer-package.zip`) is served by CloudFront from the `adobechallenge/` prefix — upload to the bucket root lands at a dead key and never goes live. Always upload to the `adobechallenge/` prefix and invalidate after, or the refresh is invisible.
 
 Local visual check without deploying: serve the app dir statically and screenshot past the gate (see `scripts/check-brand-render.mjs` for the stepping-through pattern). Never pixel-sample PNGs by hand — read computed styles and look at real screenshots.
 

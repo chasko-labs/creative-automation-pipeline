@@ -186,4 +186,9 @@ cd "$OUT_DIR"
 rm -f kodiak-reviewer-package.zip
 zip -rq kodiak-reviewer-package.zip "$PREFIX" -x "*.pyc" -x "*__pycache__*" -x "*.DS_Store"
 echo "[pkg] built $OUT_DIR/kodiak-reviewer-package.zip ($(du -h kodiak-reviewer-package.zip | cut -f1))"
-echo "[pkg] upload: aws s3 cp $OUT_DIR/kodiak-reviewer-package.zip s3://frontier-bryanchasko-com/kodiak-reviewer-package.zip --content-type application/zip --profile bryanchasko-kiro --region us-east-1"
+# CloudFront serves the reviewer URL from the adobechallenge/ PREFIX, not the bucket
+# root. Upload MUST target s3://frontier-bryanchasko-com/adobechallenge/... or the
+# refresh lands at a dead key and never goes live. Invalidate after upload so the new
+# build is served immediately (distribution E3GEX8LSRX6OYS).
+echo "[pkg] upload:     aws s3 cp $OUT_DIR/kodiak-reviewer-package.zip s3://frontier-bryanchasko-com/adobechallenge/kodiak-reviewer-package.zip --content-type application/zip --profile bryanchasko-kiro --region us-east-1"
+echo "[pkg] invalidate: aws cloudfront create-invalidation --distribution-id E3GEX8LSRX6OYS --paths '/adobechallenge/kodiak-reviewer-package.zip' --profile bryanchasko-kiro --region us-east-1"
