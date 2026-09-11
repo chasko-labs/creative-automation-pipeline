@@ -265,7 +265,7 @@
       btn.type = 'button';
       btn.id = 'insightsBtn';
       btn.className = 'btn ghost';
-      btn.textContent = 'Coach check';
+      btn.textContent = 'Review my campaign';
       btn.addEventListener('click', counsel);
       prov.parentNode.insertBefore(btn, prov.nextSibling);
     }catch(e){}
