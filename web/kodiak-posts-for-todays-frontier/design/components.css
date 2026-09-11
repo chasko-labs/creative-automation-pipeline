@@ -1025,11 +1025,20 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 /* #282: .badge sets display:inline-block, which beats the UA [hidden] rule the same
    way — the reveal hid the badge via hidden=true but it stayed painted. Re-hide it. */
 #generateCampaignLock[hidden]{display:none}
-/* #284 — QA failover box + fallback tile flag: honest fail state, never styled as success. */
-.ff-failbox{margin:10px 0;padding:10px 12px;border:1px solid #B51E14;background:var(--colors-neutral-50)}
-.ff-failbox>b{display:block;font:700 12px/1.4 "museo-sans",sans-serif;color:#B51E14;margin-bottom:4px}
-.ff-failbox .small{margin-bottom:8px}
-.ff-fallback-flag{padding:6px 8px;font:700 10px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#B51E14;background:rgba(181,30,20,.08)}
+/* #284 — QA failover box + fallback tile flag: honest fail state, never styled
+   as success. Aligned as an intentional status banner: same md radius + column
+   rhythm as the campaign copy panel, signal-red left accent, token spacing. */
+.ff-failbox{margin:var(--spacing-sm) 0;padding:var(--spacing-sm) var(--spacing-md);border:1px solid var(--colors-brand-signal-red);border-left:4px solid var(--colors-brand-signal-red);border-radius:var(--radii-md);background:var(--colors-neutral-50);box-shadow:var(--shadows-sm)}
+.ff-failbox>b{display:block;font:700 12px/1.4 "museo-sans",sans-serif;color:var(--colors-brand-signal-red);margin-bottom:var(--spacing-xs)}
+.ff-failbox .small{margin-bottom:var(--spacing-sm)}
+.ff-fallback-flag{padding:6px var(--spacing-sm);font:700 10px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-brand-signal-red);background:var(--colors-brand-box-parchment);border-top:1px solid var(--colors-brand-signal-red)}
+/* Campaign copy panel body — loc-lines get the same 12px horizontal inset as
+   .pc-head so the copy column aligns flush under the head and with the failbox
+   column, not ragged against the panel border. Scoped to the campaign copy
+   panel only; matches the existing .pc-head 10px 12px inset. */
+#campaignCopyPanel .loc-line{padding:0 12px}
+#campaignCopyPanel .loc-line[data-provider="source"]{padding-top:var(--spacing-sm)}
+#campaignCopyPanel .loc-line:last-child{padding-bottom:var(--spacing-sm)}
 /* Full-campaign scope option: the hero choice of step 1. Flag is the system .badge
    (in markup); the option gets room for its longer sub-line. */
 .ff-scope-opt--full{flex-basis:220px}
@@ -1469,15 +1478,17 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-tour-count{fill:var(--colors-brand-frontier-green);font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive;font-size:13px;font-weight:700}
 .ff-tour-x{position:absolute;top:-6px;right:2px;width:26px;height:26px;border-radius:50%;background:var(--colors-brand-box-parchment);border:2px solid var(--chocolate);color:var(--chocolate);font:700 15px/1 "museo-sans",sans-serif;cursor:pointer;box-shadow:var(--shadows-sm)}
 /* === Campaign counsel — adversarial recommendations with Apply. Same card
-   voice as provenance; Apply buttons reuse the ember CTA gradient at small
-   size so approval reads as an action, never decoration. Token var() only. */
+   voice as provenance; Apply buttons take the secondary Restore-defaults
+   treatment (bear-brown->chocolate) so approval reads as a complementary
+   action, not competing with the primary ember create CTA. Token var() only. */
 .ff-counsel-list{list-style:none;margin:8px 0;padding:0;display:flex;flex-direction:column;gap:8px}
 .ff-counsel-item{display:flex;align-items:center;gap:10px;padding:9px 11px;background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);box-shadow:var(--shadows-sm)}
 .ff-counsel-item>div{display:flex;flex-direction:column;gap:2px;flex:1 1 auto}
 .ff-counsel-item b{font:700 12px/1.3 "museo-sans",sans-serif;color:var(--chocolate)}
 .ff-counsel-item span{font:500 11px/1.45 "museo-sans",sans-serif;color:var(--colors-foreground-muted)}
-.ff-counsel-apply{flex:0 0 auto;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-neutral-50);background:linear-gradient(180deg,var(--colors-brand-ember-hi) 0%,var(--colors-brand-ember-mid) 48%,var(--colors-brand-ember-lo) 100%);border:1px solid var(--colors-brand-ember-lo);border-radius:var(--radii-md);padding:9px 13px;cursor:pointer}
-.ff-counsel-apply-all{margin-top:4px;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-neutral-50);background:linear-gradient(180deg,var(--colors-brand-ember-hi) 0%,var(--colors-brand-ember-mid) 48%,var(--colors-brand-ember-lo) 100%);border:1px solid var(--colors-brand-ember-lo);border-radius:var(--radii-md);padding:10px 14px;cursor:pointer}
+.ff-counsel-apply{flex:0 0 auto;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-brand-badge-parchment);background:linear-gradient(180deg,var(--colors-brand-bear-brown),var(--chocolate));border:2px solid var(--chocolate);border-radius:var(--radii-md);padding:9px 13px;cursor:pointer}
+.ff-counsel-apply-all{margin-top:4px;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-brand-badge-parchment);background:linear-gradient(180deg,var(--colors-brand-bear-brown),var(--chocolate));border:2px solid var(--chocolate);border-radius:var(--radii-md);padding:10px 14px;cursor:pointer}
+.ff-counsel-apply:hover,.ff-counsel-apply-all:hover{border-color:var(--colors-brand-ember-mid);box-shadow:0 0 0 2px var(--colors-brand-ember-mid)}
 /* prefers-reduced-motion: tour goes fully static — no float, no sheen, arrow
    stays usable; js/tour.js also switches scrolling to instant. */
 .ff-tour.is-still,.ff-tour.is-still .ff-tour-sheen{animation:none}

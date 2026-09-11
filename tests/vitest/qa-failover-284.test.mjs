@@ -33,7 +33,7 @@ describe('qa failover (#284)', () => {
   });
 
   it('fail styling is sharp-bordered, never success-styled', () => {
-    expect(css).toMatch(/\.ff-failbox\{[^}]*border:1px solid #B51E14/);
+    expect(css).toMatch(/\.ff-failbox\{[^}]*border:1px solid var\(--colors-brand-signal-red\)/);
     expect(css).toMatch(/\.ff-fallback-flag\{/);
   });
 });

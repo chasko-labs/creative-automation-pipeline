@@ -1097,6 +1097,20 @@
       closePanel();
     }
 
+    // Viewport-anchor guard: #damBackdrop + #damPanel are authored inside
+    // .wrap. position:fixed centers on the viewport ONLY when no ancestor
+    // creates a containing block. .wrap is position:relative today (safe), but
+    // this page actively uses transforms (.card:hover, --logo-hero-scale) and
+    // any future transform/filter/will-change on .wrap would silently re-trap
+    // the fixed panel to that box, landing it at page-center instead of the
+    // viewport. Reparenting both nodes to <body> makes the centering durable
+    // regardless of future ancestor transforms. Idempotent — skip if already
+    // a direct body child.
+    try{
+      if(backdrop.parentNode !== document.body) document.body.appendChild(backdrop);
+      if(panel.parentNode !== document.body) document.body.appendChild(panel);
+    }catch(e){}
+
     // wire triggers + keyboard/click-outside close
     trigger.addEventListener('click', openPanel);
     trigger.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openPanel(); } });
