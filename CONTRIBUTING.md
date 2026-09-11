@@ -69,13 +69,20 @@ Ship it:
 curl -s https://kodiak.bryanchasko.com/design/components.css | grep -c "<your-marker>"
 ```
 
-Reviewer zip (clean `origin/main` export + rendered docs + auto-unlocking file:// copy):
+Reviewer zip (clean `origin/main` export + rendered docs + auto-unlocking file:// copy + the required 2:55 walkthrough video):
+
+The builder fetches the walkthrough video from S3 as a **required** artifact — it fails closed (nonzero exit) if the video is missing or zero bytes, and verifies the entry exists inside the built ZIP before emitting upload commands. The source defaults to `s3://frontier-bryanchasko-com/kodiak-demo-2m55.mp4` and is overridable with `REVIEWER_VIDEO_S3_URI`. The old `/tmp`-only path warned and skipped, which shipped a broken ZIP (START-HERE video links, no MP4) — never again.
 
 ```
 ./scripts/build-reviewer-package.sh
-aws s3 cp /tmp/kodiak-reviewer/kodiak-reviewer-package.zip s3://frontier-bryanchasko-com/adobechallenge/kodiak-reviewer-package.zip --content-type application/zip --profile bryanchasko-kiro --region us-east-1
+# canonical key — no-cache so a re-push is served immediately:
+aws s3 cp /tmp/kodiak-reviewer/kodiak-reviewer-package.zip s3://frontier-bryanchasko-com/adobechallenge/kodiak-reviewer-package.zip --content-type application/zip --cache-control 'no-cache, max-age=0, must-revalidate' --profile bryanchasko-kiro --region us-east-1
+# versioned key — content-addressed, immutable; emergency link that bypasses stale canonical cache:
+aws s3 cp /tmp/kodiak-reviewer/kodiak-reviewer-package.zip s3://frontier-bryanchasko-com/adobechallenge/kodiak-reviewer-package-<short-sha>.zip --content-type application/zip --cache-control 'public, max-age=31536000, immutable' --profile bryanchasko-kiro --region us-east-1
 aws cloudfront create-invalidation --distribution-id E3GEX8LSRX6OYS --paths '/adobechallenge/kodiak-reviewer-package.zip' --profile bryanchasko-kiro --region us-east-1
 ```
+
+The builder emits the exact upload/invalidation commands (with the resolved git short SHA in the versioned key) at the end of its run — copy them from the output rather than transcribing by hand.
 
 The reviewer URL (`https://kodiak.bryanchasko.com/adobechallenge/kodiak-reviewer-package.zip`) is served by CloudFront from the `adobechallenge/` prefix — upload to the bucket root lands at a dead key and never goes live. Always upload to the `adobechallenge/` prefix and invalidate after, or the refresh is invisible.
 
