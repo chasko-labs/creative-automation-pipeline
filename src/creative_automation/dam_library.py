@@ -26,9 +26,11 @@ frontend never branches on shape.
 from __future__ import annotations
 
 import json
+import os
 import pathlib
 import re
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 
 from . import dam
 from ._datapaths import data_path
@@ -465,6 +467,56 @@ def _item_for(
     return item
 
 
+# Per-item url/thumb/meta resolution is the request-latency floor: each window key
+# fires a synchronous S3 HEAD in thumb_url (thumb-cache gate) and, on the ideas tab, a
+# second HEAD in head_metadata. Serial, a 24-tile window = up to 48 serial HEAD round
+# trips before the Lambda responds — on a cold container that blows the 12s client abort
+# (see web/.../prompt-chips.js DAM_TIMEOUT_MS). presign_get itself is CPU-only (no round
+# trip), so the HEADs are the whole cost. Fanning the per-item work across a bounded
+# thread pool collapses N serial HEADs into ~1-2 round-trip-times. botocore's low-level
+# client is thread-safe for these independent read calls (head_object / generate_presigned
+# _url share no mutable state across calls). Bound the pool so a large page cannot spawn
+# an unbounded thread storm; default 16, override via DAM_LIBRARY_MAX_WORKERS.
+_DAM_LIBRARY_MAX_WORKERS = max(1, int(os.getenv("DAM_LIBRARY_MAX_WORKERS", "16")))
+
+
+def _resolve_window_items(
+    window: list[str],
+    name: str,
+    brand_index: dict | None,
+    product_index: dict[str, str] | None,
+    client,
+    bucket: str,
+) -> list[dict]:
+    """Build the per-key item dicts for one page window, fanned across a bounded pool.
+
+    Preserves window (listing) order regardless of completion order — the executor.map
+    contract yields results positionally. Each task does exactly the work the old serial
+    loop did per key: the ideas-tab platforms HEAD, presign_get, and the thumb_url HEAD +
+    presign. Every task is self-contained and swallows its own S3 errors via the same
+    graceful helpers (presign_get / thumb_url / head_metadata all degrade, never throw),
+    so one slow or failing key cannot sink the page — it lands with url/thumb None exactly
+    as the serial path produced.
+    """
+    def _one(key: str) -> dict:
+        plats = (
+            _platforms_from_meta(dam.head_metadata(key)) if name == "ideas" else None
+        )
+        item = _item_for(key, name, brand_index, product_index, plats)
+        item["url"] = dam.presign_get(key)
+        # grid tiles use thumb (cached 320px derivative) and fall back to the full
+        # url when no derivative exists yet — thumb_url returns None on a HEAD miss.
+        item["thumb"] = thumb_url(key, client, bucket)
+        return item
+
+    if not window:
+        return []
+    # cap workers at the window size — never spin more threads than there is work.
+    workers = min(_DAM_LIBRARY_MAX_WORKERS, len(window))
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        return list(pool.map(_one, window))
+
+
 def _empty_page(offset: int) -> dict:
     """The shape every degrade path returns so the frontend never branches on shape."""
     return {
@@ -534,21 +586,15 @@ def list_library(category: str | None = None, limit: int = 60, offset: int = 0) 
             )
             # presign ONLY the window — never mint a url outside keys[off:off+cap].
             # the ideas-tab HEADs follow the same bound: one metadata read per
-            # window key, never for keys outside the page.
+            # window key, never for keys outside the page. Per-key resolution
+            # (presign + thumb HEAD, plus the ideas platforms HEAD) is fanned
+            # across a bounded thread pool so N keys resolve in ~1-2 round-trip
+            # times instead of N serial HEADs — the serial fan-out blew the 12s
+            # client abort on a cold container. Window order is preserved.
             window = keys[off:off + cap]
-            items = []
-            for key in window:
-                plats = (
-                    _platforms_from_meta(dam.head_metadata(key))
-                    if name == "ideas"
-                    else None
-                )
-                item = _item_for(key, name, brand_index, product_index, plats)
-                item["url"] = dam.presign_get(key)
-                # grid tiles use thumb (cached 320px derivative) and fall back
-                # to the full url when no derivative exists yet.
-                item["thumb"] = thumb_url(key, client, bucket)
-                items.append(item)
+            items = _resolve_window_items(
+                window, name, brand_index, product_index, client, bucket
+            )
             count = len(items)
             has_more = (off + count) < total
             categories[name] = {
