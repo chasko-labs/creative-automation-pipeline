@@ -294,6 +294,27 @@ def build_flavor_rows(markets: dict, places: dict) -> dict:
     }
 
 
+def _drift_normalized(committed_text: str, rendered_text: str) -> bool:
+    """True when the two docs differ on anything except metadata.generated.
+
+    generated is excluded because the builder derives it from data-core.js
+    mtime, and git does not preserve mtime — checkout/clone/stash reset it, so
+    the stamp is non-durable and not part of the data contract. Everything
+    else (markets, ingredients, mappings, ordering, schema) is compared by
+    re-serializing the normalized structures, so key-order/formatting drift is
+    still caught.
+    """
+    committed = json.loads(committed_text)
+    rendered = json.loads(rendered_text)
+    for doc in (committed, rendered):
+        meta = doc.get("metadata")
+        if isinstance(meta, dict) and "generated" in meta:
+            meta["generated"] = "<normalized>"
+    canon_committed = json.dumps(committed, indent=2, ensure_ascii=False)
+    canon_rendered = json.dumps(rendered, indent=2, ensure_ascii=False)
+    return canon_committed != canon_rendered
+
+
 def main() -> None:
     check = "--check" in sys.argv
     doc = build()
@@ -303,9 +324,11 @@ def main() -> None:
     rendered_flavor = json.dumps(flavor_doc, indent=2, ensure_ascii=False) + "\n"
     if check:
         drift = []
-        if OUT.read_text(encoding="utf-8") != rendered:
+        if _drift_normalized(OUT.read_text(encoding="utf-8"), rendered):
             drift.append("market-featured-frontiers.json")
-        if FLAVOR_OUT.read_text(encoding="utf-8") != rendered_flavor:
+        if _drift_normalized(
+            FLAVOR_OUT.read_text(encoding="utf-8"), rendered_flavor
+        ):
             drift.append("local-flavor.json")
         if drift:
             print(f"drift: {', '.join(drift)} disagree with data-core.js")
