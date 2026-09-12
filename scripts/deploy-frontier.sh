@@ -10,8 +10,8 @@ set -euo pipefail
 #   DRY_RUN=1 ./scripts/deploy-frontier.sh dev
 #
 # A dirty worktree is rejected by default. A controlled local emergency may set
-# ALLOW_DIRTY_WORKTREE=1. CodeBuild should never set that override.
-# Local AWS_PROFILE selects an existing profile; CodeBuild uses role credentials.
+# ALLOW_DIRTY_WORKTREE=1.
+# AWS_PROFILE must select an existing local operator profile.
 
 TARGET="${1:-}"
 if [[ "$#" -ne 1 || ( "$TARGET" != "prod" && "$TARGET" != "dev" ) ]]; then
@@ -23,31 +23,9 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 WEB_SRC="${WEB_SRC:-$REPO_ROOT/web/kodiak-posts-for-todays-frontier}"
 export WEB_SRC
 
-if [[ -n "${CODEBUILD_BUILD_ID:-}" ]]; then
-	BRANCH_REF="${CODEBUILD_WEBHOOK_HEAD_REF:-}"
-	if [[ -z "$BRANCH_REF" ]]; then
-		echo "[deploy-frontier] abort: CODEBUILD_WEBHOOK_HEAD_REF is required in CodeBuild" >&2
-		exit 1
-	fi
-else
-	BRANCH_REF="$(git -C "$REPO_ROOT" symbolic-ref --quiet --short HEAD || true)"
-	if [[ -z "$BRANCH_REF" ]]; then
-		echo "[deploy-frontier] abort: local checkout must be on a named branch" >&2
-		exit 1
-	fi
-fi
-
-case "$BRANCH_REF" in
-	refs/heads/*) BRANCH="${BRANCH_REF#refs/heads/}" ;;
-	refs/*)
-		echo "[deploy-frontier] abort: unsupported branch ref '$BRANCH_REF'" >&2
-		exit 1
-	;;
-	*) BRANCH="$BRANCH_REF" ;;
-esac
-
+BRANCH="$(git -C "$REPO_ROOT" symbolic-ref --quiet --short HEAD || true)"
 if [[ -z "$BRANCH" || "$BRANCH" == "HEAD" ]]; then
-	echo "[deploy-frontier] abort: branch name is empty or detached" >&2
+	echo "[deploy-frontier] abort: local checkout must be on a named branch" >&2
 	exit 1
 fi
 
@@ -59,10 +37,6 @@ if [[ "$TARGET" != "$EXPECTED_TARGET" ]]; then
 fi
 
 ALLOW_DIRTY_WORKTREE="${ALLOW_DIRTY_WORKTREE:-0}"
-if [[ -n "${CODEBUILD_BUILD_ID:-}" && "$ALLOW_DIRTY_WORKTREE" == "1" ]]; then
-	echo "[deploy-frontier] abort: ALLOW_DIRTY_WORKTREE=1 is local-only and cannot be used in CodeBuild" >&2
-	exit 1
-fi
 if [[ "$ALLOW_DIRTY_WORKTREE" != "1" && -n "$(git -C "$REPO_ROOT" status --porcelain --untracked-files=all)" ]]; then
 	echo "[deploy-frontier] abort: worktree is dirty; commit or set ALLOW_DIRTY_WORKTREE=1 for a controlled local emergency" >&2
 	exit 1
@@ -89,14 +63,13 @@ fi
 VERSION_CHECK_SOURCE="https://${HOSTNAME}/index.html"
 DRY_RUN="${DRY_RUN:-0}"
 AWS_ARGS=(--region "$WEBSITE_REGION")
-if [[ -n "${CODEBUILD_BUILD_ID:-}" ]]; then
-	unset AWS_PROFILE
-	AWS_AUTH_CONTEXT="CodeBuild role credentials"
-else
-	PROFILE="${AWS_PROFILE:-bryanchasko-kiro}"
-	AWS_ARGS+=(--profile "$PROFILE")
-	AWS_AUTH_CONTEXT="local profile $PROFILE"
+if [[ -z "${AWS_PROFILE:-}" ]]; then
+	echo "[deploy-frontier] abort: AWS_PROFILE must be explicitly set for local deployment" >&2
+	exit 1
 fi
+PROFILE="$AWS_PROFILE"
+AWS_ARGS+=(--profile "$PROFILE")
+AWS_AUTH_CONTEXT="local profile $PROFILE"
 
 # files to deploy: local relative path -> s3 key -> content-type
 # keep this list in sync with what index.html references
@@ -174,9 +147,7 @@ fi
 # preflight: AWS identity must be valid before any remote mutation
 if ! aws sts get-caller-identity "${AWS_ARGS[@]}" >/dev/null 2>&1; then
 	echo "[deploy-frontier] abort: AWS credentials are not valid for $AWS_AUTH_CONTEXT" >&2
-	if [[ -z "${CODEBUILD_BUILD_ID:-}" ]]; then
-		echo "[deploy-frontier] run: ~/.kiro/bin/check-sso-status" >&2
-	fi
+	echo "[deploy-frontier] run: ~/.kiro/bin/check-sso-status" >&2
 	exit 1
 fi
 
@@ -200,7 +171,7 @@ for entry in "${FILES[@]}"; do
 done
 
 # sync whole asset directories. sync sets content-type via the runner's mimetypes
-# DB; that DB varies across hosts (local vs CodeBuild), so after each bulk sync we
+# DB; that DB varies across local execution environments, so after each bulk sync we
 # re-put the fragile types (.svg, .woff2, .json) with an explicit --content-type
 # and --metadata-directive REPLACE. A deployed-but-mistyped file (e.g. svg served
 # as application/octet-stream) fails to render even though it 200s — the re-puts
