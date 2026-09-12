@@ -8,9 +8,9 @@
 | ----------------------- | ------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
 | pipeline + agentic core | team-pipeline | the engine: training data, bedrock agentcore, python + rust tooling that runs the pipeline | how one brief becomes hundreds of on-brand assets     |
 | app frontend            | team-frontend | the surface: web ui, css, the sample-prompt browser, preview rendering, glimmer canvas     | how a marketer picks a prompt and sees a result       |
-| infra + data-platform   | team-platform | the ground: aws infra, codebuild ci, s3 dam, s3 vectors index, dns/cloudfront, secrets     | how the whole thing deploys and stays cheap + healthy |
+| infra + data-platform   | team-platform | the ground: aws infra, s3 dam, s3 vectors index, dns/cloudfront, secrets                       | how the whole thing deploys and stays healthy        |
 
-the third team (infra + data-platform) is the one easy to forget — it is the connective tissue that both other teams stand on. without a codebuild project, a vector index, and the dam bucket, the pipeline has nowhere to write and the frontend has nothing to read.
+the third team (infra + data-platform) is the one easy to forget — it is the connective tissue that both other teams stand on. without a vector index and the dam bucket, the pipeline has nowhere to write and the frontend has nothing to read.
 
 ## lane boundaries by path
 
@@ -30,7 +30,7 @@ each path prefix has exactly one owning team. edits outside your lane go through
 | `design/tokens/kodiak.json`                                                               | team-frontend             | design tokens — but pipeline READS these (see seams)                                                                                 |
 | `docs/kodiak-brand-*.md`, `docs/ux-persona*.md`, `docs/visual-gallery.md`                 | team-frontend             | brand + ux presentation docs                                                                                                         |
 | `infra/` (template.yaml, s3-dam.tf, tfstate)                                              | team-platform             | all infrastructure-as-code                                                                                                           |
-| `buildspec.yml`, any codebuild config                                                     | team-platform             | ci gate                                                                                                                              |
+| `infra/`, any retired server-gate history                                      | team-platform             | infrastructure source and local gate governance                                                                             |
 | `scripts/sync-dam.sh`, `scripts/seed-kodiak-s3.sh`, `scripts/diagnose.sh`                 | team-platform             | dam + ops scripts                                                                                                                    |
 | `docs/dam-runbook.md`, `docs/nova-act-runbook.md`                                         | team-platform             | ops runbooks                                                                                                                         |
 | `briefs/*.yaml`                                                                           | shared (any team)         | campaign briefs are content, not code — small, low-collision                                                                         |

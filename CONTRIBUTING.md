@@ -90,7 +90,7 @@ DRY_RUN=1 AWS_PROFILE=<local-profile> ./scripts/deploy-frontier.sh dev # local n
 curl -s https://kodiak-dev.bryanchasko.com/design/components.css | grep -c "<your-marker>"
 ```
 
-A named development branch deploys to the shared development hostname, where the latest successful branch deployment wins. Main deploys remain explicit operator actions after approved changes merge into a clean main checkout. Git push alone does not deploy a site. No CodeBuild, GitHub Actions, or other automatic deployment service is used
+A named development branch deploys to the shared development hostname, where the latest successful branch deployment wins. Main deploys remain explicit operator actions after approved changes merge into a clean main checkout. Git push alone does not deploy a site. Deployment remains an explicit operator action
 
 The deploy script rejects a dirty worktree, derives the expected target from the local branch, requires an explicit `AWS_PROFILE`, uses the selected target for storage, distribution, version source, and verification output, and keeps development identifiers fail-closed through environment variables
 

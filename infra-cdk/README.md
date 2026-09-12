@@ -224,8 +224,7 @@ shared), so a delete leaves logging enabled -- disable by hand if intended.
   `import-dam.yaml`; the `s3-dam.tf` default was `aws:kms` too. If the task brief
   said SSE-S3, the live truth is KMS-managed -- ported live truth to keep import
   drift-free.
-- CodeBuild CI project + CI role from `../infra/template.yaml` were NOT ported --
-  CI is out of scope for this IaC app and is owned separately (ghost-orin-ci-cd).
-  Flag, not guess.
+- CI is out of scope for this IaC app and remains owned separately
+  (ghost-orin-ci-cd). Flag, not guess.
 - `../infra/browser-observability.yaml` was not read/ported -- not in the
   enumerated port list. Flag for a follow-up if it should move to CDK.

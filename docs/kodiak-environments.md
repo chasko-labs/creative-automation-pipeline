@@ -25,7 +25,7 @@ After approved changes merge to `main`, the operator will use a clean `main` che
 AWS_PROFILE=<local-profile> ./scripts/deploy-frontier.sh prod
 ```
 
-Production remains an explicit operator action. No CodeBuild, GitHub Actions, or other automatic deployment service is used
+Production remains an explicit operator action
 
 The local deployment requires an explicit `AWS_PROFILE`, uses the fixed website region, protects against a dirty worktree by default, supports `DRY_RUN=1` for a no-mutation preview, exports `WEB_SRC`, and verifies the selected hostname in its final output
 

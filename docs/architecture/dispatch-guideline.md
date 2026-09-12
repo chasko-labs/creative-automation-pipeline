@@ -6,7 +6,7 @@
 
 - host: rocm-aibox (linux). shared venv managed by `uv`. python 3.11. rust via cargo + maturin.
 - repo: `chasko-labs/creative-automation-pipeline` (private). all BryanChasko/_ and chasko-labs/_ repos are private — never web_fetch github, read from the local clone or use @github mcp.
-- ci: aws codebuild only. no github actions. buildspec.yml is the gate.
+- checks: local hooks and `scripts/hooks/full-check.sh`; validation remains local and operator-driven
 - aws: account bryanchasko-kiro (946179428633), region us-east-1. amazon first-party + custom models freely (nova, titan, nova canvas). third-party models (anthropic etc) are forbidden in the product. cost is not a decision input — capability fit is.
 - secrets: aws ssm only. never write secrets to disk, never `docker login ghcr`.
 
@@ -18,9 +18,9 @@ dispatch by DOMAIN, not by "who has bash". overusing one agent because it can ru
 | --------------------------------- | --------------------- | -------------------------------------------------------------------------------------- | --------------------------------- |
 | ghost-hcom-python-coder           | python + bash         | pipeline modules, cli, embeddings, spin, ingest, scripts, tests, lint fixes            | rust, git commits, infra          |
 | ghost-solan-rust-coder            | rust                  | rust/kodiak-local crate, pyo3, clippy, cargo tests                                     | python surface, git               |
-| ghost-orin-ci-cd                  | git + ci + host shell | commits, branches, PRs, buildspec, running long host jobs (embedding batches), s3 sync | writing feature code              |
+| ghost-orin-ci-cd                  | git + ci + host shell | commits, branches, PRs, local gate maintenance, s3 sync | writing feature code                  |
 | ghost-myrren-edge-fallback        | amazon inference      | nova/titan model selection, embedding body shapes, bedrock probes                      | host shell runs (no execute_bash) |
-| poltergeist-stratia-aws-infra     | aws infra             | codebuild project, s3 vectors index, iam, cloudformation                               | feature code                      |
+| poltergeist-stratia-aws-infra     | aws infra             | s3 vectors index, iam, cloudformation                                                   | feature code                      |
 | poltergeist-stratia-bedrock-arch  | bedrock orchestration | agentcore agents, knowledge bases, guardrails                                          | frontend                          |
 | poltergeist-liora-moodle-ux / css | frontend + css        | web ui, css, dom, responsive                                                           | pipeline internals                |
 | ghost-kerouac-research-analyst    | web research          | source analysis, competitive imagery study                                             | code                              |
@@ -46,9 +46,9 @@ waiting on a slow agent round-trip just to discover a lint failure is wasted wal
 - iso naming: one regex in `naming.py`, imported everywhere. never a second pattern.
 - prettier / bash-gate deadlock (resolved 2026-09-03): the global pre-commit hook prettier-checks staged `.md`/`.json`/`.yaml`, while the kiro bash-gate blocks bare `npx prettier`. `ghost-orin-ci-cd` already has a full bash-gate exemption, but kiro #2365 makes the PreToolUse hook fire with the PARENT PO/anchor name on a dispatch, so a dispatched orin lint command was evaluated as the poltergeist parent and blocked. fix landed in haunting-kiro-cli (`hooks/harald-bash-gate.sh`, PR #2409): a carve-out — same shape as the existing aws/pytest/cdk #2365 exemptions — lets `npx prettier|markdownlint|biome|eslint|tsc` through when the parent is a PO/anchor. no workaround needed anymore; a poltergeist running lint OUTSIDE a dispatch is still blocked. the cleaner long-term root fix is upstream kiro (#2365, subagent-identity propagation).
 
-## ci gate (fail fast)
+## local gate
 
-buildspec.yml runs cheap-to-expensive with hard fail-fast:
+local hooks and full-check scripts run the repository-owned checks in deterministic order. generation, data synchronization, and boutique browser evidence remain explicit manual commands
 
 1. `uv run ruff check .` — ~1s, dies first on any lint
 2. `uv run pytest -x -q` — stop on first test failure

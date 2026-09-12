@@ -250,7 +250,7 @@ Resources:
         ResourceARN: "*"
         Version: 1
 
-  # Standalone managed policy for a future app runtime role (Lambda/ECS/CodeBuild)
+  # Standalone managed policy for a future app runtime role (Lambda/ECS)
   # to attach. The runtime role is not defined in this template yet.
   ObservabilityWritePolicy:
     Type: AWS::IAM::ManagedPolicy

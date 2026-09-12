@@ -19,7 +19,7 @@ fetch('data/localization/market-languages.json').then(r=>r.json()).then(d=>conso
 - brief-yaml: #brief — copyable campaign brief
 - webmcp.json — manifest; application/ld+json WebApplication in footer
 
-## Pipeline (local, zero CodeBuild)
+## Pipeline (local, operator-driven)
 brief (JSON/YAML) -> DAM reuse or Nova Canvas hero -> enhance -> compose 1:1/9:16/16:9 -> compliance -> report.json + preview.html
 translate: Nova Micro -> Amazon Translate -> offline dict -> tagged — auto per market (El Paso ES, Burlington FR, SF Pescadero ZH)
 storage: DAM bucket s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/ is private (CLI/SDK only via `aws s3`, not browser-fetchable); public playground https://d37333alc7ojpl.cloudfront.net/
