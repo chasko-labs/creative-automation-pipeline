@@ -13,6 +13,6 @@ pre-rendered PNGs of the mermaid diagrams in `../SYSTEM-OVERVIEW.md`, for viewer
 | 03-data-schema-er.png   | DynamoDB tables + AssetRef + vector record ER        |
 | 04-infra-deploy.png     | CloudFormation footprint                             |
 | 05-security-posture.png | encryption, IAM, exposure, secrets, model governance |
-| 06-cicd-flow.png        | CodeBuild fail-fast gate sequence                    |
+| 06-cicd-flow.png        | local gate fail-fast gate sequence                    |
 
 each diagram is validated for syntax at render time — a mermaid parse error fails the render, so a committed PNG means the block parsed clean.

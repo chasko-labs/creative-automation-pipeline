@@ -6,7 +6,7 @@ Audience: an executive or architect who needs the full picture in one read. For 
 
 - Account: `946179428633` (bryanchasko-kiro), region `us-east-1`
 - Repo: `chasko-labs/creative-automation-pipeline` (private)
-- CI: AWS CodeBuild only (no GitHub Actions)
+- CI: local repository-owned checks only
 - Live bucket: `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/`
 
 ### Rendered diagram previews
@@ -228,27 +228,15 @@ flowchart TB
         RetNet["retail-network<br/>GSI byMarket"]
     end
 
-    subgraph CI["CI + observability"]
-        CB["CreativePipelineCI (CodeBuild)<br/>amazonlinux2 5.0, SMALL, 20min<br/>webhook: PUSH + PR"]
-        CBRole["CodeBuildServiceRole (IAM)<br/>logs-only, own log group"]
-        LG["LogGroup /kodiak/creative-pipeline<br/>30-day retention"]
-        XRay["X-Ray sampling rule<br/>kodiak-creative*, rate 0.10"]
-        ObsPol["ObservabilityWritePolicy (IAM)<br/>for a future runtime role"]
+    subgraph Checks["Repository-owned quality gate"]
+        Gate["scripts/hooks/full-check.sh<br/>local lint, tests, render, deterministic Playwright checks"]
     end
 
     CFN --> StyleBucket
     CFN --> LogBucket
     CFN --> LocMem
     CFN --> RetNet
-    CFN --> CB
-    CFN --> CBRole
-    CFN --> LG
-    CFN --> XRay
-    CFN --> ObsPol
     TF -.original.-> StyleBucket
-    CB --> CBRole
-    CB --> LG
-    CBRole -.assumes.-> CB
 ```
 
 Deployment surfaces:
@@ -261,13 +249,12 @@ Deployment surfaces:
 
 ## 7. Security posture
 
-Consolidated view of controls that exist in the infrastructure-as-code today. No control claimed here is aspirational — each maps to a resource in `infra/template.yaml`.
+Consolidated view of controls that exist in the infrastructure-as-code today plus the repository-owned local gate. No cloud control claimed here is aspirational — each maps to a resource in `infra/template.yaml` or the local check scripts.
 
 ```mermaid
 flowchart TB
-    subgraph Identity["Identity + least privilege"]
-        CBRole["CodeBuildServiceRole<br/>trusts codebuild.amazonaws.com only<br/>grants: CloudWatch Logs to OWN group only<br/>no S3 / DynamoDB / Bedrock / SSM"]
-        ObsPol["ObservabilityWritePolicy<br/>logs write to own group +<br/>X-Ray Put/Get sampling (service-required *)"]
+    subgraph Checks["Repository-owned quality gate"]
+        Gate["scripts/hooks/full-check.sh<br/>runs in the developer workspace<br/>lint, tests, render, deterministic Playwright checks"]
     end
 
     subgraph DataAtRest["Data at rest"]
@@ -302,39 +289,29 @@ Security facts, each verifiable:
 | encryption at rest        | KMS SSE with bucket keys                              | `StyleLibraryBucket`, `CreativePipelineLogBucket` |
 | encryption in transit     | TLS-only bucket policy (deny non-TLS)                 | `StyleLibraryBucketPolicyTLSOnly`                 |
 | public exposure           | public-access-block, all four flags true              | both S3 buckets                                   |
-| least privilege (CI)      | CodeBuild role writes only to its own log group       | `CodeBuildServiceRole`                            |
-| least privilege (runtime) | scoped log + X-Ray write policy, no data-plane grants | `ObservabilityWritePolicy`                        |
+| quality checks             | repository-owned local gate                         | `scripts/hooks/full-check.sh`                  |
 | data durability           | versioning + PITR + retain-on-delete                  | buckets + tables                                  |
 | secrets                   | SSM Parameter Store only, nothing on disk             | operating standard                                |
 | model governance          | Amazon-first, no third-party models in product        | `dispatch-guideline.md`                           |
 
-Note on the X-Ray `Resource: "*"` in `ObservabilityWritePolicy`: AWS does not support resource-level scoping for `xray:PutTraceSegments`, `PutTelemetryRecords`, or the sampling reads. The wildcard is an AWS service constraint, not a widening of scope — the policy grants no data-plane access to S3, DynamoDB, or Bedrock.
-
 ---
 
-## 8. CI/CD flow
+## 8. local check flow
 
-Fail-fast gate ordered cheapest-to-most-expensive so a broken push dies in seconds. Verified against `buildspec.yml` and the `CreativePipelineCI` CodeBuild project. GitHub Actions is not used; CodeBuild is the only sanctioned CI.
+Fail-fast gate ordered cheapest-to-most-expensive so a broken push dies in seconds. Verified against `scripts/hooks/full-check.sh` and `scripts/hooks/pre-push`. The local gate is the only sanctioned quality check.
 
 ```mermaid
 sequenceDiagram
     participant Dev as Developer
     participant GH as GitHub (private)
-    participant CB as CodeBuild (webhook)
-    participant Log as CloudWatch Logs
+    participant Gate as local gate
 
-    Dev->>GH: push / open PR
-    GH->>CB: webhook (PUSH, PR created/updated/reopened)
-    CB->>CB: install — uv sync --frozen (python 3.11)
-    CB->>CB: gate 1/3 — ruff check .
-    CB->>CB: gate 2/3 — pytest -x -q (fail-fast)
-    CB->>CB: gate 3/3 — cfn-lint infra/template.yaml
-    Note over CB: slow path (render + embed corpus)<br/>only when RUN_SLOW=true — nightly/manual
-    CB->>Log: stream build logs to /codebuild/kodiak-creatives-ci
-    CB-->>GH: report build status
+    Dev->>Gate: run scripts/hooks/full-check.sh
+    Gate->>Gate: local lint, tests, render, deterministic Playwright checks
+    Gate-->>Dev: report local result
 ```
 
-The per-push gate pins `RUN_SLOW=false` so the expensive path (Nova image render, the full embedding run, cloud e2e sync) never runs on a normal push — it belongs to nightly or manual runs. The build follows harness-first CI: install plus gate commands only, no inline service configuration.
+The per-push gate pins `RUN_SLOW=false` so the expensive path (Nova image render, the full embedding run, cloud e2e sync) never runs on a normal push. It belongs to nightly or manual runs. The build follows harness-first CI: install plus gate commands only, no inline service configuration.
 
 ---
 
@@ -346,7 +323,7 @@ Path-by-path ownership is defined in [team lanes](team-lanes.md); dispatch rules
 | ------------- | ----------------------------------------------------------------------------- | ----------------------------------------------- |
 | team-pipeline | engine `src/creative_automation/*.py`, AgentCore design, `rust/kodiak-local/` | one brief becomes hundreds of on-brand assets   |
 | team-frontend | `web/`, design tokens, render templates, brand + UX docs                      | how a marketer picks a prompt and sees a result |
-| team-platform | `infra/`, `buildspec.yml`, DAM + ops scripts, runbooks                        | how it deploys and stays healthy                |
+| team-platform | `infra/`, DAM + ops scripts, runbooks                                            | how it deploys and stays healthy                |
 
 The seams — shared contracts where lanes touch — are design tokens (`design/tokens/kodiak.json`), API response shapes, the sample-prompt JSONL schema, the ISO naming regex (`naming.py`, single source of truth), and the DAM bucket layout. Changing either side of a seam without the other is how one team breaks another; every seam has a named contract owner.
 
@@ -370,7 +347,7 @@ Every AWS resource the deployed pipeline touches, verified live in account 94617
 | Storage      | S3 site + package         | `frontier-bryanchasko-com`                                                                           | hosted app + reviewer zip                                                                                                                                     |
 | Storage      | S3 logs                   | `kodiak-creatives-logs-946179428633-us-east-1`, `kodiak-creatives-cf-logs-946179428633-us-east-1`    | access + CloudFront logs                                                                                                                                      |
 | Data         | DynamoDB                  | `kodiak-creatives-localization-memory`, `kodiak-creatives-retail-network`                            | market memory + retail network                                                                                                                                |
-| CI           | CodeBuild                 | `kodiak-creatives-ci`                                                                                | quality gate on push/PR                                                                                                                                       |
+| CI           | local gate                 | `scripts/hooks/full-check.sh`                                                                            | repository-owned quality gate                                                                            |
 
 Note: this project deploys exactly ONE Lambda (`kodiak-creatives-generate`). The generate request path a browser hits is: kodiak.bryanchasko.com/generate -> CloudFront E3GEX8LSRX6OYS (/generate\* behavior) -> API Gateway mcaptnm7vh -> Lambda -> Bedrock Nova Pro -> render to S3 DAM -> presigned URL back.
 
@@ -385,8 +362,8 @@ The maturity view a CIO wants up front. The local pipeline is the always-present
 | real AI image generation (Nova Pro asset composition)         | live                  | generate.py composes real pack shots via Nova Pro Converse vision, RAG-grounded; source=bedrock:nova-pro. A product without its own asset composes on the flagship brand hero, so every campaign returns a real Nova Pro composite |
 | per-market language chips (top-2 per market)                  | live                  | PR #57, market-languages.json, deployed to kodiak.bryanchasko.com                                                                                                                                                                  |
 | DAM on S3, KMS, versioned                                     | live                  | `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/`                                                                                                                                                                   |
-| CloudFormation footprint (buckets, tables, CI, observability) | live                  | `infra/template.yaml`                                                                                                                                                                                                              |
-| CodeBuild CI gate                                             | live                  | `buildspec.yml`, `CreativePipelineCI`                                                                                                                                                                                              |
+| CloudFormation footprint (buckets, tables, observability) | live                  | `infra/template.yaml`                                                                                                                                                                                                              |
+| local gate                                             | live                  | `scripts/hooks/full-check.sh`                                                                                                                                                                     |
 | 7 AgentCore Gateway tools                                     | live (local dispatch) | `gateway.py`, PR #13                                                                                                                                                                                                               |
 | asset-library write path + observability substrate            | live                  | `asset_api.py`, `observability.py`, PR #10/#12                                                                                                                                                                                     |
 | RAG corpus (3144 vectors, 635 prompts)                        | live                  | `data/vectors/`, `data/prompts/`                                                                                                                                                                                                   |

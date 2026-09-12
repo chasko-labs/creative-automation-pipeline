@@ -1,6 +1,6 @@
 """Local-CI drift guard: generated styles.css must match design/tokens/kodiak.json.
 
-Replaces CodeBuild spend for the token layer. Re-derives the expected brand + semantic
+Local checks replace server-side build minutes for the token layer. Re-derives the expected brand + semantic
 color hex values straight from kodiak.json (the canonical DTFM source), then asserts the
 committed generated css contains them.
 

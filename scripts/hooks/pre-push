@@ -3,9 +3,8 @@
 # local pre-push gate for the kodiak creative pipeline
 # ---------------------------------------------------------------------------
 # this hook is the CI. there is no server-side CI on this repo.
-# CodeBuild has been disconnected (webhook deleted) and GitHub Actions is
-# forbidden (zero-budget repo). buildspec.yml remains in the tree only as the
-# canonical command spec for the FULL gate.
+# local pre-push hook runs pinned lint only; the full local gate is explicit
+# no hosted CI service, build definition, or remote browser is invoked here
 #
 # this hook runs ONLY the fast lint gate so a push never waits on the 250s test
 # suite -- a heavy per-push gate just gets --no-verify'd into uselessness.

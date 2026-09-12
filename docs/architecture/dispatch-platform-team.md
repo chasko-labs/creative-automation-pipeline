@@ -4,14 +4,14 @@
 
 ## what this project is (2-minute orientation)
 
-`creative-automation-pipeline` (chasko-labs, private repo) is a Kodiak Cakes creative-automation system: one brand brief becomes hundreds of localized, on-brand social/blog/retail ads. Amazon-first — only Amazon models (Nova family, Titan embed, Nova Canvas), never third-party (no Anthropic etc). CI is AWS CodeBuild only, never GitHub Actions (zero budget, hard-blocked by a git hook).
+`creative-automation-pipeline` (chasko-labs, private repo) is a Kodiak Cakes creative-automation system: one brand brief becomes hundreds of localized, on-brand social/blog/retail ads. Amazon-first — only Amazon models (Nova family, Titan embed, Nova Canvas), never third-party (no Anthropic etc). Validation remains local and operator-driven.
 
 Two other teams are already working this repo in parallel:
 
 - **team-pipeline** — the engine: training data, Bedrock AgentCore, python + rust tooling
 - **team-frontend** — the web ui, css, sample-prompt browser
 
-You are **team 3 — infra + data-platform**: the ground both other teams stand on. Read `docs/architecture/team-lanes.md` (your ownership map) and `docs/architecture/dispatch-guideline.md` (roster, tooling standards, the lint discipline) before you touch anything. Your lane: `infra/`, `buildspec.yml` / CodeBuild config, `scripts/sync-dam.sh` + ops scripts, DNS/CloudFront, S3 (the DAM bucket + the S3 Vectors index), secrets, and the git-hook/CI governance.
+You are **team 3 — infra + data-platform**: the ground both other teams stand on. Read `docs/architecture/team-lanes.md` and `docs/architecture/dispatch-guideline.md` before editing platform-owned files. Your lane: `infra/`, `scripts/sync-dam.sh` + ops scripts, DNS/CloudFront, S3 (the DAM bucket + the S3 Vectors index), secrets, and local gate governance.
 
 ## aws context you need
 
@@ -53,11 +53,11 @@ This unblocks the pipeline team's critical path (unit A1 → B1 → campaign fan
 - **your steps**: create the index (`aws s3vectors create-index` or the console) in `herald-vectors-nova`, dimension 1024, distance metric cosine, with a metadata schema that carries the fields the pipeline query needs (channel, product, in_image_text, blog_url). Then confirm a `PutVectors` of a few rows + a `QueryVectors` round-trips. The dim MUST be exactly 1024 — a mismatch fails ingest silently (this is a named seam in `team-lanes.md`; coordinate the number with team-pipeline, do not change it).
 - **acceptance**: a documented index name + a working put/query round-trip. Hand the index name back to team-pipeline for unit A1.
 
-### P1 — TASK 4: add the CodeBuild project resource
+### P1 — local validation process
 
-- **context**: team-pipeline authored `buildspec.yml` (fast-fail: ruff → pytest -x → cfn-lint, slow path behind `RUN_SLOW=true`). But there is NO `AWS::CodeBuild::Project` resource anywhere — `infra/template.yaml` only defines the S3 DAM bucket + DynamoDB tables. The buildspec assumes a project exists that points at it.
-- **your steps**: add an `AWS::CodeBuild::Project` (in `infra/template.yaml` or a new stack) sourced from the GitHub repo `chasko-labs/creative-automation-pipeline`, buildspec `buildspec.yml`, a small linux/arm or x86 compute image with python 3.11 + uv, triggered on push/PR to the branch. Least-privilege service role (read the repo, write CloudWatch logs, read `/ci/*` SSM if needed). `cfn-lint` it before deploy.
-- **acceptance**: a push to a PR branch triggers CodeBuild and the fast gate runs. Never wire GitHub Actions (hard-blocked).
+- **context**: repository-owned local checks run through the committed hooks and full local gate.
+- **your steps**: keep validation local, then use the explicit operator-driven deployment process.
+- **acceptance**: local validation passes before operator-driven deployment.
 
 ## the gotchas that already bit the other teams (read these)
 
@@ -70,4 +70,4 @@ This unblocks the pipeline team's critical path (unit A1 → B1 → campaign fan
 
 ## the rule in one sentence
 
-fix the prettier/bash-gate deadlock (P0) and recover valkey (P0) first because they block every other team's commits and memory; then provision the 1024-dim S3 Vectors index and the CodeBuild project to unblock the pipeline team's critical path — all on a `feat/platform-*` branch, never main, never GitHub Actions
+keep local validation and operator-driven infrastructure work explicit; all changes remain on a feature branch, never main

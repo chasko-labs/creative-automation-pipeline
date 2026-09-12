@@ -10,8 +10,7 @@ work, and the dispatch-by-domain map so the anchor can drive without re-discover
 launch as poltergeist-harald-core-anchor. project: chasko-labs/creative-automation-pipeline
 (repo at ~/code/chasko-labs/creative-automation-pipeline on rocm-aibox). the previous sprint MERGED to
 main (merge commit 5759453, PR #140) — start from a clean main, cut a fresh feature branch, dispatch to
-ghosts, do not solo-debug, do not ask permission on reversible work. CI is a LOCAL pre-push gate (no
-CodeBuild required). every deploy goes through scripts/deploy-frontier.sh which REFUSES on version drift —
+ghosts, do not solo-debug, do not ask permission on reversible work. CI is a LOCAL pre-push gate. No server-side gate is required; every deploy follows the local check sequence. Every deploy goes through scripts/deploy-frontier.sh which REFUSES on version drift —
 run scripts/bump-version.sh before every deploy. all repo writes via ghost-orin-ci-cd; front-end/CSS via
 ghost-liora; MV3/vanilla-JS source via ghost-ellow-mv3-coder; AWS/Bedrock/infra via
 poltergeist-stratia-aws-infra + poltergeist-myrren-nova-inference; commit/deploy/PR via ghost-orin-ci-cd.
@@ -114,9 +113,13 @@ CROSS-CUTTING (state in the plan, enforce in review):
   the isolated-region env pattern; any cross-region invoke needs the explicit IAM grant.
 - VERSION + DEPLOY DISCIPLINE: scripts/bump-version.sh stamps 8 version tokens across index.html/webmcp.json/
   llms.txt; deploy-frontier.sh refuses on drift and syncs assets/ data/ fonts/ design/ + invalidates /*.
-- NOVA-ACT / browser verification: the headless verifier's browser transport was flaky last sprint (nova-mcp
-  unbound); if live rendered verification is needed, confirm the browser tool is bound at session start or
-  fall back to source-level + curl verification and say so.
+- PROJECT-OWNED BROWSER VERIFICATION: deterministic Playwright checks run through `scripts/check-spectrum.mjs`,
+  `scripts/check-brand-render.mjs`, and `tests/browser/harness.mjs` with issue scenarios under
+  `tests/browser/issues/`. Generated preview evidence comes from `scripts/browser-check.py`; structured
+  reports write to `/tmp/browser-report.json`, viewport screenshots to `/tmp/playwright-*.png`, and
+  on-demand boutique interaction videos to `tests/browser/videos/`. Use these checks for explicit
+  on-demand boutique testing. They never invoke a hosted browser service or agent visual verification;
+  retain the report, screenshots, and video paths as the sprint evidence
 
 FIRST MOVES for the anchor: (1) get Bryan's answers to the track-1 model-identity decision and the track-2
 vector-store/dedup decisions — those gate the two biggest tracks; (2) while waiting, land tracks 4 (/localize
