@@ -23,8 +23,8 @@ each on one element, each with a static fallback that is the default.
   `.js`, and loaded with a plain `<script src>` — exactly the convention `glimmer-proxy.js` already uses.
   no ESM at runtime, no CORS, works from `file://`.
 - CI stays Python-only. the JS token step (`tokens:css`) is already run locally and committed, not in
-  CodeBuild. the Babylon bundle follows the same pattern: **build locally, commit the artifact, CI
-  (`buildspec.yml`) never sees Babylon.** this runbook does not touch `buildspec.yml`.
+  local checks. the Babylon bundle follows the same pattern: **build locally, commit the artifact, CI
+  (`scripts/hooks/full-check.sh`) never sees Babylon.** this runbook does not touch `scripts/hooks/full-check.sh`.
 - rejected alternatives: CDN ESM import (breaks `file://` — CORS + offline), vendored full UMD (~1.4MB min,
   no tree-shaking).
 
@@ -37,7 +37,7 @@ each on one element, each with a static fallback that is the default.
 | babylon version  | pin `@babylonjs/core` exact `9.4.1` (matches cloud-del-norte)         |
 | bundler          | pin `esbuild` `0.25.9` (any 0.25.x)                                   |
 | linter           | biome `2.4.13` (ecosystem standard — NOT eslint; ruff is Python-only) |
-| CI               | CodeBuild, `buildspec.yml`, Python-only, untouched by this work       |
+| CI               | local checks, `scripts/hooks/full-check.sh`, Python-only, untouched by this work       |
 
 ## 2. token reconciliation (do this FIRST — standards S1/S2/S3, decisions D1/D2/D3)
 

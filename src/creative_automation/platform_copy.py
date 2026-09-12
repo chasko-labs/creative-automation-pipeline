@@ -22,8 +22,11 @@ The two approved taglines are the only ones this module ever emits.
 """
 from __future__ import annotations
 
+import concurrent.futures
+import os
 import re
 import sys
+import time
 
 from . import text_rewriter
 from .platforms import platform_label
@@ -76,6 +79,70 @@ PUBLISH_TARGETS: tuple[str, ...] = (
     "pinterest",
     "x",
 )
+
+
+def _timeout_env(name: str, default: float) -> float:
+    try:
+        value = float(os.getenv(name, str(default)))
+    except (TypeError, ValueError):
+        return default
+    return value if value > 0 else default
+
+
+# The live endpoint runs outside the image-generation wall. Both limits are explicit so
+# a slow Bedrock transport cannot hold the HTTP request indefinitely.
+PLATFORM_COPY_PER_PLATFORM_TIMEOUT_S = _timeout_env(
+    "PLATFORM_COPY_PER_PLATFORM_TIMEOUT_S", 4.0
+)
+PLATFORM_COPY_OVERALL_TIMEOUT_S = _timeout_env("PLATFORM_COPY_OVERALL_TIMEOUT_S", 18.0)
+
+
+class PlatformCopyValidationError(ValueError):
+    """Raised when the platform-copy request is not a supported JSON object."""
+
+
+def normalize_platform_copy_request(body: object) -> dict[str, object]:
+    """Validate the shared request contract used by FastAPI and the Lambda route."""
+    if not isinstance(body, dict):
+        raise PlatformCopyValidationError("expected a JSON object")
+
+    raw_message = body.get("base_message")
+    if raw_message is None:
+        raw_message = body.get("headline")
+    if not isinstance(raw_message, str) or not raw_message.strip():
+        raise PlatformCopyValidationError("base_message or headline must be a non-empty string")
+
+    product_name = body.get("product_name")
+    if not isinstance(product_name, str) or not product_name.strip():
+        raise PlatformCopyValidationError("product_name must be a non-empty string")
+
+    market = body.get("market")
+    if not isinstance(market, str) or not market.strip():
+        raise PlatformCopyValidationError("market must be a non-empty string")
+
+    languages = body.get("languages")
+    if languages is not None:
+        if not isinstance(languages, list) or any(
+            not isinstance(language, str) or not language.strip() for language in languages
+        ):
+            raise PlatformCopyValidationError("languages must be a list of non-empty strings")
+
+    platforms = body.get("platforms")
+    if platforms is not None:
+        if not isinstance(platforms, list) or any(
+            not isinstance(platform, str) or platform not in PLATFORM_SPECS
+            for platform in platforms
+        ):
+            raise PlatformCopyValidationError("platforms must contain supported platform slugs")
+
+    return {
+        "base_message": raw_message.strip(),
+        "product_name": product_name.strip(),
+        "market": market.strip(),
+        "languages": list(languages or []),
+        "platforms": list(platforms) if platforms else list(PUBLISH_TARGETS),
+    }
+
 
 # Deterministic hashtag pool per platform, keyed to Kodiak voice. Kept ascii, no emoji.
 _BASE_HASHTAGS = ("KeepItWild", "KodiakCakes", "ProteinPacked", "WholeGrain", "FuelYourFrontier")
@@ -245,6 +312,130 @@ def _assemble_x(headline: str, hashtags: list[str]) -> str:
         return f"{cut}\u2026"[:X_MAX_CHARS]
 
 
+def _generate_platform_entry(
+    base_message: str,
+    product_name: str,
+    market: str | None,
+    platform: str,
+    *,
+    region: str | None = None,
+) -> dict:
+    """Generate one platform entry, degrading only that platform on failure."""
+    spec = PLATFORM_SPECS[platform]
+    kind = spec["kind"]
+    try:
+        # transport hop: one Nova Micro rewrite for the headline (or offline mock).
+        res = text_rewriter.rewrite_headline(
+            base_message, market or "us", lang="en", region=region
+        )
+        rewritten = res.get("text") if isinstance(res, dict) else None
+        live = (
+            isinstance(rewritten, str)
+            and bool(rewritten.strip())
+            and res.get("source") == "bedrock:nova-micro"
+        )
+        if live:
+            headline = rewritten.strip()
+            source = "generated"
+        else:
+            headline = _fallback_headline(base_message, product_name, kind)
+            source = "fallback"
+    except Exception as e:  # noqa: BLE001 — one bad platform never sinks the set
+        print(f"[platform_copy] fallback for {platform}: {e}", file=sys.stderr)
+        headline = _fallback_headline(base_message, product_name, kind)
+        source = "fallback"
+
+    headline = clean_brand_copy(headline)
+    hashtags = _hashtags_for(platform, product_name, market, spec["hashtags"])
+    entry: dict = {
+        "platform": platform,
+        "label": platform_label(platform),
+        "source": source,
+    }
+
+    if platform == "youtube":
+        title = headline
+        if len(title) > YOUTUBE_TITLE_MAX:
+            cut = title[: YOUTUBE_TITLE_MAX - 1]
+            if " " in cut:
+                cut = cut[: cut.rfind(" ")]
+            title = f"{cut}\u2026"
+        entry["title"] = clean_brand_copy(title)
+        entry["description"] = clean_brand_copy(_body_for(kind, headline, product_name, market))
+        entry["hashtags"] = hashtags
+    elif platform == "x":
+        entry["headline"] = headline
+        entry["body"] = ""
+        entry["hashtags"] = hashtags
+        entry["post"] = clean_brand_copy(_assemble_x(headline, hashtags))
+    else:
+        entry["headline"] = headline
+        entry["body"] = clean_brand_copy(_body_for(kind, headline, product_name, market))
+        entry["hashtags"] = hashtags
+
+    return entry
+
+
+def _bounded_platform_copy(
+    base_message: str,
+    product_name: str,
+    market: str | None,
+    platforms: list[str],
+    *,
+    region: str | None,
+    per_platform_timeout_s: float,
+    overall_timeout_s: float,
+) -> dict[str, dict]:
+    """Fan out live rewrites with per-platform and whole-request deadlines."""
+    if not platforms:
+        return {}
+    fallback = fallback_platform_copy(base_message, product_name, market, platforms)
+    executor = concurrent.futures.ThreadPoolExecutor(max_workers=len(platforms))
+    started = time.monotonic()
+    futures: dict[str, concurrent.futures.Future] = {}
+    submitted: dict[str, float] = {}
+    for platform in platforms:
+        submitted[platform] = time.monotonic()
+        futures[platform] = executor.submit(
+            _generate_platform_entry,
+            base_message,
+            product_name,
+            market,
+            platform,
+            region=region,
+        )
+    out: dict[str, dict] = {}
+    overall_expired = False
+    try:
+        for platform in platforms:
+            elapsed = time.monotonic() - started
+            remaining_overall = overall_timeout_s - elapsed
+            remaining_platform = per_platform_timeout_s - (
+                time.monotonic() - submitted[platform]
+            )
+            if remaining_overall <= 0:
+                overall_expired = True
+                break
+            if remaining_platform <= 0:
+                out[platform] = fallback[platform]
+                continue
+            try:
+                out[platform] = futures[platform].result(
+                    timeout=min(remaining_platform, remaining_overall)
+                )
+            except concurrent.futures.TimeoutError:
+                out[platform] = fallback[platform]
+            except Exception as e:  # noqa: BLE001 — deterministic per-platform fallback
+                print(f"[platform_copy] fallback for {platform}: {e}", file=sys.stderr)
+                out[platform] = fallback[platform]
+    finally:
+        executor.shutdown(wait=False, cancel_futures=True)
+
+    if overall_expired:
+        return fallback
+    return {platform: out.get(platform, fallback[platform]) for platform in platforms}
+
+
 def generate_platform_copy(
     base_message: str,
     product_name: str,
@@ -252,90 +443,59 @@ def generate_platform_copy(
     platforms: list[str] | None = None,
     *,
     region: str | None = None,
+    per_platform_timeout_s: float | None = None,
+    overall_timeout_s: float | None = None,
 ) -> dict:
-    """Generate platform-tailored campaign copy. Returns {platform: {headline, body, hashtags, source, ...}}.
+    """Generate platform-tailored copy, optionally within explicit live deadlines.
 
-    Args:
-        base_message: the source campaign line to tailor per platform.
-        product_name: display product name (e.g. "Power Cakes"); drives brand naming + tags.
-        market: market key for context + hashtag localization (optional).
-        platforms: subset of the sanctioned slugs (incl. homepage/blog/linkedin);
-            None => all eight PUBLISH_TARGETS.
-        region: dialect region override passed to the rewrite seam (optional).
-
-    Contract:
-        - one entry per requested platform, keyed by the platform slug.
-        - x copy (headline + hashtags) is always <= 280 chars.
-        - youtube copy carries a title (<= 70 chars) AND a description.
-        - source is "generated" when a live Nova rewrite produced the headline, else
-          "fallback". A failing backend degrades to the deterministic template per
-          platform and NEVER raises.
-        - standing copy law: no bare KODIAK/Kodiak ships in any headline, body,
-          title, description, or post — bare brand words read as "Kodiak Cakes";
-          #hashtags, "Kodiak Cakes", and "Kodiak Park City" pass through.
+    The default path preserves the original synchronous contract. Supplying either
+    timeout enables parallel live rewrites with deterministic fallback entries.
     """
     wanted = [p for p in (platforms or list(PUBLISH_TARGETS)) if p in PLATFORM_SPECS]
-    out: dict[str, dict] = {}
+    if per_platform_timeout_s is not None or overall_timeout_s is not None:
+        return _bounded_platform_copy(
+            base_message,
+            product_name,
+            market,
+            wanted,
+            region=region,
+            per_platform_timeout_s=per_platform_timeout_s or PLATFORM_COPY_PER_PLATFORM_TIMEOUT_S,
+            overall_timeout_s=overall_timeout_s or PLATFORM_COPY_OVERALL_TIMEOUT_S,
+        )
 
-    for platform in wanted:
-        spec = PLATFORM_SPECS[platform]
-        kind = spec["kind"]
-        try:
-            # transport hop: one Nova Micro rewrite for the headline (or offline mock).
-            res = text_rewriter.rewrite_headline(
-                base_message, market or "us", lang="en", region=region
-            )
-            live = res.get("source") == "bedrock:nova-micro"
-            if live:
-                headline = res.get("text", base_message).strip()
-                source = "generated"
-            else:
-                headline = _fallback_headline(base_message, product_name, kind)
-                source = "fallback"
-        except Exception as e:  # noqa: BLE001 — one bad platform never sinks the set
-            print(f"[platform_copy] fallback for {platform}: {e}", file=sys.stderr)
-            headline = _fallback_headline(base_message, product_name, kind)
-            source = "fallback"
+    return {
+        platform: _generate_platform_entry(
+            base_message,
+            product_name,
+            market,
+            platform,
+            region=region,
+        )
+        for platform in wanted
+    }
 
-        # Standing-law enforcement — the base message itself may carry a bare
-        # brand word (Atlanta: "Winter Nights With Kodiak"), so the cleaner runs
-        # unconditionally on the headline AND every body/title/description/post.
-        headline = clean_brand_copy(headline)
 
-        hashtags = _hashtags_for(platform, product_name, market, spec["hashtags"])
-        entry: dict = {
-            "platform": platform,
-            "label": platform_label(platform),
-            "source": source,
-        }
-
-        if platform == "youtube":
-            # video: split into a <=70-char title + a description paragraph.
-            title = headline
-            if len(title) > YOUTUBE_TITLE_MAX:
-                cut = title[: YOUTUBE_TITLE_MAX - 1]
-                if " " in cut:
-                    cut = cut[: cut.rfind(" ")]
-                title = f"{cut}\u2026"
-            entry["title"] = clean_brand_copy(title)
-            entry["description"] = clean_brand_copy(
-                _body_for(kind, headline, product_name, market))
-            entry["hashtags"] = hashtags
-        elif platform == "x":
-            # single post, hard <=280 including hashtags.
-            entry["headline"] = headline
-            entry["body"] = ""
-            entry["hashtags"] = hashtags
-            entry["post"] = clean_brand_copy(_assemble_x(headline, hashtags))
-        else:
-            entry["headline"] = headline
-            entry["body"] = clean_brand_copy(
-                _body_for(kind, headline, product_name, market))
-            entry["hashtags"] = hashtags
-
-        out[platform] = entry
-
-    return out
+def build_platform_copy_response(body: object) -> dict[str, dict[str, dict]]:
+    """Validate a request, run bounded copy generation, and always return its envelope."""
+    request = normalize_platform_copy_request(body)
+    try:
+        copy = generate_platform_copy(
+            request["base_message"],
+            request["product_name"],
+            request["market"],
+            platforms=request["platforms"],
+            per_platform_timeout_s=PLATFORM_COPY_PER_PLATFORM_TIMEOUT_S,
+            overall_timeout_s=PLATFORM_COPY_OVERALL_TIMEOUT_S,
+        )
+    except Exception as e:  # noqa: BLE001 — offline contract never raises
+        print(f"[platform_copy] complete fallback set: {e}", file=sys.stderr)
+        copy = fallback_platform_copy(
+            request["base_message"],
+            request["product_name"],
+            request["market"],
+            request["platforms"],
+        )
+    return {"platform_copy": copy}
 
 
 def fallback_platform_copy(
@@ -344,13 +504,12 @@ def fallback_platform_copy(
     market: str | None = None,
     platforms: list[str] | None = None,
 ) -> dict:
-    """Deterministic offline platform copy — zero model calls, zero spend.
+    """Deterministic offline platform copy with no model calls.
 
     Same shape as generate_platform_copy's fallback branch for every platform
     (headline/body/hashtags + X post + YouTube title/description, all
     standing-law cleaned), tagged source="fallback". Used by the preview/pack
-    response builders so copy + sidecars ship without spending the ~8s of Nova
-    Micro fan-out against the immovable wall (live copy stays frontend-owned).
+    response builders when live copy remains frontend-owned.
     """
     cleaned = clean_brand_copy(base_message)
     wanted = [p for p in (platforms or list(PUBLISH_TARGETS)) if p in PLATFORM_SPECS]

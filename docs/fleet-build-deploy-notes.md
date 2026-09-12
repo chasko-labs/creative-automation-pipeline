@@ -5,13 +5,13 @@ neither is optional.
 
 ## Docker builds: provenance + SBOM on by default
 
-Every image build (local or CodeBuild) records provenance and SBOM:
+Every image build (local or container build) records provenance and SBOM:
 
 ```bash
 docker buildx build --provenance=true --sbom=true -t <name>:<tag> .
 ```
 
-In CodeBuild buildspecs set them as defaults so no project opts out by
+In local build configuration set them as defaults so no project opts out by
 forgetting:
 
 ```yaml

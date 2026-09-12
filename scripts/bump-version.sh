@@ -50,13 +50,13 @@ WEBMCP="$WEB_SRC/webmcp.json"
 LLMS="$WEB_SRC/llms.txt"
 SINKS=("$INDEX" "$WEBMCP" "$LLMS")
 
-# A version-shaped token: semver, -buildid, -YYYYMMDD (the optional leading v is
-# captured separately in the replace so it is preserved, never doubled).
-#   semver  = 0.1.0 followed by digits   (0.1.012, 0.1.013, ...)
-#   buildid = hex-ish git short sha       ([0-9a-f]+)
-#   date    = 8 digits                    ([0-9]{8})
+# A version-shaped token: MAJOR.MINOR.PATCH, -buildid, -YYYYMMDD (the optional
+# leading v is captured separately in the replace so it is preserved, never doubled).
+#   semver  = three numeric release components ([0-9]+\.[0-9]+\.[0-9]+)
+#   buildid = 7+ hexadecimal git token          ([0-9a-fA-F]{7,})
+#   date    = 8 digits                           ([0-9]{8})
 # Kept anchored to the token shape so surrounding markup is never touched.
-VER_RE='0\.1\.0[0-9]+-[0-9a-f]+-[0-9]{8}'
+VER_RE='[0-9]+\.[0-9]+\.[0-9]+-[0-9a-fA-F]{7,}-[0-9]{8}'
 
 # ---- helpers ------------------------------------------------------------------
 
@@ -64,7 +64,7 @@ VER_RE='0\.1\.0[0-9]+-[0-9a-f]+-[0-9]{8}'
 tokens_in() {
 	local f="$1"
 	[[ -f "$f" ]] || return 0
-	perl -ne 'while (/(v?0\.1\.0[0-9]+-[0-9a-f]+-[0-9]{8})/g) { my $t=$1; $t =~ s/^v//; print "$t\n"; }' "$f"
+	perl -ne 'while (/(v?[0-9]+\.[0-9]+\.[0-9]+-[0-9a-fA-F]{7,}-[0-9]{8})/g) { my $t=$1; $t =~ s/^v//; print "$t\n"; }' "$f"
 }
 
 # --check: read all sinks, collect every distinct token, agree => 0, drift => 1

@@ -2,7 +2,7 @@
 # diagnose.sh — visual inspector + lint + glimmer vision ping-pong
 # - Lint (htmlhint, ruff) → chromium screenshot (local 8099 ?cakes=1 + remote d37333 ?cakes=1) → glimmer vision diagnose → patch → sync
 # - NOTE (#234): ?cakes=1 is inert (URL bypass removed) — screenshots now capture the courtesy screen, curl checks unaffected (still 200).
-# - Zero CodeBuild minutes: all local ops (s3 sync + /* invalidate)
+# - all local ops (s3 sync + /* invalidate); no server-side gate
 # Usage: ./scripts/diagnose.sh [--local-only] [--remote-only]
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"

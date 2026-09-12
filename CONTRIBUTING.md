@@ -19,35 +19,53 @@ But our current live bucket was built with the earlier style library template at
 
 ### How we test before we ship
 
-Every change must pass these checks:
+The repository owns its checks. The fast pre-push hook runs local lint only. The full local gate runs before a pull request is opened or merged:
 
-1. **Quick local checks** — from the project folder:
+```bash
+scripts/hooks/install.sh
+uvx ruff@0.15.12 check .
+scripts/hooks/full-check.sh
+```
 
-   ```
-   uv run pytest -q
-   uv run python -m creative_automation.cli --brief briefs/kodiak.yaml --assets input_assets --out /tmp/verify-kodiak
-   uv run python scripts/nova-act-check.py --preview /tmp/verify-kodiak/preview.html --out /tmp/nova.json
-   ```
+The full gate covers token tests, data-mirror parity, Python unit and integration tests, deterministic accessibility and render checks, local Playwright browser scenarios, and local infrastructure template lint. It never contacts a hosted browser, invokes agent visual verification, syncs data, publishes artifacts, or generates campaign output
 
-   All should say pass.
+### explicit boutique browser testing
 
-2. **End to end through the cloud** — with `AWS_PROFILE=bryanchasko-kiro` and `DAM_S3_BUCKET` set:
+Run local browser checks when a web or preview change needs screenshot or interaction evidence:
 
-   ```
-   ./scripts/sync-dam.sh pull
-   DAM_S3_BUCKET=chasko-creative-dam-946179428633-us-east-1 uv run python -m creative_automation.cli --brief briefs/kodiak-on-the-go.yaml --assets input_assets --out output_kodiak-on-the-go
-   ./scripts/sync-dam.sh push-renders output_kodiak-on-the-go
-   ```
+```bash
+npm run test:browser
+npm run test:browser -- --issue 250
+uv run python scripts/browser-check.py --preview /tmp/verify-kodiak/preview.html --out /tmp/browser-report.json
+```
 
-   Then check the style library loaded from cloud, not just your laptop.
+The browser checks use local Chromium or deterministic markup and pixel probes. Reports record viewport checks, creative checks, and evidence paths. They are explicit on-demand boutique testing, not a hosted service gate
 
-3. **Cloud formation safety** before any deploy:
-   ```
-   cfn-lint infra/template.yaml
-   cfn-guard validate --template infra/template.yaml --rules cfn-guard-rules/
-   aws cloudformation create-change-set --stack-name kodiak-creatives --template-body file://infra/template.yaml --capabilities CAPABILITY_NAMED_IAM
-   aws cloudformation describe-events --stack-name kodiak-creatives --filters FailedEvents=true --region us-east-1
-   ```
+### generation and data sync are manual
+
+Campaign generation is separate from validation and is not required for ordinary local tests:
+
+```bash
+uv run python -m creative_automation.cli --brief briefs/kodiak.yaml --assets input_assets --out /tmp/verify-kodiak
+```
+
+The Kodiak generation reference workflow remains generation-only. Data synchronization remains manual and may use the existing AWS profile when cloud storage access is required:
+
+```bash
+AWS_PROFILE=bryanchasko-kiro ./scripts/sync-dam.sh pull
+AWS_PROFILE=bryanchasko-kiro uv run python scripts/embed-social-corpus.py --out data/vectors
+```
+
+Do not add generation or synchronization commands to the pre-push hook or full local gate
+
+### infrastructure review
+
+Run infrastructure lint locally before an infrastructure change:
+
+```bash
+cfn-lint infra/template.yaml
+cfn-guard validate --template infra/template.yaml --rules cfn-guard-rules/
+```
 
 ### Frontend verify + ship loop (the frontier app)
 
@@ -62,12 +80,19 @@ node scripts/check-brand-render.mjs                  # pixel baselines guard the
 
 The render gate steps through the share-gate (word `cakes` — a courtesy screen, not security) before capture, so baselines in `tests/fixtures/brand-baseline/` guard the campaign UI, not the gate overlay. Re-capture with `--update-baselines` only for an intended visual change you have eyeballed — never to silence red.
 
-Ship it:
+Ship it through the operator-driven branch process described in [`docs/kodiak-environments.md`](docs/kodiak-environments.md). Run the deterministic local gates first, then deploy from a clean checkout with an explicit local profile:
 
+```bash
+scripts/hooks/full-check.sh
+AWS_PROFILE=<local-profile> ./scripts/deploy-frontier.sh dev  # named development branch only
+AWS_PROFILE=<local-profile> ./scripts/deploy-frontier.sh prod # main only, after approval
+DRY_RUN=1 AWS_PROFILE=<local-profile> ./scripts/deploy-frontier.sh dev # local no-mutation preview
+curl -s https://kodiak-dev.bryanchasko.com/design/components.css | grep -c "<your-marker>"
 ```
-./scripts/deploy-frontier.sh                          # syncs to S3, invalidates CloudFront (profile bryanchasko-kiro, us-east-1)
-curl -s https://kodiak.bryanchasko.com/design/components.css | grep -c "<your-marker>"
-```
+
+A named development branch deploys to the shared development hostname, where the latest successful branch deployment wins. Main deploys remain explicit operator actions after approved changes merge into a clean main checkout. Git push alone does not deploy a site. Deployment remains an explicit operator action
+
+The deploy script rejects a dirty worktree, derives the expected target from the local branch, requires an explicit `AWS_PROFILE`, uses the selected target for storage, distribution, version source, and verification output, and keeps development identifiers fail-closed through environment variables
 
 Reviewer zip (clean `origin/main` export + rendered docs + auto-unlocking file:// copy + the required 2:55 walkthrough video):
 

@@ -144,13 +144,13 @@ cat >"$STAGE/START-HERE.html" <<HTML
         <li><strong>Nova multimodal embeddings + S3 Vectors</strong> &mdash; 3,000+ real assets embedded (<code>nova-2-multimodal-embeddings</code>, 1024-dim) into managed S3 Vectors, so each market retrieves what already worked there.</li>
         <li><strong>73-market localization</strong> &mdash; per-market top-2 languages (21 total), Nova Micro &rarr; dialect swap &rarr; Amazon Translate, BCP-47 tagged. Data-driven, not hardcoded.</li>
         <li><strong>Panda CSS design tokens</strong> &mdash; brand palette, spacing, and aspect ratios live as W3C design tokens (<code>design/tokens/kodiak.json</code>) generated into type-safe CSS; the compose step is deterministic from those same tokens (bear at 24,24, 68% message bar, 8px Blaze border).</li>
-        <li><strong>Full AWS backbone</strong> &mdash; S3 DAM (KMS, versioned), DynamoDB market memory, CloudFront delivery, CodeBuild CI, X-Ray + CloudWatch observability, Bedrock model-invocation logging.</li>
+        <li><strong>Full AWS backbone</strong> &mdash; S3 DAM (KMS, versioned), DynamoDB market memory, CloudFront delivery, local quality checks, X-Ray + CloudWatch observability, Bedrock model-invocation logging.</li>
       </ul>
       <h2>What's in this package</h2>
       <ul>
         <li><code>README.html</code> &mdash; the project readme, rendered; every in-project link opens the local rendered doc (fully navigable offline, no GitHub)</li>
         <li><code>src/</code> + <code>rust/</code> &mdash; the full pipeline codebase</li>
-        <li><code>tests/</code>, <code>infra/</code>, <code>buildspec.yml</code> &mdash; tests + infrastructure-as-code + CI</li>
+        <li><code>tests/</code>, <code>infra/</code>, <code>docs/archive/buildspec-retired.md</code> &mdash; tests + infrastructure-as-code + CI</li>
         <li><code>docs/architecture/</code> &mdash; system overview (6 diagrams) + literal inventory</li>
         <li><code>docs/assets/previews/</code> &mdash; real branded images the pipeline produced</li>
       </ul>

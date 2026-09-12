@@ -439,6 +439,24 @@ section.xl{padding:var(--section-space-xl) 0}
 .provenance .prov-pill.off{background:var(--oat);color:#6B5A53;border:1px solid var(--stone)}
 @media(max-width:520px){.provenance dl{grid-template-columns:1fr}.provenance dt{white-space:normal}}
 
+/* === Campaign copy + counsel — reuse preview/provenance component language === */
+#campaignCopyPanel{margin-top:14px}
+#insightsBtn{margin-top:14px}
+#insightsPanel{margin-top:14px}
+#insightsPanel .prov-body{padding:4px var(--spacing-md,14px) var(--spacing-md,14px)}
+.ff-counsel-list{list-style:none;margin:0;padding:0}
+.ff-counsel-item{display:flex;align-items:flex-start;gap:var(--spacing-sm,8px);padding:var(--spacing-sm,8px) 0;border-top:1px solid var(--colors-border-default)}
+.ff-counsel-item:first-child{padding-top:0;border-top:0}
+.ff-counsel-item>div{flex:1 1 auto;min-width:0}
+.ff-counsel-item b{display:block;font:700 12px/1.3 "museo-sans",sans-serif;color:var(--chocolate)}
+.ff-counsel-item span{display:block;margin-top:4px;font:500 12px/1.5 "museo-sans",sans-serif;color:var(--colors-neutral-700)}
+.ff-counsel-apply,.ff-counsel-apply-all{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-height:36px;padding:8px 12px;border:1px solid var(--chocolate);border-radius:2px;background:var(--parchment);color:var(--chocolate);font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;box-shadow:0 1px 0 rgba(0,0,0,.2)}
+.ff-counsel-apply:hover{background:var(--colors-neutral-100);border-color:var(--colors-brand-frontier-green)}
+.ff-counsel-apply-all{margin-top:var(--spacing-sm,8px);background:var(--chocolate);color:var(--parchment)}
+.ff-counsel-apply-all:hover{background:var(--colors-brand-frontier-green);border-color:var(--colors-brand-frontier-green)}
+.ff-counsel-apply:disabled,.ff-counsel-apply-all:disabled{opacity:.5;cursor:not-allowed}
+@media(max-width:520px){.ff-counsel-item{flex-direction:column}.ff-counsel-apply{align-self:flex-start}}
+
 /* === Decorative overlays — never intercept events (pointer-events:none is mandatory) === */
 /* 2% brown-paper-bag kraft grain over the whole viewport, tiled seamlessly */
 #paperGrain{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:900;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.23 0 0 0 0 0.14 0 0 0 0 0.09 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:240px 240px;opacity:.05;mix-blend-mode:multiply}

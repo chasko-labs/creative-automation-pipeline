@@ -1,10 +1,10 @@
 // === Campaign counsel — adversarial recommendations with Apply ===
 // Replaces the passive "Why this works" bullets with counsel that critiques
 // the CURRENT brief/market/products and offers discrete recommendations.
-// Each Apply writes through the real controls via real events (never behind
+// Each Apply writes through native controls via dispatched events (never behind
 // the UI's back) and reruns Create so the preview visibly changes — only on
 // explicit approval per item (or Apply all). No auto-apply, no auto-fetch.
-// Counsel rules are local + deterministic (no model spend): thin brief, no
+// Counsel rules are local + deterministic (no external model calls): thin brief, no
 // products, missing retailer angle. Server recommendations[] are rendered
 // too when the endpoint returns them (forward-compatible, preferred).
 (function(){
@@ -67,7 +67,7 @@
     }catch(e){ cb(null); }
   }
 
-  // --- Apply primitives: real controls, real events, then rerun Create ---
+  // --- Apply primitives: native controls, dispatched events, then rerun Create ---
   function setBrief(text){
     var b = document.getElementById('campaignBrief');
     if(!b || !text) return false;
@@ -88,9 +88,22 @@
     inp.click();
     return true;
   }
+  var rerunTimer = null;
   function rerunPreview(){
     var go = document.getElementById('generateCampaign');
-    if(go) go.click();
+    if(!go || go.disabled) return false;
+    if(rerunTimer !== null) return true;
+    var schedule = function(){
+      rerunTimer = setTimeout(function(){
+        rerunTimer = null;
+        var button = document.getElementById('generateCampaign');
+        if(!button || button.disabled) return;
+        button.click();
+      }, 0);
+    };
+    if(typeof requestAnimationFrame === 'function') requestAnimationFrame(schedule);
+    else schedule();
+    return true;
   }
 
   // --- Local adversarial rules (deterministic, grounded in live state) ---
@@ -105,7 +118,7 @@
     return {
       label: 'Sharpen the brief',
       keys: ['brief'],
-      reason: 'Your brief is empty — the preview is running on defaults. Counsel drafts one from your live market, season, and picks.',
+      reason: 'Your brief is short. Apply this recommendation to replace it with a fuller brief drawn from your live market, season, and picks.',
       apply: function(){
         return setBrief('Camp morning ' + bits.join(' · '));
       }
@@ -116,7 +129,7 @@
     return {
       label: 'Pick 3 products',
       keys: ['products'],
-      reason: 'Nothing is selected, so generate rolls Random 3. Counsel rolls it now so you see exactly what ships.',
+      reason: 'No products are selected, so the preview needs a product set. Apply this recommendation to choose a varied set for the preview.',
       apply: pickRandom3
     };
   }
@@ -148,20 +161,20 @@
         labels: list.map(function(r){ return r.label; }).slice(0, 4)
       });
     }catch(e){}
-    var html = '<summary>Campaign counsel</summary><div class="prov-body">';
+    var html = '<h2 id="insightsPanelHeading">Campaign counsel</h2><div class="prov-body">';
     if(!list.length){
-      html += '<p>Nothing to counter — brief, picks, and angle read coherent. Create when ready.</p>';
+      html += '<p>Your campaign is ready to preview. Create it when you are ready.</p>';
     }else{
       html += '<ul class="ff-counsel-list">' + list.map(function(r, i){
-        return '<li class="ff-counsel-item"><div><b>' + esc(r.label) + '</b><span>' +
+        var labelId = 'counsel-recommendation-' + i;
+        return '<li class="ff-counsel-item"><div><b id="' + labelId + '">' + esc(r.label) + '</b><span>' +
           esc(r.reason) + '</span></div>' +
-          '<button type="button" class="ff-counsel-apply" data-counsel="' + i + '">Apply</button></li>';
+          '<button type="button" class="ff-counsel-apply" id="counsel-apply-' + i + '" aria-describedby="' + labelId + '" data-counsel="' + i + '">Apply</button></li>';
       }).join('') + '</ul>';
       if(list.length > 1) html += '<button type="button" class="ff-counsel-apply-all" data-counsel-all="1">Apply all &amp; preview</button>';
     }
     html += '</div>';
     p.innerHTML = html;
-    if(!p.open) p.open = true;
     Array.prototype.forEach.call(p.querySelectorAll('[data-counsel]'), function(btn){
       btn.addEventListener('click', function(){
         var r = list[Number(btn.getAttribute('data-counsel'))];
@@ -222,7 +235,7 @@
   }
 
   // Server patch shape {brief?, market?, theme?, products?} applied through
-  // the same real-control paths as user input. KODIAK copy law holds: a
+  // the same shared control paths as user input. KODIAK copy law holds: a
   // patched brief carrying bare KODIAK is refused, not laundered.
   function applyPatch(patch){
     var ok = false;
@@ -249,6 +262,7 @@
     d.className = 'provenance';
     d.setAttribute('role', 'status');
     d.setAttribute('aria-live', 'polite');
+    d.setAttribute('aria-labelledby', 'insightsPanelHeading');
     var btn = document.getElementById('insightsBtn');
     if(btn && btn.parentNode){ btn.parentNode.insertBefore(d, btn.nextSibling); return d; }
     var prov = document.getElementById('provenancePanel');

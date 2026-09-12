@@ -4,7 +4,7 @@
 
 ## what emits what
 
-- the app (`observability.Observer`) writes **structured JSON log lines to stdout**. in Lambda / CodeBuild / ECS those go to **CloudWatch Logs** automatically. locally they print to the terminal.
+- the app (`observability.Observer`) writes **structured JSON log lines to stdout**. in local execution environments those go to **CloudWatch Logs** automatically. locally they print to the terminal.
 - the app opens **X-Ray subsegments** (`asset.add`, `s3.put_object`, `asset.select`) when the `observability` extra is installed and X-Ray is reachable; otherwise tracing no-ops and logging still works.
 - infra (`infra/template.yaml`) provisions the CloudWatch log group `/kodiak/creative-pipeline` and the X-Ray sampling rule + IAM so traces + logs land somewhere the console can show them.
 

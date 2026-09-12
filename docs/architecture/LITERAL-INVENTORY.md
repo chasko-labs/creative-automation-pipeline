@@ -224,13 +224,10 @@ Bedrock models in the pipeline (all Amazon-first): `amazon.nova-pro-v1:0` (Conve
 
 AgentCore deployment status, live-checked: `ListGateways` = 0, `ListAgentRuntimes` = 0, `bedrock-agent ListAgents` = 0. The runtime/gateway wrap is `PLANNED`; the local pipeline is the live path.
 
-### 5.5 CI/CD — CodeBuild (`LIVE`)
+### 5.5 local validation gate (`LIVE`)
 
-- Project: `kodiak-creatives-ci`
-- Service role: `arn:aws:iam::946179428633:role/kodiak-creatives-ci-role` (created 2026-09-03 18:42 UTC)
-- Builds run to date: 31
-- Gate: `ruff check .` -> `pytest -x -q` -> `cfn-lint infra/template.yaml` (fail-fast, `RUN_SLOW=false`)
-- Console: `https://us-east-1.console.aws.amazon.com/codesuite/codebuild/946179428633/projects/kodiak-creatives-ci`
+- Gate: `ruff check .` -> `pytest -x -q` -> `cfn-lint infra/template.yaml` (fail-fast)
+- Ownership: repository-local scripts and hooks; no hosted build evidence
 
 ### 5.6 Observability — CloudWatch Logs + X-Ray (`LIVE`)
 
@@ -252,7 +249,7 @@ AgentCore deployment status, live-checked: `ListGateways` = 0, `ListAgentRuntime
 | DynamoDB tables (empty, seed at runtime)     | `LIVE`         | 2 tables, 0 rows (live-scanned)                         |
 | seeded localization corpus (6+ markets)      | `LIVE`         | S3 `localization-training-data.jsonl`, feeds Bedrock KB |
 | seeded photos + renders (296 DAM objects)    | `LIVE`         | `brands/kodiak/` heroes + renders + raw-ingest          |
-| CodeBuild CI gate                            | `LIVE`         | 31 builds, role since 18:42 UTC                         |
+| repository-owned local gate                 | `LIVE`         | repository scripts and hooks                    |
 | CloudWatch Logs + X-Ray                      | `LIVE`         | log group + rule + 1 real trace                         |
 | Bedrock Nova + Titan access                  | `LIVE`         | ListFoundationModels                                    |
 | local pipeline `run_pipeline()`              | `LIVE` (local) | `tests/test_e2e.py`                                     |

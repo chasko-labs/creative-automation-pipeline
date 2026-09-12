@@ -59,7 +59,8 @@
 
   function persist(){
     // explicit-change only: an untouched restore must never re-persist itself.
-    if(!dirty) return;
+    // Reset keeps this guard set through pagehide while the old document unloads.
+    if(restoring || !dirty) return;
     try{
       var prev = readStored() || {};
       var snap = readSnapshot();
@@ -138,46 +139,54 @@
     }catch(e){}
   }
 
-  // Restore Defaults button: market to Park City, chips off, staged picks dropped,
-  // saved snapshot cleared. Brief text is kept. Wired to #resetDefaults when present.
+  // Restore Defaults returns the page to its canonical initial-load state. Clear the saved
+  // snapshot before reloading; keep restoring set through pagehide so lifecycle persistence
+  // cannot write the pre-reset state back during the reset event.
   function resetToDefaults(){
-    try{
-      // cards off via their own inputs (native .click() toggles + fires change, keeps brief clauses in sync)
-      Array.prototype.slice.call(document.querySelectorAll('#promptChips .ff-check-card__input[data-theme]:checked')).forEach(function(c){
-        try{ c.click(); }catch(e){}
-      });
-      // staged picks dropped via their own remove buttons (revokes blobs, updates tray)
-      Array.prototype.slice.call(document.querySelectorAll('.ff-pending-remove')).forEach(function(b){
-        try{ b.click(); }catch(e){}
-      });
-      try{ window.__userAssets = []; }catch(e){}
-      // market to the hard default with a real change event so all dependents re-run
-      try{
-        var l = document.getElementById('locality');
-        if(l){ l.value = DEFAULT_MARKET; l.dispatchEvent(new Event('change', {bubbles:true})); }
-      }catch(e){}
-      try{ if(typeof window.updateLocalFlavor === 'function') window.updateLocalFlavor(); }catch(e){}
-      // drop the saved snapshot so the cleared state (not the dirt) is what persists
-      try{ window.__kodiakClearFFState(); }catch(e){}
-      // #250: the X-clicks above no-op on stale chips (boxes destroyed by a host
-      // re-filter), so re-sync the tray from the live boxes — otherwise removed
-      // products stay painted as staged even though storage just went clean.
-      try{ if(typeof window.__kodiakSyncSkuChips==='function') window.__kodiakSyncSkuChips(); }catch(e){}
-      dirty = true; persist(); dirty = false;
-      renderMarketSource(null);
-      refreshResetBtn();
-    }catch(e){}
+    restoring = true;
+    try{ window.__kodiakClearFFState(); }catch(e){}
+    try{ window.location.reload(); }catch(e){ restoring = false; }
   }
-  // Step-0 reset stays greyed until something differs from default: a
-  // non-default market, a checked theme card, or a staged pick/chip.
-  // (Season/brief/scope are untouched by reset, so they don't count.)
+  // Step-0 reset stays greyed until any mutable state differs from the initial load state.
+  function currentCalendarMonth(){
+    return ['January','February','March','April','May','June','July','August','September','October','November','December'][new Date().getMonth()];
+  }
+  function generatedOutputIsDirty(){
+    try{
+      var status = document.getElementById('sampleStatus');
+      if(status && status.textContent.trim()) return true;
+      var files = document.getElementById('fileNames');
+      if(files && files.textContent.trim()) return true;
+      // The initial page owns the static hero and platform matrix; generated preview paths replace the hero.
+      if(!document.getElementById('previewHero') || !document.getElementById('platformMatrix')) return true;
+      if(document.querySelector('#previewDownloadRow, #genSourceBadge, #provenancePanel, #copyFirstPanel, #platformCopyPanel, #campaignCopyPanel')) return true;
+      var gate = document.getElementById('generateCampaignSection');
+      if(gate && gate.getAttribute('data-gated') === 'false') return true;
+      var assets = document.getElementById('campaignAssetsSection');
+      if(assets && !assets.hidden) return true;
+      var carousel = document.getElementById('campaignAssetsCarousel');
+      if(carousel && carousel.children.length) return true;
+    }catch(e){ return true; }
+    return false;
+  }
   function resetIsDirty(){
     try{
+      var brief = document.getElementById('campaignBrief');
+      if(brief && brief.value.trim()) return true;
       var l = document.getElementById('locality');
       if(l && l.value && l.value !== DEFAULT_MARKET) return true;
+      var season = document.getElementById('seasonalSelect');
+      if(season && season.value !== currentCalendarMonth()) return true;
+      if(typeof window.__activeSeason === 'string' && window.__activeSeason !== currentCalendarMonth()) return true;
+      var selectedScope = document.querySelector('#campaignScope .ff-scope-opt[aria-checked="true"]');
+      if(typeof window.__campaignScope === 'string' && window.__campaignScope !== 'local') return true;
+      if(selectedScope && selectedScope.getAttribute('data-scope') !== 'local') return true;
       if(document.querySelector('#promptChips .ff-check-card__input[data-theme]:checked')) return true;
-      if(document.querySelector('.ff-pending-remove')) return true;
-    }catch(e){}
+      if(document.querySelector('.sku-check:checked')) return true;
+      if(document.querySelector('.layer-check:checked')) return true;
+      if((window.__userAssets || []).length || document.querySelector('.ff-pending-remove')) return true;
+      if(generatedOutputIsDirty()) return true;
+    }catch(e){ return true; }
     return false;
   }
   function refreshResetBtn(){
