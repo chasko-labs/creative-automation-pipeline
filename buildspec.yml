@@ -1,42 +1,9 @@
 version: 0.2
 
-# REFERENCE SPEC ONLY -- no longer wired to a CodeBuild webhook trigger.
-# CI moved to a local pre-push git hook (scripts/hooks/pre-push) that mirrors
-# the three gates below command-for-command. GitHub Actions is forbidden on this
-# repo (zero budget) and the CodeBuild webhook has been disconnected. this file
-# stays in the tree as the canonical gate definition the hook is kept in sync with.
-# the CodeBuild webhook on project kodiak-creatives-ci is already deleted (2026-09-06,
-# aws codebuild delete-webhook --project-name kodiak-creatives-ci) -- auto-builds are off.
-# the CodeBuild project itself is being removed from the CDK infra on a separate branch;
-# CDK stays the infra source of truth. nothing triggers this spec any more.
-# activate the local gate after clone: scripts/hooks/install.sh
-# see docs/ci-local-gate.md.
-#
-# fail-fast CI gate for the kodiak creative pipeline
-# ordering is cheap-to-expensive so a broken push dies in seconds, not minutes.
-# deterministic checks first (vitest, panda-parity, kodiak-parity), then
-# targeted chromium (spectrum-a11y, render-baseline), then the full matrix
-# (pytest -x, nova-act live smoke) pre-merge only.
-#   1. ruff               (lint, ~1s)        -- fastest signal, per-push hook
-#   2. vitest             (token css, pinned, no browser)
-#   3. panda-parity       (brand pins + panda.config.ts regen drift)
-#   4. kodiak-parity      (pytest: token copies, logo hash, brief schema)
-#   5. spectrum-a11y      (chromium computed values)
-#   6. render-baseline    (chromium screenshot pixel-diff)
-#   7. pytest -x          (full unit suite, stop on first failure)
-#   8. nova-act smoke     (tests/nova-act/run.py against the live origin)
-#   9. cfn-lint           (template safety)  -- cheap, no aws calls
-# expensive/networked steps (nova image render, the full
-# ~2380-item embedding run, cloud e2e s3 sync) are NOT in the gate.
-# they run only when RUN_SLOW=true (nightly / manual), guarded below.
-#
-# harness-first-ci: this pipeline runs env + install + gate commands only.
-# no inline service config, no third-party service administration.
-
-env:
-  variables:
-    UV_CACHE_DIR: /root/.cache/uv
-    RUN_SLOW: "false"
+# repository-owned CodeBuild execution contract
+# the project supplies role credentials and webhook branch metadata
+# this file runs deterministic repository gates only, then selects the deploy target
+# the deployment script enforces the same branch/target contract before mutation
 
 phases:
   install:
@@ -44,60 +11,60 @@ phases:
       python: 3.11
     commands:
       - pip install --quiet uv
+      - pip install --quiet cfn-lint==1.51.5
+      - npm ci
       - uv sync --frozen || uv sync
 
   build:
     commands:
-      # gate 1 -- lint (cheapest, fails first)
-      # ruff is not a project dep; uvx fetches it ephemerally so no pyproject decl is needed.
-      # pin the exact version the code was validated against (matches .ruff_cache/0.15.12);
-      # ruff@latest is non-deterministic -- its default ruleset drifts across releases.
-      - echo "gate 1/3 ruff"
+      - echo "gate 1/10 ruff"
       - uvx ruff@0.15.12 check .
 
-      # gate 2 -- vitest (token css, pinned, no browser)
-      - echo "gate 2/9 vitest"
+      - echo "gate 2/10 vitest"
       - npm run test:vitest
 
-      # gate 3 -- panda-parity (brand pins + regen drift)
-      - echo "gate 3/9 panda-parity"
+      - echo "gate 3/10 panda token parity"
       - python3 scripts/check-panda-tokens.py
 
-      # gate 4 -- kodiak-parity (token copies, logo hash, brief schema)
-      - echo "gate 4/9 kodiak-parity"
+      - echo "gate 4/10 data mirror parity"
+      - python3 scripts/build-frontier-mapping.py --check
+
+      - echo "gate 5/10 kodiak parity"
       - uv run --with pytest pytest -q tests/test_kodiak_parity.py tests/test_token_drift.py
 
-      # gate 5 -- spectrum-a11y (chromium computed values)
-      - echo "gate 5/9 spectrum-a11y"
-      - node scripts/check-spectrum.mjs
-
-      # gate 6 -- render-baseline (chromium screenshot pixel-diff)
-      - echo "gate 6/9 render-baseline"
-      - node scripts/check-brand-render.mjs
-
-      # gate 7 -- unit tests, stop on first failure
-      # pytest is not a project dep; uv run --with injects it ephemerally into the project env
-      - echo "gate 7/9 pytest -x"
+      - echo "gate 6/10 python unit and integration tests"
       - uv run --with pytest pytest -x -q
 
-      # gate 8 -- nova-act live smoke (pre-merge only, needs the live origin)
-      - echo "gate 8/9 nova-act smoke"
-      - python3 tests/nova-act/run.py
+      - echo "gate 7/10 deterministic accessibility check"
+      - node scripts/check-spectrum.mjs
 
-      # gate 9 -- cloudformation lint (no aws calls, cheap)
-      - echo "gate 9/9 cfn-lint"
-      - pip install --quiet cfn-lint && cfn-lint infra/template.yaml
+      - echo "gate 8/10 deterministic render check"
+      - node scripts/check-brand-render.mjs
 
-      # slow path -- only on explicit opt-in (nightly / manual RUN_SLOW=true)
+      - echo "gate 9/10 local browser scenarios"
+      - npm run test:browser
+
+      - echo "gate 10/10 infrastructure template lint"
+      - cfn-lint infra/template.yaml
+
       - |
-        if [ "$RUN_SLOW" = "true" ]; then
-          echo "slow path: full render + nova-act + embedding corpus"
-          uv run python -m creative_automation.cli --brief briefs/kodiak.yaml --assets input_assets --out /tmp/verify-kodiak
-          uv run python scripts/nova-act-check.py --preview /tmp/verify-kodiak/preview.html --out /tmp/nova.json
-          AWS_PROFILE=bryanchasko-kiro uv run python scripts/embed-social-corpus.py --out data/vectors
-        else
-          echo "slow path skipped (set RUN_SLOW=true for nightly)"
+        set -eu
+        branch_ref="${CODEBUILD_WEBHOOK_HEAD_REF:-}"
+        case "$branch_ref" in
+          refs/heads/*) branch="${branch_ref#refs/heads/}" ;;
+          *) echo "CODEBUILD_WEBHOOK_HEAD_REF must be a refs/heads branch" >&2; exit 1 ;;
+        esac
+        if [ -z "$branch" ] || [ "$branch" = "HEAD" ]; then
+          echo "CodeBuild webhook branch is empty or detached" >&2
+          exit 1
         fi
+        if [ "$branch" = "main" ]; then
+          target=prod
+        else
+          target=dev
+        fi
+        echo "deploy target: $target for branch: $branch"
+        ./scripts/deploy-frontier.sh "$target"
 
 cache:
   paths:

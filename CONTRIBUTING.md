@@ -62,11 +62,13 @@ node scripts/check-brand-render.mjs                  # pixel baselines guard the
 
 The render gate steps through the share-gate (word `cakes` — a courtesy screen, not security) before capture, so baselines in `tests/fixtures/brand-baseline/` guard the campaign UI, not the gate overlay. Re-capture with `--update-baselines` only for an intended visual change you have eyeballed — never to silence red.
 
-Ship it:
+Ship it through the branch-aware process described in [`docs/kodiak-environments.md`](docs/kodiak-environments.md):
 
 ```
-./scripts/deploy-frontier.sh                          # syncs to S3, invalidates CloudFront (profile bryanchasko-kiro, us-east-1)
-curl -s https://kodiak.bryanchasko.com/design/components.css | grep -c "<your-marker>"
+./scripts/deploy-frontier.sh dev                     # named development branch only
+./scripts/deploy-frontier.sh prod                    # main only, after production approval
+DRY_RUN=1 ./scripts/deploy-frontier.sh dev           # local no-mutation preview
+curl -s https://kodiak-dev.bryanchasko.com/design/components.css | grep -c "<your-marker>"
 ```
 
 Reviewer zip (clean `origin/main` export + rendered docs + auto-unlocking file:// copy + the required 2:55 walkthrough video):
@@ -87,6 +89,8 @@ The builder emits the exact upload/invalidation commands (with the resolved git 
 The reviewer URL (`https://kodiak.bryanchasko.com/adobechallenge/kodiak-reviewer-package.zip`) is served by CloudFront from the `adobechallenge/` prefix — upload to the bucket root lands at a dead key and never goes live. Always upload to the `adobechallenge/` prefix and invalidate after, or the refresh is invisible.
 
 Local visual check without deploying: serve the app dir statically and screenshot past the gate (see `scripts/check-brand-render.mjs` for the stepping-through pattern). Never pixel-sample PNGs by hand — read computed styles and look at real screenshots.
+The deploy script rejects a dirty worktree, derives the expected target from the branch, and uses the selected target for storage, distribution, version source, and verification output
+
 
 ### Data contract — uncertainty flags are load-bearing
 
