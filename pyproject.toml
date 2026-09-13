@@ -37,6 +37,12 @@ analysis = ["numpy>=1.26"]
 # so CI + offline dev stay green without it. structured JSON logging works with no extra.
 observability = ["aws-xray-sdk>=2.12"]
 
+[dependency-groups]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.6",
+]
+
 [project.scripts]
 creative-auto = "creative_automation.cli:main"
 

@@ -23,11 +23,13 @@ The repository owns its checks. The fast pre-push hook runs local lint only. The
 
 ```bash
 scripts/hooks/install.sh
-uvx ruff@0.15.12 check .
+uvx --offline ruff@0.15.12 check .
 scripts/hooks/full-check.sh
 ```
 
 The full gate covers token tests, data-mirror parity, Python unit and integration tests, deterministic accessibility and render checks, local Playwright browser scenarios, and local infrastructure template lint. It never contacts a hosted browser, invokes agent visual verification, syncs data, publishes artifacts, or generates campaign output
+
+For a human-readable map of what each dependency does in this project — with links to each package's repo and docs — see [`docs/uv.md`](docs/uv.md) instead of decoding `uv.lock` by hand.
 
 ### explicit boutique browser testing
 
@@ -231,3 +233,82 @@ If ruff is dirty, fix it before the handoff. The recurring offenders that have b
 ### Need help?
 
 Open an issue with the place, store group, and the line you want to try. Label it with the persona it serves (brand, field, media) and the team lane it touches (pipeline, frontend, platform).
+
+## devops hardening sprint standard
+
+### Sprint rock
+
+Fast deterministic feedback plus a deploy-safe, token-sovereign, inclusive frontend contract. A developer gets a bounded, no-network answer in seconds; the local checks themselves publish nothing, sync nothing, generate no campaign output, and never touch production. After a full gate passes, a separate mandatory development deployment stage ships every successful feature-branch delivery to the development hostname. This sprint deploys only to development; it never deploys to production. The frontend stays token-sovereign and inclusive by default.
+
+### Ownership matrix
+
+| area | owner | notes |
+| --- | --- | --- |
+| CONTRIBUTING.md | team-pipeline | governance doc (anchor lane per team-lanes.md); cross-lane changes announced to all teams |
+| package.json and tooling scripts | team-platform | script lanes are a shared seam; announce before changing lane names |
+| scripts/hooks/*.sh (gates) | team-platform | quick-check and full-check are the shared local gate |
+| web, Panda config, Spectrum checks | team-frontend | frontend surface, components.css, generated styles.css, accessibility gate |
+| design/tokens/kodiak.json | team-frontend | canonical token source; changes require parity checks |
+| pipeline, agentic core, python and rust tooling | team-pipeline | engine and generation code |
+| deployment resources (scripts/deploy-frontier.sh, dns, cloudfront, buckets) | team-platform | identifiers and production command behavior are fixed; do not change them in this sprint |
+
+### Command matrix
+
+| lane | command | scope |
+| --- | --- | --- |
+| fast loop | npm run test:fast | bounded no-network developer loop |
+| unit | npm run test:unit | vitest unit suite |
+| targeted integration | npm run test:integration:fast | smallest deterministic python parity set |
+| full integration | npm run test:integration | full fail-fast python suite |
+| accessibility | npm run test:accessibility | local Spectrum browser gate |
+| browser scenarios | npm run test:browser | local browser harness |
+| Panda token check | npm run tokens:check | token parity against canonical json |
+| full gate | npm run test:full | every local gate before a pull request |
+| development deploy | AWS_PROFILE=<local-profile> ./scripts/deploy-frontier.sh dev | named non-main branch to development hostname |
+
+### Branch and deployment guard
+
+Every successful feature-branch delivery deploys to the development hostname https://kodiak-dev.bryanchasko.com after the documented gates pass. This feature branch and every named non-main branch (feat/<team>-<topic>) deploy only there; the latest successful branch deployment wins.
+
+This sprint prohibits production deployment to https://kodiak.bryanchasko.com. The production path stays fixed and forbidden this sprint: it would require an approved merge to main plus an explicit production command (AWS_PROFILE=<local-profile> ./scripts/deploy-frontier.sh prod) run from a clean main checkout after approval, but running it is not a sanctioned sprint action. The development and production resources stay separate. Git push alone never deploys. The local checks themselves never deploy; the mandatory development deployment is a separate stage that runs only after the full gate passes.
+
+### Sprint work tracks
+
+Three tracks run in parallel this sprint, one per team lane. Each track carries an outcome-based definition of done — a falsifiable result, not an activity.
+
+- team-pipeline — contribution standard, sprint coordination, the Python integration seam, no production mutation. Done when: the contribution standard and its ownership matrix match `docs/architecture/team-lanes.md`, the targeted integration set stays a bounded no-network Python parity check, and no pipeline change publishes, syncs, generates, or mutates production.
+- team-frontend — Panda token compliance, generated-CSS discipline, and the Spectrum accessibility, responsive, internationalization, and bidirectionality checks, plus any component-system changes. Done when: `npm run tokens:check` passes against the canonical json, `design/styles.css` carries no hand edits, and the Spectrum contract checks pass with recorded artifacts across accessibility, responsive from 320px, internationalization, and bidirectionality.
+- team-platform — fast and full test orchestration, branch-safe development deployment, environment and resource verification, and infrastructure lint. Done when: `npm run test:fast` and `npm run test:full` run the named lanes with the documented scope, every named non-main branch that passes the full gate then runs the development deployment command and lands only on the development hostname, environment and resource preconditions are verified before that deploy, no production command runs, and `cfn-lint infra/template.yaml` passes.
+
+### Panda rules
+
+- design/tokens/kodiak.json is the canonical token source
+- panda.config.ts and design/styles.css are generated; never hand-edit them
+- hand-authored styles live in design/components.css
+- component CSS consumes token variables via var() references, never raw hex or inline surface styles
+- any token change requires a parity check (npm run tokens:check) before handoff
+
+### Spectrum-informed contract
+
+- rational: every frontend check is evidence-backed; a pass means an executed deterministic check with a recorded artifact, not a visual guess
+- human: accessibility is a first-class gate; status and provenance stay honest (never present a guess as fact); keyboard and screen-reader support are required
+- focused: progressive disclosure over crowding; no decorative control competes with the primary action
+- for all platforms: responsive behavior from 320px upward; prefers-reduced-motion support; dark-mode and forced-colors checks
+- for everyone: WCAG-oriented contrast, visible focus, adequate touch targets, internationalization and bidirectionality readiness
+
+### Definition of done
+
+- named test lanes exist in package.json and existing script names still work
+- quick-check runs lint, unit, token parity, data mirror parity, and the targeted integration set with no network, no browser, no cloud, no generation, no sync, no deploy
+- full-check calls the named lanes and keeps the accessibility, render, browser, and infrastructure gates
+- a clean named non-main branch passes `npm run test:full`, then runs the development deployment command (AWS_PROFILE=<local-profile> ./scripts/deploy-frontier.sh dev), and the development hostname https://kodiak-dev.bryanchasko.com verifies as serving that delivery; no production command runs
+- this section documents ownership, commands, guards, Panda rules, and the Spectrum contract in plain ASCII
+
+### Out of scope for this sprint
+
+- changing deployment resource identifiers or production command behavior
+- adding a new dependency
+- generation, synchronization, publishing, or any production mutation from local checks
+- editing another team's lane without an announced seam change
+
+Local checks do not publish, do not sync data, do not generate campaign output, and do not touch production.
