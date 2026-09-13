@@ -8,7 +8,7 @@ const marketLangsOffline = {
   "US-CA-CASTROVILLE": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":20},{"lang_code":"zh","lang_name":"Chinese","translate_code":"zh","pct_home":1}],
   "US-CA-PESCADERO": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":12},{"lang_code":"zh","lang_name":"Chinese","translate_code":"zh","pct_home":6}],
   "US-WA-NEAHBAY": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":8},{"lang_code":"zh","lang_name":"Chinese","translate_code":"zh","pct_home":1.5}],
-  "US-MW-PARKCITY-84098": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":9},{"lang_code":"de","lang_name":"German","translate_code":"de","pct_home":0.6}],
+  "US-MW-PARKCITY-84098": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":9},{"lang_code":"pt","lang_name":"Portuguese","translate_code":"pt","pct_home":2.5}],
   "US-SW-ALBQ": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":22.3},{"lang_code":"nv","lang_name":"Navajo","translate_code":"nv","pct_home":1.1,"machine_translate":false,"review":"community","review_note":"Community-authorized translation required — not machine-generated (language sovereignty)."}],
   "_default": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":8},{"lang_code":"fr","lang_name":"French","translate_code":"fr","pct_home":0.5}]
 };
@@ -826,11 +826,12 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
   // renderMarketLangs replaces the old renderLangChips no-op behaviour: on market selection it reads the
   // selected market's top languages from market-languages.json (via marketLangsFor) and paints .loc-line rows.
   //
-  // BLOCKER: no precomputed market x lang -> {text,provider} JSON exists in the repo (localize() is a backend
-  // python service). So this renders PLACEHOLDERS, never fabricated machine translations:
+  // Seeded market x language copy in window.KODIAK_LOCALIZED_COPY paints immediately when present. The
+  // hosted localize() backend remains an optional override; missing seeds still use honest placeholders:
   //   - English source line       -> data-provider="source" (real English source string from places[].message)
-  //   - machine-translatable       -> data-provider="pending"            (placeholder "translation pending")
-  //   - community-review (nv/zip)  -> data-provider="community-review"   (FIRST-CLASS row + visible review badge)
+  //   - seeded machine copy       -> data-provider="seed" (real committed localized text)
+  //   - machine-translatable       -> data-provider="pending" (placeholder "translation pending")
+  //   - community-review (nv/zip)  -> data-provider="community-review" (FIRST-CLASS row + visible review badge)
   //
   // COMMUNITY-REVIEW LANGUAGES (nv/zip): these are low-resource Indigenous languages under community sovereignty.
   // They are SUPPORTED and VISIBLE — never machine-translated, never hidden or dimmed into an apology. The row
@@ -914,8 +915,8 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
   // === S12 — compact localized tile caption (Task 3) ===
   // Returns compact .loc-line HTML for a tile caption: EN source + this market's top_languages[]. Reuses the
   // SAME source-of-truth (places[].message, marketLangsFor) and the SAME live/community/offline rules as the
-  // full preview, kept compact for a tile. Live machine rows swap real /localize text in after paint (via the
-  // uniqueId row + a microtask), community-review stays human-only, offline shows a single honest pending note.
+  // full preview, kept compact for a tile. A committed seed paints immediately when available; a live machine
+  // response can override that seed after paint. Community-review stays human-only; missing copy stays pending.
   // Exposed globally so showRenderSet (hosted) and the offline canvas render() can both call it.
   let _capSeq = 0;
   function locCaptionHtml(market){
@@ -932,10 +933,15 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
       const community = isCommunityReview(l, code);
       const note = l.review_note || 'Community-authorized translation required — not machine-generated (language sovereignty).';
       const rowId = 'loccap-'+seq+'-'+code+'-'+i;
+      const seed = window.KODIAK_LOCALIZED_COPY?.[market]?.[code];
+      const seededText = seed && typeof seed.text === 'string' && seed.text.trim() ? seed.text : '';
       let provider, fill, badge='';
       if(community){
         provider='community-review'; fill=source;          // never machine-translated — EN source + badge, full-strength
         badge='<span class="loc-review" title="'+esc(note)+'">community review</span>';
+      } else if(seededText){
+        provider='seed'; fill=seededText;
+        if(window.KODIAK_LOCALIZE_ENDPOINT) jobs.push({rowId, code, source, market});
       } else if(window.KODIAK_LOCALIZE_ENDPOINT){
         provider='pending-live'; fill=source; jobs.push({rowId, code, source, market});
       } else {

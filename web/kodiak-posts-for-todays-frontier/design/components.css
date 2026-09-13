@@ -249,7 +249,7 @@ section.xl{padding:var(--section-space-xl) 0}
   background:var(--colors-neutral-50,#FFF8F0);border:1px solid var(--colors-neutral-300,#D9CFC6);
   border-radius:var(--radii-lg,16px);padding:var(--spacing-md,16px);
   box-shadow:0 1px 2px rgba(59,35,22,.06);
-  transition:border-color .15s,box-shadow .15s}
+  transition:background .15s,border-color .15s,box-shadow .15s}
 /* visible ring on focus — clearly readable against parchment (WCAG 2.4.7) */
 .ff-inputwrap:focus-within{border-color:var(--orange, #E8530E);box-shadow:0 0 0 3px rgba(232,83,14,.4)}
 /* Row 1 canvas — the kicker label above the textarea (matches .ff-optiongroup-label) */
@@ -652,7 +652,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-setup .ff-scope-summary,#locationSection>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;
   padding:9px 12px;border-radius:var(--radii-md);font:600 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate);
   transition:background .15s,box-shadow .15s}
-.ff-setup .ff-scope-summary:hover,#locationSection>summary:hover{background:rgba(255,248,240,.6);box-shadow:var(--shadows-sm)}
+.ff-setup .ff-scope-summary:hover,#locationSection>summary:hover,.ff-season-details>summary:hover,.ff-brainstorm[data-step="4"]:hover,.ff-inputwrap[data-step="5"]:hover{background:rgba(255,248,240,.6);box-shadow:var(--shadows-sm)}
+.ff-season-details>summary,.ff-brainstorm[data-step="4"]{transition:background .15s,box-shadow .15s}
 .ff-setup .ff-scope-wrap[open] .ff-scope-summary,.ff-location[open]>summary{background:rgba(26,60,52,.07)}
 #locationSection .ff-controlrow{margin-top:var(--spacing-sm)}
 .ff-location-kicker{font:800 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase}

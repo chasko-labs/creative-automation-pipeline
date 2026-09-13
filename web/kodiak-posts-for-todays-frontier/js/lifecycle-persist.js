@@ -144,6 +144,15 @@
   // cannot write the pre-reset state back during the reset event.
   function resetToDefaults(){
     restoring = true;
+    // #250: uncheck the live product boxes and re-sync the tray from them before
+    // the reload, so stale chips whose boxes a host re-filter destroyed are voided
+    // rather than surviving the clear. The sync hook is idempotent and safe pre-reload.
+    try{
+      Array.prototype.slice.call(document.querySelectorAll('.sku-check:checked')).forEach(function(b){
+        try{ b.checked = false; b.dispatchEvent(new Event('change', {bubbles:true})); }catch(e){}
+      });
+    }catch(e){}
+    try{ if(typeof window.__kodiakSyncSkuChips === 'function') window.__kodiakSyncSkuChips(); }catch(e){}
     try{ window.__kodiakClearFFState(); }catch(e){}
     try{ window.location.reload(); }catch(e){ restoring = false; }
   }
