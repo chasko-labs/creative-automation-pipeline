@@ -48,4 +48,4 @@ data/vectors/kodiak-embeddings.jsonl
 # 644 downloaded hero images, re-downloadable, belong in S3 not git
 data/raw-ingest/kodiakcakes/blog-images/
 
-tests/live/videos/
+tests/browser/videos/

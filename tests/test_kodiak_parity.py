@@ -92,3 +92,19 @@ def test_briefs_validate_against_schema():
             colors = {c.lower() for c in (brief.brand_colors or [])}
             assert colors == canonical_trio, f"{path.name}: KODIAK brand_colors drifted: {sorted(colors)}"
     assert seen > 0, "no briefs found to validate"
+
+
+def test_local_check_command_contract():
+    package = json.loads((REPO_ROOT / "package.json").read_text(encoding="utf-8"))
+    assert package["scripts"]["test:browser"] == "node tests/browser/harness.mjs"
+    assert "test:" + "live" not in package["scripts"]
+
+    full_gate = (REPO_ROOT / "scripts/hooks/full-check.sh").read_text(encoding="utf-8")
+    pre_push = (REPO_ROOT / "scripts/hooks/pre-push").read_text(encoding="utf-8")
+    browser_check = (REPO_ROOT / "scripts/browser-check.py").read_text(encoding="utf-8")
+    for text in (full_gate, pre_push, browser_check):
+        assert "nova" + "-act" not in text.lower()
+        assert "code" + "build" not in text.lower()
+        assert "cloudfront.net" not in text.lower()
+    assert "npm run test:browser" in full_gate
+    assert "scripts/browser-check.py" not in full_gate

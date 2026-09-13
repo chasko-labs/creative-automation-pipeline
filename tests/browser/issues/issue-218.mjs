@@ -2,7 +2,7 @@
 // brief with typed text never clobbered (#236), one selection per concept drives brief +
 // layers (#237), scope block speaks marketer voice (#223). All against the REAL page,
 // local static server (no backend needed — every assertion is client-side state).
-import { assert, gotoLive } from "../lib.mjs";
+import { assert, gotoLocal } from "../lib.mjs";
 
 export const issue = 218;
 export const title = "scope cluster: guided step, chips into brief, unified layers, marketer copy";
@@ -32,7 +32,7 @@ const layerState = (page) => page.evaluate(() => ({
 }));
 
 export async function run(page, { baseUrl } = {}) {
-  await gotoLive(page, baseUrl);
+  await gotoLocal(page, baseUrl);
 
   // ---- #218: one guided setup step, clear order, same controls reachable ----
   const setup = await page.evaluate(() => {

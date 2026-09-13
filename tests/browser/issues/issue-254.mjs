@@ -5,7 +5,7 @@
 // merged (#214) and linked in <head>, but the deploy FILES list never shipped
 // root files. This test guards the served result; the deploy include set is
 // pinned by tests/vitest/deploy-asset-coverage.test.mjs.
-import { assert, gotoLive } from "../lib.mjs";
+import { assert, gotoLocal } from "../lib.mjs";
 
 export const issue = 254;
 export const title = "favicon set serves 200, zero icon 404s";
@@ -20,7 +20,7 @@ export async function run(page, { baseUrl } = {}) {
       if (r.status() >= 400) bad.push(`${r.status()} ${url}`);
     }
   });
-  await gotoLive(page, baseUrl);
+  await gotoLocal(page, baseUrl);
   await page.waitForTimeout(1500);
 
   // Explicitly request each icon URL the head references so the test does not

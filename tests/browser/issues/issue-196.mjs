@@ -11,8 +11,8 @@
 //      default-hero tile takes over — never zero, never a duo);
 //   4. zero console errors / pageerrors on clean load.
 // Run with:
-//   npm run test:live -- --issue 196
-import { assert, gotoLive } from "../lib.mjs";
+//   npm run test:browser -- --issue 196
+import { assert, gotoLocal } from "../lib.mjs";
 
 export const issue = 196;
 export const title = "on-load preview is photographic and on-brand";
@@ -28,7 +28,7 @@ export async function run(page, { baseUrl } = {}) {
   page.on("console", (m) => { if (m.type() === "error") consoleErrors.push(m.text().slice(0, 200)); });
   page.on("pageerror", (e) => consoleErrors.push(String(e).slice(0, 200)));
 
-  await gotoLive(page, baseUrl);
+  await gotoLocal(page, baseUrl);
   await page.waitForTimeout(1500);
 
   assert(badResponses.length === 0,

@@ -19,7 +19,7 @@ const css = readFileSync(
 
 // #218/#236/#237/#223 scope cluster: one guided setup step, chips render into the brief,
 // one selection per concept drives brief + layers, marketer-voice copy.
-// Behavioral proof lives in tests/live/issues/issue-218.mjs (real browser).
+// Behavioral proof lives in tests/browser/issues/issue-218.mjs (local browser).
 // These guards pin the source contract so the cluster cannot silently regress.
 describe('scope cluster (#218, #236, #237, #223)', () => {
   it('#218: one guided setup section wraps the four blocks in order', () => {

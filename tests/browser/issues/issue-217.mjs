@@ -2,7 +2,7 @@
 // Acceptance: Costco, Publix, Target plus Kodiak subscription are selectable
 // directions, each threading its own brief text like the Costco chip does.
 // Local-safe: chip taps + brief/theme assertions only, no backend calls.
-import { assert, gotoLive } from "../lib.mjs";
+import { assert, gotoLocal } from "../lib.mjs";
 
 export const issue = 217;
 export const title = "retailer cluster offers costco publix target subscription";
@@ -15,7 +15,7 @@ const CHIPS = [
 ];
 
 export async function run(page, { baseUrl } = {}) {
-  await gotoLive(page, baseUrl);
+  await gotoLocal(page, baseUrl);
   for (const c of CHIPS) {
     const st = await page.evaluate((theme) => {
       const chip = document.querySelector(`#promptChips .ff-chip[data-theme="${theme}"]`);

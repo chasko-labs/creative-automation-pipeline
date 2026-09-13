@@ -12,7 +12,7 @@ const persist = readFileSync(
 // #250: a host re-filter destroys checked checkbox nodes without events, leaving
 // stale tray chips. The toggle must void the chip even when the box is gone,
 // and reset must re-sync the tray from the live boxes.
-// Behavioral proof lives in tests/live/issues/issue-250.mjs (real browser:
+// Behavioral proof lives in tests/browser/issues/issue-250.mjs (local browser).
 // FAILS pre-fix at "A chip gone after X", PASSES post-fix on all three steps).
 // These guards pin the source contract so the fix cannot silently regress.
 describe('stuck product chips (#250)', () => {

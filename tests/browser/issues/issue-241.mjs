@@ -4,8 +4,8 @@
 // DOWNLOADABLE (copy.txt/copy.csv inside the campaign pack zip).
 // Needs the hosted backend (runCampaign shows an honest offline note on a
 // local static server), so run with:
-//   npm run test:live -- --issue 241 --base-url https://kodiak.bryanchasko.com
-import { assert, gotoLive } from "../lib.mjs";
+//   npm run test:browser -- --issue 241
+import { assert, gotoLocal } from "../lib.mjs";
 
 export const issue = 241;
 export const title = "campaign copy visible and downloadable";
@@ -14,7 +14,7 @@ const PANEL_TIMEOUT_MS = 120000;
 
 export async function run(page, { baseUrl } = {}) {
   const isLocal = /127\.0\.0\.1|localhost/.test(baseUrl || "");
-  await gotoLive(page, baseUrl);
+  await gotoLocal(page, baseUrl);
 
   await page.evaluate(() => document.getElementById("genFullCampaign")?.click());
   await page.waitForTimeout(1500);

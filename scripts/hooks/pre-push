@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #
-# local pre-push gate for the kodiak creative pipeline
+# fast local pre-push check; the full local gate runs before merge
+# this hook runs pinned local lint only; all other checks stay in full-check.sh
 # ---------------------------------------------------------------------------
 # this hook is the CI. there is no server-side CI on this repo.
 # local pre-push hook runs pinned lint only; the full local gate is explicit
@@ -39,4 +40,4 @@ if ! uvx ruff@0.15.12 check .; then
   exit 1
 fi
 
-echo "pre-push gate: ruff clean -- push allowed (run pytest + cfn-lint before merge)"
+echo "pre-push gate: ruff clean -- push allowed; run scripts/hooks/full-check.sh before merge"

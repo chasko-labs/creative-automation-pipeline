@@ -6,7 +6,7 @@
 // preloaded in <head>, but the deploy DIRS set never synced input_assets/.
 // This test guards the served result; the deploy include set is pinned by
 // tests/vitest/deploy-asset-coverage.test.mjs.
-import { assert, gotoLive } from "../lib.mjs";
+import { assert, gotoLocal } from "../lib.mjs";
 
 const HERO = "input_assets/textless/cabin-table.jpg";
 
@@ -20,7 +20,7 @@ export async function run(page, { baseUrl } = {}) {
       bad.push(`${r.status()} ${r.url()}`);
     }
   });
-  await gotoLive(page, baseUrl);
+  await gotoLocal(page, baseUrl);
   await page.waitForTimeout(1500);
 
   const preloadHref = await page.evaluate(() => {

@@ -8,7 +8,7 @@
 //   3. a reload after restore stays clean.
 import {
   assert, checkProductBox, clickChipX, clickResetDefaults,
-  gotoLive, pageState, searchProducts,
+  gotoLocal, pageState, searchProducts,
 } from "../lib.mjs";
 
 const A = "Apple Cinnamon Oatmeal Packets";
@@ -18,7 +18,7 @@ export const issue = 250;
 export const title = "stuck product chips remove permanently";
 
 export async function run(page, { baseUrl } = {}) {
-  await gotoLive(page, baseUrl);
+  await gotoLocal(page, baseUrl);
   let s = await pageState(page);
   assert(s.chips.length === 0, "starts clean: no chips");
 

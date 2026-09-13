@@ -9,8 +9,8 @@
 //       verbatim (vacuous only when the composed headline carries no term,
 //       in which case the test records the headline for the receipt).
 // Run with:
-//   npm run test:live -- --issue 244 --base-url https://kodiak.bryanchasko.com
-import { assert, gotoLive } from "../lib.mjs";
+//   npm run test:browser -- --issue 244
+import { assert, gotoLocal } from "../lib.mjs";
 
 export const issue = 244;
 export const title = "brand terms survive ES/PT localization";
@@ -31,7 +31,7 @@ async function localize(page, text, code) {
 }
 
 export async function run(page, { baseUrl } = {}) {
-  await gotoLive(page, baseUrl);
+  await gotoLocal(page, baseUrl);
 
   // (a) policy seam, both languages.
   for (const code of ["es", "pt"]) {

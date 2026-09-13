@@ -1,4 +1,4 @@
-// Shared helpers for the committed live-browser harness (tests/live).
+// Shared helpers for the committed live-browser harness (tests/browser).
 // Every helper runs against the REAL page: no stubs, no mocks.
 import { spawn } from "node:child_process";
 import { chromium } from "playwright";
@@ -41,8 +41,8 @@ export async function passGate(page, password = "cakes") {
   await page.waitForTimeout(2200); // catalog fetch + restore passes + secondaries
 }
 
-export async function gotoLive(page, baseUrl) {
-  if (!baseUrl) throw new Error("gotoLive needs baseUrl");
+export async function gotoLocal(page, baseUrl) {
+  if (!baseUrl || !baseUrl.startsWith("http://127.0.0.1:")) throw new Error("gotoLocal needs a local baseUrl");
   await page.goto(baseUrl + "/index.html", { waitUntil: "networkidle", timeout: 30000 });
   await passGate(page);
 }

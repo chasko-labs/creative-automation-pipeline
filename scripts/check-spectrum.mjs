@@ -82,6 +82,38 @@ try {
   await page.goto(base, { waitUntil: 'networkidle', timeout: 45000 });
   await page.waitForTimeout(2500);
 
+  // 0. document language and direction — readiness checks, not translation or visual parity claims.
+  const documentContract = await page.evaluate(() => {
+    const root = document.documentElement;
+    const localizedTags = [...document.querySelectorAll('.loc-line[lang]')]
+      .map((el) => el.getAttribute('lang').toLowerCase());
+    const originalDirection = root.getAttribute('dir');
+    root.setAttribute('dir', 'rtl');
+    const rtlOverflow = root.scrollWidth - root.clientWidth;
+    if (originalDirection === null) root.removeAttribute('dir');
+    else root.setAttribute('dir', originalDirection);
+    return {
+      language: root.getAttribute('lang'),
+      direction: root.getAttribute('dir'),
+      localizedCounts: {
+        en: localizedTags.filter((tag) => tag === 'en').length,
+        es: localizedTags.filter((tag) => tag === 'es').length,
+        pt: localizedTags.filter((tag) => tag === 'pt').length,
+      },
+      rtlOverflow,
+      directionRestored: root.getAttribute('dir') === originalDirection,
+    };
+  });
+  check('document/language-en', documentContract.language === 'en', `lang=${documentContract.language}`);
+  check('document/direction-valid', ['ltr', 'rtl', 'auto'].includes(documentContract.direction),
+    `dir=${documentContract.direction}`);
+  for (const [language, count] of Object.entries(documentContract.localizedCounts)) {
+    check(`localization/${language}`, count >= 1, `${count} lang tag(s)`);
+  }
+  check('direction/rtl-no-overflow', documentContract.rtlOverflow <= 1,
+    `overflow ${documentContract.rtlOverflow}px at 1440px`);
+  check('direction/restored', documentContract.directionRestored, 'original direction restored');
+
   // disclosures that hide their controls at rest must be opened before sampling —
   // a collapsed control has no box and no focus ring by design, not by defect.
   // #locationSection wraps #marketDisclosure's summary; #creativeDirection wraps

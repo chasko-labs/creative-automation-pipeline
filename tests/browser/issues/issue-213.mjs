@@ -4,7 +4,7 @@
 // (#256: picking SF Bay syncs button label, market source line, and the hidden
 // #locality select; Restore defaults re-renders all three back).
 // Local-safe: no backend calls.
-import { assert, clickResetDefaults, gotoLive } from "../lib.mjs";
+import { assert, clickResetDefaults, gotoLocal } from "../lib.mjs";
 
 export const issue = 213;
 export const title = "market control declared, pick syncs all derived state";
@@ -23,7 +23,7 @@ export async function run(page, { baseUrl } = {}) {
     else if (msg.type() === "error") warnings.push(`error: ${text.slice(0, 200)}`);
   });
   page.on("pageerror", (err) => pageerrors.push(String(err).slice(0, 200)));
-  await gotoLive(page, baseUrl);
+  await gotoLocal(page, baseUrl);
 
   // the control is declared in markup and populated by fillSelects — never a fallback
   const loc = await page.evaluate(() => {

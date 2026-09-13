@@ -7,8 +7,15 @@
   "scripts": {
     "tokens:config": "uv run python scripts/gen-panda-config.py",
     "tokens:css": "panda cssgen --outfile web/kodiak-posts-for-todays-frontier/design/styles.css",
+    "tokens:check": "python3 scripts/check-panda-tokens.py",
     "test:vitest": "vitest run tests/vitest/",
-    "test:live": "node tests/live/harness.mjs"
+    "test:unit": "vitest run tests/vitest/",
+    "test:integration:fast": "uv run --with pytest pytest -q tests/test_kodiak_parity.py tests/test_token_drift.py",
+    "test:integration": "uv run --with pytest pytest -x -q",
+    "test:accessibility": "node scripts/check-spectrum.mjs",
+    "test:browser": "node tests/browser/harness.mjs",
+    "test:fast": "scripts/hooks/quick-check.sh",
+    "test:full": "scripts/hooks/full-check.sh"
   },
   "devDependencies": {
     "@pandacss/dev": "1.12.0",

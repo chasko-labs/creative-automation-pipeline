@@ -9,8 +9,8 @@
 //      (python tests/test_retailer_direction.py pins the sidecar diff +
 //      the scene-prompt fold offline).
 // Run with:
-//   npm run test:live -- --issue 245 --base-url https://kodiak.bryanchasko.com
-import { assert, gotoLive } from "../lib.mjs";
+//   npm run test:browser -- --issue 245
+import { assert, gotoLocal } from "../lib.mjs";
 
 export const issue = 245;
 export const title = "retailer direction reaches image brief and copy";
@@ -19,7 +19,7 @@ const PANEL_TIMEOUT_MS = 120000;
 
 export async function run(page, { baseUrl } = {}) {
   const isLocal = /127\.0\.0\.1|localhost/.test(baseUrl || "");
-  await gotoLive(page, baseUrl);
+  await gotoLocal(page, baseUrl);
 
   // 1. Chip tap directs the brief.
   await page.evaluate(() =>
