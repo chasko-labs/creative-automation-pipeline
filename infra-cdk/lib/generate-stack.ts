@@ -85,6 +85,13 @@ export class GenerateStack extends cdk.Stack {
                   "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-pro-v1:0",
               },
               {
+                Sid: "BedrockInvokeNovaMicro",
+                Effect: "Allow",
+                Action: "bedrock:InvokeModel",
+                Resource:
+                  "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-micro-v1:0",
+              },
+              {
                 Sid: "BedrockInvokeArtDirector",
                 Effect: "Allow",
                 // Art-director voice model -- custom imported model in us-west-2 (isolated

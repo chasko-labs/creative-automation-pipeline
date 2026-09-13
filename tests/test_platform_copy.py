@@ -124,13 +124,78 @@ def test_generated_source_when_backend_live(monkeypatch):
     assert "Kodiak Cakes" in copy["instagram"]["headline"]
 
 
-def test_one_bad_platform_never_sinks_the_set(monkeypatch):
-    # a rewrite that raises must degrade that platform to fallback, not crash the call.
-    def _boom(base, market, **kwargs):
-        raise RuntimeError("nova exploded")
 
-    monkeypatch.setattr(text_rewriter, "rewrite_headline", _boom)
-    copy = generate_platform_copy("Fuel your morning", "Power Cakes", "US-UT",
-                                  platforms=["x", "youtube"])
-    assert set(copy.keys()) == {"x", "youtube"}
-    assert all(e["source"] == "fallback" for e in copy.values())
+
+def test_bounded_live_copy_one_platform_failure_falls_back(monkeypatch):
+    from creative_automation import platform_copy
+
+    original = platform_copy._generate_platform_entry
+
+    def fail_instagram(base_message, product_name, market, platform, **kwargs):
+        if platform == "instagram":
+            raise RuntimeError("platform backend failed")
+        return original(base_message, product_name, market, platform, **kwargs)
+
+    monkeypatch.setattr(platform_copy, "_generate_platform_entry", fail_instagram)
+    monkeypatch.setattr(
+        text_rewriter,
+        "rewrite_headline",
+        lambda *args, **kwargs: {"text": "Kodiak Cakes fuel your frontier", "source": "bedrock:nova-micro"},
+    )
+    result = platform_copy.generate_platform_copy(
+        "Fuel your morning", "Power Cakes", "US-UT", platforms=["instagram", "x"],
+        per_platform_timeout_s=0.2, overall_timeout_s=1.0,
+    )
+    assert result["instagram"]["source"] == "fallback"
+    assert result["x"]["source"] == "generated"
+
+
+def test_bounded_copy_overall_timeout_returns_complete_fallback(monkeypatch):
+    from creative_automation import platform_copy
+    import time
+
+    original = platform_copy._generate_platform_entry
+
+    def slow_entry(*args, **kwargs):
+        time.sleep(0.08)
+        return original(*args, **kwargs)
+
+    monkeypatch.setattr(platform_copy, "_generate_platform_entry", slow_entry)
+    result = platform_copy.generate_platform_copy(
+        "Fuel your morning", "Power Cakes", "US-UT", platforms=["instagram", "x", "youtube"],
+        per_platform_timeout_s=0.2, overall_timeout_s=0.01,
+    )
+    assert set(result) == {"instagram", "x", "youtube"}
+    assert all(entry["source"] == "fallback" for entry in result.values())
+
+
+def test_platform_copy_lambda_route_validates_and_preserves_shape(monkeypatch):
+    import json
+    from creative_automation import generate_lambda
+    from creative_automation.platform_copy import PUBLISH_TARGETS
+
+    monkeypatch.setattr(text_rewriter, "_has_creds", lambda: False)
+    event = {
+        "path": "/campaigns/platform-copy",
+        "body": json.dumps({
+            "headline": "Fuel your morning",
+            "product_name": "Power Cakes",
+            "market": "US-UT",
+        }),
+    }
+    response = generate_lambda.handler(event, None)
+    payload = json.loads(response["body"])
+    assert response["statusCode"] == 200
+    assert set(payload["platform_copy"]) == set(PUBLISH_TARGETS)
+    assert all(entry["source"] == "fallback" for entry in payload["platform_copy"].values())
+
+    invalid = dict(event, body=json.dumps({"headline": "", "product_name": "Power Cakes", "market": "US-UT"}))
+    assert generate_lambda.handler(invalid, None)["statusCode"] == 400
+
+
+def test_platform_copy_fastapi_route_returns_400_for_non_object():
+    from fastapi.testclient import TestClient
+    from creative_automation.api import app
+
+    response = TestClient(app).post("/campaigns/platform-copy", json=[])
+    assert response.status_code == 400

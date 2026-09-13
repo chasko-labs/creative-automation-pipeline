@@ -15,11 +15,12 @@ offline page sends as fetch() to POST /pipeline/run.
 """
 from __future__ import annotations
 
+import asyncio
 import json
 import pathlib
 
 try:
-    from fastapi import FastAPI, Query, HTTPException, UploadFile, File, Form  # type: ignore
+    from fastapi import FastAPI, Query, HTTPException, Request, UploadFile, File, Form  # type: ignore
     from fastapi.middleware.cors import CORSMiddleware  # type: ignore
     from pydantic import BaseModel, Field  # type: ignore
 
@@ -36,6 +37,10 @@ from .reference_api import search as reference_search  # type: ignore
 from .suggest import suggest_variants
 from . import dam
 from . import dam_library
+from .platform_copy import (
+    PlatformCopyValidationError,
+    build_platform_copy_response,
+)
 from .asset_pack import (
     build_asset_pack_zip,
     build_pack_name,
@@ -198,6 +203,18 @@ if HAS_FASTAPI:
             raise HTTPException(status_code=404, detail=f"src not found: {src}")  # type: ignore
         out = enhance_hero(src, dst, contrast=float(body.get("contrast", 1.08)), brightness=float(body.get("brightness", 1.02)), sharpness=float(body.get("sharpness", 1.12)), texture=bool(body.get("texture", True)), frame=bool(body.get("frame", True)), watermark=bool(body.get("watermark", True)), vignette=bool(body.get("vignette", True)))
         return {"src": str(src), "dst": str(out), "enhancements": ["contrast", "texture", "frame", "watermark", "vignette"]}
+
+    @app.post("/campaigns/platform-copy")  # type: ignore
+    async def campaigns_platform_copy(request: Request):
+        """Generate bounded live platform copy without entering the image-generation wall."""
+        try:
+            body = await request.json()
+        except (UnicodeDecodeError, ValueError, TypeError) as e:
+            raise HTTPException(status_code=400, detail=f"malformed request body: {e}")  # type: ignore
+        try:
+            return await asyncio.to_thread(build_platform_copy_response, body)
+        except PlatformCopyValidationError as e:
+            raise HTTPException(status_code=400, detail=str(e))  # type: ignore
 
     @app.get("/campaigns")  # type: ignore
     def campaigns(market: str | None = None, retailer: str | None = None, channel: str | None = None, ratio: str | None = None, product: str | None = None):
