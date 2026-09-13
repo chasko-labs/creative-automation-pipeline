@@ -1243,6 +1243,7 @@ graph TD
     const boot = () => {
       window.KodiakEmber.mountRecipeCardBoard('#recipe-card-board');
       window.KodiakEmber.mountSheenRim('#kodiak-sheen-rim');
+      window.KodiakEmber.mountPaperboardCards('.card');
     };
     if (document.readyState === 'loading')
       document.addEventListener('DOMContentLoaded', boot);

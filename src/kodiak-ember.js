@@ -19,6 +19,7 @@ import { FreeCamera } from "@babylonjs/core/Cameras/freeCamera";
 import { Engine } from "@babylonjs/core/Engines/engine";
 import { DirectionalLight } from "@babylonjs/core/Lights/directionalLight";
 import { HemisphericLight } from "@babylonjs/core/Lights/hemisphericLight";
+import { PointLight } from "@babylonjs/core/Lights/pointLight";
 import { PBRMaterial } from "@babylonjs/core/Materials/PBR/pbrMaterial";
 import { StandardMaterial } from "@babylonjs/core/Materials/standardMaterial";
 import { DynamicTexture } from "@babylonjs/core/Materials/Textures/dynamicTexture";
@@ -38,6 +39,13 @@ import { ShaderStore } from "@babylonjs/core/Engines/shaderStore";
 import "@babylonjs/core/Cameras/Inputs/arcRotateCameraPointersInput.js";
 import "@babylonjs/core/Cameras/Inputs/arcRotateCameraKeyboardMoveInput.js";
 import "@babylonjs/core/Cameras/Inputs/arcRotateCameraMouseWheelInput.js";
+
+// Trial 4 — matte paperboard. clearCoat and detailMap are physics-based-rendering
+// material plugin configurations on PBRMaterial; importing these deep modules
+// registers the plugins as a side-effect. Deep imports only so esbuild keeps the
+// tree shaken. Literal Babylon module path tokens kept as-is.
+import "@babylonjs/core/Materials/PBR/pbrClearCoatConfiguration.js"; // registers clearCoat
+import "@babylonjs/core/Materials/material.detailMapConfiguration.js"; // registers detailMap
 
 Logger.LogLevels = Logger.WarningLogLevel | Logger.ErrorLogLevel;
 
@@ -658,6 +666,51 @@ function kraftNormalTexture(scene) {
 	return tex;
 }
 
+// procedural 32x32 finer second-octave fiber texture (runbook section 15). A
+// higher-frequency companion to kraftNormalTexture, packed as one RawTexture:
+// RG = tangent-space normal, B = roughness variance, A = albedo detail fleck.
+// Zero raster asset, file:// safe. Feeds the physics-based-rendering detailMap so
+// large matte cards never read "too clean" — it adds a second fiber octave on top
+// of the base weave.
+function kraftDetailTexture(scene) {
+	// 32x32 fine second-octave fiber, RG=normal, B=roughness, A=albedo detail
+	const size = 32,
+		data = new Uint8Array(size * size * 4);
+	const h = (x, y) =>
+		Math.sin(x * 11.3) * Math.cos(y * 9.7) * 0.5 +
+		Math.sin((x + y) * 6.1) * 0.3;
+	for (let y = 0; y < size; y++)
+		for (let x = 0; x < size; x++) {
+			const hL = h((x - 1 + size) % size, y),
+				hR = h((x + 1) % size, y);
+			const hD = h(x, (y - 1 + size) % size),
+				hU = h(x, (y + 1) % size);
+			const nx = (hL - hR) * 1.2,
+				ny = (hD - hU) * 1.2,
+				nz = 1;
+			const len = Math.sqrt(nx * nx + ny * ny + nz * nz) || 1,
+				i = (y * size + x) * 4;
+			data[i] = Math.round(((nx / len) * 0.5 + 0.5) * 255); // R normal x
+			data[i + 1] = Math.round(((ny / len) * 0.5 + 0.5) * 255); // G normal y
+			data[i + 2] = Math.round(120 + h(x, y) * 40); // B roughness variance
+			data[i + 3] = Math.round(128 + h(x, y) * 24); // A albedo detail (subtle)
+		}
+	const tex = RawTexture.CreateRGBATexture(
+		data,
+		size,
+		size,
+		scene,
+		true,
+		false,
+		Texture.TRILINEAR_SAMPLINGMODE,
+	);
+	tex.wrapU = Texture.WRAP_ADDRESSMODE;
+	tex.wrapV = Texture.WRAP_ADDRESSMODE;
+	tex.uScale = 16;
+	tex.vScale = 12;
+	return tex;
+}
+
 class SheenRim {
 	constructor(canvas, host) {
 		this.canvas = canvas;
@@ -794,6 +847,245 @@ function mountSheenRim(selector = "#kodiak-sheen-rim") {
 	return state;
 }
 
+// ── Wave 2 — Trial 4: Matte Paperboard Card (uncoated recycled board base +
+// UV spot-gloss coat) ── runbook docs/babylonjs-integration-runbook.md section 15.
+// A matte physics-based-rendering plane that reads as uncoated kraft paperboard
+// (high roughness + warm sheen) wearing a thin partial clearCoat gloss layer. A
+// warm PointLight rakes across the surface following the pointer (idle lissajous
+// when the pointer is quiet), so a sharp spot-gloss highlight travels the surface
+// exactly like light turning across UV spot-coating on a real printed box. A
+// detailMap adds a finer second fiber octave so large cards never read too clean.
+// Sits BEHIND content at z-index 0 — the overlay canvas is pointer-events none
+// for layout, but the class still listens to pointermove on the host to drive the
+// rake. Text legibility untouched. Runs ONLY on the shared engine singleton;
+// reduced-motion holds the raking light at a fixed resting position.
+class PaperboardCard {
+	constructor(canvas, host) {
+		this.canvas = canvas;
+		this.host = host;
+		this.engine = ensureEngine();
+		this._reduceMotion = prefersReducedMotion();
+		this.scene = new Scene(this.engine);
+		this.scene.clearColor = new Color4(0, 0, 0, 0); // transparent — sit on the card bg
+		this.camera = new FreeCamera(
+			"boardCam",
+			new Vector3(0, 0, -3.2),
+			this.scene,
+		);
+		this.camera.setTarget(Vector3.Zero());
+		const hemi = new HemisphericLight(
+			"boardHemi",
+			new Vector3(0, 0, -1),
+			this.scene,
+		);
+		hemi.intensity = 0.5;
+		hemi.diffuse = PARCHMENT;
+		hemi.groundColor = hex("#EAD9C4"); // kraft-tan token
+		// raking warm light — the spot-gloss catcher. Its resting position is the
+		// center of the card; attachPointerDrift moves it from here.
+		this._rakeRest = new Vector3(0, 0, -1.4);
+		this.rake = new PointLight("boardRake", this._rakeRest.clone(), this.scene);
+		this.rake.diffuse = AMBER;
+		this.rake.specular = PARCHMENT; // #FFF8F0 gloss catch
+		this.rake.intensity = 0.5;
+		this.rake.range = 4;
+
+		const plane = MeshBuilder.CreatePlane(
+			"boardPlane",
+			{ width: 6, height: 4 },
+			this.scene,
+		);
+		const mat = new PBRMaterial("boardMat", this.scene);
+		// ── matte uncoated recycled-board base ──
+		mat.albedoColor = hex("#F0E4D4"); // kraft surface base token (gradient.kraft.surface base)
+		mat.metallic = 0; // paper is never metal
+		mat.roughness = 0.9; // matte fiber — the uncoated board
+		// ── warm fiber sheen (the raised-fiber glow) ──
+		mat.sheen.isEnabled = true;
+		mat.sheen.intensity = 0.35;
+		mat.sheen.color = BLAZE.scale(0.5); // warm, derived from blazeOrange token; subtle
+		// ── UV spot-gloss coat (matte base, glossy coat) ──
+		mat.clearCoat.isEnabled = true;
+		mat.clearCoat.intensity = 0.6; // partial coat, like selective spot-coating
+		mat.clearCoat.roughness = 0.12; // sharp gloss the matte base cannot produce
+		// ── base fiber normal (reuse the procedural kraft normal from section 9) ──
+		const baseNormal = kraftNormalTexture(this.scene);
+		baseNormal.uScale = 8;
+		baseNormal.vScale = 6;
+		mat.bumpTexture = baseNormal;
+		// ── detailMap: finer second fiber octave ──
+		mat.detailMap.isEnabled = true;
+		mat.detailMap.texture = kraftDetailTexture(this.scene); // procedural, RawTexture, file:// safe
+		mat.detailMap.bumpLevel = 0.6; // fine grain on top of the base weave
+		mat.detailMap.roughnessBlendLevel = 0.3; // vary matte-ness across the fiber
+		mat.detailMap.diffuseBlendLevel = 0.08; // barely-there tonal fleck (1-2% rule)
+
+		plane.material = mat;
+		this.plane = plane;
+		this._mat = mat;
+		this.attachPointerDrift(); // rakes this.rake from pointer, idle lissajous
+		registerSceneView(canvas, this.camera, () => this.scene.render());
+	}
+
+	// attachPointerDrift — self-contained (Trial 2 / KraftCard is not present in
+	// this file, so this does NOT depend on it). The raking PointLight follows the
+	// pointer over the card while the pointer moves; when the pointer is quiet the
+	// light drifts on a slow idle lissajous. reduced-motion: hold the light at its
+	// fixed resting position — no pointer loop, no lissajous, a static raking
+	// highlight. The drift is subtle (behind content, 1-2% presence): pointer
+	// offsets map to roughly +/-1.2 world units across the plane.
+	attachPointerDrift() {
+		// reduced-motion: static raking highlight, nothing attached.
+		if (this._reduceMotion) return;
+
+		const DRIFT = 1.2; // world-unit half-range the light travels across the card
+		this._pointerActive = false;
+		this._lastMove = 0;
+		this._t0 =
+			typeof performance !== "undefined" ? performance.now() : Date.now();
+
+		this._onMove = (ev) => {
+			const rect = this.host.getBoundingClientRect();
+			if (!rect.width || !rect.height) return;
+			// normalize pointer to -1..1 over the host, map onto the card plane.
+			const nx = ((ev.clientX - rect.left) / rect.width) * 2 - 1;
+			const ny = ((ev.clientY - rect.top) / rect.height) * 2 - 1;
+			this.rake.position.x = nx * DRIFT;
+			this.rake.position.y = -ny * DRIFT; // screen-y is down; world-y is up
+			this._pointerActive = true;
+			this._lastMove =
+				typeof performance !== "undefined" ? performance.now() : Date.now();
+		};
+		this.host.addEventListener("pointermove", this._onMove);
+
+		// idle lissajous: when the pointer has been quiet ~1.2s, sweep the rake on
+		// a slow two-frequency curve so the spot-gloss keeps travelling gently.
+		this.scene.registerBeforeRender(() => {
+			const now =
+				typeof performance !== "undefined" ? performance.now() : Date.now();
+			if (this._pointerActive && now - this._lastMove < 1200) return;
+			this._pointerActive = false;
+			const t = (now - this._t0) / 1000;
+			this.rake.position.x = Math.sin(t * 0.35) * DRIFT;
+			this.rake.position.y = Math.sin(t * 0.24 + Math.PI / 3) * DRIFT * 0.6;
+		});
+	}
+
+	resize() {
+		this.engine.resize();
+	}
+
+	dispose() {
+		if (this._onMove)
+			this.host.removeEventListener("pointermove", this._onMove);
+		this.scene.dispose();
+		unregisterSceneView(this.canvas);
+	}
+}
+
+// mountPaperboardCards — lazy, gated, CAPPED mount of the matte paperboard layer
+// across .card surfaces.
+//
+// VIEW-COUNT / CAP POLICY (stated per runbook section 11 >=30fps mid-tier iGPU
+// budget): details.html carries ~29 .card surfaces. Mounting 29 physics-based-
+// rendering scene views on the shared engine for a 1-2% ambient effect would blow
+// the frame budget. This policy is: (1) a HARD CAP of PAPERBOARD_MAX_VIEWS = 6
+// simultaneously-mounted views; (2) LAZY per-card build via IntersectionObserver
+// so only cards near the viewport ever construct a scene; (3) when a mounted card
+// scrolls far away it is disposed and its cap slot freed, so as the reader scrolls
+// the 6 live views ride the viewport rather than accumulating. The device gate
+// (canMount3D) still applies per card. The existing CSS kraft gradient
+// (--gradients-kraft / gradient.kraft.surface token) is the DEFAULT card surface
+// and stands whenever a card is not 3D-mounted — there is no fallback element to
+// toggle, the stylesheet already provides the card look. On any construction
+// failure the try/catch silently leaves the CSS card surface.
+const PAPERBOARD_MAX_VIEWS = 6; // hard simultaneous-view cap (frame-budget guard)
+
+function mountPaperboardCards(selector = ".card") {
+	const cards = document.querySelectorAll(selector);
+	if (!cards.length) return null;
+
+	const state = { cards: [], live: 0 };
+	// per-card record: { host, card (PaperboardCard|null), canvas, mounted }
+	const records = [];
+
+	const mountOne = (rec) => {
+		if (rec.mounted) return; // never leak a second scene on one host
+		if (state.live >= PAPERBOARD_MAX_VIEWS) return; // cap — CSS surface stands
+		if (!canMount3D(rec.host)) return; // gate fail -> CSS kraft gradient stands
+		rec.mounted = true;
+		const canvas = document.createElement("canvas");
+		canvas.className = "kodiak-paperboard__canvas";
+		// ambient-only overlay: never interactive, always behind card content.
+		canvas.style.cssText =
+			"position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:0";
+		canvas.setAttribute("aria-hidden", "true");
+		if (getComputedStyle(rec.host).position === "static") {
+			rec.host.style.position = "relative";
+		}
+		rec.host.appendChild(canvas);
+		rec.canvas = canvas;
+		try {
+			rec.card = new PaperboardCard(canvas, rec.host);
+			state.live++;
+		} catch {
+			// silent failure — remove the dead canvas, leave the CSS card surface.
+			rec.mounted = false;
+			canvas.remove();
+			rec.canvas = null;
+		}
+	};
+
+	const disposeOne = (rec) => {
+		if (!rec.mounted) return;
+		if (rec.card) {
+			try {
+				rec.card.dispose();
+			} catch {
+				/* best-effort: still free the slot + canvas below */
+			}
+			rec.card = null;
+		}
+		if (rec.canvas) {
+			rec.canvas.remove();
+			rec.canvas = null;
+		}
+		rec.mounted = false;
+		if (state.live > 0) state.live--;
+	};
+
+	if ("IntersectionObserver" in window) {
+		const io = new IntersectionObserver(
+			(entries) => {
+				for (const e of entries) {
+					const rec = records.find((r) => r.host === e.target);
+					if (!rec) continue;
+					if (e.isIntersecting) mountOne(rec);
+					else disposeOne(rec); // scrolled far away -> free the cap slot
+				}
+			},
+			// mount as a card approaches; the negative-margin dispose band means a
+			// card only tears down once it is well outside the viewport.
+			{ rootMargin: "200px 0px" },
+		);
+		cards.forEach((host) => {
+			const rec = { host, card: null, canvas: null, mounted: false };
+			records.push(rec);
+			io.observe(host);
+		});
+		state.observer = io;
+	} else {
+		// no IntersectionObserver: mount up to the cap from the top of the list.
+		cards.forEach((host) => {
+			const rec = { host, card: null, canvas: null, mounted: false };
+			records.push(rec);
+			mountOne(rec);
+		});
+	}
+	state.cards = records;
+	return state;
+}
+
 // ── public API (WAVE 1 surface) ──
 // Later waves add mountEmberBar / mountKraftCards / finishLineBloom here. This
 // wave exposes the recipe-card board mount plus the device gate and version
@@ -801,8 +1093,9 @@ function mountSheenRim(selector = "#kodiak-sheen-rim") {
 const KodiakEmber = {
 	mountRecipeCardBoard,
 	mountSheenRim,
+	mountPaperboardCards,
 	canMount3D,
-	_version: "0.3.0",
+	_version: "0.4.0",
 	// harness internals surfaced for later-wave scene modules + tests; not a
 	// stable public contract.
 	_harness: Object.freeze({
