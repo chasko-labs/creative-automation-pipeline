@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 425 550" role="img" aria-label="recipe card shown as a 20 point brown kraft board, 8.5 by 11 inches">
+  <title>recipe card board fallback</title>
+  <!-- 8.5 x 11 in board rendered at 50px/in; kraft board tone with fiber grain -->
+  <defs>
+    <pattern id="rcFiber" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M0 12 H24 M0 4 H24 M0 20 H24" stroke="#624E42" stroke-opacity="0.06" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+  <rect x="6" y="6" width="413" height="538" rx="6" fill="#C9A57A"/>
+  <rect x="6" y="6" width="413" height="538" rx="6" fill="url(#rcFiber)"/>
+  <rect x="6" y="6" width="413" height="538" rx="6" fill="none" stroke="#3B2316" stroke-width="2"/>
+  <!-- printer-safe 0.5in margin guide (25px) -->
+  <rect x="31" y="31" width="363" height="488" fill="none" stroke="#3B2316" stroke-opacity="0.25" stroke-dasharray="4 5"/>
+  <!-- title band -->
+  <text x="212" y="86" text-anchor="middle" font-family="Rockwell, Georgia, serif" font-weight="800" font-size="30" fill="#3B2316" letter-spacing="1">SUNSHINE LEMON CAKE</text>
+  <!-- meta rule -->
+  <line x1="31" y1="112" x2="394" y2="112" stroke="#3B2316" stroke-width="1.5"/>
+  <!-- center hairline divider -->
+  <line x1="212" y1="130" x2="212" y2="500" stroke="#3B2316" stroke-width="0.6"/>
+  <text x="212" y="300" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#6B5A53">board preview loading — kraft 8.5 x 11 in</text>
+</svg>

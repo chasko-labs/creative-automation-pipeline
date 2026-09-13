@@ -571,3 +571,239 @@
 }
 }
 }
+
+
+/* =========================================================================
+   recipe card standard — production layout specimen (kodiak/recipe-card@v1)
+   geometry source of truth: references/templates/recipe-card.json
+   all printable-card dimensions use physical CSS units (in, mm). the card is
+   scaled for screen with transform:scale on .rc-card so internal physical
+   proportions never change; print resets the transform to true 8.5x11in.
+   ========================================================================= */
+
+/* substrate token sets — color intents pulled from recipe-card.json substrates.*
+   and the kodiak design tokens (--colors-* already emitted above) */
+.rc-card[data-substrate="kraft"]{
+  --rc-bg: #C9A57A;                                   /* lightened kraft board tone */
+  --rc-fiber-opacity: .5;
+  --rc-ink: var(--colors-brand-bear-brown);            /* deep brown / black archival */
+  --rc-ink-2: color-mix(in srgb, var(--colors-brand-bear-brown) 78%, transparent);
+  --rc-border: var(--colors-brand-bear-brown);
+  --rc-accent: var(--colors-brand-blaze-orange);       /* restrained blaze-orange */
+  --rc-accent-2: var(--colors-brand-frontier-green);   /* frontier-green secondary */
+  --rc-basecoat: #FFFFFF;                              /* opaque white base under art */
+  --rc-meta-muted: var(--colors-neutral-600);          /* canyon */
+  --rc-wire: var(--colors-brand-blaze-orange);
+  --rc-shadow: var(--shadows-none);                    /* matte board, no gloss */
+}
+.rc-card[data-substrate="white_cardstock"]{
+  --rc-bg: var(--colors-neutral-50);                   /* warm white, not blue-white */
+  --rc-fiber-opacity: .12;
+  --rc-ink: var(--colors-brand-bear-brown);
+  --rc-ink-2: var(--colors-neutral-700);               /* espresso */
+  --rc-border: var(--colors-brand-bear-brown);
+  --rc-accent: var(--colors-brand-blaze-orange);
+  --rc-accent-2: var(--colors-brand-frontier-green);
+  --rc-basecoat: #FFFFFF;
+  --rc-meta-muted: var(--colors-neutral-600);
+  --rc-wire: var(--colors-brand-blaze-orange);
+  --rc-shadow: var(--shadows-none);
+}
+.rc-card[data-substrate="cream_parchment"]{
+  --rc-bg: var(--colors-brand-box-parchment);          /* #F5EAD3 light cream */
+  --rc-fiber-opacity: .22;
+  --rc-ink: var(--colors-brand-bear-brown);
+  --rc-ink-2: var(--colors-neutral-700);
+  --rc-border: var(--colors-brand-bear-brown);
+  --rc-accent: var(--colors-brand-blaze-orange);
+  --rc-accent-2: var(--colors-brand-frontier-green);
+  --rc-basecoat: #FFFFFF;
+  --rc-meta-muted: var(--colors-neutral-600);
+  --rc-wire: var(--colors-brand-blaze-orange);
+  --rc-shadow: var(--shadows-none);
+}
+
+/* controls row */
+.rc-controls{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;margin:4px 0 14px}
+.rc-control{display:flex;flex-direction:column;gap:6px}
+.rc-control--substrate{border:1px solid var(--colors-neutral-300);border-radius:4px;padding:10px 12px;margin:0}
+.rc-control--substrate legend{font:700 12px/1.3 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;color:var(--colors-neutral-600);padding:0 4px}
+.rc-radio{display:flex;align-items:center;gap:8px;font:500 14px/1.4 "museo-sans",sans-serif;color:var(--colors-brand-bear-brown)}
+.rc-control--toggle{gap:8px}
+.rc-contrast-status{margin:0;font:500 12px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-600);max-width:34ch}
+.rc-control--print{margin-left:auto}
+
+/* provenance legend — glyph + label, never color-only */
+.rc-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0 0 16px;padding:0;list-style:none}
+.rc-prov{display:flex;align-items:center;gap:6px;font:600 12px/1.4 "kodiak_sans","museo-sans",sans-serif;color:var(--colors-neutral-700)}
+.rc-prov__mark{font-family:JetBrains Mono,Menlo,monospace;font-weight:700;padding:1px 5px;border-radius:2px;border:1px solid var(--colors-neutral-300);background:#FFFBF6}
+.rc-prov--source .rc-prov__mark{border-color:var(--colors-brand-frontier-green);color:var(--colors-brand-frontier-green)}
+.rc-prov--proposed .rc-prov__mark{border-color:var(--colors-brand-blaze-orange);color:var(--colors-brand-blaze-orange)}
+.rc-prov--unknown .rc-prov__mark{border-color:var(--colors-neutral-500);color:var(--colors-neutral-600)}
+
+/* stage: flat card + board side by side on desktop */
+.rc-stage{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+
+/* the card shell reserves scaled screen space; --rc-scale fits the physical card
+   into the layout without changing internal proportions */
+.rc-card-shell{--rc-scale:0.62;flex:0 0 auto;width:calc(8.5in * var(--rc-scale));height:calc(11in * var(--rc-scale))}
+
+/* THE FLAT CARD CANVAS — true physical 8.5x11in, scaled for screen only */
+.rc-card{
+  position:relative;
+  box-sizing:border-box;
+  width:8.5in;height:11in;
+  padding:0.5in;                       /* printer-safe outer margin, every side */
+  background:var(--rc-bg);
+  color:var(--rc-ink);
+  border:1px solid var(--rc-border);
+  box-shadow:var(--rc-shadow);
+  transform:scale(var(--rc-scale));
+  transform-origin:top left;
+  overflow:hidden;
+  font-family:"museo-sans",system-ui,sans-serif;
+}
+/* restrained fiber grain — subtle, matte board, not a dark web card */
+.rc-card::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:var(--kraft, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M0 10h60M0 50h60' stroke='%23624E42' stroke-opacity='.05' stroke-width='.8'/%3E%3C/svg%3E")) repeat;
+  opacity:var(--rc-fiber-opacity);mix-blend-mode:multiply;
+}
+
+/* header: two 1.0x1.0in corner accents + centered title, 0.25in buffer */
+.rc-header{position:relative;display:grid;grid-template-columns:1in 1fr 1in;align-items:center;column-gap:0.25in;min-height:1in}
+.rc-corner{width:1in;height:1in;color:var(--rc-ink)}
+.rc-corner__art{width:100%;height:100%;display:block}
+.rc-title{grid-column:2;margin:0;text-align:center;color:var(--rc-ink);
+  font-family:"gin",Rockwell,Clarendon,Georgia,serif;font-weight:800;text-transform:uppercase;
+  letter-spacing:.03em;line-height:1.05;font-size:34pt}     /* heavy display, deep-brown/black legible */
+
+/* meta bar: four equal columns, value dominant, single horizontal accent rule */
+.rc-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:0.1in;margin:0.14in 0 0;
+  padding-bottom:0.1in;border-bottom:2px solid var(--rc-accent)}   /* single accent rule */
+.rc-meta__cell{display:flex;flex-direction:column;align-items:center;text-align:center}
+.rc-meta__value{font:800 18pt/1 "gin",Rockwell,Georgia,serif;color:var(--rc-ink)}
+.rc-meta__label{margin-top:2pt;font:700 9pt/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--rc-meta-muted)}
+
+/* two-column body with 0.3mm center hairline divider */
+.rc-columns{display:grid;grid-template-columns:3.6in 3.6in;column-gap:0;margin-top:0.2in;position:relative}
+.rc-columns::before{content:"";position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:0.3mm;background:var(--rc-ink)}  /* center hairline */
+.recipe-card-column{padding:0 0.25in;min-width:0}                 /* 0.25in text clearance */
+.rc-col-heading{margin:0 0 0.08in;color:var(--rc-ink);
+  font-family:"gin",Rockwell,Georgia,serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:14pt}
+
+/* ingredients: qty+name left, de-emphasized price right, dotted leaders */
+.rc-ingredients{list-style:none;margin:0 0 0.15in;padding:0}
+.rc-ing{display:flex;align-items:baseline;gap:6px;padding:2.5pt 0;font:500 10.5pt/1.3 "museo-sans",sans-serif;color:var(--rc-ink)}
+.rc-ing__name{flex:0 1 auto}
+.rc-ing::after{content:"";flex:1 1 auto;align-self:end;margin-bottom:3pt;border-bottom:1px dotted var(--rc-ink-2)}  /* dotted leaders */
+.rc-ing__price{flex:0 0 auto;color:var(--rc-meta-muted);font-size:9.5pt}   /* de-emphasized */
+.rc-prov__mark{white-space:nowrap}
+
+/* steps: numbered, bold all-caps action verb */
+.rc-steps{margin:0 0 0.15in;padding-left:1.3em}
+.rc-steps li{padding:2.5pt 0;font:500 10.5pt/1.35 "museo-sans",sans-serif;color:var(--rc-ink)}
+.rc-step-verb{font-family:"kodiak_sans","museo-sans",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--rc-ink)}
+
+/* art zones — physical dims, opaque white base coat beneath the art */
+.rc-artzone{position:relative;margin:0.1in 0;border:1px solid var(--rc-ink-2)}
+.rc-artzone--raw{width:3.0in;height:1.5in}
+.rc-artzone--technique{width:3.0in;height:1.5in}
+.rc-artzone--plate{width:3.0in;height:2.0in}
+.rc-artzone__base{position:absolute;inset:0;background:var(--rc-basecoat)}    /* white base coat layer */
+.rc-artzone__art{position:absolute;inset:0;width:100%;height:100%;color:var(--rc-ink);display:block}
+
+/* tip note — thin archival line, body text */
+.rc-tip{margin:0.1in 0 0;padding:0.06in 0.08in;border-left:1px solid var(--rc-ink-2);
+  font:500 9.5pt/1.4 "museo-sans",sans-serif;color:var(--rc-ink)}
+.rc-tip__label{display:inline-block;margin-right:6px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--rc-accent)}
+
+/* wireframe overlay — exposes physical geometry, no layout change, printable-safe color */
+.rc-wireframe{position:absolute;inset:0;pointer-events:none;display:none}
+.rc-card.is-wireframe .rc-wireframe{display:block}
+.rc-wf{position:absolute;border:1px dashed var(--rc-wire)}
+.rc-wf__tag{position:absolute;top:0;left:0;transform:translateY(-100%);
+  background:var(--rc-wire);color:#fff;font:700 6pt/1.2 JetBrains Mono,Menlo,monospace;padding:1px 3px;white-space:nowrap}
+.rc-wf--safe{inset:0}
+.rc-wf--usable{top:0.5in;left:0.5in;width:7.5in;height:10in}
+.rc-wf--header{top:0.5in;left:0.5in;right:0.5in;height:1in;border-color:color-mix(in srgb, var(--rc-wire) 60%, transparent)}
+.rc-wf--accent-left{top:0.5in;left:0.5in;width:1in;height:1in}
+.rc-wf--accent-right{top:0.5in;right:0.5in;width:1in;height:1in}
+.rc-wf--meta{top:1.64in;left:0.5in;right:0.5in;height:0.5in;border-color:color-mix(in srgb, var(--rc-wire) 60%, transparent)}
+.rc-wf--col-left{top:2.34in;left:0.5in;width:3.6in;bottom:0.5in;border-color:color-mix(in srgb, var(--rc-wire) 45%, transparent)}
+.rc-wf--col-right{top:2.34in;right:0.5in;width:3.6in;bottom:0.5in;border-color:color-mix(in srgb, var(--rc-wire) 45%, transparent)}
+.rc-wf--hairline{top:2.34in;left:50%;transform:translateX(-50%);width:0.3mm;bottom:0.5in;border:0;background:var(--rc-wire)}
+.rc-wf--zone-raw{top:3.9in;left:0.75in;width:3.0in;height:1.5in}
+.rc-wf--zone-technique{top:3.9in;right:0.75in;width:3.0in;height:1.5in}
+.rc-wf--zone-plate{top:5.6in;right:0.75in;width:3.0in;height:2.0in}
+.rc-wf--footer{left:0.5in;right:0.5in;bottom:0.5in;height:0.4in;border-color:color-mix(in srgb, var(--rc-wire) 60%, transparent)}
+
+/* babylon board preview placeholder — board agent owns the script + fill */
+.recipe-card-board{flex:1 1 320px;min-width:280px;align-self:stretch;
+  border:1px solid var(--colors-neutral-300);border-radius:4px;background:var(--colors-neutral-50);
+  padding:12px;display:flex;flex-direction:column;gap:10px}
+.recipe-card-board__fallback{width:100%;height:auto;border-radius:3px;display:block}
+.recipe-card-board__status{margin:0;font:500 12px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-600)}
+
+/* production-specification panel — governing ruleset, outside the card canvas */
+.rc-spec{margin-top:22px;border-top:2px solid var(--colors-neutral-300);padding-top:14px}
+.rc-spec__title{margin:0 0 10px;color:var(--colors-brand-bear-brown)}
+.rc-spec__table{width:100%;border-collapse:collapse;font:500 14px/1.5 "museo-sans",sans-serif}
+.rc-spec__table th,.rc-spec__table td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--colors-neutral-300);vertical-align:top}
+.rc-spec__table th{font:700 12px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:0;text-transform:uppercase;color:var(--colors-neutral-700);background:#FFFBF6}
+.rc-tag{display:inline-block;padding:2px 8px;border-radius:999px;font:700 11px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.02em;text-transform:uppercase;border:1px solid transparent}
+.rc-tag--required{background:var(--colors-brand-frontier-green);color:#FACC7C}
+.rc-tag--allowed{background:color-mix(in srgb, var(--colors-brand-frontier-green) 16%, transparent);color:var(--colors-brand-frontier-green);border-color:var(--colors-brand-frontier-green)}
+.rc-tag--prohibited{background:var(--colors-brand-signal-red);color:#FECACA}
+.rc-tag--implementation{background:var(--colors-neutral-100);color:var(--colors-neutral-700);border-color:var(--colors-neutral-300)}
+.rc-tag--validation{background:var(--colors-brand-blaze-orange);color:#fff}
+.rc-spec__swatches{display:flex;align-items:center;gap:10px;margin-top:12px}
+.rc-swatch{width:28px;height:28px;border-radius:3px;border:1px solid var(--colors-neutral-300);background:#C9A57A}
+.rc-spec__swatches .rc-swatch__label{font:600 13px/1.3 "museo-sans",sans-serif;color:var(--colors-brand-bear-brown)}
+
+/* keyboard focus — reuse the page focus-ring token (signal-red) */
+.recipe-card-standard :is(button,input,summary,[tabindex]):focus-visible{outline:3px solid var(--colors-brand-signal-red);outline-offset:2px;border-radius:2px}
+
+/* ---- responsive: card scales to fit, internal geometry never reflows ---- */
+@media (max-width:1024px){                                  /* tablet: board stacks below, card centered */
+  .rc-stage{flex-direction:column;align-items:center}
+  .rc-card-shell{--rc-scale:0.68}
+  .recipe-card-board{width:100%}
+}
+@media (max-width:640px){                                   /* phone: scale card down, keep proportions */
+  .rc-card-shell{--rc-scale:0.42}
+  .rc-controls{flex-direction:column}
+  .rc-control--print{margin-left:0}
+}
+@media (max-width:380px){
+  .rc-card-shell{--rc-scale:0.34}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .rc-card,.rc-bar__fill{transition:none}
+}
+
+/* ---- print: only the flat card canvas, true 8.5x11in, monochrome-safe ---- */
+@media print{
+  @page{size:8.5in 11in;margin:0.5in}
+  /* hide everything except the recipe-card section content path */
+  body>*{display:none !important}
+  .wrap{display:block !important;max-width:none;margin:0;padding:0}
+  .wrap>*{display:none !important}
+  .wrap>#recipe-card-standard{display:block !important;border:0;box-shadow:none;background:none;margin:0}
+  #recipe-card-standard .hd,
+  #recipe-card-standard .rc-controls,
+  #recipe-card-standard .rc-legend,
+  #recipe-card-standard .rc-spec,
+  #recipe-card-standard .recipe-card-board,
+  #recipe-card-standard .rc-wireframe{display:none !important}
+  #recipe-card-standard .body{padding:0;background:none}
+  #recipe-card-standard .rc-stage{display:block}
+  /* reset the screen scale: print at true physical size, no page break inside */
+  .rc-card{transform:none;box-shadow:none;break-inside:avoid;page-break-inside:avoid;margin:0}
+  .rc-card-shell{width:auto;height:auto}
+  /* preserve substrate ink so kraft text stays readable; keep line art crisp */
+  .rc-card,.rc-artzone__base,.rc-meta,.rc-tag{
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+}

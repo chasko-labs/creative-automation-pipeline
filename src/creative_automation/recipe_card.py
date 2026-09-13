@@ -37,7 +37,41 @@ DAM_RECIPES_PREFIX = "brands/kodiak/recipes/"
 
 _ROOT = Path(__file__).parents[2]
 RECIPES_PATH = _ROOT / "data" / "recipes" / "kodiak-recipes.json"
+RECIPE_CARD_TEMPLATE_PATH = _ROOT / "references" / "templates" / "recipe-card.json"
 DEFAULT_OUT_DIR = _ROOT / "output" / "recipe-cards"
+
+# recipe-card.json schema this module reads geometry from. Every physical value
+# in the template is {"value": N, "unit": "in|mm|pt|fraction"}; geometry is read
+# from the template, never duplicated as Python literals.
+RECIPE_CARD_SCHEMA = "kodiak/recipe-card@v1"
+_REQUIRED_TEMPLATE_SECTIONS = (
+    "schema",
+    "tokens_ref",
+    "page",
+    "printer_safe",
+    "columns",
+    "header",
+    "meta_bar",
+    "zones",
+    "substrates",
+    "production_specs",
+    "wireframe",
+    "validation",
+)
+_REQUIRED_ZONE_IDS = (
+    "corner_accent_left",
+    "corner_accent_right",
+    "raw_ingredient_sketch",
+    "technique_sketch",
+    "finished_plate_sketch",
+)
+# art zones carry an opaque white base coat; corner accents do not
+_ART_ZONE_IDS = (
+    "raw_ingredient_sketch",
+    "technique_sketch",
+    "finished_plate_sketch",
+)
+_VALID_UNITS = frozenset({"in", "mm", "pt", "fraction"})
 
 # Bear Brown / Blaze Orange / Frontier Green — same anchors the context pack carries
 BEAR_BROWN = (0x3B, 0x23, 0x16)
@@ -60,6 +94,145 @@ def _load_recipes() -> list[dict]:
     if not RECIPES_PATH.exists():
         return []
     return json.loads(RECIPES_PATH.read_text(encoding="utf-8"))
+
+
+# --------------------------------------------------------------------------- #
+# recipe-card.json template: load, validate, resolve geometry.
+# Geometry is READ from the template; no physical value is duplicated here as a
+# Python literal. Every physical value is {"value": N, "unit": U}.
+# --------------------------------------------------------------------------- #
+
+
+def load_recipe_card_template(path: str | Path | None = None) -> dict:
+    """Load the recipe-card template JSON. Defaults to the repo template
+    (references/templates/recipe-card.json), mirroring how RECIPES_PATH anchors
+    off _ROOT. Raises FileNotFoundError if the path is missing so callers get a
+    clear signal rather than a silent empty dict."""
+    p = Path(path) if path is not None else RECIPE_CARD_TEMPLATE_PATH
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
+def _read_dim(node: object) -> tuple[float, str] | None:
+    """Unit-aware accessor: {"value": N, "unit": U} -> (N, U). Returns None for
+    anything that is not a value+unit pair. Never coerces a bare number into a
+    dimension — a missing unit is a validation problem, not a default."""
+    if isinstance(node, dict) and "value" in node and "unit" in node:
+        value = node["value"]
+        unit = node["unit"]
+        if isinstance(value, (int, float)) and isinstance(unit, str):
+            return float(value), unit
+    return None
+
+
+def validate_recipe_card_template(tmpl: dict) -> list[str]:
+    """Return a list of problems with the template (empty list = valid).
+
+    Checks: schema id, all required top-level sections present, zone ids unique,
+    required zones present, and that every physical dimension it inspects carries
+    a unit. Numbers are read from the template, never assumed."""
+    problems: list[str] = []
+    if not isinstance(tmpl, dict):
+        return ["template is not a JSON object"]
+
+    if tmpl.get("schema") != RECIPE_CARD_SCHEMA:
+        problems.append(
+            f"schema is {tmpl.get('schema')!r}, expected {RECIPE_CARD_SCHEMA!r}"
+        )
+
+    for section in _REQUIRED_TEMPLATE_SECTIONS:
+        if section not in tmpl:
+            problems.append(f"missing required section: {section}")
+
+    zones = tmpl.get("zones")
+    if not isinstance(zones, list):
+        problems.append("zones is not an array")
+        zones = []
+
+    ids = [z.get("id") for z in zones if isinstance(z, dict)]
+    if len(ids) != len(set(ids)):
+        problems.append("zone ids are not unique")
+
+    id_set = set(ids)
+    for required in _REQUIRED_ZONE_IDS:
+        if required not in id_set:
+            problems.append(f"missing required zone: {required}")
+
+    # every physical dimension we inspect must carry a unit
+    for z in zones:
+        if not isinstance(z, dict):
+            continue
+        zid = z.get("id", "<unknown>")
+        for key in ("width", "height"):
+            if key in z and _read_dim(z[key]) is None:
+                problems.append(f"zone {zid} {key} missing value+unit")
+
+    page = tmpl.get("page")
+    if isinstance(page, dict):
+        for key in ("width", "height"):
+            if key in page and _read_dim(page[key]) is None:
+                problems.append(f"page {key} missing value+unit")
+
+    ceiling = (tmpl.get("production_specs") or {}).get("ink_coverage_ceiling")
+    if isinstance(ceiling, dict) and _read_dim(ceiling) is None:
+        problems.append("ink_coverage_ceiling missing value+unit")
+
+    return problems
+
+
+def resolve_geometry(tmpl: dict) -> dict:
+    """Resolve template geometry into a compact structure: page, printer_safe,
+    columns, and zones keyed by id. Every physical value is exposed as (value,
+    unit) via the unit-aware accessor — bare numbers are never fabricated.
+
+    The accessor is attached under "read_dim" so callers can pull additional
+    dimensions with the same unit-safe semantics."""
+    page = tmpl.get("page") or {}
+    printer_safe = tmpl.get("printer_safe") or {}
+    columns = tmpl.get("columns") or {}
+    zones = tmpl.get("zones") or []
+
+    def dims(node: dict, *keys: str) -> dict:
+        out: dict[str, tuple[float, str] | None] = {}
+        for k in keys:
+            out[k] = _read_dim(node.get(k)) if isinstance(node, dict) else None
+        return out
+
+    zones_by_id: dict[str, dict] = {}
+    for z in zones:
+        if not isinstance(z, dict) or "id" not in z:
+            continue
+        zid = z["id"]
+        zones_by_id[zid] = {
+            "id": zid,
+            "column": z.get("column"),
+            "base_coat": bool(z.get("base_coat", False)),
+            "width": _read_dim(z.get("width")),
+            "height": _read_dim(z.get("height")),
+            "clearance": _read_dim(z.get("clearance")),
+        }
+
+    usable = printer_safe.get("usable_area") or {}
+    outer = printer_safe.get("outer_margin") or {}
+    divider = columns.get("center_divider") or {}
+
+    return {
+        "read_dim": _read_dim,
+        "page": dims(page, "width", "height"),
+        "printer_safe": {
+            "outer_margin": {
+                side: _read_dim(outer.get(side))
+                for side in ("top", "right", "bottom", "left")
+            },
+            "usable_area": dims(usable, "width", "height"),
+        },
+        "columns": {
+            "count": columns.get("count"),
+            "column_width": _read_dim(columns.get("column_width")),
+            "center_divider_stroke": _read_dim(divider.get("stroke_weight")),
+            "text_clearance": _read_dim(columns.get("text_clearance")),
+        },
+        "zones": zones_by_id,
+    }
 
 
 def _pick_recipe(ingredient: str, product: str | None) -> dict | None:
@@ -196,6 +369,88 @@ def publish_card(card_path: str | Path) -> str | None:
         return None
 
 
+def _resolve_substrate(tmpl: dict, requested: str) -> tuple[str, bool]:
+    """Pick a valid substrate key, falling back to the template default on an
+    unknown request. Returns (substrate_key, white_base_coat_applied).
+
+    white_base_coat_applied reflects whether the art zones carry an opaque white
+    base coat under the chosen substrate — read from the substrate definition,
+    not assumed. Geometry does NOT change with substrate; only surface treatment
+    does."""
+    substrates = tmpl.get("substrates") or {}
+    default = tmpl.get("default_substrate") or "kraft"
+    key = requested if requested in substrates else default
+    sub = substrates.get(key) or {}
+    base_coat_text = str(sub.get("art_zone_base_coat", "")).lower()
+    white_base = "white base coat" in base_coat_text
+    # any art zone flagged base_coat true in the template confirms the structure
+    zones = tmpl.get("zones") or []
+    zone_base = any(
+        isinstance(z, dict) and z.get("id") in _ART_ZONE_IDS and z.get("base_coat")
+        for z in zones
+    )
+    return key, bool(white_base and zone_base)
+
+
+def _recipe_card_meta(
+    tmpl: dict | None,
+    *,
+    substrate: str,
+    ingredient: str | None,
+) -> dict:
+    """Build the deterministic recipe-card metadata block. No timestamps: same
+    input + template yields identical metadata. When the template is missing or
+    invalid, meta degrades to safe defaults rather than fabricating geometry."""
+    if not isinstance(tmpl, dict):
+        return {
+            "template_schema_version": None,
+            "substrate_selected": substrate,
+            "zones_emitted": [],
+            "zones_empty": [],
+            "art_assets_used": [],
+            "white_base_coat_applied": False,
+            "provenance": {
+                "values_from_source": [],
+                "values_proposed": [],
+                "values_unknown": ["prices", "nutrition", "times", "temperatures"],
+            },
+            "passed_physical_zone_validation": False,
+        }
+
+    problems = validate_recipe_card_template(tmpl)
+    geometry = resolve_geometry(tmpl)
+    substrate_key, white_base = _resolve_substrate(tmpl, substrate)
+
+    zone_ids = list(geometry["zones"].keys())
+    # art zones are placeholders in this specimen — empty unless a real asset
+    # path exists (none are wired for the placeholder card, so all art zones are
+    # empty and art_assets_used is empty)
+    art_assets_used: list[str] = []
+    zones_empty = [
+        zid for zid in zone_ids if zid in _ART_ZONE_IDS and zid not in art_assets_used
+    ]
+
+    # provenance: the ingredient is source-confirmed via locales; the "over
+    # Kodiak Power Cakes" framing is a proposed adaptation; prices/nutrition have
+    # no verified source and are never fabricated
+    values_from_source = [ingredient] if ingredient else []
+
+    return {
+        "template_schema_version": tmpl.get("schema"),
+        "substrate_selected": substrate_key,
+        "zones_emitted": zone_ids,
+        "zones_empty": zones_empty,
+        "art_assets_used": art_assets_used,
+        "white_base_coat_applied": white_base,
+        "provenance": {
+            "values_from_source": values_from_source,
+            "values_proposed": ["over Kodiak Power Cakes"],
+            "values_unknown": ["prices", "nutrition", "times", "temperatures"],
+        },
+        "passed_physical_zone_validation": not problems,
+    }
+
+
 def build_recipe_card(
     market: str,
     *,
@@ -203,6 +458,7 @@ def build_recipe_card(
     lang: str = "en",
     out_dir: str | Path | None = None,
     publish: bool = False,
+    substrate: str = "kraft",
 ) -> dict:
     """Generate a recipe card for a market + month.
 
@@ -212,7 +468,23 @@ def build_recipe_card(
         the month has no seeded local ingredient (never fabricated).
         publish=True also uploads the PNG to the DAM recipes prefix (best
         effort — dam_key None when DAM is unavailable).
+
+    Also carries a deterministic `meta` block resolved from the recipe-card
+    template (schema kodiak/recipe-card@v1): template_schema_version, the
+    selected substrate, emitted/empty zones, art assets used, white-base-coat
+    flag, a source/proposed/unknown provenance map, and the physical-zone
+    validation result. substrate defaults to "kraft" so existing callers are
+    unaffected; an unknown substrate falls back to the template default.
+    Geometry does not change with substrate.
     """
+    # Load the template best-effort so metadata resolves from the source of
+    # truth; a missing/broken template degrades meta to safe defaults rather
+    # than failing the card or fabricating geometry.
+    try:
+        _tmpl: dict | None = load_recipe_card_template()
+    except (OSError, ValueError):
+        _tmpl = None
+
     resolved = resolve_this_month(market, ym=month)
     if resolved is None:
         return {
@@ -222,6 +494,7 @@ def build_recipe_card(
             "text_blocks": {},
             "safety": {"clean": True, "flagged": []},
             "reason": f"no retailer-frontier pair seeded for {market}",
+            "meta": _recipe_card_meta(_tmpl, substrate=substrate, ingredient=None),
         }
 
     ingredient = resolved["ingredient"]
@@ -234,6 +507,7 @@ def build_recipe_card(
             "text_blocks": {},
             "safety": {"clean": True, "flagged": []},
             "reason": f"no in-season ingredient on file for {market} {resolved_month}",
+            "meta": _recipe_card_meta(_tmpl, substrate=substrate, ingredient=None),
         }
 
     product = "Buttermilk Power Cakes"
@@ -246,6 +520,7 @@ def build_recipe_card(
             "text_blocks": {},
             "safety": {"clean": True, "flagged": []},
             "reason": "no recipe catalog available",
+            "meta": _recipe_card_meta(_tmpl, substrate=substrate, ingredient=ingredient),
         }
 
     # ---- text blocks via B1: on-brand + safety-gated + dialect-correct ---- #
@@ -310,4 +585,5 @@ def build_recipe_card(
         "month": resolved_month,
         "step_results": step_results,
         "dam_key": dam_key,
+        "meta": _recipe_card_meta(_tmpl, substrate=substrate, ingredient=ingredient),
     }

@@ -1,0 +1,420 @@
+{
+  "schema": "kodiak/recipe-card@v1",
+  "tokens_ref": "design/tokens/kodiak.json",
+  "default_substrate": "kraft",
+  "page": {
+    "width": { "value": 8.5, "unit": "in" },
+    "height": { "value": 11, "unit": "in" },
+    "orientation": "portrait",
+    "ratio": "8.5x11"
+  },
+  "printer_safe": {
+    "outer_margin": {
+      "top": { "value": 0.5, "unit": "in" },
+      "right": { "value": 0.5, "unit": "in" },
+      "bottom": { "value": 0.5, "unit": "in" },
+      "left": { "value": 0.5, "unit": "in" }
+    },
+    "usable_area": {
+      "width": { "value": 7.5, "unit": "in" },
+      "height": { "value": 10, "unit": "in" }
+    },
+    "rule": "no critical text, logo, price, or illustration detail touches the page edge; everything of consequence stays inside the 7.5x10in usable area"
+  },
+  "columns": {
+    "count": 2,
+    "column_width": { "value": 3.6, "unit": "in" },
+    "center_divider": {
+      "stroke_weight": { "value": 0.3, "unit": "mm" },
+      "style": "hairline",
+      "role": "vertical divider between the two content columns"
+    },
+    "text_clearance": { "value": 0.25, "unit": "in" },
+    "note": "two 3.6in columns plus the hairline divider do not consume the full 7.5in usable width; the remaining horizontal space is internal breathing room, not column expansion"
+  },
+  "header": {
+    "left_corner_accent": {
+      "width": { "value": 1.0, "unit": "in" },
+      "height": { "value": 1.0, "unit": "in" }
+    },
+    "right_corner_accent": {
+      "width": { "value": 1.0, "unit": "in" },
+      "height": { "value": 1.0, "unit": "in" }
+    },
+    "title": {
+      "alignment": "centered against full card header width",
+      "style": "heavy hand-lettered / block-print display",
+      "stroke_target_min": { "value": 1.0, "unit": "mm" },
+      "stroke_target_max": { "value": 1.2, "unit": "mm" },
+      "ink_requirement": "must remain legible rendered in deep brown or black",
+      "line_support": "1 line, 2 lines, or wrapping without colliding with corner accents",
+      "corner_accent_buffer": { "value": 0.25, "unit": "in" }
+    },
+    "corner_accents": {
+      "style": "themed 2D line-art flourishes",
+      "no_solid_fills": true,
+      "no_dark_gradients": true,
+      "bounding_box": {
+        "width": { "value": 1.0, "unit": "in" },
+        "height": { "value": 1.0, "unit": "in" }
+      },
+      "title_buffer": { "value": 0.25, "unit": "in" }
+    }
+  },
+  "meta_bar": {
+    "layout": "four equal columns",
+    "columns": ["prep", "cook", "serves", "est_cost"],
+    "item_style": {
+      "label": "all-caps",
+      "value_dominance": "value visually dominant over label"
+    },
+    "est_cost_format": "currency",
+    "legibility": "readable on kraft, parchment, and white cardstock; printable in monochrome; not color-dependent",
+    "accent_rule": {
+      "count": 1,
+      "orientation": "horizontal",
+      "role": "single horizontal accent rule beneath the meta bar"
+    },
+    "example_values": {
+      "illustrative": true,
+      "prep": "15 min",
+      "cook": "40 min",
+      "serves": "12",
+      "est_cost": "$8.40"
+    }
+  },
+  "zones": [
+    {
+      "id": "corner_accent_left",
+      "width": { "value": 1.0, "unit": "in" },
+      "height": { "value": 1.0, "unit": "in" },
+      "column": "header",
+      "base_coat": false
+    },
+    {
+      "id": "corner_accent_right",
+      "width": { "value": 1.0, "unit": "in" },
+      "height": { "value": 1.0, "unit": "in" },
+      "column": "header",
+      "base_coat": false
+    },
+    {
+      "id": "raw_ingredient_sketch",
+      "width": { "value": 3.0, "unit": "in" },
+      "height": { "value": 1.5, "unit": "in" },
+      "column": "left/ingredients",
+      "base_coat": true,
+      "clearance": { "value": 0.25, "unit": "in" }
+    },
+    {
+      "id": "technique_sketch",
+      "width": { "value": 3.0, "unit": "in" },
+      "height": { "value": 1.5, "unit": "in" },
+      "column": "right/execution",
+      "position": "mid-recipe",
+      "base_coat": true,
+      "clearance": { "value": 0.25, "unit": "in" }
+    },
+    {
+      "id": "finished_plate_sketch",
+      "width": { "value": 3.0, "unit": "in" },
+      "height": { "value": 2.0, "unit": "in" },
+      "column": "right/execution",
+      "position": "bottom",
+      "base_coat": true,
+      "clearance": { "value": 0.25, "unit": "in" }
+    }
+  ],
+  "zone_rules": {
+    "art_zone_clearance": { "value": 0.25, "unit": "in" },
+    "containment": "every art zone must stay inside the 7.5x10in printer-safe content area"
+  },
+  "substrates": {
+    "kraft": {
+      "label": "20 point brown kraft board",
+      "default": true,
+      "background_color": "warm medium-brown surface (#3B2316 family, lightened board tone)",
+      "background_texture": "restrained fiber grain, no gloss",
+      "primary_ink_color": "deep brown / black archival ink (bearBrown #3B2316)",
+      "secondary_ink_color": "bearBrown #3B2316 at reduced weight",
+      "border_color": "bearBrown #3B2316",
+      "accent_color": "restrained blaze-orange #E8530E",
+      "art_zone_base_coat": "opaque white base coat under art zones",
+      "muted_metadata_color": "canyon neutral-600 #6B5A53",
+      "wireframe_color": "blaze-orange #E8530E overlay",
+      "surface_shadow": "none (matte board, no gloss)",
+      "print_mode_fallback": "monochrome deep-brown/black line-art, accents drop to ink",
+      "board_thickness": { "value": 20, "unit": "pt" },
+      "accent_secondary": "frontier-green #1A3C34"
+    },
+    "white_cardstock": {
+      "label": "white cardstock",
+      "default": false,
+      "background_color": "warm white, not blue-white (parchment neutral-50 #FFF8F0)",
+      "background_texture": "smooth cardstock, minimal grain",
+      "primary_ink_color": "deep brown / black ink (bearBrown #3B2316)",
+      "secondary_ink_color": "espresso neutral-700 #5A4A42",
+      "border_color": "bearBrown #3B2316",
+      "accent_color": "muted blaze-orange #E8530E",
+      "art_zone_base_coat": "white base coat structurally present under art zones",
+      "muted_metadata_color": "canyon neutral-600 #6B5A53",
+      "wireframe_color": "blaze-orange #E8530E overlay",
+      "surface_shadow": "none",
+      "print_mode_fallback": "monochrome deep-brown/black line-art"
+    },
+    "cream_parchment": {
+      "label": "cream parchment",
+      "default": false,
+      "background_color": "light cream (box parchment #F5EAD3), no strong yellow cast",
+      "background_texture": "low-contrast paper texture",
+      "primary_ink_color": "deep brown ink (bearBrown #3B2316)",
+      "secondary_ink_color": "espresso neutral-700 #5A4A42",
+      "border_color": "bearBrown #3B2316",
+      "accent_color": "restrained blaze-orange #E8530E",
+      "art_zone_base_coat": "opaque white base coat under art zones",
+      "muted_metadata_color": "canyon neutral-600 #6B5A53",
+      "wireframe_color": "blaze-orange #E8530E overlay",
+      "surface_shadow": "none",
+      "print_mode_fallback": "monochrome deep-brown/black line-art"
+    }
+  },
+  "production_specs": {
+    "illustration": {
+      "primary_ink": "solid black or deep Kodiak brown (bearBrown #3B2316)",
+      "line_width_min": { "value": 0.5, "unit": "mm" },
+      "line_width_max": { "value": 1.2, "unit": "mm" },
+      "title_stroke_target_min": { "value": 1.0, "unit": "mm" },
+      "title_stroke_target_max": { "value": 1.2, "unit": "mm" },
+      "section_header_stroke_target": { "value": 0.8, "unit": "mm" },
+      "no_solid_fills": true,
+      "no_dark_gradients": true,
+      "no_black_shadow_masses": true,
+      "contour_lines": "allowed",
+      "hatching": "allowed",
+      "stippling": "allowed",
+      "multi_color_accents": "allowed only inside art zones",
+      "opaque_white_base_coat_under_art": true,
+      "visual_density": "low, tuned for home-printer reproduction"
+    },
+    "ink_coverage_ceiling": {
+      "value": 0.35,
+      "unit": "fraction",
+      "note": "maximum fraction of dark ink coverage permitted within a line-art zone; 0.35 means at most 35% of the zone area may be dark ink. measures dark-pixel area / total zone area at physical size",
+      "tolerance": { "value": 0.02, "unit": "fraction" }
+    },
+    "board_thickness": {
+      "kraft": { "value": 20, "unit": "pt" }
+    }
+  },
+  "wireframe": {
+    "border_style": "dashed",
+    "overlay_color": "blaze-orange #E8530E (printable-safe overlay)",
+    "print_visibility": "hidden in print output",
+    "elements": [
+      {
+        "id": "printer_safe_margin",
+        "label": "outer 0.5in printer-safe margin",
+        "margin": { "value": 0.5, "unit": "in" }
+      },
+      {
+        "id": "usable_page_boundary",
+        "label": "usable page boundary",
+        "width": { "value": 7.5, "unit": "in" },
+        "height": { "value": 10, "unit": "in" }
+      },
+      {
+        "id": "column_left_boundary",
+        "label": "left column boundary",
+        "width": { "value": 3.6, "unit": "in" }
+      },
+      {
+        "id": "column_right_boundary",
+        "label": "right column boundary",
+        "width": { "value": 3.6, "unit": "in" }
+      },
+      {
+        "id": "center_hairline",
+        "label": "center hairline divider",
+        "stroke_weight": { "value": 0.3, "unit": "mm" }
+      },
+      {
+        "id": "text_clearance_buffer",
+        "label": "text-clearance buffer around art zones",
+        "buffer": { "value": 0.25, "unit": "in" }
+      },
+      {
+        "id": "header_boundary",
+        "label": "header boundary"
+      },
+      {
+        "id": "metadata_strip_boundary",
+        "label": "metadata strip boundary"
+      },
+      {
+        "id": "zone_raw_ingredient_sketch",
+        "label": "raw ingredient sketch art-zone boundary",
+        "width": { "value": 3.0, "unit": "in" },
+        "height": { "value": 1.5, "unit": "in" }
+      },
+      {
+        "id": "zone_technique_sketch",
+        "label": "technique sketch art-zone boundary",
+        "width": { "value": 3.0, "unit": "in" },
+        "height": { "value": 1.5, "unit": "in" }
+      },
+      {
+        "id": "zone_finished_plate_sketch",
+        "label": "finished plate sketch art-zone boundary",
+        "width": { "value": 3.0, "unit": "in" },
+        "height": { "value": 2.0, "unit": "in" }
+      },
+      {
+        "id": "corner_accent_left",
+        "label": "left corner accent boundary",
+        "width": { "value": 1.0, "unit": "in" },
+        "height": { "value": 1.0, "unit": "in" }
+      },
+      {
+        "id": "corner_accent_right",
+        "label": "right corner accent boundary",
+        "width": { "value": 1.0, "unit": "in" },
+        "height": { "value": 1.0, "unit": "in" }
+      },
+      {
+        "id": "footer_production_spec_boundary",
+        "label": "footer / production-spec boundary"
+      }
+    ]
+  },
+  "validation": {
+    "rules": [
+      {
+        "id": "schema_id",
+        "description": "schema identifier equals kodiak/recipe-card@v1",
+        "expected": "kodiak/recipe-card@v1"
+      },
+      {
+        "id": "required_sections_present",
+        "description": "all required top-level sections exist",
+        "expected": [
+          "schema",
+          "tokens_ref",
+          "page",
+          "printer_safe",
+          "columns",
+          "header",
+          "meta_bar",
+          "zones",
+          "substrates",
+          "production_specs",
+          "wireframe",
+          "validation"
+        ]
+      },
+      {
+        "id": "dimensions_carry_units",
+        "description": "every physical dimension carries an explicit unit",
+        "expected": true
+      },
+      {
+        "id": "zone_ids_unique",
+        "description": "all zone ids are unique",
+        "expected": true
+      },
+      {
+        "id": "required_zones_exist",
+        "description": "all required zones are present",
+        "expected": [
+          "corner_accent_left",
+          "corner_accent_right",
+          "raw_ingredient_sketch",
+          "technique_sketch",
+          "finished_plate_sketch"
+        ]
+      },
+      {
+        "id": "page_ratio",
+        "description": "page is 8.5x11 in portrait",
+        "expected": {
+          "width": { "value": 8.5, "unit": "in" },
+          "height": { "value": 11, "unit": "in" }
+        }
+      },
+      {
+        "id": "printer_safe_margin",
+        "description": "printer-safe outer margin is 0.5in on every side",
+        "expected": { "value": 0.5, "unit": "in" }
+      },
+      {
+        "id": "usable_area",
+        "description": "usable area is 7.5x10in",
+        "expected": {
+          "width": { "value": 7.5, "unit": "in" },
+          "height": { "value": 10, "unit": "in" }
+        }
+      },
+      {
+        "id": "column_width",
+        "description": "both columns are 3.6in wide",
+        "expected": { "value": 3.6, "unit": "in" }
+      },
+      {
+        "id": "center_divider",
+        "description": "center divider hairline is 0.3mm",
+        "expected": { "value": 0.3, "unit": "mm" }
+      },
+      {
+        "id": "corner_accents",
+        "description": "both corner accents are 1.0x1.0in",
+        "expected": {
+          "width": { "value": 1.0, "unit": "in" },
+          "height": { "value": 1.0, "unit": "in" }
+        }
+      },
+      {
+        "id": "raw_ingredient_dimensions",
+        "description": "raw ingredient sketch is 1.5in high x 3.0in wide",
+        "expected": {
+          "width": { "value": 3.0, "unit": "in" },
+          "height": { "value": 1.5, "unit": "in" }
+        }
+      },
+      {
+        "id": "technique_dimensions",
+        "description": "technique sketch is 1.5in high x 3.0in wide",
+        "expected": {
+          "width": { "value": 3.0, "unit": "in" },
+          "height": { "value": 1.5, "unit": "in" }
+        }
+      },
+      {
+        "id": "finished_plate_dimensions",
+        "description": "finished plate sketch is 2.0in high x 3.0in wide",
+        "expected": {
+          "width": { "value": 3.0, "unit": "in" },
+          "height": { "value": 2.0, "unit": "in" }
+        }
+      },
+      {
+        "id": "art_zone_clearance",
+        "description": "every art zone carries a 0.25in clearance buffer",
+        "expected": { "value": 0.25, "unit": "in" }
+      },
+      {
+        "id": "default_substrate",
+        "description": "default substrate is kraft",
+        "expected": "kraft"
+      },
+      {
+        "id": "art_zone_base_coat",
+        "description": "every art zone has an opaque white base coat",
+        "expected": true
+      },
+      {
+        "id": "ink_coverage_ceiling_present",
+        "description": "ink coverage ceiling is present in production_specs",
+        "expected": 0.35
+      }
+    ]
+  }
+}

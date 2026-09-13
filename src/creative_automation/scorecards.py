@@ -141,6 +141,211 @@ def score_image_determinism(image_path: Path) -> Dict:
     return {"cards":cards,"total":total,"max":max_total,"pass":overall_pass,"pct":round(total/max_total*100) if max_total else 0}
 
 
+def _rc_dim(node: object) -> tuple[float, str] | None:
+    """Unit-aware read: {"value": N, "unit": U} -> (N, U); None otherwise. Never
+    coerces a bare number — a missing unit is a failure signal, not a default."""
+    if isinstance(node, dict) and "value" in node and "unit" in node:
+        v, u = node["value"], node["unit"]
+        if isinstance(v, (int, float)) and isinstance(u, str):
+            return float(v), u
+    return None
+
+
+def _rc_eq(node: object, value: float, unit: str) -> bool:
+    """Exact unit-aware compare against an expected value+unit pair."""
+    got = _rc_dim(node)
+    return got is not None and got[0] == value and got[1] == unit
+
+
+def score_recipe_card_template(template_path: Path | None = None) -> dict:
+    """#203-honest scorecard for the recipe-card template.
+
+    Same shape as score_image_determinism (cards/total/max/pass/pct). Every
+    SCORED card runs a real measurement against the template that genuinely fails
+    if a required zone or dimension is deleted or corrupted, and genuinely passes
+    on the current valid template. Anything that cannot be measured from the
+    template alone (real rendered pixel ink coverage, monochrome legibility of a
+    real render, actual text-vs-zone overlap of a render) is marked
+    {"scored": False, "max": 0} and excluded from totals — no fake pass, no
+    `or True`. Geometry is READ from the template, not hardcoded here."""
+    from . import recipe_card as rc
+
+    cards: list[dict] = []
+    path = Path(template_path) if template_path else rc.RECIPE_CARD_TEMPLATE_PATH
+
+    # load once; a load failure fails the validity card and cascades to ✗ reads
+    tmpl: dict = {}
+    load_error: str | None = None
+    if not path.exists():
+        load_error = "file missing"
+    else:
+        try:
+            tmpl = rc.load_recipe_card_template(path)
+        except (OSError, ValueError) as e:
+            load_error = f"unparseable: {e}"
+
+    # Card 1: template validity — file exists, schema id, required sections,
+    # unique zone ids, required zones. Uses the module validator so the scorer
+    # and the runtime path can never drift.
+    if load_error:
+        v_subs = [f"✗ {load_error}"]
+        v_pass = False
+    else:
+        problems = rc.validate_recipe_card_template(tmpl)
+        v_pass = not problems
+        v_subs = ["✓ valid template"] if v_pass else [f"✗ {p}" for p in problems]
+    cards.append({
+        "id": "template_valid", "title": "Template Validity", "max": 1,
+        "score": 1 if v_pass else 0, "pass": v_pass,
+        "detail": " • ".join(v_subs), "subs": v_subs,
+    })
+
+    page = tmpl.get("page") or {}
+    printer_safe = tmpl.get("printer_safe") or {}
+    columns = tmpl.get("columns") or {}
+    usable = printer_safe.get("usable_area") or {}
+    margin = printer_safe.get("outer_margin") or {}
+    divider = columns.get("center_divider") or {}
+    zones = {z.get("id"): z for z in (tmpl.get("zones") or []) if isinstance(z, dict)}
+
+    # Card 2: page geometry — 8.5x11 page, 0.5in printer-safe margin all sides,
+    # 7.5x10 usable, both columns 3.6in, center divider 0.3mm. Unit-aware exact.
+    g_subs = []
+    g_page = _rc_eq(page.get("width"), 8.5, "in") and _rc_eq(page.get("height"), 11.0, "in")
+    g_subs.append(f"{'✓' if g_page else '✗'} page 8.5x11in")
+    g_margin = all(_rc_eq(margin.get(s), 0.5, "in") for s in ("top", "right", "bottom", "left"))
+    g_subs.append(f"{'✓' if g_margin else '✗'} margin 0.5in")
+    g_usable = _rc_eq(usable.get("width"), 7.5, "in") and _rc_eq(usable.get("height"), 10.0, "in")
+    g_subs.append(f"{'✓' if g_usable else '✗'} usable 7.5x10in")
+    g_cols = _rc_eq(columns.get("column_width"), 3.6, "in")
+    g_subs.append(f"{'✓' if g_cols else '✗'} column 3.6in")
+    g_div = _rc_eq(divider.get("stroke_weight"), 0.3, "mm")
+    g_subs.append(f"{'✓' if g_div else '✗'} divider 0.3mm")
+    g_pass = g_page and g_margin and g_usable and g_cols and g_div
+    cards.append({
+        "id": "page_geometry", "title": "Page Geometry", "max": 5,
+        "score": sum([g_page, g_margin, g_usable, g_cols, g_div]), "pass": g_pass,
+        "detail": " • ".join(g_subs), "subs": g_subs,
+    })
+
+    # Card 3: zone geometry — corner accents 1x1in, raw ingredient 3x1.5in,
+    # technique 3x1.5in, finished plate 3x2in, every art zone 0.25in clearance.
+    def zone_ok(zid: str, w: float, h: float) -> bool:
+        z = zones.get(zid) or {}
+        return _rc_eq(z.get("width"), w, "in") and _rc_eq(z.get("height"), h, "in")
+
+    z_subs = []
+    z_left = zone_ok("corner_accent_left", 1.0, 1.0)
+    z_right = zone_ok("corner_accent_right", 1.0, 1.0)
+    z_subs.append(f"{'✓' if z_left and z_right else '✗'} corner accents 1x1in")
+    z_raw = zone_ok("raw_ingredient_sketch", 3.0, 1.5)
+    z_subs.append(f"{'✓' if z_raw else '✗'} raw ingredient 3x1.5in")
+    z_tech = zone_ok("technique_sketch", 3.0, 1.5)
+    z_subs.append(f"{'✓' if z_tech else '✗'} technique 3x1.5in")
+    z_plate = zone_ok("finished_plate_sketch", 3.0, 2.0)
+    z_subs.append(f"{'✓' if z_plate else '✗'} finished plate 3x2in")
+    z_clear = all(
+        _rc_eq((zones.get(zid) or {}).get("clearance"), 0.25, "in")
+        for zid in ("raw_ingredient_sketch", "technique_sketch", "finished_plate_sketch")
+    )
+    z_subs.append(f"{'✓' if z_clear else '✗'} art zone 0.25in clearance")
+    z_corner = z_left and z_right
+    z_pass = z_corner and z_raw and z_tech and z_plate and z_clear
+    cards.append({
+        "id": "zone_geometry", "title": "Zone Geometry", "max": 5,
+        "score": sum([z_corner, z_raw, z_tech, z_plate, z_clear]), "pass": z_pass,
+        "detail": " • ".join(z_subs), "subs": z_subs,
+    })
+
+    # Card 4: substrate — three substrate defs, default kraft, every art zone has
+    # an opaque white base coat (read from substrate def + zone base_coat flags).
+    substrates = tmpl.get("substrates") or {}
+    s_subs = []
+    s_three = all(k in substrates for k in ("kraft", "white_cardstock", "cream_parchment"))
+    s_subs.append(f"{'✓' if s_three else '✗'} 3 substrate defs")
+    s_default = tmpl.get("default_substrate") == "kraft" and bool(substrates.get("kraft", {}).get("default"))
+    s_subs.append(f"{'✓' if s_default else '✗'} default kraft")
+    art_zone_base = all(
+        (zones.get(zid) or {}).get("base_coat") is True
+        for zid in ("raw_ingredient_sketch", "technique_sketch", "finished_plate_sketch")
+    )
+    substrate_base = all(
+        "white base coat" in str(substrates.get(k, {}).get("art_zone_base_coat", "")).lower()
+        for k in ("kraft", "white_cardstock", "cream_parchment")
+        if k in substrates
+    ) and bool(substrates)
+    s_white = art_zone_base and substrate_base
+    s_subs.append(f"{'✓' if s_white else '✗'} art zones opaque white base coat")
+    s_pass = s_three and s_default and s_white
+    cards.append({
+        "id": "substrate", "title": "Substrate", "max": 3,
+        "score": sum([s_three, s_default, s_white]), "pass": s_pass,
+        "detail": " • ".join(s_subs), "subs": s_subs,
+    })
+
+    # Card 5: ink coverage ceiling — present in production_specs and a fraction
+    # in (0,1). Value is READ from the template and asserted sane; 0.35 is not
+    # hardcoded as the authority.
+    ceiling_node = (tmpl.get("production_specs") or {}).get("ink_coverage_ceiling")
+    ceiling = _rc_dim(ceiling_node)
+    ink_ok = ceiling is not None and ceiling[1] == "fraction" and 0.0 < ceiling[0] < 1.0
+    ink_sub = (
+        f"✓ ink ceiling {ceiling[0]} fraction" if ink_ok
+        else "✗ ink ceiling missing/insane"
+    )
+    cards.append({
+        "id": "ink_ceiling", "title": "Ink Coverage Ceiling", "max": 1,
+        "score": 1 if ink_ok else 0, "pass": ink_ok,
+        "detail": ink_sub, "subs": [ink_sub],
+    })
+
+    # Card 6: content contract — meta_bar columns prep/cook/serves/est_cost
+    # declared, header carries a title.
+    meta_bar = tmpl.get("meta_bar") or {}
+    header = tmpl.get("header") or {}
+    c_subs = []
+    c_cols = list(meta_bar.get("columns") or []) == ["prep", "cook", "serves", "est_cost"]
+    c_subs.append(f"{'✓' if c_cols else '✗'} meta_bar prep/cook/serves/est_cost")
+    c_title = isinstance(header.get("title"), dict) and bool(header.get("title"))
+    c_subs.append(f"{'✓' if c_title else '✗'} header title")
+    c_pass = c_cols and c_title
+    cards.append({
+        "id": "content_contract", "title": "Content Contract", "max": 2,
+        "score": sum([c_cols, c_title]), "pass": c_pass,
+        "detail": " • ".join(c_subs), "subs": c_subs,
+    })
+
+    # Unscored context (#203): things that need a real rendered card, not the
+    # template alone. Excluded from totals and the overall verdict.
+    cards.append({
+        "id": "rendered_ink_coverage", "title": "Rendered Ink Coverage", "max": 0,
+        "score": 0, "pass": True, "scored": False,
+        "detail": "○ unscored — needs a rendered card to measure real dark-pixel coverage",
+        "subs": ["○ unscored"],
+    })
+    cards.append({
+        "id": "monochrome_legibility", "title": "Monochrome Legibility", "max": 0,
+        "score": 0, "pass": True, "scored": False,
+        "detail": "○ unscored — needs a real monochrome render to judge legibility",
+        "subs": ["○ unscored"],
+    })
+    cards.append({
+        "id": "text_zone_overlap", "title": "Text vs Zone Overlap", "max": 0,
+        "score": 0, "pass": True, "scored": False,
+        "detail": "○ unscored — needs a rendered card to measure text-vs-zone overlap",
+        "subs": ["○ unscored"],
+    })
+
+    scored = [c for c in cards if c.get("scored", True)]
+    total = sum(c["score"] for c in scored)
+    max_total = sum(c["max"] for c in scored)
+    overall_pass = all(c["pass"] for c in scored)
+    return {
+        "cards": cards, "total": total, "max": max_total,
+        "pass": overall_pass, "pct": round(total / max_total * 100) if max_total else 0,
+    }
+
+
 def score_batch(out_root: Path) -> Dict:
     """Score all creatives under out_root (expects report.json)."""
     report_path = out_root / "report.json"

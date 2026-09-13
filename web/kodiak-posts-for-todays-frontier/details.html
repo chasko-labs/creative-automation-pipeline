@@ -213,6 +213,7 @@ header h1,header h2,header h3{color:var(--parchment)}
 <a href="#inv-spectrum">Accessible control patterns</a>
 <a href="#inv-decisions">Why the interface works this way</a>
 <a href="#inv-migration">How visual consistency is maintained</a>
+<a href="#recipe-card-standard">Recipe card standard</a>
 <a href="#design-system">Live scorecards</a>
 <a href="pipeline.html" target="_blank" rel="noopener">Creative generation + artificial intelligence</a>
 <a href="infrastructure.html" target="_blank" rel="noopener">Secure hosting and delivery</a>
@@ -729,6 +730,172 @@ graph TD
 <div class="offline" style="margin-top:12px"><b>Reference:</b> Panda tokens-only emission — <a href="https://github.com/chakra-ui/panda/blob/main/website/content/docs/references/config.mdx" target="_blank">panda config.mdx (Emit Tokens Only)</a> <span class="state tbd">confirmed</span>. Spectrum <span class="kbd">--mod-*</span> / <span class="kbd">--spectrum-*</span> theming contract — <a href="https://github.com/adobe/spectrum-web-components/blob/main/CONTRIBUTOR-DOCS/02_style-guide/01_css/05_anti-patterns.md" target="_blank">swc anti-patterns</a>, <a href="https://github.com/adobe/spectrum-css/wiki/Ongoing-updates-and-refactoring" target="_blank">spectrum-css refactoring wiki</a> <span class="state tbd">confirmed</span>. sp-combobox package — <a href="https://opensource.adobe.com/spectrum-web-components/components/combobox/" target="_blank">sp-combobox docs</a> <span class="state tbd">confirmed</span>. <span class="kbd">--mod-*</span> is the documented external consumer override seam even though authoring new internal --mod-* chains is deprecated inside Spectrum itself — which is exactly why the kodiak bridge targets it.</div>
 </div></div>
 
+<div class="card wide-track inv-section recipe-card-standard" id="recipe-card-standard">
+<div class="hd"><h2>recipe card standard <span class="badge">standard</span></h2>
+<p>The canvas below is the production layout — the printable specimen itself; the production-specification panel beside it is the governing ruleset every generated card must satisfy.</p></div>
+<div class="body">
+
+<!-- CONTROLS: substrate switch + wireframe toggle + print, keyboard-accessible + labeled -->
+<div class="rc-controls" role="group" aria-label="Recipe card specimen controls">
+  <fieldset class="rc-control rc-control--substrate">
+    <legend>Substrate</legend>
+    <label class="rc-radio"><input type="radio" name="rc-substrate" value="kraft" checked> 20 point brown kraft board</label>
+    <label class="rc-radio"><input type="radio" name="rc-substrate" value="white_cardstock"> white cardstock</label>
+    <label class="rc-radio"><input type="radio" name="rc-substrate" value="cream_parchment"> cream parchment</label>
+  </fieldset>
+  <div class="rc-control rc-control--toggle">
+    <button type="button" class="btn ghost rc-wireframe-toggle" id="rcWireframeToggle" aria-pressed="false">show production geometry</button>
+    <p class="rc-contrast-status" id="rcContrastStatus" role="status">substrate: 20 point brown kraft board — ink holds monochrome-safe contrast</p>
+  </div>
+  <div class="rc-control rc-control--print">
+    <button type="button" class="btn orange rc-print" id="rcPrint">print the card</button>
+  </div>
+</div>
+
+<!-- provenance legend — not color-only: each state pairs a glyph + label -->
+<ul class="rc-legend" aria-label="Provenance legend for card content">
+  <li class="rc-prov rc-prov--source"><span class="rc-prov__mark" aria-hidden="true">[S]</span> source-confirmed fact</li>
+  <li class="rc-prov rc-prov--proposed"><span class="rc-prov__mark" aria-hidden="true">[~]</span> proposed Kodiak adaptation</li>
+  <li class="rc-prov rc-prov--unknown"><span class="rc-prov__mark" aria-hidden="true">[?]</span> unknown / unverified (prices)</li>
+</ul>
+
+<div class="rc-stage">
+
+  <!-- FLAT CARD CANVAS — authoritative 8.5in x 11in portrait specimen -->
+  <div class="rc-card-shell">
+    <div class="rc-card" id="rcCard" data-substrate="kraft" role="img" aria-label="Recipe card specimen, 8.5 by 11 inch portrait, demonstration content: sunshine lemon cake">
+
+      <!-- header: corner accents 1.0x1.0in + centered title -->
+      <header class="rc-header">
+        <div class="rc-corner rc-corner--left" data-zone="corner_accent_left" aria-hidden="true">
+          <svg viewBox="0 0 100 100" class="rc-corner__art" role="presentation" focusable="false"><path d="M8 78 C22 60 20 34 44 24 M44 24 C40 34 48 40 58 38 M44 24 C50 30 50 44 46 52" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M16 84 L84 84" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="rc-title" data-demo="true">sunshine lemon cake</h3>
+        <div class="rc-corner rc-corner--right" data-zone="corner_accent_right" aria-hidden="true">
+          <svg viewBox="0 0 100 100" class="rc-corner__art" role="presentation" focusable="false"><path d="M92 78 C78 60 80 34 56 24 M56 24 C60 34 52 40 42 38 M56 24 C50 30 50 44 54 52" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M16 84 L84 84" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+      </header>
+
+      <!-- meta bar: four equal columns, value dominant, single accent rule -->
+      <div class="rc-meta" data-zone="metadata_strip">
+        <div class="rc-meta__cell"><span class="rc-meta__value">15 min</span><span class="rc-meta__label">Prep</span></div>
+        <div class="rc-meta__cell"><span class="rc-meta__value">40 min</span><span class="rc-meta__label">Cook</span></div>
+        <div class="rc-meta__cell"><span class="rc-meta__value">12</span><span class="rc-meta__label">Serves</span></div>
+        <div class="rc-meta__cell"><span class="rc-meta__value">$8.40</span><span class="rc-meta__label">Est cost</span></div>
+      </div>
+
+      <!-- two-column body with 0.3mm center hairline divider -->
+      <div class="rc-columns">
+
+        <section class="recipe-card-column recipe-card-ingredients">
+          <h4 class="rc-col-heading">ingredients</h4>
+          <ul class="rc-ingredients">
+            <li class="rc-ing" data-prov="proposed"><span class="rc-ing__name"><span class="rc-prov__mark" aria-hidden="true">[~]</span> 1 package Kodiak power-cakes mix</span><span class="rc-ing__price" data-prov="unknown"><span class="rc-prov__mark" aria-hidden="true">[?]</span> $4.99</span></li>
+            <li class="rc-ing" data-prov="proposed"><span class="rc-ing__name"><span class="rc-prov__mark" aria-hidden="true">[~]</span> 1 small lemon gelatin</span><span class="rc-ing__price" data-prov="unknown"><span class="rc-prov__mark" aria-hidden="true">[?]</span> $1.29</span></li>
+            <li class="rc-ing" data-prov="source"><span class="rc-ing__name"><span class="rc-prov__mark" aria-hidden="true">[S]</span> 3/4 cup oil</span><span class="rc-ing__price" data-prov="unknown"><span class="rc-prov__mark" aria-hidden="true">[?]</span> $0.48</span></li>
+            <li class="rc-ing" data-prov="source"><span class="rc-ing__name"><span class="rc-prov__mark" aria-hidden="true">[S]</span> 3/4 cup water</span><span class="rc-ing__price" data-prov="unknown"><span class="rc-prov__mark" aria-hidden="true">[?]</span> $0.00</span></li>
+            <li class="rc-ing" data-prov="source"><span class="rc-ing__name"><span class="rc-prov__mark" aria-hidden="true">[S]</span> 4 eggs</span><span class="rc-ing__price" data-prov="unknown"><span class="rc-prov__mark" aria-hidden="true">[?]</span> $1.20</span></li>
+            <li class="rc-ing" data-prov="source"><span class="rc-ing__name"><span class="rc-prov__mark" aria-hidden="true">[S]</span> 1 lemon</span><span class="rc-ing__price" data-prov="unknown"><span class="rc-prov__mark" aria-hidden="true">[?]</span> $0.79</span></li>
+          </ul>
+
+          <div class="rc-artzone rc-artzone--raw" data-zone="raw_ingredient_sketch" aria-label="raw ingredient sketch placeholder: citrus line art">
+            <div class="rc-artzone__base" aria-hidden="true"></div>
+            <svg class="rc-artzone__art" viewBox="0 0 300 150" role="presentation" focusable="false" aria-hidden="true"><circle cx="90" cy="80" r="42" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M90 38 C110 44 118 60 116 80" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M62 62 L118 98 M118 62 L62 98" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M170 96 C186 70 214 66 236 78 C220 96 192 100 170 96 Z" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M182 88 L224 82" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+          </div>
+
+          <p class="rc-tip"><span class="rc-tip__label">tip</span> poke the warm cake before adding the glaze so the citrus settles into every slice</p>
+        </section>
+
+        <section class="recipe-card-column recipe-card-execution">
+          <h4 class="rc-col-heading">steps</h4>
+          <ol class="rc-steps">
+            <li><b class="rc-step-verb">PREHEAT</b> the oven to 350 degrees</li>
+            <li><b class="rc-step-verb">MIX</b> the Kodiak base with wet ingredients and lemon flavoring</li>
+            <li><b class="rc-step-verb">POUR</b> into an ungreased 9 by 12 inch pan</li>
+            <li><b class="rc-step-verb">BAKE</b> for approximately 40 minutes</li>
+            <li><b class="rc-step-verb">POKE</b> the warm cake with a fork</li>
+            <li><b class="rc-step-verb">GLAZE</b> the top, then cool before serving</li>
+          </ol>
+
+          <div class="rc-artzone rc-artzone--technique" data-zone="technique_sketch" aria-label="technique sketch placeholder">
+            <div class="rc-artzone__base" aria-hidden="true"></div>
+            <svg class="rc-artzone__art" viewBox="0 0 300 150" role="presentation" focusable="false" aria-hidden="true"><rect x="70" y="60" width="160" height="60" rx="6" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M92 60 L92 44 M150 60 L150 40 M208 60 L208 44" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M96 90 L204 90" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 5"/></svg>
+          </div>
+
+          <div class="rc-artzone rc-artzone--plate" data-zone="finished_plate_sketch" aria-label="finished plate sketch placeholder">
+            <div class="rc-artzone__base" aria-hidden="true"></div>
+            <svg class="rc-artzone__art" viewBox="0 0 300 200" role="presentation" focusable="false" aria-hidden="true"><ellipse cx="150" cy="140" rx="110" ry="34" fill="none" stroke="currentColor" stroke-width="2.4"/><ellipse cx="150" cy="134" rx="82" ry="24" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M108 128 L150 78 L192 128 Z" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M132 100 C140 96 160 96 168 100" fill="none" stroke="var(--rc-accent)" stroke-width="2"/><circle cx="150" cy="84" r="4" fill="none" stroke="var(--rc-accent-2)" stroke-width="2"/></svg>
+          </div>
+        </section>
+
+      </div><!-- /rc-columns -->
+
+      <!-- wireframe geometry overlay — exposes physical dims, hidden in print, no layout change -->
+      <div class="rc-wireframe" aria-hidden="true">
+        <div class="rc-wf rc-wf--safe" data-dim="0.5in printer-safe margin"><span class="rc-wf__tag">printer-safe margin 0.5in</span></div>
+        <div class="rc-wf rc-wf--usable" data-dim="7.5 x 10in usable"><span class="rc-wf__tag">usable 7.5 x 10in</span></div>
+        <div class="rc-wf rc-wf--col-left" data-dim="3.6in"><span class="rc-wf__tag">left column 3.6in</span></div>
+        <div class="rc-wf rc-wf--col-right" data-dim="3.6in"><span class="rc-wf__tag">right column 3.6in</span></div>
+        <div class="rc-wf rc-wf--hairline"><span class="rc-wf__tag">center hairline 0.3mm</span></div>
+        <div class="rc-wf rc-wf--header"><span class="rc-wf__tag">header</span></div>
+        <div class="rc-wf rc-wf--meta"><span class="rc-wf__tag">metadata strip</span></div>
+        <div class="rc-wf rc-wf--accent-left"><span class="rc-wf__tag">corner_accent_left 1.0 x 1.0in</span></div>
+        <div class="rc-wf rc-wf--accent-right"><span class="rc-wf__tag">corner_accent_right 1.0 x 1.0in</span></div>
+        <div class="rc-wf rc-wf--zone-raw"><span class="rc-wf__tag">raw_ingredient_sketch 3.0 x 1.5in · 0.25in clearance</span></div>
+        <div class="rc-wf rc-wf--zone-technique"><span class="rc-wf__tag">technique_sketch 3.0 x 1.5in · 0.25in clearance</span></div>
+        <div class="rc-wf rc-wf--zone-plate"><span class="rc-wf__tag">finished_plate_sketch 3.0 x 2.0in · 0.25in clearance</span></div>
+        <div class="rc-wf rc-wf--footer"><span class="rc-wf__tag">footer / production-spec boundary</span></div>
+      </div>
+
+    </div><!-- /rc-card -->
+  </div><!-- /rc-card-shell -->
+
+  <!-- BABYLON BOARD PREVIEW PLACEHOLDER — the board agent owns the script + fill -->
+  <div class="recipe-card-board" id="recipe-card-board" data-substrate="kraft" aria-label="physical board preview of the recipe card">
+    <img class="recipe-card-board__fallback" src="assets/recipe-card-board-fallback.svg" alt="recipe card shown as a 20 point brown kraft board, 8.5 by 11 inches" />
+    <p class="recipe-card-board__status" role="status"></p>
+  </div>
+
+</div><!-- /rc-stage -->
+
+<!-- PRODUCTION-SPECIFICATION PANEL — governing ruleset, never part of the printed card -->
+<div class="rc-spec" aria-label="Recipe card production specification">
+  <h3 class="rc-spec__title">production specification <span class="badge">ruleset</span></h3>
+  <table class="rc-spec__table">
+    <thead><tr><th scope="col">rule</th><th scope="col">value</th><th scope="col">tag</th></tr></thead>
+    <tbody>
+      <tr><td>page dimensions</td><td>8.5in x 11in portrait</td><td><span class="rc-tag rc-tag--required">required</span></td></tr>
+      <tr><td>printer-safe outer margin</td><td>0.5in every side</td><td><span class="rc-tag rc-tag--required">required</span></td></tr>
+      <tr><td>usable content area</td><td>7.5in x 10in</td><td><span class="rc-tag rc-tag--validation">validation rule</span></td></tr>
+      <tr><td>columns</td><td>two columns, 3.6in each</td><td><span class="rc-tag rc-tag--required">required</span></td></tr>
+      <tr><td>center divider</td><td>0.3mm hairline</td><td><span class="rc-tag rc-tag--required">required</span></td></tr>
+      <tr><td>text clearance around art</td><td>0.25in buffer</td><td><span class="rc-tag rc-tag--required">required</span></td></tr>
+      <tr><td>raw_ingredient_sketch</td><td>3.0in x 1.5in, left column</td><td><span class="rc-tag rc-tag--required">required</span></td></tr>
+      <tr><td>technique_sketch</td><td>3.0in x 1.5in, right column mid</td><td><span class="rc-tag rc-tag--required">required</span></td></tr>
+      <tr><td>finished_plate_sketch</td><td>3.0in x 2.0in, right column bottom</td><td><span class="rc-tag rc-tag--required">required</span></td></tr>
+      <tr><td>art-zone white base coat</td><td>opaque white layer beneath every art zone</td><td><span class="rc-tag rc-tag--required">required</span></td></tr>
+      <tr><td>corner accents</td><td>1.0in x 1.0in, 0.25in buffer from title</td><td><span class="rc-tag rc-tag--required">required</span></td></tr>
+      <tr><td>illustration line weight</td><td>0.5mm min to 1.2mm max</td><td><span class="rc-tag rc-tag--validation">validation rule</span></td></tr>
+      <tr><td>solid fills / dark gradients / black masses</td><td>not permitted in line art</td><td><span class="rc-tag rc-tag--prohibited">prohibited</span></td></tr>
+      <tr><td>contour, hatching, stippling</td><td>permitted for shading</td><td><span class="rc-tag rc-tag--allowed">allowed</span></td></tr>
+      <tr><td>multi-color accents</td><td>only inside art zones, above the white base</td><td><span class="rc-tag rc-tag--allowed">allowed</span></td></tr>
+      <tr><td>ink coverage ceiling</td><td>0.35 dark-area fraction per zone (±0.02)</td><td><span class="rc-tag rc-tag--validation">validation rule</span></td></tr>
+      <tr><td>substrate behavior</td><td>kraft default; white cardstock; cream parchment</td><td><span class="rc-tag rc-tag--implementation">implementation note</span></td></tr>
+      <tr><td>typography</td><td>heavy display title, deep-brown/black ink, all-caps meta labels</td><td><span class="rc-tag rc-tag--required">required</span></td></tr>
+      <tr><td>pricing treatment</td><td>right-aligned, de-emphasized, dotted leaders</td><td><span class="rc-tag rc-tag--implementation">implementation note</span></td></tr>
+      <tr><td>monochrome fallback</td><td>prints legible in deep-brown/black line art without color</td><td><span class="rc-tag rc-tag--required">required</span></td></tr>
+      <tr><td>accessibility</td><td>semantic lists, aria state, no color-only distinctions, focus ring</td><td><span class="rc-tag rc-tag--required">required</span></td></tr>
+      <tr><td>provenance / confidence</td><td>[S] source · [~] proposed · [?] unknown, glyph not color-only</td><td><span class="rc-tag rc-tag--validation">validation rule</span></td></tr>
+    </tbody>
+  </table>
+  <div class="rc-spec__swatches" aria-label="substrate swatch preview">
+    <span class="rc-swatch rc-swatch--surface" aria-hidden="true"></span>
+    <span class="rc-swatch__label" id="rcSwatchLabel">20 point brown kraft board</span>
+  </div>
+</div>
+
+</div></div>
+
 <div class="card wide-track" data-mcp="design-system" id="design-system" data-mcp-description="Design System — scorecards reviewing the campaign tool against shared visual and accessibility guidance"><div class="hd"><h2>Design System — Scorecards <span class="badge score-overall-badge" id="score-overall-badge">live</span></h2><p>These live scorecards review color, typography, imagery, layout, localization, product information, and accessibility guidance so the team can keep the experience ready for review.</p></div><div class="body">
 <div class="row score-summary"><span class="hint">Overall: <b id="score-overall">—</b> • <span id="score-overall-detail" class="hint">checking…</span></span><button class="btn ghost score-refresh" id="scoreRefresh">Re-score</button><span class="kbd" id="score-timestamp"></span></div>
 <div id="scoreGrid" class="score-grid"></div>
@@ -1019,4 +1186,38 @@ graph TD
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
 <script>if(window.mermaid){mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#F4EDE6',primaryTextColor:'#3B2316',primaryBorderColor:'#D9CFC6',lineColor:'#5A4A42',fontFamily:'museo-sans,system-ui,sans-serif'}});}</script>
+<!-- recipe card standard — substrate switch, wireframe toggle, print. classic deferred script, no bundler -->
+<script>
+(function(){
+  var card=document.getElementById('rcCard');
+  var board=document.getElementById('recipe-card-board');
+  var status=document.getElementById('rcContrastStatus');
+  var swatchLabel=document.getElementById('rcSwatchLabel');
+  var wfBtn=document.getElementById('rcWireframeToggle');
+  var printBtn=document.getElementById('rcPrint');
+  if(!card){return;}
+  var LABELS={kraft:'20 point brown kraft board',white_cardstock:'white cardstock',cream_parchment:'cream parchment'};
+  function setSubstrate(val){
+    if(!LABELS[val]){return;}
+    card.setAttribute('data-substrate',val);
+    if(board){board.setAttribute('data-substrate',val);}
+    if(swatchLabel){swatchLabel.textContent=LABELS[val];}
+    if(status){status.textContent='substrate: '+LABELS[val]+' — ink holds monochrome-safe contrast';}
+  }
+  var radios=document.querySelectorAll('input[name="rc-substrate"]');
+  for(var i=0;i<radios.length;i++){
+    radios[i].addEventListener('change',function(e){ if(e.target.checked){ setSubstrate(e.target.value); } });
+  }
+  if(wfBtn){
+    wfBtn.addEventListener('click',function(){
+      var on=card.classList.toggle('is-wireframe');
+      wfBtn.setAttribute('aria-pressed',on?'true':'false');
+    });
+  }
+  if(printBtn){ printBtn.addEventListener('click',function(){ window.print(); }); }
+})();
+</script>
+<!-- recipe-card physical board preview: pinned BabylonJS runtime + local classic scene script. supplementary only; the recipe-card section stays usable if these fail. -->
+<script defer crossorigin="anonymous" src="https://cdn.babylonjs.com/v7.54.3/babylon.js" onerror="window.__recipeCardBoardCdnFailed=true"></script>
+<script defer src="js/recipe-card-board.js"></script>
 </body></html>
