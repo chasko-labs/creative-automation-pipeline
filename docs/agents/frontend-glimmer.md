@@ -11,8 +11,9 @@ Cold-start ~8s, idle-teardown 300s, serializes on the fc-pool `gpu_lock`.
 2. Targeted Playwright Chromium — `scripts/check-spectrum.mjs`,
    `scripts/check-brand-render.mjs` (repo-local ms-playwright binary via
    executablePath; Firefox/WebKit binaries intentionally absent).
-3. Full matrix pre-merge only — pytest full suite + `tests/nova-act/run.py`
-   live smoke. Nova Act stays as pre-merge smoke, never the main verifier.
+3. Full local gate before merge — pytest full suite plus the repository-owned
+   local browser scenarios. Boutique browser evidence stays explicit and local,
+   never a hosted service or agent visual verifier.
 
 ## Delegation rule
 

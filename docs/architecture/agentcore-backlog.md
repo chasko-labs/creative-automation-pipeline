@@ -48,7 +48,7 @@ each unit is small enough to ship as one PR under ~500 lines. `[dep: X]` = depen
 - **C1 runtime wrap**: wrap run_pipeline() as a bedrock agentcore runtime (serverless), local pipeline stays the fallback. no behavior change, just the hosting surface. [dep: B1..B4 stable]
 - **C2 gateway tools**: expose dam photo-fetch + retail/frontier lookup + retailer-svg lookup as agentcore gateway tools the agent can call. [dep: C1]
 - **C3 memory**: agentcore memory so a market's winning campaign is remembered cross-session (the "Diego's Las Cruces green chile win" pattern) and written back to localization memory. [dep: C1]
-- **C4 browser visual gate**: agentcore browser + nova act opens preview.html at the 3 viewports, blocks handoff if bear/bar/legibility/cohesion fails. seam: platform owns the nova-act runtime. [dep: C1]
+- **C4 local browser evidence**: repository-owned Playwright and pixel checks open preview.html at the 3 viewports, write structured evidence, and remain explicit boutique testing. The check never invokes a hosted browser service or agent visual verification. [dep: C1]
 - **C5 identity**: agentcore identity so the agent acts on behalf of Maya/Priya via identity center. [dep: C1, platform iam]
 
 ### epic D — campaign orchestration (the north-star acceptance)

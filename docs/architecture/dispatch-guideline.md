@@ -54,7 +54,7 @@ local hooks and full-check scripts run the repository-owned checks in determinis
 2. `uv run pytest -x -q` — stop on first test failure
 3. `cfn-lint infra/template.yaml` — cheap, no aws calls
 
-slow path (full nova render, nova-act browser check, the ~3000-item embedding corpus run) is gated behind `RUN_SLOW=true` — nightly / manual only, never the per-push gate. keep it that way: do not move a slow/networked step into the per-push gate.
+slow path (full nova render, local browser evidence, the ~3000-item embedding corpus run) is gated behind `RUN_SLOW=true` — nightly / manual only, never the per-push gate. keep it that way: do not move a slow/networked step into the per-push gate.
 
 ## dispatch rules
 

@@ -47,7 +47,7 @@ flowchart TB
         Runtime["AgentCore Runtime<br/>serverless, auto scale<br/>wraps run_pipeline()"]
         Gateway["AgentCore Gateway<br/>store list + photo fetch as tools<br/>(photo library, retail network)"]
         Memory["AgentCore Memory<br/>short turn + long cross-session<br/>Diego's Las Cruces green chile win remembered"]
-        Browser["AgentCore Browser<br/>Nova Act visual check<br/>3 viewports 1080x1080 / 1080x1920 / 1920x1080"]
+        Browser["local browser evidence<br/>3 viewports 1080x1080 / 1080x1920 / 1920x1080"]
         Identity["AgentCore Identity<br/>acts on behalf of Maya/Priya<br/>via Identity Center"]
     end
 
@@ -124,5 +124,5 @@ The compose step does not use another model at all — it is deterministic code 
 ## Live today vs planned
 
 - **Live today** — local pipeline via `uv run python -m creative_automation.cli --brief briefs/kodiak.yaml --assets input_assets --out output_kodiak`, style library mirrored to cloud storage at `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/` via `scripts/sync-dam.sh`, report and preview written locally and synced to `brands/kodiak/renders/`.
-- **Planned on top of live** — wrap `run_pipeline()` as an AgentCore Runtime, expose photo fetch and store lookup as Gateway tools, give it Memory so Diego's Las Cruces green chile win is remembered cross-session, let Browser via Nova Act open `preview.html` at the three viewports and block the retail handoff if the bear or bar fails. The diagram above shows the planned blocks in the same place as the live ones — no second account, no hidden stack.
+- **Planned on top of live** — wrap `run_pipeline()` as an AgentCore Runtime, expose photo fetch and store lookup as Gateway tools, give it Memory so Diego's Las Cruces green chile win is remembered cross-session. Browser evidence remains repository-owned local Playwright and pixel checking; it does not block on a hosted browser service
 

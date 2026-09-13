@@ -49,7 +49,7 @@ Shared role, two owners — both run parallel sprints for different retail clust
 - **Focus:** Detail craft — KODIAK POWER CUPS® line, oatmeal cup, minute muffin cup — the small pack that must read at table-tent size.
 - **Goals:** `KODIAK POWER CUPS®` — always two words after the brand, always with ®, always capital — reads clean at 140w @24,24 even on a 1×1 table tent.
 - **Pain:** Prior small pack lost legibility when orange was used for body text on parchment (3.1:1 fails 4.5:1).
-- **How served:** Token `kodiak.logo` branch enforces 24,24 offset, 140w default, 80w min, and scrim rule `only on #3B2316 / #1A3C34 / #1A1110 / #000` with `#1A1110CC` at 80 percent — checked by `nova-act-check.py` at 3 viewports (1080×1080, 1080×1920, 1920×1080). Body text stays Bear Brown or Frontier Green on parchment (10.2:1, 12.1:1, never Blaze Orange).
+- **How served:** Token `kodiak.logo` branch enforces 24,24 offset, 140w default, 80w min, and scrim rule `only on #3B2316 / #1A3C34 / #1A1110 / #000` with `#1A1110CC` at 80 percent — checked by `scripts/browser-check.py` at 3 viewports (1080×1080, 1080×1920, 1920×1080). Body text stays Bear Brown or Frontier Green on parchment (10.2:1, 12.1:1, never Blaze Orange).
 - **Sprint anchor:** Table-tent and diner board previews via `web/kodiak-posts-for-todays-frontier/index.html` — offline, no server, she renders 3 local ads with one click and downloads `KODIAK-CAKES-…-table-tent-1x1-YYYYMMDD-v01.png`.
 
 ### Elizabeth Hilgemann — Consumer Insights Manager — Park City, Utah
@@ -174,7 +174,7 @@ Shared role, two owners — both run parallel sprints for different retail clust
 - **Focus:** Outdoor and recipe creators — handoffs that still look like the brown box.
 - **Goals:** Influencer posts carry the same 8-point Blaze bar and parchment wash so a repost is recognizable at thumbnail crop.
 - **How served:** `docs/training-process.md` runnable code `embed_text` / `embed_image` via `amazon.nova-2-multimodal-embeddings-v1:0` at 1024 turns creator image + caption into the same index Maya searches — `GET /search?q=porch%20breakfast` finds creator's peach cobbler too.
-- **Bear flex:** Bear at 24,24 is never stretched — checked by `nova-act-check.py` across 3 viewports before any repost goes live.
+- **Bear flex:** Bear at 24,24 is never stretched — checked by `scripts/browser-check.py` across 3 viewports before any repost goes live.
 
 ---
 
@@ -212,4 +212,4 @@ Shared role, two owners — both run parallel sprints for different retail clust
 
 ## How the sprint reads these cards
 
-Planning at `README.md` links here: `[Who runs this — 23 persona cards](docs/ux-personas-kodiak-complete.md)`. Before a sprint, product marketing picks one or two cards — for example **Las Cruces green chile = Diego + Madison/Rebecka + Sarah** — and the board shows those names next to the scope so the person and the place stay tied. After a sprint, the preview at `output_kodiak-green-chile/preview.html` plus `nova-act-report.json` carry the PASS badge that the bear, bar, and legibility for that persona passed at `REG-001` before the retail handoff. If a card's experience is missing from the plan, the missing persona is named before the board closes.
+Planning at `README.md` links here: `[Who runs this — 23 persona cards](docs/ux-personas-kodiak-complete.md)`. Before a sprint, product marketing picks one or two cards — for example **Las Cruces green chile = Diego + Madison/Rebecka + Sarah** — and the board shows those names next to the scope so the person and the place stay tied. After a sprint, the preview at `output_kodiak-green-chile/preview.html` plus `browser-report.json` carry the PASS badge that the bear, bar, and legibility for that persona passed at `REG-001` before the retail handoff. If a card's experience is missing from the plan, the missing persona is named before the board closes.
