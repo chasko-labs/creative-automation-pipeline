@@ -1485,24 +1485,6 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   .ff-output::before{background-image:var(--wood)}
   .card.ff-about::before{background-image:var(--wood)}
 }
-/* === Guided arrow tour — hand-drawn cardboard cut-out arrow (inline SVG in
-   js/tour.js: kraft fill, rough/torn edge, sharpie stroke + short sharpie
-   label). Gentle float (4.6s bob, +-3px) + slow subtle sheen sweep across the
-   arrow. The wrapper is pointer-events:none (only the small bar takes input)
-   and a dismissed tour removes its node, so it never blocks input. Ember CTA
-   buttons, pine-voice step line. Token var() only — no raw color literals. */
-.ff-tour{position:fixed;left:8px;top:8px;z-index:2000;width:170px;pointer-events:none;animation:ff-tour-bob 4.6s ease-in-out infinite}
-.ff-tour-svgwrap{position:relative;width:150px;margin:0 auto}
-.ff-tour-svg{display:block;width:150px;height:auto;overflow:visible}
-.ff-tour-arrow-shape{fill:var(--colors-brand-box-parchment);stroke:var(--chocolate);stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
-.ff-tour-label{fill:var(--colors-brand-frontier-green);font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive;font-size:16px;font-weight:700}
-.ff-tour-sheen{position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 42%,var(--parchment) 50%,transparent 58%);background-size:260% 100%;opacity:.3;animation:ff-tour-sheen 5.6s ease-in-out infinite}
-@keyframes ff-tour-bob{0%,100%{transform:translateY(-3px)}50%{transform:translateY(3px)}}
-@keyframes ff-tour-sheen{0%{background-position:120% 0}60%,100%{background-position:-30% 0}}
-.ff-tour-svgwrap{pointer-events:auto;cursor:pointer}
-.ff-tour:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:4px}
-.ff-tour-count{fill:var(--colors-brand-frontier-green);font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive;font-size:13px;font-weight:700}
-.ff-tour-x{position:absolute;top:-6px;right:2px;width:26px;height:26px;border-radius:50%;background:var(--colors-brand-box-parchment);border:2px solid var(--chocolate);color:var(--chocolate);font:700 15px/1 "museo-sans",sans-serif;cursor:pointer;box-shadow:var(--shadows-sm)}
 /* === Campaign counsel — adversarial recommendations with Apply. Same card
    voice as provenance; Apply buttons take the secondary Restore-defaults
    treatment (bear-brown->chocolate) so approval reads as a complementary
@@ -1515,8 +1497,3 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-counsel-apply{flex:0 0 auto;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-brand-badge-parchment);background:linear-gradient(180deg,var(--colors-brand-bear-brown),var(--chocolate));border:2px solid var(--chocolate);border-radius:var(--radii-md);padding:9px 13px;cursor:pointer}
 .ff-counsel-apply-all{margin-top:4px;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-brand-badge-parchment);background:linear-gradient(180deg,var(--colors-brand-bear-brown),var(--chocolate));border:2px solid var(--chocolate);border-radius:var(--radii-md);padding:10px 14px;cursor:pointer}
 .ff-counsel-apply:hover,.ff-counsel-apply-all:hover{border-color:var(--colors-brand-ember-mid);box-shadow:0 0 0 2px var(--colors-brand-ember-mid)}
-/* prefers-reduced-motion: tour goes fully static — no float, no sheen, arrow
-   stays usable; js/tour.js also switches scrolling to instant. */
-.ff-tour.is-still,.ff-tour.is-still .ff-tour-sheen{animation:none}
-.ff-tour.is-still .ff-tour-sheen{display:none}
-@media (prefers-reduced-motion:reduce){.ff-tour,.ff-tour-sheen{animation:none}.ff-tour-sheen{display:none}}
