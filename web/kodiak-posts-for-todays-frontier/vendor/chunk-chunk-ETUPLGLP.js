@@ -1,48 +1,7 @@
-import"./chunk-chunk-L6MH7M3Y.js";import"./chunk-chunk-H4JGUZVA.js";import"./chunk-chunk-RJVZMLNZ.js";import{a as e}from"./chunk-chunk-G6O6BLNK.js";var t="decalVertexDeclaration",N=`#ifdef DECAL
-uniform vec4 vDecalInfos;uniform mat4 decalMatrix;
-#endif
-`;e.IncludesShadersStore[t]||(e.IncludesShadersStore[t]=N);var r="defaultVertexDeclaration",M=`uniform mat4 viewProjection;
-#ifdef MULTIVIEW
-mat4 viewProjectionR;
-#endif 
-uniform mat4 view;
-#ifdef DIFFUSE
-uniform mat4 diffuseMatrix;uniform vec2 vDiffuseInfos;
-#endif
-#ifdef AMBIENT
-uniform mat4 ambientMatrix;uniform vec2 vAmbientInfos;
-#endif
-#ifdef OPACITY
-uniform mat4 opacityMatrix;uniform vec2 vOpacityInfos;
-#endif
-#ifdef EMISSIVE
-uniform vec2 vEmissiveInfos;uniform mat4 emissiveMatrix;
-#endif
-#ifdef LIGHTMAP
-uniform vec2 vLightmapInfos;uniform mat4 lightmapMatrix;
-#endif
-#if defined(SPECULAR) && defined(SPECULARTERM)
-uniform vec2 vSpecularInfos;uniform mat4 specularMatrix;
-#endif
-#ifdef BUMP
-uniform vec3 vBumpInfos;uniform mat4 bumpMatrix;
-#endif
-#ifdef REFLECTION
-uniform mat4 reflectionMatrix;
-#endif
-#ifdef POINTSIZE
-uniform float pointSize;
-#endif
-#ifdef DETAIL
-uniform vec4 vDetailInfos;uniform mat4 detailMatrix;
-#endif
-uniform vec4 cameraInfo;
-#include<decalVertexDeclaration>
-#define ADDITIONAL_VERTEX_DECLARATION
-`;e.IncludesShadersStore[r]||(e.IncludesShadersStore[r]=M);var n="uvAttributeDeclaration",h=`#ifdef UV{X}
+import{a as e}from"./chunk-chunk-G6O6BLNK.js";var t="uvAttributeDeclaration",E=`#ifdef UV{X}
 attribute vec2 uv{X};
 #endif
-`;e.IncludesShadersStore[n]||(e.IncludesShadersStore[n]=h);var o="prePassVertexDeclaration",R=`#ifdef PREPASS
+`;e.IncludesShadersStore[t]||(e.IncludesShadersStore[t]=E);var i="prePassVertexDeclaration",u=`#ifdef PREPASS
 #ifdef PREPASS_LOCAL_POSITION
 varying vec3 vPosition;
 #endif
@@ -56,15 +15,15 @@ varying float vNormViewDepth;
 uniform mat4 previousViewProjection;varying vec4 vCurrentPosition;varying vec4 vPreviousPosition;
 #endif
 #endif
-`;e.IncludesShadersStore[o]||(e.IncludesShadersStore[o]=R);var d="samplerVertexDeclaration",x=`#if defined(_DEFINENAME_) && _DEFINENAME_DIRECTUV==0
+`;e.IncludesShadersStore[i]||(e.IncludesShadersStore[i]=u);var r="samplerVertexDeclaration",p=`#if defined(_DEFINENAME_) && _DEFINENAME_DIRECTUV==0
 varying vec2 v_VARYINGNAME_UV;
 #endif
-`;e.IncludesShadersStore[d]||(e.IncludesShadersStore[d]=x);var a="bumpVertexDeclaration",V=`#if defined(BUMP) || defined(PARALLAX) || defined(CLEARCOAT_BUMP) || defined(ANISOTROPIC)
+`;e.IncludesShadersStore[r]||(e.IncludesShadersStore[r]=p);var n="bumpVertexDeclaration",x=`#if defined(BUMP) || defined(PARALLAX) || defined(CLEARCOAT_BUMP) || defined(ANISOTROPIC)
 #if defined(TANGENT) && defined(NORMAL) 
 varying mat3 vTBN;
 #endif
 #endif
-`;e.IncludesShadersStore[a]||(e.IncludesShadersStore[a]=V);var f="lightVxFragmentDeclaration",P=`#ifdef LIGHT{X}
+`;e.IncludesShadersStore[n]||(e.IncludesShadersStore[n]=x);var o="lightVxFragmentDeclaration",A=`#ifdef LIGHT{X}
 uniform vec4 vLightData{X};uniform vec4 vLightDiffuse{X};
 #ifdef SPECULARTERM
 uniform vec4 vLightSpecular{X};
@@ -91,7 +50,7 @@ uniform vec3 vLightGround{X};
 uniform vec4 vLightWidth{X};uniform vec4 vLightHeight{X};
 #endif
 #endif
-`;e.IncludesShadersStore[f]||(e.IncludesShadersStore[f]=P);var s="lightVxUboDeclaration",D=`#ifdef LIGHT{X}
+`;e.IncludesShadersStore[o]||(e.IncludesShadersStore[o]=A);var d="lightVxUboDeclaration",R=`#ifdef LIGHT{X}
 uniform Light{X}
 {vec4 vLightData;vec4 vLightDiffuse;vec4 vLightSpecular;
 #ifdef SPOTLIGHT{X}
@@ -116,7 +75,7 @@ varying vec4 vPositionFromLight{X};varying float vDepthMetric{X};uniform mat4 li
 #endif
 #endif
 #endif
-`;e.IncludesShadersStore[s]||(e.IncludesShadersStore[s]=D);var l="morphTargetsVertexGlobalDeclaration",g=`#ifdef MORPHTARGETS
+`;e.IncludesShadersStore[d]||(e.IncludesShadersStore[d]=R);var f="morphTargetsVertexGlobalDeclaration",g=`#ifdef MORPHTARGETS
 uniform float morphTargetInfluences[NUM_MORPH_INFLUENCERS];
 #ifdef MORPHTARGETS_TEXTURE 
 uniform float morphTargetTextureIndices[NUM_MORPH_INFLUENCERS];uniform vec3 morphTargetTextureInfo;uniform highp sampler2DArray morphTargets;vec3 readVector3FromRawSampler(int targetIndex,float vertexIndex)
@@ -137,7 +96,7 @@ float y=floor(vertexIndex/morphTargetTextureInfo.y);float x=vertexIndex-y*morphT
 }
 #endif
 #endif
-`;e.IncludesShadersStore[l]||(e.IncludesShadersStore[l]=g);var c="morphTargetsVertexDeclaration",U=`#ifdef MORPHTARGETS
+`;e.IncludesShadersStore[f]||(e.IncludesShadersStore[f]=g);var a="morphTargetsVertexDeclaration",P=`#ifdef MORPHTARGETS
 #ifndef MORPHTARGETS_TEXTURE
 #ifdef MORPHTARGETS_POSITION
 attribute vec3 position{X};
@@ -161,12 +120,12 @@ attribute vec4 color{X};
 uniform float morphTargetCount;
 #endif
 #endif
-`;e.IncludesShadersStore[c]||(e.IncludesShadersStore[c]=U);var E="morphTargetsVertexGlobal",O=`#ifdef MORPHTARGETS
+`;e.IncludesShadersStore[a]||(e.IncludesShadersStore[a]=P);var s="morphTargetsVertexGlobal",_=`#ifdef MORPHTARGETS
 #ifdef MORPHTARGETS_TEXTURE
 float vertexID;
 #endif
 #endif
-`;e.IncludesShadersStore[E]||(e.IncludesShadersStore[E]=O);var m="morphTargetsVertex",L=`#ifdef MORPHTARGETS
+`;e.IncludesShadersStore[s]||(e.IncludesShadersStore[s]=_);var c="morphTargetsVertex",M=`#ifdef MORPHTARGETS
 #ifdef MORPHTARGETS_TEXTURE
 #if {X}==0
 for (int i=0; i<NUM_MORPH_INFLUENCERS; i++) {if (float(i)>=morphTargetCount) break;vertexID=float(gl_VertexID)*morphTargetTextureInfo.x;
@@ -226,7 +185,7 @@ colorUpdated+=(color{X}-color)*morphTargetInfluences[{X}];
 #endif
 #endif
 #endif
-`;e.IncludesShadersStore[m]||(e.IncludesShadersStore[m]=L);var I="prePassVertex",X=`#ifdef PREPASS_DEPTH
+`;e.IncludesShadersStore[c]||(e.IncludesShadersStore[c]=M);var S="prePassVertex",N=`#ifdef PREPASS_DEPTH
 vViewPos=(view*worldPos).rgb;
 #endif
 #ifdef PREPASS_NORMALIZED_VIEW_DEPTH
@@ -265,13 +224,13 @@ vPreviousPosition=previousViewProjection*finalPreviousWorld*previousInfluence*ve
 vPreviousPosition=previousViewProjection*finalPreviousWorld*vec4(positionUpdated,1.0);
 #endif
 #endif
-`;e.IncludesShadersStore[I]||(e.IncludesShadersStore[I]=X);var v="uvVariableDeclaration",C=`#if !defined(UV{X}) && defined(MAINUV{X})
+`;e.IncludesShadersStore[S]||(e.IncludesShadersStore[S]=N);var v="uvVariableDeclaration",X=`#if !defined(UV{X}) && defined(MAINUV{X})
 vec2 uv{X}=vec2(0.,0.);
 #endif
 #ifdef MAINUV{X}
 vMainUV{X}=uv{X};
 #endif
-`;e.IncludesShadersStore[v]||(e.IncludesShadersStore[v]=C);var S="samplerVertexImplementation",G=`#if defined(_DEFINENAME_) && _DEFINENAME_DIRECTUV==0
+`;e.IncludesShadersStore[v]||(e.IncludesShadersStore[v]=X);var l="samplerVertexImplementation",O=`#if defined(_DEFINENAME_) && _DEFINENAME_DIRECTUV==0
 if (v_INFONAME_==0.)
 {v_VARYINGNAME_UV=vec2(_MATRIXNAME_Matrix*vec4(uvUpdated,1.0,0.0));}
 #ifdef UV2
@@ -295,12 +254,12 @@ else if (v_INFONAME_==5.)
 {v_VARYINGNAME_UV=vec2(_MATRIXNAME_Matrix*vec4(uv6,1.0,0.0));}
 #endif
 #endif
-`;e.IncludesShadersStore[S]||(e.IncludesShadersStore[S]=G);var u="bumpVertex",F=`#if defined(BUMP) || defined(PARALLAX) || defined(CLEARCOAT_BUMP) || defined(ANISOTROPIC)
+`;e.IncludesShadersStore[l]||(e.IncludesShadersStore[l]=O);var m="bumpVertex",U=`#if defined(BUMP) || defined(PARALLAX) || defined(CLEARCOAT_BUMP) || defined(ANISOTROPIC)
 #if defined(TANGENT) && defined(NORMAL)
 vec3 tbnNormal=normalize(normalUpdated);vec3 tbnTangent=normalize(tangentUpdated.xyz);vec3 tbnBitangent=cross(tbnNormal,tbnTangent)*tangentUpdated.w;vTBN=mat3(finalWorld)*mat3(tbnTangent,tbnBitangent,tbnNormal);
 #endif
 #endif
-`;e.IncludesShadersStore[u]||(e.IncludesShadersStore[u]=F);var A="shadowsVertex",H=`#ifdef SHADOWS
+`;e.IncludesShadersStore[m]||(e.IncludesShadersStore[m]=U);var T="shadowsVertex",V=`#ifdef SHADOWS
 #if defined(SHADOWCSM{X})
 vPositionFromCamera{X}=view*worldPos;for (int i=0; i<SHADOWCSMNUM_CASCADES{X}; i++) {vPositionFromLight{X}[i]=lightMatrix{X}[i]*worldPos;
 #ifdef USE_REVERSE_DEPTHBUFFER
@@ -318,164 +277,10 @@ vDepthMetric{X}=(vPositionFromLight{X}.z+light{X}.depthValues.x)/light{X}.depthV
 #endif
 #endif
 #endif
-`;e.IncludesShadersStore[A]||(e.IncludesShadersStore[A]=H);var p="pointCloudVertex",W=`#if defined(POINTSIZE) && !defined(WEBGPU)
-gl_PointSize=pointSize;
-#endif
-`;e.IncludesShadersStore[p]||(e.IncludesShadersStore[p]=W);var T="logDepthVertex",y=`#ifdef LOGARITHMICDEPTH
+`;e.IncludesShadersStore[T]||(e.IncludesShadersStore[T]=V);var h="logDepthVertex",D=`#ifdef LOGARITHMICDEPTH
 vFragmentDepth=1.0+gl_Position.w;gl_Position.z=log2(max(0.000001,vFragmentDepth))*logarithmicDepthConstant;
 #endif
-`;e.IncludesShadersStore[T]||(e.IncludesShadersStore[T]=y);var i="defaultVertexShader",_=`#define CUSTOM_VERTEX_EXTENSION
-#include<__decl__defaultVertex>
-#define CUSTOM_VERTEX_BEGIN
-attribute vec3 position;
-#ifdef NORMAL
-attribute vec3 normal;
+`;e.IncludesShadersStore[h]||(e.IncludesShadersStore[h]=D);var I="decalVertexDeclaration",L=`#ifdef DECAL
+uniform vec4 vDecalInfos;uniform mat4 decalMatrix;
 #endif
-#ifdef TANGENT
-attribute vec4 tangent;
-#endif
-#ifdef UV1
-attribute vec2 uv;
-#endif
-#include<uvAttributeDeclaration>[2..7]
-#ifdef VERTEXCOLOR
-attribute vec4 color;
-#endif
-#include<helperFunctions>
-#include<bonesDeclaration>
-#include<bakedVertexAnimationDeclaration>
-#include<instancesDeclaration>
-#include<prePassVertexDeclaration>
-#include<mainUVVaryingDeclaration>[1..7]
-#include<samplerVertexDeclaration>(_DEFINENAME_,DIFFUSE,_VARYINGNAME_,Diffuse)
-#include<samplerVertexDeclaration>(_DEFINENAME_,DETAIL,_VARYINGNAME_,Detail)
-#include<samplerVertexDeclaration>(_DEFINENAME_,AMBIENT,_VARYINGNAME_,Ambient)
-#include<samplerVertexDeclaration>(_DEFINENAME_,OPACITY,_VARYINGNAME_,Opacity)
-#include<samplerVertexDeclaration>(_DEFINENAME_,EMISSIVE,_VARYINGNAME_,Emissive)
-#include<samplerVertexDeclaration>(_DEFINENAME_,LIGHTMAP,_VARYINGNAME_,Lightmap)
-#if defined(SPECULARTERM)
-#include<samplerVertexDeclaration>(_DEFINENAME_,SPECULAR,_VARYINGNAME_,Specular)
-#endif
-#include<samplerVertexDeclaration>(_DEFINENAME_,BUMP,_VARYINGNAME_,Bump)
-#include<samplerVertexDeclaration>(_DEFINENAME_,DECAL,_VARYINGNAME_,Decal)
-varying vec3 vPositionW;
-#ifdef NORMAL
-varying vec3 vNormalW;
-#endif
-#if defined(VERTEXCOLOR) || defined(INSTANCESCOLOR) && defined(INSTANCES)
-varying vec4 vColor;
-#endif
-#include<bumpVertexDeclaration>
-#include<clipPlaneVertexDeclaration>
-#include<fogVertexDeclaration>
-#include<__decl__lightVxFragment>[0..maxSimultaneousLights]
-#include<morphTargetsVertexGlobalDeclaration>
-#include<morphTargetsVertexDeclaration>[0..maxSimultaneousMorphTargets]
-#ifdef REFLECTIONMAP_SKYBOX
-varying vec3 vPositionUVW;
-#endif
-#if defined(REFLECTIONMAP_EQUIRECTANGULAR_FIXED) || defined(REFLECTIONMAP_MIRROREDEQUIRECTANGULAR_FIXED)
-varying vec3 vDirectionW;
-#endif
-#if defined(CLUSTLIGHT_BATCH) && CLUSTLIGHT_BATCH>0
-varying float vViewDepth;
-#endif
-#include<logDepthDeclaration>
-#define CUSTOM_VERTEX_DEFINITIONS
-void main(void) {
-#define CUSTOM_VERTEX_MAIN_BEGIN
-vec3 positionUpdated=position;
-#ifdef NORMAL
-vec3 normalUpdated=normal;
-#endif
-#ifdef TANGENT
-vec4 tangentUpdated=tangent;
-#endif
-#ifdef UV1
-vec2 uvUpdated=uv;
-#endif
-#ifdef UV2
-vec2 uv2Updated=uv2;
-#endif
-#ifdef VERTEXCOLOR
-vec4 colorUpdated=color;
-#endif
-#include<morphTargetsVertexGlobal>
-#include<morphTargetsVertex>[0..maxSimultaneousMorphTargets]
-#ifdef REFLECTIONMAP_SKYBOX
-vPositionUVW=positionUpdated;
-#endif
-#define CUSTOM_VERTEX_UPDATE_POSITION
-#define CUSTOM_VERTEX_UPDATE_NORMAL
-#include<instancesVertex>
-#if defined(PREPASS) && ((defined(PREPASS_VELOCITY) || defined(PREPASS_VELOCITY_LINEAR)) && !defined(BONES_VELOCITY_ENABLED)
-vCurrentPosition=viewProjection*finalWorld*vec4(positionUpdated,1.0);vPreviousPosition=previousViewProjection*finalPreviousWorld*vec4(positionUpdated,1.0);
-#endif
-#include<bonesVertex>
-#include<bakedVertexAnimation>
-vec4 worldPos=finalWorld*vec4(positionUpdated,1.0);
-#ifdef NORMAL
-mat3 normalWorld=mat3(finalWorld);
-#if defined(INSTANCES) && defined(THIN_INSTANCES)
-vNormalW=normalUpdated/vec3(dot(normalWorld[0],normalWorld[0]),dot(normalWorld[1],normalWorld[1]),dot(normalWorld[2],normalWorld[2]));vNormalW=normalize(normalWorld*vNormalW);
-#else
-#ifdef NONUNIFORMSCALING
-normalWorld=transposeMat3(inverseMat3(normalWorld));
-#endif
-vNormalW=normalize(normalWorld*normalUpdated);
-#endif
-#endif
-#define CUSTOM_VERTEX_UPDATE_WORLDPOS
-#ifdef MULTIVIEW
-if (gl_ViewID_OVR==0u) {gl_Position=viewProjection*worldPos;} else {gl_Position=viewProjectionR*worldPos;}
-#else
-gl_Position=viewProjection*worldPos;
-#endif
-vPositionW=vec3(worldPos);
-#ifdef PREPASS
-#include<prePassVertex>
-#endif
-#if defined(REFLECTIONMAP_EQUIRECTANGULAR_FIXED) || defined(REFLECTIONMAP_MIRROREDEQUIRECTANGULAR_FIXED)
-vDirectionW=normalize(vec3(finalWorld*vec4(positionUpdated,0.0)));
-#endif
-#if defined(CLUSTLIGHT_BATCH) && CLUSTLIGHT_BATCH>0
-#ifdef RIGHT_HANDED
-vViewDepth=-(view*worldPos).z;
-#else
-vViewDepth=(view*worldPos).z;
-#endif
-#endif
-#ifndef UV1
-vec2 uvUpdated=vec2(0.,0.);
-#endif
-#ifndef UV2
-vec2 uv2Updated=vec2(0.,0.);
-#endif
-#ifdef MAINUV1
-vMainUV1=uvUpdated;
-#endif
-#ifdef MAINUV2
-vMainUV2=uv2Updated;
-#endif
-#include<uvVariableDeclaration>[3..7]
-#include<samplerVertexImplementation>(_DEFINENAME_,DIFFUSE,_VARYINGNAME_,Diffuse,_MATRIXNAME_,diffuse,_INFONAME_,DiffuseInfos.x)
-#include<samplerVertexImplementation>(_DEFINENAME_,DETAIL,_VARYINGNAME_,Detail,_MATRIXNAME_,detail,_INFONAME_,DetailInfos.x)
-#include<samplerVertexImplementation>(_DEFINENAME_,AMBIENT,_VARYINGNAME_,Ambient,_MATRIXNAME_,ambient,_INFONAME_,AmbientInfos.x)
-#include<samplerVertexImplementation>(_DEFINENAME_,OPACITY,_VARYINGNAME_,Opacity,_MATRIXNAME_,opacity,_INFONAME_,OpacityInfos.x)
-#include<samplerVertexImplementation>(_DEFINENAME_,EMISSIVE,_VARYINGNAME_,Emissive,_MATRIXNAME_,emissive,_INFONAME_,EmissiveInfos.x)
-#include<samplerVertexImplementation>(_DEFINENAME_,LIGHTMAP,_VARYINGNAME_,Lightmap,_MATRIXNAME_,lightmap,_INFONAME_,LightmapInfos.x)
-#if defined(SPECULARTERM)
-#include<samplerVertexImplementation>(_DEFINENAME_,SPECULAR,_VARYINGNAME_,Specular,_MATRIXNAME_,specular,_INFONAME_,SpecularInfos.x)
-#endif
-#include<samplerVertexImplementation>(_DEFINENAME_,BUMP,_VARYINGNAME_,Bump,_MATRIXNAME_,bump,_INFONAME_,BumpInfos.x)
-#include<samplerVertexImplementation>(_DEFINENAME_,DECAL,_VARYINGNAME_,Decal,_MATRIXNAME_,decal,_INFONAME_,DecalInfos.x)
-#include<bumpVertex>
-#include<clipPlaneVertex>
-#include<fogVertex>
-#include<shadowsVertex>[0..maxSimultaneousLights]
-#include<vertexColorMixing>
-#include<pointCloudVertex>
-#include<logDepthVertex>
-#define CUSTOM_VERTEX_MAIN_END
-}
-`;e.ShadersStore[i]||(e.ShadersStore[i]=_);var di={name:i,shader:_};export{di as defaultVertexShader};
+`;e.IncludesShadersStore[I]||(e.IncludesShadersStore[I]=L);

@@ -807,3 +807,40 @@
     -webkit-print-color-adjust:exact;print-color-adjust:exact;
   }
 }
+
+
+/* ---- Trial 5 — Warm Sheen Rim (Cascading Style Sheets fallback) ----
+   Default visual for the header title plate. Zero BabylonJS: a soft warm
+   matte-paper halo at the grazing (bottom) edge, behind the display type.
+   This stands on its own whenever the physics-based-rendering 3D scene does
+   not mount — device gate off, reduced-motion, bundle absent, or fetch
+   failure. mountSheenRim('#kodiak-sheen-rim') overlays the same box when it
+   does mount. Halo is 1-2% ambient presence; the heading stays above at
+   z-index 1 and exactly as legible as before. No Scalable Vector Graphics,
+   no raster — a single radial-gradient resolved from the blazeOrange token. */
+.kodiak-headline-plate{position:relative}
+.kodiak-sheen-rim{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  border-radius:inherit;
+  /* blazeOrange token (--colors-brand-blaze-orange #E8530E) at 6%, soft halo
+     rising from the bottom grazing edge, fading to transparent — warm paper
+     glow, not a shiny highlight */
+  background:radial-gradient(
+    120% 80% at 50% 100%,
+    rgba(232,83,14,0.06) 0%,
+    rgba(232,83,14,0) 60%
+  );
+}
+/* heading text always above the ambient halo */
+.kodiak-headline-plate > h1{position:relative;z-index:1}
+/* slow calm breathe — a heartbeat, not a strobe — only when motion is allowed */
+@media (prefers-reduced-motion:no-preference){
+  .kodiak-sheen-rim{animation:sheen-breathe 4.6s ease-in-out infinite}
+}
+@keyframes sheen-breathe{
+  0%,100%{opacity:0.85}
+  50%{opacity:1}
+}

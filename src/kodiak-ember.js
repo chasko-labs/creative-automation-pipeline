@@ -4,20 +4,26 @@
 // Exposes window.KodiakEmber. No ESM at runtime, no CORS, file:// works.
 //
 // WAVE 0: the shared-engine singleton + device gate + brand palette.
-// WAVE 1 (this file): the recipe-card physical-board preview (RecipeCardBoard)
-// migrated OFF the old window.BABYLON full-CDN build and ONTO the shared engine.
-// It orbits a thin kraft-board mesh with a representational front-face texture;
-// it shares the ONE engine via ensureEngine() and never constructs its own.
-// The three ambient effect scenes (EmberBar / KraftCard / FinishLineBloom)
-// land in later waves, extending this same harness. Deep imports only
-// (never the @babylonjs/core barrel) so esbuild tree-shakes.
+// WAVE 1: the recipe-card physical-board preview (RecipeCardBoard) migrated OFF
+// the old window.BABYLON full-CDN build and ONTO the shared engine.
+// WAVE 2 (Trial 5, this file): the warm sheen-rim ambient halo (SheenRim) — a
+// matte physics-based-rendering plane with sheen only, mounted behind the header
+// title as a low-z backing plane. Extends the same Wave 0 harness (shared engine
+// + device gate + brand palette). Deep imports only (never the @babylonjs/core
+// barrel) so esbuild tree-shakes.
 
+import { Animation } from "@babylonjs/core/Animations/animation";
+import { EasingFunction, SineEase } from "@babylonjs/core/Animations/easing";
 import { ArcRotateCamera } from "@babylonjs/core/Cameras/arcRotateCamera";
+import { FreeCamera } from "@babylonjs/core/Cameras/freeCamera";
 import { Engine } from "@babylonjs/core/Engines/engine";
 import { DirectionalLight } from "@babylonjs/core/Lights/directionalLight";
 import { HemisphericLight } from "@babylonjs/core/Lights/hemisphericLight";
+import { PBRMaterial } from "@babylonjs/core/Materials/PBR/pbrMaterial";
 import { StandardMaterial } from "@babylonjs/core/Materials/standardMaterial";
 import { DynamicTexture } from "@babylonjs/core/Materials/Textures/dynamicTexture";
+import { RawTexture } from "@babylonjs/core/Materials/Textures/rawTexture.js";
+import { Texture } from "@babylonjs/core/Materials/Textures/texture.js";
 import { MultiMaterial } from "@babylonjs/core/Materials/multiMaterial";
 import { Color3, Color4 } from "@babylonjs/core/Maths/math.color";
 import { Vector3 } from "@babylonjs/core/Maths/math.vector";
@@ -598,14 +604,205 @@ function mountRecipeCardBoard(selector = "#recipe-card-board") {
 	return state;
 }
 
+// ── Wave 2 — Trial 5: Warm Sheen Rim (matte fiber halo behind display type) ──
+// runbook docs/babylonjs-integration-runbook.md section 16. A matte plane with
+// physics-based-rendering sheen ONLY (no clearCoat, no particles) that produces
+// a soft warm retroreflective halo at grazing angles — matte paper that glows
+// faintly at the edge, not a shiny surface. It sits at ~1-2% presence directly
+// behind the header title, never over it. The only motion is a very slow ambient
+// light "breathe" (140-frame SineEase, ~4.6s), the same tempo Trial 1 uses.
+// Runs ONLY on the shared engine singleton; reduced-motion keeps it static.
+
+// procedural 32x32 tangent-space normal texture (runbook section 9). A crossed
+// kraft-fiber pattern generated in memory as a RawTexture — zero raster asset,
+// file:// safe. Gives the sheen halo real fiber to catch at grazing angles
+// instead of reading as flat plastic.
+function kraftNormalTexture(scene) {
+	// 32x32 tangent-space normal, crossed fiber
+	const size = 32,
+		data = new Uint8Array(size * size * 4);
+	const h = (x, y) => {
+		const a = Math.sin((x * 0.9 + y * 0.9) * 1.3);
+		const b = Math.sin((x * 0.9 - y * 0.9) * 1.7);
+		const g = Math.sin(x * 5.1) * Math.cos(y * 4.7) * 0.25;
+		return (a * 0.5 + b * 0.35 + g) * 0.5;
+	};
+	for (let y = 0; y < size; y++)
+		for (let x = 0; x < size; x++) {
+			const hL = h((x - 1 + size) % size, y),
+				hR = h((x + 1) % size, y);
+			const hD = h(x, (y - 1 + size) % size),
+				hU = h(x, (y + 1) % size);
+			const strength = 1.4,
+				nx = (hL - hR) * strength,
+				ny = (hD - hU) * strength,
+				nz = 1;
+			const len = Math.sqrt(nx * nx + ny * ny + nz * nz) || 1,
+				i = (y * size + x) * 4;
+			data[i] = Math.round(((nx / len) * 0.5 + 0.5) * 255);
+			data[i + 1] = Math.round(((ny / len) * 0.5 + 0.5) * 255);
+			data[i + 2] = Math.round(((nz / len) * 0.5 + 0.5) * 255);
+			data[i + 3] = 255;
+		}
+	const tex = RawTexture.CreateRGBATexture(
+		data,
+		size,
+		size,
+		scene,
+		true,
+		false,
+		Texture.TRILINEAR_SAMPLINGMODE,
+	);
+	tex.wrapU = Texture.WRAP_ADDRESSMODE;
+	tex.wrapV = Texture.WRAP_ADDRESSMODE;
+	return tex;
+}
+
+class SheenRim {
+	constructor(canvas, host) {
+		this.canvas = canvas;
+		this.host = host;
+		this.engine = ensureEngine();
+		this._reduceMotion = prefersReducedMotion();
+		this.scene = new Scene(this.engine);
+		this.scene.clearColor = new Color4(0, 0, 0, 0); // transparent — sit on the header band
+		this.camera = new FreeCamera("sheenCam", new Vector3(0, 0, -3), this.scene);
+		this.camera.setTarget(Vector3.Zero());
+		this.hemi = new HemisphericLight(
+			"sheenHemi",
+			new Vector3(0, 0, -1),
+			this.scene,
+		);
+		this.hemi.intensity = 0.45;
+		this.hemi.diffuse = PARCHMENT;
+		this.hemi.groundColor = hex("#EAD9C4");
+		const plane = MeshBuilder.CreatePlane(
+			"sheenPlane",
+			{ width: 8, height: 3 },
+			this.scene,
+		);
+		const mat = new PBRMaterial("sheenMat", this.scene);
+		mat.albedoColor = hex("#F4EDE6"); // oatmeal neutral.100 token — card/kraft bag
+		mat.metallic = 0;
+		mat.roughness = 0.95; // as matte as the engine goes
+		mat.sheen.isEnabled = true;
+		mat.sheen.intensity = 0.4;
+		mat.sheen.color = BLAZE.scale(0.45); // warm halo, derived from blazeOrange token
+		mat.sheen.roughness = 0.5; // soft, wide halo — not a hard glint
+		const nm = kraftNormalTexture(this.scene);
+		nm.uScale = 10;
+		nm.vScale = 4;
+		mat.bumpTexture = nm;
+		plane.material = mat;
+		this.plane = plane;
+		this.attachBreathe(); // very slow ambient light breathe, fiona tempo
+		registerSceneView(canvas, this.camera, () => this.scene.render());
+	}
+
+	attachBreathe() {
+		// reduced-motion: leave the light static at its base intensity — no breathe.
+		if (this._reduceMotion) return;
+		// reuse Trial 1's 140-frame SineEase tempo on light intensity (~4.6s at 30fps)
+		const fps = 30,
+			cycle = 140;
+		const ease = new SineEase();
+		ease.setEasingMode(EasingFunction.EASINGMODE_EASEINOUT);
+		const anim = new Animation(
+			"sheenBreathe",
+			"intensity",
+			fps,
+			Animation.ANIMATIONTYPE_FLOAT,
+			Animation.ANIMATIONLOOPMODE_CYCLE,
+		);
+		anim.setKeys([
+			{ frame: 0, value: 0.45 },
+			{ frame: Math.round(cycle * 0.5), value: 0.55 },
+			{ frame: cycle, value: 0.45 },
+		]);
+		anim.setEasingFunction(ease);
+		this.hemi.animations = [anim];
+		this.scene.beginAnimation(this.hemi, 0, cycle, true);
+	}
+
+	resize() {
+		this.engine.resize();
+	}
+
+	dispose() {
+		this.scene.dispose();
+		unregisterSceneView(this.canvas);
+	}
+}
+
+// mountSheenRim — lazy, gated mount of the ambient warm-sheen halo behind the
+// header title. The CSS radial-glow fallback (owned by the stylesheet) is the
+// DEFAULT visual and stands on its own; there is no fallback image to toggle
+// here. The 3D halo only mounts after canMount3D(host) passes, and only when the
+// host approaches the viewport (IntersectionObserver, ~200px rootMargin). On
+// gate-fail or any construction error we do nothing — the CSS fallback remains.
+// The overlay canvas is purely ambient: non-interactive (pointer-events none),
+// aria-hidden, and z-index behind the text the CSS agent places at z-index 1.
+function mountSheenRim(selector = "#kodiak-sheen-rim") {
+	const host =
+		typeof selector === "string"
+			? document.querySelector(selector)
+			: selector;
+	if (!host) return null;
+
+	const state = { rim: null, mounted: false };
+
+	const tryMount = () => {
+		if (state.mounted) return; // never leak a second scene
+		if (!canMount3D(host)) return; // gate fail -> CSS radial-glow fallback stands
+		state.mounted = true;
+		const canvas = document.createElement("canvas");
+		canvas.className = "kodiak-sheen-rim__canvas";
+		// ambient-only overlay: never interactive, always behind the header text.
+		canvas.style.cssText =
+			"position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:0";
+		canvas.setAttribute("aria-hidden", "true");
+		if (getComputedStyle(host).position === "static") {
+			host.style.position = "relative";
+		}
+		host.appendChild(canvas);
+		try {
+			state.rim = new SheenRim(canvas, host);
+		} catch {
+			// silent failure — remove the dead canvas, leave the CSS fallback.
+			state.mounted = false;
+			canvas.remove();
+		}
+	};
+
+	if ("IntersectionObserver" in window) {
+		const io = new IntersectionObserver(
+			(entries) => {
+				for (const e of entries) {
+					if (e.isIntersecting) {
+						io.disconnect();
+						tryMount();
+						break;
+					}
+				}
+			},
+			{ rootMargin: "200px 0px" }, // approach the viewport before mounting
+		);
+		io.observe(host);
+	} else {
+		tryMount();
+	}
+	return state;
+}
+
 // ── public API (WAVE 1 surface) ──
 // Later waves add mountEmberBar / mountKraftCards / finishLineBloom here. This
 // wave exposes the recipe-card board mount plus the device gate and version
 // stamp, so the details.html <script> boot guard is wireable and testable now.
 const KodiakEmber = {
 	mountRecipeCardBoard,
+	mountSheenRim,
 	canMount3D,
-	_version: "0.2.0",
+	_version: "0.3.0",
 	// harness internals surfaced for later-wave scene modules + tests; not a
 	// stable public contract.
 	_harness: Object.freeze({

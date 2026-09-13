@@ -189,7 +189,7 @@ header h1,header h2,header h3{color:var(--parchment)}
 </style></head><body>
 <header class="kodiak-header" style="background:var(--brown-kodiak);color:#FFF8F0;border-bottom:none;display:flex;align-items:center;gap:16px;padding:10px 18px;flex-wrap:wrap;margin:0"><div class="header__inner">
 <a class="backlink" href="index.html">&larr; Back to campaign</a>
-<div style="flex:1;background:var(--colors-brand-frontier-green);border-radius:6px;padding:8px 14px"><h1 style="color:#FFF8F0;font-size:clamp(18px,3.2vw,26px)">Design System Inventory</h1></div>
+<div class="kodiak-headline-plate" style="flex:1;position:relative;background:var(--colors-brand-frontier-green);border-radius:6px;padding:8px 14px"><div id="kodiak-sheen-rim" class="kodiak-sheen-rim" aria-hidden="true"></div><h1 style="position:relative;z-index:1;color:#FFF8F0;font-size:clamp(18px,3.2vw,26px)">Design System Inventory</h1></div>
 </div>
 </header>
 
@@ -1240,7 +1240,10 @@ graph TD
      the entry failed to load, leaving the static fallback standing. -->
 <script type="module">
   if (window.KodiakEmber) {
-    const boot = () => window.KodiakEmber.mountRecipeCardBoard('#recipe-card-board');
+    const boot = () => {
+      window.KodiakEmber.mountRecipeCardBoard('#recipe-card-board');
+      window.KodiakEmber.mountSheenRim('#kodiak-sheen-rim');
+    };
     if (document.readyState === 'loading')
       document.addEventListener('DOMContentLoaded', boot);
     else boot();
