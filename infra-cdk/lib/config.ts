@@ -97,6 +97,27 @@ export const FRONTIER_LOG_PREFIX = "cloudfront/";
 export const FRONTIER_ZONE_ID = "Z09216723VDB0N04DM9LL";
 export const FRONTIER_ZONE_NAME = "bryanchasko.com";
 
+// ---- Kodiak DEV site hosting (kodiak-dev.bryanchasko.com) -------------------
+// NET-NEW dev hosting -- these resources do NOT exist yet, so DevHostingStack
+// is a plain `cdk deploy` create (no `cdk import`, unlike the prod adoption).
+// Deliberately mirrors the prod FRONTIER_* origin/behavior shape so dev routes
+// like prod, but is a self-owned net-new distro (no verbatim-live constraint).
+//
+// Cert: REUSES the prod wildcard cert (FRONTIER_CERT_ARN). Its SAN is
+// *.bryanchasko.com, which already covers kodiak-dev.bryanchasko.com -- no new
+// cert, no validation record.
+//
+// DNS: NO stack-owned ARecord. The zone (FRONTIER_ZONE_ID) lives in the
+// aerospaceug-admin account; the dev A-record is hand-created cross-account
+// later, exactly as prod keeps its alias hand-managed. Same gate as prod.
+export const KODIAK_DEV_BUCKET_NAME = "kodiak-dev-bryanchasko-com";
+export const KODIAK_DEV_SITE_DOMAIN = "kodiak-dev.bryanchasko.com";
+export const KODIAK_DEV_ALIASES = ["kodiak-dev.bryanchasko.com"];
+// Live distribution comment for the dev distro. Net-new, so no import-verbatim
+// constraint -- a plain descriptive comment is fine.
+export const KODIAK_DEV_COMMENT =
+  "KODIAK dev -- kodiak-dev.bryanchasko.com (net-new dev mirror of frontier hosting)";
+
 // Standard tag set applied at the app level in bin/app.ts. managed-by=cdk marks
 // the migration off the cloudformation/terraform-managed lineage.
 export const STANDARD_TAGS: Record<string, string> = {
@@ -105,4 +126,12 @@ export const STANDARD_TAGS: Record<string, string> = {
   "managed-by": "cdk",
   repo: "chasko-labs/creative-automation-pipeline",
   environment: "production",
+};
+
+// Dev tag set: same shape as STANDARD_TAGS with environment overridden to
+// "development". Applied at the DevHostingStack level (not app-wide) so the
+// prod app tags remain production while the dev stack tags read development.
+export const DEV_TAGS: Record<string, string> = {
+  ...STANDARD_TAGS,
+  environment: "development",
 };
