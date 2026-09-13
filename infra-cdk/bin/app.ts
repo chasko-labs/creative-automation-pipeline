@@ -2,6 +2,7 @@
 import * as cdk from "aws-cdk-lib";
 import { DataStack } from "../lib/data-stack";
 import { HostingStack } from "../lib/hosting-stack";
+import { DevHostingStack } from "../lib/dev-hosting-stack";
 import { GenerateStack } from "../lib/generate-stack";
 import { CoachStack } from "../lib/coach-stack";
 import { ObservabilityStack } from "../lib/observability-stack";
@@ -100,6 +101,21 @@ new HostingStack(app, "kodiak-creatives-hosting", {
   terminationProtection: true,
   description:
     "Kodiak frontier site hosting: S3 bucket + CloudFront distro + OAC + DNS alias (all RETAIN, adopted in place #202).",
+});
+
+// dev site hosting (kodiak-dev.bryanchasko.com): NET-NEW S3 bucket +
+// CloudFront distro + OAC, all RETAIN. Unlike the prod HostingStack this is a
+// plain `cdk deploy` CREATE -- the dev resources do not exist yet, so NO
+// `cdk import`. Distinct stack id + bucket name so it never collides with prod.
+// terminationProtection=false: dev is disposable, no guard needed (prod keeps
+// it true to protect the live site). Reuses the prod wildcard cert; owns no
+// Route53 record (cross-account, hand-managed -- same gate as prod).
+new DevHostingStack(app, "kodiak-creatives-hosting-dev", {
+  env: { account, region: PRIMARY_REGION },
+  projectName: PROJECT_NAME,
+  terminationProtection: false,
+  description:
+    "Kodiak DEV site hosting: NET-NEW S3 bucket + CloudFront distro + OAC (all RETAIN) for kodiak-dev.bryanchasko.com.",
 });
 
 // bedrock model-invocation logging in us-west-2, where the custom art-director
