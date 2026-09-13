@@ -7,11 +7,16 @@
   "scripts": {
     "tokens:config": "uv run python scripts/gen-panda-config.py",
     "tokens:css": "panda cssgen --outfile web/kodiak-posts-for-todays-frontier/design/styles.css",
+    "build:ember": "node scripts/build-ember.mjs",
+    "bundle:babylon": "node scripts/build-ember.mjs",
     "test:vitest": "vitest run tests/vitest/",
-    "test:live": "node tests/live/harness.mjs"
+    "test:live": "node tests/live/harness.mjs",
+    "test:render": "playwright test --config playwright.config.mjs"
   },
   "devDependencies": {
+    "@babylonjs/core": "9.4.1",
     "@pandacss/dev": "1.12.0",
+    "esbuild": "0.25.9",
     "playwright": "1.63.0",
     "vitest": "5.0.0"
   }

@@ -99,6 +99,7 @@ DIRS=(
 	"design"
 	"js"
 	"input_assets"
+	"vendor"
 )
 
 run() {

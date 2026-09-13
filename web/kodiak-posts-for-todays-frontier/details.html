@@ -1217,7 +1217,33 @@ graph TD
   if(printBtn){ printBtn.addEventListener('click',function(){ window.print(); }); }
 })();
 </script>
-<!-- recipe-card physical board preview: pinned BabylonJS runtime + local classic scene script. supplementary only; the recipe-card section stays usable if these fail. -->
-<script defer crossorigin="anonymous" src="https://cdn.babylonjs.com/v7.54.3/babylon.js" onerror="window.__recipeCardBoardCdnFailed=true"></script>
-<script defer src="js/recipe-card-board.js"></script>
+<!-- recipe-card physical board preview: committed tree-shaken BabylonJS bundle
+     (shared-engine harness) loaded same-origin. supplementary only; the
+     recipe-card section stays usable if the bundle is absent — the static SVG
+     fallback is the default and the boot guard leaves it standing. -->
+<!-- recipe-card physical board preview: BabylonJS bundle built as an
+     ECMAScript module with same-origin shader chunks (esbuild code-splitting),
+     loaded from the project's own vendor/ path on Simple Storage Service +
+     CloudFront. Supplementary only; the recipe-card section stays usable if the
+     bundle is absent or a shader chunk fails to fetch — the static
+     Scalable-Vector-Graphics fallback is the default and the boot guard leaves
+     it standing.
+     TRADEOFF (accepted by the plan owner): as an ECMAScript module with
+     same-origin shader chunks, the three-dimensional layer requires an http(s)
+     origin (the deployed site) to fetch its chunks; it does not run the
+     three-dimensional path from a file:// Uniform Resource Locator. The static
+     fallback still works from file:// and on any chunk-fetch failure. -->
+<script type="module" src="vendor/kodiak-ember.esm.js"></script>
+<!-- Boot as a SECOND module script. ECMAScript-module scripts are deferred and
+     execute in document order, so this runs AFTER the entry module above has
+     evaluated and assigned window.KodiakEmber. The guard still returns early if
+     the entry failed to load, leaving the static fallback standing. -->
+<script type="module">
+  if (window.KodiakEmber) {
+    const boot = () => window.KodiakEmber.mountRecipeCardBoard('#recipe-card-board');
+    if (document.readyState === 'loading')
+      document.addEventListener('DOMContentLoaded', boot);
+    else boot();
+  }
+</script>
 </body></html>

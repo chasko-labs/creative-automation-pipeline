@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>kodiak-ember harness fixture</title>
+    <style>
+      /* the fallback is the DEFAULT visual. it is what ships when the device
+         gate refuses, or before any 3D mount is attempted. Wave 0 has no scene
+         mount API, so the fallback is always what is visible here. */
+      #ember-fallback {
+        width: 320px;
+        height: 96px;
+        background: linear-gradient(90deg, #e8530e, #ff8a3d);
+        display: block;
+      }
+      /* the mount target the harness would register a view canvas into. it has
+         real layout so the zero-layout gate branch is not the reason a mount
+         is refused — we want to isolate the WebGL/software/reduced-motion
+         branches in the gate tests. */
+      #ember-host {
+        width: 320px;
+        height: 96px;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- static CSS fallback: the entire visual until a 3D mount succeeds -->
+    <div id="ember-fallback" data-role="fallback" aria-hidden="true"></div>
+
+    <!-- mount target for a later-wave scene view canvas -->
+    <div id="ember-host" data-role="mount-target"></div>
+
+    <!-- committed, tree-shaken ECMAScript-module bundle. relative path so the
+         module loads offline; it self-assigns window.KodiakEmber on evaluation
+         and dynamic-imports same-origin shader chunks from vendor/chunk-*.js. -->
+    <script
+      type="module"
+      src="../../../web/kodiak-posts-for-todays-frontier/vendor/kodiak-ember.esm.js"
+    ></script>
+    <!-- readiness probe as a SECOND module script. module scripts are deferred
+         and run in document order, so this evaluates AFTER the entry above has
+         assigned window.KodiakEmber. a classic inline <script> here would run
+         BEFORE either module (module = deferred), so the flag would read false.
+         keeping this a module preserves the specs' waitForFunction contract on
+         window.__kodiakEmberReady === true unchanged. -->
+    <script type="module">
+      window.__kodiakEmberReady = typeof window.KodiakEmber !== 'undefined';
+    </script>
+  </body>
+</html>

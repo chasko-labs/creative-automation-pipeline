@@ -1,0 +1,621 @@
+// kodiak-ember — BabylonJS ambient effects for the Kodiak frontier frontend.
+// Option C: authored as ES module, bundled by esbuild to IIFE, committed as
+// vendor/kodiak-ember.iife.js. Loaded via plain <script> beside glimmer-proxy.js.
+// Exposes window.KodiakEmber. No ESM at runtime, no CORS, file:// works.
+//
+// WAVE 0: the shared-engine singleton + device gate + brand palette.
+// WAVE 1 (this file): the recipe-card physical-board preview (RecipeCardBoard)
+// migrated OFF the old window.BABYLON full-CDN build and ONTO the shared engine.
+// It orbits a thin kraft-board mesh with a representational front-face texture;
+// it shares the ONE engine via ensureEngine() and never constructs its own.
+// The three ambient effect scenes (EmberBar / KraftCard / FinishLineBloom)
+// land in later waves, extending this same harness. Deep imports only
+// (never the @babylonjs/core barrel) so esbuild tree-shakes.
+
+import { ArcRotateCamera } from "@babylonjs/core/Cameras/arcRotateCamera";
+import { Engine } from "@babylonjs/core/Engines/engine";
+import { DirectionalLight } from "@babylonjs/core/Lights/directionalLight";
+import { HemisphericLight } from "@babylonjs/core/Lights/hemisphericLight";
+import { StandardMaterial } from "@babylonjs/core/Materials/standardMaterial";
+import { DynamicTexture } from "@babylonjs/core/Materials/Textures/dynamicTexture";
+import { MultiMaterial } from "@babylonjs/core/Materials/multiMaterial";
+import { Color3, Color4 } from "@babylonjs/core/Maths/math.color";
+import { Vector3 } from "@babylonjs/core/Maths/math.vector";
+import { MeshBuilder } from "@babylonjs/core/Meshes/meshBuilder";
+import { SubMesh } from "@babylonjs/core/Meshes/subMesh";
+import { Scene } from "@babylonjs/core/scene";
+import { Logger } from "@babylonjs/core/Misc/logger";
+import { ShaderStore } from "@babylonjs/core/Engines/shaderStore";
+
+// ArcRotateCamera pointer/keyboard controls are registered as a side-effect;
+// the camera input manager is not pulled in by the class import alone.
+import "@babylonjs/core/Cameras/Inputs/arcRotateCameraPointersInput.js";
+import "@babylonjs/core/Cameras/Inputs/arcRotateCameraKeyboardMoveInput.js";
+import "@babylonjs/core/Cameras/Inputs/arcRotateCameraMouseWheelInput.js";
+
+Logger.LogLevels = Logger.WarningLogLevel | Logger.ErrorLogLevel;
+
+// fixed brand palette — tokens only. Color3 is 0..1 linear.
+function hex(h) {
+	return Color3.FromHexString(h);
+}
+// Palette constants live here so later-wave scene code references one source of
+// truth. Frozen and exported as _palette so the harness-only build keeps them
+// live (no unused-symbol lint noise) until the scenes consume them by name.
+const BLAZE = hex("#E8530E"); // Blaze Orange — 8px bar signature
+const AMBER = hex("#FF8A3D"); // Warm Amber Glow
+const PEACH = hex("#FFB07A"); // Blaze Peach
+const TERRACOTTA = hex("#AA3F0F"); // Ember Terracotta
+const BEAR = hex("#3B2316"); // Bear Brown
+const PARCHMENT = hex("#FFF8F0"); // Parchment
+// Signal Red #B51E14 is a fixed token but unused by these trials — omitted so
+// lint stays clean. Reintroduce as hex("#B51E14") if a future effect needs it.
+const _palette = Object.freeze({
+	BLAZE,
+	AMBER,
+	PEACH,
+	TERRACOTTA,
+	BEAR,
+	PARCHMENT,
+});
+
+// ── shared engine singleton (babylon-shared-engine.ts adaptation) ──
+let _engine = null,
+	_workingCanvas = null,
+	_docVisHandlerInstalled = false;
+const _views = new Map();
+const _deferredObservers = new Map();
+
+function _masterTick() {
+	const engine = _engine;
+	if (!engine?.activeView) return;
+	const view = _views.get(engine.activeView.target);
+	if (!view || view.paused) return;
+	view.customRender();
+}
+function _onVisChange() {
+	if (!_engine) return;
+	if (document.hidden) _engine.stopRenderLoop();
+	else _engine.runRenderLoop(_masterTick);
+}
+function ensureEngine() {
+	if (_engine) return _engine;
+	_workingCanvas = document.createElement("canvas");
+	_workingCanvas.width = 1;
+	_workingCanvas.height = 1;
+	_workingCanvas.style.cssText =
+		"position:fixed;top:-9999px;left:-9999px;width:1px;height:1px;pointer-events:none;visibility:hidden;z-index:-9999";
+	_workingCanvas.setAttribute("aria-hidden", "true");
+	document.body.appendChild(_workingCanvas);
+	try {
+		_engine = new Engine(_workingCanvas, true, {
+			preserveDrawingBuffer: true,
+			stencil: true,
+			alpha: true,
+		});
+	} catch (err) {
+		_workingCanvas.remove();
+		_workingCanvas = null;
+		throw err;
+	}
+	_engine.runRenderLoop(_masterTick);
+	if (!_docVisHandlerInstalled) {
+		document.addEventListener("visibilitychange", _onVisChange);
+		_docVisHandlerInstalled = true;
+	}
+	return _engine;
+}
+function registerSceneView(canvas, camera, customRender) {
+	const engine = ensureEngine();
+	if (_views.has(canvas) || _deferredObservers.has(canvas)) return;
+	if (canvas.clientWidth === 0 || canvas.clientHeight === 0) {
+		const obs = new ResizeObserver(() => {
+			if (canvas.clientWidth > 0 && canvas.clientHeight > 0) {
+				obs.disconnect();
+				_deferredObservers.delete(canvas);
+				engine.registerView(canvas, camera);
+				_views.set(canvas, { customRender, paused: false });
+			}
+		});
+		obs.observe(canvas);
+		_deferredObservers.set(canvas, obs);
+		return;
+	}
+	engine.registerView(canvas, camera);
+	_views.set(canvas, { customRender, paused: false });
+}
+function unregisterSceneView(canvas) {
+	const pending = _deferredObservers.get(canvas);
+	if (pending) {
+		pending.disconnect();
+		_deferredObservers.delete(canvas);
+	}
+	if (!_engine) return;
+	_engine.unRegisterView(canvas);
+	_views.delete(canvas);
+	if (_views.size === 0) {
+		_engine.stopRenderLoop();
+		if (_workingCanvas) {
+			const gl =
+				_workingCanvas.getContext("webgl2") ||
+				_workingCanvas.getContext("webgl");
+			const lose = gl?.getExtension("WEBGL_lose_context");
+			if (lose?.loseContext) lose.loseContext();
+		}
+		_engine.dispose();
+		_engine = null;
+		if (_workingCanvas) {
+			_workingCanvas.remove();
+			_workingCanvas = null;
+		}
+		if (_docVisHandlerInstalled) {
+			document.removeEventListener("visibilitychange", _onVisChange);
+			_docVisHandlerInstalled = false;
+		}
+	}
+}
+
+// ── device gate — reduced-motion is a DEFAULT-TO-CSS signal ──
+const SOFTWARE_RE = /SwiftShader|llvmpipe|Software|Microsoft Basic Render/i;
+function probeWebGL() {
+	try {
+		const probe = document.createElement("canvas");
+		const gl = probe.getContext("webgl2") || probe.getContext("webgl");
+		if (!gl) return { available: false, renderer: "" };
+		const ext = gl.getExtension("WEBGL_debug_renderer_info");
+		const renderer = ext
+			? String(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL))
+			: "";
+		const lose = gl.getExtension("WEBGL_lose_context");
+		if (lose?.loseContext) lose.loseContext();
+		return { available: true, renderer };
+	} catch {
+		return { available: false, renderer: "" };
+	}
+}
+function prefersReducedMotion() {
+	return matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+function canMount3D(host) {
+	if (typeof document === "undefined") return false;
+	const probe = probeWebGL();
+	if (!probe.available) return false;
+	if (SOFTWARE_RE.test(probe.renderer)) return false;
+	if (prefersReducedMotion()) return false;
+	if (!host || host.clientWidth === 0 || host.clientHeight === 0) return false;
+	return true;
+}
+
+// ── Wave 1 — recipe-card physical-board preview ──
+// Ported from the retired classic web/.../js/recipe-card-board.js. Same behavior:
+// a thin box at 8.5x11in aspect + 20pt thickness, matte low-specular material,
+// brown-kraft default with substrate sync, a representational front-face
+// DynamicTexture, a calm ArcRotateCamera clamped to a narrow arc, gentle idle
+// rotation, pause-on-interaction, reduced-motion disables idle spin, reset-view
+// control + keyboard nudge. Runs ONLY on the shared engine singleton.
+//
+// SOURCE OF TRUTH NOTE: this preview is a REPRESENTATION only. Print geometry is
+// owned by recipe-card.json + CSS. The 8.5x11 / 20pt numbers here exist to make
+// the mesh read as a real board, not to specify manufacturing.
+
+// print-geometry representation (NOT authoritative)
+const RCB_CARD_W_IN = 8.5;
+const RCB_CARD_H_IN = 11;
+const RCB_BOARD_PT = 20;
+const RCB_THICKNESS_IN = RCB_BOARD_PT / 72; // 20pt -> inches (1 pt = 1/72 in)
+const RCB_WIDTH = RCB_CARD_W_IN;
+const RCB_HEIGHT = RCB_CARD_H_IN;
+const RCB_THICKNESS = RCB_THICKNESS_IN;
+
+// substrate palette — matte board colors read under matte lighting.
+const RCB_SUBSTRATES = {
+	kraft: { r: 0.231, g: 0.137, b: 0.086, label: "kraft board" },
+	white_cardstock: { r: 0.949, g: 0.933, b: 0.902, label: "white cardstock" },
+	cream_parchment: { r: 0.929, g: 0.89, b: 0.804, label: "cream parchment" },
+};
+const RCB_DEFAULT_SUBSTRATE = "kraft";
+
+// camera framing — calm, clamped.
+const RCB_CAM = {
+	alpha: -Math.PI / 2, // face-on, looking at the front
+	beta: Math.PI / 2.35, // slightly above center
+	radius: 20,
+	alphaMin: -Math.PI / 2 - 0.6, // clamp horizontal orbit to a narrow arc
+	alphaMax: -Math.PI / 2 + 0.6,
+	betaMin: Math.PI / 3.2, // clamp vertical so it never flips
+	betaMax: Math.PI / 1.9,
+	radiusMin: 15,
+	radiusMax: 28,
+};
+const RCB_IDLE_SPEED = 0.0016; // gentle idle rotation (radians/frame-ish)
+const RCB_NUDGE = 0.08; // keyboard nudge per arrow press
+
+function rcbReadSubstrate(container) {
+	const key = container.getAttribute("data-substrate") || RCB_DEFAULT_SUBSTRATE;
+	return RCB_SUBSTRATES[key] ? key : RCB_DEFAULT_SUBSTRATE;
+}
+
+class RecipeCardBoard {
+	constructor(canvas, container) {
+		this.canvas = canvas;
+		this.container = container;
+		this.engine = ensureEngine();
+		this.interacting = false;
+		this._idleDir = RCB_IDLE_SPEED;
+		this._reduceMotion = prefersReducedMotion();
+
+		const scene = new Scene(this.engine);
+		scene.clearColor = new Color4(0, 0, 0, 0); // transparent — sit on section bg
+		this.scene = scene;
+
+		// camera — arc rotate, clamped calm range
+		const cam = new ArcRotateCamera(
+			"rcbCam",
+			RCB_CAM.alpha,
+			RCB_CAM.beta,
+			RCB_CAM.radius,
+			Vector3.Zero(),
+			scene,
+		);
+		cam.attachControl(canvas, true);
+		cam.lowerAlphaLimit = RCB_CAM.alphaMin;
+		cam.upperAlphaLimit = RCB_CAM.alphaMax;
+		cam.lowerBetaLimit = RCB_CAM.betaMin;
+		cam.upperBetaLimit = RCB_CAM.betaMax;
+		cam.lowerRadiusLimit = RCB_CAM.radiusMin;
+		cam.upperRadiusLimit = RCB_CAM.radiusMax;
+		cam.wheelDeltaPercentage = 0.01; // slow, calm zoom
+		cam.panningSensibility = 0; // disable panning — keep board centered
+		cam.inertia = 0.85;
+		this.camera = cam;
+
+		// soft, even lighting for a matte read
+		const hemi = new HemisphericLight(
+			"rcbHemi",
+			new Vector3(0.2, 1, 0.3),
+			scene,
+		);
+		hemi.intensity = 0.9;
+		hemi.groundColor = new Color3(0.35, 0.3, 0.26);
+		const dir = new DirectionalLight(
+			"rcbDir",
+			new Vector3(-0.4, -0.7, -0.6),
+			scene,
+		);
+		dir.intensity = 0.35;
+
+		// board mesh — a thin box, correct aspect + relative thickness.
+		const board = MeshBuilder.CreateBox(
+			"rcbBoard",
+			{ width: RCB_WIDTH, height: RCB_HEIGHT, depth: RCB_THICKNESS },
+			scene,
+		);
+		this.board = board;
+
+		// edge/back material — solid matte board color, low specular
+		this.boardMat = new StandardMaterial("rcbBoardMat", scene);
+		// front-face material — representational texture of the card
+		this.frontMat = new StandardMaterial("rcbFrontMat", scene);
+
+		// multi-material so the front face differs from edges/back.
+		// Babylon CreateBox index order is back(-z), front(+z), right, left, top,
+		// bottom; each face is 6 indices (2 tris). At default alpha the +z face
+		// points at the camera, so submesh 1 (indices 6..11) gets the printed front.
+		const multi = new MultiMaterial("rcbMulti", scene);
+		multi.subMaterials = [this.boardMat, this.frontMat];
+		board.material = multi;
+
+		this.applySubstrate(RCB_SUBSTRATES[rcbReadSubstrate(container)]);
+
+		const totalVerts = board.getTotalVertices();
+		board.subMeshes = [];
+		new SubMesh(0, 0, totalVerts, 0, 6, board); // back (-z) -> boardMat
+		new SubMesh(1, 0, totalVerts, 6, 6, board); // front (+z) -> frontMat
+		new SubMesh(0, 0, totalVerts, 12, 24, board); // sides/top/bottom -> boardMat
+
+		this.attachInteraction();
+		this.attachKeyboard();
+		this.injectResetButton();
+		this.attachSubstrateObserver();
+
+		// idle rotation lives in the scene's beforeRender; the shared master tick
+		// drives the actual scene.render() via the registered customRender below.
+		scene.registerBeforeRender(() => {
+			if (this._reduceMotion || this.interacting) return;
+			cam.alpha += this._idleDir;
+			if (cam.alpha >= RCB_CAM.alphaMax || cam.alpha <= RCB_CAM.alphaMin) {
+				this._idleDir = -this._idleDir;
+			}
+		});
+
+		registerSceneView(canvas, cam, () => scene.render());
+	}
+
+	// build a representational front-face texture: kraft-toned panel + title.
+	// deliberately simple — NOT pixel-authoritative to the real card.
+	buildFrontTexture(substrateColor) {
+		const size = { width: 512, height: 662 }; // ~8.5:11
+		const tex = new DynamicTexture("rcbFront", size, this.scene, false);
+		const ctx = tex.getContext();
+
+		ctx.fillStyle = `rgb(${Math.round(substrateColor.r * 255)},${Math.round(
+			substrateColor.g * 255,
+		)},${Math.round(substrateColor.b * 255)})`;
+		ctx.fillRect(0, 0, size.width, size.height);
+
+		// keyline frame
+		ctx.strokeStyle = "#3B2316";
+		ctx.lineWidth = 3;
+		ctx.strokeRect(28, 28, size.width - 56, size.height - 56);
+
+		// title (heavy display feel)
+		ctx.textAlign = "center";
+		ctx.fillStyle = "#3B2316";
+		ctx.font = 'bold 46px Georgia, "Times New Roman", serif';
+		ctx.fillText("SUNSHINE", size.width / 2, 120);
+		ctx.fillStyle = "#E8530E";
+		ctx.fillText("LEMON CAKE", size.width / 2, 172);
+
+		// meta bar (frontier green)
+		ctx.strokeStyle = "#1A3C34";
+		ctx.lineWidth = 2;
+		ctx.strokeRect(70, 210, size.width - 140, 34);
+		ctx.fillStyle = "#1A3C34";
+		ctx.font = "18px Georgia, serif";
+		ctx.fillText("PREP 20 . BAKE 35 . SERVES 8", size.width / 2, 233);
+
+		// two-column body hint (line-art)
+		ctx.strokeStyle = "rgba(59,35,22,0.55)";
+		ctx.lineWidth = 2;
+		let y = 300;
+		for (let i = 0; i < 8; i++) {
+			ctx.beginPath();
+			ctx.moveTo(80, y);
+			ctx.lineTo(230, y);
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.moveTo(282, y);
+			ctx.lineTo(432, y);
+			ctx.stroke();
+			y += 30;
+		}
+
+		// footer accent (blaze orange)
+		ctx.strokeStyle = "#E8530E";
+		ctx.lineWidth = 4;
+		ctx.beginPath();
+		ctx.moveTo(70, size.height - 90);
+		ctx.lineTo(size.width - 70, size.height - 90);
+		ctx.stroke();
+
+		tex.update();
+		return tex;
+	}
+
+	applySubstrate(substrateColor) {
+		// edge/back material (solid matte board color, low specular)
+		this.boardMat.diffuseColor = new Color3(
+			substrateColor.r,
+			substrateColor.g,
+			substrateColor.b,
+		);
+		this.boardMat.specularColor = new Color3(0.04, 0.04, 0.04); // matte
+		this.boardMat.specularPower = 8;
+
+		// front face texture reflects substrate too
+		if (this.frontMat.diffuseTexture) this.frontMat.diffuseTexture.dispose();
+		this.frontMat.diffuseTexture = this.buildFrontTexture(substrateColor);
+		this.frontMat.specularColor = new Color3(0.03, 0.03, 0.03);
+		this.frontMat.specularPower = 8;
+	}
+
+	resetView() {
+		if (!this.camera) return;
+		this.camera.alpha = RCB_CAM.alpha;
+		this.camera.beta = RCB_CAM.beta;
+		this.camera.radius = RCB_CAM.radius;
+	}
+
+	attachInteraction() {
+		// pause idle rotation while the user drags / scrolls the view
+		this._onPointerDown = () => {
+			this.interacting = true;
+		};
+		this._onPointerUp = () => {
+			this.interacting = false;
+		};
+		this._onWheel = () => {
+			this.interacting = true;
+			clearTimeout(this._wheelT);
+			this._wheelT = setTimeout(() => {
+				this.interacting = false;
+			}, 600);
+		};
+		this.canvas.addEventListener("pointerdown", this._onPointerDown);
+		window.addEventListener("pointerup", this._onPointerUp);
+		this.canvas.addEventListener("wheel", this._onWheel, { passive: true });
+	}
+
+	attachKeyboard() {
+		const cam = this.camera;
+		this._onKeyDown = (ev) => {
+			let handled = true;
+			switch (ev.key) {
+				case "ArrowLeft":
+					cam.alpha = Math.max(RCB_CAM.alphaMin, cam.alpha - RCB_NUDGE);
+					break;
+				case "ArrowRight":
+					cam.alpha = Math.min(RCB_CAM.alphaMax, cam.alpha + RCB_NUDGE);
+					break;
+				case "ArrowUp":
+					cam.beta = Math.max(RCB_CAM.betaMin, cam.beta - RCB_NUDGE);
+					break;
+				case "ArrowDown":
+					cam.beta = Math.min(RCB_CAM.betaMax, cam.beta + RCB_NUDGE);
+					break;
+				case "r":
+				case "R":
+					this.resetView();
+					break;
+				default:
+					handled = false;
+			}
+			if (handled) ev.preventDefault();
+		};
+		this.canvas.addEventListener("keydown", this._onKeyDown);
+	}
+
+	injectResetButton() {
+		const btn = document.createElement("button");
+		btn.type = "button";
+		btn.className = "recipe-card-board__reset";
+		btn.textContent = "Reset view";
+		btn.style.position = "absolute";
+		btn.style.right = "8px";
+		btn.style.bottom = "8px";
+		btn.style.zIndex = "2";
+		btn.style.font = "12px system-ui, sans-serif";
+		btn.style.padding = "4px 8px";
+		btn.style.cursor = "pointer";
+		btn.addEventListener("click", () => this.resetView());
+		if (getComputedStyle(this.container).position === "static") {
+			this.container.style.position = "relative";
+		}
+		this.container.appendChild(btn);
+		this._resetBtn = btn;
+	}
+
+	attachSubstrateObserver() {
+		if (typeof MutationObserver === "undefined") return;
+		this.substrateObserver = new MutationObserver((muts) => {
+			for (const m of muts) {
+				if (m.attributeName === "data-substrate") {
+					this.applySubstrate(RCB_SUBSTRATES[rcbReadSubstrate(this.container)]);
+					break;
+				}
+			}
+		});
+		this.substrateObserver.observe(this.container, { attributes: true });
+	}
+
+	dispose() {
+		if (this.substrateObserver) this.substrateObserver.disconnect();
+		if (this._onPointerDown)
+			this.canvas.removeEventListener("pointerdown", this._onPointerDown);
+		if (this._onPointerUp)
+			window.removeEventListener("pointerup", this._onPointerUp);
+		if (this._onWheel) this.canvas.removeEventListener("wheel", this._onWheel);
+		if (this._onKeyDown)
+			this.canvas.removeEventListener("keydown", this._onKeyDown);
+		if (this._resetBtn) this._resetBtn.remove();
+		clearTimeout(this._wheelT);
+		this.scene.dispose();
+		unregisterSceneView(this.canvas);
+	}
+}
+
+function rcbShowFallback(container, visible) {
+	const img = container.querySelector(".recipe-card-board__fallback");
+	if (img) img.style.display = visible ? "" : "none";
+}
+function rcbSetStatus(container, msg) {
+	const el = container.querySelector(".recipe-card-board__status");
+	if (el) el.textContent = msg || "";
+}
+
+// mountRecipeCardBoard — lazy, gated mount of the physical-board preview.
+// The static SVG fallback is the DEFAULT visual; the 3D board only replaces it
+// after canMount3D(host) passes. Mount is deferred via IntersectionObserver so
+// the scene is never built on page load — only when the section approaches view.
+function mountRecipeCardBoard(selector = "#recipe-card-board") {
+	const container =
+		typeof selector === "string"
+			? document.querySelector(selector)
+			: selector;
+	if (!container) return null;
+
+	// fallback is the default visible state
+	rcbShowFallback(container, true);
+
+	const state = { board: null, mounted: false };
+
+	const tryMount = () => {
+		if (state.mounted) return; // never leak a second scene
+		if (!canMount3D(container)) {
+			// gate fail -> leave the static fallback standing, no board
+			rcbShowFallback(container, true);
+			rcbSetStatus(
+				container,
+				"3D board preview unavailable — showing static image",
+			);
+			return;
+		}
+		state.mounted = true;
+		const canvas = document.createElement("canvas");
+		canvas.className = "recipe-card-board__canvas";
+		canvas.style.width = "100%";
+		canvas.style.height = "100%";
+		canvas.style.display = "block";
+		canvas.style.outline = "none";
+		canvas.setAttribute("tabindex", "0"); // focusable for keyboard nudge
+		canvas.setAttribute(
+			"aria-label",
+			"Interactive 3D board preview. Arrow keys orbit within a limited range. Press R or the reset button to recenter.",
+		);
+		container.appendChild(canvas);
+		try {
+			state.board = new RecipeCardBoard(canvas, container);
+			rcbShowFallback(container, false);
+			rcbSetStatus(container, "");
+		} catch {
+			state.mounted = false;
+			canvas.remove();
+			rcbShowFallback(container, true);
+			rcbSetStatus(
+				container,
+				"3D board preview unavailable — showing static image",
+			);
+		}
+	};
+
+	if ("IntersectionObserver" in window) {
+		const io = new IntersectionObserver(
+			(entries) => {
+				for (const e of entries) {
+					if (e.isIntersecting) {
+						io.disconnect();
+						tryMount();
+						break;
+					}
+				}
+			},
+			{ rootMargin: "200px 0px" }, // approach the viewport before mounting
+		);
+		io.observe(container);
+	} else {
+		tryMount();
+	}
+	return state;
+}
+
+// ── public API (WAVE 1 surface) ──
+// Later waves add mountEmberBar / mountKraftCards / finishLineBloom here. This
+// wave exposes the recipe-card board mount plus the device gate and version
+// stamp, so the details.html <script> boot guard is wireable and testable now.
+const KodiakEmber = {
+	mountRecipeCardBoard,
+	canMount3D,
+	_version: "0.2.0",
+	// harness internals surfaced for later-wave scene modules + tests; not a
+	// stable public contract.
+	_harness: Object.freeze({
+		ensureEngine,
+		registerSceneView,
+		unregisterSceneView,
+		probeWebGL,
+		prefersReducedMotion,
+	}),
+	_palette,
+};
+if (typeof window !== "undefined") window.KodiakEmber = KodiakEmber;
+export { KodiakEmber };
