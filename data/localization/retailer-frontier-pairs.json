@@ -5,7 +5,7 @@
     "purpose": "Each retail metro location pairs with a frontier sister location. Every pair carries a retailer list and a monthly local ingredient sourced from a local farmers market. Drives seasonal recipe-card localization and retailer logo lockups.",
     "monthly_ingredient_mechanism": "monthly_ingredients maps ISO month (YYYY-MM) -> in-season local ingredient for the frontier sister's farmers market. Populate the current month at seed time; the other 11 months are filled by a research dispatch (ghost research task) that resolves each frontier market's seasonal produce calendar from the linked farmers_market_url + regional extension-service crop calendars. Entries marked research_todo=true are placeholders awaiting that dispatch.",
     "seasonal_moments_mechanism": "seasonal_moments is an array of holiday/season entries per pair. Each entry captures the fresh local ingredients available at that moment (available_ingredients) plus the favorite bake flavors people reach for then (favorite_flavors), for the creative bank. Every entry carries a source, confidence (high|medium|low), and status (confirmed|proposed). Notes flag storage/value-added vs fresh-harvest and imported flavor-culture vs local-grown so the creative bank stays non-fabricated.",
-    "confirmed_pairs": 38
+    "confirmed_pairs": 46
   },
   "pairs": [
     {
@@ -3514,8 +3514,16 @@
       "seasonal_moments": [
         {
           "moment": "Deep-winter storage (Dec-Feb)",
-          "available_ingredients": ["Idaho potatoes (storage)", "storage onions", "storage apples"],
-          "favorite_flavors": ["apple-cinnamon", "hearty potato-savory", "warm spice"],
+          "available_ingredients": [
+            "Idaho potatoes (storage)",
+            "storage onions",
+            "storage apples"
+          ],
+          "favorite_flavors": [
+            "apple-cinnamon",
+            "hearty potato-savory",
+            "warm spice"
+          ],
           "source": "University of Idaho Extension seasonal calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -3523,8 +3531,14 @@
         },
         {
           "moment": "Spring thaw / asparagus season (Apr-May)",
-          "available_ingredients": ["asparagus", "rhubarb"],
-          "favorite_flavors": ["rhubarb", "early-berry"],
+          "available_ingredients": [
+            "asparagus",
+            "rhubarb"
+          ],
+          "favorite_flavors": [
+            "rhubarb",
+            "early-berry"
+          ],
           "source": "Idaho Botanical Garden Treasure Valley guide (season opens mid-Apr)",
           "confidence": "high",
           "status": "confirmed",
@@ -3532,8 +3546,16 @@
         },
         {
           "moment": "Treasure Valley stone-fruit peak (Jun-Aug)",
-          "available_ingredients": ["cherries", "apricots", "peaches"],
-          "favorite_flavors": ["cherry", "apricot", "peach"],
+          "available_ingredients": [
+            "cherries",
+            "apricots",
+            "peaches"
+          ],
+          "favorite_flavors": [
+            "cherry",
+            "apricot",
+            "peach"
+          ],
           "source": "Idaho Preferred / University of Idaho Extension",
           "confidence": "high",
           "status": "confirmed",
@@ -3541,8 +3563,16 @@
         },
         {
           "moment": "Sweet corn + harvest fair (Sep)",
-          "available_ingredients": ["sweet corn", "winter squash", "peaches (late)"],
-          "favorite_flavors": ["sweet corn", "peach", "squash"],
+          "available_ingredients": [
+            "sweet corn",
+            "winter squash",
+            "peaches (late)"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "peach",
+            "squash"
+          ],
           "source": "University of Idaho Extension seasonal calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -3550,8 +3580,16 @@
         },
         {
           "moment": "Thanksgiving / winter holidays",
-          "available_ingredients": ["Idaho potatoes", "storage apples", "winter squash"],
-          "favorite_flavors": ["apple", "pumpkin", "gingerbread"],
+          "available_ingredients": [
+            "Idaho potatoes",
+            "storage apples",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "pumpkin",
+            "gingerbread"
+          ],
           "source": "University of Idaho Extension calendar + regional bake traditions",
           "confidence": "medium",
           "status": "proposed",
@@ -3602,8 +3640,14 @@
       "seasonal_moments": [
         {
           "moment": "Palisade Peach Festival + peach season (August)",
-          "available_ingredients": ["Palisade peaches"],
-          "favorite_flavors": ["peach", "peaches-and-cream", "peach-cobbler"],
+          "available_ingredients": [
+            "Palisade peaches"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "peaches-and-cream",
+            "peach-cobbler"
+          ],
           "source": "Palisade Chamber / Visit Grand Junction — Palisade Peach Festival held every August",
           "confidence": "high",
           "status": "confirmed",
@@ -3611,8 +3655,15 @@
         },
         {
           "moment": "Olathe sweet corn + Rocky Ford melon (late summer)",
-          "available_ingredients": ["Olathe sweet corn", "Rocky Ford melon"],
-          "favorite_flavors": ["sweet corn", "cantaloupe", "honey-butter corn"],
+          "available_ingredients": [
+            "Olathe sweet corn",
+            "Rocky Ford melon"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "cantaloupe",
+            "honey-butter corn"
+          ],
           "source": "CSU Extension + Olathe Sweet Corn Festival (since 1990)",
           "confidence": "high",
           "status": "confirmed",
@@ -3620,8 +3671,16 @@
         },
         {
           "moment": "Deep-winter storage / holiday baking (Dec-Feb)",
-          "available_ingredients": ["local honey", "storage apples", "storage potatoes"],
-          "favorite_flavors": ["honey", "apple-cinnamon", "gingerbread"],
+          "available_ingredients": [
+            "local honey",
+            "storage apples",
+            "storage potatoes"
+          ],
+          "favorite_flavors": [
+            "honey",
+            "apple-cinnamon",
+            "gingerbread"
+          ],
           "source": "CSU Extension seasonal calendar + regional bake traditions",
           "confidence": "medium",
           "status": "proposed",
@@ -3629,8 +3688,14 @@
         },
         {
           "moment": "Spring thaw (Apr-May)",
-          "available_ingredients": ["rhubarb", "greens (cold frame)"],
-          "favorite_flavors": ["rhubarb", "early-berry"],
+          "available_ingredients": [
+            "rhubarb",
+            "greens (cold frame)"
+          ],
+          "favorite_flavors": [
+            "rhubarb",
+            "early-berry"
+          ],
           "source": "CSU Extension seasonal calendar",
           "confidence": "medium",
           "status": "confirmed",
@@ -3638,8 +3703,16 @@
         },
         {
           "moment": "County fair / rodeo season (summer)",
-          "available_ingredients": ["cherries", "sweet corn", "melon"],
-          "favorite_flavors": ["peach", "cherry", "sweet corn"],
+          "available_ingredients": [
+            "cherries",
+            "sweet corn",
+            "melon"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "cherry",
+            "sweet corn"
+          ],
           "source": "Elbert County Fair (regional summer fair culture)",
           "confidence": "medium",
           "status": "proposed",
@@ -3690,8 +3763,17 @@
       "seasonal_moments": [
         {
           "moment": "Ski season (deep winter, Dec-Mar)",
-          "available_ingredients": ["ranch beef", "root vegetables (storage)", "local honey", "ranch dairy butter"],
-          "favorite_flavors": ["honey-butter", "warm spice", "hearty savory"],
+          "available_ingredients": [
+            "ranch beef",
+            "root vegetables (storage)",
+            "local honey",
+            "ranch dairy butter"
+          ],
+          "favorite_flavors": [
+            "honey-butter",
+            "warm spice",
+            "hearty savory"
+          ],
           "source": "University of Wyoming Extension + Jackson Hole ski-culture flavor traditions",
           "confidence": "high",
           "status": "confirmed",
@@ -3699,8 +3781,16 @@
         },
         {
           "moment": "High-country short summer peak (Jul-Aug)",
-          "available_ingredients": ["sugar snap peas", "raspberries", "spring greens"],
-          "favorite_flavors": ["raspberry", "early-berry", "garden-pea savory"],
+          "available_ingredients": [
+            "sugar snap peas",
+            "raspberries",
+            "spring greens"
+          ],
+          "favorite_flavors": [
+            "raspberry",
+            "early-berry",
+            "garden-pea savory"
+          ],
           "source": "University of Wyoming Extension high-elevation calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -3708,8 +3798,14 @@
         },
         {
           "moment": "Spring thaw (May-Jun)",
-          "available_ingredients": ["rhubarb", "ranch dairy butter"],
-          "favorite_flavors": ["rhubarb", "honey-butter"],
+          "available_ingredients": [
+            "rhubarb",
+            "ranch dairy butter"
+          ],
+          "favorite_flavors": [
+            "rhubarb",
+            "honey-butter"
+          ],
           "source": "University of Wyoming Extension",
           "confidence": "medium",
           "status": "confirmed",
@@ -3717,8 +3813,15 @@
         },
         {
           "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
-          "available_ingredients": ["root vegetables", "winter squash"],
-          "favorite_flavors": ["squash", "warm spice", "pumpkin"],
+          "available_ingredients": [
+            "root vegetables",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "squash",
+            "warm spice",
+            "pumpkin"
+          ],
           "source": "University of Wyoming Extension calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -3726,8 +3829,16 @@
         },
         {
           "moment": "Winter holidays",
-          "available_ingredients": ["local honey", "ranch dairy butter", "ranch beef"],
-          "favorite_flavors": ["gingerbread", "honey", "peppermint"],
+          "available_ingredients": [
+            "local honey",
+            "ranch dairy butter",
+            "ranch beef"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "honey",
+            "peppermint"
+          ],
           "source": "regional bake traditions",
           "confidence": "low",
           "status": "proposed",
@@ -3778,8 +3889,13 @@
       "seasonal_moments": [
         {
           "moment": "Flathead cherry season (July)",
-          "available_ingredients": ["Flathead cherries"],
-          "favorite_flavors": ["cherry", "sweet cherry"],
+          "available_ingredients": [
+            "Flathead cherries"
+          ],
+          "favorite_flavors": [
+            "cherry",
+            "sweet cherry"
+          ],
           "source": "MSU Extension + Flathead Lake cherry region",
           "confidence": "high",
           "status": "confirmed",
@@ -3787,8 +3903,13 @@
         },
         {
           "moment": "Huckleberry season (Aug)",
-          "available_ingredients": ["huckleberries"],
-          "favorite_flavors": ["huckleberry", "wild-berry"],
+          "available_ingredients": [
+            "huckleberries"
+          ],
+          "favorite_flavors": [
+            "huckleberry",
+            "wild-berry"
+          ],
           "source": "western Montana wild mountain harvest tradition",
           "confidence": "high",
           "status": "confirmed",
@@ -3796,8 +3917,15 @@
         },
         {
           "moment": "Fall apple harvest / county fair (Sep-Oct)",
-          "available_ingredients": ["apples", "winter squash"],
-          "favorite_flavors": ["apple-cinnamon", "squash", "warm spice"],
+          "available_ingredients": [
+            "apples",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple-cinnamon",
+            "squash",
+            "warm spice"
+          ],
           "source": "MSU Extension western Montana calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -3805,8 +3933,16 @@
         },
         {
           "moment": "Deep-winter storage / holidays (Dec-Feb)",
-          "available_ingredients": ["root vegetables (storage)", "storage apples", "local honey"],
-          "favorite_flavors": ["apple", "honey", "gingerbread"],
+          "available_ingredients": [
+            "root vegetables (storage)",
+            "storage apples",
+            "local honey"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "honey",
+            "gingerbread"
+          ],
           "source": "MSU Extension seasonal calendar + regional bake traditions",
           "confidence": "medium",
           "status": "proposed",
@@ -3814,8 +3950,15 @@
         },
         {
           "moment": "Spring thaw (Apr-Jun)",
-          "available_ingredients": ["spring greens", "asparagus", "rhubarb"],
-          "favorite_flavors": ["rhubarb", "early-berry"],
+          "available_ingredients": [
+            "spring greens",
+            "asparagus",
+            "rhubarb"
+          ],
+          "favorite_flavors": [
+            "rhubarb",
+            "early-berry"
+          ],
           "source": "MSU Extension western Montana calendar",
           "confidence": "medium",
           "status": "confirmed",
@@ -3866,8 +4009,16 @@
       "seasonal_moments": [
         {
           "moment": "Midway Swiss Days (Labor Day weekend, early Sep)",
-          "available_ingredients": ["apples", "raspberries (late)", "summer squash"],
-          "favorite_flavors": ["apple", "raspberry", "honey-butter"],
+          "available_ingredients": [
+            "apples",
+            "raspberries (late)",
+            "summer squash"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "raspberry",
+            "honey-butter"
+          ],
           "source": "Midway Swiss Days — long-running Heber Valley festival, Labor Day weekend",
           "confidence": "high",
           "status": "confirmed",
@@ -3875,8 +4026,17 @@
         },
         {
           "moment": "Ski season (deep winter, Dec-Mar)",
-          "available_ingredients": ["storage apples", "root vegetables", "local honey", "ranch dairy butter"],
-          "favorite_flavors": ["apple-cinnamon", "honey-butter", "warm spice"],
+          "available_ingredients": [
+            "storage apples",
+            "root vegetables",
+            "local honey",
+            "ranch dairy butter"
+          ],
+          "favorite_flavors": [
+            "apple-cinnamon",
+            "honey-butter",
+            "warm spice"
+          ],
           "source": "USU Extension calendar + Wasatch Back ski-culture flavor traditions",
           "confidence": "high",
           "status": "confirmed",
@@ -3884,8 +4044,14 @@
         },
         {
           "moment": "Summer stone-fruit + berry peak (Jun-Aug)",
-          "available_ingredients": ["raspberries", "peaches"],
-          "favorite_flavors": ["raspberry", "peach"],
+          "available_ingredients": [
+            "raspberries",
+            "peaches"
+          ],
+          "favorite_flavors": [
+            "raspberry",
+            "peach"
+          ],
           "source": "USU Extension high-mountain harvest schedule",
           "confidence": "high",
           "status": "confirmed",
@@ -3893,8 +4059,15 @@
         },
         {
           "moment": "Thanksgiving / fall harvest",
-          "available_ingredients": ["apples", "winter squash"],
-          "favorite_flavors": ["apple", "squash", "pumpkin"],
+          "available_ingredients": [
+            "apples",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "squash",
+            "pumpkin"
+          ],
           "source": "USU Extension seasonal calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -3902,8 +4075,14 @@
         },
         {
           "moment": "Spring thaw (Apr-May)",
-          "available_ingredients": ["rhubarb", "ranch dairy butter"],
-          "favorite_flavors": ["rhubarb", "early-berry"],
+          "available_ingredients": [
+            "rhubarb",
+            "ranch dairy butter"
+          ],
+          "favorite_flavors": [
+            "rhubarb",
+            "early-berry"
+          ],
           "source": "USU Extension high-mountain calendar",
           "confidence": "medium",
           "status": "confirmed",
@@ -3954,8 +4133,16 @@
       "seasonal_moments": [
         {
           "moment": "Summer stone-fruit + sweet corn peak (Jun-Aug)",
-          "available_ingredients": ["cherries", "peaches", "sweet corn"],
-          "favorite_flavors": ["cherry", "peach", "sweet corn"],
+          "available_ingredients": [
+            "cherries",
+            "peaches",
+            "sweet corn"
+          ],
+          "favorite_flavors": [
+            "cherry",
+            "peach",
+            "sweet corn"
+          ],
           "source": "USU Extension Tooele County calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -3963,8 +4150,16 @@
         },
         {
           "moment": "Late-summer tomato / harvest (Sep)",
-          "available_ingredients": ["tomatoes", "winter squash", "sweet corn (late)"],
-          "favorite_flavors": ["savory tomato", "squash", "sweet corn"],
+          "available_ingredients": [
+            "tomatoes",
+            "winter squash",
+            "sweet corn (late)"
+          ],
+          "favorite_flavors": [
+            "savory tomato",
+            "squash",
+            "sweet corn"
+          ],
           "source": "USU Extension Tooele County calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -3972,8 +4167,16 @@
         },
         {
           "moment": "County fair / rodeo (late summer)",
-          "available_ingredients": ["peaches", "sweet corn", "tomatoes"],
-          "favorite_flavors": ["peach", "sweet corn", "honey-butter"],
+          "available_ingredients": [
+            "peaches",
+            "sweet corn",
+            "tomatoes"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "sweet corn",
+            "honey-butter"
+          ],
           "source": "Tooele County Fair (regional summer fair culture)",
           "confidence": "medium",
           "status": "proposed",
@@ -3981,8 +4184,16 @@
         },
         {
           "moment": "Deep-winter storage / holidays (Dec-Feb)",
-          "available_ingredients": ["storage apples", "root vegetables", "local honey"],
-          "favorite_flavors": ["apple-cinnamon", "honey", "gingerbread"],
+          "available_ingredients": [
+            "storage apples",
+            "root vegetables",
+            "local honey"
+          ],
+          "favorite_flavors": [
+            "apple-cinnamon",
+            "honey",
+            "gingerbread"
+          ],
           "source": "USU Extension calendar + regional bake traditions",
           "confidence": "medium",
           "status": "proposed",
@@ -3990,8 +4201,14 @@
         },
         {
           "moment": "Spring thaw (Apr-May)",
-          "available_ingredients": ["asparagus", "rhubarb"],
-          "favorite_flavors": ["rhubarb", "early-berry"],
+          "available_ingredients": [
+            "asparagus",
+            "rhubarb"
+          ],
+          "favorite_flavors": [
+            "rhubarb",
+            "early-berry"
+          ],
           "source": "USU Extension Tooele County calendar",
           "confidence": "medium",
           "status": "confirmed",
@@ -4041,8 +4258,17 @@
       "seasonal_moments": [
         {
           "moment": "Oakley Rodeo + farmers market season (Jun-Sep)",
-          "available_ingredients": ["grass-fed beef", "spring greens", "sugar snap peas", "raspberries"],
-          "favorite_flavors": ["hearty ranch savory", "raspberry", "honey-butter"],
+          "available_ingredients": [
+            "grass-fed beef",
+            "spring greens",
+            "sugar snap peas",
+            "raspberries"
+          ],
+          "favorite_flavors": [
+            "hearty ranch savory",
+            "raspberry",
+            "honey-butter"
+          ],
           "source": "kamas-valley-84036.json + Oakley Rodeo Grounds farmers market (bi-weekly Jun-Sep)",
           "confidence": "high",
           "status": "confirmed",
@@ -4050,8 +4276,15 @@
         },
         {
           "moment": "High-country short summer peak (Jul-Aug)",
-          "available_ingredients": ["raspberries", "sugar snap peas", "spring greens"],
-          "favorite_flavors": ["raspberry", "garden-pea savory"],
+          "available_ingredients": [
+            "raspberries",
+            "sugar snap peas",
+            "spring greens"
+          ],
+          "favorite_flavors": [
+            "raspberry",
+            "garden-pea savory"
+          ],
           "source": "USU Extension high-mountain harvest schedule",
           "confidence": "high",
           "status": "confirmed",
@@ -4059,8 +4292,17 @@
         },
         {
           "moment": "Deep-winter ranch storage (Dec-Mar)",
-          "available_ingredients": ["grass-fed beef", "root vegetables (storage)", "local honey", "ranch dairy butter"],
-          "favorite_flavors": ["honey-butter", "hearty savory", "warm spice"],
+          "available_ingredients": [
+            "grass-fed beef",
+            "root vegetables (storage)",
+            "local honey",
+            "ranch dairy butter"
+          ],
+          "favorite_flavors": [
+            "honey-butter",
+            "hearty savory",
+            "warm spice"
+          ],
           "source": "USU Extension calendar + Kamas Valley ranch tradition",
           "confidence": "high",
           "status": "confirmed",
@@ -4068,8 +4310,15 @@
         },
         {
           "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
-          "available_ingredients": ["root vegetables", "winter squash"],
-          "favorite_flavors": ["squash", "warm spice", "pumpkin"],
+          "available_ingredients": [
+            "root vegetables",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "squash",
+            "warm spice",
+            "pumpkin"
+          ],
           "source": "USU Extension high-mountain calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -4077,8 +4326,14 @@
         },
         {
           "moment": "Spring thaw (Apr-May)",
-          "available_ingredients": ["rhubarb", "ranch dairy butter"],
-          "favorite_flavors": ["rhubarb", "honey-butter"],
+          "available_ingredients": [
+            "rhubarb",
+            "ranch dairy butter"
+          ],
+          "favorite_flavors": [
+            "rhubarb",
+            "honey-butter"
+          ],
           "source": "USU Extension high-mountain calendar",
           "confidence": "medium",
           "status": "confirmed",
@@ -4129,8 +4384,16 @@
       "seasonal_moments": [
         {
           "moment": "RockyGrass / Folks Festival summer season (Jul-Aug)",
-          "available_ingredients": ["Palisade peaches", "cherries", "Olathe sweet corn"],
-          "favorite_flavors": ["peach", "cherry", "sweet corn"],
+          "available_ingredients": [
+            "Palisade peaches",
+            "cherries",
+            "Olathe sweet corn"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "cherry",
+            "sweet corn"
+          ],
           "source": "Planet Bluegrass Lyons festival season (RockyGrass, Folks Festival) + CSU Extension",
           "confidence": "medium",
           "status": "proposed",
@@ -4138,8 +4401,14 @@
         },
         {
           "moment": "Palisade Peach Festival + peach season (August)",
-          "available_ingredients": ["Palisade peaches"],
-          "favorite_flavors": ["peach", "peaches-and-cream", "peach-cobbler"],
+          "available_ingredients": [
+            "Palisade peaches"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "peaches-and-cream",
+            "peach-cobbler"
+          ],
           "source": "Palisade Chamber / Visit Grand Junction — August peach festival, statewide Colorado signature",
           "confidence": "high",
           "status": "confirmed",
@@ -4147,8 +4416,15 @@
         },
         {
           "moment": "Olathe sweet corn + Rocky Ford melon (late summer)",
-          "available_ingredients": ["Olathe sweet corn", "Rocky Ford melon"],
-          "favorite_flavors": ["sweet corn", "cantaloupe", "honey-butter corn"],
+          "available_ingredients": [
+            "Olathe sweet corn",
+            "Rocky Ford melon"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "cantaloupe",
+            "honey-butter corn"
+          ],
           "source": "CSU Extension + Olathe Sweet Corn Festival (since 1990)",
           "confidence": "high",
           "status": "confirmed",
@@ -4156,8 +4432,16 @@
         },
         {
           "moment": "Deep-winter storage / holidays (Dec-Feb)",
-          "available_ingredients": ["local honey", "storage apples", "storage onions"],
-          "favorite_flavors": ["honey", "apple-cinnamon", "gingerbread"],
+          "available_ingredients": [
+            "local honey",
+            "storage apples",
+            "storage onions"
+          ],
+          "favorite_flavors": [
+            "honey",
+            "apple-cinnamon",
+            "gingerbread"
+          ],
           "source": "CSU Extension seasonal calendar + regional bake traditions",
           "confidence": "medium",
           "status": "proposed",
@@ -4165,8 +4449,14 @@
         },
         {
           "moment": "Spring thaw (Apr-May)",
-          "available_ingredients": ["rhubarb", "greens (cold frame)"],
-          "favorite_flavors": ["rhubarb", "early-berry"],
+          "available_ingredients": [
+            "rhubarb",
+            "greens (cold frame)"
+          ],
+          "favorite_flavors": [
+            "rhubarb",
+            "early-berry"
+          ],
           "source": "CSU Extension seasonal calendar",
           "confidence": "medium",
           "status": "confirmed",
@@ -4217,8 +4507,16 @@
       "seasonal_moments": [
         {
           "moment": "Fallon Cantaloupe Festival & County Fair (August / Labor Day weekend)",
-          "available_ingredients": ["Hearts of Gold cantaloupe", "sweet corn", "summer squash"],
-          "favorite_flavors": ["cantaloupe", "melon-and-cream", "sweet corn"],
+          "available_ingredients": [
+            "Hearts of Gold cantaloupe",
+            "sweet corn",
+            "summer squash"
+          ],
+          "favorite_flavors": [
+            "cantaloupe",
+            "melon-and-cream",
+            "sweet corn"
+          ],
           "source": "The Fallon Post + NPS — Hearts of Gold Cantaloupe Festival & Fair, held every August/Labor Day weekend, Lahontan Valley crop since early 1900s",
           "confidence": "high",
           "status": "confirmed",
@@ -4226,8 +4524,17 @@
         },
         {
           "moment": "High-desert summer peak (Jun-Aug)",
-          "available_ingredients": ["sweet corn", "summer squash", "raspberries", "Hearts of Gold cantaloupe"],
-          "favorite_flavors": ["sweet corn", "cantaloupe", "raspberry"],
+          "available_ingredients": [
+            "sweet corn",
+            "summer squash",
+            "raspberries",
+            "Hearts of Gold cantaloupe"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "cantaloupe",
+            "raspberry"
+          ],
           "source": "Lattin Farms confirmed harvest (Fallon Chamber)",
           "confidence": "high",
           "status": "confirmed",
@@ -4235,8 +4542,16 @@
         },
         {
           "moment": "Fall corn maze + pumpkin festival (Oct)",
-          "available_ingredients": ["pumpkins", "winter squash", "tomatoes (late)"],
-          "favorite_flavors": ["pumpkin", "squash", "warm spice"],
+          "available_ingredients": [
+            "pumpkins",
+            "winter squash",
+            "tomatoes (late)"
+          ],
+          "favorite_flavors": [
+            "pumpkin",
+            "squash",
+            "warm spice"
+          ],
           "source": "Lattin Farms corn maze and fall festival (Fallon Chamber listing)",
           "confidence": "high",
           "status": "confirmed",
@@ -4244,8 +4559,15 @@
         },
         {
           "moment": "Spring greens / asparagus (Mar-May)",
-          "available_ingredients": ["asparagus", "spring greens", "raspberries (early)"],
-          "favorite_flavors": ["asparagus (savory)", "early-berry"],
+          "available_ingredients": [
+            "asparagus",
+            "spring greens",
+            "raspberries (early)"
+          ],
+          "favorite_flavors": [
+            "asparagus (savory)",
+            "early-berry"
+          ],
           "source": "UNR Extension desert-valley calendar (Lahontan Valley spring season)",
           "confidence": "medium",
           "status": "confirmed",
@@ -4253,8 +4575,16 @@
         },
         {
           "moment": "Winter / holidays (Dec-Feb)",
-          "available_ingredients": ["storage onions", "storage garlic", "winter squash (storage)"],
-          "favorite_flavors": ["gingerbread", "warm spice", "savory storage"],
+          "available_ingredients": [
+            "storage onions",
+            "storage garlic",
+            "winter squash (storage)"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "warm spice",
+            "savory storage"
+          ],
           "source": "UNR Extension + Fallon alfalfa/livestock ag base",
           "confidence": "medium",
           "status": "proposed",
@@ -4305,8 +4635,16 @@
       "seasonal_moments": [
         {
           "moment": "Early spring desert season + Clark County Fair (Mar-Apr)",
-          "available_ingredients": ["asparagus", "spring greens", "spring melons (early)"],
-          "favorite_flavors": ["early melon", "asparagus (savory)", "citrus"],
+          "available_ingredients": [
+            "asparagus",
+            "spring greens",
+            "spring melons (early)"
+          ],
+          "favorite_flavors": [
+            "early melon",
+            "asparagus (savory)",
+            "citrus"
+          ],
           "source": "UNR Extension Moapa/Virgin Valley spring season + Clark County Fair (Logandale, spring)",
           "confidence": "medium",
           "status": "confirmed",
@@ -4314,8 +4652,15 @@
         },
         {
           "moment": "Hot-desert summer (heat-loving crops, Jun-Aug)",
-          "available_ingredients": ["melons", "summer squash", "okra"],
-          "favorite_flavors": ["melon", "squash (savory)"],
+          "available_ingredients": [
+            "melons",
+            "summer squash",
+            "okra"
+          ],
+          "favorite_flavors": [
+            "melon",
+            "squash (savory)"
+          ],
           "source": "UNR Extension Selecting Vegetable Crops for Small-Scale Desert Production",
           "confidence": "high",
           "status": "confirmed",
@@ -4323,8 +4668,16 @@
         },
         {
           "moment": "Fall date harvest + fall planting (Sep-Oct)",
-          "available_ingredients": ["dates", "fall tomatoes", "cool-season greens (starting)"],
-          "favorite_flavors": ["date", "date-and-honey", "warm spice"],
+          "available_ingredients": [
+            "dates",
+            "fall tomatoes",
+            "cool-season greens (starting)"
+          ],
+          "favorite_flavors": [
+            "date",
+            "date-and-honey",
+            "warm spice"
+          ],
           "source": "UNR Extension desert fruit guide (dates Mojave-appropriate, harvest Sep-Oct) + fall growing season",
           "confidence": "medium",
           "status": "confirmed",
@@ -4332,8 +4685,15 @@
         },
         {
           "moment": "Winter cool-season / holidays (Dec-Feb)",
-          "available_ingredients": ["citrus (desert)", "cool-season greens"],
-          "favorite_flavors": ["citrus", "date", "gingerbread"],
+          "available_ingredients": [
+            "citrus (desert)",
+            "cool-season greens"
+          ],
+          "favorite_flavors": [
+            "citrus",
+            "date",
+            "gingerbread"
+          ],
           "source": "UNR Extension Moapa/Virgin Valley winter season",
           "confidence": "medium",
           "status": "proposed",
@@ -4341,12 +4701,965 @@
         },
         {
           "moment": "Late-spring melon start (May-Jun)",
-          "available_ingredients": ["spring melons", "summer squash"],
-          "favorite_flavors": ["melon", "melon-and-cream"],
+          "available_ingredients": [
+            "spring melons",
+            "summer squash"
+          ],
+          "favorite_flavors": [
+            "melon",
+            "melon-and-cream"
+          ],
           "source": "UNR Extension desert production guide",
           "confidence": "medium",
           "status": "confirmed",
           "note": "melons come on earlier here than the mountains and hold through the heat"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-NE-BALTIMORE",
+      "metro_location": {
+        "note": "seeded batch Northeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Westminster, MD (Carroll County)",
+        "market": "US-MD-WESTMINSTER",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "Giant Food",
+        "Weis Markets",
+        "ShopRite",
+        "Safeway"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "maple syrup",
+        "2026-03": "maple syrup",
+        "2026-04": "asparagus",
+        "2026-05": "strawberries",
+        "2026-06": "sweet cherries",
+        "2026-07": "sweet corn",
+        "2026-08": "heirloom tomatoes",
+        "2026-09": "peaches",
+        "2026-10": "apples",
+        "2026-11": "sweet potatoes",
+        "2026-12": "winter squash"
+      },
+      "monthly_ingredient_notes": {
+        "2026-01": "Storage apples and pears from Baugher's Orchards country market carry through winter; fresh field harvest is dormant. Value-added/storage, not fresh field.",
+        "2026-08": "Heirloom Tomato Festival at Carroll County Farmers Market (Ag Center, Westminster) confirms peak tomato in August.",
+        "source": "University of Maryland Extension produce calendar; Downtown Westminster Farmers' Market (open last Sat of May through Sat before Thanksgiving); Baugher's Orchards Westminster; Carroll County Ag Center Farmers Market. Confidence high for the field-harvest arc (May-Oct); winter months flagged storage."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Maryland sweet-corn and tomato season (Jul-Aug)",
+          "available_ingredients": [
+            "sweet corn",
+            "heirloom tomatoes",
+            "green beans",
+            "zucchini",
+            "peaches"
+          ],
+          "favorite_flavors": [
+            "peaches and cream",
+            "sweet corn cornbread",
+            "peach"
+          ],
+          "source": "Carroll County Farmers Market / Carroll Grown; Maryland farm-stand summer arc",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Peak fresh field harvest window; sweet corn and tomatoes are the local swear-by crops"
+        },
+        {
+          "moment": "Fall Farm Fun / apple + pumpkin harvest (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "apple cider",
+            "pumpkins",
+            "winter squash",
+            "fall pears"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "pumpkin spice",
+            "cider"
+          ],
+          "source": "Carroll Grown Fall Farm Fun; Baugher's Orchards fall harvest (apples, cider, squash, pies)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Pick-your-own apples, corn mazes, cider through end of October"
+        },
+        {
+          "moment": "Thanksgiving",
+          "available_ingredients": [
+            "sweet potatoes",
+            "winter squash",
+            "storage apples",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "pumpkin",
+            "sweet potato",
+            "apple",
+            "pecan"
+          ],
+          "source": "Mid-Atlantic Thanksgiving baking culture",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Westminster market runs through the Saturday before Thanksgiving; produce is storage crops by late November"
+        },
+        {
+          "moment": "Winter holidays / storage baking (Dec)",
+          "available_ingredients": [
+            "storage apples",
+            "winter squash",
+            "sweet potatoes",
+            "honey"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "cranberry",
+            "peppermint",
+            "spiced apple"
+          ],
+          "source": "Mid-Atlantic holiday baking culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Value-added/storage season; cranberry and peppermint are imported flavor culture, not MD-grown"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-NE-BOS",
+      "metro_location": {
+        "note": "seeded batch Northeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Bolton, MA (Nashoba Valley apple country)",
+        "market": "US-MA-BOLTON",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "Market Basket",
+        "Stop & Shop",
+        "Hannaford",
+        "Wegmans"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "maple syrup",
+        "2026-03": "maple syrup",
+        "2026-04": "rhubarb",
+        "2026-05": "asparagus",
+        "2026-06": "strawberries",
+        "2026-07": "blueberries",
+        "2026-08": "peaches",
+        "2026-09": "apples",
+        "2026-10": "apples",
+        "2026-11": "cranberries",
+        "2026-12": "winter squash"
+      },
+      "monthly_ingredient_notes": {
+        "2026-02": "Central MA maple sugaring runs late Feb into April; syrup is the fresh value-added product of the month while fields are dormant.",
+        "2026-09": "Nashoba Valley Winery & Orchard and Bolton Orchards begin pick-your-own apples first/second week of September; Bolton is historic apple country (the 'Mother Apple' is documented as originating in Bolton).",
+        "2026-11": "Massachusetts cranberry harvest peaks Sep-Nov (statewide bog culture); a New England signature crop.",
+        "source": "UMass Extension harvest calendar; Boston Globe apple-picking coverage; Nashoba Valley / Bolton Orchards. Confidence high for apple arc; winter months flagged storage/value-added."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Maple sugaring season (late Feb-Mar)",
+          "available_ingredients": [
+            "maple syrup"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "maple pecan"
+          ],
+          "source": "UMass Extension; New England sugaring tradition",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Fresh value-added product during the dormant field season; sap runs on freeze-thaw cycles"
+        },
+        {
+          "moment": "New England apple-picking season (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "apple cider",
+            "cider doughnuts",
+            "fall pears"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "maple apple"
+          ],
+          "source": "Boston Globe apple-picking guide; Nashoba Valley Winery & Orchard, Bolton",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Bolton is a defining Greater-Boston apple destination; PYO opens first/second week September"
+        },
+        {
+          "moment": "Cranberry harvest / Thanksgiving (Oct-Nov)",
+          "available_ingredients": [
+            "cranberries",
+            "storage apples",
+            "winter squash",
+            "sweet potatoes"
+          ],
+          "favorite_flavors": [
+            "cranberry",
+            "pumpkin",
+            "apple",
+            "maple"
+          ],
+          "source": "Massachusetts cranberry industry; New England Thanksgiving culture",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Cranberry is genuinely MA-grown (statewide bogs); a distinctive New England anchor"
+        },
+        {
+          "moment": "Deep-winter holiday baking (Dec-Jan)",
+          "available_ingredients": [
+            "storage apples",
+            "winter squash",
+            "maple syrup",
+            "cranberries"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "maple",
+            "cranberry",
+            "peppermint"
+          ],
+          "source": "New England holiday baking culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Storage/value-added season; peppermint is imported flavor culture"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-NE-BURLINGTON",
+      "metro_location": {
+        "note": "seeded batch Northeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Shelburne, VT (Lake Champlain, maple/dairy)",
+        "market": "US-VT-SHELBURNE",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "Hannaford",
+        "Price Chopper",
+        "Shaw's",
+        "City Market Onion River Co-op"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "maple syrup",
+        "2026-02": "maple syrup",
+        "2026-03": "maple syrup",
+        "2026-04": "cheddar cheese",
+        "2026-05": "asparagus",
+        "2026-06": "strawberries",
+        "2026-07": "blueberries",
+        "2026-08": "sweet corn",
+        "2026-09": "apples",
+        "2026-10": "apples",
+        "2026-11": "winter squash",
+        "2026-12": "maple syrup"
+      },
+      "monthly_ingredient_notes": {
+        "2026-03": "Vermont Maple Open House Weekend falls the third weekend of March (Mar 21-22 in 2026); March is officially declared Maple Month. Shelburne Sugarworks and Shelburne Farms host tastings.",
+        "2026-04": "Lake Champlain dairy is the year-round anchor; Shelburne Farms cheddar is the signature value-added dairy product. Field harvest is still dormant in April, so dairy stands in.",
+        "source": "Vermont Agency of Agriculture; Vermont Maple Sugar Makers' Association; Shelburne Farms; UVM Extension. Confidence high; short Vermont field season means maple and dairy carry the shoulder months honestly."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Maple sugaring season + Maple Open House Weekend (Feb-Mar)",
+          "available_ingredients": [
+            "maple syrup",
+            "maple cream",
+            "maple sugar"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "maple pecan",
+            "maple cinnamon"
+          ],
+          "source": "Vermont Maple Sugar Makers' Association; Vermont Agency of Agriculture (Maple Open House Weekend Mar 21-22, 2026)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "The signature Vermont seasonal moment; Shelburne Sugarworks opens for the statewide weekend. Genuinely local-grown/produced"
+        },
+        {
+          "moment": "Lake Champlain dairy + cheese season (year-round anchor)",
+          "available_ingredients": [
+            "cheddar cheese",
+            "butter",
+            "farmstead cheese"
+          ],
+          "favorite_flavors": [
+            "maple butter",
+            "cheddar-crust savory bakes",
+            "buttermilk"
+          ],
+          "source": "Shelburne Farms; Lake Champlain dairy tradition",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Dairy is the constant local anchor across every month; Shelburne Farms cheddar is a distinctive regional product"
+        },
+        {
+          "moment": "Vermont sweet-corn and berry summer (Jul-Aug)",
+          "available_ingredients": [
+            "sweet corn",
+            "blueberries",
+            "strawberries",
+            "raspberries"
+          ],
+          "favorite_flavors": [
+            "blueberry",
+            "sweet corn",
+            "maple berry"
+          ],
+          "source": "UVM Extension harvest calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "The short, intense Vermont field-harvest peak"
+        },
+        {
+          "moment": "Fall apple harvest / leaf-peeping (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "apple cider",
+            "winter squash",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "apple cider",
+            "maple apple",
+            "pumpkin spice"
+          ],
+          "source": "Vermont apple growers; New England fall foliage tradition",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Leaf-peeping drives orchard visits; cider and apples are local-grown"
+        },
+        {
+          "moment": "Deep-winter holiday baking (Dec-Jan)",
+          "available_ingredients": [
+            "maple syrup",
+            "storage apples",
+            "cheddar",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "gingerbread",
+            "cranberry"
+          ],
+          "source": "Vermont winter holiday culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Storage/value-added season; maple and dairy remain genuinely local, cranberry is imported flavor"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-NE-DC",
+      "metro_location": {
+        "note": "seeded batch Northeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Purcellville, VA (Loudoun County, wine/orchard)",
+        "market": "US-VA-PURCELLVILLE",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "Giant Food",
+        "Harris Teeter",
+        "Safeway",
+        "Wegmans"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "honey",
+        "2026-03": "maple syrup",
+        "2026-04": "asparagus",
+        "2026-05": "strawberries",
+        "2026-06": "sweet cherries",
+        "2026-07": "peaches",
+        "2026-08": "blackberries",
+        "2026-09": "apples",
+        "2026-10": "apples",
+        "2026-11": "pumpkins",
+        "2026-12": "winter squash"
+      },
+      "monthly_ingredient_notes": {
+        "2026-05": "Loudoun agritourism farms (Great Country Farms, Bluemont) open strawberries, cherries and black raspberries in spring.",
+        "2026-07": "Peaches ripen July; a Loudoun/Northern Virginia Peach Festival at area wineries confirms the July-August peach window.",
+        "2026-09": "Apples come in September; orchard + wine season overlap makes Loudoun a distinctive wine-country harvest destination.",
+        "source": "Visit Loudoun agritourism; Loudoun Farms; Purcellville Farmers Market (opens early-mid May); Virginia Cooperative Extension. Confidence high for the field arc; winter months flagged storage."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Spring pick-your-own (strawberries + cherries, May-Jun)",
+          "available_ingredients": [
+            "strawberries",
+            "sweet cherries",
+            "black raspberries",
+            "asparagus"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "cherry",
+            "lemon berry"
+          ],
+          "source": "Visit Loudoun orchards & u-picks; Great Country Farms",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Purcellville Farmers Market opens early-to-mid May; spring PYO is a local draw"
+        },
+        {
+          "moment": "Peach season + Loudoun Peach Festival (Jul-Aug)",
+          "available_ingredients": [
+            "peaches",
+            "blackberries",
+            "sweet corn",
+            "tomatoes"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "peach cobbler",
+            "blackberry"
+          ],
+          "source": "Loudoun peach festival at area wineries; Northern Virginia Magazine PYO guide",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Peaches are genuinely Loudoun-grown; festival ties peach to the wine-country identity"
+        },
+        {
+          "moment": "Wine-country apple harvest (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "apple cider",
+            "grapes",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "spiced apple"
+          ],
+          "source": "Visit Loudoun agritourism; Loudoun orchard + winery calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Apple and wine-grape harvest overlap; the distinctive Loudoun anchor is orchard-plus-winery agritourism"
+        },
+        {
+          "moment": "Thanksgiving + winter holidays (Nov-Dec)",
+          "available_ingredients": [
+            "pumpkins",
+            "winter squash",
+            "storage apples",
+            "sweet potatoes",
+            "honey"
+          ],
+          "favorite_flavors": [
+            "pumpkin",
+            "apple",
+            "pecan",
+            "gingerbread"
+          ],
+          "source": "Mid-Atlantic holiday baking culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Storage/value-added by late fall; honey is a genuine year-round local product"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-NE-HARTFORD",
+      "metro_location": {
+        "note": "seeded batch Northeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Suffield, CT (Connecticut River valley)",
+        "market": "US-CT-SUFFIELD",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "Stop & Shop",
+        "Big Y",
+        "ShopRite",
+        "Geissler's Supermarket"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "maple syrup",
+        "2026-03": "maple syrup",
+        "2026-04": "rhubarb",
+        "2026-05": "asparagus",
+        "2026-06": "strawberries",
+        "2026-07": "sweet corn",
+        "2026-08": "tomatoes",
+        "2026-09": "apples",
+        "2026-10": "pumpkins",
+        "2026-11": "winter squash",
+        "2026-12": "honey"
+      },
+      "monthly_ingredient_notes": {
+        "2026-07": "Suffield is Upper Connecticut River Valley farmland; Vincent Farms and area growers produce sweet corn, tomatoes, pumpkins and popcorn on the rich valley soil (the same ground historically famous for shade-grown cigar tobacco).",
+        "2026-09": "CT apple harvest begins in September; river-valley orchards supply pick-your-own and cider.",
+        "source": "UConn Extension Connecticut harvest calendar; Town of Suffield farms listing; Vincent Farms; Hilltop Farm. Confidence high for the field arc; winter months flagged storage."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Maple sugaring season (late Feb-Mar)",
+          "available_ingredients": [
+            "maple syrup"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "maple walnut"
+          ],
+          "source": "UConn Extension; Connecticut sugaring tradition",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "CT sugaring is smaller than VT/MA but real; fresh value-added during dormant fields"
+        },
+        {
+          "moment": "Connecticut River Valley sweet-corn + tomato season (Jul-Aug)",
+          "available_ingredients": [
+            "sweet corn",
+            "tomatoes",
+            "green beans",
+            "summer squash"
+          ],
+          "favorite_flavors": [
+            "sweet corn cornbread",
+            "tomato savory bakes"
+          ],
+          "source": "Town of Suffield farms listing; Vincent Farms half-tobacco half-produce",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "The rich Connecticut River Valley soil (famous for shade tobacco) also grows the region's signature sweet corn and tomatoes"
+        },
+        {
+          "moment": "Fall apple + pumpkin harvest (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "apple cider",
+            "pumpkins",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "pumpkin spice"
+          ],
+          "source": "UConn Extension; Connecticut orchard fall harvest",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "CT apple-cider culture; pick-your-own and cider through October"
+        },
+        {
+          "moment": "Thanksgiving + winter holiday baking (Nov-Dec)",
+          "available_ingredients": [
+            "storage apples",
+            "winter squash",
+            "sweet potatoes",
+            "honey"
+          ],
+          "favorite_flavors": [
+            "pumpkin",
+            "apple",
+            "gingerbread",
+            "cranberry"
+          ],
+          "source": "New England holiday baking culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Storage/value-added season; cranberry and peppermint are imported flavor culture"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-NE-NYC",
+      "metro_location": {
+        "note": "seeded batch Northeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Warwick, NY (Hudson Valley, apples/onions/black dirt)",
+        "market": "US-NY-WARWICK",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "ShopRite",
+        "Stop & Shop",
+        "Wegmans",
+        "Price Chopper"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "maple syrup",
+        "2026-03": "maple syrup",
+        "2026-04": "asparagus",
+        "2026-05": "strawberries",
+        "2026-06": "sweet cherries",
+        "2026-07": "black-dirt onions",
+        "2026-08": "peaches",
+        "2026-09": "apples",
+        "2026-10": "apples",
+        "2026-11": "winter squash",
+        "2026-12": "storage onions"
+      },
+      "monthly_ingredient_notes": {
+        "2026-07": "Warwick's 'black dirt region' (drained glacial muckland) is a distinctive onion-growing area; onions bulk and cure through mid-late summer into fall.",
+        "2026-09": "Hudson Valley apple harvest; Warwick Valley Winery PYO lists Zestar, Gala, Honeycrisp from Labor Day weekend onward. Warwick Applefest is the first Sunday in October (Oct 4, 2026), drawing 30,000+.",
+        "source": "Cornell Cooperative Extension Orange County; Warwick Valley Winery & Distillery PYO schedule; Village of Warwick annual events (Applefest first Sunday in October). Confidence high for apple + onion arc; winter months flagged storage."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Maple sugaring season (late Feb-Mar)",
+          "available_ingredients": [
+            "maple syrup"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "maple pecan"
+          ],
+          "source": "Cornell Cooperative Extension; New York sugaring tradition",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Hudson Valley sugaring is real but secondary to the apple identity; fresh value-added in dormant season"
+        },
+        {
+          "moment": "Black-dirt onion season (Jul-Sep)",
+          "available_ingredients": [
+            "black-dirt onions",
+            "sweet corn",
+            "peppers",
+            "tomatoes"
+          ],
+          "favorite_flavors": [
+            "savory onion cheddar bakes",
+            "sweet corn"
+          ],
+          "source": "Cornell Cooperative Extension Orange County; Warwick black dirt region",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Black-dirt onions are the distinctive Warwick savory anchor; genuinely local-grown on the muckland soils"
+        },
+        {
+          "moment": "Warwick Applefest + Hudson Valley apple harvest (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "apple cider",
+            "pears",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "caramel apple"
+          ],
+          "source": "Warwick Valley Winery PYO schedule; Village of Warwick Applefest (first Sunday in October, Oct 4 2026)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Applefest is the signature Warwick moment (30,000+ attendees); 65+ apple varieties in the valley"
+        },
+        {
+          "moment": "Thanksgiving + winter holiday baking (Nov-Dec)",
+          "available_ingredients": [
+            "storage apples",
+            "storage onions",
+            "winter squash",
+            "sweet potatoes"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "pumpkin",
+            "gingerbread",
+            "cranberry"
+          ],
+          "source": "Hudson Valley holiday baking culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Storage/value-added season; cured black-dirt onions and storage apples carry into winter, cranberry is imported flavor"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-NE-PHILLY",
+      "metro_location": {
+        "note": "seeded batch Northeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Kennett Square, PA (mushroom capital of the world)",
+        "market": "US-PA-KENNETT",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "Giant Food",
+        "Acme Markets",
+        "Wegmans",
+        "ShopRite"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "mushrooms",
+        "2026-02": "mushrooms",
+        "2026-03": "mushrooms",
+        "2026-04": "asparagus",
+        "2026-05": "strawberries",
+        "2026-06": "sweet cherries",
+        "2026-07": "sweet corn",
+        "2026-08": "tomatoes",
+        "2026-09": "mushrooms",
+        "2026-10": "apples",
+        "2026-11": "mushrooms",
+        "2026-12": "mushrooms"
+      },
+      "monthly_ingredient_notes": {
+        "2026-01": "Kennett Square mushrooms are grown indoors year-round; roughly half the US mushroom crop comes from the area. Mushrooms are the only genuinely year-round fresh local crop in deep winter here, which is what makes this frontier distinctive.",
+        "2026-09": "Kennett Square Mushroom Festival takes place the weekend after Labor Day (Sep 12-13 in 2026, 41st annual), with 220+ vendors along State Street. A savory anchor unlike any other Northeast pair.",
+        "source": "Penn State Extension; The Mushroom Festival (mushroomfestival.org); Kennett Collaborative. Confidence high; mushroom year-round is the defining fact, field crops fill the May-Oct arc."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Kennett Square Mushroom Festival (weekend after Labor Day, Sep 12-13 2026)",
+          "available_ingredients": [
+            "mushrooms",
+            "white button",
+            "cremini",
+            "portabella",
+            "shiitake",
+            "oyster mushrooms"
+          ],
+          "favorite_flavors": [
+            "savory mushroom",
+            "mushroom-cheddar",
+            "herb savory bakes"
+          ],
+          "source": "The Mushroom Festival (mushroomfestival.org); Kennett Collaborative (41st annual, Sep 12-13 2026)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "The distinctive savory anchor for this pair; mushrooms are genuinely local and year-round, unlike any other NE frontier"
+        },
+        {
+          "moment": "Spring produce (asparagus + strawberries, Apr-Jun)",
+          "available_ingredients": [
+            "asparagus",
+            "strawberries",
+            "sweet cherries",
+            "rhubarb"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "lemon",
+            "rhubarb"
+          ],
+          "source": "Penn State Extension southeastern PA harvest calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Chester County field harvest ramps up in spring alongside the constant mushroom supply"
+        },
+        {
+          "moment": "Summer field harvest (sweet corn + tomatoes, Jul-Aug)",
+          "available_ingredients": [
+            "sweet corn",
+            "tomatoes",
+            "peaches",
+            "blueberries"
+          ],
+          "favorite_flavors": [
+            "sweet corn cornbread",
+            "peach",
+            "blueberry"
+          ],
+          "source": "Penn State Extension; southeastern PA farm stands",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Peak field harvest; mushrooms continue year-round alongside"
+        },
+        {
+          "moment": "Fall apple + Thanksgiving (Oct-Nov)",
+          "available_ingredients": [
+            "apples",
+            "apple cider",
+            "mushrooms",
+            "winter squash",
+            "sweet potatoes"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "savory mushroom",
+            "pumpkin"
+          ],
+          "source": "Penn State Extension; southeastern PA orchards",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Apples are local-grown; mushrooms remain the year-round savory constant"
+        },
+        {
+          "moment": "Deep-winter holiday baking (Dec-Feb)",
+          "available_ingredients": [
+            "mushrooms",
+            "storage apples",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "peppermint",
+            "savory mushroom",
+            "spiced apple"
+          ],
+          "source": "Southeastern PA holiday baking culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Mushrooms are the standout genuinely-fresh local crop in deep winter; peppermint and cranberry are imported flavor culture"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-NE-PROVIDENCE",
+      "metro_location": {
+        "note": "seeded batch Northeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Scituate, RI (apple/cider)",
+        "market": "US-RI-SCITUATE",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "Stop & Shop",
+        "Dave's Fresh Marketplace",
+        "Shaw's",
+        "Market Basket"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "maple syrup",
+        "2026-03": "maple syrup",
+        "2026-04": "rhubarb",
+        "2026-05": "asparagus",
+        "2026-06": "strawberries",
+        "2026-07": "blueberries",
+        "2026-08": "sweet corn",
+        "2026-09": "apples",
+        "2026-10": "apples",
+        "2026-11": "cranberries",
+        "2026-12": "winter squash"
+      },
+      "monthly_ingredient_notes": {
+        "2026-09": "North Scituate orchards (Sunset Orchard, Barden Family Orchard) open pick-your-own apples and press sweet apple cider on premises in September.",
+        "2026-11": "Rhode Island shares the New England cranberry harvest window (Sep-Nov); a regional signature crop.",
+        "source": "URI Cooperative Extension; Visit Rhode Island pick-your-own; Barden Family Orchard; Sunset Orchard (North Scituate). Confidence high for apple/cider arc; winter months flagged storage/value-added."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Maple sugaring season (late Feb-Mar)",
+          "available_ingredients": [
+            "maple syrup"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "maple walnut"
+          ],
+          "source": "URI Cooperative Extension; southern New England sugaring",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "RI sugaring is small-scale but real; fresh value-added during dormant fields"
+        },
+        {
+          "moment": "Summer berry + sweet-corn season (Jun-Aug)",
+          "available_ingredients": [
+            "strawberries",
+            "blueberries",
+            "sweet corn",
+            "tomatoes"
+          ],
+          "favorite_flavors": [
+            "blueberry",
+            "strawberry",
+            "sweet corn"
+          ],
+          "source": "URI Cooperative Extension harvest calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Peak Rhode Island field harvest window"
+        },
+        {
+          "moment": "Apple + cider season (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "apple cider",
+            "cider doughnuts",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "caramel apple"
+          ],
+          "source": "Visit Rhode Island PYO; Barden Family Orchard + Sunset Orchard (North Scituate)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Scituate apple-cider culture; cider pressed on-premises is the local signature"
+        },
+        {
+          "moment": "Cranberry harvest + Thanksgiving (Oct-Nov)",
+          "available_ingredients": [
+            "cranberries",
+            "storage apples",
+            "winter squash",
+            "sweet potatoes"
+          ],
+          "favorite_flavors": [
+            "cranberry",
+            "apple",
+            "pumpkin",
+            "maple"
+          ],
+          "source": "Rhode Island / southern New England cranberry culture; New England Thanksgiving",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Cranberry is genuinely regional (New England bog crop); a distinctive fall anchor"
+        },
+        {
+          "moment": "Deep-winter holiday baking (Dec-Jan)",
+          "available_ingredients": [
+            "storage apples",
+            "winter squash",
+            "maple syrup",
+            "cranberries"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "cranberry",
+            "maple",
+            "peppermint"
+          ],
+          "source": "New England holiday baking culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Storage/value-added season; peppermint is imported flavor culture"
         }
       ],
       "research_todo": false
