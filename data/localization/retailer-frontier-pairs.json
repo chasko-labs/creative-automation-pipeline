@@ -5,7 +5,7 @@
     "purpose": "Each retail metro location pairs with a frontier sister location. Every pair carries a retailer list and a monthly local ingredient sourced from a local farmers market. Drives seasonal recipe-card localization and retailer logo lockups.",
     "monthly_ingredient_mechanism": "monthly_ingredients maps ISO month (YYYY-MM) -> in-season local ingredient for the frontier sister's farmers market. Populate the current month at seed time; the other 11 months are filled by a research dispatch (ghost research task) that resolves each frontier market's seasonal produce calendar from the linked farmers_market_url + regional extension-service crop calendars. Entries marked research_todo=true are placeholders awaiting that dispatch.",
     "seasonal_moments_mechanism": "seasonal_moments is an array of holiday/season entries per pair. Each entry captures the fresh local ingredients available at that moment (available_ingredients) plus the favorite bake flavors people reach for then (favorite_flavors), for the creative bank. Every entry carries a source, confidence (high|medium|low), and status (confirmed|proposed). Notes flag storage/value-added vs fresh-harvest and imported flavor-culture vs local-grown so the creative bank stays non-fabricated.",
-    "confirmed_pairs": 46
+    "confirmed_pairs": 55
   },
   "pairs": [
     {
@@ -5660,6 +5660,1035 @@
           "confidence": "medium",
           "status": "confirmed",
           "note": "Storage/value-added season; peppermint is imported flavor culture"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-PHX2",
+      "metro_location": {
+        "note": "seeded batch DesertSW; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Marana, AZ",
+        "market": "US-AZ-MARANA",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "Fry's",
+        "Safeway",
+        "Bashas'",
+        "Sprouts"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "citrus (oranges, grapefruit)",
+        "2026-02": "citrus and leafy greens",
+        "2026-03": "spring greens and snap peas",
+        "2026-04": "spring onions and carrots",
+        "2026-05": "spring wheat berries and early melons",
+        "2026-06": "cantaloupe",
+        "2026-07": "watermelon",
+        "2026-08": "melons and okra",
+        "2026-09": "melons and heat-set peppers",
+        "2026-10": "fall cool-season greens",
+        "2026-11": "pecans and winter squash",
+        "2026-12": "citrus (mandarins, grapefruit)"
+      },
+      "monthly_ingredient_notes": {
+        "region": "Low Sonoran desert (Pinal/Pima). Cotton + durum wheat + heat-loving melons in summer; cool-season produce Oct-May. Citrus peaks Dec-Feb. July temperate veg would be fabrication — only melons/okra tolerate the summer.",
+        "source": "University of Arizona CALS Pinal County crop calendar; Arizona citrus seasonality"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Winter citrus season (Dec-Feb)",
+          "available_ingredients": [
+            "oranges",
+            "grapefruit",
+            "mandarins",
+            "lemons"
+          ],
+          "favorite_flavors": [
+            "orange",
+            "lemon",
+            "grapefruit",
+            "citrus-glaze"
+          ],
+          "source": "University of Arizona CALS; Arizona backyard-citrus culture",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Inverted desert calendar: citrus is a WINTER local-grown fresh harvest, not summer. Real local pick."
+        },
+        {
+          "moment": "Summer melon peak (Jun-Aug)",
+          "available_ingredients": [
+            "cantaloupe",
+            "watermelon",
+            "honeydew"
+          ],
+          "favorite_flavors": [
+            "melon",
+            "honey",
+            "vanilla"
+          ],
+          "source": "University of Arizona CALS Pinal/Pima crop calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Heat-loving melons are among the only crops thriving in low-desert summer dormancy."
+        },
+        {
+          "moment": "Thanksgiving",
+          "available_ingredients": [
+            "pecans",
+            "winter squash",
+            "citrus"
+          ],
+          "favorite_flavors": [
+            "pecan",
+            "pumpkin",
+            "maple"
+          ],
+          "source": "Southwest baking culture; Arizona pecan harvest Nov",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "pumpkin/maple are traditional bake flavors, imported flavor-culture not necessarily local-grown"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": [
+            "citrus",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "peppermint",
+            "orange",
+            "cinnamon"
+          ],
+          "source": "Southwest / broad US holiday baking culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "peppermint/gingerbread are imported flavor-culture; citrus is genuinely local in winter"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SW-ALBQ",
+      "metro_location": {
+        "note": "seeded batch DesertSW; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Corrales, NM",
+        "market": "US-NM-CORRALES",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "Smith's",
+        "Albertsons",
+        "Sprouts",
+        "Whole Foods"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "stored apples and winter squash",
+        "2026-02": "cool-season greens (spinach, kale)",
+        "2026-03": "asparagus and spring greens",
+        "2026-04": "radishes and lettuce",
+        "2026-05": "spring onions and strawberries",
+        "2026-06": "sweet corn and summer squash",
+        "2026-07": "tomatoes and sweet corn",
+        "2026-08": "green chile and melons",
+        "2026-09": "green chile and apples",
+        "2026-10": "apples and winter squash",
+        "2026-11": "pecans and pumpkins",
+        "2026-12": "stored apples and pecans"
+      },
+      "monthly_ingredient_notes": {
+        "region": "Rio Grande valley (Sandoval County). Chile, sweet corn, apples, wine grapes. Corrales Growers' Market runs spring-fall. Green chile roasting Aug-Sep; apple harvest Sep-Oct.",
+        "source": "NMSU Cooperative Extension Sandoval County; Corrales Growers' Market seasonal listings"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Green chile roasting season (Aug-Sep)",
+          "available_ingredients": [
+            "green chile",
+            "sweet corn",
+            "tomatoes"
+          ],
+          "favorite_flavors": [
+            "green-chile",
+            "green-chile-cornbread",
+            "roasted-chile"
+          ],
+          "source": "NMSU Extension; New Mexico green-chile roasting culture",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Multi-month anchor with huge flavor weight — green-chile everything. Genuinely local-grown Rio Grande valley chile."
+        },
+        {
+          "moment": "Fall apple and harvest season (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "winter squash",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "cinnamon",
+            "apple-cider",
+            "pumpkin-spice"
+          ],
+          "source": "Corrales Growers' Market; NMSU Extension",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Corrales is a historic Rio Grande apple community; apples are local-grown fresh harvest."
+        },
+        {
+          "moment": "Corrales Harvest Festival (late Sep)",
+          "available_ingredients": [
+            "apples",
+            "green chile",
+            "wine grapes",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "green-chile",
+            "wine"
+          ],
+          "source": "Corrales Harvest Festival (annual, late September)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Long-running village harvest festival; exact 2026 dates not confirmed to a specific weekend"
+        },
+        {
+          "moment": "Thanksgiving",
+          "available_ingredients": [
+            "pecans",
+            "winter squash",
+            "apples"
+          ],
+          "favorite_flavors": [
+            "pecan",
+            "pumpkin",
+            "apple"
+          ],
+          "source": "New Mexico / Southwest baking culture; NM pecan harvest Nov",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "pecans local-grown; pumpkin is traditional bake flavor"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": [
+            "stored apples",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "biscochito (anise-cinnamon)",
+            "green-chile",
+            "cinnamon"
+          ],
+          "source": "New Mexico holiday baking culture (biscochito is the NM state cookie)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "biscochito anise-cinnamon is a genuine NM holiday flavor signature"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SW-LASCRUCES",
+      "metro_location": {
+        "note": "seeded batch DesertSW; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Hatch, NM",
+        "market": "US-NM-HATCH",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "Albertsons",
+        "Walmart",
+        "Sprouts",
+        "Bashas'"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "stored onions and pecans",
+        "2026-02": "cool-season greens",
+        "2026-03": "spring onions and greens",
+        "2026-04": "onions and early greens",
+        "2026-05": "sweet onions and squash",
+        "2026-06": "sweet onions and melons",
+        "2026-07": "early green chile and melons",
+        "2026-08": "green chile (peak roasting) and melons",
+        "2026-09": "green and red chile",
+        "2026-10": "red chile and pumpkins",
+        "2026-11": "pecans and red chile ristras",
+        "2026-12": "dried red chile and pecans"
+      },
+      "monthly_ingredient_notes": {
+        "region": "Hatch Valley, Rio Grande (Dona Ana/Sierra County). GREEN CHILE CAPITAL OF THE WORLD. Chile season late-July through early-October; green chile harvested first (Aug), red chile Sep-Oct. Hatch onions are a major spring/summer crop; pecans harvest Nov.",
+        "source": "hatch-green-chile.com Hatch chile season; NMSU Extension Dona Ana County; verified web search 2026-09-14"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Hatch Chile Festival (Labor Day weekend, Sep 5-6, 2026)",
+          "available_ingredients": [
+            "green chile",
+            "red chile",
+            "melons",
+            "onions"
+          ],
+          "favorite_flavors": [
+            "green-chile",
+            "roasted-green-chile",
+            "green-chile-cornbread"
+          ],
+          "source": "hatchchilefestival.com; lcsun-news.com (verified 2026-09-14: Sep 5-6, 2026, 55th annual)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "THE anchor moment for Hatch. Festival draws 30,000+; green-chile everything. Fully local-grown."
+        },
+        {
+          "moment": "Green chile roasting season (late Jul-early Oct)",
+          "available_ingredients": [
+            "green chile",
+            "melons",
+            "onions"
+          ],
+          "favorite_flavors": [
+            "green-chile",
+            "roasted-chile",
+            "green-chile-honey"
+          ],
+          "source": "hatch-green-chile.com Hatch chile season (verified 2026-09-14)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Multi-month season, peak Aug-Sep. Massive favorite-flavor weight."
+        },
+        {
+          "moment": "Red chile / ristra season (Sep-Nov)",
+          "available_ingredients": [
+            "red chile",
+            "pecans",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "red-chile",
+            "red-chile-chocolate",
+            "cinnamon-red-chile"
+          ],
+          "source": "hatch-green-chile.com (red chile Sep-Oct); New Mexico ristra tradition",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Red chile is fully-ripened green chile; ristras are the iconic dried-red hanging bundles."
+        },
+        {
+          "moment": "Pecan harvest / Thanksgiving (Nov)",
+          "available_ingredients": [
+            "pecans",
+            "red chile"
+          ],
+          "favorite_flavors": [
+            "pecan",
+            "red-chile-pecan",
+            "pumpkin"
+          ],
+          "source": "NMSU Extension southern-NM pecan harvest; Southwest baking culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "southern NM (Mesilla/Hatch valley) is major US pecan region; local-grown"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": [
+            "dried red chile",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "biscochito",
+            "red-chile-chocolate",
+            "cinnamon"
+          ],
+          "source": "New Mexico holiday baking culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "red-chile-chocolate and biscochito are genuine NM holiday flavor signatures"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SW-OKC",
+      "metro_location": {
+        "note": "seeded batch DesertSW; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Guthrie, OK",
+        "market": "US-OK-GUTHRIE",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "Homeland",
+        "Walmart",
+        "Crest Foods",
+        "Sprouts"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "stored pecans and winter greens",
+        "2026-02": "cool-season greens (kale, spinach)",
+        "2026-03": "asparagus and spring greens",
+        "2026-04": "strawberries and lettuce",
+        "2026-05": "strawberries and spring onions",
+        "2026-06": "peaches and sweet corn",
+        "2026-07": "peaches, sweet corn, and watermelon",
+        "2026-08": "watermelon and tomatoes",
+        "2026-09": "sweet corn and okra",
+        "2026-10": "pumpkins and winter squash",
+        "2026-11": "pecans and sweet potatoes",
+        "2026-12": "stored pecans and sweet potatoes"
+      },
+      "monthly_ingredient_notes": {
+        "region": "Central Oklahoma (Logan County) — southern-plains climate, not desert. Peaches, pecans, sweet corn, watermelon. Warmer/wetter than NM desert; standard temperate summer growing season.",
+        "source": "Oklahoma State University (OSU) Extension crop seasonality; Oklahoma Grown / Made in Oklahoma produce guides"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Summer peach and sweet-corn season (Jun-Jul)",
+          "available_ingredients": [
+            "peaches",
+            "sweet corn",
+            "watermelon"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "peach-cobbler",
+            "sweet-corn"
+          ],
+          "source": "OSU Extension; Oklahoma peach orchards (Porter-area peach culture statewide)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Oklahoma peaches are a summer local-grown staple; peach cobbler is a strong regional flavor."
+        },
+        {
+          "moment": "Watermelon season (Jul-Aug)",
+          "available_ingredients": [
+            "watermelon",
+            "tomatoes",
+            "okra"
+          ],
+          "favorite_flavors": [
+            "watermelon",
+            "honey",
+            "vanilla"
+          ],
+          "source": "OSU Extension; Oklahoma Rush Springs watermelon culture",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Oklahoma is a notable watermelon state; local-grown summer."
+        },
+        {
+          "moment": "Pecan harvest / Thanksgiving (Nov)",
+          "available_ingredients": [
+            "pecans",
+            "sweet potatoes",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "pecan",
+            "sweet-potato",
+            "pumpkin"
+          ],
+          "source": "OSU Extension pecan harvest; Southern-plains baking culture",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Oklahoma is a native-pecan state; pecans local-grown fall harvest."
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": [
+            "pecans",
+            "sweet potatoes"
+          ],
+          "favorite_flavors": [
+            "pecan",
+            "gingerbread",
+            "cinnamon",
+            "pumpkin"
+          ],
+          "source": "Southern-plains holiday baking culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "gingerbread imported flavor-culture; pecans local-grown"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SW-PHX",
+      "metro_location": {
+        "note": "seeded batch DesertSW; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Queen Creek, AZ",
+        "market": "US-AZ-QUEENCREEK",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "Fry's",
+        "Bashas'",
+        "Safeway",
+        "Sprouts"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "citrus (oranges, grapefruit)",
+        "2026-02": "citrus and peach blossoms",
+        "2026-03": "citrus and spring greens",
+        "2026-04": "peaches (Schnepf Farms u-pick)",
+        "2026-05": "peaches (Schnepf Farms u-pick)",
+        "2026-06": "melons and early dates",
+        "2026-07": "melons and dates",
+        "2026-08": "dates and melons",
+        "2026-09": "dates and heat-set peppers",
+        "2026-10": "olives (Queen Creek Olive Mill) and pumpkins",
+        "2026-11": "olives, pecans, and winter squash",
+        "2026-12": "citrus (mandarins, grapefruit)"
+      },
+      "monthly_ingredient_notes": {
+        "region": "Low Sonoran desert (Maricopa/Pinal). Schnepf Farms peaches mid-April through May; Queen Creek Olive Mill olives Oct; dates in summer; citrus in winter. INVERTED calendar with summer dormancy Jun-Aug (dates/melons only).",
+        "source": "schnepffarms.com (u-pick peaches mid-Apr-May, verified 2026-09-14); Queen Creek Olive Mill (olive harvest Oct); visitmesa.com (citrus Jan, peaches May, olives Oct)"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Schnepf Farms peach season (mid-Apr through May)",
+          "available_ingredients": [
+            "peaches",
+            "citrus"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "peach-cobbler",
+            "vanilla"
+          ],
+          "source": "schnepffarms.com u-pick peaches (verified 2026-09-14: mid-April through May)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Schnepf Farms is a Queen Creek institution; 7 peach varieties ripen across May. Local-grown u-pick. Corrected from brief's Mar-May to mid-Apr-May per source."
+        },
+        {
+          "moment": "Queen Creek Olive Mill harvest (Oct)",
+          "available_ingredients": [
+            "olives",
+            "olive oil",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "olive-oil",
+            "rosemary",
+            "citrus-olive-oil"
+          ],
+          "source": "Queen Creek Olive Mill (Arizona's only working olive mill and grove); visitmesa.com (olives October)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Queen Creek Olive Mill is a genuine local landmark; olive-oil bakes are a real value-added tie-in."
+        },
+        {
+          "moment": "Winter citrus season (Dec-Feb)",
+          "available_ingredients": [
+            "oranges",
+            "grapefruit",
+            "mandarins",
+            "lemons"
+          ],
+          "favorite_flavors": [
+            "orange",
+            "lemon",
+            "grapefruit"
+          ],
+          "source": "visitmesa.com (citrus January); University of Arizona CALS",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Inverted desert calendar — citrus is winter local-grown fresh harvest."
+        },
+        {
+          "moment": "Pumpkin & Chili Party at Schnepf Farms (Oct)",
+          "available_ingredients": [
+            "pumpkins",
+            "olives",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "pumpkin-spice",
+            "cinnamon",
+            "chili"
+          ],
+          "source": "visitqueencreekaz.com; schnepffarms.com (October Pumpkin & Chili Party)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "pumpkin-spice is imported flavor-culture; the Oct farm event is real and local"
+        },
+        {
+          "moment": "Winter holidays / Winter Wonderland at Schnepf Farms (Dec)",
+          "available_ingredients": [
+            "citrus",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "peppermint",
+            "orange",
+            "cinnamon"
+          ],
+          "source": "visitmesa.com (Winter Wonderland December); broad holiday baking culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "gingerbread/peppermint imported; citrus genuinely local in winter"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SW-ROSWELL",
+      "metro_location": {
+        "note": "seeded batch DesertSW; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Artesia, NM",
+        "market": "US-NM-ARTESIA",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "Albertsons",
+        "Walmart",
+        "Smith's",
+        "Lowe's Market"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "stored pecans and winter greens",
+        "2026-02": "cool-season greens",
+        "2026-03": "spring greens and onions",
+        "2026-04": "onions and lettuce",
+        "2026-05": "onions and squash",
+        "2026-06": "squash and melons",
+        "2026-07": "green chile and melons",
+        "2026-08": "green chile and tomatoes",
+        "2026-09": "green and red chile",
+        "2026-10": "red chile and pumpkins",
+        "2026-11": "pecans and winter squash",
+        "2026-12": "stored pecans and dried red chile"
+      },
+      "monthly_ingredient_notes": {
+        "region": "Pecos valley (Eddy County). Pecans, chile, alfalfa/dairy country. Chile Aug-Oct; pecans Nov harvest. Cool-season produce shoulder seasons; hot dry summer.",
+        "source": "NMSU Cooperative Extension Eddy County; Pecos-valley pecan production"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Green chile roasting season (Aug-Sep)",
+          "available_ingredients": [
+            "green chile",
+            "tomatoes",
+            "melons"
+          ],
+          "favorite_flavors": [
+            "green-chile",
+            "roasted-chile",
+            "green-chile-cornbread"
+          ],
+          "source": "NMSU Extension; New Mexico green-chile culture",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Green-chile is the regional flavor anchor across the Pecos valley too. Local-grown."
+        },
+        {
+          "moment": "Pecan harvest (Nov)",
+          "available_ingredients": [
+            "pecans",
+            "winter squash",
+            "red chile"
+          ],
+          "favorite_flavors": [
+            "pecan",
+            "red-chile-pecan",
+            "cinnamon"
+          ],
+          "source": "NMSU Extension; Pecos-valley pecan orchards",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Pecos valley (Eddy County) is a significant NM pecan region; local-grown fall harvest."
+        },
+        {
+          "moment": "Thanksgiving",
+          "available_ingredients": [
+            "pecans",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "pecan",
+            "pumpkin",
+            "red-chile"
+          ],
+          "source": "Southwest baking culture; NM pecan harvest Nov",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "pumpkin is traditional bake flavor; pecans local-grown"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": [
+            "stored pecans",
+            "dried red chile"
+          ],
+          "favorite_flavors": [
+            "biscochito",
+            "red-chile-chocolate",
+            "cinnamon"
+          ],
+          "source": "New Mexico holiday baking culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "biscochito and red-chile-chocolate are genuine NM holiday signatures"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SW-TULAROSA",
+      "metro_location": {
+        "note": "seeded batch DesertSW; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "La Luz, NM",
+        "market": "US-NM-LALUZ",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "Albertsons",
+        "Walmart",
+        "Lowe's Market",
+        "Sprouts"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "stored pecans and pistachios",
+        "2026-02": "stored apples and pistachios",
+        "2026-03": "spring greens",
+        "2026-04": "cherry blossoms and early greens",
+        "2026-05": "cherries",
+        "2026-06": "cherries and apricots",
+        "2026-07": "apples (early) and melons",
+        "2026-08": "apples and green chile",
+        "2026-09": "pistachios (harvest) and apples",
+        "2026-10": "apples and wine grapes",
+        "2026-11": "pecans and pistachios",
+        "2026-12": "pistachios and stored apples"
+      },
+      "monthly_ingredient_notes": {
+        "region": "Tularosa basin (Otero County), La Luz / Alamogordo. Pistachios (Eagle Ranch / Heart of the Desert, McGinn's PistachioLand — harvest Sep), cherries and apples (La Luz orchard belt), pecans Nov, wine grapes. Warm-arid valley below the Sacramento Mountains.",
+        "source": "heartofthedesert.com (Eagle Ranch pistachios); pistachioland.com (McGinn's, 90 acres pistachio + 14 acres grapes) — verified 2026-09-14; NMSU Otero County Extension"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Pistachio harvest (Sep)",
+          "available_ingredients": [
+            "pistachios",
+            "apples",
+            "wine grapes"
+          ],
+          "favorite_flavors": [
+            "pistachio",
+            "pistachio-honey",
+            "pistachio-brittle"
+          ],
+          "source": "heartofthedesert.com; pistachioland.com (verified 2026-09-14)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Eagle Ranch and McGinn's PistachioLand grow/harvest/process on-farm; pistachio harvest is early fall. Genuinely local-grown, iconic to the Tularosa basin."
+        },
+        {
+          "moment": "Cherry season (May-Jun)",
+          "available_ingredients": [
+            "cherries",
+            "apricots"
+          ],
+          "favorite_flavors": [
+            "cherry",
+            "cherry-almond",
+            "apricot"
+          ],
+          "source": "NMSU Otero County Extension; La Luz orchard tradition",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "La Luz has a historic orchard belt with cherries; local-grown but small-scale"
+        },
+        {
+          "moment": "Fall apple and harvest season (Aug-Oct)",
+          "available_ingredients": [
+            "apples",
+            "pistachios",
+            "wine grapes"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "cinnamon",
+            "apple-cider"
+          ],
+          "source": "NMSU Otero County Extension; local orchard listings",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "apples local-grown fresh harvest in the valley orchards"
+        },
+        {
+          "moment": "Thanksgiving / pecan harvest (Nov)",
+          "available_ingredients": [
+            "pecans",
+            "pistachios",
+            "stored apples"
+          ],
+          "favorite_flavors": [
+            "pecan",
+            "pistachio",
+            "pumpkin"
+          ],
+          "source": "NMSU Extension; Southwest baking culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "pecans and pistachios local-grown; pumpkin imported flavor-culture"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": [
+            "pistachios",
+            "stored apples",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "pistachio",
+            "biscochito",
+            "cinnamon"
+          ],
+          "source": "New Mexico holiday baking culture; local pistachio value-added gifts",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "pistachio gift tins are a genuine local value-added holiday product"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SW-CLOUDCROFT",
+      "metro_location": {
+        "note": "seeded batch DesertSW; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Cloudcroft, NM",
+        "market": "US-SW-CLOUDCROFT",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "Cloudcroft Mercantile / High Altitude",
+        "Lowe's Market (Alamogordo)",
+        "Walmart (Alamogordo)",
+        "Albertsons (Alamogordo)"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples and preserves",
+        "2026-02": "storage apples and preserves",
+        "2026-03": "storage apples and maple/honey",
+        "2026-04": "greenhouse greens (late frost)",
+        "2026-05": "early greens (season begins mid-May)",
+        "2026-06": "lettuce, radishes, herbs",
+        "2026-07": "summer squash and greens",
+        "2026-08": "u-pick berries and squash",
+        "2026-09": "apples (Cadwallader Mountain Farms u-pick)",
+        "2026-10": "apples and winter squash",
+        "2026-11": "storage apples and preserves",
+        "2026-12": "storage apples and preserves"
+      },
+      "monthly_ingredient_notes": {
+        "region": "Sacramento Mountains ~8,668ft, USDA Zone 6b. HIGH-COUNTRY, NOT low desert. Short growing season ~mid-May (last frost May 11-20) through early-Oct (first frost Oct 1-10). Cadwallader Mountain Farms u-pick summer/fall. Storage apples + preserves carry the deep-winter months.",
+        "source": "plantmaps.com Cloudcroft climate (Zone 6b, growing season May-Oct — verified 2026-09-14); cloudcroftreader.com (Cadwallader Mountain Farms u-pick); NMSU Otero County Extension"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "High-country summer u-pick season (Jul-Sep)",
+          "available_ingredients": [
+            "apples",
+            "berries",
+            "summer squash"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "berry",
+            "cinnamon"
+          ],
+          "source": "cloudcroftreader.com (Cadwallader Mountain Farms u-pick); plantmaps.com growing season",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Short high-elevation summer; u-pick is the genuine local fresh window. Verified 2026-09-14."
+        },
+        {
+          "moment": "Fall apple harvest (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "apple-cider",
+            "cinnamon"
+          ],
+          "source": "Cadwallader Mountain Farms; NMSU Otero County Extension",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Apples are the signature high-country crop; local-grown fresh harvest before frost."
+        },
+        {
+          "moment": "Deep-winter storage / ski season (Dec-Mar)",
+          "available_ingredients": [
+            "storage apples",
+            "apple preserves",
+            "honey"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "cinnamon",
+            "spiced-apple",
+            "gingerbread"
+          ],
+          "source": "high-country storage/preserves practice; Cloudcroft winter tourism (snow-play/ski)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "STORAGE/VALUE-ADDED, not fresh — no local field crops mid-winter at 8,600ft. Preserves and stored apples carry the season."
+        },
+        {
+          "moment": "Thanksgiving",
+          "available_ingredients": [
+            "storage apples",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "pumpkin",
+            "pecan"
+          ],
+          "source": "Southwest / high-country baking culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "apples from storage; pumpkin/pecan imported flavor-culture at this elevation"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SW-TIMBERON",
+      "metro_location": {
+        "note": "seeded batch DesertSW; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Timberon, NM",
+        "market": "US-SW-TIMBERON",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "Timberon general store (limited)",
+        "Lowe's Market (Alamogordo)",
+        "Walmart (Alamogordo)",
+        "Albertsons (Alamogordo)"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples and local honey",
+        "2026-02": "storage apples and honey",
+        "2026-03": "storage apples and honey",
+        "2026-04": "honey (limited fresh; late frost)",
+        "2026-05": "early greens and honey (season begins)",
+        "2026-06": "greens, herbs, honey",
+        "2026-07": "summer squash and honey",
+        "2026-08": "apples (early) and honey",
+        "2026-09": "apples and honey",
+        "2026-10": "apples and winter squash",
+        "2026-11": "storage apples and honey",
+        "2026-12": "storage apples and honey"
+      },
+      "monthly_ingredient_notes": {
+        "region": "Remote Sacramento Mountains (Otero County) high-desert, similar elevation band to Cloudcroft. Very limited local commerce — small mountain community. Honey and apples are the realistic local signatures; deep winter is storage/preserves. Grocery access is drive-down to Alamogordo.",
+        "source": "NMSU Otero County Extension; Sacramento Mountains high-country growing analog (Cloudcroft Zone 6b) — Timberon-specific market data is thin"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "High-country summer season (Jun-Sep)",
+          "available_ingredients": [
+            "apples",
+            "summer squash",
+            "honey"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "honey",
+            "cinnamon"
+          ],
+          "source": "Sacramento Mountains high-country growing analog; NMSU Otero County Extension",
+          "confidence": "low",
+          "status": "proposed",
+          "note": "Timberon-specific produce data is thin; inferred from the shared high-elevation growing window with Cloudcroft. Honey is the most defensible local product."
+        },
+        {
+          "moment": "Fall apple harvest (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "honey",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "honey",
+            "apple-cider"
+          ],
+          "source": "Sacramento Mountains orchard analog; NMSU Otero County Extension",
+          "confidence": "low",
+          "status": "proposed",
+          "note": "apples inferred from regional high-country pattern; small-scale local"
+        },
+        {
+          "moment": "Deep-winter storage (Nov-Mar)",
+          "available_ingredients": [
+            "storage apples",
+            "local honey"
+          ],
+          "favorite_flavors": [
+            "honey",
+            "apple",
+            "cinnamon",
+            "gingerbread"
+          ],
+          "source": "high-country storage/preserves practice",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "STORAGE/VALUE-ADDED, not fresh. Honey stores year-round and is the anchor local product."
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": [
+            "local honey",
+            "storage apples"
+          ],
+          "favorite_flavors": [
+            "honey",
+            "gingerbread",
+            "cinnamon",
+            "apple"
+          ],
+          "source": "high-country / broad holiday baking culture",
+          "confidence": "low",
+          "status": "proposed",
+          "note": "honey is genuinely local; gingerbread/cinnamon are imported flavor-culture"
         }
       ],
       "research_todo": false
