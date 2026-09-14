@@ -385,6 +385,22 @@
   </div>
 </div>
 
+<!-- ============ RECIPES ============ -->
+<!-- Recipes surface — a library-style gallery of the precomputed recipe cards, rendered into the
+     .rc-card design standard by js/recipe-cards.js from window.KODIAK_RECIPE_CARDS. Line-art only;
+     food/table/kitchen PHOTOGRAPHY lives in the DAM "Food photography" tab, a separate taxonomy.
+     Offline-safe: if the data global is absent, the body shows a graceful empty state. -->
+<section class="card wide-track ff-recipes" id="recipesGallery" aria-labelledby="recipesGalleryHeading">
+  <div class="hd">
+    <h2 id="recipesGalleryHeading">Recipe cards <span class="badge">line art</span></h2>
+    <p>Seasonal recipe cards for each market, built to the printable card standard. Hand-drawn line art in the sketch zones; honest empty states for months with no in-season local pick.</p>
+  </div>
+  <div class="body rc-gallery-body">
+    <p class="rc-gallery-empty">Recipe cards will appear here once generated.</p>
+  </div>
+</section>
+<!-- ============ /RECIPES ============ -->
+
 <!-- Wasatch ridge — divider between the INPUT card and the OUTPUT section -->
 <div class="ff-ridge" aria-hidden="true" title="Wasatch ridge — Frontier Green divider"></div>
 
@@ -497,6 +513,10 @@
 <script defer src="js/brand-guard.js?v=0.1.012-d28587d-20260913"></script>
 <script defer src="js/data-core.js?v=0.1.012-d28587d-20260913"></script>
 <script defer src="js/season-flavors.js?v=0.1.012-d28587d-20260913"></script>
+<!-- Recipes surface: DATA first, then the renderer. defer preserves document order, so
+     recipe-cards-data.js (defines window.KODIAK_RECIPE_CARDS) always runs before recipe-cards.js. -->
+<script defer src="js/recipe-cards-data.js?v=0.1.012-d28587d-20260913"></script>
+<script defer src="js/recipe-cards.js?v=0.1.012-d28587d-20260913"></script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.012-d28587d-20260913","url":"index.html","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["74 language markets","English plus the top two languages per market","offline campaign workflow","Nova Pro creative direction plus Nova Micro language support","approved digital asset library","webmcp enabled"]}</script>
 

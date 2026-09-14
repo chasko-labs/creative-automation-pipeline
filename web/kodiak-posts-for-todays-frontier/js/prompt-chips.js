@@ -390,8 +390,16 @@
     var _isLocal = (location.protocol==='file:') || ['127.0.0.1','localhost'].includes(location.hostname);
     var LIB_ENDPOINT = window.KODIAK_LIBRARY_ENDPOINT || (_isLocal ? null : '/assets/library');
     // 6-tab marketer taxonomy — Products default-active (the shelf a marketer reaches for first).
-    var CAT_LABELS = { 'products':'Products', 'recipes':'Recipes', 'food':'Food', 'lifestyle':'Lifestyle', 'ideas':'Ideas', 'themes':'Themes', 'brand':'Brand' };
+    // 'recipes' holds hand-drawn recipe-card line-art ONLY; 'food' is photography (table/kitchen)
+    // kept in its own distinct taxonomy so line-art and photos never mix (see separateTaxonomies).
+    var CAT_LABELS = { 'products':'Products', 'recipes':'Recipe cards', 'food':'Food photography', 'lifestyle':'Lifestyle', 'ideas':'Ideas', 'themes':'Themes', 'brand':'Brand' };
     var TAB_ORDER = ['products','recipes','food','lifestyle','ideas','themes','brand'];
+
+    // taxonomy boundary between hand-drawn recipe-card art and photography.
+    // recipe-card art is emitted under brands/kodiak/recipe-art/... — that path is the discriminator.
+    var RECIPE_ART_RE = /(^|\/)recipe-art\//i;      // matches the S3 key path for line-art
+    var PHOTO_CATS = { 'food': true, 'lifestyle': true };  // photographic shelves — no line-art allowed
+    function isRecipeArt(it){ return !!(it && it.key && RECIPE_ART_RE.test(String(it.key))); }
 
     // marketer-voice copy — every user-facing string lives here so tone stays in one place.
     var COPY_SEARCH_PLACEHOLDER = 'Search this stack\u2026';
@@ -528,6 +536,34 @@
         .finally(function(){ clearTimeout(timer); });
     }
 
+    // enforce the recipe-art vs photography taxonomy boundary on the ingested model.
+    // - photographic shelves (food = table/kitchen, lifestyle) must NOT surface recipe-card line-art
+    // - the recipes shelf holds line-art ONLY, so any photographic asset mis-tagged there is dropped
+    // items removed here are subtracted from the tab's displayed count so the UI stays honest.
+    // pagination totals (server-side) can no longer be trusted after a client-side prune, so when we
+    // actually remove something we pin total to the pruned item count and stop offering "load more"
+    // for that tab (its server pages would re-introduce the mixed assets).
+    function separateTaxonomies(){
+      Object.keys(model).forEach(function(cat){
+        var entry = model[cat];
+        if(!entry || !Array.isArray(entry.items)) return;
+        var before = entry.items.length;
+        if(PHOTO_CATS[cat]){
+          entry.items = entry.items.filter(function(it){ return !isRecipeArt(it); });
+        } else if(cat === 'recipes'){
+          entry.items = entry.items.filter(function(it){ return isRecipeArt(it); });
+        } else {
+          return; // products/ideas/themes/brand are unaffected by the art-vs-photo boundary
+        }
+        var removed = before - entry.items.length;
+        if(removed > 0){
+          entry.total = entry.items.length;   // honest post-prune count
+          entry.has_more = false;             // server pages would reintroduce cross-taxonomy assets
+          entry.next_offset = null;
+        }
+      });
+    }
+
     // normalize server payload into `model`; pick the default active tab.
     // model[cat] carries items + total + pagination cursors (offset/count/has_more/next_offset).
     function ingest(j){
@@ -547,6 +583,9 @@
           next_offset: (typeof entry.next_offset === 'number') ? entry.next_offset : null
         };
       });
+      // enforce the recipe-art vs photography taxonomy boundary before choosing the default tab,
+      // so the tab counts and the first-painted shelf already reflect the separated model.
+      separateTaxonomies();
       // Products is the default shelf; fall back to first known tab, then first non-empty.
       if(model[TAB_ORDER[0]]) activeCat = TAB_ORDER[0];
       if(activeCat === null){ var ks = Object.keys(model); activeCat = ks.length ? ks[0] : null; }
@@ -820,6 +859,10 @@
           var cats = (j && j.categories) || {};
           var page = cats[cat] || {};
           var newItems = (page.items) || [];
+          // keep the taxonomy boundary on paginated pages too: photography shelves reject line-art,
+          // the recipes shelf accepts line-art only. mirrors separateTaxonomies() on the initial load.
+          if(PHOTO_CATS[cat]){ newItems = newItems.filter(function(it){ return !isRecipeArt(it); }); }
+          else if(cat === 'recipes'){ newItems = newItems.filter(function(it){ return isRecipeArt(it); }); }
           // tab may have changed while the fetch was in flight — only mutate the category we fetched.
           var target = model[cat];
           if(!target){ return; }
