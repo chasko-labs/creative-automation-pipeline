@@ -31,6 +31,7 @@ class FrontierPair:
     frontier_sister: dict
     retailers: list[str]
     monthly_ingredients: dict[str, str | None]
+    seasonal_moments: list[dict]
     research_todo: bool
 
     def ingredient_for(self, ym: str) -> str | None:
@@ -61,6 +62,7 @@ def load_pairs(path: str | None = None) -> dict[str, FrontierPair]:
             frontier_sister=entry["frontier_sister"],
             retailers=list(entry.get("retailers", [])),
             monthly_ingredients=dict(entry.get("monthly_ingredients", {})),
+            seasonal_moments=list(entry.get("seasonal_moments", [])),
             research_todo=bool(entry.get("research_todo", False)),
         )
         out[pair.market] = pair
@@ -96,6 +98,20 @@ def resolve_this_month(
         "retailers": pair.retailers,
         "pair": pair,
     }
+
+
+def resolve_seasonal_moments(market: str, path: str | None = None) -> list[dict]:
+    """Return the market's seeded seasonal_moments, or [] if no pair / none seeded.
+
+    Never fabricates. Each moment is the raw seeded block:
+    {moment, available_ingredients, favorite_flavors, source, confidence, status, note}.
+    Callers attach the full list as creative context; month->moment mapping is fuzzy
+    and intentionally left to the caller.
+    """
+    pair = resolve_pair(market, path)
+    if pair is None:
+        return []
+    return list(pair.seasonal_moments)
 
 
 

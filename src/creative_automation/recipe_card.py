@@ -27,7 +27,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 from . import naming, safety
-from .locales import resolve_this_month
+from .locales import resolve_seasonal_moments, resolve_this_month
 from .platform_copy import clean_brand_copy
 from .text_rewriter import rewrite_headline
 
@@ -586,4 +586,195 @@ def build_recipe_card(
         "step_results": step_results,
         "dam_key": dam_key,
         "meta": _recipe_card_meta(_tmpl, substrate=substrate, ingredient=ingredient),
+    }
+
+
+
+# --------------------------------------------------------------------------- #
+# card-DATA builder (no image): structured object matching recipe-card.json
+# zones, for an offline frontend to render into existing HTML/CSS. Reuses the
+# same helpers build_recipe_card uses (resolve_this_month, _pick_recipe,
+# _clean_step, rewrite_headline, clean_brand_copy, load_recipe_card_template,
+# _resolve_substrate). Non-fabrication is strict: times/serves/cost come ONLY
+# from real recipe fields, else null; prices are always null (no source).
+# --------------------------------------------------------------------------- #
+
+# real recipe fields that back the meta bar. est_cost has NO backing field in
+# the catalog, so it is always null and always listed under values_unknown.
+_META_SOURCE_FIELDS = {
+    "prep": "prepTime",
+    "cook": "cookTime",
+    "serves": "yield",
+}
+
+# leading-verb detection: uppercase a real leading action word only. No verb is
+# fabricated — if the step opens with a non-word token, it is left untouched.
+_LEADING_WORD_RE = re.compile(r"^([A-Za-z][A-Za-z'-]*)(.*)$", re.DOTALL)
+
+
+def _bold_action_step(text: str) -> str:
+    """Uppercase the step's real leading word so it reads as a bold action verb.
+
+    Only the first genuine word is uppercased; nothing is added. A step that does
+    not start with a word (e.g. a quantity) is returned unchanged — no cooking
+    action is invented.
+    """
+    m = _LEADING_WORD_RE.match(text.strip())
+    if not m:
+        return text.strip()
+    lead, rest = m.group(1), m.group(2)
+    return f"{lead.upper()}{rest}"
+
+
+def _recipe_meta_bar(recipe: dict | None) -> tuple[dict, list[str]]:
+    """Build the four-column meta bar from real recipe fields only.
+
+    Returns (meta, unknown_keys). Any column with no backing recipe field is
+    null and its logical group is reported unknown. est_cost has no source field
+    in the catalog, so it is always null / always unknown.
+    """
+    meta: dict = {"prep": None, "cook": None, "serves": None, "est_cost": None}
+    unknown: list[str] = []
+    r = recipe or {}
+    for col, field in _META_SOURCE_FIELDS.items():
+        val = r.get(field)
+        meta[col] = str(val).strip() if val not in (None, "", []) else None
+    if meta["prep"] is None and meta["cook"] is None:
+        unknown.append("times")
+    if meta["serves"] is None:
+        unknown.append("serves")
+    # est_cost never has a source; prices are never fabricated
+    meta["est_cost"] = None
+    unknown.append("prices")
+    unknown.append("temperatures")
+    return meta, unknown
+
+
+def build_recipe_card_data(
+    market: str,
+    *,
+    month: str | None = None,
+    lang: str = "en",
+    substrate: str = "kraft",
+) -> dict:
+    """Build a structured recipe-card DATA object (no image composed).
+
+    The shape mirrors the recipe-card.json zones so an offline frontend can render
+    it into existing HTML/CSS. Ingredient comes from locales.resolve_this_month
+    (single source of truth, never fabricated). Non-fabrication is strict:
+    prep/cook/serves come only from a matched recipe's real prepTime/cookTime/yield
+    fields; est_cost and ingredient prices are always null (no verified source) and
+    listed in provenance.values_unknown. Steps derive from the recipe instructions
+    (falling back to ingredients like build_recipe_card) with the real leading word
+    uppercased as a bold action verb — no cooking action is invented.
+
+    No-pair / no-ingredient months return an honest shape carrying `reason` and
+    ingredient:null rather than crashing, mirroring build_recipe_card's early
+    returns.
+    """
+    try:
+        tmpl: dict | None = load_recipe_card_template()
+    except (OSError, ValueError):
+        tmpl = None
+    substrate_key = (
+        _resolve_substrate(tmpl, substrate)[0] if isinstance(tmpl, dict) else substrate
+    )
+
+    seasonal = resolve_seasonal_moments(market)
+
+    def _empty(reason: str, *, resolved_month: str | None, ingredient: str | None) -> dict:
+        return {
+            "market": market,
+            "month": resolved_month,
+            "substrate": substrate_key,
+            "title": None,
+            "meta": {"prep": None, "cook": None, "serves": None, "est_cost": None},
+            "ingredients": [],
+            "steps": [],
+            "sketch_zones": list(_ART_ZONE_IDS),
+            "seasonal_moment": seasonal,
+            "provenance": {
+                "values_from_source": [ingredient] if ingredient else [],
+                "values_proposed": [],
+                "values_unknown": ["times", "temperatures", "prices", "serves"],
+            },
+            "ingredient": ingredient,
+            "recipe": None,
+            "reason": reason,
+        }
+
+    resolved = resolve_this_month(market, ym=month)
+    if resolved is None:
+        return _empty(
+            f"no retailer-frontier pair seeded for {market}",
+            resolved_month=None,
+            ingredient=None,
+        )
+
+    ingredient = resolved["ingredient"]
+    resolved_month = resolved["month"]
+    if not ingredient:
+        return _empty(
+            f"no in-season ingredient on file for {market} {resolved_month}",
+            resolved_month=resolved_month,
+            ingredient=None,
+        )
+
+    product = "Buttermilk Power Cakes"
+    recipe = _pick_recipe(ingredient, product)
+    if recipe is None:
+        return _empty(
+            "no recipe catalog available",
+            resolved_month=resolved_month,
+            ingredient=ingredient,
+        )
+
+    subject = {"name": product, "description": recipe.get("name", "")}
+    title = rewrite_headline(
+        f"{ingredient.title()} over Kodiak Power Cakes",
+        market,
+        product=subject,
+        lang=lang,
+        month=resolved_month,
+    )
+    title_text = clean_brand_copy(title["text"])
+
+    # steps derive from real recipe instructions (fall back to ingredients like
+    # build_recipe_card). Only a real leading word is bolded — no verb invented.
+    raw_steps = recipe.get("instructions") or recipe.get("ingredients") or []
+    steps: list[str] = []
+    for raw in raw_steps[:5]:
+        cleaned = _clean_step(raw)
+        if not cleaned:
+            continue
+        res = rewrite_headline(
+            cleaned[:80], market, product=subject, lang=lang, month=resolved_month
+        )
+        step = clean_brand_copy(res["text"])
+        if step:
+            steps.append(_bold_action_step(step))
+
+    meta, unknown = _recipe_meta_bar(recipe)
+
+    # ingredients: the in-season pick is the source-backed line; prices have no
+    # verified source, so price is always null.
+    ingredients = [{"qty_name": ingredient, "price": None}]
+
+    return {
+        "market": market,
+        "month": resolved_month,
+        "substrate": substrate_key,
+        "title": title_text,
+        "meta": meta,
+        "ingredients": ingredients,
+        "steps": steps,
+        "sketch_zones": list(_ART_ZONE_IDS),
+        "seasonal_moment": seasonal,
+        "provenance": {
+            "values_from_source": [ingredient],
+            "values_proposed": ["over Kodiak Power Cakes"],
+            "values_unknown": unknown,
+        },
+        "ingredient": ingredient,
+        "recipe": {"id": recipe.get("id"), "name": recipe.get("name")},
     }

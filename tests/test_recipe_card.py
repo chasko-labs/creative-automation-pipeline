@@ -42,8 +42,8 @@ def test_atlanta_card_matched_a_recipe(tmp_path):
 
 
 def test_unfilled_month_returns_no_ingredient_without_crashing(tmp_path):
-    # Atlanta October has no seeded ingredient -> honest no-ingredient result
-    result = build_recipe_card("US-SE-ATL", month="2026-10", out_dir=tmp_path)
+    # Atlanta January has no seeded ingredient -> honest no-ingredient result
+    result = build_recipe_card("US-SE-ATL", month="2026-01", out_dir=tmp_path)
     assert result["ingredient"] is None
     assert result["card_path"] is None
     assert "no in-season ingredient" in result["reason"]
