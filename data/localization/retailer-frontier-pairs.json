@@ -5,7 +5,7 @@
     "purpose": "Each retail metro location pairs with a frontier sister location. Every pair carries a retailer list and a monthly local ingredient sourced from a local farmers market. Drives seasonal recipe-card localization and retailer logo lockups.",
     "monthly_ingredient_mechanism": "monthly_ingredients maps ISO month (YYYY-MM) -> in-season local ingredient for the frontier sister's farmers market. Populate the current month at seed time; the other 11 months are filled by a research dispatch (ghost research task) that resolves each frontier market's seasonal produce calendar from the linked farmers_market_url + regional extension-service crop calendars. Entries marked research_todo=true are placeholders awaiting that dispatch.",
     "seasonal_moments_mechanism": "seasonal_moments is an array of holiday/season entries per pair. Each entry captures the fresh local ingredients available at that moment (available_ingredients) plus the favorite bake flavors people reach for then (favorite_flavors), for the creative bank. Every entry carries a source, confidence (high|medium|low), and status (confirmed|proposed). Notes flag storage/value-added vs fresh-harvest and imported flavor-culture vs local-grown so the creative bank stays non-fabricated.",
-    "confirmed_pairs": 3
+    "confirmed_pairs": 16
   },
   "pairs": [
     {
@@ -241,6 +241,1094 @@
           "confidence": "high",
           "status": "confirmed",
           "note": ""
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-NE-RALEIGH",
+      "metro_location": {
+        "retailer": "Harris Teeter",
+        "name": null,
+        "address": "confirm — Raleigh, NC",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch Southeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Pittsboro, NC",
+        "market": "US-NC-PITTSBORO",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": ["Harris Teeter", "Food Lion", "Publix", "Lowes Foods"],
+      "monthly_ingredients": {
+        "2026-01": "collards",
+        "2026-02": "sweet potatoes (storage)",
+        "2026-03": "spring greens",
+        "2026-04": "strawberries",
+        "2026-05": "strawberries",
+        "2026-06": "blueberries",
+        "2026-07": "tomatoes",
+        "2026-08": "peaches",
+        "2026-09": "muscadine grapes",
+        "2026-10": "apples",
+        "2026-11": "sweet potatoes",
+        "2026-12": "collards"
+      },
+      "monthly_ingredient_notes": {
+        "source": "NC State Extension (NCSU) NC produce availability calendar; Chatham County / Pittsboro farmers market seasonality"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Spring / Easter strawberry season",
+          "available_ingredients": ["strawberries", "spring greens"],
+          "favorite_flavors": ["strawberry", "lemon", "coconut"],
+          "source": "NC State Extension NC produce availability calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "strawberries Apr-May peak in NC piedmont; lemon/coconut are imported bake traditions"
+        },
+        {
+          "moment": "July 4th / high summer",
+          "available_ingredients": ["blueberries", "tomatoes", "peaches", "watermelon"],
+          "favorite_flavors": ["blueberry", "peach"],
+          "source": "NC State Extension NC produce availability calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": ""
+        },
+        {
+          "moment": "Fall muscadine + apple harvest",
+          "available_ingredients": ["muscadine grapes", "apples", "sweet potatoes"],
+          "favorite_flavors": ["muscadine", "apple-cinnamon", "sweet potato"],
+          "source": "NC State Extension NC produce availability calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "cinnamon is imported spice culture"
+        },
+        {
+          "moment": "Thanksgiving",
+          "available_ingredients": ["sweet potatoes", "collards", "pecans"],
+          "favorite_flavors": ["sweet potato", "pecan", "pumpkin"],
+          "source": "Southern baking culture + NC State Extension calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "pumpkin is a traditional bake flavor, not necessarily NC-grown"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": ["collards", "sweet potatoes (storage)"],
+          "favorite_flavors": ["gingerbread", "peppermint", "cranberry"],
+          "source": "Southern baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "peppermint/cranberry are imported flavor traditions, deep-winter local produce is storage roots + cool-season greens"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SE-ASHEVILLE",
+      "metro_location": {
+        "retailer": "Ingles Markets",
+        "name": null,
+        "address": "confirm — Asheville, NC",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch Southeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Marshall, NC",
+        "market": "US-NC-MARSHALL",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": ["Ingles Markets", "Publix", "Food Lion", "Walmart"],
+      "monthly_ingredients": {
+        "2026-01": "sourwood honey (storage)",
+        "2026-02": "apples (storage)",
+        "2026-03": "cold-hardy greens",
+        "2026-04": "ramps",
+        "2026-05": "spring greens",
+        "2026-06": "strawberries",
+        "2026-07": "sourwood honey",
+        "2026-08": "tomatoes",
+        "2026-09": "mountain apples",
+        "2026-10": "apples",
+        "2026-11": "winter squash",
+        "2026-12": "apples (storage)"
+      },
+      "monthly_ingredient_notes": {
+        "source": "Appalachian Sustainable Agriculture Project (ASAP) Appalachian Grown local food guide; Madison County NC tailgate market calendar (April-October); NC State Extension Madison County Center"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Spring ramp + tailgate-market opening",
+          "available_ingredients": ["ramps", "spring greens", "root vegetables"],
+          "favorite_flavors": ["ramp (savory)", "early berry"],
+          "source": "Appalachian Sustainable Agriculture Project (ASAP) Appalachian Grown; Madison County tailgate markets open April",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "ramps are a signature WNC spring wild harvest; markets run April-October"
+        },
+        {
+          "moment": "Summer sourwood honey season",
+          "available_ingredients": ["sourwood honey", "strawberries", "tomatoes"],
+          "favorite_flavors": ["honey-butter", "sourwood honey", "berry"],
+          "source": "WNC Farmers Market / Blue Ridge mountain specialty listings",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "sourwood honey is a mountain-specific value-added product"
+        },
+        {
+          "moment": "Fall mountain apple harvest",
+          "available_ingredients": ["mountain apples", "winter squash"],
+          "favorite_flavors": ["apple-cinnamon", "spiced apple", "squash"],
+          "source": "Blue Ridge Heritage / WNC apple orchards (Henderson-Madison county belt)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "cinnamon imported; apples are the anchor mountain crop"
+        },
+        {
+          "moment": "Winter ski/holiday (deep mountain)",
+          "available_ingredients": ["apples (storage)", "sourwood honey", "winter squash"],
+          "favorite_flavors": ["apple", "honey", "warm spice", "gingerbread"],
+          "source": "ASAP + regional bake traditions",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "deep-winter local produce is storage/value-added; markets closed Nov-Mar, warming flavors are the creative anchor"
+        },
+        {
+          "moment": "SEC / college-football fall tailgating",
+          "available_ingredients": ["apples", "winter squash", "sourwood honey"],
+          "favorite_flavors": ["apple", "maple", "warm spice"],
+          "source": "regional fall tailgating culture (Appalachian State / SEC broadcast reach)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "tailgating is cultural, produce set is the confirmed fall harvest"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SE-BIRMINGHAM",
+      "metro_location": {
+        "retailer": "Publix",
+        "name": null,
+        "address": "confirm — Birmingham, AL",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch Southeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Clanton, AL",
+        "market": "US-AL-CLANTON",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": ["Publix", "Winn-Dixie", "Walmart", "Piggly Wiggly"],
+      "monthly_ingredients": {
+        "2026-01": "collards",
+        "2026-02": "turnips",
+        "2026-03": "strawberries",
+        "2026-04": "strawberries",
+        "2026-05": "peaches (clingstone)",
+        "2026-06": "peaches (freestone)",
+        "2026-07": "peaches",
+        "2026-08": "peaches",
+        "2026-09": "muscadine grapes",
+        "2026-10": "pecans",
+        "2026-11": "sweet potatoes",
+        "2026-12": "collards"
+      },
+      "monthly_ingredient_notes": {
+        "source": "Alabama Cooperative Extension System (ACES) fruit culture calendar; Chilton County Peach Festival / Peach Jam Jubilee (Clanton, June); Encyclopedia of Alabama peach industry"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Chilton County peach season + Peach Jam Jubilee (June)",
+          "available_ingredients": ["peaches (freestone)"],
+          "favorite_flavors": ["peach", "peach-cobbler", "peaches-and-cream"],
+          "source": "Alabama Cooperative Extension (ACES); Chilton County Peach Festival / Peach Jam Jubilee (Clanton, June)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Chilton County is Alabama's peach capital; freestone varieties take over mid-June; peach season May-Sep"
+        },
+        {
+          "moment": "Spring strawberry season",
+          "available_ingredients": ["strawberries"],
+          "favorite_flavors": ["strawberry", "lemon"],
+          "source": "Alabama Cooperative Extension (ACES) fruit culture: strawberries Mar-Jun",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": ""
+        },
+        {
+          "moment": "Fall muscadine + pecan harvest",
+          "available_ingredients": ["muscadine grapes", "pecans"],
+          "favorite_flavors": ["muscadine", "pecan"],
+          "source": "ACES fruit culture calendar; central Alabama pecan harvest Oct-Nov",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": ""
+        },
+        {
+          "moment": "SEC football tailgating (Sep-Nov)",
+          "available_ingredients": ["muscadine grapes", "pecans", "sweet potatoes"],
+          "favorite_flavors": ["pecan", "peach (preserved)", "sweet potato"],
+          "source": "Alabama SEC tailgating culture (Alabama/Auburn)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "peach appears as canned/preserved this late; tailgating is cultural moment anchoring the fall harvest"
+        },
+        {
+          "moment": "Thanksgiving + winter holidays",
+          "available_ingredients": ["sweet potatoes", "collards", "pecans"],
+          "favorite_flavors": ["sweet potato", "pecan", "pumpkin", "gingerbread"],
+          "source": "Southern baking culture + ACES calendar",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "pumpkin/gingerbread imported bake traditions"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SE-CHARLOTTE",
+      "metro_location": {
+        "retailer": "Harris Teeter",
+        "name": null,
+        "address": "confirm — Charlotte, NC",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch Southeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Dallas, NC",
+        "market": "US-NC-DALLAS",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": ["Harris Teeter", "Food Lion", "Publix", "Lowes Foods"],
+      "monthly_ingredients": {
+        "2026-01": "collards",
+        "2026-02": "sweet potatoes (storage)",
+        "2026-03": "spring greens",
+        "2026-04": "strawberries",
+        "2026-05": "strawberries",
+        "2026-06": "blueberries",
+        "2026-07": "tomatoes",
+        "2026-08": "peaches",
+        "2026-09": "muscadine grapes",
+        "2026-10": "apples",
+        "2026-11": "sweet potatoes",
+        "2026-12": "collards"
+      },
+      "monthly_ingredient_notes": {
+        "source": "NC State Extension (NCSU) NC produce availability calendar; Gaston County piedmont seasonality"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Spring / Easter strawberry season",
+          "available_ingredients": ["strawberries", "spring greens"],
+          "favorite_flavors": ["strawberry", "lemon"],
+          "source": "NC State Extension NC produce availability calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Gaston County / Dallas NC piedmont strawberries Apr-May"
+        },
+        {
+          "moment": "July 4th / high summer",
+          "available_ingredients": ["blueberries", "tomatoes", "peaches", "watermelon"],
+          "favorite_flavors": ["blueberry", "peach"],
+          "source": "NC State Extension NC produce availability calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": ""
+        },
+        {
+          "moment": "Fall muscadine + apple harvest",
+          "available_ingredients": ["muscadine grapes", "apples", "sweet potatoes"],
+          "favorite_flavors": ["muscadine", "apple", "sweet potato"],
+          "source": "NC State Extension NC produce availability calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": ""
+        },
+        {
+          "moment": "Thanksgiving",
+          "available_ingredients": ["sweet potatoes", "collards", "pecans"],
+          "favorite_flavors": ["sweet potato", "pecan", "pumpkin"],
+          "source": "Southern baking culture + NC State Extension calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "pumpkin traditional bake flavor"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": ["collards", "turnips", "sweet potatoes (storage)"],
+          "favorite_flavors": ["gingerbread", "peppermint", "cranberry"],
+          "source": "Southern baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "peppermint/cranberry imported flavor traditions"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SE-COAST",
+      "metro_location": {
+        "retailer": "Publix",
+        "name": null,
+        "address": "confirm — US-SE-COAST",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch Southeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Ridgeland, SC",
+        "market": "US-SC-RIDGELAND",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": ["Publix", "Piggly Wiggly", "Food Lion", "Walmart"],
+      "monthly_ingredients": {
+        "2026-01": "collards",
+        "2026-02": "winter greens",
+        "2026-03": "strawberries",
+        "2026-04": "strawberries",
+        "2026-05": "peaches",
+        "2026-06": "watermelon",
+        "2026-07": "okra",
+        "2026-08": "okra",
+        "2026-09": "muscadine grapes",
+        "2026-10": "boiled peanuts",
+        "2026-11": "sweet potatoes",
+        "2026-12": "collards"
+      },
+      "monthly_ingredient_notes": {
+        "source": "Clemson Home & Garden Information Center (HGIC) SC field reports + okra/peanut factsheets; SC Department of Agriculture boiled-peanut season; NOAA Atlantic hurricane season Jun 1-Nov 30"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Lowcountry summer okra + watermelon season",
+          "available_ingredients": ["okra", "watermelon", "peppers", "peaches"],
+          "favorite_flavors": ["peach", "watermelon"],
+          "source": "Clemson HGIC / Clemson Extension SC fruit-and-vegetable field reports (Lowcountry okra + watermelon high summer)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "okra is the signature Lowcountry warm-season crop, zone 8b"
+        },
+        {
+          "moment": "Fall boiled-peanut season",
+          "available_ingredients": ["boiled peanuts", "muscadine grapes"],
+          "favorite_flavors": ["boiled peanut (savory)", "muscadine"],
+          "source": "SC Department of Agriculture boiled-peanut season; Clemson HGIC peanut factsheet (plant Apr-Jun, green-peanut harvest fall)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "boiled peanuts are savory, the SC state snack; anchors fall tailgating"
+        },
+        {
+          "moment": "Hurricane-season pantry stocking (Jun-Nov)",
+          "available_ingredients": ["sweet potatoes", "peanuts", "preserved/canned produce"],
+          "favorite_flavors": ["shelf-stable pancake/oat mixes", "peanut", "sweet potato"],
+          "source": "Atlantic hurricane season Jun 1-Nov 30 (NOAA); Lowcountry pantry-stocking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "hurricane prep is a genuine multi-month Lowcountry seasonal behavior; ingredient set is shelf-stable, not fresh-harvest, flagged as value-added"
+        },
+        {
+          "moment": "SEC / coastal football tailgating (Sep-Nov)",
+          "available_ingredients": ["boiled peanuts", "muscadine grapes", "sweet potatoes"],
+          "favorite_flavors": ["boiled peanut", "pecan", "sweet potato"],
+          "source": "SC tailgating culture (Clemson / South Carolina)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "cultural moment; produce set is confirmed fall Lowcountry harvest"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": ["collards", "winter greens", "sweet potatoes (storage)"],
+          "favorite_flavors": ["sweet potato", "pecan", "gingerbread"],
+          "source": "Lowcountry / Southern baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "gingerbread imported bake tradition"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SE-FL",
+      "metro_location": {
+        "retailer": "Publix",
+        "name": null,
+        "address": "confirm — US-SE-FL",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch Southeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Homestead, FL",
+        "market": "US-FL-HOMESTEAD",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": ["Publix", "Winn-Dixie", "Sedano's", "Walmart"],
+      "monthly_ingredients": {
+        "2026-01": "strawberries",
+        "2026-02": "tomatoes",
+        "2026-03": "sweet corn",
+        "2026-04": "carambola (starfruit)",
+        "2026-05": "mango",
+        "2026-06": "mango",
+        "2026-07": "lychee",
+        "2026-08": "guava",
+        "2026-09": "avocado (Florida)",
+        "2026-10": "avocado (Florida)",
+        "2026-11": "tomatoes",
+        "2026-12": "strawberries"
+      },
+      "monthly_ingredient_notes": {
+        "source": "Florida Department of Agriculture & Consumer Services (FDACS) Buy Fresh From Florida crops-in-season; UF/IFAS Tropical Research and Education Center (TREC) subtropical/tropical fruit calendars; NOAA Atlantic hurricane season"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Winter peak-harvest season (INVERTED subtropical, Nov-Mar)",
+          "available_ingredients": ["tomatoes", "strawberries", "sweet corn", "bell pepper", "squash"],
+          "favorite_flavors": ["strawberry", "sweet corn", "citrus"],
+          "source": "FDACS Florida crops-in-season (strawberry Dec-Apr, tomato Oct-Jun, sweet corn Oct-Jun, bell pepper Nov-May)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "South Florida grows temperate 'spring' vegetables in fall/winter; this is the inverted subtropical calendar, NOT a temperate one"
+        },
+        {
+          "moment": "Summer tropical-fruit season (mango / lychee / avocado)",
+          "available_ingredients": ["mango", "lychee", "guava", "avocado (Florida)", "longan"],
+          "favorite_flavors": ["mango", "guava", "coconut", "key lime"],
+          "source": "FDACS crops-in-season (mango May-Aug, lychee Jun-Jul, guava year-round peak Aug-Oct, avocado Jun-Jan); UF/IFAS TREC subtropical fruit",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Homestead / Miami-Dade Redland is the US mainland tropical-fruit belt; mango + lychee are the signature summer crops"
+        },
+        {
+          "moment": "Hurricane-season pantry stocking (Jun-Nov)",
+          "available_ingredients": ["shelf-stable staples", "guava paste (value-added)"],
+          "favorite_flavors": ["shelf-stable pancake/oat mixes", "guava", "coconut"],
+          "source": "Atlantic hurricane season Jun 1-Nov 30 (NOAA); South Florida pantry-stocking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "genuine multi-month South Florida behavior; ingredient set is shelf-stable/value-added, flagged non-fresh"
+        },
+        {
+          "moment": "Winter holidays (Latin/Caribbean influence)",
+          "available_ingredients": ["strawberries", "citrus", "guava paste"],
+          "favorite_flavors": ["guava", "coconut", "citrus", "dulce"],
+          "source": "FDACS crops-in-season + Miami-Dade Latin/Caribbean baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "guava-and-cheese (guava paste) is a strong local holiday flavor; flavor culture is Latin/Caribbean, produce partly value-added"
+        },
+        {
+          "moment": "Spring / Easter fresh-harvest tail",
+          "available_ingredients": ["strawberries", "tomatoes", "carambola (starfruit)", "papaya"],
+          "favorite_flavors": ["strawberry", "starfruit", "papaya"],
+          "source": "FDACS crops-in-season (strawberry through Apr, carambola Jul-Apr, papaya Feb-Jun)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "the temperate winter harvest tapers into spring as tropical fruit ramps up"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SE-JACKSON",
+      "metro_location": {
+        "retailer": "Kroger",
+        "name": null,
+        "address": "confirm — Jackson, MS",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch Southeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Flora, MS",
+        "market": "US-MS-FLORA",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": ["Kroger", "Piggly Wiggly", "Walmart", "Corner Market"],
+      "monthly_ingredients": {
+        "2026-01": "collards",
+        "2026-02": "sweet potatoes (storage)",
+        "2026-03": "spring greens",
+        "2026-04": "strawberries",
+        "2026-05": "strawberries",
+        "2026-06": "blueberries",
+        "2026-07": "tomatoes",
+        "2026-08": "watermelon",
+        "2026-09": "muscadine grapes",
+        "2026-10": "sweet potatoes",
+        "2026-11": "sweet potatoes",
+        "2026-12": "collards"
+      },
+      "monthly_ingredient_notes": {
+        "source": "Mississippi State University Extension (MSU Extension) fruit and vegetable seasonality; Mississippi sweet-potato production (Vardaman belt)"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Spring strawberry season",
+          "available_ingredients": ["strawberries", "spring greens"],
+          "favorite_flavors": ["strawberry", "lemon"],
+          "source": "Mississippi State University Extension (MSU Extension) fruit and vegetable calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "central MS strawberries Apr-May"
+        },
+        {
+          "moment": "High summer blueberry + watermelon season",
+          "available_ingredients": ["blueberries", "tomatoes", "watermelon", "peaches"],
+          "favorite_flavors": ["blueberry", "peach", "watermelon"],
+          "source": "MSU Extension fruit and vegetable calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Mississippi is a major blueberry producer"
+        },
+        {
+          "moment": "Fall sweet potato + muscadine harvest",
+          "available_ingredients": ["sweet potatoes", "muscadine grapes"],
+          "favorite_flavors": ["sweet potato", "muscadine"],
+          "source": "MSU Extension calendar; Mississippi sweet-potato belt (Vardaman) fall harvest",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Mississippi is the top US sweet-potato state"
+        },
+        {
+          "moment": "SEC football tailgating (Sep-Nov)",
+          "available_ingredients": ["sweet potatoes", "muscadine grapes", "pecans"],
+          "favorite_flavors": ["pecan", "sweet potato"],
+          "source": "Mississippi SEC tailgating culture (Ole Miss Grove / Mississippi State)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "the Grove tailgate is iconic; produce set is confirmed fall harvest"
+        },
+        {
+          "moment": "Thanksgiving + winter holidays",
+          "available_ingredients": ["sweet potatoes", "collards", "pecans"],
+          "favorite_flavors": ["sweet potato", "pecan", "pumpkin", "gingerbread"],
+          "source": "Southern baking culture + MSU Extension calendar",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "pumpkin/gingerbread imported bake traditions"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SE-JAX",
+      "metro_location": {
+        "retailer": "Winn-Dixie",
+        "name": null,
+        "address": "confirm — Jacksonville, FL",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch Southeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Starke, FL",
+        "market": "US-FL-STARKE",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": ["Winn-Dixie", "Publix", "Walmart", "Harveys Supermarket"],
+      "monthly_ingredients": {
+        "2026-01": "strawberries",
+        "2026-02": "strawberries",
+        "2026-03": "strawberries (Bradford)",
+        "2026-04": "strawberries (Bradford)",
+        "2026-05": "blueberries",
+        "2026-06": "watermelon",
+        "2026-07": "peanuts (green)",
+        "2026-08": "sweet corn",
+        "2026-09": "peppers",
+        "2026-10": "sweet corn",
+        "2026-11": "tomatoes",
+        "2026-12": "strawberries"
+      },
+      "monthly_ingredient_notes": {
+        "source": "Florida Department of Agriculture & Consumer Services (FDACS) crops-in-season; Bradford County Strawberry Festival (Starke, FL) 2026; NOAA Atlantic hurricane season"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Bradford County Strawberry Festival (late March / early April)",
+          "available_ingredients": ["strawberries (Bradford)"],
+          "favorite_flavors": ["strawberry", "strawberry shortcake"],
+          "source": "Bradford County Strawberry Festival (Bradford County Fairgrounds, Starke; 2026 setup Mar 27); FDACS strawberry Dec-Apr",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Starke / Bradford County is a north-Florida strawberry town; festival first weekend of April"
+        },
+        {
+          "moment": "Winter-spring Florida strawberry season (INVERTED)",
+          "available_ingredients": ["strawberries", "tomatoes"],
+          "favorite_flavors": ["strawberry", "citrus"],
+          "source": "FDACS crops-in-season (strawberry Dec-Apr, tomato Oct-Jun)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "north Florida peak strawberry is winter into spring, inverted vs temperate SE"
+        },
+        {
+          "moment": "Summer blueberry + watermelon season",
+          "available_ingredients": ["blueberries", "watermelon", "sweet corn"],
+          "favorite_flavors": ["blueberry", "watermelon"],
+          "source": "FDACS crops-in-season (blueberry Apr-May, watermelon Apr-Jul, sweet corn Oct-Jun)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Florida blueberry window is short (Apr-May), earlier than temperate SE"
+        },
+        {
+          "moment": "Hurricane-season pantry stocking (Jun-Nov)",
+          "available_ingredients": ["shelf-stable staples", "peanuts"],
+          "favorite_flavors": ["shelf-stable pancake/oat mixes", "peanut"],
+          "source": "Atlantic hurricane season Jun 1-Nov 30 (NOAA); north-Florida pantry-stocking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "genuine multi-month behavior; ingredient set shelf-stable, flagged non-fresh"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": ["strawberries", "tomatoes", "citrus"],
+          "favorite_flavors": ["strawberry", "citrus", "gingerbread"],
+          "source": "FDACS crops-in-season + Southern baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "fresh strawberries available at the holidays in FL is distinctive; gingerbread imported"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SE-LOU",
+      "metro_location": {
+        "retailer": "Kroger",
+        "name": null,
+        "address": "confirm — Louisville, KY",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch Southeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Shelbyville, KY",
+        "market": "US-KY-SHELBYVILLE",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": ["Kroger", "Meijer", "Walmart", "ValuMarket"],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "local honey (storage)",
+        "2026-03": "asparagus",
+        "2026-04": "spring greens",
+        "2026-05": "strawberries",
+        "2026-06": "sweet corn",
+        "2026-07": "tomatoes",
+        "2026-08": "sweet corn",
+        "2026-09": "apples",
+        "2026-10": "apples",
+        "2026-11": "sweet potatoes",
+        "2026-12": "storage apples"
+      },
+      "monthly_ingredient_notes": {
+        "source": "University of Kentucky (UK) Cooperative Extension crop / vegetable calendars; Shelby County KY Extension Office horticulture program; Kentucky Derby (Churchill Downs) first Saturday in May"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Kentucky Derby (first Saturday in May)",
+          "available_ingredients": ["strawberries", "spring greens", "mint"],
+          "favorite_flavors": ["mint", "bourbon", "strawberry"],
+          "source": "Kentucky Derby (Churchill Downs, first Saturday May); UK Cooperative Extension spring produce",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Derby is a defining KY spring moment; mint julep + bourbon are the signature flavors, bourbon is value-added not produce"
+        },
+        {
+          "moment": "High summer sweet corn + tomato season",
+          "available_ingredients": ["sweet corn", "tomatoes", "blackberries"],
+          "favorite_flavors": ["sweet corn", "blackberry"],
+          "source": "University of Kentucky (UK) Cooperative Extension sweet-corn / vegetable calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "sweet corn is a top KY fresh-market crop, peak Jun-Aug"
+        },
+        {
+          "moment": "Fall apple + bourbon-country harvest",
+          "available_ingredients": ["apples", "sweet potatoes"],
+          "favorite_flavors": ["apple", "bourbon", "apple-cinnamon"],
+          "source": "UK Cooperative Extension fall produce; Kentucky bourbon-country culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "bourbon is a value-added flavor, apples the fresh crop; cinnamon imported"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": ["storage apples", "local honey", "sweet potatoes (storage)"],
+          "favorite_flavors": ["bourbon", "apple", "gingerbread", "peppermint"],
+          "source": "UK Cooperative Extension + Kentucky bake/bourbon culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "deep-winter local produce is storage/value-added; bourbon-ball / bourbon flavors are the local holiday anchor, peppermint imported"
+        },
+        {
+          "moment": "Spring thaw / asparagus",
+          "available_ingredients": ["asparagus", "spring greens", "rhubarb"],
+          "favorite_flavors": ["rhubarb", "early berry"],
+          "source": "UK Cooperative Extension spring produce calendar",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": ""
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SE-MEMPHIS",
+      "metro_location": {
+        "retailer": "Kroger",
+        "name": null,
+        "address": "confirm — Memphis, TN",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch Southeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Hernando, MS",
+        "market": "US-MS-HERNANDO",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": ["Kroger", "Piggly Wiggly", "Walmart", "Cash Saver"],
+      "monthly_ingredients": {
+        "2026-01": "collards",
+        "2026-02": "sweet potatoes (storage)",
+        "2026-03": "spring greens",
+        "2026-04": "strawberries",
+        "2026-05": "strawberries",
+        "2026-06": "blueberries",
+        "2026-07": "tomatoes",
+        "2026-08": "watermelon",
+        "2026-09": "muscadine grapes",
+        "2026-10": "sweet potatoes",
+        "2026-11": "sweet potatoes",
+        "2026-12": "collards"
+      },
+      "monthly_ingredient_notes": {
+        "source": "Mississippi State University Extension (MSU Extension) fruit and vegetable seasonality; DeSoto County / Hernando MS farmers market"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Spring strawberry season",
+          "available_ingredients": ["strawberries", "spring greens"],
+          "favorite_flavors": ["strawberry", "lemon"],
+          "source": "Mississippi State University Extension (MSU Extension); DeSoto County Hernando farmers market",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Hernando MS (DeSoto County, Memphis metro fringe) piedmont-style strawberries Apr-May"
+        },
+        {
+          "moment": "High summer blueberry + watermelon season",
+          "available_ingredients": ["blueberries", "tomatoes", "watermelon", "peaches"],
+          "favorite_flavors": ["blueberry", "peach", "watermelon"],
+          "source": "MSU Extension fruit and vegetable calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": ""
+        },
+        {
+          "moment": "Fall sweet potato + muscadine harvest",
+          "available_ingredients": ["sweet potatoes", "muscadine grapes"],
+          "favorite_flavors": ["sweet potato", "muscadine"],
+          "source": "MSU Extension calendar; Mississippi sweet-potato belt",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": ""
+        },
+        {
+          "moment": "SEC football tailgating (Sep-Nov)",
+          "available_ingredients": ["sweet potatoes", "muscadine grapes", "pecans"],
+          "favorite_flavors": ["pecan", "sweet potato"],
+          "source": "Mississippi / Mid-South SEC tailgating culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "cultural moment; produce set confirmed fall harvest"
+        },
+        {
+          "moment": "Thanksgiving + winter holidays",
+          "available_ingredients": ["sweet potatoes", "collards", "pecans"],
+          "favorite_flavors": ["sweet potato", "pecan", "pumpkin", "gingerbread"],
+          "source": "Southern / Mid-South baking culture + MSU Extension calendar",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "pumpkin/gingerbread imported bake traditions"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SE-NASH",
+      "metro_location": {
+        "retailer": "Kroger",
+        "name": null,
+        "address": "confirm — Nashville, TN",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch Southeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Leipers Fork, TN",
+        "market": "US-TN-LEIPERSFORK",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": ["Kroger", "Publix", "Walmart", "The Fresh Market"],
+      "monthly_ingredients": {
+        "2026-01": "collards",
+        "2026-02": "sweet potatoes (storage)",
+        "2026-03": "spring greens",
+        "2026-04": "strawberries",
+        "2026-05": "strawberries",
+        "2026-06": "blueberries",
+        "2026-07": "tomatoes",
+        "2026-08": "sweet corn",
+        "2026-09": "apples",
+        "2026-10": "apples",
+        "2026-11": "sweet potatoes",
+        "2026-12": "collards"
+      },
+      "monthly_ingredient_notes": {
+        "source": "University of Tennessee (UT) Extension / Pick Tennessee Products seasonal availability; Williamson County / Leipers Fork TN farm community"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Spring strawberry season",
+          "available_ingredients": ["strawberries", "spring greens", "asparagus"],
+          "favorite_flavors": ["strawberry", "lemon"],
+          "source": "University of Tennessee (UT) Extension Pick Tennessee Products seasonal calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "middle-TN (Williamson County) strawberries Apr-May"
+        },
+        {
+          "moment": "High summer sweet corn + tomato season",
+          "available_ingredients": ["sweet corn", "tomatoes", "blueberries", "peaches"],
+          "favorite_flavors": ["blueberry", "peach", "sweet corn"],
+          "source": "UT Extension Pick Tennessee Products seasonal calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": ""
+        },
+        {
+          "moment": "Fall apple harvest",
+          "available_ingredients": ["apples", "sweet potatoes"],
+          "favorite_flavors": ["apple", "apple-cinnamon", "sweet potato"],
+          "source": "UT Extension Pick Tennessee Products seasonal calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "cinnamon imported"
+        },
+        {
+          "moment": "SEC football tailgating (Sep-Nov)",
+          "available_ingredients": ["apples", "sweet potatoes", "pecans"],
+          "favorite_flavors": ["apple", "pecan", "sweet potato"],
+          "source": "Tennessee SEC tailgating culture (Tennessee / Vanderbilt)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "cultural moment; produce set confirmed fall harvest"
+        },
+        {
+          "moment": "Thanksgiving + winter holidays",
+          "available_ingredients": ["sweet potatoes", "collards", "pecans"],
+          "favorite_flavors": ["sweet potato", "pecan", "pumpkin", "gingerbread"],
+          "source": "Southern baking culture + UT Extension calendar",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "pumpkin/gingerbread imported bake traditions"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SE-NOLA",
+      "metro_location": {
+        "retailer": "Rouses Markets",
+        "name": null,
+        "address": "confirm — New Orleans, LA",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch Southeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Covington, LA",
+        "market": "US-LA-COVINGTON",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": ["Rouses Markets", "Winn-Dixie", "Walmart", "Robert Fresh Market"],
+      "monthly_ingredients": {
+        "2026-01": "citrus (satsuma/navel)",
+        "2026-02": "crawfish",
+        "2026-03": "crawfish",
+        "2026-04": "strawberries (Ponchatoula)",
+        "2026-05": "crawfish",
+        "2026-06": "Creole tomatoes",
+        "2026-07": "watermelon",
+        "2026-08": "okra",
+        "2026-09": "mirlitons",
+        "2026-10": "sweet potatoes",
+        "2026-11": "satsuma",
+        "2026-12": "satsuma"
+      },
+      "monthly_ingredient_notes": {
+        "source": "LSU AgCenter Louisiana produce seasonality; Louisiana seafood season calendar (crawfish late winter-spring, Gulf oysters mid-Oct to early Apr); Mardi Gras 2026 = Feb 17; Ponchatoula strawberry belt / New Orleans Creole Tomato Festival; NOAA hurricane season"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Mardi Gras + crawfish season (Feb 17, 2026)",
+          "available_ingredients": ["crawfish", "citrus"],
+          "favorite_flavors": ["king cake", "cinnamon", "crawfish (savory)"],
+          "source": "Mardi Gras 2026 = Feb 17; Louisiana crawfish season late winter through early spring (Explore Louisiana); king cake tradition",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "crawfish + king cake are the defining moment; king cake is a value-added bake, crawfish savory; cinnamon imported spice"
+        },
+        {
+          "moment": "Ponchatoula / North Shore strawberry season (Apr)",
+          "available_ingredients": ["strawberries (Ponchatoula)"],
+          "favorite_flavors": ["strawberry", "strawberry shortcake"],
+          "source": "LSU AgCenter; Ponchatoula (North Shore) strawberry belt, Apr harvest",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Ponchatoula near Covington is the Louisiana strawberry capital"
+        },
+        {
+          "moment": "Summer Creole tomato + okra season",
+          "available_ingredients": ["Creole tomatoes", "okra", "watermelon"],
+          "favorite_flavors": ["Creole tomato (savory)", "watermelon"],
+          "source": "LSU AgCenter; New Orleans Creole Tomato Festival (June)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Creole tomato is a protected local summer crop"
+        },
+        {
+          "moment": "Fall Gulf oyster + satsuma season (Oct onward)",
+          "available_ingredients": ["Gulf oysters", "satsuma", "mirlitons"],
+          "favorite_flavors": ["satsuma", "oyster (savory)"],
+          "source": "Louisiana seafood calendar (prime raw oyster mid-Oct through early Apr); LSU AgCenter satsuma harvest Nov-Dec",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "satsuma is the signature Gulf-coast winter citrus; oysters savory"
+        },
+        {
+          "moment": "Hurricane-season pantry stocking (Jun-Nov)",
+          "available_ingredients": ["shelf-stable staples", "rice"],
+          "favorite_flavors": ["shelf-stable pancake/oat mixes"],
+          "source": "Atlantic/Gulf hurricane season Jun 1-Nov 30 (NOAA); Louisiana pantry-stocking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "genuine multi-month Gulf-coast behavior; ingredient set shelf-stable, flagged non-fresh"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": ["satsuma", "citrus", "sweet potatoes"],
+          "favorite_flavors": ["satsuma", "king cake (Epiphany onward)", "sweet potato"],
+          "source": "LSU AgCenter + Louisiana holiday culture; king cake season starts Jan 6 (Epiphany)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "satsuma is genuinely local winter citrus; king cake season bridges Epiphany to Mardi Gras"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SE-TAMPA",
+      "metro_location": {
+        "retailer": "Publix",
+        "name": null,
+        "address": "confirm — Tampa, FL",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch Southeast; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Plant City, FL",
+        "market": "US-FL-PLANTCTY",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": ["Publix", "Winn-Dixie", "Sweetbay/Walmart", "Detwiler's Farm Market"],
+      "monthly_ingredients": {
+        "2026-01": "strawberries",
+        "2026-02": "strawberries",
+        "2026-03": "strawberries (festival peak)",
+        "2026-04": "strawberries",
+        "2026-05": "blueberries",
+        "2026-06": "watermelon",
+        "2026-07": "mango",
+        "2026-08": "avocado (Florida)",
+        "2026-09": "sweet corn",
+        "2026-10": "tomatoes",
+        "2026-11": "strawberries (new crop)",
+        "2026-12": "strawberries"
+      },
+      "monthly_ingredient_notes": {
+        "source": "Florida Department of Agriculture & Consumer Services (FDACS) crops-in-season; Florida Strawberry Festival, Plant City (Feb 26 - Mar 8, 2026); NOAA Atlantic hurricane season"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Florida Strawberry Festival (Feb 26 - Mar 8, 2026)",
+          "available_ingredients": ["strawberries"],
+          "favorite_flavors": ["strawberry", "strawberry shortcake"],
+          "source": "Florida Strawberry Festival, Plant City (Feb 26 - Mar 8, 2026, confirmed multiple outlets); FDACS strawberry Dec-Apr",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Plant City is the winter-strawberry capital of the US; festival peak late Feb into early March"
+        },
+        {
+          "moment": "Winter-spring strawberry season (INVERTED, Dec-Apr)",
+          "available_ingredients": ["strawberries", "tomatoes"],
+          "favorite_flavors": ["strawberry", "citrus"],
+          "source": "FDACS crops-in-season (strawberry Dec-Apr)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Plant City peak strawberry is winter, inverted vs temperate SE; fresh berries at Christmas is a genuine local distinctive"
+        },
+        {
+          "moment": "Summer tropical + blueberry season",
+          "available_ingredients": ["blueberries", "watermelon", "mango"],
+          "favorite_flavors": ["blueberry", "mango", "watermelon"],
+          "source": "FDACS crops-in-season (blueberry Apr-May, watermelon Apr-Jul, mango May-Aug)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "central Florida transitions to tropical fruit + blueberry in summer"
+        },
+        {
+          "moment": "Hurricane-season pantry stocking (Jun-Nov)",
+          "available_ingredients": ["shelf-stable staples"],
+          "favorite_flavors": ["shelf-stable pancake/oat mixes"],
+          "source": "Atlantic hurricane season Jun 1-Nov 30 (NOAA); Tampa Bay pantry-stocking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "genuine multi-month Gulf-coast behavior; ingredient set shelf-stable, flagged non-fresh"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": ["strawberries", "citrus", "tomatoes"],
+          "favorite_flavors": ["strawberry", "citrus", "gingerbread"],
+          "source": "FDACS crops-in-season + Southern baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "fresh local strawberries at the holidays is a Plant City distinctive; gingerbread imported"
         }
       ],
       "research_todo": false
