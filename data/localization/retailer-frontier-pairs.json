@@ -5,7 +5,7 @@
     "purpose": "Each retail metro location pairs with a frontier sister location. Every pair carries a retailer list and a monthly local ingredient sourced from a local farmers market. Drives seasonal recipe-card localization and retailer logo lockups.",
     "monthly_ingredient_mechanism": "monthly_ingredients maps ISO month (YYYY-MM) -> in-season local ingredient for the frontier sister's farmers market. Populate the current month at seed time; the other 11 months are filled by a research dispatch (ghost research task) that resolves each frontier market's seasonal produce calendar from the linked farmers_market_url + regional extension-service crop calendars. Entries marked research_todo=true are placeholders awaiting that dispatch.",
     "seasonal_moments_mechanism": "seasonal_moments is an array of holiday/season entries per pair. Each entry captures the fresh local ingredients available at that moment (available_ingredients) plus the favorite bake flavors people reach for then (favorite_flavors), for the creative bank. Every entry carries a source, confidence (high|medium|low), and status (confirmed|proposed). Notes flag storage/value-added vs fresh-harvest and imported flavor-culture vs local-grown so the creative bank stays non-fabricated.",
-    "confirmed_pairs": 16
+    "confirmed_pairs": 28
   },
   "pairs": [
     {
@@ -23,7 +23,11 @@
         "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
         "note": "Sandersville downtown farmers market — central Georgia (Washington County), kaolin-belt farm community; frontier gap sister to metro Atlanta Publix. Registered as first-class market US-SE-SANDERSVILLE in store-finder-markets.json + market-languages.json + local-flavor.json."
       },
-      "retailers": ["Publix", "Walmart", "Kroger"],
+      "retailers": [
+        "Publix",
+        "Walmart",
+        "Kroger"
+      ],
       "monthly_ingredients": {
         "2026-01": "turnips",
         "2026-02": "winter greens",
@@ -45,8 +49,15 @@
       "seasonal_moments": [
         {
           "moment": "Thanksgiving",
-          "available_ingredients": ["pecans", "sweet potatoes"],
-          "favorite_flavors": ["pecan", "sweet potato", "pumpkin"],
+          "available_ingredients": [
+            "pecans",
+            "sweet potatoes"
+          ],
+          "favorite_flavors": [
+            "pecan",
+            "sweet potato",
+            "pumpkin"
+          ],
           "source": "Southern Living / Southern baking culture",
           "confidence": "high",
           "status": "confirmed",
@@ -54,8 +65,17 @@
         },
         {
           "moment": "Winter holidays",
-          "available_ingredients": ["collards", "turnips", "winter greens"],
-          "favorite_flavors": ["peppermint", "gingerbread", "cranberry", "bourbon-pecan"],
+          "available_ingredients": [
+            "collards",
+            "turnips",
+            "winter greens"
+          ],
+          "favorite_flavors": [
+            "peppermint",
+            "gingerbread",
+            "cranberry",
+            "bourbon-pecan"
+          ],
           "source": "Southern Living / Southern baking culture",
           "confidence": "medium",
           "status": "proposed",
@@ -63,8 +83,15 @@
         },
         {
           "moment": "Spring/Easter",
-          "available_ingredients": ["strawberries", "Vidalia onions"],
-          "favorite_flavors": ["strawberry", "lemon", "coconut"],
+          "available_ingredients": [
+            "strawberries",
+            "Vidalia onions"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "lemon",
+            "coconut"
+          ],
           "source": "Southern Living / Southern baking culture",
           "confidence": "medium",
           "status": "proposed",
@@ -72,8 +99,16 @@
         },
         {
           "moment": "July 4th / summer",
-          "available_ingredients": ["peaches", "blueberries", "watermelon"],
-          "favorite_flavors": ["peach", "blueberry", "watermelon"],
+          "available_ingredients": [
+            "peaches",
+            "blueberries",
+            "watermelon"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "blueberry",
+            "watermelon"
+          ],
           "source": "Southern Living / Southern baking culture",
           "confidence": "high",
           "status": "confirmed",
@@ -97,7 +132,12 @@
         "farmers_market_url": "https://www.parkcityfarmersmarket.com",
         "note": "Frontier sister is the Kamas Valley/Oakley ranching community (Oakley Rodeo confirmed). No stable standalone Oakley/Kamas farmers-market URL confirmed — farmers_market_url anchors to the confirmed Park City Farmers Market; a dedicated Oakley/Kamas market URL is pending research."
       },
-      "retailers": ["Smith's", "Whole Foods", "Target", "Walmart"],
+      "retailers": [
+        "Smith's",
+        "Whole Foods",
+        "Target",
+        "Walmart"
+      ],
       "monthly_ingredients": {
         "2026-01": "root vegetables (storage)",
         "2026-02": "apples (storage)",
@@ -118,8 +158,18 @@
       "seasonal_moments": [
         {
           "moment": "Ski-season (winter)",
-          "available_ingredients": ["apples (storage)", "local honey", "root vegetables", "grass-fed beef", "dairy butter"],
-          "favorite_flavors": ["apple-cinnamon", "honey-butter", "hot-griddle warming spices"],
+          "available_ingredients": [
+            "apples (storage)",
+            "local honey",
+            "root vegetables",
+            "grass-fed beef",
+            "dairy butter"
+          ],
+          "favorite_flavors": [
+            "apple-cinnamon",
+            "honey-butter",
+            "hot-griddle warming spices"
+          ],
           "source": "USU Extension seasonal calendar + Wasatch Back ski-culture flavor traditions",
           "confidence": "high",
           "status": "confirmed",
@@ -127,8 +177,15 @@
         },
         {
           "moment": "Thanksgiving",
-          "available_ingredients": ["winter squash", "apples"],
-          "favorite_flavors": ["apple", "squash", "warm spice"],
+          "available_ingredients": [
+            "winter squash",
+            "apples"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "squash",
+            "warm spice"
+          ],
           "source": "USU Extension seasonal calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -136,8 +193,15 @@
         },
         {
           "moment": "Winter holidays",
-          "available_ingredients": ["local honey", "dairy butter"],
-          "favorite_flavors": ["gingerbread", "peppermint", "spiced-warming"],
+          "available_ingredients": [
+            "local honey",
+            "dairy butter"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "peppermint",
+            "spiced-warming"
+          ],
           "source": "USU Extension seasonal calendar + regional bake traditions",
           "confidence": "medium",
           "status": "proposed",
@@ -145,8 +209,14 @@
         },
         {
           "moment": "Spring thaw",
-          "available_ingredients": ["rhubarb", "asparagus"],
-          "favorite_flavors": ["rhubarb", "early berry"],
+          "available_ingredients": [
+            "rhubarb",
+            "asparagus"
+          ],
+          "favorite_flavors": [
+            "rhubarb",
+            "early berry"
+          ],
           "source": "USU Extension seasonal calendar",
           "confidence": "medium",
           "status": "confirmed",
@@ -154,8 +224,15 @@
         },
         {
           "moment": "Summer",
-          "available_ingredients": ["raspberries", "peaches", "sweet corn"],
-          "favorite_flavors": ["peach", "berry"],
+          "available_ingredients": [
+            "raspberries",
+            "peaches",
+            "sweet corn"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "berry"
+          ],
           "source": "USU Extension seasonal calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -178,7 +255,7 @@
       "frontier_sister": {
         "place": "Pescadero, CA 94060",
         "farmers_market_url": "https://www.harleyfarms.com",
-        "note": "Pescadero is itself the frontier gap (nearest no-retailer spot to SF/Oakland). Local sourcing runs through Pescadero farm stands: Harley Farms Goat Dairy, Fifth Crow Farm, plus Half Moon Bay Farmers Market (Saturdays). farmers_market_url points at Harley Farms as the anchor cross-promo; Half Moon Bay Farmers Market has no stable standalone URL confirmed \u2014 research dispatch to verify."
+        "note": "Pescadero is itself the frontier gap (nearest no-retailer spot to SF/Oakland). Local sourcing runs through Pescadero farm stands: Harley Farms Goat Dairy, Fifth Crow Farm, plus Half Moon Bay Farmers Market (Saturdays). farmers_market_url points at Harley Farms as the anchor cross-promo; Half Moon Bay Farmers Market has no stable standalone URL confirmed — research dispatch to verify."
       },
       "retailers": [
         "Costco",
@@ -208,8 +285,13 @@
       "seasonal_moments": [
         {
           "moment": "Halloween / HMB Art & Pumpkin Festival (Oct)",
-          "available_ingredients": ["Half Moon Bay pumpkin"],
-          "favorite_flavors": ["pumpkin", "pumpkin spice"],
+          "available_ingredients": [
+            "Half Moon Bay pumpkin"
+          ],
+          "favorite_flavors": [
+            "pumpkin",
+            "pumpkin spice"
+          ],
           "source": "Half Moon Bay Art & Pumpkin Festival / HMB agriculture",
           "confidence": "high",
           "status": "confirmed",
@@ -217,8 +299,15 @@
         },
         {
           "moment": "Thanksgiving/winter",
-          "available_ingredients": ["Meyer lemon", "winter squash"],
-          "favorite_flavors": ["Meyer lemon", "pumpkin", "warm citrus"],
+          "available_ingredients": [
+            "Meyer lemon",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "Meyer lemon",
+            "pumpkin",
+            "warm citrus"
+          ],
           "source": "coastal San Mateo winter citrus + pescadero-94060.json seasonal_matrix",
           "confidence": "medium",
           "status": "confirmed",
@@ -226,8 +315,17 @@
         },
         {
           "moment": "Spring",
-          "available_ingredients": ["artichokes", "strawberries", "Meyer lemon"],
-          "favorite_flavors": ["artichoke (savory)", "strawberry", "Meyer lemon", "honey-chevre"],
+          "available_ingredients": [
+            "artichokes",
+            "strawberries",
+            "Meyer lemon"
+          ],
+          "favorite_flavors": [
+            "artichoke (savory)",
+            "strawberry",
+            "Meyer lemon",
+            "honey-chevre"
+          ],
           "source": "pescadero-94060.json seasonal_matrix + Harley Farms chevre",
           "confidence": "high",
           "status": "confirmed",
@@ -235,8 +333,13 @@
         },
         {
           "moment": "Summer",
-          "available_ingredients": ["strawberries"],
-          "favorite_flavors": ["strawberry", "berry"],
+          "available_ingredients": [
+            "strawberries"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "berry"
+          ],
           "source": "pescadero-94060.json seasonal_matrix (Fifth Crow strawberries May-Sep)",
           "confidence": "high",
           "status": "confirmed",
@@ -261,7 +364,12 @@
         "farmers_market_url": null,
         "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
       },
-      "retailers": ["Harris Teeter", "Food Lion", "Publix", "Lowes Foods"],
+      "retailers": [
+        "Harris Teeter",
+        "Food Lion",
+        "Publix",
+        "Lowes Foods"
+      ],
       "monthly_ingredients": {
         "2026-01": "collards",
         "2026-02": "sweet potatoes (storage)",
@@ -282,8 +390,15 @@
       "seasonal_moments": [
         {
           "moment": "Spring / Easter strawberry season",
-          "available_ingredients": ["strawberries", "spring greens"],
-          "favorite_flavors": ["strawberry", "lemon", "coconut"],
+          "available_ingredients": [
+            "strawberries",
+            "spring greens"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "lemon",
+            "coconut"
+          ],
           "source": "NC State Extension NC produce availability calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -291,8 +406,16 @@
         },
         {
           "moment": "July 4th / high summer",
-          "available_ingredients": ["blueberries", "tomatoes", "peaches", "watermelon"],
-          "favorite_flavors": ["blueberry", "peach"],
+          "available_ingredients": [
+            "blueberries",
+            "tomatoes",
+            "peaches",
+            "watermelon"
+          ],
+          "favorite_flavors": [
+            "blueberry",
+            "peach"
+          ],
           "source": "NC State Extension NC produce availability calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -300,8 +423,16 @@
         },
         {
           "moment": "Fall muscadine + apple harvest",
-          "available_ingredients": ["muscadine grapes", "apples", "sweet potatoes"],
-          "favorite_flavors": ["muscadine", "apple-cinnamon", "sweet potato"],
+          "available_ingredients": [
+            "muscadine grapes",
+            "apples",
+            "sweet potatoes"
+          ],
+          "favorite_flavors": [
+            "muscadine",
+            "apple-cinnamon",
+            "sweet potato"
+          ],
           "source": "NC State Extension NC produce availability calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -309,8 +440,16 @@
         },
         {
           "moment": "Thanksgiving",
-          "available_ingredients": ["sweet potatoes", "collards", "pecans"],
-          "favorite_flavors": ["sweet potato", "pecan", "pumpkin"],
+          "available_ingredients": [
+            "sweet potatoes",
+            "collards",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "sweet potato",
+            "pecan",
+            "pumpkin"
+          ],
           "source": "Southern baking culture + NC State Extension calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -318,8 +457,15 @@
         },
         {
           "moment": "Winter holidays",
-          "available_ingredients": ["collards", "sweet potatoes (storage)"],
-          "favorite_flavors": ["gingerbread", "peppermint", "cranberry"],
+          "available_ingredients": [
+            "collards",
+            "sweet potatoes (storage)"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "peppermint",
+            "cranberry"
+          ],
           "source": "Southern baking culture",
           "confidence": "medium",
           "status": "proposed",
@@ -344,7 +490,12 @@
         "farmers_market_url": null,
         "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
       },
-      "retailers": ["Ingles Markets", "Publix", "Food Lion", "Walmart"],
+      "retailers": [
+        "Ingles Markets",
+        "Publix",
+        "Food Lion",
+        "Walmart"
+      ],
       "monthly_ingredients": {
         "2026-01": "sourwood honey (storage)",
         "2026-02": "apples (storage)",
@@ -365,8 +516,15 @@
       "seasonal_moments": [
         {
           "moment": "Spring ramp + tailgate-market opening",
-          "available_ingredients": ["ramps", "spring greens", "root vegetables"],
-          "favorite_flavors": ["ramp (savory)", "early berry"],
+          "available_ingredients": [
+            "ramps",
+            "spring greens",
+            "root vegetables"
+          ],
+          "favorite_flavors": [
+            "ramp (savory)",
+            "early berry"
+          ],
           "source": "Appalachian Sustainable Agriculture Project (ASAP) Appalachian Grown; Madison County tailgate markets open April",
           "confidence": "high",
           "status": "confirmed",
@@ -374,8 +532,16 @@
         },
         {
           "moment": "Summer sourwood honey season",
-          "available_ingredients": ["sourwood honey", "strawberries", "tomatoes"],
-          "favorite_flavors": ["honey-butter", "sourwood honey", "berry"],
+          "available_ingredients": [
+            "sourwood honey",
+            "strawberries",
+            "tomatoes"
+          ],
+          "favorite_flavors": [
+            "honey-butter",
+            "sourwood honey",
+            "berry"
+          ],
           "source": "WNC Farmers Market / Blue Ridge mountain specialty listings",
           "confidence": "high",
           "status": "confirmed",
@@ -383,8 +549,15 @@
         },
         {
           "moment": "Fall mountain apple harvest",
-          "available_ingredients": ["mountain apples", "winter squash"],
-          "favorite_flavors": ["apple-cinnamon", "spiced apple", "squash"],
+          "available_ingredients": [
+            "mountain apples",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple-cinnamon",
+            "spiced apple",
+            "squash"
+          ],
           "source": "Blue Ridge Heritage / WNC apple orchards (Henderson-Madison county belt)",
           "confidence": "high",
           "status": "confirmed",
@@ -392,8 +565,17 @@
         },
         {
           "moment": "Winter ski/holiday (deep mountain)",
-          "available_ingredients": ["apples (storage)", "sourwood honey", "winter squash"],
-          "favorite_flavors": ["apple", "honey", "warm spice", "gingerbread"],
+          "available_ingredients": [
+            "apples (storage)",
+            "sourwood honey",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "honey",
+            "warm spice",
+            "gingerbread"
+          ],
           "source": "ASAP + regional bake traditions",
           "confidence": "medium",
           "status": "proposed",
@@ -401,8 +583,16 @@
         },
         {
           "moment": "SEC / college-football fall tailgating",
-          "available_ingredients": ["apples", "winter squash", "sourwood honey"],
-          "favorite_flavors": ["apple", "maple", "warm spice"],
+          "available_ingredients": [
+            "apples",
+            "winter squash",
+            "sourwood honey"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "maple",
+            "warm spice"
+          ],
           "source": "regional fall tailgating culture (Appalachian State / SEC broadcast reach)",
           "confidence": "medium",
           "status": "proposed",
@@ -427,7 +617,12 @@
         "farmers_market_url": null,
         "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
       },
-      "retailers": ["Publix", "Winn-Dixie", "Walmart", "Piggly Wiggly"],
+      "retailers": [
+        "Publix",
+        "Winn-Dixie",
+        "Walmart",
+        "Piggly Wiggly"
+      ],
       "monthly_ingredients": {
         "2026-01": "collards",
         "2026-02": "turnips",
@@ -448,8 +643,14 @@
       "seasonal_moments": [
         {
           "moment": "Chilton County peach season + Peach Jam Jubilee (June)",
-          "available_ingredients": ["peaches (freestone)"],
-          "favorite_flavors": ["peach", "peach-cobbler", "peaches-and-cream"],
+          "available_ingredients": [
+            "peaches (freestone)"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "peach-cobbler",
+            "peaches-and-cream"
+          ],
           "source": "Alabama Cooperative Extension (ACES); Chilton County Peach Festival / Peach Jam Jubilee (Clanton, June)",
           "confidence": "high",
           "status": "confirmed",
@@ -457,8 +658,13 @@
         },
         {
           "moment": "Spring strawberry season",
-          "available_ingredients": ["strawberries"],
-          "favorite_flavors": ["strawberry", "lemon"],
+          "available_ingredients": [
+            "strawberries"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "lemon"
+          ],
           "source": "Alabama Cooperative Extension (ACES) fruit culture: strawberries Mar-Jun",
           "confidence": "high",
           "status": "confirmed",
@@ -466,8 +672,14 @@
         },
         {
           "moment": "Fall muscadine + pecan harvest",
-          "available_ingredients": ["muscadine grapes", "pecans"],
-          "favorite_flavors": ["muscadine", "pecan"],
+          "available_ingredients": [
+            "muscadine grapes",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "muscadine",
+            "pecan"
+          ],
           "source": "ACES fruit culture calendar; central Alabama pecan harvest Oct-Nov",
           "confidence": "high",
           "status": "confirmed",
@@ -475,8 +687,16 @@
         },
         {
           "moment": "SEC football tailgating (Sep-Nov)",
-          "available_ingredients": ["muscadine grapes", "pecans", "sweet potatoes"],
-          "favorite_flavors": ["pecan", "peach (preserved)", "sweet potato"],
+          "available_ingredients": [
+            "muscadine grapes",
+            "pecans",
+            "sweet potatoes"
+          ],
+          "favorite_flavors": [
+            "pecan",
+            "peach (preserved)",
+            "sweet potato"
+          ],
           "source": "Alabama SEC tailgating culture (Alabama/Auburn)",
           "confidence": "medium",
           "status": "proposed",
@@ -484,8 +704,17 @@
         },
         {
           "moment": "Thanksgiving + winter holidays",
-          "available_ingredients": ["sweet potatoes", "collards", "pecans"],
-          "favorite_flavors": ["sweet potato", "pecan", "pumpkin", "gingerbread"],
+          "available_ingredients": [
+            "sweet potatoes",
+            "collards",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "sweet potato",
+            "pecan",
+            "pumpkin",
+            "gingerbread"
+          ],
           "source": "Southern baking culture + ACES calendar",
           "confidence": "medium",
           "status": "proposed",
@@ -510,7 +739,12 @@
         "farmers_market_url": null,
         "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
       },
-      "retailers": ["Harris Teeter", "Food Lion", "Publix", "Lowes Foods"],
+      "retailers": [
+        "Harris Teeter",
+        "Food Lion",
+        "Publix",
+        "Lowes Foods"
+      ],
       "monthly_ingredients": {
         "2026-01": "collards",
         "2026-02": "sweet potatoes (storage)",
@@ -531,8 +765,14 @@
       "seasonal_moments": [
         {
           "moment": "Spring / Easter strawberry season",
-          "available_ingredients": ["strawberries", "spring greens"],
-          "favorite_flavors": ["strawberry", "lemon"],
+          "available_ingredients": [
+            "strawberries",
+            "spring greens"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "lemon"
+          ],
           "source": "NC State Extension NC produce availability calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -540,8 +780,16 @@
         },
         {
           "moment": "July 4th / high summer",
-          "available_ingredients": ["blueberries", "tomatoes", "peaches", "watermelon"],
-          "favorite_flavors": ["blueberry", "peach"],
+          "available_ingredients": [
+            "blueberries",
+            "tomatoes",
+            "peaches",
+            "watermelon"
+          ],
+          "favorite_flavors": [
+            "blueberry",
+            "peach"
+          ],
           "source": "NC State Extension NC produce availability calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -549,8 +797,16 @@
         },
         {
           "moment": "Fall muscadine + apple harvest",
-          "available_ingredients": ["muscadine grapes", "apples", "sweet potatoes"],
-          "favorite_flavors": ["muscadine", "apple", "sweet potato"],
+          "available_ingredients": [
+            "muscadine grapes",
+            "apples",
+            "sweet potatoes"
+          ],
+          "favorite_flavors": [
+            "muscadine",
+            "apple",
+            "sweet potato"
+          ],
           "source": "NC State Extension NC produce availability calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -558,8 +814,16 @@
         },
         {
           "moment": "Thanksgiving",
-          "available_ingredients": ["sweet potatoes", "collards", "pecans"],
-          "favorite_flavors": ["sweet potato", "pecan", "pumpkin"],
+          "available_ingredients": [
+            "sweet potatoes",
+            "collards",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "sweet potato",
+            "pecan",
+            "pumpkin"
+          ],
           "source": "Southern baking culture + NC State Extension calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -567,8 +831,16 @@
         },
         {
           "moment": "Winter holidays",
-          "available_ingredients": ["collards", "turnips", "sweet potatoes (storage)"],
-          "favorite_flavors": ["gingerbread", "peppermint", "cranberry"],
+          "available_ingredients": [
+            "collards",
+            "turnips",
+            "sweet potatoes (storage)"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "peppermint",
+            "cranberry"
+          ],
           "source": "Southern baking culture",
           "confidence": "medium",
           "status": "proposed",
@@ -593,7 +865,12 @@
         "farmers_market_url": null,
         "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
       },
-      "retailers": ["Publix", "Piggly Wiggly", "Food Lion", "Walmart"],
+      "retailers": [
+        "Publix",
+        "Piggly Wiggly",
+        "Food Lion",
+        "Walmart"
+      ],
       "monthly_ingredients": {
         "2026-01": "collards",
         "2026-02": "winter greens",
@@ -614,8 +891,16 @@
       "seasonal_moments": [
         {
           "moment": "Lowcountry summer okra + watermelon season",
-          "available_ingredients": ["okra", "watermelon", "peppers", "peaches"],
-          "favorite_flavors": ["peach", "watermelon"],
+          "available_ingredients": [
+            "okra",
+            "watermelon",
+            "peppers",
+            "peaches"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "watermelon"
+          ],
           "source": "Clemson HGIC / Clemson Extension SC fruit-and-vegetable field reports (Lowcountry okra + watermelon high summer)",
           "confidence": "high",
           "status": "confirmed",
@@ -623,8 +908,14 @@
         },
         {
           "moment": "Fall boiled-peanut season",
-          "available_ingredients": ["boiled peanuts", "muscadine grapes"],
-          "favorite_flavors": ["boiled peanut (savory)", "muscadine"],
+          "available_ingredients": [
+            "boiled peanuts",
+            "muscadine grapes"
+          ],
+          "favorite_flavors": [
+            "boiled peanut (savory)",
+            "muscadine"
+          ],
           "source": "SC Department of Agriculture boiled-peanut season; Clemson HGIC peanut factsheet (plant Apr-Jun, green-peanut harvest fall)",
           "confidence": "high",
           "status": "confirmed",
@@ -632,8 +923,16 @@
         },
         {
           "moment": "Hurricane-season pantry stocking (Jun-Nov)",
-          "available_ingredients": ["sweet potatoes", "peanuts", "preserved/canned produce"],
-          "favorite_flavors": ["shelf-stable pancake/oat mixes", "peanut", "sweet potato"],
+          "available_ingredients": [
+            "sweet potatoes",
+            "peanuts",
+            "preserved/canned produce"
+          ],
+          "favorite_flavors": [
+            "shelf-stable pancake/oat mixes",
+            "peanut",
+            "sweet potato"
+          ],
           "source": "Atlantic hurricane season Jun 1-Nov 30 (NOAA); Lowcountry pantry-stocking culture",
           "confidence": "medium",
           "status": "proposed",
@@ -641,8 +940,16 @@
         },
         {
           "moment": "SEC / coastal football tailgating (Sep-Nov)",
-          "available_ingredients": ["boiled peanuts", "muscadine grapes", "sweet potatoes"],
-          "favorite_flavors": ["boiled peanut", "pecan", "sweet potato"],
+          "available_ingredients": [
+            "boiled peanuts",
+            "muscadine grapes",
+            "sweet potatoes"
+          ],
+          "favorite_flavors": [
+            "boiled peanut",
+            "pecan",
+            "sweet potato"
+          ],
           "source": "SC tailgating culture (Clemson / South Carolina)",
           "confidence": "medium",
           "status": "proposed",
@@ -650,8 +957,16 @@
         },
         {
           "moment": "Winter holidays",
-          "available_ingredients": ["collards", "winter greens", "sweet potatoes (storage)"],
-          "favorite_flavors": ["sweet potato", "pecan", "gingerbread"],
+          "available_ingredients": [
+            "collards",
+            "winter greens",
+            "sweet potatoes (storage)"
+          ],
+          "favorite_flavors": [
+            "sweet potato",
+            "pecan",
+            "gingerbread"
+          ],
           "source": "Lowcountry / Southern baking culture",
           "confidence": "medium",
           "status": "proposed",
@@ -676,7 +991,12 @@
         "farmers_market_url": null,
         "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
       },
-      "retailers": ["Publix", "Winn-Dixie", "Sedano's", "Walmart"],
+      "retailers": [
+        "Publix",
+        "Winn-Dixie",
+        "Sedano's",
+        "Walmart"
+      ],
       "monthly_ingredients": {
         "2026-01": "strawberries",
         "2026-02": "tomatoes",
@@ -697,8 +1017,18 @@
       "seasonal_moments": [
         {
           "moment": "Winter peak-harvest season (INVERTED subtropical, Nov-Mar)",
-          "available_ingredients": ["tomatoes", "strawberries", "sweet corn", "bell pepper", "squash"],
-          "favorite_flavors": ["strawberry", "sweet corn", "citrus"],
+          "available_ingredients": [
+            "tomatoes",
+            "strawberries",
+            "sweet corn",
+            "bell pepper",
+            "squash"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "sweet corn",
+            "citrus"
+          ],
           "source": "FDACS Florida crops-in-season (strawberry Dec-Apr, tomato Oct-Jun, sweet corn Oct-Jun, bell pepper Nov-May)",
           "confidence": "high",
           "status": "confirmed",
@@ -706,8 +1036,19 @@
         },
         {
           "moment": "Summer tropical-fruit season (mango / lychee / avocado)",
-          "available_ingredients": ["mango", "lychee", "guava", "avocado (Florida)", "longan"],
-          "favorite_flavors": ["mango", "guava", "coconut", "key lime"],
+          "available_ingredients": [
+            "mango",
+            "lychee",
+            "guava",
+            "avocado (Florida)",
+            "longan"
+          ],
+          "favorite_flavors": [
+            "mango",
+            "guava",
+            "coconut",
+            "key lime"
+          ],
           "source": "FDACS crops-in-season (mango May-Aug, lychee Jun-Jul, guava year-round peak Aug-Oct, avocado Jun-Jan); UF/IFAS TREC subtropical fruit",
           "confidence": "high",
           "status": "confirmed",
@@ -715,8 +1056,15 @@
         },
         {
           "moment": "Hurricane-season pantry stocking (Jun-Nov)",
-          "available_ingredients": ["shelf-stable staples", "guava paste (value-added)"],
-          "favorite_flavors": ["shelf-stable pancake/oat mixes", "guava", "coconut"],
+          "available_ingredients": [
+            "shelf-stable staples",
+            "guava paste (value-added)"
+          ],
+          "favorite_flavors": [
+            "shelf-stable pancake/oat mixes",
+            "guava",
+            "coconut"
+          ],
           "source": "Atlantic hurricane season Jun 1-Nov 30 (NOAA); South Florida pantry-stocking culture",
           "confidence": "medium",
           "status": "proposed",
@@ -724,8 +1072,17 @@
         },
         {
           "moment": "Winter holidays (Latin/Caribbean influence)",
-          "available_ingredients": ["strawberries", "citrus", "guava paste"],
-          "favorite_flavors": ["guava", "coconut", "citrus", "dulce"],
+          "available_ingredients": [
+            "strawberries",
+            "citrus",
+            "guava paste"
+          ],
+          "favorite_flavors": [
+            "guava",
+            "coconut",
+            "citrus",
+            "dulce"
+          ],
           "source": "FDACS crops-in-season + Miami-Dade Latin/Caribbean baking culture",
           "confidence": "medium",
           "status": "proposed",
@@ -733,8 +1090,17 @@
         },
         {
           "moment": "Spring / Easter fresh-harvest tail",
-          "available_ingredients": ["strawberries", "tomatoes", "carambola (starfruit)", "papaya"],
-          "favorite_flavors": ["strawberry", "starfruit", "papaya"],
+          "available_ingredients": [
+            "strawberries",
+            "tomatoes",
+            "carambola (starfruit)",
+            "papaya"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "starfruit",
+            "papaya"
+          ],
           "source": "FDACS crops-in-season (strawberry through Apr, carambola Jul-Apr, papaya Feb-Jun)",
           "confidence": "high",
           "status": "confirmed",
@@ -759,7 +1125,12 @@
         "farmers_market_url": null,
         "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
       },
-      "retailers": ["Kroger", "Piggly Wiggly", "Walmart", "Corner Market"],
+      "retailers": [
+        "Kroger",
+        "Piggly Wiggly",
+        "Walmart",
+        "Corner Market"
+      ],
       "monthly_ingredients": {
         "2026-01": "collards",
         "2026-02": "sweet potatoes (storage)",
@@ -780,8 +1151,14 @@
       "seasonal_moments": [
         {
           "moment": "Spring strawberry season",
-          "available_ingredients": ["strawberries", "spring greens"],
-          "favorite_flavors": ["strawberry", "lemon"],
+          "available_ingredients": [
+            "strawberries",
+            "spring greens"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "lemon"
+          ],
           "source": "Mississippi State University Extension (MSU Extension) fruit and vegetable calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -789,8 +1166,17 @@
         },
         {
           "moment": "High summer blueberry + watermelon season",
-          "available_ingredients": ["blueberries", "tomatoes", "watermelon", "peaches"],
-          "favorite_flavors": ["blueberry", "peach", "watermelon"],
+          "available_ingredients": [
+            "blueberries",
+            "tomatoes",
+            "watermelon",
+            "peaches"
+          ],
+          "favorite_flavors": [
+            "blueberry",
+            "peach",
+            "watermelon"
+          ],
           "source": "MSU Extension fruit and vegetable calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -798,8 +1184,14 @@
         },
         {
           "moment": "Fall sweet potato + muscadine harvest",
-          "available_ingredients": ["sweet potatoes", "muscadine grapes"],
-          "favorite_flavors": ["sweet potato", "muscadine"],
+          "available_ingredients": [
+            "sweet potatoes",
+            "muscadine grapes"
+          ],
+          "favorite_flavors": [
+            "sweet potato",
+            "muscadine"
+          ],
           "source": "MSU Extension calendar; Mississippi sweet-potato belt (Vardaman) fall harvest",
           "confidence": "high",
           "status": "confirmed",
@@ -807,8 +1199,15 @@
         },
         {
           "moment": "SEC football tailgating (Sep-Nov)",
-          "available_ingredients": ["sweet potatoes", "muscadine grapes", "pecans"],
-          "favorite_flavors": ["pecan", "sweet potato"],
+          "available_ingredients": [
+            "sweet potatoes",
+            "muscadine grapes",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "pecan",
+            "sweet potato"
+          ],
           "source": "Mississippi SEC tailgating culture (Ole Miss Grove / Mississippi State)",
           "confidence": "medium",
           "status": "proposed",
@@ -816,8 +1215,17 @@
         },
         {
           "moment": "Thanksgiving + winter holidays",
-          "available_ingredients": ["sweet potatoes", "collards", "pecans"],
-          "favorite_flavors": ["sweet potato", "pecan", "pumpkin", "gingerbread"],
+          "available_ingredients": [
+            "sweet potatoes",
+            "collards",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "sweet potato",
+            "pecan",
+            "pumpkin",
+            "gingerbread"
+          ],
           "source": "Southern baking culture + MSU Extension calendar",
           "confidence": "medium",
           "status": "proposed",
@@ -842,7 +1250,12 @@
         "farmers_market_url": null,
         "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
       },
-      "retailers": ["Winn-Dixie", "Publix", "Walmart", "Harveys Supermarket"],
+      "retailers": [
+        "Winn-Dixie",
+        "Publix",
+        "Walmart",
+        "Harveys Supermarket"
+      ],
       "monthly_ingredients": {
         "2026-01": "strawberries",
         "2026-02": "strawberries",
@@ -863,8 +1276,13 @@
       "seasonal_moments": [
         {
           "moment": "Bradford County Strawberry Festival (late March / early April)",
-          "available_ingredients": ["strawberries (Bradford)"],
-          "favorite_flavors": ["strawberry", "strawberry shortcake"],
+          "available_ingredients": [
+            "strawberries (Bradford)"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "strawberry shortcake"
+          ],
           "source": "Bradford County Strawberry Festival (Bradford County Fairgrounds, Starke; 2026 setup Mar 27); FDACS strawberry Dec-Apr",
           "confidence": "high",
           "status": "confirmed",
@@ -872,8 +1290,14 @@
         },
         {
           "moment": "Winter-spring Florida strawberry season (INVERTED)",
-          "available_ingredients": ["strawberries", "tomatoes"],
-          "favorite_flavors": ["strawberry", "citrus"],
+          "available_ingredients": [
+            "strawberries",
+            "tomatoes"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "citrus"
+          ],
           "source": "FDACS crops-in-season (strawberry Dec-Apr, tomato Oct-Jun)",
           "confidence": "high",
           "status": "confirmed",
@@ -881,8 +1305,15 @@
         },
         {
           "moment": "Summer blueberry + watermelon season",
-          "available_ingredients": ["blueberries", "watermelon", "sweet corn"],
-          "favorite_flavors": ["blueberry", "watermelon"],
+          "available_ingredients": [
+            "blueberries",
+            "watermelon",
+            "sweet corn"
+          ],
+          "favorite_flavors": [
+            "blueberry",
+            "watermelon"
+          ],
           "source": "FDACS crops-in-season (blueberry Apr-May, watermelon Apr-Jul, sweet corn Oct-Jun)",
           "confidence": "high",
           "status": "confirmed",
@@ -890,8 +1321,14 @@
         },
         {
           "moment": "Hurricane-season pantry stocking (Jun-Nov)",
-          "available_ingredients": ["shelf-stable staples", "peanuts"],
-          "favorite_flavors": ["shelf-stable pancake/oat mixes", "peanut"],
+          "available_ingredients": [
+            "shelf-stable staples",
+            "peanuts"
+          ],
+          "favorite_flavors": [
+            "shelf-stable pancake/oat mixes",
+            "peanut"
+          ],
           "source": "Atlantic hurricane season Jun 1-Nov 30 (NOAA); north-Florida pantry-stocking culture",
           "confidence": "medium",
           "status": "proposed",
@@ -899,8 +1336,16 @@
         },
         {
           "moment": "Winter holidays",
-          "available_ingredients": ["strawberries", "tomatoes", "citrus"],
-          "favorite_flavors": ["strawberry", "citrus", "gingerbread"],
+          "available_ingredients": [
+            "strawberries",
+            "tomatoes",
+            "citrus"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "citrus",
+            "gingerbread"
+          ],
           "source": "FDACS crops-in-season + Southern baking culture",
           "confidence": "medium",
           "status": "proposed",
@@ -925,7 +1370,12 @@
         "farmers_market_url": null,
         "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
       },
-      "retailers": ["Kroger", "Meijer", "Walmart", "ValuMarket"],
+      "retailers": [
+        "Kroger",
+        "Meijer",
+        "Walmart",
+        "ValuMarket"
+      ],
       "monthly_ingredients": {
         "2026-01": "storage apples",
         "2026-02": "local honey (storage)",
@@ -946,8 +1396,16 @@
       "seasonal_moments": [
         {
           "moment": "Kentucky Derby (first Saturday in May)",
-          "available_ingredients": ["strawberries", "spring greens", "mint"],
-          "favorite_flavors": ["mint", "bourbon", "strawberry"],
+          "available_ingredients": [
+            "strawberries",
+            "spring greens",
+            "mint"
+          ],
+          "favorite_flavors": [
+            "mint",
+            "bourbon",
+            "strawberry"
+          ],
           "source": "Kentucky Derby (Churchill Downs, first Saturday May); UK Cooperative Extension spring produce",
           "confidence": "high",
           "status": "confirmed",
@@ -955,8 +1413,15 @@
         },
         {
           "moment": "High summer sweet corn + tomato season",
-          "available_ingredients": ["sweet corn", "tomatoes", "blackberries"],
-          "favorite_flavors": ["sweet corn", "blackberry"],
+          "available_ingredients": [
+            "sweet corn",
+            "tomatoes",
+            "blackberries"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "blackberry"
+          ],
           "source": "University of Kentucky (UK) Cooperative Extension sweet-corn / vegetable calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -964,8 +1429,15 @@
         },
         {
           "moment": "Fall apple + bourbon-country harvest",
-          "available_ingredients": ["apples", "sweet potatoes"],
-          "favorite_flavors": ["apple", "bourbon", "apple-cinnamon"],
+          "available_ingredients": [
+            "apples",
+            "sweet potatoes"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "bourbon",
+            "apple-cinnamon"
+          ],
           "source": "UK Cooperative Extension fall produce; Kentucky bourbon-country culture",
           "confidence": "medium",
           "status": "confirmed",
@@ -973,8 +1445,17 @@
         },
         {
           "moment": "Winter holidays",
-          "available_ingredients": ["storage apples", "local honey", "sweet potatoes (storage)"],
-          "favorite_flavors": ["bourbon", "apple", "gingerbread", "peppermint"],
+          "available_ingredients": [
+            "storage apples",
+            "local honey",
+            "sweet potatoes (storage)"
+          ],
+          "favorite_flavors": [
+            "bourbon",
+            "apple",
+            "gingerbread",
+            "peppermint"
+          ],
           "source": "UK Cooperative Extension + Kentucky bake/bourbon culture",
           "confidence": "medium",
           "status": "proposed",
@@ -982,8 +1463,15 @@
         },
         {
           "moment": "Spring thaw / asparagus",
-          "available_ingredients": ["asparagus", "spring greens", "rhubarb"],
-          "favorite_flavors": ["rhubarb", "early berry"],
+          "available_ingredients": [
+            "asparagus",
+            "spring greens",
+            "rhubarb"
+          ],
+          "favorite_flavors": [
+            "rhubarb",
+            "early berry"
+          ],
           "source": "UK Cooperative Extension spring produce calendar",
           "confidence": "medium",
           "status": "confirmed",
@@ -1008,7 +1496,12 @@
         "farmers_market_url": null,
         "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
       },
-      "retailers": ["Kroger", "Piggly Wiggly", "Walmart", "Cash Saver"],
+      "retailers": [
+        "Kroger",
+        "Piggly Wiggly",
+        "Walmart",
+        "Cash Saver"
+      ],
       "monthly_ingredients": {
         "2026-01": "collards",
         "2026-02": "sweet potatoes (storage)",
@@ -1029,8 +1522,14 @@
       "seasonal_moments": [
         {
           "moment": "Spring strawberry season",
-          "available_ingredients": ["strawberries", "spring greens"],
-          "favorite_flavors": ["strawberry", "lemon"],
+          "available_ingredients": [
+            "strawberries",
+            "spring greens"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "lemon"
+          ],
           "source": "Mississippi State University Extension (MSU Extension); DeSoto County Hernando farmers market",
           "confidence": "high",
           "status": "confirmed",
@@ -1038,8 +1537,17 @@
         },
         {
           "moment": "High summer blueberry + watermelon season",
-          "available_ingredients": ["blueberries", "tomatoes", "watermelon", "peaches"],
-          "favorite_flavors": ["blueberry", "peach", "watermelon"],
+          "available_ingredients": [
+            "blueberries",
+            "tomatoes",
+            "watermelon",
+            "peaches"
+          ],
+          "favorite_flavors": [
+            "blueberry",
+            "peach",
+            "watermelon"
+          ],
           "source": "MSU Extension fruit and vegetable calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -1047,8 +1555,14 @@
         },
         {
           "moment": "Fall sweet potato + muscadine harvest",
-          "available_ingredients": ["sweet potatoes", "muscadine grapes"],
-          "favorite_flavors": ["sweet potato", "muscadine"],
+          "available_ingredients": [
+            "sweet potatoes",
+            "muscadine grapes"
+          ],
+          "favorite_flavors": [
+            "sweet potato",
+            "muscadine"
+          ],
           "source": "MSU Extension calendar; Mississippi sweet-potato belt",
           "confidence": "high",
           "status": "confirmed",
@@ -1056,8 +1570,15 @@
         },
         {
           "moment": "SEC football tailgating (Sep-Nov)",
-          "available_ingredients": ["sweet potatoes", "muscadine grapes", "pecans"],
-          "favorite_flavors": ["pecan", "sweet potato"],
+          "available_ingredients": [
+            "sweet potatoes",
+            "muscadine grapes",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "pecan",
+            "sweet potato"
+          ],
           "source": "Mississippi / Mid-South SEC tailgating culture",
           "confidence": "medium",
           "status": "proposed",
@@ -1065,8 +1586,17 @@
         },
         {
           "moment": "Thanksgiving + winter holidays",
-          "available_ingredients": ["sweet potatoes", "collards", "pecans"],
-          "favorite_flavors": ["sweet potato", "pecan", "pumpkin", "gingerbread"],
+          "available_ingredients": [
+            "sweet potatoes",
+            "collards",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "sweet potato",
+            "pecan",
+            "pumpkin",
+            "gingerbread"
+          ],
           "source": "Southern / Mid-South baking culture + MSU Extension calendar",
           "confidence": "medium",
           "status": "proposed",
@@ -1091,7 +1621,12 @@
         "farmers_market_url": null,
         "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
       },
-      "retailers": ["Kroger", "Publix", "Walmart", "The Fresh Market"],
+      "retailers": [
+        "Kroger",
+        "Publix",
+        "Walmart",
+        "The Fresh Market"
+      ],
       "monthly_ingredients": {
         "2026-01": "collards",
         "2026-02": "sweet potatoes (storage)",
@@ -1112,8 +1647,15 @@
       "seasonal_moments": [
         {
           "moment": "Spring strawberry season",
-          "available_ingredients": ["strawberries", "spring greens", "asparagus"],
-          "favorite_flavors": ["strawberry", "lemon"],
+          "available_ingredients": [
+            "strawberries",
+            "spring greens",
+            "asparagus"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "lemon"
+          ],
           "source": "University of Tennessee (UT) Extension Pick Tennessee Products seasonal calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -1121,8 +1663,17 @@
         },
         {
           "moment": "High summer sweet corn + tomato season",
-          "available_ingredients": ["sweet corn", "tomatoes", "blueberries", "peaches"],
-          "favorite_flavors": ["blueberry", "peach", "sweet corn"],
+          "available_ingredients": [
+            "sweet corn",
+            "tomatoes",
+            "blueberries",
+            "peaches"
+          ],
+          "favorite_flavors": [
+            "blueberry",
+            "peach",
+            "sweet corn"
+          ],
           "source": "UT Extension Pick Tennessee Products seasonal calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -1130,8 +1681,15 @@
         },
         {
           "moment": "Fall apple harvest",
-          "available_ingredients": ["apples", "sweet potatoes"],
-          "favorite_flavors": ["apple", "apple-cinnamon", "sweet potato"],
+          "available_ingredients": [
+            "apples",
+            "sweet potatoes"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "apple-cinnamon",
+            "sweet potato"
+          ],
           "source": "UT Extension Pick Tennessee Products seasonal calendar",
           "confidence": "high",
           "status": "confirmed",
@@ -1139,8 +1697,16 @@
         },
         {
           "moment": "SEC football tailgating (Sep-Nov)",
-          "available_ingredients": ["apples", "sweet potatoes", "pecans"],
-          "favorite_flavors": ["apple", "pecan", "sweet potato"],
+          "available_ingredients": [
+            "apples",
+            "sweet potatoes",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "pecan",
+            "sweet potato"
+          ],
           "source": "Tennessee SEC tailgating culture (Tennessee / Vanderbilt)",
           "confidence": "medium",
           "status": "proposed",
@@ -1148,8 +1714,17 @@
         },
         {
           "moment": "Thanksgiving + winter holidays",
-          "available_ingredients": ["sweet potatoes", "collards", "pecans"],
-          "favorite_flavors": ["sweet potato", "pecan", "pumpkin", "gingerbread"],
+          "available_ingredients": [
+            "sweet potatoes",
+            "collards",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "sweet potato",
+            "pecan",
+            "pumpkin",
+            "gingerbread"
+          ],
           "source": "Southern baking culture + UT Extension calendar",
           "confidence": "medium",
           "status": "proposed",
@@ -1174,7 +1749,12 @@
         "farmers_market_url": null,
         "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
       },
-      "retailers": ["Rouses Markets", "Winn-Dixie", "Walmart", "Robert Fresh Market"],
+      "retailers": [
+        "Rouses Markets",
+        "Winn-Dixie",
+        "Walmart",
+        "Robert Fresh Market"
+      ],
       "monthly_ingredients": {
         "2026-01": "citrus (satsuma/navel)",
         "2026-02": "crawfish",
@@ -1195,8 +1775,15 @@
       "seasonal_moments": [
         {
           "moment": "Mardi Gras + crawfish season (Feb 17, 2026)",
-          "available_ingredients": ["crawfish", "citrus"],
-          "favorite_flavors": ["king cake", "cinnamon", "crawfish (savory)"],
+          "available_ingredients": [
+            "crawfish",
+            "citrus"
+          ],
+          "favorite_flavors": [
+            "king cake",
+            "cinnamon",
+            "crawfish (savory)"
+          ],
           "source": "Mardi Gras 2026 = Feb 17; Louisiana crawfish season late winter through early spring (Explore Louisiana); king cake tradition",
           "confidence": "high",
           "status": "confirmed",
@@ -1204,8 +1791,13 @@
         },
         {
           "moment": "Ponchatoula / North Shore strawberry season (Apr)",
-          "available_ingredients": ["strawberries (Ponchatoula)"],
-          "favorite_flavors": ["strawberry", "strawberry shortcake"],
+          "available_ingredients": [
+            "strawberries (Ponchatoula)"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "strawberry shortcake"
+          ],
           "source": "LSU AgCenter; Ponchatoula (North Shore) strawberry belt, Apr harvest",
           "confidence": "high",
           "status": "confirmed",
@@ -1213,8 +1805,15 @@
         },
         {
           "moment": "Summer Creole tomato + okra season",
-          "available_ingredients": ["Creole tomatoes", "okra", "watermelon"],
-          "favorite_flavors": ["Creole tomato (savory)", "watermelon"],
+          "available_ingredients": [
+            "Creole tomatoes",
+            "okra",
+            "watermelon"
+          ],
+          "favorite_flavors": [
+            "Creole tomato (savory)",
+            "watermelon"
+          ],
           "source": "LSU AgCenter; New Orleans Creole Tomato Festival (June)",
           "confidence": "high",
           "status": "confirmed",
@@ -1222,8 +1821,15 @@
         },
         {
           "moment": "Fall Gulf oyster + satsuma season (Oct onward)",
-          "available_ingredients": ["Gulf oysters", "satsuma", "mirlitons"],
-          "favorite_flavors": ["satsuma", "oyster (savory)"],
+          "available_ingredients": [
+            "Gulf oysters",
+            "satsuma",
+            "mirlitons"
+          ],
+          "favorite_flavors": [
+            "satsuma",
+            "oyster (savory)"
+          ],
           "source": "Louisiana seafood calendar (prime raw oyster mid-Oct through early Apr); LSU AgCenter satsuma harvest Nov-Dec",
           "confidence": "high",
           "status": "confirmed",
@@ -1231,8 +1837,13 @@
         },
         {
           "moment": "Hurricane-season pantry stocking (Jun-Nov)",
-          "available_ingredients": ["shelf-stable staples", "rice"],
-          "favorite_flavors": ["shelf-stable pancake/oat mixes"],
+          "available_ingredients": [
+            "shelf-stable staples",
+            "rice"
+          ],
+          "favorite_flavors": [
+            "shelf-stable pancake/oat mixes"
+          ],
           "source": "Atlantic/Gulf hurricane season Jun 1-Nov 30 (NOAA); Louisiana pantry-stocking culture",
           "confidence": "medium",
           "status": "proposed",
@@ -1240,8 +1851,16 @@
         },
         {
           "moment": "Winter holidays",
-          "available_ingredients": ["satsuma", "citrus", "sweet potatoes"],
-          "favorite_flavors": ["satsuma", "king cake (Epiphany onward)", "sweet potato"],
+          "available_ingredients": [
+            "satsuma",
+            "citrus",
+            "sweet potatoes"
+          ],
+          "favorite_flavors": [
+            "satsuma",
+            "king cake (Epiphany onward)",
+            "sweet potato"
+          ],
           "source": "LSU AgCenter + Louisiana holiday culture; king cake season starts Jan 6 (Epiphany)",
           "confidence": "medium",
           "status": "confirmed",
@@ -1266,7 +1885,12 @@
         "farmers_market_url": null,
         "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
       },
-      "retailers": ["Publix", "Winn-Dixie", "Sweetbay/Walmart", "Detwiler's Farm Market"],
+      "retailers": [
+        "Publix",
+        "Winn-Dixie",
+        "Sweetbay/Walmart",
+        "Detwiler's Farm Market"
+      ],
       "monthly_ingredients": {
         "2026-01": "strawberries",
         "2026-02": "strawberries",
@@ -1287,8 +1911,13 @@
       "seasonal_moments": [
         {
           "moment": "Florida Strawberry Festival (Feb 26 - Mar 8, 2026)",
-          "available_ingredients": ["strawberries"],
-          "favorite_flavors": ["strawberry", "strawberry shortcake"],
+          "available_ingredients": [
+            "strawberries"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "strawberry shortcake"
+          ],
           "source": "Florida Strawberry Festival, Plant City (Feb 26 - Mar 8, 2026, confirmed multiple outlets); FDACS strawberry Dec-Apr",
           "confidence": "high",
           "status": "confirmed",
@@ -1296,8 +1925,14 @@
         },
         {
           "moment": "Winter-spring strawberry season (INVERTED, Dec-Apr)",
-          "available_ingredients": ["strawberries", "tomatoes"],
-          "favorite_flavors": ["strawberry", "citrus"],
+          "available_ingredients": [
+            "strawberries",
+            "tomatoes"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "citrus"
+          ],
           "source": "FDACS crops-in-season (strawberry Dec-Apr)",
           "confidence": "high",
           "status": "confirmed",
@@ -1305,8 +1940,16 @@
         },
         {
           "moment": "Summer tropical + blueberry season",
-          "available_ingredients": ["blueberries", "watermelon", "mango"],
-          "favorite_flavors": ["blueberry", "mango", "watermelon"],
+          "available_ingredients": [
+            "blueberries",
+            "watermelon",
+            "mango"
+          ],
+          "favorite_flavors": [
+            "blueberry",
+            "mango",
+            "watermelon"
+          ],
           "source": "FDACS crops-in-season (blueberry Apr-May, watermelon Apr-Jul, mango May-Aug)",
           "confidence": "high",
           "status": "confirmed",
@@ -1314,8 +1957,12 @@
         },
         {
           "moment": "Hurricane-season pantry stocking (Jun-Nov)",
-          "available_ingredients": ["shelf-stable staples"],
-          "favorite_flavors": ["shelf-stable pancake/oat mixes"],
+          "available_ingredients": [
+            "shelf-stable staples"
+          ],
+          "favorite_flavors": [
+            "shelf-stable pancake/oat mixes"
+          ],
           "source": "Atlantic hurricane season Jun 1-Nov 30 (NOAA); Tampa Bay pantry-stocking culture",
           "confidence": "medium",
           "status": "proposed",
@@ -1323,12 +1970,1504 @@
         },
         {
           "moment": "Winter holidays",
-          "available_ingredients": ["strawberries", "citrus", "tomatoes"],
-          "favorite_flavors": ["strawberry", "citrus", "gingerbread"],
+          "available_ingredients": [
+            "strawberries",
+            "citrus",
+            "tomatoes"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "citrus",
+            "gingerbread"
+          ],
           "source": "FDACS crops-in-season + Southern baking culture",
           "confidence": "medium",
           "status": "proposed",
           "note": "fresh local strawberries at the holidays is a Plant City distinctive; gingerbread imported"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-CHI",
+      "metro_location": {
+        "retailer": "Jewel-Osco",
+        "name": null,
+        "address": "confirm — US-MW-CHI",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch UpperMidwest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Harvard, IL",
+        "market": "US-IL-HARVARD",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Jewel-Osco",
+        "Meijer",
+        "Mariano's",
+        "Aldi"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "cold-storage potatoes",
+        "2026-03": "maple syrup",
+        "2026-04": "rhubarb",
+        "2026-05": "asparagus",
+        "2026-06": "strawberries",
+        "2026-07": "sweet corn",
+        "2026-08": "tomatoes",
+        "2026-09": "apples",
+        "2026-10": "pumpkins",
+        "2026-11": "winter squash",
+        "2026-12": "storage apples"
+      },
+      "monthly_ingredient_notes": {
+        "source": "milkdays.com (Harvard Milk Days); University of Illinois Extension — Illinois seasonal produce availability calendar"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Harvard Milk Days (June, dairy heritage festival)",
+          "available_ingredients": [
+            "strawberries",
+            "local dairy milk",
+            "butter"
+          ],
+          "favorite_flavors": [
+            "strawberries and cream",
+            "buttermilk",
+            "vanilla"
+          ],
+          "source": "milkdays.com — Harvard Milk Days, annual June festival since 1942 honoring dairy farmers",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Harvard is longtime McHenry County dairy country; strawberries are peak fresh-local in June. Dairy is the cultural signature, not a farmers-market crop."
+        },
+        {
+          "moment": "Sweet corn season (mid-Jul to early-Sep)",
+          "available_ingredients": [
+            "sweet corn",
+            "tomatoes",
+            "green beans"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "honey",
+            "brown butter"
+          ],
+          "source": "University of Illinois Extension Illinois produce availability calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest peak"
+        },
+        {
+          "moment": "Apple and cider season (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "pumpkins",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "pumpkin spice",
+            "cider"
+          ],
+          "source": "University of Illinois Extension seasonal produce calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest; northern-IL orchard belt"
+        },
+        {
+          "moment": "Deep-winter holiday baking (Nov-Dec)",
+          "available_ingredients": [
+            "storage apples",
+            "winter squash",
+            "honey"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "cranberry",
+            "peppermint",
+            "pumpkin"
+          ],
+          "source": "University of Illinois Extension storage-crop guidance; regional baking tradition",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "storage / value-added, not fresh harvest; cranberry and peppermint are imported flavor-culture, not local-grown"
+        },
+        {
+          "moment": "Maple sap run (Mar)",
+          "available_ingredients": [
+            "maple syrup"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "maple-pecan"
+          ],
+          "source": "University of Illinois Extension; northern-IL maple producers",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "value-added; smaller-scale than OH/MN but real in northern Illinois"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-CLEVELAND",
+      "metro_location": {
+        "retailer": "Giant Eagle",
+        "name": null,
+        "address": "confirm — US-MW-CLEVELAND",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch UpperMidwest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Burton, OH",
+        "market": "US-OH-BURTON",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Giant Eagle",
+        "Heinen's",
+        "Marc's",
+        "Meijer"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "maple syrup",
+        "2026-03": "maple syrup",
+        "2026-04": "maple syrup",
+        "2026-05": "asparagus",
+        "2026-06": "strawberries",
+        "2026-07": "sweet corn",
+        "2026-08": "sweet corn",
+        "2026-09": "apples",
+        "2026-10": "apples",
+        "2026-11": "winter squash",
+        "2026-12": "storage apples"
+      },
+      "monthly_ingredient_notes": {
+        "source": "maplefestival.com (Geauga County Maple Festival); ohio.org (Burton Pancake Town USA); Ohio State University Extension — Ohio produce availability calendar"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Geauga County Maple Festival (last full weekend April) and Burton pancake Sundays (Mar-early Apr)",
+          "available_ingredients": [
+            "maple syrup",
+            "maple sugar",
+            "maple cream"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "maple-walnut",
+            "maple-cinnamon"
+          ],
+          "source": "maplefestival.com — Geauga County Maple Festival, oldest maple festival in the US; ohio.org — Burton 'Pancake Town USA' pancake breakfasts Mar-early Apr",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "signature moment; maple is the defining local value-added product of Geauga County. Direct pancake tie-in."
+        },
+        {
+          "moment": "Late-winter sap run (late-Feb to Mar)",
+          "available_ingredients": [
+            "fresh maple syrup"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "maple-pecan"
+          ],
+          "source": "cleveland.com — NE Ohio maple season begins late Feb/early Mar as sap rises",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "value-added; sap runs during the winter-to-spring freeze/thaw"
+        },
+        {
+          "moment": "Sweet corn and berry season (Jun-Aug)",
+          "available_ingredients": [
+            "strawberries",
+            "sweet corn",
+            "blueberries"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "sweet corn",
+            "blueberry"
+          ],
+          "source": "Ohio State University Extension Ohio produce availability calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest peak"
+        },
+        {
+          "moment": "Apple and cider season (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "winter squash",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "pumpkin spice"
+          ],
+          "source": "Ohio State University Extension seasonal calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest; Amish-country orchards nearby"
+        },
+        {
+          "moment": "Deep-winter holiday baking (Nov-Dec)",
+          "available_ingredients": [
+            "storage apples",
+            "maple syrup",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "gingerbread",
+            "cranberry"
+          ],
+          "source": "Ohio State University Extension storage-crop guidance",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "storage / value-added; cranberry is imported flavor-culture"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-DESMOINES",
+      "metro_location": {
+        "retailer": "Hy-Vee",
+        "name": null,
+        "address": "confirm — US-MW-DESMOINES",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch UpperMidwest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Pella, IA",
+        "market": "US-IA-PELLA",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Hy-Vee",
+        "Fareway",
+        "Aldi",
+        "Walmart"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "cold-storage potatoes",
+        "2026-03": "maple syrup",
+        "2026-04": "rhubarb",
+        "2026-05": "asparagus",
+        "2026-06": "strawberries",
+        "2026-07": "sweet corn",
+        "2026-08": "tomatoes",
+        "2026-09": "apples",
+        "2026-10": "pumpkins",
+        "2026-11": "winter squash",
+        "2026-12": "storage apples"
+      },
+      "monthly_ingredient_notes": {
+        "source": "visitpella.com (Pella Tulip Time); Iowa State University Extension — Iowa produce seasonality"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Pella Tulip Time (first Thu-Sat of May; May 7-9, 2026)",
+          "available_ingredients": [
+            "rhubarb",
+            "asparagus",
+            "early greenhouse greens"
+          ],
+          "favorite_flavors": [
+            "Dutch letter (almond)",
+            "spekulaas (spiced)",
+            "rhubarb"
+          ],
+          "source": "visitpella.com and Des Moines Register — Tulip Time always first Thu-Fri-Sat in May; 2026 is May 7-9",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Dutch letters (almond pastry) and spiced spekulaas are the signature bake flavors — imported Dutch flavor-culture, a strong recipe-card tie. Fresh local produce is thin this early; rhubarb/asparagus are the first field crops."
+        },
+        {
+          "moment": "Sweet corn season (Jul-Aug)",
+          "available_ingredients": [
+            "sweet corn",
+            "tomatoes",
+            "green beans"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "honey",
+            "brown butter"
+          ],
+          "source": "Iowa State University Extension Iowa produce seasonality",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest peak; Iowa sweet corn is iconic"
+        },
+        {
+          "moment": "Iowa State Fair season (mid-Aug, Des Moines)",
+          "available_ingredients": [
+            "sweet corn",
+            "tomatoes",
+            "apples"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "apple",
+            "honey"
+          ],
+          "source": "Iowa State Fair (annual, Des Moines, August)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "state-fair season; metro tie for Des Moines"
+        },
+        {
+          "moment": "Apple and cider season (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "pumpkins",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "pumpkin spice"
+          ],
+          "source": "Iowa State University Extension seasonal calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest"
+        },
+        {
+          "moment": "Deep-winter holiday baking (Nov-Dec)",
+          "available_ingredients": [
+            "storage apples",
+            "winter squash",
+            "honey"
+          ],
+          "favorite_flavors": [
+            "Dutch letter (almond)",
+            "gingerbread",
+            "cranberry"
+          ],
+          "source": "Iowa State University Extension storage-crop guidance; Pella Dutch tradition",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "storage / value-added; almond Dutch-letter flavor persists year-round as local heritage flavor"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-DETROIT",
+      "metro_location": {
+        "retailer": "Meijer",
+        "name": null,
+        "address": "confirm — US-MW-DETROIT",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch UpperMidwest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Armada, MI",
+        "market": "US-MI-ARMADA",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Meijer",
+        "Kroger",
+        "Aldi",
+        "Busch's Fresh Food Market"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "cold-storage potatoes",
+        "2026-03": "maple syrup",
+        "2026-04": "asparagus",
+        "2026-05": "asparagus",
+        "2026-06": "strawberries",
+        "2026-07": "blueberries",
+        "2026-08": "sweet corn",
+        "2026-09": "apples",
+        "2026-10": "apples",
+        "2026-11": "winter squash",
+        "2026-12": "storage apples"
+      },
+      "monthly_ingredient_notes": {
+        "source": "armadafair.org (Armada Fair); Michigan State University Extension — Michigan produce availability calendar"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Armada Fair (long-running Macomb County agricultural fair, August)",
+          "available_ingredients": [
+            "sweet corn",
+            "tomatoes",
+            "peaches"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "peach",
+            "honey"
+          ],
+          "source": "armadafair.org — Armada Fair, 150+ year county agricultural fair held in August",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Armada is Macomb County farm country north of Detroit; fair coincides with fresh-harvest peak"
+        },
+        {
+          "moment": "Michigan asparagus season (late Apr-May)",
+          "available_ingredients": [
+            "asparagus",
+            "rhubarb"
+          ],
+          "favorite_flavors": [
+            "rhubarb",
+            "lemon"
+          ],
+          "source": "Michigan State University Extension Michigan produce availability calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest; Michigan is a major asparagus state"
+        },
+        {
+          "moment": "Blueberry season (Jul)",
+          "available_ingredients": [
+            "blueberries",
+            "sweet cherries",
+            "tart cherries"
+          ],
+          "favorite_flavors": [
+            "blueberry",
+            "cherry",
+            "cherry-almond"
+          ],
+          "source": "Michigan State University Extension seasonal calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest; Michigan blueberries and cherries are signature state crops"
+        },
+        {
+          "moment": "Apple and cider season (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "pumpkins",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "cider-donut"
+          ],
+          "source": "Michigan State University Extension seasonal calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest; SE Michigan cider-mill culture is strong"
+        },
+        {
+          "moment": "Deep-winter holiday baking (Nov-Dec)",
+          "available_ingredients": [
+            "storage apples",
+            "winter squash",
+            "maple syrup"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "gingerbread",
+            "cranberry"
+          ],
+          "source": "Michigan State University Extension storage-crop guidance",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "storage / value-added; cranberry imported flavor-culture"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-FARGO",
+      "metro_location": {
+        "retailer": "Hornbacher's",
+        "name": null,
+        "address": "confirm — US-MW-FARGO",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch UpperMidwest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Barnesville, MN",
+        "market": "US-MN-BARNESVILLE",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Hornbacher's",
+        "Hy-Vee",
+        "Cash Wise Foods",
+        "Walmart"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage potatoes",
+        "2026-02": "cold-storage carrots",
+        "2026-03": "maple syrup",
+        "2026-04": "rhubarb",
+        "2026-05": "asparagus",
+        "2026-06": "strawberries",
+        "2026-07": "sweet corn",
+        "2026-08": "potatoes",
+        "2026-09": "squash",
+        "2026-10": "pumpkins",
+        "2026-11": "storage potatoes",
+        "2026-12": "storage carrots"
+      },
+      "monthly_ingredient_notes": {
+        "source": "potatodays.com (Barnesville Potato Days); University of Minnesota Extension — Minnesota produce availability calendar"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Barnesville Potato Days (late August)",
+          "available_ingredients": [
+            "potatoes",
+            "sweet corn",
+            "onions"
+          ],
+          "favorite_flavors": [
+            "lefse (potato flatbread)",
+            "potato dumpling",
+            "brown butter"
+          ],
+          "source": "potatodays.com and barnesvillemn.com — annual August festival; Norwegian lefse, potato dumplings, potato pancakes, National Lefse Cookoff",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "signature moment; Red River Valley is a top potato-producing region. Lefse (potato flatbread) is Norwegian heritage flavor-culture with a natural pancake/griddle tie."
+        },
+        {
+          "moment": "Short summer harvest (Jun-Aug)",
+          "available_ingredients": [
+            "strawberries",
+            "sweet corn",
+            "potatoes"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "sweet corn",
+            "honey"
+          ],
+          "source": "University of Minnesota Extension Minnesota produce availability; NDSU Extension",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest peak; zone 3-4 window is short"
+        },
+        {
+          "moment": "Fall root and squash harvest (Sep-Oct)",
+          "available_ingredients": [
+            "winter squash",
+            "pumpkins",
+            "carrots",
+            "potatoes"
+          ],
+          "favorite_flavors": [
+            "pumpkin spice",
+            "maple",
+            "cinnamon"
+          ],
+          "source": "University of Minnesota Extension seasonal calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest transitioning to storage"
+        },
+        {
+          "moment": "Deep-winter storage and holiday baking (Nov-Mar)",
+          "available_ingredients": [
+            "storage potatoes",
+            "storage carrots",
+            "winter squash",
+            "honey"
+          ],
+          "favorite_flavors": [
+            "lefse",
+            "gingerbread",
+            "cardamom",
+            "almond"
+          ],
+          "source": "University of Minnesota Extension storage-crop guidance; Scandinavian holiday baking tradition",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "storage / value-added; cardamom and almond are Scandinavian imported flavor-culture, strong in this Norwegian-settled area. No fresh field harvest mid-winter."
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-INDY",
+      "metro_location": {
+        "retailer": "Kroger",
+        "name": null,
+        "address": "confirm — US-MW-INDY",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch UpperMidwest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Danville, IN",
+        "market": "US-IN-DANVILLE",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Kroger",
+        "Meijer",
+        "Marsh",
+        "Aldi"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "cold-storage potatoes",
+        "2026-03": "maple syrup",
+        "2026-04": "rhubarb",
+        "2026-05": "asparagus",
+        "2026-06": "strawberries",
+        "2026-07": "sweet corn",
+        "2026-08": "tomatoes",
+        "2026-09": "apples",
+        "2026-10": "pumpkins",
+        "2026-11": "winter squash",
+        "2026-12": "storage apples"
+      },
+      "monthly_ingredient_notes": {
+        "source": "Purdue Extension — Indiana produce availability calendar; Indiana State Fair"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Hendricks County 4-H Fair and sweet corn season (Jul)",
+          "available_ingredients": [
+            "sweet corn",
+            "tomatoes",
+            "green beans"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "honey",
+            "brown butter"
+          ],
+          "source": "Purdue Extension Indiana produce availability calendar; Hendricks County 4-H Fair (summer)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest peak; Danville is the Hendricks County seat, central-Indiana farm country"
+        },
+        {
+          "moment": "Indiana State Fair season (Aug, Indianapolis)",
+          "available_ingredients": [
+            "sweet corn",
+            "tomatoes",
+            "melons"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "honey",
+            "watermelon"
+          ],
+          "source": "Indiana State Fair (annual, Indianapolis, August)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "state-fair season; metro tie for Indianapolis"
+        },
+        {
+          "moment": "Apple and cider season (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "pumpkins",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "pumpkin spice"
+          ],
+          "source": "Purdue Extension seasonal calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest"
+        },
+        {
+          "moment": "Persimmon season (Sep-Oct, southern/central Indiana specialty)",
+          "available_ingredients": [
+            "persimmons",
+            "apples"
+          ],
+          "favorite_flavors": [
+            "persimmon",
+            "persimmon pudding",
+            "cinnamon"
+          ],
+          "source": "Purdue Extension; Indiana persimmon pudding tradition (Mitchell Persimmon Festival is the state signature)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "wild American persimmon is an Indiana signature; more southern-Indiana than Danville proper — flag as regional heritage flavor"
+        },
+        {
+          "moment": "Deep-winter holiday baking (Nov-Dec)",
+          "available_ingredients": [
+            "storage apples",
+            "winter squash",
+            "honey"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "persimmon",
+            "cranberry"
+          ],
+          "source": "Purdue Extension storage-crop guidance",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "storage / value-added; cranberry imported flavor-culture"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-KC",
+      "metro_location": {
+        "retailer": "Hy-Vee",
+        "name": null,
+        "address": "confirm — US-MW-KC",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch UpperMidwest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Weston, MO",
+        "market": "US-MO-WESTON",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Hy-Vee",
+        "Price Chopper",
+        "Cosentino's",
+        "Walmart"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "cold-storage sweet potatoes",
+        "2026-03": "maple syrup",
+        "2026-04": "asparagus",
+        "2026-05": "strawberries",
+        "2026-06": "blackberries",
+        "2026-07": "sweet corn",
+        "2026-08": "peaches",
+        "2026-09": "apples",
+        "2026-10": "apples",
+        "2026-11": "sweet potatoes",
+        "2026-12": "storage apples"
+      },
+      "monthly_ingredient_notes": {
+        "source": "westonmo.com (Weston Applefest); westonorchard.com (Weston Orchard); University of Missouri Extension — Missouri produce availability calendar"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Weston Applefest (first weekend October)",
+          "available_ingredients": [
+            "apples",
+            "pumpkins",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider donut",
+            "caramel apple",
+            "apple dumpling"
+          ],
+          "source": "westonmo.com and westonorchard.com — Applefest first weekend of October; Weston Orchard apple/pumpkin/cider donuts Aug-Oct; apple dumplings served at the festival",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "signature moment; Weston Orchard cider-donut and apple-dumpling culture is a direct pancake/griddle tie"
+        },
+        {
+          "moment": "Peach and blackberry season (Jun-Aug)",
+          "available_ingredients": [
+            "peaches",
+            "blackberries",
+            "sweet corn"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "blackberry",
+            "sweet corn"
+          ],
+          "source": "University of Missouri Extension Missouri produce availability calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest peak; NW Missouri grows tree fruit"
+        },
+        {
+          "moment": "Missouri State Fair / late-summer harvest (Aug)",
+          "available_ingredients": [
+            "sweet corn",
+            "tomatoes",
+            "peaches"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "peach",
+            "honey"
+          ],
+          "source": "Missouri State Fair (Sedalia, August); MU Extension",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest; state-fair season"
+        },
+        {
+          "moment": "Deep-winter holiday baking (Nov-Dec)",
+          "available_ingredients": [
+            "storage apples",
+            "sweet potatoes",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "pecan",
+            "sweet potato",
+            "gingerbread"
+          ],
+          "source": "University of Missouri Extension storage-crop guidance",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "storage / value-added; pecans grow in Missouri (Chariton/Missouri River valley) so pecan is partly local"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-MILWAUKEE",
+      "metro_location": {
+        "retailer": "Pick 'n Save",
+        "name": null,
+        "address": "confirm — US-MW-MILWAUKEE",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch UpperMidwest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Cedarburg, WI",
+        "market": "US-WI-CEDARBURG",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Pick 'n Save",
+        "Metro Market",
+        "Meijer",
+        "Sendik's Food Market"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "cold-storage potatoes",
+        "2026-03": "maple syrup",
+        "2026-04": "rhubarb",
+        "2026-05": "asparagus",
+        "2026-06": "strawberries",
+        "2026-07": "sweet corn",
+        "2026-08": "tomatoes",
+        "2026-09": "apples",
+        "2026-10": "cranberries",
+        "2026-11": "winter squash",
+        "2026-12": "storage apples"
+      },
+      "monthly_ingredient_notes": {
+        "source": "cedarburgfestivals.org (Cedarburg Strawberry Festival); cedarburg.org (Wine & Harvest Festival); University of Wisconsin-Madison Extension — Wisconsin fruit and vegetable seasonality"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Cedarburg Strawberry Festival (fourth full weekend of June)",
+          "available_ingredients": [
+            "strawberries",
+            "rhubarb"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "strawberry-rhubarb",
+            "strawberries and cream"
+          ],
+          "source": "cedarburgfestivals.org — Strawberry Festival held the fourth full weekend of June",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "signature moment; strawberries are fresh-harvest peak in June. Direct dessert/pancake tie."
+        },
+        {
+          "moment": "Cedarburg Wine & Harvest Festival (Sep 19-20, 2026)",
+          "available_ingredients": [
+            "apples",
+            "grapes",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "grape"
+          ],
+          "source": "cedarburg.org and travelwisconsin.com — Wine & Harvest Festival, September 19-20, 2026 in historic downtown Cedarburg",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest; Ozaukee County wineries and orchards"
+        },
+        {
+          "moment": "Wisconsin cranberry harvest (late Sep-Oct)",
+          "available_ingredients": [
+            "cranberries",
+            "apples",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "cranberry",
+            "cranberry-orange",
+            "apple"
+          ],
+          "source": "University of Wisconsin-Madison Extension; Wisconsin is the top US cranberry producer",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest; cranberry is genuinely local-grown in Wisconsin, unlike most Midwest markets where it is imported flavor-culture"
+        },
+        {
+          "moment": "Sweet corn season (Jul-Aug)",
+          "available_ingredients": [
+            "sweet corn",
+            "tomatoes",
+            "green beans"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "honey",
+            "brown butter"
+          ],
+          "source": "University of Wisconsin-Madison Extension seasonal calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest peak"
+        },
+        {
+          "moment": "Deep-winter holiday baking (Nov-Dec)",
+          "available_ingredients": [
+            "storage apples",
+            "cranberries",
+            "winter squash",
+            "honey"
+          ],
+          "favorite_flavors": [
+            "cranberry",
+            "gingerbread",
+            "peppermint",
+            "apple"
+          ],
+          "source": "University of Wisconsin-Madison Extension storage-crop guidance",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "storage / value-added; cranberry here is stored local-grown"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-MINNEAPOLIS2",
+      "metro_location": {
+        "retailer": "Super One Foods",
+        "name": null,
+        "address": "confirm — US-MW-MINNEAPOLIS2",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch UpperMidwest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Cloquet, MN",
+        "market": "US-MN-CLOQUET",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Super One Foods",
+        "Cub Foods",
+        "Walmart",
+        "Aldi"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage potatoes",
+        "2026-02": "cold-storage carrots",
+        "2026-03": "maple syrup",
+        "2026-04": "maple syrup",
+        "2026-05": "rhubarb",
+        "2026-06": "strawberries",
+        "2026-07": "wild blueberries",
+        "2026-08": "sweet corn",
+        "2026-09": "squash",
+        "2026-10": "pumpkins",
+        "2026-11": "storage carrots",
+        "2026-12": "storage potatoes"
+      },
+      "monthly_ingredient_notes": {
+        "source": "University of Minnesota Extension — Minnesota produce availability calendar; University of Minnesota Extension — wild blueberry and maple resources"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Northern Minnesota wild blueberry harvest (mid-Jul to Aug)",
+          "available_ingredients": [
+            "wild blueberries",
+            "raspberries"
+          ],
+          "favorite_flavors": [
+            "wild blueberry",
+            "blueberry-lemon",
+            "raspberry"
+          ],
+          "source": "University of Minnesota Extension; wild lowbush blueberries are a northern-MN forest harvest (Carlton/St. Louis County region)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "signature moment; wild blueberries are foraged forest fruit, not cultivated — a genuine northern-MN local specialty with a direct pancake tie"
+        },
+        {
+          "moment": "Maple sap run (Mar-Apr)",
+          "available_ingredients": [
+            "maple syrup"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "maple-walnut"
+          ],
+          "source": "University of Minnesota Extension; northern-MN maple production",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "value-added; late-winter/early-spring sap run in the northern hardwood forest"
+        },
+        {
+          "moment": "Short summer harvest (Jun-Aug, zone 3-4)",
+          "available_ingredients": [
+            "strawberries",
+            "sweet corn",
+            "potatoes"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "sweet corn",
+            "honey"
+          ],
+          "source": "University of Minnesota Extension Minnesota produce availability calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest peak; very short window this far north"
+        },
+        {
+          "moment": "Deep-winter storage and ice-fishing/hotdish culture (Nov-Mar)",
+          "available_ingredients": [
+            "storage potatoes",
+            "storage carrots",
+            "winter squash",
+            "honey"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "wild rice",
+            "cardamom",
+            "gingerbread"
+          ],
+          "source": "University of Minnesota Extension storage-crop guidance; northern-MN winter food culture (wild rice, hotdish, ice-fishing season)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "storage / value-added; NO fresh field harvest mid-winter. Wild rice is a genuine local grain (Anishinaabe manoomin harvest, Sep). Cardamom is Scandinavian imported flavor-culture."
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-OMAHA",
+      "metro_location": {
+        "retailer": "Hy-Vee",
+        "name": null,
+        "address": "confirm — US-MW-OMAHA",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch UpperMidwest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Wahoo, NE",
+        "market": "US-NE-WAHOO",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Hy-Vee",
+        "Baker's",
+        "Super Saver",
+        "Walmart"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "cold-storage potatoes",
+        "2026-03": "maple syrup",
+        "2026-04": "asparagus",
+        "2026-05": "rhubarb",
+        "2026-06": "strawberries",
+        "2026-07": "sweet corn",
+        "2026-08": "tomatoes",
+        "2026-09": "apples",
+        "2026-10": "pumpkins",
+        "2026-11": "winter squash",
+        "2026-12": "storage apples"
+      },
+      "monthly_ingredient_notes": {
+        "source": "fairsandfestivals.net (Wahoo Harvest Moon Festival); University of Nebraska-Lincoln Extension — Nebraska produce availability; omahafarmersmarket.com (what's in season)"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Wahoo Harvest Moon Festival (September)",
+          "available_ingredients": [
+            "apples",
+            "sweet corn",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "sweet corn",
+            "pumpkin spice"
+          ],
+          "source": "fairsandfestivals.net — 2026 Wahoo Harvest Moon Festival, September, with farmers, food, live music",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "harvest-season festival; Saunders County farm country west of Omaha"
+        },
+        {
+          "moment": "Czech heritage baking (Saunders County Czech settlement)",
+          "available_ingredients": [
+            "apples",
+            "poppy seed",
+            "prunes"
+          ],
+          "favorite_flavors": [
+            "kolache (fruit-filled)",
+            "poppy seed",
+            "apricot",
+            "prune"
+          ],
+          "source": "Nebraska Czech festival culture (Saunders County and nearby Wilber, the Czech Capital of the USA); Sugar Creek Slavic Festival vendor lists (kolache)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "Czech kolache is strong heritage flavor-culture across eastern Nebraska — fruit fillings (apricot, prune, poppy seed) are the signature. Imported flavor-culture, not a farmers-market crop."
+        },
+        {
+          "moment": "Nebraska sweet corn season (Jul-Aug)",
+          "available_ingredients": [
+            "sweet corn",
+            "tomatoes",
+            "green beans"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "honey",
+            "brown butter"
+          ],
+          "source": "University of Nebraska-Lincoln Extension Nebraska produce availability; omahafarmersmarket.com what's-in-season",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest peak"
+        },
+        {
+          "moment": "Apple and pumpkin season (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "pumpkins",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "pumpkin spice"
+          ],
+          "source": "University of Nebraska-Lincoln Extension seasonal calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest"
+        },
+        {
+          "moment": "Deep-winter holiday baking (Nov-Dec)",
+          "available_ingredients": [
+            "storage apples",
+            "winter squash",
+            "honey"
+          ],
+          "favorite_flavors": [
+            "kolache",
+            "gingerbread",
+            "cranberry",
+            "poppy seed"
+          ],
+          "source": "University of Nebraska-Lincoln Extension storage-crop guidance; Czech tradition",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "storage / value-added; cranberry imported, kolache heritage persists"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-STL",
+      "metro_location": {
+        "retailer": "Schnucks",
+        "name": null,
+        "address": "confirm — US-MW-STL",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch UpperMidwest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Waterloo, IL",
+        "market": "US-IL-WATERLOO",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Schnucks",
+        "Dierbergs",
+        "Aldi",
+        "Walmart"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "cold-storage sweet potatoes",
+        "2026-03": "maple syrup",
+        "2026-04": "asparagus",
+        "2026-05": "strawberries",
+        "2026-06": "blackberries",
+        "2026-07": "sweet corn",
+        "2026-08": "peaches",
+        "2026-09": "apples",
+        "2026-10": "pumpkins",
+        "2026-11": "winter squash",
+        "2026-12": "storage apples"
+      },
+      "monthly_ingredient_notes": {
+        "source": "University of Illinois Extension — Illinois seasonal produce availability calendar"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Monroe County / Waterloo German heritage harvest (fall)",
+          "available_ingredients": [
+            "apples",
+            "pumpkins",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "spiced apple"
+          ],
+          "source": "University of Illinois Extension Illinois produce calendar; Monroe County German-settlement food culture south of St. Louis",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "Waterloo is a German-settled Monroe County town; German baking (apple, spiced) is heritage flavor-culture. Fall apple harvest is fresh-local."
+        },
+        {
+          "moment": "Peach and blackberry season (Jun-Aug)",
+          "available_ingredients": [
+            "peaches",
+            "blackberries",
+            "sweet corn"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "blackberry",
+            "sweet corn"
+          ],
+          "source": "University of Illinois Extension; southern-Illinois (nearby Calhoun County) is a peach region",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest peak; southwestern-IL peaches are a genuine regional crop"
+        },
+        {
+          "moment": "Sweet corn and tomato season (Jul-Aug)",
+          "available_ingredients": [
+            "sweet corn",
+            "tomatoes",
+            "green beans"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "honey",
+            "brown butter"
+          ],
+          "source": "University of Illinois Extension seasonal calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest peak"
+        },
+        {
+          "moment": "Apple and cider season (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "pumpkins",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "pumpkin spice"
+          ],
+          "source": "University of Illinois Extension seasonal calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest"
+        },
+        {
+          "moment": "Deep-winter holiday baking (Nov-Dec)",
+          "available_ingredients": [
+            "storage apples",
+            "sweet potatoes",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "gingerbread",
+            "springerle (anise)",
+            "cranberry"
+          ],
+          "source": "University of Illinois Extension storage-crop guidance; German Christmas baking (springerle) tradition",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "storage / value-added; springerle (anise cookie) is German heritage flavor-culture, cranberry imported"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-TC",
+      "metro_location": {
+        "retailer": "Cub Foods",
+        "name": null,
+        "address": "confirm — US-MW-TC",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch UpperMidwest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Stillwater, MN",
+        "market": "US-MN-STILLWATER",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Cub Foods",
+        "Hy-Vee",
+        "Kowalski's Markets",
+        "Lunds & Byerlys"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "cold-storage potatoes",
+        "2026-03": "maple syrup",
+        "2026-04": "rhubarb",
+        "2026-05": "asparagus",
+        "2026-06": "strawberries",
+        "2026-07": "raspberries",
+        "2026-08": "sweet corn",
+        "2026-09": "apples",
+        "2026-10": "apples",
+        "2026-11": "winter squash",
+        "2026-12": "storage apples"
+      },
+      "monthly_ingredient_notes": {
+        "source": "lumberjackdays.com (Stillwater Lumberjack Days); University of Minnesota Extension — Minnesota produce availability calendar; Minnesota State Fair"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Stillwater Lumberjack Days (Jul 17-19, 2026)",
+          "available_ingredients": [
+            "raspberries",
+            "strawberries",
+            "sweet corn"
+          ],
+          "favorite_flavors": [
+            "raspberry",
+            "strawberry",
+            "wild rice"
+          ],
+          "source": "lumberjackdays.com and greaterstillwaterchamber.com — Lumberjack Days July 17-19, 2026, one of Minnesota's longest-running summer festivals (since 1934), St. Croix River logging heritage",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "signature moment; mid-July coincides with berry peak on the St. Croix"
+        },
+        {
+          "moment": "Minnesota State Fair season (late Aug to Labor Day, nearby St. Paul)",
+          "available_ingredients": [
+            "sweet corn",
+            "apples",
+            "honey"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "honey",
+            "apple",
+            "SweeTango apple"
+          ],
+          "source": "Minnesota State Fair (St. Paul, late Aug-Labor Day); University of Minnesota apple breeding (Honeycrisp, SweeTango, Zestar)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "state-fair season; U of M-bred Honeycrisp/SweeTango apples are a genuine Minnesota signature. Metro tie for Twin Cities."
+        },
+        {
+          "moment": "Minnesota apple harvest (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "winter squash",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "Honeycrisp apple",
+            "apple cinnamon",
+            "cider"
+          ],
+          "source": "University of Minnesota Extension; St. Croix Valley orchard belt",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest; Honeycrisp is the local hero apple"
+        },
+        {
+          "moment": "Maple sap run (Mar-Apr)",
+          "available_ingredients": [
+            "maple syrup"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "maple-walnut"
+          ],
+          "source": "University of Minnesota Extension; St. Croix Valley maple producers",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "value-added; late-winter/early-spring sap run"
+        },
+        {
+          "moment": "Deep-winter storage and hotdish/ice-fishing culture (Nov-Mar)",
+          "available_ingredients": [
+            "storage apples",
+            "winter squash",
+            "honey",
+            "wild rice"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "wild rice",
+            "cardamom",
+            "gingerbread"
+          ],
+          "source": "University of Minnesota Extension storage-crop guidance; Minnesota winter food culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "storage / value-added; NO fresh field harvest mid-winter. Wild rice local grain; cardamom Scandinavian imported flavor-culture."
         }
       ],
       "research_todo": false
