@@ -5,7 +5,7 @@
     "purpose": "Each retail metro location pairs with a frontier sister location. Every pair carries a retailer list and a monthly local ingredient sourced from a local farmers market. Drives seasonal recipe-card localization and retailer logo lockups.",
     "monthly_ingredient_mechanism": "monthly_ingredients maps ISO month (YYYY-MM) -> in-season local ingredient for the frontier sister's farmers market. Populate the current month at seed time; the other 11 months are filled by a research dispatch (ghost research task) that resolves each frontier market's seasonal produce calendar from the linked farmers_market_url + regional extension-service crop calendars. Entries marked research_todo=true are placeholders awaiting that dispatch.",
     "seasonal_moments_mechanism": "seasonal_moments is an array of holiday/season entries per pair. Each entry captures the fresh local ingredients available at that moment (available_ingredients) plus the favorite bake flavors people reach for then (favorite_flavors), for the creative bank. Every entry carries a source, confidence (high|medium|low), and status (confirmed|proposed). Notes flag storage/value-added vs fresh-harvest and imported flavor-culture vs local-grown so the creative bank stays non-fabricated.",
-    "confirmed_pairs": 67
+    "confirmed_pairs": 73
   },
   "pairs": [
     {
@@ -8150,6 +8150,717 @@
           "confidence": "low",
           "status": "proposed",
           "note": "smoked salmon is the authentic winter staple; all listed bake flavors are imported traditions, no local-grown holiday produce exists here"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SC-AUSTIN",
+      "metro_location": {
+        "retailer": null,
+        "name": null,
+        "address": null,
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch TX; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Fredericksburg, TX",
+        "market": "US-TX-FREDERICKSBURG",
+        "farmers_market_url": null,
+        "note": "seeded batch TX; metro storefront details pending confirmation, not fabricated"
+      },
+      "farmers_market_url": null,
+      "monthly_ingredients": {
+        "2026-01": "kale and winter greens",
+        "2026-02": "cabbage",
+        "2026-03": "spring onions",
+        "2026-04": "strawberries",
+        "2026-05": "peaches (early varieties)",
+        "2026-06": "peaches",
+        "2026-07": "peaches",
+        "2026-08": "peaches (late varieties) and tomatoes",
+        "2026-09": "wine grapes and figs",
+        "2026-10": "pecans",
+        "2026-11": "pecans and sweet potatoes",
+        "2026-12": "winter greens and citrus"
+      },
+      "monthly_ingredient_notes": {
+        "source": "Texas A&M AgriLife Extension Texas produce availability calendar; Gillespie County / Hill Country peach orchard season charts. Confidence high for peaches May-Aug, medium for winter citrus provenance.",
+        "2026-05": "Fredericksburg peach season opens with early clingstone varieties in mid-to-late May; peak freestone runs June-July per Gillespie County orchard calendars. This is THE Hill Country anchor.",
+        "2026-12": "Texas citrus (Rio Grande Valley) is in-state but not Hill Country-grown; flagged as regional-Texas rather than local Fredericksburg. Winter greens are locally grown."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Fredericksburg Peach JAMboree (late June)",
+          "available_ingredients": [
+            "peaches",
+            "figs"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "peach cobbler",
+            "peach preserves"
+          ],
+          "source": "Fredericksburg Peach JAMboree festival tradition; AgriLife peach calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Peak local peach harvest festival; fresh-harvest not value-added"
+        },
+        {
+          "moment": "Peach season (May-August)",
+          "available_ingredients": [
+            "peaches",
+            "tomatoes"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "peach cobbler",
+            "buttermilk"
+          ],
+          "source": "Gillespie County orchard harvest charts",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Multi-month season, not a single-day event; the defining Hill Country window"
+        },
+        {
+          "moment": "Wildseed / wildflower spring (March-April)",
+          "available_ingredients": [
+            "strawberries",
+            "spring onions"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "lemon",
+            "honey"
+          ],
+          "source": "Texas Hill Country wildflower season; AgriLife spring produce",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "Wildflower tourism season; lemon is imported flavor tradition"
+        },
+        {
+          "moment": "Harvest / wine season (September-October)",
+          "available_ingredients": [
+            "wine grapes",
+            "figs",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "grape",
+            "fig",
+            "pecan"
+          ],
+          "source": "Texas Hill Country AVA harvest; AgriLife pecan season",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Hill Country wine country harvest; pecans are Texas state tree crop"
+        },
+        {
+          "moment": "Thanksgiving / winter holidays",
+          "available_ingredients": [
+            "pecans",
+            "sweet potatoes",
+            "citrus"
+          ],
+          "favorite_flavors": [
+            "pecan",
+            "pumpkin",
+            "gingerbread"
+          ],
+          "source": "Texas holiday baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "Pumpkin/gingerbread are imported bake traditions; pecans are local"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SC-DALLAS",
+      "metro_location": {
+        "retailer": null,
+        "name": null,
+        "address": null,
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch TX; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Waxahachie, TX",
+        "market": "US-TX-WAXAHACHIE",
+        "farmers_market_url": null,
+        "note": "seeded batch TX; metro storefront details pending confirmation, not fabricated"
+      },
+      "farmers_market_url": null,
+      "monthly_ingredients": {
+        "2026-01": "collard greens",
+        "2026-02": "kale",
+        "2026-03": "spring greens and radishes",
+        "2026-04": "strawberries",
+        "2026-05": "squash and new potatoes",
+        "2026-06": "sweet corn and tomatoes",
+        "2026-07": "tomatoes and peaches",
+        "2026-08": "watermelon and okra",
+        "2026-09": "peppers and okra",
+        "2026-10": "sweet potatoes and pecans",
+        "2026-11": "pecans and pumpkins",
+        "2026-12": "winter greens"
+      },
+      "monthly_ingredient_notes": {
+        "source": "Texas A&M AgriLife Extension produce calendar (North Central Texas). Confidence high for summer corn/tomato/okra, medium for peach provenance.",
+        "2026-06": "Sweet corn and field tomatoes peak on the Ellis County blackland prairie in June per AgriLife North Central Texas calendars. Peaches (2026-07) come from nearby Hill Country / East Texas orchards, flagged as regional not strictly Ellis County-grown."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Scarborough Renaissance Festival (April-May weekends)",
+          "available_ingredients": [
+            "strawberries",
+            "spring greens"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "honey",
+            "turkey-leg savory"
+          ],
+          "source": "Scarborough Renaissance Festival, Waxahachie",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Signature Waxahachie spring festival; food is festival-fair not local-harvest"
+        },
+        {
+          "moment": "Prairie summer harvest (June-August)",
+          "available_ingredients": [
+            "sweet corn",
+            "tomatoes",
+            "watermelon",
+            "okra"
+          ],
+          "favorite_flavors": [
+            "corn",
+            "tomato-savory",
+            "watermelon"
+          ],
+          "source": "AgriLife North Central Texas summer produce",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Multi-month blackland prairie peak; fresh-harvest"
+        },
+        {
+          "moment": "Fall harvest / pumpkin season (October-November)",
+          "available_ingredients": [
+            "pumpkins",
+            "sweet potatoes",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "pumpkin",
+            "pecan",
+            "sweet potato"
+          ],
+          "source": "Texas fall harvest and pumpkin-patch tradition",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Pecans are native Texas; pumpkin baking is seasonal culture"
+        },
+        {
+          "moment": "Thanksgiving / winter holidays",
+          "available_ingredients": [
+            "pecans",
+            "collard greens",
+            "winter greens"
+          ],
+          "favorite_flavors": [
+            "pecan",
+            "gingerbread",
+            "cranberry"
+          ],
+          "source": "Texas holiday baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "Cranberry/gingerbread imported; pecans and greens local"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SC-HOUSTON",
+      "metro_location": {
+        "retailer": null,
+        "name": null,
+        "address": null,
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch TX; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Chappell Hill, TX",
+        "market": "US-TX-CHAPPELLHILL",
+        "farmers_market_url": null,
+        "note": "seeded batch TX; metro storefront details pending confirmation, not fabricated"
+      },
+      "farmers_market_url": null,
+      "monthly_ingredients": {
+        "2026-01": "mustard and collard greens",
+        "2026-02": "cabbage",
+        "2026-03": "spring greens",
+        "2026-04": "strawberries and spring onions",
+        "2026-05": "squash and tomatoes",
+        "2026-06": "tomatoes and southern peas",
+        "2026-07": "okra and watermelon",
+        "2026-08": "okra and peppers",
+        "2026-09": "sweet potatoes and southern peas",
+        "2026-10": "sweet potatoes and pecans",
+        "2026-11": "pecans and satsuma citrus",
+        "2026-12": "winter greens and satsuma citrus"
+      },
+      "monthly_ingredient_notes": {
+        "source": "Texas A&M AgriLife Extension Gulf Coast / Upper Coast produce calendar. Confidence high for heat-adapted summer crops, medium for satsuma provenance at this exact location.",
+        "2026-07": "Okra and watermelon are the heat-adapted Gulf-Coast-prairie summer staples for Washington County; tomatoes finish before the deepest heat. Satsuma citrus (2026-11/12) grows along the upper Texas Gulf Coast and is regionally plausible for Washington County-area stands."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Chappell Hill Bluebonnet Festival (mid-April)",
+          "available_ingredients": [
+            "strawberries",
+            "spring onions",
+            "spring greens"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "honey",
+            "lemon"
+          ],
+          "source": "Chappell Hill Bluebonnet Festival, Washington County",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Signature spring festival; bluebonnets are wildflower not edible crop; lemon imported"
+        },
+        {
+          "moment": "Heat-adapted summer (June-August)",
+          "available_ingredients": [
+            "okra",
+            "southern peas",
+            "watermelon",
+            "tomatoes"
+          ],
+          "favorite_flavors": [
+            "watermelon",
+            "tomato-savory",
+            "peach"
+          ],
+          "source": "AgriLife Upper Gulf Coast summer produce",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Multi-month humid-heat season; peach is regional-Texas imported flavor"
+        },
+        {
+          "moment": "Fall harvest (October-November)",
+          "available_ingredients": [
+            "sweet potatoes",
+            "pecans",
+            "satsuma citrus"
+          ],
+          "favorite_flavors": [
+            "sweet potato",
+            "pecan",
+            "citrus"
+          ],
+          "source": "Texas fall harvest; upper coast satsuma season",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "Satsuma is coastal-Texas regional; pecans and sweet potatoes local"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": [
+            "satsuma citrus",
+            "collard greens",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "citrus",
+            "pecan",
+            "gingerbread"
+          ],
+          "source": "Texas Gulf Coast holiday culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "Gingerbread imported bake tradition; citrus and pecans regional"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-SC-SANANTONIO",
+      "metro_location": {
+        "retailer": null,
+        "name": null,
+        "address": null,
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch TX; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Poteet, TX",
+        "market": "US-TX-POTEET",
+        "farmers_market_url": null,
+        "note": "seeded batch TX; metro storefront details pending confirmation, not fabricated"
+      },
+      "farmers_market_url": null,
+      "monthly_ingredients": {
+        "2026-01": "winter greens",
+        "2026-02": "cabbage and early strawberries",
+        "2026-03": "strawberries",
+        "2026-04": "strawberries",
+        "2026-05": "squash and tomatoes",
+        "2026-06": "tomatoes and watermelon",
+        "2026-07": "watermelon and okra",
+        "2026-08": "peppers and okra",
+        "2026-09": "southern peas and peppers",
+        "2026-10": "pecans and sweet potatoes",
+        "2026-11": "pecans and citrus",
+        "2026-12": "citrus and winter greens"
+      },
+      "monthly_ingredient_notes": {
+        "source": "Texas A&M AgriLife Extension South Texas produce calendar; Poteet Strawberry Festival Association. Confidence high for spring strawberries, high for summer melon/okra, medium for winter citrus provenance.",
+        "2026-03": "Poteet strawberries peak March into early April in the South Texas warm climate; the Poteet Strawberry Festival anchors the first full weekend of April. This is THE local anchor crop."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Poteet Strawberry Festival (first full weekend of April)",
+          "available_ingredients": [
+            "strawberries"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "strawberry shortcake",
+            "strawberry preserves"
+          ],
+          "source": "Poteet Strawberry Festival Association, Atascosa County",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Signature local festival celebrating the local anchor crop; fresh-harvest"
+        },
+        {
+          "moment": "Strawberry season (February-April)",
+          "available_ingredients": [
+            "strawberries"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "buttermilk",
+            "honey"
+          ],
+          "source": "AgriLife South Texas strawberry season",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Multi-month warm-climate strawberry window ahead of mainland spring"
+        },
+        {
+          "moment": "South Texas summer (June-August)",
+          "available_ingredients": [
+            "watermelon",
+            "tomatoes",
+            "okra",
+            "peppers"
+          ],
+          "favorite_flavors": [
+            "watermelon",
+            "tomato-savory",
+            "chile"
+          ],
+          "source": "AgriLife South Texas summer produce",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Multi-month hot-season peak; fresh-harvest"
+        },
+        {
+          "moment": "Fall pecan harvest (October-November)",
+          "available_ingredients": [
+            "pecans",
+            "sweet potatoes"
+          ],
+          "favorite_flavors": [
+            "pecan",
+            "sweet potato",
+            "cinnamon"
+          ],
+          "source": "Texas native pecan season",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Pecans are the Texas state tree crop; fresh-harvest"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": [
+            "citrus",
+            "winter greens",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "citrus",
+            "pecan",
+            "gingerbread"
+          ],
+          "source": "South Texas holiday baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "Gingerbread imported; citrus is Rio Grande Valley regional-Texas"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-W-ANCHORAGE",
+      "metro_location": {
+        "retailer": null,
+        "name": null,
+        "address": null,
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch AK; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Palmer, AK",
+        "market": "US-AK-PALMER",
+        "farmers_market_url": null,
+        "note": "seeded batch AK; metro storefront details pending confirmation, not fabricated"
+      },
+      "farmers_market_url": null,
+      "monthly_ingredients": {
+        "2026-01": "storage potatoes and salmon (frozen/smoked)",
+        "2026-02": "storage carrots and salmon",
+        "2026-03": "storage cabbage and root vegetables",
+        "2026-04": "storage root vegetables (imported produce dominant)",
+        "2026-05": "rhubarb (early) and greenhouse greens",
+        "2026-06": "rhubarb and salad greens",
+        "2026-07": "summer berries and salmon (fresh run)",
+        "2026-08": "giant cabbage, carrots, potatoes and salmon",
+        "2026-09": "potatoes, giant brassicas and root harvest",
+        "2026-10": "storage potatoes and carrots (harvest cellared)",
+        "2026-11": "storage root vegetables and salmon",
+        "2026-12": "storage potatoes and salmon (frozen/smoked)"
+      },
+      "monthly_ingredient_notes": {
+        "source": "University of Alaska Fairbanks Cooperative Extension Service (Matanuska Valley crop references); Alaska State Fair giant vegetable tradition. Confidence high that fresh local is Jun-Sep only; storage/imported honestly flagged for Oct-May.",
+        "2026-01": "HONEST FLAG: January-April Matanuska Valley has no fresh field harvest. Listed items are cellared storage crops from the prior fall plus preserved (frozen/smoked/canned) salmon; fresh produce on shelves is overwhelmingly imported. Not local fresh-harvest.",
+        "2026-05": "Rhubarb is the first genuine fresh local crop, emerging May; greenhouse greens supplement.",
+        "2026-08": "Peak: midnight-sun giant produce (record cabbages, carrots, potatoes) and fresh salmon run. Alaska State Fair in Palmer showcases the giant vegetables. This is the signature window."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Alaska State Fair - giant vegetables (late August to early September)",
+          "available_ingredients": [
+            "giant cabbage",
+            "giant carrots",
+            "potatoes",
+            "rhubarb",
+            "salmon"
+          ],
+          "favorite_flavors": [
+            "rhubarb",
+            "wild berry",
+            "salmon-savory"
+          ],
+          "source": "Alaska State Fair, Palmer AK; midnight-sun giant vegetable tradition",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Signature Matanuska Valley event; genuine fresh-harvest peak from midnight-sun daylight"
+        },
+        {
+          "moment": "Midnight-sun growing season (June-September)",
+          "available_ingredients": [
+            "rhubarb",
+            "summer berries",
+            "potatoes",
+            "brassicas",
+            "salad greens"
+          ],
+          "favorite_flavors": [
+            "rhubarb",
+            "wild berry",
+            "honey"
+          ],
+          "source": "UAF Cooperative Extension Matanuska Valley season",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "The ONLY genuine fresh-harvest window; multi-month, driven by extreme summer daylight"
+        },
+        {
+          "moment": "Salmon run (summer)",
+          "available_ingredients": [
+            "salmon",
+            "wild berries"
+          ],
+          "favorite_flavors": [
+            "salmon-savory",
+            "wild berry"
+          ],
+          "source": "Alaska salmon fishery seasons",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Fish is a year-round protein staple; fresh run is summer, preserved (smoked/frozen) rest of year"
+        },
+        {
+          "moment": "Deep winter / holidays (November-February)",
+          "available_ingredients": [
+            "storage potatoes",
+            "storage carrots",
+            "storage cabbage",
+            "smoked salmon"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "cranberry",
+            "spiced"
+          ],
+          "source": "Alaska winter storage-crop reality; holiday baking culture",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "HONEST FLAG: no fresh local produce; storage crops plus imported. Holiday bake flavors are imported traditions"
+        },
+        {
+          "moment": "Spring thaw / breakup (April-May)",
+          "available_ingredients": [
+            "early rhubarb",
+            "greenhouse greens"
+          ],
+          "favorite_flavors": [
+            "rhubarb",
+            "lemon"
+          ],
+          "source": "UAF Extension early-season references",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "Transition out of storage-only; rhubarb is the first local fresh crop; lemon imported"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-W-HONOLULU",
+      "metro_location": {
+        "retailer": null,
+        "name": null,
+        "address": null,
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch HI; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Waialua, HI",
+        "market": "US-HI-WAIALUA",
+        "farmers_market_url": null,
+        "note": "seeded batch HI; metro storefront details pending confirmation, not fabricated"
+      },
+      "farmers_market_url": null,
+      "monthly_ingredients": {
+        "2026-01": "papaya and banana",
+        "2026-02": "papaya and taro",
+        "2026-03": "pineapple and banana",
+        "2026-04": "pineapple and papaya",
+        "2026-05": "pineapple and mango (early)",
+        "2026-06": "mango and pineapple",
+        "2026-07": "mango and pineapple",
+        "2026-08": "mango and banana",
+        "2026-09": "papaya and banana",
+        "2026-10": "Waialua coffee (harvest) and papaya",
+        "2026-11": "coffee, cacao and taro",
+        "2026-12": "papaya, banana and taro"
+      },
+      "monthly_ingredient_notes": {
+        "source": "University of Hawaii CTAHR Cooperative Extension tropical crop references; Waialua diversified-ag (pineapple, coffee, cacao) history. Confidence high for year-round tropical availability and summer mango peak.",
+        "2026-06": "Mango peaks in the Hawaiian summer (roughly May-August). Pineapple, papaya, and banana are available essentially year-round on the North Shore. Waialua-grown coffee harvests in the fall (roughly Oct-Dec). TROPICAL calendar: peaks and rotations, NOT temperate dormancy."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Mango season (May-August)",
+          "available_ingredients": [
+            "mango",
+            "pineapple",
+            "banana"
+          ],
+          "favorite_flavors": [
+            "mango",
+            "pineapple",
+            "coconut"
+          ],
+          "source": "UH CTAHR tropical fruit seasonality",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Multi-month tropical summer fruit peak; fresh-harvest; coconut is local-culture flavor"
+        },
+        {
+          "moment": "Coffee and cacao harvest (fall, October-December)",
+          "available_ingredients": [
+            "Waialua coffee",
+            "cacao",
+            "taro"
+          ],
+          "favorite_flavors": [
+            "coffee",
+            "chocolate",
+            "coconut"
+          ],
+          "source": "Waialua Estate coffee/cacao harvest; CTAHR references",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "North Shore diversified-ag signature; fresh local harvest window"
+        },
+        {
+          "moment": "Year-round tropical staples",
+          "available_ingredients": [
+            "pineapple",
+            "papaya",
+            "banana",
+            "taro"
+          ],
+          "favorite_flavors": [
+            "pineapple",
+            "banana",
+            "papaya",
+            "taro"
+          ],
+          "source": "UH CTAHR tropical crop availability",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "NO temperate dormancy; these are available across all 12 months, unlike mainland pairs"
+        },
+        {
+          "moment": "Winter holidays (island tradition)",
+          "available_ingredients": [
+            "papaya",
+            "banana",
+            "taro",
+            "pineapple"
+          ],
+          "favorite_flavors": [
+            "coconut",
+            "pineapple",
+            "guava"
+          ],
+          "source": "Hawaiian holiday baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "Island holiday flavors (haupia/coconut, guava) differ from mainland; no seasonal produce gap"
+        },
+        {
+          "moment": "Spring / Lei Day (May 1)",
+          "available_ingredients": [
+            "pineapple",
+            "papaya",
+            "early mango"
+          ],
+          "favorite_flavors": [
+            "pineapple",
+            "mango",
+            "guava"
+          ],
+          "source": "Hawaiian Lei Day cultural tradition",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "Cultural moment; overlaps start of mango season"
         }
       ],
       "research_todo": false
