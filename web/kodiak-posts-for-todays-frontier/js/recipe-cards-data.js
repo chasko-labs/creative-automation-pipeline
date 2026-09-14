@@ -4,28 +4,42 @@
 window.KODIAK_RECIPE_CARDS = {
   "US-MW-PARKCITY-84098": {
     "2026-01": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/root-vegetables-storage/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030941Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=fb43a269a70b1e056c7bff4958e368aa6603ce24e6cf21019bce371f2f279fc4",
+        "technique": null
+      },
+      "ingredient": "root vegetables (storage)",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "root vegetables (storage)"
+        }
+      ],
       "market": "US-MW-PARKCITY-84098",
       "meta": {
-        "cook": null,
+        "cook": "10 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "10 mins",
+        "serves": "4"
       },
       "month": "2026-01",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "root vegetables (storage)"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-MW-PARKCITY-84098 2026-01",
-      "recipe": null,
+      "recipe": {
+        "id": "neapolitan-waffle",
+        "name": "Neapolitan Waffles"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -115,33 +129,53 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "PARK City's hearty root veggie waffles!",
+        "PARK City's hearty root veggie waffles",
+        "PARK City's root veggie power waffles",
+        "PARK City's hearty root veggie waffles",
+        "PARK City's Root Veggie Power Waffles"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Park City Power Cakes with Local Roots"
     },
     "2026-02": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/apples-storage/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030949Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=b3ebf47412ac3e415e2d7df0be42d1924b16752d0513b37b16f27fb400c0c0b4",
+        "technique": null
+      },
+      "ingredient": "apples (storage)",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "apples (storage)"
+        }
+      ],
       "market": "US-MW-PARKCITY-84098",
       "meta": {
-        "cook": null,
+        "cook": "30 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "15 mins",
+        "serves": "8"
       },
       "month": "2026-02",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "apples (storage)"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-MW-PARKCITY-84098 2026-02",
-      "recipe": null,
+      "recipe": {
+        "id": "breakfast-cake",
+        "name": "Breakfast Cake"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -231,33 +265,53 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "PARK City Apple Waffles: Frontier flavor!",
+        "PARK City's Protein Power Waffles",
+        "PARK City's Protein-Packed Apple Waffles",
+        "PARK City's Best Waffle French Toast Bake",
+        "PARK City's Savory Waffle Stack Delight"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Park City Power Cakes with Apples"
     },
     "2026-03": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/honey-storage/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030954Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=e2440b6e86dc74b1ddeb85b7c24776df87c4890f667b237f5122a3f7c9dd8e54",
+        "technique": null
+      },
+      "ingredient": "honey (storage)",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "honey (storage)"
+        }
+      ],
       "market": "US-MW-PARKCITY-84098",
       "meta": {
-        "cook": null,
+        "cook": "5 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "10 mins",
+        "serves": "5"
       },
       "month": "2026-03",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "honey (storage)"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-MW-PARKCITY-84098 2026-03",
-      "recipe": null,
+      "recipe": {
+        "id": "smoked-gouda-and-honey-waffle-bites",
+        "name": "Smoked Gouda & Honey Waffle Bites"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -347,33 +401,53 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "PARK City Honey Waffles & Power Bites",
+        "PARK City Honey & Gouda Bites",
+        "PARK City Honey & Gouda Bites",
+        "PARK City Honey & Gouda Bites",
+        "PARK City Honey & Gouda Bites"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Park City Honey Power Bites"
     },
     "2026-04": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/dairy-butter-value-added/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T031000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=459bd12d9d5f403c80d54dec7dc8a000f6965b034d929f0b9d28aef4a444a48e",
+        "technique": null
+      },
+      "ingredient": "dairy butter (value-added)",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "dairy butter (value-added)"
+        }
+      ],
       "market": "US-MW-PARKCITY-84098",
       "meta": {
-        "cook": null,
+        "cook": "5 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5 mins",
+        "serves": "4"
       },
       "month": "2026-04",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "dairy butter (value-added)"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-MW-PARKCITY-84098 2026-04",
-      "recipe": null,
+      "recipe": {
+        "id": "sweet-potato-pancakes",
+        "name": "Sweet Potato Pancakes"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -463,33 +537,53 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "SWEET potato pancakes, beta-carotene boost!",
+        "SWEET beta-carotene flapjacks, Park City!",
+        "PARK City Butter Pancakes 2026",
+        "BUTTER-BAKED flapjacks, Park City style!",
+        "PANCAKE stack with sweet potatoes, beta-carotene!"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Buttery Kodiak Cakes Power Cakes"
     },
     "2026-05": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/rhubarb/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T031005Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=45b1303d5d9e354ee592ee6f3d49540b558e066b59ea8634dc49903432f88222",
+        "technique": null
+      },
+      "ingredient": "rhubarb",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "rhubarb"
+        }
+      ],
       "market": "US-MW-PARKCITY-84098",
       "meta": {
-        "cook": null,
+        "cook": "35",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "30",
+        "serves": "16"
       },
       "month": "2026-05",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "rhubarb"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-MW-PARKCITY-84098 2026-05",
-      "recipe": null,
+      "recipe": {
+        "id": "white-chocolate-raspberry-cake",
+        "name": "White Chocolate Raspberry Cake"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -579,33 +673,53 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "PARK rhubarb pie, Kodiak Cakes style!",
+        "KODIAK Cakes rhubarb cake, Park City!",
+        "RHUBARB Pie Cake, Park City, UT 2026",
+        "KODIAK Cakes Rhubarb Cake in Park City",
+        "PARK rhubarb cakes, Kodiak Cakes style!"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Kodiak Cakes Power Rhubarb Cakes Utah"
     },
     "2026-06": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/raspberries/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T031015Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=64286c45af1ec05d9ddc7e9b9aa867c1a05cc7fcb181a35f6a94c3f85f5590db",
+        "technique": null
+      },
+      "ingredient": "raspberries",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "raspberries"
+        }
+      ],
       "market": "US-MW-PARKCITY-84098",
       "meta": {
-        "cook": null,
+        "cook": "35",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "30",
+        "serves": "16"
       },
       "month": "2026-06",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "raspberries"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-MW-PARKCITY-84098 2026-06",
-      "recipe": null,
+      "recipe": {
+        "id": "white-chocolate-raspberry-cake",
+        "name": "White Chocolate Raspberry Cake"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -695,13 +809,29 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "KODIAK Cakes Raspberry Cakes: Park City, UT 2026",
+        "KODIAK Cakes Raspberry Cakes, Park City 2026",
+        "KODIAK Cakes Raspberry Power Cake 2026-06",
+        "KODIAK Cakes Raspberry Delight in Park City!",
+        "KODIAK Cakes Raspberry Cakes: Utah's Best!"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Kodiak Cakes Power Cakes with fresh raspberries"
     },
     "2026-07": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/peaches/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030834Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=ba92ff729039456cd83c780ed34fecda96e35023a71bb7520d1c6a043fa04aba",
+        "technique": null
+      },
+      "ingredient": "peaches",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "peaches"
+        }
+      ],
       "market": "US-MW-PARKCITY-84098",
       "meta": {
         "cook": null,
@@ -711,17 +841,23 @@ window.KODIAK_RECIPE_CARDS = {
       },
       "month": "2026-07",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "peaches"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
           "times",
-          "temperatures",
+          "serves",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-MW-PARKCITY-84098 2026-07",
-      "recipe": null,
+      "recipe": {
+        "id": "flapjacks-buttermilk",
+        "name": "Flapjacks — Buttermilk Power Cakes"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -811,33 +947,49 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "KODIAK Cakes Power Cakes: 1 cup + milk + egg"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Kodiak Cakes Power Cakes: Utah Peach Edition"
     },
     "2026-08": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/summer-squash/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T031020Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=b6c3e73ee584436efc90db304fed5cd842f03882a3a59d942235f957cff05264",
+        "technique": null
+      },
+      "ingredient": "summer squash",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "summer squash"
+        }
+      ],
       "market": "US-MW-PARKCITY-84098",
       "meta": {
-        "cook": null,
+        "cook": "5",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "15",
+        "serves": "4"
       },
       "month": "2026-08",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "summer squash"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-MW-PARKCITY-84098 2026-08",
-      "recipe": null,
+      "recipe": {
+        "id": "summer-vegetable-tostada",
+        "name": "Summer Vegetable Tostada"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -927,11 +1079,22 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "SUMMER squash & Kodiak Cakes Power!",
+        "SUMMER squash bites on Kodiak Cakes waffle",
+        "SUMMER squash power waffles",
+        "SUMMER squash power tostadas",
+        "SUMMER squash tostadas with Kodiak Cakes waffles"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Summer squash on Kodiak Cakes Power Waffles"
     },
     "2026-09": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/winter-squash/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T031025Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=9aaf1a4a046396e23cb935ded04f799f178e30458b81a28ac75c03f7ec9da118",
+        "technique": null
+      },
       "ingredient": "winter squash",
       "ingredients": [
         {
@@ -1056,9 +1219,14 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "steps": [],
       "substrate": "kraft",
-      "title": "Winter Squash over Kodiak Cakes Power Cakes"
+      "title": "Winter Squash Power Stew"
     },
     "2026-10": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/apples/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T031034Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=c4418c71a456d10357335719e806fdc01b35f333a60ddf3b130fbf6b5504f2c8",
+        "technique": null
+      },
       "ingredient": "apples",
       "ingredients": [
         {
@@ -1180,16 +1348,21 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-sti",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and c",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. T",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate ch"
+        "PARK City Apple Waffles: Frontier flavor",
+        "PARK City Apple Power Waffles",
+        "PARK City Apple Waffles: Frontier flavor!",
+        "PARK City Apple Waffles",
+        "PARK City Apple Protein Bake"
       ],
       "substrate": "kraft",
-      "title": "Apples over Kodiak Cakes Power Cakes"
+      "title": "Park City Power Cakes with Apples"
     },
     "2026-11": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/apples-storage/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030949Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=b3ebf47412ac3e415e2d7df0be42d1924b16752d0513b37b16f27fb400c0c0b4",
+        "technique": null
+      },
       "ingredient": "apples (storage)",
       "ingredients": [
         {
@@ -1311,16 +1484,21 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-sti",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and c",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. T",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate ch"
+        "PARK City Apple Waffle French Toast Bake",
+        "PARK City's Best Protein-Packed Waffles!",
+        "PARK City's Best Apple Waffles!",
+        "PARK City's Savory Apple Delight",
+        "PARK City Apple Waffles: Savory-sweet breakfast"
       ],
       "substrate": "kraft",
-      "title": "Apples (Storage) over Kodiak Cakes Power Cakes"
+      "title": "Park City Apple Power Cakes"
     },
     "2026-12": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/local-honey/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T031039Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=c21e76297d8e665aa6a97fe5648ea12970353e99ffb7b8c0fdc64f889f840007",
+        "technique": null
+      },
       "ingredient": "local honey",
       "ingredients": [
         {
@@ -1442,40 +1620,54 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
-        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly",
-        "CUT each piece of Gouda into four triangular-shaped pieces.",
-        "TOP each waffle piece with a triangle of cheese.",
-        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the t"
+        "PARK City Honey & Protein Bites",
+        "PARK City Honey & Protein Waffles",
+        "PARK City Honey & Gouda Bites",
+        "HONEY-SMOKED Gouda Bites for Park City",
+        "PARK City Honey & Smoked Gouda Bites"
       ],
       "substrate": "kraft",
-      "title": "Local Honey over Kodiak Cakes Power Cakes"
+      "title": "Park City Honey Power Bites"
     }
   },
   "US-SE-ATL": {
     "2026-01": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/turnips/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030759Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=2e05458a4d27816c2753cd337764b924c70c99f816ceb4294c4bda9758ed8097",
+        "technique": null
+      },
+      "ingredient": "turnips",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "turnips"
+        }
+      ],
       "market": "US-SE-ATL",
       "meta": {
-        "cook": null,
+        "cook": "35",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "30",
+        "serves": "16"
       },
       "month": "2026-01",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "turnips"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-SE-ATL 2026-01",
-      "recipe": null,
+      "recipe": {
+        "id": "white-chocolate-raspberry-cake",
+        "name": "White Chocolate Raspberry Cake"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -1550,13 +1742,29 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "TURNIP Kodiak Cakes, Atlanta, GA",
+        "TURNIP Kodiak Cakes, SE ATL, 2026",
+        "TURNIP-INFUSED Kodiak Cakes, Atlanta!",
+        "TURNIP Kodiak Cakes: GA's frontier taste!",
+        "TURNIP-INFUSED Kodiak Cakes, Atlanta"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Turnips-infused Kodiak Cakes!"
     },
     "2026-02": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "ingredient": "winter greens",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "winter greens"
+        }
+      ],
       "market": "US-SE-ATL",
       "meta": {
         "cook": null,
@@ -1566,17 +1774,23 @@ window.KODIAK_RECIPE_CARDS = {
       },
       "month": "2026-02",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "winter greens"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
           "times",
-          "temperatures",
+          "serves",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-SE-ATL 2026-02",
-      "recipe": null,
+      "recipe": {
+        "id": "winter-beef-stew",
+        "name": "Winter Beef Stew w/ Buttermilk Dumplings"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -1653,31 +1867,45 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "steps": [],
       "substrate": "kraft",
-      "title": null
+      "title": "Winter greens power cakes, SE ATL"
     },
     "2026-03": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "ingredient": "strawberries",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "strawberries"
+        }
+      ],
       "market": "US-SE-ATL",
       "meta": {
-        "cook": null,
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5 mins",
+        "serves": "12"
       },
       "month": "2026-03",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "strawberries"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-SE-ATL 2026-03",
-      "recipe": null,
+      "recipe": {
+        "id": "sheet-pan-pancakes",
+        "name": "Sheet Pan Pancakes"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -1752,33 +1980,53 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "POWER-PACKED strawberry pancakes ready in 20!",
+        "POWER-PACKED strawberry pancakes, 5 mins!",
+        "POWER-PACKED strawberry pancakes!",
+        "PROTEIN-PACKED pancakes, ready in 20 mins!",
+        "POWER-PACKED strawberry pancakes, ready in 20 mins!"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Power-packed strawberry pancakes!"
     },
     "2026-04": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "ingredient": "strawberries",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "strawberries"
+        }
+      ],
       "market": "US-SE-ATL",
       "meta": {
-        "cook": null,
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5 mins",
+        "serves": "12"
       },
       "month": "2026-04",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "strawberries"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-SE-ATL 2026-04",
-      "recipe": null,
+      "recipe": {
+        "id": "sheet-pan-pancakes",
+        "name": "Sheet Pan Pancakes"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -1853,33 +2101,53 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "HIGH-PRO Flapjacks, ready in 20 mins!",
+        "POWER-PACKED strawberry pancakes, US-ATL",
+        "HIGH-PRO Strawberry Sheet Pan Pancakes ATL",
+        "EASY, golden pancakes in 20 minutes!",
+        "POWER-PACKED strawberry pancakes, ready in 20!"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Power Cakes with Local Georgia Strawberries"
     },
     "2026-05": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/vidalia-onions/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030821Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=739a4dd79f568a7ecaca5da5d9a6d1063d3e8acb1b2669f70f324c697c75c973",
+        "technique": null
+      },
+      "ingredient": "Vidalia onions",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "Vidalia onions"
+        }
+      ],
       "market": "US-SE-ATL",
       "meta": {
-        "cook": null,
+        "cook": "5",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "15",
+        "serves": "4"
       },
       "month": "2026-05",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "Vidalia onions"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-SE-ATL 2026-05",
-      "recipe": null,
+      "recipe": {
+        "id": "summer-vegetable-tostada",
+        "name": "Summer Vegetable Tostada"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -1954,33 +2222,53 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "VIDALIA Onions & Kodiak Cakes Power Base",
+        "VIDALIA onion crunch atop Kodiak Cakes waffles",
+        "GRILLED Vidalia on Kodiak Cakes Power Waffles",
+        "VIDALIA Onion Power Tostada",
+        "VIDALIA onion power tostadas"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Vidalia Onions on Kodiak Cakes"
     },
     "2026-06": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "ingredient": "blueberries",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "blueberries"
+        }
+      ],
       "market": "US-SE-ATL",
       "meta": {
-        "cook": null,
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5 mins",
+        "serves": "12"
       },
       "month": "2026-06",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "blueberries"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-SE-ATL 2026-06",
-      "recipe": null,
+      "recipe": {
+        "id": "sheet-pan-pancakes",
+        "name": "Sheet Pan Pancakes"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -2055,13 +2343,29 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "EASY Blueberry Power Pancakes!",
+        "PROTEIN-PACKED Blueberry Pancakes!",
+        "POWER-PACKED blueberry pancakes ready in 20!",
+        "POWER up with protein pancakes!",
+        "BLUEBERRY Power Pancakes, ready in 20!"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Power-packed Blueberry Kodiak Cakes"
     },
     "2026-07": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/peaches/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030834Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=ba92ff729039456cd83c780ed34fecda96e35023a71bb7520d1c6a043fa04aba",
+        "technique": null
+      },
+      "ingredient": "peaches",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "peaches"
+        }
+      ],
       "market": "US-SE-ATL",
       "meta": {
         "cook": null,
@@ -2071,17 +2375,23 @@ window.KODIAK_RECIPE_CARDS = {
       },
       "month": "2026-07",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "peaches"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
           "times",
-          "temperatures",
+          "serves",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-SE-ATL 2026-07",
-      "recipe": null,
+      "recipe": {
+        "id": "flapjacks-buttermilk",
+        "name": "Flapjacks — Buttermilk Power Cakes"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -2156,33 +2466,49 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "KODIAK Cakes Peach Power Cakes: 1 cup + milk + egg"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Rugged peaches on Kodiak Cakes Power Cakes"
     },
     "2026-08": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/watermelon/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030840Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=28979f45c03e11c8a672848ab4da89a522ddc755774fc6af4b8fba114fe3a7cc",
+        "technique": null
+      },
+      "ingredient": "watermelon",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "watermelon"
+        }
+      ],
       "market": "US-SE-ATL",
       "meta": {
-        "cook": null,
+        "cook": "35",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "30",
+        "serves": "16"
       },
       "month": "2026-08",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "watermelon"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-SE-ATL 2026-08",
-      "recipe": null,
+      "recipe": {
+        "id": "white-chocolate-raspberry-cake",
+        "name": "White Chocolate Raspberry Cake"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -2257,11 +2583,22 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "RUGGED Watermelon Kodiak Cakes, SE ATL!",
+        "KODIAK Cakes: Watermelon Power Mix (ATL)",
+        "RUGGED watermelon Kodiak cake, SE ATL",
+        "RUGGED watermelon Kodiak cake, SE ATL",
+        "RUGGED Watermelon Cake for Atlanta"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Rugged Watermelon Kodiak Cakes"
     },
     "2026-09": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/muscadine-grapes/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030848Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=1f0fef0a2524677b7f83408d18e32917b9e553b2c15c2f1e27c70cd0b9a05061",
+        "technique": null
+      },
       "ingredient": "muscadine grapes",
       "ingredients": [
         {
@@ -2368,16 +2705,21 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and lin",
-        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combi",
-        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and m",
-        "ADD the wet ingredients to the dry ingredients and whisk together to form a smoo",
-        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheate"
+        "MUSCADINE Cake: Frontier's Sweet Treat",
+        "RUGGED muscadine cake, Atlanta-style!",
+        "GEORGIA'S Muscadine Cakes: Frontier Flavors",
+        "MUSCADINE-INFUSED Kodiak Cakes: Georgia's Frontier Treat",
+        "RUGGED muscadine cake for Atlanta"
       ],
       "substrate": "kraft",
-      "title": "Muscadine Grapes over Kodiak Cakes Power Cakes"
+      "title": "Muscadine Cakes over Kodiak Cakes Power"
     },
     "2026-10": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
       "ingredient": "pecans",
       "ingredients": [
         {
@@ -2484,16 +2826,21 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the skin from the sweet potato and discard.",
-        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Pro",
-        "HEAT a skillet over medium heat.",
-        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume.",
-        "REPEAT the process with remaining batter."
+        "PECAN-PACKED Pancakes, Atlanta!",
+        "PECAN Pancakes: Georgia's frontier stack",
+        "PECAN-PACKED Power Pancakes",
+        "PECAN-PACKED waffles, frontier-style!",
+        "PECAN Pancakes: Georgia's frontier breakfast!"
       ],
       "substrate": "kraft",
-      "title": "Pecans over Kodiak Cakes Power Cakes"
+      "title": "Pecan-Topped Kodiak Cakes"
     },
     "2026-11": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/sweet-potatoes/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030900Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=404625a085f21b304dabed50c1a706cf5786d19fe861d3f29b073b2f64d3b5fb",
+        "technique": null
+      },
       "ingredient": "sweet potatoes",
       "ingredients": [
         {
@@ -2600,16 +2947,21 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the skin from the sweet potato and discard.",
-        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Pro",
-        "HEAT a skillet over medium heat.",
-        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume.",
-        "REPEAT the process with remaining batter."
+        "SWEET potato pancakes, beta-carotene boost!",
+        "SWEET potato pancakes, beta-carotene boost!",
+        "SWEET potato pancakes, beta-carotene boost!",
+        "SWEET potato pancakes, beta-carotene boost!",
+        "SWEET potato pancakes, beta-power!"
       ],
       "substrate": "kraft",
-      "title": "Sweet Potatoes over Kodiak Cakes Power Cakes"
+      "title": "Sweet Potatoes on Frontier Pancakes"
     },
     "2026-12": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
       "ingredient": "collards",
       "ingredients": [
         {
@@ -2716,40 +3068,54 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and lin",
-        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combi",
-        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and m",
-        "ADD the wet ingredients to the dry ingredients and whisk together to form a smoo",
-        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheate"
+        "COLLARD-INFUSED Kodiak Cakes, SE ATL",
+        "COLLARDS power your Kodiak Cakes!",
+        "COLLARDS & Kodiak Cakes: Power-packed snack",
+        "COLLARD Power Cakes, SE ATL",
+        "COLLARD Power Cake, SE ATL"
       ],
       "substrate": "kraft",
-      "title": "Collards over Kodiak Cakes Power Cakes"
+      "title": "Collard-Topped Kodiak Cakes"
     }
   },
   "US-W-SF": {
     "2026-01": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/meyer-lemon/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030912Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=94e62b924e6ca486c6904c03e52340353aa4a4386114a63cdd6f6ed308d50dc9",
+        "technique": null
+      },
+      "ingredient": "Meyer lemon",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "Meyer lemon"
+        }
+      ],
       "market": "US-W-SF",
       "meta": {
-        "cook": null,
+        "cook": "10 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5 mins",
+        "serves": "10"
       },
       "month": "2026-01",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "Meyer lemon"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-W-SF 2026-01",
-      "recipe": null,
+      "recipe": {
+        "id": "waffle-pickles",
+        "name": "Waffle Pickles"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -2819,33 +3185,53 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "MEYER Lemon Pickles, protein-packed!",
+        "MEYER Lemon Pickles, protein-packed!",
+        "MEYER Lemon Pickles, protein-packed!",
+        "MEYER Lemon Pickles, protein-packed!",
+        "GOLDEN Meyer lemon waffles, protein-packed!"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Meyer Lemon Kodiak Cakes"
     },
     "2026-02": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/meyer-lemon/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030912Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=94e62b924e6ca486c6904c03e52340353aa4a4386114a63cdd6f6ed308d50dc9",
+        "technique": null
+      },
+      "ingredient": "Meyer lemon",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "Meyer lemon"
+        }
+      ],
       "market": "US-W-SF",
       "meta": {
-        "cook": null,
+        "cook": "10 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5 mins",
+        "serves": "10"
       },
       "month": "2026-02",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "Meyer lemon"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-W-SF 2026-02",
-      "recipe": null,
+      "recipe": {
+        "id": "waffle-pickles",
+        "name": "Waffle Pickles"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -2915,33 +3301,53 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "MEYER lemon zesty crunch, protein-packed!",
+        "MEYER Lemon Pickles, protein-packed!",
+        "MEYER Lemon Pickles, protein-packed!",
+        "MEYER lemon power fries, whole grain!",
+        "MEYER Lemon Power Waffles, SF"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Meyer Lemon Kodiak Cakes"
     },
     "2026-03": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "ingredient": "artichokes",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "artichokes"
+        }
+      ],
       "market": "US-W-SF",
       "meta": {
-        "cook": null,
+        "cook": "35",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "30",
+        "serves": "16"
       },
       "month": "2026-03",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "artichokes"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-W-SF 2026-03",
-      "recipe": null,
+      "recipe": {
+        "id": "white-chocolate-raspberry-cake",
+        "name": "White Chocolate Raspberry Cake"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -3011,33 +3417,53 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "SAN Francisco's Kodiak Cakes Artichoke Delight!",
+        "KODIAK Cakes Artichoke Cakes SF Bay 2026",
+        "ARTICHOKE Power Cake, SF-style!",
+        "KODIAK Cakes Artichoke Cakes SF 2026",
+        "KODIAK Cakes Artichokes Cake SF 2026"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Kodiak Cakes Power Cakes with Artichokes"
     },
     "2026-04": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "ingredient": "artichokes",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "artichokes"
+        }
+      ],
       "market": "US-W-SF",
       "meta": {
-        "cook": null,
+        "cook": "35",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "30",
+        "serves": "16"
       },
       "month": "2026-04",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "artichokes"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-W-SF 2026-04",
-      "recipe": null,
+      "recipe": {
+        "id": "white-chocolate-raspberry-cake",
+        "name": "White Chocolate Raspberry Cake"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -3107,33 +3533,53 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "KODIAK Cakes Artichokes Cake: Bay Area, 2026",
+        "SAN Francisco's Artichoke Kodiak Cakes",
+        "SAN Francisco's Artichoke Power Cake",
+        "FRESH artichoke Kodiak cakes, San Francisco!",
+        "FRESH artichoke Kodiak Cakes for SF!"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Kodiak Cakes Power Cakes with Fresh Artichokes"
     },
     "2026-05": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "ingredient": "artichokes",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "artichokes"
+        }
+      ],
       "market": "US-W-SF",
       "meta": {
-        "cook": null,
+        "cook": "35",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "30",
+        "serves": "16"
       },
       "month": "2026-05",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "artichokes"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-W-SF 2026-05",
-      "recipe": null,
+      "recipe": {
+        "id": "white-chocolate-raspberry-cake",
+        "name": "White Chocolate Raspberry Cake"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -3203,33 +3649,53 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "KODIAK Cakes Artichokes Delight, SF 2026",
+        "KODIAK Cakes: Fresh Artichokes Delight!",
+        "SAN Francisco's Kodiak Cakes Protein Delight!",
+        "KODIAK Cakes Artichoke Cakes SF 2026",
+        "KODIAK Cakes Artichokes Cake SF Bay 2026"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Kodiak Cakes Power Cakes: Artichokes & Bear Brown"
     },
     "2026-06": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "ingredient": "artichokes",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "artichokes"
+        }
+      ],
       "market": "US-W-SF",
       "meta": {
-        "cook": null,
+        "cook": "35",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "30",
+        "serves": "16"
       },
       "month": "2026-06",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "artichokes"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-W-SF 2026-06",
-      "recipe": null,
+      "recipe": {
+        "id": "white-chocolate-raspberry-cake",
+        "name": "White Chocolate Raspberry Cake"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -3299,33 +3765,53 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "KODIAK Cakes Protein Cakes: San Francisco Artichoke Delight",
+        "KODIAK Cakes Artichokes Cake: SF's frontier treat!",
+        "KODIAK Cakes Artichokes Cake: Bay Area, 2026",
+        "KODIAK Cakes Artichokes Cake: SF's frontier delight!",
+        "KODIAK Cakes Artichokes Cake: SF-Bay, 2026"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Kodiak Cakes Power Cakes with local artichokes"
     },
     "2026-07": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "ingredient": "strawberries",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "strawberries"
+        }
+      ],
       "market": "US-W-SF",
       "meta": {
-        "cook": null,
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5 mins",
+        "serves": "12"
       },
       "month": "2026-07",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "strawberries"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-W-SF 2026-07",
-      "recipe": null,
+      "recipe": {
+        "id": "sheet-pan-pancakes",
+        "name": "Sheet Pan Pancakes"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -3395,33 +3881,53 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "POWER-PACKED pancakes, ready in 20 mins!",
+        "POWER-PACKED SF strawberry pancakes!",
+        "POWER-PACKED strawberry pancakes, ready in 20!",
+        "POWER-PACKED pancakes, ready in 20!",
+        "POWER-PACKED pancakes, ready in 20!"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "Power-packed strawberry pancakes"
     },
     "2026-08": {
-      "ingredient": null,
-      "ingredients": [],
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "ingredient": "strawberries",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "strawberries"
+        }
+      ],
       "market": "US-W-SF",
       "meta": {
-        "cook": null,
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5 mins",
+        "serves": "12"
       },
       "month": "2026-08",
       "provenance": {
-        "values_from_source": [],
-        "values_proposed": [],
+        "values_from_source": [
+          "strawberries"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
         "values_unknown": [
-          "times",
-          "temperatures",
           "prices",
-          "serves"
+          "temperatures"
         ]
       },
-      "reason": "no in-season ingredient on file for US-W-SF 2026-08",
-      "recipe": null,
+      "recipe": {
+        "id": "sheet-pan-pancakes",
+        "name": "Sheet Pan Pancakes"
+      },
       "seasonal_moment": [
         {
           "available_ingredients": [
@@ -3491,11 +3997,22 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "POWER-PACKED pancakes, ready in 20 mins!",
+        "HIGH-PRO SF Pancakes (2026-08)",
+        "POWER-PACKED sheet pan pancakes with fresh strawberries!",
+        "HIGH-PRO SF Pancakes, 20 mins!",
+        "HIGH-PROTEIN strawberry pancakes, ready in 20!"
+      ],
       "substrate": "kraft",
-      "title": null
+      "title": "High-Pro Flapjacks SF 2026-08"
     },
     "2026-09": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
       "ingredient": "strawberries",
       "ingredients": [
         {
@@ -3597,16 +4114,21 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
-        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
-        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
-        "BAKE for 10-15 minutes, or until set and lightly golden.",
-        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
+        "HIGH-PRO SF Pancakes Ready in 20 Min!",
+        "POWER-PACKED strawberry pancakes, 5 mins!",
+        "HIGH-PRO SF Pancakes with Fresh 2026 Berries",
+        "POWER-PACKED SF pancakes, ready in 20!",
+        "POWER-PACKED strawberry pancakes, ready in 20!"
       ],
       "substrate": "kraft",
-      "title": "Strawberries over Kodiak Cakes Power Cakes"
+      "title": "Power-packed strawberry pancakes!"
     },
     "2026-10": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
       "ingredient": "brussels sprouts",
       "ingredients": [
         {
@@ -3708,16 +4230,21 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and lin",
-        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combi",
-        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and m",
-        "ADD the wet ingredients to the dry ingredients and whisk together to form a smoo",
-        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheate"
+        "KODIAK Cakes Brussels Sprout Power Cake SF 2026",
+        "KODIAK Cakes Brussels Sprouts Power Cake, SF",
+        "KODIAK Cakes Brussels Sprout Protein Bowl — SF 2026",
+        "KODIAK Cakes Brussels Sprouts Power Cake SF-Bay-1026",
+        "KODIAK Cakes Brussels Sprout Pie, SF Bay Area"
       ],
       "substrate": "kraft",
-      "title": "Brussels Sprouts over Kodiak Cakes Power Cakes"
+      "title": "Kodiak Cakes Power Cakes with Brussels Sprouts"
     },
     "2026-11": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/olive-oil-fall-press/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030930Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=2bc0cda137cbc1323c792a97a4d7e94c4b74fcff0496a2e29266466cb0eea867",
+        "technique": null
+      },
       "ingredient": "olive oil (fall press)",
       "ingredients": [
         {
@@ -3819,16 +4346,21 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor.",
-        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini,",
-        "TOAST the waffles according to package directions.",
-        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture",
-        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
+        "FALL Olive Oil Protein Bowl",
+        "FALL Olive Oil Protein Bowl",
+        "FALL Olive Oil Power Waffles",
+        "FALL Olive Oil Power Tostada Base",
+        "FALL Olive Tostada Base"
       ],
       "substrate": "kraft",
-      "title": "Olive Oil (Fall Press) over Kodiak Cakes Power Cakes"
+      "title": "Fall Olive Oil on Kodiak Cakes"
     },
     "2026-12": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/half-moon-bay-pumpkin/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030935Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=42e1b4be424b61df0feadbffb7b23be977dd66df08f7f166829be411d2f0a4ac",
+        "technique": null
+      },
       "ingredient": "Half Moon Bay pumpkin",
       "ingredients": [
         {
@@ -3930,14 +4462,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the Kodiak Cakes mix and salt in a mixing bowl fitted to a stand mixer and set a",
-        "PLACE the milk, sugar, and butter in a small saucepan and heat just until the bu",
-        "POUR the milk mixture into the bowl of dry ingredients along with the egg and st",
-        "COVER and let rest for 10 minutes.",
-        "ROLL the rested dough out into a 14” x 8” rectangle."
+        "HALF Moon Bay Pumpkin Delight!",
+        "HALF Moon Bay Pumpkin Delight!",
+        "FALL Half Moon Bay pizza bites!",
+        "HALF Moon Bay pizza bites!",
+        "HALF Moon Bay Pizza Pinwheels!"
       ],
       "substrate": "kraft",
-      "title": "Half Moon Bay Pumpkin over Kodiak Cakes Power Cakes"
+      "title": "Half Moon Bay Pumpkin Power Cakes"
     }
   }
 };

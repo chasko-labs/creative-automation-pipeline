@@ -766,6 +766,67 @@ def head_metadata(key: str) -> dict:
     return {str(k).lower(): v for k, v in meta.items()}
 
 
+# ------------------------------------------------------------------ recipe-art
+# Recipe-card sketch-zone art lives at a fixed brand path, sibling to recipes/ and
+# heroes/. Full key: brands/kodiak/recipe-art/<subject_slug>/<zone>.png . These assets
+# live in account 946179428633 (bryanchasko-kiro), same DAM bucket as the rest of the
+# kodiak brand. Overridable via DAM_RECIPE_ART_PREFIX for other brands / test buckets.
+def _recipe_art_prefix() -> str:
+    prefix = os.getenv("DAM_RECIPE_ART_PREFIX", "brands/kodiak/recipe-art/").strip()
+    if prefix and not prefix.endswith("/"):
+        prefix += "/"
+    return prefix
+
+
+def recipe_art_key(subject_slug: str, zone: str) -> str:
+    """Full DAM key for a recipe-art asset: <prefix><subject_slug>/<zone>.png."""
+    return f"{_recipe_art_prefix()}{subject_slug}/{zone}.png"
+
+
+def recipe_art_exists(subject_slug: str, zone: str) -> bool:
+    """HEAD the recipe-art key — True when the object already exists in the DAM.
+
+    Lets the seeder skip regeneration (and re-billing) when the drawing is already
+    published. Returns False when S3 is disabled, the key is absent, or any error
+    occurs. Never throws.
+    """
+    key = recipe_art_key(subject_slug, zone)
+    if not _s3_enabled():
+        return False
+    bucket, _ = _s3_bucket_and_prefix()
+    client = _s3_client()
+    if not bucket or client is None:
+        return False
+    try:
+        client.head_object(Bucket=bucket, Key=key)
+        return True
+    except (ClientError, BotoCoreError, Exception):  # noqa: BLE001 — miss => False
+        return False
+
+
+def upload_recipe_art(local_png: Path, subject_slug: str, zone: str) -> str | None:
+    """Upload a recipe-art PNG to brands/kodiak/recipe-art/<slug>/<zone>.png.
+
+    Returns a presigned GET url on success, else None (S3 disabled, missing file,
+    or upload failure) so callers degrade to a null art url and the frontend falls
+    back to its SVG placeholder. Never throws.
+
+    Mirrors publish_card: the full key is relativized against the configured DAM
+    prefix before handing to s3_upload_and_presign (which re-joins the prefix), so
+    the object lands at the exact recipe_art_key path and reads back verbatim.
+    """
+    local_png = Path(local_png)
+    if not local_png.exists():
+        print(f"[dam] recipe-art upload skipped — local png absent: {local_png}")
+        return None
+    full = recipe_art_key(subject_slug, zone)
+    _, prefix = _s3_bucket_and_prefix()
+    rel = full[len(prefix):] if prefix and full.startswith(prefix) else full.lstrip("/")
+    # long-lived presign (7 days) — recipe-cards-data.js is a precomputed artifact;
+    # a 1h url would expire before the offline tab is opened.
+    return s3_upload_and_presign(str(local_png), rel, expires=604800)
+
+
 def sync_dam_from_s3(dam_root: Path, delete: bool = False) -> bool:
     """Optional helper: bulk sync S3 prefix -> local dam_root via boto3.
 

@@ -93,11 +93,35 @@ def _bedrock_edit_enabled() -> bool:
     return True
 
 
-def _bedrock_client(service: str = "bedrock-runtime"):
+def _bedrock_client(
+    service: str = "bedrock-runtime",
+    *,
+    read_timeout: int | None = None,
+    region: str | None = None,
+):
+    """Boto3 client for a bedrock/rekognition service, region from BEDROCK_REGION/
+    AWS_REGION (default us-east-1). Returns None gracefully when boto3/creds are
+    absent so every caller falls back to a local path.
+
+    read_timeout (optional): when set, attach a botocore Config with that socket
+    read timeout and max_attempts=2. Image generation can exceed the default 60s
+    socket read, so image callers pass read_timeout=300. Existing callers omit it
+    and keep the default client — no behavior change for them.
+
+    region (optional): force a specific region regardless of BEDROCK_REGION/
+    AWS_REGION. recipe-art passes us-west-2 because Stable Image Core ON_DEMAND
+    lives there. When None, the env resolution below applies — existing callers
+    keep their behavior unchanged.
+    """
     try:
         import boto3
 
-        region = os.getenv("BEDROCK_REGION", os.getenv("AWS_REGION", "us-east-1"))
+        region = region or os.getenv("BEDROCK_REGION", os.getenv("AWS_REGION", "us-east-1"))
+        if read_timeout is not None:
+            from botocore.config import Config
+
+            cfg = Config(read_timeout=read_timeout, retries={"max_attempts": 2})
+            return boto3.client(service, region_name=region, config=cfg)
         return boto3.client(service, region_name=region)
     except Exception as e:  # noqa: BLE001 — any failure falls back to Pillow
         print(f"[spin] bedrock client unavailable, using local fallback: {e}")

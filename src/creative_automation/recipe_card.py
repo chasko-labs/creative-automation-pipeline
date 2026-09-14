@@ -650,12 +650,26 @@ def _recipe_meta_bar(recipe: dict | None) -> tuple[dict, list[str]]:
     return meta, unknown
 
 
+# the three art zones the recipe card renders hand-drawn line-art into. Keyed
+# short-names (no _sketch suffix) match recipe_art.ZONES and the seed art map.
+_ART_KEYS = ("raw_ingredient", "technique", "finished_plate")
+
+
+def _normalize_art(art: dict[str, str | None] | None) -> dict[str, str | None]:
+    """Return a {raw_ingredient, technique, finished_plate} url map with all three
+    keys present. Missing/None input degrades to all-null so the frontend never
+    KeyErrors — a null url signals fall-back to the existing SVG placeholder."""
+    src = art or {}
+    return {k: (src.get(k) or None) for k in _ART_KEYS}
+
+
 def build_recipe_card_data(
     market: str,
     *,
     month: str | None = None,
     lang: str = "en",
     substrate: str = "kraft",
+    art: dict[str, str | None] | None = None,
 ) -> dict:
     """Build a structured recipe-card DATA object (no image composed).
 
@@ -668,10 +682,19 @@ def build_recipe_card_data(
     (falling back to ingredients like build_recipe_card) with the real leading word
     uppercased as a bold action verb — no cooking action is invented.
 
+    art (optional): a {"raw_ingredient": url|None, "technique": url|None,
+    "finished_plate": url|None} map of Nova-Canvas-generated hand-drawn line-art
+    URLs (from recipe_cards_emit.seed_recipe_art). When a zone url is present the
+    frontend renders the drawing; when None (offline, no art seeded, or a rejected
+    render) the frontend falls back to its existing SVG placeholder. Every card
+    carries a normalized `art` block with all three keys so the frontend never
+    KeyErrors — missing input degrades to all-null, never crashes.
+
     No-pair / no-ingredient months return an honest shape carrying `reason` and
     ingredient:null rather than crashing, mirroring build_recipe_card's early
     returns.
     """
+    art_block = _normalize_art(art)
     try:
         tmpl: dict | None = load_recipe_card_template()
     except (OSError, ValueError):
@@ -701,6 +724,7 @@ def build_recipe_card_data(
             "ingredient": ingredient,
             "recipe": None,
             "reason": reason,
+            "art": art_block,
         }
 
     resolved = resolve_this_month(market, ym=month)
@@ -777,4 +801,5 @@ def build_recipe_card_data(
         },
         "ingredient": ingredient,
         "recipe": {"id": recipe.get("id"), "name": recipe.get("name")},
+        "art": art_block,
     }
