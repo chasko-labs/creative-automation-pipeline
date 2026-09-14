@@ -5,7 +5,7 @@
     "purpose": "Each retail metro location pairs with a frontier sister location. Every pair carries a retailer list and a monthly local ingredient sourced from a local farmers market. Drives seasonal recipe-card localization and retailer logo lockups.",
     "monthly_ingredient_mechanism": "monthly_ingredients maps ISO month (YYYY-MM) -> in-season local ingredient for the frontier sister's farmers market. Populate the current month at seed time; the other 11 months are filled by a research dispatch (ghost research task) that resolves each frontier market's seasonal produce calendar from the linked farmers_market_url + regional extension-service crop calendars. Entries marked research_todo=true are placeholders awaiting that dispatch.",
     "seasonal_moments_mechanism": "seasonal_moments is an array of holiday/season entries per pair. Each entry captures the fresh local ingredients available at that moment (available_ingredients) plus the favorite bake flavors people reach for then (favorite_flavors), for the creative bank. Every entry carries a source, confidence (high|medium|low), and status (confirmed|proposed). Notes flag storage/value-added vs fresh-harvest and imported flavor-culture vs local-grown so the creative bank stays non-fabricated.",
-    "confirmed_pairs": 55
+    "confirmed_pairs": 67
   },
   "pairs": [
     {
@@ -6689,6 +6689,1467 @@
           "confidence": "low",
           "status": "proposed",
           "note": "honey is genuinely local; gingerbread/cinnamon are imported flavor-culture"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-CA-CASTROVILLE",
+      "metro_location": null,
+      "metro_location_note": "seeded batch PacificCoastal; metro storefront details pending confirmation, not fabricated",
+      "frontier_sister": {
+        "place": "Castroville, CA",
+        "market": "US-CA-CASTROVILLE",
+        "farmers_market_url": null,
+        "note": "Self-paired. Artichoke Center of the World, Monterey County coast. Cool coastal fog belt supports year-round artichoke production with a spring peak. Home of the Castroville Artichoke Festival.",
+        "farmers_market_url_note": "farmers_market_url pending confirmation for seeded batch PacificCoastal; not fabricated"
+      },
+      "retailers": [
+        "Safeway",
+        "Nob Hill Foods (Raley's)",
+        "Save Mart",
+        "Sprouts Farmers Market"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "artichokes",
+        "2026-02": "artichokes",
+        "2026-03": "artichokes",
+        "2026-04": "artichokes",
+        "2026-05": "strawberries",
+        "2026-06": "strawberries",
+        "2026-07": "leaf lettuce",
+        "2026-08": "sweet corn",
+        "2026-09": "artichokes",
+        "2026-10": "Brussels sprouts",
+        "2026-11": "Brussels sprouts",
+        "2026-12": "artichokes"
+      },
+      "monthly_ingredient_notes": {
+        "general": "Monterey County coastal fog belt yields artichokes nearly year-round with a March-May peak and a smaller fall (Sep-Oct) flush. Salinas Valley proper supplies leaf lettuce and strawberries in the warm months; Brussels sprouts on the coast peak late fall. All fresh-harvest, local-grown.",
+        "confidence": "high",
+        "source": "UC ANR / UC Cooperative Extension Monterey County crop seasonality; California Grown seasonality guide; Castroville Artichoke Festival crop tradition"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Artichoke Festival (spring, historically May/June)",
+          "available_ingredients": [
+            "artichokes",
+            "strawberries"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "lemon",
+            "artichoke-savory"
+          ],
+          "source": "Castroville Artichoke Festival; UC ANR Monterey County vegetable crop calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Artichoke peak is genuinely local; lemon is an imported bake flavor tradition"
+        },
+        {
+          "moment": "Peak artichoke season (spring, Mar-May)",
+          "available_ingredients": [
+            "artichokes",
+            "leaf lettuce"
+          ],
+          "favorite_flavors": [
+            "lemon",
+            "herb-savory"
+          ],
+          "source": "UC ANR / UCCE Monterey County crop seasonality",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest local"
+        },
+        {
+          "moment": "Summer berry + corn season (Jun-Aug)",
+          "available_ingredients": [
+            "strawberries",
+            "sweet corn",
+            "leaf lettuce"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "sweet-corn",
+            "vanilla"
+          ],
+          "source": "California Grown; Salinas Valley farmers market listings",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest local"
+        },
+        {
+          "moment": "Thanksgiving / fall coastal harvest",
+          "available_ingredients": [
+            "Brussels sprouts",
+            "artichokes"
+          ],
+          "favorite_flavors": [
+            "pumpkin",
+            "cinnamon",
+            "maple"
+          ],
+          "source": "US baking culture; UC ANR coastal Brussels sprouts calendar",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "Brussels sprouts local; pumpkin/maple are imported bake traditions"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": [
+            "artichokes",
+            "Brussels sprouts"
+          ],
+          "favorite_flavors": [
+            "peppermint",
+            "gingerbread",
+            "citrus"
+          ],
+          "source": "US winter baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "peppermint/gingerbread imported flavor traditions, not coastal-grown"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-W-LA",
+      "metro_location": null,
+      "metro_location_note": "seeded batch PacificCoastal; metro storefront details pending confirmation, not fabricated",
+      "frontier_sister": {
+        "place": "Fillmore, CA",
+        "market": "US-CA-FILLMORE",
+        "farmers_market_url": null,
+        "note": "Ventura County citrus heartland in the Santa Clara River valley. Oranges and lemons are the signature winter crop. Home of the Fillmore & Western Railway heritage rides.",
+        "farmers_market_url_note": "farmers_market_url pending confirmation for seeded batch PacificCoastal; not fabricated"
+      },
+      "retailers": [
+        "Vons",
+        "Ralphs",
+        "Vallarta Supermarkets",
+        "Sprouts Farmers Market"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "navel oranges",
+        "2026-02": "lemons",
+        "2026-03": "lemons",
+        "2026-04": "strawberries",
+        "2026-05": "strawberries",
+        "2026-06": "avocados",
+        "2026-07": "avocados",
+        "2026-08": "Valencia oranges",
+        "2026-09": "avocados",
+        "2026-10": "avocados",
+        "2026-11": "navel oranges",
+        "2026-12": "navel oranges"
+      },
+      "monthly_ingredient_notes": {
+        "general": "Ventura County winter is citrus season: navel oranges (Nov-Feb) and lemons (near year-round with a late-winter/spring flush). Strawberries peak spring in Oxnard-Ventura coastal plain. Hass avocados peak late spring through summer with a Sep-Oct tail. Valencia oranges are the summer orange. No cold-storage winter dormancy here.",
+        "confidence": "high",
+        "source": "UC ANR / UC Cooperative Extension Ventura County citrus and avocado calendars; California Avocado Commission seasonality; California Grown seasonality guide"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Winter citrus season (Nov-Feb)",
+          "available_ingredients": [
+            "navel oranges",
+            "lemons",
+            "avocados"
+          ],
+          "favorite_flavors": [
+            "orange",
+            "lemon",
+            "meyer-lemon"
+          ],
+          "source": "UC ANR Ventura County citrus calendar; California Grown",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest local; winter is peak citrus, not dormancy"
+        },
+        {
+          "moment": "Spring strawberry season (Apr-Jun)",
+          "available_ingredients": [
+            "strawberries",
+            "lemons"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "lemon"
+          ],
+          "source": "Ventura County (Oxnard) strawberry industry; California Grown",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest local"
+        },
+        {
+          "moment": "Summer avocado + Valencia peak (Jun-Aug)",
+          "available_ingredients": [
+            "avocados",
+            "Valencia oranges"
+          ],
+          "favorite_flavors": [
+            "avocado-savory",
+            "orange",
+            "vanilla"
+          ],
+          "source": "California Avocado Commission; UC ANR",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest local"
+        },
+        {
+          "moment": "Thanksgiving",
+          "available_ingredients": [
+            "navel oranges",
+            "avocados"
+          ],
+          "favorite_flavors": [
+            "pumpkin",
+            "orange-spice",
+            "cinnamon"
+          ],
+          "source": "US baking culture; local citrus calendar",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "citrus local; pumpkin imported bake tradition"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": [
+            "navel oranges",
+            "lemons"
+          ],
+          "favorite_flavors": [
+            "orange",
+            "cranberry",
+            "gingerbread"
+          ],
+          "source": "US winter baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "orange local and traditional; cranberry/gingerbread imported"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-W-SACRAMENTO",
+      "metro_location": null,
+      "metro_location_note": "seeded batch PacificCoastal; metro storefront details pending confirmation, not fabricated",
+      "frontier_sister": {
+        "place": "Dixon, CA",
+        "market": "US-CA-DIXON",
+        "farmers_market_url": null,
+        "note": "Solano County Central Valley farm town between Sacramento and Davis. Processing tomatoes, sweet corn, and sunflowers are signature crops. Home of the Dixon May Fair, one of California's oldest county fairs.",
+        "farmers_market_url_note": "farmers_market_url pending confirmation for seeded batch PacificCoastal; not fabricated"
+      },
+      "retailers": [
+        "Safeway",
+        "Raley's",
+        "Nugget Markets",
+        "Save Mart"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "citrus (mandarins)",
+        "2026-02": "leafy greens",
+        "2026-03": "asparagus",
+        "2026-04": "strawberries",
+        "2026-05": "cherries",
+        "2026-06": "apricots",
+        "2026-07": "tomatoes",
+        "2026-08": "sweet corn",
+        "2026-09": "tomatoes",
+        "2026-10": "winter squash",
+        "2026-11": "walnuts",
+        "2026-12": "mandarins"
+      },
+      "monthly_ingredient_notes": {
+        "general": "Central Valley summer heat drives peak tomatoes (Jul-Sep) and sweet corn (Jul-Aug). Delta asparagus in early spring, cherries and apricots late spring/early summer. Walnuts harvest in fall. Winter is mandarins/citrus and leafy greens, not dormancy. Sunflowers bloom Jun-Jul as a landscape signature (seed crop, not a market produce item).",
+        "confidence": "high",
+        "source": "UC ANR / UC Cooperative Extension Solano and Yolo County crop calendars; California Grown seasonality guide; Dixon May Fair crop tradition"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Dixon May Fair (May) / late-spring harvest",
+          "available_ingredients": [
+            "cherries",
+            "strawberries",
+            "asparagus"
+          ],
+          "favorite_flavors": [
+            "cherry",
+            "strawberry"
+          ],
+          "source": "Dixon May Fair; UC ANR Solano County crop calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest local"
+        },
+        {
+          "moment": "Sunflower bloom season (Jun-Jul)",
+          "available_ingredients": [
+            "apricots",
+            "cherries",
+            "sweet corn"
+          ],
+          "favorite_flavors": [
+            "apricot",
+            "honey",
+            "sunflower-seed"
+          ],
+          "source": "Yolo/Solano County sunflower seed-crop bloom; UC ANR",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "sunflowers are a regional landscape/seed crop, not fresh market produce; fruit is local"
+        },
+        {
+          "moment": "Peak tomato + corn season (Jul-Sep)",
+          "available_ingredients": [
+            "tomatoes",
+            "sweet corn"
+          ],
+          "favorite_flavors": [
+            "sweet-corn",
+            "vanilla",
+            "honey"
+          ],
+          "source": "California processing-tomato industry; UC ANR Central Valley",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest local"
+        },
+        {
+          "moment": "Thanksgiving / fall harvest",
+          "available_ingredients": [
+            "walnuts",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "walnut",
+            "pumpkin",
+            "maple"
+          ],
+          "source": "UC ANR walnut harvest calendar; US baking culture",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "walnuts and squash local; maple imported"
+        },
+        {
+          "moment": "Winter holidays / citrus season",
+          "available_ingredients": [
+            "mandarins",
+            "leafy greens"
+          ],
+          "favorite_flavors": [
+            "mandarin",
+            "gingerbread",
+            "peppermint"
+          ],
+          "source": "UC ANR foothill mandarin calendar; US winter baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "mandarins local (nearby foothills); gingerbread/peppermint imported"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-W-SANJOSE",
+      "metro_location": null,
+      "metro_location_note": "seeded batch PacificCoastal; metro storefront details pending confirmation, not fabricated",
+      "frontier_sister": {
+        "place": "Brentwood, CA",
+        "market": "US-CA-BRENTWOOD",
+        "farmers_market_url": null,
+        "note": "East Contra Costa County u-pick farm belt. Signature is Brentwood cherries (May-Jun u-pick season), plus sweet corn and peaches. Long-standing Harvest Time in Brentwood u-pick network.",
+        "farmers_market_url_note": "farmers_market_url pending confirmation for seeded batch PacificCoastal; not fabricated"
+      },
+      "retailers": [
+        "Safeway",
+        "Lucky Supermarkets",
+        "Raley's",
+        "Sprouts Farmers Market"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "citrus (mandarins)",
+        "2026-02": "leafy greens",
+        "2026-03": "asparagus",
+        "2026-04": "strawberries",
+        "2026-05": "cherries",
+        "2026-06": "cherries",
+        "2026-07": "peaches",
+        "2026-08": "sweet corn",
+        "2026-09": "peaches",
+        "2026-10": "winter squash",
+        "2026-11": "walnuts",
+        "2026-12": "mandarins"
+      },
+      "monthly_ingredient_notes": {
+        "general": "Brentwood's signature is the cherry u-pick season (mid-May through June). Peaches and apricots follow in summer, sweet corn peaks Jul-Aug, walnuts in fall. Delta asparagus early spring. Winter is citrus and leafy greens, not dormancy.",
+        "confidence": "high",
+        "source": "UC ANR / UC Cooperative Extension Contra Costa County crop calendars; Harvest Time in Brentwood u-pick grower listings; California Grown seasonality guide"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Brentwood cherry u-pick season (mid-May to Jun)",
+          "available_ingredients": [
+            "cherries",
+            "strawberries"
+          ],
+          "favorite_flavors": [
+            "cherry",
+            "strawberry",
+            "vanilla"
+          ],
+          "source": "Harvest Time in Brentwood u-pick calendar; UC ANR Contra Costa County",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest local; cherries are the town signature"
+        },
+        {
+          "moment": "Summer stone fruit + corn (Jul-Aug)",
+          "available_ingredients": [
+            "peaches",
+            "sweet corn",
+            "apricots"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "sweet-corn",
+            "apricot"
+          ],
+          "source": "UC ANR Contra Costa County; California Grown",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest local"
+        },
+        {
+          "moment": "Fall harvest / Thanksgiving",
+          "available_ingredients": [
+            "walnuts",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "walnut",
+            "pumpkin",
+            "cinnamon"
+          ],
+          "source": "UC ANR walnut calendar; US baking culture",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "walnuts and squash local; pumpkin bake tradition"
+        },
+        {
+          "moment": "Winter holidays / citrus season",
+          "available_ingredients": [
+            "mandarins",
+            "leafy greens"
+          ],
+          "favorite_flavors": [
+            "mandarin",
+            "peppermint",
+            "gingerbread"
+          ],
+          "source": "US winter baking culture; UC ANR citrus calendar",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "mandarins local; peppermint/gingerbread imported"
+        },
+        {
+          "moment": "Spring asparagus season (Mar-Apr)",
+          "available_ingredients": [
+            "asparagus",
+            "strawberries"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "lemon"
+          ],
+          "source": "Sacramento-San Joaquin Delta asparagus; UC ANR",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest local; lemon imported bake flavor"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-W-SD",
+      "metro_location": null,
+      "metro_location_note": "seeded batch PacificCoastal; metro storefront details pending confirmation, not fabricated",
+      "frontier_sister": {
+        "place": "Julian, CA",
+        "market": "US-CA-JULIAN",
+        "farmers_market_url": null,
+        "note": "Higher-elevation (approx 4200 ft) mountain apple town in San Diego County's Cuyamaca range. Real fall apple harvest and cider/pie tradition — the one Pacific Coastal exception with genuine cool-season dormancy. Home of Julian apple pie and fall harvest festivals.",
+        "farmers_market_url_note": "farmers_market_url pending confirmation for seeded batch PacificCoastal; not fabricated"
+      },
+      "retailers": [
+        "Vons",
+        "Ralphs",
+        "Stater Bros. Markets",
+        "Sprouts Farmers Market"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "stored apples",
+        "2026-02": "citrus (from lowland San Diego County)",
+        "2026-03": "leafy greens",
+        "2026-04": "asparagus",
+        "2026-05": "strawberries",
+        "2026-06": "cherries",
+        "2026-07": "peaches",
+        "2026-08": "pears",
+        "2026-09": "apples",
+        "2026-10": "apples",
+        "2026-11": "apples",
+        "2026-12": "apple cider"
+      },
+      "monthly_ingredient_notes": {
+        "general": "Julian's higher elevation gives it a true fall apple harvest (Sep-Nov) with cider and pie tradition through December, unlike coastal CA. Cherries and pears appear in summer at local orchards. Winter/early spring produce leans on lowland San Diego County citrus and greens since the mountain has real cool-season dormancy. Stored apples carry into January.",
+        "confidence": "high",
+        "source": "UC ANR / UC Cooperative Extension San Diego County crop calendars; Julian apple-town harvest and pie tradition; California Grown seasonality guide"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Julian apple harvest / fall festival (Sep-Nov)",
+          "available_ingredients": [
+            "apples",
+            "pears",
+            "apple cider"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "cinnamon",
+            "apple-cider"
+          ],
+          "source": "Julian apple-town harvest tradition; UC ANR San Diego County mountain crops",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest local; the signature Julian moment"
+        },
+        {
+          "moment": "Thanksgiving / apple pie season",
+          "available_ingredients": [
+            "apples",
+            "apple cider"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "pumpkin",
+            "cinnamon",
+            "cider"
+          ],
+          "source": "Julian apple pie tradition; US baking culture",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "apple/cider genuinely local; pumpkin imported bake tradition"
+        },
+        {
+          "moment": "Winter holidays / stored apples + cider",
+          "available_ingredients": [
+            "stored apples",
+            "apple cider"
+          ],
+          "favorite_flavors": [
+            "cider-spice",
+            "gingerbread",
+            "apple"
+          ],
+          "source": "Julian cider tradition; US winter baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "stored apples/cider are value-added local; gingerbread imported"
+        },
+        {
+          "moment": "Summer orchard fruit (Jun-Aug)",
+          "available_ingredients": [
+            "cherries",
+            "peaches",
+            "pears"
+          ],
+          "favorite_flavors": [
+            "cherry",
+            "peach",
+            "pear"
+          ],
+          "source": "UC ANR San Diego County mountain orchards; California Grown",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "fresh-harvest local; smaller-volume mountain orchards"
+        },
+        {
+          "moment": "Spring lowland season (Mar-May)",
+          "available_ingredients": [
+            "strawberries",
+            "asparagus",
+            "citrus"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "lemon"
+          ],
+          "source": "UC ANR San Diego County lowland crop calendar",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "sourced from lowland county, not the mountain itself; flagged imported-flavor for lemon"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-W-SF",
+      "metro_location": null,
+      "metro_location_note": "seeded batch PacificCoastal; metro storefront details pending confirmation, not fabricated",
+      "frontier_sister": {
+        "place": "Bolinas, CA",
+        "market": "US-CA-BOLINAS",
+        "farmers_market_url": null,
+        "note": "Marin County coastal village on the Point Reyes edge. Coastal cool-season vegetables, pasture dairy, and foraged/wild ingredients. US-W-SF is a legacy alias whose primary seeded pair is Pescadero; this is the Bolinas frontier variant. Mediterranean coastal — year-round greens, no dormancy.",
+        "farmers_market_url_note": "farmers_market_url pending confirmation for seeded batch PacificCoastal; not fabricated"
+      },
+      "retailers": [
+        "Safeway",
+        "Whole Foods Market",
+        "Mollie Stone's Markets",
+        "United Markets"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "leafy greens",
+        "2026-02": "kale",
+        "2026-03": "coastal greens",
+        "2026-04": "peas",
+        "2026-05": "strawberries",
+        "2026-06": "lettuce",
+        "2026-07": "summer squash",
+        "2026-08": "tomatoes",
+        "2026-09": "chanterelles (foraged)",
+        "2026-10": "winter squash",
+        "2026-11": "Brussels sprouts",
+        "2026-12": "citrus (from inland Marin)"
+      },
+      "monthly_ingredient_notes": {
+        "general": "Marin coast fog belt keeps leafy greens, kale, and lettuce available nearly year-round with no true dormancy. Peas and strawberries in spring, summer squash and coastal tomatoes in the warm window, Brussels sprouts in late fall. Wild chanterelles are a foraged fall-rain item (weather-dependent). Point Reyes/Marin pasture dairy (butter, cheese) is a year-round value-added signature.",
+        "confidence": "medium",
+        "source": "UC ANR / UC Cooperative Extension Marin County coastal crop notes; Point Reyes / Marin pasture dairy tradition; California Grown seasonality guide"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Coastal spring greens + peas (Mar-May)",
+          "available_ingredients": [
+            "peas",
+            "coastal greens",
+            "strawberries"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "honey",
+            "herb-savory"
+          ],
+          "source": "UC ANR Marin County coastal crop notes; Marin farmers market listings",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "fresh-harvest local; small-farm coastal supply"
+        },
+        {
+          "moment": "Summer coastal harvest (Jul-Aug)",
+          "available_ingredients": [
+            "summer squash",
+            "tomatoes",
+            "lettuce"
+          ],
+          "favorite_flavors": [
+            "tomato-savory",
+            "vanilla",
+            "honey"
+          ],
+          "source": "Marin farmers market seasonal listings",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "coastal fog limits tomato volume; local but small-scale"
+        },
+        {
+          "moment": "Fall foraging / mushroom season (Sep-Nov)",
+          "available_ingredients": [
+            "chanterelles (foraged)",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "savory-mushroom",
+            "pumpkin",
+            "sage"
+          ],
+          "source": "Marin/Point Reyes coastal foraging tradition (weather-dependent rains)",
+          "confidence": "low",
+          "status": "proposed",
+          "note": "foraged/wild, weather-dependent — flagged low confidence and non-cultivated"
+        },
+        {
+          "moment": "Thanksgiving / pasture dairy season",
+          "available_ingredients": [
+            "Brussels sprouts",
+            "winter squash",
+            "Marin pasture butter"
+          ],
+          "favorite_flavors": [
+            "pumpkin",
+            "brown-butter",
+            "sage"
+          ],
+          "source": "Point Reyes / Marin pasture dairy; US baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "butter is value-added local dairy; pumpkin imported bake tradition"
+        },
+        {
+          "moment": "Winter holidays / year-round greens",
+          "available_ingredients": [
+            "kale",
+            "leafy greens",
+            "citrus"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "peppermint",
+            "citrus"
+          ],
+          "source": "US winter baking culture; UC ANR coastal greens calendar",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "greens local year-round (no dormancy); citrus from inland Marin; gingerbread/peppermint imported"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-W-BEND",
+      "metro_location": null,
+      "metro_location_note": "seeded batch PacificNW; metro storefront details pending confirmation, not fabricated",
+      "frontier_sister": {
+        "place": "Sisters, OR",
+        "market": "US-OR-SISTERS",
+        "farmers_market_url": null,
+        "note": "High-desert central Oregon (Deschutes County), short frost-prone growing season, ranching country. Sisters Farmers Market runs Sundays June-October at Fir Street Park (Seed to Table Oregon). Frost can occur even in July-August at elevation, so field crops arrive late and winter leans on storage, ranch protein, and value-added goods.",
+        "farmers_market_url_note": "farmers_market_url pending confirmation for seeded batch PacificNW; not fabricated"
+      },
+      "retailers": [
+        "Ray's Food Place",
+        "Bi-Mart",
+        "Grocery Outlet",
+        "Safeway"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage potatoes",
+        "2026-02": "storage onions",
+        "2026-03": "microgreens",
+        "2026-04": "spring greens",
+        "2026-05": "asparagus",
+        "2026-06": "salad greens",
+        "2026-07": "snap peas",
+        "2026-08": "sweet corn",
+        "2026-09": "winter squash",
+        "2026-10": "storage apples",
+        "2026-11": "root vegetables",
+        "2026-12": "grass-fed beef"
+      },
+      "monthly_ingredient_notes": {
+        "source": "Sisters Farmers Market (Seed to Table Oregon, June-Oct season); OSU Extension EM 9128 'Growing Vegetables in Central Oregon' (frost possible July-Aug); High Desert Food and Farm Alliance.",
+        "note": "Jan-Apr and Nov-Dec are storage / greenhouse / ranch, not fresh field harvest — flagged so the creative bank does not imply midwinter field produce. Beef and lamb (ranch) carry the cold months. Fresh field window is genuinely June-October only."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Deep winter / ski season",
+          "available_ingredients": [
+            "storage potatoes",
+            "storage onions",
+            "grass-fed beef"
+          ],
+          "favorite_flavors": [
+            "cinnamon",
+            "gingerbread",
+            "maple"
+          ],
+          "source": "OSU Extension Central Oregon crop guidance; regional ranch culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "cinnamon/maple are imported baking traditions; storage crops + ranch protein are the local reality, no fresh field harvest"
+        },
+        {
+          "moment": "Sisters Farmers Market opening (June)",
+          "available_ingredients": [
+            "salad greens",
+            "snap peas",
+            "asparagus"
+          ],
+          "favorite_flavors": [
+            "honey",
+            "lemon",
+            "herb"
+          ],
+          "source": "Sisters Farmers Market / centraloregondaily.com (2026 opens June 7, Fir Street Park)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "first fresh window of the year; lemon is imported flavor culture"
+        },
+        {
+          "moment": "High-desert summer peak (Aug)",
+          "available_ingredients": [
+            "sweet corn",
+            "winter squash",
+            "salad greens"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "berry",
+            "honey"
+          ],
+          "source": "High Desert Food Trail (HDFFA); Sisters Farmers Market vendor list",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "short peak; berries at market are often trucked from west of the Cascades, not high-desert grown"
+        },
+        {
+          "moment": "Fall harvest / storage lay-in (Oct)",
+          "available_ingredients": [
+            "storage apples",
+            "winter squash",
+            "root vegetables"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "pumpkin",
+            "cinnamon"
+          ],
+          "source": "OSU Extension; regional storage-crop practice",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "apples are frequently sourced from interior orchards (Hood River / Yakima), stored not fresh-picked in Sisters"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": [
+            "root vegetables",
+            "storage onions",
+            "grass-fed beef"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "peppermint",
+            "cranberry"
+          ],
+          "source": "regional baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "peppermint/cranberry are imported holiday flavor traditions, not high-desert grown"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-W-PDX",
+      "metro_location": null,
+      "metro_location_note": "seeded batch PacificNW; metro storefront details pending confirmation, not fabricated",
+      "frontier_sister": {
+        "place": "Sauvie Island, OR",
+        "market": "US-OR-SAUVIE",
+        "farmers_market_url": null,
+        "note": "Portland's farm island at the Columbia/Willamette confluence (Multnomah County). West-of-Cascades marine climate: mild wet winters, classic berry / pumpkin / corn-maze / u-pick country. The Pumpkin Patch and Bella Organic run u-pick June-October; berries begin June, apples late July, pumpkins/corn maze September-October.",
+        "farmers_market_url_note": "farmers_market_url pending confirmation for seeded batch PacificNW; not fabricated"
+      },
+      "retailers": [
+        "Fred Meyer",
+        "Safeway",
+        "New Seasons Market",
+        "WinCo Foods"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "kale",
+        "2026-03": "leeks",
+        "2026-04": "rhubarb",
+        "2026-05": "asparagus",
+        "2026-06": "strawberries",
+        "2026-07": "raspberries",
+        "2026-08": "blueberries",
+        "2026-09": "sweet corn",
+        "2026-10": "pumpkins",
+        "2026-11": "hazelnuts",
+        "2026-12": "winter squash"
+      },
+      "monthly_ingredient_notes": {
+        "source": "travelportland.com berry/apple picking (u-pick June-Oct, berries from June, apples late July); Sauvie Island growers (The Pumpkin Patch, Bella Organic); Oregon hazelnut industry.",
+        "note": "Berries are the marquee crop: strawberries June, raspberries July, blueberries July-Aug. Pumpkins/corn maze define October. Hazelnuts are a real Willamette-valley Oregon crop harvested fall. Jan-Apr lean on storage apples + brassicas + rhubarb — real for the mild wet winter."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Berry season (June-July)",
+          "available_ingredients": [
+            "strawberries",
+            "raspberries",
+            "marionberries"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "raspberry",
+            "marionberry"
+          ],
+          "source": "travelportland.com; Columbia Farms U-Pick; Sauvie Island growers",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "marionberry is the signature Oregon blackberry cultivar; peak fresh u-pick window"
+        },
+        {
+          "moment": "Peak summer (August)",
+          "available_ingredients": [
+            "blueberries",
+            "sweet corn",
+            "peaches"
+          ],
+          "favorite_flavors": [
+            "blueberry",
+            "sweet corn",
+            "peach"
+          ],
+          "source": "Sauvie Island growers; travelportland.com",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "peaches at Portland markets are largely trucked from Hood River / interior, not Sauvie-grown"
+        },
+        {
+          "moment": "Pumpkin patch / corn maze (October)",
+          "available_ingredients": [
+            "pumpkins",
+            "winter squash",
+            "apples"
+          ],
+          "favorite_flavors": [
+            "pumpkin",
+            "apple",
+            "cinnamon"
+          ],
+          "source": "thepumpkinpatch.com; bellaorganic.com; sauvieisland.org",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "on-island grown pumpkins (not trucked in); defining fall agritourism moment"
+        },
+        {
+          "moment": "Hazelnut harvest / Thanksgiving",
+          "available_ingredients": [
+            "hazelnuts",
+            "winter squash",
+            "apples"
+          ],
+          "favorite_flavors": [
+            "hazelnut",
+            "pumpkin",
+            "maple"
+          ],
+          "source": "Oregon hazelnut industry (99% of US crop); regional baking",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "hazelnut is a genuine Oregon-grown Thanksgiving flavor; maple is imported tradition"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": [
+            "kale",
+            "leeks",
+            "storage apples"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "peppermint",
+            "cranberry"
+          ],
+          "source": "PNW baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "peppermint/cranberry are imported holiday flavor traditions"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-W-SEA",
+      "metro_location": null,
+      "metro_location_note": "seeded batch PacificNW; metro storefront details pending confirmation, not fabricated",
+      "frontier_sister": {
+        "place": "Carnation, WA",
+        "market": "US-WA-CARNATION",
+        "farmers_market_url": null,
+        "note": "Snoqualmie Valley farm town (King County), west of the Cascades. Marine climate, mild wet winters, dairy and berry country. Remlinger Farms is the anchor: strawberries early-to-mid June, raspberries through July, then the Northwest's large Fall Harvest / Pumpkin Festival with u-pick fields late September through November 1.",
+        "farmers_market_url_note": "farmers_market_url pending confirmation for seeded batch PacificNW; not fabricated"
+      },
+      "retailers": [
+        "QFC",
+        "Fred Meyer",
+        "Safeway",
+        "Grocery Outlet"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "kale",
+        "2026-03": "leeks",
+        "2026-04": "rhubarb",
+        "2026-05": "asparagus",
+        "2026-06": "strawberries",
+        "2026-07": "raspberries",
+        "2026-08": "blueberries",
+        "2026-09": "sweet corn",
+        "2026-10": "pumpkins",
+        "2026-11": "winter squash",
+        "2026-12": "dairy"
+      },
+      "monthly_ingredient_notes": {
+        "source": "Remlinger Farms u-pick / harvest pages (strawberries early-mid June, raspberries all July, pumpkins fall, Fall Harvest Festival Sep 26-Nov 1); valleyrecord.com Snoqualmie Valley berry guide; WSU Whatcom seasonal harvest guide as regional analog.",
+        "note": "West-of-Cascades pattern mirrors Sauvie: berries June-Aug, pumpkins Oct. Snoqualmie Valley is historic dairy country, so dairy anchors December. Winter is brassicas + storage, real for the mild wet climate."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Strawberry u-pick opening (June)",
+          "available_ingredients": [
+            "strawberries",
+            "asparagus",
+            "rhubarb"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "rhubarb",
+            "honey"
+          ],
+          "source": "Remlinger Farms u-pick; valleyrecord.com (June 2026 u-pick coverage)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "strawberry-rhubarb is a real early-summer PNW pairing"
+        },
+        {
+          "moment": "Raspberry / summer berry (July)",
+          "available_ingredients": [
+            "raspberries",
+            "blueberries",
+            "marionberries"
+          ],
+          "favorite_flavors": [
+            "raspberry",
+            "blueberry",
+            "marionberry"
+          ],
+          "source": "Remlinger Farms u-pick; Snoqualmie Valley berry guide",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "raspberries ripe the entire month of July per grower"
+        },
+        {
+          "moment": "Fall Harvest / Pumpkin Festival (Sep 26-Nov 1)",
+          "available_ingredients": [
+            "pumpkins",
+            "winter squash",
+            "apples"
+          ],
+          "favorite_flavors": [
+            "pumpkin",
+            "apple",
+            "cinnamon"
+          ],
+          "source": "remlingerfarms.com Fall Harvest Festival (Sep 26-Nov 1); seattlerefined.com",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Northwest's large family harvest festival; pumpkin-spice mini-donuts are the signature bake"
+        },
+        {
+          "moment": "Thanksgiving",
+          "available_ingredients": [
+            "winter squash",
+            "storage apples",
+            "leeks"
+          ],
+          "favorite_flavors": [
+            "pumpkin",
+            "apple",
+            "maple"
+          ],
+          "source": "PNW baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "maple is imported flavor tradition; squash/apple are local storage-available"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": [
+            "dairy",
+            "kale",
+            "storage apples"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "peppermint",
+            "eggnog"
+          ],
+          "source": "Snoqualmie Valley dairy heritage; regional baking",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "eggnog ties to local dairy; peppermint is imported tradition"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-W-SPOKANE",
+      "metro_location": null,
+      "metro_location_note": "seeded batch PacificNW; metro storefront details pending confirmation, not fabricated",
+      "frontier_sister": {
+        "place": "Green Bluff, WA",
+        "market": "US-WA-GREENBLUFF",
+        "farmers_market_url": null,
+        "note": "Spokane's orchard district (Spokane County), a collective of ~30 family farms 15 minutes north of downtown, considered Spokane's original farmers market. Interior climate. Strawberries late May-June, cherries late June-July, peaches/nectarines/apricots/blueberries August, apples and the Fall Harvest Festival last two weekends of September and all October weekends.",
+        "farmers_market_url_note": "farmers_market_url pending confirmation for seeded batch PacificNW; not fabricated"
+      },
+      "retailers": [
+        "Rosauers",
+        "Yoke's Fresh Market",
+        "Fred Meyer",
+        "Safeway"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "storage apples",
+        "2026-03": "rhubarb",
+        "2026-04": "asparagus",
+        "2026-05": "strawberries",
+        "2026-06": "cherries",
+        "2026-07": "cherries",
+        "2026-08": "peaches",
+        "2026-09": "apples",
+        "2026-10": "pumpkins",
+        "2026-11": "storage apples",
+        "2026-12": "storage apples"
+      },
+      "monthly_ingredient_notes": {
+        "source": "visitspokane.com Green Bluff seasonal guide (strawberries late May-June, cherries late June-July, peaches/nectarines/apricots/blueberries August); greenbluffgrowers.com (open May-December, Fruit Fort produce mid-June-Halloween); Fall Harvest Festival last two weekends Sep + all Oct weekends.",
+        "note": "True orchard district: cherries June-July, stone fruit August, apples September, pumpkins October. Storage apples carry the cold months (Nov-Feb) honestly — apples are the region's keeping crop. Fresh field/orchard window is May-October."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Cherry season (late June-July)",
+          "available_ingredients": [
+            "cherries",
+            "strawberries",
+            "rhubarb"
+          ],
+          "favorite_flavors": [
+            "cherry",
+            "strawberry",
+            "rhubarb"
+          ],
+          "source": "visitspokane.com Green Bluff seasonal guide",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "cherries late June through July; genuine local orchard fruit"
+        },
+        {
+          "moment": "Stone-fruit peak (August)",
+          "available_ingredients": [
+            "peaches",
+            "nectarines",
+            "apricots",
+            "blueberries"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "apricot",
+            "blueberry"
+          ],
+          "source": "visitspokane.com (peaches, nectarines, apricots, blueberries in August)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "all locally grown at Green Bluff orchards in August"
+        },
+        {
+          "moment": "Fall Harvest Festival (late Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "pumpkins",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "cider",
+            "pumpkin"
+          ],
+          "source": "greenbluffgrowers.com; gonzagabulletin.com (last two weekends Sep + all Oct weekends); explorewashingtonstate.com (peak first weekend Oct)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "u-press apple cider on-site; the district's signature season"
+        },
+        {
+          "moment": "Thanksgiving",
+          "available_ingredients": [
+            "apples",
+            "winter squash",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "pumpkin",
+            "cinnamon"
+          ],
+          "source": "regional harvest culture; Green Bluff open through December",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "storage apples and squash genuinely local into late fall"
+        },
+        {
+          "moment": "Winter holidays / Christmas trees",
+          "available_ingredients": [
+            "storage apples",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "cinnamon",
+            "gingerbread",
+            "apple-cider"
+          ],
+          "source": "greenbluffgrowers.com (open May-December, cherries to Christmas trees)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "Green Bluff sells Christmas trees in December; fresh produce is storage apples only by then"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-W-YAKIMA",
+      "metro_location": null,
+      "metro_location_note": "seeded batch PacificNW; metro storefront details pending confirmation, not fabricated",
+      "frontier_sister": {
+        "place": "Tieton, WA",
+        "market": "US-WA-TIETON",
+        "farmers_market_url": null,
+        "note": "Upper Yakima Valley orchard town (Yakima County), irrigated high desert. Yakima County leads Washington in apples, sweet cherries, and pears, with hundreds of acres of peaches, nectarines, plums/prunes, and apricots (WSU Extension). One of the country's major tree-fruit regions. Cherries June-July, apricots/peaches/plums July-August, apples August-November, storage apples and pears through winter.",
+        "farmers_market_url_note": "farmers_market_url pending confirmation for seeded batch PacificNW; not fabricated"
+      },
+      "retailers": [
+        "Fred Meyer",
+        "Safeway",
+        "Rosauers",
+        "Grocery Outlet"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "storage pears",
+        "2026-03": "storage apples",
+        "2026-04": "asparagus",
+        "2026-05": "asparagus",
+        "2026-06": "cherries",
+        "2026-07": "apricots",
+        "2026-08": "peaches",
+        "2026-09": "apples",
+        "2026-10": "apples",
+        "2026-11": "pears",
+        "2026-12": "storage apples"
+      },
+      "monthly_ingredient_notes": {
+        "source": "WSU Extension Yakima crop production (leading WA county for apples, sweet cherries, pears; hundreds of acres of peaches/nectarines/plums/apricots); visityakima.com produce schedule (Aug-Nov apple window); WSDA farm-to-school seasonality chart (storage note for stored-and-available crops).",
+        "note": "Real major tree-fruit calendar: cherries June, apricots/stone fruit July-Aug, apples Sep-Oct, pears fall. Washington apples and pears are controlled-atmosphere stored, so storage apples/pears legitimately fill Dec-Mar. Asparagus is a genuine Yakima Valley spring field crop. Highest-confidence produce calendar of the six."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Cherry season (June)",
+          "available_ingredients": [
+            "cherries",
+            "asparagus"
+          ],
+          "favorite_flavors": [
+            "cherry",
+            "almond"
+          ],
+          "source": "WSU Extension; visityakima.com produce schedule",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "sweet cherries are a flagship Yakima crop; almond is a classic pairing flavor, not local-grown"
+        },
+        {
+          "moment": "Stone-fruit summer (July-Aug)",
+          "available_ingredients": [
+            "apricots",
+            "peaches",
+            "nectarines",
+            "plums"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "apricot",
+            "plum"
+          ],
+          "source": "WSU Extension Yakima crop production (hundreds of acres soft fruit)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "all genuinely local irrigated high-desert tree fruit"
+        },
+        {
+          "moment": "Apple harvest (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "pears",
+            "grapes"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "cider",
+            "pear"
+          ],
+          "source": "visityakima.com (Aug-Nov apple window); WSU Extension",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "peak of the region's defining crop; wine grapes also harvest here in fall"
+        },
+        {
+          "moment": "Thanksgiving",
+          "available_ingredients": [
+            "apples",
+            "pears",
+            "winter squash"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "pear",
+            "cinnamon"
+          ],
+          "source": "regional harvest culture; controlled-atmosphere storage",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "apples and pears genuinely local and abundant into late fall"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": [
+            "storage apples",
+            "storage pears"
+          ],
+          "favorite_flavors": [
+            "apple-cinnamon",
+            "gingerbread",
+            "spiced pear"
+          ],
+          "source": "WSDA seasonality chart (stored and available); regional baking",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "controlled-atmosphere storage keeps WA apples/pears local-available all winter — not imported"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-WA-NEAHBAY",
+      "metro_location": null,
+      "metro_location_note": "seeded batch PacificNW; metro storefront details pending confirmation, not fabricated",
+      "frontier_sister": {
+        "place": "Neah Bay, WA",
+        "market": "US-WA-NEAHBAY",
+        "farmers_market_url": null,
+        "note": "Self-paired. Makah Reservation at the northwest tip of the Olympic Peninsula (Clallam County), Cape Flattery. A coastal fishing community, not a farming region — the Makah name means 'people generous with food' for their marine abundance. Diet and economy center on salmon, halibut, lingcod, rockfish, and Dungeness crab plus foraged coastal berries. Agriculture is very limited; this is honestly a seafood-and-foraged calendar, not a produce calendar. Flagged low-confidence throughout.",
+        "farmers_market_url_note": "farmers_market_url pending confirmation for seeded batch PacificNW; not fabricated"
+      },
+      "retailers": [
+        "Washburn's General Store (Neah Bay)",
+        "Makah Mini Mart",
+        "Forks Thriftway (nearest full grocery, ~1hr)",
+        "Cash & Carry / regional distributors"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "smoked salmon",
+        "2026-02": "halibut",
+        "2026-03": "razor clams",
+        "2026-04": "halibut",
+        "2026-05": "salmonberries",
+        "2026-06": "salmon",
+        "2026-07": "salmon",
+        "2026-08": "huckleberries",
+        "2026-09": "salmon",
+        "2026-10": "Dungeness crab",
+        "2026-11": "smoked salmon",
+        "2026-12": "smoked salmon"
+      },
+      "monthly_ingredient_notes": {
+        "source": "makah.com fishing/attractions (halibut, lingcod, rockfish, salmon, Dungeness crab); WDFW Neah Bay marine area (salmon fishing seasons); Makah Bay Seafoods; Smithsonian NK360 Pacific Coast (salmon/halibut/shellfish centrality); general Olympic Peninsula foraging (salmonberries late spring, huckleberries late summer).",
+        "note": "This is NOT a farm produce calendar and should not be presented as one. Entries are seafood catch windows and foraged berries. Salmon runs summer-fall; halibut spring; Dungeness crab fall/winter; razor clams dug on coastal beaches in cooler months; salmonberries May-June, huckleberries Aug-Sep. Preserved/smoked salmon is the real winter staple. Any land-farmed produce here is trucked in, not local-grown. Lowest-confidence pair of the six by design — honesty over fabrication."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Salmon run (summer-fall)",
+          "available_ingredients": [
+            "salmon",
+            "huckleberries"
+          ],
+          "favorite_flavors": [
+            "berry",
+            "honey"
+          ],
+          "source": "WDFW Neah Bay marine area; makah.com; FWS Makah National Fish Hatchery",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "salmon is the cultural and dietary center; berries are foraged, not farmed; bake flavors are aspirational for the creative bank, not tied to a farm crop"
+        },
+        {
+          "moment": "Salmonberry foraging (May-June)",
+          "available_ingredients": [
+            "salmonberries",
+            "salmon"
+          ],
+          "favorite_flavors": [
+            "salmonberry",
+            "wild berry"
+          ],
+          "source": "Olympic Peninsula coastal foraging (salmonberries ripen late spring)",
+          "confidence": "low",
+          "status": "proposed",
+          "note": "foraged wild berry, seasonal and place-specific; not a cultivated crop, quantities are small"
+        },
+        {
+          "moment": "Huckleberry foraging (Aug-Sep)",
+          "available_ingredients": [
+            "huckleberries",
+            "salmon"
+          ],
+          "favorite_flavors": [
+            "huckleberry",
+            "wild berry"
+          ],
+          "source": "Pacific NW coastal/montane foraging tradition",
+          "confidence": "low",
+          "status": "proposed",
+          "note": "foraged, not farmed; huckleberry is a genuine regional wild flavor"
+        },
+        {
+          "moment": "Dungeness crab / winter seafood (Oct-winter)",
+          "available_ingredients": [
+            "Dungeness crab",
+            "halibut",
+            "razor clams"
+          ],
+          "favorite_flavors": [
+            "savory",
+            "herb"
+          ],
+          "source": "makah.com fishing; WDFW; coastal razor-clam digs",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "seafood, not a bake ingredient; flavors are placeholder for the creative bank"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": [
+            "smoked salmon"
+          ],
+          "favorite_flavors": [
+            "gingerbread",
+            "cranberry",
+            "peppermint"
+          ],
+          "source": "regional baking culture; Makah smoked-salmon preservation tradition",
+          "confidence": "low",
+          "status": "proposed",
+          "note": "smoked salmon is the authentic winter staple; all listed bake flavors are imported traditions, no local-grown holiday produce exists here"
         }
       ],
       "research_todo": false
