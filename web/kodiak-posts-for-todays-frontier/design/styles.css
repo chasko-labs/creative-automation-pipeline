@@ -584,15 +584,15 @@
 /* substrate token sets — color intents pulled from recipe-card.json substrates.*
    and the kodiak design tokens (--colors-* already emitted above) */
 .rc-card[data-substrate="kraft"]{
-  --rc-bg: #C9A57A;                                   /* lightened kraft board tone */
-  --rc-fiber-opacity: .5;
+  --rc-bg: #E4C99E;                                    /* warmer, lighter craft-paper board — bear-brown ink pops, stays handcrafted (was #C9A57A muddy) */
+  --rc-fiber-opacity: .28;                             /* restrained fiber grain — lowered so it never muddies the text (was .5) */
   --rc-ink: var(--colors-brand-bear-brown);            /* deep brown / black archival */
-  --rc-ink-2: color-mix(in srgb, var(--colors-brand-bear-brown) 78%, transparent);
+  --rc-ink-2: color-mix(in srgb, var(--colors-brand-bear-brown) 82%, transparent);
   --rc-border: var(--colors-brand-bear-brown);
   --rc-accent: var(--colors-brand-blaze-orange);       /* restrained blaze-orange */
   --rc-accent-2: var(--colors-brand-frontier-green);   /* frontier-green secondary */
   --rc-basecoat: #FFFFFF;                              /* opaque white base under art */
-  --rc-meta-muted: var(--colors-neutral-600);          /* canyon */
+  --rc-meta-muted: var(--colors-neutral-700);          /* espresso — deeper so prices hold ~5:1 on lightened kraft */
   --rc-wire: var(--colors-brand-blaze-orange);
   --rc-shadow: var(--shadows-none);                    /* matte board, no gloss */
 }
@@ -633,20 +633,20 @@
 .rc-contrast-status{margin:0;font:500 12px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-600);max-width:34ch}
 .rc-control--print{margin-left:auto}
 
-/* provenance legend — glyph + label, never color-only */
-.rc-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0 0 16px;padding:0;list-style:none}
-.rc-prov{display:flex;align-items:center;gap:6px;font:600 12px/1.4 "kodiak_sans","museo-sans",sans-serif;color:var(--colors-neutral-700)}
-.rc-prov__mark{font-family:JetBrains Mono,Menlo,monospace;font-weight:700;padding:1px 5px;border-radius:2px;border:1px solid var(--colors-neutral-300);background:#FFFBF6}
-.rc-prov--source .rc-prov__mark{border-color:var(--colors-brand-frontier-green);color:var(--colors-brand-frontier-green)}
-.rc-prov--proposed .rc-prov__mark{border-color:var(--colors-brand-blaze-orange);color:var(--colors-brand-blaze-orange)}
-.rc-prov--unknown .rc-prov__mark{border-color:var(--colors-neutral-500);color:var(--colors-neutral-600)}
-
 /* stage: flat card + board side by side on desktop */
 .rc-stage{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
 
 /* the card shell reserves scaled screen space; --rc-scale fits the physical card
-   into the layout without changing internal proportions */
-.rc-card-shell{--rc-scale:0.62;flex:0 0 auto;width:calc(8.5in * var(--rc-scale));height:calc(11in * var(--rc-scale))}
+   into the layout without changing internal proportions (the card is 8.5x11in and
+   transform-scaled as a whole, so the recipe layout never reflows).
+   --rc-scale MUST stay unitless (used by transform:scale AND by the width/height
+   calc below). scale is set by clean breakpoints here + narrowed further in the
+   media queries; the shell is also clamped so a scaled card can never exceed its
+   container and force a horizontal scrollbar. 8.5in ~= 816px at 96dpi. */
+.rc-card-shell{--rc-scale:0.62;flex:0 0 auto;
+  width:min(100%, calc(8.5in * var(--rc-scale)));
+  height:calc(11in * var(--rc-scale));
+  max-width:100%}
 
 /* THE FLAT CARD CANVAS — true physical 8.5x11in, scaled for screen only */
 .rc-card{
@@ -670,13 +670,24 @@
   opacity:var(--rc-fiber-opacity);mix-blend-mode:multiply;
 }
 
-/* header: two 1.0x1.0in corner accents + centered title, 0.25in buffer */
+/* header: two 1.0x1.0in corner accents + centered title, 0.25in buffer.
+   the middle 1fr slot is an inline-size container so the title can size
+   FLUIDLY to the room it actually has (long titles shrink instead of clipping).
+   min-height grows with content so a 2-3 line title never collides with meta. */
 .rc-header{position:relative;display:grid;grid-template-columns:1in 1fr 1in;align-items:center;column-gap:0.25in;min-height:1in}
 .rc-corner{width:1in;height:1in;color:var(--rc-ink)}
 .rc-corner__art{width:100%;height:100%;display:block}
-.rc-title{grid-column:2;margin:0;text-align:center;color:var(--rc-ink);
+.rc-title{grid-column:2;min-width:0;margin:0 auto;text-align:center;color:var(--rc-ink);
+  container-type:inline-size;                        /* title cell is the sizing container */
   font-family:"gin",Rockwell,Clarendon,Georgia,serif;font-weight:800;text-transform:uppercase;
-  letter-spacing:.03em;line-height:1.05;font-size:34pt}     /* heavy display, deep-brown/black legible */
+  letter-spacing:.02em;line-height:1.03;
+  /* fluid display size keyed to the ~5.0in center slot (1fr between the two 1in
+     accents, minus the 0.25in gaps). the card is transform-scaled as a whole so
+     the pt floor/ceiling stay proportional; the cqw middle term shrinks longer
+     titles to fit rather than wrapping to 3-4 lines and clipping into the meta bar.
+     18pt floor keeps 2-word titles readable; 32pt ceiling keeps the heavy hand-lettered feel. */
+  font-size:clamp(18pt, 9.2cqw, 32pt);
+  overflow-wrap:break-word;word-break:break-word;hyphens:auto;text-wrap:balance}
 
 /* meta bar: four equal columns, value dominant, single horizontal accent rule */
 .rc-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:0.1in;margin:0.14in 0 0;
@@ -698,7 +709,6 @@
 .rc-ing__name{flex:0 1 auto}
 .rc-ing::after{content:"";flex:1 1 auto;align-self:end;margin-bottom:3pt;border-bottom:1px dotted var(--rc-ink-2)}  /* dotted leaders */
 .rc-ing__price{flex:0 0 auto;color:var(--rc-meta-muted);font-size:9.5pt}   /* de-emphasized */
-.rc-prov__mark{white-space:nowrap}
 
 /* steps: numbered, bold all-caps action verb */
 .rc-steps{margin:0 0 0.15in;padding-left:1.3em}
@@ -722,8 +732,14 @@
 .rc-wireframe{position:absolute;inset:0;pointer-events:none;display:none}
 .rc-card.is-wireframe .rc-wireframe{display:block}
 .rc-wf{position:absolute;border:1px dashed var(--rc-wire)}
-.rc-wf__tag{position:absolute;top:0;left:0;transform:translateY(-100%);
-  background:var(--rc-wire);color:#fff;font:700 6pt/1.2 JetBrains Mono,Menlo,monospace;padding:1px 3px;white-space:nowrap}
+.rc-wf__tag{position:absolute;top:0;left:0;
+  /* counter-scale the tag text against the card's transform:scale so the net
+     on-screen size is CONSTANT at every breakpoint: 10pt card-units x scale x
+     (1/scale) = ~13.3px rendered on desktop, tablet, and phone alike. no
+     ballooning, no overlap change across sizes. bottom-left origin pins the
+     tag just above its dashed box. */
+  transform:translateY(-100%) scale(calc(1 / var(--rc-scale)));transform-origin:left bottom;
+  background:var(--rc-wire);color:#fff;font:700 10pt/1.15 JetBrains Mono,Menlo,monospace;padding:1.5px 5px;white-space:nowrap;border-radius:2px}
 .rc-wf--safe{inset:0}
 .rc-wf--usable{top:0.5in;left:0.5in;width:7.5in;height:10in}
 .rc-wf--header{top:0.5in;left:0.5in;right:0.5in;height:1in;border-color:color-mix(in srgb, var(--rc-wire) 60%, transparent)}
@@ -758,25 +774,34 @@
 .rc-tag--implementation{background:var(--colors-neutral-100);color:var(--colors-neutral-700);border-color:var(--colors-neutral-300)}
 .rc-tag--validation{background:var(--colors-brand-blaze-orange);color:#fff}
 .rc-spec__swatches{display:flex;align-items:center;gap:10px;margin-top:12px}
-.rc-swatch{width:28px;height:28px;border-radius:3px;border:1px solid var(--colors-neutral-300);background:#C9A57A}
+.rc-swatch{width:28px;height:28px;border-radius:3px;border:1px solid var(--colors-neutral-300);background:#E4C99E}
 .rc-spec__swatches .rc-swatch__label{font:600 13px/1.3 "museo-sans",sans-serif;color:var(--colors-brand-bear-brown)}
 
 /* keyboard focus — reuse the page focus-ring token (signal-red) */
 .recipe-card-standard :is(button,input,summary,[tabindex]):focus-visible{outline:3px solid var(--colors-brand-signal-red);outline-offset:2px;border-radius:2px}
 
-/* ---- responsive: card scales to fit, internal geometry never reflows ---- */
+/* ---- responsive: --rc-scale steps down by breakpoint so the visual card
+   (816px * scale) always fits the available content width (viewport minus ~70px
+   of .wrap/.card/.body chrome). the recipe layout itself never reflows — only the
+   whole-card scale changes. controls/meta/wireframe labels stay readable because
+   the wireframe tags counter-scale to a constant on-screen size. ---- */
 @media (max-width:1024px){                                  /* tablet: board stacks below, card centered */
   .rc-stage{flex-direction:column;align-items:center}
-  .rc-card-shell{--rc-scale:0.68}
   .recipe-card-board{width:100%}
 }
-@media (max-width:640px){                                   /* phone: scale card down, keep proportions */
-  .rc-card-shell{--rc-scale:0.42}
+@media (max-width:640px){                                   /* large phone: stack controls, ease scale down */
   .rc-controls{flex-direction:column}
   .rc-control--print{margin-left:0}
+  .rc-card-shell{--rc-scale:0.55}
 }
-@media (max-width:380px){
+@media (max-width:480px){                                   /* phone: fit ~344px available at 414px vw */
+  .rc-card-shell{--rc-scale:0.42}
+}
+@media (max-width:380px){                                   /* small phone: fit ~290px available at 360px vw */
   .rc-card-shell{--rc-scale:0.34}
+}
+@media (max-width:340px){                                   /* narrowest phones: fit ~250px available at 320px vw */
+  .rc-card-shell{--rc-scale:0.30}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -793,7 +818,6 @@
   .wrap>#recipe-card-standard{display:block !important;border:0;box-shadow:none;background:none;margin:0}
   #recipe-card-standard .hd,
   #recipe-card-standard .rc-controls,
-  #recipe-card-standard .rc-legend,
   #recipe-card-standard .rc-spec,
   #recipe-card-standard .recipe-card-board,
   #recipe-card-standard .rc-wireframe{display:none !important}
