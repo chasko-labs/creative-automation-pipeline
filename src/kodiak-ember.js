@@ -190,14 +190,48 @@ function probeWebGL() {
 function prefersReducedMotion() {
 	return matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
-function canMount3D(host) {
-	if (typeof document === "undefined") return false;
+// gateReason — SELF-DIAGNOSING gate. Returns a structured { code, message }
+// explaining exactly why 3D cannot mount, or null when it CAN. The checks run in
+// the SAME order canMount3D historically used, so the returned reason always
+// matches the actual refusing condition. This is the single source of truth for
+// the gate; canMount3D is a thin boolean wrapper over it. No condition here is
+// looser than the original gate — SwiftShader software rendering and Reduce
+// Motion still refuse exactly as strictly as before.
+function gateReason(host) {
+	if (typeof document === "undefined")
+		return { code: "no-document", message: "3D preview needs a browser document." };
 	const probe = probeWebGL();
-	if (!probe.available) return false;
-	if (SOFTWARE_RE.test(probe.renderer)) return false;
-	if (prefersReducedMotion()) return false;
-	if (!host || host.clientWidth === 0 || host.clientHeight === 0) return false;
-	return true;
+	if (!probe.available)
+		return {
+			code: "no-webgl",
+			message:
+				"3D preview is off because this browser has WebGL disabled or unavailable. Showing the static image.",
+		};
+	if (SOFTWARE_RE.test(probe.renderer))
+		return {
+			code: "software-renderer",
+			// include the detected renderer so the owner sees exactly what was found
+			renderer: probe.renderer,
+			message:
+				"3D preview needs hardware graphics acceleration — this browser is using software rendering (SwiftShader). Enable hardware acceleration (see chrome://gpu) to view the 3D board. Showing the static image.",
+		};
+	if (prefersReducedMotion())
+		return {
+			code: "reduced-motion",
+			message:
+				"3D preview is turned off because your system has Reduce Motion enabled (an accessibility setting). Showing the static image.",
+		};
+	if (!host || host.clientWidth === 0 || host.clientHeight === 0)
+		return {
+			code: "no-layout",
+			message: "3D preview could not size its container yet. Showing the static image.",
+		};
+	return null; // all conditions pass — 3D can mount
+}
+// canMount3D — thin wrapper over gateReason. Identical behavior to the prior
+// direct-check version: it returns true only when every gate condition passes.
+function canMount3D(host) {
+	return gateReason(host) === null;
 }
 
 // ── Wave 1 — recipe-card physical-board preview ──
@@ -555,13 +589,13 @@ function mountRecipeCardBoard(selector = "#recipe-card-board") {
 
 	const tryMount = () => {
 		if (state.mounted) return; // never leak a second scene
-		if (!canMount3D(container)) {
-			// gate fail -> leave the static fallback standing, no board
+		const reason = gateReason(container);
+		if (reason) {
+			// gate fail -> leave the static fallback standing, no board.
+			// Surface the STRUCTURED reason so the owner sees why it gated off,
+			// not a generic "unavailable" line.
 			rcbShowFallback(container, true);
-			rcbSetStatus(
-				container,
-				"3D board preview unavailable — showing static image",
-			);
+			rcbSetStatus(container, reason.message);
 			return;
 		}
 		state.mounted = true;
@@ -584,10 +618,12 @@ function mountRecipeCardBoard(selector = "#recipe-card-board") {
 		} catch {
 			state.mounted = false;
 			canvas.remove();
+			// construction failure is DISTINCT from a gate refusal — the gate
+			// passed but the scene could not be built. Keep a generic line here.
 			rcbShowFallback(container, true);
 			rcbSetStatus(
 				container,
-				"3D board preview unavailable — showing static image",
+				"3D preview failed to start. Showing the static image.",
 			);
 		}
 	};
@@ -806,7 +842,13 @@ function mountSheenRim(selector = "#kodiak-sheen-rim") {
 
 	const tryMount = () => {
 		if (state.mounted) return; // never leak a second scene
-		if (!canMount3D(host)) return; // gate fail -> CSS radial-glow fallback stands
+		const reason = gateReason(host);
+		if (reason) {
+			// gate fail -> CSS radial-glow fallback stands. No status element here,
+			// so surface the reason as a quiet, one-shot developer diagnostic.
+			console.info("KodiakEmber sheen-rim:", reason.message);
+			return;
+		}
 		state.mounted = true;
 		const canvas = document.createElement("canvas");
 		canvas.className = "kodiak-sheen-rim__canvas";
@@ -1012,7 +1054,17 @@ function mountPaperboardCards(selector = ".card") {
 	const mountOne = (rec) => {
 		if (rec.mounted) return; // never leak a second scene on one host
 		if (state.live >= PAPERBOARD_MAX_VIEWS) return; // cap — CSS surface stands
-		if (!canMount3D(rec.host)) return; // gate fail -> CSS kraft gradient stands
+		const reason = gateReason(rec.host);
+		if (reason) {
+			// gate fail -> CSS kraft gradient stands. No status element on cards,
+			// so surface the reason as a quiet developer diagnostic — once per
+			// card, guarded so IntersectionObserver re-entries do not spam it.
+			if (!rec.gateLogged) {
+				rec.gateLogged = true;
+				console.info("KodiakEmber paperboard-card:", reason.message);
+			}
+			return;
+		}
 		rec.mounted = true;
 		const canvas = document.createElement("canvas");
 		canvas.className = "kodiak-paperboard__canvas";
@@ -1095,7 +1147,8 @@ const KodiakEmber = {
 	mountSheenRim,
 	mountPaperboardCards,
 	canMount3D,
-	_version: "0.4.0",
+	gateReason,
+	_version: "0.5.0",
 	// harness internals surfaced for later-wave scene modules + tests; not a
 	// stable public contract.
 	_harness: Object.freeze({
