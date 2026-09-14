@@ -5,7 +5,7 @@
     "purpose": "Each retail metro location pairs with a frontier sister location. Every pair carries a retailer list and a monthly local ingredient sourced from a local farmers market. Drives seasonal recipe-card localization and retailer logo lockups.",
     "monthly_ingredient_mechanism": "monthly_ingredients maps ISO month (YYYY-MM) -> in-season local ingredient for the frontier sister's farmers market. Populate the current month at seed time; the other 11 months are filled by a research dispatch (ghost research task) that resolves each frontier market's seasonal produce calendar from the linked farmers_market_url + regional extension-service crop calendars. Entries marked research_todo=true are placeholders awaiting that dispatch.",
     "seasonal_moments_mechanism": "seasonal_moments is an array of holiday/season entries per pair. Each entry captures the fresh local ingredients available at that moment (available_ingredients) plus the favorite bake flavors people reach for then (favorite_flavors), for the creative bank. Every entry carries a source, confidence (high|medium|low), and status (confirmed|proposed). Notes flag storage/value-added vs fresh-harvest and imported flavor-culture vs local-grown so the creative bank stays non-fabricated.",
-    "confirmed_pairs": 28
+    "confirmed_pairs": 38
   },
   "pairs": [
     {
@@ -3468,6 +3468,885 @@
           "confidence": "medium",
           "status": "proposed",
           "note": "storage / value-added; NO fresh field harvest mid-winter. Wild rice local grain; cardamom Scandinavian imported flavor-culture."
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-BOISE",
+      "metro_location": {
+        "retailer": "Albertsons",
+        "name": null,
+        "address": "confirm — US-MW-BOISE",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch MountainWest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Kuna, ID",
+        "market": "US-ID-KUNA",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Albertsons",
+        "WinCo Foods",
+        "Fred Meyer",
+        "Broulim's"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "Idaho potatoes (storage)",
+        "2026-02": "storage onions",
+        "2026-03": "storage apples",
+        "2026-04": "asparagus",
+        "2026-05": "rhubarb",
+        "2026-06": "cherries",
+        "2026-07": "apricots",
+        "2026-08": "peaches",
+        "2026-09": "sweet corn",
+        "2026-10": "winter squash",
+        "2026-11": "Idaho potatoes",
+        "2026-12": "storage apples"
+      },
+      "monthly_ingredient_notes": {
+        "source": "University of Idaho Extension + Idaho Preferred + Idaho Botanical Garden Treasure Valley guide (zones 6b-7a, mid-Apr to mid-Oct). Fresh window Jun-Oct; Nov-Mar is storage (potatoes, onions, apples). Treasure Valley stone fruit (cherries Jun, apricots Jul, peaches Aug) is the fresh-peak anchor."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Deep-winter storage (Dec-Feb)",
+          "available_ingredients": ["Idaho potatoes (storage)", "storage onions", "storage apples"],
+          "favorite_flavors": ["apple-cinnamon", "hearty potato-savory", "warm spice"],
+          "source": "University of Idaho Extension seasonal calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "deep-winter local produce is storage, not fresh-harvest; potatoes are the honest local anchor"
+        },
+        {
+          "moment": "Spring thaw / asparagus season (Apr-May)",
+          "available_ingredients": ["asparagus", "rhubarb"],
+          "favorite_flavors": ["rhubarb", "early-berry"],
+          "source": "Idaho Botanical Garden Treasure Valley guide (season opens mid-Apr)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh season opens; asparagus and rhubarb are the first real local harvests"
+        },
+        {
+          "moment": "Treasure Valley stone-fruit peak (Jun-Aug)",
+          "available_ingredients": ["cherries", "apricots", "peaches"],
+          "favorite_flavors": ["cherry", "apricot", "peach"],
+          "source": "Idaho Preferred / University of Idaho Extension",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "short intense high-desert summer, big day-night swing drives stone-fruit sugar"
+        },
+        {
+          "moment": "Sweet corn + harvest fair (Sep)",
+          "available_ingredients": ["sweet corn", "winter squash", "peaches (late)"],
+          "favorite_flavors": ["sweet corn", "peach", "squash"],
+          "source": "University of Idaho Extension seasonal calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": ""
+        },
+        {
+          "moment": "Thanksgiving / winter holidays",
+          "available_ingredients": ["Idaho potatoes", "storage apples", "winter squash"],
+          "favorite_flavors": ["apple", "pumpkin", "gingerbread"],
+          "source": "University of Idaho Extension calendar + regional bake traditions",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "pumpkin/gingerbread are imported bake traditions; local produce is storage roots + squash"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-DEN",
+      "metro_location": {
+        "retailer": "King Soopers",
+        "name": null,
+        "address": "confirm — US-MW-DEN",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch MountainWest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Elizabeth, CO",
+        "market": "US-CO-ELIZABETH",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "King Soopers",
+        "Safeway",
+        "Walmart",
+        "Natural Grocers"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage potatoes",
+        "2026-02": "storage onions",
+        "2026-03": "storage apples",
+        "2026-04": "greens (cold frame)",
+        "2026-05": "rhubarb",
+        "2026-06": "cherries",
+        "2026-07": "Palisade peaches",
+        "2026-08": "Olathe sweet corn",
+        "2026-09": "Rocky Ford melon",
+        "2026-10": "winter squash",
+        "2026-11": "storage apples",
+        "2026-12": "local honey"
+      },
+      "monthly_ingredient_notes": {
+        "source": "CSU Extension Colorado produce calendar. Palisade peaches mid-Jul-Sep, Olathe sweet corn Aug, Rocky Ford melon late-summer — all Western Slope/Arkansas Valley signatures that reach Front Range markets. Elbert County high-plains local is short-season; Nov-Mar storage/value-added (honey, storage apples/potatoes)."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Palisade Peach Festival + peach season (August)",
+          "available_ingredients": ["Palisade peaches"],
+          "favorite_flavors": ["peach", "peaches-and-cream", "peach-cobbler"],
+          "source": "Palisade Chamber / Visit Grand Junction — Palisade Peach Festival held every August",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Palisade peaches are grown on the Western Slope but are a statewide Colorado signature reaching Front Range stores and stands"
+        },
+        {
+          "moment": "Olathe sweet corn + Rocky Ford melon (late summer)",
+          "available_ingredients": ["Olathe sweet corn", "Rocky Ford melon"],
+          "favorite_flavors": ["sweet corn", "cantaloupe", "honey-butter corn"],
+          "source": "CSU Extension + Olathe Sweet Corn Festival (since 1990)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Olathe corn and Rocky Ford melons are Colorado-signature late-summer crops"
+        },
+        {
+          "moment": "Deep-winter storage / holiday baking (Dec-Feb)",
+          "available_ingredients": ["local honey", "storage apples", "storage potatoes"],
+          "favorite_flavors": ["honey", "apple-cinnamon", "gingerbread"],
+          "source": "CSU Extension seasonal calendar + regional bake traditions",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "high-plains winter local produce is storage/value-added; warming flavors are the creative anchor"
+        },
+        {
+          "moment": "Spring thaw (Apr-May)",
+          "available_ingredients": ["rhubarb", "greens (cold frame)"],
+          "favorite_flavors": ["rhubarb", "early-berry"],
+          "source": "CSU Extension seasonal calendar",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "6400 ft elevation means a late, short spring; cold-frame greens first"
+        },
+        {
+          "moment": "County fair / rodeo season (summer)",
+          "available_ingredients": ["cherries", "sweet corn", "melon"],
+          "favorite_flavors": ["peach", "cherry", "sweet corn"],
+          "source": "Elbert County Fair (regional summer fair culture)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "fair is cultural moment; produce set is the confirmed summer harvest"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-JACKSONHOLE",
+      "metro_location": {
+        "retailer": "Broulim's",
+        "name": null,
+        "address": "confirm — US-MW-JACKSONHOLE",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch MountainWest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Alpine, WY",
+        "market": "US-WY-ALPINE",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Broulim's",
+        "Smith's",
+        "Ridley's Family Markets",
+        "Albertsons"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "ranch beef (value-added)",
+        "2026-02": "root vegetables (storage)",
+        "2026-03": "local honey (storage)",
+        "2026-04": "ranch dairy butter (value-added)",
+        "2026-05": "rhubarb",
+        "2026-06": "spring greens",
+        "2026-07": "sugar snap peas",
+        "2026-08": "raspberries",
+        "2026-09": "root vegetables",
+        "2026-10": "winter squash",
+        "2026-11": "root vegetables (storage)",
+        "2026-12": "ranch beef (value-added)"
+      },
+      "monthly_ingredient_notes": {
+        "source": "University of Wyoming Extension high-elevation gardening guides. Zone 4, frost-free window roughly late Jun to early Sep. Fresh harvest is a narrow Jul-Sep window (peas, greens, raspberries, roots); Oct-Jun is storage roots + ranch dairy/beef value-added. Star Valley dairy heritage anchors the value-added set honestly."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Ski season (deep winter, Dec-Mar)",
+          "available_ingredients": ["ranch beef", "root vegetables (storage)", "local honey", "ranch dairy butter"],
+          "favorite_flavors": ["honey-butter", "warm spice", "hearty savory"],
+          "source": "University of Wyoming Extension + Jackson Hole ski-culture flavor traditions",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "deep-winter local produce is storage/value-added; Star Valley ranch dairy/beef is the honest local anchor, warming flavors are the creative bank"
+        },
+        {
+          "moment": "High-country short summer peak (Jul-Aug)",
+          "available_ingredients": ["sugar snap peas", "raspberries", "spring greens"],
+          "favorite_flavors": ["raspberry", "early-berry", "garden-pea savory"],
+          "source": "University of Wyoming Extension high-elevation calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "intense but very short zone-4 summer; raspberries and peas are the fresh peak"
+        },
+        {
+          "moment": "Spring thaw (May-Jun)",
+          "available_ingredients": ["rhubarb", "ranch dairy butter"],
+          "favorite_flavors": ["rhubarb", "honey-butter"],
+          "source": "University of Wyoming Extension",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "very late high-elevation spring; rhubarb is the first hardy harvest"
+        },
+        {
+          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "available_ingredients": ["root vegetables", "winter squash"],
+          "favorite_flavors": ["squash", "warm spice", "pumpkin"],
+          "source": "University of Wyoming Extension calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "roots and squash are the harvest laid in for the long winter; pumpkin is an imported bake flavor"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": ["local honey", "ranch dairy butter", "ranch beef"],
+          "favorite_flavors": ["gingerbread", "honey", "peppermint"],
+          "source": "regional bake traditions",
+          "confidence": "low",
+          "status": "proposed",
+          "note": "peppermint/gingerbread imported; no fresh local produce mid-winter in Star Valley"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-MISSOULA",
+      "metro_location": {
+        "retailer": "Rosauers",
+        "name": null,
+        "address": "confirm — US-MW-MISSOULA",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch MountainWest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Frenchtown, MT",
+        "market": "US-MT-FRENCHTOWN",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Rosauers",
+        "Albertsons",
+        "Town & Country Foods",
+        "Walmart"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "root vegetables (storage)",
+        "2026-02": "storage apples",
+        "2026-03": "local honey (storage)",
+        "2026-04": "spring greens",
+        "2026-05": "asparagus",
+        "2026-06": "rhubarb",
+        "2026-07": "Flathead cherries",
+        "2026-08": "huckleberries",
+        "2026-09": "apples",
+        "2026-10": "winter squash",
+        "2026-11": "root vegetables (storage)",
+        "2026-12": "local honey"
+      },
+      "monthly_ingredient_notes": {
+        "source": "MSU Extension western Montana produce guides. Zone 5-6 Clark Fork valley: fresh Jun-Oct. Flathead cherries (Jul) and wild huckleberries (Aug) are western-Montana mountain signatures reaching Missoula-area markets. Nov-Mar storage roots/apples + honey."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Flathead cherry season (July)",
+          "available_ingredients": ["Flathead cherries"],
+          "favorite_flavors": ["cherry", "sweet cherry"],
+          "source": "MSU Extension + Flathead Lake cherry region",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Flathead cherries are a NW Montana signature crop reaching western-MT markets"
+        },
+        {
+          "moment": "Huckleberry season (Aug)",
+          "available_ingredients": ["huckleberries"],
+          "favorite_flavors": ["huckleberry", "wild-berry"],
+          "source": "western Montana wild mountain harvest tradition",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "huckleberries are a wild high-country harvest, not cultivated; iconic western-MT flavor"
+        },
+        {
+          "moment": "Fall apple harvest / county fair (Sep-Oct)",
+          "available_ingredients": ["apples", "winter squash"],
+          "favorite_flavors": ["apple-cinnamon", "squash", "warm spice"],
+          "source": "MSU Extension western Montana calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "cinnamon imported; apples anchor the fall harvest"
+        },
+        {
+          "moment": "Deep-winter storage / holidays (Dec-Feb)",
+          "available_ingredients": ["root vegetables (storage)", "storage apples", "local honey"],
+          "favorite_flavors": ["apple", "honey", "gingerbread"],
+          "source": "MSU Extension seasonal calendar + regional bake traditions",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "winter local produce is storage/value-added; warming holiday flavors are the creative anchor"
+        },
+        {
+          "moment": "Spring thaw (Apr-Jun)",
+          "available_ingredients": ["spring greens", "asparagus", "rhubarb"],
+          "favorite_flavors": ["rhubarb", "early-berry"],
+          "source": "MSU Extension western Montana calendar",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "asparagus and rhubarb are the first fresh harvests as the valley thaws"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-WASATCH",
+      "metro_location": {
+        "retailer": "Smith's",
+        "name": null,
+        "address": "confirm — US-MW-WASATCH",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch MountainWest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Midway, UT",
+        "market": "US-UT-MIDWAY",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Smith's",
+        "Ridley's Family Markets",
+        "Walmart",
+        "Fresh Market"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "root vegetables (storage)",
+        "2026-02": "storage apples",
+        "2026-03": "local honey (storage)",
+        "2026-04": "ranch dairy butter (value-added)",
+        "2026-05": "rhubarb",
+        "2026-06": "raspberries",
+        "2026-07": "peaches",
+        "2026-08": "summer squash",
+        "2026-09": "apples",
+        "2026-10": "winter squash",
+        "2026-11": "storage apples",
+        "2026-12": "local honey"
+      },
+      "monthly_ingredient_notes": {
+        "source": "USU Extension high-mountain (Wasatch Back) harvest schedule: fresh Jun-Oct, storage/value-added Nov-Mar. Raspberries Jun-Jul, peaches Jul-Aug (lower-elevation Utah stone fruit reaching Wasatch Back), apples Sep-Oct. Deep-winter set is storage apples, roots, honey, ranch dairy — flagged honestly."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Midway Swiss Days (Labor Day weekend, early Sep)",
+          "available_ingredients": ["apples", "raspberries (late)", "summer squash"],
+          "favorite_flavors": ["apple", "raspberry", "honey-butter"],
+          "source": "Midway Swiss Days — long-running Heber Valley festival, Labor Day weekend",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Swiss Days is a confirmed Midway festival; produce set is the confirmed early-fall harvest"
+        },
+        {
+          "moment": "Ski season (deep winter, Dec-Mar)",
+          "available_ingredients": ["storage apples", "root vegetables", "local honey", "ranch dairy butter"],
+          "favorite_flavors": ["apple-cinnamon", "honey-butter", "warm spice"],
+          "source": "USU Extension calendar + Wasatch Back ski-culture flavor traditions",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "deep-winter local produce is storage/value-added; warming ski-season flavors are the creative anchor"
+        },
+        {
+          "moment": "Summer stone-fruit + berry peak (Jun-Aug)",
+          "available_ingredients": ["raspberries", "peaches"],
+          "favorite_flavors": ["raspberry", "peach"],
+          "source": "USU Extension high-mountain harvest schedule",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "peaches are lower-Utah stone fruit reaching Wasatch Back markets in the short summer"
+        },
+        {
+          "moment": "Thanksgiving / fall harvest",
+          "available_ingredients": ["apples", "winter squash"],
+          "favorite_flavors": ["apple", "squash", "pumpkin"],
+          "source": "USU Extension seasonal calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "pumpkin is an imported bake flavor; apples and squash are the confirmed harvest"
+        },
+        {
+          "moment": "Spring thaw (Apr-May)",
+          "available_ingredients": ["rhubarb", "ranch dairy butter"],
+          "favorite_flavors": ["rhubarb", "early-berry"],
+          "source": "USU Extension high-mountain calendar",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "late high-elevation spring; rhubarb is the first hardy harvest"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-MW-WASATCH-SLC",
+      "metro_location": {
+        "retailer": "Soelberg's Market",
+        "name": null,
+        "address": "confirm — US-MW-WASATCH-SLC",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch MountainWest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Grantsville, UT",
+        "market": "US-UT-GRANTSVILLE",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Soelberg's Market",
+        "Walmart",
+        "Smith's",
+        "Macey's"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "root vegetables (storage)",
+        "2026-03": "local honey (storage)",
+        "2026-04": "asparagus",
+        "2026-05": "rhubarb",
+        "2026-06": "cherries",
+        "2026-07": "peaches",
+        "2026-08": "sweet corn",
+        "2026-09": "tomatoes",
+        "2026-10": "winter squash",
+        "2026-11": "storage apples",
+        "2026-12": "local honey"
+      },
+      "monthly_ingredient_notes": {
+        "source": "USU Extension (Tooele County) produce calendar. Grantsville sits lower/warmer than the mountain valleys (zone 6), so a slightly longer fresh window: cherries Jun, peaches Jul, sweet corn Aug, tomatoes Sep. Nov-Mar storage apples/roots + honey."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Summer stone-fruit + sweet corn peak (Jun-Aug)",
+          "available_ingredients": ["cherries", "peaches", "sweet corn"],
+          "favorite_flavors": ["cherry", "peach", "sweet corn"],
+          "source": "USU Extension Tooele County calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "warmer zone-6 valley gives a fuller summer than the mountain sisters"
+        },
+        {
+          "moment": "Late-summer tomato / harvest (Sep)",
+          "available_ingredients": ["tomatoes", "winter squash", "sweet corn (late)"],
+          "favorite_flavors": ["savory tomato", "squash", "sweet corn"],
+          "source": "USU Extension Tooele County calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": ""
+        },
+        {
+          "moment": "County fair / rodeo (late summer)",
+          "available_ingredients": ["peaches", "sweet corn", "tomatoes"],
+          "favorite_flavors": ["peach", "sweet corn", "honey-butter"],
+          "source": "Tooele County Fair (regional summer fair culture)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "fair is cultural moment; produce set is the confirmed late-summer harvest"
+        },
+        {
+          "moment": "Deep-winter storage / holidays (Dec-Feb)",
+          "available_ingredients": ["storage apples", "root vegetables", "local honey"],
+          "favorite_flavors": ["apple-cinnamon", "honey", "gingerbread"],
+          "source": "USU Extension calendar + regional bake traditions",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "winter local produce is storage/value-added; warming holiday flavors are the creative anchor"
+        },
+        {
+          "moment": "Spring thaw (Apr-May)",
+          "available_ingredients": ["asparagus", "rhubarb"],
+          "favorite_flavors": ["rhubarb", "early-berry"],
+          "source": "USU Extension Tooele County calendar",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "asparagus and rhubarb are the first fresh harvests"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-UT-KAMASVALLEY",
+      "metro_location": {
+        "retailer": "Oakley Farmers Market (bi-weekly, Rodeo Grounds)",
+        "name": null,
+        "address": "confirm — US-UT-KAMASVALLEY",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch MountainWest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Kamas Valley, UT",
+        "market": "US-UT-KAMASVALLEY",
+        "farmers_market_url": "https://www.parkcityfarmersmarket.com",
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Oakley Farmers Market (bi-weekly, Rodeo Grounds)",
+        "Kamas Valley Market (monthly)",
+        "direct-from-rancher (no commercial retail)"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "grass-fed beef (value-added)",
+        "2026-02": "root vegetables (storage)",
+        "2026-03": "local honey (storage)",
+        "2026-04": "ranch dairy butter (value-added)",
+        "2026-05": "rhubarb",
+        "2026-06": "spring greens",
+        "2026-07": "sugar snap peas",
+        "2026-08": "raspberries",
+        "2026-09": "root vegetables",
+        "2026-10": "winter squash",
+        "2026-11": "root vegetables (storage)",
+        "2026-12": "grass-fed beef (value-added)"
+      },
+      "monthly_ingredient_notes": {
+        "source": "USU Extension high-mountain (Wasatch Back) harvest schedule + existing repo file kamas-valley-84036.json. Zone 4 ranching valley: fresh window narrow Jun-Sep (greens, peas, raspberries, roots). Nov-May is storage roots + grass-fed beef and ranch dairy value-added. Markets run Jun-Sep only."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Oakley Rodeo + farmers market season (Jun-Sep)",
+          "available_ingredients": ["grass-fed beef", "spring greens", "sugar snap peas", "raspberries"],
+          "favorite_flavors": ["hearty ranch savory", "raspberry", "honey-butter"],
+          "source": "kamas-valley-84036.json + Oakley Rodeo Grounds farmers market (bi-weekly Jun-Sep)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Oakley Rodeo is the anchor summer moment; grass-fed beef direct from Peoa ranchers, backyard mountain produce"
+        },
+        {
+          "moment": "High-country short summer peak (Jul-Aug)",
+          "available_ingredients": ["raspberries", "sugar snap peas", "spring greens"],
+          "favorite_flavors": ["raspberry", "garden-pea savory"],
+          "source": "USU Extension high-mountain harvest schedule",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "very short zone-4 summer; raspberries and peas are the fresh peak"
+        },
+        {
+          "moment": "Deep-winter ranch storage (Dec-Mar)",
+          "available_ingredients": ["grass-fed beef", "root vegetables (storage)", "local honey", "ranch dairy butter"],
+          "favorite_flavors": ["honey-butter", "hearty savory", "warm spice"],
+          "source": "USU Extension calendar + Kamas Valley ranch tradition",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "no retail, no fresh mid-winter harvest; grass-fed beef and ranch dairy are the honest local anchor"
+        },
+        {
+          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "available_ingredients": ["root vegetables", "winter squash"],
+          "favorite_flavors": ["squash", "warm spice", "pumpkin"],
+          "source": "USU Extension high-mountain calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "roots and squash laid in for the long winter; pumpkin is an imported bake flavor"
+        },
+        {
+          "moment": "Spring thaw (Apr-May)",
+          "available_ingredients": ["rhubarb", "ranch dairy butter"],
+          "favorite_flavors": ["rhubarb", "honey-butter"],
+          "source": "USU Extension high-mountain calendar",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "very late high-elevation spring; rhubarb is the first hardy harvest"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-W-BOULDER",
+      "metro_location": {
+        "retailer": "King Soopers",
+        "name": null,
+        "address": "confirm — US-W-BOULDER",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch MountainWest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Lyons, CO",
+        "market": "US-CO-LYONS",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "King Soopers",
+        "Safeway",
+        "Lucky's Market",
+        "Natural Grocers"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "storage onions",
+        "2026-03": "local honey (storage)",
+        "2026-04": "greens (cold frame)",
+        "2026-05": "rhubarb",
+        "2026-06": "cherries",
+        "2026-07": "Palisade peaches",
+        "2026-08": "Olathe sweet corn",
+        "2026-09": "Rocky Ford melon",
+        "2026-10": "winter squash",
+        "2026-11": "storage apples",
+        "2026-12": "local honey"
+      },
+      "monthly_ingredient_notes": {
+        "source": "CSU Extension Colorado produce calendar. Palisade peaches mid-Jul-Sep, Olathe sweet corn Aug, Rocky Ford melon late-summer reach Front Range/foothills markets. Lyons foothills local is short-season; Nov-Mar storage/value-added."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "RockyGrass / Folks Festival summer season (Jul-Aug)",
+          "available_ingredients": ["Palisade peaches", "cherries", "Olathe sweet corn"],
+          "favorite_flavors": ["peach", "cherry", "sweet corn"],
+          "source": "Planet Bluegrass Lyons festival season (RockyGrass, Folks Festival) + CSU Extension",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "festivals are confirmed Lyons cultural moments; produce set is the confirmed Colorado summer harvest"
+        },
+        {
+          "moment": "Palisade Peach Festival + peach season (August)",
+          "available_ingredients": ["Palisade peaches"],
+          "favorite_flavors": ["peach", "peaches-and-cream", "peach-cobbler"],
+          "source": "Palisade Chamber / Visit Grand Junction — August peach festival, statewide Colorado signature",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Palisade peaches reach Front Range stands and stores in August"
+        },
+        {
+          "moment": "Olathe sweet corn + Rocky Ford melon (late summer)",
+          "available_ingredients": ["Olathe sweet corn", "Rocky Ford melon"],
+          "favorite_flavors": ["sweet corn", "cantaloupe", "honey-butter corn"],
+          "source": "CSU Extension + Olathe Sweet Corn Festival (since 1990)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": ""
+        },
+        {
+          "moment": "Deep-winter storage / holidays (Dec-Feb)",
+          "available_ingredients": ["local honey", "storage apples", "storage onions"],
+          "favorite_flavors": ["honey", "apple-cinnamon", "gingerbread"],
+          "source": "CSU Extension seasonal calendar + regional bake traditions",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "foothills winter local produce is storage/value-added; warming flavors are the creative anchor"
+        },
+        {
+          "moment": "Spring thaw (Apr-May)",
+          "available_ingredients": ["rhubarb", "greens (cold frame)"],
+          "favorite_flavors": ["rhubarb", "early-berry"],
+          "source": "CSU Extension seasonal calendar",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "late foothills spring; cold-frame greens and rhubarb first"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-W-RENO",
+      "metro_location": {
+        "retailer": "Raley's",
+        "name": null,
+        "address": "confirm — US-W-RENO",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch MountainWest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Fallon, NV",
+        "market": "US-NV-FALLON",
+        "farmers_market_url": "https://travelnevada.com/farm-to-fork/lattin-farms/",
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Raley's",
+        "Walmart",
+        "Safeway",
+        "Grocery Outlet"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage onions",
+        "2026-02": "storage garlic",
+        "2026-03": "asparagus",
+        "2026-04": "spring greens",
+        "2026-05": "raspberries",
+        "2026-06": "sweet corn",
+        "2026-07": "summer squash",
+        "2026-08": "Hearts of Gold cantaloupe",
+        "2026-09": "tomatoes",
+        "2026-10": "pumpkins (corn maze)",
+        "2026-11": "winter squash (storage)",
+        "2026-12": "storage onions"
+      },
+      "monthly_ingredient_notes": {
+        "source": "Fallon Chamber / Lattin Farms confirmed harvest (melons, squash, corn, tomatoes, raspberries, garlic); The Fallon Post — Hearts of Gold cantaloupe peaks August as summer heat peaks. Irrigated Lahontan Valley (sandy soil, hot days, cool nights) gives melon-dominant late-summer peak. Distinct from mountain calendars: longer warm season, no storage-apple/honey mountain set."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Fallon Cantaloupe Festival & County Fair (August / Labor Day weekend)",
+          "available_ingredients": ["Hearts of Gold cantaloupe", "sweet corn", "summer squash"],
+          "favorite_flavors": ["cantaloupe", "melon-and-cream", "sweet corn"],
+          "source": "The Fallon Post + NPS — Hearts of Gold Cantaloupe Festival & Fair, held every August/Labor Day weekend, Lahontan Valley crop since early 1900s",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Hearts of Gold cantaloupe is Fallon's crown jewel and a real festival; sandy soil + hot days + cool nights produce the signature sweet melon"
+        },
+        {
+          "moment": "High-desert summer peak (Jun-Aug)",
+          "available_ingredients": ["sweet corn", "summer squash", "raspberries", "Hearts of Gold cantaloupe"],
+          "favorite_flavors": ["sweet corn", "cantaloupe", "raspberry"],
+          "source": "Lattin Farms confirmed harvest (Fallon Chamber)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "irrigated Lahontan Valley summer peak; melon-forward, not mountain stone fruit"
+        },
+        {
+          "moment": "Fall corn maze + pumpkin festival (Oct)",
+          "available_ingredients": ["pumpkins", "winter squash", "tomatoes (late)"],
+          "favorite_flavors": ["pumpkin", "squash", "warm spice"],
+          "source": "Lattin Farms corn maze and fall festival (Fallon Chamber listing)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Lattin Farms corn maze + fall festival is a confirmed local moment"
+        },
+        {
+          "moment": "Spring greens / asparagus (Mar-May)",
+          "available_ingredients": ["asparagus", "spring greens", "raspberries (early)"],
+          "favorite_flavors": ["asparagus (savory)", "early-berry"],
+          "source": "UNR Extension desert-valley calendar (Lahontan Valley spring season)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "earlier/longer spring than the mountain sisters given lower elevation and irrigation"
+        },
+        {
+          "moment": "Winter / holidays (Dec-Feb)",
+          "available_ingredients": ["storage onions", "storage garlic", "winter squash (storage)"],
+          "favorite_flavors": ["gingerbread", "warm spice", "savory storage"],
+          "source": "UNR Extension + Fallon alfalfa/livestock ag base",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "winter local is storage alliums + squash; gingerbread is an imported bake flavor; less storage-apple/honey than mountains"
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-W-VEGAS",
+      "metro_location": {
+        "retailer": "Smith's",
+        "name": null,
+        "address": "confirm — US-W-VEGAS",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch MountainWest; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Moapa Valley, NV",
+        "market": "US-NV-MOAPA",
+        "farmers_market_url": "https://extension.unr.edu/publication.aspx?PubID=3016",
+        "note": "frontier sister per data-core.js pairing map; farmers-market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Smith's",
+        "Albertsons",
+        "Walmart",
+        "WinCo Foods"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "citrus (desert)",
+        "2026-02": "spring greens (early)",
+        "2026-03": "asparagus",
+        "2026-04": "spring melons (early)",
+        "2026-05": "summer squash",
+        "2026-06": "melons",
+        "2026-07": "dates (setting)",
+        "2026-08": "okra (heat-loving)",
+        "2026-09": "fall tomatoes",
+        "2026-10": "dates (harvest)",
+        "2026-11": "cool-season greens",
+        "2026-12": "citrus (desert)"
+      },
+      "monthly_ingredient_notes": {
+        "source": "UNR Extension — Fruit/Flower/Seed Vegetable Varieties for the Moapa and Virgin Valleys (three seasons: fall, winter, spring; ~4 inches rain/yr) + Selecting Vegetable Crops for Small-Scale Desert Production (heat-loving summer crops: tomatoes, peppers, eggplant, melons, squash, okra). DISTINCT from mountains: no storage-apple/honey winter set, no short high-country summer. Peak windows are early spring and fall; midsummer heat limits fresh cropping to heat-lovers. Dates are a Mojave-appropriate crop, harvest Sep-Oct."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Early spring desert season + Clark County Fair (Mar-Apr)",
+          "available_ingredients": ["asparagus", "spring greens", "spring melons (early)"],
+          "favorite_flavors": ["early melon", "asparagus (savory)", "citrus"],
+          "source": "UNR Extension Moapa/Virgin Valley spring season + Clark County Fair (Logandale, spring)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "early-spring is a prime desert-valley window; Clark County Fair in Logandale is a confirmed regional festival"
+        },
+        {
+          "moment": "Hot-desert summer (heat-loving crops, Jun-Aug)",
+          "available_ingredients": ["melons", "summer squash", "okra"],
+          "favorite_flavors": ["melon", "squash (savory)"],
+          "source": "UNR Extension Selecting Vegetable Crops for Small-Scale Desert Production",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "midsummer is too hot for most crops; only heat-lovers (melons, squash, okra, peppers) hold; distinct from mountain short-summer fresh peak"
+        },
+        {
+          "moment": "Fall date harvest + fall planting (Sep-Oct)",
+          "available_ingredients": ["dates", "fall tomatoes", "cool-season greens (starting)"],
+          "favorite_flavors": ["date", "date-and-honey", "warm spice"],
+          "source": "UNR Extension desert fruit guide (dates Mojave-appropriate, harvest Sep-Oct) + fall growing season",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "dates are a defensible Mojave desert crop; fall is a second productive window as heat breaks"
+        },
+        {
+          "moment": "Winter cool-season / holidays (Dec-Feb)",
+          "available_ingredients": ["citrus (desert)", "cool-season greens"],
+          "favorite_flavors": ["citrus", "date", "gingerbread"],
+          "source": "UNR Extension Moapa/Virgin Valley winter season",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "desert winter is a mild growing season (greens, citrus), NOT a storage-only mountain winter; gingerbread is an imported bake flavor"
+        },
+        {
+          "moment": "Late-spring melon start (May-Jun)",
+          "available_ingredients": ["spring melons", "summer squash"],
+          "favorite_flavors": ["melon", "melon-and-cream"],
+          "source": "UNR Extension desert production guide",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "melons come on earlier here than the mountains and hold through the heat"
         }
       ],
       "research_todo": false
