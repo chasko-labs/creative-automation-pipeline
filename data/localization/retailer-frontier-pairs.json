@@ -25,18 +25,18 @@
       },
       "retailers": ["Publix", "Walmart", "Kroger"],
       "monthly_ingredients": {
+        "2026-01": "turnips",
+        "2026-02": "winter greens",
+        "2026-03": "strawberries",
+        "2026-04": "strawberries",
+        "2026-05": "Vidalia onions",
+        "2026-06": "blueberries",
+        "2026-07": "peaches",
+        "2026-08": "watermelon",
         "2026-09": "muscadine grapes",
         "2026-10": "pecans",
         "2026-11": "sweet potatoes",
-        "2026-12": "collards",
-        "2027-01": "turnips",
-        "2027-02": "winter greens",
-        "2027-03": "strawberries",
-        "2027-04": "strawberries",
-        "2027-05": "Vidalia onions",
-        "2027-06": "blueberries",
-        "2027-07": "peaches",
-        "2027-08": "watermelon"
+        "2026-12": "collards"
       },
       "monthly_ingredient_notes": {
         "2026-09": "Muscadine grapes peak Aug-Sep across central Georgia; Washington County / Sandersville-area farm stands carry them in September. Real in-season pick. Pancake tie: muscadine compote over KODIAK Power Cakes. Candidate follow-ons for the research dispatch: pecans (Oct-Nov), figs (late summer), sweet potatoes (Oct-Dec), collards (winter).",
@@ -99,18 +99,18 @@
       },
       "retailers": ["Smith's", "Whole Foods", "Target", "Walmart"],
       "monthly_ingredients": {
+        "2026-01": "root vegetables (storage)",
+        "2026-02": "apples (storage)",
+        "2026-03": "honey (storage)",
+        "2026-04": "dairy butter (value-added)",
+        "2026-05": "rhubarb",
+        "2026-06": "raspberries",
+        "2026-07": "peaches",
+        "2026-08": "summer squash",
         "2026-09": "winter squash",
         "2026-10": "apples",
         "2026-11": "apples (storage)",
-        "2026-12": "local honey",
-        "2027-01": "root vegetables (storage)",
-        "2027-02": "grass-fed beef",
-        "2027-03": "dairy butter",
-        "2027-04": "rhubarb",
-        "2027-05": "asparagus",
-        "2027-06": "raspberries",
-        "2027-07": "peaches",
-        "2027-08": "sweet corn"
+        "2026-12": "local honey"
       },
       "monthly_ingredient_notes": {
         "source": "USU Extension high-mountain (Wasatch Back) produce calendar: fresh Jun-Oct, storage/value-added Nov-Mar. Deep-winter picks (apples storage, honey, root vegetables, grass-fed beef, dairy butter, winter squash) reflect the researched storage/value-added set, flagged honestly rather than implying fresh mid-winter harvest."
@@ -187,18 +187,18 @@
         "Arcangeli Grocery Co."
       ],
       "monthly_ingredients": {
+        "2026-01": "Meyer lemon",
+        "2026-02": "Meyer lemon",
+        "2026-03": "artichokes",
+        "2026-04": "artichokes",
+        "2026-05": "artichokes",
+        "2026-06": "artichokes",
+        "2026-07": "strawberries",
+        "2026-08": "strawberries",
         "2026-09": "strawberries",
         "2026-10": "brussels sprouts",
         "2026-11": "olive oil (fall press)",
-        "2026-12": "Half Moon Bay pumpkin",
-        "2027-01": "Meyer lemon",
-        "2027-02": "Meyer lemon",
-        "2027-03": "artichokes",
-        "2027-04": "artichokes",
-        "2027-05": "artichokes",
-        "2027-06": "artichokes",
-        "2027-07": "strawberries",
-        "2027-08": "strawberries"
+        "2026-12": "Half Moon Bay pumpkin"
       },
       "monthly_ingredient_notes": {
         "source": "Derived from confirmed seasonal_matrix in data/localization/bay-area/pescadero-94060.json: strawberries May-Sep (Fifth Crow), artichokes Mar-Jun centerfold April (Castroville), Brussels sprouts Sep-Feb peak Oct-Dec (Fifth Crow), olive oil Nov press. This is mapped from existing confirmed repo data, not fabricated.",
