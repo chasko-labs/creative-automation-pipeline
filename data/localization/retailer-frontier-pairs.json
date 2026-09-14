@@ -4,7 +4,8 @@
     "generated": "2026-09-02",
     "purpose": "Each retail metro location pairs with a frontier sister location. Every pair carries a retailer list and a monthly local ingredient sourced from a local farmers market. Drives seasonal recipe-card localization and retailer logo lockups.",
     "monthly_ingredient_mechanism": "monthly_ingredients maps ISO month (YYYY-MM) -> in-season local ingredient for the frontier sister's farmers market. Populate the current month at seed time; the other 11 months are filled by a research dispatch (ghost research task) that resolves each frontier market's seasonal produce calendar from the linked farmers_market_url + regional extension-service crop calendars. Entries marked research_todo=true are placeholders awaiting that dispatch.",
-    "confirmed_pairs": 2
+    "seasonal_moments_mechanism": "seasonal_moments is an array of holiday/season entries per pair. Each entry captures the fresh local ingredients available at that moment (available_ingredients) plus the favorite bake flavors people reach for then (favorite_flavors), for the creative bank. Every entry carries a source, confidence (high|medium|low), and status (confirmed|proposed). Notes flag storage/value-added vs fresh-harvest and imported flavor-culture vs local-grown so the creative bank stays non-fabricated.",
+    "confirmed_pairs": 3
   },
   "pairs": [
     {
@@ -25,22 +26,143 @@
       "retailers": ["Publix", "Walmart", "Kroger"],
       "monthly_ingredients": {
         "2026-09": "muscadine grapes",
-        "2026-10": null,
-        "2026-11": null,
-        "2026-12": null,
-        "2027-01": null,
-        "2027-02": null,
-        "2027-03": null,
-        "2027-04": null,
-        "2027-05": null,
-        "2027-06": null,
-        "2027-07": null,
-        "2027-08": null
+        "2026-10": "pecans",
+        "2026-11": "sweet potatoes",
+        "2026-12": "collards",
+        "2027-01": "turnips",
+        "2027-02": "winter greens",
+        "2027-03": "strawberries",
+        "2027-04": "strawberries",
+        "2027-05": "Vidalia onions",
+        "2027-06": "blueberries",
+        "2027-07": "peaches",
+        "2027-08": "watermelon"
       },
       "monthly_ingredient_notes": {
-        "2026-09": "Muscadine grapes peak Aug-Sep across central Georgia; Washington County / Sandersville-area farm stands carry them in September. Real in-season pick. Pancake tie: muscadine compote over KODIAK Power Cakes. Candidate follow-ons for the research dispatch: pecans (Oct-Nov), figs (late summer), sweet potatoes (Oct-Dec), collards (winter)."
+        "2026-09": "Muscadine grapes peak Aug-Sep across central Georgia; Washington County / Sandersville-area farm stands carry them in September. Real in-season pick. Pancake tie: muscadine compote over KODIAK Power Cakes. Candidate follow-ons for the research dispatch: pecans (Oct-Nov), figs (late summer), sweet potatoes (Oct-Dec), collards (winter).",
+        "source": "UGA/FCS Georgia produce seasonality; confidence high across the seeded months (central-GA apple exists in the calendar but is not used here)."
       },
+      "seasonal_moments": [
+        {
+          "moment": "Thanksgiving",
+          "available_ingredients": ["pecans", "sweet potatoes"],
+          "favorite_flavors": ["pecan", "sweet potato", "pumpkin"],
+          "source": "Southern Living / Southern baking culture",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "pumpkin is a traditional bake flavor, not necessarily GA-grown"
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": ["collards", "turnips", "winter greens"],
+          "favorite_flavors": ["peppermint", "gingerbread", "cranberry", "bourbon-pecan"],
+          "source": "Southern Living / Southern baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "peppermint/cranberry are imported flavor traditions, not GA-grown"
+        },
+        {
+          "moment": "Spring/Easter",
+          "available_ingredients": ["strawberries", "Vidalia onions"],
+          "favorite_flavors": ["strawberry", "lemon", "coconut"],
+          "source": "Southern Living / Southern baking culture",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "lemon/coconut imported traditions"
+        },
+        {
+          "moment": "July 4th / summer",
+          "available_ingredients": ["peaches", "blueberries", "watermelon"],
+          "favorite_flavors": ["peach", "blueberry", "watermelon"],
+          "source": "Southern Living / Southern baking culture",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": ""
+        }
+      ],
       "research_todo": false
+    },
+    {
+      "market": "US-MW-PARKCITY-84098",
+      "metro_location": {
+        "retailer": "Smith's",
+        "name": "Smith's Food & Drug (Kimball Junction, Park City area)",
+        "address": "confirm — Kimball Junction, Park City UT 84098",
+        "hours": null,
+        "phone": null,
+        "note": "Whole Foods confirmed at 6598 N Landmark Dr 84098; Target + Walmart at Kimball Junction; Costco is a Salt Lake City halo, not in-town. Addresses/hours not all confirmed — do not fabricate; marked for confirmation."
+      },
+      "frontier_sister": {
+        "place": "Kamas Valley / Oakley, UT 84036 (Wasatch Back)",
+        "farmers_market_url": "https://www.parkcityfarmersmarket.com",
+        "note": "Frontier sister is the Kamas Valley/Oakley ranching community (Oakley Rodeo confirmed). No stable standalone Oakley/Kamas farmers-market URL confirmed — farmers_market_url anchors to the confirmed Park City Farmers Market; a dedicated Oakley/Kamas market URL is pending research."
+      },
+      "retailers": ["Smith's", "Whole Foods", "Target", "Walmart"],
+      "monthly_ingredients": {
+        "2026-09": "winter squash",
+        "2026-10": "apples",
+        "2026-11": "apples (storage)",
+        "2026-12": "local honey",
+        "2027-01": "root vegetables (storage)",
+        "2027-02": "grass-fed beef",
+        "2027-03": "dairy butter",
+        "2027-04": "rhubarb",
+        "2027-05": "asparagus",
+        "2027-06": "raspberries",
+        "2027-07": "peaches",
+        "2027-08": "sweet corn"
+      },
+      "monthly_ingredient_notes": {
+        "source": "USU Extension high-mountain (Wasatch Back) produce calendar: fresh Jun-Oct, storage/value-added Nov-Mar. Deep-winter picks (apples storage, honey, root vegetables, grass-fed beef, dairy butter, winter squash) reflect the researched storage/value-added set, flagged honestly rather than implying fresh mid-winter harvest."
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Ski-season (winter)",
+          "available_ingredients": ["apples (storage)", "local honey", "root vegetables", "grass-fed beef", "dairy butter"],
+          "favorite_flavors": ["apple-cinnamon", "honey-butter", "hot-griddle warming spices"],
+          "source": "USU Extension seasonal calendar + Wasatch Back ski-culture flavor traditions",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "deep-winter local produce is storage/value-added, not fresh-harvest; warming ski-season flavors are the creative anchor"
+        },
+        {
+          "moment": "Thanksgiving",
+          "available_ingredients": ["winter squash", "apples"],
+          "favorite_flavors": ["apple", "squash", "warm spice"],
+          "source": "USU Extension seasonal calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": ""
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": ["local honey", "dairy butter"],
+          "favorite_flavors": ["gingerbread", "peppermint", "spiced-warming"],
+          "source": "USU Extension seasonal calendar + regional bake traditions",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "flavors imported; fresh local produce minimal in deep winter"
+        },
+        {
+          "moment": "Spring thaw",
+          "available_ingredients": ["rhubarb", "asparagus"],
+          "favorite_flavors": ["rhubarb", "early berry"],
+          "source": "USU Extension seasonal calendar",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": ""
+        },
+        {
+          "moment": "Summer",
+          "available_ingredients": ["raspberries", "peaches", "sweet corn"],
+          "favorite_flavors": ["peach", "berry"],
+          "source": "USU Extension seasonal calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": ""
+        }
+      ],
+      "research_todo": true
     },
     {
       "market": "US-CA-PESCADERO",
@@ -68,9 +190,9 @@
         "2026-09": "strawberries",
         "2026-10": "brussels sprouts",
         "2026-11": "olive oil (fall press)",
-        "2026-12": "brussels sprouts",
-        "2027-01": "brussels sprouts",
-        "2027-02": "brussels sprouts",
+        "2026-12": "Half Moon Bay pumpkin",
+        "2027-01": "Meyer lemon",
+        "2027-02": "Meyer lemon",
         "2027-03": "artichokes",
         "2027-04": "artichokes",
         "2027-05": "artichokes",
@@ -80,8 +202,47 @@
       },
       "monthly_ingredient_notes": {
         "source": "Derived from confirmed seasonal_matrix in data/localization/bay-area/pescadero-94060.json: strawberries May-Sep (Fifth Crow), artichokes Mar-Jun centerfold April (Castroville), Brussels sprouts Sep-Feb peak Oct-Dec (Fifth Crow), olive oil Nov press. This is mapped from existing confirmed repo data, not fabricated.",
-        "2026-09": "strawberries May-Sep, still in window in September; September also opens the Brussels sprouts season (Sep-Feb). Strawberries chosen as the cleaner single September pick."
+        "2026-09": "strawberries May-Sep, still in window in September; September also opens the Brussels sprouts season (Sep-Feb). Strawberries chosen as the cleaner single September pick.",
+        "de_monotony_swap": "Winter run 2026-12/2027-01/2027-02 swapped off the repeated Brussels sprouts. 2026-12 -> Half Moon Bay pumpkin (HMB is the World Pumpkin Capital, Oct-Dec pumpkin high confidence); 2027-01 and 2027-02 -> Meyer lemon (winter coastal citrus)."
       },
+      "seasonal_moments": [
+        {
+          "moment": "Halloween / HMB Art & Pumpkin Festival (Oct)",
+          "available_ingredients": ["Half Moon Bay pumpkin"],
+          "favorite_flavors": ["pumpkin", "pumpkin spice"],
+          "source": "Half Moon Bay Art & Pumpkin Festival / HMB agriculture",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Half Moon Bay = World Pumpkin Capital"
+        },
+        {
+          "moment": "Thanksgiving/winter",
+          "available_ingredients": ["Meyer lemon", "winter squash"],
+          "favorite_flavors": ["Meyer lemon", "pumpkin", "warm citrus"],
+          "source": "coastal San Mateo winter citrus + pescadero-94060.json seasonal_matrix",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": ""
+        },
+        {
+          "moment": "Spring",
+          "available_ingredients": ["artichokes", "strawberries", "Meyer lemon"],
+          "favorite_flavors": ["artichoke (savory)", "strawberry", "Meyer lemon", "honey-chevre"],
+          "source": "pescadero-94060.json seasonal_matrix + Harley Farms chevre",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": ""
+        },
+        {
+          "moment": "Summer",
+          "available_ingredients": ["strawberries"],
+          "favorite_flavors": ["strawberry", "berry"],
+          "source": "pescadero-94060.json seasonal_matrix (Fifth Crow strawberries May-Sep)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": ""
+        }
+      ],
       "research_todo": false
     }
   ]
