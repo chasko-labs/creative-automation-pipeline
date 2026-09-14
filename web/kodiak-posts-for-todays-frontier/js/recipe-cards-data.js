@@ -6,7 +6,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/root-vegetables-storage/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030941Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=fb43a269a70b1e056c7bff4958e368aa6603ce24e6cf21019bce371f2f279fc4",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/root-vegetables-storage/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033542Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=c16c5de9ba8802dae714b644418ec1da00853fd792fe4aaff209b83a51d091b2",
         "technique": null
       },
       "ingredient": "root vegetables (storage)",
@@ -130,19 +130,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PARK City's hearty root veggie waffles!",
         "PARK City's hearty root veggie waffles",
+        "PARK City's best root veggie breakfast!",
         "PARK City's root veggie power waffles",
-        "PARK City's hearty root veggie waffles",
+        "PARK City's Root Veggie Power Waffles",
         "PARK City's Root Veggie Power Waffles"
       ],
       "substrate": "kraft",
-      "title": "Park City Power Cakes with Local Roots"
+      "title": "Park City Power Cakes with Root Flavors"
     },
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/apples-storage/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030949Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=b3ebf47412ac3e415e2d7df0be42d1924b16752d0513b37b16f27fb400c0c0b4",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/apples-storage/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033542Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=53b2934df040ad0ba13de7941a27db3283b8cea7fc47a7aa924bf74093d3f283",
         "technique": null
       },
       "ingredient": "apples (storage)",
@@ -266,11 +266,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PARK City Apple Waffles: Frontier flavor!",
-        "PARK City's Protein Power Waffles",
-        "PARK City's Protein-Packed Apple Waffles",
-        "PARK City's Best Waffle French Toast Bake",
-        "PARK City's Savory Waffle Stack Delight"
+        "PARK City Apple Waffles, 2026",
+        "PARK City's Best Waffles & Power Bites!",
+        "PARK City's Best Apple Waffles!",
+        "PARK City's Protein Waffle Delight",
+        "PARK City's Best Waffle French Toast Bake"
       ],
       "substrate": "kraft",
       "title": "Park City Power Cakes with Apples"
@@ -278,7 +278,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/honey-storage/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030954Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=e2440b6e86dc74b1ddeb85b7c24776df87c4890f667b237f5122a3f7c9dd8e54",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/honey-storage/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033542Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=d4da974008092f98cb4e754ba19a807f9834ebfdc3735342636bda958e292156",
         "technique": null
       },
       "ingredient": "honey (storage)",
@@ -402,7 +402,7 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PARK City Honey Waffles & Power Bites",
+        "PARK City Honey Waffle Bites",
         "PARK City Honey & Gouda Bites",
         "PARK City Honey & Gouda Bites",
         "PARK City Honey & Gouda Bites",
@@ -414,7 +414,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/dairy-butter-value-added/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T031000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=459bd12d9d5f403c80d54dec7dc8a000f6965b034d929f0b9d28aef4a444a48e",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/dairy-butter-value-added/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033543Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=492f7f3e64372446850fa414fb8198ab7be069d47b0bea45504cb2eb00ed3f80",
         "technique": null
       },
       "ingredient": "dairy butter (value-added)",
@@ -539,10 +539,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "steps": [
         "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET beta-carotene flapjacks, Park City!",
-        "PARK City Butter Pancakes 2026",
-        "BUTTER-BAKED flapjacks, Park City style!",
-        "PANCAKE stack with sweet potatoes, beta-carotene!"
+        "PARK City's Sweet Beta-Carotene Pancakes",
+        "PARK City Butter Pancakes: Omega-rich & hearty!",
+        "BUTTER-FRIED flapjacks, Park City style!",
+        "FRONTIER Butter Pancakes, Park City style!"
       ],
       "substrate": "kraft",
       "title": "Buttery Kodiak Cakes Power Cakes"
@@ -550,7 +550,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/rhubarb/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T031005Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=45b1303d5d9e354ee592ee6f3d49540b558e066b59ea8634dc49903432f88222",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/rhubarb/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033543Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=99d8dbcc72d19bb7fc11bd370144e9679aa5476bca3e60e09539c7229352bae5",
         "technique": null
       },
       "ingredient": "rhubarb",
@@ -674,11 +674,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PARK rhubarb pie, Kodiak Cakes style!",
+        "KODIAK Cakes Rhubarb Cake: Park City's new favorite!",
         "KODIAK Cakes rhubarb cake, Park City!",
-        "RHUBARB Pie Cake, Park City, UT 2026",
-        "KODIAK Cakes Rhubarb Cake in Park City",
-        "PARK rhubarb cakes, Kodiak Cakes style!"
+        "PARK rhubarb cake, Kodiak Cakes style!",
+        "RUGGED rhubarb cake from Park City!",
+        "PARK City's rhubarb Kodiak cake!"
       ],
       "substrate": "kraft",
       "title": "Kodiak Cakes Power Rhubarb Cakes Utah"
@@ -686,7 +686,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/raspberries/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T031015Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=64286c45af1ec05d9ddc7e9b9aa867c1a05cc7fcb181a35f6a94c3f85f5590db",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/raspberries/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033543Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=c5f32228a47707d29815e89b383b13a7c160873b38adf1336f199ba4d17920aa",
         "technique": null
       },
       "ingredient": "raspberries",
@@ -810,19 +810,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Raspberry Cakes: Park City, UT 2026",
-        "KODIAK Cakes Raspberry Cakes, Park City 2026",
-        "KODIAK Cakes Raspberry Power Cake 2026-06",
-        "KODIAK Cakes Raspberry Delight in Park City!",
+        "KODIAK Cakes Raspberry Cakes, Park City, UT",
+        "KODIAK Cakes Raspberry Cakes, Park City",
+        "KODIAK Cakes Raspberry Power Cake, Park City",
+        "KODIAK Cakes Raspberry Power Cake, Park City",
         "KODIAK Cakes Raspberry Cakes: Utah's Best!"
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with fresh raspberries"
+      "title": "Kodiak Cakes: Wild Raspberry Power"
     },
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/peaches/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030834Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=ba92ff729039456cd83c780ed34fecda96e35023a71bb7520d1c6a043fa04aba",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/peaches/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033519Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=968280fd15664df0b1a1f5f088dd5e2f7456e69a32fd3e579fe3d4f8ac1c5d72",
         "technique": null
       },
       "ingredient": "peaches",
@@ -948,15 +948,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Power Cakes: 1 cup + milk + egg"
+        "KODIAK Cakes Power Cakes: 1 cup + milk, 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Utah Peach Edition"
+      "title": "Kodiak Cakes Power Cakes: Utah Peach Twist"
     },
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/summer-squash/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T031020Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=b6c3e73ee584436efc90db304fed5cd842f03882a3a59d942235f957cff05264",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/summer-squash/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033544Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=010280c82a99aa7dea0690953b9d887125b9f19101e2c72ce9f73a43eedab9bc",
         "technique": null
       },
       "ingredient": "summer squash",
@@ -1081,10 +1081,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "steps": [
         "SUMMER squash & Kodiak Cakes Power!",
-        "SUMMER squash bites on Kodiak Cakes waffle",
-        "SUMMER squash power waffles",
         "SUMMER squash power tostadas",
-        "SUMMER squash tostadas with Kodiak Cakes waffles"
+        "SUMMER squash power tostada base",
+        "SUMMER squash power tostadas",
+        "SUMMER squash tostada on Kodiak Cakes waffles"
       ],
       "substrate": "kraft",
       "title": "Summer squash on Kodiak Cakes Power Waffles"
@@ -1092,7 +1092,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/winter-squash/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T031025Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=9aaf1a4a046396e23cb935ded04f799f178e30458b81a28ac75c03f7ec9da118",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/winter-squash/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033544Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=b9ef3642cc278ef556de3f7f08499192e66c86522c64a41fcd285a974e507d3c",
         "technique": null
       },
       "ingredient": "winter squash",
@@ -1219,12 +1219,12 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "steps": [],
       "substrate": "kraft",
-      "title": "Winter Squash Power Stew"
+      "title": "Winter squash power stew"
     },
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/apples/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T031034Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=c4418c71a456d10357335719e806fdc01b35f333a60ddf3b130fbf6b5504f2c8",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/apples/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033544Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=c709a65ff9c660615343fc52059d5d16fcc468d1d92e131cd1513e5eecaa43d0",
         "technique": null
       },
       "ingredient": "apples",
@@ -1348,19 +1348,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PARK City Apple Waffles: Frontier flavor",
-        "PARK City Apple Power Waffles",
+        "PARK City Apple Waffles: Savory-sweet breakfast!",
         "PARK City Apple Waffles: Frontier flavor!",
-        "PARK City Apple Waffles",
-        "PARK City Apple Protein Bake"
+        "PARK City Apple Waffles: Frontier flavor!",
+        "PARK City Apple Waffles 2026",
+        "PARK City Apple Waffles — 2026"
       ],
       "substrate": "kraft",
-      "title": "Park City Power Cakes with Apples"
+      "title": "Park City Apple Power Cakes"
     },
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/apples-storage/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030949Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=b3ebf47412ac3e415e2d7df0be42d1924b16752d0513b37b16f27fb400c0c0b4",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/apples-storage/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033542Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=53b2934df040ad0ba13de7941a27db3283b8cea7fc47a7aa924bf74093d3f283",
         "technique": null
       },
       "ingredient": "apples (storage)",
@@ -1485,10 +1485,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "steps": [
         "PARK City Apple Waffle French Toast Bake",
-        "PARK City's Best Protein-Packed Waffles!",
-        "PARK City's Best Apple Waffles!",
-        "PARK City's Savory Apple Delight",
-        "PARK City Apple Waffles: Savory-sweet breakfast"
+        "PARK City's Protein Power Breakfast Bake",
+        "PARK City Apple Waffles: Savory-sweet frontier bites",
+        "SAVORY apple waffles, Park City style",
+        "PARK City Apple Waffles: Savory-sweet frontier delight"
       ],
       "substrate": "kraft",
       "title": "Park City Apple Power Cakes"
@@ -1496,7 +1496,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/local-honey/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T031039Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=c21e76297d8e665aa6a97fe5648ea12970353e99ffb7b8c0fdc64f889f840007",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/local-honey/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033545Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=a447c1f8c31fb2d9fab41849c9a7c61ef911a4fd51881518c0b177d8cb3fac6c",
         "technique": null
       },
       "ingredient": "local honey",
@@ -1620,11 +1620,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PARK City Honey & Protein Bites",
-        "PARK City Honey & Protein Waffles",
+        "PARK City Honey & Smoked Gouda Bites",
         "PARK City Honey & Gouda Bites",
-        "HONEY-SMOKED Gouda Bites for Park City",
-        "PARK City Honey & Smoked Gouda Bites"
+        "PARK City Honey & Gouda Bites",
+        "LOCAL Honey & Gouda Waffle Bites",
+        "PARK City Honey & Protein Bites"
       ],
       "substrate": "kraft",
       "title": "Park City Honey Power Bites"
@@ -1634,7 +1634,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/turnips/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030759Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=2e05458a4d27816c2753cd337764b924c70c99f816ceb4294c4bda9758ed8097",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/turnips/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033502Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=5d26c2f432ec01333b3ff251564597bb642f331222a5a277681bee14e62c2d28",
         "technique": null
       },
       "ingredient": "turnips",
@@ -1745,17 +1745,17 @@ window.KODIAK_RECIPE_CARDS = {
       "steps": [
         "TURNIP Kodiak Cakes, Atlanta, GA",
         "TURNIP Kodiak Cakes, SE ATL, 2026",
-        "TURNIP-INFUSED Kodiak Cakes, Atlanta!",
-        "TURNIP Kodiak Cakes: GA's frontier taste!",
-        "TURNIP-INFUSED Kodiak Cakes, Atlanta"
+        "TURNIP Kodiak Cakes, SE ATL",
+        "TURNIP Kodiak Cakes, Atlanta: protein-rich!",
+        "TURNIP Kodiak Cakes, Atlanta 2026"
       ],
       "substrate": "kraft",
-      "title": "Turnips-infused Kodiak Cakes!"
+      "title": "Turnip-Infused Kodiak Cakes"
     },
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/winter-greens/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033507Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=09a69466ab057d9e3f10533454b9496e2088ce9e075a0f9efed531c27046956c",
         "technique": null
       },
       "ingredient": "winter greens",
@@ -1867,12 +1867,12 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "steps": [],
       "substrate": "kraft",
-      "title": "Winter greens power cakes, SE ATL"
+      "title": "Winter Greens Power Cakes"
     },
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/strawberries/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033513Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=987a52de17fd3fc812691fc8e8d8136fb1bacef93195710e7662802effee90b7",
         "technique": null
       },
       "ingredient": "strawberries",
@@ -1981,19 +1981,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "POWER-PACKED strawberry pancakes ready in 20!",
-        "POWER-PACKED strawberry pancakes, 5 mins!",
+        "POWER-PACKED strawberry pancakes, ready in 20!",
+        "POWER-PACKED strawberry pancakes, easy & fast!",
         "POWER-PACKED strawberry pancakes!",
-        "PROTEIN-PACKED pancakes, ready in 20 mins!",
+        "POWER up with protein pancakes!",
         "POWER-PACKED strawberry pancakes, ready in 20 mins!"
       ],
       "substrate": "kraft",
-      "title": "Power-packed strawberry pancakes!"
+      "title": "Power Cakes with local strawberries"
     },
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/strawberries/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033513Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=987a52de17fd3fc812691fc8e8d8136fb1bacef93195710e7662802effee90b7",
         "technique": null
       },
       "ingredient": "strawberries",
@@ -2102,19 +2102,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Flapjacks, ready in 20 mins!",
+        "POWER up with protein pancakes, ready in 20!",
+        "POWER-PACKED pancakes, 5-ingred, 20 mins!",
         "POWER-PACKED strawberry pancakes, US-ATL",
-        "HIGH-PRO Strawberry Sheet Pan Pancakes ATL",
-        "EASY, golden pancakes in 20 minutes!",
-        "POWER-PACKED strawberry pancakes, ready in 20!"
+        "POWER-PACKED pancakes, ready in 20 mins!",
+        "EASY, protein-packed pancakes ready in 20 mins!"
       ],
       "substrate": "kraft",
-      "title": "Power Cakes with Local Georgia Strawberries"
+      "title": "Kodiak Cakes Power Cakes with Fresh Georgia Strawberries"
     },
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/vidalia-onions/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030821Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=739a4dd79f568a7ecaca5da5d9a6d1063d3e8acb1b2669f70f324c697c75c973",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/vidalia-onions/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033513Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=485965bcbfe903b27ade13f8311341f804aa84a83fbfcebb5bb6c73cb97634ad",
         "technique": null
       },
       "ingredient": "Vidalia onions",
@@ -2223,19 +2223,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "VIDALIA Onions & Kodiak Cakes Power Base",
-        "VIDALIA onion crunch atop Kodiak Cakes waffles",
-        "GRILLED Vidalia on Kodiak Cakes Power Waffles",
-        "VIDALIA Onion Power Tostada",
+        "VIDALIA onion power bites",
+        "VIDALIA onion power bites",
+        "VIDALIA Onion Power Waffles",
+        "VIDALIA onion power tostadas",
         "VIDALIA onion power tostadas"
       ],
       "substrate": "kraft",
-      "title": "Vidalia Onions on Kodiak Cakes"
+      "title": "Vidalia Cakes atop Kodiak Cakes Power"
     },
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/blueberries/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033519Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=e387f89b8e7619499ff1f46cae854910b4871a99fa84625a78758052a7d15fb7",
         "technique": null
       },
       "ingredient": "blueberries",
@@ -2344,19 +2344,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EASY Blueberry Power Pancakes!",
-        "PROTEIN-PACKED Blueberry Pancakes!",
-        "POWER-PACKED blueberry pancakes ready in 20!",
-        "POWER up with protein pancakes!",
-        "BLUEBERRY Power Pancakes, ready in 20!"
+        "QUICK protein pancakes in 20 mins!",
+        "FRONTIER Blueberry Pancakes, 2026-06",
+        "POWER-PACKED Blueberry Pancakes (ATL)",
+        "PROTEIN-PACKED sheet pan pancakes, ready in 20!",
+        "FRONTIER Blueberry Pancakes, protein-packed!"
       ],
       "substrate": "kraft",
-      "title": "Power-packed Blueberry Kodiak Cakes"
+      "title": "Kodiak Cakes Power Cakes with Local Blueberries"
     },
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/peaches/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030834Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=ba92ff729039456cd83c780ed34fecda96e35023a71bb7520d1c6a043fa04aba",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/peaches/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033519Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=968280fd15664df0b1a1f5f088dd5e2f7456e69a32fd3e579fe3d4f8ac1c5d72",
         "technique": null
       },
       "ingredient": "peaches",
@@ -2467,15 +2467,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Peach Power Cakes: 1 cup + milk + egg"
+        "FALL'S Best: Peach Power Cakes!"
       ],
       "substrate": "kraft",
-      "title": "Rugged peaches on Kodiak Cakes Power Cakes"
+      "title": "Fall peaches on Kodiak Cakes Power Cakes"
     },
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/watermelon/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030840Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=28979f45c03e11c8a672848ab4da89a522ddc755774fc6af4b8fba114fe3a7cc",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/watermelon/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033519Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=803cdf307c21f2cb972b5796775ee727f67b000ae4a35118c1eb77e6f4b0feab",
         "technique": null
       },
       "ingredient": "watermelon",
@@ -2584,11 +2584,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUGGED Watermelon Kodiak Cakes, SE ATL!",
-        "KODIAK Cakes: Watermelon Power Mix (ATL)",
+        "RUGGED Kodiak Cakes Watermelon Cakes, US-ATL",
         "RUGGED watermelon Kodiak cake, SE ATL",
         "RUGGED watermelon Kodiak cake, SE ATL",
-        "RUGGED Watermelon Cake for Atlanta"
+        "MIX Kodiak Cakes for a protein-packed treat!",
+        "RUGGED watermelon Kodiak cake, SE ATL"
       ],
       "substrate": "kraft",
       "title": "Rugged Watermelon Kodiak Cakes"
@@ -2596,7 +2596,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/muscadine-grapes/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030848Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=1f0fef0a2524677b7f83408d18e32917b9e553b2c15c2f1e27c70cd0b9a05061",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/muscadine-grapes/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033520Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=c6469572d080a87992b9fb3dffaa3e214ea4f1de918f5527cc81cbc97c8623cf",
         "technique": null
       },
       "ingredient": "muscadine grapes",
@@ -2705,19 +2705,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MUSCADINE Cake: Frontier's Sweet Treat",
-        "RUGGED muscadine cake, Atlanta-style!",
-        "GEORGIA'S Muscadine Cakes: Frontier Flavors",
-        "MUSCADINE-INFUSED Kodiak Cakes: Georgia's Frontier Treat",
-        "RUGGED muscadine cake for Atlanta"
+        "MUSCADINE Cake: Kodiak Cakes's frontier treat!",
+        "MUSCADINE-INFUSED Kodiak Cakes!",
+        "RUGGED muscadine cake, SE ATL",
+        "MUSCADINE-INFUSED Kodiak Cakes, Atlanta",
+        "MUSCADINE Grape Kodiak Cakes, SE ATL"
       ],
       "substrate": "kraft",
-      "title": "Muscadine Cakes over Kodiak Cakes Power"
+      "title": "Muscadine Cakes on Kodiak Cakes Power"
     },
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/pecans/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033525Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=5d93b8e26925be96fbe393e14478fc53f62e2e5d5ec419c7283107a40cda257e",
         "technique": null
       },
       "ingredient": "pecans",
@@ -2826,19 +2826,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PECAN-PACKED Pancakes, Atlanta!",
-        "PECAN Pancakes: Georgia's frontier stack",
-        "PECAN-PACKED Power Pancakes",
-        "PECAN-PACKED waffles, frontier-style!",
+        "PECAN Pancakes: Georgia's frontier breakfast!",
+        "PECAN Pancakes for Atlanta's frontier breakfast",
+        "PECAN Pancakes for a Georgia breakfast",
+        "PECAN-PACKED Power Pancakes, Atlanta",
         "PECAN Pancakes: Georgia's frontier breakfast!"
       ],
       "substrate": "kraft",
-      "title": "Pecan-Topped Kodiak Cakes"
+      "title": "Pecan-topped Kodiak Cakes"
     },
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/sweet-potatoes/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030900Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=404625a085f21b304dabed50c1a706cf5786d19fe861d3f29b073b2f64d3b5fb",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/sweet-potatoes/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033525Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=6869e214599c9767cda4243e6887609bb26c8faae49da1fb0bcee9580d855439",
         "technique": null
       },
       "ingredient": "sweet potatoes",
@@ -2947,19 +2947,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
+        "SWEET potato pancakes, beta-beta-carotene!",
         "SWEET potato pancakes, beta-carotene boost!",
+        "SWEET potato pancakes, beta-beta-carotene!",
         "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-power!"
+        "SWEET potato pancakes, beta-carotene boost!"
       ],
       "substrate": "kraft",
-      "title": "Sweet Potatoes on Frontier Pancakes"
+      "title": "Sweet potato pancakes over Bear Brown stacks"
     },
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/collards/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033530Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=5295835f05559a393196d185509c4ec137d3bd9387927396baa5cb111e4b2de0",
         "technique": null
       },
       "ingredient": "collards",
@@ -3068,21 +3068,21 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COLLARD-INFUSED Kodiak Cakes, SE ATL",
-        "COLLARDS power your Kodiak Cakes!",
-        "COLLARDS & Kodiak Cakes: Power-packed snack",
-        "COLLARD Power Cakes, SE ATL",
-        "COLLARD Power Cake, SE ATL"
+        "COLLARDS power Kodiak Cakes!",
+        "COLLARD Power Cake, SE ATL",
+        "COLLARDS & Kodiak Cakes: Southern Power",
+        "COLLARDS & Kodiak Cakes: Power Up!",
+        "COLLARD-INFUSED Kodiak Cakes, SE ATL"
       ],
       "substrate": "kraft",
-      "title": "Collard-Topped Kodiak Cakes"
+      "title": "Collards & Kodiak Cakes: Power-packed!"
     }
   },
   "US-W-SF": {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/meyer-lemon/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030912Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=94e62b924e6ca486c6904c03e52340353aa4a4386114a63cdd6f6ed308d50dc9",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/meyer-lemon/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033531Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=b8ef98bce4c79450498906f3c3662006b9335ca357075dbd04469e092171a8c1",
         "technique": null
       },
       "ingredient": "Meyer lemon",
@@ -3198,7 +3198,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/meyer-lemon/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030912Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=94e62b924e6ca486c6904c03e52340353aa4a4386114a63cdd6f6ed308d50dc9",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/meyer-lemon/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033531Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=b8ef98bce4c79450498906f3c3662006b9335ca357075dbd04469e092171a8c1",
         "technique": null
       },
       "ingredient": "Meyer lemon",
@@ -3302,11 +3302,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MEYER lemon zesty crunch, protein-packed!",
         "MEYER Lemon Pickles, protein-packed!",
-        "MEYER Lemon Pickles, protein-packed!",
-        "MEYER lemon power fries, whole grain!",
-        "MEYER Lemon Power Waffles, SF"
+        "MEYER Lemon Pickles: zesty, protein-packed!",
+        "MEYER lemon fried pickles, protein-packed!",
+        "MEYER Lemon Pickles: Protein-packed crunch!",
+        "GOLDEN Meyer lemon waffles, protein-packed!"
       ],
       "substrate": "kraft",
       "title": "Meyer Lemon Kodiak Cakes"
@@ -3314,7 +3314,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/artichokes/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033536Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=a22030bdcc2744d3b8ad708ed9a25d49e0b0dbcc3f26820a628616b464486ca9",
         "technique": null
       },
       "ingredient": "artichokes",
@@ -3418,19 +3418,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
+        "KODIAK Cakes Artichokes Cake SF 2026",
+        "KODIAK Cakes-Artichoke Cake, SF-Bay, 2026",
         "SAN Francisco's Kodiak Cakes Artichoke Delight!",
-        "KODIAK Cakes Artichoke Cakes SF Bay 2026",
-        "ARTICHOKE Power Cake, SF-style!",
-        "KODIAK Cakes Artichoke Cakes SF 2026",
+        "RUGGED artichoke Kodiak cake, SF Bay",
         "KODIAK Cakes Artichokes Cake SF 2026"
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Artichokes"
+      "title": "San Francisco Kodiak Cakes"
     },
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/artichokes/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033536Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=a22030bdcc2744d3b8ad708ed9a25d49e0b0dbcc3f26820a628616b464486ca9",
         "technique": null
       },
       "ingredient": "artichokes",
@@ -3534,19 +3534,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Artichokes Cake: Bay Area, 2026",
-        "SAN Francisco's Artichoke Kodiak Cakes",
-        "SAN Francisco's Artichoke Power Cake",
-        "FRESH artichoke Kodiak cakes, San Francisco!",
-        "FRESH artichoke Kodiak Cakes for SF!"
+        "KODIAK Cakes Artichokes Cake, SF Bay Area",
+        "KODIAK Cakes Artichoke Cakes SF 2026",
+        "FRESH artichoke Kodiak cakes, SF Bay!",
+        "KODIAK Cakes Artichoke Power Cake SF 2026",
+        "KODIAK Cakes Artichokes Cake: Bay Area, 2026"
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Fresh Artichokes"
+      "title": "San Francisco Kodiak Cakes"
     },
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/artichokes/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033536Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=a22030bdcc2744d3b8ad708ed9a25d49e0b0dbcc3f26820a628616b464486ca9",
         "technique": null
       },
       "ingredient": "artichokes",
@@ -3650,19 +3650,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Artichokes Delight, SF 2026",
-        "KODIAK Cakes: Fresh Artichokes Delight!",
+        "KODIAK Cakes Artichokes Cake, SF 2026-05",
         "SAN Francisco's Kodiak Cakes Protein Delight!",
-        "KODIAK Cakes Artichoke Cakes SF 2026",
-        "KODIAK Cakes Artichokes Cake SF Bay 2026"
+        "KODIAK Cakes Artichokes Cake, SF 2026",
+        "KODIAK Cakes Artichokes Cake SF Bay 2026-05",
+        "KODIAK Cakes Artichokes Cake: SF Bay Area, 2026"
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Artichokes & Bear Brown"
+      "title": "San Francisco Kodiak Cakes with Artichokes"
     },
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/artichokes/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033536Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=a22030bdcc2744d3b8ad708ed9a25d49e0b0dbcc3f26820a628616b464486ca9",
         "technique": null
       },
       "ingredient": "artichokes",
@@ -3766,19 +3766,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Protein Cakes: San Francisco Artichoke Delight",
-        "KODIAK Cakes Artichokes Cake: SF's frontier treat!",
         "KODIAK Cakes Artichokes Cake: Bay Area, 2026",
-        "KODIAK Cakes Artichokes Cake: SF's frontier delight!",
-        "KODIAK Cakes Artichokes Cake: SF-Bay, 2026"
+        "KODIAK Cakes-Cakes: Artichoke Delight SF 2026",
+        "KODIAK Cakes Artichokes Cake, SF Bay Area",
+        "KODIAK Cakes Power Cakes: Artichoke Delight, SF",
+        "KODIAK Cakes Artichokes Cake: Bay Area, 2026"
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with local artichokes"
+      "title": "Kodiak Cakes Power Cakes with fresh artichokes"
     },
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/strawberries/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033513Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=987a52de17fd3fc812691fc8e8d8136fb1bacef93195710e7662802effee90b7",
         "technique": null
       },
       "ingredient": "strawberries",
@@ -3882,19 +3882,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "POWER-PACKED pancakes, ready in 20 mins!",
-        "POWER-PACKED SF strawberry pancakes!",
+        "HIGH-PRO SF Flapjacks ready in 20 mins!",
+        "POWER-PACKED strawberry pancakes, SF style!",
         "POWER-PACKED strawberry pancakes, ready in 20!",
-        "POWER-PACKED pancakes, ready in 20!",
-        "POWER-PACKED pancakes, ready in 20!"
+        "HIGH-PRO SF Pancakes, 20 mins!",
+        "HIGH-PRO pancakes, ready in 20 mins!"
       ],
       "substrate": "kraft",
-      "title": "Power-packed strawberry pancakes"
+      "title": "High-Pro SF Strawberry Pancakes"
     },
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/strawberries/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033513Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=987a52de17fd3fc812691fc8e8d8136fb1bacef93195710e7662802effee90b7",
         "technique": null
       },
       "ingredient": "strawberries",
@@ -3998,19 +3998,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "POWER-PACKED pancakes, ready in 20 mins!",
-        "HIGH-PRO SF Pancakes (2026-08)",
-        "POWER-PACKED sheet pan pancakes with fresh strawberries!",
-        "HIGH-PRO SF Pancakes, 20 mins!",
-        "HIGH-PROTEIN strawberry pancakes, ready in 20!"
+        "QUICK protein pancakes, ready in 20 mins!",
+        "POWER-PACKED SF pancakes, 5g fiber!",
+        "QUICK protein pancakes, SF style!",
+        "POWER Sheet Pan Pancakes SF 2026-08",
+        "POWER-PACKED pancakes, ready in 20 mins!"
       ],
       "substrate": "kraft",
-      "title": "High-Pro Flapjacks SF 2026-08"
+      "title": "Power-packed strawberry pancakes, SF"
     },
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/strawberries/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033513Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=987a52de17fd3fc812691fc8e8d8136fb1bacef93195710e7662802effee90b7",
         "technique": null
       },
       "ingredient": "strawberries",
@@ -4114,19 +4114,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO SF Pancakes Ready in 20 Min!",
-        "POWER-PACKED strawberry pancakes, 5 mins!",
-        "HIGH-PRO SF Pancakes with Fresh 2026 Berries",
-        "POWER-PACKED SF pancakes, ready in 20!",
-        "POWER-PACKED strawberry pancakes, ready in 20!"
+        "HIGH-PRO SF Flapjacks (2026-09)",
+        "POWER-PACKED strawberry pancakes, SF 2026-09",
+        "POWER-PACKED strawberry pancakes, ready in 20!",
+        "HIGH-PROTEIN sheet pan pancakes, SF 2026-09",
+        "POWER-PACKED strawberry pancakes, ready in 20 mins!"
       ],
       "substrate": "kraft",
-      "title": "Power-packed strawberry pancakes!"
+      "title": "Power-packed strawberry pancakes SF 2026-09"
     },
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/brussels-sprouts/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033541Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=196726a9e69d4f0302a7f61d185952bc478646dd49e1b440b5f63e82d13d7767",
         "technique": null
       },
       "ingredient": "brussels sprouts",
@@ -4231,10 +4231,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "steps": [
         "KODIAK Cakes Brussels Sprout Power Cake SF 2026",
-        "KODIAK Cakes Brussels Sprouts Power Cake, SF",
-        "KODIAK Cakes Brussels Sprout Protein Bowl — SF 2026",
-        "KODIAK Cakes Brussels Sprouts Power Cake SF-Bay-1026",
-        "KODIAK Cakes Brussels Sprout Pie, SF Bay Area"
+        "KODIAK Cakes Brussels Sprouts Power Cake, SF 2026",
+        "KODIAK Cakes Brussels Sprout Power Bowls — SF",
+        "KODIAK Cakes Brussels Sprout Power Cake, SF",
+        "KODIAK Cakes Brussels Sprout Brownies SF 2026"
       ],
       "substrate": "kraft",
       "title": "Kodiak Cakes Power Cakes with Brussels Sprouts"
@@ -4242,7 +4242,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/olive-oil-fall-press/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030930Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=2bc0cda137cbc1323c792a97a4d7e94c4b74fcff0496a2e29266466cb0eea867",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/olive-oil-fall-press/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033541Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=fc58fb20b7ae99dcb1ec8b0fc00564bc5b2d2709e39a2b0f0f899a61ab04317e",
         "technique": null
       },
       "ingredient": "olive oil (fall press)",
@@ -4347,18 +4347,18 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "steps": [
         "FALL Olive Oil Protein Bowl",
-        "FALL Olive Oil Protein Bowl",
-        "FALL Olive Oil Power Waffles",
+        "FALL Olive Oil Protein Stir-fry",
+        "FALL Olive Oil Waffles, SF Bay",
         "FALL Olive Oil Power Tostada Base",
-        "FALL Olive Tostada Base"
+        "FALL Olive Oil Tostadas with Blaze Orange"
       ],
       "substrate": "kraft",
-      "title": "Fall Olive Oil on Kodiak Cakes"
+      "title": "Olive Oil on Kodiak Cakes Power Cakes"
     },
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/half-moon-bay-pumpkin/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMQCBOHYO2%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T030935Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJHMEUCIAtmzCl7UutXRxhVhHyYM%2Ba0Ot%2BsajlvPBJOkA0ahyECAiEA75Bcm1uV9VgLg6gnVogZ9rEAznXbYQzyLn8rSm5GVCoq5wMI3P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NDYxNzk0Mjg2MzMiDHYFpUJlPZtxrsE90yq7A7eBomBgQwzfzMC1xWMVHnTh0Y4V%2Br41jLUbg%2FW45albeONtpXX9%2FYSkZpP%2F2NG49JjXehJBYQdMZ8M2g4TrEL8EyZHHV3p09D2q8xlfVRlHIHwuCAvl1mTTgcAikxwRT3rDlleVP7P6cLvDohZUoq9dV5KwHQtL0yhw47Z%2BjQStglJHc2fFk66gsJPAUKKcv0GIfzI5KMZW1bbVWICM5xFL%2F2as7dkJZ6NIy8mJcLnYw5IMtG0H0ALX5JU4gMIfPUaIRkjIQNEmXsDtDqM0s9xZilPQncKppTCgRW4ffWo6OFic61qo0V5oyYMOPNpbotns1gmrEoO11SnAMyemUgj4olHf9NlhA6rHN51H2gl8yLrhpkNQQW78Isl1BYVZ%2FeDmj%2BXn17Tnzxg71eJvf5P5596cWZv6zc%2FgzWZGWIFCrZd%2Bdu4uOih51jMFOU05t934Qvc8B605M9WoaFYcdg7hjqkgXhWlbmuZee3PXLj8K8GqcJQOAbc5kNPrQdTfBW2deuAY0Y2IRnihJxcsuyqbsQl9qdK31pigy1dYECVUxK37AMVDfiKE8g91cADze%2FR5PK7%2BZVHsljtbMInKndUGOqgBx%2FeJtXjcQrH9H97SpLM7bAIOTWNKWObgjUj87%2BeRIJFzNiZVrh27mJFzi4%2BjozZJ8rWj9ycyE9y3E7%2FYYeJErqBJRogrQzTO32pYD%2BsHvCpWFLh56W18EZ2E4qnQKBbhiV8vSEXr69O0nUoV3wOIhbuxHDSaje0SlR0VBXL1MdfFZsoqVSm4Neh92zpCc4uoHtn1c4Nu84PNfusTr1vLLcv%2BszWNrpe8&X-Amz-Signature=42e1b4be424b61df0feadbffb7b23be977dd66df08f7f166829be411d2f0a4ac",
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/half-moon-bay-pumpkin/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMVWNH2CVU%2F20260914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260914T033542Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBQaCXVzLWVhc3QtMSJGMEQCICRxYIwRfktFgStTMXG5HvgY%2FZbabWUHeFBOzr67y2HgAiAyhhp%2FBF90uYBCj42C7Hk%2FT%2BtmTMS2%2FqXqPTZ4W95cDyrnAwjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDk0NjE3OTQyODYzMyIMe%2BvqwNqC4AV58fZ6KrsDL0Bw0PE0eWFxNmNjNrzH%2BWiIRQvhLUbSaPDUvyIjG3RQjcigRFcBDOjkOAbkj8pV2CMgvV7ZA7TEy3QO10MomQXDtUUk4LujDudtUO9k8dF%2FEwIdVaWPziteIFrK8Lx2phV2g1UYPsXirYdv%2FCtOL9KeyhplH8NEWNZN4gPgVVkBgxgBnfRdZWxxzZI9pUlciyJUSEXasCQyIEOAXkAtPcWXd%2Bg6s4i6h6fspJaZtztBolE8tjHnKneFsOKZq1FxEpQLjalstNdsHZVZrVnPMvMvaSh%2F7VQ0yVCaQZ%2BlyBmrbIMoUOcKRJLbHOZcppYE6n03qrhvpra7TrY2UxUWiwg4HHp%2FjLJb5yGaYglxn%2BwzKHUI8yGvNfdPWX7ul4D0cIjaBp9zaNNyc%2FHwel98E%2FMHRXfH%2F2QCayB4rQMvqBSFPCh37wLvs8OpuH%2FuMtr%2FmrzkBI29W4uDnWybtSePYLyrcOX%2B7a5pNMUaAuVDGJQviBDBP14SrBpzkNBD460nz7WG80fpkgfOVfmHeB85mG2G%2Bj%2BV8CadeTXfrCEJUg5pVb%2F5zyF2h8QcR6z%2FlCChA19xwZpQvOBf54cw5dad1QY6qQGgMqT%2BOgnk7uSQok25yRvApJemzdVZZhib59zrBzWpNa%2BVf%2FYtQzXs1drnFEqZSVongH7SQ5movElgWsvKZPMHbIeOxMMjtnu4bTKRSlAjLie%2FTFZRi4wARjJS3fCMvIJpxLE%2FPmjrwS9c48wyL1YlLjVO0j5bdqp8oeSBjh%2BYGdV4xg248SW9zbKhZG%2F%2FKVFl3H8ktfFjTHPlLiMRRADFAOCRh8HUmhiE&X-Amz-Signature=b01c56d9b55d56db9af461fc3939b9669e6fe488a6996345140785ae5eeba2f7",
         "technique": null
       },
       "ingredient": "Half Moon Bay pumpkin",
@@ -4462,11 +4462,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
+        "HALF Moon Bay Pie Twist!",
         "HALF Moon Bay Pumpkin Delight!",
-        "HALF Moon Bay Pumpkin Delight!",
-        "FALL Half Moon Bay pizza bites!",
+        "HALF Moon Bay Pizza Pinwheels",
         "HALF Moon Bay pizza bites!",
-        "HALF Moon Bay Pizza Pinwheels!"
+        "HALF Moon Bay pizza pinwheels!"
       ],
       "substrate": "kraft",
       "title": "Half Moon Bay Pumpkin Power Cakes"
