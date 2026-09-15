@@ -84397,7 +84397,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/carambola/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEM22YVJ4XF%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T195103Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIQDhLEuoXFUm0eGUjhuwptEx8eV2IwKiELPMwE4tOR2fwgIgBxB1g2LlGhOlFTl%2FdEeNheypYh7m9v762zxs0ITT5vMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOYJKW0%2BGQ34oQjWayq7AyJwGhwRhJnSXLRi8X5YktnWmtZcLZ7xerZ5dLOpOiUr%2B8txtG7K7vrsIopHjzvOsupnJJIAuk9ogXgwfRNr6RISQWTRQIkHvmD865rs2E56zWm%2FZ45O07A6vToocgwE5FeeehzqvwHF0BXOrrrt2xVaYYMfrmwco0cudJTQoYJvKHRmDBm%2FqPB4mipChHYw3EhAAfzS4cSuZCzUq%2FVhjtFOasmH%2BZQRRkhQcFYatBwmCAdRFe6hz%2FRUTReDWlXztak5LxOzNx73y5QmVQCa7BLc1SWV0sz4xrsSFuBpunM%2B4dQEmRPfUrBUWyBIv%2B%2BryBHxIu9ClMVArFJbSF8p1gE%2Bj1l%2FNYoa6dN0kur6livop8nCA8v0PiIyQd8t3iIC2VDXOxwUf5Z7tSpEc40zt278vNlJSbnOI%2FqGI2Ojsb%2F7yxe1LEbGkvq1XdxjsmtXsvjsTKHLjYzt3R7T1Vtjjofb4zIFfaXuWK6KwT0bFQcb2PJCnR1QJNAecUEJjqCF9BkqjT7aAVkPLxGjMB5IkcOmO7qvdrjeHP5ixf00FpMjJmn8TiY9yn%2B1YKxDtll2OO9p3%2FbYbrC1ExQUMKfDptUGOqgBboqVdDDH0zMajUuuXPawnwEgyqHFVxRpNGRUY9TJ8VQ0937Bja%2FVTLBXQcShgCcPJM8E7NQQJalw8H1vkF5ws304nSnWHXbmbQv5qlEZ82Ak6QGUAjYId5%2FpXj15vM36kZajfUa1KB5kT%2Fq4v78z4%2F1KKzNWy2TT0Gpe%2BuqDUAeq7ofAftTwwE%2B4Qg0EKSKDibdvZwKtwFXgb%2BR622jBaUm6ICecatAU&X-Amz-Signature=bc433877e293a9176c173aa77149b6ae8612650931d163701a18ba49179c9439",
         "technique": null
       },
       "ingredient": "carambola (fall)",
