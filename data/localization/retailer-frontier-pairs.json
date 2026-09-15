@@ -329,6 +329,7 @@
       "market": "US-CA-PESCADERO",
       "legacy_market": "US-W-SF",
       "metro_location": {
+        "market": "US-W-SANJOSE",
         "retailer": "Costco",
         "name": "Costco Wholesale (San Jose halo for the Pescadero frontier gap)",
         "address": "2201 Senter Rd, San Jose, CA 95112",
@@ -9106,6 +9107,7 @@
     {
       "market": "US-CA-CASTROVILLE",
       "metro_location": {
+        "market": "US-W-SF",
         "retailer": "Safeway",
         "name": "Safeway (San Francisco Marina anchor for the Castroville frontier gap)",
         "address": "15 Marina Blvd, San Francisco, CA 94123",

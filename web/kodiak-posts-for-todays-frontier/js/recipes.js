@@ -253,12 +253,14 @@
       var metro = pair.metro || {};
       var frontier = pair.frontier || {};
       var card = el('article', 'rx-pair');
-      card.setAttribute('aria-label', (metro.name || metro.retailer || pair.market) + ' paired with ' + (frontier.place || frontier.market || ''));
+      // Metro side: the MARKET leads; the retailer store is subordinate.
+      // Never the store name as identity: "Atlanta" then "Publix · address".
+      var metroMarket = placeFor(metro.market || pair.market);
+      card.setAttribute('aria-label', metroMarket + ' paired with ' + (frontier.place || frontier.market || ''));
 
-      // Metro side: retailer store reference.
       var metroSide = el('div', 'rx-pair__side rx-pair__side--metro');
       metroSide.appendChild(el('p', 'rx-pair__kicker', 'metro'));
-      metroSide.appendChild(el('h3', 'rx-pair__place', metro.name || metro.retailer || pair.market));
+      metroSide.appendChild(el('h3', 'rx-pair__place', metroMarket));
       var metroMeta = [];
       if (metro.retailer) metroMeta.push(metro.retailer);
       if (metro.address) metroMeta.push(metro.address);
