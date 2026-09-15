@@ -94,31 +94,59 @@ _NEGATIVE_STRONG = (
     "heavy linework, filled shapes, crowded, many items"
 )
 
-# subject-class hints: append a short sparsity clause when the subject keyword-matches.
+# subject-class hints: append a short sparsity clause when the subject word-matches.
+_WORD_RE = re.compile(r"[a-z]+")
 # Kept as a small readable mapping (keyword tuple -> clause), not a per-ingredient table.
 # Leafy subjects render as a leaf or two rather than a dense bunch; small clustered
 # fruit/nut subjects render as two or three pieces rather than a full pile. Subjects
 # that match neither just use the strengthened base prompt.
 _LEAFY_KEYWORDS = (
     "green",
+    "greens",
     "collard",
+    "collards",
     "kale",
     "sprout",
+    "sprouts",
     "lettuce",
     "artichoke",
+    "artichokes",
     "chard",
     "spinach",
     "cabbage",
+    "cabbages",
 )
 _CLUSTER_KEYWORDS = (
     "berry",
     "berries",
     "grape",
+    "grapes",
     "pecan",
+    "pecans",
     "nut",
+    "nuts",
     "bean",
+    "beans",
     "pea",
+    "peas",
     "cherry",
+    "cherries",
+    # berry compounds are distinct words, not suffixes ("strawberries" !=
+    # "berries" under whole-word matching), so they are listed explicitly.
+    "strawberry",
+    "strawberries",
+    "blueberry",
+    "blueberries",
+    "blackberry",
+    "blackberries",
+    "raspberry",
+    "raspberries",
+    "cranberry",
+    "cranberries",
+    "mulberry",
+    "mulberries",
+    "currant",
+    "currants",
 )
 _LEAFY_CLAUSE = (
     ", just a single leaf or two, open airy linework, not a dense bunch, "
@@ -138,11 +166,14 @@ def _subject_class_clause(subject: str) -> str:
     Leafy greens and clustered fruit/nut subjects are the coverage-gate offenders;
     a keyword match biases the prompt toward a sparse rendering. First match wins
     (leafy checked before cluster). Non-matching subjects get no clause.
+
+    Matching is whole-word: substring matching misfires ("nut" in "butternut",
+    "pea" in "spears") and sends the wrong sparsity clause.
     """
-    low = str(subject).lower()
-    if any(kw in low for kw in _LEAFY_KEYWORDS):
+    words = set(_WORD_RE.findall(str(subject).lower()))
+    if words & set(_LEAFY_KEYWORDS):
         return _LEAFY_CLAUSE
-    if any(kw in low for kw in _CLUSTER_KEYWORDS):
+    if words & set(_CLUSTER_KEYWORDS):
         return _CLUSTER_CLAUSE
     return ""
 
