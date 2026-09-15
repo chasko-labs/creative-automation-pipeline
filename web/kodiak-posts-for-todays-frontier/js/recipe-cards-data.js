@@ -182,7 +182,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/cauliflower/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=f6113c8f08893d0f02ee92b87fff2d51e495f83cba44208568a073d1f72ac071",
         "technique": null
       },
       "ingredient": "cauliflower",
@@ -359,7 +359,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/broccoli/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=3a035e3acebd1ca3b8609e7494cecf3a96c2781af223fe8ad772817e0365b7ad",
         "technique": null
       },
       "ingredient": "broccoli",
@@ -1242,7 +1242,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/celery/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=aa97fd85fc7f529a8c2b06a1e864fd63c70716a5e4a26a03424e0b1b5ada4ed9",
         "technique": null
       },
       "ingredient": "celery",
@@ -1419,7 +1419,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/bell-peppers/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=dad9d7e59c085bf342114ea0b80ebe1faff60626f3114742de336e5cd492de98",
         "technique": null
       },
       "ingredient": "bell peppers",
@@ -1596,7 +1596,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/spinach/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=52e6fad27696b1bc2a7d3517dae8f312d6958e05f9c041e8668a774b9a4ea40c",
         "technique": null
       },
       "ingredient": "spinach",
@@ -2489,7 +2489,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/rainbow-chard/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=a51fdad707c317ccb86471ae44675e4aab757bb386b554edbec4595c2540fd9a",
         "technique": null
       },
       "ingredient": "rainbow chard",
@@ -2668,7 +2668,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/harley-farms-goat-cheese/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=c6294589a4ba26262b4a07bd970e827e396ca25b2649907443f40b6105b4e951",
         "technique": null
       },
       "ingredient": "Harley Farms goat cheese",
@@ -2845,7 +2845,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/spring-peas/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=9592211626946124b4c3b23d4fc61692057c827d7f37f03df01c2870a105dcab",
         "technique": null
       },
       "ingredient": "spring peas",
@@ -3387,7 +3387,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/romano-beans/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=e89142a05e4d24caeea68312e302a482097560e4b525d91b8a4e25917850591b",
         "technique": null
       },
       "ingredient": "romano beans",
@@ -22772,7 +22772,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/ranch-lamb/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=806bcfbdd7517794c488ee0fec354379aafe880ae261006ad48fddccd926a5e1",
         "technique": null
       },
       "ingredient": "ranch lamb (value-added)",
@@ -28624,7 +28624,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/wild-rice/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=5966e77b39da20af01cae603f7fb513ab27e7f295e100e8caec48fccf04b1955",
         "technique": null
       },
       "ingredient": "wild rice (Minnesota)",
@@ -41204,7 +41204,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/wild-rice/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=5966e77b39da20af01cae603f7fb513ab27e7f295e100e8caec48fccf04b1955",
         "technique": null
       },
       "ingredient": "wild rice (Minnesota)",
@@ -49010,7 +49010,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/fresh-cider/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=f0b882e2a17f025063ee9492ea54bb24bcd53c1c55bd3a46e05993340d14fc85",
         "technique": null
       },
       "ingredient": "fresh cider",
@@ -56792,7 +56792,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/fresh-cider/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=f0b882e2a17f025063ee9492ea54bb24bcd53c1c55bd3a46e05993340d14fc85",
         "technique": null
       },
       "ingredient": "fresh cider",
@@ -61135,7 +61135,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/fresh-cider/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=f0b882e2a17f025063ee9492ea54bb24bcd53c1c55bd3a46e05993340d14fc85",
         "technique": null
       },
       "ingredient": "fresh cider",
@@ -80321,7 +80321,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/butternut-squash/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=2dc9b1c7e894d55b084533b1882fbdfe6170b4f882fb6ab0ff7c6d469035b1cd",
         "technique": null
       },
       "ingredient": "butternut squash (storage)",
@@ -81767,7 +81767,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/field-peas/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=df9221ef1f3041d3fd375225f8a7f4992d31e3d680f26c13ffb2709ab5d77196",
         "technique": null
       },
       "ingredient": "field peas (cowpeas)",
@@ -83631,7 +83631,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/passionfruit/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=42d24b179967020aa056fe25a31f2cbecd164d5ff987f975821bd2317bf0b46d",
         "technique": null
       },
       "ingredient": "passionfruit",
@@ -84773,7 +84773,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/green-beans/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=f40021ec0db059bd7b652893e5775f903a5973bad8c9f09b6470a56d7eaa5a71",
         "technique": null
       },
       "ingredient": "green beans (winter)",
@@ -86986,7 +86986,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/butternut-squash/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=2dc9b1c7e894d55b084533b1882fbdfe6170b4f882fb6ab0ff7c6d469035b1cd",
         "technique": null
       },
       "ingredient": "butternut squash (storage)",
@@ -93516,7 +93516,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/butternut-squash/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=2dc9b1c7e894d55b084533b1882fbdfe6170b4f882fb6ab0ff7c6d469035b1cd",
         "technique": null
       },
       "ingredient": "butternut squash (storage)",
@@ -98445,7 +98445,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/green-beans/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=f40021ec0db059bd7b652893e5775f903a5973bad8c9f09b6470a56d7eaa5a71",
         "technique": null
       },
       "ingredient": "green beans (winter)",
@@ -118343,7 +118343,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/ranch-lamb/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=806bcfbdd7517794c488ee0fec354379aafe880ae261006ad48fddccd926a5e1",
         "technique": null
       },
       "ingredient": "ranch lamb (value-added)",
@@ -136228,7 +136228,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/rainbow-chard/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=a51fdad707c317ccb86471ae44675e4aab757bb386b554edbec4595c2540fd9a",
         "technique": null
       },
       "ingredient": "rainbow chard",
@@ -136407,7 +136407,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/harley-farms-goat-cheese/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=c6294589a4ba26262b4a07bd970e827e396ca25b2649907443f40b6105b4e951",
         "technique": null
       },
       "ingredient": "Harley Farms goat cheese",
@@ -136584,7 +136584,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/spring-peas/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=9592211626946124b4c3b23d4fc61692057c827d7f37f03df01c2870a105dcab",
         "technique": null
       },
       "ingredient": "spring peas",
@@ -137126,7 +137126,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/romano-beans/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=e89142a05e4d24caeea68312e302a482097560e4b525d91b8a4e25917850591b",
         "technique": null
       },
       "ingredient": "romano beans",
@@ -142548,7 +142548,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/cauliflower/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=f6113c8f08893d0f02ee92b87fff2d51e495f83cba44208568a073d1f72ac071",
         "technique": null
       },
       "ingredient": "cauliflower",
@@ -142725,7 +142725,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/broccoli/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=3a035e3acebd1ca3b8609e7494cecf3a96c2781af223fe8ad772817e0365b7ad",
         "technique": null
       },
       "ingredient": "broccoli",
@@ -143608,7 +143608,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/celery/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=aa97fd85fc7f529a8c2b06a1e864fd63c70716a5e4a26a03424e0b1b5ada4ed9",
         "technique": null
       },
       "ingredient": "celery",
@@ -143785,7 +143785,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/bell-peppers/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=dad9d7e59c085bf342114ea0b80ebe1faff60626f3114742de336e5cd492de98",
         "technique": null
       },
       "ingredient": "bell peppers",
@@ -143962,7 +143962,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": null,
+        "raw_ingredient": "https://chasko-creative-dam-946179428633-us-east-1.s3.amazonaws.com/brands/kodiak/recipe-art/spinach/raw_ingredient.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5YTFQKEMZIYXDS2I%2F20260915%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260915T194533Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDwaCXVzLWVhc3QtMSJHMEUCIFhNAsvattOIHYBdk%2FdJTQssu%2FPS%2F5IOHGTdLE9DkdxkAiEAiwSbaY%2FRezd1ipdnNeyx5VjrdFnrnn%2F%2BYrnpGR9%2BSxMq3gMIBRABGgw5NDYxNzk0Mjg2MzMiDOGu1%2BduvPVU%2BnLr8yq7Aw37zQ%2Bvu2kotqKMT2Fbzxm73jHcRwMXM6SZWNoQoU28W8TAnfwHfNXlUIbz6kaX4OhVFcle07UpiZe37UfhdB0Y4%2B4N3KzudMsMXGgpUUJAXe8Wi%2Bgk7v%2Bhy%2BhdJdmlUBLJbwN7dLqz9znm%2BRCc5t2e3hbT5%2F0wkPT6Ap9nnVrHS6wV5eUU61iYxYa48WxbNBC9Yrt2zLJ9t8LBOiFuGwQ7ZvS1KPKyPPF7eWws7UlbxYTthe7GuS0qbYDOHCt%2B11L1DMi0RF6BsHIDsyISEOEOpPGojhTYllwiWUbuzIaOfJQkWt1NGLQpSaGI%2FvZsri%2B2pQ%2FE1yRBac9w6gR0DVIYp82HzqGK2qIArMpJvt8FriDlFywKhVJjiuqescYQreBpVTQX%2FvKlQWlqYEAG61mhHauTCjh53Tf2ltAGyp9vAIgjEG%2ByDVBCdgSN5lic6T%2FKNjCAlmcIq8hWXW5AWuYIJIkQLAmaCmqQY17nZSsYc3jtH3HqFoOY2T1wefZrdWLUyjKvna7LpEr7r2a3RKLtgkpE7AyPTpRPOhcpZelet2QQ6T6GwxSWlE46z3uqDvlFxn7wuFTolktVMN3AptUGOqgB44sF1%2FGb8x0G7wgNlarJ1b49YQ3lgJVjhY8SDO1CVIltgzeIXp1lNGyCMdD%2FguC%2BwpEreM3ioDnPVeQysfEAUbpKbwfMsKShoGAFAQDk%2FsFocjfZmLkuAqb3P0uJSnpURdkLKR9CCkwMut0qvw4jbXtpV9C0w65Vw85m5Yja0ySEnAXoppVvXUGPmQt%2BkUz2hP%2Bg9CjOF0Ze%2B98MbYPXHy9aEU4mI%2B1g&X-Amz-Signature=52e6fad27696b1bc2a7d3517dae8f312d6958e05f9c041e8668a774b9a4ea40c",
         "technique": null
       },
       "ingredient": "spinach",
