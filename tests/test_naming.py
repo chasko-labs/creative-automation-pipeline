@@ -21,6 +21,7 @@ def test_build_iso_name_matches_shared_regex():
         ("power-cakes", "US-NM", "las-cruces-target", "instagram", "9x16"),
         ("protein-biscuits", "US-SW-LASCRUCES", "alamogordo-diner", "diner-board", "16x9"),
         ("savory-waffles", "US-MW", "park-city-wasatch", "subscription-email", "1x1"),
+        ("power-cakes", "US-SE-ATL", "atlanta-publix", "instagram", "4x5"),
     ]
     for product, region, locality, channel, ratio in cases:
         name = build_iso_name(product, region, locality, channel, ratio, date="20250902", version="v01")
@@ -45,6 +46,19 @@ def test_slugify_and_ratio_helpers():
     assert slugify("--Trail__Mix--") == "trail-mix"
     assert canon_ratio("1:1") == "1x1"
     assert canon_ratio("16:9") == "16x9"
+
+
+def test_4x5_is_a_first_class_delivery_ratio():
+    # 4x5 is one of the four customer delivery ratios (1x1, 4x5, 9x16, 16x9). It must
+    # canonicalize from both spellings and pass the shared ISO filename regex so the
+    # pack path and the strict path share ONE contract.
+    assert canon_ratio("4x5") == "4x5"
+    assert canon_ratio("4:5") == "4x5"
+    name = build_iso_name("power-cakes", "US-SE-ATL", "atlanta-publix", "instagram", "4:5",
+                          date="20260903", version="v01")
+    assert name == "KODIAK-CAKES-power-cakes-US-SE-ATL-atlanta-publix-instagram-4x5-20260903-v01.png"
+    assert ISO_NAME_RE.match(name), f"{name} failed naming.ISO_NAME_RE"
+    assert ISO_RE.match(name), f"{name} failed scorecards.ISO_RE"
 
 
 def test_bad_filename_rejected_by_iso_regex():

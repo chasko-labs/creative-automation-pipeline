@@ -1,0 +1,265 @@
+{
+  "schema": "kodiak/recipe-variants-dogfood@v1",
+  "description": "Dogfood manifest of reusable Kodiak recipe-variant families derived from photographed source cards under input_assets/kodiak/. Data-only. Families are archetypes that wrap approved Kodiak base recipes; market and seasonal facts are inferred and flagged proposed. No exact handwritten text is asserted from the photographs beyond what is clearly legible.",
+  "non_fabrication_rule": {
+    "statement": "Do not invent recipe names, ingredient lists, quantities, or handwritten text that are not clearly legible in the source images. For chalkboard or handwritten images that are not legible, record only format and style observations with transcription_confidence low. Only text that is clearly readable may carry confidence high. All market and seasonal mappings are inferred design proposals, not transcribed facts, and carry status proposed with validation_needed set.",
+    "applies_to": [
+      "source_provenance",
+      "ingredient_slots",
+      "technique_slots",
+      "market_variants",
+      "structure"
+    ],
+    "high_confidence_requires": "text clearly readable in the source image",
+    "inferred_facts_default_status": "proposed"
+  },
+  "source_images": [
+    "PXL_20260913_192802787.jpg",
+    "PXL_20260913_192848841.jpg",
+    "PXL_20260913_192910740.MP.jpg"
+  ],
+  "markets": [
+    {
+      "market_id": "US-W-SF",
+      "label": "US West - San Francisco Bay",
+      "status": "proposed",
+      "validation_needed": true,
+      "regional_cues": ["coastal citrus", "berries", "artichoke", "spring herbs"]
+    },
+    {
+      "market_id": "US-SE-ATL",
+      "label": "US Southeast - Atlanta",
+      "status": "proposed",
+      "validation_needed": true,
+      "regional_cues": ["Georgia peach", "pecan", "blueberry", "sweet potato"]
+    },
+    {
+      "market_id": "US-MW-PARKCITY-84098",
+      "label": "US Mountain West - Park City 84098",
+      "status": "proposed",
+      "validation_needed": true,
+      "regional_cues": ["rhubarb", "peach", "apple", "berries", "warming ski-season"]
+    }
+  ],
+  "variant_families": [
+    {
+      "family_id": "citrus-glazed-bake",
+      "product_role": "sweet-bake",
+      "base_recipe_id_or_null": "power-cakes",
+      "primary_product_mapping": "power-cakes",
+      "optional_product_mappings": [
+        {
+          "product": "bear-bites",
+          "form": "snack-cake",
+          "status": "proposed",
+          "validation_needed": true,
+          "note": "optional snack-cake form using Bear Bites presentation"
+        }
+      ],
+      "structure": {
+        "form": "sheet-cake-or-bundt",
+        "method_archetype": "mix-bake-poke-glaze",
+        "status": "proposed",
+        "validation_needed": true
+      },
+      "ingredient_slots": [
+        { "slot": "base_mix", "role": "cake base", "default": "Kodiak power-cakes mix", "status": "proposed", "validation_needed": true },
+        { "slot": "citrus_flavor", "role": "primary flavor", "example": "lemon", "status": "proposed", "validation_needed": true },
+        { "slot": "wet_binders", "role": "eggs, oil, water", "status": "proposed", "validation_needed": true },
+        { "slot": "aromatic", "role": "extract or grated zest", "status": "proposed", "validation_needed": true },
+        { "slot": "glaze", "role": "powdered sugar plus citrus juice", "status": "proposed", "validation_needed": true }
+      ],
+      "technique_slots": [
+        { "slot": "bake_temp", "example": "350F", "status": "proposed", "validation_needed": true },
+        { "slot": "pan", "example": "9x12", "status": "proposed", "validation_needed": true },
+        { "slot": "bake_time", "example": "~40 min", "status": "proposed", "validation_needed": true },
+        { "slot": "finish", "example": "poke and glaze while warm", "status": "proposed", "validation_needed": true }
+      ],
+      "art_direction": {
+        "mood": "bright citrus, natural light, glaze sheen",
+        "negative_space": "top third for headline",
+        "status": "proposed",
+        "validation_needed": true
+      },
+      "source_provenance": {
+        "primary_source_image": "PXL_20260913_192802787.jpg",
+        "legibility": "clear",
+        "visible_source_title": "SUNSHINE LEMON CAKE",
+        "visible_ingredients": [
+          "lemon cake mix",
+          "small lemon gelatin",
+          "oil",
+          "water",
+          "eggs",
+          "lemon extract or grated lemon rind"
+        ],
+        "visible_glaze": ["powdered sugar", "lemon juice"],
+        "visible_method_cues": ["350 degrees", "9x12 pan", "40 minutes", "poke and glaze"],
+        "transcription_confidence": "high",
+        "confidence_scope": "only text clearly readable in the source image",
+        "note": "Recorded from a clearly legible printed card. High confidence applies solely to the visible readable text; downstream market and seasonal mappings remain proposed."
+      },
+      "transcription_confidence": "high",
+      "market_variants": [
+        {
+          "market_id": "US-W-SF",
+          "status": "proposed",
+          "validation_needed": true,
+          "proposed_season_label": "Coastal Citrus Spring",
+          "flavor_direction": ["Meyer lemon", "coastal citrus", "spring berries"],
+          "note": "coastal citrus and spring berry lean; season label proposed"
+        },
+        {
+          "market_id": "US-SE-ATL",
+          "status": "proposed",
+          "validation_needed": true,
+          "proposed_season_label": "Peach Harvest Late Summer",
+          "flavor_direction": ["Georgia peach", "lemon-peach glaze", "blueberry"],
+          "note": "peach-forward Southeast lean; season label proposed"
+        },
+        {
+          "market_id": "US-MW-PARKCITY-84098",
+          "status": "proposed",
+          "validation_needed": true,
+          "proposed_season_label": "Warming Ski-Season",
+          "flavor_direction": ["rhubarb", "apple", "warm citrus glaze"],
+          "note": "warming mountain-season lean; season label proposed"
+        }
+      ]
+    },
+    {
+      "family_id": "savory-griddle-or-waffle",
+      "product_role": "savory-meal",
+      "base_recipe_id_or_null": "savory-waffles",
+      "primary_product_mapping": "savory-waffles",
+      "optional_product_mappings": [
+        {
+          "product": "protein-biscuits",
+          "form": "drop-biscuit",
+          "base_recipe_id_or_null": "protein-biscuits",
+          "status": "proposed",
+          "validation_needed": true,
+          "note": "biscuit form mapped to the existing protein-biscuits base recipe"
+        }
+      ],
+      "structure": {
+        "form": "griddle-waffle-or-drop-biscuit",
+        "method_archetype": "mix-add-savory-inclusions-cook",
+        "status": "proposed",
+        "validation_needed": true
+      },
+      "ingredient_slots": [
+        { "slot": "base_mix", "role": "savory batter or dough base", "default": "Kodiak power-cakes or biscuit mix", "status": "proposed", "validation_needed": true },
+        { "slot": "cheese", "role": "regional cheese", "status": "proposed", "validation_needed": true },
+        { "slot": "pepper_or_herb", "role": "regional pepper or herb", "status": "proposed", "validation_needed": true },
+        { "slot": "wet_binders", "role": "eggs, milk", "status": "proposed", "validation_needed": true }
+      ],
+      "technique_slots": [
+        { "slot": "cook_method", "options": ["waffle iron", "griddle", "drop-bake"], "status": "proposed", "validation_needed": true },
+        { "slot": "cook_temp", "example": "medium-high iron or 425F bake", "status": "proposed", "validation_needed": true },
+        { "slot": "finish", "example": "serve warm, savory topping", "status": "proposed", "validation_needed": true }
+      ],
+      "art_direction": {
+        "mood": "hearty savory, cast-iron or golden waffle texture",
+        "negative_space": "keep sky or plate margin for headline",
+        "status": "proposed",
+        "validation_needed": true
+      },
+      "source_provenance": {
+        "related_source_images": ["PXL_20260913_192848841.jpg", "PXL_20260913_192910740.MP.jpg"],
+        "legibility": "low",
+        "format_observations": "chalkboard or handwritten style, savory-leaning presentation inferred from layout only",
+        "transcription_confidence": "low",
+        "note": "No recipe name or ingredient list transcribed from the non-legible images. Family is an archetype mapped to existing approved savory base recipes; not derived from asserted handwritten text."
+      },
+      "transcription_confidence": "low",
+      "market_variants": [
+        {
+          "market_id": "US-W-SF",
+          "status": "proposed",
+          "validation_needed": true,
+          "proposed_season_label": "Artichoke Herb Spring",
+          "flavor_direction": ["artichoke", "spring herbs", "coastal greens"],
+          "note": "artichoke and herb lean; season label proposed"
+        },
+        {
+          "market_id": "US-SE-ATL",
+          "status": "proposed",
+          "validation_needed": true,
+          "proposed_season_label": "Pecan Sweet-Potato Fall",
+          "flavor_direction": ["pecan", "sweet potato", "sharp cheddar"],
+          "note": "pecan and sweet-potato savory lean; season label proposed"
+        },
+        {
+          "market_id": "US-MW-PARKCITY-84098",
+          "status": "proposed",
+          "validation_needed": true,
+          "proposed_season_label": "Warming Ski-Season Savory",
+          "flavor_direction": ["apple", "smoked cheese", "warming spices"],
+          "note": "warming savory mountain lean; season label proposed"
+        }
+      ]
+    },
+    {
+      "family_id": "heritage-family-card",
+      "product_role": "presentation-provenance-archetype",
+      "base_recipe_id_or_null": null,
+      "primary_product_mapping": "any-approved-base",
+      "optional_product_mappings": [],
+      "structure": {
+        "form": "presentation-wrapper",
+        "method_archetype": "wrap-approved-base-with-heritage-framing",
+        "status": "proposed",
+        "validation_needed": true,
+        "note": "wraps any approved base recipe without inventing ingredients; adds provenance and family-card framing only"
+      },
+      "ingredient_slots": [
+        { "slot": "wrapped_base_recipe", "role": "reference to an approved base recipe", "constraint": "must reference an existing approved recipe; adds no new ingredients", "status": "proposed", "validation_needed": true }
+      ],
+      "technique_slots": [
+        { "slot": "presentation", "example": "heritage family-card layout", "status": "proposed", "validation_needed": true },
+        { "slot": "provenance_note", "example": "family or regional story framing", "status": "proposed", "validation_needed": true }
+      ],
+      "art_direction": {
+        "mood": "nostalgic family card, handwritten or heritage type treatment",
+        "negative_space": "margin for provenance caption",
+        "status": "proposed",
+        "validation_needed": true
+      },
+      "source_provenance": {
+        "related_source_images": ["PXL_20260913_192848841.jpg", "PXL_20260913_192910740.MP.jpg"],
+        "legibility": "low",
+        "format_observations": "handwritten or chalkboard family-card style inferred from format only; no recipe name or ingredient list transcribed",
+        "transcription_confidence": "low",
+        "note": "Archetype describes a presentation wrapper. It never invents ingredients and only frames an approved base recipe."
+      },
+      "transcription_confidence": "low",
+      "market_variants": [
+        {
+          "market_id": "US-W-SF",
+          "status": "proposed",
+          "validation_needed": true,
+          "proposed_season_label": "Coastal Heritage Spring",
+          "framing_direction": ["coastal citrus provenance", "spring family gathering"],
+          "note": "presentation framing only; season label proposed"
+        },
+        {
+          "market_id": "US-SE-ATL",
+          "status": "proposed",
+          "validation_needed": true,
+          "proposed_season_label": "Southern Heritage Fall",
+          "framing_direction": ["peach and pecan provenance", "fall family gathering"],
+          "note": "presentation framing only; season label proposed"
+        },
+        {
+          "market_id": "US-MW-PARKCITY-84098",
+          "status": "proposed",
+          "validation_needed": true,
+          "proposed_season_label": "Mountain Heritage Ski-Season",
+          "framing_direction": ["apple and rhubarb provenance", "warming winter gathering"],
+          "note": "presentation framing only; season label proposed"
+        }
+      ]
+    }
+  ]
+}

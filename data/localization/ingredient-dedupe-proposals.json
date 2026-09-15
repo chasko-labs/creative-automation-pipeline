@@ -1,0 +1,1482 @@
+{
+  "metadata": {
+    "generated": "2026-09-15",
+    "purpose": "Distinct-replacement proposals for every within-pair repeated monthly ingredient (dedupe: 12 unique months per pair). Candidates are drawn ONLY from the pair's own seasonal_moments available_ingredients (already-sourced in-file); nothing new is fabricated. Every proposal has status proposed or unknown and needs a research dispatch to confirm month-season fit before use.",
+    "rule": "proposals do not edit retailer-frontier-pairs.json; apply only after dispatch confirms month fit"
+  },
+  "pairs": {
+    "US-SE-ATL": {
+      "frontier": "Sandersville, GA",
+      "calendar_source": "UGA/FCS Georgia produce seasonality; confidence high across the seeded months (central-GA apple exists in the calendar but is not used here).",
+      "fixes": [
+        {
+          "month": "2026-04",
+          "current": "strawberries",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        }
+      ]
+    },
+    "US-MW-PARKCITY-84098": {
+      "frontier": "Kamas Valley / Oakley, UT 84036 (Wasatch Back)",
+      "calendar_source": "USU Extension high-mountain (Wasatch Back) produce calendar: fresh Jun-Oct, storage/value-added Nov-Mar. Deep-winter picks (apples storage, honey, root vegetables, grass-fed beef, dairy butter, winter squash) reflect the researched storage/value-added set, flagged honestly rather than implying fresh mid-winter harvest.",
+      "fixes": [
+        {
+          "month": "2026-11",
+          "current": "apples (storage)",
+          "proposed": "root vegetables",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Ski-season (winter)': USU Extension seasonal calendar + Wasatch Back ski-culture flavor traditions",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-NE-RALEIGH": {
+      "frontier": "Pittsboro, NC",
+      "calendar_source": "NC State Extension (NCSU) NC produce availability calendar; Chatham County / Pittsboro farmers market seasonality",
+      "fixes": [
+        {
+          "month": "2026-05",
+          "current": "strawberries",
+          "proposed": "watermelon",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'July 4th / high summer': NC State Extension NC produce availability calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "collards",
+          "proposed": "pecans",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Thanksgiving': Southern baking culture + NC State Extension calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-SE-ASHEVILLE": {
+      "frontier": "Marshall, NC",
+      "calendar_source": "Appalachian Sustainable Agriculture Project (ASAP) Appalachian Grown local food guide; Madison County NC tailgate market calendar (April-October); NC State Extension Madison County Center",
+      "fixes": [
+        {
+          "month": "2026-12",
+          "current": "apples (storage)",
+          "proposed": "root vegetables",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Spring ramp + tailgate-market opening': Appalachian Sustainable Agriculture Project (ASAP) Appalachian Grown; Madison County tailgate markets open April",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-SE-BIRMINGHAM": {
+      "frontier": "Clanton, AL",
+      "calendar_source": "Alabama Cooperative Extension System (ACES) fruit culture calendar; Chilton County Peach Festival / Peach Jam Jubilee (Clanton, June); Encyclopedia of Alabama peach industry",
+      "fixes": [
+        {
+          "month": "2026-04",
+          "current": "strawberries",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        },
+        {
+          "month": "2026-08",
+          "current": "peaches",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        },
+        {
+          "month": "2026-12",
+          "current": "collards",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        }
+      ]
+    },
+    "US-SE-CHARLOTTE": {
+      "frontier": "Dallas, NC",
+      "calendar_source": "NC State Extension (NCSU) NC produce availability calendar; Gaston County piedmont seasonality",
+      "fixes": [
+        {
+          "month": "2026-05",
+          "current": "strawberries",
+          "proposed": "watermelon",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'July 4th / high summer': NC State Extension NC produce availability calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "collards",
+          "proposed": "pecans",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Thanksgiving': Southern baking culture + NC State Extension calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-SE-COAST": {
+      "frontier": "Ridgeland, SC",
+      "calendar_source": "Clemson Home & Garden Information Center (HGIC) SC field reports + okra/peanut factsheets; SC Department of Agriculture boiled-peanut season; NOAA Atlantic hurricane season Jun 1-Nov 30",
+      "fixes": [
+        {
+          "month": "2026-04",
+          "current": "strawberries",
+          "proposed": "peppers",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Lowcountry summer okra + watermelon season': Clemson HGIC / Clemson Extension SC fruit-and-vegetable field reports (Lowcountry okra + watermelon high summer)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-08",
+          "current": "okra",
+          "proposed": "peanuts",
+          "status": "proposed",
+          "confidence": "medium",
+          "source": "in-file seasonal_moment 'Hurricane-season pantry stocking (Jun-Nov)': Atlantic hurricane season Jun 1-Nov 30 (NOAA); Lowcountry pantry-stocking culture",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "collards",
+          "proposed": "preserved/canned produce",
+          "status": "proposed",
+          "confidence": "medium",
+          "source": "in-file seasonal_moment 'Hurricane-season pantry stocking (Jun-Nov)': Atlantic hurricane season Jun 1-Nov 30 (NOAA); Lowcountry pantry-stocking culture",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-SE-FL": {
+      "frontier": "Homestead, FL",
+      "calendar_source": "Florida Department of Agriculture & Consumer Services (FDACS) Buy Fresh From Florida crops-in-season; UF/IFAS Tropical Research and Education Center (TREC) subtropical/tropical fruit calendars; NOAA Atlantic hurricane season",
+      "fixes": [
+        {
+          "month": "2026-06",
+          "current": "mango",
+          "proposed": "bell pepper",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Winter peak-harvest season (INVERTED subtropical, Nov-Mar)': FDACS Florida crops-in-season (strawberry Dec-Apr, tomato Oct-Jun, sweet corn Oct-Jun, bell pepper Nov-May)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-10",
+          "current": "avocado (Florida)",
+          "proposed": "squash",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Winter peak-harvest season (INVERTED subtropical, Nov-Mar)': FDACS Florida crops-in-season (strawberry Dec-Apr, tomato Oct-Jun, sweet corn Oct-Jun, bell pepper Nov-May)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-11",
+          "current": "tomatoes",
+          "proposed": "longan",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Summer tropical-fruit season (mango / lychee / avocado)': FDACS crops-in-season (mango May-Aug, lychee Jun-Jul, guava year-round peak Aug-Oct, avocado Jun-Jan); UF/IFAS TREC subtropical fruit",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "strawberries",
+          "proposed": "shelf-stable staples",
+          "status": "proposed",
+          "confidence": "medium",
+          "source": "in-file seasonal_moment 'Hurricane-season pantry stocking (Jun-Nov)': Atlantic hurricane season Jun 1-Nov 30 (NOAA); South Florida pantry-stocking culture",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-SE-JACKSON": {
+      "frontier": "Flora, MS",
+      "calendar_source": "Mississippi State University Extension (MSU Extension) fruit and vegetable seasonality; Mississippi sweet-potato production (Vardaman belt)",
+      "fixes": [
+        {
+          "month": "2026-05",
+          "current": "strawberries",
+          "proposed": "peaches",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'High summer blueberry + watermelon season': MSU Extension fruit and vegetable calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-11",
+          "current": "sweet potatoes",
+          "proposed": "pecans",
+          "status": "proposed",
+          "confidence": "medium",
+          "source": "in-file seasonal_moment 'SEC football tailgating (Sep-Nov)': Mississippi SEC tailgating culture (Ole Miss Grove / Mississippi State)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "collards",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        }
+      ]
+    },
+    "US-SE-JAX": {
+      "frontier": "Starke, FL",
+      "calendar_source": "Florida Department of Agriculture & Consumer Services (FDACS) crops-in-season; Bradford County Strawberry Festival (Starke, FL) 2026; NOAA Atlantic hurricane season",
+      "fixes": [
+        {
+          "month": "2026-02",
+          "current": "strawberries",
+          "proposed": "shelf-stable staples",
+          "status": "proposed",
+          "confidence": "medium",
+          "source": "in-file seasonal_moment 'Hurricane-season pantry stocking (Jun-Nov)': Atlantic hurricane season Jun 1-Nov 30 (NOAA); north-Florida pantry-stocking culture",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-04",
+          "current": "strawberries (Bradford)",
+          "proposed": "peanuts",
+          "status": "proposed",
+          "confidence": "medium",
+          "source": "in-file seasonal_moment 'Hurricane-season pantry stocking (Jun-Nov)': Atlantic hurricane season Jun 1-Nov 30 (NOAA); north-Florida pantry-stocking culture",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-10",
+          "current": "sweet corn",
+          "proposed": "citrus",
+          "status": "proposed",
+          "confidence": "medium",
+          "source": "in-file seasonal_moment 'Winter holidays': FDACS crops-in-season + Southern baking culture",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "strawberries",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        }
+      ]
+    },
+    "US-SE-LOU": {
+      "frontier": "Shelbyville, KY",
+      "calendar_source": "University of Kentucky (UK) Cooperative Extension crop / vegetable calendars; Shelby County KY Extension Office horticulture program; Kentucky Derby (Churchill Downs) first Saturday in May",
+      "fixes": [
+        {
+          "month": "2026-08",
+          "current": "sweet corn",
+          "proposed": "mint",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Kentucky Derby (first Saturday in May)': Kentucky Derby (Churchill Downs, first Saturday May); UK Cooperative Extension spring produce",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-10",
+          "current": "apples",
+          "proposed": "blackberries",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'High summer sweet corn + tomato season': University of Kentucky (UK) Cooperative Extension sweet-corn / vegetable calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "storage apples",
+          "proposed": "local honey",
+          "status": "proposed",
+          "confidence": "medium",
+          "source": "in-file seasonal_moment 'Winter holidays': UK Cooperative Extension + Kentucky bake/bourbon culture",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-SE-MEMPHIS": {
+      "frontier": "Hernando, MS",
+      "calendar_source": "Mississippi State University Extension (MSU Extension) fruit and vegetable seasonality; DeSoto County / Hernando MS farmers market",
+      "fixes": [
+        {
+          "month": "2026-05",
+          "current": "strawberries",
+          "proposed": "peaches",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'High summer blueberry + watermelon season': MSU Extension fruit and vegetable calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-11",
+          "current": "sweet potatoes",
+          "proposed": "pecans",
+          "status": "proposed",
+          "confidence": "medium",
+          "source": "in-file seasonal_moment 'SEC football tailgating (Sep-Nov)': Mississippi / Mid-South SEC tailgating culture",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "collards",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        }
+      ]
+    },
+    "US-SE-NASH": {
+      "frontier": "Leipers Fork, TN",
+      "calendar_source": "University of Tennessee (UT) Extension / Pick Tennessee Products seasonal availability; Williamson County / Leipers Fork TN farm community",
+      "fixes": [
+        {
+          "month": "2026-05",
+          "current": "strawberries",
+          "proposed": "asparagus",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Spring strawberry season': University of Tennessee (UT) Extension Pick Tennessee Products seasonal calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-10",
+          "current": "apples",
+          "proposed": "peaches",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'High summer sweet corn + tomato season': UT Extension Pick Tennessee Products seasonal calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "collards",
+          "proposed": "pecans",
+          "status": "proposed",
+          "confidence": "medium",
+          "source": "in-file seasonal_moment 'SEC football tailgating (Sep-Nov)': Tennessee SEC tailgating culture (Tennessee / Vanderbilt)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-SE-NOLA": {
+      "frontier": "Covington, LA",
+      "calendar_source": "LSU AgCenter Louisiana produce seasonality; Louisiana seafood season calendar (crawfish late winter-spring, Gulf oysters mid-Oct to early Apr); Mardi Gras 2026 = Feb 17; Ponchatoula strawberry belt / New Orleans Creole Tomato Festival; NOAA hurricane season",
+      "fixes": [
+        {
+          "month": "2026-03",
+          "current": "crawfish",
+          "proposed": "citrus",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Mardi Gras + crawfish season (Feb 17, 2026)': Mardi Gras 2026 = Feb 17; Louisiana crawfish season late winter through early spring (Explore Louisiana); king cake tradition",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-05",
+          "current": "crawfish",
+          "proposed": "Gulf oysters",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Fall Gulf oyster + satsuma season (Oct onward)': Louisiana seafood calendar (prime raw oyster mid-Oct through early Apr); LSU AgCenter satsuma harvest Nov-Dec",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "satsuma",
+          "proposed": "shelf-stable staples",
+          "status": "proposed",
+          "confidence": "medium",
+          "source": "in-file seasonal_moment 'Hurricane-season pantry stocking (Jun-Nov)': Atlantic/Gulf hurricane season Jun 1-Nov 30 (NOAA); Louisiana pantry-stocking culture",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-SE-TAMPA": {
+      "frontier": "Plant City, FL",
+      "calendar_source": "Florida Department of Agriculture & Consumer Services (FDACS) crops-in-season; Florida Strawberry Festival, Plant City (Feb 26 - Mar 8, 2026); NOAA Atlantic hurricane season",
+      "fixes": [
+        {
+          "month": "2026-02",
+          "current": "strawberries",
+          "proposed": "shelf-stable staples",
+          "status": "proposed",
+          "confidence": "medium",
+          "source": "in-file seasonal_moment 'Hurricane-season pantry stocking (Jun-Nov)': Atlantic hurricane season Jun 1-Nov 30 (NOAA); Tampa Bay pantry-stocking culture",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-04",
+          "current": "strawberries",
+          "proposed": "citrus",
+          "status": "proposed",
+          "confidence": "medium",
+          "source": "in-file seasonal_moment 'Winter holidays': FDACS crops-in-season + Southern baking culture",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "strawberries",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        }
+      ]
+    },
+    "US-MW-CHI": {
+      "frontier": "Harvard, IL",
+      "calendar_source": "milkdays.com (Harvard Milk Days); University of Illinois Extension — Illinois seasonal produce availability calendar",
+      "fixes": [
+        {
+          "month": "2026-12",
+          "current": "storage apples",
+          "proposed": "local dairy milk",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Harvard Milk Days (June, dairy heritage festival)': milkdays.com — Harvard Milk Days, annual June festival since 1942 honoring dairy farmers",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-MW-CLEVELAND": {
+      "frontier": "Burton, OH",
+      "calendar_source": "maplefestival.com (Geauga County Maple Festival); ohio.org (Burton Pancake Town USA); Ohio State University Extension — Ohio produce availability calendar",
+      "fixes": [
+        {
+          "month": "2026-03",
+          "current": "maple syrup",
+          "proposed": "maple sugar",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Geauga County Maple Festival (last full weekend April) and Burton pancake Sundays (Mar-early Apr)': maplefestival.com — Geauga County Maple Festival, oldest maple festival in the US; ohio.org — Burton 'Pancake Town USA' pancake breakfasts Mar-early Apr",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-04",
+          "current": "maple syrup",
+          "proposed": "maple cream",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Geauga County Maple Festival (last full weekend April) and Burton pancake Sundays (Mar-early Apr)': maplefestival.com — Geauga County Maple Festival, oldest maple festival in the US; ohio.org — Burton 'Pancake Town USA' pancake breakfasts Mar-early Apr",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-08",
+          "current": "sweet corn",
+          "proposed": "fresh maple syrup",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Late-winter sap run (late-Feb to Mar)': cleveland.com — NE Ohio maple season begins late Feb/early Mar as sap rises",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-10",
+          "current": "apples",
+          "proposed": "blueberries",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Sweet corn and berry season (Jun-Aug)': Ohio State University Extension Ohio produce availability calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "storage apples",
+          "proposed": "pumpkins",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Apple and cider season (Sep-Oct)': Ohio State University Extension seasonal calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-MW-DESMOINES": {
+      "frontier": "Pella, IA",
+      "calendar_source": "visitpella.com (Pella Tulip Time); Iowa State University Extension — Iowa produce seasonality",
+      "fixes": [
+        {
+          "month": "2026-12",
+          "current": "storage apples",
+          "proposed": "early greenhouse greens",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Pella Tulip Time (first Thu-Sat of May; May 7-9, 2026)': visitpella.com and Des Moines Register — Tulip Time always first Thu-Fri-Sat in May; 2026 is May 7-9",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-MW-DETROIT": {
+      "frontier": "Armada, MI",
+      "calendar_source": "armadafair.org (Armada Fair); Michigan State University Extension — Michigan produce availability calendar",
+      "fixes": [
+        {
+          "month": "2026-05",
+          "current": "asparagus",
+          "proposed": "tomatoes",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Armada Fair (long-running Macomb County agricultural fair, August)': armadafair.org — Armada Fair, 150+ year county agricultural fair held in August",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-10",
+          "current": "apples",
+          "proposed": "peaches",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Armada Fair (long-running Macomb County agricultural fair, August)': armadafair.org — Armada Fair, 150+ year county agricultural fair held in August",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "storage apples",
+          "proposed": "rhubarb",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Michigan asparagus season (late Apr-May)': Michigan State University Extension Michigan produce availability calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-MW-FARGO": {
+      "frontier": "Barnesville, MN",
+      "calendar_source": "potatodays.com (Barnesville Potato Days); University of Minnesota Extension — Minnesota produce availability calendar",
+      "fixes": [
+        {
+          "month": "2026-11",
+          "current": "storage potatoes",
+          "proposed": "onions",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Barnesville Potato Days (late August)': potatodays.com and barnesvillemn.com — annual August festival; Norwegian lefse, potato dumplings, potato pancakes, National Lefse Cookoff",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-MW-INDY": {
+      "frontier": "Danville, IN",
+      "calendar_source": "Purdue Extension — Indiana produce availability calendar; Indiana State Fair",
+      "fixes": [
+        {
+          "month": "2026-12",
+          "current": "storage apples",
+          "proposed": "green beans",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Hendricks County 4-H Fair and sweet corn season (Jul)': Purdue Extension Indiana produce availability calendar; Hendricks County 4-H Fair (summer)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-MW-KC": {
+      "frontier": "Weston, MO",
+      "calendar_source": "westonmo.com (Weston Applefest); westonorchard.com (Weston Orchard); University of Missouri Extension — Missouri produce availability calendar",
+      "fixes": [
+        {
+          "month": "2026-10",
+          "current": "apples",
+          "proposed": "pumpkins",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Weston Applefest (first weekend October)': westonmo.com and westonorchard.com — Applefest first weekend of October; Weston Orchard apple/pumpkin/cider donuts Aug-Oct; apple dumplings served at the festival",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "storage apples",
+          "proposed": "winter squash",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Weston Applefest (first weekend October)': westonmo.com and westonorchard.com — Applefest first weekend of October; Weston Orchard apple/pumpkin/cider donuts Aug-Oct; apple dumplings served at the festival",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-MW-MILWAUKEE": {
+      "frontier": "Cedarburg, WI",
+      "calendar_source": "cedarburgfestivals.org (Cedarburg Strawberry Festival); cedarburg.org (Wine & Harvest Festival); University of Wisconsin-Madison Extension — Wisconsin fruit and vegetable seasonality",
+      "fixes": [
+        {
+          "month": "2026-12",
+          "current": "storage apples",
+          "proposed": "grapes",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Cedarburg Wine & Harvest Festival (Sep 19-20, 2026)': cedarburg.org and travelwisconsin.com — Wine & Harvest Festival, September 19-20, 2026 in historic downtown Cedarburg",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-MW-MINNEAPOLIS2": {
+      "frontier": "Cloquet, MN",
+      "calendar_source": "University of Minnesota Extension — Minnesota produce availability calendar; University of Minnesota Extension — wild blueberry and maple resources",
+      "fixes": [
+        {
+          "month": "2026-04",
+          "current": "maple syrup",
+          "proposed": "raspberries",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Northern Minnesota wild blueberry harvest (mid-Jul to Aug)': University of Minnesota Extension; wild lowbush blueberries are a northern-MN forest harvest (Carlton/St. Louis County region)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "storage potatoes",
+          "proposed": "potatoes",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Short summer harvest (Jun-Aug, zone 3-4)': University of Minnesota Extension Minnesota produce availability calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-MW-OMAHA": {
+      "frontier": "Wahoo, NE",
+      "calendar_source": "fairsandfestivals.net (Wahoo Harvest Moon Festival); University of Nebraska-Lincoln Extension — Nebraska produce availability; omahafarmersmarket.com (what's in season)",
+      "fixes": [
+        {
+          "month": "2026-12",
+          "current": "storage apples",
+          "proposed": "poppy seed",
+          "status": "proposed",
+          "confidence": "medium",
+          "source": "in-file seasonal_moment 'Czech heritage baking (Saunders County Czech settlement)': Nebraska Czech festival culture (Saunders County and nearby Wilber, the Czech Capital of the USA); Sugar Creek Slavic Festival vendor lists (kolache)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-MW-STL": {
+      "frontier": "Waterloo, IL",
+      "calendar_source": "University of Illinois Extension — Illinois seasonal produce availability calendar",
+      "fixes": [
+        {
+          "month": "2026-12",
+          "current": "storage apples",
+          "proposed": "tomatoes",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Sweet corn and tomato season (Jul-Aug)': University of Illinois Extension seasonal calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-MW-TC": {
+      "frontier": "Stillwater, MN",
+      "calendar_source": "lumberjackdays.com (Stillwater Lumberjack Days); University of Minnesota Extension — Minnesota produce availability calendar; Minnesota State Fair",
+      "fixes": [
+        {
+          "month": "2026-10",
+          "current": "apples",
+          "proposed": "honey",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Minnesota State Fair season (late Aug to Labor Day, nearby St. Paul)': Minnesota State Fair (St. Paul, late Aug-Labor Day); University of Minnesota apple breeding (Honeycrisp, SweeTango, Zestar)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "storage apples",
+          "proposed": "pumpkins",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Minnesota apple harvest (Sep-Oct)': University of Minnesota Extension; St. Croix Valley orchard belt",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-MW-BOISE": {
+      "frontier": "Kuna, ID",
+      "calendar_source": "University of Idaho Extension + Idaho Preferred + Idaho Botanical Garden Treasure Valley guide (zones 6b-7a, mid-Apr to mid-Oct). Fresh window Jun-Oct; Nov-Mar is storage (potatoes, onions, apples). Treasure Valley stone fruit (cherries Jun, apricots Jul, peaches Aug) is the fresh-peak anchor.",
+      "fixes": [
+        {
+          "month": "2026-12",
+          "current": "storage apples",
+          "proposed": "peaches (late)",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Sweet corn + harvest fair (Sep)': University of Idaho Extension seasonal calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-MW-DEN": {
+      "frontier": "Elizabeth, CO",
+      "calendar_source": "CSU Extension Colorado produce calendar. Palisade peaches mid-Jul-Sep, Olathe sweet corn Aug, Rocky Ford melon late-summer — all Western Slope/Arkansas Valley signatures that reach Front Range markets. Elbert County high-plains local is short-season; Nov-Mar storage/value-added (honey, storage apples/potatoes).",
+      "fixes": [
+        {
+          "month": "2026-11",
+          "current": "storage apples",
+          "proposed": "sweet corn",
+          "status": "proposed",
+          "confidence": "medium",
+          "source": "in-file seasonal_moment 'County fair / rodeo season (summer)': Elbert County Fair (regional summer fair culture)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-MW-JACKSONHOLE": {
+      "frontier": "Alpine, WY",
+      "calendar_source": "University of Wyoming Extension high-elevation gardening guides. Zone 4, frost-free window roughly late Jun to early Sep. Fresh harvest is a narrow Jul-Sep window (peas, greens, raspberries, roots); Oct-Jun is storage roots + ranch dairy/beef value-added. Star Valley dairy heritage anchors the value-added set honestly.",
+      "fixes": [
+        {
+          "month": "2026-11",
+          "current": "root vegetables (storage)",
+          "proposed": "ranch beef",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Ski season (deep winter, Dec-Mar)': University of Wyoming Extension + Jackson Hole ski-culture flavor traditions",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "ranch beef (value-added)",
+          "proposed": "local honey",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Ski season (deep winter, Dec-Mar)': University of Wyoming Extension + Jackson Hole ski-culture flavor traditions",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-MW-MISSOULA": {
+      "frontier": "Frenchtown, MT",
+      "calendar_source": "MSU Extension western Montana produce guides. Zone 5-6 Clark Fork valley: fresh Jun-Oct. Flathead cherries (Jul) and wild huckleberries (Aug) are western-Montana mountain signatures reaching Missoula-area markets. Nov-Mar storage roots/apples + honey.",
+      "fixes": [
+        {
+          "month": "2026-11",
+          "current": "root vegetables (storage)",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        }
+      ]
+    },
+    "US-MW-WASATCH": {
+      "frontier": "Midway, UT",
+      "calendar_source": "USU Extension high-mountain (Wasatch Back) harvest schedule: fresh Jun-Oct, storage/value-added Nov-Mar. Raspberries Jun-Jul, peaches Jul-Aug (lower-elevation Utah stone fruit reaching Wasatch Back), apples Sep-Oct. Deep-winter set is storage apples, roots, honey, ranch dairy — flagged honestly.",
+      "fixes": [
+        {
+          "month": "2026-11",
+          "current": "storage apples",
+          "proposed": "raspberries (late)",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Midway Swiss Days (Labor Day weekend, early Sep)': Midway Swiss Days — long-running Heber Valley festival, Labor Day weekend",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-MW-WASATCH-SLC": {
+      "frontier": "Grantsville, UT",
+      "calendar_source": "USU Extension (Tooele County) produce calendar. Grantsville sits lower/warmer than the mountain valleys (zone 6), so a slightly longer fresh window: cherries Jun, peaches Jul, sweet corn Aug, tomatoes Sep. Nov-Mar storage apples/roots + honey.",
+      "fixes": [
+        {
+          "month": "2026-11",
+          "current": "storage apples",
+          "proposed": "sweet corn (late)",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Late-summer tomato / harvest (Sep)': USU Extension Tooele County calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-UT-KAMASVALLEY": {
+      "frontier": "Kamas Valley, UT",
+      "calendar_source": "USU Extension high-mountain (Wasatch Back) harvest schedule + existing repo file kamas-valley-84036.json. Zone 4 ranching valley: fresh window narrow Jun-Sep (greens, peas, raspberries, roots). Nov-May is storage roots + grass-fed beef and ranch dairy value-added. Markets run Jun-Sep only.",
+      "fixes": [
+        {
+          "month": "2026-11",
+          "current": "root vegetables (storage)",
+          "proposed": "grass-fed beef",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Oakley Rodeo + farmers market season (Jun-Sep)': kamas-valley-84036.json + Oakley Rodeo Grounds farmers market (bi-weekly Jun-Sep)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "grass-fed beef (value-added)",
+          "proposed": "local honey",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Deep-winter ranch storage (Dec-Mar)': USU Extension calendar + Kamas Valley ranch tradition",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-W-BOULDER": {
+      "frontier": "Lyons, CO",
+      "calendar_source": "CSU Extension Colorado produce calendar. Palisade peaches mid-Jul-Sep, Olathe sweet corn Aug, Rocky Ford melon late-summer reach Front Range/foothills markets. Lyons foothills local is short-season; Nov-Mar storage/value-added.",
+      "fixes": [
+        {
+          "month": "2026-11",
+          "current": "storage apples",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        }
+      ]
+    },
+    "US-W-RENO": {
+      "frontier": "Fallon, NV",
+      "calendar_source": "Fallon Chamber / Lattin Farms confirmed harvest (melons, squash, corn, tomatoes, raspberries, garlic); The Fallon Post — Hearts of Gold cantaloupe peaks August as summer heat peaks. Irrigated Lahontan Valley (sandy soil, hot days, cool nights) gives melon-dominant late-summer peak. Distinct from mountain calendars: longer warm season, no storage-apple/honey mountain set.",
+      "fixes": [
+        {
+          "month": "2026-12",
+          "current": "storage onions",
+          "proposed": "pumpkins",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Fall corn maze + pumpkin festival (Oct)': Lattin Farms corn maze and fall festival (Fallon Chamber listing)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-W-VEGAS": {
+      "frontier": "Moapa Valley, NV",
+      "calendar_source": "UNR Extension — Fruit/Flower/Seed Vegetable Varieties for the Moapa and Virgin Valleys (three seasons: fall, winter, spring; ~4 inches rain/yr) + Selecting Vegetable Crops for Small-Scale Desert Production (heat-loving summer crops: tomatoes, peppers, eggplant, melons, squash, okra). DISTINCT from mountains: no storage-apple/honey winter set, no short high-country summer. Peak windows are early spring and fall; midsummer heat limits fresh cropping to heat-lovers. Dates are a Mojave-appropriate crop, harvest Sep-Oct.",
+      "fixes": [
+        {
+          "month": "2026-12",
+          "current": "citrus (desert)",
+          "proposed": "spring greens",
+          "status": "proposed",
+          "confidence": "medium",
+          "source": "in-file seasonal_moment 'Early spring desert season + Clark County Fair (Mar-Apr)': UNR Extension Moapa/Virgin Valley spring season + Clark County Fair (Logandale, spring)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-NE-BALTIMORE": {
+      "frontier": "Westminster, MD (Carroll County)",
+      "calendar_source": "University of Maryland Extension produce calendar; Downtown Westminster Farmers' Market (open last Sat of May through Sat before Thanksgiving); Baugher's Orchards Westminster; Carroll County Ag Center Farmers Market. Confidence high for the field-harvest arc (May-Oct); winter months flagged storage.",
+      "fixes": [
+        {
+          "month": "2026-03",
+          "current": "maple syrup",
+          "proposed": "green beans",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Maryland sweet-corn and tomato season (Jul-Aug)': Carroll County Farmers Market / Carroll Grown; Maryland farm-stand summer arc",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-NE-BOS": {
+      "frontier": "Bolton, MA (Nashoba Valley apple country)",
+      "calendar_source": "UMass Extension harvest calendar; Boston Globe apple-picking coverage; Nashoba Valley / Bolton Orchards. Confidence high for apple arc; winter months flagged storage/value-added.",
+      "fixes": [
+        {
+          "month": "2026-03",
+          "current": "maple syrup",
+          "proposed": "apple cider",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'New England apple-picking season (Sep-Oct)': Boston Globe apple-picking guide; Nashoba Valley Winery & Orchard, Bolton",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-10",
+          "current": "apples",
+          "proposed": "cider doughnuts",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'New England apple-picking season (Sep-Oct)': Boston Globe apple-picking guide; Nashoba Valley Winery & Orchard, Bolton",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-NE-BURLINGTON": {
+      "frontier": "Shelburne, VT (Lake Champlain, maple/dairy)",
+      "calendar_source": "Vermont Agency of Agriculture; Vermont Maple Sugar Makers' Association; Shelburne Farms; UVM Extension. Confidence high; short Vermont field season means maple and dairy carry the shoulder months honestly.",
+      "fixes": [
+        {
+          "month": "2026-02",
+          "current": "maple syrup",
+          "proposed": "maple cream",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Maple sugaring season + Maple Open House Weekend (Feb-Mar)': Vermont Maple Sugar Makers' Association; Vermont Agency of Agriculture (Maple Open House Weekend Mar 21-22, 2026)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-03",
+          "current": "maple syrup",
+          "proposed": "maple sugar",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Maple sugaring season + Maple Open House Weekend (Feb-Mar)': Vermont Maple Sugar Makers' Association; Vermont Agency of Agriculture (Maple Open House Weekend Mar 21-22, 2026)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-10",
+          "current": "apples",
+          "proposed": "butter",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Lake Champlain dairy + cheese season (year-round anchor)': Shelburne Farms; Lake Champlain dairy tradition",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "maple syrup",
+          "proposed": "farmstead cheese",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Lake Champlain dairy + cheese season (year-round anchor)': Shelburne Farms; Lake Champlain dairy tradition",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-NE-DC": {
+      "frontier": "Purcellville, VA (Loudoun County, wine/orchard)",
+      "calendar_source": "Visit Loudoun agritourism; Loudoun Farms; Purcellville Farmers Market (opens early-mid May); Virginia Cooperative Extension. Confidence high for the field arc; winter months flagged storage.",
+      "fixes": [
+        {
+          "month": "2026-10",
+          "current": "apples",
+          "proposed": "black raspberries",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Spring pick-your-own (strawberries + cherries, May-Jun)': Visit Loudoun orchards & u-picks; Great Country Farms",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-NE-HARTFORD": {
+      "frontier": "Suffield, CT (Connecticut River valley)",
+      "calendar_source": "UConn Extension Connecticut harvest calendar; Town of Suffield farms listing; Vincent Farms; Hilltop Farm. Confidence high for the field arc; winter months flagged storage.",
+      "fixes": [
+        {
+          "month": "2026-03",
+          "current": "maple syrup",
+          "proposed": "green beans",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Connecticut River Valley sweet-corn + tomato season (Jul-Aug)': Town of Suffield farms listing; Vincent Farms half-tobacco half-produce",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-NE-NYC": {
+      "frontier": "Warwick, NY (Hudson Valley, apples/onions/black dirt)",
+      "calendar_source": "Cornell Cooperative Extension Orange County; Warwick Valley Winery & Distillery PYO schedule; Village of Warwick annual events (Applefest first Sunday in October). Confidence high for apple + onion arc; winter months flagged storage.",
+      "fixes": [
+        {
+          "month": "2026-03",
+          "current": "maple syrup",
+          "proposed": "sweet corn",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Black-dirt onion season (Jul-Sep)': Cornell Cooperative Extension Orange County; Warwick black dirt region",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-10",
+          "current": "apples",
+          "proposed": "peppers",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Black-dirt onion season (Jul-Sep)': Cornell Cooperative Extension Orange County; Warwick black dirt region",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-NE-PHILLY": {
+      "frontier": "Kennett Square, PA (mushroom capital of the world)",
+      "calendar_source": "Penn State Extension; The Mushroom Festival (mushroomfestival.org); Kennett Collaborative. Confidence high; mushroom year-round is the defining fact, field crops fill the May-Oct arc.",
+      "fixes": [
+        {
+          "month": "2026-02",
+          "current": "mushrooms",
+          "proposed": "white button",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Kennett Square Mushroom Festival (weekend after Labor Day, Sep 12-13 2026)': The Mushroom Festival (mushroomfestival.org); Kennett Collaborative (41st annual, Sep 12-13 2026)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-03",
+          "current": "mushrooms",
+          "proposed": "cremini",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Kennett Square Mushroom Festival (weekend after Labor Day, Sep 12-13 2026)': The Mushroom Festival (mushroomfestival.org); Kennett Collaborative (41st annual, Sep 12-13 2026)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-09",
+          "current": "mushrooms",
+          "proposed": "portabella",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Kennett Square Mushroom Festival (weekend after Labor Day, Sep 12-13 2026)': The Mushroom Festival (mushroomfestival.org); Kennett Collaborative (41st annual, Sep 12-13 2026)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-11",
+          "current": "mushrooms",
+          "proposed": "shiitake",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Kennett Square Mushroom Festival (weekend after Labor Day, Sep 12-13 2026)': The Mushroom Festival (mushroomfestival.org); Kennett Collaborative (41st annual, Sep 12-13 2026)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "mushrooms",
+          "proposed": "oyster mushrooms",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Kennett Square Mushroom Festival (weekend after Labor Day, Sep 12-13 2026)': The Mushroom Festival (mushroomfestival.org); Kennett Collaborative (41st annual, Sep 12-13 2026)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-NE-PROVIDENCE": {
+      "frontier": "Scituate, RI (apple/cider)",
+      "calendar_source": "URI Cooperative Extension; Visit Rhode Island pick-your-own; Barden Family Orchard; Sunset Orchard (North Scituate). Confidence high for apple/cider arc; winter months flagged storage/value-added.",
+      "fixes": [
+        {
+          "month": "2026-03",
+          "current": "maple syrup",
+          "proposed": "tomatoes",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Summer berry + sweet-corn season (Jun-Aug)': URI Cooperative Extension harvest calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-10",
+          "current": "apples",
+          "proposed": "apple cider",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Apple + cider season (Sep-Oct)': Visit Rhode Island PYO; Barden Family Orchard + Sunset Orchard (North Scituate)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-SW-PHX": {
+      "frontier": "Queen Creek, AZ",
+      "calendar_source": "schnepffarms.com (u-pick peaches mid-Apr-May, verified 2026-09-14); Queen Creek Olive Mill (olive harvest Oct); visitmesa.com (citrus Jan, peaches May, olives Oct)",
+      "fixes": [
+        {
+          "month": "2026-05",
+          "current": "peaches (Schnepf Farms u-pick)",
+          "proposed": "peaches",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Schnepf Farms peach season (mid-Apr through May)': schnepffarms.com u-pick peaches (verified 2026-09-14: mid-April through May)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-SW-CLOUDCROFT": {
+      "frontier": "Cloudcroft, NM",
+      "calendar_source": "plantmaps.com Cloudcroft climate (Zone 6b, growing season May-Oct — verified 2026-09-14); cloudcroftreader.com (Cadwallader Mountain Farms u-pick); NMSU Otero County Extension",
+      "fixes": [
+        {
+          "month": "2026-02",
+          "current": "storage apples and preserves",
+          "proposed": "apples",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'High-country summer u-pick season (Jul-Sep)': cloudcroftreader.com (Cadwallader Mountain Farms u-pick); plantmaps.com growing season",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-11",
+          "current": "storage apples and preserves",
+          "proposed": "berries",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'High-country summer u-pick season (Jul-Sep)': cloudcroftreader.com (Cadwallader Mountain Farms u-pick); plantmaps.com growing season",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "storage apples and preserves",
+          "proposed": "summer squash",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'High-country summer u-pick season (Jul-Sep)': cloudcroftreader.com (Cadwallader Mountain Farms u-pick); plantmaps.com growing season",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-SW-TIMBERON": {
+      "frontier": "Timberon, NM",
+      "calendar_source": "NMSU Otero County Extension; Sacramento Mountains high-country growing analog (Cloudcroft Zone 6b) — Timberon-specific market data is thin",
+      "fixes": [
+        {
+          "month": "2026-03",
+          "current": "storage apples and honey",
+          "proposed": "apples",
+          "status": "proposed",
+          "confidence": "low",
+          "source": "in-file seasonal_moment 'High-country summer season (Jun-Sep)': Sacramento Mountains high-country growing analog; NMSU Otero County Extension",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-11",
+          "current": "storage apples and honey",
+          "proposed": "summer squash",
+          "status": "proposed",
+          "confidence": "low",
+          "source": "in-file seasonal_moment 'High-country summer season (Jun-Sep)': Sacramento Mountains high-country growing analog; NMSU Otero County Extension",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "storage apples and honey",
+          "proposed": "honey",
+          "status": "proposed",
+          "confidence": "low",
+          "source": "in-file seasonal_moment 'High-country summer season (Jun-Sep)': Sacramento Mountains high-country growing analog; NMSU Otero County Extension",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-W-LA": {
+      "frontier": "Fillmore, CA",
+      "calendar_source": "UC ANR / UC Cooperative Extension Ventura County citrus and avocado calendars; California Avocado Commission seasonality; California Grown seasonality guide",
+      "fixes": [
+        {
+          "month": "2026-03",
+          "current": "lemons",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        },
+        {
+          "month": "2026-05",
+          "current": "strawberries",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        },
+        {
+          "month": "2026-07",
+          "current": "avocados",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        },
+        {
+          "month": "2026-09",
+          "current": "avocados",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        },
+        {
+          "month": "2026-10",
+          "current": "avocados",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        },
+        {
+          "month": "2026-11",
+          "current": "navel oranges",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        },
+        {
+          "month": "2026-12",
+          "current": "navel oranges",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        }
+      ]
+    },
+    "US-W-SACRAMENTO": {
+      "frontier": "Dixon, CA",
+      "calendar_source": "UC ANR / UC Cooperative Extension Solano and Yolo County crop calendars; California Grown seasonality guide; Dixon May Fair crop tradition",
+      "fixes": [
+        {
+          "month": "2026-09",
+          "current": "tomatoes",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        }
+      ]
+    },
+    "US-W-SD": {
+      "frontier": "Julian, CA",
+      "calendar_source": "UC ANR / UC Cooperative Extension San Diego County crop calendars; Julian apple-town harvest and pie tradition; California Grown seasonality guide",
+      "fixes": [
+        {
+          "month": "2026-10",
+          "current": "apples",
+          "proposed": "citrus",
+          "status": "proposed",
+          "confidence": "medium",
+          "source": "in-file seasonal_moment 'Spring lowland season (Mar-May)': UC ANR San Diego County lowland crop calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-11",
+          "current": "apples",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        }
+      ]
+    },
+    "US-W-SPOKANE": {
+      "frontier": "Green Bluff, WA",
+      "calendar_source": "visitspokane.com Green Bluff seasonal guide (strawberries late May-June, cherries late June-July, peaches/nectarines/apricots/blueberries August); greenbluffgrowers.com (open May-December, Fruit Fort produce mid-June-Halloween); Fall Harvest Festival last two weekends Sep + all Oct weekends.",
+      "fixes": [
+        {
+          "month": "2026-02",
+          "current": "storage apples",
+          "proposed": "nectarines",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Stone-fruit peak (August)': visitspokane.com (peaches, nectarines, apricots, blueberries in August)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-07",
+          "current": "cherries",
+          "proposed": "apricots",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Stone-fruit peak (August)': visitspokane.com (peaches, nectarines, apricots, blueberries in August)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-11",
+          "current": "storage apples",
+          "proposed": "blueberries",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Stone-fruit peak (August)': visitspokane.com (peaches, nectarines, apricots, blueberries in August)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "storage apples",
+          "proposed": "winter squash",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Fall Harvest Festival (late Sep-Oct)': greenbluffgrowers.com; gonzagabulletin.com (last two weekends Sep + all Oct weekends); explorewashingtonstate.com (peak first weekend Oct)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-W-YAKIMA": {
+      "frontier": "Tieton, WA",
+      "calendar_source": "WSU Extension Yakima crop production (leading WA county for apples, sweet cherries, pears; hundreds of acres of peaches/nectarines/plums/apricots); visityakima.com produce schedule (Aug-Nov apple window); WSDA farm-to-school seasonality chart (storage note for stored-and-available crops).",
+      "fixes": [
+        {
+          "month": "2026-03",
+          "current": "storage apples",
+          "proposed": "nectarines",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Stone-fruit summer (July-Aug)': WSU Extension Yakima crop production (hundreds of acres soft fruit)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-05",
+          "current": "asparagus",
+          "proposed": "plums",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Stone-fruit summer (July-Aug)': WSU Extension Yakima crop production (hundreds of acres soft fruit)",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-10",
+          "current": "apples",
+          "proposed": "grapes",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Apple harvest (Sep-Oct)': visityakima.com (Aug-Nov apple window); WSU Extension",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-12",
+          "current": "storage apples",
+          "proposed": "winter squash",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Thanksgiving': regional harvest culture; controlled-atmosphere storage",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-WA-NEAHBAY": {
+      "frontier": "Neah Bay, WA",
+      "calendar_source": "makah.com fishing/attractions (halibut, lingcod, rockfish, salmon, Dungeness crab); WDFW Neah Bay marine area (salmon fishing seasons); Makah Bay Seafoods; Smithsonian NK360 Pacific Coast (salmon/halibut/shellfish centrality); general Olympic Peninsula foraging (salmonberries late spring, huckleberries late summer).",
+      "fixes": [
+        {
+          "month": "2026-04",
+          "current": "halibut",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        },
+        {
+          "month": "2026-07",
+          "current": "salmon",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        },
+        {
+          "month": "2026-09",
+          "current": "salmon",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        },
+        {
+          "month": "2026-11",
+          "current": "smoked salmon",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        },
+        {
+          "month": "2026-12",
+          "current": "smoked salmon",
+          "proposed": null,
+          "status": "unknown",
+          "confidence": "low",
+          "source": "none in-file",
+          "note": "no unused in-file candidate; needs extension-calendar research dispatch"
+        }
+      ]
+    },
+    "US-SC-AUSTIN": {
+      "frontier": "Fredericksburg, TX",
+      "calendar_source": "Texas A&M AgriLife Extension Texas produce availability calendar; Gillespie County / Hill Country peach orchard season charts. Confidence high for peaches May-Aug, medium for winter citrus provenance.",
+      "fixes": [
+        {
+          "month": "2026-07",
+          "current": "peaches",
+          "proposed": "figs",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Fredericksburg Peach JAMboree (late June)': Fredericksburg Peach JAMboree festival tradition; AgriLife peach calendar",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-SC-SANANTONIO": {
+      "frontier": "Poteet, TX",
+      "calendar_source": "Texas A&M AgriLife Extension South Texas produce calendar; Poteet Strawberry Festival Association. Confidence high for spring strawberries, high for summer melon/okra, medium for winter citrus provenance.",
+      "fixes": [
+        {
+          "month": "2026-04",
+          "current": "strawberries",
+          "proposed": "watermelon",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'South Texas summer (June-August)': AgriLife South Texas summer produce",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-W-ANCHORAGE": {
+      "frontier": "Palmer, AK",
+      "calendar_source": "University of Alaska Fairbanks Cooperative Extension Service (Matanuska Valley crop references); Alaska State Fair giant vegetable tradition. Confidence high that fresh local is Jun-Sep only; storage/imported honestly flagged for Oct-May.",
+      "fixes": [
+        {
+          "month": "2026-12",
+          "current": "storage potatoes and salmon (frozen/smoked)",
+          "proposed": "giant cabbage",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Alaska State Fair - giant vegetables (late August to early September)': Alaska State Fair, Palmer AK; midnight-sun giant vegetable tradition",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    },
+    "US-W-HONOLULU": {
+      "frontier": "Waialua, HI",
+      "calendar_source": "University of Hawaii CTAHR Cooperative Extension tropical crop references; Waialua diversified-ag (pineapple, coffee, cacao) history. Confidence high for year-round tropical availability and summer mango peak.",
+      "fixes": [
+        {
+          "month": "2026-07",
+          "current": "mango and pineapple",
+          "proposed": "mango",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Mango season (May-August)': UH CTAHR tropical fruit seasonality",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        },
+        {
+          "month": "2026-09",
+          "current": "papaya and banana",
+          "proposed": "pineapple",
+          "status": "proposed",
+          "confidence": "high",
+          "source": "in-file seasonal_moment 'Mango season (May-August)': UH CTAHR tropical fruit seasonality",
+          "note": "auto-proposed 2026-09-15 from the pair's own sourced moments; month-season fit NOT verified — research dispatch must confirm before use"
+        }
+      ]
+    }
+  }
+}

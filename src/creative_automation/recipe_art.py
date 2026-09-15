@@ -170,6 +170,31 @@ def slugify(subject: str) -> str:
     return s.strip("-") or "subject"
 
 
+_PAREN_RE = re.compile(r"\s*\([^)]*\)")
+
+
+def art_slug_candidates(subject: str) -> list[str]:
+    """S3 art-key slugs to try for an ingredient, most-specific first.
+
+    Monthly values carry parenthetical qualifiers (storage / varietal / press /
+    venue notes — 94 across the registry) that are display truth on the card but
+    must not fork the art library per qualifier: a peach sketch serves both
+    "peaches (clingstone)" and "peaches (freestone)". Candidates are the full
+    slug first (existing objects keep resolving exactly as today), then the
+    paren-stripped slug (lets "pumpkins (corn maze)" reuse the published
+    "pumpkins" drawing). Deduped; never empty.
+    """
+    full = slugify(subject)
+    stripped = slugify(_PAREN_RE.sub("", str(subject)))
+    if not stripped or stripped == full:
+        return [full]
+    if stripped == "subject" and full != "subject":
+        # parens-only input (e.g. "(storage)") would otherwise publish under the
+        # generic fallback slug shared with empty subjects — keep it namespaced.
+        return [full]
+    return [full, stripped]
+
+
 def _dark_coverage(img: Image.Image) -> float:
     """Fraction of pixels darker than _DARK_LUMA (0..1). Higher = heavier ink.
 

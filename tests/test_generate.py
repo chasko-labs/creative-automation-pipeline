@@ -220,6 +220,57 @@ def test_generate_hero_falls_back_to_compose_when_stability_fails(tmp_path: Path
     assert source == "bedrock:nova-pro"
 
 
+def test_generate_hero_dev_flag_skips_stability_uses_nova_pro_pillow(tmp_path: Path, monkeypatch) -> None:
+    # dev/prod image-engine split: KODIAK_ENABLE_STABILITY_RUNG=0 makes generate_hero
+    # skip ALL generative Stability calls and render deterministically via the
+    # Nova-Pro-art-directed Pillow path (rung C). Nova Pro (the art director) must still
+    # run — the headline/scene-prompt path is unaffected by the flag.
+    #
+    # _STABILITY_RUNG_ON is read once at import, so setting the env alone will not flip
+    # the already-bound module constant — patch the constant directly (this is exactly
+    # the value the env would produce) and set the env too for good measure.
+    monkeypatch.setenv("KODIAK_ENABLE_STABILITY_RUNG", "0")
+    monkeypatch.setattr(generate, "_STABILITY_RUNG_ON", False)
+
+    seed = _make_seed(tmp_path / "seed.png")
+    monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
+
+    # tripwire: if the generative rung is honored, this must NEVER be called in dev.
+    called = {"stability": 0}
+    monkeypatch.setattr(
+        generate, "_stability_control_hero",
+        lambda s, p, o: called.__setitem__("stability", called["stability"] + 1) or None,
+    )
+    # Nova Pro art-direction still runs in dev: the director is offline (no creds -> None),
+    # so the headline resolves via the stock Nova caption path. Feed it a known line and
+    # assert it surfaces in provenance — proof the Nova-Pro headline path executed.
+    monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: "Fuel Wild Mornings")
+
+    out = tmp_path / "hero.png"
+    result, source, prov = generate.generate_hero(
+        product_id="power-cakes",
+        product_name="Power Cakes",
+        brief_msg="wild mornings",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+    )
+    assert result.exists()
+    # deterministic Nova-Pro-art-directed Pillow render, NOT a Stability restyle
+    assert source == "bedrock:nova-pro"
+    assert prov["rung"] == "C"
+    # zero generative Stability invocations in dev
+    assert called["stability"] == 0, "stability rung ran despite KODIAK_ENABLE_STABILITY_RUNG=0"
+    # provenance stays honest: the flag caused the skip, distinct from budget-exhausted
+    assert prov["fallthrough_reason"] == "stability-rung-disabled"
+    # the Nova Pro headline path still ran and its line is recorded
+    assert prov.get("copy_headline"), "Nova-Pro headline path did not run in dev"
+    assert prov["copy_headline"] == "Fuel Wild Mornings"
+
+
 def test_generate_hero_no_seed_returns_brand_floor(tmp_path: Path, monkeypatch) -> None:
     # no theme, no sku photo, no disk asset, no packshot -> Stability never runs, the
     # ladder ends at rung D (brand-floor): real Kodiak pixels, zero network, non-lying label.

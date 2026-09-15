@@ -76,6 +76,12 @@ _B_BUDGET_MS = int(os.getenv("GENERATE_B_BUDGET_MS", "16000"))
 # Held-back reservation so rung C (pillow-compose, ~1-2s) can ALWAYS run after B, even
 # when B burns its full budget. C is the guaranteed-real workhorse below B.
 _C_RESERVATION_MS = int(os.getenv("GENERATE_C_RESERVATION_MS", "3000"))
+# Generative-rung switch. Default ON preserves prod: every Stability call (rung B hero
+# restyle, rung A packshot background restyle, 9x16/16x9 outpaint extends) runs as before.
+# Dev opts out (KODIAK_ENABLE_STABILITY_RUNG=0) for faster, fully-deterministic turnaround:
+# no Bedrock Stability invocations at all, every ratio renders via the Nova-Pro-art-directed
+# Pillow path. Nova Pro (the art director — headline + scene prompt) still runs either way.
+_STABILITY_RUNG_ON = os.getenv("KODIAK_ENABLE_STABILITY_RUNG", "1").strip().lower() not in ("0", "false", "no", "")
 # HARD WALL for the pre-ladder S3 discovery phases (seed probe + packshot probe). Each
 # unmapped-SKU probe fans out sequential S3 misses (~10s+ each) that run BEFORE any rung
 # gate, so a slow probe alone could blow the 30s API Gateway cap even though B/C/D are
@@ -332,10 +338,10 @@ def _style_sandwich(subject: str) -> str:
     scrubbed = _BRAND_SCRUB_RE.sub("", assembled)
     return re.sub(r"\s{2,}", " ", scrubbed).strip()
 # Stability outpaint is invoked via its INFERENCE-PROFILE id (bare stability.* raises
-# ValidationException). Confirmed ACTIVE + AUTHORIZED + AVAILABLE in us-east-1. The
-# taller ratios (4x5, 2x3) are DERIVED from the 1x1 control-structure hero via outpaint
-# — one restyle call plus two extend calls, cheaper than three full restyles and keeps
-# the subject consistent across sizes. Schema mirrors control-structure (Stability's
+# ValidationException). Confirmed ACTIVE + AUTHORIZED + AVAILABLE in us-east-1. Only the
+# 9x16 and 16x9 ratios are DERIVED from the 1x1 control-structure hero via outpaint (two
+# extend calls); 4x5 is a deterministic Pillow cover-pad, never an outpaint. Schema mirrors
+# control-structure (Stability's
 # {prompt, image, left/right/up/down, output_format} — NOT Nova's taskType).
 STABILITY_OUTPAINT_MODEL = os.getenv(
     "BEDROCK_STABILITY_OUTPAINT_MODEL", "us.stability.stable-outpaint-v1:0"
@@ -393,7 +399,6 @@ _CANVAS = {
     # Delivery ratios (pinned v2 DoD): 4x5 portrait feed, 9x16 vertical, 16x9
     # landscape, all cover-fit from the photographic base in full mode.
     "4x5": (1080, 1350),
-    "2x3": (1000, 1500),
 }
 # The four delivery ratios returned by generate_hero_set, in response order (pinned
 # v2 DoD: 1:1 1080x1080, 4:5 1080x1350, 9:16 1080x1920, 16:9 1920x1080). 9x16 and
@@ -423,7 +428,7 @@ _OUTPAINT_BUDGET_MS = int(os.getenv("GENERATE_OUTPAINT_BUDGET_MS", "13000"))
 # and the extend story stays async (receipts under artifacts.async_extend).
 _OUTPAINT_RESERVE_MS = int(os.getenv("GENERATE_OUTPAINT_RESERVE_MS", "6000"))
 # Per-ratio headline slab size (C06: 56/64/72).
-_HEADLINE_PX = {"1x1": 56, "9x16": 64, "16x9": 72, "4x5": 60, "2x3": 64}
+_HEADLINE_PX = {"1x1": 56, "9x16": 64, "16x9": 72, "4x5": 60}
 
 # sku-photo-map: catalog handle -> best real lifestyle DAM key (full key, NOT under
 # the dam/ prefix). Loaded once; the file ships in the deployment (Lambda-safe).
@@ -2464,7 +2469,9 @@ def generate_hero(
                         seed, product_name, brief_msg, region, audience, theme
                     )
                     provenance["scene_prompt"] = a_scene
-                    if remaining_ms() >= _B_STABILITY_MS + _C_RESERVATION_MS:
+                    # _STABILITY_RUNG_ON gate: dev skips the packshot background restyle
+                    # and falls to the deterministic packshot composite (unrestyled seed).
+                    if _STABILITY_RUNG_ON and remaining_ms() >= _B_STABILITY_MS + _C_RESERVATION_MS:
                         restyled = out_path.parent / f"{out_path.stem}-restyle.png"
                         if _stability_control_hero(seed, a_scene, restyled) is not None and restyled.exists():
                             seed = restyled
@@ -2537,7 +2544,9 @@ def generate_hero(
         # worst-case cost PLUS the held-back C reservation, so a slow Bedrock call can
         # never starve rung C. Skipped (fall to C) when the budget will not fit — no seed
         # is not a concern here (seed is not None), so the budget gate is the sole B gate.
-        if remaining_ms() >= _B_BUDGET_MS + _C_RESERVATION_MS:
+        # _STABILITY_RUNG_ON gates the whole generative rung: dev (flag off) skips B entirely
+        # and falls to rung C (Nova-Pro-art-directed Pillow compose) with a distinct reason.
+        if _STABILITY_RUNG_ON and remaining_ms() >= _B_BUDGET_MS + _C_RESERVATION_MS:
             try:
                 # Per-subcall budget gate 1 — the Nova Pro scene-prompt (fail-fast, capped
                 # at BEDROCK_NOVA_READ_TIMEOUT_S). Enter it ONLY while the clock still
@@ -2627,13 +2636,22 @@ def generate_hero(
                 print(f"[generate] rung B failed -> fall to C: {e}", file=sys.stderr)
                 provenance["fallthrough_reason"] = "model-error"
         else:
-            # budget will not fit B (+C reservation) — skip straight to C.
-            print(
-                f"[generate] rung B skipped (budget {remaining_ms():.0f}ms < "
-                f"{_B_BUDGET_MS + _C_RESERVATION_MS}ms) -> rung C",
-                file=sys.stderr,
-            )
-            provenance["fallthrough_reason"] = "budget-exhausted"
+            # skip straight to C — either the generative rung is disabled (dev) or the
+            # budget will not fit B (+C reservation). Keep the reason honest so provenance
+            # distinguishes a dev opt-out from a real budget exhaustion.
+            if not _STABILITY_RUNG_ON:
+                print(
+                    "[generate] rung B skipped (stability rung disabled) -> rung C",
+                    file=sys.stderr,
+                )
+                provenance["fallthrough_reason"] = "stability-rung-disabled"
+            else:
+                print(
+                    f"[generate] rung B skipped (budget {remaining_ms():.0f}ms < "
+                    f"{_B_BUDGET_MS + _C_RESERVATION_MS}ms) -> rung C",
+                    file=sys.stderr,
+                )
+                provenance["fallthrough_reason"] = "budget-exhausted"
 
         # ---- RUNG C: Pillow compose overlay on the SAME seed. The guaranteed-real
         # workhorse rung B falls through to. Always available (no network).
@@ -2847,7 +2865,12 @@ def generate_hero_set(
             # the reserve — a slow ratio degrades to the pad, never blows the
             # immovable 22s wall. Latency is measured per ratio for the report.
             ratio_engine = "pillow-outpaint-fallback"
-            if _set_remaining_ms() < _OUTPAINT_BUDGET_MS + _OUTPAINT_RESERVE_MS:
+            if not _STABILITY_RUNG_ON:
+                # dev opts out of the generative rung: use the deterministic Pillow
+                # cover-pad for 9x16/16x9 too (same path 4x5 always uses).
+                provenance["outpaint_degraded"][ratio] = "stability-rung-disabled"
+                _pillow_outpaint_fallback(clean_base, target_w, target_h, ratio_path)
+            elif _set_remaining_ms() < _OUTPAINT_BUDGET_MS + _OUTPAINT_RESERVE_MS:
                 provenance["outpaint_degraded"][ratio] = "budget-exhausted"
                 _pillow_outpaint_fallback(clean_base, target_w, target_h, ratio_path)
             else:

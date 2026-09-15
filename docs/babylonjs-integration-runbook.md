@@ -7,7 +7,7 @@
 >
 > companion docs: `docs/design-system-inventory.md` (element inventory + standards S1-S10),
 > `docs/kodiak-shading.json` (tint/shade ladders + WCAG), `docs/kodiak-style-guide.md` (7-part brand).
-> reference architecture: `chasko-labs/cloud-del-norte-website/src/lib/` (proven BabylonJS 9.4.1 patterns).
+> reference architecture: proven BabylonJS 9.4.1 shared-engine + device-gate patterns.
 
 ## 0. what this is and why Option C
 
@@ -34,7 +34,7 @@ each on one element, each with a static fallback that is the default.
 | ---------------- | --------------------------------------------------------------------- |
 | node / npm       | v24.14.0 / 11.9.0 present                                             |
 | existing JS deps | `@pandacss/dev 1.12.0` (devDependency), `"type": "module"`            |
-| babylon version  | pin `@babylonjs/core` exact `9.4.1` (matches cloud-del-norte)         |
+| babylon version  | pin `@babylonjs/core` exact `9.4.1`                                   |
 | bundler          | pin `esbuild` `0.25.9` (any 0.25.x)                                   |
 | linter           | biome `2.4.13` (ecosystem standard — NOT eslint; ruff is Python-only) |
 | CI               | local checks, `scripts/hooks/full-check.sh`, Python-only, untouched by this work       |
@@ -97,10 +97,10 @@ git add src/kodiak-ember.js web/kodiak-posts-for-todays-frontier/vendor/kodiak-e
 
 the runtime API is `window.KodiakEmber` (the module self-assigns it; `--global-name` is a harmless wrapper).
 
-## 5. the shared harness (mirror of cloud-del-norte, all hard lessons baked in)
+## 5. the shared harness (all hard lessons baked in)
 
 `src/kodiak-ember.js` opens with a shared-engine singleton and a device gate. these are non-negotiable —
-they are the lessons cloud-del-norte paid for.
+they are hard-won lessons, non-negotiable.
 
 - **one WebGL context.** a single `Engine` renders to a 1px offscreen working canvas and copies into each
   registered view canvas. never `new Engine()` per element (chrome's ~16 context limit; fiona vanished
@@ -931,8 +931,8 @@ per-trial acceptance:
 - **StandardMaterial variant.** dropping `PBRMaterial` for `StandardMaterial`+emissive across all three
   trials cuts the bundle to ~600-700KB min / ~180-210KB gz. viable optimization once the PBR look is
   approved as the target; run as a follow-up trial, measure the visual delta.
-- **manualChunks equivalent.** cloud-del-norte splits Babylon into named chunks (meshes/materials/engine/
-  shaders/animations). the single-IIFE approach here is correct for one small module; if the effect set
+- **manualChunks equivalent.** a named-chunk split (meshes/materials/engine/shaders/animations) is the
+  alternative; the single-IIFE approach here is correct for one small module; if the effect set
   grows, revisit code-splitting.
 - **eslint flat-config gate.** if the team prefers eslint over biome for JS, add `eslint.config.mjs` per
   the haunting JS-lint standard. current ecosystem standard is biome 2.4.13.
@@ -1325,8 +1325,8 @@ the DEFERRED candidates C8 (SSAO2, second render target) and C9 (bloom pipeline)
 
 ---
 
-sources: reference architecture `chasko-labs/cloud-del-norte-website/src/lib/` (babylon-shared-engine.ts,
-cdn-star-logo/StarScene.ts, babylon-loader.ts, vite.config.ts manualChunks); brand `design/tokens/kodiak.json`
+sources: reference architecture — proven BabylonJS 9.4.1 shared-engine + device-gate patterns
+(shared-engine singleton, star-scene, babylon-loader, named-chunk split); brand `design/tokens/kodiak.json`
 
 - `docs/kodiak-shading.json`; element inventory `docs/design-system-inventory.md`. featureDemos lineage from
   babylonjs.com/featureDemos as noted per trial.

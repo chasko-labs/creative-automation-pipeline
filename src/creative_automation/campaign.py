@@ -55,13 +55,14 @@ PAIRS_PATH = _ROOT / "data" / "localization" / "retailer-frontier-pairs.json"
 DEFAULT_OUT_DIR = _ROOT / "output" / "campaigns"
 
 # standard platform -> ratio(s) map. covers the full social channel set the project
-# outlined; every ratio stays locked to the three ISO canvas sizes (1x1=1080x1080,
-# 9x16=1080x1920, 16x9=1920x1080 per naming.ISO_NAME_RE) — this is a CHANNEL expansion,
-# never new ratios. keep it explicit so the fan-out count stays predictable
-# (9 platform-ratio pairs = 2+2+1+2+1+1).
+# outlined. delivery ratios are the FOUR customer sizes (1x1=1080x1080, 4x5=1080x1350,
+# 9x16=1080x1920, 16x9=1920x1080 per naming.ISO_NAME_RE); the platform->ratio assignments
+# below mirror data/platforms/platform-matrix.json, which is the authoritative source of
+# truth for which platform serves which ratio. keep it explicit so the fan-out count stays
+# predictable (13 platform-ratio pairs = 3+4+1+2+1+1+1).
 STANDARD_PLATFORMS: dict[str, list[str]] = {
-    "instagram": ["1x1", "9x16"],   # feed + stories/reels
-    "facebook": ["1x1", "16x9"],    # feed square + landscape video
+    "instagram": ["1x1", "4x5", "9x16"],        # feed + portrait feed + stories/reels
+    "facebook": ["1x1", "4x5", "9x16", "16x9"], # feed + portrait + stories + landscape
     "tiktok": ["9x16"],             # vertical only
     "youtube": ["16x9", "9x16"],    # landscape + shorts
     "blog": ["16x9"],               # hero (export table carries the 1200x630 OG row)
@@ -576,7 +577,8 @@ def run_campaign(
         month: ISO 'YYYY-MM' for the in-season ingredient; defaults to current month.
         platforms: explicit platform->ratio(s) dict, a bare platform-name list, or None
             for the STANDARD_PLATFORMS set (instagram, facebook, tiktok, youtube, blog,
-            display — 9 platform-ratio pairs, all ratios locked to 1x1/9x16/16x9).
+            homepage, display — 13 platform-ratio pairs, all ratios among the four
+            delivery sizes 1x1/4x5/9x16/16x9 per data/platforms/platform-matrix.json).
         languages: explicit language list, or None for EN + the market's top-N.
         render: when False (default) assets stay planned copy+naming (generated=False)
             and NO Bedrock call is made — CI stays green offline. When True each

@@ -17,7 +17,7 @@ import re
 #   REGION   upper-case, hyphen delimited          US-NM, US-SW-LASCRUCES, US-MW
 #   LOCALITY lower-case hyphenated city+store      las-cruces-target, park-city-wasatch
 #   CHANNEL  lower-case, hyphen delimited           instagram, diner-board, subscription-email
-#   RATIO    exactly one of 1x1 | 9x16 | 16x9
+#   RATIO    exactly one of 1x1 | 4x5 | 9x16 | 16x9
 #   DATE     YYYYMMDD (ISO 8601 basic)
 #   VERSION  vNN zero-padded                        v01, v02
 ISO_NAME_RE = re.compile(
@@ -26,7 +26,7 @@ ISO_NAME_RE = re.compile(
     r"(?P<region>[A-Z0-9]+(?:-[A-Z0-9]+)*)-"
     r"(?P<locality>[a-z0-9]+(?:-[a-z0-9]+)*)-"
     r"(?P<channel>[a-z0-9]+(?:-[a-z0-9]+)*)-"
-    r"(?P<ratio>1x1|9x16|16x9)-"
+    r"(?P<ratio>1x1|4x5|9x16|16x9)-"
     r"(?P<date>[0-9]{8})-"
     r"(?P<version>v[0-9]{2})"
     r"\.png$"
@@ -34,6 +34,7 @@ ISO_NAME_RE = re.compile(
 
 _RATIO_CANON = {
     "1x1": "1x1", "1:1": "1x1",
+    "4x5": "4x5", "4:5": "4x5",
     "9x16": "9x16", "9:16": "9x16",
     "16x9": "16x9", "16:9": "16x9",
 }
@@ -101,7 +102,7 @@ def slugify(text: str) -> str:
 
 
 def canon_ratio(ratio: str) -> str:
-    """Map any accepted ratio spelling to the standard 1x1 | 9x16 | 16x9."""
+    """Map any accepted ratio spelling to the standard 1x1 | 4x5 | 9x16 | 16x9."""
     key = _RATIO_CANON.get(str(ratio).strip())
     if key is None:
         raise ValueError(f"unknown ratio {ratio!r}; expected one of {sorted(set(_RATIO_CANON))}")

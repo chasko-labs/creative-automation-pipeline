@@ -25,6 +25,11 @@ h1{font-size:clamp(18px,3.2vw,26px);margin:0}
 .siblings a{display:inline-block;padding:8px 14px;border:1px solid var(--frontier);border-radius:999px;color:var(--brown-kodiak);text-decoration:none}
 .siblings a[aria-current]{background:var(--brown-kodiak);border-color:var(--brown-kodiak);color:#FFF8F0}
 a{color:var(--frontier)}
+.matrix{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px}
+.matrix th,.matrix td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--stone);vertical-align:top}
+.matrix th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#6B5A53;background:var(--parch)}
+.matrix tr:hover td{background:rgba(232,83,14,.05)}
+.schema{font-family:ui-monospace,monospace;font-size:12.5px;line-height:1.65;background:var(--parch);border:1px solid var(--stone);border-radius:6px;padding:10px 12px;overflow-x:auto;white-space:pre}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head><body>
 <header class="kodiak-header"><div class="header__inner">
@@ -32,12 +37,80 @@ a{color:var(--frontier)}
 <div style="flex:1;background:var(--frontier);border-radius:6px;padding:8px 14px"><h1>Creative Generation, Localization &amp; Artificial Intelligence</h1></div>
 </div></header>
 <div class="wrap">
-<p>Each campaign follows a dependable creative workflow: approved product images and brand guidance shape the concept, artificial-intelligence tools help develop imagery and language, localization adapts the message for each market, and finished files go to the approved asset library. <span class="kbd">live</span> means available now; <span class="kbd">ready</span> means prepared for a future release.</p>
+<p>Each campaign starts from a simple idea — a frontier ingredient, turned into Kodiak recipes, printed as a keepsake card. The workflow below makes that dependable: approved product images and brand guidance shape the concept, artificial intelligence (AI) tools help develop imagery and language, localization adapts the message for each market, and finished files go to the approved asset library — the Digital Asset Library (DAM). <span class="kbd">live</span> means available now; <span class="kbd">ready</span> means prepared for a future release.</p>
+<p style="color:#6B5A53;font-size:13px">Terms used once, then shortened: artificial intelligence (AI) · Digital Asset Library (DAM) · Scalable Vector Graphics (SVG) placeholder · stock-keeping unit (SKU).</p>
 <div class="siblings" role="group" aria-label="About pages">
 <a href="details.html" target="_blank" rel="noopener">Design System Inventory</a>
 <a href="pipeline.html" aria-current="page" target="_blank" rel="noopener">Creative Generation, Localization &amp; Artificial Intelligence</a>
 <a href="infrastructure.html" target="_blank" rel="noopener">Secure hosting and delivery</a>
 </div>
+
+<div class="card"><div class="hd"><h2>Recipe-card generation contract <span class="badge">contract</span></h2><p>One card per market x season-month x featured-frontier-ingredient. The market and month pick the ingredient; the ingredient fans out to procedurally-built Kodiak recipes; the card layout and its governing ruleset come from the <a href="details.html#recipe-card-standard" target="_blank" rel="noopener">recipe card standard</a>.</p></div><div class="body">
+<div class="schema">market (data/localization/local-flavor.json)
+  x month (1-12, inclusive windows, may wrap year boundary)
+  -> featured ingredient (in-season produce name, parens kept for display)
+  -> recipe family (Kodiak base + forms, e.g. cabbage -> okonomiyaki / fritters / waffles / muffins)
+  -> card (details.html #recipe-card-standard canvas + ruleset panel)</div>
+</div></div>
+
+<div class="card"><div class="hd"><h2>Market x season grid <span class="badge">contract</span></h2><p>Sample rows from the live flavor table. Each cell names the in-season featured ingredient a card is built around; months are the source of truth, seasons are the reading aid (spring Mar-May, summer Jun-Aug, fall Sep-Nov, winter Dec-Feb).</p></div><div class="body">
+<table class="matrix">
+<tr><th scope="col">Market</th><th scope="col">Spring</th><th scope="col">Summer</th><th scope="col">Fall</th><th scope="col">Winter</th></tr>
+<tr><td><b>Pescadero CA</b></td><td>Castroville artichokes</td><td>strawberries</td><td>Brussels sprouts</td><td>Brussels sprouts</td></tr>
+<tr><td><b>Castroville CA</b></td><td>Castroville artichokes</td><td>strawberries</td><td>Brussels sprouts</td><td>Brussels sprouts</td></tr>
+<tr><td><b>Las Cruces NM</b></td><td>&mdash;</td><td>Hatch green chile (Aug+)</td><td>Hatch green chile (Sep)</td><td>&mdash;</td></tr>
+<tr><td><b>Sandersville GA</b></td><td>&mdash;</td><td>Georgia peaches</td><td>sweet potatoes, Georgia pecans</td><td>Georgia pecans (Dec)</td></tr>
+</table>
+</div></div>
+
+<div class="card"><div class="hd"><h2>Ingredient -&gt; recipe mapping <span class="badge">contract</span></h2><p>Worked example plus the family shape every mapping follows. Families are archetypes that wrap approved Kodiak base recipes; market and seasonal facts stay flagged proposed until validated.</p></div><div class="body">
+<div class="schema">cabbage (featured ingredient)
+  |- Kodiak okonomiyaki  (savory griddle, shredded cabbage + power-cakes base)
+  |- Kodiak fritters      (pan-fried cabbage cakes)
+  |- Kodiak waffles       (savory waffle-iron form)
+  `- Kodiak muffins      (drop-bake form)
+
+family shape: { family_id, base_recipe, primary_product_mapping,
+  forms: [griddle | waffle-iron | drop-bake],
+  cook_method options + validation_needed flags, mood }</div>
+</div></div>
+
+<div class="card"><div class="hd"><h2>Recipe card: fixed frame, changing contents <span class="badge">contract</span></h2><p>Every card shares one fixed frame; only the per-card contents change. Fixed chrome: corner flourishes (1.0 x 1.0in accents, 0.25in clear of the title), a kraft-paper substrate (20-point brown kraft board by default; white cardstock and cream parchment also work), and an opaque white base coat under every art zone so drawings stay legible on kraft. The printable specimen and its governing ruleset live under the <a href="details.html#recipe-card-standard" target="_blank" rel="noopener">recipe card standard</a>.</p></div><div class="body">
+<table class="matrix">
+<tr><th scope="col">Per-card variable</th><th scope="col">What it shows</th><th scope="col">When unknown</th></tr>
+<tr><td>Title</td><td>featured ingredient over the Kodiak base (e.g. ingredient over Kodiak Power Cakes); falls back to the recipe catalog name, then the word recipe</td><td>empty-state card (no ingredient) carries no title</td></tr>
+<tr><td>Meta strip: prep / cook / serves / est-cost</td><td>prep from the recipe prepTime, cook from cookTime, serves from yield</td><td>honest em-dash per missing column; est-cost is always a dash (no verified price source)</td></tr>
+<tr><td>Ingredients</td><td>the in-season pick as the source-backed line</td><td>price column always an em-dash — never $0.00, never guessed</td></tr>
+<tr><td>Seasonal tip</td><td>one context line from the market seasonal moments: first confirmed moment, else the first moment</td><td>omitted when the market has no moments</td></tr>
+<tr><td>Steps</td><td>up to 5 steps from the recipe instructions, real leading word uppercased as the bold action verb</td><td>a step that opens with a quantity keeps its wording — no verb invented</td></tr>
+<tr><td>Market + month</td><td>the market and the resolved season-month travel on every card, including empty states</td><td>empty states carry the reason (no pair seeded / nothing in season / no recipe on file)</td></tr>
+<tr><td>Provenance</td><td>kept in the card data (source-backed vs proposed vs unknown), never printed on the card face</td><td>no markers on the face by design decision</td></tr>
+</table>
+</div></div>
+
+<div class="card"><div class="hd"><h2>Where each field comes from <span class="badge">contract</span></h2><p>Three supplies, no guessing: the recipe registry (the catalog file) backs anything the recipe actually says; market-month localization backs anything seasonal; the DAM-via-emit path backs artwork. Anything without a backing source renders as an em-dash and is listed unknown in provenance.</p></div><div class="body">
+<table class="matrix">
+<tr><th scope="col">Supply</th><th scope="col">Fields</th><th scope="col">Source</th></tr>
+<tr><td>Recipe registry</td><td>title fallback, meta prep/cook/serves, steps, recipe id + name</td><td><span class="kbd">data/recipes/kodiak-recipes.json</span> (prepTime / cookTime / yield / instructions)</td></tr>
+<tr><td>Market-month localization</td><td>featured ingredient, resolved month, seasonal tip</td><td><span class="kbd">locales.resolve_this_month</span> (single source of truth, never fabricated) + <span class="kbd">resolve_seasonal_moments</span></td></tr>
+<tr><td>DAM-via-emit artwork</td><td>art urls per zone, embedded into the offline data file</td><td><span class="kbd">recipe_cards_emit.seed_recipe_art</span> generates once per ingredient slug, reuses published objects, and emits <span class="kbd">window.KODIAK_RECIPE_CARDS</span>; a null url means keep the SVG placeholder</td></tr>
+</table>
+</div></div>
+
+<div class="card"><div class="hd"><h2>Concept rule: ingredient first, Kodiak as binder <span class="badge">contract</span></h2><p>The market and month pick the ingredient; the ingredient picks the recipe family; Kodiak binds it. Recipe names stay neutral — the title pattern is always the featured ingredient over the Kodiak base, never an invented dish name.</p></div><div class="body">
+<div class="schema">market x month -> ingredient first (never fabricated)
+  -> Kodiak base as binder ("over Kodiak Power Cakes", flagged proposed)
+  -> neutral title only: "{Ingredient} over Kodiak Power Cakes"</div>
+</div></div>
+
+<div class="card"><div class="hd"><h2>Art zones + style rule <span class="badge">contract</span></h2><p>Three sketch zones per card under one triple-bar style rule: monochrome + sparse + no-text-artifact. Ink coverage ceiling 0.35 dark-area fraction per zone (±0.02 template tolerance). A null art url keeps the inline SVG "sketch pending" placeholder — never an empty box, never a broken image. Bulk rendering path lives on the <a href="infrastructure.html" target="_blank" rel="noopener">infrastructure page</a>.</p></div><div class="body">
+<table class="matrix">
+<tr><th scope="col">Zone</th><th scope="col">Print box</th><th scope="col">Render aspect</th><th scope="col">Prompt role</th></tr>
+<tr><td><span class="kbd">raw_ingredient</span></td><td>3.0 x 1.5in, left column</td><td>16:9</td><td>single sparse specimen of the featured ingredient; leafy/clustered subjects get a sparsity clause</td></tr>
+<tr><td><span class="kbd">technique</span></td><td>3.0 x 1.5in, right column mid</td><td>16:9</td><td>kitchen action sketch for the recipe</td></tr>
+<tr><td><span class="kbd">finished_plate</span></td><td>3.0 x 2.0in, right column bottom</td><td>3:2</td><td>plated dish featuring the ingredient over pancakes</td></tr>
+</table>
+</div></div>
 
 <div class="card"><div class="hd"><h2>Creative generation <span class="badge">live</span></h2><p>The service selects the best available creative route for each request, returns approved campaign imagery, and keeps brand details under control. Each result includes a clear explanation of how it was made.</p></div><div class="body">
 <ul class="tree">

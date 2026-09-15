@@ -28,7 +28,7 @@
 | brand colors    | kodiak.json color.brand          | built | bearBrown #3B2316, blazeOrange #E8530E, frontierGreen #1A3C34                           |
 | neutral ramp    | kodiak.json color.neutral 0-1000 | built | warm ramp: 50 parchment #FFF8F0 ... 900 ink #1A1110                                     |
 | semantic        | color.semantic                   | built | background / foreground / border / overlay — the layer components SHOULD consume        |
-| kraft gradients | gradient.kraft                   | built | pure-css, zero rasters (cloud-del-norte precedent): surface / background / surfaceHover |
+| kraft gradients | gradient.kraft                   | built | pure-css, zero rasters: surface / background / surfaceHover |
 | shadow scale    | shadow.\*                        | built | none/sm/md/lg + warm `bear` #3B231633 + `text`                                          |
 | radii           | radius.\*                        | built | none 0 (creative full-bleed) ... pill 999 (protein badge)                               |
 | typography      | typography.\*                    | built | per-ratio headline/body/caption sizes; families: gin, museo-sans, Roar, kodiak_sans     |

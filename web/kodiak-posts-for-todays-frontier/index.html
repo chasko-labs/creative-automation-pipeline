@@ -385,22 +385,6 @@
   </div>
 </div>
 
-<!-- ============ RECIPES ============ -->
-<!-- Recipes surface — a library-style gallery of the precomputed recipe cards, rendered into the
-     .rc-card design standard by js/recipe-cards.js from window.KODIAK_RECIPE_CARDS. Line-art only;
-     food/table/kitchen PHOTOGRAPHY lives in the DAM "Food photography" tab, a separate taxonomy.
-     Offline-safe: if the data global is absent, the body shows a graceful empty state. -->
-<section class="card wide-track ff-recipes" id="recipesGallery" aria-labelledby="recipesGalleryHeading">
-  <div class="hd">
-    <h2 id="recipesGalleryHeading">Recipe cards <span class="badge">line art</span></h2>
-    <p>Seasonal recipe cards for each market, built to the printable card standard. Hand-drawn line art in the sketch zones; honest empty states for months with no in-season local pick.</p>
-  </div>
-  <div class="body rc-gallery-body">
-    <p class="rc-gallery-empty">Recipe cards will appear here once generated.</p>
-  </div>
-</section>
-<!-- ============ /RECIPES ============ -->
-
 <!-- Wasatch ridge — divider between the INPUT card and the OUTPUT section -->
 <div class="ff-ridge" aria-hidden="true" title="Wasatch ridge — Frontier Green divider"></div>
 
@@ -468,6 +452,11 @@
           <figcaption class="ff-figcap">Park City example — Power Cakes flapjacks for a Wasatch Back morning. In season Jun–Sep: Jensen Farms peaches + Copper Moose rhubarb at the Park City Farmers Market. Hit Create to generate these four sizes for your market.</figcaption>
         </figure>
       </div>
+      <!-- single recipe card for the selected market + season, rendered by
+           js/recipe-cards.js from window.KODIAK_RECIPE_CARDS into the
+           .rc-card standard. one card only — the full book lives in the
+           data file, not on this page. -->
+      <div id="previewRecipe" aria-live="polite" aria-label="Recipe card for the selected market and season"></div>
       <div class="hint ff-filenames" id="fileNames"></div>
 
       <!-- Download asset pack hidden by default; primary/secondary download actions injected under the preview after generation -->

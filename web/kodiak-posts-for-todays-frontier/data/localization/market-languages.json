@@ -7,7 +7,6 @@
     "total_localized_variants": 219,
     "auto_produce": true,
     "nova_proven": true,
-    "cloud_del_norte_proven": true,
     "translation_providers": [
       "aws_translate",
       "bedrock_nova_micro",

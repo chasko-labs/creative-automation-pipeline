@@ -20,7 +20,7 @@
   belong in the inventory plan. recorded here so the team does not chase it.
 - **the lab the wiring came from:** `chasko-labs/adobe-express-mcp-lab` — cloned fresh to
   `~/code/heraldstack/adobe-express-mcp-lab` (the prior local dir was empty). the lab already shipped one
-  real use case: the cloud del norte aws builder center banner, generated from design-system tokens via
+  real use case: an aws builder center banner, generated from design-system tokens via
   this mcp. that is the "making outlines/banners from tokens" workflow bryan remembered.
 
 ## what express mcp actually does (and does not do)

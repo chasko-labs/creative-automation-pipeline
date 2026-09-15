@@ -276,18 +276,16 @@ def run_pipeline(
             report["localization"] = {
                 "error": str(e),
                 "nova_proven": True,
-                "cloud_del_norte_proven": True,
                 "provenance_note": "Nova-powered (Micro + Translate, unlimited budget)",
             }
     else:
         # minimal provenance even if translate module missing
         report["localization"] = {
             "nova_proven": True,
-            "cloud_del_norte_proven": True,
             "provenance_note": "Nova-powered (Micro + Translate, unlimited budget)",
             "providers": ["aws_translate", "bedrock_nova_micro"],
         }
-        report["localization_summary"] = {"nova_proven": True, "cloud_del_norte_proven": True}
+        report["localization_summary"] = {"nova_proven": True}
 
     # write report.json
     (out_root / "report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")

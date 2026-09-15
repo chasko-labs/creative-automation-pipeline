@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="/">
+<link rel="stylesheet" href="https://use.typekit.net/zjt4wyq.css">
+<link rel="stylesheet" href="design/styles.css">
+<link rel="stylesheet" href="design/components.css">
+<title>Recipes Brainstorm — Kodiak Creative Automation</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<style>
+/* recipes.html — brainstorm overview page. Layout-only rules; every color,
+   typeface, and radius resolves through the shared page tokens (alias layer
+   in design/components.css over Panda tokens in design/styles.css). No new
+   palette, no new type, no new radius. The .rc-card component + its card
+   tokens are reused verbatim from the design system — this file only lays
+   out the brainstorm bands around it. */
+:root{
+  --chocolate:var(--colors-brand-bear-brown);
+  --brown-kodiak:var(--colors-brand-bear-brown);
+  --red:var(--colors-brand-signal-red);
+  --parchment:var(--colors-neutral-50);
+  --parch:var(--colors-neutral-50);
+  --stone:var(--colors-neutral-300);
+  --oat:var(--colors-neutral-100);
+  --ink:#1A1110CC;
+}
+*{box-sizing:border-box}
+html{background:var(--parchment)}
+body{margin:0;background:var(--parchment);color:var(--chocolate);font-family:"museo-sans",system-ui,sans-serif;font-size:15px;line-height:1.55}
+h1,h2,h3{font-family:"gin",Rockwell,Georgia,serif;font-weight:800;text-transform:uppercase;letter-spacing:.05em;line-height:1.1;color:var(--chocolate)}
+a{color:var(--red)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--colors-brand-signal-red);outline-offset:2px;border-radius:2px}
+.kodiak-header{background:var(--brown-kodiak);color:#FFF8F0;padding:10px 18px}
+.header__inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.backlink{color:#FFF8F0}
+.header__inner h1{margin:0;font-size:clamp(18px,3.2vw,26px);color:#FFF8F0}
+.wrap{max-width:1280px;margin:0 auto;padding:18px}
+.lede{max-width:72ch}
+.siblings{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.siblings a{display:inline-block;padding:8px 14px;border:1px solid var(--colors-brand-frontier-green);border-radius:999px;color:var(--chocolate);text-decoration:none}
+.siblings a[aria-current]{background:var(--brown-kodiak);border-color:var(--brown-kodiak);color:#FFF8F0}
+.band{background:#FFFDF9;border:1px solid var(--stone);border-radius:16px;margin:14px 0;box-shadow:var(--shadows-sm)}
+.band>.hd{padding:14px 18px 0}.band>.hd h2{margin:0 0 4px;font-size:20px}
+.band>.hd p{margin:0 0 8px;color:#6B5A53;font-size:13px}
+.band>.body{padding:0 18px 16px}
+.badge{display:inline-block;background:var(--oat);border:1px solid var(--stone);border-radius:999px;padding:1px 10px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-family:"museo-sans",sans-serif}
+.kbd{font-family:ui-monospace,monospace;background:var(--oat);border:1px solid var(--stone);border-radius:6px;padding:0 6px;font-size:12.5px}
+.count{font-size:12.5px;color:#6B5A53}
+/* band 1: market x month matrix */
+.rx-matrix-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:6px 0 10px}
+.rx-matrix-tools input{font:inherit;padding:7px 12px;border:1px solid var(--stone);border-radius:999px;background:var(--colors-neutral-0);color:var(--chocolate);min-width:min(280px,100%)}
+.rx-scroll{overflow-x:auto;border:1px solid var(--stone);border-radius:6px}
+.rx-matrix{width:100%;border-collapse:separate;border-spacing:0;font-size:12.5px;min-width:960px}
+.rx-matrix th,.rx-matrix td{padding:7px 9px;border-bottom:1px solid var(--stone);text-align:left;vertical-align:top}
+.rx-matrix thead th{background:var(--oat);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#6B5A53;position:sticky;top:0}
+/* market-cell: row header component — place name + market code */
+.market-cell{position:sticky;left:0;background:var(--parchment);font-weight:700;font-size:13px;min-width:190px;text-transform:none;letter-spacing:0;font-family:"museo-sans",sans-serif;box-shadow:1px 0 0 var(--stone)}
+.market-cell__code{display:block;font-weight:500;font-size:11px;color:#6B5A53;letter-spacing:.02em}
+.rx-matrix__corner{position:sticky;left:0;background:var(--oat);z-index:1;box-shadow:1px 0 0 var(--stone)}
+/* season-cell: month ingredient component — season tint comes from the brand
+   palette at a whisper strength, months stay the source of truth */
+.season-cell{font-size:12.5px}
+.season-cell--spring{background:color-mix(in srgb, var(--colors-brand-frontier-green) 7%, transparent)}
+.season-cell--summer{background:color-mix(in srgb, var(--colors-brand-blaze-orange) 8%, transparent)}
+.season-cell--fall{background:color-mix(in srgb, var(--colors-brand-bear-brown) 7%, transparent)}
+.season-cell--winter{background:color-mix(in srgb, var(--colors-brand-signal-red) 5%, transparent)}
+.rx-matrix__season{text-align:center}
+/* band 2: metro -> frontier pairing panels */
+.rx-pairs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:12px}
+.rx-pair{background:#FFFDF9;border:1px solid var(--stone);border-radius:16px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.rx-pair__kicker{margin:0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#6B5A53}
+.rx-pair__place{margin:0;font-size:15px}
+.rx-pair__meta{margin:0;font-size:12.5px;color:#6B5A53}
+.rx-pair__arrow{color:var(--red);font-weight:700}
+.rx-pair__chips{margin:0;display:flex;flex-wrap:wrap;gap:6px}
+.rx-chip{display:inline-block;background:var(--oat);border:1px solid var(--stone);border-radius:999px;padding:1px 10px;font-size:11.5px}
+.rx-pair__market-link{font-size:12.5px}
+.rx-produce{list-style:none;margin:4px 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2px 10px;font-size:12.5px}
+.rx-produce__month{display:inline-block;width:32px;color:#6B5A53;font-size:11px;letter-spacing:.04em;text-transform:uppercase}
+.rx-pair__moment{margin:4px 0 0;font-size:12.5px;color:#6B5A53}
+/* band 3: PoC cards reuse .rc-card verbatim; only the gallery mount is local */
+/* art-thumb: shared sketch-pending thumb — currentColor so substrate ink applies */
+.art-thumb{color:var(--chocolate)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header class="kodiak-header"><div class="header__inner">
+<a class="backlink" href="index.html">&larr; Back to campaign</a>
+<h1>Recipes Brainstorm</h1><span class="badge">brainstorm — not a pipeline step</span>
+</div></header>
+<div class="wrap">
+<p class="lede">Everything at once: the full market-by-month ingredient book, every metro-to-frontier pairing with its farm-stand and monthly-produce references, and sample ingredient-to-recipe cards. Months are the source of truth; seasons (spring Mar–May, summer Jun–Aug, fall Sep–Nov, winter Dec–Feb) are the reading aid.</p>
+<div class="siblings" role="group" aria-label="About pages">
+<a href="details.html" target="_blank" rel="noopener">Design System Inventory</a>
+<a href="pipeline.html" target="_blank" rel="noopener">Creative Generation, Localization &amp; Artificial Intelligence</a>
+<a href="infrastructure.html" target="_blank" rel="noopener">Secure hosting and delivery</a>
+<a href="recipes.html" aria-current="page">Recipes Brainstorm</a>
+</div>
+
+<section class="band" aria-labelledby="band1h"><div class="hd"><h2 id="band1h">Market × season matrix <span class="badge">band 1</span></h2>
+<p>Every market × all 12 months from <span class="kbd">js/recipe-cards-data.js</span> — each cell names its distinct in-season ingredient. Same card-data shape as the main page.</p></div><div class="body">
+<div class="rx-matrix-tools">
+<label for="rxMatrixFilter">Filter markets</label>
+<input id="rxMatrixFilter" type="search" placeholder="e.g. castroville or US-CA" autocomplete="off">
+<span class="count" id="rxMatrixCount" role="status"></span>
+</div>
+<div class="rx-scroll"><div id="rxMatrix"></div></div>
+</div></section>
+
+<section class="band" aria-labelledby="band2h"><div class="hd"><h2 id="band2h">Frontier pairings <span class="badge">band 2</span></h2>
+<p>Metro → frontier sisters from <span class="kbd">data/localization/retailer-frontier-pairs.json</span>: retailer store on the metro side, farm-stand link plus the 12-month produce run and seasonal moments on the frontier side. <span class="count" id="rxPairsCount" role="status"></span></p></div><div class="body">
+<div class="rx-pairs" id="rxPairs"></div>
+</div></section>
+
+<section class="band" aria-labelledby="band3h"><div class="hd"><h2 id="band3h">Ingredient → recipe PoC <span class="badge">band 3</span></h2>
+<p>Sample cards in the existing <span class="kbd">.rc-card</span> component and card tokens from the <a href="details.html#recipe-card-standard" target="_blank" rel="noopener">recipe card standard</a> — two picks per season, distinct ingredients. Art zones show the shared sketch-pending thumb; this page never fetches remote art.</p></div><div class="body">
+<div id="rxPoc"></div>
+</div></section>
+</div>
+<script defer src="js/recipe-cards-data.js"></script>
+<script defer src="js/recipes-frontier-pairs.js"></script>
+<script defer src="js/recipes.js"></script>
+</body></html>

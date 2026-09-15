@@ -32,7 +32,7 @@
         "2026-01": "turnips",
         "2026-02": "winter greens",
         "2026-03": "strawberries",
-        "2026-04": "strawberries",
+        "2026-04": "Vidalia onions (early)",
         "2026-05": "Vidalia onions",
         "2026-06": "blueberries",
         "2026-07": "peaches",
@@ -149,7 +149,7 @@
         "2026-08": "summer squash",
         "2026-09": "winter squash",
         "2026-10": "apples",
-        "2026-11": "apples (storage)",
+        "2026-11": "winter squash (storage)",
         "2026-12": "local honey"
       },
       "monthly_ingredient_notes": {
@@ -246,16 +246,16 @@
       "legacy_market": "US-W-SF",
       "metro_location": {
         "retailer": "Costco",
-        "name": "Costco Wholesale (San Francisco / Redwood City halo for the Pescadero frontier gap)",
-        "address": "450 10th St, San Francisco, CA 94103",
-        "hours": "10:00AM-8:30PM Mon-Fri, 9:30AM-6:00PM Sat, 10:00AM-6:00PM Sun",
+        "name": "Costco Wholesale (San Jose halo for the Pescadero frontier gap)",
+        "address": "2201 Senter Rd, San Jose, CA 95112",
+        "hours": null,
         "phone": null,
-        "note": "phone left null pending confirmation; do not fabricate. SF/bay-area pair is confirmed present in repo as data/localization/bay-area/pescadero-94060.json (frontier=true, fulfillment=direct). Metro anchor is the nearest chain halo since Pescadero itself has only Arcangeli Grocery Co."
+        "note": "address web-verified 2026-09-15 across multiple listings (Costco #148). hours/phone left null pending confirmation; do not fabricate. prior SF-halo hours dropped with the anchor move, not carried over. SF/bay-area pair is confirmed present in repo as data/localization/bay-area/pescadero-94060.json (frontier=true, fulfillment=direct). Metro anchor is the nearest chain halo since Pescadero itself has only Arcangeli Grocery Co."
       },
       "frontier_sister": {
         "place": "Pescadero, CA 94060",
-        "farmers_market_url": "https://www.harleyfarms.com",
-        "note": "Pescadero is itself the frontier gap (nearest no-retailer spot to SF/Oakland). Local sourcing runs through Pescadero farm stands: Harley Farms Goat Dairy, Fifth Crow Farm, plus Half Moon Bay Farmers Market (Saturdays). farmers_market_url points at Harley Farms as the anchor cross-promo; Half Moon Bay Farmers Market has no stable standalone URL confirmed — research dispatch to verify."
+        "farmers_market_url": "https://www.coastsidefarmersmarkets.org",
+        "note": "Pescadero is itself the frontier gap (nearest no-retailer spot to the South Bay). Local sourcing runs through Pescadero farm stands: Harley Farms Goat Dairy (205 North St, fetch-verified), Fifth Crow Farm CSA/online farmstand, plus Coastside Farmers Market, Half Moon Bay (Saturdays 9-1, 2026 season Apr 4-Dec 19, fetch-verified 2026-09-15). Now the featured frontier of San Jose (US-W-SANJOSE) as well as a self-frontier. Metro anchor stays the nearest chain halo; addresses/hours below are the previously seeded values, not re-verified this pass."
       },
       "retailers": [
         "Costco",
@@ -265,22 +265,23 @@
       ],
       "monthly_ingredients": {
         "2026-01": "Meyer lemon",
-        "2026-02": "Meyer lemon",
-        "2026-03": "artichokes",
-        "2026-04": "artichokes",
-        "2026-05": "artichokes",
-        "2026-06": "artichokes",
-        "2026-07": "strawberries",
-        "2026-08": "strawberries",
+        "2026-02": "kale",
+        "2026-03": "rainbow chard",
+        "2026-04": "Harley Farms goat cheese",
+        "2026-05": "spring peas",
+        "2026-06": "summer squash",
+        "2026-07": "blackberries",
+        "2026-08": "romano beans",
         "2026-09": "strawberries",
-        "2026-10": "brussels sprouts",
+        "2026-10": "Half Moon Bay pumpkin",
         "2026-11": "olive oil (fall press)",
-        "2026-12": "Half Moon Bay pumpkin"
+        "2026-12": "Brussels sprouts"
       },
       "monthly_ingredient_notes": {
-        "source": "Derived from confirmed seasonal_matrix in data/localization/bay-area/pescadero-94060.json: strawberries May-Sep (Fifth Crow), artichokes Mar-Jun centerfold April (Castroville), Brussels sprouts Sep-Feb peak Oct-Dec (Fifth Crow), olive oil Nov press. This is mapped from existing confirmed repo data, not fabricated.",
-        "2026-09": "strawberries May-Sep, still in window in September; September also opens the Brussels sprouts season (Sep-Feb). Strawberries chosen as the cleaner single September pick.",
-        "de_monotony_swap": "Winter run 2026-12/2027-01/2027-02 swapped off the repeated Brussels sprouts. 2026-12 -> Half Moon Bay pumpkin (HMB is the World Pumpkin Capital, Oct-Dec pumpkin high confidence); 2027-01 and 2027-02 -> Meyer lemon (winter coastal citrus)."
+        "general": "San Mateo County coast: Fifth Crow Farm strawberries May-Sep; Brussels sprouts Sep-Feb; Harley Farms goat dairy chevre (spring highlight); Half Moon Bay pumpkins Oct (World Pumpkin Capital); olive oil November press; Meyer lemon winter coastal citrus. All 12 months are distinct picks (dedupe fix 2026-09-15).",
+        "2026-09": "strawberries May-Sep (Fifth Crow), September is the late-window pick and the north-star campaign month; September also opens Brussels sprouts season (Sep-Feb), which holds December.",
+        "source": "Fifth Crow Farm (fifthcrowfarm.com) CSA/farmstand seasons; Harley Farms Goat Dairy (harleyfarms.com, fetch-verified 2026-09-15); Coastside Farmers Market 2026 season (coastsidefarmersmarkets.org, fetch-verified 2026-09-15); UC ANR San Mateo County cool-season vegetable calendar; Half Moon Bay Art & Pumpkin Festival tradition",
+        "dedupe_2026_09_15": "Prior calendar carried Castroville artichokes Mar-Jun on a Pescadero record — removed (artichokes belong to Castroville; fix per reassignment). Replacements (kale, rainbow chard, spring peas, summer squash, blackberries, romano beans) are real San Mateo coast cool-season crops; status proposed pending month-fit confirmation. Strawberries hold September only; Meyer lemon January only; Brussels sprouts December only; goat cheese April only."
       },
       "seasonal_moments": [
         {
@@ -298,55 +299,162 @@
           "note": "Half Moon Bay = World Pumpkin Capital"
         },
         {
+          "moment": "Spring (strawberry opening + chevre)",
+          "available_ingredients": [
+            "strawberries",
+            "spring peas",
+            "Harley Farms goat cheese"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "chevre-honey",
+            "spring-green"
+          ],
+          "source": "Fifth Crow Farm seasons (fifthcrowfarm.com); Harley Farms Goat Dairy (harleyfarms.com); UC ANR San Mateo County cool-season calendar",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "strawberries/chevre confirmed local; spring-pea month-fit proposed pending confirmation"
+        },
+        {
+          "moment": "Summer coast harvest",
+          "available_ingredients": [
+            "blackberries",
+            "summer squash",
+            "romano beans"
+          ],
+          "favorite_flavors": [
+            "berry",
+            "stone-adjacent summer",
+            "savory-bean"
+          ],
+          "source": "UC ANR San Mateo County coastal crop notes; HMB coast heirloom bean tradition",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "proposed month-fit; confirm against extension calendar before use"
+        },
+        {
+          "moment": "Fall Brussels + olive press (Sep-Nov)",
+          "available_ingredients": [
+            "Brussels sprouts",
+            "olive oil (fall press)",
+            "Half Moon Bay pumpkin"
+          ],
+          "favorite_flavors": [
+            "brussels-char",
+            "olive-oil",
+            "pumpkin"
+          ],
+          "source": "Fifth Crow Farm Brussels Sep-Feb; San Mateo coast fall olive press; HMB pumpkin tradition",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest local"
+        },
+        {
           "moment": "Thanksgiving/winter",
           "available_ingredients": [
             "Meyer lemon",
-            "winter squash"
+            "Brussels sprouts",
+            "rainbow chard",
+            "kale"
           ],
           "favorite_flavors": [
             "Meyer lemon",
             "pumpkin",
             "warm citrus"
           ],
-          "source": "coastal San Mateo winter citrus + pescadero-94060.json seasonal_matrix",
+          "source": "coastal San Mateo winter citrus + cool-season greens (UC ANR San Mateo)",
           "confidence": "medium",
           "status": "confirmed",
-          "note": ""
-        },
-        {
-          "moment": "Spring",
-          "available_ingredients": [
-            "artichokes",
-            "strawberries",
-            "Meyer lemon"
-          ],
-          "favorite_flavors": [
-            "artichoke (savory)",
-            "strawberry",
-            "Meyer lemon",
-            "honey-chevre"
-          ],
-          "source": "pescadero-94060.json seasonal_matrix + Harley Farms chevre",
-          "confidence": "high",
-          "status": "confirmed",
-          "note": ""
-        },
-        {
-          "moment": "Summer",
-          "available_ingredients": [
-            "strawberries"
-          ],
-          "favorite_flavors": [
-            "strawberry",
-            "berry"
-          ],
-          "source": "pescadero-94060.json seasonal_matrix (Fifth Crow strawberries May-Sep)",
-          "confidence": "high",
-          "status": "confirmed",
-          "note": ""
+          "note": "lemon/chard/kale local winter coast; pumpkin imported bake tradition"
         }
       ],
-      "research_todo": false
+      "research_todo": false,
+      "farmers_markets": [
+        {
+          "side": "metro",
+          "name": "Willow Glen Farmers' Market (Urban Village FM Assn)",
+          "location": "1425 Lincoln Ave, San Jose, CA 95125",
+          "schedule": "Saturdays 9am-1pm, year-round",
+          "url": "https://uvfm.org/willow-glen-saturday",
+          "status": "confirmed",
+          "source": "NFMD directory listing + Urban Village FM Assn (verified web search 2026-09-15; direct fetch pending)",
+          "note": "San Jose-side weekly fresh anchor for the Pescadero pairing."
+        },
+        {
+          "side": "frontier",
+          "name": "Coastside Farmers Market (Half Moon Bay)",
+          "location": "Shoreline Station, 225 Cabrillo Hwy S, Half Moon Bay, CA",
+          "schedule": "Saturdays 9am-1pm; 2026 season Apr 4-Dec 19",
+          "url": "https://www.coastsidefarmersmarkets.org",
+          "status": "confirmed",
+          "source": "coastsidefarmersmarkets.org (fetch-verified 200 OK 2026-09-15); serves the coastside Pacifica to Pescadero",
+          "note": "Farmer-directed certified market; Pescadero growers (e.g. Fly Girl Farm, Pescadero) vend here."
+        }
+      ],
+      "farm_stands": [
+        {
+          "side": "frontier",
+          "name": "Fifth Crow Farm (online farmstand + CSA)",
+          "location": "Pescadero, CA 94060",
+          "url": "https://fifthcrowfarm.com",
+          "status": "confirmed",
+          "source": "fifthcrowfarm.com farmstand/CSA pages (verified web search 2026-09-15); CCOF certified organic, est. 2008",
+          "note": "Diversified organic farm; weekend pickup via online farmstand; CSA boxes in season."
+        },
+        {
+          "side": "frontier",
+          "name": "Harley Farms Goat Dairy (farm shop + tours)",
+          "location": "205 North Street, Pescadero, CA 94060",
+          "url": "https://www.harleyfarms.com",
+          "status": "confirmed",
+          "source": "harleyfarms.com (fetch-verified 200 OK 2026-09-15); open daily 11am-4pm",
+          "note": "Goat dairy farm shop, public/private tours, farm dinners."
+        }
+      ],
+      "periodicals": [
+        {
+          "side": "metro",
+          "name": "The Mercury News",
+          "url": "https://www.mercurynews.com",
+          "status": "confirmed",
+          "source": "mercurynews.com (verified web search 2026-09-15); daily, San Jose, since 1851; Bay Area News Group",
+          "note": "South Bay metro daily."
+        },
+        {
+          "side": "frontier",
+          "name": "Half Moon Bay Review (incl. Pescadero Pebble archive)",
+          "url": "https://www.hmbreview.com",
+          "status": "confirmed",
+          "source": "muckrack verified outlet; serving the San Mateo County coastside since 1898 (verified web search 2026-09-15; direct fetch pending)",
+          "note": "Coastside coverage Pacifica to the Santa Cruz County line — includes Pescadero."
+        }
+      ],
+      "fresh_produce_opportunities": [
+        {
+          "side": "frontier",
+          "name": "Fifth Crow Farm CSA",
+          "url": "https://fifthcrowfarm.com",
+          "status": "confirmed",
+          "source": "fifthcrowfarm.com (verified web search 2026-09-15)",
+          "note": "Weekly produce box subscription in season."
+        },
+        {
+          "side": "frontier",
+          "name": "Harley Farms tours + farm dinners",
+          "url": "https://www.harleyfarms.com",
+          "status": "confirmed",
+          "source": "harleyfarms.com (fetch-verified 200 OK 2026-09-15)",
+          "note": "Public/private goat tours, farm luncheons and dinners — bookable online."
+        },
+        {
+          "side": "frontier",
+          "name": "Half Moon Bay Art & Pumpkin Festival (Oct)",
+          "url": null,
+          "status": "proposed",
+          "source": "HMB pumpkin-capital tradition (in-file, confirmed); festival URL unconfirmed",
+          "note": "Named opportunity only; URL stays null until verified."
+        }
+      ]
     },
     {
       "market": "US-NE-RALEIGH",
@@ -375,14 +483,14 @@
         "2026-02": "sweet potatoes (storage)",
         "2026-03": "spring greens",
         "2026-04": "strawberries",
-        "2026-05": "strawberries",
+        "2026-05": "blueberries (early)",
         "2026-06": "blueberries",
         "2026-07": "tomatoes",
         "2026-08": "peaches",
         "2026-09": "muscadine grapes",
         "2026-10": "apples",
         "2026-11": "sweet potatoes",
-        "2026-12": "collards"
+        "2026-12": "pecans (coastal plain)"
       },
       "monthly_ingredient_notes": {
         "source": "NC State Extension (NCSU) NC produce availability calendar; Chatham County / Pittsboro farmers market seasonality"
@@ -508,7 +616,7 @@
         "2026-09": "mountain apples",
         "2026-10": "apples",
         "2026-11": "winter squash",
-        "2026-12": "apples (storage)"
+        "2026-12": "winter squash (storage)"
       },
       "monthly_ingredient_notes": {
         "source": "Appalachian Sustainable Agriculture Project (ASAP) Appalachian Grown local food guide; Madison County NC tailgate market calendar (April-October); NC State Extension Madison County Center"
@@ -627,15 +735,15 @@
         "2026-01": "collards",
         "2026-02": "turnips",
         "2026-03": "strawberries",
-        "2026-04": "strawberries",
+        "2026-04": "asparagus",
         "2026-05": "peaches (clingstone)",
         "2026-06": "peaches (freestone)",
-        "2026-07": "peaches",
-        "2026-08": "peaches",
+        "2026-07": "peaches (late varieties)",
+        "2026-08": "blackberries (late)",
         "2026-09": "muscadine grapes",
         "2026-10": "pecans",
         "2026-11": "sweet potatoes",
-        "2026-12": "collards"
+        "2026-12": "sweet potatoes (storage)"
       },
       "monthly_ingredient_notes": {
         "source": "Alabama Cooperative Extension System (ACES) fruit culture calendar; Chilton County Peach Festival / Peach Jam Jubilee (Clanton, June); Encyclopedia of Alabama peach industry"
@@ -750,14 +858,14 @@
         "2026-02": "sweet potatoes (storage)",
         "2026-03": "spring greens",
         "2026-04": "strawberries",
-        "2026-05": "strawberries",
+        "2026-05": "blueberries (early)",
         "2026-06": "blueberries",
         "2026-07": "tomatoes",
         "2026-08": "peaches",
         "2026-09": "muscadine grapes",
         "2026-10": "apples",
         "2026-11": "sweet potatoes",
-        "2026-12": "collards"
+        "2026-12": "butternut squash (storage)"
       },
       "monthly_ingredient_notes": {
         "source": "NC State Extension (NCSU) NC produce availability calendar; Gaston County piedmont seasonality"
@@ -875,15 +983,15 @@
         "2026-01": "collards",
         "2026-02": "winter greens",
         "2026-03": "strawberries",
-        "2026-04": "strawberries",
+        "2026-04": "asparagus",
         "2026-05": "peaches",
         "2026-06": "watermelon",
         "2026-07": "okra",
-        "2026-08": "okra",
+        "2026-08": "field peas (cowpeas)",
         "2026-09": "muscadine grapes",
         "2026-10": "boiled peanuts",
         "2026-11": "sweet potatoes",
-        "2026-12": "collards"
+        "2026-12": "sweet potatoes (storage)"
       },
       "monthly_ingredient_notes": {
         "source": "Clemson Home & Garden Information Center (HGIC) SC field reports + okra/peanut factsheets; SC Department of Agriculture boiled-peanut season; NOAA Atlantic hurricane season Jun 1-Nov 30"
@@ -1003,13 +1111,13 @@
         "2026-03": "sweet corn",
         "2026-04": "carambola (starfruit)",
         "2026-05": "mango",
-        "2026-06": "mango",
+        "2026-06": "passionfruit",
         "2026-07": "lychee",
         "2026-08": "guava",
         "2026-09": "avocado (Florida)",
-        "2026-10": "avocado (Florida)",
-        "2026-11": "tomatoes",
-        "2026-12": "strawberries"
+        "2026-10": "carambola (fall)",
+        "2026-11": "cucumbers (fall)",
+        "2026-12": "green beans (winter)"
       },
       "monthly_ingredient_notes": {
         "source": "Florida Department of Agriculture & Consumer Services (FDACS) Buy Fresh From Florida crops-in-season; UF/IFAS Tropical Research and Education Center (TREC) subtropical/tropical fruit calendars; NOAA Atlantic hurricane season"
@@ -1136,14 +1244,14 @@
         "2026-02": "sweet potatoes (storage)",
         "2026-03": "spring greens",
         "2026-04": "strawberries",
-        "2026-05": "strawberries",
+        "2026-05": "blueberries (early)",
         "2026-06": "blueberries",
         "2026-07": "tomatoes",
         "2026-08": "watermelon",
         "2026-09": "muscadine grapes",
         "2026-10": "sweet potatoes",
-        "2026-11": "sweet potatoes",
-        "2026-12": "collards"
+        "2026-11": "pecans",
+        "2026-12": "butternut squash (storage)"
       },
       "monthly_ingredient_notes": {
         "source": "Mississippi State University Extension (MSU Extension) fruit and vegetable seasonality; Mississippi sweet-potato production (Vardaman belt)"
@@ -1258,17 +1366,17 @@
       ],
       "monthly_ingredients": {
         "2026-01": "strawberries",
-        "2026-02": "strawberries",
+        "2026-02": "cabbage (winter)",
         "2026-03": "strawberries (Bradford)",
-        "2026-04": "strawberries (Bradford)",
+        "2026-04": "blueberries (early)",
         "2026-05": "blueberries",
         "2026-06": "watermelon",
         "2026-07": "peanuts (green)",
         "2026-08": "sweet corn",
         "2026-09": "peppers",
-        "2026-10": "sweet corn",
+        "2026-10": "peanuts (boiled)",
         "2026-11": "tomatoes",
-        "2026-12": "strawberries"
+        "2026-12": "satsuma citrus"
       },
       "monthly_ingredient_notes": {
         "source": "Florida Department of Agriculture & Consumer Services (FDACS) crops-in-season; Bradford County Strawberry Festival (Starke, FL) 2026; NOAA Atlantic hurricane season"
@@ -1384,11 +1492,11 @@
         "2026-05": "strawberries",
         "2026-06": "sweet corn",
         "2026-07": "tomatoes",
-        "2026-08": "sweet corn",
+        "2026-08": "heirloom tomatoes",
         "2026-09": "apples",
-        "2026-10": "apples",
+        "2026-10": "pumpkins",
         "2026-11": "sweet potatoes",
-        "2026-12": "storage apples"
+        "2026-12": "country ham (value-added)"
       },
       "monthly_ingredient_notes": {
         "source": "University of Kentucky (UK) Cooperative Extension crop / vegetable calendars; Shelby County KY Extension Office horticulture program; Kentucky Derby (Churchill Downs) first Saturday in May"
@@ -1507,14 +1615,14 @@
         "2026-02": "sweet potatoes (storage)",
         "2026-03": "spring greens",
         "2026-04": "strawberries",
-        "2026-05": "strawberries",
+        "2026-05": "blueberries (early)",
         "2026-06": "blueberries",
         "2026-07": "tomatoes",
         "2026-08": "watermelon",
         "2026-09": "muscadine grapes",
         "2026-10": "sweet potatoes",
-        "2026-11": "sweet potatoes",
-        "2026-12": "collards"
+        "2026-11": "pecans",
+        "2026-12": "butternut squash (storage)"
       },
       "monthly_ingredient_notes": {
         "source": "Mississippi State University Extension (MSU Extension) fruit and vegetable seasonality; DeSoto County / Hernando MS farmers market"
@@ -1632,14 +1740,14 @@
         "2026-02": "sweet potatoes (storage)",
         "2026-03": "spring greens",
         "2026-04": "strawberries",
-        "2026-05": "strawberries",
+        "2026-05": "blueberries (early)",
         "2026-06": "blueberries",
         "2026-07": "tomatoes",
         "2026-08": "sweet corn",
         "2026-09": "apples",
-        "2026-10": "apples",
+        "2026-10": "pumpkins",
         "2026-11": "sweet potatoes",
-        "2026-12": "collards"
+        "2026-12": "sorghum syrup"
       },
       "monthly_ingredient_notes": {
         "source": "University of Tennessee (UT) Extension / Pick Tennessee Products seasonal availability; Williamson County / Leipers Fork TN farm community"
@@ -1758,16 +1866,16 @@
       "monthly_ingredients": {
         "2026-01": "citrus (satsuma/navel)",
         "2026-02": "crawfish",
-        "2026-03": "crawfish",
+        "2026-03": "mirlitons (spring)",
         "2026-04": "strawberries (Ponchatoula)",
-        "2026-05": "crawfish",
+        "2026-05": "Creole tomatoes (early)",
         "2026-06": "Creole tomatoes",
         "2026-07": "watermelon",
         "2026-08": "okra",
         "2026-09": "mirlitons",
         "2026-10": "sweet potatoes",
         "2026-11": "satsuma",
-        "2026-12": "satsuma"
+        "2026-12": "navel oranges (Louisiana)"
       },
       "monthly_ingredient_notes": {
         "source": "LSU AgCenter Louisiana produce seasonality; Louisiana seafood season calendar (crawfish late winter-spring, Gulf oysters mid-Oct to early Apr); Mardi Gras 2026 = Feb 17; Ponchatoula strawberry belt / New Orleans Creole Tomato Festival; NOAA hurricane season"
@@ -1893,9 +2001,9 @@
       ],
       "monthly_ingredients": {
         "2026-01": "strawberries",
-        "2026-02": "strawberries",
+        "2026-02": "green beans (winter)",
         "2026-03": "strawberries (festival peak)",
-        "2026-04": "strawberries",
+        "2026-04": "blueberries (early)",
         "2026-05": "blueberries",
         "2026-06": "watermelon",
         "2026-07": "mango",
@@ -1903,7 +2011,7 @@
         "2026-09": "sweet corn",
         "2026-10": "tomatoes",
         "2026-11": "strawberries (new crop)",
-        "2026-12": "strawberries"
+        "2026-12": "citrus (tangerines)"
       },
       "monthly_ingredient_notes": {
         "source": "Florida Department of Agriculture & Consumer Services (FDACS) crops-in-season; Florida Strawberry Festival, Plant City (Feb 26 - Mar 8, 2026); NOAA Atlantic hurricane season"
@@ -2022,7 +2130,7 @@
         "2026-09": "apples",
         "2026-10": "pumpkins",
         "2026-11": "winter squash",
-        "2026-12": "storage apples"
+        "2026-12": "cranberries"
       },
       "monthly_ingredient_notes": {
         "source": "milkdays.com (Harvard Milk Days); University of Illinois Extension — Illinois seasonal produce availability calendar"
@@ -2139,16 +2247,16 @@
       "monthly_ingredients": {
         "2026-01": "storage apples",
         "2026-02": "maple syrup",
-        "2026-03": "maple syrup",
-        "2026-04": "maple syrup",
+        "2026-03": "spring greens (high tunnel)",
+        "2026-04": "mushrooms (cultivated)",
         "2026-05": "asparagus",
         "2026-06": "strawberries",
         "2026-07": "sweet corn",
-        "2026-08": "sweet corn",
+        "2026-08": "heirloom tomatoes",
         "2026-09": "apples",
-        "2026-10": "apples",
+        "2026-10": "pears",
         "2026-11": "winter squash",
-        "2026-12": "storage apples"
+        "2026-12": "local honey"
       },
       "monthly_ingredient_notes": {
         "source": "maplefestival.com (Geauga County Maple Festival); ohio.org (Burton Pancake Town USA); Ohio State University Extension — Ohio produce availability calendar"
@@ -2273,7 +2381,7 @@
         "2026-09": "apples",
         "2026-10": "pumpkins",
         "2026-11": "winter squash",
-        "2026-12": "storage apples"
+        "2026-12": "local honey"
       },
       "monthly_ingredient_notes": {
         "source": "visitpella.com (Pella Tulip Time); Iowa State University Extension — Iowa produce seasonality"
@@ -2394,14 +2502,14 @@
         "2026-02": "cold-storage potatoes",
         "2026-03": "maple syrup",
         "2026-04": "asparagus",
-        "2026-05": "asparagus",
+        "2026-05": "rhubarb",
         "2026-06": "strawberries",
         "2026-07": "blueberries",
         "2026-08": "sweet corn",
         "2026-09": "apples",
-        "2026-10": "apples",
+        "2026-10": "pears",
         "2026-11": "winter squash",
-        "2026-12": "storage apples"
+        "2026-12": "Michigan dry beans"
       },
       "monthly_ingredient_notes": {
         "source": "armadafair.org (Armada Fair); Michigan State University Extension — Michigan produce availability calendar"
@@ -2526,7 +2634,7 @@
         "2026-08": "potatoes",
         "2026-09": "squash",
         "2026-10": "pumpkins",
-        "2026-11": "storage potatoes",
+        "2026-11": "local honey",
         "2026-12": "storage carrots"
       },
       "monthly_ingredient_notes": {
@@ -2641,7 +2749,7 @@
         "2026-09": "apples",
         "2026-10": "pumpkins",
         "2026-11": "winter squash",
-        "2026-12": "storage apples"
+        "2026-12": "popcorn (Indiana-grown)"
       },
       "monthly_ingredient_notes": {
         "source": "Purdue Extension — Indiana produce availability calendar; Indiana State Fair"
@@ -2766,9 +2874,9 @@
         "2026-07": "sweet corn",
         "2026-08": "peaches",
         "2026-09": "apples",
-        "2026-10": "apples",
+        "2026-10": "pears",
         "2026-11": "sweet potatoes",
-        "2026-12": "storage apples"
+        "2026-12": "pecans (Missouri)"
       },
       "monthly_ingredient_notes": {
         "source": "westonmo.com (Weston Applefest); westonorchard.com (Weston Orchard); University of Missouri Extension — Missouri produce availability calendar"
@@ -2881,7 +2989,7 @@
         "2026-09": "apples",
         "2026-10": "cranberries",
         "2026-11": "winter squash",
-        "2026-12": "storage apples"
+        "2026-12": "aged cheddar (Wisconsin)"
       },
       "monthly_ingredient_notes": {
         "source": "cedarburgfestivals.org (Cedarburg Strawberry Festival); cedarburg.org (Wine & Harvest Festival); University of Wisconsin-Madison Extension — Wisconsin fruit and vegetable seasonality"
@@ -3002,7 +3110,7 @@
         "2026-01": "storage potatoes",
         "2026-02": "cold-storage carrots",
         "2026-03": "maple syrup",
-        "2026-04": "maple syrup",
+        "2026-04": "spring greens (high tunnel)",
         "2026-05": "rhubarb",
         "2026-06": "strawberries",
         "2026-07": "wild blueberries",
@@ -3010,7 +3118,7 @@
         "2026-09": "squash",
         "2026-10": "pumpkins",
         "2026-11": "storage carrots",
-        "2026-12": "storage potatoes"
+        "2026-12": "wild rice (Minnesota)"
       },
       "monthly_ingredient_notes": {
         "source": "University of Minnesota Extension — Minnesota produce availability calendar; University of Minnesota Extension — wild blueberry and maple resources"
@@ -3119,7 +3227,7 @@
         "2026-09": "apples",
         "2026-10": "pumpkins",
         "2026-11": "winter squash",
-        "2026-12": "storage apples"
+        "2026-12": "popcorn (Nebraska)"
       },
       "monthly_ingredient_notes": {
         "source": "fairsandfestivals.net (Wahoo Harvest Moon Festival); University of Nebraska-Lincoln Extension — Nebraska produce availability; omahafarmersmarket.com (what's in season)"
@@ -3249,7 +3357,7 @@
         "2026-09": "apples",
         "2026-10": "pumpkins",
         "2026-11": "winter squash",
-        "2026-12": "storage apples"
+        "2026-12": "local honey"
       },
       "monthly_ingredient_notes": {
         "source": "University of Illinois Extension — Illinois seasonal produce availability calendar"
@@ -3376,9 +3484,9 @@
         "2026-07": "raspberries",
         "2026-08": "sweet corn",
         "2026-09": "apples",
-        "2026-10": "apples",
+        "2026-10": "cranberries",
         "2026-11": "winter squash",
-        "2026-12": "storage apples"
+        "2026-12": "wild rice (Minnesota)"
       },
       "monthly_ingredient_notes": {
         "source": "lumberjackdays.com (Stillwater Lumberjack Days); University of Minnesota Extension — Minnesota produce availability calendar; Minnesota State Fair"
@@ -3506,7 +3614,7 @@
         "2026-09": "sweet corn",
         "2026-10": "winter squash",
         "2026-11": "Idaho potatoes",
-        "2026-12": "storage apples"
+        "2026-12": "local honey"
       },
       "monthly_ingredient_notes": {
         "source": "University of Idaho Extension + Idaho Preferred + Idaho Botanical Garden Treasure Valley guide (zones 6b-7a, mid-Apr to mid-Oct). Fresh window Jun-Oct; Nov-Mar is storage (potatoes, onions, apples). Treasure Valley stone fruit (cherries Jun, apricots Jul, peaches Aug) is the fresh-peak anchor."
@@ -3631,7 +3739,7 @@
         "2026-08": "Olathe sweet corn",
         "2026-09": "Rocky Ford melon",
         "2026-10": "winter squash",
-        "2026-11": "storage apples",
+        "2026-11": "winter squash (storage)",
         "2026-12": "local honey"
       },
       "monthly_ingredient_notes": {
@@ -3754,8 +3862,8 @@
         "2026-08": "raspberries",
         "2026-09": "root vegetables",
         "2026-10": "winter squash",
-        "2026-11": "root vegetables (storage)",
-        "2026-12": "ranch beef (value-added)"
+        "2026-11": "winter squash (storage)",
+        "2026-12": "ranch lamb (value-added)"
       },
       "monthly_ingredient_notes": {
         "source": "University of Wyoming Extension high-elevation gardening guides. Zone 4, frost-free window roughly late Jun to early Sep. Fresh harvest is a narrow Jul-Sep window (peas, greens, raspberries, roots); Oct-Jun is storage roots + ranch dairy/beef value-added. Star Valley dairy heritage anchors the value-added set honestly."
@@ -3880,7 +3988,7 @@
         "2026-08": "huckleberries",
         "2026-09": "apples",
         "2026-10": "winter squash",
-        "2026-11": "root vegetables (storage)",
+        "2026-11": "apples (storage)",
         "2026-12": "local honey"
       },
       "monthly_ingredient_notes": {
@@ -4000,7 +4108,7 @@
         "2026-08": "summer squash",
         "2026-09": "apples",
         "2026-10": "winter squash",
-        "2026-11": "storage apples",
+        "2026-11": "winter squash (storage)",
         "2026-12": "local honey"
       },
       "monthly_ingredient_notes": {
@@ -4124,7 +4232,7 @@
         "2026-08": "sweet corn",
         "2026-09": "tomatoes",
         "2026-10": "winter squash",
-        "2026-11": "storage apples",
+        "2026-11": "winter squash (storage)",
         "2026-12": "local honey"
       },
       "monthly_ingredient_notes": {
@@ -4249,8 +4357,8 @@
         "2026-08": "raspberries",
         "2026-09": "root vegetables",
         "2026-10": "winter squash",
-        "2026-11": "root vegetables (storage)",
-        "2026-12": "grass-fed beef (value-added)"
+        "2026-11": "winter squash (storage)",
+        "2026-12": "ranch lamb (value-added)"
       },
       "monthly_ingredient_notes": {
         "source": "USU Extension high-mountain (Wasatch Back) harvest schedule + existing repo file kamas-valley-84036.json. Zone 4 ranching valley: fresh window narrow Jun-Sep (greens, peas, raspberries, roots). Nov-May is storage roots + grass-fed beef and ranch dairy value-added. Markets run Jun-Sep only."
@@ -4375,7 +4483,7 @@
         "2026-08": "Olathe sweet corn",
         "2026-09": "Rocky Ford melon",
         "2026-10": "winter squash",
-        "2026-11": "storage apples",
+        "2026-11": "pinto beans (Colorado)",
         "2026-12": "local honey"
       },
       "monthly_ingredient_notes": {
@@ -4499,7 +4607,7 @@
         "2026-09": "tomatoes",
         "2026-10": "pumpkins (corn maze)",
         "2026-11": "winter squash (storage)",
-        "2026-12": "storage onions"
+        "2026-12": "potatoes (storage)"
       },
       "monthly_ingredient_notes": {
         "source": "Fallon Chamber / Lattin Farms confirmed harvest (melons, squash, corn, tomatoes, raspberries, garlic); The Fallon Post — Hearts of Gold cantaloupe peaks August as summer heat peaks. Irrigated Lahontan Valley (sandy soil, hot days, cool nights) gives melon-dominant late-summer peak. Distinct from mountain calendars: longer warm season, no storage-apple/honey mountain set."
@@ -4627,7 +4735,7 @@
         "2026-09": "fall tomatoes",
         "2026-10": "dates (harvest)",
         "2026-11": "cool-season greens",
-        "2026-12": "citrus (desert)"
+        "2026-12": "dates (stored)"
       },
       "monthly_ingredient_notes": {
         "source": "UNR Extension — Fruit/Flower/Seed Vegetable Varieties for the Moapa and Virgin Valleys (three seasons: fall, winter, spring; ~4 inches rain/yr) + Selecting Vegetable Crops for Small-Scale Desert Production (heat-loving summer crops: tomatoes, peppers, eggplant, melons, squash, okra). DISTINCT from mountains: no storage-apple/honey winter set, no short high-country summer. Peak windows are early spring and fall; midsummer heat limits fresh cropping to heat-lovers. Dates are a Mojave-appropriate crop, harvest Sep-Oct."
@@ -4737,7 +4845,7 @@
       "monthly_ingredients": {
         "2026-01": "storage apples",
         "2026-02": "maple syrup",
-        "2026-03": "maple syrup",
+        "2026-03": "spring greens (high tunnel)",
         "2026-04": "asparagus",
         "2026-05": "strawberries",
         "2026-06": "sweet cherries",
@@ -4853,14 +4961,14 @@
       "monthly_ingredients": {
         "2026-01": "storage apples",
         "2026-02": "maple syrup",
-        "2026-03": "maple syrup",
+        "2026-03": "oysters (Massachusetts aquaculture)",
         "2026-04": "rhubarb",
         "2026-05": "asparagus",
         "2026-06": "strawberries",
         "2026-07": "blueberries",
         "2026-08": "peaches",
         "2026-09": "apples",
-        "2026-10": "apples",
+        "2026-10": "fresh cider",
         "2026-11": "cranberries",
         "2026-12": "winter squash"
       },
@@ -4963,17 +5071,17 @@
       ],
       "monthly_ingredients": {
         "2026-01": "maple syrup",
-        "2026-02": "maple syrup",
-        "2026-03": "maple syrup",
+        "2026-02": "storage apples",
+        "2026-03": "winter greens (high tunnel)",
         "2026-04": "cheddar cheese",
         "2026-05": "asparagus",
         "2026-06": "strawberries",
         "2026-07": "blueberries",
         "2026-08": "sweet corn",
         "2026-09": "apples",
-        "2026-10": "apples",
+        "2026-10": "cider (fresh-pressed)",
         "2026-11": "winter squash",
-        "2026-12": "maple syrup"
+        "2026-12": "maple candy (value-added)"
       },
       "monthly_ingredient_notes": {
         "2026-03": "Vermont Maple Open House Weekend falls the third weekend of March (Mar 21-22 in 2026); March is officially declared Maple Month. Shelburne Sugarworks and Shelburne Farms host tastings.",
@@ -5099,7 +5207,7 @@
         "2026-07": "peaches",
         "2026-08": "blackberries",
         "2026-09": "apples",
-        "2026-10": "apples",
+        "2026-10": "apple butter (value-added)",
         "2026-11": "pumpkins",
         "2026-12": "winter squash"
       },
@@ -5207,7 +5315,7 @@
       "monthly_ingredients": {
         "2026-01": "storage apples",
         "2026-02": "maple syrup",
-        "2026-03": "maple syrup",
+        "2026-03": "spring greens (high tunnel)",
         "2026-04": "rhubarb",
         "2026-05": "asparagus",
         "2026-06": "strawberries",
@@ -5315,14 +5423,14 @@
       "monthly_ingredients": {
         "2026-01": "storage apples",
         "2026-02": "maple syrup",
-        "2026-03": "maple syrup",
+        "2026-03": "spring greens (high tunnel)",
         "2026-04": "asparagus",
         "2026-05": "strawberries",
         "2026-06": "sweet cherries",
         "2026-07": "black-dirt onions",
         "2026-08": "peaches",
         "2026-09": "apples",
-        "2026-10": "apples",
+        "2026-10": "fresh cider",
         "2026-11": "winter squash",
         "2026-12": "storage onions"
       },
@@ -5422,17 +5530,17 @@
       ],
       "monthly_ingredients": {
         "2026-01": "mushrooms",
-        "2026-02": "mushrooms",
-        "2026-03": "mushrooms",
+        "2026-02": "cremini mushrooms",
+        "2026-03": "shiitake mushrooms",
         "2026-04": "asparagus",
         "2026-05": "strawberries",
         "2026-06": "sweet cherries",
         "2026-07": "sweet corn",
         "2026-08": "tomatoes",
-        "2026-09": "mushrooms",
+        "2026-09": "portabella mushrooms",
         "2026-10": "apples",
-        "2026-11": "mushrooms",
-        "2026-12": "mushrooms"
+        "2026-11": "oyster mushrooms",
+        "2026-12": "maitake mushrooms"
       },
       "monthly_ingredient_notes": {
         "2026-01": "Kennett Square mushrooms are grown indoors year-round; roughly half the US mushroom crop comes from the area. Mushrooms are the only genuinely year-round fresh local crop in deep winter here, which is what makes this frontier distinctive.",
@@ -5556,14 +5664,14 @@
       "monthly_ingredients": {
         "2026-01": "storage apples",
         "2026-02": "maple syrup",
-        "2026-03": "maple syrup",
+        "2026-03": "spring greens (high tunnel)",
         "2026-04": "rhubarb",
         "2026-05": "asparagus",
         "2026-06": "strawberries",
         "2026-07": "blueberries",
         "2026-08": "sweet corn",
         "2026-09": "apples",
-        "2026-10": "apples",
+        "2026-10": "fresh cider",
         "2026-11": "cranberries",
         "2026-12": "winter squash"
       },
@@ -5906,8 +6014,8 @@
       "frontier_sister": {
         "place": "Hatch, NM",
         "market": "US-NM-HATCH",
-        "farmers_market_url": null,
-        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+        "farmers_market_url": "https://www.hatchchilefestival.com",
+        "note": "Verified 2026-09-15: Las Cruces pairs with Hatch as its featured frontier (approx 35 mi north on I-25, same Dona Ana County chile belt) — pairing unchanged and correct. farmers_market_url anchors to the fetch-verified Hatch Chile Festival site (annual Labor Day weekend marketplace moment); a standalone weekly Hatch market URL is still unconfirmed, not fabricated."
       },
       "retailers": [
         "Albertsons",
@@ -6019,7 +6127,94 @@
           "note": "red-chile-chocolate and biscochito are genuine NM holiday flavor signatures"
         }
       ],
-      "research_todo": false
+      "research_todo": false,
+      "farmers_markets": [
+        {
+          "side": "metro",
+          "name": "Farmers & Crafts Market of Las Cruces",
+          "location": "Downtown Main St (seven blocks), Las Cruces, NM",
+          "schedule": "Wednesday + Saturday mornings; operating since 1971",
+          "url": null,
+          "status": "confirmed",
+          "source": "City of Las Cruces civic alerts; Visit Las Cruces; Las Cruces Bulletin (verified web search 2026-09-15); official standalone URL unconfirmed",
+          "note": "Nonprofit market; 200+ vendors; voted #1 Large Farmers Market in the Nation (American Farmland Trust poll, 2011). URL stays null until the official site is verified."
+        },
+        {
+          "side": "frontier",
+          "name": "Hatch Chile Festival marketplace",
+          "location": "Hatch, NM",
+          "schedule": "Labor Day weekend (Sep 5-6, 2026; 55th annual per prior verification)",
+          "url": "https://www.hatchchilefestival.com",
+          "status": "confirmed",
+          "source": "hatchchilefestival.com (fetch-verified 200 OK 2026-09-15); began 1971; 30,000+ visitors",
+          "note": "Anchor chile event with vendor booths, food trucks, chile roasts — the frontier-side fresh-produce marketplace moment."
+        }
+      ],
+      "farm_stands": [
+        {
+          "side": "frontier",
+          "name": "Grajeda Hatch Chile Market",
+          "location": "221 Franklin St, Hatch, NM 87937",
+          "url": null,
+          "status": "confirmed",
+          "source": "MapQuest + TripAdvisor listings (verified web search 2026-09-15); standalone official URL unconfirmed (Facebook presence only)",
+          "note": "Fresh/in-season + dried chile, ristras, salsas. URL stays null until verified."
+        },
+        {
+          "side": "frontier",
+          "name": "Hatch Chile Express",
+          "location": "657 N Franklin St, Hatch, NM 87937",
+          "url": null,
+          "status": "proposed",
+          "source": "TripAdvisor listing (verified web search 2026-09-15)",
+          "note": "Named opportunity only; confirm hours/offer before use."
+        },
+        {
+          "side": "frontier",
+          "name": "The Fresh Chile Company (Hatch Valley Farms chiles)",
+          "location": "Hatch, NM",
+          "url": null,
+          "status": "proposed",
+          "source": "New Mexico Magazine Hatch feature (verified web search 2026-09-15)",
+          "note": "Festival vendor sampling Hatch Valley Farms chiles; URL stays null until verified."
+        }
+      ],
+      "periodicals": [
+        {
+          "side": "metro",
+          "name": "Las Cruces Sun-News",
+          "url": "https://www.lcsun-news.com",
+          "status": "confirmed",
+          "source": "lcsun-news.com live site + muckrack verified outlet (verified web search 2026-09-15); daily since 1881",
+          "note": "Dona Ana County daily; already cited in-file for the 2026 festival dates."
+        },
+        {
+          "side": "metro",
+          "name": "Las Cruces Bulletin",
+          "url": null,
+          "status": "proposed",
+          "source": "cited in-file coverage of the Farmers & Crafts Market; standalone URL unconfirmed",
+          "note": "Community weekly; URL stays null until verified."
+        }
+      ],
+      "fresh_produce_opportunities": [
+        {
+          "side": "frontier",
+          "name": "Hatch Chile Festival (Labor Day weekend)",
+          "url": "https://www.hatchchilefestival.com",
+          "status": "confirmed",
+          "source": "hatchchilefestival.com (fetch-verified 200 OK 2026-09-15)",
+          "note": "Chile roasts, vendor booths, food trucks, live music, parade."
+        },
+        {
+          "side": "frontier",
+          "name": "Green-chile roasting season (late Jul-early Oct)",
+          "url": null,
+          "status": "confirmed",
+          "source": "hatch-green-chile.com (verified 2026-09-14, in-file)",
+          "note": "Roadside roasters across Hatch Valley; peak Aug-Sep."
+        }
+      ]
     },
     {
       "market": "US-SW-OKC",
@@ -6150,7 +6345,7 @@
         "2026-02": "citrus and peach blossoms",
         "2026-03": "citrus and spring greens",
         "2026-04": "peaches (Schnepf Farms u-pick)",
-        "2026-05": "peaches (Schnepf Farms u-pick)",
+        "2026-05": "apricots (early)",
         "2026-06": "melons and early dates",
         "2026-07": "melons and dates",
         "2026-08": "dates and melons",
@@ -6499,7 +6694,7 @@
       ],
       "monthly_ingredients": {
         "2026-01": "storage apples and preserves",
-        "2026-02": "storage apples and preserves",
+        "2026-02": "storage potatoes and preserves",
         "2026-03": "storage apples and maple/honey",
         "2026-04": "greenhouse greens (late frost)",
         "2026-05": "early greens (season begins mid-May)",
@@ -6508,8 +6703,8 @@
         "2026-08": "u-pick berries and squash",
         "2026-09": "apples (Cadwallader Mountain Farms u-pick)",
         "2026-10": "apples and winter squash",
-        "2026-11": "storage apples and preserves",
-        "2026-12": "storage apples and preserves"
+        "2026-11": "pinon nuts (harvest)",
+        "2026-12": "red chile ristras and posole corn"
       },
       "monthly_ingredient_notes": {
         "region": "Sacramento Mountains ~8,668ft, USDA Zone 6b. HIGH-COUNTRY, NOT low desert. Short growing season ~mid-May (last frost May 11-20) through early-Oct (first frost Oct 1-10). Cadwallader Mountain Farms u-pick summer/fall. Storage apples + preserves carry the deep-winter months.",
@@ -6606,7 +6801,7 @@
       "monthly_ingredients": {
         "2026-01": "storage apples and local honey",
         "2026-02": "storage apples and honey",
-        "2026-03": "storage apples and honey",
+        "2026-03": "storage pears and honey",
         "2026-04": "honey (limited fresh; late frost)",
         "2026-05": "early greens and honey (season begins)",
         "2026-06": "greens, herbs, honey",
@@ -6614,8 +6809,8 @@
         "2026-08": "apples (early) and honey",
         "2026-09": "apples and honey",
         "2026-10": "apples and winter squash",
-        "2026-11": "storage apples and honey",
-        "2026-12": "storage apples and honey"
+        "2026-11": "pinon nuts and honey",
+        "2026-12": "red chile ristras and honey"
       },
       "monthly_ingredient_notes": {
         "region": "Remote Sacramento Mountains (Otero County) high-desert, similar elevation band to Cloudcroft. Very limited local commerce — small mountain community. Honey and apples are the realistic local signatures; deep winter is storage/preserves. Grocery access is drive-down to Alamogordo.",
@@ -6695,13 +6890,20 @@
     },
     {
       "market": "US-CA-CASTROVILLE",
-      "metro_location": null,
-      "metro_location_note": "seeded batch PacificCoastal; metro storefront details pending confirmation, not fabricated",
+      "metro_location": {
+        "retailer": "Safeway",
+        "name": "Safeway (San Francisco Marina anchor for the Castroville frontier gap)",
+        "address": "15 Marina Blvd, San Francisco, CA 94123",
+        "hours": null,
+        "phone": null,
+        "note": "address web-verified 2026-09-15 across multiple listings (Safeway #1711). hours/phone left null pending confirmation; do not fabricate. Safeway is in this market's retailer list so the anchor matches where the campaign can actually run."
+      },
+      "metro_location_note": "seeded batch PacificCoastal; metro anchor confirmed 2026-09-15, hours/phone still pending, not fabricated",
       "frontier_sister": {
         "place": "Castroville, CA",
         "market": "US-CA-CASTROVILLE",
         "farmers_market_url": null,
-        "note": "Self-paired. Artichoke Center of the World, Monterey County coast. Cool coastal fog belt supports year-round artichoke production with a spring peak. Home of the Castroville Artichoke Festival.",
+        "note": "Self-paired. Artichoke Center of the World, Monterey County coast. Cool coastal fog belt supports year-round artichoke production with a spring peak (assigned to April). Home of the Castroville Artichoke Festival (artichokefestival.org). Now also the featured frontier of San Francisco (US-W-SF).",
         "farmers_market_url_note": "farmers_market_url pending confirmation for seeded batch PacificCoastal; not fabricated"
       },
       "retailers": [
@@ -6711,23 +6913,24 @@
         "Sprouts Farmers Market"
       ],
       "monthly_ingredients": {
-        "2026-01": "artichokes",
-        "2026-02": "artichokes",
-        "2026-03": "artichokes",
+        "2026-01": "Brussels sprouts",
+        "2026-02": "cauliflower",
+        "2026-03": "broccoli",
         "2026-04": "artichokes",
         "2026-05": "strawberries",
-        "2026-06": "strawberries",
-        "2026-07": "leaf lettuce",
-        "2026-08": "sweet corn",
-        "2026-09": "artichokes",
-        "2026-10": "Brussels sprouts",
-        "2026-11": "Brussels sprouts",
-        "2026-12": "artichokes"
+        "2026-06": "leaf lettuce",
+        "2026-07": "sweet corn",
+        "2026-08": "celery",
+        "2026-09": "bell peppers",
+        "2026-10": "spinach",
+        "2026-11": "kale",
+        "2026-12": "lemons"
       },
       "monthly_ingredient_notes": {
-        "general": "Monterey County coastal fog belt yields artichokes nearly year-round with a March-May peak and a smaller fall (Sep-Oct) flush. Salinas Valley proper supplies leaf lettuce and strawberries in the warm months; Brussels sprouts on the coast peak late fall. All fresh-harvest, local-grown.",
+        "general": "Monterey County coastal fog belt yields artichokes nearly year-round with a March-May peak (assigned to April, the peak month) and a smaller fall flush. Salinas Valley proper supplies leaf lettuce, broccoli, cauliflower, celery, spinach, kale, bell peppers and strawberries in their windows; Brussels sprouts carry the coastal winter; sweet corn peaks in summer; coastal lemons carry December. All 12 months are distinct picks (dedupe fix 2026-09-15).",
         "confidence": "high",
-        "source": "UC ANR / UC Cooperative Extension Monterey County crop seasonality; California Grown seasonality guide; Castroville Artichoke Festival crop tradition"
+        "source": "UC ANR / UC Cooperative Extension Monterey County crop seasonality; California Grown seasonality guide; Castroville Artichoke Festival crop tradition",
+        "dedupe_2026_09_15": "Prior calendar repeated artichokes x6, strawberries x2, Brussels sprouts x2. Replacements (cauliflower, broccoli, celery, bell peppers, spinach, kale, lemons) are real Salinas Valley / Monterey County cool-season crops under the cited UC ANR/UCCE Monterey + California Grown calendars; status proposed pending extension-office month-fit confirmation. Artichokes sit at April peak + Artichoke Festival moment."
       },
       "seasonal_moments": [
         {
@@ -6811,7 +7014,85 @@
           "note": "peppermint/gingerbread imported flavor traditions, not coastal-grown"
         }
       ],
-      "research_todo": false
+      "research_todo": false,
+      "farmers_markets": [
+        {
+          "side": "metro",
+          "name": "Ferry Plaza Farmers Market (Foodwise)",
+          "location": "Ferry Building, San Francisco",
+          "schedule": "Saturday/Tuesday/Thursday, year-round, since 1993",
+          "url": "https://foodwise.org/markets/ferry-plaza-farmers-market/",
+          "status": "confirmed",
+          "source": "foodwise.org; ferrybuildingmarketplace.com (verified web search 2026-09-15)",
+          "note": "California Certified Farmers Market; Central Coast growers (incl. Monterey County artichoke farms) vend here — the SF-side fresh anchor for the Castroville pairing."
+        },
+        {
+          "side": "frontier",
+          "name": "Old Monterey Farmers Market (Tuesday, Alvarado St)",
+          "location": "Monterey, CA (Monterey County halo for Castroville)",
+          "schedule": "unverified",
+          "url": null,
+          "status": "proposed",
+          "source": "unknown — research dispatch",
+          "note": "No standalone weekly Castroville market URL confirmed; do not fabricate. Verify schedule/URL via dispatch."
+        }
+      ],
+      "farm_stands": [
+        {
+          "side": "frontier",
+          "name": "Pezzini Farms",
+          "location": "Castroville, CA 95012",
+          "url": "https://www.pezzinifarms.com",
+          "status": "confirmed",
+          "source": "pezzinifarms.com (fetch-verified 200 OK 2026-09-15); Orange Coast Mag; California Grown; See Monterey",
+          "note": "Family heirloom Green Globe artichoke farm + farm store; ships farm-to-table in season."
+        },
+        {
+          "side": "frontier",
+          "name": "Ocean Mist Farms (Castroville grower-shipper)",
+          "location": "Castroville, CA",
+          "url": null,
+          "status": "proposed",
+          "source": "The Packer (Artichoke Festival sponsor coverage); url unconfirmed",
+          "note": "Named opportunity only; URL stays null until verified."
+        }
+      ],
+      "periodicals": [
+        {
+          "side": "metro",
+          "name": "San Francisco Chronicle",
+          "url": null,
+          "status": "proposed",
+          "source": "unknown — research dispatch (not re-verified this pass)",
+          "note": "Metro daily; URL stays null until verified."
+        },
+        {
+          "side": "frontier",
+          "name": "Monterey County Weekly",
+          "url": "https://www.montereycountynow.com",
+          "status": "confirmed",
+          "source": "montereycountynow.com mission/FAQ pages (verified web search 2026-09-15); county's largest independent paper, founded 1988",
+          "note": "Castroville/Monterey County coverage."
+        }
+      ],
+      "fresh_produce_opportunities": [
+        {
+          "side": "frontier",
+          "name": "Castroville Artichoke Festival",
+          "url": "https://artichokefestival.org",
+          "status": "confirmed",
+          "source": "artichokefestival.org (verified web search 2026-09-15); 501(c)(3), 65th annual per 2025 vendor application",
+          "note": "Annual celebration of the artichoke (spring, historically May/June; recent editions at Monterey County Fairgrounds). First festival 1959; artichokes first planted Castroville 1922."
+        },
+        {
+          "side": "frontier",
+          "name": "Pezzini Farms online ship program",
+          "url": "https://www.pezzinifarms.com",
+          "status": "confirmed",
+          "source": "pezzinifarms.com (fetch-verified 200 OK 2026-09-15)",
+          "note": "Ships fresh heirloom artichokes farm-to-table in season; value-added pantry line year-round."
+        }
+      ]
     },
     {
       "market": "US-W-LA",
@@ -6833,16 +7114,16 @@
       "monthly_ingredients": {
         "2026-01": "navel oranges",
         "2026-02": "lemons",
-        "2026-03": "lemons",
+        "2026-03": "kumquats",
         "2026-04": "strawberries",
-        "2026-05": "strawberries",
+        "2026-05": "blueberries (Ventura)",
         "2026-06": "avocados",
-        "2026-07": "avocados",
+        "2026-07": "Valencia oranges (early)",
         "2026-08": "Valencia oranges",
-        "2026-09": "avocados",
-        "2026-10": "avocados",
-        "2026-11": "navel oranges",
-        "2026-12": "navel oranges"
+        "2026-09": "figs (Mission)",
+        "2026-10": "persimmons (Fuyu)",
+        "2026-11": "mandarins (satsuma)",
+        "2026-12": "grapefruit (Rio Red)"
       },
       "monthly_ingredient_notes": {
         "general": "Ventura County winter is citrus season: navel oranges (Nov-Feb) and lemons (near year-round with a late-winter/spring flush). Strawberries peak spring in Oxnard-Ventura coastal plain. Hass avocados peak late spring through summer with a Sep-Oct tail. Valencia oranges are the summer orange. No cold-storage winter dormancy here.",
@@ -6959,7 +7240,7 @@
         "2026-06": "apricots",
         "2026-07": "tomatoes",
         "2026-08": "sweet corn",
-        "2026-09": "tomatoes",
+        "2026-09": "peppers (late harvest)",
         "2026-10": "winter squash",
         "2026-11": "walnuts",
         "2026-12": "mandarins"
@@ -7059,11 +7340,10 @@
       "metro_location": null,
       "metro_location_note": "seeded batch PacificCoastal; metro storefront details pending confirmation, not fabricated",
       "frontier_sister": {
-        "place": "Brentwood, CA",
-        "market": "US-CA-BRENTWOOD",
-        "farmers_market_url": null,
-        "note": "East Contra Costa County u-pick farm belt. Signature is Brentwood cherries (May-Jun u-pick season), plus sweet corn and peaches. Long-standing Harvest Time in Brentwood u-pick network.",
-        "farmers_market_url_note": "farmers_market_url pending confirmation for seeded batch PacificCoastal; not fabricated"
+        "place": "Pescadero, CA 94060",
+        "market": "US-CA-PESCADERO",
+        "farmers_market_url": "https://www.coastsidefarmersmarkets.org",
+        "note": "Reassigned 2026-09-15: San Jose's frontier sister moves from Brentwood to Pescadero (San Mateo County coast; Fifth Crow Farm organic produce, Harley Farms goat dairy, Coastside market towns). Geography: approx 40 road mi via CA-84/I-280; Pescadero is the South Bay's coastal farm hinterland. Prior Brentwood pairing archived in git history."
       },
       "retailers": [
         "Safeway",
@@ -7072,107 +7352,197 @@
         "Sprouts Farmers Market"
       ],
       "monthly_ingredients": {
-        "2026-01": "citrus (mandarins)",
-        "2026-02": "leafy greens",
-        "2026-03": "asparagus",
-        "2026-04": "strawberries",
-        "2026-05": "cherries",
-        "2026-06": "cherries",
-        "2026-07": "peaches",
-        "2026-08": "sweet corn",
-        "2026-09": "peaches",
-        "2026-10": "winter squash",
-        "2026-11": "walnuts",
-        "2026-12": "mandarins"
+        "2026-01": "Meyer lemon",
+        "2026-02": "kale",
+        "2026-03": "rainbow chard",
+        "2026-04": "Harley Farms goat cheese",
+        "2026-05": "spring peas",
+        "2026-06": "summer squash",
+        "2026-07": "blackberries",
+        "2026-08": "romano beans",
+        "2026-09": "strawberries",
+        "2026-10": "Half Moon Bay pumpkin",
+        "2026-11": "olive oil (fall press)",
+        "2026-12": "Brussels sprouts"
       },
       "monthly_ingredient_notes": {
-        "general": "Brentwood's signature is the cherry u-pick season (mid-May through June). Peaches and apricots follow in summer, sweet corn peaks Jul-Aug, walnuts in fall. Delta asparagus early spring. Winter is citrus and leafy greens, not dormancy.",
-        "confidence": "high",
-        "source": "UC ANR / UC Cooperative Extension Contra Costa County crop calendars; Harvest Time in Brentwood u-pick grower listings; California Grown seasonality guide"
+        "general": "San Mateo County coast: Fifth Crow Farm strawberries May-Sep; Brussels sprouts Sep-Feb; Harley Farms goat dairy chevre (spring highlight); Half Moon Bay pumpkins Oct (World Pumpkin Capital); olive oil November press; Meyer lemon winter coastal citrus. All 12 months are distinct picks (dedupe fix 2026-09-15).",
+        "2026-09": "strawberries May-Sep (Fifth Crow), September is the late-window pick and the north-star campaign month; September also opens Brussels sprouts season (Sep-Feb), which holds December.",
+        "source": "Fifth Crow Farm (fifthcrowfarm.com) CSA/farmstand seasons; Harley Farms Goat Dairy (harleyfarms.com, fetch-verified 2026-09-15); Coastside Farmers Market 2026 season (coastsidefarmersmarkets.org, fetch-verified 2026-09-15); UC ANR San Mateo County cool-season vegetable calendar; Half Moon Bay Art & Pumpkin Festival tradition",
+        "dedupe_2026_09_15": "Prior calendar carried Castroville artichokes Mar-Jun on a Pescadero record — removed (artichokes belong to Castroville; fix per reassignment). Replacements (kale, rainbow chard, spring peas, summer squash, blackberries, romano beans) are real San Mateo coast cool-season crops; status proposed pending month-fit confirmation. Strawberries hold September only; Meyer lemon January only; Brussels sprouts December only; goat cheese April only."
       },
       "seasonal_moments": [
         {
-          "moment": "Brentwood cherry u-pick season (mid-May to Jun)",
+          "moment": "Halloween / HMB Art & Pumpkin Festival (Oct)",
           "available_ingredients": [
-            "cherries",
-            "strawberries"
+            "Half Moon Bay pumpkin"
           ],
           "favorite_flavors": [
-            "cherry",
-            "strawberry",
-            "vanilla"
+            "pumpkin",
+            "pumpkin spice"
           ],
-          "source": "Harvest Time in Brentwood u-pick calendar; UC ANR Contra Costa County",
+          "source": "Half Moon Bay Art & Pumpkin Festival / HMB agriculture",
           "confidence": "high",
           "status": "confirmed",
-          "note": "fresh-harvest local; cherries are the town signature"
+          "note": "Half Moon Bay = World Pumpkin Capital"
         },
         {
-          "moment": "Summer stone fruit + corn (Jul-Aug)",
+          "moment": "Spring (strawberry opening + chevre)",
           "available_ingredients": [
-            "peaches",
-            "sweet corn",
-            "apricots"
+            "strawberries",
+            "spring peas",
+            "Harley Farms goat cheese"
           ],
           "favorite_flavors": [
-            "peach",
-            "sweet-corn",
-            "apricot"
+            "strawberry",
+            "chevre-honey",
+            "spring-green"
           ],
-          "source": "UC ANR Contra Costa County; California Grown",
+          "source": "Fifth Crow Farm seasons (fifthcrowfarm.com); Harley Farms Goat Dairy (harleyfarms.com); UC ANR San Mateo County cool-season calendar",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "strawberries/chevre confirmed local; spring-pea month-fit proposed pending confirmation"
+        },
+        {
+          "moment": "Summer coast harvest",
+          "available_ingredients": [
+            "blackberries",
+            "summer squash",
+            "romano beans"
+          ],
+          "favorite_flavors": [
+            "berry",
+            "stone-adjacent summer",
+            "savory-bean"
+          ],
+          "source": "UC ANR San Mateo County coastal crop notes; HMB coast heirloom bean tradition",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "proposed month-fit; confirm against extension calendar before use"
+        },
+        {
+          "moment": "Fall Brussels + olive press (Sep-Nov)",
+          "available_ingredients": [
+            "Brussels sprouts",
+            "olive oil (fall press)",
+            "Half Moon Bay pumpkin"
+          ],
+          "favorite_flavors": [
+            "brussels-char",
+            "olive-oil",
+            "pumpkin"
+          ],
+          "source": "Fifth Crow Farm Brussels Sep-Feb; San Mateo coast fall olive press; HMB pumpkin tradition",
           "confidence": "high",
           "status": "confirmed",
           "note": "fresh-harvest local"
         },
         {
-          "moment": "Fall harvest / Thanksgiving",
+          "moment": "Thanksgiving/winter",
           "available_ingredients": [
-            "walnuts",
-            "winter squash"
+            "Meyer lemon",
+            "Brussels sprouts",
+            "rainbow chard",
+            "kale"
           ],
           "favorite_flavors": [
-            "walnut",
+            "Meyer lemon",
             "pumpkin",
-            "cinnamon"
+            "warm citrus"
           ],
-          "source": "UC ANR walnut calendar; US baking culture",
-          "confidence": "high",
-          "status": "confirmed",
-          "note": "walnuts and squash local; pumpkin bake tradition"
-        },
-        {
-          "moment": "Winter holidays / citrus season",
-          "available_ingredients": [
-            "mandarins",
-            "leafy greens"
-          ],
-          "favorite_flavors": [
-            "mandarin",
-            "peppermint",
-            "gingerbread"
-          ],
-          "source": "US winter baking culture; UC ANR citrus calendar",
+          "source": "coastal San Mateo winter citrus + cool-season greens (UC ANR San Mateo)",
           "confidence": "medium",
-          "status": "proposed",
-          "note": "mandarins local; peppermint/gingerbread imported"
-        },
-        {
-          "moment": "Spring asparagus season (Mar-Apr)",
-          "available_ingredients": [
-            "asparagus",
-            "strawberries"
-          ],
-          "favorite_flavors": [
-            "strawberry",
-            "lemon"
-          ],
-          "source": "Sacramento-San Joaquin Delta asparagus; UC ANR",
-          "confidence": "high",
           "status": "confirmed",
-          "note": "fresh-harvest local; lemon imported bake flavor"
+          "note": "lemon/chard/kale local winter coast; pumpkin imported bake tradition"
         }
       ],
-      "research_todo": false
+      "research_todo": false,
+      "farmers_markets": [
+        {
+          "side": "metro",
+          "name": "Willow Glen Farmers' Market (Urban Village FM Assn)",
+          "location": "1425 Lincoln Ave, San Jose, CA 95125",
+          "schedule": "Saturdays 9am-1pm, year-round",
+          "url": "https://uvfm.org/willow-glen-saturday",
+          "status": "confirmed",
+          "source": "NFMD directory listing + Urban Village FM Assn (verified web search 2026-09-15; direct fetch pending)",
+          "note": "San Jose-side weekly fresh anchor for the Pescadero pairing."
+        },
+        {
+          "side": "frontier",
+          "name": "Coastside Farmers Market (Half Moon Bay)",
+          "location": "Shoreline Station, 225 Cabrillo Hwy S, Half Moon Bay, CA",
+          "schedule": "Saturdays 9am-1pm; 2026 season Apr 4-Dec 19",
+          "url": "https://www.coastsidefarmersmarkets.org",
+          "status": "confirmed",
+          "source": "coastsidefarmersmarkets.org (fetch-verified 200 OK 2026-09-15); serves the coastside Pacifica to Pescadero",
+          "note": "Farmer-directed certified market; Pescadero growers (e.g. Fly Girl Farm, Pescadero) vend here."
+        }
+      ],
+      "farm_stands": [
+        {
+          "side": "frontier",
+          "name": "Fifth Crow Farm (online farmstand + CSA)",
+          "location": "Pescadero, CA 94060",
+          "url": "https://fifthcrowfarm.com",
+          "status": "confirmed",
+          "source": "fifthcrowfarm.com farmstand/CSA pages (verified web search 2026-09-15); CCOF certified organic, est. 2008",
+          "note": "Diversified organic farm; weekend pickup via online farmstand; CSA boxes in season."
+        },
+        {
+          "side": "frontier",
+          "name": "Harley Farms Goat Dairy (farm shop + tours)",
+          "location": "205 North Street, Pescadero, CA 94060",
+          "url": "https://www.harleyfarms.com",
+          "status": "confirmed",
+          "source": "harleyfarms.com (fetch-verified 200 OK 2026-09-15); open daily 11am-4pm",
+          "note": "Goat dairy farm shop, public/private tours, farm dinners."
+        }
+      ],
+      "periodicals": [
+        {
+          "side": "metro",
+          "name": "The Mercury News",
+          "url": "https://www.mercurynews.com",
+          "status": "confirmed",
+          "source": "mercurynews.com (verified web search 2026-09-15); daily, San Jose, since 1851; Bay Area News Group",
+          "note": "South Bay metro daily."
+        },
+        {
+          "side": "frontier",
+          "name": "Half Moon Bay Review (incl. Pescadero Pebble archive)",
+          "url": "https://www.hmbreview.com",
+          "status": "confirmed",
+          "source": "muckrack verified outlet; serving the San Mateo County coastside since 1898 (verified web search 2026-09-15; direct fetch pending)",
+          "note": "Coastside coverage Pacifica to the Santa Cruz County line — includes Pescadero."
+        }
+      ],
+      "fresh_produce_opportunities": [
+        {
+          "side": "frontier",
+          "name": "Fifth Crow Farm CSA",
+          "url": "https://fifthcrowfarm.com",
+          "status": "confirmed",
+          "source": "fifthcrowfarm.com (verified web search 2026-09-15)",
+          "note": "Weekly produce box subscription in season."
+        },
+        {
+          "side": "frontier",
+          "name": "Harley Farms tours + farm dinners",
+          "url": "https://www.harleyfarms.com",
+          "status": "confirmed",
+          "source": "harleyfarms.com (fetch-verified 200 OK 2026-09-15)",
+          "note": "Public/private goat tours, farm luncheons and dinners — bookable online."
+        },
+        {
+          "side": "frontier",
+          "name": "Half Moon Bay Art & Pumpkin Festival (Oct)",
+          "url": null,
+          "status": "proposed",
+          "source": "HMB pumpkin-capital tradition (in-file, confirmed); festival URL unconfirmed",
+          "note": "Named opportunity only; URL stays null until verified."
+        }
+      ]
     },
     {
       "market": "US-W-SD",
@@ -7201,8 +7571,8 @@
         "2026-07": "peaches",
         "2026-08": "pears",
         "2026-09": "apples",
-        "2026-10": "apples",
-        "2026-11": "apples",
+        "2026-10": "pumpkins (Julian)",
+        "2026-11": "pears (late)",
         "2026-12": "apple cider"
       },
       "monthly_ingredient_notes": {
@@ -7302,11 +7672,11 @@
       "metro_location": null,
       "metro_location_note": "seeded batch PacificCoastal; metro storefront details pending confirmation, not fabricated",
       "frontier_sister": {
-        "place": "Bolinas, CA",
-        "market": "US-CA-BOLINAS",
+        "place": "Castroville, CA",
+        "market": "US-CA-CASTROVILLE",
         "farmers_market_url": null,
-        "note": "Marin County coastal village on the Point Reyes edge. Coastal cool-season vegetables, pasture dairy, and foraged/wild ingredients. US-W-SF is a legacy alias whose primary seeded pair is Pescadero; this is the Bolinas frontier variant. Mediterranean coastal — year-round greens, no dormancy.",
-        "farmers_market_url_note": "farmers_market_url pending confirmation for seeded batch PacificCoastal; not fabricated"
+        "note": "Reassigned 2026-09-15: San Francisco's frontier sister moves from Bolinas to Castroville (Artichoke Center of the World, Monterey County coast; artichokes first planted 1922; first festival 1959). Geography: approx 90 road mi south via US-101/CA-156; Central Coast artichoke farms ship and vend Bay Area-wide including Ferry Plaza. Prior Bolinas pairing archived in git history.",
+        "farmers_market_url_note": "No standalone weekly Castroville market URL confirmed; do not fabricate — see farmers_markets index (proposed)."
       },
       "retailers": [
         "Safeway",
@@ -7315,111 +7685,186 @@
         "United Markets"
       ],
       "monthly_ingredients": {
-        "2026-01": "leafy greens",
-        "2026-02": "kale",
-        "2026-03": "coastal greens",
-        "2026-04": "peas",
+        "2026-01": "Brussels sprouts",
+        "2026-02": "cauliflower",
+        "2026-03": "broccoli",
+        "2026-04": "artichokes",
         "2026-05": "strawberries",
-        "2026-06": "lettuce",
-        "2026-07": "summer squash",
-        "2026-08": "tomatoes",
-        "2026-09": "chanterelles (foraged)",
-        "2026-10": "winter squash",
-        "2026-11": "Brussels sprouts",
-        "2026-12": "citrus (from inland Marin)"
+        "2026-06": "leaf lettuce",
+        "2026-07": "sweet corn",
+        "2026-08": "celery",
+        "2026-09": "bell peppers",
+        "2026-10": "spinach",
+        "2026-11": "kale",
+        "2026-12": "lemons"
       },
       "monthly_ingredient_notes": {
-        "general": "Marin coast fog belt keeps leafy greens, kale, and lettuce available nearly year-round with no true dormancy. Peas and strawberries in spring, summer squash and coastal tomatoes in the warm window, Brussels sprouts in late fall. Wild chanterelles are a foraged fall-rain item (weather-dependent). Point Reyes/Marin pasture dairy (butter, cheese) is a year-round value-added signature.",
-        "confidence": "medium",
-        "source": "UC ANR / UC Cooperative Extension Marin County coastal crop notes; Point Reyes / Marin pasture dairy tradition; California Grown seasonality guide"
+        "general": "Monterey County coastal fog belt yields artichokes nearly year-round with a March-May peak (assigned to April, the peak month) and a smaller fall flush. Salinas Valley proper supplies leaf lettuce, broccoli, cauliflower, celery, spinach, kale, bell peppers and strawberries in their windows; Brussels sprouts carry the coastal winter; sweet corn peaks in summer; coastal lemons carry December. All 12 months are distinct picks (dedupe fix 2026-09-15).",
+        "confidence": "high",
+        "source": "UC ANR / UC Cooperative Extension Monterey County crop seasonality; California Grown seasonality guide; Castroville Artichoke Festival crop tradition",
+        "dedupe_2026_09_15": "Prior calendar repeated artichokes x6, strawberries x2, Brussels sprouts x2. Replacements (cauliflower, broccoli, celery, bell peppers, spinach, kale, lemons) are real Salinas Valley / Monterey County cool-season crops under the cited UC ANR/UCCE Monterey + California Grown calendars; status proposed pending extension-office month-fit confirmation. Artichokes sit at April peak + Artichoke Festival moment."
       },
       "seasonal_moments": [
         {
-          "moment": "Coastal spring greens + peas (Mar-May)",
+          "moment": "Artichoke Festival (spring, historically May/June)",
           "available_ingredients": [
-            "peas",
-            "coastal greens",
+            "artichokes",
             "strawberries"
           ],
           "favorite_flavors": [
             "strawberry",
-            "honey",
+            "lemon",
+            "artichoke-savory"
+          ],
+          "source": "Castroville Artichoke Festival; UC ANR Monterey County vegetable crop calendar",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Artichoke peak is genuinely local; lemon is an imported bake flavor tradition"
+        },
+        {
+          "moment": "Peak artichoke season (spring, Mar-May)",
+          "available_ingredients": [
+            "artichokes",
+            "leaf lettuce"
+          ],
+          "favorite_flavors": [
+            "lemon",
             "herb-savory"
           ],
-          "source": "UC ANR Marin County coastal crop notes; Marin farmers market listings",
-          "confidence": "medium",
-          "status": "proposed",
-          "note": "fresh-harvest local; small-farm coastal supply"
+          "source": "UC ANR / UCCE Monterey County crop seasonality",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest local"
         },
         {
-          "moment": "Summer coastal harvest (Jul-Aug)",
+          "moment": "Summer berry + corn season (Jun-Aug)",
           "available_ingredients": [
-            "summer squash",
-            "tomatoes",
-            "lettuce"
+            "strawberries",
+            "sweet corn",
+            "leaf lettuce"
           ],
           "favorite_flavors": [
-            "tomato-savory",
-            "vanilla",
-            "honey"
+            "strawberry",
+            "sweet-corn",
+            "vanilla"
           ],
-          "source": "Marin farmers market seasonal listings",
-          "confidence": "medium",
-          "status": "proposed",
-          "note": "coastal fog limits tomato volume; local but small-scale"
+          "source": "California Grown; Salinas Valley farmers market listings",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "fresh-harvest local"
         },
         {
-          "moment": "Fall foraging / mushroom season (Sep-Nov)",
-          "available_ingredients": [
-            "chanterelles (foraged)",
-            "winter squash"
-          ],
-          "favorite_flavors": [
-            "savory-mushroom",
-            "pumpkin",
-            "sage"
-          ],
-          "source": "Marin/Point Reyes coastal foraging tradition (weather-dependent rains)",
-          "confidence": "low",
-          "status": "proposed",
-          "note": "foraged/wild, weather-dependent — flagged low confidence and non-cultivated"
-        },
-        {
-          "moment": "Thanksgiving / pasture dairy season",
+          "moment": "Thanksgiving / fall coastal harvest",
           "available_ingredients": [
             "Brussels sprouts",
-            "winter squash",
-            "Marin pasture butter"
+            "artichokes"
           ],
           "favorite_flavors": [
             "pumpkin",
-            "brown-butter",
-            "sage"
+            "cinnamon",
+            "maple"
           ],
-          "source": "Point Reyes / Marin pasture dairy; US baking culture",
+          "source": "US baking culture; UC ANR coastal Brussels sprouts calendar",
           "confidence": "medium",
           "status": "proposed",
-          "note": "butter is value-added local dairy; pumpkin imported bake tradition"
+          "note": "Brussels sprouts local; pumpkin/maple are imported bake traditions"
         },
         {
-          "moment": "Winter holidays / year-round greens",
+          "moment": "Winter holidays",
           "available_ingredients": [
-            "kale",
-            "leafy greens",
-            "citrus"
+            "artichokes",
+            "Brussels sprouts"
           ],
           "favorite_flavors": [
-            "gingerbread",
             "peppermint",
+            "gingerbread",
             "citrus"
           ],
-          "source": "US winter baking culture; UC ANR coastal greens calendar",
+          "source": "US winter baking culture",
           "confidence": "medium",
           "status": "proposed",
-          "note": "greens local year-round (no dormancy); citrus from inland Marin; gingerbread/peppermint imported"
+          "note": "peppermint/gingerbread imported flavor traditions, not coastal-grown"
         }
       ],
-      "research_todo": false
+      "research_todo": false,
+      "farmers_markets": [
+        {
+          "side": "metro",
+          "name": "Ferry Plaza Farmers Market (Foodwise)",
+          "location": "Ferry Building, San Francisco",
+          "schedule": "Saturday/Tuesday/Thursday, year-round, since 1993",
+          "url": "https://foodwise.org/markets/ferry-plaza-farmers-market/",
+          "status": "confirmed",
+          "source": "foodwise.org; ferrybuildingmarketplace.com (verified web search 2026-09-15)",
+          "note": "California Certified Farmers Market; Central Coast growers (incl. Monterey County artichoke farms) vend here — the SF-side fresh anchor for the Castroville pairing."
+        },
+        {
+          "side": "frontier",
+          "name": "Old Monterey Farmers Market (Tuesday, Alvarado St)",
+          "location": "Monterey, CA (Monterey County halo for Castroville)",
+          "schedule": "unverified",
+          "url": null,
+          "status": "proposed",
+          "source": "unknown — research dispatch",
+          "note": "No standalone weekly Castroville market URL confirmed; do not fabricate. Verify schedule/URL via dispatch."
+        }
+      ],
+      "farm_stands": [
+        {
+          "side": "frontier",
+          "name": "Pezzini Farms",
+          "location": "Castroville, CA 95012",
+          "url": "https://www.pezzinifarms.com",
+          "status": "confirmed",
+          "source": "pezzinifarms.com (fetch-verified 200 OK 2026-09-15); Orange Coast Mag; California Grown; See Monterey",
+          "note": "Family heirloom Green Globe artichoke farm + farm store; ships farm-to-table in season."
+        },
+        {
+          "side": "frontier",
+          "name": "Ocean Mist Farms (Castroville grower-shipper)",
+          "location": "Castroville, CA",
+          "url": null,
+          "status": "proposed",
+          "source": "The Packer (Artichoke Festival sponsor coverage); url unconfirmed",
+          "note": "Named opportunity only; URL stays null until verified."
+        }
+      ],
+      "periodicals": [
+        {
+          "side": "metro",
+          "name": "San Francisco Chronicle",
+          "url": null,
+          "status": "proposed",
+          "source": "unknown — research dispatch (not re-verified this pass)",
+          "note": "Metro daily; URL stays null until verified."
+        },
+        {
+          "side": "frontier",
+          "name": "Monterey County Weekly",
+          "url": "https://www.montereycountynow.com",
+          "status": "confirmed",
+          "source": "montereycountynow.com mission/FAQ pages (verified web search 2026-09-15); county's largest independent paper, founded 1988",
+          "note": "Castroville/Monterey County coverage."
+        }
+      ],
+      "fresh_produce_opportunities": [
+        {
+          "side": "frontier",
+          "name": "Castroville Artichoke Festival",
+          "url": "https://artichokefestival.org",
+          "status": "confirmed",
+          "source": "artichokefestival.org (verified web search 2026-09-15); 501(c)(3), 65th annual per 2025 vendor application",
+          "note": "Annual celebration of the artichoke (spring, historically May/June; recent editions at Monterey County Fairgrounds). First festival 1959; artichokes first planted Castroville 1922."
+        },
+        {
+          "side": "frontier",
+          "name": "Pezzini Farms online ship program",
+          "url": "https://www.pezzinifarms.com",
+          "status": "confirmed",
+          "source": "pezzinifarms.com (fetch-verified 200 OK 2026-09-15)",
+          "note": "Ships fresh heirloom artichokes farm-to-table in season; value-added pantry line year-round."
+        }
+      ]
     },
     {
       "market": "US-W-BEND",
@@ -7812,17 +8257,17 @@
       ],
       "monthly_ingredients": {
         "2026-01": "storage apples",
-        "2026-02": "storage apples",
+        "2026-02": "storage pears",
         "2026-03": "rhubarb",
         "2026-04": "asparagus",
         "2026-05": "strawberries",
         "2026-06": "cherries",
-        "2026-07": "cherries",
+        "2026-07": "apricots",
         "2026-08": "peaches",
         "2026-09": "apples",
         "2026-10": "pumpkins",
-        "2026-11": "storage apples",
-        "2026-12": "storage apples"
+        "2026-11": "winter squash (storage)",
+        "2026-12": "local honey"
       },
       "monthly_ingredient_notes": {
         "source": "visitspokane.com Green Bluff seasonal guide (strawberries late May-June, cherries late June-July, peaches/nectarines/apricots/blueberries August); greenbluffgrowers.com (open May-December, Fruit Fort produce mid-June-Halloween); Fall Harvest Festival last two weekends Sep + all Oct weekends.",
@@ -7937,16 +8382,16 @@
       "monthly_ingredients": {
         "2026-01": "storage apples",
         "2026-02": "storage pears",
-        "2026-03": "storage apples",
+        "2026-03": "rhubarb (forced)",
         "2026-04": "asparagus",
-        "2026-05": "asparagus",
+        "2026-05": "spring greens",
         "2026-06": "cherries",
         "2026-07": "apricots",
         "2026-08": "peaches",
         "2026-09": "apples",
-        "2026-10": "apples",
+        "2026-10": "grapes (Concord)",
         "2026-11": "pears",
-        "2026-12": "storage apples"
+        "2026-12": "pears (storage)"
       },
       "monthly_ingredient_notes": {
         "source": "WSU Extension Yakima crop production (leading WA county for apples, sweet cherries, pears; hundreds of acres of peaches/nectarines/plums/apricots); visityakima.com produce schedule (Aug-Nov apple window); WSDA farm-to-school seasonality chart (storage note for stored-and-available crops).",
@@ -8060,15 +8505,15 @@
         "2026-01": "smoked salmon",
         "2026-02": "halibut",
         "2026-03": "razor clams",
-        "2026-04": "halibut",
+        "2026-04": "spring Chinook (early)",
         "2026-05": "salmonberries",
         "2026-06": "salmon",
-        "2026-07": "salmon",
+        "2026-07": "coho salmon",
         "2026-08": "huckleberries",
-        "2026-09": "salmon",
+        "2026-09": "coho salmon (late)",
         "2026-10": "Dungeness crab",
-        "2026-11": "smoked salmon",
-        "2026-12": "smoked salmon"
+        "2026-11": "Dungeness crab (late)",
+        "2026-12": "lingcod (winter)"
       },
       "monthly_ingredient_notes": {
         "source": "makah.com fishing/attractions (halibut, lingcod, rockfish, salmon, Dungeness crab); WDFW Neah Bay marine area (salmon fishing seasons); Makah Bay Seafoods; Smithsonian NK360 Pacific Coast (salmon/halibut/shellfish centrality); general Olympic Peninsula foraging (salmonberries late spring, huckleberries late summer).",
@@ -8178,7 +8623,7 @@
         "2026-04": "strawberries",
         "2026-05": "peaches (early varieties)",
         "2026-06": "peaches",
-        "2026-07": "peaches",
+        "2026-07": "blackberries",
         "2026-08": "peaches (late varieties) and tomatoes",
         "2026-09": "wine grapes and figs",
         "2026-10": "pecans",
@@ -8512,7 +8957,7 @@
         "2026-01": "winter greens",
         "2026-02": "cabbage and early strawberries",
         "2026-03": "strawberries",
-        "2026-04": "strawberries",
+        "2026-04": "1015 Texas Sweet onions",
         "2026-05": "squash and tomatoes",
         "2026-06": "tomatoes and watermelon",
         "2026-07": "watermelon and okra",
@@ -8640,7 +9085,7 @@
         "2026-09": "potatoes, giant brassicas and root harvest",
         "2026-10": "storage potatoes and carrots (harvest cellared)",
         "2026-11": "storage root vegetables and salmon",
-        "2026-12": "storage potatoes and salmon (frozen/smoked)"
+        "2026-12": "birch syrup (Alaska)"
       },
       "monthly_ingredient_notes": {
         "source": "University of Alaska Fairbanks Cooperative Extension Service (Matanuska Valley crop references); Alaska State Fair giant vegetable tradition. Confidence high that fresh local is Jun-Sep only; storage/imported honestly flagged for Oct-May.",
@@ -8762,9 +9207,9 @@
         "2026-04": "pineapple and papaya",
         "2026-05": "pineapple and mango (early)",
         "2026-06": "mango and pineapple",
-        "2026-07": "mango and pineapple",
+        "2026-07": "lychee and mango",
         "2026-08": "mango and banana",
-        "2026-09": "papaya and banana",
+        "2026-09": "breadfruit (ulu) and taro",
         "2026-10": "Waialua coffee (harvest) and papaya",
         "2026-11": "coffee, cacao and taro",
         "2026-12": "papaya, banana and taro"

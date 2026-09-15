@@ -267,6 +267,38 @@
     return group;
   }
 
+  // month name ("September") -> card month key ("2026-09"). seasons and
+  // holidays have no card keys in the dataset (12 month keys only), so they
+  // resolve to null and the gallery says so honestly instead of guessing.
+  var MONTH_TO_KEY = {january: '2026-01', february: '2026-02',
+    march: '2026-03', april: '2026-04', may: '2026-05', june: '2026-06',
+    july: '2026-07', august: '2026-08', september: '2026-09',
+    october: '2026-10', november: '2026-11', december: '2026-12'};
+
+  // the gallery shows ONE market group for the pipeline's selected market,
+  // not the whole book: market code (#locality) -> frontier card key via
+  // the marketFeaturedFrontier map owned by data-core.js.
+  function selectedCardMarket() {
+    var data = window.KODIAK_RECIPE_CARDS;
+    if (!data || typeof data !== 'object') return null;
+    var sel = null;
+    try { sel = document.getElementById('locality'); } catch (e) { sel = null; }
+    var code = (sel && sel.value) ? String(sel.value) : '';
+    if (code && data[code]) return code;   // select already holds a card key
+    var map = (typeof marketFeaturedFrontier !== 'undefined') ? marketFeaturedFrontier : {};
+    var key = (code && map[code]) ? map[code] : null;
+    if (key && data[key]) return key;
+    return null;
+  }
+
+  function selectedMonthKey() {
+    var s = null;
+    try { s = document.getElementById('seasonalSelect'); } catch (e) { s = null; }
+    var v = (s && s.value) ? String(s.value).trim().toLowerCase() : '';
+    if (!v) return '';   // "Season: any" — no month filter
+    return MONTH_TO_KEY[v] || null;   // seasons/holidays -> null (no such cards)
+  }
+
   function renderGallery() {
     var mount = document.getElementById('recipesGallery');
     if (!mount) return;   // surface not present — no-op
@@ -280,20 +312,102 @@
       return;
     }
 
-    Object.keys(data).sort().forEach(function (market) {
-      var monthsObj = data[market];
-      if (monthsObj && typeof monthsObj === 'object' && Object.keys(monthsObj).length) {
-        body.appendChild(buildMarketGroup(market, monthsObj));
+    var market = selectedCardMarket();
+    if (!market) {
+      body.appendChild(el('p', 'rc-gallery-empty',
+        'No recipe cards for the selected market yet — pick a market with a frontier card.'));
+      return;
+    }
+    var monthsObj = data[market] || {};
+    var monthKey = selectedMonthKey();
+    if (monthKey === null) {
+      body.appendChild(el('p', 'rc-gallery-empty',
+        'Holiday and season cards are not built yet — pick a month to see its card.'));
+      return;
+    }
+    var filtered = {};
+    if (!monthKey) {
+      filtered = monthsObj;   // "Season: any" — this market's full year
+    } else if (monthsObj[monthKey]) {
+      filtered[monthKey] = monthsObj[monthKey];
+    }
+    if (!Object.keys(filtered).length) {
+      body.appendChild(el('p', 'rc-gallery-empty',
+        'No card for this market and month yet.'));
+      return;
+    }
+    body.appendChild(buildMarketGroup(market, filtered));
+  }
+
+  function bindGalleryRefresh() {
+    // #locality changes fire from the select, the listbox picker, and
+    // restores — listen at document level so all of them re-render.
+    document.addEventListener('change', function (e) {
+      if (e && e.target && (e.target.id === 'locality' || e.target.id === 'seasonalSelect')) {
+        renderPreviewCard();
       }
     });
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', renderGallery);
+    document.addEventListener('DOMContentLoaded', function () { bindGalleryRefresh(); renderPreviewCard(); });
   } else {
-    renderGallery();
+    bindGalleryRefresh();
+    renderPreviewCard();
+  }
+
+  // one card for the preview: the selected market's card for the selected
+  // month. "Season: any" and missing months fall back to the current
+  // calendar month so the preview always shows exactly one card.
+  // seasons/holidays have no card keys — honest empty state, never a guess.
+  function currentMonthKey() {
+    return MONTH_TO_KEY[['january', 'february', 'march', 'april', 'may', 'june',
+      'july', 'august', 'september', 'october', 'november',
+      'december'][new Date().getMonth()]];
+  }
+
+  function renderPreviewCard() {
+    var slot = document.getElementById('previewRecipe');
+    if (!slot) { renderGallery(); return; }   // old markup fallback
+    slot.innerHTML = '';
+
+    var data = window.KODIAK_RECIPE_CARDS;
+    if (!data || typeof data !== 'object' || !Object.keys(data).length) {
+      slot.appendChild(el('p', 'rc-gallery-empty', 'Recipe card will appear here once generated.'));
+      return;
+    }
+
+    var market = selectedCardMarket();
+    if (!market) {
+      slot.appendChild(el('p', 'rc-gallery-empty',
+        'No recipe card for the selected market yet.'));
+      return;
+    }
+    var monthsObj = data[market] || {};
+    var monthKey = selectedMonthKey();
+    if (!monthKey) monthKey = currentMonthKey();   // "any" or holiday -> this month
+    var card = monthsObj[monthKey];
+    if (!card) {
+      slot.appendChild(el('p', 'rc-gallery-empty',
+        'No card for this market and month yet.'));
+      return;
+    }
+    var shell = el('div', 'rc-card-shell');
+    shell.appendChild(isEmptyState(card) ? buildEmptyStateCard(card) : buildRecipeCard(card));
+    slot.appendChild(shell);
+  }
+
+  function bindPreviewRefresh() {
+    // #locality changes fire from the select, the listbox picker, and
+    // restores — listen at document level so all of them re-render.
+    document.addEventListener('change', function (e) {
+      if (e && e.target && (e.target.id === 'locality' || e.target.id === 'seasonalSelect')) {
+        renderPreviewCard();
+      }
+    });
   }
 
   // expose for manual re-render / tests
   window.KODIAK_renderRecipeGallery = renderGallery;
+  window.KODIAK_renderPreviewCard = renderPreviewCard;
 })();

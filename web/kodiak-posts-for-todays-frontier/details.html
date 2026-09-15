@@ -213,6 +213,7 @@ header h1,header h2,header h3{color:var(--parchment)}
 <a href="#inv-spectrum">Accessible control patterns</a>
 <a href="#inv-decisions">Why the interface works this way</a>
 <a href="#inv-migration">How visual consistency is maintained</a>
+<a href="#recipe-card-inventory">Template inventory</a>
 <a href="#recipe-card-standard">Recipe card standard</a>
 <a href="#design-system">Live scorecards</a>
 <a href="pipeline.html" target="_blank" rel="noopener">Creative generation + artificial intelligence</a>
@@ -221,6 +222,11 @@ header h1,header h2,header h3{color:var(--parchment)}
 </nav>
 
 <div class="wrap">
+
+<div class="card inv-section" id="start-here"><div class="hd"><h2>Start here — what this page is <span class="badge">reference</span></h2></div><div class="body">
+<p class="inv-lead">This page is the visual guide for a campaign that turns local seasonal ingredients into printable Kodiak recipe cards. Color, type, cards, and previews are described in plain language first; the live scorecards at the bottom check the same choices automatically. The recipe card itself — the printable keepsake — is specified under <a href="#recipe-card-standard">recipe card standard</a>, with its field-by-field inventory in the <a href="#recipe-card-inventory">template inventory</a> just above it.</p>
+<p class="inv-lead">Terms, introduced once then shortened: Digital Asset Library (DAM) — the approved image store · artificial intelligence (AI) — the generation tools · Scalable Vector Graphics (SVG) — the placeholder sketches · stock-keeping unit (SKU) — the product catalog entry · call to action (CTA) — the create button · Web Content Accessibility Guidelines (WCAG) — the contrast rules.</p>
+</div></div>
 
 <!-- location-aware island — prototype defaults Park City 84098 + Kamas Valley 84036 rural -->
 <div class="card inv-section" id="frontierToggleCard" style="border-left:3px solid var(--colors-brand-frontier-green);scroll-margin-top:64px"><span id="frontier-context" style="position:absolute;top:-64px"></span><div class="hd"><h2>Prototype defaults <span class="badge">reference</span></h2></div><div class="body">
@@ -728,6 +734,31 @@ graph TD
 <span class="std"><b>Control consistency.</b> Selected states use a clear fill, focus rings use the signal-red brand color, and each control keeps its purpose visible at every screen size.</span>
 
 <div class="offline" style="margin-top:12px"><b>Reference:</b> Panda tokens-only emission — <a href="https://github.com/chakra-ui/panda/blob/main/website/content/docs/references/config.mdx" target="_blank">panda config.mdx (Emit Tokens Only)</a> <span class="state tbd">confirmed</span>. Spectrum <span class="kbd">--mod-*</span> / <span class="kbd">--spectrum-*</span> theming contract — <a href="https://github.com/adobe/spectrum-web-components/blob/main/CONTRIBUTOR-DOCS/02_style-guide/01_css/05_anti-patterns.md" target="_blank">swc anti-patterns</a>, <a href="https://github.com/adobe/spectrum-css/wiki/Ongoing-updates-and-refactoring" target="_blank">spectrum-css refactoring wiki</a> <span class="state tbd">confirmed</span>. sp-combobox package — <a href="https://opensource.adobe.com/spectrum-web-components/components/combobox/" target="_blank">sp-combobox docs</a> <span class="state tbd">confirmed</span>. <span class="kbd">--mod-*</span> is the documented external consumer override seam even though authoring new internal --mod-* chains is deprecated inside Spectrum itself — which is exactly why the kodiak bridge targets it.</div>
+</div></div>
+
+<div class="card inv-section" id="recipe-card-inventory"><div class="hd"><h2>14 · Recipe-card template inventory <span class="badge">reference</span></h2><p>What is fixed on every card, what changes per card, and where each changing field comes from. The printable specimen and its governing ruleset follow in the <a href="#recipe-card-standard">recipe card standard</a>; the generation contracts live on the <a href="pipeline.html" target="_blank" rel="noopener">pipeline page</a> and the bulk art path on the <a href="infrastructure.html" target="_blank" rel="noopener">infrastructure page</a>.</p></div><div class="body">
+<p class="inv-lead">One fixed frame, changing contents. The frame — corner flourishes, kraft substrate, white base coat — never varies; the title, meta strip, ingredients, tip, steps, and artwork vary per market, month, and ingredient. Concept rule throughout: ingredient first, Kodiak as binder, neutral recipe names only.</p>
+<table class="inv-table"><thead><tr><th>Fixed chrome</th><th>Value</th></tr></thead><tbody>
+<tr><td>Corner flourishes</td><td>1.0 x 1.0in accents, 0.25in clear of the title</td></tr>
+<tr><td>Substrate</td><td>20-point brown kraft board default; white cardstock and cream parchment supported</td></tr>
+<tr><td>White base coat</td><td>opaque white layer beneath every art zone (corner accents excluded) so drawings read on kraft</td></tr>
+</tbody></table>
+<table class="inv-table"><thead><tr><th>Art zone</th><th>Print box</th><th>Render aspect</th><th>Empty behavior</th></tr></thead><tbody>
+<tr><td>raw_ingredient</td><td>3.0 x 1.5in, left column</td><td>16:9</td><td rowspan="3">null art url keeps the inline SVG "sketch pending" placeholder — never an empty box, never a broken image; expired delivery links swap to the placeholder</td></tr>
+<tr><td>technique</td><td>3.0 x 1.5in, right column mid</td><td>16:9</td></tr>
+<tr><td>finished_plate</td><td>3.0 x 2.0in, right column bottom</td><td>3:2</td></tr>
+</tbody></table>
+<table class="inv-table"><thead><tr><th>Per-card variable</th><th>Shows</th><th>Unknown</th><th>Supplied by</th></tr></thead><tbody>
+<tr><td>Title</td><td>featured ingredient over the Kodiak base; else catalog recipe name; else the word recipe</td><td>empty-state cards carry no title</td><td>market-month localization, then recipe registry</td></tr>
+<tr><td>Meta strip prep / cook / serves / est-cost</td><td>prepTime / cookTime / yield from the matched recipe</td><td>honest em-dash per missing column; est-cost always a dash</td><td>recipe registry (est-cost has no source field)</td></tr>
+<tr><td>Ingredients + prices</td><td>the in-season pick as the source-backed line</td><td>price always an em-dash, never $0.00</td><td>market-month localization (line); no price source exists</td></tr>
+<tr><td>Seasonal tip</td><td>first confirmed seasonal moment, else the first moment</td><td>omitted when none seeded</td><td>market-month localization (seasonal moments)</td></tr>
+<tr><td>Steps</td><td>up to 5 recipe instructions, real leading word uppercased as the bold verb</td><td>quantity-led steps keep wording; no verb invented</td><td>recipe registry</td></tr>
+<tr><td>Market + month</td><td>market and resolved month on every card</td><td>empty states carry the reason</td><td>market-month localization</td></tr>
+<tr><td>Artwork urls</td><td>one drawing per zone, deduped by ingredient slug, reused when already published</td><td>null url renders the placeholder</td><td>DAM-via-emit (seed step embeds urls into the offline data file)</td></tr>
+<tr><td>Provenance</td><td>source-backed vs proposed vs unknown, kept in card data</td><td>never printed on the card face, by design decision</td><td>emit data (unprinted)</td></tr>
+</tbody></table>
+<span class="std"><b>Honest nulls.</b> Any field without a backing source renders as an em-dash and is listed unknown in provenance — the card never guesses a time, temperature, price, or serving count.</span>
 </div></div>
 
 <div class="card wide-track inv-section recipe-card-standard" id="recipe-card-standard">

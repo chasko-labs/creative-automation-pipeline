@@ -42,6 +42,26 @@
         "safeInset": "5%"
       }
     },
+    "4x5": {
+      "canvas": [
+        1080,
+        1350
+      ],
+      "hero": {
+        "scale": "min(W*0.82/hw, H*0.58/hh)",
+        "pos": "(W-fw)/2, H*0.08",
+        "box": [
+          885,
+          783
+        ]
+      },
+      "safe": {
+        "pad": 48,
+        "logoOffset": 24,
+        "accentBar": 8,
+        "safeInset": "5%"
+      }
+    },
     "16x9": {
       "canvas": [
         1920,

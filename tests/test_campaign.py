@@ -85,14 +85,14 @@ def test_sf_campaign_fans_out_across_platforms_and_languages(tmp_path):
     platforms = {a["platform"] for a in result["assets"]}
     ratios = {a["ratio"] for a in result["assets"]}
     assert len(platforms) >= 2, f"expected multi-platform, got {platforms}"
-    assert {"1x1", "9x16", "16x9"}.issubset(ratios)
+    assert {"1x1", "4x5", "9x16", "16x9"}.issubset(ratios)
 
     # multiple languages: EN + the Bay Area top-N (es, zh) from market-languages.json
     langs = {a["lang"] for a in result["assets"]}
     assert "en" in langs
     assert len(langs) >= 2, f"expected multi-language, got {langs}"
-    # 1 product x 10 platform-ratios (2+2+1+2+1+1+1) x 3 languages = 30 planned assets
-    assert result["summary"]["asset_count"] == 30
+    # 1 product x 13 platform-ratios (3+4+1+2+1+1+1) x 3 languages = 39 planned assets
+    assert result["summary"]["asset_count"] == 39
 
 
 def test_sf_recipe_cards_reference_pescadero_september_ingredient(tmp_path):
@@ -175,8 +175,8 @@ def test_atlanta_assets_are_iso_named_and_safety_clean(tmp_path):
     for a in result["assets"]:
         assert ISO_NAME_RE.match(a["iso_name"]), f"not iso-named: {a['iso_name']}"
         assert a["safety"]["clean"] is True
-    # 2 products x 10 platform-ratios (2+2+1+2+1+1+1) x 3 languages (en, es, ko) = 60 assets
-    assert result["summary"]["asset_count"] == 60
+    # 2 products x 13 platform-ratios (3+4+1+2+1+1+1) x 3 languages (en, es, ko) = 78 assets
+    assert result["summary"]["asset_count"] == 78
 
 
 def test_atlanta_unknown_retailers_skipped_without_crashing(tmp_path):
@@ -193,9 +193,9 @@ def test_atlanta_unknown_retailers_skipped_without_crashing(tmp_path):
 # --------------------------------------------------------------------------- #
 def test_standard_platforms_only_use_locked_iso_ratios():
     # guards the ISO-standard invariant: every ratio in the default fan-out map must be
-    # one of the three locked canvas sizes (naming.ISO_NAME_RE). a channel expansion may
-    # never introduce a new ratio.
-    locked = {"1x1", "9x16", "16x9"}
+    # one of the four locked delivery canvas sizes (naming.ISO_NAME_RE). a channel
+    # expansion may never introduce a ratio outside the four customer sizes.
+    locked = {"1x1", "4x5", "9x16", "16x9"}
     for platform, ratios in STANDARD_PLATFORMS.items():
         for ratio in ratios:
             assert ratio in locked, f"{platform} has non-ISO ratio {ratio!r}"
@@ -212,8 +212,8 @@ def test_standard_platforms_cover_expected_channels():
         "homepage",
         "display",
     }
-    # total platform-ratio pairs drives the fan-out count: 2+2+1+2+1+1+1 = 10
-    assert sum(len(r) for r in STANDARD_PLATFORMS.values()) == 10
+    # total platform-ratio pairs drives the fan-out count: 3+4+1+2+1+1+1 = 13
+    assert sum(len(r) for r in STANDARD_PLATFORMS.values()) == 13
 
 
 # --------------------------------------------------------------------------- #

@@ -41,9 +41,17 @@ def test_atlanta_card_matched_a_recipe(tmp_path):
     assert result["recipe"]["id"]
 
 
-def test_unfilled_month_returns_no_ingredient_without_crashing(tmp_path):
-    # Atlanta January has no seeded ingredient -> honest no-ingredient result
+def test_backfilled_january_resolves_to_turnips(tmp_path):
+    # Atlanta January was backfilled to true 12/12 (all 73 markets now resolve
+    # every 2026 month) -> resolves turnips with a written card, not a gap.
     result = build_recipe_card("US-SE-ATL", month="2026-01", out_dir=tmp_path)
+    assert result["ingredient"] == "turnips"
+    assert Path(result["card_path"]).exists()
+
+
+def test_unseeded_month_returns_no_ingredient_without_crashing(tmp_path):
+    # the honest-empty path must still work for months outside seeded data.
+    result = build_recipe_card("US-SE-ATL", month="2027-01", out_dir=tmp_path)
     assert result["ingredient"] is None
     assert result["card_path"] is None
     assert "no in-season ingredient" in result["reason"]

@@ -412,8 +412,8 @@ def test_compose_recipe_card_dims_and_hero_slot_present(tmp_path: Path) -> None:
     # the card is at the requested _CANVAS ratio dims and the GenAI hero region (top slot)
     # carries non-uniform pixels — the generative image is really placed in the slot.
     hero = _make_hero(tmp_path / "hero.png")
-    out = generate._compose_recipe_card(hero, "Wild Protein Stack", "2x3", tmp_path / "card.png")
-    w, h = generate._CANVAS["2x3"]
+    out = generate._compose_recipe_card(hero, "Wild Protein Stack", "4x5", tmp_path / "card.png")
+    w, h = generate._CANVAS["4x5"]
     with Image.open(out) as im:
         assert im.size == (w, h)
         rgb = im.convert("RGB")

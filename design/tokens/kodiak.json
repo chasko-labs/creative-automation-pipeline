@@ -789,7 +789,7 @@
       }
     },
     "gradient": {
-      "$description": "CSS-gradient kraft textures \u2014 resolution-independent, zero rasters (cloud-del-norte precedent). Lit flat washes + vignette via linear/radial-gradient; grit via paper-fiber SVG, no repeating stripes. Alphas capped at 0.14 so the kraft cardboard reads lit over warm kraft-tan bases (#F0E4D4 / #E8D5BE / #DFC9AC); those tans stay light enough that bearBrown #3B2316 body text holds WCAG AA (~7:1+). No backdrop-filter (Safari text-blur bug).",
+      "$description": "CSS-gradient kraft textures \u2014 resolution-independent, zero rasters. Lit flat washes + vignette via linear/radial-gradient; grit via paper-fiber SVG, no repeating stripes. Alphas capped at 0.14 so the kraft cardboard reads lit over warm kraft-tan bases (#F0E4D4 / #E8D5BE / #DFC9AC); those tans stay light enough that bearBrown #3B2316 body text holds WCAG AA (~7:1+). No backdrop-filter (Safari text-blur bug).",
       "kraft": {
         "$description": "Layered kraft-paper texture set \u2014 replaces the stretched raster kodiakcakes CDN .webp background with pure CSS.",
         "surface": {
@@ -837,6 +837,17 @@
               "width": 1080,
               "height": 1920,
               "ratio": "9:16"
+            }
+          }
+        },
+        "4x5": {
+          "$type": "dimension",
+          "$value": "1080px",
+          "$extensions": {
+            "org.kodiak": {
+              "width": 1080,
+              "height": 1350,
+              "ratio": "4:5"
             }
           }
         },

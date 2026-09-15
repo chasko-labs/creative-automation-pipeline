@@ -1,4 +1,4 @@
-"""Auto-translation service — proven via Jitsi & Cloud del Norte.
+"""Auto-translation service.
 
 This module auto-produces translated variants for every campaign post as part
 of the pipeline architecture. It provides EN plus the top-2 non-English
@@ -7,7 +7,7 @@ languages per market as defined in data/localization/market-languages.json.
 Provenance — nova_proven (unlimited Nova budget):
   - Jitsi: translations reviewed via meet.jit.si + self-hosted Jitsi sessions
     (Qwiqwidicciat/Makah review for Neah Bay, Harley Farms fifth crow for Pescadero)
-  - Cloud del Norte: primary via AWS Translate (boto3 translate), fallback to
+  - Translation: primary via AWS Translate (boto3 translate), fallback to
     Bedrock Nova Micro (amazon.nova-micro-v1:0) via Converse API, then offline
     dictionary. Validated via Valkey + glimmer local QA.
 
@@ -57,7 +57,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 ABS_MARKET_LANGUAGES_PATH = REPO_ROOT / "data" / "localization" / "market-languages.json"
 
 def _try_aws_translate(text: str, target_lang: str) -> str | None:
-    """Try AWS Translate (Cloud del Norte). Returns None on failure or unsupported."""
+    """Try AWS Translate. Returns None on failure or unsupported."""
     if boto3 is None or target_lang == "en":
         return None
     if not _HAS_AWS_CREDS and not _ENABLE_CLOUD:
@@ -97,16 +97,16 @@ def translate_with_provenance(text: str, target_lang: str, region: str = "US") -
     if target_lang == "en":
         return text, "original:en", True
 
-    # 1. AWS Translate (Cloud del Norte)
+    # 1. AWS Translate
     tr = _try_aws_translate(text, target_lang)
     if tr:
-        return tr, "aws_translate:cloud_del_norte", True
+        return tr, "aws_translate", True
 
-    # 2. Bedrock Nova Micro (also Cloud del Norte / Bedrock) — skip network if not enabled
+    # 2. Bedrock Nova Micro (Bedrock) — skip network if not enabled
     if _HAS_AWS_CREDS or _ENABLE_CLOUD:
         tr2 = _try_bedrock_translate(text, target_lang, region)
         if tr2:
-            return tr2, "bedrock:nova-micro:cloud_del_norte", True
+            return tr2, "bedrock:nova-micro", True
 
     # 3. Offline dictionary (localize.OFFLINE)
     if target_lang in OFFLINE and text in OFFLINE[target_lang]:
@@ -172,7 +172,6 @@ def produce_variants_for_market(brief_message: str, market_entry: dict) -> List[
         "message": brief_message,
         "provider": "original:en",
         "nova_proven": True,
-        "cloud_del_norte_proven": True,
         "auto_produce": True,
     })
     for tl in market_entry.get("top_languages", [])[:2]:
@@ -185,7 +184,6 @@ def produce_variants_for_market(brief_message: str, market_entry: dict) -> List[
             "message": translated,
             "provider": provider,
             "nova_proven": proven,
-            "cloud_del_norte_proven": "cloud_del_norte" in provider or "aws_translate" in provider or "nova" in provider or provenance_cloud_del_norte(provider),
             "auto_produce": True,
             "source_pct": tl.get("pct"),
             "source_reason": tl.get("reason"),
@@ -203,14 +201,9 @@ def produce_variants_for_market(brief_message: str, market_entry: dict) -> List[
                     "message": translated,
                     "provider": provider,
                     "nova_proven": proven,
-                    "cloud_del_norte_proven": True,
                     "auto_produce": True,
                 })
     return variants
-
-
-def provenance_cloud_del_norte(provider: str) -> bool:
-    return "cloud_del_norte" in provider or "nova" in provider or "aws_translate" in provider or "translate" in provider
 
 
 def expand_all_markets(brief_message: str, markets_data: dict | None = None, market_languages_path: Path | str | None = None) -> Dict[str, List[Dict]]:
@@ -254,9 +247,8 @@ def attach_market_translations(report: dict, brief_message: str, market_language
         "variants_per_market": 3,
         "en_plus_two_per_market": True,
         "per_market_count_ok": all(len(v["variants"]) >= 3 for v in market_translations.values()) if market_translations else False,
-        "providers": ["aws_translate (Cloud del Norte)", "bedrock amazon.nova-micro-v1:0 (Cloud del Norte)", "offline_dictionary (fallback)"],
+        "providers": ["aws_translate", "bedrock amazon.nova-micro-v1:0", "offline_dictionary (fallback)"],
         "nova_proven": True,
-        "cloud_del_norte_proven": True,
         "provenance_note": "Nova-powered (Micro + Translate, unlimited budget) — go ham on Nova embeddings",
         "acs_source": meta.get("acs_table", "ACS S1601 Language Spoken at Home 5yr 2021-2023"),
         "metadata": meta,
@@ -267,7 +259,6 @@ def attach_market_translations(report: dict, brief_message: str, market_language
         "variants": total_localized,
         "en_plus_two": True,
         "nova_proven": True,
-        "cloud_del_norte_proven": True,
         "provider": "aws_translate+bedrock_nova",
     }
     return report
