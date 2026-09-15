@@ -1,9 +1,11 @@
 # gpu sharing protocol — 12gb card, renders + llm sessions
 
-Single 12GB card. Residents (~6GB): vision 3.2, whisper 1.9, kokoro 0.5,
-idle comfy 0.4. Free headroom moves between ~0.4GB (mid-render) and
-~11.6GB (unloaded gaps). Coordination is by lock + pause file, never by
-touching another owner's processes, units, or files.
+Single 12GB card. Verified 2026-09-15: vision/whisper/kokoro parked
+(zero calls in 7 days; `sudo systemctl start <unit>` brings each back),
+floor is idle comfy ~0.9GB. Free headroom moves between ~0.4GB
+(mid-render) and ~11.6GB (unloaded gaps; glimmer cold start proven in a
+gap while the batch ran). Coordination is by lock + pause file, never
+by touching another owner's processes, units, or files.
 
 ## shared lock
 
