@@ -1,0 +1,24 @@
+# Cloud Del Norte sep 29 banner — two-plate hero through the Bedrock ladder.
+# Plate theme slugs are namespaced cdn-* so the Kodiak direction path never fires.
+# Seeds live in input_assets/cdn/ (ridge control art + best action plate).
+campaign_name: "Sep 29 Banner — Code Plus Football Data Night"
+brand: "CLOUD-DEL-NORTE"
+target_region: "US"
+target_market: "US-SW"
+target_audience: "El Paso borderplex community, tech plus football fans, all ages"
+campaign_message: "One community night where code meets football data under desert skies."
+language: "en"
+brand_colors:
+  - "#00002a"
+  - "#0a0a2e"
+  - "#9060f0"
+  - "#5a1f8a"
+  - "#ff9900"
+  - "#c9a23f"
+products:
+  - id: background-plate
+    name: "Stadium Background Plate"
+    description: "Empty night stadium: thin Franklin ridge sliver, staggered data halls with broadcast truck, turf band with yard dashes. No characters, no animals, no ball."
+  - id: action-group
+    name: "Player Action Group"
+    description: "Hero-scale gold horned lizard ball carrier with horned frill and spiked back plus two same-size violet ants tackling, on plain navy ground. No buildings, no mountains, no truck."
