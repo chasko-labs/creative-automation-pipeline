@@ -926,6 +926,14 @@ let skuList = [
             buildGroup +
             '<div class="prov-group prov-heuristics"><h4>How it was decided</h4>' + heurHtml + '</div>' +
           '</div>';
+        // Mount the panel: it was previously built but never inserted, so the
+        // transparency section never appeared. Open by default — it is the
+        // honest record of what the machine did, not fine print.
+        try{
+          panel.open = true;
+          const provAnchor = document.getElementById('previewDownloadRow') || preview;
+          provAnchor.parentNode?.insertBefore(panel, provAnchor.nextSibling);
+        }catch(e){}
         // Keep provenance updates on the same renderer/state path when the separate
         // platform-copy request completes or falls back.
         try{

@@ -233,9 +233,11 @@ NOVA_TEXT_MODEL = os.getenv("BEDROCK_NOVA_MODEL", "amazon.nova-pro-v1:0")
 STABILITY_CONTROL_MODEL = os.getenv(
     "BEDROCK_STABILITY_MODEL", "us.stability.stable-image-control-structure-v1:0"
 )
-# How strongly the seed composition constrains the restyle (0..1). ~0.7 keeps the
-# product recognizable while letting the theme drive color/lighting/scene.
-STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.7"))
+# How strongly the seed composition constrains the restyle (0..1). 0.6 lets the
+# painterly style head dominate the seed photo's texture (0.7 kept too much
+# photographic gloss). Product identity is safe: the packshot composites via
+# Pillow from the real DAM asset, never from restyled pixels.
+STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.6"))
 # Style sandwich (character-consistency pattern): frozen style head + varying subject
 # + frozen detail tail. Nova (or the brief fallback) supplies ONLY the subject; the
 # frozen ends keep every restyle/outpaint on-brand no matter what the subject says.
@@ -269,8 +271,12 @@ STYLE_HEAD = os.getenv(
     # no brand token in the image prompt: the model renders any brand word it
     # sees as packaging glyphs and garbles it ("KODA CAKTS"). brand identity
     # ships via the composited real DAM packshot/logo (Pillow), never pixels.
-    "Photorealistic mountain frontier lifestyle photography, natural light, high "
-    f"detail, {KODIAK_PALETTE}. Subject: ",
+    # control-structure/outpaint accept no negative prompt or style preset, so
+    # photo-suppression lives inline: matte painterly medium, never photographic.
+    "Matte frontier illustration in warm gouache and pencil texture with visible "
+    "brushwork, flat natural daylight, no lens blur, no glossy highlights, no "
+    "skin pores, not a photograph, "
+    f"{KODIAK_PALETTE}. Subject: ",
 )
 STYLE_TAIL = os.getenv(
     "KODIAK_STYLE_TAIL",

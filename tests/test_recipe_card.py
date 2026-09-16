@@ -157,7 +157,9 @@ def test_card_title_and_steps_are_real_content():
 def test_winter_squash_muffins_carry_verified_costs():
     from creative_automation.recipe_card import build_recipe_card_data
 
-    c = build_recipe_card_data("US-MW-BOISE", month="2026-10")
+    # rotation sends Missoula (not Boise) to the muffins in Oct 2026;
+    # the muffins keep their verified $8.40 cost record wherever they land.
+    c = build_recipe_card_data("US-MW-MISSOULA", month="2026-10")
     assert c.get("title") == "Winter Squash Morning Muffins"
     assert [i["price"] for i in c["ingredients"]] == [
         "$2.75",
@@ -171,3 +173,97 @@ def test_winter_squash_muffins_carry_verified_costs():
     ]
     assert c["meta"]["est_cost"] == "$8.40"
     assert "prices" not in c["provenance"]["values_unknown"]
+
+
+def test_boise_october_rotates_to_griddle_cakes_with_costs():
+    from creative_automation.recipe_card import build_recipe_card_data
+
+    c = build_recipe_card_data("US-MW-BOISE", month="2026-10")
+    assert c.get("title") == "Winter Squash Griddle Cakes"
+    assert [i["price"] for i in c["ingredients"]] == [
+        "$1.40",
+        "$1.50",
+        "$0.35",
+        "$0.30",
+        "$0.25",
+        "$0.30",
+        "$0.10",
+        "$0.05",
+    ]
+    assert c["meta"]["est_cost"] == "$4.25"
+    assert "prices" not in c["provenance"]["values_unknown"]
+
+
+def test_market_seeded_rotation_spreads_shared_ingredients():
+    from creative_automation.recipe_card import _pick_recipe
+
+    # no market context keeps the legacy best-overlap winner exactly.
+    assert (
+        _pick_recipe("winter squash", None)["id"]
+        == "winter-squash-morning-muffins-draft"
+    )
+    # same market+month is deterministic.
+    first = _pick_recipe(
+        "winter squash",
+        "Buttermilk Power Cakes",
+        market="US-MW-BOISE",
+        month="2026-10",
+    )["id"]
+    second = _pick_recipe(
+        "winter squash",
+        "Buttermilk Power Cakes",
+        market="US-MW-BOISE",
+        month="2026-10",
+    )["id"]
+    assert first == second == "winter-squash-griddle-cakes-draft"
+    # the nine markets sharing winter squash in Oct 2026 do not all show
+    # the same card — both drafts appear, and every pick names the ingredient.
+    oct_markets = [
+        "US-MW-BOISE",
+        "US-MW-DEN",
+        "US-MW-JACKSONHOLE",
+        "US-MW-MISSOULA",
+        "US-MW-WASATCH",
+        "US-MW-WASATCH-SLC",
+        "US-UT-KAMASVALLEY",
+        "US-W-BOULDER",
+        "US-W-SACRAMENTO",
+    ]
+    winners = {
+        _pick_recipe(
+            "winter squash",
+            "Buttermilk Power Cakes",
+            market=m,
+            month="2026-10",
+        )["id"]
+        for m in oct_markets
+    }
+    assert winners == {
+        "winter-squash-griddle-cakes-draft",
+        "winter-squash-morning-muffins-draft",
+    }
+
+
+def test_recipe_art_overlay_prefers_published_zones(monkeypatch):
+    import creative_automation.dam as dam
+    from creative_automation.recipe_card import _overlay_recipe_art
+
+    monkeypatch.setattr(
+        dam,
+        "recipe_art_exists",
+        lambda slug, zone: slug == "winter-squash-griddle-cakes"
+        and zone in ("technique", "finished_plate"),
+    )
+    base = {
+        "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
+        "technique": "/recipe-art/winter-squash/technique.png",
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
+    }
+    out = _overlay_recipe_art(base, {"art_slug": "winter-squash-griddle-cakes"})
+    assert out["technique"] == "/recipe-art/winter-squash-griddle-cakes/technique.png"
+    assert (
+        out["finished_plate"]
+        == "/recipe-art/winter-squash-griddle-cakes/finished_plate.png"
+    )
+    assert out["raw_ingredient"] == "/recipe-art/winter-squash/raw_ingredient.png"
+    assert _overlay_recipe_art(base, {}) == base

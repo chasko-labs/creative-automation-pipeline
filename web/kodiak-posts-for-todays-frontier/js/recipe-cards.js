@@ -175,7 +175,8 @@
     META_CELLS.forEach(function (cell) {
       var c = el('div', 'rc-meta__cell');
       c.appendChild(el('span', 'rc-meta__value', orDash(m[cell.key])));
-      c.appendChild(el('span', 'rc-meta__label', cell.label));
+      var label = (card.metaLabels && card.metaLabels[cell.key]) || cell.label;
+      c.appendChild(el('span', 'rc-meta__label', label));
       meta.appendChild(c);
     });
     rc.appendChild(meta);
@@ -185,7 +186,8 @@
 
     // left: ingredients + raw art + optional seasonal tip
     var left = el('section', 'recipe-card-column recipe-card-ingredients');
-    left.appendChild(el('h4', 'rc-col-heading', 'ingredients'));
+    left.appendChild(el('h4', 'rc-col-heading',
+      (card.colLabels && card.colLabels.ingredients) || 'ingredients'));
     var ul = el('ul', 'rc-ingredients');
     (card.ingredients || []).forEach(function (ing) {
       var li = el('li', 'rc-ing');
@@ -199,14 +201,14 @@
     left.appendChild(makeArtZone(ART_ZONES[0], (card.art || {})[ART_ZONES[0].artKey]));
     cols.appendChild(left);
 
-    // right: steps + technique art + plate art
+    // right: technique drawing first, then the steps heading + list, then
+    // the finished drawing: the column reads top-to-bottom as see-make-plate.
     var right = el('section', 'recipe-card-column recipe-card-execution');
-    right.appendChild(el('h4', 'rc-col-heading', 'steps'));
+    right.appendChild(makeArtZone(ART_ZONES[1], (card.art || {})[ART_ZONES[1].artKey]));
+    right.appendChild(el('h4', 'rc-col-heading',
+      (card.colLabels && card.colLabels.steps) || 'steps'));
     var ol = el('ol', 'rc-steps');
     (card.steps || []).forEach(function (step) { ol.appendChild(makeStepLi(step)); });
-    // prep drawing above the steps, finished drawing below them: the right
-    // column reads top-to-bottom as make-then-plate.
-    right.appendChild(makeArtZone(ART_ZONES[1], (card.art || {})[ART_ZONES[1].artKey]));
     right.appendChild(ol);
     right.appendChild(makeArtZone(ART_ZONES[2], (card.art || {})[ART_ZONES[2].artKey]));
     cols.appendChild(right);
@@ -338,16 +340,82 @@
     // restores — listen at document level so all of them re-render.
     document.addEventListener('change', function (e) {
       if (e && e.target && (e.target.id === 'locality' || e.target.id === 'seasonalSelect')) {
+        previewLang = 'en';   // new market/month starts in English
         renderPreviewCard();
       }
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { bindGalleryRefresh(); renderPreviewCard(); });
-  } else {
-    bindGalleryRefresh();
-    renderPreviewCard();
+  // Preview language toggle — baked translations only (window.KODIAK_RECIPE_I18N,
+  // recipe-i18n-data.js). No live endpoint: the toggle swaps title, ingredient
+  // names, and steps from the baked per-language entry and badges the card as
+  // machine-translated. Prices, art, and meta never translate.
+  var previewLang = 'en';
+  var LANG_NAMES = { es: 'Español', pt: 'Português', fr: 'Français', ar: 'العربية',
+    de: 'Deutsch', zh: '中文', vi: 'Tiếng Việt', ko: '한국어', ht: 'Kreyòl',
+    tl: 'Tagalog', ja: '日本語', so: 'Soomaali', pl: 'polski', ru: 'русский',
+    am: 'አማርኛ', ilo: 'Ilocano', hmn: 'Hmoob', bs: 'bosanski', nv: 'Diné',
+    ne: 'नेपाली', my: 'မြန်မာ' };
+  function langName(code) { return LANG_NAMES[code] || code; }
+
+  function previewLangsFor(market, monthKey) {
+    var book = window.KODIAK_RECIPE_I18N;
+    if (!book || typeof book !== 'object') return {};
+    var byMarket = book[market] || {};
+    var byMonth = byMarket[monthKey] || {};
+    return (byMonth && typeof byMonth === 'object') ? byMonth : {};
+  }
+
+  function withPreviewLang(card, lang, entry) {
+    if (!lang || lang === 'en' || !entry) return { card: card, translated: null };
+    var c = {};
+    Object.keys(card).forEach(function (k) { c[k] = card[k]; });
+    if (entry.title) c.title = entry.title;
+    if (entry.ingredients) c.ingredients = entry.ingredients;
+    if (entry.steps) c.steps = entry.steps;
+    // meta bar: translated prep/cook/serves values ride on the entry;
+    // est_cost is a universal figure and stays. Labels come from the baked
+    // per-language table; missing labels fall back to English in the render.
+    if (entry.meta) {
+      var m = {};
+      Object.keys(card.meta || {}).forEach(function (k) { m[k] = card.meta[k]; });
+      ['prep', 'cook', 'serves'].forEach(function (k) {
+        if (entry.meta[k]) m[k] = entry.meta[k];
+      });
+      c.meta = m;
+      var labelTable = window.KODIAK_RECIPE_META_LABELS || {};
+      if (labelTable[lang]) {
+        c.metaLabels = labelTable[lang];
+        c.colLabels = labelTable[lang];
+      }
+    }
+    return { card: c, translated: entry.translation || null };
+  }
+
+  function buildLangToggle(codes, active, onPick) {
+    var row = el('div', 'rc-lang-toggle');
+    row.setAttribute('role', 'group');
+    row.setAttribute('aria-label', 'Preview language');
+    ['en'].concat(codes).forEach(function (code) {
+      var b = el('button', 'rc-lang-toggle__btn' + (code === active ? ' is-active' : ''),
+        code === 'en' ? 'English' : langName(code));
+      b.setAttribute('type', 'button');
+      b.setAttribute('aria-pressed', code === active ? 'true' : 'false');
+      b.setAttribute('data-lang', code);
+      b.addEventListener('click', function () { onPick(code); });
+      row.appendChild(b);
+    });
+    return row;
+  }
+
+  function buildTranslationBadge(prov) {
+    var text = 'machine translated · not human reviewed';
+    if (prov && prov.allergen_fallback_lines && prov.allergen_fallback_lines.length) {
+      text += ' · ' + prov.allergen_fallback_lines.length + ' line' +
+        (prov.allergen_fallback_lines.length === 1 ? '' : 's') + ' kept in English';
+    }
+    var badge = el('p', 'rc-lang-badge', text);
+    return badge;
   }
 
   // one card for the preview: the selected market's card for the selected
@@ -386,9 +454,30 @@
         'No card for this market and month yet.'));
       return;
     }
+    // column wrap: #previewRecipe itself is a centering flex ROW, so the
+    // toggle, badge, and shell stack in their own column and keep the card
+    // centered exactly as before.
+    var wrap = el('div', 'rc-preview-wrap');
     var shell = el('div', 'rc-card-shell');
-    shell.appendChild(isEmptyState(card) ? buildEmptyStateCard(card) : buildRecipeCard(card));
-    slot.appendChild(shell);
+    if (isEmptyState(card)) {
+      previewLang = 'en';
+      shell.appendChild(buildEmptyStateCard(card));
+    } else {
+      var monthLangs = previewLangsFor(market, monthKey);
+      var codes = Object.keys(monthLangs);
+      if (previewLang !== 'en' && !monthLangs[previewLang]) previewLang = 'en';
+      var applied = withPreviewLang(card, previewLang, monthLangs[previewLang]);
+      if (codes.length) {
+        wrap.appendChild(buildLangToggle(codes, previewLang, function (code) {
+          previewLang = code;
+          renderPreviewCard();
+        }));
+        if (applied.translated) wrap.appendChild(buildTranslationBadge(applied.translated));
+      }
+      shell.appendChild(buildRecipeCard(applied.card));
+    }
+    wrap.appendChild(shell);
+    slot.appendChild(wrap);
   }
 
   function bindPreviewRefresh() {
@@ -404,4 +493,13 @@
   // expose for manual re-render / tests
   window.KODIAK_renderRecipeGallery = renderGallery;
   window.KODIAK_renderPreviewCard = renderPreviewCard;
+
+  // bootstrap last: every declaration above (including the preview-language
+  // toggle state) is initialized before the first render runs.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () { bindGalleryRefresh(); renderPreviewCard(); });
+  } else {
+    bindGalleryRefresh();
+    renderPreviewCard();
+  }
 })();

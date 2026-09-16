@@ -56,7 +56,9 @@ def test_card_data_carries_translation_per_language(monkeypatch):
     from creative_automation.recipe_card import build_recipe_card_data
 
     monkeypatch.setattr(i18n, "translate_with_provenance", _stub_provider)
-    c = build_recipe_card_data("US-MW-BOISE", month="2026-10", lang="es")
+    # rotation sends Boise (not Missoula) to the griddle cakes in Oct 2026;
+    # the translation plumbing is market-independent, so pin the muffins market.
+    c = build_recipe_card_data("US-MW-MISSOULA", month="2026-10", lang="es")
     assert c["title"].startswith("T-")
     # English allergen lines fall back; prices and meta ride along untouched
     assert c["ingredients"][2] == {"qty_name": "2 large eggs", "price": "$0.70"}
@@ -73,6 +75,58 @@ def test_card_data_english_unchanged():
     from creative_automation.recipe_card import build_recipe_card_data
 
     c = build_recipe_card_data("US-MW-BOISE", month="2026-10")
-    assert c["title"] == "Winter Squash Morning Muffins"
-    assert c["ingredients"][0]["price"] == "$2.75"
+    assert c["title"] == "Winter Squash Griddle Cakes"
+    assert c["ingredients"][0]["price"] == "$1.40"
     assert "translation" not in c["provenance"]
+
+
+def test_bake_writes_offline_toggle_file(monkeypatch, tmp_path):
+    import creative_automation.recipe_i18n as i18n_mod
+    from creative_automation.recipe_cards_emit import bake_recipe_i18n_js
+
+    monkeypatch.setattr(i18n_mod, "translate_with_provenance", _stub_provider)
+    out = bake_recipe_i18n_js(
+        ["US-MW-BOISE", "US-MW-MISSOULA"], ["2026-10"], out_path=tmp_path / "i18n.js"
+    )
+    body = out.read_text(encoding="utf-8")
+    assert body.startswith("// Baked recipe-card translations")
+    assert "window.KODIAK_RECIPE_I18N = " in body
+    assert "window.KODIAK_RECIPE_META_LABELS = " in body
+    book_src = body.split("window.KODIAK_RECIPE_I18N = ", 1)[1].split(
+        "window.KODIAK_RECIPE_META_LABELS", 1
+    )[0]
+    # strip trailing comment lines + semicolon left by the split
+    book_src = "\n".join(
+        line for line in book_src.splitlines() if not line.strip().startswith("//")
+    ).rstrip().rstrip(";")
+    import json
+
+    book = json.loads(book_src)
+    assert sorted(book.keys()) == ["US-MW-BOISE", "US-MW-MISSOULA"]
+    # Boise Oct is griddle cakes, Missoula Oct is muffins — rotation survives
+    # the bake, and every entry carries toggle text + provenance.
+    assert book["US-MW-BOISE"]["2026-10"]["es"]["title"].startswith("T-")
+    for market in book:
+        for lang, entry in book[market]["2026-10"].items():
+            assert lang != "en"
+            assert entry["title"]
+            assert entry["ingredients"] and entry["steps"]
+            assert entry["translation"]["machine_translated"] is True
+            assert entry["translation"]["human_reviewed"] is False
+            # meta-bar values translate (est_cost stays universal); labels bake
+            # per language from the fuller phrases.
+            assert set(entry["meta"].keys()) == {"prep", "cook", "serves"}
+            assert all(v.startswith("T-") for v in entry["meta"].values())
+    label_block = body.split("window.KODIAK_RECIPE_META_LABELS = ", 1)[1].rstrip().rstrip(";")
+    labels = json.loads(label_block)
+    assert set(labels["es"].keys()) == {
+        "prep",
+        "cook",
+        "serves",
+        "est_cost",
+        "ingredients",
+        "steps",
+    }
+    assert all(v.startswith("T-") for v in labels["es"].values())
+    # stub is restored after the bake so later tests hit the real chain entry
+    assert i18n_mod.translate_with_provenance is _stub_provider

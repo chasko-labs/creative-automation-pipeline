@@ -67,9 +67,19 @@
     if(summary && p) summary.setAttribute('aria-label', 'Choose market — currently ' + (p.place || market));
     if(featuredEl){
       var cue = p && p.cue ? p.cue : '';
-      // Rural-counterpart display retired: the readout names this market's own
-      // frontier only. (featuredFrontierFor data still feeds the backend hint.)
-      featuredEl.textContent = cue ? ('Featured frontier: ' + cue) : '';
+      // Month-aware rich line first (frontier place + in-season ingredient +
+      // month-matching moment, all curated — never fabricated); the terse
+      // photo cue survives only as fallback when no month is selected or the
+      // pairs file has no entry.
+      var rich = null;
+      try{
+        var seaSel = document.getElementById('seasonalSelect');
+        var seaVal = seaSel ? seaSel.value : '';
+        if(typeof frontierSeasonLine === 'function' && seaVal) rich = frontierSeasonLine(market, seaVal);
+      }catch(e){ rich = null; }
+      featuredEl.textContent = (rich && rich.text)
+        ? ('Featured frontier: ' + rich.text)
+        : (cue ? ('Featured frontier: ' + cue) : '');
     }
     if(langLine){
       try{ renderLocalizedCopy(market); }
@@ -165,6 +175,13 @@
   // reflect it into the button + derived lines so the UI never drifts from the real value.
   document.addEventListener('change', function(e){
     if(e.target && e.target.id==='locality'){ reflectMarket(e.target.value); }
+    // month changes re-resolve the frontier line (month-aware rich text).
+    if(e.target && e.target.id==='seasonalSelect'){
+      try{
+        var loc = document.getElementById('locality');
+        if(loc && loc.value) reflectMarket(loc.value);
+      }catch(err){}
+    }
   });
 
   // ---- D. seasonal menu ----

@@ -45,11 +45,26 @@
     return Array.prototype.slice.call(document.querySelectorAll('#productChooser .sku-check:checked'))
       .map(function(c){ return c.value; }).filter(Boolean);
   }
-  // build the de-duped, readable context suffix from current selection state ('' when nothing selected)
+  // build the de-duped, readable context suffix from current selection state ('' when nothing selected).
+  // frontier + in-season parts come from curated pair data (never fabricated);
+  // appended after season so the market:/season:/products: shape checks still match.
+  function currentMarketCode(){
+    var s = document.getElementById('locality');
+    return s ? (s.value || '') : '';
+  }
   function buildSuffix(){
     var parts = [];
     var m = currentMarketLabel(); if(m) parts.push('market: ' + m);
     var s = currentSeasonLabel(); if(s) parts.push('season: ' + s);
+    try{
+      var code = currentMarketCode();
+      var rich = (typeof frontierSeasonLine === 'function' && code && s)
+        ? frontierSeasonLine(code, s) : null;
+      if(rich){
+        if(rich.place) parts.push('frontier: ' + rich.place + (rich.moment ? ' — ' + rich.moment : ''));
+        if(rich.ingredient) parts.push('in-season: ' + rich.ingredient);
+      }
+    }catch(e){}
     var prods = currentProducts(); if(prods.length) parts.push('products: ' + prods.join(', '));
     return parts.length ? parts.join(' \u00b7 ') : '';
   }

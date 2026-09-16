@@ -20,6 +20,7 @@ gates on safety as its last hop.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -236,7 +237,22 @@ def resolve_geometry(tmpl: dict) -> dict:
     }
 
 
-def _pick_recipe(ingredient: str, product: str | None) -> dict | None:
+def _names_ingredient(recipe: dict, ingredient: str) -> bool:
+    """True when the recipe genuinely names the ingredient (substring,
+    case-insensitive) in its name, ingredient lines, or tags — the strong
+    matches a variety rotation may choose between."""
+    low = (ingredient or "").lower().strip()
+    if not low:
+        return False
+    fields = [str(recipe.get("name", "") or "")]
+    fields += [str(x) for x in recipe.get("ingredients", []) or []]
+    fields += [str(x) for x in recipe.get("tags", []) or []]
+    return low in " ".join(fields).lower()
+
+
+def _pick_recipe(
+    ingredient: str, product: str | None, market: str = "", month: str = ""
+) -> dict | None:
     """Best recipe for the in-season ingredient, nearest by token overlap.
 
     Overlap is scored across name/localize/ingredients/tags. Recipes that carry a real
@@ -249,6 +265,13 @@ def _pick_recipe(ingredient: str, product: str | None) -> dict | None:
     lowest recipe id among featured matches. This is the lever for pairings
     where overlap ties on one token and the id lottery picks badly (pumpkin
     pinwheels, tuscan chicken). Curated, auditable, no silent reshuffle.
+
+    Variety rotation: when several recipes genuinely name the ingredient and a
+    market+month context is given, the winner rotates deterministically
+    (sha256 of market|month|ingredient over id-sorted strong matches) so markets
+    sharing an in-season ingredient do not all show the same card. Single
+    strong match, weak-only matches, or no market context keep the legacy
+    best-overlap winner exactly.
     """
     recipes = _load_recipes()
     if not recipes:
@@ -290,6 +313,16 @@ def _pick_recipe(ingredient: str, product: str | None) -> dict | None:
         # preferring a compote/fruit style, else the first recipe. Never fabricate.
         with_image = [r for r in recipes if r.get("image")]
         return with_image[0] if with_image else recipes[0]
+    if market or month:
+        strong = sorted(
+            (r for (_ov, _hh, _ii, r) in scored if _ov > 0 and _names_ingredient(r, ingredient)),
+            key=lambda r: r.get("id", ""),
+        )
+        if len(strong) > 1:
+            digest = hashlib.sha256(
+                f"{market}|{month}|{ingredient}".encode("utf-8")
+            ).hexdigest()
+            return strong[int(digest, 16) % len(strong)]
     return best
 
 
@@ -531,7 +564,7 @@ def build_recipe_card(
         }
 
     product = "Buttermilk Power Cakes"
-    recipe = _pick_recipe(ingredient, product)
+    recipe = _pick_recipe(ingredient, product, market=market, month=resolved_month)
     if recipe is None:
         return {
             "card_path": None,
@@ -714,6 +747,33 @@ def _normalize_art(art: dict[str, str | None] | None) -> dict[str, str | None]:
     return {k: (src.get(k) or None) for k in _ART_KEYS}
 
 
+def _overlay_recipe_art(
+    art_block: dict[str, str | None], recipe: dict
+) -> dict[str, str | None]:
+    """Prefer the picked recipe's own published art over shared ingredient art.
+
+    A recipe carrying art_slug (e.g. winter-squash-griddle-cakes) wins per zone
+    wherever that slug has a published drawing; unpublished zones keep the
+    ingredient-level url. Markets sharing an ingredient but rotating to
+    different recipes therefore render different drawings instead of identical
+    cards. Offline / no-creds: exists checks read False and the block passes
+    through untouched. Never throws.
+    """
+    slug = str(recipe.get("art_slug") or "").strip()
+    if not slug:
+        return art_block
+    try:
+        from . import dam as _dam
+
+        out = dict(art_block)
+        for zone in _ART_KEYS:
+            if _dam.recipe_art_exists(slug, zone):
+                out[zone] = _dam.recipe_art_site_url(slug, zone)
+        return out
+    except Exception:  # noqa: BLE001 — art overlay is best-effort
+        return art_block
+
+
 def build_recipe_card_data(
     market: str,
     *,
@@ -802,7 +862,7 @@ def build_recipe_card_data(
         )
 
     product = "Buttermilk Power Cakes"
-    recipe = _pick_recipe(ingredient, product)
+    recipe = _pick_recipe(ingredient, product, market=market, month=resolved_month)
     if recipe is None:
         return _empty(
             "no recipe catalog available",
@@ -813,6 +873,7 @@ def build_recipe_card_data(
     # title is the recipe's real catalog name — never a rewritten marketing
     # variant. Market + month ride as their own factual fields on the card,
     # so the title cannot disagree with the recipe it names.
+    art_block = _overlay_recipe_art(art_block, recipe)
     title_text = clean_brand_copy(str(recipe.get("name", "") or "recipe"))
 
     # steps are the recipe's real instructions, cleaned and verb-bolded only.

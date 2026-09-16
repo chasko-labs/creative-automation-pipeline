@@ -54,7 +54,6 @@
       +'<div style="position:relative;z-index:1;max-width:420px;width:100%;background:#3B2316;border:1px solid #2A190F;border-radius:4px;box-shadow:0 10px 30px rgba(26,17,16,.55),0 2px 8px rgba(26,17,16,.4);padding:2.25rem 1.75rem 2rem">'
       +'<h1 style="font-family:'+GIN+';font-weight:800;text-transform:uppercase;letter-spacing:.05em;line-height:1.05;font-size:clamp(24px,4vw,34px);margin:0 0 .9rem;color:#FFF8F0">Request access</h1>'
       +'<p style="margin:0 0 1.4rem;line-height:1.5;font-family:'+MUSEO+';font-size:1rem;color:#FFEDE0">This preview is shared by link &mdash; enter the shared word to step inside (hint: <b>cakes</b>).</p>'
-      +'<p style="margin:-1rem 0 1.4rem;line-height:1.4;font-family:'+MUSEO+';font-size:.8rem;color:#FFEDE0;opacity:.75">A courtesy screen, not security: anyone with the link and the word can enter.</p>'
       +'<form id="kodiak-gate-form" style="display:flex;flex-direction:column;gap:.9rem;align-items:center">'
       +'<label for="kodiak-gate-pw" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Shared word</label>'
       +'<input id="kodiak-gate-pw" type="password" autocomplete="off" autofocus placeholder="shared word" '
@@ -68,7 +67,6 @@
       +'onmouseover="this.style.background=\'#991911\'" onmouseout="this.style.background=\'#B51E14\'">Enter</button>'
       +'</form>'
       +'<p id="kodiak-gate-error" style="margin:.9rem 0 0;color:#FFB4AD;font-family:'+MUSEO+';font-weight:700;min-height:1.4em" aria-live="polite"></p>'
-      +'<p style="margin:1.4rem 0 0;font-size:.8rem;font-family:'+MUSEO+';opacity:.7">This preview can also be used offline from a local copy of the page.</p>'
       +'</div>';
 
     document.body.appendChild(overlay);
@@ -501,10 +499,12 @@
 <script defer src="js/ff-log.js?v=0.1.012-d28587d-20260913"></script>
 <script defer src="js/brand-guard.js?v=0.1.012-d28587d-20260913"></script>
 <script defer src="js/data-core.js?v=0.1.012-d28587d-20260913"></script>
+<script defer src="js/recipes-frontier-pairs.js?v=0.1.012-d28587d-20260913"></script>
 <script defer src="js/season-flavors.js?v=0.1.012-d28587d-20260913"></script>
 <!-- Recipes surface: DATA first, then the renderer. defer preserves document order, so
      recipe-cards-data.js (defines window.KODIAK_RECIPE_CARDS) always runs before recipe-cards.js. -->
 <script defer src="js/recipe-cards-data.js?v=0.1.012-d28587d-20260913"></script>
+<script defer src="js/recipe-i18n-data.js?v=0.1.012-d28587d-20260913"></script>
 <script defer src="js/recipe-cards.js?v=0.1.012-d28587d-20260913"></script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.012-d28587d-20260913","url":"index.html","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["74 language markets","English plus the top two languages per market","offline campaign workflow","Nova Pro creative direction plus Nova Micro language support","approved digital asset library","webmcp enabled"]}</script>
