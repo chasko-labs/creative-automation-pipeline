@@ -37,9 +37,15 @@
 
   // Static corner flourish paths, lifted from the specimen (left + right
   // mirror) — identical for every card, matches design standard.
-  var CORNER_LEFT = 'M18 90 C28 62 32 40 38 16 M38 16 L28 12 M38 16 L40 5 M36 28 L26 24 M36 28 L38 17 M33 40 L23 36 M33 40 L35 29 M30 52 L20 48 M30 52 L32 41 M27 64 L17 60 M27 64 L29 53 M38 16 L33 3 M38 16 L43 4';
-  var CORNER_RIGHT = 'M82 90 C72 62 68 40 62 16 M62 16 L72 12 M62 16 L60 5 M64 28 L74 24 M64 28 L62 17 M67 40 L77 36 M67 40 L65 29 M70 52 L80 48 M70 52 L68 41 M73 64 L83 60 M73 64 L71 53 M62 16 L67 3 M62 16 L57 4';
-  var CORNER_RULE = 'M16 84 L84 84';
+  // wheat ear corner mark: curved stem, filled kernel ellipses alternating along
+  // it, three awns off the tip. filled grain reads at 1in size; no underline
+  // rule — the ear stands on its own.
+  var CORNER_STEM_LEFT = 'M20 94 C28 66 32 44 42 14';
+  var CORNER_STEM_RIGHT = 'M80 94 C72 66 68 44 58 14';
+  var CORNER_AWNS_LEFT = 'M42 14 L35 1 M42 14 L43 0 M42 14 L49 2';
+  var CORNER_AWNS_RIGHT = 'M58 14 L65 1 M58 14 L57 0 M58 14 L51 2';
+  var CORNER_KERNELS_LEFT = [[33,24,-25],[46,28,25],[30,36,-25],[43,40,25],[28,48,-22],[40,52,22],[26,60,-20],[37,64,20],[25,72,-15],[34,74,15]];
+  var CORNER_KERNELS_RIGHT = [[67,24,25],[54,28,-25],[70,36,25],[57,40,-25],[72,48,22],[60,52,-22],[74,60,20],[63,64,-20],[75,72,15],[66,74,-15]];
 
   var ART_ZONES = [
     { css: 'rc-artzone--raw', dataZone: 'raw_ingredient_sketch' },
@@ -126,13 +132,21 @@
     wrap.setAttribute('data-zone', side === 'left' ? 'corner_accent_left' : 'corner_accent_right');
     wrap.setAttribute('aria-hidden', 'true');
     var svg = svgEl('svg', { viewBox: '0 0 100 100', class: 'rc-corner__art', role: 'presentation', focusable: 'false' });
+    var isLeft = side === 'left';
     svg.appendChild(svgEl('path', {
-      d: side === 'left' ? CORNER_LEFT : CORNER_RIGHT,
-      fill: 'none', stroke: 'currentColor', 'stroke-width': '2.2', 'stroke-linecap': 'round'
+      d: isLeft ? CORNER_STEM_LEFT : CORNER_STEM_RIGHT,
+      fill: 'none', stroke: 'currentColor', 'stroke-width': '2.4', 'stroke-linecap': 'round'
     }));
     svg.appendChild(svgEl('path', {
-      d: CORNER_RULE, fill: 'none', stroke: 'currentColor', 'stroke-width': '1.6', 'stroke-linecap': 'round'
+      d: isLeft ? CORNER_AWNS_LEFT : CORNER_AWNS_RIGHT,
+      fill: 'none', stroke: 'currentColor', 'stroke-width': '1.4', 'stroke-linecap': 'round'
     }));
+    (isLeft ? CORNER_KERNELS_LEFT : CORNER_KERNELS_RIGHT).forEach(function (k) {
+      svg.appendChild(svgEl('ellipse', {
+        cx: k[0], cy: k[1], rx: '5', ry: '9.5', transform: 'rotate(' + k[2] + ' ' + k[0] + ' ' + k[1] + ')',
+        fill: 'currentColor', stroke: 'none'
+      }));
+    });
     wrap.appendChild(svg);
     return wrap;
   }

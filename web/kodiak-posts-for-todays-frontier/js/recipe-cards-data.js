@@ -13,7 +13,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Brussels sprouts"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups very thinly shredded Brussels sprouts"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-CA-CASTROVILLE",
@@ -189,7 +213,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cauliflower"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups finely chopped broccoli and cauliflower florets"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup shredded sharp cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-CA-CASTROVILLE",
@@ -367,7 +415,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "broccoli"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups finely chopped broccoli and cauliflower florets"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup shredded sharp cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-CA-CASTROVILLE",
@@ -545,7 +617,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "artichokes"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup chopped artichoke hearts, patted dry"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-CA-CASTROVILLE",
@@ -721,7 +821,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-CA-CASTROVILLE",
@@ -898,7 +1014,67 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "leaf lettuce"
+          "qty_name": "1 (14.75-oz) can salmon, drained"
+        },
+        {
+          "price": null,
+          "qty_name": "2 scallions, thinly sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon Dijon mustard"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon chopped fresh dill"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Salt, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "Freshly ground black pepper, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons olive oil (for cooking)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small clove garlic, finely minced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 squeeze fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch of salt"
         }
       ],
       "market": "US-CA-CASTROVILLE",
@@ -1078,7 +1254,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-CA-CASTROVILLE",
@@ -1254,7 +1454,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "celery"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups finely diced celery"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-CA-CASTROVILLE",
@@ -1432,7 +1656,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "bell peppers"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "12 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups bell peppers, seeded and chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup crumbled feta cheese"
         }
       ],
       "market": "US-CA-CASTROVILLE",
@@ -1611,7 +1863,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spinach"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-CA-CASTROVILLE",
@@ -1787,7 +2067,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "kale"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-CA-CASTROVILLE",
@@ -1963,7 +2271,55 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "lemons"
+          "qty_name": "Pancakes:"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon poppy seeds"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pure maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "Zest of 2 lemons"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract\r\n\r\n\r\n \r\n\r\nCustard:"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup coconut milk"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch salt\r\n\r\n\r\n \r\n\r\nTopping Options:"
+        },
+        {
+          "price": null,
+          "qty_name": "Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup"
         }
       ],
       "market": "US-CA-CASTROVILLE",
@@ -2147,7 +2503,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Meyer lemon"
+          "qty_name": "1 Kodiak Buttermilk & Maple Flapjack Power Cup"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons whole milk ricotta"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon fresh lemon zest"
+        },
+        {
+          "price": null,
+          "qty_name": "Honey, to top"
         }
       ],
       "market": "US-CA-PESCADERO",
@@ -2327,7 +2699,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "kale"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-CA-PESCADERO",
@@ -2507,7 +2907,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rainbow chard"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-CA-PESCADERO",
@@ -2687,7 +3115,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Harley Farms goat cheese"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-CA-PESCADERO",
@@ -2864,7 +3292,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring peas"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups snap peas, strings removed, thinly sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons chopped dill"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-CA-PESCADERO",
@@ -3046,7 +3502,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "summer squash"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded summer squash (or chayote/mirliton)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-CA-PESCADERO",
@@ -3226,7 +3706,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blackberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-CA-PESCADERO",
@@ -3407,7 +3903,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "romano beans"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups trimmed green beans, cut in 1/2-inch pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-CA-PESCADERO",
@@ -3589,7 +4109,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-CA-PESCADERO",
@@ -3770,7 +4306,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Half Moon Bay pumpkin"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-CA-PESCADERO",
@@ -3952,7 +4524,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "olive oil (fall press)"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-CA-PESCADERO",
@@ -4133,7 +4749,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Brussels sprouts"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups very thinly shredded Brussels sprouts"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-CA-PESCADERO",
@@ -4315,7 +4955,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Idaho potatoes (storage)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-BOISE",
@@ -4492,7 +5152,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage onions"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup thinly sliced spring onions (greens and whites)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-MW-BOISE",
@@ -4669,7 +5353,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-BOISE",
@@ -4850,7 +5590,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-BOISE",
@@ -5024,7 +5764,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-BOISE",
@@ -5201,7 +5965,55 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cherries"
+          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon almond extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups frozen cherries, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornstarch"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice of 1/2 lemon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "2-3 tablespoons water"
         }
       ],
       "market": "US-MW-BOISE",
@@ -5387,7 +6199,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apricots"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups chopped fresh apricots"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-BOISE",
@@ -5564,7 +6404,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-BOISE",
@@ -5740,7 +6580,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-BOISE",
@@ -5917,7 +6781,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-BOISE",
@@ -6094,7 +6986,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Idaho potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-MW-BOISE",
@@ -6273,7 +7193,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-MW-BOISE",
@@ -6455,7 +7391,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-CHI",
@@ -6632,7 +7624,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cold-storage potatoes"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-CHI",
@@ -6805,7 +7817,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-MW-CHI",
@@ -6982,7 +8038,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-CHI",
@@ -7155,7 +8235,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-CHI",
@@ -7325,7 +8405,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-MW-CHI",
@@ -7499,7 +8595,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-CHI",
@@ -7672,7 +8792,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-MW-CHI",
@@ -7846,7 +9010,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-CHI",
@@ -8023,7 +9243,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-MW-CHI",
@@ -8198,7 +9454,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-CHI",
@@ -8371,7 +9655,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cranberries"
+          "qty_name": "1 Box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice and zest of two medium oranges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup real maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup dried cranberries"
         }
       ],
       "market": "US-MW-CHI",
@@ -8548,7 +9864,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-CLEVELAND",
@@ -8726,7 +10098,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-MW-CLEVELAND",
@@ -8904,7 +10320,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens (high tunnel)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-MW-CLEVELAND",
@@ -9078,7 +10522,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "mushrooms (cultivated)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup shredded sharp cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-MW-CLEVELAND",
@@ -9254,7 +10726,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-CLEVELAND",
@@ -9425,7 +10897,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-MW-CLEVELAND",
@@ -9600,7 +11088,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-CLEVELAND",
@@ -9774,7 +11286,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "heirloom tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-MW-CLEVELAND",
@@ -9949,7 +11505,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-CLEVELAND",
@@ -10127,7 +11739,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pears"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups diced firm pears"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon nutmeg"
         }
       ],
       "market": "US-MW-CLEVELAND",
@@ -10303,7 +11943,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-CLEVELAND",
@@ -10477,7 +12145,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-MW-CLEVELAND",
@@ -10656,7 +12340,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage potatoes"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-DEN",
@@ -10830,7 +12534,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage onions"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup thinly sliced spring onions (greens and whites)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-MW-DEN",
@@ -11004,7 +12732,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-DEN",
@@ -11182,7 +12966,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "greens (cold frame)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-MW-DEN",
@@ -11356,7 +13168,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-DEN",
@@ -11530,7 +13366,55 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cherries"
+          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon almond extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups frozen cherries, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornstarch"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice of 1/2 lemon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "2-3 tablespoons water"
         }
       ],
       "market": "US-MW-DEN",
@@ -11713,7 +13597,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Palisade peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-DEN",
@@ -11886,7 +13770,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Olathe sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-DEN",
@@ -12060,7 +13968,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Rocky Ford melon"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups cubed melon (cantaloupe, honeydew, or watermelon)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-DEN",
@@ -12234,7 +14166,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-DEN",
@@ -12408,7 +14368,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash (storage)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-DEN",
@@ -12582,7 +14570,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-MW-DEN",
@@ -12761,7 +14765,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-DESMOINES",
@@ -12939,7 +14999,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cold-storage potatoes"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-DESMOINES",
@@ -13113,7 +15193,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-MW-DESMOINES",
@@ -13291,7 +15415,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-DESMOINES",
@@ -13465,7 +15613,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-DESMOINES",
@@ -13636,7 +15784,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-MW-DESMOINES",
@@ -13811,7 +15975,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-DESMOINES",
@@ -13985,7 +16173,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-MW-DESMOINES",
@@ -14160,7 +16392,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-DESMOINES",
@@ -14338,7 +16626,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-MW-DESMOINES",
@@ -14514,7 +16838,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-DESMOINES",
@@ -14688,7 +17040,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-MW-DESMOINES",
@@ -14867,7 +17235,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-DETROIT",
@@ -15042,7 +17466,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cold-storage potatoes"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-DETROIT",
@@ -15213,7 +17657,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-MW-DETROIT",
@@ -15388,7 +17876,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-DETROIT",
@@ -15556,7 +18044,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-DETROIT",
@@ -15727,7 +18239,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-MW-DETROIT",
@@ -15899,7 +18427,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-MW-DETROIT",
@@ -16071,7 +18615,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-DETROIT",
@@ -16242,7 +18810,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-DETROIT",
@@ -16417,7 +19041,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pears"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups diced firm pears"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon nutmeg"
         }
       ],
       "market": "US-MW-DETROIT",
@@ -16590,7 +19242,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-DETROIT",
@@ -16761,7 +19441,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Michigan dry beans"
+          "qty_name": "3 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 teaspoons garlic powder"
+        },
+        {
+          "price": null,
+          "qty_name": "Red pepper flakes, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "Black pepper, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 teaspoons dry mustard powder"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs, slightly beaten"
+        },
+        {
+          "price": null,
+          "qty_name": "16 ounces sharp cheddar cheese, freshly grated"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 lbs of ground turkey sausage (can substitute with pork or chicken sausage)"
         }
       ],
       "market": "US-MW-DETROIT",
@@ -16936,7 +19648,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage potatoes"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-FARGO",
@@ -17092,7 +19824,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cold-storage carrots"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-FARGO",
@@ -17248,7 +20000,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-MW-FARGO",
@@ -17408,7 +20204,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-FARGO",
@@ -17564,7 +20384,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-FARGO",
@@ -17717,7 +20537,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-MW-FARGO",
@@ -17874,7 +20710,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-FARGO",
@@ -18030,7 +20890,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-MW-FARGO",
@@ -18188,7 +21076,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-FARGO",
@@ -18344,7 +21260,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-MW-FARGO",
@@ -18502,7 +21454,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-MW-FARGO",
@@ -18661,7 +21629,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage carrots"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-FARGO",
@@ -18819,7 +21807,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-INDY",
@@ -18995,7 +22039,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cold-storage potatoes"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-INDY",
@@ -19167,7 +22231,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-MW-INDY",
@@ -19343,7 +22451,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-INDY",
@@ -19515,7 +22647,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-INDY",
@@ -19684,7 +22816,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-MW-INDY",
@@ -19857,7 +23005,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-INDY",
@@ -20029,7 +23201,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-MW-INDY",
@@ -20202,7 +23418,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-INDY",
@@ -20378,7 +23650,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-MW-INDY",
@@ -20552,7 +23860,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-INDY",
@@ -20724,7 +24060,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "popcorn (Indiana-grown)"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "4 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons butter"
+        },
+        {
+          "price": null,
+          "qty_name": "4 slices prosciutto"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons pesto"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup parmesan cheese, shaved"
         }
       ],
       "market": "US-MW-INDY",
@@ -20902,7 +24270,47 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "ranch beef (value-added)"
+          "qty_name": "Batter:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup pickle juice"
+        },
+        {
+          "price": null,
+          "qty_name": "30-40 sliced pickles"
+        },
+        {
+          "price": null,
+          "qty_name": "30-40 popsicle sticks\r\n\r\n\r\n \r\n\r\nDipping Sauce:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup of your favorite ranch dressing"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 tablespoons sriracha or to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon lemon juice"
         }
       ],
       "market": "US-MW-JACKSONHOLE",
@@ -21085,7 +24493,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "root vegetables (storage)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-JACKSONHOLE",
@@ -21265,7 +24693,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey (storage)"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-MW-JACKSONHOLE",
@@ -21448,7 +24892,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "ranch dairy butter (value-added)"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-MW-JACKSONHOLE",
@@ -21630,7 +25102,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-JACKSONHOLE",
@@ -21810,7 +25306,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-MW-JACKSONHOLE",
@@ -21990,7 +25514,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sugar snap peas"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups snap peas, strings removed, thinly sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons chopped dill"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-JACKSONHOLE",
@@ -22172,7 +25724,59 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "raspberries"
+          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 large eggs, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sour cream, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup buttermilk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup (2 sticks) butter, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 lb powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup white chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup heavy cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup raspberries, to top"
         }
       ],
       "market": "US-MW-JACKSONHOLE",
@@ -22359,7 +25963,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "root vegetables"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-JACKSONHOLE",
@@ -22539,7 +26163,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-JACKSONHOLE",
@@ -22719,7 +26371,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash (storage)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-JACKSONHOLE",
@@ -22899,7 +26579,47 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "ranch lamb (value-added)"
+          "qty_name": "Batter:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup pickle juice"
+        },
+        {
+          "price": null,
+          "qty_name": "30-40 sliced pickles"
+        },
+        {
+          "price": null,
+          "qty_name": "30-40 popsicle sticks\r\n\r\n\r\n \r\n\r\nDipping Sauce:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup of your favorite ranch dressing"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 tablespoons sriracha or to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon lemon juice"
         }
       ],
       "market": "US-MW-JACKSONHOLE",
@@ -23084,7 +26804,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-KC",
@@ -23242,7 +27018,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cold-storage sweet potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-MW-KC",
@@ -23398,7 +27202,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-MW-KC",
@@ -23556,7 +27404,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-KC",
@@ -23707,7 +27555,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-MW-KC",
@@ -23862,7 +27726,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blackberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-MW-KC",
@@ -24017,7 +27897,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-KC",
@@ -24171,7 +28075,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-KC",
@@ -24324,7 +28228,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-KC",
@@ -24482,7 +28442,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pears"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups diced firm pears"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon nutmeg"
         }
       ],
       "market": "US-MW-KC",
@@ -24638,7 +28626,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-MW-KC",
@@ -24794,7 +28810,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pecans (Missouri)"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-MW-KC",
@@ -24952,7 +28996,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-MILWAUKEE",
@@ -25131,7 +29231,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cold-storage potatoes"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-MILWAUKEE",
@@ -25306,7 +29426,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-MW-MILWAUKEE",
@@ -25485,7 +29649,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-MILWAUKEE",
@@ -25660,7 +29848,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-MILWAUKEE",
@@ -25832,7 +30020,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-MW-MILWAUKEE",
@@ -26008,7 +30212,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-MILWAUKEE",
@@ -26183,7 +30411,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-MW-MILWAUKEE",
@@ -26359,7 +30631,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-MILWAUKEE",
@@ -26538,7 +30866,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cranberries"
+          "qty_name": "1 Box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice and zest of two medium oranges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup real maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup dried cranberries"
         }
       ],
       "market": "US-MW-MILWAUKEE",
@@ -26715,7 +31075,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-MILWAUKEE",
@@ -26890,7 +31278,19 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "aged cheddar (Wisconsin)"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix (prepped)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 tablespoon butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 slice cheddar cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup prepared macaroni and cheese"
         }
       ],
       "market": "US-MW-MILWAUKEE",
@@ -27067,7 +31467,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage potatoes"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-MINNEAPOLIS2",
@@ -27222,7 +31642,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cold-storage carrots"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-MINNEAPOLIS2",
@@ -27377,7 +31817,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-MW-MINNEAPOLIS2",
@@ -27536,7 +32020,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens (high tunnel)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-MW-MINNEAPOLIS2",
@@ -27691,7 +32203,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-MINNEAPOLIS2",
@@ -27846,7 +32382,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-MW-MINNEAPOLIS2",
@@ -28002,7 +32554,15 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "wild blueberries"
+          "qty_name": "2 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 slice cheddar cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 slice mozzarella cheese"
         }
       ],
       "market": "US-MW-MINNEAPOLIS2",
@@ -28159,7 +32719,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-MINNEAPOLIS2",
@@ -28314,7 +32898,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-MINNEAPOLIS2",
@@ -28469,7 +33081,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-MW-MINNEAPOLIS2",
@@ -28626,7 +33274,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage carrots"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-MINNEAPOLIS2",
@@ -28781,7 +33449,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "wild rice (Minnesota)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups cooked wild rice, cooled"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded sharp cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "2 scallions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-MINNEAPOLIS2",
@@ -28939,7 +33635,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "root vegetables (storage)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-MISSOULA",
@@ -29106,7 +33822,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-MISSOULA",
@@ -29277,7 +34049,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey (storage)"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-MW-MISSOULA",
@@ -29447,7 +34235,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-MW-MISSOULA",
@@ -29614,7 +34430,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-MISSOULA",
@@ -29778,7 +34594,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-MISSOULA",
@@ -29945,7 +34785,55 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Flathead cherries"
+          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon almond extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups frozen cherries, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornstarch"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice of 1/2 lemon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "2-3 tablespoons water"
         }
       ],
       "market": "US-MW-MISSOULA",
@@ -30121,7 +35009,19 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "huckleberries"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix, cooked as 8 flapjacks"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups fresh huckleberries or salmonberries"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon lemon juice"
         }
       ],
       "market": "US-MW-MISSOULA",
@@ -30289,7 +35189,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-MISSOULA",
@@ -30460,7 +35416,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-MISSOULA",
@@ -30627,7 +35611,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples (storage)"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-MISSOULA",
@@ -30798,7 +35838,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-MW-MISSOULA",
@@ -30970,7 +36026,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-OMAHA",
@@ -31153,7 +36265,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cold-storage potatoes"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-OMAHA",
@@ -31332,7 +36464,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-MW-OMAHA",
@@ -31515,7 +36691,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-OMAHA",
@@ -31691,7 +36867,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-OMAHA",
@@ -31870,7 +37070,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-MW-OMAHA",
@@ -32050,7 +37266,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-OMAHA",
@@ -32229,7 +37469,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-MW-OMAHA",
@@ -32409,7 +37693,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-OMAHA",
@@ -32592,7 +37932,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-MW-OMAHA",
@@ -32773,7 +38149,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-OMAHA",
@@ -32952,7 +38356,59 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "popcorn (Nebraska)"
+          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 large eggs, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sour cream, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup buttermilk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup (2 sticks) butter, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 lb powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup white chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup heavy cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup raspberries, to top"
         }
       ],
       "market": "US-MW-OMAHA",
@@ -33140,7 +38596,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "root vegetables (storage)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-PARKCITY-84098",
@@ -33321,7 +38797,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples (storage)"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-PARKCITY-84098",
@@ -33506,7 +39038,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "honey (storage)"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-MW-PARKCITY-84098",
@@ -33690,7 +39238,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "dairy butter (value-added)"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-MW-PARKCITY-84098",
@@ -33873,7 +39449,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-PARKCITY-84098",
@@ -34054,7 +39654,59 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "raspberries"
+          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 large eggs, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sour cream, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup buttermilk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup (2 sticks) butter, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 lb powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup white chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup heavy cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup raspberries, to top"
         }
       ],
       "market": "US-MW-PARKCITY-84098",
@@ -34242,7 +39894,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-PARKCITY-84098",
@@ -34422,7 +40074,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "summer squash"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded summer squash (or chayote/mirliton)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-PARKCITY-84098",
@@ -34603,7 +40279,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-PARKCITY-84098",
@@ -34784,7 +40488,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-PARKCITY-84098",
@@ -34969,7 +40729,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash (storage)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-PARKCITY-84098",
@@ -35150,7 +40938,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-MW-PARKCITY-84098",
@@ -35336,7 +41140,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "citrus (oranges, grapefruit)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-PHX2",
@@ -35499,7 +41331,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "citrus and leafy greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-MW-PHX2",
@@ -35662,7 +41522,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens and snap peas"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-MW-PHX2",
@@ -35825,7 +41713,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring onions and carrots"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup thinly sliced spring onions (greens and whites)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-MW-PHX2",
@@ -35988,7 +41900,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring wheat berries and early melons"
+          "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 tablespoons butter, cold and cubed (or shredded)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup frozen mixed berries"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lemon zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon whole milk"
         }
       ],
       "market": "US-MW-PHX2",
@@ -36154,7 +42094,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cantaloupe"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups cubed melon (cantaloupe, honeydew, or watermelon)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-PHX2",
@@ -36317,7 +42281,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "watermelon"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups cubed melon (cantaloupe, honeydew, or watermelon)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-PHX2",
@@ -36480,7 +42468,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "melons and okra"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups diced fresh okra"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup neutral oil, for frying"
         }
       ],
       "market": "US-MW-PHX2",
@@ -36643,7 +42659,59 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "melons and heat-set peppers"
+          "qty_name": "1-pound boneless skinless chicken breasts, cut into 1-inch pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon garlic powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon onion powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/8 teaspoon pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon water"
+        },
+        {
+          "price": null,
+          "qty_name": "Olive oil spray \r\n\t \r\n\r\n\r\nHot-Honey Sauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 tablespoons hot sauce (adjust to taste)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch of salt"
         }
       ],
       "market": "US-MW-PHX2",
@@ -36809,7 +42877,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "fall cool-season greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-MW-PHX2",
@@ -36972,7 +43068,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pecans and winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-PHX2",
@@ -37135,7 +43259,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "citrus (mandarins, grapefruit)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup mandarin juice"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon mandarin zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-PHX2",
@@ -37300,7 +43448,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-STL",
@@ -37486,7 +43690,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cold-storage sweet potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-MW-STL",
@@ -37670,7 +43902,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-MW-STL",
@@ -37856,7 +44132,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-STL",
@@ -38035,7 +44311,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-MW-STL",
@@ -38218,7 +44510,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blackberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-MW-STL",
@@ -38401,7 +44709,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-STL",
@@ -38583,7 +44915,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-STL",
@@ -38764,7 +45096,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-STL",
@@ -38950,7 +45338,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-MW-STL",
@@ -39134,7 +45558,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-STL",
@@ -39316,7 +45768,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-MW-STL",
@@ -39503,7 +45971,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-TC",
@@ -39682,7 +46206,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cold-storage potatoes"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-TC",
@@ -39857,7 +46401,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-MW-TC",
@@ -40036,7 +46624,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-TC",
@@ -40211,7 +46823,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-TC",
@@ -40383,7 +46995,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-MW-TC",
@@ -40559,7 +47187,59 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "raspberries"
+          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 large eggs, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sour cream, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup buttermilk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup (2 sticks) butter, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 lb powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup white chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup heavy cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup raspberries, to top"
         }
       ],
       "market": "US-MW-TC",
@@ -40741,7 +47421,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-TC",
@@ -40916,7 +47620,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-TC",
@@ -41095,7 +47855,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cranberries"
+          "qty_name": "1 Box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice and zest of two medium oranges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup real maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup dried cranberries"
         }
       ],
       "market": "US-MW-TC",
@@ -41272,7 +48064,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-TC",
@@ -41447,7 +48267,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "wild rice (Minnesota)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups cooked wild rice, cooled"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded sharp cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "2 scallions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-TC",
@@ -41625,7 +48473,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "root vegetables (storage)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-WASATCH",
@@ -41801,7 +48669,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-WASATCH",
@@ -41981,7 +48905,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey (storage)"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-MW-WASATCH",
@@ -42160,7 +49100,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "ranch dairy butter (value-added)"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-MW-WASATCH",
@@ -42338,7 +49306,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-WASATCH",
@@ -42514,7 +49506,59 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "raspberries"
+          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 large eggs, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sour cream, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup buttermilk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup (2 sticks) butter, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 lb powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup white chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup heavy cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup raspberries, to top"
         }
       ],
       "market": "US-MW-WASATCH",
@@ -42697,7 +49741,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-WASATCH",
@@ -42872,7 +49916,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "summer squash"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded summer squash (or chayote/mirliton)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-WASATCH",
@@ -43048,7 +50116,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-WASATCH",
@@ -43228,7 +50352,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-WASATCH",
@@ -43404,7 +50556,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash (storage)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-WASATCH",
@@ -43580,7 +50760,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-MW-WASATCH",
@@ -43761,7 +50957,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-MW-WASATCH-SLC",
@@ -43943,7 +51195,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "root vegetables (storage)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-MW-WASATCH-SLC",
@@ -44121,7 +51393,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey (storage)"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-MW-WASATCH-SLC",
@@ -44302,7 +51590,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-WASATCH-SLC",
@@ -44477,7 +51765,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-WASATCH-SLC",
@@ -44655,7 +51967,55 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cherries"
+          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon almond extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups frozen cherries, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornstarch"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice of 1/2 lemon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "2-3 tablespoons water"
         }
       ],
       "market": "US-MW-WASATCH-SLC",
@@ -44842,7 +52202,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-MW-WASATCH-SLC",
@@ -45019,7 +52379,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-MW-WASATCH-SLC",
@@ -45197,7 +52581,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-MW-WASATCH-SLC",
@@ -45376,7 +52804,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-WASATCH-SLC",
@@ -45554,7 +53010,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash (storage)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-WASATCH-SLC",
@@ -45732,7 +53216,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-MW-WASATCH-SLC",
@@ -45915,7 +53415,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-NE-BALTIMORE",
@@ -46083,7 +53639,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-NE-BALTIMORE",
@@ -46251,7 +53851,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens (high tunnel)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-NE-BALTIMORE",
@@ -46415,7 +54043,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-NE-BALTIMORE",
@@ -46576,7 +54204,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-NE-BALTIMORE",
@@ -46741,7 +54385,55 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet cherries"
+          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon almond extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups frozen cherries, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornstarch"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice of 1/2 lemon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "2-3 tablespoons water"
         }
       ],
       "market": "US-NE-BALTIMORE",
@@ -46914,7 +54606,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-NE-BALTIMORE",
@@ -47078,7 +54794,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "heirloom tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-NE-BALTIMORE",
@@ -47243,7 +55003,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-NE-BALTIMORE",
@@ -47406,7 +55166,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-NE-BALTIMORE",
@@ -47574,7 +55390,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-NE-BALTIMORE",
@@ -47740,7 +55584,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-NE-BALTIMORE",
@@ -47906,7 +55778,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-NE-BOS",
@@ -48065,7 +55993,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-NE-BOS",
@@ -48224,7 +56196,59 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "oysters (Massachusetts aquaculture)"
+          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 large eggs, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sour cream, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup buttermilk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup (2 sticks) butter, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 lb powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup white chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup heavy cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup raspberries, to top"
         }
       ],
       "market": "US-NE-BOS",
@@ -48386,7 +56410,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-NE-BOS",
@@ -48541,7 +56589,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-NE-BOS",
@@ -48693,7 +56741,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-NE-BOS",
@@ -48849,7 +56913,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-NE-BOS",
@@ -49005,7 +57085,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-NE-BOS",
@@ -49159,7 +57239,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-NE-BOS",
@@ -49318,7 +57454,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "fresh cider"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-NE-BOS",
@@ -49474,7 +57654,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cranberries"
+          "qty_name": "1 Box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice and zest of two medium oranges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup real maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup dried cranberries"
         }
       ],
       "market": "US-NE-BOS",
@@ -49631,7 +57843,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-NE-BOS",
@@ -49788,7 +58028,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-NE-BURLINGTON",
@@ -49972,7 +58256,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-NE-BURLINGTON",
@@ -50156,7 +58496,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter greens (high tunnel)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-NE-BURLINGTON",
@@ -50336,7 +58704,19 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cheddar cheese"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix (prepped)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 tablespoon butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 slice cheddar cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup prepared macaroni and cheese"
         }
       ],
       "market": "US-NE-BURLINGTON",
@@ -50516,7 +58896,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-NE-BURLINGTON",
@@ -50693,7 +59073,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-NE-BURLINGTON",
@@ -50874,7 +59270,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-NE-BURLINGTON",
@@ -51055,7 +59467,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-NE-BURLINGTON",
@@ -51235,7 +59671,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-NE-BURLINGTON",
@@ -51419,7 +59911,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cider (fresh-pressed)"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-NE-BURLINGTON",
@@ -51600,7 +60136,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-NE-BURLINGTON",
@@ -51780,7 +60344,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple candy (value-added)"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-NE-BURLINGTON",
@@ -51964,7 +60556,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-NE-DC",
@@ -52127,7 +60775,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "honey"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-NE-DC",
@@ -52289,7 +60953,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-NE-DC",
@@ -52452,7 +61160,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-NE-DC",
@@ -52608,7 +61316,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-NE-DC",
@@ -52768,7 +61492,55 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet cherries"
+          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon almond extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups frozen cherries, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornstarch"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice of 1/2 lemon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "2-3 tablespoons water"
         }
       ],
       "market": "US-NE-DC",
@@ -52936,7 +61708,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-NE-DC",
@@ -53094,7 +61866,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blackberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-NE-DC",
@@ -53254,7 +62042,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-NE-DC",
@@ -53417,7 +62261,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apple butter (value-added)"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-NE-DC",
@@ -53578,7 +62450,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-NE-DC",
@@ -53739,7 +62647,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-NE-DC",
@@ -53900,7 +62836,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-NE-HARTFORD",
@@ -54058,7 +63050,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-NE-HARTFORD",
@@ -54216,7 +63252,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens (high tunnel)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-NE-HARTFORD",
@@ -54370,7 +63434,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-NE-HARTFORD",
@@ -54524,7 +63612,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-NE-HARTFORD",
@@ -54675,7 +63763,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-NE-HARTFORD",
@@ -54830,7 +63934,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-NE-HARTFORD",
@@ -54984,7 +64112,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-NE-HARTFORD",
@@ -55139,7 +64311,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-NE-HARTFORD",
@@ -55297,7 +64525,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-NE-HARTFORD",
@@ -55453,7 +64717,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-NE-HARTFORD",
@@ -55607,7 +64899,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "honey"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-NE-HARTFORD",
@@ -55766,7 +65074,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-NE-NYC",
@@ -55923,7 +65287,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-NE-NYC",
@@ -56080,7 +65488,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens (high tunnel)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-NE-NYC",
@@ -56233,7 +65669,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-NE-NYC",
@@ -56383,7 +65819,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-NE-NYC",
@@ -56537,7 +65989,55 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet cherries"
+          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon almond extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups frozen cherries, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornstarch"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice of 1/2 lemon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "2-3 tablespoons water"
         }
       ],
       "market": "US-NE-NYC",
@@ -56699,7 +66199,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "black-dirt onions"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup thinly sliced spring onions (greens and whites)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-NE-NYC",
@@ -56852,7 +66376,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-NE-NYC",
@@ -57004,7 +66528,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-NE-NYC",
@@ -57161,7 +66741,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "fresh cider"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-NE-NYC",
@@ -57315,7 +66939,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-NE-NYC",
@@ -57468,7 +67120,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage onions"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup thinly sliced spring onions (greens and whites)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-NE-NYC",
@@ -57623,7 +67299,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "mushrooms"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup shredded sharp cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-NE-PHILLY",
@@ -57811,7 +67515,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cremini mushrooms"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup shredded sharp cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-NE-PHILLY",
@@ -57999,7 +67731,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "shiitake mushrooms"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup shredded sharp cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-NE-PHILLY",
@@ -58187,7 +67947,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-NE-PHILLY",
@@ -58370,7 +68130,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-NE-PHILLY",
@@ -58557,7 +68333,55 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet cherries"
+          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon almond extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups frozen cherries, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornstarch"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice of 1/2 lemon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "2-3 tablespoons water"
         }
       ],
       "market": "US-NE-PHILLY",
@@ -58752,7 +68576,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-NE-PHILLY",
@@ -58938,7 +68786,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-NE-PHILLY",
@@ -59125,7 +69017,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "portabella mushrooms"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup shredded sharp cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-NE-PHILLY",
@@ -59313,7 +69233,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-NE-PHILLY",
@@ -59503,7 +69479,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "oyster mushrooms"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup shredded sharp cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-NE-PHILLY",
@@ -59691,7 +69695,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maitake mushrooms"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup shredded sharp cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-NE-PHILLY",
@@ -59881,7 +69913,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-NE-PROVIDENCE",
@@ -60067,7 +70155,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "maple syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-NE-PROVIDENCE",
@@ -60253,7 +70385,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens (high tunnel)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-NE-PROVIDENCE",
@@ -60435,7 +70595,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-NE-PROVIDENCE",
@@ -60617,7 +70801,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-NE-PROVIDENCE",
@@ -60796,7 +70980,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-NE-PROVIDENCE",
@@ -60979,7 +71179,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-NE-PROVIDENCE",
@@ -61162,7 +71378,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-NE-PROVIDENCE",
@@ -61344,7 +71584,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-NE-PROVIDENCE",
@@ -61530,7 +71826,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "fresh cider"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-NE-PROVIDENCE",
@@ -61713,7 +72053,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cranberries"
+          "qty_name": "1 Box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice and zest of two medium oranges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup real maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup dried cranberries"
         }
       ],
       "market": "US-NE-PROVIDENCE",
@@ -61897,7 +72269,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-NE-PROVIDENCE",
@@ -62081,7 +72481,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "collards"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-NE-RALEIGH",
@@ -62269,7 +72697,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes (storage)"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-NE-RALEIGH",
@@ -62459,7 +72915,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-NE-RALEIGH",
@@ -62647,7 +73131,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-NE-RALEIGH",
@@ -62836,7 +73336,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries (early)"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-NE-RALEIGH",
@@ -63025,7 +73541,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-NE-RALEIGH",
@@ -63214,7 +73746,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-NE-RALEIGH",
@@ -63403,7 +73979,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-NE-RALEIGH",
@@ -63590,7 +74166,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "muscadine grapes"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-NE-RALEIGH",
@@ -63778,7 +74382,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-NE-RALEIGH",
@@ -63970,7 +74630,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-NE-RALEIGH",
@@ -64160,7 +74848,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pecans (coastal plain)"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-NE-RALEIGH",
@@ -64354,7 +75086,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "kale and winter greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SC-AUSTIN",
@@ -64528,7 +75288,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cabbage"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups finely shredded green cabbage"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-SC-AUSTIN",
@@ -64703,7 +75487,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring onions"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup thinly sliced spring onions (greens and whites)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-SC-AUSTIN",
@@ -64877,7 +75685,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SC-AUSTIN",
@@ -65052,7 +75876,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches (early varieties)"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-SC-AUSTIN",
@@ -65225,7 +76049,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-SC-AUSTIN",
@@ -65398,7 +76222,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blackberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SC-AUSTIN",
@@ -65573,7 +76413,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches (late varieties) and tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SC-AUSTIN",
@@ -65748,7 +76632,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "wine grapes and figs"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup chopped ripe figs"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
         }
       ],
       "market": "US-SC-AUSTIN",
@@ -65923,7 +76831,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pecans"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SC-AUSTIN",
@@ -66099,7 +77035,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pecans and sweet potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SC-AUSTIN",
@@ -66275,7 +77239,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter greens and citrus"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SC-AUSTIN",
@@ -66451,7 +77443,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "collard greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SC-DALLAS",
@@ -66608,7 +77628,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "kale"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SC-DALLAS",
@@ -66765,7 +77813,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens and radishes"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SC-DALLAS",
@@ -66922,7 +77998,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SC-DALLAS",
@@ -67080,7 +78172,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "squash and new potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SC-DALLAS",
@@ -67239,7 +78359,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn and tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SC-DALLAS",
@@ -67397,7 +78561,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes and peaches"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SC-DALLAS",
@@ -67555,7 +78763,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "watermelon and okra"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups diced fresh okra"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup neutral oil, for frying"
         }
       ],
       "market": "US-SC-DALLAS",
@@ -67712,7 +78948,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peppers and okra"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "12 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups bell peppers, seeded and chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup crumbled feta cheese"
         }
       ],
       "market": "US-SC-DALLAS",
@@ -67872,7 +79136,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes and pecans"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SC-DALLAS",
@@ -68031,7 +79323,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pecans and pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-SC-DALLAS",
@@ -68190,7 +79518,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SC-DALLAS",
@@ -68349,7 +79705,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "mustard and collard greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SC-HOUSTON",
@@ -68506,7 +79890,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cabbage"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups finely shredded green cabbage"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-SC-HOUSTON",
@@ -68664,7 +80072,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SC-HOUSTON",
@@ -68821,7 +80257,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries and spring onions"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup thinly sliced spring onions (greens and whites)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-SC-HOUSTON",
@@ -68978,7 +80438,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "squash and tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SC-HOUSTON",
@@ -69136,7 +80640,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes and southern peas"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SC-HOUSTON",
@@ -69294,7 +80842,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "okra and watermelon"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups diced fresh okra"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup neutral oil, for frying"
         }
       ],
       "market": "US-SC-HOUSTON",
@@ -69451,7 +81027,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "okra and peppers"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "12 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups bell peppers, seeded and chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup crumbled feta cheese"
         }
       ],
       "market": "US-SC-HOUSTON",
@@ -69611,7 +81215,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes and southern peas"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SC-HOUSTON",
@@ -69770,7 +81402,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes and pecans"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SC-HOUSTON",
@@ -69929,7 +81589,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pecans and satsuma citrus"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup mandarin juice"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon mandarin zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SC-HOUSTON",
@@ -70086,7 +81770,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter greens and satsuma citrus"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup mandarin juice"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon mandarin zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SC-HOUSTON",
@@ -70245,7 +81953,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SC-SANANTONIO",
@@ -70422,7 +82158,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cabbage and early strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SC-SANANTONIO",
@@ -70600,7 +82352,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SC-SANANTONIO",
@@ -70778,7 +82546,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1015 Texas Sweet onions"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SC-SANANTONIO",
@@ -70957,7 +82753,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "squash and tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SC-SANANTONIO",
@@ -71135,7 +82975,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes and watermelon"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SC-SANANTONIO",
@@ -71313,7 +83197,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "watermelon and okra"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups diced fresh okra"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup neutral oil, for frying"
         }
       ],
       "market": "US-SC-SANANTONIO",
@@ -71490,7 +83402,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peppers and okra"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "12 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups bell peppers, seeded and chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup crumbled feta cheese"
         }
       ],
       "market": "US-SC-SANANTONIO",
@@ -71670,7 +83610,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "southern peas and peppers"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SC-SANANTONIO",
@@ -71848,7 +83832,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pecans and sweet potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SC-SANANTONIO",
@@ -72027,7 +84039,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pecans and citrus"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SC-SANANTONIO",
@@ -72206,7 +84246,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "citrus and winter greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SC-SANANTONIO",
@@ -72385,7 +84453,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sourwood honey (storage)"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-SE-ASHEVILLE",
@@ -72581,7 +84665,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples (storage)"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-SE-ASHEVILLE",
@@ -72778,7 +84918,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cold-hardy greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SE-ASHEVILLE",
@@ -72971,7 +85139,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "ramps"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups thinly sliced leeks (or wild ramps), cleaned well"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, plus more for the pan"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-SE-ASHEVILLE",
@@ -73164,7 +85360,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SE-ASHEVILLE",
@@ -73357,7 +85581,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-ASHEVILLE",
@@ -73551,7 +85791,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sourwood honey"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-SE-ASHEVILLE",
@@ -73747,7 +86003,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SE-ASHEVILLE",
@@ -73941,7 +86241,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "mountain apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-SE-ASHEVILLE",
@@ -74138,7 +86494,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-SE-ASHEVILLE",
@@ -74335,7 +86747,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SE-ASHEVILLE",
@@ -74528,7 +86968,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash (storage)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SE-ASHEVILLE",
@@ -74723,7 +87191,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "turnips"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-SE-ATL",
@@ -74881,7 +87369,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SE-ATL",
@@ -75039,7 +87555,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-ATL",
@@ -75198,7 +87730,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Vidalia onions (early)"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SE-ATL",
@@ -75357,7 +87933,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Vidalia onions"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SE-ATL",
@@ -75516,7 +88136,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-ATL",
@@ -75675,7 +88311,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-SE-ATL",
@@ -75832,7 +88468,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "watermelon"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups cubed melon (cantaloupe, honeydew, or watermelon)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-ATL",
@@ -75990,7 +88650,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "muscadine grapes"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-ATL",
@@ -76148,7 +88836,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pecans"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-ATL",
@@ -76308,7 +89024,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-ATL",
@@ -76468,7 +89212,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "collards"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SE-ATL",
@@ -76628,7 +89400,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "collards"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SE-BIRMINGHAM",
@@ -76800,7 +89600,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "turnips"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-SE-BIRMINGHAM",
@@ -76972,7 +89792,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-BIRMINGHAM",
@@ -77145,7 +89981,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-SE-BIRMINGHAM",
@@ -77314,7 +90150,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches (clingstone)"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-SE-BIRMINGHAM",
@@ -77485,7 +90321,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches (freestone)"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-SE-BIRMINGHAM",
@@ -77656,7 +90492,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches (late varieties)"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-SE-BIRMINGHAM",
@@ -77827,7 +90663,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blackberries (late)"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-BIRMINGHAM",
@@ -78000,7 +90852,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "muscadine grapes"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-BIRMINGHAM",
@@ -78172,7 +91052,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pecans"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-BIRMINGHAM",
@@ -78346,7 +91254,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-BIRMINGHAM",
@@ -78520,7 +91456,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes (storage)"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-BIRMINGHAM",
@@ -78696,7 +91660,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "collards"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SE-CHARLOTTE",
@@ -78883,7 +91875,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes (storage)"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-CHARLOTTE",
@@ -79072,7 +92092,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SE-CHARLOTTE",
@@ -79259,7 +92307,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-CHARLOTTE",
@@ -79447,7 +92511,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries (early)"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-CHARLOTTE",
@@ -79635,7 +92715,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-CHARLOTTE",
@@ -79823,7 +92919,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SE-CHARLOTTE",
@@ -80011,7 +93151,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-SE-CHARLOTTE",
@@ -80197,7 +93337,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "muscadine grapes"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-CHARLOTTE",
@@ -80384,7 +93552,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-SE-CHARLOTTE",
@@ -80575,7 +93799,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-CHARLOTTE",
@@ -80764,7 +94016,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "butternut squash (storage)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SE-CHARLOTTE",
@@ -80953,7 +94233,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "collards"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SE-COAST",
@@ -81133,7 +94441,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SE-COAST",
@@ -81313,7 +94649,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-COAST",
@@ -81494,7 +94846,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-SE-COAST",
@@ -81671,7 +95023,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-SE-COAST",
@@ -81850,7 +95202,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "watermelon"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups cubed melon (cantaloupe, honeydew, or watermelon)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-COAST",
@@ -82030,7 +95406,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "okra"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups diced fresh okra"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup neutral oil, for frying"
         }
       ],
       "market": "US-SE-COAST",
@@ -82210,7 +95614,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "field peas (cowpeas)"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SE-COAST",
@@ -82391,7 +95839,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "muscadine grapes"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-COAST",
@@ -82571,7 +96047,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "boiled peanuts"
+          "qty_name": "1 cup Protein Oatmeal (dry)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup shelled boiled peanuts, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup peanut butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch of salt"
         }
       ],
       "market": "US-SE-COAST",
@@ -82752,7 +96248,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-COAST",
@@ -82934,7 +96458,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes (storage)"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-COAST",
@@ -83118,7 +96670,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-FL",
@@ -83310,7 +96878,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SE-FL",
@@ -83502,7 +97114,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-FL",
@@ -83693,7 +97329,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "carambola (starfruit)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups peeled fresh lychees"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup sliced starfruit (carambola)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-FL",
@@ -83884,7 +97548,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "mango"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-SE-FL",
@@ -84079,7 +97787,59 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "passionfruit"
+          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 large eggs, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sour cream, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup buttermilk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup (2 sticks) butter, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 lb powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup white chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup heavy cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup raspberries, to top"
         }
       ],
       "market": "US-SE-FL",
@@ -84277,7 +98037,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "lychee"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups peeled fresh lychees"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup sliced starfruit (carambola)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-FL",
@@ -84468,7 +98256,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "guava"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup guava nectar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chopped guava paste"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SE-FL",
@@ -84659,7 +98475,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "avocado (Florida)"
+          "qty_name": "1/2 large avocado"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon spirulina powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Blueberry Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "Pure maple syrup, to top"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh blueberries, to top"
         }
       ],
       "market": "US-SE-FL",
@@ -84851,7 +98687,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "carambola (fall)"
+          "qty_name": "Apple Cinnamon Compote"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 pounds apples"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plus 1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lemon juice\r\n\r\n\r\n \r\n\r\nButtermilk & Honey Flapjacks"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "4 teaspoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons unsalted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-SE-FL",
@@ -85039,7 +98919,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cucumbers (fall)"
+          "qty_name": "Apple Cinnamon Compote"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 pounds apples"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plus 1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lemon juice\r\n\r\n\r\n \r\n\r\nButtermilk & Honey Flapjacks"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "4 teaspoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons unsalted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-SE-FL",
@@ -85227,7 +99151,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "green beans (winter)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups trimmed green beans, cut in 1/2-inch pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-SE-FL",
@@ -85422,7 +99370,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "collards"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SE-JACKSON",
@@ -85605,7 +99581,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes (storage)"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-JACKSON",
@@ -85790,7 +99794,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SE-JACKSON",
@@ -85973,7 +100005,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-JACKSON",
@@ -86157,7 +100205,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries (early)"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-JACKSON",
@@ -86341,7 +100405,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-JACKSON",
@@ -86525,7 +100605,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SE-JACKSON",
@@ -86709,7 +100833,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "watermelon"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups cubed melon (cantaloupe, honeydew, or watermelon)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-JACKSON",
@@ -86892,7 +101040,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "muscadine grapes"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-JACKSON",
@@ -87075,7 +101251,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-JACKSON",
@@ -87260,7 +101464,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pecans"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-JACKSON",
@@ -87445,7 +101677,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "butternut squash (storage)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SE-JACKSON",
@@ -87630,7 +101890,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-JAX",
@@ -87809,7 +102085,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cabbage (winter)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SE-JAX",
@@ -87987,7 +102291,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries (Bradford)"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-JAX",
@@ -88166,7 +102486,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries (early)"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-JAX",
@@ -88345,7 +102681,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-JAX",
@@ -88524,7 +102876,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "watermelon"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups cubed melon (cantaloupe, honeydew, or watermelon)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-JAX",
@@ -88702,7 +103078,11 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peanuts (green)"
+          "qty_name": "2 Peanut Butter Chocolate Chip Chewy Bars"
+        },
+        {
+          "price": null,
+          "qty_name": "1 banana, sliced"
         }
       ],
       "market": "US-SE-JAX",
@@ -88880,7 +103260,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-JAX",
@@ -89058,7 +103462,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peppers"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "12 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups bell peppers, seeded and chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup crumbled feta cheese"
         }
       ],
       "market": "US-SE-JAX",
@@ -89239,7 +103671,11 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peanuts (boiled)"
+          "qty_name": "2 Peanut Butter Chocolate Chip Chewy Bars"
+        },
+        {
+          "price": null,
+          "qty_name": "1 banana, sliced"
         }
       ],
       "market": "US-SE-JAX",
@@ -89417,7 +103853,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SE-JAX",
@@ -89596,7 +104076,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "satsuma citrus"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup mandarin juice"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon mandarin zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-JAX",
@@ -89776,7 +104280,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-SE-LOU",
@@ -89961,7 +104521,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey (storage)"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-SE-LOU",
@@ -90145,7 +104721,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-SE-LOU",
@@ -90323,7 +104899,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SE-LOU",
@@ -90504,7 +105108,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-LOU",
@@ -90686,7 +105306,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-LOU",
@@ -90867,7 +105511,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SE-LOU",
@@ -91049,7 +105737,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "heirloom tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SE-LOU",
@@ -91231,7 +105963,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-SE-LOU",
@@ -91416,7 +106204,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-SE-LOU",
@@ -91599,7 +106423,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-LOU",
@@ -91782,7 +106634,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "country ham (value-added)"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-LOU",
@@ -91967,7 +106847,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "collards"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SE-MEMPHIS",
@@ -92150,7 +107058,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes (storage)"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-MEMPHIS",
@@ -92335,7 +107271,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SE-MEMPHIS",
@@ -92518,7 +107482,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-MEMPHIS",
@@ -92702,7 +107682,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries (early)"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-MEMPHIS",
@@ -92886,7 +107882,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-MEMPHIS",
@@ -93070,7 +108082,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SE-MEMPHIS",
@@ -93254,7 +108310,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "watermelon"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups cubed melon (cantaloupe, honeydew, or watermelon)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-MEMPHIS",
@@ -93437,7 +108517,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "muscadine grapes"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-MEMPHIS",
@@ -93620,7 +108728,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-MEMPHIS",
@@ -93805,7 +108941,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pecans"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-MEMPHIS",
@@ -93990,7 +109154,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "butternut squash (storage)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SE-MEMPHIS",
@@ -94175,7 +109367,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "collards"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SE-NASH",
@@ -94360,7 +109580,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes (storage)"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-NASH",
@@ -94547,7 +109795,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SE-NASH",
@@ -94732,7 +110008,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-NASH",
@@ -94918,7 +110210,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries (early)"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-NASH",
@@ -95104,7 +110412,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-NASH",
@@ -95290,7 +110614,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SE-NASH",
@@ -95476,7 +110844,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-NASH",
@@ -95661,7 +111053,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-SE-NASH",
@@ -95850,7 +111298,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-SE-NASH",
@@ -96037,7 +111521,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-NASH",
@@ -96224,7 +111736,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sorghum syrup"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-SE-NASH",
@@ -96415,7 +111971,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "citrus (satsuma/navel)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup mandarin juice"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon mandarin zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-NOLA",
@@ -96609,7 +112189,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "crawfish"
+          "qty_name": "3/4 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 pound cooked seafood (Dungeness crab, crawfish tails, chopped halibut, or chopped clams)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons chopped fresh herbs (parsley, dill, or chives)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-SE-NOLA",
@@ -96803,7 +112411,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "mirlitons (spring)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup thinly sliced spring onions (greens and whites)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-SE-NOLA",
@@ -96997,7 +112629,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries (Ponchatoula)"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-NOLA",
@@ -97192,7 +112840,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Creole tomatoes (early)"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SE-NOLA",
@@ -97387,7 +113079,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Creole tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SE-NOLA",
@@ -97582,7 +113318,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "watermelon"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups cubed melon (cantaloupe, honeydew, or watermelon)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-NOLA",
@@ -97776,7 +113536,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "okra"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups diced fresh okra"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup neutral oil, for frying"
         }
       ],
       "market": "US-SE-NOLA",
@@ -97970,7 +113758,59 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "mirlitons"
+          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 large eggs, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sour cream, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup buttermilk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup (2 sticks) butter, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 lb powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup white chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup heavy cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup raspberries, to top"
         }
       ],
       "market": "US-SE-NOLA",
@@ -98171,7 +114011,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SE-NOLA",
@@ -98367,7 +114235,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "satsuma"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup mandarin juice"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon mandarin zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-NOLA",
@@ -98561,7 +114453,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "navel oranges (Louisiana)"
+          "qty_name": "1 Box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice and zest of two medium oranges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup real maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup dried cranberries"
         }
       ],
       "market": "US-SE-NOLA",
@@ -98759,7 +114683,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-TAMPA",
@@ -98936,7 +114876,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "green beans (winter)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups trimmed green beans, cut in 1/2-inch pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-SE-TAMPA",
@@ -99114,7 +115078,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries (festival peak)"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-TAMPA",
@@ -99291,7 +115271,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries (early)"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-TAMPA",
@@ -99468,7 +115464,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-TAMPA",
@@ -99645,7 +115657,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "watermelon"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups cubed melon (cantaloupe, honeydew, or watermelon)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-TAMPA",
@@ -99821,7 +115857,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "mango"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-SE-TAMPA",
@@ -100001,7 +116081,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "avocado (Florida)"
+          "qty_name": "1/2 large avocado"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon spirulina powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Blueberry Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "Pure maple syrup, to top"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh blueberries, to top"
         }
       ],
       "market": "US-SE-TAMPA",
@@ -100178,7 +116278,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-TAMPA",
@@ -100354,7 +116478,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SE-TAMPA",
@@ -100531,7 +116699,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries (new crop)"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SE-TAMPA",
@@ -100708,7 +116892,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "citrus (tangerines)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup mandarin juice"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon mandarin zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SE-TAMPA",
@@ -100886,7 +117094,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "stored apples and winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SW-ALBQ",
@@ -101069,7 +117305,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cool-season greens (spinach, kale)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-ALBQ",
@@ -101252,7 +117516,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus and spring greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-ALBQ",
@@ -101435,7 +117727,67 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "radishes and lettuce"
+          "qty_name": "1 (14.75-oz) can salmon, drained"
+        },
+        {
+          "price": null,
+          "qty_name": "2 scallions, thinly sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon Dijon mustard"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon chopped fresh dill"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Salt, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "Freshly ground black pepper, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons olive oil (for cooking)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small clove garlic, finely minced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 squeeze fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch of salt"
         }
       ],
       "market": "US-SW-ALBQ",
@@ -101622,7 +117974,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring onions and strawberries"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup thinly sliced spring onions (greens and whites)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-SW-ALBQ",
@@ -101805,7 +118181,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn and summer squash"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SW-ALBQ",
@@ -101989,7 +118409,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes and sweet corn"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SW-ALBQ",
@@ -102173,7 +118637,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "green chile and melons"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
         }
       ],
       "market": "US-SW-ALBQ",
@@ -102357,7 +118849,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "green chile and apples"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
         }
       ],
       "market": "US-SW-ALBQ",
@@ -102541,7 +119061,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples and winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SW-ALBQ",
@@ -102724,7 +119272,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pecans and pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-SW-ALBQ",
@@ -102909,7 +119493,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "stored apples and pecans"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SW-ALBQ",
@@ -103096,7 +119708,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples and preserves"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-SW-CLOUDCROFT",
@@ -103255,7 +119923,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage potatoes and preserves"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-SW-CLOUDCROFT",
@@ -103410,7 +120098,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples and maple/honey"
+          "qty_name": "Apple Cinnamon Compote"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 pounds apples"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plus 1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lemon juice\r\n\r\n\r\n \r\n\r\nButtermilk & Honey Flapjacks"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "4 teaspoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons unsalted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-SW-CLOUDCROFT",
@@ -103562,7 +120294,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "greenhouse greens (late frost)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-CLOUDCROFT",
@@ -103717,7 +120477,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "early greens (season begins mid-May)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-CLOUDCROFT",
@@ -103872,7 +120660,67 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "lettuce, radishes, herbs"
+          "qty_name": "1 (14.75-oz) can salmon, drained"
+        },
+        {
+          "price": null,
+          "qty_name": "2 scallions, thinly sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon Dijon mustard"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon chopped fresh dill"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Salt, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "Freshly ground black pepper, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons olive oil (for cooking)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small clove garlic, finely minced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 squeeze fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch of salt"
         }
       ],
       "market": "US-SW-CLOUDCROFT",
@@ -104031,7 +120879,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "summer squash and greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-CLOUDCROFT",
@@ -104186,7 +121062,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "u-pick berries and squash"
+          "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 tablespoons butter, cold and cubed (or shredded)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup frozen mixed berries"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lemon zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon whole milk"
         }
       ],
       "market": "US-SW-CLOUDCROFT",
@@ -104344,7 +121248,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples (Cadwallader Mountain Farms u-pick)"
+          "qty_name": "1 Kodiak Maple & Brown Sugar Oatmeal Cup"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons Kodiak Buttermilk Power Cakes"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon avocado oil"
+        },
+        {
+          "price": null,
+          "qty_name": "5 tablespoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon pecans, chopped (reserve a few to top muffin)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons powdered sugar"
         }
       ],
       "market": "US-SW-CLOUDCROFT",
@@ -104503,7 +121443,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples and winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SW-CLOUDCROFT",
@@ -104658,7 +121626,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pinon nuts (harvest)"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-SW-CLOUDCROFT",
@@ -104812,7 +121780,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "red chile ristras and posole corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
         }
       ],
       "market": "US-SW-CLOUDCROFT",
@@ -104970,7 +121966,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "stored onions and pecans"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SW-LASCRUCES",
@@ -105148,7 +122172,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cool-season greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-LASCRUCES",
@@ -105324,7 +122376,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring onions and greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-LASCRUCES",
@@ -105500,7 +122580,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "onions and early greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-LASCRUCES",
@@ -105676,7 +122784,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet onions and squash"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SW-LASCRUCES",
@@ -105854,7 +122990,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet onions and melons"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SW-LASCRUCES",
@@ -106032,7 +123196,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "early green chile and melons"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
         }
       ],
       "market": "US-SW-LASCRUCES",
@@ -106209,7 +123401,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "green chile (peak roasting) and melons"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
         }
       ],
       "market": "US-SW-LASCRUCES",
@@ -106386,7 +123606,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "green and red chile"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
         }
       ],
       "market": "US-SW-LASCRUCES",
@@ -106563,7 +123811,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "red chile and pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-SW-LASCRUCES",
@@ -106741,7 +124025,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pecans and red chile ristras"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
         }
       ],
       "market": "US-SW-LASCRUCES",
@@ -106918,7 +124230,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "dried red chile and pecans"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
         }
       ],
       "market": "US-SW-LASCRUCES",
@@ -107097,7 +124437,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "stored pecans and winter greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-OKC",
@@ -107251,7 +124619,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cool-season greens (kale, spinach)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-OKC",
@@ -107405,7 +124801,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus and spring greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-OKC",
@@ -107559,7 +124983,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries and lettuce"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-SW-OKC",
@@ -107714,7 +125154,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries and spring onions"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup thinly sliced spring onions (greens and whites)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-SW-OKC",
@@ -107868,7 +125332,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches and sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SW-OKC",
@@ -108022,7 +125510,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches, sweet corn, and watermelon"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SW-OKC",
@@ -108176,7 +125688,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "watermelon and tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SW-OKC",
@@ -108331,7 +125887,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn and okra"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SW-OKC",
@@ -108485,7 +126065,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pumpkins and winter squash"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-SW-OKC",
@@ -108641,7 +126257,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pecans and sweet potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SW-OKC",
@@ -108797,7 +126441,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "stored pecans and sweet potatoes"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SW-OKC",
@@ -108955,7 +126627,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "citrus (oranges, grapefruit)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SW-PHX",
@@ -109129,7 +126829,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "citrus and peach blossoms"
+          "qty_name": "1 Kodiak Buttermilk & Maple Flapjack Cup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 peach, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cornstarch"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoons vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon milk"
         }
       ],
       "market": "US-SW-PHX",
@@ -109306,7 +127030,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "citrus and spring greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-PHX",
@@ -109480,7 +127232,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches (Schnepf Farms u-pick)"
+          "qty_name": "1 Kodiak Maple & Brown Sugar Oatmeal Cup"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons Kodiak Buttermilk Power Cakes"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon avocado oil"
+        },
+        {
+          "price": null,
+          "qty_name": "5 tablespoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon pecans, chopped (reserve a few to top muffin)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons powdered sugar"
         }
       ],
       "market": "US-SW-PHX",
@@ -109658,7 +127446,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apricots (early)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups chopped fresh apricots"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SW-PHX",
@@ -109832,7 +127648,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "melons and early dates"
+          "qty_name": "2 packets Maple & Brown Sugar Oatmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup chopped pitted dates"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ripe banana, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup chopped pecans"
         }
       ],
       "market": "US-SW-PHX",
@@ -110008,7 +127840,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "melons and dates"
+          "qty_name": "2 packets Maple & Brown Sugar Oatmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup chopped pitted dates"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ripe banana, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup chopped pecans"
         }
       ],
       "market": "US-SW-PHX",
@@ -110184,7 +128032,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "dates and melons"
+          "qty_name": "2 packets Maple & Brown Sugar Oatmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup chopped pitted dates"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ripe banana, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup chopped pecans"
         }
       ],
       "market": "US-SW-PHX",
@@ -110360,7 +128224,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "dates and heat-set peppers"
+          "qty_name": "2 packets Maple & Brown Sugar Oatmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup chopped pitted dates"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ripe banana, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup chopped pecans"
         }
       ],
       "market": "US-SW-PHX",
@@ -110536,7 +128416,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "olives (Queen Creek Olive Mill) and pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-SW-PHX",
@@ -110712,7 +128628,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "olives, pecans, and winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SW-PHX",
@@ -110886,7 +128830,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "citrus (mandarins, grapefruit)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup mandarin juice"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon mandarin zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SW-PHX",
@@ -111062,7 +129030,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "stored pecans and winter greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-ROSWELL",
@@ -111215,7 +129211,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cool-season greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-ROSWELL",
@@ -111368,7 +129392,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens and onions"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-ROSWELL",
@@ -111521,7 +129573,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "onions and lettuce"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SW-ROSWELL",
@@ -111675,7 +129771,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "onions and squash"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-SW-ROSWELL",
@@ -111829,7 +129969,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "squash and melons"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SW-ROSWELL",
@@ -111982,7 +130150,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "green chile and melons"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
         }
       ],
       "market": "US-SW-ROSWELL",
@@ -112136,7 +130332,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "green chile and tomatoes"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
         }
       ],
       "market": "US-SW-ROSWELL",
@@ -112290,7 +130514,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "green and red chile"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
         }
       ],
       "market": "US-SW-ROSWELL",
@@ -112444,7 +130696,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "red chile and pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-SW-ROSWELL",
@@ -112599,7 +130887,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pecans and winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SW-ROSWELL",
@@ -112752,7 +131068,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "stored pecans and dried red chile"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
         }
       ],
       "market": "US-SW-ROSWELL",
@@ -112908,7 +131252,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples and local honey"
+          "qty_name": "Apple Cinnamon Compote"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 pounds apples"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plus 1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lemon juice\r\n\r\n\r\n \r\n\r\nButtermilk & Honey Flapjacks"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "4 teaspoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons unsalted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-SW-TIMBERON",
@@ -113061,7 +131449,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples and honey"
+          "qty_name": "Apple Cinnamon Compote"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 pounds apples"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plus 1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lemon juice\r\n\r\n\r\n \r\n\r\nButtermilk & Honey Flapjacks"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "4 teaspoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons unsalted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-SW-TIMBERON",
@@ -113214,7 +131646,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage pears and honey"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups diced firm pears"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon nutmeg"
         }
       ],
       "market": "US-SW-TIMBERON",
@@ -113372,7 +131832,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "honey (limited fresh; late frost)"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-SW-TIMBERON",
@@ -113531,7 +132007,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "early greens and honey (season begins)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-TIMBERON",
@@ -113687,7 +132191,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "greens, herbs, honey"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-TIMBERON",
@@ -113843,7 +132375,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "summer squash and honey"
+          "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2  cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 teaspoons baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup apple sauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey"
         }
       ],
       "market": "US-SW-TIMBERON",
@@ -114001,7 +132569,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples (early) and honey"
+          "qty_name": "Apple Cinnamon Compote"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 pounds apples"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plus 1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lemon juice\r\n\r\n\r\n \r\n\r\nButtermilk & Honey Flapjacks"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "4 teaspoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons unsalted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-SW-TIMBERON",
@@ -114154,7 +132766,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples and honey"
+          "qty_name": "Apple Cinnamon Compote"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 pounds apples"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plus 1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lemon juice\r\n\r\n\r\n \r\n\r\nButtermilk & Honey Flapjacks"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "4 teaspoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons unsalted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-SW-TIMBERON",
@@ -114307,7 +132963,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples and winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SW-TIMBERON",
@@ -114463,7 +133147,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pinon nuts and honey"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-SW-TIMBERON",
@@ -114622,7 +133322,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "red chile ristras and honey"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
         }
       ],
       "market": "US-SW-TIMBERON",
@@ -114781,7 +133509,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "stored pecans and pistachios"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SW-TULAROSA",
@@ -114962,7 +133718,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "stored apples and pistachios"
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon ground cardamom"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon orange zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
         }
       ],
       "market": "US-SW-TULAROSA",
@@ -115141,7 +133917,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-TULAROSA",
@@ -115320,7 +134124,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cherry blossoms and early greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-SW-TULAROSA",
@@ -115499,7 +134331,55 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cherries"
+          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon almond extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups frozen cherries, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornstarch"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice of 1/2 lemon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "2-3 tablespoons water"
         }
       ],
       "market": "US-SW-TULAROSA",
@@ -115687,7 +134567,55 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cherries and apricots"
+          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon almond extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups frozen cherries, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornstarch"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice of 1/2 lemon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "2-3 tablespoons water"
         }
       ],
       "market": "US-SW-TULAROSA",
@@ -115875,7 +134803,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples (early) and melons"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-SW-TULAROSA",
@@ -116058,7 +135042,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples and green chile"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
         }
       ],
       "market": "US-SW-TULAROSA",
@@ -116238,7 +135250,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pistachios (harvest) and apples"
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon ground cardamom"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon orange zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
         }
       ],
       "market": "US-SW-TULAROSA",
@@ -116417,7 +135449,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples and wine grapes"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-SW-TULAROSA",
@@ -116596,7 +135656,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pecans and pistachios"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-SW-TULAROSA",
@@ -116777,7 +135865,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pistachios and stored apples"
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon ground cardamom"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon orange zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
         }
       ],
       "market": "US-SW-TULAROSA",
@@ -116958,7 +136066,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "grass-fed beef (value-added)"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-UT-KAMASVALLEY",
@@ -117137,7 +136273,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "root vegetables (storage)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-UT-KAMASVALLEY",
@@ -117314,7 +136470,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey (storage)"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-UT-KAMASVALLEY",
@@ -117494,7 +136666,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "ranch dairy butter (value-added)"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-UT-KAMASVALLEY",
@@ -117673,7 +136873,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-UT-KAMASVALLEY",
@@ -117850,7 +137074,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-UT-KAMASVALLEY",
@@ -118027,7 +137279,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sugar snap peas"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups snap peas, strings removed, thinly sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons chopped dill"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-UT-KAMASVALLEY",
@@ -118206,7 +137486,59 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "raspberries"
+          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 large eggs, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sour cream, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup buttermilk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup (2 sticks) butter, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 lb powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup white chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup heavy cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup raspberries, to top"
         }
       ],
       "market": "US-UT-KAMASVALLEY",
@@ -118390,7 +137722,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "root vegetables"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-UT-KAMASVALLEY",
@@ -118567,7 +137919,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-UT-KAMASVALLEY",
@@ -118744,7 +138124,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash (storage)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-UT-KAMASVALLEY",
@@ -118921,7 +138329,47 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "ranch lamb (value-added)"
+          "qty_name": "Batter:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup pickle juice"
+        },
+        {
+          "price": null,
+          "qty_name": "30-40 sliced pickles"
+        },
+        {
+          "price": null,
+          "qty_name": "30-40 popsicle sticks\r\n\r\n\r\n \r\n\r\nDipping Sauce:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup of your favorite ranch dressing"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 tablespoons sriracha or to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon lemon juice"
         }
       ],
       "market": "US-UT-KAMASVALLEY",
@@ -119103,7 +138551,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage potatoes and salmon (frozen/smoked)"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-W-ANCHORAGE",
@@ -119287,7 +138779,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage carrots and salmon"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-ANCHORAGE",
@@ -119470,7 +138982,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage cabbage and root vegetables"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-ANCHORAGE",
@@ -119653,7 +139185,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage root vegetables (imported produce dominant)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-ANCHORAGE",
@@ -119836,7 +139388,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb (early) and greenhouse greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-W-ANCHORAGE",
@@ -120019,7 +139599,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb and salad greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-W-ANCHORAGE",
@@ -120202,7 +139810,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "summer berries and salmon (fresh run)"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-W-ANCHORAGE",
@@ -120386,7 +140038,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "giant cabbage, carrots, potatoes and salmon"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-ANCHORAGE",
@@ -120569,7 +140241,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "potatoes, giant brassicas and root harvest"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-ANCHORAGE",
@@ -120752,7 +140444,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage potatoes and carrots (harvest cellared)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-ANCHORAGE",
@@ -120935,7 +140647,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage root vegetables and salmon"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-ANCHORAGE",
@@ -121118,7 +140850,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "birch syrup (Alaska)"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-W-ANCHORAGE",
@@ -121307,7 +141083,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage potatoes"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-BEND",
@@ -121485,7 +141281,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage onions"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup thinly sliced spring onions (greens and whites)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-W-BEND",
@@ -121663,7 +141483,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "microgreens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-W-BEND",
@@ -121841,7 +141689,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-W-BEND",
@@ -122019,7 +141895,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-W-BEND",
@@ -122194,7 +142070,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "salad greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-W-BEND",
@@ -122372,7 +142276,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "snap peas"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups snap peas, strings removed, thinly sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons chopped dill"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-BEND",
@@ -122552,7 +142484,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-BEND",
@@ -122730,7 +142686,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-BEND",
@@ -122908,7 +142892,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-W-BEND",
@@ -123090,7 +143130,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "root vegetables"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-BEND",
@@ -123454,7 +143514,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-W-BOULDER",
@@ -123630,7 +143746,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage onions"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup thinly sliced spring onions (greens and whites)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-W-BOULDER",
@@ -123802,7 +143942,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey (storage)"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-W-BOULDER",
@@ -123977,7 +144133,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "greens (cold frame)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-W-BOULDER",
@@ -124149,7 +144333,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-BOULDER",
@@ -124321,7 +144529,55 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cherries"
+          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon almond extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups frozen cherries, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornstarch"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice of 1/2 lemon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "2-3 tablespoons water"
         }
       ],
       "market": "US-W-BOULDER",
@@ -124502,7 +144758,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Palisade peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-W-BOULDER",
@@ -124673,7 +144929,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Olathe sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-BOULDER",
@@ -124845,7 +145125,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Rocky Ford melon"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups cubed melon (cantaloupe, honeydew, or watermelon)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-BOULDER",
@@ -125017,7 +145321,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-BOULDER",
@@ -125189,7 +145521,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pinto beans (Colorado)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups trimmed green beans, cut in 1/2-inch pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-BOULDER",
@@ -125363,7 +145719,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-W-BOULDER",
@@ -125540,7 +145912,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "papaya and banana"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed ripe papaya"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup shredded coconut"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-HONOLULU",
@@ -125740,7 +146144,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "papaya and taro"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed ripe papaya"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup shredded coconut"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-HONOLULU",
@@ -125940,7 +146376,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pineapple and banana"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-W-HONOLULU",
@@ -126144,7 +146624,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pineapple and papaya"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-W-HONOLULU",
@@ -126348,7 +146872,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pineapple and mango (early)"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-W-HONOLULU",
@@ -126552,7 +147120,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "mango and pineapple"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-W-HONOLULU",
@@ -126756,7 +147368,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "lychee and mango"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-W-HONOLULU",
@@ -126960,7 +147616,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "mango and banana"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "market": "US-W-HONOLULU",
@@ -127164,7 +147864,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "breadfruit (ulu) and taro"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup mashed cooked taro root"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup coconut milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-HONOLULU",
@@ -127364,7 +148092,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Waialua coffee (harvest) and papaya"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed ripe papaya"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup shredded coconut"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-HONOLULU",
@@ -127564,7 +148324,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "coffee, cacao and taro"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup mashed cooked taro root"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup coconut milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-HONOLULU",
@@ -127764,7 +148552,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "papaya, banana and taro"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed ripe papaya"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup shredded coconut"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-HONOLULU",
@@ -127966,7 +148786,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "navel oranges"
+          "qty_name": "1 Box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice and zest of two medium oranges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup real maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup dried cranberries"
         }
       ],
       "market": "US-W-LA",
@@ -128145,7 +148997,55 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "lemons"
+          "qty_name": "Pancakes:"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon poppy seeds"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pure maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "Zest of 2 lemons"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract\r\n\r\n\r\n \r\n\r\nCustard:"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup coconut milk"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch salt\r\n\r\n\r\n \r\n\r\nTopping Options:"
+        },
+        {
+          "price": null,
+          "qty_name": "Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup"
         }
       ],
       "market": "US-W-LA",
@@ -128328,7 +149228,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "kumquats"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup mandarin juice"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon mandarin zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-LA",
@@ -128505,7 +149429,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-W-LA",
@@ -128683,7 +149623,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries (Ventura)"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-W-LA",
@@ -128861,7 +149817,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "avocados"
+          "qty_name": "1/2 large avocado"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon spirulina powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Blueberry Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "Pure maple syrup, to top"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh blueberries, to top"
         }
       ],
       "market": "US-W-LA",
@@ -129039,7 +150015,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Valencia oranges (early)"
+          "qty_name": "1 Box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice and zest of two medium oranges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup real maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup dried cranberries"
         }
       ],
       "market": "US-W-LA",
@@ -129218,7 +150226,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Valencia oranges"
+          "qty_name": "1 Box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice and zest of two medium oranges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup real maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup dried cranberries"
         }
       ],
       "market": "US-W-LA",
@@ -129397,7 +150437,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "figs (Mission)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup chopped ripe figs"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
         }
       ],
       "market": "US-W-LA",
@@ -129575,7 +150639,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "persimmons (Fuyu)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup ripe fuyu persimmon pulp"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cloves"
         }
       ],
       "market": "US-W-LA",
@@ -129754,7 +150842,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "mandarins (satsuma)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup mandarin juice"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon mandarin zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-LA",
@@ -129931,7 +151043,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "grapefruit (Rio Red)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-LA",
@@ -130110,7 +151250,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-W-PDX",
@@ -130293,7 +151489,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "kale"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-W-PDX",
@@ -130472,7 +151696,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "leeks"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups thinly sliced leeks (or wild ramps), cleaned well"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, plus more for the pan"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-W-PDX",
@@ -130651,7 +151903,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-PDX",
@@ -130830,7 +152106,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-W-PDX",
@@ -131006,7 +152282,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-W-PDX",
@@ -131186,7 +152478,59 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "raspberries"
+          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 large eggs, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sour cream, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup buttermilk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup (2 sticks) butter, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 lb powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup white chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup heavy cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup raspberries, to top"
         }
       ],
       "market": "US-W-PDX",
@@ -131372,7 +152716,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-W-PDX",
@@ -131552,7 +152912,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-PDX",
@@ -131731,7 +153115,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-W-PDX",
@@ -131912,7 +153332,59 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "hazelnuts"
+          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 large eggs, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sour cream, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup buttermilk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup (2 sticks) butter, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 lb powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup white chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup heavy cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup raspberries, to top"
         }
       ],
       "market": "US-W-PDX",
@@ -132098,7 +153570,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-PDX",
@@ -132279,7 +153779,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage onions"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup thinly sliced spring onions (greens and whites)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-W-RENO",
@@ -132456,7 +153980,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage garlic"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-W-RENO",
@@ -132634,7 +154202,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-W-RENO",
@@ -132808,7 +154376,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-W-RENO",
@@ -132985,7 +154581,59 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "raspberries"
+          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 large eggs, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sour cream, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup buttermilk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup (2 sticks) butter, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 lb powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup white chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup heavy cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup raspberries, to top"
         }
       ],
       "market": "US-W-RENO",
@@ -133169,7 +154817,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-RENO",
@@ -133346,7 +155018,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "summer squash"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded summer squash (or chayote/mirliton)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-RENO",
@@ -133523,7 +155219,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Hearts of Gold cantaloupe"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups cubed melon (cantaloupe, honeydew, or watermelon)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-RENO",
@@ -133700,7 +155420,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-W-RENO",
@@ -133878,7 +155642,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pumpkins (corn maze)"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-W-RENO",
@@ -134057,7 +155857,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash (storage)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-RENO",
@@ -134234,7 +156062,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "potatoes (storage)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-RENO",
@@ -134413,7 +156261,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "citrus (mandarins)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup mandarin juice"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon mandarin zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-SACRAMENTO",
@@ -134589,7 +156461,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "leafy greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-W-SACRAMENTO",
@@ -134765,7 +156665,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-W-SACRAMENTO",
@@ -134938,7 +156838,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-W-SACRAMENTO",
@@ -135115,7 +157031,55 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cherries"
+          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon almond extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups frozen cherries, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornstarch"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice of 1/2 lemon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "2-3 tablespoons water"
         }
       ],
       "market": "US-W-SACRAMENTO",
@@ -135300,7 +157264,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apricots"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups chopped fresh apricots"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-SACRAMENTO",
@@ -135476,7 +157468,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-W-SACRAMENTO",
@@ -135653,7 +157689,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-SACRAMENTO",
@@ -135829,7 +157889,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peppers (late harvest)"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "12 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups bell peppers, seeded and chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup crumbled feta cheese"
         }
       ],
       "market": "US-W-SACRAMENTO",
@@ -136008,7 +158096,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-SACRAMENTO",
@@ -136184,7 +158300,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "walnuts"
+          "qty_name": "3 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup almond butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup real maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1  cup chopped walnuts"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons chia seeds"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons ground flax seed"
         }
       ],
       "market": "US-W-SACRAMENTO",
@@ -136363,7 +158515,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "mandarins"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup mandarin juice"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon mandarin zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-SACRAMENTO",
@@ -136541,7 +158717,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Meyer lemon"
+          "qty_name": "1 Kodiak Buttermilk & Maple Flapjack Power Cup"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons whole milk ricotta"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon fresh lemon zest"
+        },
+        {
+          "price": null,
+          "qty_name": "Honey, to top"
         }
       ],
       "market": "US-W-SANJOSE",
@@ -136721,7 +158913,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "kale"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-W-SANJOSE",
@@ -136901,7 +159121,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rainbow chard"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-W-SANJOSE",
@@ -137081,7 +159329,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Harley Farms goat cheese"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-W-SANJOSE",
@@ -137258,7 +159506,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring peas"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups snap peas, strings removed, thinly sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons chopped dill"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-SANJOSE",
@@ -137440,7 +159716,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "summer squash"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded summer squash (or chayote/mirliton)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-SANJOSE",
@@ -137620,7 +159920,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blackberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-W-SANJOSE",
@@ -137801,7 +160117,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "romano beans"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups trimmed green beans, cut in 1/2-inch pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-SANJOSE",
@@ -137983,7 +160323,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-W-SANJOSE",
@@ -138164,7 +160520,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Half Moon Bay pumpkin"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-W-SANJOSE",
@@ -138346,7 +160738,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "olive oil (fall press)"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-W-SANJOSE",
@@ -138527,7 +160963,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Brussels sprouts"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups very thinly shredded Brussels sprouts"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-SANJOSE",
@@ -138709,7 +161169,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "stored apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-W-SD",
@@ -138895,7 +161411,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "citrus (from lowland San Diego County)"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "market": "US-W-SD",
@@ -139079,7 +161623,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "leafy greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-W-SD",
@@ -139261,7 +161833,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-W-SD",
@@ -139440,7 +162012,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-W-SD",
@@ -139623,7 +162211,55 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cherries"
+          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon almond extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups frozen cherries, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornstarch"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice of 1/2 lemon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "2-3 tablespoons water"
         }
       ],
       "market": "US-W-SD",
@@ -139814,7 +162450,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-W-SD",
@@ -139995,7 +162631,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pears"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups diced firm pears"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon nutmeg"
         }
       ],
       "market": "US-W-SD",
@@ -140179,7 +162843,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-W-SD",
@@ -140365,7 +163085,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pumpkins (Julian)"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-W-SD",
@@ -140549,7 +163305,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pears (late)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups diced firm pears"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon nutmeg"
         }
       ],
       "market": "US-W-SD",
@@ -140733,7 +163517,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apple cider"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-W-SD",
@@ -140914,7 +163698,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-W-SEA",
@@ -141097,7 +163937,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "kale"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-W-SEA",
@@ -141276,7 +164144,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "leeks"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups thinly sliced leeks (or wild ramps), cleaned well"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, plus more for the pan"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-W-SEA",
@@ -141455,7 +164351,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-SEA",
@@ -141634,7 +164554,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-W-SEA",
@@ -141810,7 +164730,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-W-SEA",
@@ -141990,7 +164926,59 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "raspberries"
+          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 large eggs, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sour cream, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup buttermilk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup (2 sticks) butter, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 lb powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup white chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup heavy cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup raspberries, to top"
         }
       ],
       "market": "US-W-SEA",
@@ -142176,7 +165164,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "blueberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-W-SEA",
@@ -142356,7 +165360,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-SEA",
@@ -142535,7 +165563,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-W-SEA",
@@ -142716,7 +165780,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-SEA",
@@ -142895,7 +165987,59 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "dairy"
+          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 large eggs, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sour cream, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup buttermilk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup (2 sticks) butter, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 lb powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup white chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup heavy cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup raspberries, to top"
         }
       ],
       "market": "US-W-SEA",
@@ -143083,7 +166227,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Brussels sprouts"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups very thinly shredded Brussels sprouts"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-SF",
@@ -143259,7 +166427,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cauliflower"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups finely chopped broccoli and cauliflower florets"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup shredded sharp cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-SF",
@@ -143437,7 +166629,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "broccoli"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups finely chopped broccoli and cauliflower florets"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup shredded sharp cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-SF",
@@ -143615,7 +166831,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "artichokes"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup chopped artichoke hearts, patted dry"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-W-SF",
@@ -143791,7 +167035,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-W-SF",
@@ -143968,7 +167228,67 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "leaf lettuce"
+          "qty_name": "1 (14.75-oz) can salmon, drained"
+        },
+        {
+          "price": null,
+          "qty_name": "2 scallions, thinly sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon Dijon mustard"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon chopped fresh dill"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Salt, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "Freshly ground black pepper, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons olive oil (for cooking)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small clove garlic, finely minced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 squeeze fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch of salt"
         }
       ],
       "market": "US-W-SF",
@@ -144148,7 +167468,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "sweet corn"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-SF",
@@ -144324,7 +167668,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "celery"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups finely diced celery"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-SF",
@@ -144502,7 +167870,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "bell peppers"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "12 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups bell peppers, seeded and chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup crumbled feta cheese"
         }
       ],
       "market": "US-W-SF",
@@ -144681,7 +168077,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spinach"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-W-SF",
@@ -144857,7 +168281,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "kale"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-W-SF",
@@ -145033,7 +168485,55 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "lemons"
+          "qty_name": "Pancakes:"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon poppy seeds"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pure maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "Zest of 2 lemons"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract\r\n\r\n\r\n \r\n\r\nCustard:"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup coconut milk"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch salt\r\n\r\n\r\n \r\n\r\nTopping Options:"
+        },
+        {
+          "price": null,
+          "qty_name": "Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup"
         }
       ],
       "market": "US-W-SF",
@@ -145217,7 +168717,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-W-SPOKANE",
@@ -145402,7 +168958,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage pears"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups diced firm pears"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon nutmeg"
         }
       ],
       "market": "US-W-SPOKANE",
@@ -145585,7 +169169,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-SPOKANE",
@@ -145766,7 +169374,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-W-SPOKANE",
@@ -145944,7 +169552,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "strawberries"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "market": "US-W-SPOKANE",
@@ -146126,7 +169750,55 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cherries"
+          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon almond extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups frozen cherries, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornstarch"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice of 1/2 lemon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "2-3 tablespoons water"
         }
       ],
       "market": "US-W-SPOKANE",
@@ -146316,7 +169988,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apricots"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups chopped fresh apricots"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-SPOKANE",
@@ -146497,7 +170197,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-W-SPOKANE",
@@ -146677,7 +170377,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-W-SPOKANE",
@@ -146862,7 +170618,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pumpkins"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "market": "US-W-SPOKANE",
@@ -147045,7 +170837,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "winter squash (storage)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-SPOKANE",
@@ -147226,7 +171046,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "local honey"
+          "qty_name": "5 Kodiak Buttermilk & Vanilla Power Waffles, thawed"
+        },
+        {
+          "price": null,
+          "qty_name": "5 slices smoked Gouda cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon fresh thyme leaves"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon red pepper flakes (optional)"
         }
       ],
       "market": "US-W-SPOKANE",
@@ -147412,7 +171248,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "citrus (desert)"
+          "qty_name": "1 Kodiak Buttermilk & Maple Flapjack Power Cup"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons whole milk ricotta"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon fresh lemon zest"
+        },
+        {
+          "price": null,
+          "qty_name": "Honey, to top"
         }
       ],
       "market": "US-W-VEGAS",
@@ -147588,7 +171440,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens (early)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-W-VEGAS",
@@ -147764,7 +171644,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-W-VEGAS",
@@ -147937,7 +171817,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring melons (early)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup thinly sliced spring onions (greens and whites)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-W-VEGAS",
@@ -148113,7 +172017,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "summer squash"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded summer squash (or chayote/mirliton)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-W-VEGAS",
@@ -148289,7 +172217,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "melons"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups cubed melon (cantaloupe, honeydew, or watermelon)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lime juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-VEGAS",
@@ -148465,7 +172417,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "dates (setting)"
+          "qty_name": "2 packets Maple & Brown Sugar Oatmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup chopped pitted dates"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ripe banana, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup chopped pecans"
         }
       ],
       "market": "US-W-VEGAS",
@@ -148643,7 +172611,59 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "okra (heat-loving)"
+          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 large eggs, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sour cream, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup buttermilk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup (2 sticks) butter, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 lb powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup white chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup heavy cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup raspberries, to top"
         }
       ],
       "market": "US-W-VEGAS",
@@ -148826,7 +172846,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "fall tomatoes"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-W-VEGAS",
@@ -149003,7 +173067,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "dates (harvest)"
+          "qty_name": "2 packets Maple & Brown Sugar Oatmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup chopped pitted dates"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ripe banana, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup chopped pecans"
         }
       ],
       "market": "US-W-VEGAS",
@@ -149181,7 +173261,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cool-season greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-W-VEGAS",
@@ -149357,7 +173465,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "dates (stored)"
+          "qty_name": "2 packets Maple & Brown Sugar Oatmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup chopped pitted dates"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ripe banana, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup chopped pecans"
         }
       ],
       "market": "US-W-VEGAS",
@@ -149537,7 +173661,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-W-YAKIMA",
@@ -149721,7 +173901,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "storage pears"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups diced firm pears"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon nutmeg"
         }
       ],
       "market": "US-W-YAKIMA",
@@ -149903,7 +174111,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "rhubarb (forced)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups chopped rhubarb"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup orange juice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-YAKIMA",
@@ -150083,7 +174315,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "asparagus"
+          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
         }
       ],
       "market": "US-W-YAKIMA",
@@ -150260,7 +174492,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring greens"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "market": "US-W-YAKIMA",
@@ -150440,7 +174700,55 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "cherries"
+          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon almond extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups frozen cherries, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons cornstarch"
+        },
+        {
+          "price": null,
+          "qty_name": "Juice of 1/2 lemon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "2-3 tablespoons water"
         }
       ],
       "market": "US-W-YAKIMA",
@@ -150629,7 +174937,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apricots"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups chopped fresh apricots"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-YAKIMA",
@@ -150809,7 +175145,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "market": "US-W-YAKIMA",
@@ -150988,7 +175324,63 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "apples"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "market": "US-W-YAKIMA",
@@ -151172,7 +175564,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "grapes (Concord)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "market": "US-W-YAKIMA",
@@ -151352,7 +175772,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pears"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups diced firm pears"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon nutmeg"
         }
       ],
       "market": "US-W-YAKIMA",
@@ -151534,7 +175982,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "pears (storage)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups diced firm pears"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon nutmeg"
         }
       ],
       "market": "US-W-YAKIMA",
@@ -151718,7 +176194,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "smoked salmon"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "market": "US-WA-NEAHBAY",
@@ -151893,7 +176413,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "halibut"
+          "qty_name": "3/4 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 pound cooked seafood (Dungeness crab, crawfish tails, chopped halibut, or chopped clams)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons chopped fresh herbs (parsley, dill, or chives)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-WA-NEAHBAY",
@@ -152067,7 +176615,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "razor clams"
+          "qty_name": "3/4 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 pound cooked seafood (Dungeness crab, crawfish tails, chopped halibut, or chopped clams)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons chopped fresh herbs (parsley, dill, or chives)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-WA-NEAHBAY",
@@ -152241,7 +176817,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "spring Chinook (early)"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup thinly sliced spring onions (greens and whites)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
         }
       ],
       "market": "US-WA-NEAHBAY",
@@ -152415,7 +177015,19 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "salmonberries"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix, cooked as 8 flapjacks"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups fresh huckleberries or salmonberries"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon lemon juice"
         }
       ],
       "market": "US-WA-NEAHBAY",
@@ -152590,7 +177202,67 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "salmon"
+          "qty_name": "1 (14.75-oz) can salmon, drained"
+        },
+        {
+          "price": null,
+          "qty_name": "2 scallions, thinly sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon Dijon mustard"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon chopped fresh dill"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Salt, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "Freshly ground black pepper, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons olive oil (for cooking)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small clove garlic, finely minced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 squeeze fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch of salt"
         }
       ],
       "market": "US-WA-NEAHBAY",
@@ -152768,7 +177440,67 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "coho salmon"
+          "qty_name": "1 (14.75-oz) can salmon, drained"
+        },
+        {
+          "price": null,
+          "qty_name": "2 scallions, thinly sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon Dijon mustard"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon chopped fresh dill"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Salt, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "Freshly ground black pepper, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons olive oil (for cooking)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small clove garlic, finely minced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 squeeze fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch of salt"
         }
       ],
       "market": "US-WA-NEAHBAY",
@@ -152946,7 +177678,19 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "huckleberries"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix, cooked as 8 flapjacks"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups fresh huckleberries or salmonberries"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon lemon juice"
         }
       ],
       "market": "US-WA-NEAHBAY",
@@ -153121,7 +177865,67 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "coho salmon (late)"
+          "qty_name": "1 (14.75-oz) can salmon, drained"
+        },
+        {
+          "price": null,
+          "qty_name": "2 scallions, thinly sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon Dijon mustard"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon chopped fresh dill"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Salt, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "Freshly ground black pepper, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons olive oil (for cooking)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small clove garlic, finely minced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 squeeze fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch of salt"
         }
       ],
       "market": "US-WA-NEAHBAY",
@@ -153299,7 +178103,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Dungeness crab"
+          "qty_name": "3/4 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 pound cooked seafood (Dungeness crab, crawfish tails, chopped halibut, or chopped clams)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons chopped fresh herbs (parsley, dill, or chives)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-WA-NEAHBAY",
@@ -153473,7 +178305,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Dungeness crab (late)"
+          "qty_name": "3/4 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 pound cooked seafood (Dungeness crab, crawfish tails, chopped halibut, or chopped clams)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons chopped fresh herbs (parsley, dill, or chives)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
         }
       ],
       "market": "US-WA-NEAHBAY",
@@ -153647,7 +178507,35 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "lingcod (winter)"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-WA-NEAHBAY",

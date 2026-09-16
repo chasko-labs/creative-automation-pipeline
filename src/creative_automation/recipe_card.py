@@ -789,9 +789,15 @@ def build_recipe_card_data(
 
     meta, unknown = _recipe_meta_bar(recipe)
 
-    # ingredients: the in-season pick is the source-backed line; prices have no
-    # verified source, so price is always null.
-    ingredients = [{"qty_name": ingredient, "price": None}]
+    # ingredients: the matched recipe's real ingredient lines (quantities
+    # included, verbatim from the catalog record); prices have no verified
+    # source, so price is always null. Falls back to the lone in-season pick
+    # only when the recipe carries no ingredient list of its own.
+    ingredients = [
+        {"qty_name": str(line).strip(), "price": None}
+        for line in (recipe.get("ingredients") or [])
+        if str(line).strip()
+    ] or [{"qty_name": ingredient, "price": None}]
 
     return {
         "market": market,

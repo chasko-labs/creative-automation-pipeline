@@ -715,8 +715,8 @@
 .rc-steps li{padding:3pt 0;font:500 12pt/1.45 "museo-sans",sans-serif;color:var(--rc-ink)}
 .rc-step-verb{font-family:"kodiak_sans","museo-sans",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--rc-ink)}
 
-/* art zones — physical dims, opaque white base coat beneath the art */
-.rc-artzone{position:relative;margin:0.1in 0;border:1px solid var(--rc-ink-2)}
+/* art zones — physical dims, no box outline: drawings sit on the paper tone */
+.rc-artzone{position:relative;margin:0.1in 0;border:none}
 .rc-artzone--raw{width:3.0in;height:1.5in}
 .rc-artzone--technique{width:3.0in;height:1.5in}
 .rc-artzone--plate{width:3.0in;height:2.0in}
