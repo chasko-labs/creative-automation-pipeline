@@ -109,7 +109,7 @@ def _social_docs() -> dict[str, str]:
             "",
             f"Bio: {_clean(deep.get('bio'))}",
             f"Posting window: {_clean((deep.get('when_they_post', {}) or {}).get('time_of_day'))}",
-            f"Tags: {' '.join(((deep.get('hashtag_families', {}) or {}).get('primary_brand', [])))}",
+            f"Tags: {' '.join((deep.get('hashtag_families', {}) or {}).get('primary_brand', []))}",
             "",
         ])
     yt = _deep("youtube-deep.json")

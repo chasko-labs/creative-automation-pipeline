@@ -32,7 +32,7 @@ def _band_has_text(out_path: Path, band_frac: float = 0.16) -> bool:
     px = img.load()
     target = _hex("#FFF8F0")
     for y in range(band_top, h):
-        for x in range(0, w):
+        for x in range(w):
             r, g, b = px[x, y]
             if abs(r - target[0]) < 30 and abs(g - target[1]) < 30 and abs(b - target[2]) < 30:
                 return True

@@ -121,19 +121,18 @@ def normalize_platform_copy_request(body: object) -> dict[str, object]:
         raise PlatformCopyValidationError("market must be a non-empty string")
 
     languages = body.get("languages")
-    if languages is not None:
-        if not isinstance(languages, list) or any(
-            not isinstance(language, str) or not language.strip() for language in languages
-        ):
-            raise PlatformCopyValidationError("languages must be a list of non-empty strings")
+    if languages is not None and (
+        not isinstance(languages, list)
+        or any(not isinstance(language, str) or not language.strip() for language in languages)
+    ):
+        raise PlatformCopyValidationError("languages must be a list of non-empty strings")
 
     platforms = body.get("platforms")
-    if platforms is not None:
-        if not isinstance(platforms, list) or any(
-            not isinstance(platform, str) or platform not in PLATFORM_SPECS
-            for platform in platforms
-        ):
-            raise PlatformCopyValidationError("platforms must contain supported platform slugs")
+    if platforms is not None and (
+        not isinstance(platforms, list)
+        or any(not isinstance(platform, str) or platform not in PLATFORM_SPECS for platform in platforms)
+    ):
+        raise PlatformCopyValidationError("platforms must contain supported platform slugs")
 
     return {
         "base_message": raw_message.strip(),

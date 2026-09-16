@@ -19,7 +19,7 @@ import json
 import pathlib
 
 try:
-    from fastapi import FastAPI, Query, HTTPException, UploadFile, File, Form  # type: ignore
+    from fastapi import FastAPI, File, Form, HTTPException, Query, UploadFile  # type: ignore
     from fastapi.middleware.cors import CORSMiddleware  # type: ignore
     from pydantic import BaseModel, Field  # type: ignore
 
@@ -27,15 +27,9 @@ try:
 except ImportError:
     HAS_FASTAPI = False  # fallback still allows import for tests without FastAPI
 
-from .brief import CampaignBrief
-from .naming import slugify
-from .pipeline import run_pipeline
-from .embeddings import embed_text, embed_multimodal
-from .enhance import enhance_hero
-from .reference_api import search as reference_search  # type: ignore
-from .suggest import suggest_variants
-from . import dam
-from . import dam_library
+from . import dam, dam_library
+from .asset_api import library as asset_library_instance
+from .asset_api import mount_library_routes
 from .asset_pack import (
     build_asset_pack_zip,
     build_pack_name,
@@ -43,7 +37,13 @@ from .asset_pack import (
     market_retailers,
     pack_tempdir,
 )
-from .asset_api import library as asset_library_instance, mount_library_routes
+from .brief import CampaignBrief
+from .embeddings import embed_multimodal, embed_text
+from .enhance import enhance_hero
+from .naming import slugify
+from .pipeline import run_pipeline
+from .reference_api import search as reference_search  # type: ignore
+from .suggest import suggest_variants
 
 app = FastAPI(  # type: ignore
     title="KODIAK® Posts for Today's Frontier — Living API",
@@ -213,13 +213,13 @@ if HAS_FASTAPI:
         if store_path.exists():
             try:
                 markets = _json.loads(store_path.read_text()).get("markets", [])
-            except Exception:
+            except (OSError, ValueError, AttributeError):
                 markets = []
         gaps = []
         if gaps_path.exists():
             try:
                 gaps = _json.loads(gaps_path.read_text()).get("gaps", [])
-            except Exception:
+            except (OSError, ValueError, AttributeError):
                 gaps = []
         # Filter
         filtered = markets
@@ -327,7 +327,7 @@ if HAS_FASTAPI:
                     if m.get("market") == market or m.get("zip") == market:
                         record = m
                         break
-            except Exception:
+            except (OSError, ValueError, AttributeError):
                 record = {}
 
         place = record.get("place") or market
@@ -425,7 +425,7 @@ if HAS_FASTAPI:
 
     @app.post("/assets/upload")  # type: ignore
     async def asset_upload(
-        file: UploadFile = File(..., description="Hero photo — image/jpeg or image/png, <= 15 MB"),
+        file: UploadFile = File(..., description="Hero photo — image/jpeg or image/png, <= 15 MB"),  # noqa: B008 — FastAPI File()/Form() defaults are the framework idiom
         product: str = Form("power-cakes", description="Product slug the hero belongs to"),
         market: str | None = Form(None, description="Optional market code, echoed for the caller's context"),
     ):
@@ -465,8 +465,9 @@ if HAS_FASTAPI:
         if not data:
             raise HTTPException(status_code=400, detail="empty file")  # type: ignore
 
-        from .naming import slugify, today_utc
         import uuid
+
+        from .naming import slugify, today_utc
 
         product_slug = slugify(product) or "power-cakes"
         asset_id = f"{product_slug}-{today_utc()}-{uuid.uuid4().hex[:8]}"
@@ -513,19 +514,19 @@ if HAS_FASTAPI:
         Runs as background dispatch; returns job_id. Poll GET /campaigns/job/{id} for status.
         When input assets exist in input_assets/* or s3://chasko-creative-dam-.../brands/kodiak/ they are reused; when missing, Nova Canvas mock is generated (GenAI). Adobe Express MCP mocks are fanned as background jobs — see src/creative_automation/adobe_express.py.
         """
-        import uuid
+        import json as _json
+        import pathlib
         import threading
         import time
-        import pathlib
-        import json as _json
+        import uuid
         b = body or {}
         # brief is optional — if missing, use every product + every market as "every conceivable"
         markets_path = pathlib.Path("data/localization/store-finder-markets.json")
         total_markets = 18
         try:
             total_markets = len(_json.loads(markets_path.read_text()).get("markets", []))
-        except Exception:
-            pass
+        except (OSError, ValueError, AttributeError) as e:
+            print(f"[api] markets count unreadable, keeping default: {e}")
         job_id = str(uuid.uuid4())[:8]
         out_base = pathlib.Path(f"/tmp/kodiak-fanned-{job_id}")
         out_base.mkdir(parents=True, exist_ok=True)
@@ -544,7 +545,7 @@ if HAS_FASTAPI:
                 # If no valid brief, synthesize one for Park City + Timberon
                 try:
                     cb = CampaignBrief.model_validate(brief_dict) if brief_dict.get("campaign_name") else None
-                except Exception:
+                except Exception:  # noqa: BLE001 — demo fan-out; invalid brief means synthesize
                     cb = None
                 if cb:
                     # run once per market slice — here 1 run covers all products × 3 ratios; fan-out would clone per market/retailer
@@ -556,12 +557,12 @@ if HAS_FASTAPI:
                         try:
                             c = CampaignBrief.model_validate(fake_brief)
                             run_pipeline(c, pathlib.Path(b.get("assets","input_assets")), out_base / mkt, enhance=True)
-                        except Exception as e:
+                        except Exception as e:  # noqa: BLE001 — per-market best-effort; recorded to .err
                             (out_base / f"{mkt}.err").write_text(str(e))
                 status["status"] = "done"
                 status["finished"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
                 status_path.write_text(_json.dumps(status, indent=2))
-            except Exception as e:
+            except Exception as e:  # noqa: BLE001 — background fan-out must always land a status
                 status["status"] = "error"
                 status["error"] = str(e)
                 status_path.write_text(_json.dumps(status, indent=2))
@@ -570,8 +571,8 @@ if HAS_FASTAPI:
 
     @app.get("/campaigns/job/{job_id}")  # type: ignore
     def campaigns_job(job_id: str):
-        import pathlib
         import json as _json
+        import pathlib
         for base in pathlib.Path("/tmp").glob(f"kodiak-fanned-{job_id}*"):
             sp = base / "status.json"
             if sp.exists():

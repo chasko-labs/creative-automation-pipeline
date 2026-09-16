@@ -21,13 +21,13 @@ try:
 except ImportError:
     HAS_FASTAPI = False
 
+from .asset_ingest import ingest_asset
 from .asset_library import (
     AssetKind,
     AssetLibrary,
     AssetNotSelectable,
     UnsupportedAssetKind,
 )
-from .asset_ingest import ingest_asset
 from .observability import get_observer
 
 DAM_S3_BUCKET = os.getenv("DAM_S3_BUCKET", "chasko-creative-dam-946179428633-us-east-1")

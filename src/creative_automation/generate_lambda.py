@@ -1,14 +1,14 @@
 """Lambda Function-URL handler: brief-to-hero via Nova Pro asset composition."""
 from __future__ import annotations
 
+import base64
 import concurrent.futures
 import json
 import os
 import re
 import sys
-import base64
 import zipfile
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 from uuid import uuid4
@@ -17,8 +17,7 @@ import boto3
 from botocore.config import Config
 from PIL import Image
 
-from . import text_rewriter
-from . import dam_library
+from . import dam_library, text_rewriter
 from .generate import (
     _brand_floor,
     _recipe_card_defaults,
@@ -36,6 +35,7 @@ from .platform_copy import (
     clean_brand_copy,
     fallback_platform_copy,
 )
+
 # NOTE: full mode no longer calls platform_copy/localize in-request (frontend owns
 # both — see _handle_full). The modules stay imported by tests directly.
 from .platforms import PLATFORMS
@@ -136,7 +136,7 @@ def _apply_art_upgrade_future(fut, data: dict[str, Any], prompt: str, provenance
             return
         try:
             line = fut.result(timeout=timeout_s)
-        except Exception:
+        except Exception:  # noqa: BLE001 — slow/faulty voice degrades to voice-off; pixels ship
             return  # slow voice -> voice-off, pixels ship
         if line and line.strip() and line.strip() != prompt.strip():
             provenance["art_headline"] = line.strip()
@@ -410,7 +410,7 @@ def _handle_pack(event: dict[str, Any]) -> dict[str, Any]:
     region = _iso_segment(data.get("region"), "US-UT")
     locality = _iso_segment(data.get("locality"), "park-city-84098")
     channel = _iso_segment(data.get("channel"), "retailers")
-    day = datetime.now(timezone.utc).strftime("%Y%m%d")
+    day = datetime.now(UTC).strftime("%Y%m%d")
     prefix = f"s3://{DAM_S3_BUCKET}/"
     members: list[tuple[str, str]] = []
     for i, entry in enumerate(files):
@@ -533,7 +533,7 @@ def _handle_library_assets(event: dict[str, Any]) -> dict[str, Any]:
     if not data:
         return _response(400, {"ok": False, "error": "empty request body: expected file bytes"})
 
-    from .asset_library import AssetLibrary, AssetKind, UnsupportedAssetKind
+    from .asset_library import AssetKind, AssetLibrary, UnsupportedAssetKind
 
     library = AssetLibrary(bucket=DAM_S3_BUCKET)
     if not library.s3_enabled:
@@ -559,7 +559,7 @@ def _handle_library_assets(event: dict[str, Any]) -> dict[str, Any]:
     embed_model: str | None = None
     dedup = False
     try:
-        from .embeddings import vector_exists, put_vector, embed_image, embed_text
+        from .embeddings import embed_image, embed_text, put_vector, vector_exists
 
         if vector_exists(ref.asset_id):
             dedup = True
@@ -577,7 +577,7 @@ def _handle_library_assets(event: dict[str, Any]) -> dict[str, Any]:
                     "s3_uri": ref.s3_uri,
                 }
                 if kind_val == AssetKind.RASTER.value:
-                    tmp_path = Path(f"/tmp/{uuid4().hex}-{ref.filename}")  # noqa: S108 — Lambda /tmp
+                    tmp_path = Path(f"/tmp/{uuid4().hex}-{ref.filename}")
                     tmp_path.write_bytes(data)
                     vec, model = embed_image(tmp_path, text_hint=ref.filename)
                 else:
@@ -609,8 +609,8 @@ def _handle_library_assets(event: dict[str, Any]) -> dict[str, Any]:
         if tmp_path is not None:
             try:
                 tmp_path.unlink(missing_ok=True)
-            except Exception:  # noqa: BLE001
-                pass
+            except OSError as e:  # best-effort temp cleanup
+                print(f"[generate_lambda] tmp cleanup skipped: {e}", file=sys.stderr)
 
     return _response(
         201,
@@ -1016,7 +1016,7 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     # Render contract (#199/#200): default {} = clean standalone image, every layer
     # OFF. Only an explicit overlay_text layer re-enables the baked message bar.
     layers = _request_layers(data)
-    out_dir = Path(f"/tmp/{uuid4().hex}")  # noqa: S108 — Lambda only allows /tmp writes
+    out_dir = Path(f"/tmp/{uuid4().hex}")
     hero_path = out_dir / "hero-1x1.png"
     hero_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -1111,7 +1111,7 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     seed_key = data.get("seed_key")
     # Render contract (#199/#200): default {} = clean standalone set, every layer OFF.
     layers = _request_layers(data)
-    out_dir = Path(f"/tmp/{uuid4().hex}")  # noqa: S108 — Lambda only allows /tmp writes
+    out_dir = Path(f"/tmp/{uuid4().hex}")
     # "prompt" is the campaign brief/vibe now, not a generation seed. generate_hero_set
     # composes over a real product asset via Nova Pro vision / Stability, delivering all
     # three delivery ratios (1x1, 4x5, 2x3) from one call. When "theme" is present it
@@ -1221,7 +1221,7 @@ def _post_wall_brand_floor(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     theme = data.get("theme")
     layers = _request_layers(data)
     # DISTINCT per-invocation path — never the abandoned worker's out_dir.
-    out_dir = Path(f"/tmp/{uuid4().hex}-wall")  # noqa: S108 — Lambda only allows /tmp writes
+    out_dir = Path(f"/tmp/{uuid4().hex}-wall")
     hero_path = out_dir / "hero-1x1.png"
     hero_path.parent.mkdir(parents=True, exist_ok=True)
 

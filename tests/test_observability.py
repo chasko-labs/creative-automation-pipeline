@@ -30,7 +30,7 @@ def test_as_dict_matches_flat_shape() -> None:
     obs = Observer("svc", xray_enabled=False)
     rec = obs.log_event("asset.select", asset_id="xyz")
     d = rec.as_dict()
-    assert set(["ts", "service", "event", "level", "asset_id"]).issubset(d.keys())
+    assert {"ts", "service", "event", "level", "asset_id"}.issubset(d.keys())
 
 
 def test_ring_buffer_recent_and_counts() -> None:

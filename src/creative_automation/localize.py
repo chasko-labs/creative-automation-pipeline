@@ -87,7 +87,7 @@ def _try_bedrock_translate(text: str, target_lang: str, region: str) -> str | No
         )
         out = resp["output"]["message"]["content"][0]["text"].strip().strip('"').strip("'")
         return out if out else None
-    except (ClientError, BotoCoreError, Exception) as e:
+    except (ClientError, BotoCoreError, KeyError, IndexError, TypeError, AttributeError, ValueError) as e:
         print(f"[localize] Bedrock translate fallback: {e}")
         return None
 
@@ -103,7 +103,7 @@ def _try_translate_api(text: str, target_lang: str, source_lang: str = "en") -> 
         resp = client.translate_text(Text=text, SourceLanguageCode=source_lang, TargetLanguageCode=target_lang)
         out = resp.get("TranslatedText", "").strip()
         return out if out else None
-    except (ClientError, BotoCoreError, Exception) as e:
+    except (ClientError, BotoCoreError, AttributeError, TypeError, ValueError) as e:
         print(f"[localize] Translate API fallback: {e}")
         return None
 

@@ -111,7 +111,7 @@ def canon_ratio(ratio: str) -> str:
 
 def today_utc() -> str:
     """YYYYMMDD in coordinated universal time, per ISO 8601 basic date."""
-    return datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%d")
+    return datetime.datetime.now(datetime.UTC).strftime("%Y%m%d")
 
 
 def _region_field(region: str) -> str:

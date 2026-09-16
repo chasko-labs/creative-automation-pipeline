@@ -157,7 +157,7 @@ def put(
         "source": {"S": "dynamodb"},
         "market": {"S": market},
         "lang": {"S": lang},
-        "updated_at": {"S": datetime.datetime.now(datetime.timezone.utc).isoformat()},
+        "updated_at": {"S": datetime.datetime.now(datetime.UTC).isoformat()},
     }
     client.put_item(TableName=table, Item=item)
 

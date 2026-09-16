@@ -100,7 +100,7 @@ class _FakeS3:
     def put_object(self, **kwargs) -> dict:
         return {}
 
-    def generate_presigned_url(self, op, Params, ExpiresIn) -> str:  # noqa: N803
+    def generate_presigned_url(self, op, Params, ExpiresIn) -> str:
         return f"https://presigned.example/{Params['Key']}?exp={ExpiresIn}"
 
 

@@ -20,7 +20,6 @@ import re
 import sys
 import time
 from pathlib import Path
-from typing import Optional
 
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
@@ -193,7 +192,7 @@ def _restyle_cache_get(key: str, dest: Path) -> bool:
         dest.parent.mkdir(parents=True, exist_ok=True)
         s3.download_file(_RESTYLE_CACHE_BUCKET, key, str(dest))
         return dest.exists() and dest.stat().st_size > 0
-    except Exception:
+    except Exception:  # noqa: BLE001 — cache miss on ANY failure per contract
         return False
 
 
@@ -205,8 +204,8 @@ def _restyle_cache_put(key: str, src: Path) -> None:
         s3 = boto3.client("s3")
         s3.put_object(Bucket=_RESTYLE_CACHE_BUCKET, Key=key,
                       Body=src.read_bytes(), ContentType="image/png")
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001 — cache write never breaks the render
+        print(f"[generate] restyle cache put skipped: {e}", file=sys.stderr)
 
 
 class _RungBBudgetSkip(Exception):
@@ -633,9 +632,9 @@ try:
         _scrim_hex = _sem["overlay"]["scrim"]["$value"]
         # accent is blazeOrange; brand list index 1 is blazeOrange per get_brand_colors
         _accent_hex = _brand[1] if len(_brand) > 1 else _accent_hex
-    except Exception:
-        pass
-except Exception:
+    except (KeyError, TypeError, AttributeError, IndexError) as e:
+        print(f"[generate] token semantic colors unreadable, keeping defaults: {e}", file=sys.stderr)
+except Exception:  # noqa: BLE001 — import-time palette fallback; module must import offline
     MOCK_PALETTES = [
         ("#3B2316", "#E8530E"),
         ("#1A3C34", "#E8530E"),
@@ -650,7 +649,7 @@ def _hex_to_rgb(h: str) -> tuple[int, int, int]:
 
 
 # --------------------------------------------------------------- SKU -> photo resolver
-_SKU_PHOTO_MAP_CACHE: Optional[dict] = None
+_SKU_PHOTO_MAP_CACHE: dict | None = None
 
 
 def _resolve_map_path() -> Path:
@@ -694,7 +693,7 @@ def _load_sku_photo_map() -> dict:
     return _SKU_PHOTO_MAP_CACHE
 
 
-def _resolve_dam_photo(product_id: str) -> Optional[str]:
+def _resolve_dam_photo(product_id: str) -> str | None:
     """Return the best real lifestyle DAM key for a catalog handle, else None.
 
     Exact-match lookup on product_id. Prefers photo_key; if absent, walks the
@@ -713,7 +712,7 @@ def _resolve_dam_photo(product_id: str) -> Optional[str]:
 
 
 # ------------------------------------------------------------- theme -> photo resolver
-_THEME_ASSET_MAP_CACHE: Optional[dict] = None
+_THEME_ASSET_MAP_CACHE: dict | None = None
 
 
 def _resolve_theme_map_path() -> Path:
@@ -756,7 +755,7 @@ def _load_theme_asset_map() -> dict:
     return _THEME_ASSET_MAP_CACHE
 
 
-def _resolve_theme_photo(theme_slug: str) -> Optional[str]:
+def _resolve_theme_photo(theme_slug: str) -> str | None:
     """Return the best real thematic DAM key for a theme slug, else None.
 
     Prefers photo_key; if somehow absent, walks the pool list. Returns None when
@@ -793,7 +792,7 @@ def _mock_hero(product_name: str, brief_msg: str, region: str, out_path: Path, i
     try:
         font_big = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 56)
         font_small = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 28)
-    except Exception:
+    except OSError:
         font_big = ImageFont.load_default()
         font_small = ImageFont.load_default()
 
@@ -845,7 +844,7 @@ def _brand_floor(product_name: str, ratio: str, out_path: Path) -> Path:
     try:
         font_big = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 64)
         font_small = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 30)
-    except Exception:
+    except OSError:
         font_big = ImageFont.load_default()
         font_small = ImageFont.load_default()
 
@@ -877,7 +876,7 @@ def _call_with_optional_deadline(fn, *args, deadline_ms=None):
         return fn(*args)
 
 
-def _find_source_asset(product_id: str, product_name: str, deadline_ms=None) -> Optional[Path]:
+def _find_source_asset(product_id: str, product_name: str, deadline_ms=None) -> Path | None:
     """Locate a real source image for the product.
 
     Order: input_assets/<product_id>/hero-real.png, then hero.png, then any image
@@ -953,13 +952,13 @@ def _seed_small_for_nova(src: Path) -> tuple[bytes, str]:
 
 def _nova_pro_caption(
     src: Path, product_name: str, brief_msg: str, region: str, audience: str
-) -> Optional[str]:
+) -> str | None:
     """Ask Nova Pro (Converse) for a short on-brand caption + layout hint. None on failure."""
     if boto3 is None:
         return None
     try:
         img_bytes, fmt = _seed_small_for_nova(src)
-    except Exception:
+    except (OSError, ValueError):
         return None
     try:
         client = _bedrock_failfast_client(read_timeout=BEDROCK_NOVA_READ_TIMEOUT_S)
@@ -1060,7 +1059,7 @@ def _nova_pro_scene_prompt(
         return default_prompt
     try:
         img_bytes, fmt = _seed_small_for_nova(src)
-    except Exception:
+    except (OSError, ValueError):
         return default_prompt
     try:
         client = _bedrock_failfast_client(read_timeout=BEDROCK_NOVA_READ_TIMEOUT_S)
@@ -1144,7 +1143,7 @@ def _stability_control_hero(
     *,
     control_strength: float | None = None,
     seed_value: int | None = None,
-) -> Optional[Path]:
+) -> Path | None:
     """Restyle the seed photo to the theme via Bedrock Stability control-structure.
 
     Invokes the us.stability.stable-image-control-structure-v1:0 inference profile with
@@ -1214,7 +1213,7 @@ def _stability_control_hero(
 
 def _stability_outpaint(
     base_png: Path, target_w: int, target_h: int, prompt: str, out_path: Path
-) -> Optional[Path]:
+) -> Path | None:
     """Extend base_png to (target_w, target_h) via Bedrock Stability outpaint.
 
     PART B — derive the 9x16 / 16x9 delivery ratios from the 1x1 control-structure
@@ -1448,7 +1447,7 @@ def _title_case_headline(text: str) -> str:
     )
 
 
-def _scrub_director_line(text: str, examples: list[dict]) -> Optional[str]:
+def _scrub_director_line(text: str, examples: list[dict]) -> str | None:
     """Extract one render-safe line from raw voice-model output.
 
     The fine-tuned model wraps lines in markdown (**bold**, "quotes"), prepends
@@ -1483,7 +1482,7 @@ def _scrub_director_line(text: str, examples: list[dict]) -> Optional[str]:
 
 def _director_headline_text(
     product_name: str, brief_msg: str, region: str, audience: str
-) -> Optional[str]:
+) -> str | None:
     """Grounded-director headline: retrieve brand voice, direct, normalize.
 
     The concept loop in one bounded call: embed the request -> top-k corpus
@@ -1514,7 +1513,7 @@ def _director_headline_text(
     # above the memo so an ops flip takes effect immediately.
     global _DIRECTOR_MEMO
     try:
-        _DIRECTOR_MEMO
+        _ = _DIRECTOR_MEMO
     except NameError:
         _DIRECTOR_MEMO = {}
     memo_key = (product_name, brief_msg, region, audience)
@@ -1522,13 +1521,12 @@ def _director_headline_text(
         _dnote("memo hit")
         return _DIRECTOR_MEMO[memo_key]
     try:
-        from . import art_director
-        from . import director_memory
+        from . import art_director, director_memory
     except ImportError as e:
         _dnote(f"skip: import failed ({e})")
         return None
 
-    def _attempt() -> Optional[str]:
+    def _attempt() -> str | None:
         query = f"{product_name} {brief_msg} {region} {audience}".strip()
         examples, model_used = director_memory.retrieve(query, k=3)
         if not examples:
@@ -1574,13 +1572,13 @@ def _director_headline_text(
     # nothing shared, retries out, and drains harmlessly.
     try:
         executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
-    except Exception:
+    except Exception:  # noqa: BLE001 — tribunal alloc must never break the voice
         return None
     try:
         fut = executor.submit(_attempt)
         try:
             outcome = fut.result(timeout=_DIRECTOR_TIMEOUT_S)
-        except Exception:
+        except Exception:  # noqa: BLE001 — worker outcome None on any failure
             outcome = None
     finally:
         executor.shutdown(wait=False)
@@ -1647,7 +1645,7 @@ def _apply_brand_overlay(
         px = _HEADLINE_PX.get(ratio, 56)
         try:
             font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", px)
-        except Exception:
+        except OSError:
             font = ImageFont.load_default()
         pad = 48  # C03 safe-area pad
         lines = _wrap_headline(draw, headline, font, W - 2 * pad)
@@ -1815,7 +1813,7 @@ def _compose_recipe_card(
         px = _HEADLINE_PX.get(ratio, 56)
         try:
             tfont = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", px)
-        except Exception:
+        except OSError:
             tfont = ImageFont.load_default()
         lines = _wrap_headline(draw, title, tfont, W - 2 * pad)
         line_h = int(px * 1.15)
@@ -1835,7 +1833,7 @@ def _compose_recipe_card(
     try:
         hfont = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", body_px)
         bfont = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", body_px)
-    except Exception:
+    except OSError:
         hfont = ImageFont.load_default()
         bfont = hfont
     ink = _hex_to_rgb(_scrim_hex)
@@ -1967,7 +1965,7 @@ def _resolve_retailer_mark(slug: str) -> Path | None:
         if sibling.exists():
             return sibling
         return None
-    except Exception:
+    except Exception:  # noqa: BLE001 — unresolved mark resolves to None, ship clean
         return None
 
 
@@ -2237,7 +2235,7 @@ def generate_hero(
         _director_fut = _DIRECTOR_POOL.submit(
             _director_headline_text, product_name, brief_msg, region, audience
         )
-    except Exception:
+    except Exception:  # noqa: BLE001 — director kick is best-effort; caption path covers
         _director_fut = None
     # Slow-voice latch: the ladder calls _headline once per attempted rung
     # (A/B/C) — without this, three budget-shaped waits could stack past the
@@ -2259,7 +2257,7 @@ def generate_hero(
                 if _director_fut.done():
                     try:
                         directed = _director_fut.result(timeout=0)
-                    except Exception:
+                    except Exception:  # noqa: BLE001 — dead voice falls to caption, pixels unaffected
                         directed = None
                         _voice_state["dead"] = True
                 elif not _voice_state["dead"]:
@@ -2269,8 +2267,8 @@ def generate_hero(
                             max(0.3, (remaining_ms() - _C_RESERVATION_MS - 500.0) / 1000.0),
                         )
                         directed = _director_fut.result(timeout=grace_s)
-                    except Exception:
-                        directed = None  # slow voice -> caption path, pixels unaffected
+                    except Exception:  # noqa: BLE001 — slow voice -> caption path, pixels unaffected
+                        directed = None
                         _voice_state["dead"] = True
             if directed:
                 provenance["headline_source"] = _DIRECTOR_LIVE_SOURCE
@@ -2327,14 +2325,14 @@ def generate_hero(
             provenance["fallthrough_reason"] = reason
 
     # ---- seed resolution: theme photo, else sku-mapped DAM photo, else disk asset.
-    seed: Optional[Path] = None
+    seed: Path | None = None
     if theme:
         theme_key = _resolve_theme_photo(theme)
         if theme_key:
             try:
                 from .dam import fetch_dam_key
 
-                dest = Path("/tmp/kodiak-assets/theme") / Path(theme_key).name  # noqa: S108 — Lambda /tmp
+                dest = Path("/tmp/kodiak-assets/theme") / Path(theme_key).name
                 photo = fetch_dam_key(theme_key, dest)
                 if photo is not None and photo.exists():
                     seed = photo
@@ -2349,7 +2347,7 @@ def generate_hero(
         try:
             from .dam import fetch_dam_key
 
-            dest = Path("/tmp/kodiak-assets/staged") / Path(seed_key).name  # noqa: S108 — Lambda /tmp
+            dest = Path("/tmp/kodiak-assets/staged") / Path(seed_key).name
             photo = fetch_dam_key(seed_key, dest)
             if photo is not None and photo.exists():
                 seed = photo
@@ -2365,7 +2363,7 @@ def generate_hero(
             try:
                 from .dam import fetch_dam_key
 
-                dest = Path("/tmp/kodiak-assets/scene") / Path(photo_key).name  # noqa: S108 — Lambda /tmp
+                dest = Path("/tmp/kodiak-assets/scene") / Path(photo_key).name
                 photo = fetch_dam_key(photo_key, dest)
                 if photo is not None and photo.exists():
                     seed = photo
@@ -2460,7 +2458,7 @@ def generate_hero(
                         seed = cached
                         bg_restyle = True
                         provenance["bg_restyle_source"] = "cache"
-                except Exception:
+                except (OSError, ValueError, TypeError):
                     cache_key = None
             if (seed is not None and not bg_restyle and not bare_base
                     and remaining_ms() >= _B_BUDGET_MS + _C_RESERVATION_MS):
@@ -2632,7 +2630,7 @@ def generate_hero(
                 reason = "throttle" if "Throttl" in str(code) else "model-error"
                 print(f"[generate] rung B ClientError [{code}] -> fall to C: {e}", file=sys.stderr)
                 provenance["fallthrough_reason"] = reason
-            except _bedrock_fail_tuple as e:  # noqa: BLE001 — any other Bedrock failure falls to C
+            except _bedrock_fail_tuple as e:
                 print(f"[generate] rung B failed -> fall to C: {e}", file=sys.stderr)
                 provenance["fallthrough_reason"] = "model-error"
         else:
@@ -2929,7 +2927,7 @@ def generate_hero_set(
 def _headline_for(
     src: Path, product_name: str, brief_msg: str, region: str, audience: str,
     remaining_ms=None,
-) -> tuple[str, Optional[str]]:
+) -> tuple[str, str | None]:
     """Set headline through the full pipeline (module-level so generate_hero_set
     can reuse it). Returns (headline, headline_source|None): the grounded
     director first, stock Nova normalized second, raw brief last. remaining_ms
@@ -2948,7 +2946,7 @@ def _headline_for(
     else:
         try:
             director_ok = remaining_ms() >= _DIRECTOR_BUDGET_MS + _C_RESERVATION_MS
-        except Exception:
+        except Exception:  # noqa: BLE001 — deadline probe must never gate the voice
             director_ok = True
         if director_ok:
             directed = _director_headline_text(product_name, brief_msg, region, audience)
@@ -2959,8 +2957,8 @@ def _headline_for(
                     f"{_DIRECTOR_BUDGET_MS + _C_RESERVATION_MS}ms",
                     file=sys.stderr,
                 )
-            except Exception:
-                pass
+            except (OSError, ValueError):
+                print("[director] set-headline skip (budget log unavailable)", file=sys.stderr)
     if directed:
         # Standing copy law: the voice model may echo a bare brand word from its
         # examples — normalize on the way out (idempotent on compliant lines).

@@ -22,7 +22,7 @@ from creative_automation.asset_pack import (
 
 try:
     from creative_automation.api import HAS_FASTAPI, app
-except Exception:  # pragma: no cover - import guard
+except ImportError:  # pragma: no cover - import guard
     HAS_FASTAPI = False
     app = None
 

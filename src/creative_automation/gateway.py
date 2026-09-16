@@ -122,7 +122,7 @@ def _h_asset_library_browse(args: dict) -> dict:
     # never crash. A real ValueError (bad kind) is raised earlier, so this catch is backend-only.
     try:
         page = lib.list_assets(kind=kind_enum, limit=int(args.get("limit", 100)), cursor=args.get("cursor"))
-    except Exception as e:  # NoCredentialsError, EndpointConnectionError, ClientError, etc
+    except Exception as e:  # noqa: BLE001 — backend unreachable degrades to empty list (NoCredentialsError, ClientError, etc)
         return {
             "items": [],
             "next_cursor": None,
@@ -388,7 +388,7 @@ def dispatch_tool(name: str, arguments: dict | None = None) -> dict:
         result = tool["handler"](arguments)
     except (ValueError, TypeError, KeyError) as e:
         return {"ok": False, "error": f"{name} failed: {e}"}
-    except Exception as e:  # last-resort guard — a tool must never crash the gateway
+    except Exception as e:  # noqa: BLE001 — last-resort guard; a tool must never crash the gateway
         return {"ok": False, "error": f"{name} raised {type(e).__name__}: {e}"}
 
     return {"ok": True, "result": _json_safe(result)}

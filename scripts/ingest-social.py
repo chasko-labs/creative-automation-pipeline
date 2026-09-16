@@ -79,7 +79,7 @@ def main():
                 # also enrich youtube-deep.json counts if out is kodiakcakes
                 print(f"[youtube] done: channel={res['channel'].get('title')} id={res['channel'].get('id')} videos={len(res['videos'])} -> {out / 'youtube-ingest-raw.json'}")
                 ran += 1
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001 — report-and-continue CLI guard; any provider failure becomes SKIP/ERROR
             # MissingCredentialsError is the expected credential-gated refusal
             msg = str(e)
             if "credentials missing" in msg.lower() or "MissingCredentials" in type(e).__name__:
@@ -111,7 +111,7 @@ def main():
                 res = tt.ingest_to_raw(handle=handle, out_dir=out, use_research=False)
                 print(f"[tiktok:display] done: user handle={handle} videos={res['counts']['videos']} -> {out / 'tiktok.json'} (+ tiktok-ingest-raw.json)")
                 ran += 1
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001 — report-and-continue CLI guard; any provider failure becomes SKIP/ERROR
             msg = str(e)
             if "credentials missing" in msg.lower() or "MissingCredentials" in type(e).__name__:
                 print(f"[tiktok:display] SKIP — {e}", file=sys.stderr)
@@ -147,7 +147,7 @@ def main():
                     res = tt.ingest_to_raw(handle=handle, out_dir=out, use_research=True)
                     print(f"[tiktok:research] done: handle={handle} videos={res['counts']['videos']} -> {out / 'tiktok-ingest-raw.json'} (research mode)")
                     ran += 1
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001 — report-and-continue CLI guard; any provider failure becomes SKIP/ERROR
             msg = str(e)
             if "credentials missing" in msg.lower() or "MissingCredentials" in type(e).__name__ or "approved" in msg.lower():
                 print(f"[tiktok:research] SKIP — {e}", file=sys.stderr)

@@ -57,7 +57,7 @@ def test_generate_hero_dam_disabled_falls_back_gracefully(tmp_path: Path, monkey
     # map entry exists but DAM is disabled (no creds) -> must fall back to disk or
     # mock, never raise. Force fetch_dam_key + disk discovery + logo to None.
     monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: "brands/kodiak/raw-ingest/x.jpg")
-    import creative_automation.dam as dam
+    from creative_automation import dam
 
     monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: None)
@@ -126,7 +126,7 @@ def test_resolve_theme_photo_unknown_theme() -> None:
 def test_generate_hero_theme_dam_disabled_falls_back_gracefully(tmp_path: Path, monkeypatch) -> None:
     # theme resolves to a real key, but DAM is disabled (fetch -> None) and there is
     # no disk asset -> must fall back to the placeholder, never raise.
-    import creative_automation.dam as dam
+    from creative_automation import dam
 
     monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: None)
     monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
@@ -152,7 +152,7 @@ def test_generate_hero_theme_composes_on_fetched_photo(tmp_path: Path, monkeypat
     # engine unavailable (patched -> None), generate_hero downgrades to the Pillow
     # scene composer and reports "bedrock:nova-pro" (the chip theme drove the image).
     photo = _make_photo(tmp_path / "theme-src.png")
-    import creative_automation.dam as dam
+    from creative_automation import dam
 
     monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: photo)
     # Nova Pro offline -> caption None -> brief headline used; keep deterministic
@@ -189,13 +189,12 @@ def test_generate_hero_theme_none_preserves_product_path(tmp_path: Path, monkeyp
     # regression: theme=None (default) must NOT touch the theme resolver — the product
     # sku-photo-map path drives the image exactly as before.
     photo = _make_photo(tmp_path / "product-src.png")
-    import creative_automation.dam as dam
+    from creative_automation import dam
 
     called = {"theme_resolver": 0}
 
     def _spy_theme(slug: str):  # pragma: no cover - asserted via counter
         called["theme_resolver"] += 1
-        return None
 
     monkeypatch.setattr(generate, "_resolve_theme_photo", _spy_theme)
     monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: "brands/kodiak/raw-ingest/x.jpg")
@@ -225,7 +224,7 @@ def test_theme_photo_seed_skips_nova_scene_prompt(tmp_path: Path, monkeypatch) -
     # Theme-photo fast path: the seed already carries the theme, so rung B must
     # NOT spend a Nova vision call — deterministic default instead, rung C kept.
     photo = _make_photo(tmp_path / "wild-src.png")
-    import creative_automation.dam as dam
+    from creative_automation import dam
 
     monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: photo)
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
@@ -236,7 +235,7 @@ def test_theme_photo_seed_skips_nova_scene_prompt(tmp_path: Path, monkeypatch) -
     )
 
     out = tmp_path / "hero-wild-fast.png"
-    result, source, prov = generate.generate_hero(
+    result, _source, prov = generate.generate_hero(
         product_id="power-cakes",
         product_name="Power Cakes",
         brief_msg="wild mornings",

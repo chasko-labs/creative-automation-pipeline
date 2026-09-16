@@ -18,10 +18,10 @@ S3 Vectors ingest (when bucket exists):
 from __future__ import annotations
 
 import argparse
-import pathlib
 import json
+import pathlib
 
-from creative_automation.embeddings import embed_batch, EMBED_MODEL, EMBED_DIM
+from creative_automation.embeddings import EMBED_DIM, EMBED_MODEL, embed_batch
 
 
 def collect_design() -> list[dict]:

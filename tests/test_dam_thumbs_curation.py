@@ -10,12 +10,12 @@ from creative_automation import dam_library
 
 
 class _HeadHit:
-    def head_object(self, Bucket, Key):  # noqa: N803
+    def head_object(self, Bucket, Key):
         return {}
 
 
 class _HeadMiss:
-    def head_object(self, Bucket, Key):  # noqa: N803
+    def head_object(self, Bucket, Key):
         raise RuntimeError("404")
 
 
@@ -36,7 +36,7 @@ def test_thumb_url_miss_returns_none() -> None:
     assert dam_library.thumb_url("k", _HeadMiss(), "b") is None
 
 
-def test_thumb_url_hit_presigns(monkeypatch) -> None:  # noqa: ANN001
+def test_thumb_url_hit_presigns(monkeypatch) -> None:
     monkeypatch.setattr(
         dam_library.dam, "presign_get", lambda key: f"https://cdn/{key}"
     )
@@ -66,7 +66,7 @@ def test_seven_categories() -> None:
     assert "food" in dam_library._CLASSIFIED_TABS
 
 
-def test_curation_omit_and_rank(monkeypatch) -> None:  # noqa: ANN001
+def test_curation_omit_and_rank(monkeypatch) -> None:
     monkeypatch.setattr(
         dam_library, "_CURATION_CACHE",
         {"strength": {"b": 9, "a": 3}, "omit": ["slop"]},
@@ -74,7 +74,7 @@ def test_curation_omit_and_rank(monkeypatch) -> None:  # noqa: ANN001
     assert dam_library._apply_curation(["slop", "a", "b", "c"]) == ["b", "a", "c"]
 
 
-def test_curation_missing_file_is_noop(monkeypatch) -> None:  # noqa: ANN001
+def test_curation_missing_file_is_noop(monkeypatch) -> None:
     monkeypatch.setattr(dam_library, "_CURATION_CACHE", {})
     keys = ["x", "y"]
     assert dam_library._apply_curation(keys) == keys

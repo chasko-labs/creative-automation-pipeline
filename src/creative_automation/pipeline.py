@@ -6,21 +6,21 @@ import json
 import shutil
 import time
 from pathlib import Path
-from typing import Dict, List
 
 from .brief import CampaignBrief
-from .compose import compose_creative
 from .compliance import run_all_checks
+from .compose import compose_creative
 from .dam import find_brand_logo, find_hero_asset
 from .enhance import enhance_hero
 from .generate import generate_hero
 from .localize import localize_message
 from .naming import bcp47_tag, build_iso_name, derive_locality, today_utc
 from .safety import check_text, redact
+
 try:
     from .translate import attach_market_translations
     _HAS_TRANSLATE = True
-except Exception:
+except ImportError:
     _HAS_TRANSLATE = False
 
 # --- market-languages auto-produce (top 2 outside English per market (Nova-powered, unlimited budget)) ---
@@ -29,7 +29,7 @@ _MARKET_LANGS_CACHE: dict | None = None
 
 def _load_market_languages(region: str) -> list[str]:
     """Return [en, lang2, lang3] for region market code e.g. US-SW-EL PASO. Fallback [] if not found."""
-    global _MARKET_LANGS_CACHE  # noqa: PLW0603
+    global _MARKET_LANGS_CACHE
     if _MARKET_LANGS_CACHE is None:
         try:
             import json as _json
@@ -43,7 +43,7 @@ def _load_market_languages(region: str) -> list[str]:
                 _MARKET_LANGS_CACHE = _json.loads(p.read_text(encoding="utf-8"))
             else:
                 _MARKET_LANGS_CACHE = {}
-        except Exception:
+        except (OSError, ValueError):
             _MARKET_LANGS_CACHE = {}
     try:
         markets = _MARKET_LANGS_CACHE.get("markets", []) if isinstance(_MARKET_LANGS_CACHE, dict) else []
@@ -57,7 +57,7 @@ def _load_market_languages(region: str) -> list[str]:
                         out.append(lc)
                 return out
         return []
-    except Exception:
+    except (AttributeError, TypeError):
         return []
 
 
@@ -65,12 +65,12 @@ def run_pipeline(
     brief: CampaignBrief,
     dam_root: Path,
     out_root: Path,
-    ratios: List[str] | None = None,
+    ratios: list[str] | None = None,
     lang: str | None = None,
-    languages: List[str] | None = None,
+    languages: list[str] | None = None,
     auto_localize: bool = True,
     enhance: bool = True,
-) -> Dict:
+) -> dict:
     t0 = time.time()
     ratios = ratios or ["1x1", "9x16", "16x9"]
     # normalize ratio keys
@@ -90,7 +90,7 @@ def run_pipeline(
         languages = [lang]
     # dedup preserve order
     seen: set[str] = set()
-    _langs: List[str] = []
+    _langs: list[str] = []
     for lc2 in languages:
         if lc2 not in seen:
             seen.add(lc2)
@@ -100,7 +100,7 @@ def run_pipeline(
 
     brand_logo = find_brand_logo(dam_root)
 
-    report: Dict = {
+    report: dict = {
         "campaign": brief.campaign_name,
         "brand": brief.brand,
         "region": brief.region,
@@ -139,7 +139,7 @@ def run_pipeline(
                 try:
                     enhance_hero(work_hero, work_hero, contrast=1.08, brightness=1.02, sharpness=1.12, texture=True, frame=False, watermark=False, vignette=True)
                     hero_source = f"{hero_source}+enhanced"
-                except Exception as e:
+                except Exception as e:  # noqa: BLE001 — enhance is best-effort; skip on any failure
                     print(f"[pipeline] enhance skip {product.id}: {e}")
         else:
             # generate
@@ -271,7 +271,7 @@ def run_pipeline(
     if _HAS_TRANSLATE:
         try:
             attach_market_translations(report, brief.campaign_message)
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001 — translation attach is best-effort
             print(f"[pipeline] market translation attach failed: {e}")
             report["localization"] = {
                 "error": str(e),
@@ -291,8 +291,7 @@ def run_pipeline(
     (out_root / "report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     # write report.jsonl for logging/analytics
     with open(out_root / "report.jsonl", "w", encoding="utf-8") as f:
-        for a in report["artifacts"]:
-            f.write(json.dumps(a) + "\n")
+        f.writelines(json.dumps(a) + "\n" for a in report["artifacts"])
 
     # preview html
     _write_preview(report, out_root)
@@ -300,7 +299,7 @@ def run_pipeline(
     return report
 
 
-def _write_preview(report: Dict, out_root: Path):
+def _write_preview(report: dict, out_root: Path):
     html = """<!doctype html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Creative Automation \u2014 Preview</title>
 <style>

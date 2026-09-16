@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import sys
 from pathlib import Path
-from typing import Tuple
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
 
@@ -13,13 +12,13 @@ from .token_loader import get_brand_colors, get_canvas_dims, load_tokens
 _tokens = None
 try:
     _tokens = load_tokens()
-except Exception:
+except Exception:  # noqa: BLE001 — import-time token fallback; compose must import offline
     _tokens = None
 
 # canvas dims from tokens (fallback to legacy)
 try:
     _dims = get_canvas_dims(_tokens)
-    RATIOS: dict[str, Tuple[int, int]] = {
+    RATIOS: dict[str, tuple[int, int]] = {
         "1x1": _dims.get("1x1", (1080, 1080)),
         "4x5": _dims.get("4x5", (1080, 1350)),
         "9x16": _dims.get("9x16", (1080, 1920)),
@@ -29,8 +28,8 @@ try:
         "9:16": _dims.get("9x16", (1080, 1920)),
         "16:9": _dims.get("16x9", (1920, 1080)),
     }
-except Exception:
-    RATIOS: dict[str, Tuple[int, int]] = {
+except Exception:  # noqa: BLE001 — import-time dims fallback; compose must import offline
+    RATIOS: dict[str, tuple[int, int]] = {
         "1x1": (1080, 1080),
         "4x5": (1080, 1350),
         "9x16": (1080, 1920),
@@ -53,7 +52,7 @@ try:
     _default_brand = get_brand_colors(_tokens)
     _brand_accent = _default_brand[1] if len(_default_brand) > 1 else "#E8530E"
     _scrim = _tokens["kodiak"]["color"]["semantic"]["overlay"]["scrim"]["$value"] if _tokens else "#1A1110CC"
-except Exception:
+except Exception:  # noqa: BLE001 — import-time brand fallback; compose must import offline
     _default_brand = ["#3B2316", "#E8530E", "#1A3C34"]
     _brand_accent = "#E8530E"
     _scrim = "#1A1110CC"
@@ -67,7 +66,8 @@ def _load_font(size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
     for p in candidates:
         try:
             return ImageFont.truetype(p, size)
-        except Exception:
+        except OSError as e:
+            print(f"[compose] font {p} unreadable, trying next: {e}", file=sys.stderr)
             continue
     return ImageFont.load_default()
 
@@ -122,8 +122,8 @@ def compose_partner_cutout(
     shadow.paste(sil, (cx + 8, cy + 8), sil)
     try:
         shadow = shadow.filter(ImageFilter.GaussianBlur(12))
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001 — cosmetic blur is best-effort
+        print(f"[compose] partner shadow blur skipped: {e}", file=sys.stderr)
     bg = Image.alpha_composite(bg.convert("RGBA"), shadow).convert("RGB")
     bg.paste(cut, (cx, cy), cut)
     return bg
@@ -221,12 +221,12 @@ def compose_creative(
             shadow.paste(sil, (bx + 8, by + 8), sil)
             try:
                 shadow = shadow.filter(ImageFilter.GaussianBlur(12))
-            except Exception:
-                pass
+            except Exception as e:  # noqa: BLE001 — cosmetic blur is best-effort
+                print(f"[compose] product shadow blur skipped: {e}", file=sys.stderr)
             bg = Image.alpha_composite(bg.convert("RGBA"), shadow).convert("RGB")
             # paste the verbatim box on top of its shadow
             bg.paste(box, (bx, by), box)
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001 — product layer is best-effort
             print(f"[compose] product layer composite failed: {e}", file=sys.stderr)
 
     # partner-person layer — licensed cutout composited verbatim (thirds-left,
@@ -234,7 +234,7 @@ def compose_creative(
     if partner_cutout is not None and Path(partner_cutout).exists():
         try:
             bg = compose_partner_cutout(bg, partner_cutout, side="left")
-        except Exception as e:
+        except (ValueError, OSError) as e:
             print(f"[compose] partner cutout composite failed: {e}", file=sys.stderr)
 
     draw = ImageDraw.Draw(bg, "RGBA")
@@ -249,7 +249,7 @@ def compose_creative(
         else:
             # fallback per canvas width
             font_size = 72 if ratio_key == "16x9" else (64 if ratio_key == "9x16" else 56)
-    except Exception:
+    except (KeyError, TypeError, ValueError, AttributeError):
         pad, bar_pct, font_size = 48, 0.68, (56 if W >= 1080 else 42)
     text_max_w = W - pad * 2
     font = _load_font(font_size)
@@ -268,7 +268,7 @@ def compose_creative(
             fill = (r,g,b,a)
         else:
             fill = (0,0,0,140)
-    except Exception:
+    except (ValueError, AttributeError, TypeError):
         fill = (0,0,0,140)
     draw.rectangle([0, bar_top, W, H], fill=fill)
 
@@ -296,7 +296,7 @@ def compose_creative(
                 logo_offset = _tokens["kodiak"]["spacing"]["logoOffset"]["$value"] if _tokens else 24
                 min_w = 80
                 default_w = 140
-            except Exception:
+            except (KeyError, TypeError, AttributeError):
                 logo_offset, default_w, min_w = 24, 140, 80
             lw = max(min_w, default_w)
             # scale logo to token width, preserve aspect
@@ -304,7 +304,7 @@ def compose_creative(
                 lh = int(logo.height * (lw / logo.width))
                 logo = logo.resize((lw, lh), Image.BICUBIC)
             bg.paste(logo, (logo_offset, logo_offset), logo)
-        except Exception as e:
+        except (OSError, ValueError) as e:
             print(f"[compose] logo overlay failed: {e}", file=sys.stderr)
 
     # retailer logo — channel partner badge (Costco, Target etc) — bottom-right, small, only when not direct/subscriber variant
@@ -318,14 +318,13 @@ def compose_creative(
             rx = W - rw - 24
             ry = H - rh - 24
             # ensure not overlapping scrim text: keep inside bar_top..H-8
-            if ry < bar_top + 20:
-                ry = bar_top + 20
+            ry = max(ry, bar_top + 20)
             # subtle white backing for retailer mark
             pad = 6
             bg2 = Image.new("RGBA", (rw + pad*2, rh + pad*2), (255, 255, 255, 220))
             bg.paste(bg2, (rx - pad, ry - pad), bg2)
             bg.paste(rlogo.resize((rw, rh), Image.BICUBIC), (rx, ry), rlogo.resize((rw, rh), Image.BICUBIC))
-        except Exception as e:
+        except (OSError, ValueError) as e:
             print(f"[compose] retailer logo failed: {e}", file=sys.stderr)
 
     # brand color accent bar — token-driven
@@ -336,11 +335,11 @@ def compose_creative(
             rgb = tuple(int(hexv[i : i + 2], 16) for i in (0, 2, 4))
             try:
                 bar_h = _tokens["kodiak"]["spacing"]["accentBar"]["$value"] if _tokens else 8
-            except Exception:
+            except (KeyError, TypeError, AttributeError):
                 bar_h = 8
             draw.rectangle([0, H - bar_h, W, H], fill=rgb)
-        except Exception:
-            pass
+        except (ValueError, AttributeError, TypeError) as e:
+            print(f"[compose] accent bar skipped: {e}", file=sys.stderr)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     bg.save(out_path, "PNG")

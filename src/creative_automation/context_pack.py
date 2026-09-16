@@ -24,8 +24,8 @@ import json
 import re
 
 from . import locales
-from .brief import CampaignBrief
 from ._datapaths import data_path
+from .brief import CampaignBrief
 
 # resolved at runtime so this works in a repo checkout AND the Lambda image (see
 # _datapaths.data_root — parents[2]/data does not exist under site-packages).

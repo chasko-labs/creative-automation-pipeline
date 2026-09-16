@@ -13,8 +13,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from creative_automation import art_director
-from creative_automation import director_memory
+from creative_automation import art_director, director_memory
 from creative_automation import generate as generate_mod
 
 
@@ -86,15 +85,11 @@ def test_retrieve_empty_library_yields_no_examples(monkeypatch):
 def test_load_library_drops_filename_captions(tmp_path, monkeypatch):
     # the committed library is ~95% DAM titles; only voice-grade sentences load.
     lib = tmp_path / "lib.jsonl"
-    lib.write_text(
-        "\n".join(
-            [
-                '{"id": "junk", "metadata": {"caption": "88b5787ee037 Kodiak Recipe Waffle 0725 4eb0b2"}, "vector": [1.0, 0.0]}',
-                '{"id": "real", "metadata": {"caption": "Fuel your frontier with whole grains and protein"}, "vector": [0.0, 1.0]}',
-            ]
-        ),
-        encoding="utf-8",
-    )
+    entries_jsonl = [
+        '{"id": "junk", "metadata": {"caption": "88b5787ee037 Kodiak Recipe Waffle 0725 4eb0b2"}, "vector": [1.0, 0.0]}',
+        '{"id": "real", "metadata": {"caption": "Fuel your frontier with whole grains and protein"}, "vector": [0.0, 1.0]}',
+    ]
+    lib.write_text("\n".join(entries_jsonl), encoding="utf-8")
     monkeypatch.setattr(director_memory, "data_path", lambda *a: lib)
     director_memory.clear_cache()
     try:
@@ -514,7 +509,7 @@ def test_concurrent_director_headline_lands_through_ladder(monkeypatch, tmp_path
         generate_mod, "_director_headline_text", lambda *a, **k: "Dawn Patrol Eats First"
     )
     out = tmp_path / "hero.png"
-    result, source, prov = generate_mod.generate_hero(
+    result, _source, prov = generate_mod.generate_hero(
         product_id="power-cakes",
         product_name="Power Cakes",
         brief_msg="Fuel your frontier morning",
@@ -549,7 +544,7 @@ def test_concurrent_director_slow_voice_bounded_wait(monkeypatch, tmp_path):
     )
     out = tmp_path / "hero.png"
     start = _time.monotonic()
-    result, source, prov = generate_mod.generate_hero(
+    result, _source, prov = generate_mod.generate_hero(
         product_id="power-cakes",
         product_name="Power Cakes",
         brief_msg="Fuel your frontier morning",

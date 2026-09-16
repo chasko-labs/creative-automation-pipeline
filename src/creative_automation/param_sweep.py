@@ -183,7 +183,7 @@ def sweep_param(
             rendered = generate._stability_control_hero(
                 seed, prompt, out_path=out_path, **{param: value}
             )
-        except _INVOKE_ERRORS as exc:  # noqa: BLE001 — no single render may kill the sweep
+        except _INVOKE_ERRORS as exc:
             rendered = None
             note_parts.append(f"render raised {type(exc).__name__}: {exc}")
         ok = rendered is not None

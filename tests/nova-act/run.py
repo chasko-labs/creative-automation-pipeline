@@ -33,7 +33,7 @@ import json
 import os
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -44,7 +44,7 @@ EXIT_PASS, EXIT_FAIL, EXIT_BLOCKED = 0, 2, 3
 
 
 def _now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 def load_spec() -> dict:
@@ -56,7 +56,7 @@ def read_stamp(page) -> str | None:
     """Pinned version stamp, scoped to the version meta element only."""
     try:
         content = page.get_attribute('meta[name="kodiak-version"]', "content")
-    except Exception:
+    except Exception:  # noqa: BLE001 — best-effort probe; missing stamp reads as None
         return None
     if content:
         m = STAMP_RE.search(content)
@@ -116,8 +116,8 @@ class NovaActSession:
     def close(self):
         try:
             self._nova.stop()
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — cleanup must never throw
+            print(f"[warn] nova stop failed during close: {e}", file=sys.stderr)
 
 
 def open_session(viewport: str, width: int, height: int):
@@ -216,8 +216,8 @@ def _eval_create_cascades(page, params: dict):
             break
     try:
         status = (page.inner_text("#sampleStatus") or "")[:120]
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001 — diagnostic read; empty status is the fallback
+        print(f"[warn] sampleStatus read failed: {e}", file=sys.stderr)
     ok = tiles > 0
     return ok, {"createClicked": True, "previewTilesAfterCreate": tiles,
                 "sampleStatus": status}, f"tiles={tiles} status={status[:60]}"
@@ -250,7 +250,7 @@ def _eval_generate_rung(page, params: dict):
         page.wait_for_timeout(2000)
         try:
             badge = (page.inner_text("#genSourceBadge") or "").strip()
-        except Exception:
+        except Exception:  # noqa: BLE001 — badge poll; empty string retries next tick
             badge = ""
         m = re.search(r"rung ([ABCD])", badge, re.IGNORECASE)
         if m:
@@ -311,8 +311,8 @@ def run_check(session, check: dict, viewport: str, ev_dir: Path, sabotage: bool)
     finally:
         try:
             page.close()
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — cleanup must never throw
+            print(f"[warn] page close failed: {e}", file=sys.stderr)
 
 
 def main() -> int:

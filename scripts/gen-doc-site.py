@@ -77,7 +77,7 @@ def load_palette(root: Path) -> dict[str, str]:
         return dict(_TOKEN_FALLBACK)
     try:
         color = json.loads(token_file.read_text(encoding="utf-8"))["kodiak"]["color"]
-    except (OSError, ValueError, KeyError) as e:  # noqa: BLE001
+    except (OSError, ValueError, KeyError) as e:
         print(f"[gen-doc-site] token read failed ({e}); using canonical fallback", file=sys.stderr)
         return dict(_TOKEN_FALLBACK)
     palette: dict[str, str] = {}

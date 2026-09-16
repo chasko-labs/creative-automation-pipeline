@@ -15,9 +15,8 @@ from pathlib import Path
 
 from PIL import Image
 
-from creative_automation import dam
+from creative_automation import dam, generate_lambda
 from creative_automation import generate as generate_mod
-from creative_automation import generate_lambda
 from creative_automation.compose import compose_creative
 
 
@@ -44,15 +43,15 @@ def _isolate_from_seeds(monkeypatch):
 
 
 def _hero_kwargs(tmp_path: Path, **over) -> dict:
-    kw = dict(
-        product_id="banana-muffin-quick-bread-mix",
-        product_name="Banana Muffin and Quick Bread Mix",
-        brief_msg="Fuel your frontier morning",
-        region="us",
-        audience="active families",
-        out_path=tmp_path / "hero.png",
-        idx=0,
-    )
+    kw = {
+        "product_id": "banana-muffin-quick-bread-mix",
+        "product_name": "Banana Muffin and Quick Bread Mix",
+        "brief_msg": "Fuel your frontier morning",
+        "region": "us",
+        "audience": "active families",
+        "out_path": tmp_path / "hero.png",
+        "idx": 0,
+    }
     kw.update(over)
     return kw
 
@@ -150,7 +149,7 @@ def test_clean_default_skips_packshot_probe(tmp_path, monkeypatch):
 
     monkeypatch.setattr(dam, "resolve_packshot", _probe)
 
-    result, source, prov = generate_mod.generate_hero(**_hero_kwargs(tmp_path, layers={}))
+    result, _source, prov = generate_mod.generate_hero(**_hero_kwargs(tmp_path, layers={}))
 
     assert result.exists()
     assert probes["n"] == 0
@@ -170,7 +169,7 @@ def test_clean_product_layer_pastes_without_baked_text(tmp_path, monkeypatch):
         generate_mod, "_stability_control_hero", lambda s, p, o: None
     )
 
-    result, source, prov = generate_mod.generate_hero(
+    result, _source, prov = generate_mod.generate_hero(
         **_hero_kwargs(tmp_path, layers={"product_image": True})
     )
 
@@ -193,7 +192,7 @@ def test_legacy_none_keeps_packshot_and_overlay(tmp_path, monkeypatch):
         generate_mod, "_stability_control_hero", lambda s, p, o: None
     )
 
-    result, source, prov = generate_mod.generate_hero(**_hero_kwargs(tmp_path))
+    result, _source, prov = generate_mod.generate_hero(**_hero_kwargs(tmp_path))
 
     assert result.exists()
     assert prov["rung"] == "A"
@@ -234,7 +233,7 @@ class _FakeS3:
     def put_object(self, **kwargs) -> dict:
         return {}
 
-    def generate_presigned_url(self, op, Params, ExpiresIn) -> str:  # noqa: N803
+    def generate_presigned_url(self, op, Params, ExpiresIn) -> str:
         return f"https://presigned.example/{Params['Key']}?exp={ExpiresIn}"
 
 

@@ -37,7 +37,7 @@ import pathlib
 import re
 import urllib.parse
 
-from creative_automation.embeddings import embed_batch, EMBED_MODEL, EMBED_DIM
+from creative_automation.embeddings import EMBED_DIM, EMBED_MODEL, embed_batch
 
 REPO = pathlib.Path(__file__).resolve().parents[1]
 INGEST = REPO / "data" / "raw-ingest" / "kodiakcakes"
@@ -375,9 +375,7 @@ def _is_chrome_img(attrs: dict[str, str]) -> bool:
         return True
     if any(frag in cls for frag in CHROME_IMG_CLASSES):
         return True
-    if src.endswith(".svg"):
-        return True
-    return False
+    return src.endswith(".svg")
 
 
 def _content_alts(html: str, limit: int = 24) -> list[str]:
@@ -400,7 +398,7 @@ def _content_alts(html: str, limit: int = 24) -> list[str]:
 
 def _slug_and_section(filename: str) -> tuple[str | None, str | None]:
     """From e.g. 687_blogs_news_how-do-u-make-flapjack-mix.html -> ("news", "how-do-u-make-flapjack-mix")."""
-    stem = filename[:-5] if filename.endswith(".html") else filename
+    stem = filename.removesuffix(".html")
     m = re.search(r"_blogs_(" + "|".join(BLOG_SECTIONS) + r")_(.+)$", stem)
     if not m:
         return None, None

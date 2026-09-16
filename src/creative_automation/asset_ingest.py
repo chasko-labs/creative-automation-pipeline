@@ -70,7 +70,7 @@ def embed_and_store(
                 obs.log_event("asset.embed_skip", asset_id=key, reason="vector_exists")
             return EMBED_SKIPPED_DEDUP
     except Exception:  # noqa: BLE001 — defensive: probe must never break ingest
-        pass
+        print(f"[asset-ingest] dedup probe failed, embedding anyway: {key}")
 
     tmp_path: str | None = None
     try:

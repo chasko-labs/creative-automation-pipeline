@@ -7,6 +7,10 @@ from pathlib import Path
 from creative_automation import generate_lambda
 
 
+class _FakeS3Error(Exception):
+    """Module-local stub error so fakes never raise vanilla Exception (TRY002)."""
+
+
 class _FakeS3:
     """Stub s3 client capturing put_object and returning a canned presigned url."""
 
@@ -20,14 +24,14 @@ class _FakeS3:
         self.puts.append(kwargs)
         return {}
 
-    def get_object(self, Bucket, Key) -> dict:  # noqa: N803 — boto3 kwarg names
+    def get_object(self, Bucket, Key) -> dict:
         import io as _io
 
         if Key not in self.objects:
-            raise Exception(f"NoSuchKey: {Key}")
+            raise _FakeS3Error(f"NoSuchKey: {Key}")
         return {"Body": _io.BytesIO(self.objects[Key])}
 
-    def generate_presigned_url(self, op, Params, ExpiresIn) -> str:  # noqa: N803 — boto3 kwarg name
+    def generate_presigned_url(self, op, Params, ExpiresIn) -> str:
         self.last_presign_params = Params
         self.presign_calls.append(Params)
         return f"https://presigned.example/{Params['Key']}?exp={ExpiresIn}"

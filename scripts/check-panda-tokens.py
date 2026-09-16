@@ -50,7 +50,7 @@ def main() -> int:
 
     proc = subprocess.run(
         [sys.executable, str(GEN_SCRIPT), "--check"],
-        capture_output=True, text=True, cwd=REPO_ROOT,
+        capture_output=True, text=True, cwd=REPO_ROOT, check=False,
     )
     print(f"gen --check: {proc.stdout.strip() or proc.stderr.strip()} [exit {proc.returncode}]")
     if proc.returncode != 0:

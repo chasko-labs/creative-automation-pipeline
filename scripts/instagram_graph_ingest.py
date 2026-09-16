@@ -59,7 +59,7 @@ import pathlib
 import re
 import sys
 import time
-from typing import Any, Dict, List, Optional
+from typing import Any
 from urllib.parse import urlencode
 
 # httpx is in pyproject; fallback to urllib if missing
@@ -77,7 +77,7 @@ GRAPH_HOST = "https://graph.facebook.com"
 BASIC_HOST = "https://graph.instagram.com"
 
 # ------------------------------------------------------------------ compliance guard
-def _compliance_note(authenticated: bool) -> Dict[str, Any]:
+def _compliance_note(authenticated: bool) -> dict[str, Any]:
     return {
         "tos": "https://help.instagram.com/519522125107875 + https://developers.facebook.com/terms/",
         "refusal_of_scrape": "Bulk HTML scrape of instagram.com refused (ToS/copyright). See Prior child refusal.",
@@ -96,15 +96,15 @@ def _compliance_note(authenticated: bool) -> Dict[str, Any]:
     }
 
 # ------------------------------------------------------------------ Graph API fetch
-def _http_get(url: str, params: Dict[str, Any], timeout: float = 20.0) -> Dict[str, Any]:
+def _http_get(url: str, params: dict[str, Any], timeout: float = 20.0) -> dict[str, Any]:
     if httpx is not None:
         with httpx.Client(timeout=timeout, follow_redirects=True) as c:
             r = c.get(url, params=params)
             r.raise_for_status()
             return r.json()
     # fallback urllib
-    import urllib.request
     import urllib.error
+    import urllib.request
     qs = urlencode(params)
     full = f"{url}?{qs}" if qs else url
     req = urllib.request.Request(full, headers={"Accept": "application/json"})
@@ -112,16 +112,16 @@ def _http_get(url: str, params: Dict[str, Any], timeout: float = 20.0) -> Dict[s
         body = resp.read().decode("utf-8")
         return json.loads(body)
 
-def fetch_graph_api(ig_user_id: str, access_token: str, limit: int = 25) -> List[Dict[str, Any]]:
+def fetch_graph_api(ig_user_id: str, access_token: str, limit: int = 25) -> list[dict[str, Any]]:
     """Fetch via Instagram Graph API with pagination. Returns raw media dicts."""
     fields = "id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,username"
-    collected: List[Dict[str, Any]] = []
-    after: Optional[str] = None
+    collected: list[dict[str, Any]] = []
+    after: str | None = None
     base = f"{GRAPH_HOST}/{GRAPH_VERSION}/{ig_user_id}/media"
     remaining = limit
     while remaining > 0:
         page_limit = min(remaining, 25)  # Graph max 25 per page for media edge, 100 generic but use 25
-        params: Dict[str, Any] = {
+        params: dict[str, Any] = {
             "fields": fields,
             "access_token": access_token,
             "limit": page_limit,
@@ -144,16 +144,16 @@ def fetch_graph_api(ig_user_id: str, access_token: str, limit: int = 25) -> List
         time.sleep(0.3)
     return collected[:limit]
 
-def fetch_basic_display(access_token: str, limit: int = 25) -> List[Dict[str, Any]]:
+def fetch_basic_display(access_token: str, limit: int = 25) -> list[dict[str, Any]]:
     """Fetch via Instagram Basic Display API: GET /me/media"""
     fields = "id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,username"
-    collected: List[Dict[str, Any]] = []
-    after: Optional[str] = None
+    collected: list[dict[str, Any]] = []
+    after: str | None = None
     base = f"{BASIC_HOST}/me/media"
     remaining = limit
     while remaining > 0:
         page_limit = min(remaining, 25)
-        params: Dict[str, Any] = {
+        params: dict[str, Any] = {
             "fields": fields,
             "access_token": access_token,
             "limit": page_limit,
@@ -176,12 +176,12 @@ def fetch_basic_display(access_token: str, limit: int = 25) -> List[Dict[str, An
 # ------------------------------------------------------------------ normalization -> instagram.json schema
 HASHTAG_RE = re.compile(r"#(\w+)")
 
-def _extract_hashtags(caption: Optional[str]) -> List[str]:
+def _extract_hashtags(caption: str | None) -> list[str]:
     if not caption:
         return []
     return [f"#{m}" for m in HASHTAG_RE.findall(caption)]
 
-def normalize_media(raw: Dict[str, Any], provenance: str = "instagram_graph_api") -> Dict[str, Any]:
+def normalize_media(raw: dict[str, Any], provenance: str = "instagram_graph_api") -> dict[str, Any]:
     caption = raw.get("caption") or ""
     return {
         "id": raw.get("id"),
@@ -228,13 +228,13 @@ SCAFFOLD_CAPTIONS = [
     ("Holiday cast-iron — cabin table, red wagon glow, gather round the frontier with Power Cakes.", ["#HolidayBaking","#KeepItWild"], "holiday-cast-iron"),
 ]
 
-def build_scaffold(limit: int = 25) -> List[Dict[str, Any]]:
+def build_scaffold(limit: int = 25) -> list[dict[str, Any]]:
     """Build compliant placeholders from licensed local assets (no IG scrape)."""
     # Use locally licensed image references (kodiakcakes.com/DAM) — never IG HTML scrape
     images_root = ROOT / "data/raw-ingest/kodiakcakes/images"
     # pick real licensed images in sorted order
     licensed = sorted(images_root.glob("*.jpg")) + sorted(images_root.glob("*.png")) + sorted(images_root.glob("*.webp"))
-    out: List[Dict[str, Any]] = []
+    out: list[dict[str, Any]] = []
     ts_base = "2026-09-02T07:00:00-06:00"
     for i in range(limit):
         cap, tags, cue = SCAFFOLD_CAPTIONS[i % len(SCAFFOLD_CAPTIONS)]
@@ -262,7 +262,7 @@ def build_scaffold(limit: int = 25) -> List[Dict[str, Any]]:
 def _ensure_out_dir(path: pathlib.Path):
     path.parent.mkdir(parents=True, exist_ok=True)
 
-def write_instagram_json(items: List[Dict[str, Any]], out: pathlib.Path, authenticated: bool):
+def write_instagram_json(items: list[dict[str, Any]], out: pathlib.Path, authenticated: bool):
     _ensure_out_dir(out)
     # Write plain list for backward compat (tests expect list), plus compliance sidecar in same file as meta key?
     # Keep list as primary artifact, write compliance companion insta-deep supplement and manifest.
@@ -293,7 +293,7 @@ def write_instagram_json(items: List[Dict[str, Any]], out: pathlib.Path, authent
         f.write("\n")
     return manifest
 
-def download_images(items: List[Dict[str, Any]], dest: pathlib.Path, access_token: Optional[str] = None):
+def download_images(items: list[dict[str, Any]], dest: pathlib.Path, access_token: str | None = None):
     """Download media_url only when authenticated (copyright requires owner consent)."""
     dest.mkdir(parents=True, exist_ok=True)
     if httpx is None:
@@ -319,7 +319,7 @@ def download_images(items: List[Dict[str, Any]], dest: pathlib.Path, access_toke
                 out.write_bytes(r.content)
                 count += 1
                 time.sleep(0.2)
-            except Exception as e:
+            except (httpx.HTTPError, OSError) as e:
                 print(f"[instagram] download miss {url}: {e}", file=sys.stderr)
     return count
 
@@ -352,7 +352,7 @@ def main():
         sys.exit(0)
 
     authenticated = bool(args.token and (args.ig_user_id or args.basic_display))
-    items: List[Dict[str, Any]] = []
+    items: list[dict[str, Any]] = []
 
     if args.scaffold or not authenticated:
         if not args.scaffold and not authenticated:
@@ -384,7 +384,7 @@ def main():
             if args.download_images:
                 n = download_images(items, pathlib.Path(args.images_dir))
                 print(f"[instagram] downloaded {n} images -> {args.images_dir}")
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001 — Graph fetch fallback; any failure yields compliant scaffold
             print(f"[instagram] Graph fetch failed: {e}", file=sys.stderr)
             print("[instagram] Writing scaffold fallback (compliant) so pipeline remains functional.", file=sys.stderr)
             items = build_scaffold(limit=args.limit)

@@ -54,8 +54,8 @@ import json
 import os
 import re
 import sys
-from dataclasses import dataclass, field, asdict
-from datetime import datetime, timezone
+from dataclasses import asdict, dataclass, field
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -161,7 +161,7 @@ def check_png_palette(png_path: Path, tolerance: int = 65) -> list[CheckResult]:
     try:
         img = Image.open(png_path).convert("RGB")
         w, h = img.size
-    except Exception as e:
+    except (OSError, ValueError) as e:
         return [CheckResult("palette", False, f"cannot open {png_path}: {e}", list(PALETTE.values()), None)]
 
     # Sample bottom 12px for accent bar (blaze orange) — most deterministic
@@ -213,7 +213,7 @@ def check_png_logo(png_path: Path) -> list[CheckResult]:
     try:
         img = Image.open(png_path).convert("RGB")
         w, h = img.size
-    except Exception as e:
+    except (OSError, ValueError) as e:
         return [CheckResult("logo", False, f"cannot open: {e}")]
 
     lx, ly, lw = LOGO_OFFSET, LOGO_OFFSET, LOGO_DEFAULT_W
@@ -295,7 +295,7 @@ def check_png_headline(png_path: Path) -> list[CheckResult]:
     try:
         img = Image.open(png_path).convert("RGB")
         w, h = img.size
-    except Exception as e:
+    except (OSError, ValueError) as e:
         return [CheckResult("headline", False, f"cannot open: {e}")]
 
     bar_top = int(h * MESSAGE_BAR_TOP_PCT)
@@ -340,7 +340,7 @@ def check_png_accent_bar(png_path: Path) -> list[CheckResult]:
     try:
         img = Image.open(png_path).convert("RGB")
         w, h = img.size
-    except Exception as e:
+    except (OSError, ValueError) as e:
         return [CheckResult("accentBar", False, f"cannot open: {e}")]
     bar = img.crop((0, h - ACCENT_BAR_H, w, h))
     # check that dominant color in bar is orange
@@ -428,7 +428,7 @@ def evaluate_creative_png(png_path: Path, product: str, ratio: str) -> CreativeR
                     dims_ok = dims_actual == dims_expected
                 else:
                     dims_ok = True
-        except Exception:
+        except (OSError, ValueError):
             dims_actual = None
             dims_ok = False
 
@@ -523,8 +523,8 @@ async def nova_act_viewport_check(preview_path: Path, viewport: tuple[int, int],
             screenshot_path = Path(f"/tmp/nova-act-{retailer}-{vp_label}.png")
             try:
                 await nova.page.screenshot(path=str(screenshot_path), full_page=True)  # type: ignore
-            except Exception:
-                pass
+            except Exception as e:  # noqa: BLE001 — screenshot is supplemental; pixel probes are the source of truth
+                print(f"[nova-act-check] screenshot skipped: {e}", file=sys.stderr)
 
             checks = [
                 asdict(CheckResult("nova-act.viewport", True, f"Nova Act session opened {vp_label} {preview_uri}", vp_label, text[:500])),
@@ -532,7 +532,7 @@ async def nova_act_viewport_check(preview_path: Path, viewport: tuple[int, int],
             ]
             return ViewportResult(viewport=vp_label, width=w, height=h, mode="nova-act", passed=passed, checks=checks, creatives=[])
 
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 — degrade to mock/pixel checks and annotate
         # Degrade to mock/pixel checks and annotate
         fallback_checks = [asdict(CheckResult("nova-act.fallback", True, f"Nova Act not available ({e}); using mock pixel probes", "nova-act", f"fallback: {e}"))]
         # Run pixel probes as the source of truth when Nova Act creds absent
@@ -565,13 +565,13 @@ def playwright_viewport_check(preview_path: Path, viewport: tuple[int, int], ret
             try:
                 page.screenshot(path=str(shot), full_page=True)
                 checks.append(asdict(CheckResult("playwright.screenshot", True, f"Screenshot {shot}", str(shot), True)))
-            except Exception as e:
+            except Exception as e:  # noqa: BLE001 — screenshot is supplemental; failure is recorded as a check
                 checks.append(asdict(CheckResult("playwright.screenshot", False, f"Screenshot failed: {e}")))
             ctx.close()
             browser.close()
             passed = all(c["passed"] for c in checks if c["check"] in ("playwright.cardCount", "playwright.assets"))
             return ViewportResult(viewport=vp_label, width=w, height=h, mode="playwright", passed=passed, checks=checks, creatives=[])
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 — Playwright failure degrades to mock result, never a traceback
         return ViewportResult(
             viewport=vp_label, width=w, height=h, mode="mock",
             passed=False,
@@ -585,7 +585,7 @@ def run_preview_checks(preview_path: Path, viewports: list[str], mode: str) -> P
     report = PreviewReport(
         preview=str(preview_path),
         retailer=retailer,
-        generated_at=datetime.now(timezone.utc).isoformat(),
+        generated_at=datetime.now(UTC).isoformat(),
     )
 
     creatives_raw, preview_checks = parse_preview_html(preview_path)
@@ -733,7 +733,7 @@ def main() -> None:
             try:
                 w, h = map(int, vp.lower().split("x"))
                 assert w > 0 and h > 0
-            except Exception:
+            except (ValueError, AssertionError):
                 print(f"[error] invalid viewport '{vp}' — expect WxH like 1080x1080", file=sys.stderr)
                 sys.exit(1)
 
@@ -767,7 +767,7 @@ def main() -> None:
     # Aggregated output
     if args.json or len(previews) > 1:
         agg = {
-            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "generated_at": datetime.now(UTC).isoformat(),
             "mode": mode,
             "aws_profile": os.environ.get("AWS_PROFILE"),
             "bedrock_region": os.environ.get("BEDROCK_REGION", "us-east-1"),

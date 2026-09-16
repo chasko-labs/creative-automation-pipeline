@@ -529,7 +529,7 @@ def _render_asset(
             )
             hero_source = f"{hero_source}+enhanced"
         except Exception:  # noqa: BLE001 — enhance is best-effort, never blocks render
-            pass
+            print(f"[campaign] enhance failed, continuing unenhanced: {work_hero}")
         # 3) compose the final creative — headline enters HERE as overlay copy (cr-1).
         # product_layer is the verbatim box in packshot mode, None in generated-scene mode.
         iso_path = out_root / asset["iso_name"]

@@ -9,8 +9,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from creative_automation import dam
-from creative_automation import dam_library
+from creative_automation import dam, dam_library
 
 
 def _write_json(path: Path, payload: dict) -> Path:

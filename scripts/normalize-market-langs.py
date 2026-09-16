@@ -3,7 +3,6 @@
 to every markets[].top_languages entry, in place, without removing existing fields."""
 import json
 
-
 FILES = [
     "web/kodiak-posts-for-todays-frontier/data/localization/market-languages.json",
     "data/localization/market-languages.json",

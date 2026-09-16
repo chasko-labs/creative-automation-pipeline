@@ -277,7 +277,7 @@ def test_generate_hero_no_seed_returns_brand_floor(tmp_path: Path, monkeypatch) 
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: None)
-    import creative_automation.dam as dam
+    from creative_automation import dam
 
     monkeypatch.setattr(dam, "resolve_packshot", lambda pid, dam_root=None: None)
     called = {"stability": 0}
@@ -311,7 +311,7 @@ def test_generate_hero_theme_seed_wins_and_conditions(tmp_path: Path, monkeypatc
     seed = _make_seed(tmp_path / "theme-seed.png")
     canned = base64.b64encode(_png_bytes(color=(120, 30, 200))).decode("ascii")
     fake = _FakeBedrockClient(canned)
-    import creative_automation.dam as dam
+    from creative_automation import dam
 
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: "brands/kodiak/raw-ingest/theme.jpg")
     monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: seed)

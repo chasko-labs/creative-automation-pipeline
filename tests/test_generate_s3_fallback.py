@@ -37,7 +37,7 @@ class _FakeListClient:
         self._keys = keys
         self.lists = 0
 
-    def list_objects_v2(self, Bucket: str, Prefix: str, MaxKeys: int = 32) -> dict:  # noqa: N803 — boto3 kwarg names
+    def list_objects_v2(self, Bucket: str, Prefix: str, MaxKeys: int = 32) -> dict:
         self.lists += 1
         assert Prefix.endswith("/")
         return {"Contents": [{"Key": k} for k in self._keys]}
@@ -201,7 +201,6 @@ def test_generate_hero_no_asset_yields_fallback_label(monkeypatch, tmp_path: Pat
 
     def track(pid, pname):
         calls.append(pid)
-        return None
 
     monkeypatch.setattr(generate, "_find_source_asset", track)
     out = tmp_path / "out.png"
@@ -227,7 +226,6 @@ def test_generate_hero_missing_product_no_default_hero_fallback(monkeypatch, tmp
 
     def discover(pid, pname):
         calls.append(pid)
-        return None  # requested SKU has nothing; no default-hero retry exists
 
     # bear-bites-limited is not in the sku-photo-map -> resolver returns None
     monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)

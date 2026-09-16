@@ -552,7 +552,7 @@ def test_staged_seed_key_beats_sku_mapped(tmp_path, monkeypatch):
     monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: None)
 
     out = tmp_path / "hero.png"
-    result, source, prov = generate_mod.generate_hero(
+    result, _source, prov = generate_mod.generate_hero(
         product_id="apple-stack-cake",
         product_name="Apple Stack Cake",
         brief_msg="orchard mornings",

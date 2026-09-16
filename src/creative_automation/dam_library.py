@@ -76,11 +76,11 @@ def thumb_url(key: str, client, bucket: str) -> str | None:
         if not key or client is None or not bucket:
             return None
         client.head_object(Bucket=bucket, Key=_thumb_key(key))
-    except Exception:
+    except Exception:  # noqa: BLE001 — thumb probe never throws
         return None
     try:
         return dam.presign_get(_thumb_key(key))
-    except Exception:
+    except Exception:  # noqa: BLE001 — presign fallback is None
         return None
 
 
@@ -101,7 +101,7 @@ def _curation() -> dict:
             _CURATION_CACHE = _json.loads(_CURATION_PATH.read_text())
             if not isinstance(_CURATION_CACHE, dict):
                 _CURATION_CACHE = {}
-        except Exception:
+        except (OSError, ValueError):
             _CURATION_CACHE = {}
     return _CURATION_CACHE
 
@@ -306,7 +306,7 @@ def _gather_themes(map_path) -> list[str]:
         return []
     seen: set[str] = set()
     ordered: list[str] = []
-    for _theme, entry in themes.items():
+    for entry in themes.values():
         if isinstance(entry, dict):
             pool = entry.get("assets") or entry.get("pool") or []
         elif isinstance(entry, list):
@@ -411,7 +411,7 @@ def _load_product_line_index(map_path=_SKU_MAP_PATH, catalog_path=_CATALOG_PATH)
         lines = photo_claims.get(key) or fallback_claims.get(key, [])
         counts = Counter(lines)
         top = max(counts.values())
-        index[key] = sorted(c for c, n in counts.items() if n == top)[0]
+        index[key] = min(c for c, n in counts.items() if n == top)
     return index
 
 

@@ -14,6 +14,7 @@ from PIL import Image
 
 from creative_automation import generate
 
+
 def _png(path: Path) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
     Image.new("RGB", (300, 300), (120, 30, 200)).save(path, "PNG")
@@ -22,7 +23,7 @@ def _png(path: Path) -> Path:
 
 def _seed_offline(tmp_path, monkeypatch, captured: dict) -> None:
     seed = _png(tmp_path / "seed.png")
-    import creative_automation.dam as dam
+    from creative_automation import dam
 
     monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)

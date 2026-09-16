@@ -15,7 +15,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from functools import lru_cache
 from pathlib import Path
 
@@ -64,7 +64,7 @@ def _load_raw(path: str | None = None) -> dict:
 
 
 def _current_month() -> int:
-    return datetime.now(timezone.utc).month
+    return datetime.now(UTC).month
 
 
 def _coerce_market(key: str, entry: dict) -> MarketFlavor:

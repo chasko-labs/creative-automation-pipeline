@@ -14,7 +14,9 @@ This module implements the credential-gated official APIs only.
 All functions raise MissingCredentialsError when credentials absent — no fallback to scrape.
 Credentials resolved in order: explicit arg > env var > AWS SSM Parameter Store (/heraldstack/shared/{youtube,tiktok}-oauth).
 """
-from .youtube import YouTubeClient, MissingCredentialsError as YouTubeMissingCredentials
-from .tiktok import TikTokClient, MissingCredentialsError as TikTokMissingCredentials
+from .tiktok import MissingCredentialsError as TikTokMissingCredentials
+from .tiktok import TikTokClient
+from .youtube import MissingCredentialsError as YouTubeMissingCredentials
+from .youtube import YouTubeClient
 
-__all__ = ["YouTubeClient", "TikTokClient", "YouTubeMissingCredentials", "TikTokMissingCredentials"]
+__all__ = ["TikTokClient", "TikTokMissingCredentials", "YouTubeClient", "YouTubeMissingCredentials"]

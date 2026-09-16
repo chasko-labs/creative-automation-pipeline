@@ -18,7 +18,6 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Optional
 
 # repo-root-relative; parents[2] == repo root (src/creative_automation/platforms.py)
 _MATRIX_PATH = Path(__file__).parents[2] / "data" / "platforms" / "platform-matrix.json"
@@ -73,7 +72,7 @@ _FALLBACK_MATRIX: dict = {
     },
 }
 
-_MATRIX_CACHE: Optional[dict] = None
+_MATRIX_CACHE: dict | None = None
 
 
 def load_matrix(path: Path | None = None) -> dict:
@@ -87,7 +86,7 @@ def load_matrix(path: Path | None = None) -> dict:
     if path is not None:
         try:
             return json.loads(Path(path).read_text(encoding="utf-8"))
-        except Exception:
+        except (OSError, ValueError):
             return _FALLBACK_MATRIX
     if _MATRIX_CACHE is not None:
         return _MATRIX_CACHE
@@ -96,8 +95,8 @@ def load_matrix(path: Path | None = None) -> dict:
         try:
             _MATRIX_CACHE = json.loads(p.read_text(encoding="utf-8"))
             return _MATRIX_CACHE
-        except Exception:
-            pass
+        except (OSError, ValueError) as e:
+            print(f"[platforms] matrix load failed, using fallback: {e}")
     _MATRIX_CACHE = _FALLBACK_MATRIX
     return _MATRIX_CACHE
 

@@ -136,6 +136,7 @@ def test_committed_json_regenerates_from_data_core() -> None:
         cwd=REPO_ROOT,
         capture_output=True,
         text=True,
+        check=False,
     )
     assert proc.returncode == 0, (
         "backend mapping JSON drifted from data-core.js — "

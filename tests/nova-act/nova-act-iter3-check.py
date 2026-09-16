@@ -44,8 +44,8 @@ import json
 import re
 import sys
 import time
-from dataclasses import dataclass, asdict, field
-from datetime import datetime, timezone
+from dataclasses import asdict, dataclass, field
+from datetime import UTC, datetime
 from pathlib import Path
 
 LIVE_URL = "https://d37333alc7ojpl.cloudfront.net/"
@@ -80,7 +80,7 @@ class Report:
 
 
 def _now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 def _shot(page, shot_dir: Path, name: str, full_page: bool = False) -> str | None:
@@ -97,7 +97,7 @@ def _shot(page, shot_dir: Path, name: str, full_page: bool = False) -> str | Non
 def _read_stamp(page) -> str | None:
     try:
         title = page.title() or ""
-    except Exception:
+    except Exception:  # noqa: BLE001 — best-effort probe; empty title falls to meta
         title = ""
     m = STAMP_RE.search(title)
     if m:
@@ -107,15 +107,15 @@ def _read_stamp(page) -> str | None:
         if c:
             m = STAMP_RE.search(c)
             return m.group(0) if m else c
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001 — best-effort probe; no stamp is the fallback
+        print(f"[warn] stamp meta read failed: {e}", file=sys.stderr)
     return None
 
 
 def _gate_up(page) -> bool:
     try:
         return page.locator("text=Request access").count() > 0
-    except Exception:
+    except Exception:  # noqa: BLE001 — probe failed; assume gate down, not a block
         return False
 
 
@@ -139,16 +139,17 @@ def _tab_texts(page) -> list[str]:
                         t = (loc.nth(i).inner_text() or "").strip()
                         if t:
                             cand.append(t)
-                    except Exception:
-                        pass
+                    except Exception as e:  # noqa: BLE001 — best-effort; next tab tried
+                        print(f"[warn] tab text read failed for {sel}: {e}",
+                              file=sys.stderr)
                 # a tab bar match: at least one expected tab name appears
                 if any(any(e.lower() in c.lower() for e in EXPECTED_TABS + OLD_TABS)
                        for c in cand):
                     return cand
                 if not texts:
                     texts = cand
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — best-effort; next selector tried
+            print(f"[warn] tab bar probe failed for {sel}: {e}", file=sys.stderr)
     return texts
 
 
@@ -170,8 +171,8 @@ def _tile_count(page) -> int:
             n = panel.locator(sel).count()
             if n:
                 return n
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — best-effort; next selector tried
+            print(f"[warn] tile count probe failed for {sel}: {e}", file=sys.stderr)
     return 0
 
 
@@ -194,12 +195,12 @@ def _tile_labels(page, limit: int = 12) -> list[str]:
                             if half > 4 and t[:half].strip() == t[half:].strip():
                                 t = t[:half].strip()
                             out.append(t[:48].strip())
-                    except Exception:
-                        pass
+                    except Exception as e:  # noqa: BLE001 — best-effort; next tile tried
+                        print(f"[warn] tile label read failed: {e}", file=sys.stderr)
                 if out:
                     return out
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — best-effort; next selector tried
+            print(f"[warn] tile label probe failed for {sel}: {e}", file=sys.stderr)
     # fallback: alt text on images
     try:
         loc = panel.locator("img")
@@ -210,10 +211,10 @@ def _tile_labels(page, limit: int = 12) -> list[str]:
                 a = loc.nth(i).get_attribute("alt")
                 if a:
                     out.append(a[:60])
-            except Exception:
-                pass
+            except Exception as e:  # noqa: BLE001 — best-effort; next image tried
+                print(f"[warn] tile alt read failed: {e}", file=sys.stderr)
         return out
-    except Exception:
+    except Exception:  # noqa: BLE001 — alt-text fallback; empty labels is the fallback
         return []
 
 
@@ -229,7 +230,8 @@ def _click_tab(page, name: str) -> bool:
                 loc.click(timeout=3000)
                 time.sleep(1.2)
                 return True
-        except Exception:
+        except Exception as e:  # noqa: BLE001 — best-effort; next selector tried
+            print(f"[warn] tab click failed for {sel}: {e}", file=sys.stderr)
             continue
     return False
 
@@ -276,12 +278,12 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
         # honors, then reload past the courtesy screen.
         try:
             page.evaluate("try{sessionStorage.setItem('kodiak_gate','cakes')}catch(e){}")
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — gate seed is best-effort; reload decides
+            print(f"[warn] gate token seed failed: {e}", file=sys.stderr)
         try:
             page.reload(wait_until="networkidle")
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — reload is best-effort; gate check decides
+            print(f"[warn] post-seed reload failed: {e}", file=sys.stderr)
         time.sleep(2)
 
         if _gate_up(page):
@@ -343,7 +345,8 @@ def _area1(page, shot_dir: Path, checks: list[CheckResult]) -> None:
                 loc.click(timeout=4000)
                 opened = True
                 break
-        except Exception:
+        except Exception as e:  # noqa: BLE001 — best-effort; next selector tried
+            print(f"[warn] panel open click failed for {sel}: {e}", file=sys.stderr)
             continue
     time.sleep(1.5)
     if not opened or _panel(page).count() == 0:
@@ -354,12 +357,12 @@ def _area1(page, shot_dir: Path, checks: list[CheckResult]) -> None:
     # wait for panel visible + async content load (#damBody shows "Loading…" first)
     try:
         _panel(page).wait_for(state="visible", timeout=5000)
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001 — wait is best-effort; poll loop decides
+        print(f"[warn] panel visible wait timed out: {e}", file=sys.stderr)
     for _ in range(40):
         try:
             body_txt = page.locator("#damBody").inner_text()[:40]
-        except Exception:
+        except Exception:  # noqa: BLE001 — body poll; empty text retries next tick
             body_txt = ""
         if "Loading" not in body_txt and _panel(page).locator("[role='tab']").count() > 0:
             break
@@ -386,8 +389,8 @@ def _area1(page, shot_dir: Path, checks: list[CheckResult]) -> None:
     hundreds_ok = all((v is not None and v >= 100) for v in (prod, rec))
     life_ok = life is not None and life >= 10
     none_zero = all((counts.get(e) is not None and counts.get(e) > 0) for e in EXPECTED_TABS)
-    six_named = len(set(e for e in EXPECTED_TABS
-                        for t in tabs if e.lower() in t.lower())) >= 6
+    six_named = len({e for e in EXPECTED_TABS
+                     for t in tabs if e.lower() in t.lower()}) >= 6
     if found_old:
         checks.append(CheckResult("1a-tabs", "FAIL",
             f"OLD Heroes/Renders tabs present: {found_old}. tabs seen={tabs}", shot1a))
@@ -409,8 +412,8 @@ def _area1(page, shot_dir: Path, checks: list[CheckResult]) -> None:
     time.sleep(1.0)
     tiles = _tile_count(page)
     labels = _tile_labels(page)
-    uuid_re = re.compile(r"[0-9a-f]{8}-[0-9a-f]{4}-", re.I)
-    rawfile_re = re.compile(r"\.(png|jpg|jpeg|webp)\b", re.I)
+    uuid_re = re.compile(r"[0-9a-f]{8}-[0-9a-f]{4}-", re.IGNORECASE)
+    rawfile_re = re.compile(r"\.(png|jpg|jpeg|webp)\b", re.IGNORECASE)
     readable = [lbl for lbl in labels
                 if lbl and not uuid_re.search(lbl) and not rawfile_re.search(lbl)]
     shot1b = _shot(page, shot_dir, "1b-products-grid")
@@ -439,10 +442,11 @@ def _area1(page, shot_dir: Path, checks: list[CheckResult]) -> None:
                         t = (loc.nth(i).inner_text() or "").strip()
                         if t:
                             facet_chips.append(t)
-                    except Exception:
-                        pass
+                    except Exception as e:  # noqa: BLE001 — best-effort; next chip tried
+                        print(f"[warn] facet chip read failed: {e}", file=sys.stderr)
                 break
-        except Exception:
+        except Exception as e:  # noqa: BLE001 — best-effort; next selector tried
+            print(f"[warn] facet row probe failed for {sel}: {e}", file=sys.stderr)
             continue
     labels_before = _tile_labels(page, 8)
     tiles_before = _tile_count(page)
@@ -484,8 +488,8 @@ def _area1(page, shot_dir: Path, checks: list[CheckResult]) -> None:
     try:
         _panel(page).locator(f"{facet_row}[data-facet='All']").first.click(timeout=2000)
         time.sleep(0.8)
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001 — facet reset is best-effort cleanup
+        print(f"[warn] facet reset to All failed: {e}", file=sys.stderr)
 
     # --- CHECK 1d: search box + load more ---
     search_ok = False
@@ -499,7 +503,8 @@ def _area1(page, shot_dir: Path, checks: list[CheckResult]) -> None:
             if _panel(page).locator(sel).count() > 0:
                 search_sel = sel
                 break
-        except Exception:
+        except Exception as e:  # noqa: BLE001 — best-effort; next selector tried
+            print(f"[warn] search box probe failed for {sel}: {e}", file=sys.stderr)
             continue
     if search_sel:
         try:
@@ -562,8 +567,8 @@ def _area1(page, shot_dir: Path, checks: list[CheckResult]) -> None:
     try:
         if _panel(page).locator("text=/sparse|limited context|few assets/i").count() > 0:
             themes_note = "sparse-context note shown"
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001 — diagnostic read; empty note is the fallback
+        print(f"[warn] sparse-context note probe failed: {e}", file=sys.stderr)
     shot1e_themes = _shot(page, shot_dir, "1e-themes-tab")
     if ideas_ok and themes_ok:
         checks.append(CheckResult("1e-tab-switch", "PASS",
@@ -580,12 +585,12 @@ def _area1(page, shot_dir: Path, checks: list[CheckResult]) -> None:
             if page.locator(sel).count() > 0:
                 page.locator(sel).first.click(timeout=2000)
                 break
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — panel close is best-effort cleanup
+            print(f"[warn] panel close click failed for {sel}: {e}", file=sys.stderr)
     try:
         page.keyboard.press("Escape")
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001 — panel close is best-effort cleanup
+        print(f"[warn] panel close Escape failed: {e}", file=sys.stderr)
     time.sleep(1)
 
 
@@ -593,26 +598,26 @@ def _area2(page, shot_dir: Path, checks: list[CheckResult]) -> None:
     # trigger a generation so localized copy + preview populate
     try:
         page.locator("#generateCampaign").first.click(timeout=4000)
-    except Exception:
+    except Exception:  # noqa: BLE001 — generate click; fallback selector tried next
         try:
             page.locator("text=Generate").first.click(timeout=3000)
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — generate click is best-effort setup
+            print(f"[warn] generate click failed: {e}", file=sys.stderr)
     # allow generation + localization to render
     time.sleep(6)
 
     # scroll to Output Preview and expand the <details> so content is readable
     try:
         page.evaluate("() => { const d=document.querySelector('#previewCard'); if(d && d.tagName==='DETAILS') d.open=true; }")
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001 — details expand is best-effort setup
+        print(f"[warn] preview expand failed: {e}", file=sys.stderr)
     try:
         page.locator("#previewCard").scroll_into_view_if_needed(timeout=4000)
-    except Exception:
+    except Exception:  # noqa: BLE001 — scroll; fallback selector tried next
         try:
             page.locator("text=Output Preview").first.scroll_into_view_if_needed(timeout=3000)
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — scroll is best-effort setup
+            print(f"[warn] preview scroll failed: {e}", file=sys.stderr)
     time.sleep(1.5)
 
     # --- CHECK 2a: publish targets on header line ---
@@ -647,12 +652,12 @@ def _area2(page, shot_dir: Path, checks: list[CheckResult]) -> None:
     locp = ""
     try:
         feat = (page.locator("#featuredFrontier").text_content() or "").strip()
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001 — diagnostic read; empty text is the fallback
+        print(f"[warn] featuredFrontier read failed: {e}", file=sys.stderr)
     try:
         locp = (page.locator("#locPreview").text_content() or "").strip()
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001 — diagnostic read; empty text is the fallback
+        print(f"[warn] locPreview read failed: {e}", file=sys.stderr)
     # detect verbatim repetition: pull candidate headline sentences from locPreview
     # and check none appear verbatim inside featuredFrontier framing.
     def _sentences(s: str) -> list[str]:
@@ -661,10 +666,10 @@ def _area2(page, shot_dir: Path, checks: list[CheckResult]) -> None:
     loc_sents = _sentences(locp)
     dup = [s for s in loc_sents if s and s in feat]
     shot2b = _shot(page, shot_dir, "2b-localized-copy", full_page=False)
-    framing_ok = bool(re.search(r"localiz(ed|ing).{0,40}(reach|for)", feat, re.I)) or \
+    framing_ok = bool(re.search(r"localiz(ed|ing).{0,40}(reach|for)", feat, re.IGNORECASE)) or \
                  ("·" in feat) or ("localized reach" in feat.lower())
-    headers_ok = bool(re.search(r"Localized headlines", locp, re.I)) or \
-                 bool(re.search(r"one per language", locp, re.I))
+    headers_ok = bool(re.search(r"Localized headlines", locp, re.IGNORECASE)) or \
+                 bool(re.search(r"one per language", locp, re.IGNORECASE))
     if not dup and (framing_ok or headers_ok):
         checks.append(CheckResult("2b-no-dupe-loc", "PASS",
             f"localized headlines appear once (no verbatim repetition). "
@@ -687,8 +692,8 @@ def _area2(page, shot_dir: Path, checks: list[CheckResult]) -> None:
         try:
             t = page.locator(sel).first.text_content() or ""
             hay += "\n" + t
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — best-effort; next scope tried
+            print(f"[warn] export label probe failed for {sel}: {e}", file=sys.stderr)
     has_terse = "Asset pack exports:" in hay
     has_long = "One asset pack exports these ratios for these platforms" in hay
     if has_terse and not has_long:

@@ -1,7 +1,10 @@
 from pathlib import Path
+
 from PIL import Image
+
 from creative_automation.brief import load_brief
 from creative_automation.pipeline import run_pipeline
+
 
 def test_pipeline_generates_three_ratios(tmp_path):
     brief = load_brief("briefs/example.yaml")
@@ -28,9 +31,9 @@ def test_dam_reuse_vs_generate(tmp_path):
     out = tmp_path / "out2"
     report = run_pipeline(brief, dam, out)
     # hydrating-serum has real dam asset (now dam+enhanced with institutional grading)
-    hs = [p for p in report["products"] if p["id"] == "hydrating-serum"][0]
+    hs = next(p for p in report["products"] if p["id"] == "hydrating-serum")
     assert hs["hero_source"] in ("dam", "dam+enhanced")
-    rm = [p for p in report["products"] if p["id"] == "radiant-moisturizer"][0]
+    rm = next(p for p in report["products"] if p["id"] == "radiant-moisturizer")
     # radiant-moisturizer has no DAM asset of its own and no sku-photo-map entry, and
     # the default-brand-hero fallback was retired when the real-photo scene composer
     # landed. With no seed and no packshot the never-fail ladder ends at rung D

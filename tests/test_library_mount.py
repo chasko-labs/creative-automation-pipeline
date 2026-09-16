@@ -13,11 +13,12 @@ import io
 import pytest
 
 try:
+    from creative_automation import asset_api
+    from creative_automation import asset_ingest as ingest
     from creative_automation.api import HAS_FASTAPI, app
-    from creative_automation import asset_api, asset_ingest as ingest
 
     IMPORT_OK = True
-except Exception:  # pragma: no cover - import guard
+except ImportError:  # pragma: no cover - import guard
     HAS_FASTAPI = False
     app = None
     IMPORT_OK = False

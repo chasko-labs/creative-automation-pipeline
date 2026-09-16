@@ -16,8 +16,8 @@ design/tokens/ and call embed_*() to build S3 Vectors + Knowledge Base.
 from __future__ import annotations
 
 import base64
-import json
 import hashlib
+import json
 import os
 import sys
 from pathlib import Path
@@ -122,7 +122,7 @@ def embed_text(text: str, dim: int = EMBED_DIM) -> tuple[list[float], str]:
             if vec2 is None:
                 raise
             return vec2, FALLBACK_TEXT_MODEL
-        except Exception as e2:
+        except Exception as e2:  # noqa: BLE001 — fallback chain must never throw; both errors print
             print(f"[embed_text] both models failed, mock fallback: {e} / {e2}")
             return _mock_embedding(text, dim), "mock:titan-nova"
 

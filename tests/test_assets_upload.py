@@ -18,7 +18,7 @@ import pytest
 
 try:
     from creative_automation.api import HAS_FASTAPI, app
-except Exception:  # pragma: no cover - import guard
+except ImportError:  # pragma: no cover - import guard
     HAS_FASTAPI = False
     app = None
 
@@ -28,14 +28,14 @@ try:
     import multipart  # noqa: F401  (python-multipart)
 
     HAS_MULTIPART = True
-except Exception:  # pragma: no cover - import guard
+except ImportError:  # pragma: no cover - import guard
     HAS_MULTIPART = False
 
 try:
     from PIL import Image
 
     HAS_PIL = True
-except Exception:  # pragma: no cover - import guard
+except ImportError:  # pragma: no cover - import guard
     HAS_PIL = False
 
 _CAN_RUN = HAS_FASTAPI and HAS_MULTIPART and HAS_PIL

@@ -20,8 +20,8 @@ through to Nova unlimited; offline dict only if Nova unreachable.
 """
 from __future__ import annotations
 
-import os
 import json
+import os
 
 try:
     import httpx  # type: ignore
@@ -42,7 +42,7 @@ def _post(path: str, payload: dict) -> dict | None:
             print(f"[glimmer] {path} {r.status_code}: {r.text[:200]}")
             return None
         return r.json()
-    except Exception as e:
+    except (httpx.HTTPError, ValueError) as e:
         print(f"[glimmer] {path} unreachable (dev-only, fallback to Nova): {e}")
         return None
 
@@ -58,7 +58,7 @@ def glimmer_chat(prompt: str, max_tokens: int = 256, system: str | None = None) 
         return None
     try:
         return data["choices"][0]["message"]["content"].strip()
-    except Exception:
+    except (KeyError, IndexError, TypeError, AttributeError):
         return None
 
 
@@ -75,7 +75,7 @@ def glimmer_parse_brief(brief_text: str) -> dict | None:
         end = out.rfind("}")
         if start != -1 and end != -1:
             return json.loads(out[start : end + 1])
-    except Exception as e:
+    except ValueError as e:
         print(f"[glimmer] parse_brief json fail: {e} :: {out[:200]}")
     return None
 
@@ -89,15 +89,15 @@ def glimmer_pick_skus(brief_text: str, catalog_names: list[str], k: int = 3) -> 
         return None
     try:
         import re
-        m = re.search(r"\[.*\]", out, re.S)
+        m = re.search(r"\[.*\]", out, re.DOTALL)
         if m:
             arr = json.loads(m.group(0))
             # validate
             filtered = [x for x in arr if x in catalog_names][:k]
             if len(filtered) == k:
                 return filtered
-    except Exception:
-        pass
+    except (ValueError, TypeError) as e:
+        print(f"[glimmer] pick_skus parse failed: {e}")
     return None
 
 
@@ -117,6 +117,6 @@ def health() -> dict:
             import httpx as hx
             r = hx.get(f"{GLIMMER_URL}/models", timeout=5)
             return {"ok": r.status_code == 200, "models": r.json() if r.status_code == 200 else None}
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001 — health probe never raises (import lives in try)
             return {"ok": False, "error": str(e)}
     return {"ok": True, "models": data}

@@ -12,7 +12,7 @@ import mimetypes
 import os
 import uuid
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import Enum
 from pathlib import Path
 from typing import Any
@@ -193,7 +193,7 @@ class AssetLibrary:
         )
         try:
             return boto3.client("s3", region_name=region)
-        except Exception:
+        except Exception:  # noqa: BLE001 — client build never raises; None means no-s3 mode
             return None
 
     @property
@@ -239,7 +239,7 @@ class AssetLibrary:
 
         width, height = self._raster_dims(data) if kind == AssetKind.RASTER else (None, None)
 
-        added_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
+        added_at = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
         ref = AssetRef(
             asset_id=asset_id,
             kind=kind,
@@ -290,7 +290,7 @@ class AssetLibrary:
         try:
             with Image.open(io.BytesIO(data)) as img:
                 return (int(img.width), int(img.height))
-        except Exception:
+        except (OSError, ValueError):
             return (None, None)
 
     # ------------------------------------------------------------------ browse / select
@@ -339,7 +339,7 @@ class AssetLibrary:
         sidecar_key = f"{self.prefix}{asset_id}/asset.json"
         try:
             resp = self._s3.get_object(Bucket=self.bucket, Key=sidecar_key)
-        except Exception:
+        except Exception:  # noqa: BLE001 — sidecar read degrades to None on any S3 failure
             return None
         body = resp["Body"].read()
         payload = json.loads(body)
@@ -362,7 +362,7 @@ class AssetLibrary:
             return None
         try:
             resp = self._s3.list_objects_v2(Bucket=self.bucket, Prefix=self.prefix, Delimiter="/")
-        except Exception:
+        except Exception:  # noqa: BLE001 — dedup scan degrades to None on any S3 failure
             return None
         for cp in resp.get("CommonPrefixes", []):
             asset_id = cp["Prefix"][len(self.prefix):].strip("/")

@@ -17,24 +17,28 @@ import zipfile
 from creative_automation import generate_lambda
 
 
+class _FakeS3Error(Exception):
+    """Module-local stub error so fakes never raise vanilla Exception (TRY002)."""
+
+
 class _FakeS3:
     def __init__(self, objects=None, deny_put=False):
         self.objects = objects or {}
         self.deny_put = deny_put
         self.puts = []
 
-    def get_object(self, Bucket, Key):  # noqa: N803 — boto3 kwarg names
+    def get_object(self, Bucket, Key):
         if Key not in self.objects:
-            raise Exception(f"NoSuchKey: {Key}")
+            raise _FakeS3Error(f"NoSuchKey: {Key}")
         return {"Body": _io.BytesIO(self.objects[Key])}
 
     def put_object(self, **kwargs):
         if self.deny_put:
-            raise Exception("AccessDenied: not authorized for brands/kodiak/packs/*")
+            raise _FakeS3Error("AccessDenied: not authorized for brands/kodiak/packs/*")
         self.puts.append(kwargs)
         return {}
 
-    def generate_presigned_url(self, op, Params, ExpiresIn):  # noqa: N803 — boto3 kwarg names
+    def generate_presigned_url(self, op, Params, ExpiresIn):
         return f"https://dam.example/{Params['Key']}?presigned=1"
 
 
@@ -66,7 +70,7 @@ def test_handle_pack_puts_zip_under_packs_prefix(monkeypatch):
     assert put["ContentType"] == "application/zip"
     zf = zipfile.ZipFile(_io.BytesIO(put["Body"]))
     names = zf.namelist()
-    assert any(n.endswith("-1X1-") or "-1x1-" in n.lower() or n.endswith(".png") for n in names)
+    assert any(n.endswith(("-1X1-", ".png")) or "-1x1-" in n.lower() for n in names)
     assert any(n.endswith("copy.txt") for n in names)
 
 

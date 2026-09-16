@@ -1,8 +1,11 @@
 """End-to-end pipeline test - one command, full loop, marketing-readable."""
 from pathlib import Path
+
 from PIL import Image
+
 from creative_automation.brief import load_brief
 from creative_automation.pipeline import run_pipeline
+
 
 def test_e2e_on_the_go(tmp_path):
     brief = load_brief("briefs/kodiak-on-the-go.yaml")

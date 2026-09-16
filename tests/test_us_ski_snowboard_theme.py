@@ -51,14 +51,14 @@ def test_theme_routes_through_generate_hero_set(tmp_path, monkeypatch):
     # theme flows through the set builder like any other theme: provenance carries the
     # theme and the three delivery ratios, brand overlay applied. Offline: DAM disabled,
     # engines patched to None so the deterministic fallback path is exercised.
-    import creative_automation.dam as dam
+    from creative_automation import dam
 
     monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: None)
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
 
     out_dir = tmp_path / "set"
-    renders, source, provenance = generate.generate_hero_set(
+    renders, _source, provenance = generate.generate_hero_set(
         product_id="power-cakes",
         product_name="Power Cakes",
         brief_msg="athlete fuel before the training day",

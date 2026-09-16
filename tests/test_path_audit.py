@@ -46,7 +46,7 @@ def _png(path: pathlib.Path, color=(120, 30, 200)) -> pathlib.Path:
 
 def _seed_offline(tmp_path, monkeypatch) -> None:
     seed = _png(tmp_path / "seed.png")
-    import creative_automation.dam as dam
+    from creative_automation import dam
 
     monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)

@@ -17,7 +17,7 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageOps
 try:
     from .token_loader import load_tokens
     _tok = load_tokens()
-except Exception:
+except (ImportError, OSError, ValueError):
     _tok = None
 
 # Optional Rust accelerator (cargo build in rust/kodiak-local, maturin develop).
@@ -159,7 +159,7 @@ def enhance_hero(
             from PIL import ImageFont
 
             font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 9)
-        except Exception:
+        except OSError:
             font = None
         draw.text((42 - 10, 42 - 3), "BEAR", fill=_hex(BEAR_BROWN), font=font, anchor="mm" if font else None)
 
@@ -191,6 +191,6 @@ def enhance_existing_heroes(input_assets: Path, out_dir: Path | None = None) -> 
         try:
             enhance_hero(hero, dst)
             heroes.append(dst)
-        except Exception as e:
+        except (OSError, ValueError) as e:
             print(f"[enhance] skip {hero}: {e}")
     return heroes

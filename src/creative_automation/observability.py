@@ -7,11 +7,12 @@ from __future__ import annotations
 
 import json
 import os
+import sys
 from collections import deque
+from collections.abc import Iterator
 from contextlib import contextmanager
 from dataclasses import dataclass
-from datetime import datetime, timezone
-from typing import Iterator
+from datetime import UTC, datetime
 
 
 def _xray_autodetect() -> bool:
@@ -67,7 +68,7 @@ class Observer:
 
     def log_event(self, event: str, level: str = "info", **fields: object) -> LogRecord:
         """Build a LogRecord, print flat JSON to stdout, append to ring buffer, return it."""
-        ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
+        ts = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
         record = LogRecord(ts=ts, service=self.service, event=event, level=level, fields=dict(fields))
         print(record.to_json())
         self._buffer.append(record)
@@ -87,21 +88,21 @@ class Observer:
                 try:
                     if subsegment is not None:
                         subsegment.put_annotation(key, value)
-                except Exception:
-                    pass
+                except Exception as exc:  # noqa: BLE001 — tracing must never break the request
+                    print(f"[observability] put_annotation failed: {exc}", file=sys.stderr)
             yield subsegment
         except Exception as exc:
             try:
                 if subsegment is not None:
                     subsegment.add_exception(exc)
-            except Exception:
-                pass
+            except Exception as add_exc:  # noqa: BLE001 — tracing must never mask the real error
+                print(f"[observability] add_exception failed: {add_exc}", file=sys.stderr)
             raise
         finally:
             try:
                 xray_recorder.end_subsegment()
-            except Exception:
-                pass
+            except Exception as end_exc:  # noqa: BLE001 — tracing teardown never raises
+                print(f"[observability] end_subsegment failed: {end_exc}", file=sys.stderr)
 
     def recent(self, limit: int = 50) -> list[LogRecord]:
         """Last N records, most-recent-first."""

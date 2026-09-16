@@ -158,9 +158,9 @@ def test_atlanta_preview_scenario_es_ko_publix_recipe_no_spend(monkeypatch, tmp_
     import json
     from pathlib import Path
 
-    from creative_automation import generate_lambda
-
     from PIL import Image
+
+    from creative_automation import generate_lambda
 
     def _stub_hero(**kwargs):
         out_path = Path(kwargs["out_path"])

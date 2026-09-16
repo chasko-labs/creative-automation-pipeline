@@ -36,7 +36,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT / "src"))
-from creative_automation.recipe_art import (  # noqa: E402
+from creative_automation.recipe_art import (
     _COVERAGE_CEILING,
     _NEGATIVE_STRONG,
     _ZONE_PROMPT,
@@ -178,8 +178,9 @@ def _workflow(subject: str, zone: str, seed: int) -> dict:
 
 
 def render_one(item: dict) -> Path:
-    from PIL import Image
     import io as _io
+
+    from PIL import Image
 
     pid = _api("/prompt", {"prompt": _workflow(item["display"], item["zone"],
                                                 item["seed"] + item["attempts"])})["prompt_id"]
@@ -222,8 +223,8 @@ def main() -> None:
             finally:
                 try:
                     _api("/free", {}, timeout=60)
-                except Exception:
-                    pass
+                except Exception as e:  # noqa: BLE001 — best-effort GPU free probe; release follows regardless
+                    print(f"[{key}] ComfyUI /free probe skipped: {e}", flush=True)
                 gpu_release()
         except Exception as e:  # noqa: BLE001 — record and continue to next item
             item["attempts"] = item.get("attempts", 0) + 1

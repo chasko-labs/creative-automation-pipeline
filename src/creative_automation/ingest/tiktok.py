@@ -65,9 +65,9 @@ def _ssm_get_json(path: str) -> dict | None:
         val = resp["Parameter"]["Value"]
         try:
             return json.loads(val)
-        except Exception:
+        except ValueError:
             return {"value": val}
-    except Exception:
+    except Exception:  # noqa: BLE001 — best-effort SSM fetch; None on missing creds
         return None
 
 

@@ -87,7 +87,7 @@ def _load_market_langs(path: Path | None = None) -> list[dict]:
         return []
     try:
         return json.loads(p.read_text(encoding="utf-8")).get("markets", [])
-    except Exception:
+    except (OSError, ValueError):
         return []
 
 

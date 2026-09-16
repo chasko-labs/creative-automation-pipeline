@@ -28,7 +28,7 @@ import json
 import re
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 LIVE_URL = "https://d37333alc7ojpl.cloudfront.net/"
@@ -69,7 +69,7 @@ VISIBLE_JS = r"""
 
 
 def _now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 def _shot(page, shot_dir: Path, name: str, full_page: bool = False):
@@ -86,7 +86,7 @@ def _shot(page, shot_dir: Path, name: str, full_page: bool = False):
 def _read_stamp(page):
     try:
         title = page.title() or ""
-    except Exception:
+    except Exception:  # noqa: BLE001 — best-effort probe; empty title falls to meta
         title = ""
     m = STAMP_RE.search(title)
     if m:
@@ -96,8 +96,8 @@ def _read_stamp(page):
         if c:
             m = STAMP_RE.search(c)
             return m.group(0) if m else c
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001 — best-effort probe; no stamp is the fallback
+        print(f"[warn] stamp meta read failed: {e}", file=sys.stderr)
     return None
 
 
@@ -125,7 +125,8 @@ def _click_tab(page, name: str) -> bool:
                 loc.click(timeout=3000)
                 time.sleep(1.0)
                 return True
-        except Exception:
+        except Exception as e:  # noqa: BLE001 — best-effort; next selector tried
+            print(f"[warn] tab click failed for {sel}: {e}", file=sys.stderr)
             continue
     return False
 
@@ -136,7 +137,8 @@ def _find_facet_row(page):
         try:
             if _panel(page).locator(sel).count() > 0:
                 return sel
-        except Exception:
+        except Exception as e:  # noqa: BLE001 — best-effort; next selector tried
+            print(f"[warn] facet row probe failed for {sel}: {e}", file=sys.stderr)
             continue
     return None
 
@@ -149,8 +151,8 @@ def _facet_texts(page, sel) -> list[str]:
             t = (loc.nth(i).inner_text() or "").strip()
             if t:
                 out.append(t)
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001 — best-effort probe; empty chips is the fallback
+        print(f"[warn] facet chip read failed: {e}", file=sys.stderr)
     return out
 
 
@@ -163,7 +165,8 @@ def _click_facet(page, sel, value) -> bool:
                 loc.click(timeout=3000)
                 time.sleep(1.3)
                 return True
-        except Exception:
+        except Exception as e:  # noqa: BLE001 — best-effort; next selector tried
+            print(f"[warn] facet click failed for {chip_sel}: {e}", file=sys.stderr)
             continue
     return False
 
@@ -217,12 +220,12 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
         # honors, then reload past the courtesy screen.
         try:
             page.evaluate("try{sessionStorage.setItem('kodiak_gate','cakes')}catch(e){}")
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — gate seed is best-effort; reload decides
+            print(f"[warn] gate token seed failed: {e}", file=sys.stderr)
         try:
             page.reload(wait_until="networkidle")
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — reload is best-effort; gate check decides
+            print(f"[warn] post-seed reload failed: {e}", file=sys.stderr)
         time.sleep(2)
 
         if _panel(page) and page.locator("text=Request access").count() > 0:
@@ -256,18 +259,19 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
                     loc.click(timeout=4000)
                     opened = True
                     break
-            except Exception:
+            except Exception as e:  # noqa: BLE001 — best-effort; next selector tried
+                print(f"[warn] panel open click failed for {sel}: {e}", file=sys.stderr)
                 continue
         time.sleep(1.5)
         try:
             _panel(page).wait_for(state="visible", timeout=5000)
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — wait is best-effort; poll loop decides
+            print(f"[warn] panel visible wait timed out: {e}", file=sys.stderr)
         # wait out the async "Loading…" state
         for _ in range(40):
             try:
                 body_txt = page.locator("#damBody").inner_text()[:40]
-            except Exception:
+            except Exception:  # noqa: BLE001 — body poll; empty text retries next tick
                 body_txt = ""
             if "Loading" not in body_txt and _panel(page).locator("[role='tab']").count() > 0:
                 break
@@ -348,7 +352,8 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
                 if _panel(page).locator(sel).count() > 0:
                     search_sel = sel
                     break
-            except Exception:
+            except Exception as e:  # noqa: BLE001 — best-effort; next selector tried
+                print(f"[warn] search box probe failed for {sel}: {e}", file=sys.stderr)
                 continue
         if not search_sel:
             c1d["verdict"] = "FAIL"
@@ -390,8 +395,8 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
             try:
                 box.fill("")
                 time.sleep(0.8)
-            except Exception:
-                pass
+            except Exception as e:  # noqa: BLE001 — search clear is best-effort cleanup
+                print(f"[warn] search clear failed: {e}", file=sys.stderr)
         report["check_1d"] = c1d
 
         # =================== Load more still works ===================
@@ -408,7 +413,8 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
                     clicked_lm = True
                     time.sleep(1.5)
                     break
-            except Exception:
+            except Exception as e:  # noqa: BLE001 — best-effort; next selector tried
+                print(f"[warn] load more click failed for {sel}: {e}", file=sys.stderr)
                 continue
         after_lm = _vis(page)
         lm["visible_after"] = after_lm["visible"]
@@ -444,8 +450,8 @@ def _console_summary(console_errors, page_errors) -> str:
 def _finish(report, out_path, browser, console_errors, page_errors) -> int:
     try:
         browser.close()
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001 — cleanup must never throw
+        print(f"[warn] browser close failed: {e}", file=sys.stderr)
     if report.get("console_state") in (None, "unknown"):
         report["console_state"] = _console_summary(console_errors, page_errors)
     verdicts = [report.get(k, {}).get("verdict") if isinstance(report.get(k), dict) else None

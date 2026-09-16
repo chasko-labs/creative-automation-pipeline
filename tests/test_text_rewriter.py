@@ -86,6 +86,6 @@ def test_rewrite_campaign_copy_per_language():
     }
     out = rewrite_campaign_copy(brief, ["en", "es"], month="2026-09")
     assert set(out.keys()) == {"en", "es"}
-    for lang, res in out.items():
+    for res in out.values():
         assert res["text"]
         assert res["safety"]["clean"] is True

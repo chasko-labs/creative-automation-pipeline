@@ -11,7 +11,6 @@ from __future__ import annotations
 import json
 import time
 from pathlib import Path
-from typing import Dict, List
 
 from PIL import Image
 
@@ -31,10 +30,10 @@ def _hex_to_rgb(h: str):
     return tuple(int(h[i:i+2], 16) for i in (0,2,4))
 
 
-def score_image_determinism(image_path: Path) -> Dict:
+def score_image_determinism(image_path: Path) -> dict:
     """12 brutal cards for a single generated creative."""
-    cards: List[Dict] = []
-    subs: List[str]
+    cards: list[dict] = []
+    subs: list[str]
     # Card 1: DAM determinism — hero source must be dam+enhanced when available
     # We infer from path: if image exists, check metadata via report — here we just check file exists
     exists = image_path.exists()
@@ -59,7 +58,7 @@ def score_image_determinism(image_path: Path) -> Dict:
         score = (1 if has_brown else 0) + (1 if has_blaze else 0)
         pass_ = has_brown and has_blaze
         cards.append({"id":"enhance","title":"Enhance Determinism","max":2,"score":score,"pass":pass_,"detail":" • ".join(subs),"subs":subs})
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 — one bad card must not sink the batch
         cards.append({"id":"enhance","title":"Enhance Determinism","max":4,"score":0,"pass":False,"detail":f"✗ cannot open {e}","subs":[f"✗ {e}"]*4})
     # Card 3: Compose template 6-piece
     try:
@@ -78,7 +77,7 @@ def score_image_determinism(image_path: Path) -> Dict:
         s = (1 if ratio_ok else 0) + (1 if has_bar else 0) + (1 if has_bear else 0)
         pass_ = ratio_ok and has_bar and has_bear
         cards.append({"id":"compose","title":"Compose Template 6-Piece","max":3,"score":s,"pass":pass_,"detail":" • ".join(subs),"subs":subs})
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 — one bad card must not sink the batch
         cards.append({"id":"compose","title":"Compose Template 6-Piece","max":4,"score":0,"pass":False,"detail":f"✗ {e}","subs":[f"✗ {e}"]*4})
     # Card 4: Font determinism — Gin must be resolvable via tokens (real config
     # test; no `or True` — a missing/unparseable token file fails, #203).
@@ -86,7 +85,7 @@ def score_image_determinism(image_path: Path) -> Dict:
     try:
         tokens = load_tokens()
         has_gin = bool(tokens) and "gin" in json.dumps(tokens).lower()
-    except Exception:
+    except (OSError, ValueError, TypeError):
         has_gin = False
     cards.append({"id":"font","title":"Font Determinism","max":1,"score":1 if has_gin else 0,"pass":bool(has_gin),"detail":"✓ Gin 800 headline via tokens" if has_gin else "✗ DejaVu fallback","subs":["✓ Gin" if has_gin else "✗ Gin"]})
     # Card 5: Logo determinism — the 140w@24,24 region must contain a real
@@ -98,7 +97,7 @@ def score_image_determinism(image_path: Path) -> Dict:
         region = logo_img.crop((24, 24, min(lw, 164), min(lh, 164))).resize((32, 32))
         logo_present = len(set(region.getdata())) > 16
         cards.append({"id":"logo","title":"Logo Determinism","max":1,"score":1 if logo_present else 0,"pass":logo_present,"detail":"✓ PNG 140w@24,24" if logo_present else "✗ flat/missing mark","subs":["✓ PNG 140w@24,24" if logo_present else "✗ logo"]})
-    except Exception:
+    except (OSError, ValueError):
         cards.append({"id":"logo","title":"Logo Determinism","max":1,"score":0,"pass":False,"detail":"✗ logo check failed","subs":["✗ logo"]})
     # Card 6: Palette probe
     try:
@@ -108,21 +107,21 @@ def score_image_determinism(image_path: Path) -> Dict:
         subs = [f"{'✓' if v else '✗'} {k}" for k,v in found.items()]
         s = sum(found.values())
         cards.append({"id":"palette","title":"Palette Probe","max":3,"score":s,"pass":passed,"detail":" • ".join(subs),"subs":subs})
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 — one bad card must not sink the batch
         cards.append({"id":"palette","title":"Palette Probe","max":3,"score":0,"pass":False,"detail":f"✗ {e}","subs":[f"✗ {e}"]*3})
     # Card 7: Legal gate
     try:
         chk = run_all_checks(image_path, "Keep It Wild — protein-packed whole grains for your Wasatch frontier.", BRAND_COLORS, True)
         legal_pass = chk["legal"]["passed"]
         cards.append({"id":"legal","title":"Legal Gate","max":1,"score":1 if legal_pass else 0,"pass":legal_pass,"detail":"✓ no prohibited" if legal_pass else f"✗ {chk['legal']['flagged_terms']}","subs":["✓ legal" if legal_pass else "✗ legal"]})
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 — one bad card must not sink the batch
         cards.append({"id":"legal","title":"Legal Gate","max":1,"score":0,"pass":False,"detail":f"✗ {e}","subs":[f"✗ {e}"]})
     # Card 8: Dimensions exact
     try:
         w,h = Image.open(image_path).size
         ok = (w,h) in [(1080,1080),(1080,1920),(1920,1080)]
         cards.append({"id":"dims","title":"Dimensions Exact","max":1,"score":1 if ok else 0,"pass":ok,"detail":f"✓ {w}x{h}" if ok else f"✗ {w}x{h}","subs":[f"✓ {w}x{h}" if ok else f"✗ {w}x{h}"]})
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 — one bad card must not sink the batch
         cards.append({"id":"dims","title":"Dimensions Exact","max":1,"score":0,"pass":False,"detail":f"✗ {e}","subs":[f"✗ {e}"]})
     # Card 9: File naming ISO
     name = image_path.name
@@ -346,10 +345,10 @@ def score_recipe_card_template(template_path: Path | None = None) -> dict:
     }
 
 
-def score_batch(out_root: Path) -> Dict:
+def score_batch(out_root: Path) -> dict:
     """Score all creatives under out_root (expects report.json)."""
     report_path = out_root / "report.json"
-    artifacts: List[Path] = []
+    artifacts: list[Path] = []
     if report_path.exists():
         try:
             data = json.loads(report_path.read_text())
@@ -357,8 +356,8 @@ def score_batch(out_root: Path) -> Dict:
                 p = out_root / a.get("path","")
                 if p.exists():
                     artifacts.append(p)
-        except Exception:
-            pass
+        except (OSError, ValueError, AttributeError, TypeError) as e:
+            print(f"[scorecards] report read failed, falling back to png scan: {e}")
     if not artifacts:
         # fallback: find all pngs
         artifacts = list(out_root.rglob("*.png"))

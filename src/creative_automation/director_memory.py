@@ -101,7 +101,7 @@ def _load_library() -> list[dict]:
                         "norm": norm,
                     }
                 )
-    except Exception:
+    except (OSError, AttributeError, ValueError, TypeError):
         entries = []
     _library_cache = entries
     return entries
@@ -125,7 +125,7 @@ def retrieve(query_text: str, k: int = 3) -> tuple[list[dict], str]:
         return [], "none"
     try:
         qvec, model_used = embeddings.embed_text(query)
-    except Exception:
+    except Exception:  # noqa: BLE001 — never-raise grounding contract; failed embed yields []
         return [], "embed-failed"
     if not qvec or str(model_used).startswith("mock"):
         return [], str(model_used)

@@ -19,7 +19,7 @@ from __future__ import annotations
 import json
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).parents[1]
@@ -72,9 +72,8 @@ def parse_months(text: str) -> list[int] | None:
                 if m not in found:
                     found.append(m)
     for name, num in MONTHS.items():
-        if re.search(r"\b" + name + r"\b", low) and len(name) > 3:
-            if num not in found:
-                found.append(num)
+        if re.search(r"\b" + name + r"\b", low) and len(name) > 3 and num not in found:
+            found.append(num)
     return sorted(found) if found else None
 
 
@@ -238,7 +237,7 @@ def build() -> dict:
     # deterministic stamp: data-core.js mtime, so committed output regenerates
     # byte-identical until the source actually changes.
     stamp = datetime.fromtimestamp(
-        DATA_CORE.stat().st_mtime, tz=timezone.utc
+        DATA_CORE.stat().st_mtime, tz=UTC
     ).strftime("%Y-%m-%dT%H:%M:%SZ")
     return {
         "$schema": old.get("$schema"),

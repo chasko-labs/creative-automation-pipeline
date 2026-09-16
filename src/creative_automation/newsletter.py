@@ -77,7 +77,7 @@ def get_products_by_handles(handles: list[str] | None = None) -> list[dict[str, 
                 else:
                     caller_ctx = "unknown"
                 del stack
-            except Exception:
+            except (OSError, IndexError, AttributeError):
                 caller_ctx = "unknown"
             logger.warning("newsletter fallback stub for unknown product handle=%r (caller=%s)", h, caller_ctx)
             out.append({"handle": h, "name": h.replace("-", " ").title(), "url": f"https://kodiakcakes.com/products/{h}", "image": "", "price": ""})
@@ -127,15 +127,15 @@ def render_newsletter_html(*args, **kwargs) -> str:
             f.write(mjml)
             tmp_mjml = f.name
         tmp_html = tmp_mjml + ".html"
-        result = subprocess.run(["npx", "mjml", tmp_mjml, "-o", tmp_html], capture_output=True, text=True, timeout=10)
+        result = subprocess.run(["npx", "mjml", tmp_mjml, "-o", tmp_html], capture_output=True, text=True, timeout=10, check=False)
         if result.returncode == 0 and Path(tmp_html).exists():
             html = Path(tmp_html).read_text(encoding="utf-8")
             Path(tmp_mjml).unlink(missing_ok=True)
             Path(tmp_html).unlink(missing_ok=True)
             return html
         Path(tmp_mjml).unlink(missing_ok=True)
-    except Exception:
-        pass
+    except (OSError, subprocess.SubprocessError) as e:
+        logger.warning("newsletter mjml compile skipped: %s", e)
     # Fallback: return MJML wrapped so callers can distinguish; also embed as HTML comment for preview
     return "<!-- MJML: compile with `npx mjml newsletter.mjml -o newsletter.html` -->\n" + mjml
 

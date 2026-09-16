@@ -25,7 +25,6 @@ from __future__ import annotations
 import json
 import os
 from pathlib import Path
-from typing import Dict, List
 
 try:
     import boto3
@@ -34,7 +33,7 @@ except ImportError:
     boto3 = None  # type: ignore
 
 # Reuse localize's Nova fallback
-from .localize import _try_bedrock_translate, OFFLINE
+from .localize import OFFLINE, _try_bedrock_translate
 
 # AWS region / model - same as localize.py for consistency
 BEDROCK_REGION = os.getenv("BEDROCK_REGION", os.getenv("AWS_REGION", "us-east-1"))
@@ -83,7 +82,7 @@ def _try_aws_translate(text: str, target_lang: str) -> str | None:
         resp = client.translate_text(Text=text, SourceLanguageCode="en", TargetLanguageCode=aws_code)
         out = resp.get("TranslatedText","").strip()
         return out if out else None
-    except (ClientError, BotoCoreError, Exception) as e:
+    except (ClientError, BotoCoreError, AttributeError, ValueError) as e:
         print(f"[translate] AWS Translate fallback ({target_lang}): {e}")
         return None
 
@@ -160,7 +159,7 @@ def load_market_languages(path: Path | str | None = None) -> dict:
     return {"metadata": {}, "markets": []}
 
 
-def produce_variants_for_market(brief_message: str, market_entry: dict) -> List[Dict]:
+def produce_variants_for_market(brief_message: str, market_entry: dict) -> list[dict]:
     """For a single market entry, produce EN + top2 variants."""
     market_code = market_entry.get("market","unknown")
     region = market_code  # use market code as region hint for Nova
@@ -206,12 +205,12 @@ def produce_variants_for_market(brief_message: str, market_entry: dict) -> List[
     return variants
 
 
-def expand_all_markets(brief_message: str, markets_data: dict | None = None, market_languages_path: Path | str | None = None) -> Dict[str, List[Dict]]:
+def expand_all_markets(brief_message: str, markets_data: dict | None = None, market_languages_path: Path | str | None = None) -> dict[str, list[dict]]:
     """Return {market_code: [en_variant, lang1_variant, lang2_variant], ...} for all markets."""
     if markets_data is None:
         markets_data = load_market_languages(market_languages_path)
     markets = markets_data.get("markets", [])
-    out: Dict[str, List[Dict]] = {}
+    out: dict[str, list[dict]] = {}
     for m in markets:
         out[m["market"]] = produce_variants_for_market(brief_message, m)
     return out
@@ -226,7 +225,7 @@ def attach_market_translations(report: dict, brief_message: str, market_language
     markets = data.get("markets", [])
     meta = data.get("metadata", {})
 
-    market_translations: Dict[str, List[Dict]] = {}
+    market_translations: dict[str, list[dict]] = {}
     total_localized = 0
     for m in markets:
         variants = produce_variants_for_market(brief_message, m)

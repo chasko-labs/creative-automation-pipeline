@@ -13,8 +13,8 @@ import json
 import time
 from pathlib import Path
 
-from .compose import compose_creative
 from .compliance import run_all_checks
+from .compose import compose_creative
 from .dam import find_brand_logo
 from .enhance import enhance_hero
 
@@ -71,7 +71,7 @@ def suggest_variants(
         try:
             enhance_hero(work, work, contrast=1.08, brightness=1.02, sharpness=1.12, texture=True, frame=False, watermark=False, vignette=True)
             hero_source = "dam+enhanced"
-        except Exception:
+        except (OSError, ValueError):
             hero_source = "dam"
 
         # Pick message for this hero: cycle messages or fallback
@@ -128,8 +128,7 @@ def suggest_variants(
     }
     (out_root / "report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     with open(out_root / "report.jsonl", "w", encoding="utf-8") as f:
-        for a in artifacts:
-            f.write(json.dumps(a) + "\n")
+        f.writelines(json.dumps(a) + "\n" for a in artifacts)
 
     _write_preview(report, out_root)
     return report

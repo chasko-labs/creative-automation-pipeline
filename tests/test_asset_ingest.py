@@ -195,7 +195,7 @@ def test_ingest_embed_disabled_skips_embed(monkeypatch):
     rec = RecordingEmbed()
     _patch_embed(monkeypatch, rec)
 
-    ref, status = ingest.ingest_asset(lib, data=b"png-bytes", filename="hero.png", embed=False)
+    _ref, status = ingest.ingest_asset(lib, data=b"png-bytes", filename="hero.png", embed=False)
 
     assert status == ingest.EMBED_DISABLED
     assert rec.put_calls == []

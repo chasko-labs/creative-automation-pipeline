@@ -3,8 +3,8 @@ from __future__ import annotations
 
 import json
 import os
-from pathlib import Path
 from functools import lru_cache
+from pathlib import Path
 
 DEFAULT_LOCAL_TOKENS = Path(__file__).parent / "tokens" / "kodiak.tokens.json"
 DESIGN_TOKENS = Path(__file__).parents[2] / "design" / "tokens" / "kodiak.json"
@@ -23,7 +23,7 @@ def _try_s3_tokens() -> dict | None:
         obj = s3.get_object(Bucket=bucket, Key=key)
         data = json.loads(obj["Body"].read())
         return data
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 — S3 optional; any failure falls back to local
         print(f"[tokens] S3 load failed, falling back to local: {e}")
         return None
 
@@ -48,7 +48,7 @@ def get_brand_colors(tokens: dict | None = None) -> list[str]:
     try:
         brand = t["kodiak"]["color"]["brand"]
         return [brand["bearBrown"]["$value"], brand["blazeOrange"]["$value"], brand["frontierGreen"]["$value"]]
-    except Exception:
+    except (KeyError, TypeError):
         return ["#3B2316", "#E8530E", "#1A3C34"]
 
 
@@ -63,8 +63,8 @@ def get_canvas_dims(tokens: dict | None = None) -> dict:
                 out[k] = (w, h)
         if out:
             return out
-    except Exception:
-        pass
+    except (KeyError, TypeError, AttributeError):
+        print("[tokens] canvas dims unreadable, using defaults")
     return {"1x1": (1080, 1080), "9x16": (1080, 1920), "16x9": (1920, 1080)}
 
 
@@ -72,5 +72,5 @@ def get_typography(tokens: dict | None = None, ratio: str = "1x1") -> dict:
     t = tokens or load_tokens()
     try:
         return t["kodiak"]["typography"]["headline"][ratio]
-    except Exception:
+    except (KeyError, TypeError):
         return {"$value": {"fontSize": "56px"}}

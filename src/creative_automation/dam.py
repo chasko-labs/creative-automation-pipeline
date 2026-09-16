@@ -16,7 +16,6 @@ from __future__ import annotations
 import json
 import os
 from pathlib import Path
-from typing import Optional
 
 try:
     import boto3
@@ -49,7 +48,7 @@ def _deadline_exceeded(deadline_ms) -> bool:
         return False
     try:
         return deadline_ms() < DAM_PROBE_FLOOR_MS
-    except Exception:
+    except Exception:  # noqa: BLE001 — deadline probe must never raise; assume time remains
         return False
 
 # The S3-fetch cache must land on a WRITABLE fs. Lambda mounts /var/task read-only
@@ -59,7 +58,7 @@ def _deadline_exceeded(deadline_ms) -> bool:
 # Gateway budget -> 503. /tmp/kodiak-assets is always writable on Lambda AND locally,
 # and mirrors the convention resolve_packshot / fetch_hero_to_tmp already use. Env
 # override (DAM_CACHE_ROOT) wins for callers that need a bespoke cache location.
-_DEFAULT_CACHE_ROOT = "/tmp/kodiak-assets"  # noqa: S108 — Lambda only allows /tmp writes
+_DEFAULT_CACHE_ROOT = "/tmp/kodiak-assets"
 
 
 def _dam_cache_root() -> Path:
@@ -71,7 +70,7 @@ def _dam_cache_root() -> Path:
     return Path(os.getenv("DAM_CACHE_ROOT", "").strip() or _DEFAULT_CACHE_ROOT)
 
 
-def _s3_bucket_and_prefix() -> tuple[Optional[str], str]:
+def _s3_bucket_and_prefix() -> tuple[str | None, str]:
     """Resolve bucket/prefix from DAM_S3_BUCKET + DAM_S3_PREFIX or DAM_S3_URI.
 
     Examples:
@@ -119,7 +118,7 @@ def _s3_client():
                 retries={"max_attempts": 1, "mode": "standard"},
             )
         return boto3.client("s3", region_name=region, config=cfg)
-    except Exception:
+    except Exception:  # noqa: BLE001 — client init is optional; None means offline S3
         return None
 
 
@@ -159,12 +158,12 @@ def _s3_download(bucket: str, key: str, dest: Path) -> bool:
         with open(dest, "wb") as fh:
             fh.write(body)
         return dest.exists()
-    except (ClientError, BotoCoreError, Exception) as e:
+    except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — any fetch miss degrades to local
         print(f"[dam] s3 fetch miss s3://{bucket}/{key}: {e}")
         return False
 
 
-def _s3_try_fetch_product_asset(product_id: str, dam_root: Path, explicit: Optional[str] = None, deadline_ms=None) -> Optional[Path]:
+def _s3_try_fetch_product_asset(product_id: str, dam_root: Path, explicit: str | None = None, deadline_ms=None) -> Path | None:
     """Try to materialize hero asset from S3 into a writable cache. Returns local path if fetched.
 
     Looks for s3://<bucket>/<prefix><product_id>/hero.* then any image under
@@ -229,8 +228,8 @@ def _s3_try_fetch_product_asset(product_id: str, dam_root: Path, explicit: Optio
             if dest.exists() and dest.stat().st_size == 0:
                 try:
                     dest.unlink()
-                except Exception:
-                    pass
+                except OSError as e:
+                    print(f"[dam] partial cleanup unlink failed {dest}: {e}")
 
     # 2) any image under product prefix — list
     if _deadline_exceeded(deadline_ms):
@@ -251,7 +250,7 @@ def _s3_try_fetch_product_asset(product_id: str, dam_root: Path, explicit: Optio
                 if _s3_download(bucket, key, dest):
                     print(f"[dam] s3 hit (list) s3://{bucket}/{key}")
                     return dest
-    except (ClientError, BotoCoreError, Exception) as e:
+    except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — any list miss falls to serial probes
         print(f"[dam] s3 list miss s3://{bucket}/{base_prefix}: {e}")
     return None
 
@@ -295,7 +294,7 @@ def _rank_hero_key(key: str) -> tuple[int, int]:
         return (0 if stem == "hero-real" else 1, len(_HERO_FILE_RANK))
 
 
-def fetch_hero_to_tmp(product_id: str, cache_root: Path = Path("/tmp/kodiak-assets"), deadline_ms=None) -> Optional[Path]:  # noqa: S108 — Lambda only allows /tmp writes
+def fetch_hero_to_tmp(product_id: str, cache_root: Path = Path("/tmp/kodiak-assets"), deadline_ms=None) -> Path | None:
     """Materialize a product hero from the S3 DAM into a Lambda-safe /tmp cache.
 
     Resolves s3://<DAM bucket>/<heroes prefix><product_id>/hero-real.png first
@@ -364,8 +363,8 @@ def fetch_hero_to_tmp(product_id: str, cache_root: Path = Path("/tmp/kodiak-asse
                 if dest.exists() and dest.stat().st_size == 0:
                     try:
                         dest.unlink()
-                    except Exception:
-                        pass
+                    except OSError as e:
+                        print(f"[dam] partial cleanup unlink failed {dest}: {e}")
             # listed authoritatively: nothing usable under the prefix — a miss
             # costs exactly 1 LIST and 0 GETs. No serial fan-out.
             print(f"[dam] hero list miss s3://{bucket}/{base_prefix}")
@@ -392,12 +391,12 @@ def fetch_hero_to_tmp(product_id: str, cache_root: Path = Path("/tmp/kodiak-asse
         if dest.exists() and dest.stat().st_size == 0:
             try:
                 dest.unlink()
-            except Exception:
-                pass
+            except OSError as e:
+                print(f"[dam] partial cleanup unlink failed {dest}: {e}")
     return None
 
 
-def fetch_dam_key(key: str, dest: Path) -> Optional[Path]:
+def fetch_dam_key(key: str, dest: Path) -> Path | None:
     """Download an EXPLICIT full DAM key to dest. Returns dest if fetched, else None.
 
     Unlike find_hero_asset / fetch_hero_to_tmp, the key is used VERBATIM against
@@ -423,8 +422,8 @@ def fetch_dam_key(key: str, dest: Path) -> Optional[Path]:
     if dest.exists() and dest.stat().st_size == 0:
         try:
             dest.unlink()
-        except Exception:
-            pass
+        except OSError as e:
+            print(f"[dam] partial cleanup unlink failed {dest}: {e}")
     return None
 
 
@@ -437,7 +436,7 @@ def fetch_dam_key(key: str, dest: Path) -> Optional[Path]:
 _SKU_PACKSHOT_MAP_PATH = (
     Path(__file__).parents[2] / "docs" / "architecture" / "compose-fix" / "sku-packshot-map.json"
 )
-_SKU_PACKSHOT_MAP_CACHE: Optional[dict] = None
+_SKU_PACKSHOT_MAP_CACHE: dict | None = None
 
 
 def _resolve_packshot_map_path() -> Path:
@@ -473,7 +472,7 @@ def _norm_handle(product_id: str) -> str:
     return "-".join(str(product_id).strip().lower().split()).strip("-")
 
 
-def _packshot_entry_for(product_id: str) -> Optional[dict]:
+def _packshot_entry_for(product_id: str) -> dict | None:
     """Match a product_id to a manifest entry: exact handle, then normalized, then longest-prefix."""
     m = _load_packshot_map()
     if not m:
@@ -484,12 +483,12 @@ def _packshot_entry_for(product_id: str) -> Optional[dict]:
     if norm in m and isinstance(m[norm], dict):
         return m[norm]
     # longest-prefix match so "chocolate-fudge" matches "chocolate-fudge-brownie-mix"
-    best_key: Optional[str] = None
+    best_key: str | None = None
     for k in m:
         kn = _norm_handle(k)
-        if (norm.startswith(kn) or kn.startswith(norm)) and isinstance(m[k], dict):
-            if best_key is None or len(kn) > len(_norm_handle(best_key)):
-                best_key = k
+        if ((norm.startswith(kn) or kn.startswith(norm)) and isinstance(m[k], dict)
+                and (best_key is None or len(kn) > len(_norm_handle(best_key)))):
+            best_key = k
     return m[best_key] if best_key else None
 
 
@@ -499,7 +498,7 @@ def _looks_like_box(key: str) -> bool:
     return "705599" in name
 
 
-def resolve_packshot(product_id: str, dam_root: Optional[Path] = None, deadline_ms=None) -> Optional[Path]:
+def resolve_packshot(product_id: str, dam_root: Path | None = None, deadline_ms=None) -> Path | None:
     """Return a local path to the REAL product-box packshot for a SKU, else None.
 
     Manifest-first (unlike find_hero_asset). Resolution chain, in order:
@@ -540,7 +539,7 @@ def resolve_packshot(product_id: str, dam_root: Optional[Path] = None, deadline_
     return None
 
 
-def _s3_try_fetch_brand_logo(dam_root: Path) -> Optional[Path]:
+def _s3_try_fetch_brand_logo(dam_root: Path) -> Path | None:
     if not _s3_enabled():
         return None
     bucket, prefix = _s3_bucket_and_prefix()
@@ -570,8 +569,8 @@ def _s3_try_fetch_brand_logo(dam_root: Path) -> Optional[Path]:
                 if dest.exists() and dest.stat().st_size == 0:
                     try:
                         dest.unlink()
-                    except Exception:
-                        pass
+                    except OSError as e:
+                        print(f"[dam] partial cleanup unlink failed {dest}: {e}")
         # fallback list any image in that prefix
         try:
             resp = client.list_objects_v2(Bucket=bucket, Prefix=base_prefix, MaxKeys=20)
@@ -589,13 +588,13 @@ def _s3_try_fetch_brand_logo(dam_root: Path) -> Optional[Path]:
                     if _s3_download(bucket, key, dest):
                         print(f"[dam] s3 hit (list) s3://{bucket}/{key}")
                         return dest
-        except (ClientError, BotoCoreError, Exception) as e:
+        except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — any list miss degrades to local
             print(f"[dam] s3 list miss s3://{bucket}/{base_prefix}: {e}")
     return None
 
 
 # ------------------------------------------------------------------ local helpers
-def _local_find_hero(product_id: str, dam_root: Path, explicit: Optional[str] = None) -> Optional[Path]:
+def _local_find_hero(product_id: str, dam_root: Path, explicit: str | None = None) -> Path | None:
     if explicit:
         p = Path(explicit)
         if p.is_absolute():
@@ -619,11 +618,11 @@ def _local_find_hero(product_id: str, dam_root: Path, explicit: Optional[str] = 
         for ext in ASSET_EXTS:
             hits = list(product_dir.glob(f"*{ext}"))
             if hits:
-                return sorted(hits)[0]
+                return min(hits)
     return None
 
 
-def _local_find_brand(dam_root: Path) -> Optional[Path]:
+def _local_find_brand(dam_root: Path) -> Path | None:
     for base in [dam_root / "brand", dam_root]:
         if base.is_dir():
             for ext in ASSET_EXTS:
@@ -639,7 +638,7 @@ def _local_find_brand(dam_root: Path) -> Optional[Path]:
 
 
 # ------------------------------------------------------------------ public API (backward-compatible)
-def find_hero_asset(product_id: str, dam_root: Path, explicit: Optional[str] = None, deadline_ms=None) -> Optional[Path]:
+def find_hero_asset(product_id: str, dam_root: Path, explicit: str | None = None, deadline_ms=None) -> Path | None:
     """Return hero image path if found, else None.
 
     Lookup order:
@@ -672,7 +671,7 @@ def find_hero_asset(product_id: str, dam_root: Path, explicit: Optional[str] = N
     return _local_find_hero(product_id, dam_root, explicit)
 
 
-def find_brand_logo(dam_root: Path) -> Optional[Path]:
+def find_brand_logo(dam_root: Path) -> Path | None:
     """Return brand logo path if found, else None. S3-first, local fallback.
 
     Checks s3://$DAM_S3_BUCKET/$DAM_S3_PREFIX{brand/,}logo.* then local dam_root/brand/logo.* .
@@ -683,7 +682,7 @@ def find_brand_logo(dam_root: Path) -> Optional[Path]:
     return _local_find_brand(dam_root)
 
 
-def s3_upload_and_presign(local_path: Path, key: str, expires: int = 3600) -> Optional[str]:
+def s3_upload_and_presign(local_path: Path, key: str, expires: int = 3600) -> str | None:
     """Upload local_path to the DAM bucket under <prefix><key>, return a presigned GET url.
 
     Mirrors the module's graceful pattern: returns None when S3 is disabled (no
@@ -712,12 +711,12 @@ def s3_upload_and_presign(local_path: Path, key: str, expires: int = 3600) -> Op
         )
         print(f"[dam] uploaded {local_path} -> s3://{bucket}/{full_key} (presigned {expires}s)")
         return url
-    except (ClientError, BotoCoreError, Exception) as e:
+    except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — upload failure returns None
         print(f"[dam] upload/presign failed s3://{bucket}/{full_key}: {e}")
         return None
 
 
-def presign_get(key: str, expires: int = 3600) -> Optional[str]:
+def presign_get(key: str, expires: int = 3600) -> str | None:
     """Presign a GET for an EXISTING DAM key. Returns url, or None when S3 disabled.
 
     Read-only companion to s3_upload_and_presign (which uploads then presigns). The
@@ -739,7 +738,7 @@ def presign_get(key: str, expires: int = 3600) -> Optional[str]:
             Params={"Bucket": bucket, "Key": key},
             ExpiresIn=expires,
         )
-    except (ClientError, BotoCoreError, Exception) as e:
+    except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — presign failure returns None
         print(f"[dam] presign_get failed s3://{bucket}/{key}: {e}")
         return None
 
@@ -759,7 +758,7 @@ def head_metadata(key: str) -> dict:
         return {}
     try:
         resp = client.head_object(Bucket=bucket, Key=key)
-    except (ClientError, BotoCoreError, Exception) as e:
+    except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — metadata miss returns {}
         print(f"[dam] head_metadata failed s3://{bucket}/{key}: {e}")
         return {}
     meta = resp.get("Metadata") or {}
@@ -864,7 +863,7 @@ def sync_dam_from_s3(dam_root: Path, delete: bool = False) -> bool:
         for page in paginator.paginate(Bucket=bucket, Prefix=prefix):
             for obj in page.get("Contents", []):
                 key = obj["Key"]
-                rel = key[len(prefix):] if key.startswith(prefix) else key
+                rel = key.removeprefix(prefix)
                 if not rel:
                     continue
                 dest = dam_root / rel
@@ -875,6 +874,6 @@ def sync_dam_from_s3(dam_root: Path, delete: bool = False) -> bool:
                     synced += 1
         print(f"[dam] sync s3://{bucket}/{prefix} -> {dam_root} synced={synced}")
         return synced > 0
-    except (ClientError, BotoCoreError, Exception) as e:
+    except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — sync failure returns False
         print(f"[dam] bulk sync failed: {e}")
         return False

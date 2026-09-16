@@ -69,7 +69,7 @@ def _rasterize_svg(svg_path: Path, target_w: int) -> Image.Image | None:
     cairosvg is deliberately NOT a dependency; this path is opportunistic.
     """
     try:
-        import cairosvg  # type: ignore  # noqa: PLC0415 — optional, opportunistic import
+        import cairosvg  # type: ignore
     except ImportError:
         return None
     try:

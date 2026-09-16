@@ -24,7 +24,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from creative_automation import dam, dam_library  # noqa: E402
+from creative_automation import dam, dam_library
 
 
 def _fetch(key: str, dest: Path) -> bool:
@@ -89,12 +89,14 @@ def main() -> int:
                 skipped += 1
                 continue
             tkey = dam_library._thumb_key(key)
+            thumb_exists = True
             try:
                 client.head_object(Bucket=bucket, Key=tkey)
+            except Exception:  # noqa: BLE001 — missing-thumb probe; absent means fill it
+                thumb_exists = False
+            if thumb_exists:
                 skipped += 1
                 continue
-            except Exception:
-                pass
             if args.dry_run:
                 print(f"  would fill {tkey}")
                 made += 1

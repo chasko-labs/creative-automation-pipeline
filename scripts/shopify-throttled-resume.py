@@ -11,8 +11,8 @@ Resume throttled Shopify fetch for Kodiak Cakes sitemap.
 """
 import json
 import re
-import time
 import sys
+import time
 from pathlib import Path
 
 BASE = Path("/home/bryanchasko/code/chasko-labs/creative-automation-pipeline/data/raw-ingest/kodiakcakes")
@@ -61,6 +61,7 @@ def fetch_url(url: str, retries=5, base_delay=4):
                     text=r.text
             except ImportError:
                 import subprocess
+
                 # fallback curl
                 import tempfile
                 with tempfile.NamedTemporaryFile(delete=False) as tf:
@@ -91,7 +92,7 @@ def fetch_url(url: str, retries=5, base_delay=4):
                 print(f"[error {status}] {url}")
                 return None, status
             return text, status
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001 — retry-loop guard; any fetch failure backs off and retries
             if attempt==retries:
                 print(f"[exception] {url} {e}")
                 return None, 0

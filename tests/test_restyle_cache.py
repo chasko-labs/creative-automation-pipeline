@@ -9,6 +9,10 @@ from PIL import Image
 from creative_automation import dam, generate
 
 
+class _StubS3Error(Exception):
+    """Module-local stub error so fakes never raise vanilla Exception (TRY002)."""
+
+
 def _local_box(tmp_path: Path) -> Path:
     box = tmp_path / "box.png"
     box.write_bytes(_png_bytes((300, 400), color=(200, 30, 30)))
@@ -69,7 +73,7 @@ def test_cache_hit_skips_bedrock(tmp_path: Path, monkeypatch) -> None:
     )
 
     out = tmp_path / "hero.png"
-    _result, source, prov = generate.generate_hero(
+    _result, _source, prov = generate.generate_hero(
         product_id="banana-muffin-quick-bread-mix",
         product_name="Banana Muffin Mix",
         brief_msg="wild mornings",
@@ -90,7 +94,7 @@ def test_set_base_miss_uses_raw_seed(tmp_path: Path, monkeypatch) -> None:
 
     class _S3:
         def download_file(self, bucket, key, dest):
-            raise Exception("NoSuchKey")
+            raise _StubS3Error("NoSuchKey")
 
         def put_object(self, **kwargs):
             raise AssertionError("set base must not upload")
@@ -114,7 +118,7 @@ def test_set_base_miss_uses_raw_seed(tmp_path: Path, monkeypatch) -> None:
     )
 
     out = tmp_path / "hero.png"
-    _result, source, prov = generate.generate_hero(
+    _result, _source, prov = generate.generate_hero(
         product_id="banana-muffin-quick-bread-mix",
         product_name="Banana Muffin Mix",
         brief_msg="wild mornings",

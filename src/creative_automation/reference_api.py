@@ -26,7 +26,7 @@ try:
 except ImportError:
     HAS_FASTAPI = False
 
-from .embeddings import embed_text, embed_multimodal, EMBED_DIM
+from .embeddings import EMBED_DIM, embed_multimodal, embed_text
 
 VEC_DIR = pathlib.Path("data/vectors")
 JSONL = VEC_DIR / "kodiak-embeddings.jsonl"
@@ -73,7 +73,8 @@ def _keyword_fallback(query: str, k: int) -> list[dict]:
             if all(t in line.lower() for t in tokens) or query.lower() in line.lower():
                 try:
                     j = json.loads(line)
-                except Exception:
+                except ValueError as e:
+                    print(f"[reference] skip malformed line in {p.name}: {e}")
                     continue
                 fallbacks.append({"id": j.get("text", "")[:80] or p.name, "type": "text", "source": j.get("text", "")[:400], "score": 0.92, "matched_file": str(p)})
                 if len(fallbacks) >= k:
@@ -150,10 +151,14 @@ def search(query: str, k: int = 5, type_filter: Literal["text", "image", "multim
                     break
             top = merged[:k]
             # if kw alone fills k, just return kw (highest relevance)
-            if max((h.get("score", 0) for h in kw), default=0) >= 0.9:
+            if (
+                max((h.get("score", 0) for h in kw), default=0) >= 0.9
                 # ensure at least first hit is keyword
-                if top and "hashtag" not in top[0].get("source","").lower() and "green chile" not in top[0].get("source","").lower():
-                    top = (kw + top)[:k]
+                and top
+                and "hashtag" not in top[0].get("source", "").lower()
+                and "green chile" not in top[0].get("source", "").lower()
+            ):
+                top = (kw + top)[:k]
     return top[:k]
 
 

@@ -52,10 +52,10 @@ class FakeDynamo:
         self.gets: list[dict] = []
         self._present = present or {}  # (pk, sk) -> Item dict
 
-    def put_item(self, TableName, Item):  # noqa: N803 — boto3 kwarg names
+    def put_item(self, TableName, Item):
         self.puts.append({"TableName": TableName, "Item": Item})
 
-    def get_item(self, TableName, Key):  # noqa: N803 — boto3 kwarg names
+    def get_item(self, TableName, Key):
         self.gets.append({"TableName": TableName, "Key": Key})
         pk = Key["pk"]["S"]
         sk = Key["sk"]["S"]
@@ -64,7 +64,7 @@ class FakeDynamo:
 
 
 def _args(**over):
-    base = dict(dry_run=False, only_missing=False, region="us-east-1", limit=None, table=None)
+    base = {"dry_run": False, "only_missing": False, "region": "us-east-1", "limit": None, "table": None}
     base.update(over)
     return types.SimpleNamespace(**base)
 

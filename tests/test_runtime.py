@@ -33,7 +33,7 @@ def test_handle_campaign_request_returns_json_serializable_dict():
     # and it carries the campaign summary
     assert resp["campaign"]["market"] == "US-SE-ATL"
     assert resp["summary"]["asset_count"] > 0
-    assert "assets" in resp and resp["assets"]
+    assert resp.get("assets")
     assert "recipe_cards" in resp
     assert "lockups" in resp
 

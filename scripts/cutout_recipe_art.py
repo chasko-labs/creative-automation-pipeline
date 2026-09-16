@@ -26,9 +26,8 @@ WHITE_KEEP = 0.90  # … ramped to fully kept here (ink lines untouched)
 
 
 def cutout(src: Path, dst: Path, session) -> None:
-    from PIL import Image
     import numpy as np
-
+    from PIL import Image
     from rembg import remove
 
     img = Image.open(src).convert("RGB")

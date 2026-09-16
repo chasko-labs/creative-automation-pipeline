@@ -30,7 +30,7 @@ class _FakeS3Client:
         self.get_object_calls: list[dict] = []
         self.download_file_calls: list[tuple] = []
 
-    def get_object(self, Bucket: str, Key: str) -> dict:  # noqa: N803 — boto3 kwarg names
+    def get_object(self, Bucket: str, Key: str) -> dict:
         self.get_object_calls.append({"Bucket": Bucket, "Key": Key})
         return {"Body": _FakeBody(b"\x89PNG\r\n\x1a\n-fake-bytes")}
 

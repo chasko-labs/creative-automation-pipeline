@@ -44,8 +44,8 @@ import os
 import re
 import sys
 import time
-from dataclasses import dataclass, asdict, field
-from datetime import datetime, timezone
+from dataclasses import asdict, dataclass, field
+from datetime import UTC, datetime
 from pathlib import Path
 
 LIVE_URL = "https://d37333alc7ojpl.cloudfront.net/"
@@ -75,7 +75,7 @@ class Report:
 
 
 def _now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 def _shot_path(shot_dir: Path, name: str) -> str:
@@ -97,7 +97,7 @@ def _read_build_stamp(nova) -> str | None:
     """Read the served version from <title> and #buildStamp text."""
     try:
         title = nova.page.title() or ""
-    except Exception:
+    except Exception:  # noqa: BLE001 — best-effort probe; empty title falls to meta
         title = ""
     m = re.search(r"v?0\.1\.0\d{2}-[0-9a-f]{7}-\d{8}", title)
     if m:
@@ -107,8 +107,8 @@ def _read_build_stamp(nova) -> str | None:
         content = nova.page.get_attribute('meta[name="kodiak-version"]', "content")
         if content:
             return content
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001 — best-effort probe; no stamp is the fallback
+        print(f"[warn] stamp meta read failed: {e}", file=sys.stderr)
     return None
 
 
@@ -118,7 +118,7 @@ def _gate_is_up(nova) -> bool:
         # locator count is 0 when the sessionStorage seeding worked
         loc = nova.page.locator("text=Request access")
         return loc.count() > 0
-    except Exception:
+    except Exception:  # noqa: BLE001 — probe failed; assume no gate, not a block
         # if the query itself failed, assume no gate rather than false-blocking
         return False
 
@@ -165,12 +165,12 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
         # honors, then reload past the courtesy screen.
         try:
             nova.page.evaluate("try{sessionStorage.setItem('kodiak_gate','cakes')}catch(e){}")
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — gate seed is best-effort; reload decides
+            print(f"[warn] gate token seed failed: {e}", file=sys.stderr)
         try:
             nova.page.reload()
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — reload is best-effort; gate check decides
+            print(f"[warn] post-seed reload failed: {e}", file=sys.stderr)
         time.sleep(2)
         if _gate_is_up(nova):
             shot = _screenshot(nova, _shot_path(shot_dir, "00-gate-block"))
@@ -226,17 +226,17 @@ def _check1_dam_thumbnails(nova, shot_dir: Path) -> CheckResult:
             try:
                 if panel.locator(f"text={lbl}").count() > 0:
                     tabs_found.append(lbl)
-            except Exception:
-                pass
+            except Exception as e:  # noqa: BLE001 — best-effort; next label tried
+                print(f"[warn] tab probe failed for {lbl}: {e}", file=sys.stderr)
         # image tiles: <img> inside the panel, or branded placeholder tiles with labels
         try:
             img_tiles = panel.locator("img").count()
-        except Exception:
+        except Exception:  # noqa: BLE001 — tile probe; zero tiles is the fallback
             img_tiles = 0
         try:
             # kraft placeholder tiles still count if they carry labels; probe grid role
             grid_tiles = panel.locator("[role='option'], .ff-dam-tile, .dam-tile").count()
-        except Exception:
+        except Exception:  # noqa: BLE001 — tile probe; zero tiles is the fallback
             grid_tiles = 0
         shot = _screenshot(nova, _shot_path(shot_dir, "check1-dam-panel"))
 
@@ -265,8 +265,8 @@ def _check1_dam_thumbnails(nova, shot_dir: Path) -> CheckResult:
         try:
             nova.page.keyboard.press("Escape")
             time.sleep(1)
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — panel close is best-effort cleanup
+            print(f"[warn] panel close Escape failed: {e}", file=sys.stderr)
 
 
 def _check2_default_market(nova, shot_dir: Path) -> CheckResult:
@@ -277,8 +277,8 @@ def _check2_default_market(nova, shot_dir: Path) -> CheckResult:
         label = ""
         try:
             label = (nova.page.locator("#marketButtonLabel").inner_text() or "").strip()
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — diagnostic read; empty label is the fallback
+            print(f"[warn] market label read failed: {e}", file=sys.stderr)
         # detect any geolocation permission prompt fired on load. Nova Act's managed
         # Chromium does not auto-grant; a getCurrentPosition on load would surface a
         # permission request. We assert the market label instead, which is the
@@ -313,8 +313,8 @@ def _check3_market_framing(nova, shot_dir: Path) -> CheckResult:
         active = ""
         try:
             active = (nova.page.locator("#marketButtonLabel").inner_text() or "").strip()
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001 — diagnostic read; empty label is the fallback
+            print(f"[warn] active market read failed: {e}", file=sys.stderr)
         # populate the Localized Costco brief into the textarea
         nova.act("Click the 'Localized Costco' campaign option so its brief fills the campaign text box")
         time.sleep(2)
@@ -325,7 +325,8 @@ def _check3_market_framing(nova, shot_dir: Path) -> CheckResult:
                 if v:
                     brief = v.strip()
                     break
-            except Exception:
+            except Exception as e:  # noqa: BLE001 — best-effort; next selector tried
+                print(f"[warn] brief read failed for {sel}: {e}", file=sys.stderr)
                 continue
         shot = _screenshot(nova, _shot_path(shot_dir, "check3-sanantonio-brief"))
         low = brief.lower()
