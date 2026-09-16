@@ -29,6 +29,7 @@ from PIL import Image, ImageDraw, ImageFont
 from . import naming, safety
 from .locales import resolve_seasonal_moments, resolve_this_month
 from .platform_copy import clean_brand_copy
+from .recipe_i18n import translate_recipe_texts
 from .text_rewriter import rewrite_headline
 
 # Composed cards publish here so the recipes DAM tab (extra_prefixes) picks
@@ -733,6 +734,11 @@ def build_recipe_card_data(
     (falling back to ingredients like build_recipe_card) with the real leading word
     uppercased as a bold action verb — no cooking action is invented.
 
+    lang: "en" passes through untouched; other languages machine-translate the
+    title, ingredient lines, and steps (recipe_i18n) with an allergen fail-safe
+    that falls back to English per line. Prices, meta, and recipe identity stay
+    put; provenance.translation records providers and fallback lines.
+
     art (optional): a {"raw_ingredient": url|None, "technique": url|None,
     "finished_plate": url|None} map of Nova-Canvas-generated hand-drawn line-art
     URLs (from recipe_cards_emit.seed_recipe_art). When a zone url is present the
@@ -844,21 +850,41 @@ def build_recipe_card_data(
             {"qty_name": line, "price": None} for line in raw_lines
         ] or [{"qty_name": ingredient, "price": None}]
 
+    # lang: English passes through untouched; other languages travel the
+    # machine-translation chain with an allergen fail-safe (recipe_i18n).
+    # Prices and meta stay universal; the recipe identity stays English.
+    i18n = translate_recipe_texts(
+        title_text,
+        [entry["qty_name"] for entry in ingredients],
+        steps,
+        lang,
+        market,
+    )
+    ingredients = [
+        {"qty_name": text, "price": entry["price"]}
+        for text, entry in zip(i18n["ingredients"], ingredients)
+    ]
+    provenance: dict = {
+        "values_from_source": [ingredient],
+        "values_proposed": ["over Kodiak Power Cakes"],
+        "values_unknown": unknown,
+    }
+    # the emitted matrix is English throughout: only non-English cards carry
+    # a translation block, so today's payload stays byte-identical.
+    if lang != "en":
+        provenance["translation"] = i18n["provenance"]
+
     return {
         "market": market,
         "month": resolved_month,
         "substrate": substrate_key,
-        "title": title_text,
+        "title": i18n["title"],
         "meta": meta,
         "ingredients": ingredients,
-        "steps": steps,
+        "steps": i18n["steps"],
         "sketch_zones": list(_ART_ZONE_IDS),
         "seasonal_moment": seasonal,
-        "provenance": {
-            "values_from_source": [ingredient],
-            "values_proposed": ["over Kodiak Power Cakes"],
-            "values_unknown": unknown,
-        },
+        "provenance": provenance,
         "ingredient": ingredient,
         "recipe": {"id": recipe.get("id"), "name": recipe.get("name")},
         "art": art_block,
