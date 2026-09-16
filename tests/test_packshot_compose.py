@@ -235,7 +235,7 @@ def test_compose_creative_without_product_layer_still_renders(tmp_path):
 # packshot-first; these tests prove the SAME precedence now runs on the generate_hero
 # seam so a mapped SKU on the endpoint composites the verbatim box and the Stability
 # restyle NEVER paints the product pixels. An unmapped SKU falls through to generation.
-from creative_automation import generate as generate_mod
+from creative_automation import generate as generate_mod  # noqa: E402 — mid-file import documents the generate_hero seam under test
 
 
 def test_generate_hero_mapped_sku_takes_packshot_and_skips_stability(tmp_path, monkeypatch):

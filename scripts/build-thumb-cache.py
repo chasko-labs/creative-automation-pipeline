@@ -24,7 +24,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from creative_automation import dam, dam_library
+from creative_automation import dam, dam_library  # noqa: E402 — sys.path bootstrap above must precede repo imports
 
 
 def _fetch(key: str, dest: Path) -> bool:

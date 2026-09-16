@@ -36,7 +36,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT / "src"))
-from creative_automation.recipe_art import (
+from creative_automation.recipe_art import (  # noqa: E402 — sys.path bootstrap above must precede repo imports
     _COVERAGE_CEILING,
     _NEGATIVE_STRONG,
     _ZONE_PROMPT,

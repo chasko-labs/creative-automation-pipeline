@@ -121,7 +121,9 @@ def translate_recipe_texts(
             "providers": providers,
             "machine_translated": True,
             "human_reviewed": False,
-            "allergen_check": "glossary" if lang in {l for m in _ALLERGENS.values() for l in m} else "unsupported-lang",
+            "allergen_check": "glossary"
+            if lang in {code for per_lang in _ALLERGENS.values() for code in per_lang}
+            else "unsupported-lang",
             "allergen_fallback_lines": fallbacks,
         },
     }
