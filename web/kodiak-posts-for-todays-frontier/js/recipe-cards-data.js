@@ -5909,9 +5909,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -8190,9 +8190,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -10295,9 +10295,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -12226,9 +12226,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -12400,9 +12400,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash-storage/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash (storage)",
       "ingredients": [
@@ -14506,9 +14506,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -16582,9 +16582,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -20544,9 +20544,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -22531,9 +22531,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -22711,9 +22711,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash-storage/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash (storage)",
       "ingredients": [
@@ -26707,9 +26707,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -30452,9 +30452,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -32765,9 +32765,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -34595,9 +34595,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-09": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -34961,9 +34961,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash-storage/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash (storage)",
       "ingredients": [
@@ -39126,9 +39126,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -41264,9 +41264,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -43220,9 +43220,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -43396,9 +43396,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash-storage/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash (storage)",
       "ingredients": [
@@ -45368,9 +45368,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -45546,9 +45546,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash-storage/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash (storage)",
       "ingredients": [
@@ -47732,9 +47732,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-12": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -49623,9 +49623,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-12": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -51592,9 +51592,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -53731,9 +53731,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-12": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -55445,9 +55445,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -57307,9 +57307,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -61889,9 +61889,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-12": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -74327,9 +74327,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -74520,9 +74520,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-12": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash-storage/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash (storage)",
       "ingredients": [
@@ -118559,9 +118559,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -118736,9 +118736,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash-storage/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash (storage)",
       "ingredients": [
@@ -122722,9 +122722,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-09": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -125009,9 +125009,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -132090,9 +132090,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-12": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -134049,9 +134049,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash-storage/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash (storage)",
       "ingredients": [
@@ -136000,9 +136000,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -142708,9 +142708,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash",
       "ingredients": [
@@ -147037,9 +147037,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": null,
+        "finished_plate": "/recipe-art/winter-squash/finished_plate.png",
         "raw_ingredient": "/recipe-art/winter-squash-storage/raw_ingredient.png",
-        "technique": null
+        "technique": "/recipe-art/winter-squash/technique.png"
       },
       "ingredient": "winter squash (storage)",
       "ingredients": [

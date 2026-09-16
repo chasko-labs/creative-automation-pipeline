@@ -107,7 +107,7 @@
       var img = el('img', 'rc-artzone__art');
       img.setAttribute('src', String(artUrl));
       img.setAttribute('alt', '');
-      img.setAttribute('loading', 'lazy');
+      img.setAttribute('loading', 'eager');
       img.setAttribute('aria-hidden', 'true');
       // if a presigned url has expired or fails, swap in the placeholder rather than a broken image.
       img.addEventListener('error', function () {
