@@ -23,8 +23,6 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
-from . import cdn_director
-from .cdn_director import is_cdn_theme
 from .platform_copy import clean_brand_copy
 
 # Attempt boto3 import lazily — local-only mode still works without it
@@ -1026,10 +1024,6 @@ def _default_scene_prompt(
     for theme-photo seeds (the photo already carries the theme, so a second
     vision call buys nothing and burns rung C's budget).
     """
-    if is_cdn_theme(theme):
-        return cdn_director.cdn_default_scene_prompt(
-            product_name, brief_msg, region, audience, theme
-        )
     scene_hint = _THEME_SCENE_HINT.get(theme or "", "")
     # Who + where: the filter-safe persona names the person (never the raw
     # celebrity token), the hint dispatches the scene. Theme without a hint
@@ -1056,39 +1050,6 @@ def _nova_pro_scene_prompt(
     control-structure conditioning. Falls back to a deterministic brief/theme-derived
     prompt on any Nova Pro failure so the Stability call always has a usable prompt.
     """
-    if is_cdn_theme(theme):
-        cdn_text = cdn_director.cdn_nova_direction_text(
-            product_name, brief_msg, region, audience, theme
-        )
-        cdn_default = cdn_director.cdn_default_scene_prompt(
-            product_name, brief_msg, region, audience, theme
-        )
-        if boto3 is None:
-            return cdn_default
-        try:
-            img_bytes, fmt = _seed_small_for_nova(src)
-        except (OSError, ValueError):
-            return cdn_default
-        try:
-            client = _bedrock_failfast_client(read_timeout=BEDROCK_NOVA_READ_TIMEOUT_S)
-            resp = client.converse(
-                modelId=NOVA_TEXT_MODEL,
-                messages=[
-                    {
-                        "role": "user",
-                        "content": [
-                            {"image": {"format": fmt, "source": {"bytes": img_bytes}}},
-                            {"text": cdn_text},
-                        ],
-                    }
-                ],
-                inferenceConfig={"maxTokens": 120},
-            )
-            text = resp["output"]["message"]["content"][0]["text"].strip().replace("\n", " ")
-            return text or cdn_default
-        except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — deterministic fallback
-            print(f"[generate] Nova Pro scene-prompt unavailable, using default: {e}", file=sys.stderr)
-            return cdn_default
     theme_hint = f" Theme: {_safe_theme_text(theme)}." if theme else ""
     scene_hint = _THEME_SCENE_HINT.get(theme or "", "")
     if scene_hint:
