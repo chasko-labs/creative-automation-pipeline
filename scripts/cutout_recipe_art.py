@@ -21,6 +21,8 @@ from pathlib import Path
 ROOT = Path(__file__).parents[1]
 OUT_ROOT = ROOT / "output" / "recipe-art"
 ALPHA_GAMMA = 1.6  # suppress faint ghost remnants kept by the matte
+WHITE_CLEAR = 0.965  # luminance at/above this goes fully clear …
+WHITE_KEEP = 0.90  # … ramped to fully kept here (ink lines untouched)
 
 
 def cutout(src: Path, dst: Path, session) -> None:
@@ -30,11 +32,16 @@ def cutout(src: Path, dst: Path, session) -> None:
     from rembg import remove
 
     img = Image.open(src).convert("RGB")
-    out = remove(img, session=session)
-    a = np.array(out.split()[3]).astype(float) / 255.0
-    a = (a**ALPHA_GAMMA * 255).astype("uint8")
-    out.putalpha(Image.fromarray(a))
-    out.save(dst, "PNG")
+    out = remove(img, session=session).convert("RGBA")
+    a = np.array(out)
+    # ghost suppression on the matte alpha …
+    matte = (a[..., 3].astype(float) / 255.0) ** ALPHA_GAMMA
+    # … then negative space: near-white fill goes clear so the card tone
+    # itself is the fill and the ink floats on the page.
+    lum = a[..., :3].mean(axis=2) / 255.0
+    clear = np.clip((WHITE_CLEAR - lum) / (WHITE_CLEAR - WHITE_KEEP), 0, 1)
+    a[..., 3] = (np.minimum(matte, clear) * 255).astype("uint8")
+    Image.fromarray(a).save(dst, "PNG")
     print(f"[cutout] {src.relative_to(ROOT)} -> {dst.relative_to(ROOT)}")
 
 

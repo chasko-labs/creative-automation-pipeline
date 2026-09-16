@@ -9,13 +9,23 @@
   <rect x="6" y="6" width="413" height="538" rx="6" fill="#C9A57A"/>
   <rect x="6" y="6" width="413" height="538" rx="6" fill="url(#rcFiber)"/>
   <rect x="6" y="6" width="413" height="538" rx="6" fill="none" stroke="#3B2316" stroke-width="2"/>
-  <!-- printer-safe 0.5in margin guide (25px) -->
-  <rect x="31" y="31" width="363" height="488" fill="none" stroke="#3B2316" stroke-opacity="0.25" stroke-dasharray="4 5"/>
-  <!-- title band -->
-  <text x="212" y="86" text-anchor="middle" font-family="Rockwell, Georgia, serif" font-weight="800" font-size="30" fill="#3B2316" letter-spacing="1">SUNSHINE LEMON CAKE</text>
+  <!-- printer-safe 0.5in margin guide (25px). everything below lives inside it. -->
+  <rect x="31" y="31" width="363" height="488" fill="none" stroke="#3B2316" stroke-opacity="0.35" stroke-dasharray="4 5"/>
+  <text x="36" y="26" font-family="Inter, sans-serif" font-size="10" fill="#3B2316" opacity="0.7">printer-safe 0.5in</text>
+  <!-- title band: two short lines, centered, inside the safe area -->
+  <text x="212" y="72" text-anchor="middle" font-family="Rockwell, Georgia, serif" font-weight="800" font-size="24" fill="#3B2316" letter-spacing="1">SUNSHINE</text>
+  <text x="212" y="100" text-anchor="middle" font-family="Rockwell, Georgia, serif" font-weight="800" font-size="24" fill="#3B2316" letter-spacing="1">LEMON CAKE</text>
   <!-- meta rule -->
-  <line x1="31" y1="112" x2="394" y2="112" stroke="#3B2316" stroke-width="1.5"/>
-  <!-- center hairline divider -->
-  <line x1="212" y1="130" x2="212" y2="500" stroke="#3B2316" stroke-width="0.6"/>
-  <text x="212" y="300" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#6B5A53">board preview loading — kraft 8.5 x 11 in</text>
+  <line x1="31" y1="118" x2="394" y2="118" stroke="#3B2316" stroke-width="1.5"/>
+  <!-- body: two columns with zone blocks -->
+  <line x1="212" y1="132" x2="212" y2="470" stroke="#3B2316" stroke-width="0.6"/>
+  <rect x="45" y="140" width="150" height="75" fill="none" stroke="#3B2316" stroke-opacity="0.5"/>
+  <text x="120" y="181" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#3B2316">raw 3.0 x 1.5</text>
+  <rect x="230" y="140" width="150" height="75" fill="none" stroke="#3B2316" stroke-opacity="0.5"/>
+  <text x="305" y="181" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#3B2316">prep 3.0 x 1.5</text>
+  <rect x="230" y="230" width="150" height="100" fill="none" stroke="#3B2316" stroke-opacity="0.5"/>
+  <text x="305" y="285" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#3B2316">plate 3.0 x 2.0</text>
+  <!-- footer boundary -->
+  <line x1="31" y1="486" x2="394" y2="486" stroke="#3B2316" stroke-opacity="0.35" stroke-dasharray="4 5"/>
+  <text x="212" y="508" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#3B2316" opacity="0.7">usable 7.5 x 10 in · board 8.5 x 11 in</text>
 </svg>

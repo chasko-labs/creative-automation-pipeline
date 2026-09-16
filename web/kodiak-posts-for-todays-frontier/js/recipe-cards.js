@@ -154,21 +154,6 @@
     return li;
   }
 
-  // pull a short, tasteful context line from seasonal_moment without cluttering the face.
-  // seasonal_moment may be a list of moment objects or null. take the highest-signal moment
-  // (first confirmed, else first) and name it. no [S]/[~]/[?] provenance noise.
-  function seasonalLine(seasonalMoment) {
-    if (!Array.isArray(seasonalMoment) || !seasonalMoment.length) return null;
-    var pick = null;
-    for (var i = 0; i < seasonalMoment.length; i++) {
-      var mm = seasonalMoment[i];
-      if (mm && mm.status === 'confirmed') { pick = mm; break; }
-    }
-    if (!pick) pick = seasonalMoment[0];
-    if (!pick || !pick.moment) return null;
-    return String(pick.moment).trim() || null;
-  }
-
   // a full recipe card node built to the exact design-standard structure.
   function buildRecipeCard(card) {
     var rc = el('div', 'rc-card');
@@ -212,13 +197,6 @@
     });
     left.appendChild(ul);
     left.appendChild(makeArtZone(ART_ZONES[0], (card.art || {})[ART_ZONES[0].artKey]));
-    var moment = seasonalLine(card.seasonal_moment);
-    if (moment) {
-      var tip = el('p', 'rc-tip');
-      tip.appendChild(el('span', 'rc-tip__label', 'in season'));
-      tip.appendChild(document.createTextNode(' ' + moment));
-      left.appendChild(tip);
-    }
     cols.appendChild(left);
 
     // right: steps + technique art + plate art
@@ -226,16 +204,14 @@
     right.appendChild(el('h4', 'rc-col-heading', 'steps'));
     var ol = el('ol', 'rc-steps');
     (card.steps || []).forEach(function (step) { ol.appendChild(makeStepLi(step)); });
+    // prep drawing above the steps, finished drawing below them: the right
+    // column reads top-to-bottom as make-then-plate.
+    right.appendChild(makeArtZone(ART_ZONES[1], (card.art || {})[ART_ZONES[1].artKey]));
     right.appendChild(ol);
+    right.appendChild(makeArtZone(ART_ZONES[2], (card.art || {})[ART_ZONES[2].artKey]));
     cols.appendChild(right);
 
     rc.appendChild(cols);
-    // technique + plate art: full-width pair under the columns so the steps
-    // column breathes and the drawings sit side by side, not stacked.
-    var techrow = el('div', 'rc-techrow');
-    techrow.appendChild(makeArtZone(ART_ZONES[1], (card.art || {})[ART_ZONES[1].artKey]));
-    techrow.appendChild(makeArtZone(ART_ZONES[2], (card.art || {})[ART_ZONES[2].artKey]));
-    rc.appendChild(techrow);
     return rc;
   }
 

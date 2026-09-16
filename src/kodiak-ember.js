@@ -615,15 +615,18 @@ function mountRecipeCardBoard(selector = "#recipe-card-board") {
 			state.board = new RecipeCardBoard(canvas, container);
 			rcbShowFallback(container, false);
 			rcbSetStatus(container, "");
-		} catch {
+		} catch (err) {
 			state.mounted = false;
 			canvas.remove();
 			// construction failure is DISTINCT from a gate refusal — the gate
-			// passed but the scene could not be built. Keep a generic line here.
+			// passed but the scene could not be built. Include the real error
+			// so the next report names the cause instead of a generic line.
+			const detail =
+				err && err.message ? String(err.message).slice(0, 160) : String(err);
 			rcbShowFallback(container, true);
 			rcbSetStatus(
 				container,
-				"3D preview failed to start. Showing the static image.",
+				"3D preview failed to start (" + detail + "). Showing the static image.",
 			);
 		}
 	};

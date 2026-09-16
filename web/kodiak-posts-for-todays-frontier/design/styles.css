@@ -720,13 +720,8 @@
 .rc-artzone--raw{width:3.0in;height:1.5in}
 .rc-artzone--technique{width:3.0in;height:1.5in}
 .rc-artzone--plate{width:3.0in;height:2.0in}
-.rc-artzone__base{position:absolute;inset:0;background:var(--rc-basecoat)}    /* white base coat layer */
-.rc-artzone:has(img) .rc-artzone__base{display:none}   /* real art is transparent-cut: no white box, drawing sits on the paper tone */
+.rc-artzone__base{position:absolute;inset:0;background:transparent}    /* no base coat: art and sketches sit on the paper tone */
 .rc-artzone__art{position:absolute;inset:0;width:100%;height:100%;color:var(--rc-ink);display:block}
-/* technique row: the two process drawings sit side by side full-width under
-   the columns instead of stacking in the steps column */
-.rc-techrow{display:grid;grid-template-columns:1fr 1fr;gap:0.12in;margin-top:0.14in}
-.rc-techrow .rc-artzone{width:auto;height:1.7in;margin:0}
 
 /* tip note — thin archival line, body text */
 .rc-tip{margin:0.1in 0 0;padding:0.06in 0.08in;border-left:1px solid var(--rc-ink-2);

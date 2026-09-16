@@ -166,22 +166,6 @@
     return li;
   }
 
-  function seasonalLine(seasonalMoment, monthKey) {
-    if (!Array.isArray(seasonalMoment) || !seasonalMoment.length) return null;
-    var monthNum = monthKey ? parseInt(String(monthKey).slice(5, 7), 10) : 0;
-    // Prefer a moment covering THIS month; a March card must never show an
-    // October festival. Fall back to confirmed, then first.
-    var pick = null, confirmed = null, i, mm;
-    for (i = 0; i < seasonalMoment.length; i++) {
-      mm = seasonalMoment[i];
-      if (!mm) continue;
-      if (!confirmed && mm.status === 'confirmed') confirmed = mm;
-      if (monthNum && Array.isArray(mm.months) && mm.months.indexOf(monthNum) !== -1) { pick = mm; break; }
-    }
-    if (!pick) pick = confirmed || seasonalMoment[0];
-    if (!pick || !pick.moment) return null;
-    return String(pick.moment).trim() || null;
-  }
 
   // ---- section 1: full market x 12-month matrix ----
   function buildMatrix() {
@@ -418,28 +402,19 @@
     left.appendChild(ul);
     var art = card.art || {};
     left.appendChild(makeArtZone(ART_ZONES[0], art.raw_ingredient || null));
-    var moment = seasonalLine(card.seasonal_moment, card.month);
-    if (moment) {
-      var tip = el('p', 'rc-tip');
-      tip.appendChild(el('span', 'rc-tip__label', 'in season'));
-      tip.appendChild(document.createTextNode(' ' + moment));
-      left.appendChild(tip);
-    }
     cols.appendChild(left);
 
     var right = el('section', 'recipe-card-column recipe-card-execution');
     right.appendChild(el('h4', 'rc-col-heading', 'steps'));
     var ol = el('ol', 'rc-steps');
     (card.steps || []).forEach(function (step) { ol.appendChild(makeStepLi(step)); });
+    // prep drawing above the steps, finished drawing below them: the right
+    // column reads top-to-bottom as make-then-plate.
+    right.appendChild(makeArtZone(ART_ZONES[1], art.technique || null));
     right.appendChild(ol);
+    right.appendChild(makeArtZone(ART_ZONES[2], art.finished_plate || null));
     cols.appendChild(right);
     rc.appendChild(cols);
-    // technique + plate art: full-width pair under the columns so the steps
-    // column breathes and the drawings sit side by side, not stacked.
-    var techrow = el('div', 'rc-techrow');
-    techrow.appendChild(makeArtZone(ART_ZONES[1], art.technique || null));
-    techrow.appendChild(makeArtZone(ART_ZONES[2], art.finished_plate || null));
-    rc.appendChild(techrow);
     return rc;
   }
 
