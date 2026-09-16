@@ -27,6 +27,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import socket
 import sys
 import time
@@ -37,7 +38,6 @@ ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from creative_automation.recipe_art import (  # noqa: E402
     _COVERAGE_CEILING,
-    _NEGATIVE_BASE,
     _NEGATIVE_STRONG,
     _ZONE_PROMPT,
     _dark_coverage,
@@ -51,9 +51,7 @@ COMFY = "http://127.0.0.1:8188"
 # goes stale (accepts TCP, never answers) the lock acquire blackholes. A local
 # lock server on 6379 (same default fc-pool uses) keeps the batch moving; set
 # VALKEY_PORT=16379 to go back to the tunnel once it is healthy.
-import os as _os
-
-VALKEY_HOST, VALKEY_PORT = "127.0.0.1", int(_os.environ.get("VALKEY_PORT", "16379"))
+VALKEY_HOST, VALKEY_PORT = "127.0.0.1", int(os.environ.get("VALKEY_PORT", "16379"))
 GPU_LOCK_KEY = "gpu_lock"
 QUEUE_PATH = ROOT / "output" / "recipe-art-batch-queue.json"
 OUT_ROOT = ROOT / "output" / "recipe-art"
