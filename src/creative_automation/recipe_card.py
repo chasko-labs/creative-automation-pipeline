@@ -242,10 +242,26 @@ def _pick_recipe(ingredient: str, product: str | None) -> dict | None:
     hero image field sort ahead of image-less ones on a tie so the card gets a usable
     hero (the compote-over-power-cakes style the Atlanta muscadine case wants). Fully
     deterministic: final tie-break is the recipe id.
+
+    Explicit curation wins first: a recipe listing the ingredient (substring,
+    case-insensitive) in "featured_for" is chosen ahead of overlap scoring,
+    lowest recipe id among featured matches. This is the lever for pairings
+    where overlap ties on one token and the id lottery picks badly (pumpkin
+    pinwheels, tuscan chicken). Curated, auditable, no silent reshuffle.
     """
     recipes = _load_recipes()
     if not recipes:
         return None
+    if ingredient:
+        low = ingredient.lower()
+        pinned = sorted(
+            (r.get("id", ""), r)
+            for r in recipes
+            for f in (r.get("featured_for") or [])
+            if f and str(f).lower() in low
+        )
+        if pinned:
+            return pinned[0][1]
     subject = _tokens(ingredient)
     if product:
         subject |= _tokens(product)

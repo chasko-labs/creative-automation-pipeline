@@ -87,3 +87,14 @@ def test_publish_card_never_throws_without_dam(tmp_path):
     from creative_automation.recipe_card import publish_card
 
     assert publish_card(tmp_path / "nope.jpg") is None
+
+
+def test_featured_for_beats_overlap_lottery():
+    from creative_automation.recipe_card import _pick_recipe
+
+    assert _pick_recipe("Half Moon Bay pumpkin", None)["id"] == "pumpkin-oat-muffins"
+    assert _pick_recipe("spinach", None)["id"] == "savory-greens-fritters-draft"
+    assert _pick_recipe("rainbow chard", None)["id"] == "savory-greens-fritters-draft"
+    # uncurated months keep overlap behavior (no silent reshuffle)
+    assert _pick_recipe("strawberries", None)["id"] == "yogurt-pie"
+    assert _pick_recipe("muscadine grapes", None)["id"] == "roasted-grape-flapjack-topper-draft"
