@@ -619,8 +619,8 @@ def build_recipe_card(
 # recipe-level cost record, else null.
 # --------------------------------------------------------------------------- #
 
-# real recipe fields that back the meta bar. est_cost has NO backing field in
-# the catalog, so it is always null and always listed under values_unknown.
+# real recipe fields that back the meta bar. est_cost appears only with a
+# verified recipe-level cost record, else null and listed under values_unknown.
 _META_SOURCE_FIELDS = {
     "prep": "prepTime",
     "cook": "cookTime",
