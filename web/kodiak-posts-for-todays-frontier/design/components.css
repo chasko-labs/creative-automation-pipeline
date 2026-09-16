@@ -387,6 +387,13 @@ section.xl{padding:var(--section-space-xl) 0}
   font:600 10px/1.5 "museo-sans",sans-serif}
 @media(max-width:640px){.platform-matrix{overflow-x:visible}.platform-matrix thead{display:none}.platform-matrix td{display:block;border-top:none;padding:4px 12px}.platform-matrix tr{border-top:1px solid var(--colors-border-default);padding:6px 0;display:block}}
 
+/* === Output preview: single recipe card centers in the preview column === */
+/* the card is a fixed-width keepsake in a full-width column; centering keeps it
+   aligned with the campaign-copy panel instead of hugging the left edge. scoped
+   to #previewRecipe (index only) so the details.html specimen is untouched. */
+#previewRecipe{display:flex;justify-content:center}
+#previewRecipe .rc-card{margin-block:10px}
+
 /* === Per-platform messaging copy — accordion of native <details>, one per platform === */
 .platform-copy{margin-top:14px;border:1px solid var(--colors-border-default);border-radius:var(--radii-md);overflow:hidden;background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-sm)}
 .platform-copy>.pc-head{padding:10px 12px;background-image:var(--gradients-kraft\.sheen),var(--gradients-kraft\.surface);border-bottom:1px solid var(--colors-border-default);
