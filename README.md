@@ -101,6 +101,8 @@ Photo library and style live in cloud storage mirrored to `input_assets/` and `r
 
 Runbooks: [AgentCore](docs/agentcore.md) · [DAM runbook](docs/dam-runbook.md) · [Observability runbook](docs/observability-runbook.md) · [Linda Film Crew pattern](docs/linda-film-crew-pattern.md)
 
+Reviewer package (the offline zip reviewers download): build it with `./scripts/build-reviewer-package.sh`, ship it with the upload + invalidation commands the script prints — full methodology in [`CONTRIBUTING.md`](CONTRIBUTING.md#reviewer-zip). Live at `https://kodiak.bryanchasko.com/adobechallenge/kodiak-reviewer-package.zip`.
+
 ## Strongest Examples — Real Ads, Real Frontier Flavor
 
 Every campaign below starts from the same Kodiak look — the bear in the corner, the warm orange bar, the frontier colors — but the words and the feeling change by place and moment. Each square is the hero preview for that campaign. Open the full preview to see all three sizes and all three products.

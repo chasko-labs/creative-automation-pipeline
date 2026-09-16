@@ -94,7 +94,9 @@ A named development branch deploys to the shared development hostname, where the
 
 The deploy script rejects a dirty worktree, derives the expected target from the local branch, requires an explicit `AWS_PROFILE`, uses the selected target for storage, distribution, version source, and verification output, and keeps development identifiers fail-closed through environment variables
 
-Reviewer zip (clean `origin/main` export + rendered docs + auto-unlocking file:// copy + the required 2:55 walkthrough video):
+### Reviewer zip
+
+Clean `origin/main` export + rendered docs + auto-unlocking file:// copy + the required 2:55 walkthrough video:
 
 The builder fetches the walkthrough video from S3 as a **required** artifact — it fails closed (nonzero exit) if the video is missing or zero bytes, and verifies the entry exists inside the built ZIP before emitting upload commands. The source defaults to `s3://frontier-bryanchasko-com/kodiak-demo-2m55.mp4` and is overridable with `REVIEWER_VIDEO_S3_URI`. The old `/tmp`-only path warned and skipped, which shipped a broken ZIP (START-HERE video links, no MP4) — never again.
 
