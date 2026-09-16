@@ -6780,42 +6780,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-BOISE",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -6828,7 +6828,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -9453,42 +9452,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-CHI",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -9501,7 +9500,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -11942,42 +11940,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-CLEVELAND",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -11990,7 +11988,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -14165,42 +14162,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-DEN",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -14213,7 +14210,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -14367,42 +14363,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash (storage)",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-DEN",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -14415,7 +14411,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -16837,42 +16832,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-DESMOINES",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -16885,7 +16880,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -19241,42 +19235,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-DETROIT",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -19289,7 +19283,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -21075,42 +21068,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-FARGO",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -21123,7 +21116,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -23859,42 +23851,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-INDY",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -23907,7 +23899,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -26162,42 +26153,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-JACKSONHOLE",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -26210,7 +26201,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -26370,42 +26360,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash (storage)",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-JACKSONHOLE",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -26418,7 +26408,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -31074,42 +31063,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-MILWAUKEE",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -31122,7 +31111,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -32897,42 +32885,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-MINNEAPOLIS2",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -32945,7 +32933,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -35415,42 +35402,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-MISSOULA",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -35463,7 +35450,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -38148,42 +38134,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-OMAHA",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -38196,7 +38182,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -40278,42 +40263,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-PARKCITY-84098",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -40326,7 +40311,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -40728,42 +40712,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash (storage)",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-PARKCITY-84098",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -40776,7 +40760,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -43067,42 +43050,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "pecans and winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-PHX2",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -43115,7 +43098,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -45557,42 +45539,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-STL",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -45605,7 +45587,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -48063,42 +48044,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-TC",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -48111,7 +48092,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -50351,42 +50331,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-WASATCH",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -50399,7 +50379,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -50555,42 +50534,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash (storage)",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-WASATCH",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -50603,7 +50582,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -52803,42 +52781,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-WASATCH-SLC",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -52851,7 +52829,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -53009,42 +52986,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash (storage)",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-MW-WASATCH-SLC",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -53057,7 +53034,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -55583,42 +55559,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-NE-BALTIMORE",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -55631,7 +55607,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -57842,42 +57817,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-NE-BOS",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -57890,7 +57865,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -60135,42 +60109,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-NE-BURLINGTON",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -60183,7 +60157,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -62646,42 +62619,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-NE-DC",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -62694,7 +62667,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -64716,42 +64688,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-NE-HARTFORD",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -64764,7 +64736,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -66938,42 +66909,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-NE-NYC",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -66986,7 +66957,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -72268,42 +72238,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-NE-PROVIDENCE",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -72316,7 +72286,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -86746,42 +86715,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SE-ASHEVILLE",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -86794,7 +86763,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -86967,42 +86935,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash (storage)",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SE-ASHEVILLE",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -87015,7 +86983,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -94015,42 +93982,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "butternut squash (storage)",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SE-CHARLOTTE",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -94063,7 +94030,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -101676,42 +101642,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "butternut squash (storage)",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SE-JACKSON",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -101724,7 +101690,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -102084,42 +102049,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "cabbage (winter)",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SE-JAX",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -102132,7 +102097,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -109153,42 +109117,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "butternut squash (storage)",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SE-MEMPHIS",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -109201,7 +109165,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -117093,42 +117056,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "stored apples and winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SW-ALBQ",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -117141,7 +117104,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -119060,42 +119022,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "apples and winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SW-ALBQ",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -119108,7 +119070,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -121442,42 +121403,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "apples and winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SW-CLOUDCROFT",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -121490,7 +121451,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -128627,42 +128587,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "olives, pecans, and winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SW-PHX",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -128675,7 +128635,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -129968,42 +129927,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "squash and melons",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SW-ROSWELL",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -130016,7 +129975,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -130886,42 +130844,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "pecans and winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SW-ROSWELL",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -130934,7 +130892,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -132962,42 +132919,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "apples and winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-SW-TIMBERON",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -133010,7 +132967,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -137918,42 +137874,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-UT-KAMASVALLEY",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -137966,7 +137922,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -138123,42 +138078,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash (storage)",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-UT-KAMASVALLEY",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -138171,7 +138126,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -142685,42 +142639,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-BEND",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -142733,7 +142687,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -145320,42 +145273,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-BOULDER",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -145368,7 +145321,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -153569,42 +153521,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-PDX",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -153617,7 +153569,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -155856,42 +155807,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash (storage)",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-RENO",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -155904,7 +155855,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -158095,42 +158045,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-SACRAMENTO",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -158143,7 +158093,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -165779,42 +165728,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-SEA",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -165827,7 +165776,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -170836,42 +170784,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "winter squash (storage)",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-W-SPOKANE",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -170884,7 +170832,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },
@@ -178506,42 +178453,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "lingcod (winter)",
       "ingredients": [
         {
-          "price": null,
+          "price": "$2.75",
           "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
-          "price": null,
+          "price": "$2.00",
           "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
         },
         {
-          "price": null,
+          "price": "$0.70",
           "qty_name": "2 large eggs"
         },
         {
-          "price": null,
+          "price": "$0.30",
           "qty_name": "1/2 cup milk"
         },
         {
-          "price": null,
+          "price": "$1.65",
           "qty_name": "1/3 cup honey or sugar"
         },
         {
-          "price": null,
+          "price": "$0.75",
           "qty_name": "1/4 cup melted butter"
         },
         {
-          "price": null,
+          "price": "$0.20",
           "qty_name": "1 teaspoon cinnamon"
         },
         {
-          "price": null,
+          "price": "$0.05",
           "qty_name": "1/2 teaspoon salt"
         }
       ],
       "market": "US-WA-NEAHBAY",
       "meta": {
         "cook": "20 mins",
-        "est_cost": null,
+        "est_cost": "$8.40",
         "prep": "15 mins",
         "serves": "12 muffins"
       },
@@ -178554,7 +178501,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "prices",
           "temperatures"
         ]
       },

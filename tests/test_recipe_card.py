@@ -152,3 +152,22 @@ def test_card_title_and_steps_are_real_content():
     assert c.get("steps"), "no exclamatory ad copy: steps are the real instructions"
     assert not any(s.rstrip().endswith("!") for s in c["steps"])
     assert c["steps"][0].startswith("STEAM")
+
+
+def test_winter_squash_muffins_carry_verified_costs():
+    from creative_automation.recipe_card import build_recipe_card_data
+
+    c = build_recipe_card_data("US-MW-BOISE", month="2026-10")
+    assert c.get("title") == "Winter Squash Morning Muffins"
+    assert [i["price"] for i in c["ingredients"]] == [
+        "$2.75",
+        "$2.00",
+        "$0.70",
+        "$0.30",
+        "$1.65",
+        "$0.75",
+        "$0.20",
+        "$0.05",
+    ]
+    assert c["meta"]["est_cost"] == "$8.40"
+    assert "prices" not in c["provenance"]["values_unknown"]

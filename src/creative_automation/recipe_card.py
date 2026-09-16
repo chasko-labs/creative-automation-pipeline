@@ -612,7 +612,8 @@ def build_recipe_card(
 # same helpers build_recipe_card uses (resolve_this_month, _pick_recipe,
 # _clean_step, rewrite_headline, clean_brand_copy, load_recipe_card_template,
 # _resolve_substrate). Non-fabrication is strict: times/serves/cost come ONLY
-# from real recipe fields, else null; prices are always null (no source).
+# from real recipe fields, else null; prices attach only from a verified
+# recipe-level cost record, else null.
 # --------------------------------------------------------------------------- #
 
 # real recipe fields that back the meta bar. est_cost has NO backing field in
@@ -642,12 +643,37 @@ def _bold_action_step(text: str) -> str:
     return f"{lead.upper()}{rest}"
 
 
-def _recipe_meta_bar(recipe: dict | None) -> tuple[dict, list[str]]:
+def _recipe_costs(recipe: dict | None, lines: list[str]) -> list[str] | None:
+    """Return verified per-line prices aligned to ingredient lines, else None.
+
+    A cost record counts only when recipe.ingredient_costs is a complete,
+    same-length, non-blank parallel list. Partial cost data degrades to null
+    rather than guessing which line a price belongs to.
+    """
+    r = recipe or {}
+    costs = r.get("ingredient_costs")
+    if not isinstance(costs, list) or len(costs) != len(lines):
+        return None
+    cleaned: list[str] = []
+    for cost in costs:
+        if cost is None:
+            return None
+        text = str(cost).strip()
+        if not text:
+            return None
+        cleaned.append(text)
+    return cleaned
+
+
+def _recipe_meta_bar(
+    recipe: dict | None, lines: list[str] | None = None
+) -> tuple[dict, list[str]]:
     """Build the four-column meta bar from real recipe fields only.
 
     Returns (meta, unknown_keys). Any column with no backing recipe field is
-    null and its logical group is reported unknown. est_cost has no source field
-    in the catalog, so it is always null / always unknown.
+    null and its logical group is reported unknown. est_cost and prices stay
+    unknown unless the recipe carries a verified est_cost plus a complete
+    ingredient_costs record.
     """
     meta: dict = {"prep": None, "cook": None, "serves": None, "est_cost": None}
     unknown: list[str] = []
@@ -659,9 +685,14 @@ def _recipe_meta_bar(recipe: dict | None) -> tuple[dict, list[str]]:
         unknown.append("times")
     if meta["serves"] is None:
         unknown.append("serves")
-    # est_cost never has a source; prices are never fabricated
-    meta["est_cost"] = None
-    unknown.append("prices")
+    # est_cost and prices are never fabricated: they appear only with a
+    # verified recipe-level cost record.
+    est = r.get("est_cost")
+    est_text = str(est).strip() if est not in (None, "", []) else None
+    prices = _recipe_costs(recipe, lines or [])
+    meta["est_cost"] = est_text if est_text and prices else None
+    if meta["est_cost"] is None:
+        unknown.append("prices")
     unknown.append("temperatures")
     return meta, unknown
 
@@ -693,8 +724,9 @@ def build_recipe_card_data(
     it into existing HTML/CSS. Ingredient comes from locales.resolve_this_month
     (single source of truth, never fabricated). Non-fabrication is strict:
     prep/cook/serves come only from a matched recipe's real prepTime/cookTime/yield
-    fields; est_cost and ingredient prices are always null (no verified source) and
-    listed in provenance.values_unknown. Steps derive from the recipe instructions
+    fields; est_cost and ingredient prices appear only from a verified
+    recipe-level cost record, else null and listed in
+    provenance.values_unknown. Steps derive from the recipe instructions
     (falling back to ingredients like build_recipe_card) with the real leading word
     uppercased as a bold action verb — no cooking action is invented.
 
@@ -787,17 +819,27 @@ def build_recipe_card_data(
         if step:
             steps.append(_bold_action_step(step))
 
-    meta, unknown = _recipe_meta_bar(recipe)
-
-    # ingredients: the matched recipe's real ingredient lines (quantities
-    # included, verbatim from the catalog record); prices have no verified
-    # source, so price is always null. Falls back to the lone in-season pick
-    # only when the recipe carries no ingredient list of its own.
-    ingredients = [
-        {"qty_name": str(line).strip(), "price": None}
+    raw_lines = [
+        str(line).strip()
         for line in (recipe.get("ingredients") or [])
         if str(line).strip()
-    ] or [{"qty_name": ingredient, "price": None}]
+    ]
+    meta, unknown = _recipe_meta_bar(recipe, raw_lines)
+    prices = _recipe_costs(recipe, raw_lines)
+
+    # ingredients: the matched recipe's real ingredient lines (quantities
+    # included, verbatim from the catalog record); prices attach only from a
+    # complete verified cost record. Falls back to the lone in-season pick
+    # only when the recipe carries no ingredient list of its own.
+    if raw_lines and prices:
+        ingredients = [
+            {"qty_name": line, "price": price}
+            for line, price in zip(raw_lines, prices)
+        ]
+    else:
+        ingredients = [
+            {"qty_name": line, "price": None} for line in raw_lines
+        ] or [{"qty_name": ingredient, "price": None}]
 
     return {
         "market": market,
