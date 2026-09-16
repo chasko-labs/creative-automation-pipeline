@@ -49,3 +49,7 @@ data/vectors/kodiak-embeddings.jsonl
 data/raw-ingest/kodiakcakes/blog-images/
 
 tests/live/videos/
+
+# deploy-time mirror of DAM recipe-art (scripts/deploy-frontier.sh syncs it
+# into the site tree; objects are content, not source)
+web/kodiak-posts-for-todays-frontier/recipe-art/

@@ -804,16 +804,33 @@ def recipe_art_exists(subject_slug: str, zone: str) -> bool:
         return False
 
 
+def recipe_art_site_url(subject_slug: str, zone: str) -> str:
+    """Permanent site URL for a recipe-art asset: /recipe-art/<slug>/<zone>.png.
+
+    Root-absolute (the recipes page also serves from the /recipes/ prefix, so a
+    relative url would resolve wrong there). The deploy script mirrors the DAM
+    recipe-art prefix into the site's recipe-art/ dir, so this url never expires —
+    unlike presigned urls, which die with the signing session (ASIA creds) no
+    matter what ExpiresIn is set to.
+    """
+    return f"/recipe-art/{subject_slug}/{zone}.png"
+
+
 def upload_recipe_art(local_png: Path, subject_slug: str, zone: str) -> str | None:
     """Upload a recipe-art PNG to brands/kodiak/recipe-art/<slug>/<zone>.png.
 
-    Returns a presigned GET url on success, else None (S3 disabled, missing file,
-    or upload failure) so callers degrade to a null art url and the frontend falls
-    back to its SVG placeholder. Never throws.
+    Returns the PERMANENT site url on success, else None (S3 disabled, missing
+    file, or upload failure) so callers degrade to a null art url and the
+    frontend falls back to its SVG placeholder. Never throws.
+
+    Deliberately not a presigned url: recipe-cards-data.js is a precomputed
+    artifact served for weeks, and presigns made with session credentials expire
+    with the session (ExpiredToken) regardless of ExpiresIn.
 
     Mirrors publish_card: the full key is relativized against the configured DAM
     prefix before handing to s3_upload_and_presign (which re-joins the prefix), so
     the object lands at the exact recipe_art_key path and reads back verbatim.
+    The presigned url it returns is discarded in favor of recipe_art_site_url.
     """
     local_png = Path(local_png)
     if not local_png.exists():
@@ -822,9 +839,9 @@ def upload_recipe_art(local_png: Path, subject_slug: str, zone: str) -> str | No
     full = recipe_art_key(subject_slug, zone)
     _, prefix = _s3_bucket_and_prefix()
     rel = full[len(prefix):] if prefix and full.startswith(prefix) else full.lstrip("/")
-    # long-lived presign (7 days) — recipe-cards-data.js is a precomputed artifact;
-    # a 1h url would expire before the offline tab is opened.
-    return s3_upload_and_presign(str(local_png), rel, expires=604800)
+    if s3_upload_and_presign(str(local_png), rel, expires=604800) is None:
+        return None
+    return recipe_art_site_url(subject_slug, zone)
 
 
 def sync_dam_from_s3(dam_root: Path, delete: bool = False) -> bool:

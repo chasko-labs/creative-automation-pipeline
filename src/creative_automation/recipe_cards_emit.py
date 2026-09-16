@@ -127,11 +127,11 @@ def seed_recipe_art(
                     None,
                 )
                 if hit is not None:
-                    url = _dam.presign_get(_dam.recipe_art_key(hit, zone), expires=604800)
-                    if url:
-                        print(f"[seed] reuse existing s3 recipe-art {hit}/{zone}")
-                        zone_urls[zone] = url
-                        continue
+                    # permanent site url, never a presign (session-bound presigns
+                    # ExpiredToken within hours and blank every card overnight).
+                    zone_urls[zone] = _dam.recipe_art_site_url(hit, zone)
+                    print(f"[seed] reuse existing s3 recipe-art {hit}/{zone}")
+                    continue
                 local = generate_recipe_art(ingredient, zone, seed=seed)
                 if local is None:
                     zone_urls[zone] = None
@@ -188,9 +188,7 @@ def _load_seeded_art(
                     None,
                 )
                 if hit is not None:
-                    zone_urls[zone] = _dam.presign_get(
-                        _dam.recipe_art_key(hit, zone), expires=604800
-                    )
+                    zone_urls[zone] = _dam.recipe_art_site_url(hit, zone)
                     continue
                 if not generate_missing:
                     continue

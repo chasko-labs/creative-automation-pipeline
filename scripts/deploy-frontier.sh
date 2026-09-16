@@ -134,6 +134,17 @@ if [[ "$missing" == "1" ]]; then
 	exit 1
 fi
 
+# mirror DAM recipe-art into the site tree BEFORE the dir preflight below.
+# Card art urls are permanent site paths (/recipe-art/<slug>/<zone>.png), never
+# presigns (session-bound presigns ExpiredToken within hours and blank every
+# card). The mirror is the other half of that contract: fresh drawings land on
+# the next deploy with no script change. Honors DRY_RUN.
+DAM_RECIPE_ART_S3_URI="${DAM_RECIPE_ART_S3_URI:-s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/recipe-art/}"
+echo "[deploy-frontier] mirror recipe-art: $DAM_RECIPE_ART_S3_URI -> $WEB_SRC/recipe-art/"
+run aws s3 sync "$DAM_RECIPE_ART_S3_URI" "$WEB_SRC/recipe-art/" \
+	"${AWS_ARGS[@]}" --only-show-errors
+DIRS+=("recipe-art")
+
 # preflight: every asset directory must exist too, or the dir syncs below are
 # silent no-ops that leave the page 404ing on assets. Fail fast instead.
 for dir in "${DIRS[@]}"; do
