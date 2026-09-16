@@ -13,8 +13,8 @@
   var SVGNS = 'http://www.w3.org/2000/svg';
 
   // static corner flourish paths, lifted from the specimen (left + right mirror).
-  var CORNER_LEFT = 'M8 78 C22 60 20 34 44 24 M44 24 C40 34 48 40 58 38 M44 24 C50 30 50 44 46 52';
-  var CORNER_RIGHT = 'M92 78 C78 60 80 34 56 24 M56 24 C60 34 52 40 42 38 M56 24 C50 30 50 44 54 52';
+  var CORNER_LEFT = 'M18 90 C28 62 32 40 38 16 M38 16 L28 12 M38 16 L40 5 M36 28 L26 24 M36 28 L38 17 M33 40 L23 36 M33 40 L35 29 M30 52 L20 48 M30 52 L32 41 M27 64 L17 60 M27 64 L29 53 M38 16 L33 3 M38 16 L43 4';
+  var CORNER_RIGHT = 'M82 90 C72 62 68 40 62 16 M62 16 L72 12 M62 16 L60 5 M64 28 L74 24 M64 28 L62 17 M67 40 L77 36 M67 40 L65 29 M70 52 L80 48 M70 52 L68 41 M73 64 L83 60 M73 64 L71 53 M62 16 L67 3 M62 16 L57 4';
   var CORNER_RULE = 'M16 84 L84 84';
 
   // the three artzone divs, in render order, each mapped to its data key + css modifier + data-zone.
@@ -213,11 +213,15 @@
     var ol = el('ol', 'rc-steps');
     (card.steps || []).forEach(function (step) { ol.appendChild(makeStepLi(step)); });
     right.appendChild(ol);
-    right.appendChild(makeArtZone(ART_ZONES[1], (card.art || {})[ART_ZONES[1].artKey]));
-    right.appendChild(makeArtZone(ART_ZONES[2], (card.art || {})[ART_ZONES[2].artKey]));
     cols.appendChild(right);
 
     rc.appendChild(cols);
+    // technique + plate art: full-width pair under the columns so the steps
+    // column breathes and the drawings sit side by side, not stacked.
+    var techrow = el('div', 'rc-techrow');
+    techrow.appendChild(makeArtZone(ART_ZONES[1], (card.art || {})[ART_ZONES[1].artKey]));
+    techrow.appendChild(makeArtZone(ART_ZONES[2], (card.art || {})[ART_ZONES[2].artKey]));
+    rc.appendChild(techrow);
     return rc;
   }
 
