@@ -101,12 +101,22 @@
     return svg;
   }
 
-  function makeArtZone(zone) {
+  function makeArtZone(zone, url) {
     var wrap = el('div', 'rc-artzone ' + zone.css);
     wrap.setAttribute('data-zone', zone.dataZone);
     wrap.appendChild(el('div', 'rc-artzone__base'));
     wrap.lastChild.setAttribute('aria-hidden', 'true');
-    wrap.appendChild(makeArtThumb());
+    if (url) {
+      var img = document.createElement('img');
+      img.setAttribute('class', 'rc-artzone__art rc-artimg');
+      img.setAttribute('src', url);
+      img.setAttribute('alt', '');
+      img.setAttribute('aria-hidden', 'true');
+      img.setAttribute('loading', 'lazy');
+      wrap.appendChild(img);
+    } else {
+      wrap.appendChild(makeArtThumb());
+    }
     return wrap;
   }
 
@@ -385,7 +395,8 @@
       ul.appendChild(li);
     });
     left.appendChild(ul);
-    left.appendChild(makeArtZone(ART_ZONES[0]));
+    var art = card.art || {};
+    left.appendChild(makeArtZone(ART_ZONES[0], art.raw_ingredient || null));
     var moment = seasonalLine(card.seasonal_moment);
     if (moment) {
       var tip = el('p', 'rc-tip');
@@ -400,8 +411,8 @@
     var ol = el('ol', 'rc-steps');
     (card.steps || []).forEach(function (step) { ol.appendChild(makeStepLi(step)); });
     right.appendChild(ol);
-    right.appendChild(makeArtZone(ART_ZONES[1]));
-    right.appendChild(makeArtZone(ART_ZONES[2]));
+    right.appendChild(makeArtZone(ART_ZONES[1], art.technique || null));
+    right.appendChild(makeArtZone(ART_ZONES[2], art.finished_plate || null));
     cols.appendChild(right);
     rc.appendChild(cols);
     return rc;
