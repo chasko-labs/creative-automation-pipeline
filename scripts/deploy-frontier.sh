@@ -79,6 +79,7 @@ FILES=(
 	"pipeline.html|pipeline.html|text/html"
 	"infrastructure.html|infrastructure.html|text/html"
 	"recipes.html|recipes.html|text/html"
+	"recipes.html|recipes/index.html|text/html"
 	"design/styles.css|design/styles.css|text/css"
 	"webmcp.json|webmcp.json|application/json"
 	"glimmer-proxy.js|glimmer-proxy.js|application/javascript"

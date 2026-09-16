@@ -674,18 +674,18 @@
    the middle 1fr slot is an inline-size container so the title can size
    FLUIDLY to the room it actually has (long titles shrink instead of clipping).
    min-height grows with content so a 2-3 line title never collides with meta. */
-.rc-header{position:relative;display:grid;grid-template-columns:1in 1fr 1in;align-items:center;column-gap:0.25in;min-height:1in}
+.rc-header{position:relative;display:grid;grid-template-columns:1in 1fr 1in;align-items:center;column-gap:0.25in;min-height:1in;background:transparent;
+  container-type:inline-size}                        /* header is the sizing container: the title must NOT be its own container (self-referential cqw collapses the title cell to zero width in Chromium). background:transparent wins over the site-wide `header` element rule (components.css) which would paint the card header bear-brown and swallow the dark-ink title */
 .rc-corner{width:1in;height:1in;color:var(--rc-ink)}
 .rc-corner__art{width:100%;height:100%;display:block}
-.rc-title{grid-column:2;min-width:0;margin:0 auto;text-align:center;color:var(--rc-ink);
-  container-type:inline-size;                        /* title cell is the sizing container */
+.rc-title{grid-column:2;min-width:0;margin:0 auto;text-align:center;color:var(--rc-ink);width:100%;
   font-family:"gin",Rockwell,Clarendon,Georgia,serif;font-weight:800;text-transform:uppercase;
   letter-spacing:.02em;line-height:1.03;
-  /* fluid display size keyed to the ~5.0in center slot (1fr between the two 1in
-     accents, minus the 0.25in gaps). the card is transform-scaled as a whole so
-     the pt floor/ceiling stay proportional; the cqw middle term shrinks longer
-     titles to fit rather than wrapping to 3-4 lines and clipping into the meta bar.
-     18pt floor keeps 2-word titles readable; 32pt ceiling keeps the heavy hand-lettered feel. */
+  /* fluid display size keyed to the header width via cqw (container is the
+     header, never the title itself). the card is transform-scaled as a whole
+     so the pt floor/ceiling stay proportional; longer titles wrap in balance
+     instead of clipping into the meta bar. 18pt floor keeps 2-word titles
+     readable; 32pt ceiling keeps the heavy hand-lettered feel. */
   font-size:clamp(18pt, 9.2cqw, 32pt);
   overflow-wrap:break-word;word-break:break-word;hyphens:auto;text-wrap:balance}
 

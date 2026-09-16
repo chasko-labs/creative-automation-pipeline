@@ -171,13 +171,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CASTROVILLE'S spicy Brussels waffles!",
-        "CASTROVILLE'S protein-packed Brussels cake!",
-        "CASTROVILLE'S Protein-Packed Brussels Sprouts Delight",
-        "CASTROVILLE'S spicy Brussels waffles!"
+        "TOSS the shredded sprouts with the salt and rest 10 minutes, then squeeze lightly.",
+        "WHISK the mix and eggs into a batter; fold in the sprouts, cheddar, and pepper.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until deep golden with crisp edges.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Castroville's Protein Sprouts Power Cake"
+      "title": "Shredded Sprout Fritters"
     },
     "2026-02": {
       "art": {
@@ -194,10 +194,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-CA-CASTROVILLE",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-02",
       "provenance": {
@@ -208,13 +208,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "broccoli-cauliflower-cheddar-fritters-draft",
+        "name": "Broccoli Cauliflower Cheddar Fritters"
       },
       "seasonal_moment": [
         {
@@ -347,14 +349,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CASTROVILLE Cauliflower Cakes 2026-02",
-        "CASTROVILLE Cauliflower Cakes 2026",
-        "CASTROVILLE Cauliflower Cakes 2026-02",
-        "CAULIFLOWER Power Cake Castroville 2026",
-        "CASTROVILLE'S Cauliflower Power Cake"
+        "STEAM the chopped florets 3 minutes until just tender, then spread on a towel and pat completely dry.",
+        "WHISK the mix, eggs, cheddar, salt, and pepper with the dry florets into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "DRAIN briefly on a rack and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Castroville's Cauliflower Power Cakes"
+      "title": "Broccoli Cauliflower Cheddar Fritters"
     },
     "2026-03": {
       "art": {
@@ -371,10 +372,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-CA-CASTROVILLE",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-03",
       "provenance": {
@@ -385,13 +386,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "broccoli-cauliflower-cheddar-fritters-draft",
+        "name": "Broccoli Cauliflower Cheddar Fritters"
       },
       "seasonal_moment": [
         {
@@ -524,14 +527,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CASTROVILLE'S Protein-Packed Broccoli Delight!",
-        "CASTROVILLE'S Protein-Packed Broccoli Cake",
-        "CASTROVILLE'S Protein-Packed Broccoli Delight!",
-        "CASTROVILLE'S Protein-Packed Broccoli Delight!",
-        "CASTROVILLE'S Protein-Packed Broccoli Cake"
+        "STEAM the chopped florets 3 minutes until just tender, then spread on a towel and pat completely dry.",
+        "WHISK the mix, eggs, cheddar, salt, and pepper with the dry florets into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "DRAIN briefly on a rack and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Castroville's Protein-Packed Broccoli Cake"
+      "title": "Broccoli Cauliflower Cheddar Fritters"
     },
     "2026-04": {
       "art": {
@@ -701,13 +703,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CASTROVILLE'S best artichoke muffins ready!",
-        "CASTROVILLE Artichoke Muffins 2026-04",
-        "CASTROVILLE’s Artichoke Muffins, 2026-04",
-        "CASTROVILLE'S hot artichoke muffins, ready in 5!"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the artichokes and parmesan.",
+        "DIVIDE among the cups and bake 20-22 minutes, until golden and set.",
+        "COOL 5 minutes before turning out; serve warm."
       ],
       "substrate": "kraft",
-      "title": "Castroville's Kodiak Cakes Power Art Cakes"
+      "title": "Artichoke Parmesan Muffins"
     },
     "2026-05": {
       "art": {
@@ -877,14 +879,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CASTROVILLE'S High-Pro Pancakes (2026-05)",
-        "POWER-PACKED Castroville pancakes!",
-        "CASTROVILLE'S Power Pancakes (2026-05)",
-        "CASTROVILLE'S Power Pancakes, 20 mins!",
-        "CASTROVILLE'S Power Pancakes, 2026-05"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Castroville Power Pancakes 2026"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -1054,14 +1056,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CASTROVILLE Leafy Salmon Patties 2026-06",
-        "CASTROVILLE Leaf Power Patties 26-06",
-        "PROTEIN-PACKED Castroville Salmon Patties!",
-        "CASTROVILLE Leaf Power Patties 2606",
-        "PROTEIN-PACKED Castroville Salmon Patties 2026"
+        "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+        "LET the mixture rest for 10 minutes so the grains can absorb the moisture.",
+        "FORM the mixture into 4–5 evenly sized patties.",
+        "HEAT the olive oil in a large skillet over medium heat.",
+        "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp.",
+        "TRANSFER the patties to a plate lined with paper towels.",
+        "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth.",
+        "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
       ],
       "substrate": "kraft",
-      "title": "Leafy Protein Patties with Kodiak Cakes Power"
+      "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce"
     },
     "2026-07": {
       "art": {
@@ -1231,13 +1236,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CASTROVILLE'S Sweet Corn Griddle Cakes",
-        "CASTROVILLE’s sweet corn griddle cakes",
-        "CASTROVILLE'S Sweet Corn Griddle Cakes",
-        "SAVORY sweet corn griddle cakes."
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Castroville's Sweet Corn Power Cakes"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-08": {
       "art": {
@@ -1254,10 +1259,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-CA-CASTROVILLE",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-08",
       "provenance": {
@@ -1268,13 +1273,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "celery-parmesan-pancakes-draft",
+        "name": "Celery Parmesan Pancakes"
       },
       "seasonal_moment": [
         {
@@ -1407,14 +1414,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CASTROVILLE Celery Kodiak Cakes!",
-        "CASTROVILLE Celery Kodiak Cakes 2026-08",
-        "CASTROVILLE Celery Kodiak Cakes 2026-08",
-        "CELERY Power Cake Castroville 2026-08",
-        "CASTROVILLE Celery Kodiak Cakes 2026"
+        "SWEAT the diced celery in half the butter 5 minutes until softened, then cool slightly.",
+        "WHISK the mix, eggs, milk, salt, and parmesan with the celery into a thick batter.",
+        "HEAT the remaining butter on a griddle; ladle 1/4-cup cakes and cook 3 minutes per side until golden.",
+        "SERVE warm."
       ],
       "substrate": "kraft",
-      "title": "Celery Kodiak Cakes, Castroville 2026"
+      "title": "Celery Parmesan Pancakes"
     },
     "2026-09": {
       "art": {
@@ -1584,14 +1590,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CASTROVILLE Bell Pepper Power Cakes",
-        "CASTROVILLE Bell Pepper Power Muffins",
-        "CASTROVILLE Bell Pepper Power Muffins",
-        "CASTROVILLE Bell Pepper Power Muffins",
-        "CASTROVILLE Bell Pepper Power Muffins"
+        "PREHEAT the oven to 350° Fahrenheit. Grease a 12-cup muffin pan with the olive oil.",
+        "PLACE the eggs, garlic, salt, and Kodiak Cakes mix in a high-speed blender and process until smooth. Set aside.",
+        "DIVIDE the peppers, green onions, and feta cheese evenly between the greased muffin tins.",
+        "POUR the egg mixture into the muffin tins, evenly dividing between them.",
+        "BAKE for 20-22 minutes or until golden brown puffed on top.",
+        "LET cool slightly and remove from the pan using a rubber spatula or butter knife.",
+        "STORE in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Castroville Bell Pepper Power Muffins"
+      "title": "Breakfast Egg Muffins"
     },
     "2026-10": {
       "art": {
@@ -1761,13 +1769,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CASTROVILLE spinach scrambles",
-        "CASTROVILLE spinach scramble pancakes",
-        "CASTROVILLE spinach scramble pancakes",
-        "CASTROVILLE spinach scrambles, 2026"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Castroville spinach Kodiak Cakes Power Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-11": {
       "art": {
@@ -1937,13 +1945,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CASTROVILLE Kale Scramble 2026-11",
-        "KALE Power Scramble 2026-11",
-        "CASTROVILLE Kale Scramble 2026",
-        "CASTROVILLE'S Kale Power Scramble"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Castroville Kale Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-12": {
       "art": {
@@ -2113,14 +2121,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CASTROVILLE'S Lemon Power Pancakes",
-        "CASTROVILLE'S Power Lemon Breakfast!",
-        "CASTROVILLE Lemon Power Griddle Cakes",
-        "CASTROVILLE Lemon Power Breakfast Bake",
-        "CASTROVILLE Lemon Pancakes, 2026-12"
+        "FOR the pancakes:",
+        "COMBINE all ingredients in large bowl and mix well.",
+        "COOK pancakes on a hot griddle.",
+        "GREASE a 9x9\" baking pan.",
+        "CUT cooked pancakes in half and place vertically in pan. For the custard:",
+        "MIX all ingredients together and pour over pancakes.",
+        "COVER with plastic wrap and refrigerate several hours or overnight.",
+        "HEAT oven to 350° F.",
+        "BAKE casserole 15-20 minutes.",
+        "SERVE warm with desired toppings."
       ],
       "substrate": "kraft",
-      "title": "Castroville Lemon Power Cakes"
+      "title": "Overnight Lemon Poppy Seed Casserole"
     }
   },
   "US-CA-PESCADERO": {
@@ -2139,10 +2152,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-CA-PESCADERO",
       "meta": {
-        "cook": "10 mins",
+        "cook": "1.5 mins",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "10"
+        "prep": "2 mins",
+        "serves": "1"
       },
       "month": "2026-01",
       "provenance": {
@@ -2158,8 +2171,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "waffle-pickles",
-        "name": "Waffle Pickles"
+        "id": "single-serve-lemon-ricotta-flapjack-cup",
+        "name": "Single-serve Lemon Ricotta Flapjack Cup"
       },
       "seasonal_moment": [
         {
@@ -2296,14 +2309,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MEYER lemon protein pickles, zesty & fluffy",
-        "MEYER lemon waffles, protein-packed!",
-        "MEYER lemon waffles, protein packed!",
-        "MEYER lemon waffles, protein-packed!",
-        "GOLDEN Meyer lemon waffles"
+        "REMOVE the lid to the Kodiak Cakes cup.",
+        "ADD the milk, ricotta, and lemon zest to the flapjack cup and stir with a fork until combined.",
+        "MICROWAVE on high for 90 seconds.",
+        "TOP with honey and a dollop of ricotta, if desired."
       ],
       "substrate": "kraft",
-      "title": "Meyer Lemon Kodiak Cakes"
+      "title": "Single-serve Lemon Ricotta Flapjack Cup"
     },
     "2026-02": {
       "art": {
@@ -2477,13 +2489,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KALE scramble pancakes, San Mateo Coast",
-        "KALE scramble mix, San Mateo coast",
-        "KALE Scrambled Pancakes, Pescadero",
-        "KALE scrambles with Bear Brown edges."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Kale-fueled Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-03": {
       "art": {
@@ -2657,13 +2669,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CHARD scrambles, Baja style",
-        "RAINBOW Chard Scramble for Pescadero",
-        "RAINBOW Chard Scrambled Cakes, CA",
-        "FRESH rainbow chard pancakes, frontier style."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Rainbow Chard Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -2837,10 +2849,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "GOAT cheese frittata for Pescadero power"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Harley Farms Goat Cheese Frittata"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-05": {
       "art": {
@@ -2857,10 +2869,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-CA-PESCADERO",
       "meta": {
-        "cook": "5",
+        "cook": null,
         "est_cost": null,
-        "prep": "15",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-05",
       "provenance": {
@@ -2871,13 +2883,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "summer-vegetable-tostada",
-        "name": "Summer Vegetable Tostada"
+        "id": "snap-pea-herb-fritters-draft",
+        "name": "Snap Pea Herb Fritters"
       },
       "seasonal_moment": [
         {
@@ -3014,14 +3028,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPRING Pea Power Bowl",
-        "SPRING Pea Power Bowls, CA 2026",
-        "SPRING Pea Power Tostada Base",
-        "SPRING pea power tostadas atop waffles",
-        "SPRING Pea Power Tostada"
+        "BLANCH the sliced peas 1 minute in salted boiling water, chill in ice water, then pat completely dry.",
+        "WHISK the mix, eggs, parmesan, dill, salt, and pepper with the dry peas into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3 minutes per side until crisp and golden.",
+        "DRAIN briefly on a rack and serve warm with lemon."
       ],
       "substrate": "kraft",
-      "title": "Spring peas on Kodiak Cakes"
+      "title": "Snap Pea Herb Fritters"
     },
     "2026-06": {
       "art": {
@@ -3195,13 +3208,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER squash power tostada, 2026",
-        "SUMMER squash power tostada base",
-        "SUMMER squash bites, Bear Brown style",
-        "SUMMER squash bites, hot & hearty!"
+        "TOSS the shredded squash with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, parmesan, remaining salt, and pepper into a batter and fold in the squash.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3 minutes per side, until golden and crisp.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Summer Squash Power Cakes"
+      "title": "Summer Squash Fritters"
     },
     "2026-07": {
       "art": {
@@ -3375,14 +3388,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Pescadero flapjacks, ready in 20!",
-        "BLACKBERRIES Power Sheet Pan Pancakes",
-        "WILD Blackberry Pancakes, CA-Pescadero",
-        "HIGH-PROTEIN Pescadero pancakes, ready in 20!",
-        "WILD blackberry pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Blackberries Power Cakes, Pescadero"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-08": {
       "art": {
@@ -3399,10 +3412,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-CA-PESCADERO",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-08",
       "provenance": {
@@ -3413,13 +3426,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "green-bean-parmesan-fritters-draft",
+        "name": "Green Bean Parmesan Fritters"
       },
       "seasonal_moment": [
         {
@@ -3556,14 +3571,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUSTIC romano bean cakes from Pescadero",
-        "ROMANO Bean Cakes: Frontier's Protein-Packed Delight!",
-        "RUSTIC romano bean cakes, San Mateo Coast",
-        "RUGGED romano bean cakes from Pescadero!",
-        "RUSTIC romano bean cake from Pescadero"
+        "STEAM the cut beans 4 minutes until just tender, then spread on a towel and pat completely dry.",
+        "WHISK the mix, eggs, parmesan, salt, and pepper with the dry beans into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "DRAIN briefly on a rack and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Romano Beans on Kodiak Cakes"
+      "title": "Green Bean Parmesan Fritters"
     },
     "2026-09": {
       "art": {
@@ -3737,14 +3751,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EASY protein pancakes, Pescadero style!",
-        "PROTEIN-PACKED Pescadero pancakes!",
-        "PROTEIN-PACKED Pescadero pancakes!",
-        "PESCADERO Power Pancakes (2026-09)",
-        "MORNING Power Pancakes, CA-Pescadero"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "High-Pro Pescadero Pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-10": {
       "art": {
@@ -3918,14 +3932,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HALF Moon Pumpkin Power Muffins",
-        "HALF Moon Pumpkin Power Muffins",
-        "HALF Moon Pumpkin Cakes, San Mateo Coast",
-        "HALF Moon Pumpkin Power Muffins",
-        "HALF Moon Pumpkin Cakes, San Mateo Coast"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Half Moon Bay Pumpkin Power Cakes"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -4099,14 +4114,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUSTIC Olive Oil Tostada Base",
-        "RUSTIC Olive Oil Zucchini Sizzle",
-        "FALL Olive Oil Power Waffles",
-        "FALL Olive Oil Power Waffles",
-        "FALL olive oil tostada base"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Fall Olive Oil Power Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-12": {
       "art": {
@@ -4280,13 +4295,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CRISPY Brussels sprouts, frontier style!",
-        "RUGGED Brussels sprouts protein cake!",
-        "CRISPY Brussels sprouts, frontier style!",
-        "GRILLED Brussels sprouts, fresh from Pes."
+        "TOSS the shredded sprouts with the salt and rest 10 minutes, then squeeze lightly.",
+        "WHISK the mix and eggs into a batter; fold in the sprouts, cheddar, and pepper.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until deep golden with crisp edges.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Rugged Brussels Sprouts Cakes, San Mateo Coast"
+      "title": "Shredded Sprout Fritters"
     }
   },
   "US-MW-BOISE": {
@@ -4459,13 +4474,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "IDAHO potatoes, fresh & wild!",
-        "IDAHO potatoes: hearty, local, fresh!",
-        "IDAHO potatoes: crispy frontier delight!",
-        "IDAHO potatoes, fresh & hot!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Idaho Potatoes: Frontier Fuel"
+      "title": "Storage Root Fritters"
     },
     "2026-02": {
       "art": {
@@ -4636,13 +4651,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOISE'S protein-packed storage onion muffins!",
-        "BOISE'S Power Protein Muffins, 17g!",
-        "BOISE'S Protein Power Muffins, ready in 20 mins!",
-        "QUICK 5-min protein boost, Boise!"
+        "HEAT the oven to 350F and grease a 12-cup muffin tin.",
+        "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+        "DIVIDE among the cups and bake 18-20 minutes, until puffed and set.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Boise Power Cakes with Onions"
+      "title": "Spring Onion Egg Muffins"
     },
     "2026-03": {
       "art": {
@@ -4813,14 +4828,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOISE'S best apple waffle breakfast bake!",
-        "BOISE'S best storage apple breakfast!",
-        "BOISE'S best apple waffle breakfast!",
-        "BOISE'S Best Apple Waffles: Savory-sweet frontier delight",
-        "BOISE'S Best Apple Waffles: Frontier flavor!"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Boise's Best Apple Cakes Power Breakfast"
+      "title": "Breakfast Cake"
     },
     "2026-04": {
       "art": {
@@ -4991,10 +5009,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOISE'S Best Asparagus Frittata"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Boise's Fresh Asparagus Power Frittata"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-05": {
       "art": {
@@ -5165,13 +5183,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOISE rhubarb power bowl",
-        "BOISE rhubarb pancakes power up your breakfast",
-        "BOISE rhubarb pancakes, 2 min, golden!",
-        "BOISE rhubarb flapjacks"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Boise's rhubarb power breakfast"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-06": {
       "art": {
@@ -5342,14 +5360,22 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOISE Cherry Pie Bars, whole grain & protein",
-        "BOISE'S Best Cherry Power Bars!",
-        "BOISE'S Cherry Power Bars!",
-        "BOISE Cherry Power Bars 2026",
-        "BOISE'S Cherry Power Bars, whole grain & protein!"
+        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
+        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+        "BEAT in the eggs, one at a time.",
+        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
+        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
+        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
+        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
+        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
+        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
+        "REMOVE from oven and let cool.",
+        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
+        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
+        "STORE in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Boise Cherries Kodiak Cakes Power Bars"
+      "title": "Cherry Pie Bars"
     },
     "2026-07": {
       "art": {
@@ -5520,13 +5546,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOISE'S Best Apricot Muffins Ready!",
-        "BOISE'S Best Apricot Muffins, 2026",
-        "BOISE'S best muffins: apricot delight!",
-        "BOISE'S best apricot muffins, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the eggs, milk, honey, and butter; stir in the mix, cinnamon, and salt just until combined, then fold in the apricots.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Boise's Best Apricot Power Muffins"
+      "title": "Apricot Morning Muffins"
     },
     "2026-08": {
       "art": {
@@ -5699,10 +5725,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOISE Peach Power Bowl 2026-08"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Boise's Best: Kodiak Cakes Peach Power"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-09": {
       "art": {
@@ -5873,13 +5899,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOISE'S sweet corn flapjacks, savory & sweet!",
-        "BOISE'S sweet corn griddle cakes!",
-        "BOISE'S best sweet corn breakfast bites!",
-        "BOISE'S sweet corn skillet breakfast!"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Boise's Sweet Corn Power Cakes"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-10": {
       "art": {
@@ -6050,13 +6076,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOISE'S Best Winter Squash Muffins!",
-        "WINTER squash muffins, Boise!",
-        "WINTER squash muffins, Boise-style!",
-        "WINTER squash muffins, Boise!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Boise's Winter Squash Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-11": {
       "art": {
@@ -6227,14 +6253,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "IDAHO Potato Pancakes, beta-carotene packed!",
-        "IDAHO Potato Pancakes Pro",
-        "IDAHO Potato Power Stack",
-        "IDAHO Potato Pancakes — hearty & bold!",
-        "IDAHO Potato Pancakes, protein-packed!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Idaho taters over Kodiak Cakes stacks"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-12": {
       "art": {
@@ -6405,14 +6432,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HONEY-GLAZED Local Honey Waffles",
-        "LOCAL Honey & Protein Waffle Bites",
-        "HONEY-INFUSED Gouda Bites, 2026",
-        "HONEY-INFUSED Boise Waffle Bites",
-        "BOISE Honey & Gouda Bites, 2026"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Boise Honey Power Bites"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     }
   },
   "US-MW-CHI": {
@@ -6581,14 +6610,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STORAGE Apple Waffle Stack Delight",
-        "FRONTIER Storage Apple Pancakes",
-        "STORAGE Apple Pancakes, Midwest frontier style",
-        "FRONTIER'S Protein Apple Waffles, Midwest's best",
-        "FRONTIER Storage Apple Pancakes"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Storage apples power Kodiak cakes"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -6755,13 +6787,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COLD-POTATO power waffles, Chicago",
-        "FRONTIER Potatoes Cake: Midwest's Best",
-        "CRISPY cold-storage potatoes, frontier style",
-        "HOT cold-storage potatoes, frontier style."
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Frontier Potatoes over Kodiak Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-03": {
       "art": {
@@ -6928,14 +6960,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MAPLE Power Cakes: Chicago's Protein Boost",
-        "MAPLE Protein Pancakes: Frontier flavor!",
-        "MAPLE Protein Pancakes: Kodiak Cakes's frontier twist!",
-        "MAPLE Power Cakes, Chicago-style!",
-        "MAPLE Power Pancakes: 3-min, protein-packed!"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Maple-spiced Kodiak Cakes, Chicago"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-04": {
       "art": {
@@ -7102,13 +7137,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RHUBARB Power Cakes: Fall's Frontier Flavor",
-        "FALL rhubarb pancakes with Kodiak Cakes power",
-        "RUSTIC rhubarb flapjacks, 2 mins each side!",
-        "RHUBARB-SPICED flapjacks, frontier style."
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Fall's best: rhubarb on Kodiak Cakes Power"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-05": {
       "art": {
@@ -7275,10 +7310,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asp & goat frittata, power-packed!"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fresh asparagus Kodiak Cakes Power Cakes"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-06": {
       "art": {
@@ -7445,14 +7480,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "POWER-PACKED strawberry pancakes, ready in 20 mins!",
-        "POWER-PACKED strawberry pancakes, 5 mins!",
-        "HIGH-PRO Strawberry Sheet Pan Pancakes",
-        "POWER-PACKED pancakes, ready in 20!",
-        "QUICK, protein-packed pancakes for busy mornings!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power-packed strawberry pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -7619,13 +7654,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks, frontier style!",
-        "SWEET corn flapjacks, 2026-07!",
-        "SWEET corn griddle cakes, frontier style",
-        "SWEET corn griddle cakes, Midwest style."
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet corn Kodiak Cakes Power Cakes"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-08": {
       "art": {
@@ -7792,14 +7827,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER tomato power base tostada",
-        "SUMMER tomato tostada base",
-        "SUMMER tomato power waffles, fresh & bold!",
-        "SUMMER tomato tostada on Kodiak Cakes waffle",
-        "SUMMER tomato tostada, Bear Brown waffle base"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Summer tomatoes on Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-09": {
       "art": {
@@ -7966,14 +8001,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "APPLE-SPICE Waffle French Toast Bake",
-        "KODIAK Cakes Apple Waffles: Frontier flavor!",
-        "SAVORY apple waffles, Midwest style!",
-        "FRONTIER Waffles with Apples, Midwest",
-        "SAVORY waffle stacks with local apples"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Local Apples"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -8140,14 +8178,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER Pumpkin Oat Muffins",
-        "FRONTIER Pumpkin Oats: Protein-packed, hearty!",
-        "FRONTIER Pumpkin Oats: Protein-packed muffins!",
-        "FRONTIER Pumpkin Oats, protein-packed!",
-        "FRONTIER Pumpkin Oats: protein-packed muffins"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Frontier Pumpkin Power Muffins"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -8314,13 +8353,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, ready!",
-        "WINTER squash muffins, hearty & warm!",
-        "WINTER squash muffins, hearty & warm!",
-        "WINTER squash muffins, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -8487,14 +8526,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Cranberry Muffins: 7g protein, frontier-style!",
-        "KODIAK Cakes Cranberry Muffins: Pro-packed, frontier flavor!",
-        "KODIAK Cakes Cranberry Muffins: Protein-packed frontier delight!",
-        "CRANBERRY muffins: 7g protein, frontier taste!",
-        "KODIAK Cakes Cranberry Muffins: 7g protein, frontier-style!"
+        "PREHEAT oven to 350°F and line a muffin tin with liners or grease well.",
+        "IN a large bowl, whisk together eggs, Greek yogurt, orange juice and zest, maple syrup, vanilla, and milk until smooth.",
+        "ADD Kodiak Cakes mix and salt; stir until just combined. Fold in the dried cranberries.",
+        "DIVIDE batter evenly into 24 muffin tins, filling each about ¾ full.",
+        "BAKE for 16-21 minutes, or until the tops are set and a toothpick inserted in the center comes out clean.",
+        "LET cool in the pan for 5 minutes, then transfer to a wire rack to cool completely. Reheat Instructions: From the fridge, reheat in a 350° F oven or toaster oven for 6–10 minutes until warmed through."
       ],
       "substrate": "kraft",
-      "title": "Cranberry Power Cakes in Chicago"
+      "title": "Cranberry Orange Yogurt Muffins"
     }
   },
   "US-MW-CLEVELAND": {
@@ -8664,14 +8704,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STORAGE Apple Power Griddle Cakes",
-        "STORAGE Apple Power Griddle Cakes",
-        "LOCAL storage apples in savory-sweet griddle cake!",
-        "STORAGE Apple Waffle French Toast Bake",
-        "CLEVELAND'S storage apple waffles!"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Storage apples power Kodiak Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -8839,14 +8882,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MAPLE Power Cakes: Clev. Frontier flavor!",
-        "MAPLE-SPICE Power Cakes, Cleveland!",
-        "MAPLE Power Cakes: Clev. 2026",
-        "MAPLE Power Pancakes, Ohio style",
-        "MAPLE Power Pancakes: 5-min, protein-packed!"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Maple-spiced Kodiak Cakes, Cleveland"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-03": {
       "art": {
@@ -9014,13 +9060,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH spring greens scramble, frontier style",
-        "FRONTIER spring greens scramble",
-        "FRONTIER spring greens scramble, 3-4 min",
-        "FRONTIER spring greens scramble."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Frontier Power Pancakes with Spring Greens"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -9037,10 +9083,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-MW-CLEVELAND",
       "meta": {
-        "cook": "8 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-04",
       "provenance": {
@@ -9051,13 +9097,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "savory-scrambled-pancakes",
-        "name": "Savory Scrambled Pancakes"
+        "id": "mushroom-cheddar-muffins-draft",
+        "name": "Mushroom Cheddar Muffins"
       },
       "seasonal_moment": [
         {
@@ -9188,14 +9236,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER Mushroom Pancakes",
-        "FRONTIER Mushroom Scramble Pancakes",
-        "FRONTIER Mushroom Scramble Pancakes",
-        "FRONTIER Mushroom Scrambles",
-        "PROTEIN Mushroom Scramble Pancakes"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly.",
+        "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
+        "DIVIDE among the cups and bake 20-22 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Cultivated mushrooms on Kodiak Cakes Power Cakes"
+      "title": "Mushroom Cheddar Muffins"
     },
     "2026-05": {
       "art": {
@@ -9363,10 +9410,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CLEVELAND'S Asparagus Frittata Frisky!"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Cleveland's Fresh Frittata Power"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-06": {
       "art": {
@@ -9534,14 +9581,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "POWER-PACKED pancakes, ready in 20 mins!",
-        "POWER-PACKED sheet pan pancakes!",
-        "POWER-PACKED pancakes, local strawberries!",
-        "POWER-PACKED pancakes, ready in 20!",
-        "POWER-PACKED flapjacks, fresh strawberries!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power-packed pancakes with local strawberries!"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -9709,13 +9756,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks, frontier style!",
-        "SWEET corn flapjacks, Midwest style!",
-        "SWEET corn flapjacks, golden & savory!",
-        "SWEET corn flapjacks, frontier style!"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet Corn Griddle Cakes, Frontier Style"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-08": {
       "art": {
@@ -9883,14 +9930,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEIRLOOM Tomato Power Bowl",
-        "HEIRLOOM Tomato Power Bowl",
-        "HEIRLOOM Tomato Power Waffles",
-        "HEIRLOOM tomato power waffles",
-        "HEIRLOOM tomato waffle tostada"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Heirloom Tomatoes on Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-09": {
       "art": {
@@ -10058,14 +10105,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CLEVELAND'S Apple Waffle French Toast Bake!",
-        "CLEVELAND'S apple power breakfast!",
-        "FRONTIER'S Apple Power Waffle Bake!",
-        "FRONTIER apple waffles, Cleveland 2026",
-        "CLEVELAND'S Apple Power Waffle Bake!"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Cleveland's Power Cakes with Local Apples"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -10082,10 +10132,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-MW-CLEVELAND",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-10",
       "provenance": {
@@ -10096,13 +10146,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "pear-spice-muffins-draft",
+        "name": "Pear Spice Muffins"
       },
       "seasonal_moment": [
         {
@@ -10233,14 +10285,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Pear Pies: Cleveland's best!",
-        "KODIAK Cakes Pear Brownies: Cleveland 2026-10",
-        "KODIAK Cakes Pear Power Cake Cleveland",
-        "KODIAK Cakes Pear Power Cake, Cleveland",
-        "KODIAK Cakes Pear Cake, Cleveland, OH"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg.",
+        "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
+        "DIVIDE among the cups and bake 18-20 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Pears"
+      "title": "Pear Spice Muffins"
     },
     "2026-11": {
       "art": {
@@ -10408,13 +10459,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, ready!",
-        "WINTER squash muffins, hearty & warm!",
-        "WINTER squash muffins, bake 20 min.",
-        "RUSTIC winter squash muffins, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -10582,14 +10633,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HONEY-GLAZED Honey Wafer Bites",
-        "HONEY-INFUSED Protein Waffle Bites",
-        "HONEY-GOUDA Bites for Cleveland",
-        "HONEY-GLAZED Cheese Waffle Bites",
-        "HONEY-SMOKED Gouda Waffle Bites, 2026-12"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Honey-Infused Kodiak Cakes"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     }
   },
   "US-MW-DEN": {
@@ -10759,13 +10812,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DENVER'S storage potato power, 10 mins rest!",
-        "DENVER'S hearty potato waffles!",
-        "CRISPY storage potato bites, frontier style",
-        "LOCAL potatoes, hot & hearty!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Denver's Kodiak Cakes Power Cakes with Potatoes"
+      "title": "Storage Root Fritters"
     },
     "2026-02": {
       "art": {
@@ -10933,13 +10986,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DENVER'S protein-packed breakfast muffins!",
-        "DENVER'S Protein Power Muffins, 17g!",
-        "DENVER Power Muffins, 17g protein!",
-        "DENVER'S Power Onions in 15 mins!"
+        "HEAT the oven to 350F and grease a 12-cup muffin tin.",
+        "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+        "DIVIDE among the cups and bake 18-20 minutes, until puffed and set.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Denver Power Cakes with Onions"
+      "title": "Spring Onion Egg Muffins"
     },
     "2026-03": {
       "art": {
@@ -11107,14 +11160,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STORAGE Apple Pancakes: Frontier flavor",
-        "DENVER'S storage apple power breakfast!",
-        "DENVER'S Protein-Packed Apple Waffles!",
-        "DENVER'S storage apple waffles!",
-        "STORAGE Apple Kodiak Cakes — Denver"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Storage apples & Kodiak Cakes power"
+      "title": "Breakfast Cake"
     },
     "2026-04": {
       "art": {
@@ -11282,13 +11338,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DENVER Greens Scramble 2026-04",
-        "DENVER Greens Scramble Pancakes",
-        "FRONTIER Greens Scramble Pancakes",
-        "FRONTIER greens pancakes, fresh microgreens."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Denver Greens Power Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-05": {
       "art": {
@@ -11456,13 +11512,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RHUBARB Power Cakes, Denver's hearty breakfast",
-        "RHUBARB Power Cakes, Denver!",
-        "DENVER rhubarb power cakes",
-        "RHUBARB-SPICED Kodiak Cakes flapjacks!"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Denver rhubarb Kodiak Cakes Power Cakes"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-06": {
       "art": {
@@ -11630,14 +11686,22 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DENVER Cherry Pie Bars, 2026",
-        "DENVER Cherry Pie Bars: whole grain, protein power!",
-        "DENVER cherries, whole grain power!",
-        "DENVER Cherry Pie Bars — 2026",
-        "DENVER Cherry Pie Bars"
+        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
+        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+        "BEAT in the eggs, one at a time.",
+        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
+        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
+        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
+        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
+        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
+        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
+        "REMOVE from oven and let cool.",
+        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
+        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
+        "STORE in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Denver Cherry Power Bars"
+      "title": "Cherry Pie Bars"
     },
     "2026-07": {
       "art": {
@@ -11807,10 +11871,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Peach Power Bowl: 1 cup + milk + egg"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Denver's Peach Power Breakfast"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-08": {
       "art": {
@@ -11978,13 +12042,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "OLATHE corn griddle delight!",
-        "DENVER'S Olathe corn griddle delight!",
-        "DENVER griddle cakes with sweet corn",
-        "DENVER'S sweet corn griddle feast!"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Denver's Olathe Corn Power Cakes"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-09": {
       "art": {
@@ -12152,13 +12216,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ROCKY Ford melon power salad prep",
-        "ROCKY Ford Power Cakes in Denver!",
-        "ROCKY Ford melon pancakes, 2 mins, golden!",
-        "ROCKY Ford melon pancakes, protein-packed!"
+        "TOSS the cubed melon with the honey and lime juice; rest 10 minutes.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks topped with the fresh melon and its juices."
       ],
       "substrate": "kraft",
-      "title": "Rocky Ford Power Pasta"
+      "title": "Fresh Melon Flapjack Topper"
     },
     "2026-10": {
       "art": {
@@ -12326,13 +12390,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, Denver style!",
-        "WINTER squash muffins, hearty & warm",
-        "WINTER squash muffins, baked to perfection!",
-        "WINTER squash muffins, Denver-style."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-11": {
       "art": {
@@ -12500,13 +12564,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, Denver-style!",
-        "WINTER squash muffins, hearty & fresh!",
-        "WINTER squash muffins, Denver style!",
-        "WINTER squash muffins, Denver style."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Power Cakes in Denver"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -12674,14 +12738,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HONEY-SMOKED Waffle Bites, Denver style",
-        "HONEY-INFUSED Waffle Bites, Denver style",
-        "HONEY-INFUSED Gouda Bites",
-        "DENVER Honey & Gouda Waffle Bites",
-        "HONEY-GLAZED Local Honey Waffles"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Honey-infused Kodiak Cakes, Denver"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     }
   },
   "US-MW-DESMOINES": {
@@ -12851,14 +12917,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STORAGE Apple Waffle French Toast Bake",
-        "DES Moines' storage apple breakfast bake",
-        "DES Moines' storage apple breakfast bake",
-        "STORAGE Apple Waffle French Toast Bake",
-        "STORAGE Apple Breakfast Bake"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Des Moines Power Cakes with Storage Apples"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -13026,13 +13095,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COLD-STORAGE potato waffles, Des Moines!",
-        "DES Moines Potatoes Delight",
-        "CRISPY cold-storage potato bites, frontier style",
-        "FRESH cold-storage potatoes, grilled to perfection."
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Des Moines Power Cakes with Cold Potatoes"
+      "title": "Storage Root Fritters"
     },
     "2026-03": {
       "art": {
@@ -13200,14 +13269,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MAPLE Power Cakes, Des Moines style",
-        "MAPLE Power Cakes for Iowa mornings",
-        "MAPLE Protein Pancakes: Iowa's Power Boost",
-        "MAPLE Power Cakes: Des Moines' best!",
-        "MAPLE Power Cakes: Des Moines, 2026"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Maple-spiced Kodiak Cakes, Des Moines"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-04": {
       "art": {
@@ -13375,13 +13447,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RHUBARB Power Cakes: Fall's Frontier Flavor",
-        "RHUBARB Power Cakes, Des Moines",
-        "RHUBARB Power Cakes, fall breakfast!",
-        "FALL rhubarb power flapjacks!"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Fall rhubarb Kodiak Cakes Power Cakes"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-05": {
       "art": {
@@ -13549,10 +13621,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asp & goat fritta, power your day!"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fresh asp, Kodiak Cakes Power"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-06": {
       "art": {
@@ -13720,14 +13792,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Des Moines Strawberry Pancakes",
-        "DES Moines Power Pancakes (2026-06)",
-        "HIGH-PRO flapjacks, Des Moines style!",
-        "DES Moines Power Pancakes (2026-06)",
-        "DES Moines Power Pancakes with Local Strawberries"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Des Moines Power Pancakes 2026"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -13895,13 +13967,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks, Iowa's breakfast treat!",
-        "SWEET corn flapjacks, Iowa style.",
-        "SWEET corn flapjacks, Iowa's taste!",
-        "GRILLED sweet corn stacks, frontier style."
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet corn griddle cakes, frontier style"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-08": {
       "art": {
@@ -14069,14 +14141,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER tomato power base recipe",
-        "SUMMER toms on Kodiak Cakes!",
-        "SUMMER tomatoes on Kodiak Cakes!",
-        "SUMMER tomatoes on Kodiak Cakes!",
-        "FRESH tomatoes atop Kodiak Cakes waffles."
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Fresh tomatoes on Kodiak Cakes Power Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-09": {
       "art": {
@@ -14244,14 +14316,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DES Moines' Apple Power Waffle Bake",
-        "DES Moines' best apple waffles!",
-        "DES Moines Apple Power Waffles '26",
-        "FRONTIER apple waffles, Iowa's sweet treat!",
-        "IOWA'S Apple Power Waffle Bake"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Des Moines Power Cakes with Apples"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -14419,14 +14494,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER Pumpkin Oats: Protein-packed, local delight!",
-        "FRONTIER Pumpkin Oats: protein-packed fall treat!",
-        "FRONTIER Pumpkin Oat Muffins",
-        "FRONTIER Pumpkin Oats, protein-packed!",
-        "FRONTIER Pumpkin Oats: Protein-packed fall treat!"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Frontier's Pumpkin Power Muffins"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -14594,13 +14670,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, Des Moines!",
-        "WINTER squash muffins, Iowa's taste!",
-        "WINTER squash muffins, Des Moines!",
-        "WINTER squash muffins, Des Moines style."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -14768,14 +14844,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HONEY-INFUSED waffles, Des Moines style!",
-        "LOCAL Honey & Gouda Bites, Des Moines",
-        "LOCAL Honey & Gouda Bites",
-        "HONEY-WAFFLE Bites with Gouda & Local Honey",
-        "HONEY-SMOKED Gouda Waffle Bites"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Local Honey Power Bites"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     }
   },
   "US-MW-DETROIT": {
@@ -14942,14 +15020,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DETROIT'S Storage Apple Griddle Cakes",
-        "DETROIT'S Power Waffle Stack Delight",
-        "DETROIT'S Storage Apple Power Waffles",
-        "DETROIT'S storage apple breakfast bake",
-        "DETROIT'S Storage Apple Griddle Cakes"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Detroit Power Cakes with Storage Apples"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -15114,13 +15195,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DETROIT'S cold-potato power bites!",
-        "DETROIT'S cold-storage potato delight!",
-        "DETROIT'S Cold Potatoes, 60-sec crisp!",
-        "DETROIT'S best cold-storage potato treat!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Detroit's Frontier Potatoes Kodiak Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-03": {
       "art": {
@@ -15285,14 +15366,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DETROIT Maple Power Cakes",
-        "MAPLE Power Pancakes Detroit",
-        "DETROIT Maple Power Cakes",
-        "MAPLE Power Cakes Detroit-Style",
-        "MAPLE-SPICED Power Cakes — Detroit"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Maple-spiced Kodiak Cakes Detroit"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-04": {
       "art": {
@@ -15457,10 +15541,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DETROIT'S Fresh Asparagus Frittata"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Detroit's Fresh Goat & Asparagus Frittata"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-05": {
       "art": {
@@ -15625,13 +15709,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DETROIT rhubarb power cakes",
-        "DETROIT rhubarb pancakes power up breakfast!",
-        "DETROIT rhubarb flapjacks, 2 min each side",
-        "FALL rhubarb pancakes with Kodiak Cakes power"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Detroit rhubarb Kodiak Cakes Power Cakes"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-06": {
       "art": {
@@ -15796,14 +15880,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DETROIT'S Power Pancakes: 20 mins, 5g fiber!",
-        "DETROIT'S Power Pancakes: 20 mins, 5g fiber!",
-        "DETROIT Power Pancakes with Fresh Strawberries",
-        "DETROIT Power Pancakes, 20 mins, 5g fiber",
-        "POWER-PACKED pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Detroit's Power Pancakes with Local Berries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -15968,14 +16052,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DETROIT Blueberry Power Pancakes",
-        "DETROIT Blueberry Power Pancakes",
-        "DETROIT Blueberry Pancakes: 27g protein, easy!",
-        "DETROIT'S High-Pro Blueberry Pancakes!",
-        "DETROIT'S Power Blueberry Pancakes"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Detroit's Blueberry Power Pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-08": {
       "art": {
@@ -16140,13 +16224,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks, Detroit's frontier taste!",
-        "SWEET corn flapjacks, Detroit!",
-        "SWEET corn flapjacks, Detroit-style!",
-        "SWEET corn flapjacks, Detroit!"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Detroit's Sweet Corn Power Cakes"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-09": {
       "art": {
@@ -16311,14 +16395,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DETROIT'S Apple Power Waffle Bake",
-        "DETROIT'S Apple Power Waffles 2026-09",
-        "DETROIT'S Power Apple Waffle Bake!",
-        "DETROIT'S Apple Power Waffle Bake",
-        "DETROIT Apple Power Waffle Bake"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Detroit Power Cakes with Apples"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -16335,10 +16422,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-MW-DETROIT",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-10",
       "provenance": {
@@ -16349,13 +16436,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "pear-spice-muffins-draft",
+        "name": "Pear Spice Muffins"
       },
       "seasonal_moment": [
         {
@@ -16483,14 +16572,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DETROIT'S Kodiak Cakes Pear Cake Delight",
-        "DETROIT'S Best Kodiak Cakes Pear Cake!",
-        "DETROIT Pear Power Cake",
-        "DETROIT'S Kodiak Cakes Pear Cake!",
-        "DETROIT'S Best Kodiak Cakes: Pear Delight!"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg.",
+        "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
+        "DIVIDE among the cups and bake 18-20 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Detroit Pear Power Cakes"
+      "title": "Pear Spice Muffins"
     },
     "2026-11": {
       "art": {
@@ -16655,13 +16743,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DETROIT'S hearty winter squash muffins!",
-        "WINTER squash muffins, Detroit!",
-        "DETROIT'S best winter squash muffins, 6.2% es, 2.8% ar.",
-        "DETROIT'S hearty winter squash muffins, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Detroit's Winter Squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -16826,14 +16914,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DETROIT'S Kodiak Cakes Bean Breakfast Bowl",
-        "MICHIGAN Beans Power Bowl",
-        "MICHIGAN Beans & Sausage Power Bowl",
-        "MICHIGAN Bean Balls: Kodiak Cakes's frontier recipe",
-        "DETROIT'S best breakfast: Michigan beans & sausage!"
+        "PREHEAT your oven to 350° F and line two baking sheets with parchment paper.",
+        "IN a large mixing bowl, whisk together the Kodiak Cakes mix and spices (garlic, red pepper flakes, black pepper, salt and mustard powder).",
+        "ADD the eggs, cheddar, and ground sausage and throughly mix together with your hands or a spatula. The mixture should be slightly sticky but firm enough to roll into balls.",
+        "ROLL the mixture into 1-inch balls and place them on the prepared baking sheets about 1-inch apart (about 40-45 sausage balls total).",
+        "BAKE in the preheated oven for 20-25 minutes, or until the sausage balls are golden brown and cooked through (internal temperature of 165°F for pork or chicken sausage).",
+        "REMOVE from the oven and let cool slightly before serving."
       ],
       "substrate": "kraft",
-      "title": "Detroit's Best Bean Power Bowl"
+      "title": "Sausage Balls"
     }
   },
   "US-MW-FARGO": {
@@ -16985,13 +17074,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "LOCAL potatoes, wild flavor, frontier style",
-        "FARGO'S best storage potato waffles!",
-        "CRISPY storage potato bites, frontier style",
-        "FARGO'S best: hot, local potatoes!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Fargo's Potatoes Fuel Kodiak Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-02": {
       "art": {
@@ -17141,13 +17230,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COLD-STORAGE carrots, flavor frontier!",
-        "COLD-STORAGE Carrot Cakes from Fargo",
-        "CRISPY cold-storage carrot bites, Frontier style",
-        "LOCAL carrots, fresh & hot!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Fargo's Frontier Carrot Power Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-03": {
       "art": {
@@ -17297,14 +17386,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MAPLE Power Cakes, US-MW-FARGO",
-        "MAPLE Power Pancakes: North Dakota's protein-rich start",
-        "MAPLE Power Cakes: North Dakota's protein boost",
-        "MAPLE Power Pancakes: protein-packed, easy!",
-        "MAPLE Power Cakes: Fargo's protein-packed treat!"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Maple-spiced Kodiak Cakes, Fargo"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-04": {
       "art": {
@@ -17454,13 +17546,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RHUBARB Power Cakes: Fall Flavor!",
-        "FALL rhubarb power cakes, Fargo",
-        "RHUBARB Flapjacks: 2 min, golden!",
-        "RHUBARB Power Cakes in Fargo!"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Fall rhubarb Kodiak Cakes Power Cakes"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-05": {
       "art": {
@@ -17610,10 +17702,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asp & goat fritta power-up!"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fresh asparagus Kodiak Cakes Power Cakes"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-06": {
       "art": {
@@ -17763,14 +17855,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FARGO'S High-Pro Pancakes Ready in 20!",
-        "PROTEIN-PACKED strawberry pancakes, ready in 20!",
-        "FRONTIER Power Pancakes with 2026 Strawberries",
-        "POWER up with protein pancakes, ready in 20!",
-        "HIGH-PROTEIN flapjacks, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power Cakes with Local Strawberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -17920,13 +18012,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks, frontier style",
-        "SWEET corn flapjacks, 2026 flavor!",
-        "SWEET corn flapjacks, Midwest style",
-        "CORN griddle cakes, Fargo style."
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet Corn Power Cakes"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-08": {
       "art": {
@@ -18076,14 +18168,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET taters pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, Fargo!",
-        "SWEET potato pancakes, beta-carotene boost!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Potatoes & Kodiak Cakes Power: Frontier Fuel"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-09": {
       "art": {
@@ -18233,13 +18326,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SQUASH Muffins from Fargo, ND",
-        "SQUASH muffins, hearty & local!",
-        "SQUASH muffins, 20 mins, frontier taste",
-        "SQUASH muffins from our frontier."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Squash Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-10": {
       "art": {
@@ -18389,14 +18482,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER Pumpkin Oat Muffins",
-        "FRONTIER Pumpkin Oat Muffins",
-        "FRONTIER Pumpkin Oats: Protein-packed muffins!",
-        "FRONTIER Pumpkin Oats Power",
-        "FRONTIER Pumpkin Oats: protein-packed treat!"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Frontier Pumpkin Oat Muffins"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -18546,14 +18640,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HONEY-SMOKED Gouda Waffle Bites",
-        "HONEY-INFUSED Honey Waffle Bites",
-        "HONEY-DRIZZLED Honey Waffle Bites",
-        "HONEY-DRIZZLED Local Honey Waffles",
-        "HONEY-INFUSED Honey Waffle Bites, 2026"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Honey-Waffle Bites from Fargo"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     },
     "2026-12": {
       "art": {
@@ -18703,13 +18799,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "LOCAL Carrots, Fresh & Simple!",
-        "FRESH storage carrots, local & bold!",
-        "CRISPY storage carrot bites, frontier style",
-        "FRESH storage carrots, hot & hearty!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Fargo's Power Cakes with Storage Carrots"
+      "title": "Storage Root Fritters"
     }
   },
   "US-MW-INDY": {
@@ -18877,14 +18973,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STORAGE Apple Waffle French Toast Bake",
-        "STORAGE Apple Power Breakfast Bake",
-        "FRONTIER'S Storage Apple Waffles '26",
-        "FRONTIER'S Storage Apple Delight Bake",
-        "STORAGE Apple Power Waffle Bake"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Rugged Storage Apples & Kodiak Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -19050,13 +19149,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COLD-STORAGE taters, frontier style!",
-        "FRONTIER Cold Potatoes Pie",
-        "CRISPY cold-storage potato bites, Frontier style!",
-        "HOT cold-storage potatoes, fresh today!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Cold-Storage Potatoes on Kodiak Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-03": {
       "art": {
@@ -19222,14 +19321,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MAPLE Power Pancakes: Indy's protein boost!",
-        "MAPLE Power Pancakes: Indy's protein boost",
-        "MAPLE Protein Pancakes, Indy style",
-        "MAPLE Power Pancakes, Indy style!",
-        "MAPLE Power Pancakes: 3-min, protein-packed!"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Maple-spiced Kodiak Cakes, Indy style"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-04": {
       "art": {
@@ -19395,13 +19497,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RHUBARB Power Cakes, fall flavor!",
-        "RUGGED rhubarb pancakes for fall!",
-        "KODIAK Cakes Flapjacks: Golden in 2 mins!",
-        "FALL rhubarb pancakes with Kodiak Cakes power"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with local rhubarb"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-05": {
       "art": {
@@ -19567,10 +19669,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asp & goat fritta, power your day"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fresh asp & goat frittata power"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-06": {
       "art": {
@@ -19736,14 +19838,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Indy Sheet Pan Pancakes",
-        "HIGH-PRO Indy Strawberry Pancakes 2026-06",
-        "HIGH-PRO Indy Strawberry Pancakes 2026-06",
-        "INDY'S High-Pro Strawberry Sheet Pan Pancakes!",
-        "FRESH strawberries, protein-packed pancakes!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "High-Pro Indy Strawberry Pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -19909,13 +20011,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks in Indy",
-        "SWEET corn flapjacks, Indiana style.",
-        "SWEET corn flapjacks, Indy style!",
-        "SWEET corn flapjacks, Indy style!"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet corn Kodiak Cakes in Indy"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-08": {
       "art": {
@@ -20081,14 +20183,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER tomato & waffle bites",
-        "SUMMER tomato tostada base",
-        "SUMMER tomato waffles, Indiana style",
-        "TOP waffles with fresh tomatoes & protein!",
-        "FRONTIER Tomato Tostadas with Blaze Orange yogurt"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Summer tomatoes on Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-09": {
       "art": {
@@ -20254,14 +20356,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER Apple Waffle French Toast Bake",
-        "FRONTIER'S Apple Power Waffle Bake, Indy 2026",
-        "FRONTIER'S Apple Waffles: Savory-sweet crunch!",
-        "FRONTIER Apple Waffles, Midwest’s best!",
-        "FRONTIER Apple Waffle French Toast Bake"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Frontier Power Cakes with Local Apples"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -20427,14 +20532,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER Pumpkin Muffins 2026",
-        "FRONTIER Pumpkin Oat Muffins 2026",
-        "FRONTIER Pumpkin Muffins: protein-packed, whole grain",
-        "FRONTIER'S Pumpkin Oats: protein-packed!",
-        "FRONTIER Pumpkin Muffins, 2026-10"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Frontier Pumpkin Power Muffins"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -20600,13 +20706,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, ready for baking!",
-        "WINTER squash muffins, Indy-style!",
-        "WINTER squash muffins, baked till perfect!",
-        "WINTER squash muffins, Indy-made!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -20772,14 +20878,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "INDIANA'S crunchy, savory Dutch baby!",
-        "RUGGED Indiana popcorn Dutch blend",
-        "INDIANA-GROWN popcorn Dutch baby",
-        "RUGGED Indiana popcorn stack",
-        "RUGGED Indiana popcorn Dutch baby"
+        "PREHEAT the oven to 425° Fahrenheit.",
+        "PLACE the Kodiak Cakes mix, eggs, and milk in a blender and process until smooth.",
+        "ADD the butter to a 9” cast iron skillet and place in the oven.",
+        "WHEN the butter is melted and bubbling, remove the pan from the oven and quickly pour in the batter. Working fast, lay the prosciutto slices on top of the batter and place the skillet back in the oven.",
+        "BAKE for 18-20 minutes or until golden brown and puffed.",
+        "WHILE the pancake is baking, add the tomatoes, pesto, and sliced onion to a bowl and toss. Set aside.",
+        "REMOVE the pancake from the oven.",
+        "TOP the pancake with the tomato salad and sprinkle with the shaved Parmesan. Serve in slices."
       ],
       "substrate": "kraft",
-      "title": "Indiana popcorn atop Kodiak Cakes"
+      "title": "Savory Dutch Baby"
     }
   },
   "US-MW-JACKSONHOLE": {
@@ -20955,14 +21064,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RANCH Beef Fries: Savory & Protein-Packed!",
-        "RANCH Beef Fries with Pickle Juice Kick",
-        "RANCH Beef Picks in Pickles",
-        "RANCH Beef Waffle Pickles",
-        "RANCH Beef Waffles, golden & protein-packed!"
+        "PAT dry pickles to remove excess liquid and set aside.",
+        "COMBINE Kodiak Cakes mix, salt, pepper, & paprika. Then add pickle juice and whisk together.",
+        "ADD popsicle stick into pickle slices.",
+        "DUNK into batter just enough to coat pickle.",
+        "ADD into preheated waffle iron and remove once golden brown.",
+        "COMBINE ranch, sriracha, and lemon juice.",
+        "DUNK and enjoy!"
       ],
       "substrate": "kraft",
-      "title": "Ranch Beef Power Cakes, Jackson Hole"
+      "title": "Waffle Pickles"
     },
     "2026-02": {
       "art": {
@@ -21136,13 +21247,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "LOCAL root veggies grilled, 60 chars max",
-        "RUGGED root veggie waffles",
-        "CRISPY root veggie bites, 3-4 min",
-        "HOT root veggies, ready!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Frontier Root Cakes, Kodiak Cakes Style"
+      "title": "Storage Root Fritters"
     },
     "2026-03": {
       "art": {
@@ -21316,14 +21427,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HONEY-GOUDA Waffle Bites, 375°F",
-        "HONEY & Gouda Waffle Bites",
-        "HONEY-GOUDA Bites for Jackson Hole",
-        "HONEY-GOUDA Waffle Bites, frontier style",
-        "HONEY-SMOKED Gouda Waffle Bites"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Honey-infused Kodiak Cakes Power Cakes"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     },
     "2026-04": {
       "art": {
@@ -21497,14 +21610,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "JACKSON Hole Ranch Butter Pancakes",
-        "RANCH butter pancakes, Jackson Hole",
-        "RANCH butter pancakes, Jackson Hole style.",
-        "WYOMING Ranch Butter Pancakes",
-        "RANCH butter pancakes, Jackson Hole style"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Ranch Butter Power Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-05": {
       "art": {
@@ -21678,13 +21792,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RHUBARB Power Cakes: Fall Flavor!",
-        "KODIAK Cakes Power Cakes: Fall rhubarb flapjacks!",
-        "GOLDEN rhubarb flapjacks, 2 mins each side!",
-        "RUGGED rhubarb flapjacks with power!"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Fall rhubarb Kodiak Cakes Power Cakes"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-06": {
       "art": {
@@ -21858,13 +21972,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER spring greens scramble, 2026",
-        "FRONTIER scrambles with spring greens",
-        "FRONTIER spring greens scramble, 3-4 min",
-        "FRONTIER spring greens scramble."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Frontier Greens Power Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-07": {
       "art": {
@@ -21881,10 +21995,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-MW-JACKSONHOLE",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-07",
       "provenance": {
@@ -21895,13 +22009,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "snap-pea-herb-fritters-draft",
+        "name": "Snap Pea Herb Fritters"
       },
       "seasonal_moment": [
         {
@@ -22038,14 +22154,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Sugar Snap Cakes, Jackson Hole!",
-        "KODIAK Cakes Snap Pea Cakes, Jackson Hole",
-        "KODIAK Cakes protein snaps: snap peas delight!",
-        "KODIAK Cakes: Snap Pea Power!",
-        "KODIAK Cakes: Snap Pea Power Pie, Jackson Hole"
+        "BLANCH the sliced peas 1 minute in salted boiling water, chill in ice water, then pat completely dry.",
+        "WHISK the mix, eggs, parmesan, dill, salt, and pepper with the dry peas into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3 minutes per side until crisp and golden.",
+        "DRAIN briefly on a rack and serve warm with lemon."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Sugar Snap Peas"
+      "title": "Snap Pea Herb Fritters"
     },
     "2026-08": {
       "art": {
@@ -22219,14 +22334,20 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes's Raspberry Cakes: Wyoming's Best",
-        "KODIAK Cakes Raspberry Power in Jackson Hole!",
-        "RUGGED raspberry Kodiak cake, Jackson Hole style",
-        "KODIAK Cakes's Raspberry Cakes: Fuel your Jackson Hole adventures!",
-        "RUGGED Kodiak Cakes Raspberry Cakes"
+        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper.",
+        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine.",
+        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
+        "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries.",
+        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean.",
+        "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling.",
+        "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside.",
+        "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
+        "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between.",
+        "TOP cake with fresh raspberries.",
+        "STORE cake in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Rugged Raspberry Kodiak Cakes"
+      "title": "White Chocolate Raspberry Cake"
     },
     "2026-09": {
       "art": {
@@ -22400,13 +22521,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ROOT veggies, 1/2 tsp salt, rest 10 mins",
-        "RUGGED root veggie cakes, Jackson Hole style",
-        "CRISPY root veggie bites, frontier style",
-        "HOT root veggie feast!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Jackson Hole Root Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-10": {
       "art": {
@@ -22580,13 +22701,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "JACKSON Hole's hearty muffins, 400°F!",
-        "JACKSON Hole's Winter Squash Delight!",
-        "JACKSON Hole's cozy winter squash muffins!",
-        "RUSTIC winter squash muffins, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Jackson Hole Power Cakes with Winter Squash"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-11": {
       "art": {
@@ -22760,13 +22881,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WARM up oven, bake Jackson Hole muffins!",
-        "WINTER squash muffins, hearty & warm!",
-        "RUSTIC muffins, 18-20 min bake, local flavor",
-        "RUSTIC squash muffins, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter squash Kodiak Cakes Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -22940,14 +23061,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RANCH Lamb Bites: juicy, protein-packed!",
-        "RANCH lamb bites, protein-packed!",
-        "RANCH lamb bites, protein-packed!",
-        "RANCH Lamb Delights",
-        "RANCH Lamb Delights"
+        "PAT dry pickles to remove excess liquid and set aside.",
+        "COMBINE Kodiak Cakes mix, salt, pepper, & paprika. Then add pickle juice and whisk together.",
+        "ADD popsicle stick into pickle slices.",
+        "DUNK into batter just enough to coat pickle.",
+        "ADD into preheated waffle iron and remove once golden brown.",
+        "COMBINE ranch, sriracha, and lemon juice.",
+        "DUNK and enjoy!"
       ],
       "substrate": "kraft",
-      "title": "Ranch Lamb Power Bites, Jackson Hole"
+      "title": "Waffle Pickles"
     }
   },
   "US-MW-KC": {
@@ -23097,14 +23220,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KANSAS City's storage apple breakfast bake!",
-        "KANSAS City's storage apple breakfast delight!",
-        "KANSAS City's storage apple waffles!",
-        "KC'S storage apple waffles, protein-packed",
-        "KANSAS City's storage apple waffles!"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Storage apples power Kodiak Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -23252,14 +23378,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato power pancakes!",
-        "SWEET potato pancakes, frontier flavor!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-power!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potatoes Power Pancakes KC"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-03": {
       "art": {
@@ -23407,14 +23534,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KANSAS City Maple Kodiak Cakes",
-        "KANSAS Maple Power Cakes",
-        "KANSAS Maple Protein Pancakes",
-        "KANSAS Maple Power Cakes",
-        "KANSAS Maple Power Cakes"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Kansas City Maple Power Cakes"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-04": {
       "art": {
@@ -23562,10 +23692,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KANSAS City Asparagus Frittata"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Kansas City's Frittata Power Boost"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-05": {
       "art": {
@@ -23713,14 +23843,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KANSAS City Power Pancakes Ready in 20 Min",
-        "KANSAS City Power Pancakes 2026-05",
-        "HIGH-PRO KC Flapjacks 2026-05",
-        "KC Power Pancakes: 20 min, 5g fiber",
-        "KANSAS City Power Pancakes, 12-slice feast!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power Cakes with Fresh Kansas Strawberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -23868,14 +23998,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KANSAS City Blackberries Power Pancakes",
-        "HIGH-PRO KC Blackberries Pancakes 2026",
-        "HIGH-PRO KC Blackberries Pancakes",
-        "HIGH-PRO KC blackberry pancakes ready!",
-        "HIGH-PRO KC Blackberries Pancakes 2026"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power Cakes with Blackberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -24023,13 +24153,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CORN-FILLED flapjacks, Kansas style!",
-        "SWEET corn flapjacks, KC style!",
-        "KC Sweet Corn Griddle Cakes",
-        "KANSAS City's Sweet Corn Griddle Cakes"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Corn-topped Kodiak Cakes, KC style"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-08": {
       "art": {
@@ -24179,10 +24309,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Peach Power Cakes KC 2026"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Kansas City Peach Power Bowl"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-09": {
       "art": {
@@ -24330,14 +24460,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KC Apple Waffle French Toast Bake",
-        "KANSAS City Apple Power Waffles",
-        "KC apple waffles, farm-fresh flavor!",
-        "KC apple waffle French toast bake",
-        "KC Apple Waffle French Toast Bake"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Kansas City Apple Power Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -24354,10 +24487,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-MW-KC",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-10",
       "provenance": {
@@ -24368,13 +24501,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "pear-spice-muffins-draft",
+        "name": "Pear Spice Muffins"
       },
       "seasonal_moment": [
         {
@@ -24485,14 +24620,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Pear Cakes, KC-MW-2026-10",
-        "KODIAK Cakes Pear Pie, KC 2026-10",
-        "KANSAS pears power Kodiak Cakes!",
-        "RUGGED Pear Cakes KC 2026-10",
-        "KODIAK Cakes Pear Cakes, KC-MW-2026-10"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg.",
+        "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
+        "DIVIDE among the cups and bake 18-20 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Pear-Infused Kodiak Cakes"
+      "title": "Pear Spice Muffins"
     },
     "2026-11": {
       "art": {
@@ -24640,14 +24774,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet potato pancakes over KC breakfasts"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-12": {
       "art": {
@@ -24795,14 +24930,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KANSAS City Pecan Pancakes 2026",
-        "KANSAS City Pecan Pancakes Pro",
-        "KANSAS City Pecan Pancakes",
-        "KANSAS City Pecan Pancakes 2026",
-        "PECAN-WAFFLE Crunch, KC-MW-2026"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Kansas City Pecan Power Cakes"
+      "title": "Sweet Potato Pancakes"
     }
   },
   "US-MW-MILWAUKEE": {
@@ -24973,14 +25109,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUSTIC apple bake, 2026-01",
-        "KODIAK Cakes's hearty apple breakfast blend!",
-        "FRONTIER'S protein-packed apple waffle delight!",
-        "FRONTIER'S Protein-Packed Apple Waffle Bake",
-        "STORAGE Apple Pancakes: Frontier flavor!"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Storage apples power Kodiak cakes"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -25149,13 +25288,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COLD potatoes grilled, frontier style!",
-        "LOCAL potatoes, hearty & bold!",
-        "CRISPY cold-storage potato bites!",
-        "FRESH potatoes, hot & hearty!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Milwaukee's Cold Potatoes Kodiak Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-03": {
       "art": {
@@ -25324,14 +25463,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MAPLE Power Cakes: Frontier flavor!",
-        "MAPLE-SPICE Power Cakes",
-        "MAPLE Protein Pancakes: Wisconsin's frontier twist",
-        "MAPLE-SPICED Power Cakes, Midwest style",
-        "MAPLE-SPICED Power Pancakes"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Maple-spiced Kodiak Cakes"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-04": {
       "art": {
@@ -25500,13 +25642,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RHUBARB Power Cakes, fall breakfast!",
-        "FALL rhubarb pancakes with Kodiak Cakes Power",
-        "FALL rhubarb pancakes, 2 min each side!",
-        "FALL rhubarb pancakes power up breakfast!"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Fall's best breakfast: Kodiak Cakes Power Cakes!"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-05": {
       "art": {
@@ -25675,10 +25817,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asp & goat fritta, power your day!"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fresh asp & goat fritta on Kodiak Cakes"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-06": {
       "art": {
@@ -25847,14 +25989,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Strawberry Sheet Pan Pancakes!",
-        "HIGH-PRO Strawberry Sheet Pan Pancakes",
-        "HIGH-PRO Strawberry Sheet Pan Pancakes",
-        "HIGH-PRO Milw Flapjacks 2026-06",
-        "HIGH-PRO Milw flapjacks, 2026-06"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power-packed strawberry pancakes!"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -26023,13 +26165,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks, frontier style!",
-        "SWEET corn griddle cake stacks, 2026",
-        "SAVORY sweet corn flapjacks, frontier style!",
-        "GRIDDLE cakes with sweet corn & bacon."
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet corn griddle cakes, frontier style"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-08": {
       "art": {
@@ -26198,14 +26340,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER tomato power base tostada",
-        "SUMMER tomato tostada base",
-        "SUMMER tomato power base",
-        "SUMMER tomatoes on Kodiak Cakes waffle base",
-        "SUMMER tostada base with local tomatoes!"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Summer veggies on Kodiak Cakes Power Waffles"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-09": {
       "art": {
@@ -26374,14 +26516,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "APPLE-SPICE Waffle French Toast Bake",
-        "APPLE-SPICE Kodiak Cakes, Milwaukee 2026",
-        "APPLE-SPICE Power Waffles, Milwaukee 2026-09",
-        "APPLE-SPICE Waffle French Toast Bake",
-        "APPLE Power Waffle French Toast Bake"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Apples & Kodiak Cakes Power Bakes"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -26550,14 +26695,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUGGED Cranberry Muffins with Protein Power!",
-        "CRANBERRY Power Muffins: 7g protein!",
-        "PROTEIN-PACKED cranberry muffins with yogurt!",
-        "CRANBERRY muffins, 7g protein, Kodiak Cakes style!",
-        "PROTEIN-PACKED cranberry muffins, ready in 20!"
+        "PREHEAT oven to 350°F and line a muffin tin with liners or grease well.",
+        "IN a large bowl, whisk together eggs, Greek yogurt, orange juice and zest, maple syrup, vanilla, and milk until smooth.",
+        "ADD Kodiak Cakes mix and salt; stir until just combined. Fold in the dried cranberries.",
+        "DIVIDE batter evenly into 24 muffin tins, filling each about ¾ full.",
+        "BAKE for 16-21 minutes, or until the tops are set and a toothpick inserted in the center comes out clean.",
+        "LET cool in the pan for 5 minutes, then transfer to a wire rack to cool completely. Reheat Instructions: From the fridge, reheat in a 350° F oven or toaster oven for 6–10 minutes until warmed through."
       ],
       "substrate": "kraft",
-      "title": "Cranberry-Powered Muffins with Kodiak Cakes"
+      "title": "Cranberry Orange Yogurt Muffins"
     },
     "2026-11": {
       "art": {
@@ -26726,13 +26872,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUSTIC winter squash muffins ready!",
-        "WINTER squash muffins, ready!",
-        "WINTER squash muffins, ready!",
-        "RUSTIC winter squash muffins, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -26901,13 +27047,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WISCONSIN Cheddar Grilled Waffle Mac ‘n Cheese",
-        "WISCONSIN Cheddar Grilled Waffle Mac Sandwich",
-        "AGED cheddar mac waffle sandwich",
-        "WISCONSIN Cheddar Grilled Waffle Mac ‘n Cheese"
+        "HEAT a waffle iron and grease. Cook the prepared waffle batter in the waffle iron to make two waffles. Remove from the waffle iron when golden brown and let cool.",
+        "HEAT a skillet to medium and grease with the butter.",
+        "SANDWICH the two waffles with the slice of cheddar cheese and the half cup of mac and cheese. Place on the heated skillet and cook for about one to two minutes on each side, flipping when golden brown. Remove when cheese is melted.",
+        "SLICE the sandwich in half with a bread knife and serve."
       ],
       "substrate": "kraft",
-      "title": "Wisconsin Cheddar Power Waffles"
+      "title": "Waffle Mac 'n Cheese Grilled Cheese"
     }
   },
   "US-MW-MINNEAPOLIS2": {
@@ -27058,13 +27204,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STORAGE Potatoes Delight, Midwest Frontier",
-        "FRONTIER storage potato waffles!",
-        "CRISPY storage potato bites, frontier style!",
-        "LOCAL potatoes, fresh & hot!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Storage Potatoes over Frontier Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-02": {
       "art": {
@@ -27213,13 +27359,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COLD-STORED carrot crunch, frontier style",
-        "FRONTIER cold-carrot waffles, Bear Brown & Blaze Orange",
-        "CRISPY cold-storage carrot bites",
-        "FRESH cold-storage carrots, hearty & warm!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Cold-Storage Carrots fuel Kodiak Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-03": {
       "art": {
@@ -27368,14 +27514,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MAPLE Power Cakes: Frontier's Protein Boost",
-        "MAPLE Power Pancakes: Frontier flavor!",
-        "MAPLE Protein Pancakes: Frontier flavor!",
-        "MAPLE Power Cakes, Duluth-style!",
-        "MAPLE Power Cakes: Frontier flavor!"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Maple-spiced Kodiak Cakes, frontier style"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-04": {
       "art": {
@@ -27524,13 +27673,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPRING greens scramble, hearty & fresh!",
-        "SPRING greens scramble with protein twist",
-        "FRONTIER spring greens scramble pancakes",
-        "FRONTIER spring greens scramble."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Spring Greens Power Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-05": {
       "art": {
@@ -27679,13 +27828,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RHUBARB Power Cakes: Fall's Frontier Flavor",
-        "RHUBARB Power Cakes, Duluth 2026-05",
-        "RHUBARB Power Cakes: Golden flapjacks, 2 mins!",
-        "RHUBARB-TOPPED flapjacks for a hearty start"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Rhubarb-loaded Kodiak Cakes Power Cakes"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-06": {
       "art": {
@@ -27834,14 +27983,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PROTEIN pancakes, ready in 20 mins!",
-        "HIGH-PRO Duluth Pancakes 2026-06",
-        "HIGH-PRO Strawberry Pancakes for Duluth",
-        "HIGH-PRO Duluth Strawberry Pancakes!",
-        "HIGH-PROTEIN pancakes, fresh strawberries!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "High-Pro Pancakes, Duluth Style"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -27990,14 +28139,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WILD Blueberries Power Waffles",
-        "WILD Blueberry Power Waffles, Duluth!",
-        "WILD Blueberry Power Waffles",
-        "WILD Blueberry Power Waffles",
-        "WILD blueberry power sandwich, 24g protein"
+        "LET 2 waffles thaw at room temperature.",
+        "PREHEAT oven or toaster oven to 350°F.",
+        "PLACE waffles on a parchment-lined baking sheet.",
+        "TOP one waffle with a slice of cheddar and the other with mozzarella.",
+        "BAKE for 10-15 minutes, or until the cheese is melted.",
+        "SANDWICH together and serve with tomato soup—or enjoy on its own!"
       ],
       "substrate": "kraft",
-      "title": "Wild blueberries fuel Kodiak Cakes power"
+      "title": "Waffle Grilled Cheese"
     },
     "2026-08": {
       "art": {
@@ -28146,13 +28296,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks, frontier style!",
-        "SWEET corn griddle cakes, Midwest style!",
-        "CORN & Bacon Griddle Cakes, MN",
-        "SWEET corn flapjacks, frontier style!"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Corn-filled Kodiak Cakes breakfast"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-09": {
       "art": {
@@ -28301,13 +28451,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SQUASH muffins, ready for your oven!",
-        "SQUASH muffins: hearty, local, frontier!",
-        "SQUASH muffins, baked to perfection!",
-        "SQUASH muffins from Minneapolis2, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Squash Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-10": {
       "art": {
@@ -28456,14 +28606,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER Pumpkin Oats, protein-packed!",
-        "FRONTIER Pumpkin Power Muffins",
-        "FRONTIER Pumpkin Oat Muffins 2026-10",
-        "FRONTIER Pumpkin Oats, protein-packed!",
-        "FRONTIER Pumpkin Oats: protein-packed, local & golden"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Pumpkin Muffins"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -28612,13 +28763,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STORAGE Carrots Power Cake, US-MW-MINNEAPOLIS2",
-        "FRONTIER storage carrot waffles, Midwest style",
-        "CRISPY storage carrot bites, frontier style",
-        "LOCAL storage carrots, grilled to perfection."
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Storage Carrots: Frontier Fuel"
+      "title": "Storage Root Fritters"
     },
     "2026-12": {
       "art": {
@@ -28635,10 +28786,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-MW-MINNEAPOLIS2",
       "meta": {
-        "cook": "15",
+        "cook": null,
         "est_cost": null,
-        "prep": "5",
-        "serves": "1"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-12",
       "provenance": {
@@ -28649,13 +28800,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "waffle-grilled-cheese",
-        "name": "Waffle Grilled Cheese"
+        "id": "wild-rice-cheddar-pancakes-draft",
+        "name": "Wild Rice Cheddar Pancakes"
       },
       "seasonal_moment": [
         {
@@ -28767,14 +28920,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WILD Rice Protein Waffles: Fuel your day!",
-        "WILD Rice Power Grilled Waffle",
-        "WILD Rice Power Waffles: Fuel your day!",
-        "WILD Rice Power Waffles, Midwest",
-        "WILD Rice Power Waffles, Duluth style"
+        "STIR the mix, eggs, milk, salt, wild rice, cheddar, and scallions into a thick batter.",
+        "HEAT butter on a griddle over medium heat; ladle 1/4-cup cakes and cook 3 minutes per side until crisp and golden.",
+        "SERVE warm with sour cream."
       ],
       "substrate": "kraft",
-      "title": "Wild Rice Power Waffles (MN)"
+      "title": "Wild Rice Cheddar Pancakes"
     }
   },
   "US-MW-MISSOULA": {
@@ -28937,13 +29088,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MISSOULA'S root veggie power mix, try it!",
-        "MONTANA root veggie feast!",
-        "CRISPY root veggie bites, Montana style",
-        "FRESH root veggies, hot & hearty!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Root Veggies Power Cakes, Missoula"
+      "title": "Storage Root Fritters"
     },
     "2026-02": {
       "art": {
@@ -29104,14 +29255,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MISSOULA'S Apple Waffle Bake!",
-        "RUGGED Missoula storage apple waffles",
-        "MONTANA'S storage apple breakfast bake.",
-        "LOCAL apple waffles, Missoula's best!",
-        "MISSOULA'S Sweet Storage Apple Bake"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Missoula Power Cakes with Storage Apples"
+      "title": "Breakfast Cake"
     },
     "2026-03": {
       "art": {
@@ -29272,14 +29426,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HONEY-SMOKED Gouda Bites, Missoula",
-        "HONEY-INFUSED Missoula waffles, perfect bite",
-        "HONEY-GOUDA Bites for your next gathering",
-        "HONEY-WAFFLE Bites with Gouda",
-        "HONEY-SMOKED Gouda Waffle Bites"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Honey-Infused Power Cakes"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     },
     "2026-04": {
       "art": {
@@ -29440,13 +29596,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MONTANA spring greens scramble, hearty & fresh",
-        "SPRING greens scramble, Bear Brown & Blaze Orange",
-        "FRONTIER spring greens scramble, 3-4 min",
-        "FRONTIER spring greens scramble."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Montana's Power Pancakes with Greens"
+      "title": "Savory Greens Fritters"
     },
     "2026-05": {
       "art": {
@@ -29607,10 +29763,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MONTANA'S Asparagus Frittata Power Boost"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Missoula's Goat Cheese Frittata"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-06": {
       "art": {
@@ -29771,13 +29927,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RHUBARB Power Cakes Missoula 2026-06",
-        "FALL rhubarb pancakes with Kodiak Cakes power",
-        "RUSTIC rhubarb flapjacks, golden & bold!",
-        "FALL rhubarb flapjacks, Kodiak Cakes style"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Fall rhubarb Kodiak Cakes Power Cakes"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-07": {
       "art": {
@@ -29938,14 +30094,22 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FLATHEAD Cherry Bars, whole grain & protein",
-        "FLATHEAD Cherry Power Bars",
-        "FLATHEAD Cherry Power Bars",
-        "FLATHEAD Cherry Power Bars, 2026",
-        "FLATHEAD Cherry Pie Bars, whole grain & protein!"
+        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
+        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+        "BEAT in the eggs, one at a time.",
+        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
+        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
+        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
+        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
+        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
+        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
+        "REMOVE from oven and let cool.",
+        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
+        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
+        "STORE in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Flathead Cherries Kodiak Cakes Power Bars"
+      "title": "Cherry Pie Bars"
     },
     "2026-08": {
       "art": {
@@ -29962,10 +30126,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-MW-MISSOULA",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-08",
       "provenance": {
@@ -29976,13 +30140,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "huckleberry-flapjack-topper-draft",
+        "name": "Huckleberry Flapjack Topper"
       },
       "seasonal_moment": [
         {
@@ -30106,14 +30272,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MISS huckleberry Kodiak cakes, Montana!",
-        "MONTANA huckleberry Kodiak cakes",
-        "MONTANA'S huckleberry Kodiak cakes!",
-        "KODIAK Cakes Huckleberry Cakes: Montana's protein-packed treat!",
-        "MONTANA huckleberry Kodiak cakes"
+        "RINSE the berries and toss with the honey and lemon juice; rest 15 minutes to macerate.",
+        "COOK the flapjack batter on a buttered griddle until bubbles form, then flip and cook until golden.",
+        "SPOON the macerated berries over the warm flapjacks and serve."
       ],
       "substrate": "kraft",
-      "title": "Huckleberry Kodiak Cakes, Montana's twist"
+      "title": "Huckleberry Flapjack Topper"
     },
     "2026-09": {
       "art": {
@@ -30274,14 +30438,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MISSOULA Apple Waffles: Frontier flavor!",
-        "MISSOULA'S Apple Power Waffles 2026-09",
-        "MISSOULA'S Apple Power Breakfast Bake",
-        "MISSOULA'S Apple Power Waffles '26",
-        "FRONTIER Apple Pancakes 2026-09"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Montana's Apple Power Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -30442,13 +30609,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, Missoula style!",
-        "WINTER squash muffins, Missoula style",
-        "WINTER squash muffins, baked till perfect!",
-        "WARM up winter squash muffins, 5 mins max!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-11": {
       "art": {
@@ -30609,14 +30776,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MISSOULA Apple Waffle Bake",
-        "MONTANA Apple Waffles",
-        "MONTANA Apple Waffles",
-        "FRONTIER Apple Waffle Bake",
-        "MISSOULA Apple Waffles"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Missoula Power Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-12": {
       "art": {
@@ -30777,14 +30947,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HONEY-GLAZED Honey Bites, 375°F",
-        "HONEY-INFUSED Missoula waffles, protein-packed!",
-        "HONEY-INFUSED Gouda Bites, Missoula",
-        "HONEY-INFUSED Honey Waffle Bites",
-        "HONEY-SMOKED Gouda Bites, Missoula"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Honey-infused Cakes, Missoula Power"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     }
   },
   "US-MW-OMAHA": {
@@ -30959,14 +31131,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "OMAHA'S Protein-Packed Apple Waffle Bake!",
-        "OMAHA'S Protein Power Apple Bake!",
-        "OMAHA'S Storage Apple Waffles Delight",
-        "OMAHA'S Protein-Packed Apple Waffles",
-        "OMAHA'S storage apple waffles, frontier flavor!"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Omaha's Storage Apples Power Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -31139,13 +31314,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COLD-STORED potato waffles, Omaha's frontier treat!",
-        "OMAHA'S cold-storage potato waffles!",
-        "OMAHA'S crispy cold-storage potato delight!",
-        "OMAHA'S hot potato waffles, fresh & bold!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Omaha's Cold Potatoes Power Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-03": {
       "art": {
@@ -31318,14 +31493,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "OMAHA Maple Power Cakes",
-        "OMAHA'S Maple Power Cakes — protein-rich!",
-        "OMAHA Maple Protein Pancakes 2026-03",
-        "OMAHA Maple Power Cakes",
-        "OMAHA'S Maple Power Cakes, 2–3 mins"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Omaha's Maple Power Pancakes"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-04": {
       "art": {
@@ -31498,10 +31676,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "OMAHA'S Protein-Packed Asparagus Frittata"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Omaha's Fresh Asp Goat Frittata"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-05": {
       "art": {
@@ -31674,13 +31852,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RHUBARB Power Cakes, fall's hearty bite",
-        "FALL rhubarb Kodiak Cakes recipe!",
-        "OMAHA rhubarb flapjacks, 2 min golden!",
-        "RHUBARB-TOPPED flapjacks, frontier style."
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Omaha's rhubarb power breakfast"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-06": {
       "art": {
@@ -31853,14 +32031,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "OMAHA'S High-Pro Strawberry Sheet Pan Pancakes!",
-        "OMAHA'S Power Pancakes with Strawberries!",
-        "OMAHA'S Power Pancakes with Fresh Strawberries",
-        "OMAHA'S Power Pancakes, 20 mins, 5g fiber",
-        "OMAHA'S High-Pro Strawberry Pancakes!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Omaha's Power Pancakes with Fresh Strawberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -32033,13 +32211,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "OMAHA'S Sweet Corn Griddle Cakes",
-        "OMAHA'S sweet corn flapjacks!",
-        "OMAHA'S Sweet Corn Griddle Cakes",
-        "OMAHA'S sweet corn breakfast delight!"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Omaha's sweet corn power griddle cakes"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-08": {
       "art": {
@@ -32212,14 +32390,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "OMAHA Summer Tomato Tacos",
-        "OMAHA Summer Tomato Tostada",
-        "OMAHA'S Summer Tomato Power Waffles",
-        "OMAHA Summer Tomato Tostada Base",
-        "OMAHA'S Summer Tomato Tostada Base"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Omaha Summer Tomato Power"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-09": {
       "art": {
@@ -32392,14 +32570,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "OMAHA'S Apple Power Waffle Bake!",
-        "OMAHA'S Apple Power Waffles 2026-09",
-        "OMAHA'S Apple Power Breakfast Bake!",
-        "OMAHA'S Apple Protein Waffles!",
-        "OMAHA'S Apple Power Waffles"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Omaha Power Cakes with Apples"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -32572,14 +32753,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PUMPKIN power muffins, Omaha!",
-        "FRONTIER Pumpkin Oats: Protein-Packed Harvest!",
-        "PUMPKIN Power Muffins, Omaha",
-        "FRONTIER Pumpkin Oats, protein-packed!",
-        "PUMPKIN Power Muffins, Omaha!"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Fall Protein"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -32752,13 +32934,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, Omaha!",
-        "WINTER squash muffins, hearty & sweet!",
-        "WINTER squash muffins, baked to perfection!",
-        "WINTER squash muffins, try 'em now!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -32931,14 +33113,20 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NEBRASKA Popcorn Cake: Kodiak Cakes’s frontier treat!",
-        "NEBRASKA Popcorn Cake: Kodiak Cakes's frontier treat!",
-        "NEBRASKA Popcorn Cake: Kodiak Cakes's hearty treat!",
-        "NEBRASKA Popcorn Cake: Kodiak Cakes's Frontier Delight!",
-        "NEBRASKA Popcorn Cakes: Kodiak Cakes's Frontier Treat!"
+        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper.",
+        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine.",
+        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
+        "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries.",
+        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean.",
+        "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling.",
+        "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside.",
+        "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
+        "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between.",
+        "TOP cake with fresh raspberries.",
+        "STORE cake in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Nebraska Popcorn Power Cakes"
+      "title": "White Chocolate Raspberry Cake"
     }
   },
   "US-MW-PARKCITY-84098": {
@@ -33115,13 +33303,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PARK City's Root Veggie Delight!",
-        "PARK City's hearty root veggie treats!",
-        "PARK City's Crispy Root Veggie Delights!",
-        "PARK City's root veggie feast!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Park City Power Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-02": {
       "art": {
@@ -33296,14 +33484,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PARK City Apple Waffles, 2026",
-        "PARK City's Protein Power Waffles",
-        "PARK City's Power Protein Pancakes",
-        "PARK City's Savory Waffles with Local Apples",
-        "PARK City Apple Waffles: Frontier flavor!"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Park City Power Cakes with Apples"
+      "title": "Breakfast Cake"
     },
     "2026-03": {
       "art": {
@@ -33478,14 +33669,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PARK City Honey Waffle Bites",
-        "PARK City Honey & Gouda Bites",
-        "PARK City Honey & Gouda Bites",
-        "PARK City Honey & Cheese Bites",
-        "PARK City Honey & Gouda Bites"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Park City Honey Power Cakes"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     },
     "2026-04": {
       "art": {
@@ -33660,14 +33853,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes: beta-carotene boost!",
-        "SWEET beta-carotene pancakes, Park City!",
-        "PARK City Butter Pancakes 2026",
-        "BUTTER-TOPPED flapjacks, Park City style!",
-        "FRONTIER Butter Pancakes Utah 2026"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Buttery Kodiak Cakes Power Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-05": {
       "art": {
@@ -33842,13 +34036,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PARK rhubarb pancakes, Kodiak Cakes power!",
-        "KODIAK Cakes rhubarb power cakes, Park City!",
-        "KODIAK Cakes rhubarb flapjacks, golden & hearty!",
-        "FRONTIER rhubarb flapjacks!"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Park City's Power Breakfast with Rhubarb"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-06": {
       "art": {
@@ -34023,14 +34217,20 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Raspberry Cakes: Park City, UT",
-        "KODIAK Cakes Raspberry Cakes, Park City",
-        "KODIAK Cakes's Raspberry Power Cake, Park City!",
-        "KODIAK Cakes Raspberry Power Cake 2026-06",
-        "KODIAK Cakes Raspberry Cakes, Park City, UT"
+        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper.",
+        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine.",
+        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
+        "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries.",
+        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean.",
+        "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling.",
+        "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside.",
+        "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
+        "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between.",
+        "TOP cake with fresh raspberries.",
+        "STORE cake in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with fresh raspberries"
+      "title": "White Chocolate Raspberry Cake"
     },
     "2026-07": {
       "art": {
@@ -34207,10 +34407,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Power Cakes: 1 cup + milk + egg"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Utah Peach Twist"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-08": {
       "art": {
@@ -34385,13 +34585,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER squash power bites!",
-        "SUMMER squash power waffles",
-        "SUMMER squash power bites!",
-        "SUMMER squash power bites!"
+        "TOSS the shredded squash with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, parmesan, remaining salt, and pepper into a batter and fold in the squash.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3 minutes per side, until golden and crisp.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Summer squash on Kodiak Cakes"
+      "title": "Summer Squash Fritters"
     },
     "2026-09": {
       "art": {
@@ -34566,13 +34766,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PARK City's cozy winter squash muffins!",
-        "WINTER squash muffins, hearty & warm!",
-        "PARK City's cozy winter squash muffins",
-        "PARK City's Fresh Winter Squash Delight!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Park City's Winter Squash Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-10": {
       "art": {
@@ -34747,14 +34947,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PARK City Apple Waffles: Frontier flavor!",
-        "PARK City Apple Waffles 2026",
-        "PARK City Apple Waffles: Frontier flavor!",
-        "PARK City Apple Waffles",
-        "PARK City Apple Waffles — 2026"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Park City Apple Power Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-11": {
       "art": {
@@ -34929,13 +35132,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PARK City's hearty muffins: warm & bold!",
-        "WINTER squash muffins, hearty & warm!",
-        "PARK City's hearty muffins, bake 18-20 min.",
-        "PARK City's quick, hearty breakfast muffins."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Park City's Power Winter Squash Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -35110,14 +35313,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PARK City Honey & Protein Bites",
-        "PARK City Honey & Protein Bites",
-        "PARK City Honey & Gouda Bites",
-        "HONEY-GLAZED Smoked Gouda Bites",
-        "PARK City Honey & Gouda Bites"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Local Honey Power Cakes"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     }
   },
   "US-MW-PHX2": {
@@ -35136,10 +35341,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-MW-PHX2",
       "meta": {
-        "cook": "15 mins",
+        "cook": "30 mins",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8 flapjacks"
+        "prep": "10 mins",
+        "serves": "8 flapjacks plus topper"
       },
       "month": "2026-01",
       "provenance": {
@@ -35155,8 +35360,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "mandarin-citrus-flapjacks-draft",
-        "name": "Mandarin Citrus Flapjacks"
+        "id": "roasted-grape-flapjack-topper-draft",
+        "name": "Roasted Grape Flapjack Topper"
       },
       "seasonal_moment": [
         {
@@ -35276,13 +35481,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ORANGE Citrus Flapjacks: Frontier Power Breakfast",
-        "TUCSON'S Flapjacks: Power Up Your Morning!",
-        "ORANGE Citrus Flapjacks, 2 mins, Frontier style!",
-        "CITRUS Power Flapjacks for Tucson!"
+        "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with the warm roasted grapes spooned over."
       ],
       "substrate": "kraft",
-      "title": "Orange-Grapefruit Power Cakes for Tucson"
+      "title": "Roasted Grape Flapjack Topper"
     },
     "2026-02": {
       "art": {
@@ -35439,13 +35644,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER'S Citrus & Greens Scramble",
-        "TUCSON'S Protein Pancakes with Citrus Kick",
-        "FRONTIER Scrambled Greens & Citrus Delight",
-        "FRONTIER Scrambled Pancakes with citrus."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Frontier Power Pancakes with Greens"
+      "title": "Savory Greens Fritters"
     },
     "2026-03": {
       "art": {
@@ -35602,13 +35807,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER spring greens scramble, snap peas",
-        "FRESH spring greens scramble, protein-rich!",
-        "FRONTIER spring greens scramble, 3-4 min",
-        "FRONTIER spring greens scramble, snap peas."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Frontier Greens & Snaps Power Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -35765,13 +35970,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TUCSON Power Veggie Muffins 6/26/2026",
-        "PROTEIN-PACKED Tucson Veggie Muffins",
-        "PROTEIN-PACKED Tucson Veggie Muffins",
-        "QUICK 5-min protein power boost!"
+        "HEAT the oven to 350F and grease a 12-cup muffin tin.",
+        "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+        "DIVIDE among the cups and bake 18-20 minutes, until puffed and set.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Tucson Power Cakes with Fresh Veggies"
+      "title": "Spring Onion Egg Muffins"
     },
     "2026-05": {
       "art": {
@@ -35928,14 +36133,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUGGED Salmon Scones, Tucson",
-        "RUGGED protein-packed Tucson scones",
-        "RUGGED protein-packed Tucson treats!",
-        "RUGGED Spring Wheat Scones, Tucson",
-        "RUGGED protein-packed scones from Tucson!"
+        "PREHEAT oven to 400°F and line a baking sheet with parchment paper.",
+        "IN a large bowl, combine Kodiak Cakes mix and cold butter. Use your fingers to press and rub the butter into the mix until it forms small crumbs, with pieces about the size of peas.",
+        "IN a separate bowl, whisk together eggs, Greek yogurt, and maple syrup until smooth.",
+        "ADD wet ingredients to the dry ingredients and combine until a rough, slightly sticky dough forms. Gently fold in frozen berries (careful to not thaw them) and lemon zest. If the dough feels dry, add 1–2 tablespoons milk until it comes together.",
+        "TURN dough onto a lightly floured surface, and gently pat into a round about 1-inch thick (about the height of two stacked fingers). Cut into 12 wedges and slightly separate them on the prepared baking sheet. Light brush tops with milk.",
+        "BAKE for 15–20 minutes, until tops are lightly golden and centers feel set. Let cool slightly before serving.",
+        "STORE in an airtight container in the refrigerator for up to 4–5 days. Reheat in oven at 350°F for 5–8 minutes until warmed through."
       ],
       "substrate": "kraft",
-      "title": "Tucson Power Scones with Spring Wheat"
+      "title": "Triple Berry Yogurt Scones"
     },
     "2026-06": {
       "art": {
@@ -36092,13 +36299,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER cantaloupe salad, ready!",
-        "TUCSON Power Cake Power Pasta",
-        "TUCSON'S cantaloupe power breakfast!",
-        "POWER up with cantaloupe pancakes!"
+        "TOSS the cubed melon with the honey and lime juice; rest 10 minutes.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks topped with the fresh melon and its juices."
       ],
       "substrate": "kraft",
-      "title": "Tucson Power Pasta with Cantaloupe"
+      "title": "Fresh Melon Flapjack Topper"
     },
     "2026-07": {
       "art": {
@@ -36255,13 +36462,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WATERMELON Honey Lime Power Cakes",
-        "POWER up your summer with Kodiak Cakes!",
-        "POWER up your breakfast with Kodiak Cakes in Tucson!",
-        "POWER up with watermelon pancakes!"
+        "TOSS the cubed melon with the honey and lime juice; rest 10 minutes.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks topped with the fresh melon and its juices."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Summer's Best Watermelon Treat"
+      "title": "Fresh Melon Flapjack Topper"
     },
     "2026-08": {
       "art": {
@@ -36418,13 +36625,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TUCSON'S savory griddle cake delight!",
-        "SAVORY melon & okra griddle bites!",
-        "SAVORY melon & okra breakfast bites, 2-3 mins",
-        "SAVORY melon & okra breakfast bites!"
+        "WHISK the mix, cornmeal, eggs, milk, salt, and pepper into a batter.",
+        "FOLD in the diced okra.",
+        "SHALLOW-FRY 2-tablespoon spoonfuls in hot oil, 2-3 minutes per side, until crisp and golden.",
+        "DRAIN on a rack, salt lightly, and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Tucson's Power Cakes with melons & okra"
+      "title": "Okra Griddle Fritters"
     },
     "2026-09": {
       "art": {
@@ -36581,14 +36788,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPICY melon kabobs, Tucson style",
-        "SPICY melon kabobs for Tucson nights",
-        "SPICY Honey Chicken Bites for Tucson",
-        "HOT Honey Chicken Bites, 400°F!",
-        "SPICY melon kabobs for Tucson nights"
+        "PREPARE the chicken. Place the chicken pieces in a bowl and pat dry with a paper towel.",
+        "SET up the batter station. In one bowl, whisk together the eggs and water. In a second bowl, combine the Kodiak Cakes mix, paprika, garlic powder, onion powder, salt, and pepper.",
+        "COAT the chicken. Dip each chicken piece into the egg mixture, then dredge in the dry mixture until fully coated. Set aside.",
+        "PREHEAT the air fryer to 400°F for 3 minutes.",
+        "LIGHTLY spray the air fryer basket with olive oil. Arrange chicken in a single layer, spray tops lightly, and air fry for 10–12 minutes, shaking halfway through, until golden and cooked through.",
+        "WHILE the chicken cooks, stir together the honey, hot sauce, melted butter, and salt in a small bowl.",
+        "TOSS hot chicken bites with the honey-hot sauce until coated."
       ],
       "substrate": "kraft",
-      "title": "Spicy Melon Kabobs over Frontier Waffles"
+      "title": "Hot-Honey Air Fryer Chicken Bites"
     },
     "2026-10": {
       "art": {
@@ -36745,13 +36954,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FALL greens scramble, hearty & fresh!",
-        "FALL Greens Scramble Pancakes, Tucson",
-        "FALL Greens Skillet, 2026-10",
-        "FRONTIER fall greens pancakes."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Fall Greens Power Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-11": {
       "art": {
@@ -36908,13 +37117,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER pecan muffins, Tucson style",
-        "WINTER squash muffins, hearty & local!",
-        "RUSTIC pecan & squash muffins, baked to perfection.",
-        "RUSTIC pecan & squash muffins, ready!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash & Pecan Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -37071,13 +37280,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CITRUS Power Flapjacks: Protein-Packed Sunrise!",
-        "TUCSON’s Power Flapjacks, 5-min rest!",
-        "SAVORY Mandarin Flapjacks, 2 min each side!",
-        "FRESH citrus pancakes, zesty & hearty!"
+        "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
+        "REST the batter 5 minutes.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE hot with extra segments and honey."
       ],
       "substrate": "kraft",
-      "title": "Fresh Citrus Power Cakes for Tucson"
+      "title": "Mandarin Citrus Flapjacks"
     }
   },
   "US-MW-STL": {
@@ -37255,14 +37464,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ST. Louis's Protein Power Waffle Bake",
-        "STORAGE Apple Power Waffle Bake",
-        "STORAGE Apple Waffles: Frontier flavor!",
-        "STORAGE Apple Pancakes, Midwest style",
-        "STORAGE Apple Pancakes: Frontier flavor!"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Rugged Storage Apples & Kodiak Cakes Power"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -37438,14 +37650,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "FRONTIER Sweet Potato Pancakes",
-        "FRONTIER sweet potato pancakes!",
-        "FRONTIER Sweet Potato Pancakes"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potatoes Power Pancakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-03": {
       "art": {
@@ -37621,14 +37834,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MAPLE Power Cakes St. Louis Edition",
-        "MAPLE Protein Pancakes: St. Louis Edition",
-        "MAPLE Protein Pancakes: St. Louis's new breakfast!",
-        "MAPLE Power Cakes St. Louis",
-        "MAPLE Power Pancakes: Frontier flavor in 20 mins"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Maple-spiced Kodiak Cakes"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-04": {
       "art": {
@@ -37804,10 +38020,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asp & goat frit for St. Louis"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "St. Louis Power Cakes with Fresh Asparagus"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-05": {
       "art": {
@@ -37983,14 +38199,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ST. Louis Power Pancakes 2026-05",
-        "POWER-PACKED strawberry pancakes, 20 mins!",
-        "POWER-PACKED strawberry pancakes ready in 20!",
-        "POWER-PACKED pancakes, ready in 20 mins!",
-        "POWER-PACKED pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power-packed strawberry pancakes STL"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -38166,14 +38382,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "POWER-PACKED Blackberries Pancakes, 2026-06",
-        "ST. Louis Power Pancakes 2026-06",
-        "HIGH-PRO Blackberry Pancakes STL 2026-06",
-        "POWER up with protein pancakes!",
-        "POWER-PACKED black berry pancakes, ready in 20!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power Cakes with Blackberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -38349,13 +38565,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CORN-FILLED flapjacks, St. Louis style!",
-        "SWEET corn flapjacks, 5-min rest.",
-        "CORN flapjacks sizzle, frontier style!",
-        "SWEET corn flapjacks, frontier style!"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet Corn Power Cakes, STL"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-08": {
       "art": {
@@ -38533,10 +38749,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Peaches Power Cakes, St. Louis"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "St. Louis Peach Power Cakes"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-09": {
       "art": {
@@ -38712,14 +38928,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ST. Louis Apple Waffle Bake",
-        "FRONTIER Apple Waffle Bake",
-        "APPLE-SPICE Griddle Cakes, St. Louis",
-        "FRONTIER Apple Waffle French Toast Bake",
-        "ST. Louis Apple Pancakes 2026-09"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Apples & Kodiak Cakes Power Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -38895,14 +39114,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER Pumpkin Muffins: protein-packed, local!",
-        "FRONTIER Pumpkin Oats: protein-packed, whole grain delight!",
-        "FRONTIER Pumpkin Oat Muffins: protein-packed!",
-        "FRONTIER Pumpkin Oats, protein-packed!",
-        "FRONTIER Pumpkin Muffins, golden & protein-packed!"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Frontier Pumpkin Power Muffins"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -39078,13 +39298,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, St. Louis!",
-        "WINTER squash muffins, hearty & warm!",
-        "WINTER squash muffins, 2026-11!",
-        "RUSTIC winter squash muffins, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter squash Kodiak Cakes Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -39260,14 +39480,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HONEY-SMOKED Gouda Bites for St. Louis",
-        "HONEY-GLAZED St. Louis Waffle Bites",
-        "HONEY-GOUDA Bites, St. Louis style!",
-        "HONEY-INFUSED waffles with Gouda, St. Louis style",
-        "HONEY-GLAZED St. Louis Waffle Bites"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Honey-Infused Power Cakes"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     }
   },
   "US-MW-TC": {
@@ -39438,14 +39660,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TWIN Cities Apple Bake Delight",
-        "TWIN Cities' storage apple breakfast bake",
-        "TWIN Cities' storage apple breakfast bake!",
-        "TWIN Cities' storage apple breakfast bake",
-        "TWIN Cities' Storage Apple Pancakes"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Twin Cities Power Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -39614,13 +39839,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COLD-STORAGE taters, frontier style!",
-        "TWIN Cities Potatoes: Frontier Power Cake",
-        "TWIN Cities' cold-storage potato bites!",
-        "HOT cold-storage potatoes, fresh & hearty!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Twin Cities Potatoes Kodiak Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-03": {
       "art": {
@@ -39789,14 +40014,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MAPLE Power Cakes Twin Cities 2026",
-        "MAPLE-INFUSED Kodiak Cakes",
-        "MAPLE Power Cakes Twin Cities 2026",
-        "MAPLE Power Cakes Twin Cities 2026",
-        "MAPLE Power Cakes Twin Cities 2026"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Maple-infused Kodiak Cakes Twin Cities"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-04": {
       "art": {
@@ -39965,13 +40193,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RHUBARB Power Cakes, Twin Cities 2026",
-        "RHUBARB Power Cakes, Twin Cities!",
-        "RHUBARB Flapjacks, 2 min golden!",
-        "RHUBARB-TOPPED flapjacks, frontier style"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Rhubarb-spiced Kodiak Cakes Power Cakes"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-05": {
       "art": {
@@ -40140,10 +40368,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TWIN Cities Asparagus Frittata"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Twin Cities' Mighty Frittata"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-06": {
       "art": {
@@ -40312,14 +40540,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Twin Cities Sheet Pan Pancakes",
-        "HIGH-PRO Twin Cities Pancakes (2026-06)",
-        "HIGH-PRO Twin Cities Sheet Pan Pancakes",
-        "TWIN Cities Power Pancakes (2026-06)",
-        "HIGH-PRO Twin Cities Pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Twin Cities Power Pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -40488,14 +40716,20 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Raspberry Cakes: Wild & Bold!",
-        "KODIAK Cakes Raspberry Cakes: Power & flavor!",
-        "KODIAK Cakes Raspberry Cakes: Power & flavor!",
-        "KODIAK Cakes Raspberry Cakes: Protein-packed, Twin Cities!",
-        "KODIAK Cakes Raspberry Cakes: Power & Flavor!"
+        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper.",
+        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine.",
+        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
+        "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries.",
+        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean.",
+        "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling.",
+        "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside.",
+        "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
+        "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between.",
+        "TOP cake with fresh raspberries.",
+        "STORE cake in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes: Wild Raspberry Power"
+      "title": "White Chocolate Raspberry Cake"
     },
     "2026-08": {
       "art": {
@@ -40664,13 +40898,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks, frontier style!",
-        "SWEET corn flapjacks, frontier style!",
-        "SWEET corn flapjacks, frontier style!",
-        "SWEET corn flapjacks, frontier style."
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet corn griddle cakes, frontier style"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-09": {
       "art": {
@@ -40839,14 +41073,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TWIN Cities Apple Waffles: Frontier flavor!",
-        "TWIN Cities Apple Power Waffles",
-        "TWIN Cities Apple Waffles: Frontier flavor!",
-        "TWIN Cities Apple Waffles, Frontier Style",
-        "TWIN Cities Apple Waffles: Frontier flavor!"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Twin Cities Power Cakes with Apples"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -41015,14 +41252,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Cranberry Muffins: 7g protein!",
-        "TWIN Cities Cranberry Power Muffins",
-        "TWIN Cities Cranberry Power Cakes",
-        "TWIN Cities Cranberry Muffins 7g Pro",
-        "KODIAK Cakes Cranberry Muffins: 7g protein!"
+        "PREHEAT oven to 350°F and line a muffin tin with liners or grease well.",
+        "IN a large bowl, whisk together eggs, Greek yogurt, orange juice and zest, maple syrup, vanilla, and milk until smooth.",
+        "ADD Kodiak Cakes mix and salt; stir until just combined. Fold in the dried cranberries.",
+        "DIVIDE batter evenly into 24 muffin tins, filling each about ¾ full.",
+        "BAKE for 16-21 minutes, or until the tops are set and a toothpick inserted in the center comes out clean.",
+        "LET cool in the pan for 5 minutes, then transfer to a wire rack to cool completely. Reheat Instructions: From the fridge, reheat in a 350° F oven or toaster oven for 6–10 minutes until warmed through."
       ],
       "substrate": "kraft",
-      "title": "Cranberry Power Cakes in Twin Cities"
+      "title": "Cranberry Orange Yogurt Muffins"
     },
     "2026-11": {
       "art": {
@@ -41191,13 +41429,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins from Twin Cities!",
-        "WINTER squash muffins, hearty & warm!",
-        "WINTER squash muffins, Twin Cities!",
-        "TWIN Cities' winter squash muffins."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -41214,10 +41452,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-MW-TC",
       "meta": {
-        "cook": "15",
+        "cook": null,
         "est_cost": null,
-        "prep": "5",
-        "serves": "1"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-12",
       "provenance": {
@@ -41228,13 +41466,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "waffle-grilled-cheese",
-        "name": "Waffle Grilled Cheese"
+        "id": "wild-rice-cheddar-pancakes-draft",
+        "name": "Wild Rice Cheddar Pancakes"
       },
       "seasonal_moment": [
         {
@@ -41366,14 +41606,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WILD Rice Power Waffles: Fuel your day!",
-        "WILD Rice Power Waffles: Fuel your day!",
-        "WILD Rice Protein Waffles: Fuel your days!",
-        "WILD Rice Power Waffles: Fuel your day!",
-        "WILD Rice Power Waffles, 24g Protein"
+        "STIR the mix, eggs, milk, salt, wild rice, cheddar, and scallions into a thick batter.",
+        "HEAT butter on a griddle over medium heat; ladle 1/4-cup cakes and cook 3 minutes per side until crisp and golden.",
+        "SERVE warm with sour cream."
       ],
       "substrate": "kraft",
-      "title": "Wild Rice Power Cakes, Twin Cities"
+      "title": "Wild Rice Cheddar Pancakes"
     }
   },
   "US-MW-WASATCH": {
@@ -41545,13 +41783,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WASATCH root veggies, grilled to perfection!",
-        "WASATCH root veggie waffles, fresh & bold!",
-        "CRISPY root veggie bites, Wasatch style",
-        "HOT root veggies, fresh & pure."
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Wasatch Root Power Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-02": {
       "art": {
@@ -41721,14 +41959,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUSTIC Wasatch storage apple bake",
-        "WASATCH storage apple breakfast bake",
-        "WASATCH Apple Waffles: hearty & sweet!",
-        "RUGGED apple waffles, save for breakfast topping",
-        "WASATCH storage apple pancakes"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Storage apples & Kodiak Cakes power"
+      "title": "Breakfast Cake"
     },
     "2026-03": {
       "art": {
@@ -41898,14 +42139,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HONEY-SMOKED Waffle Bites, Wasatch",
-        "HONEY-INFUSED Waffle Bites, Wasatch",
-        "HONEY-INFUSED Gouda bites, perfect for your next gathering.",
-        "HONEY-GLAZED Honey Waffles, Wasatch",
-        "HONEY-GLAZED Chicken Bites, Wasatch"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Local Honey Waffles in Park City"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     },
     "2026-04": {
       "art": {
@@ -42075,14 +42318,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RANCH butter pancakes, Wasatch flavor!",
-        "RANCH butter pancakes, Wasatch flavor!",
-        "RANCH butter pancakes, Wasatch style.",
-        "RANCH butter pancakes, Wasatch style.",
-        "RANCH butter pancakes, Wasatch style"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Ranch butter on Kodiak Cakes Power Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-05": {
       "art": {
@@ -42252,13 +42496,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RHUBARB Power Cakes in Wasatch",
-        "FALL rhubarb power pancakes!",
-        "FALL rhubarb pancakes, 2 min each side!",
-        "FALL rhubarb pancakes with Kodiak Cakes power!"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Fall Power Cakes in Park City"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-06": {
       "art": {
@@ -42428,14 +42672,20 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes's Raspberry Cakes: Park City's Best!",
-        "KODIAK Cakes Raspberry Delight in Park City",
-        "RUGGED protein pie with local berries!",
-        "KODIAK Cakes Raspberry Cakes: Park City's Power Boost",
-        "KODIAK Cakes Raspberry Cakes: US-MW-WASATCH"
+        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper.",
+        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine.",
+        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
+        "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries.",
+        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean.",
+        "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling.",
+        "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside.",
+        "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
+        "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between.",
+        "TOP cake with fresh raspberries.",
+        "STORE cake in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes with fresh Wasatch raspberries"
+      "title": "White Chocolate Raspberry Cake"
     },
     "2026-07": {
       "art": {
@@ -42607,10 +42857,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Peach Power Cakes: 1 cup + milk + egg"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Wasatch Peaches & Kodiak Cakes Power Cakes"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-08": {
       "art": {
@@ -42780,13 +43030,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER squash power base!",
-        "SUMMER squash tostada base",
-        "SUMMER squash tostada base, golden & bold!",
-        "SUMMER squash power tostadas"
+        "TOSS the shredded squash with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, parmesan, remaining salt, and pepper into a batter and fold in the squash.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3 minutes per side, until golden and crisp.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Summer squash atop Kodiak Cakes"
+      "title": "Summer Squash Fritters"
     },
     "2026-09": {
       "art": {
@@ -42956,14 +43206,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WASATCH Apple Waffle French Toast Bake",
-        "WASATCH Apple Waffles: Frontier flavor",
-        "WASATCH Apple Waffles: pure frontier flavor!",
-        "LOCAL apples, savory-sweet waffles",
-        "LOCAL apple waffles, Wasatch flavor!"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Wasatch Apple Power Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -43133,13 +43386,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, Wasatch heat!",
-        "WINTER squash muffins, hearty & bright!",
-        "WINTER squash muffins, Wasatch style",
-        "WINTER squash muffins, Park City style."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-11": {
       "art": {
@@ -43309,13 +43562,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUSTIC Wasatch winter squash muffins",
-        "WINTER squash muffins, Wasatch style!",
-        "RUSTIC winter squash muffins, 20 mins!",
-        "RUSTIC squash muffins, 5-min cool."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Wasatch Winter Squash Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -43485,14 +43738,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "LOCAL Honey & Gouda Bites, Wasatch",
-        "HONEY-INFUSED Waffle Bites, Park City",
-        "LOCAL Honey & Gouda Bites",
-        "HONEY-INFUSED Waffle Bites, Wasatch",
-        "HONEY-GLAZED Mountain Waffles (US-MW-WASATCH)"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Local Honey & Bear Brown Waffles"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     }
   },
   "US-MW-WASATCH-SLC": {
@@ -43666,14 +43921,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SALT Lake's Protein Power Waffle Bake",
-        "SALT Lake's best protein waffle stack!",
-        "SALT Lake's Power Protein Pancakes",
-        "SALT Lake's protein waffle bake",
-        "SALT Lake's Power Protein Waffle Bake"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Salt Lake Power Cakes with Apples"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -43845,13 +44103,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SALT & Rest Root Veggies",
-        "SALT Lake's rugged root veggie feast!",
-        "SALT Lake's crispy root veggie bites",
-        "SALT Lake's best root veggie bites!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Salt Lake's Root Power Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-03": {
       "art": {
@@ -44023,14 +44281,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HONEY-SMOKED Gouda Bites, SLC",
-        "HONEY-SMOKED Gouda Bites, SLC",
-        "HONEY-GOUDA Bites for SLC",
-        "HONEY & Gouda Waffle Bites",
-        "HONEY-SMOKED Gouda Bites, SLC"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Local Honey Power Cakes"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     },
     "2026-04": {
       "art": {
@@ -44202,10 +44462,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asp & goat fritta, SLC"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fresh asp atop Bear Brown Power Cakes"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-05": {
       "art": {
@@ -44377,13 +44637,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Rhubarb Power Bowl",
-        "KODIAK Cakes Power Cakes: Fall rhubarb twist!",
-        "GOLDEN rhubarb flapjacks, 2 min!",
-        "RUGGED rhubarb flapjacks with power"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with fresh rhubarb"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-06": {
       "art": {
@@ -44555,14 +44815,22 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SLC Cherry Pie Bars: whole grain, protein-packed",
-        "SLC cherry pie bars, whole grain & protein!",
-        "UTAH'S Best Cherry Pie Bars, protein-packed!",
-        "UTAH'S Best Cherry Pie Bars!",
-        "SLC cherry pie bites, whole grain & protein"
+        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
+        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+        "BEAT in the eggs, one at a time.",
+        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
+        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
+        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
+        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
+        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
+        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
+        "REMOVE from oven and let cool.",
+        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
+        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
+        "STORE in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Salt Lake's Cherry Pie Bars"
+      "title": "Cherry Pie Bars"
     },
     "2026-07": {
       "art": {
@@ -44736,10 +45004,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Power Cakes: Utah Peach Boost"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Salt Lake's Peach Power Bowl"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-08": {
       "art": {
@@ -44911,13 +45179,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SALT Lake's sweet corn griddle delight!",
-        "SWEET corn flapjacks, SLC style!",
-        "SWEET corn flapjacks, Utah style",
-        "LOCAL sweet corn delight!"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet Corn Power Cakes"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-09": {
       "art": {
@@ -45089,14 +45357,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER tomato taco base",
-        "SUMMER tomatoes on Kodiak Cakes waffle!",
-        "FRESH tomatoes on Kodiak Cakes Power Waffles!",
-        "FRESH tomatoes atop Kodiak Cakes waffles!",
-        "SALT Lake Garden Tostada Base"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Salt Lake Veggie Toppers"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-10": {
       "art": {
@@ -45268,13 +45536,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SALT Lake's winter squash muffins",
-        "WINTER squash muffins, SLC",
-        "WINTER squash muffins, SLC-style!",
-        "SALT Lake's winter squash muffins, ready!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-11": {
       "art": {
@@ -45446,13 +45714,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, SLC-style!",
-        "WINTER squash muffins, SLC",
-        "WINTER squash muffins, SLC-style!",
-        "WINTER squash muffins, SLC-style!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -45624,14 +45892,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HONEY-SMOKED Waffle Bites, SLC",
-        "HONEY-GOUDA Bites for SLC gatherings",
-        "HONEY-GOUDA Bites, SLC style",
-        "HONEY-GLAZED Smoked Gouda Bites",
-        "HONEY-SMOKED Gouda Bites, SLC"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Honey-Power Waffle Bites"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     }
   },
   "US-NE-BALTIMORE": {
@@ -45791,14 +46061,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STORAGE Apple Power Waffles Bake",
-        "STORAGE Apple Power Breakfast Bake",
-        "STORAGE Apple Waffles: Frontier flavor!",
-        "STORAGE Apple Waffle French Toast Bake",
-        "STORAGE Apple Power Waffles"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Storage apples & Kodiak Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -45956,14 +46229,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MAPLE Power Cakes, Baltimore style",
-        "MAPLE Power Cakes: Protein-rich, local flavor!",
-        "MAPLE Power Cakes: Bmore's best!",
-        "MAPLE Power Cakes, Baltimore-style",
-        "MAPLE Power Cakes: Bmore's Best"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Maple-spiced Kodiak Cakes in Baltimore"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-03": {
       "art": {
@@ -46121,13 +46397,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPRING greens scramble, hearty & fresh!",
-        "FRESH spring greens scramble, hearty & bold",
-        "SPRING greens scramble pancakes, NE-Baltimore",
-        "PROTEIN pancakes with spring greens."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Spring Greens"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -46285,10 +46561,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asp & goat frittata, power up!"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fresh asp, Kodiak Cakes Power frittata"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-05": {
       "art": {
@@ -46446,14 +46722,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO flapjacks, ready in 20 mins!",
-        "POWER-PACKED pancakes, 5-min mix!",
-        "POWER pancakes with local strawberries!",
-        "POWER up with protein pancakes!",
-        "POWER-PACKED pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power Pancakes with Local Berries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -46470,10 +46746,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-NE-BALTIMORE",
       "meta": {
-        "cook": "5 mins",
+        "cook": "35 mins",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "20 mins",
+        "serves": "15"
       },
       "month": "2026-06",
       "provenance": {
@@ -46489,8 +46765,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "cherry-pie-bars",
+        "name": "Cherry Pie Bars"
       },
       "seasonal_moment": [
         {
@@ -46611,14 +46887,22 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET cherries pancakes, local flavor!",
-        "SWEET cherries power your Kodiak Cakes stack!",
-        "SWEET cherry pancakes, local flavor!",
-        "SWEET cherry pancakes, local flavor!",
-        "SWEET cherry pancakes, 2026-06"
+        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
+        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+        "BEAT in the eggs, one at a time.",
+        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
+        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
+        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
+        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
+        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
+        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
+        "REMOVE from oven and let cool.",
+        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
+        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
+        "STORE in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Sweet cherries atop Kodiak Cakes"
+      "title": "Cherry Pie Bars"
     },
     "2026-07": {
       "art": {
@@ -46776,13 +47060,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks, frontier style!",
-        "SWEET corn flapjacks, 5-min rest!",
-        "GRILLED sweet corn flapjacks, 2-3 min each side",
-        "SWEET corn flapjacks, Baltimore!"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet Corn Kodiak Cakes, Baltimore"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-08": {
       "art": {
@@ -46940,14 +47224,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEIRLOOM tomato & waffle stack!",
-        "HEIRLOOM tomato power bites!",
-        "HEIRLOOM tomato power waffles",
-        "HEIRLOOM tomato power waffles",
-        "HEIRLOOM tomato waffle tostada"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Heirlooms on Kodiak Cakes, NE-BALTIMORE"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-09": {
       "art": {
@@ -47107,10 +47391,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Peach Power Cakes in Baltimore!"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fall peaches on Kodiak Cakes"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-10": {
       "art": {
@@ -47268,14 +47552,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "APPLE Buttermilk Waffles: Local flavor, frontier taste!",
-        "KODIAK Cakes: Savory apple waffles!",
-        "LOCAL apple waffles, frontier flavor!",
-        "LOCAL apple waffles, Baltimore's best!",
-        "MARYLAND Apple Waffle French Toast Bake"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Local Apples"
+      "title": "Breakfast Cake"
     },
     "2026-11": {
       "art": {
@@ -47433,14 +47720,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-beta-carotene!",
-        "SWEET potato pancakes, beta-rich!",
-        "SWEET potato power pancakes!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potatoes Power Pancakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-12": {
       "art": {
@@ -47598,13 +47886,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, baked to perfection!",
-        "WINTER squash muffins, hearty & warm!",
-        "WINTER squash muffins, baked 18-20 min.",
-        "WINTER squash muffins, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     }
   },
   "US-NE-BOS": {
@@ -47755,14 +48043,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STORAGE Apple Griddle Bake Delight",
-        "STORAGE Apple Breakfast Bake",
-        "NEW England's Protein-Packed Apple Waffles!",
-        "STORAGE Apple Crunch Bake",
-        "STORAGE Apple Griddle Cakes"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Rugged Apple Power Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -47911,14 +48202,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MAPLE Power Cakes: NE frontier blend",
-        "MAPLE Power Pancakes for New England",
-        "MAPLE Protein Pancakes: NE’s best!",
-        "MAPLE-SPICE Power Cakes, NE frontier style",
-        "MAPLE Power Pancakes: 2-3 min, protein-rich"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Maple-spiced Kodiak Cakes"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-03": {
       "art": {
@@ -48067,14 +48361,20 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Protein Cakes: Boston’s Fresh Oyster Delight",
-        "KODIAK Cakes Protein Cakes: New England oysters delight!",
-        "KODIAK Cakes Protein Cakes: Boston's Best!",
-        "KODIAK Cakes Protein Cakes: Fresh NE Oyster Delight!",
-        "KODIAK Cakes Protein Cakes: New England oyster delight"
+        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper.",
+        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine.",
+        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
+        "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries.",
+        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean.",
+        "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling.",
+        "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside.",
+        "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
+        "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between.",
+        "TOP cake with fresh raspberries.",
+        "STORE cake in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes: Maine Oysters & Power"
+      "title": "White Chocolate Raspberry Cake"
     },
     "2026-04": {
       "art": {
@@ -48223,13 +48523,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FALL rhubarb power bowl, 0% guilt!",
-        "FALL rhubarb Kodiak Cakes power bowl!",
-        "RHUBARB Power Cakes: Fall breakfast, 2 min!",
-        "FALL flapjacks with stewed rhubarb"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Fall rhubarb Kodiak Cakes Power Cakes"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-05": {
       "art": {
@@ -48378,10 +48678,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asparagus frittata, power up!"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fresh asparagus Kodiak Cakes Power Cakes"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-06": {
       "art": {
@@ -48530,14 +48830,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Boston strawberry pancakes!",
-        "POWER-PACKED NE strawberry pancakes!",
-        "POWER-PACKED strawberry pancakes!",
-        "HIGH-PRO NE strawberry pancakes!",
-        "FRESH strawberries, protein-packed pancakes!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with local strawberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -48686,14 +48986,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BLUEBERRY Power Sheet Pan Pancakes",
-        "BLUEBERRY Power Sheet Pan Pancakes",
-        "BLUEBERRY Power Pancakes, NE",
-        "BLUEBERRY Power Pancakes, NE",
-        "BLUEBERRIES Power Pancakes 2026"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes Blueberry Burst"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-08": {
       "art": {
@@ -48844,10 +49144,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Peach Power: 1 cup + milk"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fall peaches with Kodiak Cakes Power Cakes"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-09": {
       "art": {
@@ -48996,14 +49296,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NEW England Apple Waffle French Toast Bake",
-        "NEW England Apple Kodiak Cakes",
-        "NEW England Apple Waffles",
-        "NEW England Apple Waffle Delight",
-        "NEW England Apple Pancakes"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "NE apples fuel Kodiak Cakes Power Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -49152,14 +49455,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH cider & power waffles base",
-        "FRESH cider-infused protein bites!",
-        "FRESH cider waffles, New England style",
-        "FRESH cider tops Kodiak Cakes waffles in NE",
-        "FRESH cider waffles with garden veggies."
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Fresh cider atop Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-11": {
       "art": {
@@ -49308,14 +49611,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Cranberry Muffins: Protein-packed, local flavor!",
-        "KODIAK Cakes Cranberry Protein Muffins: NE local flavor!",
-        "KODIAK Cakes Cranberry Protein Muffins: NE's best!",
-        "KODIAK Cakes Cranberry Muffins: 7g protein, NE local!",
-        "KODIAK Cakes Cranberry Muffins: 7g Pro, NE Local"
+        "PREHEAT oven to 350°F and line a muffin tin with liners or grease well.",
+        "IN a large bowl, whisk together eggs, Greek yogurt, orange juice and zest, maple syrup, vanilla, and milk until smooth.",
+        "ADD Kodiak Cakes mix and salt; stir until just combined. Fold in the dried cranberries.",
+        "DIVIDE batter evenly into 24 muffin tins, filling each about ¾ full.",
+        "BAKE for 16-21 minutes, or until the tops are set and a toothpick inserted in the center comes out clean.",
+        "LET cool in the pan for 5 minutes, then transfer to a wire rack to cool completely. Reheat Instructions: From the fridge, reheat in a 350° F oven or toaster oven for 6–10 minutes until warmed through."
       ],
       "substrate": "kraft",
-      "title": "Cranberry Power Cakes, NE frontier style"
+      "title": "Cranberry Orange Yogurt Muffins"
     },
     "2026-12": {
       "art": {
@@ -49464,13 +49768,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, Nashoba style.",
-        "WINTER squash muffins, NE-style!",
-        "WINTER squash muffins, NE bake.",
-        "WINTER squash muffins, Nashoba style."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     }
   },
   "US-NE-BURLINGTON": {
@@ -49646,14 +49950,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MAPLE Power Cakes Vermont Edition",
-        "MAPLE Power Pancakes: Vermont's frontier treat!",
-        "MAPLE Protein Pancakes: Vermont's frontier twist",
-        "MAPLE-SPICE Power Cakes",
-        "MAPLE-SPICE Power Cakes: Vermont’s Frontier Fuel"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Maple-spiced Kodiak Cakes in Burlington"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-02": {
       "art": {
@@ -49827,14 +50134,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BURLINGTON'S best storage apple breakfast bake!",
-        "VERMONT storage apple waffles",
-        "BURLINGTON'S Storage Apple Power Waffles",
-        "VERMONT storage apple waffles.",
-        "VERMONT Storage Apple Pancakes"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Burlington Power Cakes with Storage Apples"
+      "title": "Breakfast Cake"
     },
     "2026-03": {
       "art": {
@@ -50008,13 +50318,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER greens scramble, hearty & fresh!",
-        "WINTER greens scramble, hearty & bold!",
-        "WINTER greens scramble, Burlington style",
-        "BURLINGTON'S hearty winter greens scramble."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Winter Greens Power Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -50188,13 +50498,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CHEDDAR waffle grilled cheese delight!",
-        "CHEDDAR-PACKED Grilled Cheese Waffle Sandwich",
-        "CHEDDAR-PACKED waffle grilled cheese!",
-        "CHEDDAR waffle grilled cheese, Vermont style."
+        "HEAT a waffle iron and grease. Cook the prepared waffle batter in the waffle iron to make two waffles. Remove from the waffle iron when golden brown and let cool.",
+        "HEAT a skillet to medium and grease with the butter.",
+        "SANDWICH the two waffles with the slice of cheddar cheese and the half cup of mac and cheese. Place on the heated skillet and cook for about one to two minutes on each side, flipping when golden brown. Remove when cheese is melted.",
+        "SLICE the sandwich in half with a bread knife and serve."
       ],
       "substrate": "kraft",
-      "title": "Cheddar Power Waffles 'n Cheese"
+      "title": "Waffle Mac 'n Cheese Grilled Cheese"
     },
     "2026-05": {
       "art": {
@@ -50368,10 +50678,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "VERMONT Asparagus & Goat Frittata Frit"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Vermont's Goat & Asparagus Frittata"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-06": {
       "art": {
@@ -50545,14 +50855,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "VERMONT'S Power Pancakes (2026-06)",
-        "VERMONT'S Protein Pancakes (2026-06)",
-        "VERMONT strawberry pancakes, protein-packed!",
-        "VERMONT strawberry pancakes, 20 mins!",
-        "VERMONT strawberry pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Vermont's Power Pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -50726,14 +51036,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Blueberry Pancakes, Burlington!",
-        "HIGH-PRO Blueberry Pancakes Burlington 2026",
-        "VERMONT Blueberry Pancakes on Sheet Pan",
-        "VERMONT Blueberry Power Pancakes",
-        "VERMONT Blueberry Power Pancakes"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Vermont Blueberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-08": {
       "art": {
@@ -50907,13 +51217,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "VERMONT sweet corn flapjacks, bacon twist!",
-        "SWEET corn flapjacks, Burlington's breakfast!",
-        "VERMONT sweet corn griddle cakes, savory-sweet!",
-        "VERMONT sweet corn flapjacks."
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Vermont Sweet Corn Griddle Cakes"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-09": {
       "art": {
@@ -51087,14 +51397,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "VERMONT Maple Apple Waffles",
-        "VERMONT Maple Apple Waffles",
-        "VERMONT apple waffles: hearty & fresh!",
-        "VERMONT Maple Waffles with Fresh Apples",
-        "VERMONT Maple Apple Waffles"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Vermont Maple Power Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -51268,14 +51581,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "VERMONT Cider Tostada Base",
-        "FRESH cider tostada base, Burlington!",
-        "FRESH-PRESSED cider waffles, ready!",
-        "VERMONT cider waffles with garden veggies",
-        "FRESH cider tostadas on Kodiak Cakes waffles."
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Fresh cider atop Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-11": {
       "art": {
@@ -51449,13 +51762,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BURLINGTON'S Winter Squash Muffins",
-        "VERMONT winter squash muffins, hearty & sweet!",
-        "WINTER squash muffins, Burlington style!",
-        "BURLINGTON'S Best Winter Squash Muffins"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -51629,14 +51942,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MAPLE-SPICED pancakes, Vermont's twist!",
-        "MAPLE-SPICED pancakes, Vermont's best!",
-        "MAPLE-SPICED pancakes, Burlington style!",
-        "MAPLE-SPICED pancakes, Burlington style!",
-        "MAPLE-SPICED flapjacks, Burlington!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Vermont Maple Pancakes on Kodiak Cakes Power"
+      "title": "Sweet Potato Pancakes"
     }
   },
   "US-NE-DC": {
@@ -51791,14 +52105,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STORAGE Apple Waffle French Toast Bake",
-        "RUGGED storage apple waffles, DC-style",
-        "STORAGE Apple Power Breakfast Bake",
-        "STORAGE Apple Waffle French Toast Bake",
-        "STORAGE Apple Power Waffles"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Storage Apples & Kodiak Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -51951,14 +52268,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HONEY-SMOKED Gouda Bites, DC-NoVA",
-        "HONEY & Gouda Waffle Bites",
-        "HONEY-SMOKED Gouda Bites",
-        "HONEY-GOUDA Waffle Bites, protein-packed!",
-        "HONEY-SMOKED Gouda Waffle Bites"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Honey-spiced Power Cakes Bites"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     },
     "2026-03": {
       "art": {
@@ -52111,14 +52430,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MAPLE Power Cakes: DC-NoVA Edition",
-        "MAPLE Power Pancakes: DC-NoVA Edition",
-        "MAPLE Power Pancakes: DC-NoVA's protein-packed breakfast",
-        "MAPLE Power Cakes DC-NoVA",
-        "MAPLE Power Pancakes: 20 mins, 5 ing, protein-packed"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Maple-spiced Kodiak Cakes"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-04": {
       "art": {
@@ -52271,10 +52593,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asp & goat frittata, power up!"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fresh asp & goat frittata"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-05": {
       "art": {
@@ -52427,14 +52749,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO DC Pancakes in 20 mins!",
-        "PROTEIN-PACKED Pancakes, 5 mins!",
-        "PROTEIN-PACKED Strawberry Pancakes Ready in 20!",
-        "PROTEIN-PACKED sheet pan DC strawberries!",
-        "HIGH-PRO Strawberry Pancakes, DC-NoVA"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power-packed strawberry pancakes, DC-style"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -52451,10 +52773,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-NE-DC",
       "meta": {
-        "cook": "5 mins",
+        "cook": "35 mins",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "20 mins",
+        "serves": "15"
       },
       "month": "2026-06",
       "provenance": {
@@ -52470,8 +52792,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "cherry-pie-bars",
+        "name": "Cherry Pie Bars"
       },
       "seasonal_moment": [
         {
@@ -52587,14 +52909,22 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET cherry pancakes, rich & hearty!",
-        "SWEET cherry pancakes, Bear Brown & Blaze Orange",
-        "SWEET cherry pancakes, DC-style!",
-        "SWEET cherry pancakes, DC-NoVA!",
-        "SWEET cherry pancakes, DC-NoVA!"
+        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
+        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+        "BEAT in the eggs, one at a time.",
+        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
+        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
+        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
+        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
+        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
+        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
+        "REMOVE from oven and let cool.",
+        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
+        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
+        "STORE in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Sweet cherries atop Kodiak Cakes"
+      "title": "Cherry Pie Bars"
     },
     "2026-07": {
       "art": {
@@ -52749,10 +53079,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PEACH Power Cakes: 1 cup + milk + egg"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Peaches & Kodiak Cakes Power Cakes"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-08": {
       "art": {
@@ -52905,14 +53235,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BLACKBERRIES Sheet Pan Pancakes, 20 mins!",
-        "BLACKBERRIES Power Sheet Pan Pancakes",
-        "BLACKBERRIES Sheet Pan Pancakes",
-        "PROTEIN-PACKED DC Blackberries Pancakes!",
-        "PROTEIN-PACKED blackberry pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power Cakes with Blackberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-09": {
       "art": {
@@ -53065,14 +53395,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "APPLE Buttermilk Waffle French Toast Bake",
-        "APPLE-SPICE Waffles: Savory-Sweet Frontier Treat!",
-        "APPLE-SPICE Griddle Cakes, DC-NoVA",
-        "APPLE-SPICE Waffle French Toast Bake",
-        "APPLE-SPICE Griddle Cakes, DC-NoVA"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Apples & Kodiak Cakes Power Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -53225,14 +53558,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "APPLE Butter Pancakes: Protein-packed, local flavor!",
-        "APPLE Butter Pancakes: Frontier flavor, protein-packed!",
-        "APPLE Butter Pancakes: Frontier flavor!",
-        "APPLE Butter Pancakes: Protein-packed, local flavor!",
-        "APPLE Butter Pancakes: Frontier flavor!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Apple Butter Power Cakes (VA)"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-11": {
       "art": {
@@ -53385,14 +53719,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HARVEST-SPICED Pumpkin Muffins",
-        "FRONTIER Pumpkin Oat Muffins",
-        "HARVEST Protein Pumpkin Muffins",
-        "FRONTIER Pumpkin Power Muffins",
-        "FRONTIER Pumpkin Oats: Protein-packed muffins!"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Rugged Pumpkin Power Muffins"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-12": {
       "art": {
@@ -53545,13 +53880,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, ready in 30 mins!",
-        "WINTER squash muffins, hearty & cozy!",
-        "WINTER squash muffins, bake 20 min",
-        "WINTER squash muffins, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     }
   },
   "US-NE-HARTFORD": {
@@ -53701,14 +54036,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEARTY Apple Waffle French Toast Bake",
-        "RUGGED storage apple waffle stack",
-        "HEARTLAND Harvest Apple Waffles",
-        "LOCAL storage apple waffles, Hartford",
-        "HARTFORD'S Harvest Apple Griddle Cakes"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Storage apples power Kodiak Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -53856,14 +54194,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MAPLE Power Cakes in Hartford",
-        "MAPLE Power Pancakes: Protein-packed frontier treat!",
-        "MAPLE Power Cakes: Hartford's Protein Boost",
-        "MAPLE Power Cakes, Hartford-style!",
-        "MAPLE-SPICE Power Cakes: HARTFORD-2026"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Maple-spiced Kodiak Cakes"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-03": {
       "art": {
@@ -54011,13 +54352,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEARTY spring greens scramble, ready!",
-        "SPRING greens scramble with protein twist",
-        "HEARTY spring greens scramble pancakes",
-        "HEARTY spring greens scramble, local flavor."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Spring Greens Power Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -54165,13 +54506,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HARTFORD'S rhubarb power bowl, fall flavors!",
-        "FALL rhubarb pancakes with Kodiak Cakes Power",
-        "HEARTLAND rhubarb flapjacks, 2 min golden!",
-        "FALL rhubarb pancakes with Kodiak Cakes power"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Fall rhubarb on Kodiak Cakes Power Cakes"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-05": {
       "art": {
@@ -54319,10 +54660,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asp & goat fritta, power up!"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Hartford's Fresh Goat Frittata"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-06": {
       "art": {
@@ -54470,14 +54811,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Hartford Sheet Pan Pancakes!",
-        "POWER-PACKED pancakes, 5-ingred, 20 mins!",
-        "QUICK protein pancakes with local strawberries!",
-        "PROTEIN-PACKED pancakes, ready in 20 mins!",
-        "POWER-PACKED pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power Cakes with Fresh Hartford Strawberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -54625,13 +54966,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks, frontier style!",
-        "SWEET corn flapjacks, 5-min rest for flavor.",
-        "SWEET corn flapjacks, golden & bold!",
-        "CORN & Bacon Griddle Cakes"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Heartland Sweet Corn Griddle Cakes"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-08": {
       "art": {
@@ -54779,14 +55120,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER tomato & waffle stack",
-        "SUMMER tomato tostada base",
-        "HARTFORD Summer Tomato Power",
-        "SUMMER tomato tostada on Kodiak Cakes waffle",
-        "SUMMER tostada base with fresh tomatoes"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Hartford Summer Tomato Power"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-09": {
       "art": {
@@ -54934,14 +55275,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "APPLE-SPICE Waffle French Toast Bake",
-        "HARTFORD'S Apple Power Waffle Bake",
-        "HARVEST Apple Waffles: Hearty & Local",
-        "HARVEST apples, top with waffles.",
-        "APPLE Power Waffles: Hearty Hartford Treat!"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Hartford's Apple Power Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -55089,14 +55433,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HARVEST-SPICED oat muffins, protein-packed!",
-        "FRONTIER Pumpkin Oats: protein-packed muffins!",
-        "FRONTIER Pumpkin Oats, protein-packed!",
-        "HARVEST-SPICED oat muffins, protein-packed!",
-        "PUMPKIN Power Muffins Hartford 2026"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Hartford's Pumpkin Power Muffins"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -55244,13 +55589,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HARVEST squash muffins, 2026-11!",
-        "WINTER squash muffins, hearty & sweet!",
-        "HEARTY Winter Squash Muffins, Hartford",
-        "HARVEST squash muffins, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Power Muffins Hartford"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -55398,14 +55743,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HONEY-GOUDA Waffle Bites, Hartford style",
-        "HONEY & Gouda Waffle Bites, NE Hartford",
-        "HONEY-GOUDA Waffle Bites, Hartford style",
-        "HONEY-GLAZED Smoked Gouda Bites",
-        "HONEY-GLAZED Gouda Waffle Bites"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Honey-Smoked Gouda Cakes, Hartford"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     }
   },
   "US-NE-NYC": {
@@ -55554,14 +55901,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUSTIC storage apple breakfast bake",
-        "RUGGED protein waffles with storage apples",
-        "RUGGED protein waffles with local apples!",
-        "FRONTIER apple waffle breakfast bake",
-        "BROOKLYN'S Best Storage Apple Waffles"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Rugged Apple Power Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -55708,14 +56058,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MAPLE Power Cakes NYC — protein-rich!",
-        "MAPLE Protein Pancakes for NYC",
-        "MAPLE Power Pancakes NYC 2026-02",
-        "MAPLE Power Cakes NYC 2026-02",
-        "MAPLE Power Cakes: NYC’s protein-packed flapjacks"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Maple-spiced Kodiak Cakes, NYC style"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-03": {
       "art": {
@@ -55862,13 +56215,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPRING greens scramble, NYC frontier style",
-        "SPRING Greens Scrambled Pancakes NYC",
-        "FRONTIER Scrambled Greens Delight",
-        "FRESH spring greens atop hearty scramble."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Spring Greens Power Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -56015,10 +56368,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asp & goat fritta, NYC"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fresh asp frittata, Kodiak Cakes style"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-05": {
       "art": {
@@ -56165,14 +56518,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "POWER-PACKED NYC strawberry pancakes!",
-        "POWER-PACKED NYC strawberry pancakes!",
-        "HIGH-PRO NYC Berry Pancakes",
-        "MORNING Power Pancakes, NYC",
-        "EASY, protein-packed pancakes for NYC mornings!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power Cakes with Fresh 2026 Strawberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -56189,10 +56542,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-NE-NYC",
       "meta": {
-        "cook": "5 mins",
+        "cook": "35 mins",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "20 mins",
+        "serves": "15"
       },
       "month": "2026-06",
       "provenance": {
@@ -56208,8 +56561,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "cherry-pie-bars",
+        "name": "Cherry Pie Bars"
       },
       "seasonal_moment": [
         {
@@ -56319,14 +56672,22 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET cherry pancakes, NYC frontier!",
-        "SWEET cherry pancakes, NYC frontier!",
-        "SWEET cherry pancakes, NYC frontier!",
-        "SWEET cherry pancakes, NYC frontier style!",
-        "SWEET cherry pancakes, NYC frontier!"
+        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
+        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+        "BEAT in the eggs, one at a time.",
+        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
+        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
+        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
+        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
+        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
+        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
+        "REMOVE from oven and let cool.",
+        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
+        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
+        "STORE in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Sweet Cherries on Kodiak Cakes"
+      "title": "Cherry Pie Bars"
     },
     "2026-07": {
       "art": {
@@ -56473,13 +56834,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NYC Power Pancakes in 15 mins!",
-        "NYC Power Muffins: 17g protein, ready in 15!",
-        "BROOKLYN & Manhattan's Protein-Packed Muffins",
-        "QUICK black-dirt onion power muffins!"
+        "HEAT the oven to 350F and grease a 12-cup muffin tin.",
+        "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+        "DIVIDE among the cups and bake 18-20 minutes, until puffed and set.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes: Black-Dirt Onions Power Muffins"
+      "title": "Spring Onion Egg Muffins"
     },
     "2026-08": {
       "art": {
@@ -56628,10 +56989,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Peach Power Cakes: 1 cup + milk + egg"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Summer's Best Peach"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-09": {
       "art": {
@@ -56778,14 +57139,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Apple Waffle French Toast Bake (2026-09)",
-        "KODIAK Cakes: NYC Apple Power Blend",
-        "KODIAK Cakes Apple Waffles NYC 2026-09",
-        "APPLE-SPICE Waffle French Toast Bake",
-        "NYC Apple Waffle French Toast Bake"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Apples & Bricks"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -56932,14 +57296,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH cider crunch atop NYC waffles",
-        "FRESH cider-spiced waffles, NYC style",
-        "FRESH cider waffles, NYC style",
-        "FRESH cider tops Kodiak Cakes waffles in NYC",
-        "FRESH cider atop Kodiak Cakes waffles, NYC style."
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Fresh Cider atop Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-11": {
       "art": {
@@ -57086,13 +57450,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, NYC frontier style.",
-        "WINTER squash muffins, NYC frontier style",
-        "WINTER squash muffins, baked to perfection!",
-        "WINTER squash muffins, Brooklyn & NYC."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Kodiak Cakes NYC"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -57239,13 +57603,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NYC Power Muffins: 17g protein, ready in 15!",
-        "PROTEIN-PACKED storage onion muffins!",
-        "PROTEIN-PACKED muffins, ready in 20 mins!",
-        "QUICK protein muffins, 17g per!"
+        "HEAT the oven to 350F and grease a 12-cup muffin tin.",
+        "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+        "DIVIDE among the cups and bake 18-20 minutes, until puffed and set.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with storage onions"
+      "title": "Spring Onion Egg Muffins"
     }
   },
   "US-NE-PHILLY": {
@@ -57264,10 +57628,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-NE-PHILLY",
       "meta": {
-        "cook": "8 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-01",
       "provenance": {
@@ -57278,13 +57642,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "savory-scrambled-pancakes",
-        "name": "Savory Scrambled Pancakes"
+        "id": "mushroom-cheddar-muffins-draft",
+        "name": "Mushroom Cheddar Muffins"
       },
       "seasonal_moment": [
         {
@@ -57427,14 +57793,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PHILLY'S Protein Mushroom Pancakes",
-        "PHILLY'S Mushroom Scramble Pancakes",
-        "PHILLY Savory Mushroom Scrambles",
-        "PHILLY Mushroom Scramble Pancakes",
-        "PHILLY Mushroom Power Pancakes"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly.",
+        "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
+        "DIVIDE among the cups and bake 20-22 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Philly's Protein Pancakes with Wild Mushrooms"
+      "title": "Mushroom Cheddar Muffins"
     },
     "2026-02": {
       "art": {
@@ -57451,10 +57816,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-NE-PHILLY",
       "meta": {
-        "cook": "8 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-02",
       "provenance": {
@@ -57465,13 +57830,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "savory-scrambled-pancakes",
-        "name": "Savory Scrambled Pancakes"
+        "id": "mushroom-cheddar-muffins-draft",
+        "name": "Mushroom Cheddar Muffins"
       },
       "seasonal_moment": [
         {
@@ -57614,14 +57981,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PHILLY Scrambled Pancakes with Cremini Power",
-        "PHILLY'S Protein Mushroom Scramble Pancakes!",
-        "PHILLY Scrambled Pancakes with Creminis",
-        "PHILLY Scrambled Pancakes with Cremini Protein",
-        "PHILLY Scrambled Cremini Pancakes"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly.",
+        "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
+        "DIVIDE among the cups and bake 20-22 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Philly's Protein Pancakes with Cremini Mushrooms"
+      "title": "Mushroom Cheddar Muffins"
     },
     "2026-03": {
       "art": {
@@ -57638,10 +58004,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-NE-PHILLY",
       "meta": {
-        "cook": "8 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-03",
       "provenance": {
@@ -57652,13 +58018,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "savory-scrambled-pancakes",
-        "name": "Savory Scrambled Pancakes"
+        "id": "mushroom-cheddar-muffins-draft",
+        "name": "Mushroom Cheddar Muffins"
       },
       "seasonal_moment": [
         {
@@ -57801,14 +58169,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SHIITAKE Scrambled Pancakes, Philly!",
-        "PHILLY Shiitake Scrambles",
-        "PHILLY Shiitake Scramble Pancakes",
-        "PHILLY Shiitake Scrambles",
-        "PHILLY Shiitake Scrambles, ready!"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly.",
+        "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
+        "DIVIDE among the cups and bake 20-22 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Philly Shiitake Scramble Pancakes"
+      "title": "Mushroom Cheddar Muffins"
     },
     "2026-04": {
       "art": {
@@ -57988,10 +58355,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PHILLY'S Protein Frittata with Fresh Asparagus"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Philly's Fresh Asparagus Frittata"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-05": {
       "art": {
@@ -58171,14 +58538,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PHILLY High-Pro Pancakes 2026-05",
-        "PHILLY Power Pancakes (2026-05)",
-        "PHILLY Power Pancakes with Local Strawberries",
-        "PHILLY Power Pancakes, 20 min & protein-packed!",
-        "PHILLY Power Pancakes with local strawberries!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Philly's Protein Pancakes with Fresh Strawberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -58195,10 +58562,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-NE-PHILLY",
       "meta": {
-        "cook": "5 mins",
+        "cook": "35 mins",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "20 mins",
+        "serves": "15"
       },
       "month": "2026-06",
       "provenance": {
@@ -58214,8 +58581,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "cherry-pie-bars",
+        "name": "Cherry Pie Bars"
       },
       "seasonal_moment": [
         {
@@ -58358,14 +58725,22 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PHILLY'S Sweet Cherry Power Stack!",
-        "PHILLY Sweet Cherry Pancakes 2026-06",
-        "PHILLY Sweet Cherry Pancakes 2026-06",
-        "PHILLY'S Sweet Cherry Pancakes!",
-        "PHILLY'S Sweet Cherry Pancakes '26"
+        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
+        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+        "BEAT in the eggs, one at a time.",
+        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
+        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
+        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
+        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
+        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
+        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
+        "REMOVE from oven and let cool.",
+        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
+        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
+        "STORE in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Philly Sweet Cherries on Kodiak Cakes"
+      "title": "Cherry Pie Bars"
     },
     "2026-07": {
       "art": {
@@ -58545,13 +58920,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PHILLY Sweet Corn Griddle Cakes",
-        "PHILLY Sweet Corn Griddle Cakes",
-        "PHILLY'S Sweet Corn Griddle Cakes, 2026",
-        "PHILLY sweet corn flapjacks."
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Philly Sweet Corn Power Cakes"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-08": {
       "art": {
@@ -58731,14 +59106,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PHILLY Summer Tomato Power Bowl",
-        "PHILLY Tomato Tostada Base",
-        "PHILLY Summer Tomato Tostada Base",
-        "PHILLY'S Tomato Power Tostada",
-        "PHILLY Summer Tomato Tostada"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Philly's Best: Tomato Power Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-09": {
       "art": {
@@ -58755,10 +59130,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-NE-PHILLY",
       "meta": {
-        "cook": "8 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-09",
       "provenance": {
@@ -58769,13 +59144,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "savory-scrambled-pancakes",
-        "name": "Savory Scrambled Pancakes"
+        "id": "mushroom-cheddar-muffins-draft",
+        "name": "Mushroom Cheddar Muffins"
       },
       "seasonal_moment": [
         {
@@ -58918,14 +59295,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PHILLY'S Protein Pancakes: portabella twist!",
-        "PHILLY'S Protein Mushroom Pancakes 2026-09",
-        "PHILLY'S Protein Portabella Pancakes",
-        "PHILLY'S Protein Portabella Pancakes!",
-        "PHILLY'S portabella power pancakes, flip 'em!"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly.",
+        "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
+        "DIVIDE among the cups and bake 20-22 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Philly's Protein Pancakes with Portabella"
+      "title": "Mushroom Cheddar Muffins"
     },
     "2026-10": {
       "art": {
@@ -59105,14 +59481,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PHILLY Apple Waffle French Toast Bake",
-        "PHILLY Apple Kodiak Cakes",
-        "PHILLY Apple Pancakes: Frontier flavor!",
-        "PHILLY Apple Waffle Delight",
-        "PHILLY Apple Waffle French Toast Bake"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Philly Power Cakes with Apples"
+      "title": "Breakfast Cake"
     },
     "2026-11": {
       "art": {
@@ -59129,10 +59508,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-NE-PHILLY",
       "meta": {
-        "cook": "8 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-11",
       "provenance": {
@@ -59143,13 +59522,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "savory-scrambled-pancakes",
-        "name": "Savory Scrambled Pancakes"
+        "id": "mushroom-cheddar-muffins-draft",
+        "name": "Mushroom Cheddar Muffins"
       },
       "seasonal_moment": [
         {
@@ -59292,14 +59673,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PHILLY'S Protein Pancakes with Oyster Mushrooms",
-        "PHILLY'S oyster scramble pancakes!",
-        "PHILLY'S Protein Mushroom Scramble",
-        "PHILLY'S Protein Pancakes with Oyster Mushrooms",
-        "PHILLY oyster scrambles, 1 min flip!"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly.",
+        "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
+        "DIVIDE among the cups and bake 20-22 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Philly's oyster scramble on Kodiak Cakes"
+      "title": "Mushroom Cheddar Muffins"
     },
     "2026-12": {
       "art": {
@@ -59316,10 +59696,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-NE-PHILLY",
       "meta": {
-        "cook": "8 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-12",
       "provenance": {
@@ -59330,13 +59710,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "savory-scrambled-pancakes",
-        "name": "Savory Scrambled Pancakes"
+        "id": "mushroom-cheddar-muffins-draft",
+        "name": "Mushroom Cheddar Muffins"
       },
       "seasonal_moment": [
         {
@@ -59479,14 +59861,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PHILLY'S Protein Pancakes with Maitake",
-        "PHILLY'S Protein Pancakes, maitake twist!",
-        "PHILLY Maitake Scramble Pancakes",
-        "PHILLY'S Protein Pancakes with Maitake",
-        "PHILLY Power Scrambled Pancakes (2026-12)"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly.",
+        "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
+        "DIVIDE among the cups and bake 20-22 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Maitake Mushrooms on Frontier Scrambled Pancakes"
+      "title": "Mushroom Cheddar Muffins"
     }
   },
   "US-NE-PROVIDENCE": {
@@ -59664,14 +60045,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STORAGE Apple Waffle French Toast Bake",
-        "RUGGED storage apple waffles, RI",
-        "STORAGE Apple Power Breakfast Bake",
-        "STORAGE Apple Griddle Bake",
-        "RUGGED storage apple waffle bake"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Storage apples power Kodiak Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -59847,14 +60231,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MAPLE Power Cakes, RI",
-        "MAPLE Protein Pancakes for RI mornings",
-        "MAPLE Protein Pancakes: RI's Frontier Twist",
-        "MAPLE Power Cakes, RI style",
-        "MAPLE Power Pancakes: 3-4 min, RI-style"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Maple-spiced Kodiak Cakes"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-03": {
       "art": {
@@ -60030,13 +60417,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPRING greens scramble, fresh & hearty",
-        "FRESH spring greens scramble, protein-rich",
-        "RUGGED spring greens scrambles",
-        "FRESH spring greens scramble, hearty & bold."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Spring Greens Power Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -60212,13 +60599,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RHUBARB Power Cakes, fall's frontier twist!",
-        "RHUBARB Kodiak Cakes, NE Providence!",
-        "RHUBARB Power Cakes, 2 min golden flip!",
-        "RHUBARB-SPICED flapjacks, frontier style."
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Fall rhubarb Kodiak Cakes Power Cakes"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-05": {
       "art": {
@@ -60394,10 +60781,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asp & goat fritta, power your day"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Asparagus Frittata on Bear Brown Bread"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-06": {
       "art": {
@@ -60573,14 +60960,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Strawberry Sheet Pan Pancakes",
-        "KODIAK Cakes Power Pancakes, RI strawberries!",
-        "PROTEIN-PACKED Strawberry Pancakes Ready in 20!",
-        "PROTEIN-PACKED pancakes, ready in 20!",
-        "PROTEIN-PACKED pancakes, fresh strawberries!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Fresh 2026 Strawberries!"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -60756,14 +61143,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Blueberries Pancakes, RI ready!",
-        "POWER-PACKED blueberry pancakes, 5-ingr!",
-        "HIGH-PRO Blueberry Pancakes for RI mornings",
-        "PROTEIN-PACKED blueberry pancakes, Rhode Island style!",
-        "POWER-PACKED blueberry pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power-packed Blueberry Pancakes for RI"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-08": {
       "art": {
@@ -60939,13 +61326,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks, Rhode Island style",
-        "SWEET corn flapjacks, 2026-08!",
-        "SAVORY sweet corn flapjacks, Rhode Island style",
-        "CORN & bacon griddle cake stack"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet Corn Griddle Cakes, RI"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-09": {
       "art": {
@@ -61121,14 +61508,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "APPLE Pie Waffle French Toast Bake",
-        "RUGGED apple waffles, RI 2026",
-        "APPLE Butter Waffle French Toast Bake",
-        "APPLE Cider Waffle French Toast Bake",
-        "APPLE-CIDER Waffle French Toast Bake"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Apples & Kodiak Cakes Power Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -61304,14 +61694,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH cider-spiced protein bites!",
-        "FRESH cider waffles, Rhode Island style",
-        "FRESH cider waffles, Rhode Island style.",
-        "FRESH cider waffles, Rhode Island style",
-        "FRESH cider waffles with local veggies"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Fresh cider atop Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-11": {
       "art": {
@@ -61487,14 +61877,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CRANBERRY muffins, 7g protein, Rhode Island!",
-        "CRANBERRY Protein Muffins: NE Providence's Best",
-        "KODIAK Cakes Cranberry Protein Muffins in RI",
-        "CRANBERRY muffins, 7g protein per bite!",
-        "CRANBERRY muffins, 7g protein, US-NE-PROVIDENCE"
+        "PREHEAT oven to 350°F and line a muffin tin with liners or grease well.",
+        "IN a large bowl, whisk together eggs, Greek yogurt, orange juice and zest, maple syrup, vanilla, and milk until smooth.",
+        "ADD Kodiak Cakes mix and salt; stir until just combined. Fold in the dried cranberries.",
+        "DIVIDE batter evenly into 24 muffin tins, filling each about ¾ full.",
+        "BAKE for 16-21 minutes, or until the tops are set and a toothpick inserted in the center comes out clean.",
+        "LET cool in the pan for 5 minutes, then transfer to a wire rack to cool completely. Reheat Instructions: From the fridge, reheat in a 350° F oven or toaster oven for 6–10 minutes until warmed through."
       ],
       "substrate": "kraft",
-      "title": "Cranberry Power Cakes in Providence"
+      "title": "Cranberry Orange Yogurt Muffins"
     },
     "2026-12": {
       "art": {
@@ -61670,13 +62061,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, Rhode Island style!",
-        "WINTER squash muffins, Rhode Island style",
-        "WINTER squash muffins, baked 18-20 min.",
-        "WINTER squash muffins, try 'em now!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     }
   },
   "US-NE-RALEIGH": {
@@ -61860,13 +62251,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COLLARDS Scramble, Frontier Style",
-        "COLLARD scramble with Bear Brown spices",
-        "COLLARDS Scramble 2026-01",
-        "COLLARD scrambles, frontier style."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Collards on Kodiak Cakes Power Scramble"
+      "title": "Savory Greens Fritters"
     },
     "2026-02": {
       "art": {
@@ -62048,14 +62439,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato power pancakes!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potatoes Power Pancakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-03": {
       "art": {
@@ -62237,13 +62629,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPRING greens scramble, hearty & fresh",
-        "SPRING greens scramble mix, hearty & bold!",
-        "SPRING Greens Scramble 2026",
-        "SPRING greens scramble, hearty & warm."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Spring Greens Power Scrambles"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -62425,14 +62817,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Raleigh pancakes, ready in 20 mins!",
-        "POWER-PACKED strawberry pancakes, 5 mins!",
-        "POWER-PACKED strawberry pancakes ready in 20 mins!",
-        "POWER-PACKED pancakes, ready in 20 mins!",
-        "POWER-PACKED strawberry pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power-packed strawberry pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-05": {
       "art": {
@@ -62614,14 +63006,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EARLY blueberry pancakes, ready in 20 mins!",
-        "EARLY Blueberries Power Pancakes",
-        "EARLY Blueberries Sheet Pan Pancakes",
-        "EARLY blueberry pancakes, protein-packed!",
-        "EASY blueberry pancakes, protein-packed!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Early blueberries over Kodiak Cakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -62803,14 +63195,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EASY sheet pan pancakes, 20 mins!",
-        "POWER-PACKED blueberry pancakes, ready in 20!",
-        "PROTEIN-PACKED blueberry pancakes!",
-        "HIGH-PRO Raleigh blueberry pancakes!",
-        "PROTEIN-PACKED blueberry pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power Cakes with local blueberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -62992,14 +63384,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER tom tacos with Kodiak Cakes power",
-        "SUMMER toms on Kodiak Cakes!",
-        "SUMMER tostada base with local tomatoes",
-        "SUMMER tomatoes atop Kodiak Cakes waffles",
-        "SUMMER tostada with local tomatoes!"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Summer tomatoes on Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-08": {
       "art": {
@@ -63183,10 +63575,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Peach Power Cakes: 1 cup + milk"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Raleigh's Peach Power Breakfast"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-09": {
       "art": {
@@ -63368,13 +63760,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MUSCADINE roasts with honey, ready!",
-        "RALEIGH'S muscadine-spiced bacon bites!",
-        "SMOKY muscadine flapjacks, 2 mins, golden.",
-        "FLAPJACKS with muscadine maple flair."
+        "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with the warm roasted grapes spooned over."
       ],
       "substrate": "kraft",
-      "title": "Raleigh's muscadine power bites"
+      "title": "Roasted Grape Flapjack Topper"
     },
     "2026-10": {
       "art": {
@@ -63556,14 +63948,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "APPLE-SPICE Waffle French Toast Bake",
-        "RALEIGH'S apple-spiced Kodiak Cakes!",
-        "RALEIGH'S apple waffle breakfast blend!",
-        "RALEIGH'S Apple Waffles: Sweet & Savory Frontier Treat",
-        "RALEIGH'S Apple Waffles: Frontier flavor!"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Local apples fuel Kodiak Cakes Power Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-11": {
       "art": {
@@ -63745,14 +64140,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes, beta-carotene power!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene power!",
-        "SWEET potato power pancakes!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potatoes Power Pancakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-12": {
       "art": {
@@ -63934,14 +64330,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SOUTHERN Pecan Power Cakes",
-        "SOUTHERN Pecan Power Cakes",
-        "SOUTHERN Pecan Power Cakes",
-        "COASTAL Pecan Power Cakes",
-        "SOUTHERN Pecan Power Pancakes"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Coastal Pecan Power Cakes"
+      "title": "Tropical Protein Pancakes"
     }
   },
   "US-SC-AUSTIN": {
@@ -64111,13 +64510,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KALE & Greens Scramble, Frontier Style",
-        "KALE scramble with protein twist",
-        "TEXAS-STYLE Kale Scramble 2026",
-        "TEXAS-STYLE greens scramble, hearty & hot."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Kale greens power Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-02": {
       "art": {
@@ -64285,14 +64684,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TEXAS-STYLE cabbage scrambles",
-        "TEXAS Scrambled Cabbage Pancakes",
-        "TEXAS-STYLE cabbage pancakes!",
-        "TEXAS-STYLE cabbage scrambles",
-        "TEXAS Scrambled Cabbage Pancakes"
+        "TOSS the shredded cabbage with 1/2 teaspoon salt and rest 10 minutes, then squeeze firmly in a clean towel to remove as much liquid as possible.",
+        "WHISK the mix, eggs, milk, remaining salt, and pepper into a thick batter.",
+        "FOLD the squeezed cabbage into the batter until every strand is coated.",
+        "HEAT the oil in a skillet over medium heat; scoop 1/4-cup mounds, flatten slightly, and fry 3-4 minutes per side until deep golden and crisp.",
+        "DRAIN briefly on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Texas-style Power Cabbage Pancakes"
+      "title": "Savory Cabbage Pancakes"
     },
     "2026-03": {
       "art": {
@@ -64460,13 +64859,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TEXAS spring onion power muffins",
-        "AUSTIN'S Power Protein Muffins, 17g!",
-        "QUICK protein muffins, 17g per serving!",
-        "QUICK, protein-packed muffins in 15 mins!"
+        "HEAT the oven to 350F and grease a 12-cup muffin tin.",
+        "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+        "DIVIDE among the cups and bake 18-20 minutes, until puffed and set.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Spring onions on Kodiak Cakes"
+      "title": "Spring Onion Egg Muffins"
     },
     "2026-04": {
       "art": {
@@ -64634,14 +65033,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TEXAS Sheet Pan Pancakes 2026",
-        "POWER pancakes in 20 mins, SC Austin!",
-        "TEXAS Sheet Pan Pancakes, berry-top!",
-        "AUSTIN'S Power Pancakes, 20 mins max!",
-        "QUICK, protein-packed pancakes for Austin!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power Cakes with Texas Strawberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-05": {
       "art": {
@@ -64811,10 +65210,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EARLY Peach Power Bowl: 1 mix, 2/3 milk, 1 egg"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Early peaches on Kodiak Cakes Power Cakes"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-06": {
       "art": {
@@ -64984,10 +65383,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TEXAS Peach Power Cakes recipe"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Texas Peach Power Cakes"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-07": {
       "art": {
@@ -65155,14 +65554,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TEXAS Blackberries Sheet Pan Pancakes",
-        "TEXAS Blackberries Power Pancakes",
-        "TEXAS Blackberries Sheet Pan Pancakes",
-        "TEXAS Blackberries Power Pancakes",
-        "TEXAS Blackberries Power Pancakes"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Texas Blackberries Kodiak Cakes Power Cakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-08": {
       "art": {
@@ -65330,14 +65729,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TEXAS Peach & Tomato Tostada Base",
-        "SUMMER peaches & tomatoes tostada",
-        "SUMMER peaches & tomatoes on waffles!",
-        "TEXAS Peach & Tomato Tostada Base",
-        "TEXAS Peach Tostada Base"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Texas Peach & Tomato Power Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-09": {
       "art": {
@@ -65354,10 +65753,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SC-AUSTIN",
       "meta": {
-        "cook": "30 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "8 flapjacks plus topper"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-09",
       "provenance": {
@@ -65368,13 +65767,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "roasted-grape-flapjack-topper-draft",
-        "name": "Roasted Grape Flapjack Topper"
+        "id": "fig-honey-muffins-draft",
+        "name": "Fig Honey Muffins"
       },
       "seasonal_moment": [
         {
@@ -65505,13 +65906,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TEXAS fig & grape roast, 425°F",
-        "TEXAS fig & grape skillet breakfast",
-        "TEXAS fig & grape skillet pancakes, golden.",
-        "FLAPJACKS with roasted figs & wine."
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "WHISK the eggs, milk, honey, oil, and vanilla; stir in the mix just until combined, then fold in the figs.",
+        "DIVIDE among the cups and bake 18-20 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Texas figs & grapes power cakes"
+      "title": "Fig Honey Muffins"
     },
     "2026-10": {
       "art": {
@@ -65679,14 +66079,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PECAN-PACKED pancakes, SC Austin!",
-        "PECAN-PACKED Power Pancakes SC",
-        "PECAN-PACKED waffles, SC Austin!",
-        "PECAN-PACKED waffles, SC Austin!",
-        "PECAN-PACKED Power Pancakes"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Pecan-topped Kodiak Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-11": {
       "art": {
@@ -65854,14 +66255,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PECAN-SWEET potato waffles, SC Austin!",
-        "PECAN-PACKED pancakes, SC Austin!",
-        "PECAN-SWEET Potato Power Stack",
-        "PECAN-SWEET potato waffles, SC Austin",
-        "PECAN-SWEET potato waffles, SC Austin"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Pecan-Sweet Potato Power Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-12": {
       "art": {
@@ -66029,13 +66431,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER greens scramble, citrus kick",
-        "WINTER greens scramble with citrus kick",
-        "FRONTIER'S protein-packed winter greens scramble",
-        "FRONTIER-STYLE pancakes with winter greens."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Winter Greens & Citrus Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     }
   },
   "US-SC-DALLAS": {
@@ -66188,13 +66590,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COLLARD greens scramble, Texas style",
-        "COLLARD Greens Scramble 2026",
-        "COLLARD Greens Scramble 2026",
-        "COLLARD greens scramble, frontier style."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Collard Greens Power Cakes, SC Dallas"
+      "title": "Savory Greens Fritters"
     },
     "2026-02": {
       "art": {
@@ -66345,13 +66747,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KALE Scramble 2026",
-        "KALE scramble with eggs, no fuss!",
-        "KALE-PACKED Scrambled Pancakes SC-Dallas",
-        "KALE-PACKED pancakes, SC Dallas."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Kale-topped Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-03": {
       "art": {
@@ -66502,13 +66904,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH spring greens scramble, hearty & bold",
-        "FRESH spring scramble, local greens & radishes",
-        "SPICY Spring Greens Scramble 2026",
-        "FRESH spring greens atop hearty pancakes."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Spring greens & radishes Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -66659,14 +67061,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Dallas flapjacks ready in 20 mins!",
-        "TEXAS-STYLE protein pancakes in 20 mins!",
-        "TEXAS Sheet Pancakes with Local Strawberries",
-        "SCRAMBLED pancakes, 20 mins, protein-rich!",
-        "QUICK pancakes, protein-packed, no syrup!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power Pancakes with Texas Strawberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-05": {
       "art": {
@@ -66817,14 +67219,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SQUASH & Potato Pancakes SC Dallas 2026",
-        "SQUASH & Potato Pancakes SC Dallas",
-        "SQUASH & Potato Power Stack",
-        "SQUASH & Potato Pancakes SC Dallas",
-        "SQUASH & Potato Pancakes SC Dallas"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Squash & Potatoes on Kodiak Cakes Power Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-06": {
       "art": {
@@ -66975,14 +67378,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER Corn & Tomato Tostada Base",
-        "SUMMER corn & tomato tostada base",
-        "SUMMER corn & tomato tostada base",
-        "SUMMER corn & tomato tostada base",
-        "SUMMER corn & tomato tostadas"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Sweet Corn & Tomatoes on Kodiak Cakes Power"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-07": {
       "art": {
@@ -67133,14 +67536,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER veggie tostada base with peaches",
-        "SUMMER veggies on Kodiak Cakes waffles!",
-        "SUMMER Peach & Tomato Tostada Base",
-        "SUMMER tofu tacos with peaches & tomatoes",
-        "SUMMER tostadas with Kodiak Cakes waffles & peaches"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Summer tomatoes & peaches on Kodiak Cakes Power"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-08": {
       "art": {
@@ -67291,13 +67694,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SAVORY watermelon & okra griddle cakes!",
-        "SAVORY watermelon & okra griddle bites!",
-        "WATERMELON & okra griddle bites",
-        "GRILLED watermelon & okra delight!"
+        "WHISK the mix, cornmeal, eggs, milk, salt, and pepper into a batter.",
+        "FOLD in the diced okra.",
+        "SHALLOW-FRY 2-tablespoon spoonfuls in hot oil, 2-3 minutes per side, until crisp and golden.",
+        "DRAIN on a rack, salt lightly, and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Watermelon & okra power breakfast"
+      "title": "Okra Griddle Fritters"
     },
     "2026-09": {
       "art": {
@@ -67448,14 +67851,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "POWER-PACKED Egg Muffins, ready in minutes!",
-        "PROTEIN-PACKED Egg Muffins, SC Dallas style",
-        "PROTEIN-PACKED okra & pepper muffins!",
-        "PROTEIN-PACKED Egg Muffins, SC Dallas style",
-        "PROTEIN-PACKED Egg Muffins, 17g per serving!"
+        "PREHEAT the oven to 350° Fahrenheit. Grease a 12-cup muffin pan with the olive oil.",
+        "PLACE the eggs, garlic, salt, and Kodiak Cakes mix in a high-speed blender and process until smooth. Set aside.",
+        "DIVIDE the peppers, green onions, and feta cheese evenly between the greased muffin tins.",
+        "POUR the egg mixture into the muffin tins, evenly dividing between them.",
+        "BAKE for 20-22 minutes or until golden brown puffed on top.",
+        "LET cool slightly and remove from the pan using a rubber spatula or butter knife.",
+        "STORE in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Spicy Okra Power Cakes"
+      "title": "Breakfast Egg Muffins"
     },
     "2026-10": {
       "art": {
@@ -67606,14 +68011,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes, beta-carotene boost!",
-        "PECAN-SWEET Potato Pancakes SC",
-        "PECAN-SWEET potato stack, SC Dallas!",
-        "PECAN-SWEET Potato Stack",
-        "PECAN-SWEET Potato Stack"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Pecan-sweet potato Kodiak Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-11": {
       "art": {
@@ -67764,14 +68170,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PECAN-PUMPKINS: Texas's Frontier Treat",
-        "PECAN-PUMPKIN Power Muffins",
-        "PECAN Pumpkin Muffins, SC-Dallas",
-        "PECAN-PUMPKINS: Frontier's Protein Boost",
-        "PECAN Pumpkin Muffins, SC Dallas"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Pecan-Pumpkins Power Cakes"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-12": {
       "art": {
@@ -67922,13 +68329,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER greens scramble, SC frontier style",
-        "WINTER greens scramble mix, hearty & bold",
-        "WINTER greens scramble, Texas style",
-        "FRONTIER'S hearty greens pancakes, SC Dallas."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Winter Greens Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     }
   },
   "US-SC-HOUSTON": {
@@ -68081,13 +68488,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TEXAS Mustard Collard Scramble",
-        "MUSTARD & Collard Greens Scramble",
-        "TEXAS-STYLE mustard waffles",
-        "TEXAS-STYLE mustard greens scramble."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Mustard greens on Kodiak Cakes frontier style"
+      "title": "Savory Greens Fritters"
     },
     "2026-02": {
       "art": {
@@ -68238,14 +68645,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TEXAS Scrambled Cabbage Delight",
-        "TEXAS Scrambled Cabbage Pancakes",
-        "TEXAS Scrambled Cabbage Pancakes",
-        "TEXAS Scrambled Cabbage Pancakes",
-        "TEXAS Scrambled Cabbage Pancakes"
+        "TOSS the shredded cabbage with 1/2 teaspoon salt and rest 10 minutes, then squeeze firmly in a clean towel to remove as much liquid as possible.",
+        "WHISK the mix, eggs, milk, remaining salt, and pepper into a thick batter.",
+        "FOLD the squeezed cabbage into the batter until every strand is coated.",
+        "HEAT the oil in a skillet over medium heat; scoop 1/4-cup mounds, flatten slightly, and fry 3-4 minutes per side until deep golden and crisp.",
+        "DRAIN briefly on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Texas Scrambled Cabbage Pancakes"
+      "title": "Savory Cabbage Pancakes"
     },
     "2026-03": {
       "art": {
@@ -68396,13 +68803,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPRING greens scramble, hearty & fresh!",
-        "SPRING Greens Scramble 2026",
-        "TEXAS spring greens scramble",
-        "HOUSTON'S spring greens scramble!"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Spring greens on Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -68553,13 +68960,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUGGED Spring Berry Muffins in 15 mins!",
-        "HOUSTON'S Power Waffle Egg Muffins: 17g Protein!",
-        "PROTEIN-PACKED muffins in 15 mins!",
-        "QUICK 5-min protein boost, Houston!"
+        "HEAT the oven to 350F and grease a 12-cup muffin tin.",
+        "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+        "DIVIDE among the cups and bake 18-20 minutes, until puffed and set.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Houston's Best: Protein-Packed Muffins"
+      "title": "Spring Onion Egg Muffins"
     },
     "2026-05": {
       "art": {
@@ -68710,14 +69117,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER squash & tomato tostada base",
-        "SUMMER squash & tomato bites",
-        "SUMMER squash & tomato tostada base",
-        "SUMMER squash & tomato tostada base",
-        "SUMMER squash & tomato tostadas"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Squash & tomatoes on Kodiak Cakes Power"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-06": {
       "art": {
@@ -68868,14 +69275,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER veggies on Kodiak Cakes waffles!",
-        "SUMMER veggies on Kodiak Cakes power waffles!",
-        "SUMMER tostadas with local veggies",
-        "SUMMER tostada with local peas & tomatoes",
-        "SUMMER veggie tostada base"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Summer veggies on Kodiak Cakes Power Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-07": {
       "art": {
@@ -69026,13 +69433,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TEXAS okra & watermelon flapjacks",
-        "TEXAS okra flapjacks: savory, sweet!",
-        "OKRA & watermelon breakfast bites, 2-3 min",
-        "SAVORY okra & watermelon griddle bites!"
+        "WHISK the mix, cornmeal, eggs, milk, salt, and pepper into a batter.",
+        "FOLD in the diced okra.",
+        "SHALLOW-FRY 2-tablespoon spoonfuls in hot oil, 2-3 minutes per side, until crisp and golden.",
+        "DRAIN on a rack, salt lightly, and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Okra & Watermelon Power Cakes SC"
+      "title": "Okra Griddle Fritters"
     },
     "2026-08": {
       "art": {
@@ -69183,14 +69590,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HOUSTON'S Protein-Packed Muffins",
-        "PROTEIN-PACKED okra & pepper blend",
-        "PROTEIN-PACKED okra & pepper muffins!",
-        "PROTEIN-PACKED okra muffins, SC Houston!",
-        "HOUSTON'S Protein-Packed Breakfast"
+        "PREHEAT the oven to 350° Fahrenheit. Grease a 12-cup muffin pan with the olive oil.",
+        "PLACE the eggs, garlic, salt, and Kodiak Cakes mix in a high-speed blender and process until smooth. Set aside.",
+        "DIVIDE the peppers, green onions, and feta cheese evenly between the greased muffin tins.",
+        "POUR the egg mixture into the muffin tins, evenly dividing between them.",
+        "BAKE for 20-22 minutes or until golden brown puffed on top.",
+        "LET cool slightly and remove from the pan using a rubber spatula or butter knife.",
+        "STORE in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Okra & Peppers Power Cakes"
+      "title": "Breakfast Egg Muffins"
     },
     "2026-09": {
       "art": {
@@ -69341,14 +69750,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SOUTHERN sweet potato pancakes, beta-beta-carotene!",
-        "SWEET potato pancakes, SC-Houston!",
-        "SOUTHERN sweet pea pancakes, beta-rich!",
-        "SOUTHERN sweet potato pancakes, rich & hearty!",
-        "SOUTHERN sweet pea pancakes, beta-rich!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet potatoes & peas on Kodiak Cakes Power"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-10": {
       "art": {
@@ -69499,14 +69909,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato waffles, SC-Houston style!",
-        "PECAN-SWEET Potato Pancakes SC",
-        "SWEET potato waffles, SC flavor!",
-        "SWEET potato waffles, SC flavor!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet potatoes & pecans Kodiak Cakes Power Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-11": {
       "art": {
@@ -69657,13 +70068,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PECAN Satsuma Flapjacks: SC's Best!",
-        "PECAN Satsuma Flapjacks, SC style!",
-        "TEXAS Pecan Flapjacks, 2 mins golden!",
-        "TEXAS Pecan Satsuma Flapjacks!"
+        "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
+        "REST the batter 5 minutes.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE hot with extra segments and honey."
       ],
       "substrate": "kraft",
-      "title": "Pecan Satsuma Power Cakes"
+      "title": "Mandarin Citrus Flapjacks"
     },
     "2026-12": {
       "art": {
@@ -69682,8 +70093,8 @@ window.KODIAK_RECIPE_CARDS = {
       "meta": {
         "cook": "15 mins",
         "est_cost": null,
-        "prep": "25 mins",
-        "serves": "10 fritters"
+        "prep": "15 mins",
+        "serves": "8 flapjacks"
       },
       "month": "2026-12",
       "provenance": {
@@ -69699,8 +70110,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "savory-greens-fritters-draft",
-        "name": "Savory Greens Fritters"
+        "id": "mandarin-citrus-flapjacks-draft",
+        "name": "Mandarin Citrus Flapjacks"
       },
       "seasonal_moment": [
         {
@@ -69814,13 +70225,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TEXAS Greens & Citrus Delight",
-        "WINTER greens scramble with satsuma zest",
-        "TEXAS Scrambled Greens & Citrus Delight",
-        "FRONTIER greens & citrus pancakes."
+        "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
+        "REST the batter 5 minutes.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE hot with extra segments and honey."
       ],
       "substrate": "kraft",
-      "title": "Winter Greens & Satsuma Citrus Kodiak Cakes"
+      "title": "Mandarin Citrus Flapjacks"
     }
   },
   "US-SC-SANANTONIO": {
@@ -69993,13 +70404,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TEXAS Winter Greens Delight",
-        "WINTER greens scramble mix, ready!",
-        "SAN Antonio's Winter Greens Delight",
-        "FRONTIER'S hearty greens scramble, fresh & bold!"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Winter Greens Power Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-02": {
       "art": {
@@ -70170,14 +70581,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO San Antonio skillet pancakes",
-        "PROTEIN-PACKED pancakes, Texas style!",
-        "TEXAS Power Pancakes with Protein",
-        "HIGH-PRO San Antonio pancakes!",
-        "TEXAS-STYLE power pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power Cakes with Early Strawberries & Cabbage"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-03": {
       "art": {
@@ -70348,14 +70759,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PROTEIN pancakes in 20 mins!",
-        "POWER-PACKED San Antonio pancakes!",
-        "HIGH-PRO San Antonio Sheet Pan Pancakes",
-        "SAN Antonio Power Pancakes 2026",
-        "QUICK, protein-packed pancakes ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "High-Pro San Antonio Pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-04": {
       "art": {
@@ -70526,14 +70937,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TEXAS Sweet Onion Pancakes — SC-SANANTONIO",
-        "TEXAS Sweet Onion Pancakes Pro",
-        "TEXAS Sweet onion skillet stack",
-        "TEXAS Sweet Onion Pancakes",
-        "TEXAS Sweet Onion Pancakes"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Texas Sweet Onions on Kodiak Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-05": {
       "art": {
@@ -70704,14 +71116,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER squash & tomato tostada base",
-        "SUMMER squash & tomato bites!",
-        "SUMMER squash & tomato tostada base",
-        "SUMMER squash & tomato tostada base",
-        "SUMMER squash tostada with tomatoes"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Texas Squash & Tomato Power Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-06": {
       "art": {
@@ -70882,14 +71294,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER tostada base with fresh tomatoes & watermelon",
-        "SUMMER veggies on Kodiak Cakes Power Waffles!",
-        "SUMMER veggies on Kodiak Cakes Power Waffles",
-        "SUMMER veggies on Kodiak Cakes Power Waffles",
-        "SUMMER tostadas with Kodiak Cakes power base"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Texas Summer Veggie Tostada"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-07": {
       "art": {
@@ -71060,13 +71472,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TEXAS griddle cakes: savory-sweet delight!",
-        "TEXAS griddle cakes with okra.",
-        "TEXAS griddle cakes, crispy & bold!",
-        "TEXAS-STYLE okra & watermelon bites!"
+        "WHISK the mix, cornmeal, eggs, milk, salt, and pepper into a batter.",
+        "FOLD in the diced okra.",
+        "SHALLOW-FRY 2-tablespoon spoonfuls in hot oil, 2-3 minutes per side, until crisp and golden.",
+        "DRAIN on a rack, salt lightly, and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Texas Power Cakes with Watermelon & Okra"
+      "title": "Okra Griddle Fritters"
     },
     "2026-08": {
       "art": {
@@ -71237,14 +71649,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SAN Antonio Protein Power Muffins",
-        "SAN Antonio Power Protein Muffins",
-        "SAN Antonio Power Protein Muffins",
-        "PROTEIN-PACKED Egg Muffins, San Antonio style",
-        "SAN Antonio Power Protein Muffins"
+        "PREHEAT the oven to 350° Fahrenheit. Grease a 12-cup muffin pan with the olive oil.",
+        "PLACE the eggs, garlic, salt, and Kodiak Cakes mix in a high-speed blender and process until smooth. Set aside.",
+        "DIVIDE the peppers, green onions, and feta cheese evenly between the greased muffin tins.",
+        "POUR the egg mixture into the muffin tins, evenly dividing between them.",
+        "BAKE for 20-22 minutes or until golden brown puffed on top.",
+        "LET cool slightly and remove from the pan using a rubber spatula or butter knife.",
+        "STORE in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "San Antonio Power Cakes with Peppers & Okra"
+      "title": "Breakfast Egg Muffins"
     },
     "2026-09": {
       "art": {
@@ -71415,14 +71829,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SOUTHERN Pea & Pepper Power Bowl",
-        "SOUTHERN peas & peppers skillet",
-        "SOUTHERN Pea & Pepper Power Tostada",
-        "SOUTHERN pea & pepper power tostadas",
-        "SOUTHERN Pea & Pepper Tostadas"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Southern peas & peppers Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-10": {
       "art": {
@@ -71593,14 +72007,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TEXAS Pecan Pancakes, beta-beta-carotene!",
-        "TEXAS Pecan Pancakes, beta-carotene power!",
-        "PECAN-SWEET Potato Stack Alert!",
-        "TEXAS Pecan Power Pancakes",
-        "TEXAS Pecan Pancakes Stack"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Pecan & Sweet Potato Power Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-11": {
       "art": {
@@ -71771,14 +72186,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TEXAS Pecan Citrus Pancakes",
-        "PECAN Citrus Pancakes SC-SANANTONIO",
-        "PECAN Citrus Pancakes SC-SA",
-        "PECAN Citrus Pancakes SC-SA",
-        "PECAN Citrus Pancakes SC-SA"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Pecan Citrus Power Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-12": {
       "art": {
@@ -71949,13 +72365,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TEXAS Greens Scramble",
-        "TEXAS-STYLE citrus scrambles",
-        "TEXAS Scrambled Pancakes",
-        "TEXAS-STYLE breakfast bites."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Texas-style Kodiak Cakes Power Greens Scramble"
+      "title": "Savory Greens Fritters"
     }
   },
   "US-SE-ASHEVILLE": {
@@ -72144,14 +72560,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ASHEVILLE Sourwood Honey Bites",
-        "SOURWOOD Honey Waffle Bites Asheville",
-        "ASHEVILLE'S Honey-Gouda Bites",
-        "ASHEVILLE Sourwood Honey Waffles",
-        "ASHEVILLE Sourwood Honey Waffle Bites"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Sourwood Honey Power Cakes Asheville 2026"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     },
     "2026-02": {
       "art": {
@@ -72338,14 +72756,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ASHEVILLE'S Apple Pie Waffles, 350°F",
-        "ASHEVILLE'S Apple Power Waffle Bake",
-        "ASHEVILLE'S Apple Power Breakfast Bake",
-        "ASHEVILLE'S Apple Waffles, fresh & hearty!",
-        "ASHEVILLE Apple Waffle Stack (2026-02)"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Asheville Power Cakes (2026-02)"
+      "title": "Breakfast Cake"
     },
     "2026-03": {
       "art": {
@@ -72532,13 +72953,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COLD-HARDY greens scramble, Asheville style",
-        "ASHEVILLE'S cold-hardy greens scramble",
-        "ASHEVILLE'S cold-hardy greens scramble",
-        "ASHEVILLE'S cold-hardy greens scramble."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Cold-hardy greens Kodiak Cakes power bites"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -72725,13 +73146,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ASHEVILLE'S ramp power cakes, 2026-04",
-        "ASHEVILLE'S Ramp Power Cakes — 2026-04",
-        "ASHEVILLE'S Ramp Power Cakes, 2-3 min each side!",
-        "ASHEVILLE'S Ramp Power Cakes!"
+        "SOFTEN the leeks in the butter over medium heat, 6-8 minutes, until tender; cool slightly.",
+        "WHISK the mix, eggs, milk, parmesan, salt, and pepper into a batter and fold in the leeks.",
+        "COOK 1/4-cup scoops in butter, 2-3 minutes per side, until golden.",
+        "SERVE hot."
       ],
       "substrate": "kraft",
-      "title": "Asheville's ramps on Kodiak Cakes"
+      "title": "Leek and Cheese Pancakes"
     },
     "2026-05": {
       "art": {
@@ -72918,13 +73339,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPRING greens scramble, frontier style",
-        "SPRING greens scramble with Bear Brown eggs",
-        "SAVORY spring greens scrambles",
-        "ASHEVILLE'S spring greens scramble, Blaze Orange."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Asheville's Spring Power Pancakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-06": {
       "art": {
@@ -73111,14 +73532,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ASHEVILLE'S Power Pancakes, 2026-06",
-        "ASHEVILLE'S High-Pro Pancakes!",
-        "ASHEVILLE Power Pancakes (2026-06)",
-        "ASHEVILLE'S Power Pancakes, 20 min & protein-rich!",
-        "ASHEVILLE'S High-Pro Strawberry Pancakes"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Asheville's Power Pancakes with Local Berries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -73305,14 +73726,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ASHEVILLE Sourwood Honey Waffles",
-        "SOURWOOD Honey Waffle Bites Asheville",
-        "ASHEVILLE Sourwood Honey Waffle Bites",
-        "ASHEVILLE'S Sourwood Honey Waffle Bites",
-        "ASHEVILLE Sourwood Honey Waffle Bites"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Asheville Sourwood Honey Cakes"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     },
     "2026-08": {
       "art": {
@@ -73499,14 +73922,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ASHEVILLE Summer Veggie Tostada Base",
-        "ASHEVILLE Summer Veggie Tostada",
-        "ASHEVILLE Summer Tomato Power",
-        "ASHEVILLE Summer Veggie Tostada",
-        "ASHEVILLE Summer Veggie Tostada"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Asheville Summer Power Tostadas"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-09": {
       "art": {
@@ -73693,14 +74116,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MOUNTAIN apple waffles, Asheville's new breakfast hit!",
-        "ASHEVILLE'S mountain apple power breakfast!",
-        "ASHEVILLE'S mountain apple power griddle!",
-        "ASHEVILLE mountain apple waffles, local flavor!",
-        "ASHEVILLE'S mountain apple waffles!"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Asheville's mountain apples power Kodiak Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -73887,14 +74313,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ASHEVILLE'S Apple Waffle French Toast Bake",
-        "ASHEVILLE Apple Power Waffles",
-        "ASHEVILLE'S Apple Waffles, protein-packed!",
-        "ASHEVILLE'S Apple Waffle Delight",
-        "ASHEVILLE'S Apple Power Waffle Bake"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Asheville's Kodiak Cakes Power Apple Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-11": {
       "art": {
@@ -74081,13 +74510,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ASHEVILLE'S Winter Squash Muffins",
-        "WINTER squash muffins, Asheville style",
-        "WINTER squash muffins, Asheville-style!",
-        "ASHEVILLE'S winter squash muffins, ready!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Asheville's Winter Squash Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -74274,13 +74703,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ASHEVILLE'S winter squash muffins ready!",
-        "ASHEVILLE'S Winter Squash Muffins",
-        "ASHEVILLE'S winter squash muffins, 18-20 min bake",
-        "ASHEVILLE'S winter squash muffins, ready!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Power Muffins Asheville"
+      "title": "Winter Squash Morning Muffins"
     }
   },
   "US-SE-ATL": {
@@ -74434,13 +74863,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TURNIP Delight: Fresh & Spicy!",
-        "TURNIP Cakes from Frontier Georgia",
-        "TURNIP Cakes from Frontier Georgia, crispy & bold",
-        "TURNIP Treats, hot & hearty!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Turnip-Infused Kodiak Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-02": {
       "art": {
@@ -74592,13 +75021,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER greens scramble, hearty & bold",
-        "WINTER greens scramble, hearty & bold",
-        "WINTER greens skillet scramble, frontier style",
-        "WINTER greens skillet atop Bear Brown waffles."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Winter Greens Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-03": {
       "art": {
@@ -74750,14 +75179,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "POWER-PACKED strawberry pancakes, ready in 20!",
-        "POWER-PACKED strawberry pancakes, 5-ing 20 mins!",
-        "POWER-PACKED strawberry pancakes, ready in 20!",
-        "POWER-PACKED pancakes in 20 mins!",
-        "POWER-PACKED strawberry pancakes, ready in 20!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power Cakes with Local Strawberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-04": {
       "art": {
@@ -74909,14 +75338,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "VIDALIA onion power tostada base",
-        "VIDALIA onion crunch atop Kodiak Cakes waffles",
-        "CRISPY Vidalia onion waffles",
-        "VIDALIA onion power waffles, SE ATL",
-        "VIDALIA onion tostada atop Kodiak Cakes waffle"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Early Vidalia on Kodiak Cakes Power"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-05": {
       "art": {
@@ -75068,14 +75497,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "VIDALIA Onion Power Bowls",
-        "VIDALIA onion crunch atop Kodiak Cakes waffles",
-        "VIDALIA Onion Power Waffles",
-        "VIDALIA Onion Power Waffles",
-        "VIDALIA Tostadas with Kodiak Cakes Power"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Vidalia Onions on Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-06": {
       "art": {
@@ -75227,14 +75656,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EASY, protein-packed pancakes in 20 mins!",
-        "POWER-PACKED Blueberry Pancakes, 20 mins!",
-        "POWER-PACKED Blueberry Pancakes!",
-        "HIGH-PROTEIN flapjacks, ready in 20!",
-        "POWER-PACKED blueberry pancakes, ready in 20!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Protein-Packed Blueberry Pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -75388,10 +75817,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Peach Power Cakes in Atlanta!"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fall peaches on Kodiak Cakes Power Cakes"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-08": {
       "art": {
@@ -75543,13 +75972,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WATERMELON Honey Lime Delight (ATL)",
-        "ATLANTA'S Power Cakes: Summer's Best!",
-        "TRY Kodiak Cakes's protein-packed watermelon pancakes!",
-        "FRESH melon atop flapjacks, protein-packed!"
+        "TOSS the cubed melon with the honey and lime juice; rest 10 minutes.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks topped with the fresh melon and its juices."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Summer's Best Watermelon Treat!"
+      "title": "Fresh Melon Flapjack Topper"
     },
     "2026-09": {
       "art": {
@@ -75701,13 +76130,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MUSCADINE grape roast with honey, ready!",
-        "MUSCADINE Grape Power Oatmeal (ATL)",
-        "MUSCADINE-SPICED flapjacks, golden & bold!",
-        "FLAPJACKS with muscadine glory, Georgia style."
+        "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with the warm roasted grapes spooned over."
       ],
       "substrate": "kraft",
-      "title": "Muscadine-infused Kodiak Cakes Power Cakes"
+      "title": "Roasted Grape Flapjack Topper"
     },
     "2026-10": {
       "art": {
@@ -75859,14 +76288,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PECAN-TOPPED Pancakes, Southern style!",
-        "PECAN Pancakes: Southern frontier flavor!",
-        "PECAN Pancakes: Southern breakfast frontier",
-        "PECAN Pancakes: Frontier breakfast, Bear Brown & Blaze Orange.",
-        "PECAN-PACKED Power Pancakes"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Pecan-topped Kodiak Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-11": {
       "art": {
@@ -76018,14 +76448,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potatoes pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-packed!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet potato pancakes over Bear Brown stacks"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-12": {
       "art": {
@@ -76177,13 +76608,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COLLARDS' hearty scramble, Frontier style",
-        "COLLARD Scramble with Bear Brown Hue",
-        "COLLARDS Scramble: Frontier flavor!",
-        "COLLARD-TOPPED Scrambled Cakes"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Collard Power Cakes, Atlanta"
+      "title": "Savory Greens Fritters"
     }
   },
   "US-SE-BIRMINGHAM": {
@@ -76351,13 +76782,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COLLARDS scramble, hearty & bold!",
-        "COLLARD scramble with Bear Brown spice",
-        "COLLARD-FILLED scrambles from Bear Brown skillet",
-        "COLLARDS power breakfast, no greens left."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Collards Power Cakes in Birmingham"
+      "title": "Savory Greens Fritters"
     },
     "2026-02": {
       "art": {
@@ -76523,13 +76954,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TURNIP crunch with a hint of orange, 2026",
-        "TURNIP Cakes from Bear Brown's",
-        "TURNIP Cakes from the Heart of Birmingham",
-        "TURNIP treats, hot from the grill!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Turnip Power Cakes in Birmingham"
+      "title": "Storage Root Fritters"
     },
     "2026-03": {
       "art": {
@@ -76695,14 +77126,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PROTEIN sheet pan strawberry pancakes!",
-        "HIGH-PRO Strawberry Sheet Pan Pancakes",
-        "HIGH-PRO Strawberry Sheet Pan Pancakes",
-        "HIGH-PROTEIN flapjacks, ready in 20!",
-        "EASY, protein-packed strawberry pancakes!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "High-Pro Strawberry Pancakes (2026-03)"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-04": {
       "art": {
@@ -76868,10 +77299,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asp & goat frittata, power up!"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fresh asp frittata on Kodiak Cakes"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-05": {
       "art": {
@@ -77039,10 +77470,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FALL Peach Power Bowl: 1 cup + 2/3 milk + 1 egg"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fall peaches atop Kodiak Cakes Power Cakes"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-06": {
       "art": {
@@ -77210,10 +77641,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Peach Power Cakes: 1 cup + milk + egg"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Freestone Peach Power Cakes in B’ham"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-07": {
       "art": {
@@ -77381,10 +77812,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Power Cakes: Peaches for breakfast!"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Late peaches on Kodiak Cakes Power Cakes"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-08": {
       "art": {
@@ -77550,14 +77981,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EASY 20-min pancakes, protein-packed!",
-        "LATE-BLOOMER blackberry pancakes!",
-        "LATE-BERRY Power Pancakes",
-        "HIGH-PROTEIN flapjacks, ready in 20 mins!",
-        "HIGH-PRO flapjacks, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Late-blooming Blackberry Kodiak Cakes Power Cakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-09": {
       "art": {
@@ -77723,13 +78154,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MUSCADINE-HONEY Roast: Southern Comfort",
-        "SOUTHERN muscadine oatmeal, pure comfort!",
-        "SMOKY muscadine flapjacks, golden & bold!",
-        "SMOKY muscadine flapjacks with zesty orange kick"
+        "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with the warm roasted grapes spooned over."
       ],
       "substrate": "kraft",
-      "title": "Southern muscadine power oats"
+      "title": "Roasted Grape Flapjack Topper"
     },
     "2026-10": {
       "art": {
@@ -77895,14 +78326,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PECAN-PACKED Power Pancakes!",
-        "PECAN-PACKED Power Pancakes SE",
-        "PECAN-PACKED flapjacks, Alabama style.",
-        "PECAN-PACKED flapjacks, Alabama style!",
-        "PECAN-PACKED Power Pancakes"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Pecan-topped Kodiak Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-11": {
       "art": {
@@ -78068,14 +78500,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene power!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potatoes on Kodiak Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-12": {
       "art": {
@@ -78241,14 +78674,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-power!",
-        "SWEET potato pancakes, frontier-style!",
-        "SWEET potato pancakes, frontier fuel!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potatoes Power Cakes for Breakfast"
+      "title": "Sweet Potato Pancakes"
     }
   },
   "US-SE-CHARLOTTE": {
@@ -78431,13 +78865,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COLLARD scrambles, fresh & hearty!",
-        "COLLARD scramble with Bear Brown spices",
-        "COLLARD Scramble Pancakes, SE Charlotte",
-        "COLLARD scramble with Bear Brown grits."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Collards & Kodiak Cakes Power Pancakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-02": {
       "art": {
@@ -78618,14 +79052,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato power pancakes, SE Charlotte",
-        "SWEET potato power pancakes!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-power!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet potatoes power Kodiak Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-03": {
       "art": {
@@ -78806,13 +79241,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPRING greens scramble, hearty & fresh!",
-        "SPRING greens scramble mix, hearty & bold",
-        "SAVORY spring greens scramble pancakes",
-        "FRESH spring greens atop hearty pancakes."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Spring Greens Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -78993,14 +79428,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Charlotte Strawberry Pancakes",
-        "PROTEIN-PACKED Charlotte pancakes, 5 mins!",
-        "QUICK, protein-packed Charlotte pancakes!",
-        "POWER-PACKED pancakes, 20 mins max!",
-        "HIGH-PROTEIN pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power Cakes with local strawberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-05": {
       "art": {
@@ -79181,14 +79616,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EARLY Blueberries Power Pancakes",
-        "EARLY Blueberry Power Pancakes",
-        "EARLY Blueberries Sheet Pan Pancakes",
-        "EARLY Blueberries Power Pancakes",
-        "EARLY Blueberries Power Pancakes"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Early Blueberries on Kodiak Cakes Power Cakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -79369,14 +79804,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Blueberry Sheet Pan Pancakes!",
-        "PROTEIN-PACKED blueberry pancakes, ready in 20 mins!",
-        "PROTEIN-PACKED Blueberries Pancakes (2026-06)",
-        "HIGH-PRO Charlotte Blueberry Pancakes",
-        "POWER-PACKED blueberry pancakes, ready fast!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power Pancakes with Local Blueberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -79557,14 +79992,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER veggie tostada base, Kodiak Cakes style",
-        "SUMMER tomato skillet with waffles",
-        "SUMMER tostada base with tomatoes!",
-        "SUMMER toms atop Kodiak Cakes waffle base",
-        "SUMMER tostada with local tomatoes & Blaze Orange power"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Summer veggies on Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-08": {
       "art": {
@@ -79747,10 +80182,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Power Cakes: Peach Power!"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fall's best: Kodiak Cakes Power Cakes!"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-09": {
       "art": {
@@ -79931,13 +80366,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MUSCADINE-HONEY Roast Delight (2026-09)",
-        "SAVORY muscadine bacon & squash oatmeal",
-        "SAVORY muscadine bacon & squash flapjacks!",
-        "SAVORY bacon & muscadine flapjacks."
+        "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with the warm roasted grapes spooned over."
       ],
       "substrate": "kraft",
-      "title": "Muscadine-Infused Power Cakes, Charlotte"
+      "title": "Roasted Grape Flapjack Topper"
     },
     "2026-10": {
       "art": {
@@ -80118,14 +80553,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CHARLOTTE'S Apple Power Breakfast Bake",
-        "KODIAK Cakes: Savory apple waffles, Charlotte!",
-        "CHARLOTTE'S Apple Waffles: Frontier flavor!",
-        "APPLE Pie Waffles: Sweet, savory, local flavor!",
-        "CHARLOTTE'S Apple Power Waffles"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Charlotte's Power Cakes with local apples"
+      "title": "Breakfast Cake"
     },
     "2026-11": {
       "art": {
@@ -80306,14 +80744,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato power pancakes!",
-        "SWEET potato pancakes, beta-carotene power!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet potato pancakes, frontier style"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-12": {
       "art": {
@@ -80494,13 +80933,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BUTTERNUT Squash Muffins, Charlotte",
-        "BUTTERNUT Squash Muffins, Charlotte",
-        "CHARLOTTE'S butternut bake, 18-20 min",
-        "RUSTIC butternut muffins, chill 5 mins."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Charlotte's Kodiak Cakes Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     }
   },
   "US-SE-COAST": {
@@ -80676,13 +81115,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COLLARDS scramble, frontier style",
-        "COLLARD scramble with Bear Brown spice",
-        "COLLARDS Savory Scramble 2026",
-        "COLLARD-TOP waffles, fresh & bold!"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Collards Power Cakes Savannah-Coast"
+      "title": "Savory Greens Fritters"
     },
     "2026-02": {
       "art": {
@@ -80856,13 +81295,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER greens scramble, SE coast style",
-        "WINTER greens scramble mix, protein-packed!",
-        "WINTER greens scramble, 3-4 min",
-        "COASTAL greens with Bear Brown flavor."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Winter Greens Power Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-03": {
       "art": {
@@ -81036,14 +81475,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Coastal Pancakes, 20 mins!",
-        "HIGH-PRO Coastal Pancakes (2026-03)",
-        "COASTAL Power Pancakes with Fresh Strawberries",
-        "COASTAL Southeast Power Pancakes",
-        "PROTEIN-PACKED strawberry pancakes, ready in 20!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Pancakes with Local Berries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-04": {
       "art": {
@@ -81217,10 +81656,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asp & goat frittata, 60+ pro"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Coastal Veggie Frittata"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-05": {
       "art": {
@@ -81396,10 +81835,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Peaches Power Cakes, SE coast"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Rugged Peach Power Bowl"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-06": {
       "art": {
@@ -81573,13 +82012,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER Watermelon Salad Prep",
-        "SUMMER'S best protein pasta from Kodiak Cakes mix!",
-        "SAVORY watermelon pancakes, 2 mins each side!",
-        "SAVORY watermelon pancakes with Kodiak Cakes power."
+        "TOSS the cubed melon with the honey and lime juice; rest 10 minutes.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks topped with the fresh melon and its juices."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Summer's Best Watermelon Treat"
+      "title": "Fresh Melon Flapjack Topper"
     },
     "2026-07": {
       "art": {
@@ -81753,13 +82192,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "OKRA flapjacks, SE coast flavor!",
-        "SAVORY okra griddle cakes, SC style",
-        "OKRA-PACKED breakfast bites, US-SE-COAST",
-        "SAVORY okra griddle cakes, hot & ready!"
+        "WHISK the mix, cornmeal, eggs, milk, salt, and pepper into a batter.",
+        "FOLD in the diced okra.",
+        "SHALLOW-FRY 2-tablespoon spoonfuls in hot oil, 2-3 minutes per side, until crisp and golden.",
+        "DRAIN on a rack, salt lightly, and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Okra Power Cakes Savannah-style"
+      "title": "Okra Griddle Fritters"
     },
     "2026-08": {
       "art": {
@@ -81933,14 +82372,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COASTAL field pea power bowl",
-        "COASTAL field peas power breakfast!",
-        "FIELD peas waffles, Southern style!",
-        "FIELD peas power your waffle base!",
-        "FIELD pea tostada with lime."
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Field peas atop Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-09": {
       "art": {
@@ -82114,13 +82553,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SAVANNAH-CHARLESTON muscadine roast feast!",
-        "SAVANNAH'S muscadine-spiced power oats.",
-        "SAVORY muscadine bacon & squash oat, 2 min flip.",
-        "COASTAL SE muscadine flapjacks, fiery orange atop."
+        "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with the warm roasted grapes spooned over."
       ],
       "substrate": "kraft",
-      "title": "Savannah's muscadine-spiced Kodiak Cakes Power Cakes"
+      "title": "Roasted Grape Flapjack Topper"
     },
     "2026-10": {
       "art": {
@@ -82137,10 +82576,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SE-COAST",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-10",
       "provenance": {
@@ -82151,13 +82590,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "boiled-peanut-oat-bites-draft",
+        "name": "Boiled Peanut Oat Bites"
       },
       "seasonal_moment": [
         {
@@ -82294,14 +82735,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOILED Peanut Treats from Savannah & Charleston",
-        "BOILED Peanut Cakes: SE frontier flavor!",
-        "BOILED Peanut Cakes: SE Coast's Protein Treat",
-        "BOILED Peanut Cakes: SE Coast's Protein Power",
-        "BOILED Peanut Cakes: SE Coast, 2026"
+        "MASH the boiled peanuts with the peanut butter, honey, vanilla, and salt until combined.",
+        "STIR in the dry oatmeal until evenly coated.",
+        "ROLL into 1-inch balls and chill 1 hour until firm."
       ],
       "substrate": "kraft",
-      "title": "Savannah's boiled peanuts on Kodiak Cakes!"
+      "title": "Boiled Peanut Oat Bites"
     },
     "2026-11": {
       "art": {
@@ -82475,14 +82914,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-power!",
-        "SWEET potato pancakes, beta-rich!",
-        "SWEET potato pancakes, beta-power!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet potatoes power Kodiak Cakes stacks!"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-12": {
       "art": {
@@ -82656,14 +83096,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-beta!",
-        "SWEET potato pancakes, beta-rich!",
-        "SWEET potato pancakes, beta-power!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potatoes Power Cakes Savannah"
+      "title": "Sweet Potato Pancakes"
     }
   },
   "US-SE-FL": {
@@ -82850,14 +83291,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PROTEIN-PACKED strawberry pancakes ready in 20 mins!",
-        "PROTEIN-PACKED strawberry pancakes, ready in 20!",
-        "FLORIDA'S High-Pro Strawberry Pancakes",
-        "PROTEIN-PACKED Miami-Orlando pancakes!",
-        "PROTEIN-PACKED strawberry pancakes, ready in 20!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power-packed strawberry pancakes!"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-02": {
       "art": {
@@ -83042,14 +83483,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FLORIDA Summer Tomato Tacos",
-        "FLORIDA Tomato Tostada Base",
-        "FLORIDA Tomato Power Waffles",
-        "FLORIDA Tomato Power Tostada",
-        "SUMMER tomato tostadas with power waffles"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Florida Tomato Power Tostadas"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-03": {
       "art": {
@@ -83234,13 +83675,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks, frontier style!",
-        "SWEET corn griddle cakes, Florida style!",
-        "SAVORY sweet corn griddle cakes, Florida style",
-        "HOT sweet corn griddle cakes"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Corn-topped Kodiak Cakes"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-04": {
       "art": {
@@ -83425,13 +83866,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MIAMI-ORLANDO'S carambola delight, 10 mins rest!",
-        "MIAMI'S carambola cakes, bold & fresh!",
-        "STARFRUIT Cakes, Miami-Orlando 2026",
-        "FLAPJACKS with carambola, fresh & bold!"
+        "TOSS the lychees and starfruit with the honey and lime juice; rest 10 minutes.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks topped with the fruit and its juices."
       ],
       "substrate": "kraft",
-      "title": "Starfruit Power Cakes"
+      "title": "Lychee Starfruit Topper"
     },
     "2026-05": {
       "art": {
@@ -83616,14 +84057,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MANGO Power Pancakes Florida Edition",
-        "MANGO Power Pancakes",
-        "MANGO Power Pancakes: Florida's protein boost!",
-        "MANGO Power Pancakes 2026-05",
-        "MANGO Power Pancakes: protein-packed!"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Mango-spiced Kodiak Cakes Power Cakes"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-06": {
       "art": {
@@ -83808,14 +84252,20 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PASSIONFRUIT Kodiak Cakes, FL-SE, 2026-06",
-        "PASSIONFRUIT Kodiak Cakes, SE-FL",
-        "PASSIONFRUIT Kodiak Cakes, FL",
-        "PASSIONFRUIT Kodiak Cakes, FL-SE-Miami-Orlando",
-        "PASSIONFRUIT Kodiak Cakes FL-Miami-Orlando"
+        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper.",
+        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine.",
+        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
+        "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries.",
+        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean.",
+        "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling.",
+        "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside.",
+        "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
+        "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between.",
+        "TOP cake with fresh raspberries.",
+        "STORE cake in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Passionfruit Kodiak Cakes FL"
+      "title": "White Chocolate Raspberry Cake"
     },
     "2026-07": {
       "art": {
@@ -84000,13 +84450,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "LYCHEE Bliss: Fresh & Frontier!",
-        "MIAMI'S lychee power cake!",
-        "LYCHEE Cakes: Miami's frontier treat!",
-        "FLAPJACKS with lychee, fresh & bold!"
+        "TOSS the lychees and starfruit with the honey and lime juice; rest 10 minutes.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks topped with the fruit and its juices."
       ],
       "substrate": "kraft",
-      "title": "Lychee Kodiak Cakes in Miami & Orlando"
+      "title": "Lychee Starfruit Topper"
     },
     "2026-08": {
       "art": {
@@ -84191,13 +84641,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "GUAVA Muffins: Miami-Orlando heat!",
-        "GUAVA Muffins: Miami's Frontier Treat",
-        "GUAVA Muffins, Miami-Orlando bake 18-20 min",
-        "FRESH guava muffins, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the nectar, eggs, milk, butter, and sugar; stir in the mix and salt just until combined, then fold in the guava paste.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Florida's guava Kodiak Cakes Power Cakes"
+      "title": "Guava Morning Muffins"
     },
     "2026-09": {
       "art": {
@@ -84214,10 +84664,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SE-FL",
       "meta": {
-        "cook": "2 mins",
+        "cook": "10 mins",
         "est_cost": null,
-        "prep": "8 mins",
-        "serves": "1"
+        "prep": "10 mins",
+        "serves": "2"
       },
       "month": "2026-09",
       "provenance": {
@@ -84233,8 +84683,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "single-serve-maple-pecan-muffin",
-        "name": "Single-Serve Maple Pecan Muffin"
+        "id": "avocado-pancakes",
+        "name": "Avocado Pancakes"
       },
       "seasonal_moment": [
         {
@@ -84382,14 +84832,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "AVOCADO Power Single-Serve Snack",
-        "FLORIDA Avocado Power Cake",
-        "AVOCADO Power Muffin, FL",
-        "AVOCADO Power Single-Serve Muffins",
-        "AVOCADO-TOPPED Breakfast Burrito, FL"
+        "PLACE the avocado, milk, and spirulina in a blender and process until smooth.",
+        "PLACE the Kodiak Cakes mix in a bowl. Add the avocado mixture and whisk together to form a smooth batter. Let rest for 5 minutes.",
+        "HEAT a frying pan to medium-high and grease.",
+        "PLACE 1/4-cup scoops of batter on the hot pan and cook until bubbles form on top. Flip and cook for an additional 30 seconds. Repeat with the remaining batter.",
+        "SERVE pancakes topped with blueberries and maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Avocado Power Cakes Florida"
+      "title": "Avocado Pancakes"
     },
     "2026-10": {
       "art": {
@@ -84574,10 +85024,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CARAMBOLA Power Flapjacks"
+        "APPLE Cinnamon Compote Peel and core apples then cut them into eighths. Place them in a shallow wide saucepan with ¼ cup of water, brown sugar, 1 tablespoon of honey, and cinnamon over medium heat. Bring to a boil then reduce heat to low. Simmer and stir until apples are soft and fragrant (about 10 minutes). Add the remaining 1 cup of water and ½ cup of honey, raise to medium heat, and stir to combine. Bring mixture to a boil and continue cooking for 20-25 minutes or until the apples have turned golden and syrup has thickened. Stir in the lemon juice. Buttermilk & Honey Flapjacks Combine Kodiak Cakes Buttermilk Power Cakes Mix, water, honey, and cinnamon. Heat a griddle or skillet over medium-high heat with ½ tablespoon of butter. Add ¼ cup of the flapjack batter to the skillet and cook until bubbles form on top and the bottom is golden. Then flip and cook on the other side until golden. Set aside the cooked flapjacks and add another ½ tablespoon of butter to the skillet. Once the skillet is hot, add another ¼ cup of the flapjack batter to the pan and repeat process until you’ve made 8 flapjacks (using all the batter). Serve the flapjacks with apple compote on tip, and maple syrup for drizzling."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks with spiced carambola, power up!"
+      "title": "Apple Cinnamon Compote"
     },
     "2026-11": {
       "art": {
@@ -84762,10 +85212,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPICED Fall Flapjacks for Miami & Orlando"
+        "APPLE Cinnamon Compote Peel and core apples then cut them into eighths. Place them in a shallow wide saucepan with ¼ cup of water, brown sugar, 1 tablespoon of honey, and cinnamon over medium heat. Bring to a boil then reduce heat to low. Simmer and stir until apples are soft and fragrant (about 10 minutes). Add the remaining 1 cup of water and ½ cup of honey, raise to medium heat, and stir to combine. Bring mixture to a boil and continue cooking for 20-25 minutes or until the apples have turned golden and syrup has thickened. Stir in the lemon juice. Buttermilk & Honey Flapjacks Combine Kodiak Cakes Buttermilk Power Cakes Mix, water, honey, and cinnamon. Heat a griddle or skillet over medium-high heat with ½ tablespoon of butter. Add ¼ cup of the flapjack batter to the skillet and cook until bubbles form on top and the bottom is golden. Then flip and cook on the other side until golden. Set aside the cooked flapjacks and add another ½ tablespoon of butter to the skillet. Once the skillet is hot, add another ¼ cup of the flapjack batter to the pan and repeat process until you’ve made 8 flapjacks (using all the batter). Serve the flapjacks with apple compote on tip, and maple syrup for drizzling."
       ],
       "substrate": "kraft",
-      "title": "Fall cucumbers on Kodiak Cakes Power"
+      "title": "Apple Cinnamon Compote"
     },
     "2026-12": {
       "art": {
@@ -84782,10 +85232,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SE-FL",
       "meta": {
-        "cook": "10 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "1"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-12",
       "provenance": {
@@ -84796,13 +85246,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "waffle-mac-n-cheese-grilled-cheese",
-        "name": "Waffle Mac 'n Cheese Grilled Cheese"
+        "id": "green-bean-parmesan-fritters-draft",
+        "name": "Green Bean Parmesan Fritters"
       },
       "seasonal_moment": [
         {
@@ -84950,13 +85402,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "GRILLED Green Bean Mac ‘n Cheese Sandwich",
-        "GRILLED Green Beans Protein Power Snack",
-        "GRILLED Green Bean Mac ‘n Cheese Sandwich",
-        "GRILLED Green Bean Mac ‘n Cheese Sandwich"
+        "STEAM the cut beans 4 minutes until just tender, then spread on a towel and pat completely dry.",
+        "WHISK the mix, eggs, parmesan, salt, and pepper with the dry beans into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "DRAIN briefly on a rack and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Winter Green Beans Power Sandwich"
+      "title": "Green Bean Parmesan Fritters"
     }
   },
   "US-SE-JACKSON": {
@@ -85135,13 +85587,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COLLARDS scramble, frontier style",
-        "COLLARD scramble with Bear Brown spice mix",
-        "COLLARD Scrambles, Jackson style",
-        "COLLARD pancakes, fiery orange finish."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Collard Power Cakes in Jackson"
+      "title": "Savory Greens Fritters"
     },
     "2026-02": {
       "art": {
@@ -85318,14 +85770,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-beta-carotene!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-power!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potatoes Power Cakes, MS"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-03": {
       "art": {
@@ -85502,13 +85955,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPRING greens scramble, frontier style",
-        "SPRING Greens Scrambled Pancakes",
-        "SPRING Greens Scramble, Jackson Style",
-        "FRESH spring greens atop hearty pancakes."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Spring Greens Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -85685,14 +86138,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "JACKSON'S Power Pancakes: 20 mins, 5g fiber",
-        "POWER pancakes, 5g fiber, 20 mins!",
-        "HIGH-PRO Jackson Flapjacks 2026-04",
-        "MISSISSIPPI Power Pancakes, 20 mins!",
-        "MISSISSIPPI Power Pancakes, 2026-04"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Local Jackson's Protein Boost"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-05": {
       "art": {
@@ -85869,14 +86322,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EARLY Blueberries Power Pancakes",
-        "EARLY blueberry Kodiak Cakes pancakes!",
-        "EARLY Blueberries Power Pancakes",
-        "EARLY blueberries, power pancakes!",
-        "EARLY blueberries pancakes, protein-packed!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Early blueberries over Kodiak Cakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -86053,14 +86506,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PROTEIN-PACKED blueberry pancakes, ready in 20 mins!",
-        "PROTEIN-PACKED blueberry pancakes, Jackson!",
-        "HIGH-PRO Blueberry Pancakes, Jackson!",
-        "MISSISSIPPI Blueberry Power Pancakes",
-        "HIGH-PROTEIN blueberry pancakes, MS!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Blueberries in Jackson"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -86237,14 +86690,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER tomato power bites!",
-        "JACKSON'S Best Tomato Power Bowl",
-        "SUMMER tomato power waffles, MS",
-        "SUMMER toms atop Kodiak Cakes waffle",
-        "JACKSON'S Summer Tomato Tostada"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Jackson's Best: Kodiak Cakes Power Cakes & Tomatoes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-08": {
       "art": {
@@ -86421,13 +86874,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WATERMELON Honey Lime Delight",
-        "KODIAK Cakes Power Cakes: Summer Watermelon Delight!",
-        "JACKSON'S best protein pancakes, golden & bold!",
-        "KODIAK Cakes pancakes with sweet watermelon."
+        "TOSS the cubed melon with the honey and lime juice; rest 10 minutes.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks topped with the fresh melon and its juices."
       ],
       "substrate": "kraft",
-      "title": "Jackson's Watermelon Power Pasta"
+      "title": "Fresh Melon Flapjack Topper"
     },
     "2026-09": {
       "art": {
@@ -86604,13 +87057,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MUSCADINE roast: hearty, sweet, frontier-style!",
-        "MUSCADINE-SPICED bacon & squash oatmeal",
-        "SMOKY muscadine bacon & squash bites, 36g protein!",
-        "SOUTHERN muscadine flapjacks with fiery zest."
+        "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with the warm roasted grapes spooned over."
       ],
       "substrate": "kraft",
-      "title": "Jackson's muscadine-spiced Kodiak Cakes Power Cakes"
+      "title": "Roasted Grape Flapjack Topper"
     },
     "2026-10": {
       "art": {
@@ -86787,14 +87240,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet potato pancakes, Bear Brown style"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-11": {
       "art": {
@@ -86971,14 +87425,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PECAN-INFUSED Pancakes, MS",
-        "PECAN-PACKED Power Pancakes",
-        "PECAN-PACKED Power Pancakes",
-        "PECAN Pancakes for Jackson's hearty start",
-        "PECAN-PACKED Pancakes, MS"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Pecan-Topped Kodiak Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-12": {
       "art": {
@@ -87155,13 +87610,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BUTTERNUT muffins, MS-style!",
-        "BUTTERNUT Squash Muffins, US-SE-JACKSON",
-        "BUTTERNUT Squash Muffins, US-SE-JACKSON",
-        "BUTTERNUT power muffins, US-SE-JACKSON"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Butternut Squash Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     }
   },
   "US-SE-JAX": {
@@ -87335,14 +87790,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "QUICK pancakes, 350°F, no prep!",
-        "QUICK, protein-packed Jax pancakes!",
-        "HIGH-PRO Jax Flapjacks 2026",
-        "EASY, golden pancakes in 20 mins!",
-        "PROTEIN-PACKED strawberry pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power Cakes with Fresh Jax Strawberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-02": {
       "art": {
@@ -87514,13 +87969,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER cabbage muffins, ready!",
-        "WINTER cabbage muffins, SE frontier taste",
-        "WINTER cabbage muffins, 18-20 min bake",
-        "WINTER cabbage muffins, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter cabbage Kodiak Cakes Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-03": {
       "art": {
@@ -87692,14 +88147,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Jax Flapjacks, 20 mins!",
-        "PROTEIN-PACKED Bradford strawberry pancakes!",
-        "PROTEIN-PACKED strawberry pancakes ready in 20!",
-        "HIGH-PROTEIN sheet pan pancakes, ready in 20 mins!",
-        "POWER-PACKED pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "High-Pro Jax Pancakes (2026-03)"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-04": {
       "art": {
@@ -87871,14 +88326,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "QUICK pancakes, 5g fiber, 27g protein!",
-        "EARLY Blueberry Kodiak Cakes Pancakes",
-        "EARLY Blueberries Power Pancakes",
-        "EASY 20-min protein pancakes, Jax!",
-        "QUICK pancakes, protein-packed, no syrup!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Early Blueberries Power Pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-05": {
       "art": {
@@ -88050,14 +88505,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PROTEIN sheet pan blueberries pancakes!",
-        "PROTEIN-PACKED blueberry pancakes, easy!",
-        "EASY, protein-packed blueberry pancakes!",
-        "JACKSONVILLE Blueberry Pancakes, 20 mins!",
-        "POWER-PACKED blueberry pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Blueberries & Kodiak Cakes Power Pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -88229,13 +88684,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH watermelon salad in 10 minutes!",
-        "MAKE summer's best protein cake!",
-        "JUICY watermelon pancakes, 2 min each side!",
-        "FLAPJACKS with juicy watermelon, Florida style."
+        "TOSS the cubed melon with the honey and lime juice; rest 10 minutes.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks topped with the fresh melon and its juices."
       ],
       "substrate": "kraft",
-      "title": "Summer's best: Kodiak Cakes Power Cakes & watermelon!"
+      "title": "Fresh Melon Flapjack Topper"
     },
     "2026-07": {
       "art": {
@@ -88252,10 +88707,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SE-JAX",
       "meta": {
-        "cook": "10 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "1"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-07",
       "provenance": {
@@ -88266,13 +88721,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "waffle-mac-n-cheese-grilled-cheese",
-        "name": "Waffle Mac 'n Cheese Grilled Cheese"
+        "id": "peanut-butter-chewy-banana-stack-draft",
+        "name": "Peanut Butter Chewy Banana Stack"
       },
       "seasonal_moment": [
         {
@@ -88407,13 +88864,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "GRILLED Peanut Waffle Mac ‘n Cheese",
-        "GRILLED Peanut Power Sandwich: Epic days ahead!",
-        "GRILLED Peanut Waffle Mac ‘n Cheese",
-        "GRILLED Peanut Waffle Mac ‘n Cheese, epic gains!"
+        "WARM the bars 10 seconds.",
+        "TOP with banana slices and serve at once."
       ],
       "substrate": "kraft",
-      "title": "Green peanuts power Kodiak Cakes!"
+      "title": "Peanut Butter Chewy Banana Stack"
     },
     "2026-08": {
       "art": {
@@ -88585,13 +89040,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks, Florida's frontier taste!",
-        "SWEET corn flapjacks, 5-min rest for flavor!",
-        "SWEET corn flapjacks: golden, savory breakfast",
-        "SWEET corn flapjacks, frontier style!"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet Corn Griddle Cakes in Jax"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-09": {
       "art": {
@@ -88763,14 +89218,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "JAX'S Protein-Packed Veggie Muffins",
-        "PROTEIN-PACKED Egg & Pepper Blend",
-        "PROTEIN-PACKED pepper muffins, 17g!",
-        "PROTEIN-PACKED Jax Egg Muffins!",
-        "JACKSONVILLE Protein Muffins 2026-09"
+        "PREHEAT the oven to 350° Fahrenheit. Grease a 12-cup muffin pan with the olive oil.",
+        "PLACE the eggs, garlic, salt, and Kodiak Cakes mix in a high-speed blender and process until smooth. Set aside.",
+        "DIVIDE the peppers, green onions, and feta cheese evenly between the greased muffin tins.",
+        "POUR the egg mixture into the muffin tins, evenly dividing between them.",
+        "BAKE for 20-22 minutes or until golden brown puffed on top.",
+        "LET cool slightly and remove from the pan using a rubber spatula or butter knife.",
+        "STORE in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Jacksonville Power Cakes with Peppers"
+      "title": "Breakfast Egg Muffins"
     },
     "2026-10": {
       "art": {
@@ -88787,10 +89244,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SE-JAX",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-10",
       "provenance": {
@@ -88801,13 +89258,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "peanut-butter-chewy-banana-stack-draft",
+        "name": "Peanut Butter Chewy Banana Stack"
       },
       "seasonal_moment": [
         {
@@ -88942,14 +89401,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOILED Peanut Cakes from Jacksonville",
-        "KODIAK Cakes Peanut Cakes: Florida's frontier treat!",
-        "BOILED Peanut Cakes, SE-JAX frontier",
-        "PEANUTS-BOILED Power Cake: Bold & Local!",
-        "BOILED Peanut Brownies: SE frontier taste"
+        "WARM the bars 10 seconds.",
+        "TOP with banana slices and serve at once."
       ],
       "substrate": "kraft",
-      "title": "Boiled Peanuts Power Cakes"
+      "title": "Peanut Butter Chewy Banana Stack"
     },
     "2026-11": {
       "art": {
@@ -89121,14 +89577,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER tomato & waffle bites",
-        "FRESH tomato tacos with Kodiak Cakes power",
-        "FLAVORFUL Tomato Power Waffles!",
-        "FRESH tomatoes atop Kodiak Cakes waffles!",
-        "FRESH tomatoes atop Kodiak Cakes waffles."
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Florida's Fresh Tomato Power Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-12": {
       "art": {
@@ -89300,13 +89756,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SATSUMA Citrus Flapjacks, protein-packed!",
-        "SATSUMA Citrus Flapjacks, JAX!",
-        "SATSUMA Citrus Flapjacks, 2 min, golden!",
-        "SATSUMA Citrus Pancakes, honey-top!"
+        "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
+        "REST the batter 5 minutes.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE hot with extra segments and honey."
       ],
       "substrate": "kraft",
-      "title": "Satsuma Citrus Power Cakes in Jax"
+      "title": "Mandarin Citrus Flapjacks"
     }
   },
   "US-SE-LOU": {
@@ -89483,14 +89939,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SAVOR our storage apple waffles, Kentucky!",
-        "STORAGE Apple Power Waffle Bake",
-        "STORAGE Apple Waffles: Frontier flavor!",
-        "LOUISVILLE'S storage apple waffle bake!",
-        "STORAGE Apple Waffles: Frontier's Sweet Treat"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Storage apples power Kodiak Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -89665,14 +90124,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HONEY-SMOKED Waffle Bites, KY",
-        "HONEY-INFUSED Smoked Gouda Bites",
-        "HONEY-GOUDA Bites, Kentucky style",
-        "HONEY-GLAZED Gouda Waffle Bites",
-        "HONEY-GLAZED Smoked Gouda Bites"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Local Honey Power Cakes"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     },
     "2026-03": {
       "art": {
@@ -89847,10 +90308,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KENTUCKY Asparagus Frittata: protein-packed power!"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Louisville's Fresh Asparagus Frittata"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-04": {
       "art": {
@@ -90025,13 +90486,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPRING greens scramble, frontier style",
-        "SPRING greens scramble, hearty & bold!",
-        "SPRING greens scramble delight!",
-        "FRESH spring greens atop hearty waffles."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Spring Greens Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-05": {
       "art": {
@@ -90206,14 +90667,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Louisville Sheet Pan Pancakes!",
-        "HIGH-PRO Lou Straw Pancakes 2026",
-        "PROTEIN-PACKED Louisville Pancakes (2026-05)",
-        "HIGH-PRO Lou strawberries pancakes, ready in 20!",
-        "HIGH-PRO Louisville strawberry pancakes!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power-packed strawberry pancakes!"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -90388,13 +90849,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks, frontier style!",
-        "SWEET corn flapjacks, Kentucky style!",
-        "SWEET corn flapjacks, Kentucky style!",
-        "SWEET corn flapjacks, frontier style!"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet Corn Power Cakes"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-07": {
       "art": {
@@ -90569,14 +91030,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH tomato taco base, 2026",
-        "KENTUCKY Tomato Tostada Base",
-        "KENTUCKY Tomato Power Base Tostada",
-        "KENTUCKY Tomato Power Waffles",
-        "KENTUCKY Tomato Tostadas with Kodiak Cakes Base"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Kentucky Tomato Power Tostada"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-08": {
       "art": {
@@ -90751,14 +91212,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEIRLOOM tomato power bites!",
-        "HEIRLOOM Tomato Fiesta!",
-        "HEIRLOOM Tomato Power Tostada",
-        "HEIRLOOM Tomato Power Waffles",
-        "HEIRLOOM Tomato Tostadas"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Heirloom Tots on Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-09": {
       "art": {
@@ -90933,14 +91394,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KENTUCKY Apple Waffle French Toast Bake",
-        "KODIAK Cakes Apple Waffles, Louisville!",
-        "KENTUCKY Apple Waffles: Frontier flavor!",
-        "KENTUCKY Apple Crunch Bake",
-        "KENTUCKY Apple Waffle French Toast Bake"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Kentucky Apples"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -91115,14 +91579,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER Pumpkin Power Muffins",
-        "FRONTIER Pumpkin Oats: Protein-packed fall treat!",
-        "FRONTIER Pumpkin Muffins, protein-packed!",
-        "FRONTIER Pumpkin Oats, protein-packed!",
-        "FRONTIER Pumpkin Muffins: Protein-packed, local delight!"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Frontier's Pumpkin Power Cakes"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -91297,14 +91762,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-power!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-beta-carotene!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet potato pancakes on Frontier stacks"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-12": {
       "art": {
@@ -91479,14 +91945,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COUNTRY Ham Pancakes, Kentucky style!",
-        "COUNTRY ham pancakes, hearty & rich!",
-        "COUNTRY Ham Pancakes, SE-LOU",
-        "COUNTRY Ham Pancakes Kentucky",
-        "COUNTRY Ham Pancakes Kentucky"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Country Ham atop Kodiak Cakes"
+      "title": "Sweet Potato Pancakes"
     }
   },
   "US-SE-MEMPHIS": {
@@ -91665,13 +92132,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "COLLARDS scramble, frontier style",
-        "MEMPHIS Collard Scramble 2026",
-        "MEMPHIS Collard Scrambles: hearty & frontier",
-        "MEMPHIS-STYLE collards feast."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Memphis Power Cakes with Collards"
+      "title": "Savory Greens Fritters"
     },
     "2026-02": {
       "art": {
@@ -91848,14 +92315,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-beta-carotene!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-power!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet potato pancakes, Kodiak Cakes power!"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-03": {
       "art": {
@@ -92032,13 +92500,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MEMPHIS Scrambled Greens Delight",
-        "MEMPHIS Scrambled Greens Delight",
-        "MEMPHIS Scrambled Greens Delight",
-        "MEMPHIS Scrambled: Protein-packed delight!"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Memphis Power Greens Scramble"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -92215,14 +92683,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MEMPHIS High-Pro Pancakes Ready in 20 Min",
-        "HIGH-PRO Memphis Strawberry Pancakes",
-        "MEMPHIS Power Pancakes 2026-04",
-        "MEMPHIS Power Pancakes, 20 min, protein-rich!",
-        "MEMPHIS Power Pancakes with Local Strawberries"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power-packed Memphis strawberry pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-05": {
       "art": {
@@ -92399,14 +92867,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EARLY Blueberry Power Pancakes",
-        "EARLY Blueberry Power Pancakes, Memphis",
-        "EARLY Blueberries Sheet Pan Pancakes",
-        "MEMPHIS Early Blue Berry Pancakes",
-        "EASY, protein-packed pancakes for Memphis!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Early Blues Power Pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -92583,14 +93051,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MEMPHIS Blueberry Pancakes, 20 mins!",
-        "MEMPHIS Blueberry Power Pancakes 2026",
-        "MEMPHIS Blueberry Power Pancakes",
-        "MEMPHIS Blueberry Power Pancakes 2026",
-        "MEMPHIS Blueberry Pancakes, 2026-06"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Memphis Power Pancakes with Blueberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -92767,14 +93235,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MEMPHIS Summer Tomato Tostada",
-        "MEMPHIS Summer Tomato Tostada Base",
-        "MEMPHIS Summer Tomato Tostada",
-        "MEMPHIS Summer Tomato Tostada Base",
-        "MEMPHIS Summer Tostada Base"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Memphis Summer Tomatillo Power"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-08": {
       "art": {
@@ -92951,13 +93419,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MEMPHIS Summer Watermelon Salad Prep",
-        "MEMPHIS Power Cakes: summer's best!",
-        "MEMPHIS Power Cakes, golden in 2 min!",
-        "MEMPHIS summer: flapjacks, fresh watermelon!"
+        "TOSS the cubed melon with the honey and lime juice; rest 10 minutes.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks topped with the fresh melon and its juices."
       ],
       "substrate": "kraft",
-      "title": "Memphis Power Cakes with Summer Watermelon"
+      "title": "Fresh Melon Flapjack Topper"
     },
     "2026-09": {
       "art": {
@@ -93134,13 +93602,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MEMPHIS muscadine roast with honey; 60°F heat",
-        "MEMPHIS muscadine power oats",
-        "MEMPHIS muscadine pancakes, golden & protein-rich!",
-        "MEMPHIS flapjacks with muscadine top."
+        "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with the warm roasted grapes spooned over."
       ],
       "substrate": "kraft",
-      "title": "Memphis Power Cakes with Muscadine Grapes"
+      "title": "Roasted Grape Flapjack Topper"
     },
     "2026-10": {
       "art": {
@@ -93317,14 +93785,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, Memphis!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet potatoes on Kodiak Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-11": {
       "art": {
@@ -93501,14 +93970,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PECAN-STUFFED Waffles, Memphis",
-        "PECAN-PACKED Power Pancakes",
-        "PECAN Power Pancakes for Memphis",
-        "PECAN-PACKED Power Pancakes",
-        "PECAN Pancakes: Memphis's Frontier Stack"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Pecan-topped Kodiak Cakes, Memphis"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-12": {
       "art": {
@@ -93685,13 +94155,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MEMPHIS Butternut Muffins Ready!",
-        "BUTTERNUT Squash Muffins, Memphis-style",
-        "MEMPHIS Butternut Squash Muffins, ready in 20 min!",
-        "RUSTIC butternut muffins, chill 5 then serve."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Memphis Power Cakes (Storage)"
+      "title": "Winter Squash Morning Muffins"
     }
   },
   "US-SE-NASH": {
@@ -93872,13 +94342,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NASHVILLE Collard Scramble 2026",
-        "COLLARDS scramble with Bear Brown eggs",
-        "NASHVILLE'S Collard Power Scramble",
-        "NASHVILLE'S best collard scramble!"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Nashville Power Collard Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-02": {
       "art": {
@@ -94057,14 +94527,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potatoes power your morning!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "NASHVILLE Sweet Potato Power Pancakes",
-        "NASHVILLE Sweet Potato Stack",
-        "SWEET potato power stack!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet potatoes power your Kodiak Cakes stack"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-03": {
       "art": {
@@ -94243,13 +94714,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NASHVILLE'S spring greens scramble, frontier style",
-        "NASHVILLE'S Spring Greens Scramble",
-        "NASHVILLE'S Protein Pancakes with Spring Greens",
-        "NASHVILLE'S spring greens scramble."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Nashville's Spring Power Pancakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -94428,14 +94899,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NASHVILLE'S Power Pancakes: 5-min, 5-ingred!",
-        "NASHVILLE'S Power Pancakes with Local Strawberries!",
-        "NASHVILLE Power Pancakes with Fresh Strawberries",
-        "NASHVILLE'S Power Pancakes in 20 mins!",
-        "NASHVILLE'S High-Pro Strawberry Power Pancakes!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Nashville Power Pancakes with Local Berries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-05": {
       "art": {
@@ -94614,14 +95085,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EARLY Blueberries Power Pancakes",
-        "EARLY Blueberries Power Pancakes",
-        "EARLY Blueberry Power Pancakes",
-        "NASHVILLE'S Early Blueberries Power Pancakes",
-        "EARLY Blueberries Power Pancakes"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Early blueberries on Kodiak Cakes Power Cakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -94800,14 +95271,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NASHVILLE'S Power Pancakes: 20 mins, 5g fiber",
-        "NASHVILLE'S Power Pancakes with Blueberries",
-        "NASHVILLE Blueberry Power Pancakes",
-        "NASHVILLE'S Power Blueberry Pancakes, ready in 20!",
-        "NASHVILLE'S Blueberry Power Pancakes"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Nashville's Blue Power Pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -94986,14 +95457,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NASHVILLE Summer Tomato Tostada Base",
-        "NASHVILLE Summer Tomato Tostada",
-        "NASHVILLE Summer Tomato Tostada",
-        "SUMMER tostada on Kodiak Cakes waffles",
-        "NASHVILLE Summer Tomato Tostadas"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Nashville Summer Tomato Power"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-08": {
       "art": {
@@ -95172,13 +95643,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NASHVILLE'S Sweet Corn Griddle Cakes",
-        "SWEET corn flapjacks, Nashville's frontier bite!",
-        "NASHVILLE'S sweet corn flapjacks, golden & bold!",
-        "NASHVILLE'S Sweet Corn Griddle Cakes"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Nashville's Sweet Corn Griddle Cakes"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-09": {
       "art": {
@@ -95357,14 +95828,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NASHVILLE'S Frontier Apple Waffles Bake",
-        "NASHVILLE'S Frontier Apple Waffles",
-        "NASHVILLE'S Frontier Apple Waffles",
-        "NASHVILLE'S Frontier Apple Waffles Delight",
-        "NASHVILLE'S Apple Power Waffles"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Nashville's Power Cakes with Local Apples"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -95543,14 +96017,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER Pumpkin Muffins: Protein-packed, local delight!",
-        "FRONTIER Pumpkin Oats: Protein-Packed Harvest!",
-        "FRONTIER Pumpkin Muffins, protein-packed!",
-        "FRONTIER Pumpkin Power Muffins",
-        "FRONTIER Pumpkin Oats: Protein-packed muffins"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Frontier's Pumpkin Power Muffins"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -95729,14 +96204,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato power pancakes, Nashville!",
-        "SWEET potato power pancakes!",
-        "NASHVILLE Sweet Potato Pancakes",
-        "NASHVILLE'S Sweet Potato Power Stack"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet potatoes on Kodiak Cakes Power"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-12": {
       "art": {
@@ -95915,14 +96391,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NASHVILLE Sorghum Power Cakes",
-        "NASHVILLE Sorghum Power Pancakes",
-        "NASHVILLE Sorghum Power Cakes",
-        "NASHVILLE Sorghum Power Cakes",
-        "SORGHUM-TOPPED Power Cakes, Nashville-style"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Nashville Sorghum Pancakes"
+      "title": "Tropical Protein Pancakes"
     }
   },
   "US-SE-NOLA": {
@@ -96112,13 +96591,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SATSUMA Flapjacks for NOLA's breakfast frontier",
-        "SATSUMA Flapjacks: 5-min rest, frontier-style!",
-        "SATSUMA Flapjacks: 2 min, golden!",
-        "SATSUMA Flapjacks: hearty & zesty!"
+        "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
+        "REST the batter 5 minutes.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE hot with extra segments and honey."
       ],
       "substrate": "kraft",
-      "title": "Satsuma Flapjacks with Kodiak Cakes Power"
+      "title": "Mandarin Citrus Flapjacks"
     },
     "2026-02": {
       "art": {
@@ -96306,13 +96785,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CRAWFISH Crunch: Savory & Bold!",
-        "CRAWFISH scramble with herbs, lemon, and spice",
-        "CRAWFISH Cakes NOLA 2026-02",
-        "CRAWFISH Scramble Pancakes NOLA"
+        "PICK over the seafood for shell; if using raw halibut or clams, cook through first and chop.",
+        "FOLD the seafood with the mix, egg, herbs, lemon juice, salt, and pepper; rest 10 minutes so the mix hydrates and binds.",
+        "FORM 8 small cakes and pan-fry in hot oil, 3 minutes per side, until golden and hot through.",
+        "SERVE hot with lemon."
       ],
       "substrate": "kraft",
-      "title": "Crawfish Kodiak Cakes NOLA 2026"
+      "title": "Savory Seafood Cakes"
     },
     "2026-03": {
       "art": {
@@ -96500,13 +96979,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MIRLITON Power Muffins, 17g protein!",
-        "MIRLITON Power Muffins: 17g protein, ready in 15!",
-        "MIRLITON Power Muffins, 17g protein",
-        "SPRING mirliton power muffins, ready!"
+        "HEAT the oven to 350F and grease a 12-cup muffin tin.",
+        "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+        "DIVIDE among the cups and bake 18-20 minutes, until puffed and set.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Mirlitons & Kodiak Cakes Power Cakes"
+      "title": "Spring Onion Egg Muffins"
     },
     "2026-04": {
       "art": {
@@ -96694,14 +97173,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EASY, protein-packed NOLA pancakes!",
-        "PROTEIN-PACKED NOLA pancakes, 20 mins!",
-        "POWER pancakes with local strawberries!",
-        "POWER-PACKED NOLA pancakes, 20 mins!",
-        "POWER-PACKED NOLA pancakes, ready in 20!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power Cakes with Ponchatoula Strawberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-05": {
       "art": {
@@ -96889,14 +97368,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CREOLE Tomato Power Bowl",
-        "CREOLE tomato summer feast!",
-        "CREOLE tomato power waffles",
-        "CREOLE Tomato Power Waffles",
-        "CREOLE tomato waffles with Blaze Orange zest."
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Creole Tomatoes atop Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-06": {
       "art": {
@@ -97084,14 +97563,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CREOLE Tomato Power Bowl",
-        "CREOLE tomato skillet delight!",
-        "CREOLE tomato power waffles",
-        "CREOLE Tomato Power Waffles",
-        "CREOLE tomato waffles, fresh & bold."
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Creole tomatoes on Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-07": {
       "art": {
@@ -97279,13 +97758,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WATERMELON Honey Lime Salad Prep",
-        "KODIAK Cakes's Power Cakes: Summer's best breakfast!",
-        "GRILLED watermelon power bites, 2 min each side.",
-        "FLAPJACKS with juicy watermelon, frontier style."
+        "TOSS the cubed melon with the honey and lime juice; rest 10 minutes.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks topped with the fresh melon and its juices."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Summer Watermelon Delight"
+      "title": "Fresh Melon Flapjack Topper"
     },
     "2026-08": {
       "art": {
@@ -97473,13 +97952,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "OKRA flapjacks, NOLA style!",
-        "OKRA-INFUSED flapjacks, NOLA style!",
-        "OKRA griddle bites, NOLA 2026-08",
-        "OKRA griddle bites, Louisiana style."
+        "WHISK the mix, cornmeal, eggs, milk, salt, and pepper into a batter.",
+        "FOLD in the diced okra.",
+        "SHALLOW-FRY 2-tablespoon spoonfuls in hot oil, 2-3 minutes per side, until crisp and golden.",
+        "DRAIN on a rack, salt lightly, and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Okra Power Cakes in NOLA"
+      "title": "Okra Griddle Fritters"
     },
     "2026-09": {
       "art": {
@@ -97667,14 +98146,20 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MIRLITON-STUFFED Kodiak Cakes NOLA",
-        "MIRLITON Kodiak Cakes NOLA 2026-09",
-        "MIRLITON Cakes NOLA-2026-09",
-        "MIRLITON Power Cake NOLA 2026-09",
-        "MIRLITON Cakes, NOLA-style"
+        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper.",
+        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine.",
+        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
+        "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries.",
+        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean.",
+        "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling.",
+        "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside.",
+        "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
+        "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between.",
+        "TOP cake with fresh raspberries.",
+        "STORE cake in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Mirlitons on Kodiak Cakes"
+      "title": "White Chocolate Raspberry Cake"
     },
     "2026-10": {
       "art": {
@@ -97862,14 +98347,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET potato pancakes, beta-beta-carotene!",
-        "SWEET potato pancakes, Bear Brown beta-boost!",
-        "SWEET potato pancakes, beta-beta!",
-        "SWEET potato pancakes, beta-carotene boost!",
-        "SWEET potato pancakes, beta-carotene boost!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet potato pancakes, Bear Brown flavor"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-11": {
       "art": {
@@ -98057,13 +98543,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SATSUMA Flapjacks: Frontier breakfast boost!",
-        "SATSUMA Flapjacks, NOLA!",
-        "SATSUMA Power Flapjacks, 2 min golden!",
-        "SATSUMA Flapjacks: Fresh & Mighty!"
+        "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
+        "REST the batter 5 minutes.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE hot with extra segments and honey."
       ],
       "substrate": "kraft",
-      "title": "Satsuma Power Cakes: Frontier Fuel"
+      "title": "Mandarin Citrus Flapjacks"
     },
     "2026-12": {
       "art": {
@@ -98251,14 +98737,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "LOUISIANA Navel Orange Protein Muffins",
-        "LOUISIANA Navel Orange Power Muffins",
-        "PROTEIN-PACKED navel orange muffins!",
-        "PROTEIN-PACKED navel orange muffins!",
-        "LOUISIANA Navel Orange Protein Muffins"
+        "PREHEAT oven to 350°F and line a muffin tin with liners or grease well.",
+        "IN a large bowl, whisk together eggs, Greek yogurt, orange juice and zest, maple syrup, vanilla, and milk until smooth.",
+        "ADD Kodiak Cakes mix and salt; stir until just combined. Fold in the dried cranberries.",
+        "DIVIDE batter evenly into 24 muffin tins, filling each about ¾ full.",
+        "BAKE for 16-21 minutes, or until the tops are set and a toothpick inserted in the center comes out clean.",
+        "LET cool in the pan for 5 minutes, then transfer to a wire rack to cool completely. Reheat Instructions: From the fridge, reheat in a 350° F oven or toaster oven for 6–10 minutes until warmed through."
       ],
       "substrate": "kraft",
-      "title": "Louisiana Navel Orange Power Cakes"
+      "title": "Cranberry Orange Yogurt Muffins"
     }
   },
   "US-SE-TAMPA": {
@@ -98430,14 +98917,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TAMPA'S High-Pro Strawberry Sheet Pan Pancakes",
-        "POWER-PACKED Tampa strawberry pancakes!",
-        "TAMPA'S High-Pro Strawberry Pancakes",
-        "TAMPA'S Power Sheet Pan Pancakes (2026-01)",
-        "POWER-PACKED pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power-packed Tampa strawberry pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-02": {
       "art": {
@@ -98454,10 +98941,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SE-TAMPA",
       "meta": {
-        "cook": "10 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "1"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-02",
       "provenance": {
@@ -98468,13 +98955,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "waffle-mac-n-cheese-grilled-cheese",
-        "name": "Waffle Mac 'n Cheese Grilled Cheese"
+        "id": "green-bean-parmesan-fritters-draft",
+        "name": "Green Bean Parmesan Fritters"
       },
       "seasonal_moment": [
         {
@@ -98607,13 +99096,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "GRILLED Green Bean Waffle Mac ‘n Cheese",
-        "GRILLED Green Bean Power Sandwich",
-        "GRILLED Green Bean Mac ‘n Cheese Sandwich",
-        "GRILLED Green Bean Mac ‘n Waffle"
+        "STEAM the cut beans 4 minutes until just tender, then spread on a towel and pat completely dry.",
+        "WHISK the mix, eggs, parmesan, salt, and pepper with the dry beans into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "DRAIN briefly on a rack and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Winter Green Beans on Kodiak Cakes Power"
+      "title": "Green Bean Parmesan Fritters"
     },
     "2026-03": {
       "art": {
@@ -98783,14 +99272,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Tampa Flapjacks ready in 20 mins!",
-        "HIGH-PRO Tampa strawberry pancakes!",
-        "TAMPA'S Peak Protein Pancakes 2026",
-        "TAMPA'S Power Sheet Pan Pancakes, 20 mins!",
-        "QUICK protein pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Festival Peak Power Pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-04": {
       "art": {
@@ -98960,14 +99449,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EARLY Blue Berry Power Pancakes",
-        "EARLY Blueberries Power Pancakes",
-        "EARLY Blueberries Power Pancakes",
-        "EARLY Blueberry Power Pancakes",
-        "EARLY Blueberries Power Pancakes"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Early Blueberries Power Pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-05": {
       "art": {
@@ -99137,14 +99626,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "POWER-PACKED Tampa blueberry pancakes",
-        "POWER-PACKED Tampa blueberry pancakes!",
-        "POWER-PACKED Blueberry Pancakes",
-        "POWER-PACKED Tampa pancakes, 20 mins max!",
-        "POWER-PACKED blueberry pancakes, ready in 20!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power-packed Blueberry Pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -99314,13 +99803,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TAMPA'S power-packed watermelon salad!",
-        "POWER up your summer with Kodiak Cakes mix!",
-        "TAMPA'S Power-Packed Summer Pasta!",
-        "POWER up with watermelon pancakes!"
+        "TOSS the cubed melon with the honey and lime juice; rest 10 minutes.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks topped with the fresh melon and its juices."
       ],
       "substrate": "kraft",
-      "title": "Tampa's Power Pasta with Watermelon"
+      "title": "Fresh Melon Flapjack Topper"
     },
     "2026-07": {
       "art": {
@@ -99490,14 +99979,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MANGO Power Pancakes, Tampa",
-        "MANGO Power Pancakes Tampa 2026",
-        "MANGO Power Pancakes, Tampa",
-        "MANGO Power Pancakes, Tampa!",
-        "MANGO Power Pancakes: protein-packed, easy!"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Mango-spiced Kodiak Cakes Power Cakes"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-08": {
       "art": {
@@ -99514,10 +100006,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SE-TAMPA",
       "meta": {
-        "cook": "2 mins",
+        "cook": "10 mins",
         "est_cost": null,
-        "prep": "8 mins",
-        "serves": "1"
+        "prep": "10 mins",
+        "serves": "2"
       },
       "month": "2026-08",
       "provenance": {
@@ -99533,8 +100025,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "single-serve-maple-pecan-muffin",
-        "name": "Single-Serve Maple Pecan Muffin"
+        "id": "avocado-pancakes",
+        "name": "Avocado Pancakes"
       },
       "seasonal_moment": [
         {
@@ -99667,14 +100159,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FLORIDA Avocado Crunch Cup",
-        "TAMPA'S avocado power cake mix stir-up!",
-        "FLORIDA Avocado Breakfast Treat",
-        "TAMPA Avocado Crunch Delight",
-        "FLORIDA Avocado Power Snack"
+        "PLACE the avocado, milk, and spirulina in a blender and process until smooth.",
+        "PLACE the Kodiak Cakes mix in a bowl. Add the avocado mixture and whisk together to form a smooth batter. Let rest for 5 minutes.",
+        "HEAT a frying pan to medium-high and grease.",
+        "PLACE 1/4-cup scoops of batter on the hot pan and cook until bubbles form on top. Flip and cook for an additional 30 seconds. Repeat with the remaining batter.",
+        "SERVE pancakes topped with blueberries and maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Florida avocado Kodiak Cakes Power Cakes"
+      "title": "Avocado Pancakes"
     },
     "2026-09": {
       "art": {
@@ -99844,13 +100336,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CORN & bacon griddle cakes, Tampa!",
-        "SWEET corn flapjacks, Tampa's frontier breakfast!",
-        "CORN & Bacon Griddle Cakes",
-        "CORN & bacon griddle cakes"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Corn-topped Kodiak Cakes frontier breakfast"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-10": {
       "art": {
@@ -100020,14 +100512,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER tomato tostada base",
-        "SUMMER tomato tostada base",
-        "SUMMER tomato tostada base",
-        "SUMMER tomato tostada base",
-        "SUMMER tomato tostada on Kodiak Cakes waffle"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Tampa Tomato Power Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-11": {
       "art": {
@@ -100197,14 +100689,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PROTEIN Tampa pancakes, ready in 20!",
-        "TAMPA'S Power Pancakes: 20 mins, 5g protein!",
-        "HIGH-PRO Tampa Sheet Pan Pancakes",
-        "TAMPA'S Power Pancakes, 20-min, protein-rich!",
-        "FRESH strawberries, protein pancakes, Tampa!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "New crop strawberries on Kodiak Cakes Power Cakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-12": {
       "art": {
@@ -100221,10 +100713,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SE-TAMPA",
       "meta": {
-        "cook": "1.5 mins",
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": "2 mins",
-        "serves": "1"
+        "prep": "15 mins",
+        "serves": "8 flapjacks"
       },
       "month": "2026-12",
       "provenance": {
@@ -100240,8 +100732,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "single-serve-lemon-ricotta-flapjack-cup",
-        "name": "Single-serve Lemon Ricotta Flapjack Cup"
+        "id": "mandarin-citrus-flapjacks-draft",
+        "name": "Mandarin Citrus Flapjacks"
       },
       "seasonal_moment": [
         {
@@ -100374,13 +100866,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TANGY Tangerine Flapjack Cup!",
-        "TANGY Tangerine Flapjack Cup (cr-2)",
-        "TANGY Tangerine Flapjacks, 17g protein!",
-        "TANGY Tangerine Flapjacks, 17g protein"
+        "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
+        "REST the batter 5 minutes.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE hot with extra segments and honey."
       ],
       "substrate": "kraft",
-      "title": "Tangy Tangerine Kodiak Cakes"
+      "title": "Mandarin Citrus Flapjacks"
     }
   },
   "US-SW-ALBQ": {
@@ -100559,13 +101051,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER muffins: cozy, hearty, local.",
-        "SQUASH & Honey Hotcakes",
-        "RUSTIC muffins, 18-20 min bake, local taste",
-        "RUSTIC baked goods, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Stored Apples & Squash Kodiak Cakes Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-02": {
       "art": {
@@ -100742,13 +101234,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH greens scramble, hearty & bold!",
-        "FRESH greens scramble, hearty & bold!",
-        "SAVORY greens scramble pancakes",
-        "FRONTIER greens scramble, fresh micros."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Rugged Greens Power Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-03": {
       "art": {
@@ -100925,13 +101417,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SAVORY greens scramble, local flavor",
-        "SAVORY greens scramble with local asp",
-        "SAVORY greens scramble pancakes",
-        "SAVORY greens atop hotcakes."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Spring Greens Power Pancakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -101108,14 +101600,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUGGED Salmon Patties with Power Cakes",
-        "RUGGED protein-packed salads with local greens!",
-        "KODIAK Cakes Power Patties, 51g protein!",
-        "RUGGED radish & lettuce power cakes",
-        "RUGGED Salmon Patties with Power Cakes"
+        "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+        "LET the mixture rest for 10 minutes so the grains can absorb the moisture.",
+        "FORM the mixture into 4–5 evenly sized patties.",
+        "HEAT the olive oil in a large skillet over medium heat.",
+        "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp.",
+        "TRANSFER the patties to a plate lined with paper towels.",
+        "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth.",
+        "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Radish & Lettuce Delight"
+      "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce"
     },
     "2026-05": {
       "art": {
@@ -101292,13 +101787,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "QUICK, protein-packed muffins ready in 15!",
-        "QUICK protein muffins, 17g per bite!",
-        "QUICK protein muffins, ready in 20!",
-        "QUICK 15-min protein pancakes!"
+        "HEAT the oven to 350F and grease a 12-cup muffin tin.",
+        "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+        "DIVIDE among the cups and bake 18-20 minutes, until puffed and set.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Fresh Spring Ons & Berries"
+      "title": "Spring Onion Egg Muffins"
     },
     "2026-06": {
       "art": {
@@ -101475,14 +101970,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER squash & corn tostada base",
-        "SUMMER squash & sweet corn tostada base",
-        "SUMMER squash & corn hotcakes",
-        "SUMMER squash & sweet corn hotcakes",
-        "SUMMER corn & squash tostada bites"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Summer Corn & Squash on Kodiak Cakes Power"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-07": {
       "art": {
@@ -101659,14 +102154,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER corn & tomato bites",
-        "SUMMER veggies on Kodiak Cakes!",
-        "SUMMER corn & tomato hotcakes",
-        "SUMMER corn & tomato hotcakes",
-        "GARDEN-FRESH tostadas with Kodiak Cakes waffles"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Summer Corn & Tomato Power Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-08": {
       "art": {
@@ -101683,10 +102178,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SW-ALBQ",
       "meta": {
-        "cook": "10 mins",
+        "cook": "20 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "1"
+        "serves": "12 muffins"
       },
       "month": "2026-08",
       "provenance": {
@@ -101702,8 +102197,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "waffle-mac-n-cheese-grilled-cheese",
-        "name": "Waffle Mac 'n Cheese Grilled Cheese"
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
       },
       "seasonal_moment": [
         {
@@ -101843,13 +102338,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "GREEN chile & melon melt waffle sandwich",
-        "SOUTHWEST Green Chile Grilled Waffle Sandwich",
-        "GRILLED Green Chile & Melon Hotcakes",
-        "GRILLED Green Chile Hotcakes, protein-packed!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Green chile waffles with local protein"
+      "title": "Red Chile Cornbread Muffins"
     },
     "2026-09": {
       "art": {
@@ -101866,10 +102362,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SW-ALBQ",
       "meta": {
-        "cook": "10 mins",
+        "cook": "20 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "1"
+        "serves": "12 muffins"
       },
       "month": "2026-09",
       "provenance": {
@@ -101885,8 +102381,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "waffle-mac-n-cheese-grilled-cheese",
-        "name": "Waffle Mac 'n Cheese Grilled Cheese"
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
       },
       "seasonal_moment": [
         {
@@ -102026,13 +102522,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "GREEN Chile & Apple Power Waffles",
-        "GREEN chile mac with crispy waffles, 24g protein!",
-        "GREEN Chile & Apple Hotcakes",
-        "GREEN Chile Hotcakes & Apples Power Lunch"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Green Chile & Apples Power Cakes"
+      "title": "Red Chile Cornbread Muffins"
     },
     "2026-10": {
       "art": {
@@ -102209,13 +102706,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes: Bake local apples & squash muffins!",
-        "SQUASH & Honey Muffins: Frontier flavor",
-        "RUSTIC Kodiak Cakes: 18-20 min bake, local flavor!",
-        "RUSTIC Kodiak Cakes, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Local Harvest Flavors"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-11": {
       "art": {
@@ -102392,14 +102889,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PECAN-PUMPKINS: Frontier Feast, 375°",
-        "FRONTIER Pecan Hotcakes & Pumpkins",
-        "PECAN-PUMPKINS Hotcakes, SW-ALBQ",
-        "FRONTIER Pecan Hotcakes & Pumpkins 2026",
-        "PECAN-PUMPKINS: Frontier's hearty harvest!"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Pecans & pumpkins: Kodiak Cakes frontier power"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-12": {
       "art": {
@@ -102576,14 +103074,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "LOCAL pecan pancakes, beta-carotene boost!",
-        "PECAN-APPLE Pancakes: Frontier's Power Stack",
-        "PECAN-APPLE Pancakes in the Wild West",
-        "PECAN-APPLE Hotcakes in the Wild",
-        "PECAN-APPLE Hotcakes, SW-ALBQ"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Stored apples & pecans power cakes"
+      "title": "Sweet Potato Pancakes"
     }
   },
   "US-SW-CLOUDCROFT": {
@@ -102734,14 +103233,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER waffles with apple preserves",
-        "RUGGED waffles with sweet preserves, Cloudcroft style",
-        "FRONTIER waffles with local apple flavor!",
-        "SAVORY apple waffles with preserves",
-        "CLOUDCROFT waffles: hearty, local flavor!"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Cloudcroft Power Cakes with Apples"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -102890,13 +103392,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CLOUDCROFT Potatoes & Hotcakes",
-        "CLOUDCROFT Cakes: Savory Potato Delights",
-        "CRISPY Cloudcroft hotcakes, 3-4 min",
-        "HOTCAKES from Cloudcroft!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Cloudcroft Power Cakes & Preserves"
+      "title": "Storage Root Fritters"
     },
     "2026-03": {
       "art": {
@@ -103045,10 +103547,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER'S Maple Apple Pancakes"
+        "APPLE Cinnamon Compote Peel and core apples then cut them into eighths. Place them in a shallow wide saucepan with ¼ cup of water, brown sugar, 1 tablespoon of honey, and cinnamon over medium heat. Bring to a boil then reduce heat to low. Simmer and stir until apples are soft and fragrant (about 10 minutes). Add the remaining 1 cup of water and ½ cup of honey, raise to medium heat, and stir to combine. Bring mixture to a boil and continue cooking for 20-25 minutes or until the apples have turned golden and syrup has thickened. Stir in the lemon juice. Buttermilk & Honey Flapjacks Combine Kodiak Cakes Buttermilk Power Cakes Mix, water, honey, and cinnamon. Heat a griddle or skillet over medium-high heat with ½ tablespoon of butter. Add ¼ cup of the flapjack batter to the skillet and cook until bubbles form on top and the bottom is golden. Then flip and cook on the other side until golden. Set aside the cooked flapjacks and add another ½ tablespoon of butter to the skillet. Once the skillet is hot, add another ¼ cup of the flapjack batter to the pan and repeat process until you’ve made 8 flapjacks (using all the batter). Serve the flapjacks with apple compote on tip, and maple syrup for drizzling."
       ],
       "substrate": "kraft",
-      "title": "Storage apples & honey over Kodiak Cakes flapjacks"
+      "title": "Apple Cinnamon Compote"
     },
     "2026-04": {
       "art": {
@@ -103197,13 +103699,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER greens scramble, hearty & bold",
-        "FRONTIER greens scramble with herbs",
-        "FRONTIER greens scramble; hearty, local delight",
-        "FRONTIER greens scramble, fresh microgreens."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Cloudcroft Power Pancakes (Late Frost)"
+      "title": "Savory Greens Fritters"
     },
     "2026-05": {
       "art": {
@@ -103352,13 +103854,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EARLY greens scramble, frontier style",
-        "FRONTIER Herb & Cheese Scramble",
-        "FRONTIER Scrambled Pancakes, mid-May",
-        "FRONTIER-STYLE scrambles with local greens."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Frontier Greens Power Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-06": {
       "art": {
@@ -103507,14 +104009,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Protein Salmon Patties in Cloudcroft",
-        "RUGGED Protein Power Mix, 10 mins rest",
-        "KODIAK Cakes Protein Patties: 51g, US-SW",
-        "KODIAK Cakes Power Protein Pancakes",
-        "RUGGED Salmon Patties, 51g protein"
+        "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+        "LET the mixture rest for 10 minutes so the grains can absorb the moisture.",
+        "FORM the mixture into 4–5 evenly sized patties.",
+        "HEAT the olive oil in a large skillet over medium heat.",
+        "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp.",
+        "TRANSFER the patties to a plate lined with paper towels.",
+        "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth.",
+        "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
       ],
       "substrate": "kraft",
-      "title": "Protein-packed Kodiak Cakes with fresh veggies"
+      "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce"
     },
     "2026-07": {
       "art": {
@@ -103663,13 +104168,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER summer squash scramble",
-        "FRONTIER herb scramble pancakes",
-        "FRONTIER Herb & Squash Scramble",
-        "FRONTIER-STYLE pancakes with fresh greens."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Frontier squash & greens pancakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-08": {
       "art": {
@@ -103818,14 +104323,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CLOUDCROFT'S best u-pick breakfast!",
-        "CLOUDCROFT'S best u-pick breakfast!",
-        "CLOUDCROFT'S Power Protein Scones",
-        "CLOUDCROFT'S protein-packed berry scones!",
-        "FRONTIER u-pick berry scones"
+        "PREHEAT oven to 400°F and line a baking sheet with parchment paper.",
+        "IN a large bowl, combine Kodiak Cakes mix and cold butter. Use your fingers to press and rub the butter into the mix until it forms small crumbs, with pieces about the size of peas.",
+        "IN a separate bowl, whisk together eggs, Greek yogurt, and maple syrup until smooth.",
+        "ADD wet ingredients to the dry ingredients and combine until a rough, slightly sticky dough forms. Gently fold in frozen berries (careful to not thaw them) and lemon zest. If the dough feels dry, add 1–2 tablespoons milk until it comes together.",
+        "TURN dough onto a lightly floured surface, and gently pat into a round about 1-inch thick (about the height of two stacked fingers). Cut into 12 wedges and slightly separate them on the prepared baking sheet. Light brush tops with milk.",
+        "BAKE for 15–20 minutes, until tops are lightly golden and centers feel set. Let cool slightly before serving.",
+        "STORE in an airtight container in the refrigerator for up to 4–5 days. Reheat in oven at 350°F for 5–8 minutes until warmed through."
       ],
       "substrate": "kraft",
-      "title": "U-Pick Power Cakes & Fresh Berries"
+      "title": "Triple Berry Yogurt Scones"
     },
     "2026-09": {
       "art": {
@@ -103974,14 +104481,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER single-serve apple muffin",
-        "RUGGED Pecan Maple Muffin, Cloudcroft",
-        "FRONTIER Apple Hotcakes with Cadwallader Maple",
-        "CLOUDCROFT'S Fresh Apple Hotcakes",
-        "CLOUDCROFT'S Maple Pecan Hotcakes"
+        "REMOVE the lid from the oatmeal cup.",
+        "ADD the power cakes mix and baking powder to the cup and stir with a fork to combine.",
+        "ADD the egg, oil, and 2 tablespoons of the milk to the cup and stir until a smooth batter forms.",
+        "ADD the remaining 3 tablespoons of milk and stir until fully combined. Let sit for 5 minutes.",
+        "STIR again and sprinkle the top with chopped pecans. Microwave for 90 seconds.",
+        "LET cool slightly. Make maple butter glaze:",
+        "PLACE the melted butter, maple syrup, and powdered sugar in a small bowl and whisk together until a smooth icing forms.",
+        "DRIZZLE the glaze over the top of the muffin and sprinkle with a few pecan pieces. Enjoy!"
       ],
       "substrate": "kraft",
-      "title": "Cloudcroft Apple Kodiak Cakes Power Cakes"
+      "title": "Single-Serve Maple Pecan Muffin"
     },
     "2026-10": {
       "art": {
@@ -104130,13 +104640,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER'S best muffins: try 'em today!",
-        "FRONTIER squash muffins, Bear Brown & Blaze Orange",
-        "FRONTIER'S favorite muffins: try 'em all!",
-        "FRESH local muffins, try 'em now!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter squash & apple Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-11": {
       "art": {
@@ -104287,10 +104797,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO pinon nut pancakes recipe!"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Pinon Power Cakes: High-Pro Harvest"
+      "title": "High Protein Nuts Seeds Power Oatmeal"
     },
     "2026-12": {
       "art": {
@@ -104439,14 +104949,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RED chile strirs & corn muffins, 2026",
-        "RED chile stri-hotcakes for Cloudcroft BBQ",
-        "RED chile stristas BBQ side, frontier flair",
-        "RED chile stristas & posole corn bites",
-        "RED chile strir-ups, hotcakes, & posole"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Red chile ristras & posole cornbread"
+      "title": "Red Chile Cornbread Muffins"
     }
   },
   "US-SW-LASCRUCES": {
@@ -104618,14 +105128,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ONION & Pecan Pancakes: Frontier flavor!",
-        "ONION Pecan Pancakes: beta-carotene power!",
-        "STORED onion skillet bites, pecan power!",
-        "STORED onion pancakes with pecans, Bear Brown & Blaze Orange",
-        "ONION Pecan Pancakes: Frontier flavor!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Stored Onions & Pecans Kodiak Cakes Power Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-02": {
       "art": {
@@ -104795,13 +105306,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER greens scramble, 60-cal power",
-        "FRONTIER cool greens scramble mix",
-        "FRONTIER'S Cool Greens Scramble 2026",
-        "FRONTIER greens scramble with microtops."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Frontier Greens Power Scramble"
+      "title": "Savory Greens Fritters"
     },
     "2026-03": {
       "art": {
@@ -104971,13 +105482,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SAVORY spring onion scrambles",
-        "SAVORY spring onion scrambles",
-        "SAVORY spring onion pancakes, Las Cruces",
-        "FRONTIER herb scrambles with greens."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Spring onions & greens Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -105147,13 +105658,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER protein pancakes with early greens",
-        "FRONTIER Scrambled Pancakes with Early Greens",
-        "FRONTIER-STYLE Savory Pancakes",
-        "FRONTIER protein pancakes with greens."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Early Greens & Onions"
+      "title": "Savory Greens Fritters"
     },
     "2026-05": {
       "art": {
@@ -105323,14 +105834,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET onion & squash pancakes, frontier style",
-        "SWEET onion & squash pancakes, beta-carotene boost",
-        "SWEET onion & squash pancakes",
-        "SWEET onion & squash pancakes!",
-        "SWEET onion & squash pancakes"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet onions & squash Kodiak Cakes stacks"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-06": {
       "art": {
@@ -105500,14 +106012,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET onion pancakes, local flavor!",
-        "SWEET onions & melon pancakes, beta-carotene packed!",
-        "FRONTIER-STYLE sweet onion pancakes",
-        "SWEET onion & melon pancakes!",
-        "FRONTIER Sweet Onion Pancakes Las Cruces"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Sweet onions & melons on Kodiak Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-07": {
       "art": {
@@ -105524,10 +106037,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SW-LASCRUCES",
       "meta": {
-        "cook": "10 mins",
+        "cook": "20 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "1"
+        "serves": "12 muffins"
       },
       "month": "2026-07",
       "provenance": {
@@ -105543,8 +106056,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "waffle-mac-n-cheese-grilled-cheese",
-        "name": "Waffle Mac 'n Cheese Grilled Cheese"
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
       },
       "seasonal_moment": [
         {
@@ -105677,13 +106190,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "GRILLED Green Chile & Melon Hotcakes",
-        "EARLY chile waffles with melty cheese",
-        "GRILLED Green Chile & Melon Melt",
-        "GRILLED Green Chile Mac 'n Waffle Sandwich"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Green chile waffles over Kodiak Cakes Power"
+      "title": "Red Chile Cornbread Muffins"
     },
     "2026-08": {
       "art": {
@@ -105700,10 +106214,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SW-LASCRUCES",
       "meta": {
-        "cook": "10 mins",
+        "cook": "20 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "1"
+        "serves": "12 muffins"
       },
       "month": "2026-08",
       "provenance": {
@@ -105719,8 +106233,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "waffle-mac-n-cheese-grilled-cheese",
-        "name": "Waffle Mac 'n Cheese Grilled Cheese"
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
       },
       "seasonal_moment": [
         {
@@ -105853,13 +106367,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "GRILLED Green Chile Waffle Melt: Epic Southwest Fuel",
-        "SOUTHWEST Green Chile Grilled Waffle Mac ‘n Cheese",
-        "FRONTIER Grilled Waffle Mac ‘n Cheese",
-        "SOUTHWEST Grilled Waffle Mac ‘n Cheese"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Green chile & melon on Kodiak Cakes Power Cakes"
+      "title": "Red Chile Cornbread Muffins"
     },
     "2026-09": {
       "art": {
@@ -105876,10 +106391,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SW-LASCRUCES",
       "meta": {
-        "cook": "10 mins",
+        "cook": "20 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "1"
+        "serves": "12 muffins"
       },
       "month": "2026-09",
       "provenance": {
@@ -105895,8 +106410,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "waffle-mac-n-cheese-grilled-cheese",
-        "name": "Waffle Mac 'n Cheese Grilled Cheese"
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
       },
       "seasonal_moment": [
         {
@@ -106029,13 +106544,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "GRILLED Chile & Cheese Hotcakes",
-        "SPICY Green Chile Protein Sandwich",
-        "GRILLED Chile Mac ‘n Cheese Sandwich",
-        "GRILLED Chile Mac & Cheese Waffle"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Chili-Packed Kodiak Cakes Power Cakes"
+      "title": "Red Chile Cornbread Muffins"
     },
     "2026-10": {
       "art": {
@@ -106205,14 +106721,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RED chile & pumpkin hotcakes, SW frontier style",
-        "RED chile hotcakes with pumpkin protein boost",
-        "RED chile & pumpkin muffins, protein-packed!",
-        "RED chile hotcakes with pumpkin spice",
-        "FRONTIER Red Chile Pumpkin Muffins"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Red chile & pumpkins fuel Kodiak Cakes"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -106382,14 +106899,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PECAN & Chile Hotcakes for BBQs",
-        "PECAN-CHILI Hotcakes: Frontier flavor, no fuss",
-        "PECAN-CHILE Hotcakes for Southwest BBQs",
-        "PECAN-CHILE Ristras Hotcakes, 35 min",
-        "WARM pecan streusel hotcakes, Las Cruces style."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Pecan-Chile Ristras Kodiak Cakes"
+      "title": "Red Chile Cornbread Muffins"
     },
     "2026-12": {
       "art": {
@@ -106559,14 +107076,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CHILI-SPICED Pecan Muffins, ready in 40 mins",
-        "RED Chile Pecan Hotcakes, SW frontier style",
-        "RED Chile Pecan Hotcakes: Frontier flavor",
-        "RED chile pecan hotcakes, 60 min.",
-        "WARM red chile pecan treats."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Red chile pecan Kodiak Cakes"
+      "title": "Red Chile Cornbread Muffins"
     }
   },
   "US-SW-OKC": {
@@ -106716,13 +107233,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUSTIC pecan pancakes with winter greens",
-        "RUSTIC pecan scramble with herb twist",
-        "RUSTIC pecan pancakes, local flavor",
-        "FRONTIER pecan & greens scramble."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Winter pecans & greens Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-02": {
       "art": {
@@ -106870,13 +107387,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KALE & Spinach Scramble Cakes",
-        "KALE & Spinach Scrambled Pancakes",
-        "SAVORY greens skillet pancakes, US-OKC",
-        "FRONTIER kale scramble with fresh greens."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Frontier Greens on Kodiak Cakes Power Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-03": {
       "art": {
@@ -107024,13 +107541,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPICY Spring Greens Scramble",
-        "SPICY Herb & Cheese Pancakes",
-        "SAVORY Spring Greens Pancakes, OK",
-        "SAVORY greens scramble with local microgreens."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Spicy Greens on Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -107178,14 +107695,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "QUICK, protein-packed sheet pan pancakes!",
-        "HIGH-PRO sheet pan pancakes, 20 mins!",
-        "HIGH-PRO Oklahoma flapjacks on sheet pan",
-        "OKLAHOMA City's Power Pancakes, 20 mins!",
-        "EASY, protein pancakes with fresh strawberries!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Pancakes with local berries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-05": {
       "art": {
@@ -107333,13 +107850,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUGGED Protein Pancakes, 15 mins!",
-        "RUGGED Protein Pancakes Ready in 15!",
-        "QUICK protein muffins, ready in 15!",
-        "QUICK Power Cakes, ready in 15!"
+        "HEAT the oven to 350F and grease a 12-cup muffin tin.",
+        "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+        "DIVIDE among the cups and bake 18-20 minutes, until puffed and set.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Summer Veggie Delight"
+      "title": "Spring Onion Egg Muffins"
     },
     "2026-06": {
       "art": {
@@ -107487,13 +108004,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SAVORY sweet griddle cakes with peaches & corn",
-        "SAVORY peach & corn flapjacks, 5-min rest",
-        "SAVORY peach & corn flapjacks, 2-3 mins",
-        "SAVORY sweet griddle bites!"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet corn & peaches Kodiak Cakes Power Cakes"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-07": {
       "art": {
@@ -107641,13 +108158,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "OKLAHOMA'S griddle cakes: sweet, savory, and bold!",
-        "SAVORY flapjacks with sweet local peaches!",
-        "SAVORY bacon flapjacks, golden & sweet!",
-        "SAVORY griddle cakes with local peaches."
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet, savory griddle cake breakfast"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-08": {
       "art": {
@@ -107795,14 +108312,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER veggie hotcakes with Kodiak Cakes power",
-        "SUMMER veggies on Kodiak Cakes!",
-        "SUMMER tostada base with local veggies",
-        "SUMMER veggies on Kodiak Cakes waffle base",
-        "SUMMER tostadas with Kodiak Cakes Power Waffles"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Summer's Protein Tostada on Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-09": {
       "art": {
@@ -107950,13 +108467,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CORN & Okra Griddle Cakes: Savory-sweet frontier bites",
-        "SAVORY sweet corn & okra griddle cakes!",
-        "SAVORY sweet corn & okra flapjacks, gold-fried!",
-        "SAVORY sweet corn flapjacks with okra."
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Corn & okra Kodiak Cakes Power Cakes"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-10": {
       "art": {
@@ -108104,14 +108621,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HARVEST squash muffins, protein-packed!",
-        "WINTER squash hotcakes, protein-packed!",
-        "WINTER squash muffins, protein-packed!",
-        "WINTER squash muffins, protein-packed!",
-        "WINTER squash muffins: hearty & local!"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Fall Power Cakes with local squash"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -108259,14 +108777,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PECAN-SWEET Potato Hotcakes",
-        "PECAN Pancakes with Sweet Beta Power",
-        "PECAN-SWEET Potato Hotcakes",
-        "PECAN-SWEET Potato Hotcakes",
-        "PECAN-SWEET Potato Hotcakes"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Pecan-Sweet Potato Power Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-12": {
       "art": {
@@ -108414,14 +108933,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PECAN-SWEET Potato Hotcakes",
-        "PECAN-SWEET Potato Hotcakes Pro",
-        "PECAN-SWEET Potato Hotcakes",
-        "PECAN-SWEET Potato Hotcakes",
-        "PECAN-SWEET Potato Hotcakes"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Pecan-Sweet Potato Power Pancakes"
+      "title": "Sweet Potato Pancakes"
     }
   },
   "US-SW-PHX": {
@@ -108440,10 +108960,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SW-PHX",
       "meta": {
-        "cook": "15 mins",
+        "cook": "30 mins",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8 flapjacks"
+        "prep": "10 mins",
+        "serves": "8 flapjacks plus topper"
       },
       "month": "2026-01",
       "provenance": {
@@ -108459,8 +108979,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "mandarin-citrus-flapjacks-draft",
-        "name": "Mandarin Citrus Flapjacks"
+        "id": "roasted-grape-flapjack-topper-draft",
+        "name": "Roasted Grape Flapjack Topper"
       },
       "seasonal_moment": [
         {
@@ -108591,13 +109111,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CITRUS Orange Flapjacks: Frontier zest!",
-        "SAVOR Sunrise with Citrus Hotcakes!",
-        "SAVORY Orange Flapjacks, 2-min cook, frontier style!",
-        "FRONTIER Orange Flapjacks, zesty & hearty!"
+        "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with the warm roasted grapes spooned over."
       ],
       "substrate": "kraft",
-      "title": "Grapefruit Flapjacks: Power Your Morning!"
+      "title": "Roasted Grape Flapjack Topper"
     },
     "2026-02": {
       "art": {
@@ -108765,14 +109285,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Buttermilk Hotcakes, US-SW-PHX",
-        "FRONTIER Peach Cobbler Hotcakes",
-        "SUMMER Peach Hotcakes in Fry's",
-        "SUMMER'S best: Peach cobbler hotcakes!",
-        "SUMMER Peach Hotcakes in Fry's"
+        "REMOVE the lid from the Kodiak Cakes cup.",
+        "ADD the melted butter and milk to the flapjack cup and stir to form a thick dough. Set aside.",
+        "PLACE the sliced peaches in a saucepan and add the sugar, cornstarch, and vanilla. Toss with a rubber spatula to combine.",
+        "HEAT on medium/high and stir occasionally for about 2 minutes, or until peaches have softened and are saucy.",
+        "REMOVE the dough from the flapjack cup. Fill the cup with half of the peaches and top with half of the dough. Top dough with the remaining peaches and spread the remaining dough over the top of the peaches.",
+        "MICROWAVE on high for 90 seconds.",
+        "LET cool slightly and enjoy. *Note: Cobbler can be baked in the oven, instead of the microwave, if desired. Make cobbler according to above directions and place cup on a baking sheet or in an oven safe dish (like a Ramekin). Bake in an oven preheated to 350° F for 12-13 minutes."
       ],
       "substrate": "kraft",
-      "title": "Peach Cobbler Hotcakes in Phoenix"
+      "title": "Single-Serve Peach Cobbler"
     },
     "2026-03": {
       "art": {
@@ -108940,13 +109462,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER herb & greens scramble",
-        "FRONTIER Herb & Citrus Scramble",
-        "FRONTIER herb waffles, Bear Brown & Blaze Orange",
-        "FRONTIER'S protein pancakes with citrus."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Rugged spring greens on Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -109114,14 +109636,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH Peach Cobbler for single bites",
-        "PHOENIX Peach Power Cake",
-        "PEACH Cobbler Snack, local & cozy!",
-        "FRONTIER Peach Cobbler Snack",
-        "FRONTIER Peach Cobbler Snack"
+        "REMOVE the lid from the oatmeal cup.",
+        "ADD the power cakes mix and baking powder to the cup and stir with a fork to combine.",
+        "ADD the egg, oil, and 2 tablespoons of the milk to the cup and stir until a smooth batter forms.",
+        "ADD the remaining 3 tablespoons of milk and stir until fully combined. Let sit for 5 minutes.",
+        "STIR again and sprinkle the top with chopped pecans. Microwave for 90 seconds.",
+        "LET cool slightly. Make maple butter glaze:",
+        "PLACE the melted butter, maple syrup, and powdered sugar in a small bowl and whisk together until a smooth icing forms.",
+        "DRIZZLE the glaze over the top of the muffin and sprinkle with a few pecan pieces. Enjoy!"
       ],
       "substrate": "kraft",
-      "title": "Fresh Peach Power Cakes from Schnepf Farms"
+      "title": "Single-Serve Maple Pecan Muffin"
     },
     "2026-05": {
       "art": {
@@ -109289,13 +109814,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EARLY apricot muffins, Bear Brown & Blaze Orange!",
-        "EARLY apricot muffins from Bear Brown Bakery!",
-        "FRONTIER'S early apricot muffins, 18-20 min bake",
-        "PHOENIX'S early apricot muffins, ready!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the eggs, milk, honey, and butter; stir in the mix, cinnamon, and salt just until combined, then fold in the apricots.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Early apricots on Kodiak Cakes Power Cakes"
+      "title": "Apricot Morning Muffins"
     },
     "2026-06": {
       "art": {
@@ -109312,10 +109837,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SW-PHX",
       "meta": {
-        "cook": "15 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "20 mins",
-        "serves": "8 flapjacks plus topper"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-06",
       "provenance": {
@@ -109326,13 +109851,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "fresh-melon-flapjack-topper-draft",
-        "name": "Fresh Melon Flapjack Topper"
+        "id": "date-oat-breakfast-cookies-draft",
+        "name": "Date Oat Breakfast Cookies"
       },
       "seasonal_moment": [
         {
@@ -109463,13 +109990,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER melon power boost!",
-        "POWER up your meals, Phoenix style!",
-        "POWER up your breakfast with Kodiak Cakes mix!",
-        "POWER pancakes with local melons, AZ style"
+        "HEAT the oven to 350F and line a baking sheet with parchment.",
+        "STIR the oatmeal, dates, banana, egg, and pecans into a stiff dough; rest 10 minutes.",
+        "SCOOP 8 mounds onto the sheet and flatten slightly.",
+        "BAKE 12-14 minutes, until set and lightly golden."
       ],
       "substrate": "kraft",
-      "title": "Phoenix Power Cakes with Early Dates"
+      "title": "Date Oat Breakfast Cookies"
     },
     "2026-07": {
       "art": {
@@ -109486,10 +110013,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SW-PHX",
       "meta": {
-        "cook": "15 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "20 mins",
-        "serves": "8 flapjacks plus topper"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-07",
       "provenance": {
@@ -109500,13 +110027,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "fresh-melon-flapjack-topper-draft",
-        "name": "Fresh Melon Flapjack Topper"
+        "id": "date-oat-breakfast-cookies-draft",
+        "name": "Date Oat Breakfast Cookies"
       },
       "seasonal_moment": [
         {
@@ -109637,13 +110166,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PHOENIX Power Cakes: Date-melon blend!",
-        "PHOENIX Power Pancakes",
-        "PHOENIX pancakes: 2 min, golden & protein-packed.",
-        "POWER Cakes with local melons, perfect for breakfast."
+        "HEAT the oven to 350F and line a baking sheet with parchment.",
+        "STIR the oatmeal, dates, banana, egg, and pecans into a stiff dough; rest 10 minutes.",
+        "SCOOP 8 mounds onto the sheet and flatten slightly.",
+        "BAKE 12-14 minutes, until set and lightly golden."
       ],
       "substrate": "kraft",
-      "title": "Power Cakes: Melons & Dates, Frontier Style"
+      "title": "Date Oat Breakfast Cookies"
     },
     "2026-08": {
       "art": {
@@ -109660,10 +110189,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SW-PHX",
       "meta": {
-        "cook": "15 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "20 mins",
-        "serves": "8 flapjacks plus topper"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-08",
       "provenance": {
@@ -109674,13 +110203,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "fresh-melon-flapjack-topper-draft",
-        "name": "Fresh Melon Flapjack Topper"
+        "id": "date-oat-breakfast-cookies-draft",
+        "name": "Date Oat Breakfast Cookies"
       },
       "seasonal_moment": [
         {
@@ -109811,13 +110342,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PHOENIX Date & Melon Power Salad",
-        "POWER-PACKED pancakes for breakfast in Phoenix!",
-        "PHOENIX pancakes: 1/4 cup, 2 min, golden.",
-        "POWER up with date pancakes & melon!"
+        "HEAT the oven to 350F and line a baking sheet with parchment.",
+        "STIR the oatmeal, dates, banana, egg, and pecans into a stiff dough; rest 10 minutes.",
+        "SCOOP 8 mounds onto the sheet and flatten slightly.",
+        "BAKE 12-14 minutes, until set and lightly golden."
       ],
       "substrate": "kraft",
-      "title": "Phoenix Power Cakes with Dates & Melons"
+      "title": "Date Oat Breakfast Cookies"
     },
     "2026-09": {
       "art": {
@@ -109834,10 +110365,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SW-PHX",
       "meta": {
-        "cook": "12 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "20 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-09",
       "provenance": {
@@ -109848,13 +110379,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "hot-honey-air-fryer-chicken-bites",
-        "name": "Hot-Honey Air Fryer Chicken Bites"
+        "id": "date-oat-breakfast-cookies-draft",
+        "name": "Date Oat Breakfast Cookies"
       },
       "seasonal_moment": [
         {
@@ -109985,14 +110518,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPICY Date & Pepper Kabobs, Frontier Style",
-        "SPICY Date & Pepper Kabobs for AZ",
-        "SPICY Date & Pepper Kabobs — US-SW-PHX",
-        "SPICY Date Hotcakes, SW-PHX 2026-09",
-        "SPICY Date Hotcakes from Phoenix"
+        "HEAT the oven to 350F and line a baking sheet with parchment.",
+        "STIR the oatmeal, dates, banana, egg, and pecans into a stiff dough; rest 10 minutes.",
+        "SCOOP 8 mounds onto the sheet and flatten slightly.",
+        "BAKE 12-14 minutes, until set and lightly golden."
       ],
       "substrate": "kraft",
-      "title": "Dates & Peppers on Power Cakes"
+      "title": "Date Oat Breakfast Cookies"
     },
     "2026-10": {
       "art": {
@@ -110160,14 +110692,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER Pumpkin Oat Muffins, protein-packed!",
-        "FRONTIER Pumpkin Oat Muffins: protein-packed!",
-        "FRONTIER Pumpkin Oat Muffins, protein-packed!",
-        "FRONTIER Pumpkin Oat Muffins, protein-packed!",
-        "FRONTIER Pumpkin Oat Muffins: golden, protein-packed"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Frontier Pumpkin Olive Power Cakes"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -110335,13 +110868,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUGGED muffins: local flavors, no prep!",
-        "SQUASH & Pecan Hotcakes: Frontier Flavor",
-        "FRONTIER-STYLE muffins: 18-20 min bake",
-        "FRONTIER-STYLE baked treats, 5-min cool-off."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Frontier Power: Olives, Pecans, Squash Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -110509,13 +111042,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CITRUS Flapjacks: protein-packed frontier delight!",
-        "5-min rest, protein pancakes!",
-        "FRY Golden Mango Hotcakes, 2 mins each side!",
-        "CITRUS Flapjacks, honey-spiced!"
+        "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
+        "REST the batter 5 minutes.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE hot with extra segments and honey."
       ],
       "substrate": "kraft",
-      "title": "Mandarin Flapjacks: Power & Zest!"
+      "title": "Mandarin Citrus Flapjacks"
     }
   },
   "US-SW-ROSWELL": {
@@ -110664,13 +111197,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER Pecan Hotcakes, Roswell",
-        "FRONTIER pecan scramble with herbs",
-        "SAVORY pecan waffles, Roswell style",
-        "FRONTIER protein pancakes with pecans."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Winter pecans & greens Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-02": {
       "art": {
@@ -110817,13 +111350,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER greens scramble, hot & hearty!",
-        "FRONTIER cool greens scramble mix",
-        "FRONTIER-STYLE savory pancakes, Roswell-style!",
-        "FRONTIER-STYLE greens scramble with microgreens."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Frontier Greens on Kodiak Cakes Power"
+      "title": "Savory Greens Fritters"
     },
     "2026-03": {
       "art": {
@@ -110970,13 +111503,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER spring scrambles: hearty & local!",
-        "FRONTIER protein scrambles with spring greens",
-        "FRONTIER Herb & Spring Scramble",
-        "FRONTIER protein pancakes with spring greens."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Greens & Onions"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -111123,14 +111656,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER veggie tostada base",
-        "SUMMER veggie tostas with Kodiak Cakes power",
-        "CRISPY Kodiak Cakes Power on summer veggies",
-        "SUMMER veggies on Kodiak Cakes!",
-        "FRONTIER veggie tostadas with Kodiak Cakes waffles"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Summer veggies on Kodiak Cakes Power Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-05": {
       "art": {
@@ -111277,14 +111810,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER squash & onion tostada base",
-        "SUMMER squash tacos with Kodiak Cakes waffles",
-        "SOUTHWEST Summer Squash Hotcakes",
-        "SOUTHWEST Summer Squash Hotcakes",
-        "SOUTHWEST Summer Squash Tostadas"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Roswell's Summer Squash Power Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-06": {
       "art": {
@@ -111431,13 +111964,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ROSWELL'S Hotcakes: Melt in your mouth!",
-        "ROSWELL'S Hotcakes: Squash & Melon Blend",
-        "ROSWELL'S hotcakes: melt in your mouth!",
-        "ROSWELL'S hotcakes, melt in your mouth!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Roswell's Kodiak Cakes Power Cakes with local squash"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-07": {
       "art": {
@@ -111454,10 +111987,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SW-ROSWELL",
       "meta": {
-        "cook": "10 mins",
+        "cook": "20 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "1"
+        "serves": "12 muffins"
       },
       "month": "2026-07",
       "provenance": {
@@ -111473,8 +112006,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "waffle-mac-n-cheese-grilled-cheese",
-        "name": "Waffle Mac 'n Cheese Grilled Cheese"
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
       },
       "seasonal_moment": [
         {
@@ -111584,13 +112117,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "GRILLED Green Chile Hotcakes",
-        "ROSWELL'S Green Chile Protein Waffles",
-        "SOUTHWEST Green Chile Protein Grilled Waffle Sandwich",
-        "SOUTHWEST Green Chile Protein Grilled Waffle Sandwich"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Roswell's Green Chile Power Cakes"
+      "title": "Red Chile Cornbread Muffins"
     },
     "2026-08": {
       "art": {
@@ -111607,10 +112141,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SW-ROSWELL",
       "meta": {
-        "cook": "10 mins",
+        "cook": "20 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "1"
+        "serves": "12 muffins"
       },
       "month": "2026-08",
       "provenance": {
@@ -111626,8 +112160,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "waffle-mac-n-cheese-grilled-cheese",
-        "name": "Waffle Mac 'n Cheese Grilled Cheese"
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
       },
       "seasonal_moment": [
         {
@@ -111737,13 +112271,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "GRILLED Green Chile Mac Sandwich: Epic flavors!",
-        "ROSWELL'S Green Chile Power Waffles",
-        "SOUTHWEST Green Chile Mac Grilled Waffle",
-        "ROSWELL'S Protein-Packed Grilled Green Chile Waffle"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Green Chile & Tomatoes on Kodiak Cakes"
+      "title": "Red Chile Cornbread Muffins"
     },
     "2026-09": {
       "art": {
@@ -111760,10 +112295,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SW-ROSWELL",
       "meta": {
-        "cook": "10 mins",
+        "cook": "20 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "1"
+        "serves": "12 muffins"
       },
       "month": "2026-09",
       "provenance": {
@@ -111779,8 +112314,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "waffle-mac-n-cheese-grilled-cheese",
-        "name": "Waffle Mac 'n Cheese Grilled Cheese"
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
       },
       "seasonal_moment": [
         {
@@ -111890,13 +112425,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "GRILLED Mac ‘n Cheese Waffle Sandwich",
-        "SOUTHWEST Grilled Cheese Adventure",
-        "GRILLED Mac 'n Cheese Waffle Sandwich",
-        "SOUTHWEST Grilled Mac Waffle Adventure"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Roswell's Spicy Power Cakes Chile Blend"
+      "title": "Red Chile Cornbread Muffins"
     },
     "2026-10": {
       "art": {
@@ -112043,14 +112579,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ROSWELL'S Red Chile Pumpkin Muffins!",
-        "FRONTIER Pumpkin Oat Muffins: Protein-packed, local flavor!",
-        "ROSWELL Red Chile Pumpkin Muffins",
-        "FRONTIER'S Pumpkin Red Chile Muffins",
-        "FRONTIER'S Pumpkin Red Chile Hotcakes"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Red chile, pumpkins, Kodiak Cakes Power"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -112197,13 +112734,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER pecan muffins, Roswell style!",
-        "WINTER squash muffins, pecan delight!",
-        "RUSTIC pecan & squash muffins, 2026",
-        "RUSTIC pecan & squash muffins, ready!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Pecan & Squash Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -112350,14 +112887,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PECAN Chile Muffins Roswell-style",
-        "FRONTIER Pecan Chile Muffins Roswell-style",
-        "FRONTIER pecan cornbread muffins, Roswell style",
-        "PECAN Chile Hotcakes, Roswell BBQ",
-        "WARM pecan & chile bites, frontier style."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Pecan-Chile Kodiak Cakes Power Cakes"
+      "title": "Red Chile Cornbread Muffins"
     }
   },
   "US-SW-TIMBERON": {
@@ -112509,10 +113046,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TIMBERON Flapjacks with Honey"
+        "APPLE Cinnamon Compote Peel and core apples then cut them into eighths. Place them in a shallow wide saucepan with ¼ cup of water, brown sugar, 1 tablespoon of honey, and cinnamon over medium heat. Bring to a boil then reduce heat to low. Simmer and stir until apples are soft and fragrant (about 10 minutes). Add the remaining 1 cup of water and ½ cup of honey, raise to medium heat, and stir to combine. Bring mixture to a boil and continue cooking for 20-25 minutes or until the apples have turned golden and syrup has thickened. Stir in the lemon juice. Buttermilk & Honey Flapjacks Combine Kodiak Cakes Buttermilk Power Cakes Mix, water, honey, and cinnamon. Heat a griddle or skillet over medium-high heat with ½ tablespoon of butter. Add ¼ cup of the flapjack batter to the skillet and cook until bubbles form on top and the bottom is golden. Then flip and cook on the other side until golden. Set aside the cooked flapjacks and add another ½ tablespoon of butter to the skillet. Once the skillet is hot, add another ¼ cup of the flapjack batter to the pan and repeat process until you’ve made 8 flapjacks (using all the batter). Serve the flapjacks with apple compote on tip, and maple syrup for drizzling."
       ],
       "substrate": "kraft",
-      "title": "Timberon's Best Apple Honey Power Cakes"
+      "title": "Apple Cinnamon Compote"
     },
     "2026-02": {
       "art": {
@@ -112662,10 +113199,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TIMBERON'S Flapjacks with Honey & Apples"
+        "APPLE Cinnamon Compote Peel and core apples then cut them into eighths. Place them in a shallow wide saucepan with ¼ cup of water, brown sugar, 1 tablespoon of honey, and cinnamon over medium heat. Bring to a boil then reduce heat to low. Simmer and stir until apples are soft and fragrant (about 10 minutes). Add the remaining 1 cup of water and ½ cup of honey, raise to medium heat, and stir to combine. Bring mixture to a boil and continue cooking for 20-25 minutes or until the apples have turned golden and syrup has thickened. Stir in the lemon juice. Buttermilk & Honey Flapjacks Combine Kodiak Cakes Buttermilk Power Cakes Mix, water, honey, and cinnamon. Heat a griddle or skillet over medium-high heat with ½ tablespoon of butter. Add ¼ cup of the flapjack batter to the skillet and cook until bubbles form on top and the bottom is golden. Then flip and cook on the other side until golden. Set aside the cooked flapjacks and add another ½ tablespoon of butter to the skillet. Once the skillet is hot, add another ¼ cup of the flapjack batter to the pan and repeat process until you’ve made 8 flapjacks (using all the batter). Serve the flapjacks with apple compote on tip, and maple syrup for drizzling."
       ],
       "substrate": "kraft",
-      "title": "Timberon's Power Flapjacks with Apple Honey"
+      "title": "Apple Cinnamon Compote"
     },
     "2026-03": {
       "art": {
@@ -112682,10 +113219,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SW-TIMBERON",
       "meta": {
-        "cook": "5 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "5"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-03",
       "provenance": {
@@ -112696,13 +113233,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "smoked-gouda-and-honey-waffle-bites",
-        "name": "Smoked Gouda & Honey Waffle Bites"
+        "id": "pear-spice-muffins-draft",
+        "name": "Pear Spice Muffins"
       },
       "seasonal_moment": [
         {
@@ -112815,14 +113354,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TIMBERON Honey & Pear Bites",
-        "TIMBERON Honey & Pear Bites",
-        "TIMBERON Honey & Gouda Bites",
-        "TIMBERON Honey & Gouda Bites",
-        "TIMBERON Honey & Pear Bites"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg.",
+        "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
+        "DIVIDE among the cups and bake 18-20 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Timberon Honey & Power Bites"
+      "title": "Pear Spice Muffins"
     },
     "2026-04": {
       "art": {
@@ -112972,14 +113510,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TIMBERON Honey & Gouda Bites",
-        "TIMBERON Honey & Gouda Bites",
-        "TIMBERON Honey & Gouda Bites",
-        "HONEY-SMOKED Gouda Bites for Timberon",
-        "TIMBERON Honey & Gouda Bites"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Timberon Honey Power Bites"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     },
     "2026-05": {
       "art": {
@@ -113129,13 +113669,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EARLY greens scramble, hearty & fresh!",
-        "EARLY greens scramble with Blaze Orange eggs",
-        "EARLY greens & honey scrambles, US-SW-TIMBERON",
-        "EARLY greens scramble, Bear Brown style."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Early Greens & Honey Power Cakes debut"
+      "title": "Savory Greens Fritters"
     },
     "2026-06": {
       "art": {
@@ -113285,13 +113825,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER herb-spiced greens scramble",
-        "FRONTIER Scrambled Pancakes with Herbs",
-        "FRONTIER Herb & Honey Scrambled Cakes",
-        "FRONTIER Scrambled Pancakes with herbs"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Frontier Greens & Honey Power Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-07": {
       "art": {
@@ -113441,14 +113981,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER squash hotcakes, ready for BBQ!",
-        "SUMMER squash & honey hotcakes",
-        "SUMMER squash hotcakes, Timberon style",
-        "SUMMER squash & honey hotcakes",
-        "TIMBERON BBQ Side: Summer Squash & Honey Hotcakes"
+        "PREHEAT oven to 375°F and grease or line muffin tins.",
+        "IN a blender, combine cottage cheese, eggs, applesauce, milk, honey, and melted butter. Blend until completely smooth.",
+        "IN a large bowl, whisk together Kodiak Cakes mix, cornmeal, baking powder, and salt. Pour in the blended wet ingredients and stir until just combined.",
+        "LET batter rest for 5 minutes, then divide evenly into 24 muffin cups. Depending on the size of your muffin tins, you may need to bake in batches.",
+        "BAKE for 16–21 minutes, until set and lightly golden. Let cool slightly before serving.",
+        "STORE in an airtight container in the refrigerator for up to 4-5 days. Reheat Instructions: From the fridge, reheat in 350°F oven for 6-10 minutes until warmed through."
       ],
       "substrate": "kraft",
-      "title": "Timberon BBQ Squash & Honey Cakes"
+      "title": "Cottage Cheese Cornbread Muffins"
     },
     "2026-08": {
       "art": {
@@ -113598,10 +114139,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EARLY Apple Honey Pancakes"
+        "APPLE Cinnamon Compote Peel and core apples then cut them into eighths. Place them in a shallow wide saucepan with ¼ cup of water, brown sugar, 1 tablespoon of honey, and cinnamon over medium heat. Bring to a boil then reduce heat to low. Simmer and stir until apples are soft and fragrant (about 10 minutes). Add the remaining 1 cup of water and ½ cup of honey, raise to medium heat, and stir to combine. Bring mixture to a boil and continue cooking for 20-25 minutes or until the apples have turned golden and syrup has thickened. Stir in the lemon juice. Buttermilk & Honey Flapjacks Combine Kodiak Cakes Buttermilk Power Cakes Mix, water, honey, and cinnamon. Heat a griddle or skillet over medium-high heat with ½ tablespoon of butter. Add ¼ cup of the flapjack batter to the skillet and cook until bubbles form on top and the bottom is golden. Then flip and cook on the other side until golden. Set aside the cooked flapjacks and add another ½ tablespoon of butter to the skillet. Once the skillet is hot, add another ¼ cup of the flapjack batter to the pan and repeat process until you’ve made 8 flapjacks (using all the batter). Serve the flapjacks with apple compote on tip, and maple syrup for drizzling."
       ],
       "substrate": "kraft",
-      "title": "Timberon's Early Apple Honey Power Cakes"
+      "title": "Apple Cinnamon Compote"
     },
     "2026-09": {
       "art": {
@@ -113751,10 +114292,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TIMBERON Flapjacks with Honey"
+        "APPLE Cinnamon Compote Peel and core apples then cut them into eighths. Place them in a shallow wide saucepan with ¼ cup of water, brown sugar, 1 tablespoon of honey, and cinnamon over medium heat. Bring to a boil then reduce heat to low. Simmer and stir until apples are soft and fragrant (about 10 minutes). Add the remaining 1 cup of water and ½ cup of honey, raise to medium heat, and stir to combine. Bring mixture to a boil and continue cooking for 20-25 minutes or until the apples have turned golden and syrup has thickened. Stir in the lemon juice. Buttermilk & Honey Flapjacks Combine Kodiak Cakes Buttermilk Power Cakes Mix, water, honey, and cinnamon. Heat a griddle or skillet over medium-high heat with ½ tablespoon of butter. Add ¼ cup of the flapjack batter to the skillet and cook until bubbles form on top and the bottom is golden. Then flip and cook on the other side until golden. Set aside the cooked flapjacks and add another ½ tablespoon of butter to the skillet. Once the skillet is hot, add another ¼ cup of the flapjack batter to the pan and repeat process until you’ve made 8 flapjacks (using all the batter). Serve the flapjacks with apple compote on tip, and maple syrup for drizzling."
       ],
       "substrate": "kraft",
-      "title": "Timberon's Honey Apple Power Pancakes"
+      "title": "Apple Cinnamon Compote"
     },
     "2026-10": {
       "art": {
@@ -113904,13 +114445,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUSTIC Timberon muffins, 400°F oven ready!",
-        "TIMBERON'S hearty apple & squash muffins!",
-        "TIMBERON'S best muffins: bake 18-20 min",
-        "TIMBERON'S best muffins, chill 5 mins."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Timberon's Kodiak Cakes Power Muffins"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-11": {
       "art": {
@@ -114060,14 +114601,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PINON Honey Waffle Bites, Timberon style!",
-        "TIMBERON Honey & Pinon Waffle Bites",
-        "TIMBERON Honey & Pinon Bites",
-        "PINON Honey & Smoked Gouda Bites",
-        "TIMBERON'S Honey & Pinon Bites"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Pinon & Honey Power Cakes"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     },
     "2026-12": {
       "art": {
@@ -114217,14 +114760,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUSTIC Red Chile Ristras Hotcakes",
-        "RED chile stri & honey muffins",
-        "RED chile strudel & honey bites",
-        "RED chile straws & honey muffins",
-        "WARM red chile strias & honey side"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Red chile strias & honey Kodiak Cakes"
+      "title": "Red Chile Cornbread Muffins"
     }
   },
   "US-SW-TULAROSA": {
@@ -114399,14 +114942,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUGGED pecan pancakes, beta-carotene packed!",
-        "RUSTIC pecan pancakes, beta-carotene boost",
-        "RUGGED pecan pancakes, Bear Brown flavor!",
-        "FRONTIER Pecan Pancakes, protein-packed!",
-        "FRONTIER pecan pancakes, beta-rich!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Stored Nuts Power Cakes"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-02": {
       "art": {
@@ -114579,13 +115123,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUGGED Pistachio Pancakes, 15g protein",
-        "RUGGED Protein Pancakes with Honey & Pistachios",
-        "PROTEIN-PACKED Flapjacks, flip for flavor!",
-        "PROTEIN-PACKED pancakes with honey & pistachios!"
+        "ADD all the dry ingredients to a medium-sized bowl and mix.",
+        "ADD in the wet ingredients and combine to make a smooth batter.",
+        "ADD 1/4 cup portions to a hot, greased skillet. When bubbles start to form, flip and cook on other side.",
+        "ADD toppings like honey, pistachios, and yogurt!"
       ],
       "substrate": "kraft",
-      "title": "Rugged Apple & Pistacho Power Cakes"
+      "title": "Orange Cardamom Pancakes"
     },
     "2026-03": {
       "art": {
@@ -114758,13 +115302,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER spring greens scramble, 60 secs!",
-        "FRONTIER spring greens scramble",
-        "FRONTIER spring greens scramble, 60 cals",
-        "FRONTIER'S protein pancakes with spring greens."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Rugged spring greens on Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -114937,13 +115481,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER herb & greens scramble",
-        "FRONTIER Herb & Cheese Scramble",
-        "FRONTIER-STYLE savory pancakes",
-        "FRONTIER protein pancakes with blooms & greens"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Frontier's Cherry Greens Power Scramble"
+      "title": "Savory Greens Fritters"
     },
     "2026-05": {
       "art": {
@@ -115116,14 +115660,22 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER cherry pie bars, whole grain & protein!",
-        "FRONTIER Cherry Pie Bars, whole grain, protein-packed!",
-        "FRONTIER Cherry Pie Bars, whole grain & protein",
-        "FRONTIER Cherry Pie Bars, whole grain & protein",
-        "FRONTIER Cherry Pie Bars, whole grain & protein"
+        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
+        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+        "BEAT in the eggs, one at a time.",
+        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
+        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
+        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
+        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
+        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
+        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
+        "REMOVE from oven and let cool.",
+        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
+        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
+        "STORE in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Frontier cherries, Kodiak Cakes style"
+      "title": "Cherry Pie Bars"
     },
     "2026-06": {
       "art": {
@@ -115140,10 +115692,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SW-TULAROSA",
       "meta": {
-        "cook": "20 mins",
+        "cook": "35 mins",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "12 muffins"
+        "prep": "20 mins",
+        "serves": "15"
       },
       "month": "2026-06",
       "provenance": {
@@ -115159,8 +115711,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "apricot-morning-muffins-draft",
-        "name": "Apricot Morning Muffins"
+        "id": "cherry-pie-bars",
+        "name": "Cherry Pie Bars"
       },
       "seasonal_moment": [
         {
@@ -115296,13 +115848,22 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER baked goods: cherries & apricots!",
-        "FRONTIER-STYLE cherry & apricot muffins",
-        "FRONTIER-STYLE cherry & apricot muffins",
-        "FRESH cherries & apricots, warm & ready!"
+        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
+        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+        "BEAT in the eggs, one at a time.",
+        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
+        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
+        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
+        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
+        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
+        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
+        "REMOVE from oven and let cool.",
+        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
+        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
+        "STORE in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Tularosa Power Cakes: Local Flavors"
+      "title": "Cherry Pie Bars"
     },
     "2026-07": {
       "art": {
@@ -115475,14 +116036,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER waffles with local apples & melons",
-        "FRONTIER waffles with local apples & melons!",
-        "FRONTIER waffles with local apples & melons!",
-        "FRONTIER protein waffles with local apples & melons",
-        "FRONTIER waffles with local apples & melons"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Early apples & melons over Kodiak Cakes Power"
+      "title": "Breakfast Cake"
     },
     "2026-08": {
       "art": {
@@ -115499,10 +116063,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-SW-TULAROSA",
       "meta": {
-        "cook": "10 mins",
+        "cook": "20 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "1"
+        "serves": "12 muffins"
       },
       "month": "2026-08",
       "provenance": {
@@ -115518,8 +116082,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "waffle-mac-n-cheese-grilled-cheese",
-        "name": "Waffle Mac 'n Cheese Grilled Cheese"
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
       },
       "seasonal_moment": [
         {
@@ -115655,13 +116219,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "GRILLED Green Chile Hotcakes: Fuel your day!",
-        "GREEN chile & apple hotcakes: fuel your day!",
-        "GRILLED Green Chile Hotcakes with Cheese",
-        "GRILLED Green Chile Hotcakes Sandwich"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Green chile waffles with protein power"
+      "title": "Red Chile Cornbread Muffins"
     },
     "2026-09": {
       "art": {
@@ -115834,13 +116399,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUGGED Pistachio Apple Pancakes",
-        "PROTEIN-PACKED Pistachio Apple Pancakes",
-        "PROTEIN-PACKED Flapjacks, 15g per serving",
-        "PROTEIN-PACKED pistachio apple pancakes!"
+        "ADD all the dry ingredients to a medium-sized bowl and mix.",
+        "ADD in the wet ingredients and combine to make a smooth batter.",
+        "ADD 1/4 cup portions to a hot, greased skillet. When bubbles start to form, flip and cook on other side.",
+        "ADD toppings like honey, pistachios, and yogurt!"
       ],
       "substrate": "kraft",
-      "title": "Pistachio & Apple Power Cakes"
+      "title": "Orange Cardamom Pancakes"
     },
     "2026-10": {
       "art": {
@@ -116013,13 +116578,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER-STYLE roasted wine grapes with honey",
-        "RUGGED frontier oats with bacon & local apples.",
-        "FRONTIER Bacon & Squash Oatmeal, 36g protein",
-        "FRONTIER'S Bacon & Grape Pancakes, hearty & sweet!"
+        "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with the warm roasted grapes spooned over."
       ],
       "substrate": "kraft",
-      "title": "Rugged frontier apples & grapes power bites"
+      "title": "Roasted Grape Flapjack Topper"
     },
     "2026-11": {
       "art": {
@@ -116192,14 +116757,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PECOS Pecan Pancakes: Sweet, hearty, local!",
-        "PECOS Pecan Pancakes, beta-rich!",
-        "PECOS Pecan Pancakes, frontier style",
-        "PECOS Pancakes: Wild, nutty, & hearty!",
-        "PECOS Pecan Pancakes: Wild flavor!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Pecans & Pistachios Kodiak Cakes Stack"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-12": {
       "art": {
@@ -116372,13 +116938,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUGGED Pistachio Power Pancakes",
-        "PROTEIN-PACKED pistachio pancakes for Tularosa!",
-        "PROTEIN-PACKED pistachio flapjacks, flip for flavor!",
-        "PROTEIN-PACKED flapjacks with honey & nuts!"
+        "ADD all the dry ingredients to a medium-sized bowl and mix.",
+        "ADD in the wet ingredients and combine to make a smooth batter.",
+        "ADD 1/4 cup portions to a hot, greased skillet. When bubbles start to form, flip and cook on other side.",
+        "ADD toppings like honey, pistachios, and yogurt!"
       ],
       "substrate": "kraft",
-      "title": "Pistachio Apple Power Cakes, NM"
+      "title": "Orange Cardamom Pancakes"
     }
   },
   "US-UT-KAMASVALLEY": {
@@ -116551,14 +117117,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KAMAS Valley Grass-Fed Beef Stack",
-        "KAMAS Valley's Beef Pancakes: Bold & Wholesome!",
-        "KAMAS Valley's Grass-Fed Beef Stack",
-        "KAMAS Valley grass-fed beef stacks",
-        "KAMAS Valley's Grass-Fed Beef Stack"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Kamas Ranch Beef Power Stack"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-02": {
       "art": {
@@ -116729,13 +117296,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KAMAS Valley's root veggie feast!",
-        "KAMAS Valley root feast!",
-        "KAMAS Valley root crunch fries",
-        "KAMAS Valley's Hot Root Veggies"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Kamas Valley Power Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-03": {
       "art": {
@@ -116906,14 +117473,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KAMAS Honey Waffle Bites, hot & smoky!",
-        "KAMAS Honey & Gouda Bites, UT",
-        "KAMAS Honey & Gouda Bites",
-        "KAMAS Valley Honey & Cheese Bites",
-        "KAMAS Honey & Gouda Bites, 5-7 min"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Kamas Valley Honey Waffle Bites"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     },
     "2026-04": {
       "art": {
@@ -117084,14 +117653,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RANCH butter pancakes, UT beta-carotene",
-        "RANCH butter pancakes, UT's pure taste",
-        "RANCH butter pancakes, Kamas Valley style",
-        "RANCH butter pancakes, pure flavor!",
-        "RANCH-FRESH butter pancakes, UT"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Ranch butter atop Kodiak Cakes power stacks"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-05": {
       "art": {
@@ -117262,13 +117832,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUSTIC rhubarb breakfast, pure frontier flavor!",
-        "RUGGED rhubarb pancakes for breakfast",
-        "RUSTIC rhubarb flapjacks, 2 min each side.",
-        "FRONTIER rhubarb flapjacks with stew"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Rugged rhubarb on Kodiak Cakes Power Cakes"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-06": {
       "art": {
@@ -117439,13 +118009,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH spring greens, pure Kamas Valley!",
-        "FRESH spring greens scramble, pure flavor",
-        "KAMAS Valley spring greens scramble",
-        "KAMAS Valley's spring greens scramble!"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Kamas Valley's Spring Greens Power Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-07": {
       "art": {
@@ -117462,10 +118032,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-UT-KAMASVALLEY",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-07",
       "provenance": {
@@ -117476,13 +118046,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "snap-pea-herb-fritters-draft",
+        "name": "Snap Pea Herb Fritters"
       },
       "seasonal_moment": [
         {
@@ -117616,14 +118188,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes's Snap Pea Delight: Kamas Valley's Best",
-        "KODIAK Cakes Snap Pea Cakes, UT 2026",
-        "KODIAK Cakes Sugar Snap Pea Delight!",
-        "SUGAR snap peas in Kamas Valley!",
-        "KODIAK Cakes Sugar Snap Pea Cakes, UT"
+        "BLANCH the sliced peas 1 minute in salted boiling water, chill in ice water, then pat completely dry.",
+        "WHISK the mix, eggs, parmesan, dill, salt, and pepper with the dry peas into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3 minutes per side until crisp and golden.",
+        "DRAIN briefly on a rack and serve warm with lemon."
       ],
       "substrate": "kraft",
-      "title": "Sugar Snap Peas & Kodiak Cakes"
+      "title": "Snap Pea Herb Fritters"
     },
     "2026-08": {
       "art": {
@@ -117794,14 +118365,20 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KAMAS Valley's Raspberry Delight!",
-        "KAMAS Valley Raspberry Cakes",
-        "KAMAS Valley's Raspberry Delight!",
-        "KAMAS Valley's Raspberry Treats!",
-        "KAMAS Valley's Raspberry Delight"
+        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper.",
+        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine.",
+        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
+        "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries.",
+        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean.",
+        "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling.",
+        "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside.",
+        "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
+        "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between.",
+        "TOP cake with fresh raspberries.",
+        "STORE cake in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Kamas Valley's Protein-Packed Raspberry Cakes"
+      "title": "White Chocolate Raspberry Cake"
     },
     "2026-09": {
       "art": {
@@ -117972,13 +118549,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KAMAS Valley's Root Veggie Delight!",
-        "KAMAS Valley's root veggie feast!",
-        "KAMAS Valley root veggies, hearty & pure",
-        "KAMAS Valley's root feast!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Kamas Valley's Root Power"
+      "title": "Storage Root Fritters"
     },
     "2026-10": {
       "art": {
@@ -118149,13 +118726,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KAMAS Valley's winter squash muffins!",
-        "KAMAS Valley winter squash delight!",
-        "KAMAS Valley's winter squash muffins",
-        "KAMAS Valley's winter squash delight!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-11": {
       "art": {
@@ -118326,13 +118903,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KAMAS Valley's hearty muffins, 400°F!",
-        "KAMAS Valley's pure winter squash muffins!",
-        "KAMAS Valley's pure squash muffins bake 18-20 min",
-        "KAMAS Valley's fresh winter squash muffins."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Kamas Valley Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -118503,14 +119080,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RANCH lamb feast, protein-packed!",
-        "RANCH lamb tacos, spiced up!",
-        "RANCH lamb bites, UT's flavor!",
-        "RANCH Lamb Delights: Savory & Protein-Packed!",
-        "RANCH lamb, juicy & protein-packed!"
+        "PAT dry pickles to remove excess liquid and set aside.",
+        "COMBINE Kodiak Cakes mix, salt, pepper, & paprika. Then add pickle juice and whisk together.",
+        "ADD popsicle stick into pickle slices.",
+        "DUNK into batter just enough to coat pickle.",
+        "ADD into preheated waffle iron and remove once golden brown.",
+        "COMBINE ranch, sriracha, and lemon juice.",
+        "DUNK and enjoy!"
       ],
       "substrate": "kraft",
-      "title": "Ranch Lamb (Value-Added) in Kamas"
+      "title": "Waffle Pickles"
     }
   },
   "US-W-ANCHORAGE": {
@@ -118689,14 +119268,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Salmon & Potato Bites",
-        "KODIAK Cakes Salmon & Potato Stacks",
-        "KODIAK Cakes Smoked Salmon & Potatoes Tostada",
-        "KODIAK Cakes Salmon & Potato Stacks",
-        "KODIAK Cakes Salmon & Potato Tostadas"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Frozen Salmon & Potatoes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-02": {
       "art": {
@@ -118873,13 +119452,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ANCHORAGE'S Best: Local Salmon & Carrots",
-        "ANCHORAGE'S Protein Power Cake",
-        "ANCHORAGE'S Crispy Salmon Cakes",
-        "KODIAK Cakes Salmon Cakes, fresh & hot!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Anchorage Power Cakes with Salmon & Carrots"
+      "title": "Storage Root Fritters"
     },
     "2026-03": {
       "art": {
@@ -119056,13 +119635,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ANCHORAGE'S Root & Cabbage Delight",
-        "KODIAK Cakes: Anchorage's Root Veggie Delight!",
-        "ANCHORAGE'S Crispy Root Veggie Delights",
-        "KODIAK Cakes Root Cakes, Anchorage style."
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cabbage Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-04": {
       "art": {
@@ -119239,13 +119818,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ANCHORAGE'S Protein-Packed Root Veggie Delight",
-        "KODIAK Cakes: Anchorage's hearty breakfast!",
-        "ANCHORAGE'S Crispy Power Bites",
-        "KODIAK Cakes: Hot & hearty storage roots!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Anchorage Roots"
+      "title": "Storage Root Fritters"
     },
     "2026-05": {
       "art": {
@@ -119422,13 +120001,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EARLY rhubarb waffles, Bear Brown & Blaze Orange",
-        "EARLY rhubarb scrambles, Bear Brown mix",
-        "KODIAK Cakes Rhubarb Scramble (Anchorage)",
-        "KODIAK Cakes Rhubarb Scramble 2026"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Early rhubarb & greens Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-06": {
       "art": {
@@ -119605,13 +120184,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH rhubarb & salad greens scramble",
-        "KODIAK Cakes Rhubarb Scramble 2026",
-        "KODIAK Cakes Rhubarb Scramble 2026",
-        "KODIAK Cakes Rhubarb Scramble 2026"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with rhubarb & greens"
+      "title": "Savory Greens Fritters"
     },
     "2026-07": {
       "art": {
@@ -119788,14 +120367,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH summer berries & salmon tostada!",
-        "FRESH summer berries & salmon tostada",
-        "KODIAK Cakes Salmon & Berries Waffles",
-        "FRESH summer berries & salmon atop Kodiak Cakes waffles",
-        "KODIAK Cakes Summer Berry Salmon Tostadas"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Fresh summer berries & salmon atop Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-08": {
       "art": {
@@ -119972,13 +120551,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ANCHORAGE'S Giant Cabbage Delight",
-        "KODIAK Cakes: Wild Alaskan Salmon Blend",
-        "ANCHORAGE Salmon Cakes, crispy & bold",
-        "KODIAK Cakes: Salmon & Veggies, Hot!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes: Salmon & Veggies Power Feast"
+      "title": "Storage Root Fritters"
     },
     "2026-09": {
       "art": {
@@ -120155,13 +120734,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ANCHORAGE Potatoes & Brassicas Delight",
-        "KODIAK Cakes: Root Harvest Blend",
-        "ANCHORAGE Potatoes & Brassicas Delight",
-        "KODIAK Cakes: Hot Harvest Potatoes & Brassicas"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Local Harvest Flavors"
+      "title": "Storage Root Fritters"
     },
     "2026-10": {
       "art": {
@@ -120338,13 +120917,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes: Harvest Potatoes & Carrots Delight",
-        "KODIAK Cakes: Local Potatoes & Carrots Delight",
-        "CRISPY Kodiak Cakes Potatoes & Carrots",
-        "HARVEST potatoes & carrots cake, hot."
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Anchorage Power Cakes with Cellared Potatoes & Carrots"
+      "title": "Storage Root Fritters"
     },
     "2026-11": {
       "art": {
@@ -120521,13 +121100,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ANCHORAGE Salmon & Root Delight",
-        "KODIAK Cakes Salmon Cakes, Anchorage style",
-        "KODIAK Cakes Salmon Cakes, Anchorage style",
-        "KODIAK Cakes Salmon Cakes, fresh & hot!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Anchorage Power Salmon Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-12": {
       "art": {
@@ -120704,14 +121283,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Birch Syrup Power Cakes, Anchorage",
-        "KODIAK Cakes Birch Syrup Pancakes — Alaska's protein boost!",
-        "KODIAK Cakes Birch Protein Pancakes",
-        "KODIAK Cakes Birch Syrup Pancakes, Alaska",
-        "KODIAK Cakes Birch Syrup Pancakes, Alaska style!"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Alaskan birch syrup"
+      "title": "Tropical Protein Pancakes"
     }
   },
   "US-W-BEND": {
@@ -120885,13 +121467,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BEND potatoes: rugged, protein-packed!",
-        "BEND'S Best Potato Cakes!",
-        "BEND'S Best Storage Potatoes, Grilled & Golden",
-        "BEND'S Best Potatoes, Hot & Fresh!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Bend's Best Potatoes on Kodiak Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-02": {
       "art": {
@@ -121063,13 +121645,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BEND'S protein-packed muffin recipe!",
-        "BEND'S protein-packed storage onion muffins!",
-        "BEND'S Protein-Packed Breakfast Muffins",
-        "BEND'S Best Protein Power in 15!"
+        "HEAT the oven to 350F and grease a 12-cup muffin tin.",
+        "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+        "DIVIDE among the cups and bake 18-20 minutes, until puffed and set.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Bend's Protein Power Cakes"
+      "title": "Spring Onion Egg Muffins"
     },
     "2026-03": {
       "art": {
@@ -121241,13 +121823,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BEND'S microgreens scramble, frontier style",
-        "BEND'S Microgreens Scrambled Delight",
-        "BEND'S microgreens scramble pancakes",
-        "BEND'S best microgreens on savory pancakes."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Bend's microgreen pancakes on Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -121419,13 +122001,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BEND'S Fresh Spring Greens Delight",
-        "BEND'S Savory Spring Greens Scramble",
-        "BEND'S Fresh Spring Greens Delight",
-        "BEND'S Best: Protein-Packed Spring Greens"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Bend's Best Power Pancakes with Greens"
+      "title": "Savory Greens Fritters"
     },
     "2026-05": {
       "art": {
@@ -121597,10 +122179,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asparagus frittata, protein-packed!"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Bend's Fresh Asparagus Frittata"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-06": {
       "art": {
@@ -121772,13 +122354,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BEND'S Fresh Salad Greens Delight",
-        "BEND'S Best Salad Greens Scramble",
-        "BEND'S Fresh Salad Greens Delight",
-        "BEND'S best breakfast: protein-packed greens!"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Bend's Salad Greens Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-07": {
       "art": {
@@ -121795,10 +122377,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-BEND",
       "meta": {
-        "cook": "5",
+        "cook": null,
         "est_cost": null,
-        "prep": "15",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-07",
       "provenance": {
@@ -121809,13 +122391,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "summer-vegetable-tostada",
-        "name": "Summer Vegetable Tostada"
+        "id": "snap-pea-herb-fritters-draft",
+        "name": "Snap Pea Herb Fritters"
       },
       "seasonal_moment": [
         {
@@ -121950,14 +122534,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BEND'S Snap Pea Fiesta!",
-        "BEND Snap Pea Power Tostada",
-        "BEND'S Snap Pea Power Waffles",
-        "BEND Snap Pea Power Tostada",
-        "BEND'S Snap Pea Tostada Base"
+        "BLANCH the sliced peas 1 minute in salted boiling water, chill in ice water, then pat completely dry.",
+        "WHISK the mix, eggs, parmesan, dill, salt, and pepper with the dry peas into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3 minutes per side until crisp and golden.",
+        "DRAIN briefly on a rack and serve warm with lemon."
       ],
       "substrate": "kraft",
-      "title": "Snap Pea Power Cakes Bend"
+      "title": "Snap Pea Herb Fritters"
     },
     "2026-08": {
       "art": {
@@ -122129,13 +122712,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BEND'S Sweet Corn Griddle Cakes",
-        "BEND'S sweet corn flapjacks sizzle!",
-        "BEND'S sweet corn griddle cakes sizzle!",
-        "BEND'S sweet corn skillet delight!"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Bend's Sweet Corn Griddle Cakes"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-09": {
       "art": {
@@ -122307,13 +122890,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BEND'S Best Winter Squash Muffins!",
-        "WINTER squash muffins, Bend style!",
-        "WINTER squash muffins, Bend style!",
-        "WINTER squash muffins, Bend style."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Bend's Winter Squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-10": {
       "art": {
@@ -122485,14 +123068,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BEND'S Protein Power Apple Bake",
-        "BEND'S Best Storage Apple Waffles",
-        "BEND'S Best Apple Waffles: Savory & Sweet!",
-        "BEND'S Best Apple Waffles, Savory-Sweet!",
-        "BEND'S Best Apple Waffles, Fresh & Mighty!"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Bend's Best Apple Power Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-11": {
       "art": {
@@ -122664,13 +123250,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ROOT veggies: grilled, bold, frontier style",
-        "ROOT Veggie Delights in Bend",
-        "ROOT veggie delights, Bend style!",
-        "BEND'S root veggie feast, hot & hearty!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Bend's Root Power Cakes"
+      "title": "Storage Root Fritters"
     },
     "2026-12": {
       "art": {
@@ -122842,14 +123428,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BEND'S Grass-Fed Beef Stew Delight",
-        "GRASS-FED beef stew, hearty & crave-worthy!",
-        "BEND'S Grass-Fed Beef Stew: hearty & flavorful!",
-        "GRASS-FED beef stew: hearty & delicious!",
-        "BEND'S Grass-Fed Beef Stew Recipe"
+        "PREHEAT the oven to 325 degrees Fahrenheit. Add the olive oil to a Dutch oven and heat on high.",
+        "ADD the beef and cook in the hot oil, stirring occasionally, until meat is browned on all sides.",
+        "REDUCE the heat to medium. Add the frontier cakes mix and toss to coat the beef. Continue to cook for 1 minute, stirring occasionally.",
+        "ADD the tomato paste and cook an additional 20 seconds. Pour in the red wine and stir, cooking until a thick mixture develops to coat the beef.",
+        "ADD the carrots, onion, garlic, thyme, and beef broth to the mixture. Stir and bring to a boil. Taste and add salt and pepper as needed.",
+        "ONCE the mixture is boiling, remove from heat. Add a lid (oven proof) and place in the preheated oven. Cook for 1 hour. Once the stew has been cooking for 1 hour, make and add the dumplings:",
+        "PLACE the Kodiak Cakes mix in a mixing bowl along with the baking powder, garlic powder, and thyme. Whisk together.",
+        "ADD the milk and melted butter to the dry ingredients and stir in until just combined. Let the mixture sit for 5 minutes to thicken.",
+        "REMOVE the stew from the oven and carefully remove lid. Spoon the dumpling batter into heaps evenly distributed across the top of the stew.",
+        "REPLACE the lid and place the stew back in the oven. Cook for an additional 10 minutes or until dumplings are cooked through."
       ],
       "substrate": "kraft",
-      "title": "Bend's Grass-Fed Beef Stew"
+      "title": "Winter Beef Stew w/ Buttermilk Dumplings"
     }
   },
   "US-W-BOULDER": {
@@ -123017,14 +123608,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOULDER'S Storage Apple Breakfast Bake",
-        "BOULDER'S Best Apple Waffles!",
-        "BOULDER'S Best Apple Waffles!",
-        "BOULDER'S storage apple breakfast delight!",
-        "BOULDER'S Best Storage Apple Pancakes"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Boulder Power Cakes with Apples"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -123190,13 +123784,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOULDER'S Protein Power Muffins Ready in 15!",
-        "BOULDER'S Protein-Packed Onion Muffins",
-        "BOULDER'S Protein Power Muffins, ready in 20!",
-        "BOULDER'S Protein Power Muffins!"
+        "HEAT the oven to 350F and grease a 12-cup muffin tin.",
+        "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+        "DIVIDE among the cups and bake 18-20 minutes, until puffed and set.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Boulder's Protein Power Cakes with Onions"
+      "title": "Spring Onion Egg Muffins"
     },
     "2026-03": {
       "art": {
@@ -123362,14 +123956,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOULDER Honey & Gouda Bites",
-        "HONEY & Gouda Bites, Boulder's frontier treat",
-        "HONEY-GOUDA Bites for Boulder",
-        "HONEY-GOUDA Boulder Bites",
-        "HONEY-SMOKED Gouda Waffle Bites"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Honey-Infused Power Bites for Boulder"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     },
     "2026-04": {
       "art": {
@@ -123535,13 +124131,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH greens scramble, Boulder style",
-        "BOULDER'S Greens Scramble Mix",
-        "BOULDER'S farm-fresh scrambles, 3-4 min",
-        "BOULDER'S best protein scramble with greens."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Boulder Greens Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-05": {
       "art": {
@@ -123707,13 +124303,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOULDER rhubarb power cakes",
-        "BOULDER rhubarb power cakes",
-        "BOULDER rhubarb pancakes, 2 min each side",
-        "BOULDER'S rhubarb power flapjacks!"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Boulder rhubarb Kodiak Cakes Power Cakes"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-06": {
       "art": {
@@ -123879,14 +124475,22 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOULDER'S Cherry Power Bars!",
-        "BOULDER'S Cherry Power Bars",
-        "BOULDER'S Best Cherry Power Bars!",
-        "BOULDER'S Cherry Pie Power Bars",
-        "BOULDER'S Cherry Power Bars"
+        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
+        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+        "BEAT in the eggs, one at a time.",
+        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
+        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
+        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
+        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
+        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
+        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
+        "REMOVE from oven and let cool.",
+        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
+        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
+        "STORE in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Boulder's Cherry Power Bars"
+      "title": "Cherry Pie Bars"
     },
     "2026-07": {
       "art": {
@@ -124054,10 +124658,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOULDER'S Best: Kodiak Cakes Peach Power Cakes!"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Boulder's Best: Kodiak Cakes Power Cakes"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-08": {
       "art": {
@@ -124223,13 +124827,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOULDER'S best sweet corn flapjacks!",
-        "BOULDER'S best griddle cake stack!",
-        "BOULDER'S breakfast: Savory flapjacks with sweet corn",
-        "BOULDER'S breakfast: Olathe corn griddle cakes"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Boulder's Olathe Corn Power Cakes"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-09": {
       "art": {
@@ -124395,13 +124999,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ROCKY melon blend with honey & lime!",
-        "ROCKY Ford Power Cakes, Boulder",
-        "ROCKY Ford melon pancakes, 2 min golden!",
-        "ROCKY Ford melon pancakes power up breakfast!"
+        "TOSS the cubed melon with the honey and lime juice; rest 10 minutes.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks topped with the fresh melon and its juices."
       ],
       "substrate": "kraft",
-      "title": "Rocky Ford melon power boost"
+      "title": "Fresh Melon Flapjack Topper"
     },
     "2026-10": {
       "art": {
@@ -124567,13 +125171,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOULDER'S Winter Squash Muffins, ready!",
-        "WINTER squash muffins, Boulder's best!",
-        "WINTER squash muffins, Boulder style!",
-        "BOULDER'S winter squash treat, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Boulder's Winter Squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-11": {
       "art": {
@@ -124590,10 +125194,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-BOULDER",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-11",
       "provenance": {
@@ -124604,13 +125208,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "green-bean-parmesan-fritters-draft",
+        "name": "Green Bean Parmesan Fritters"
       },
       "seasonal_moment": [
         {
@@ -124739,14 +125345,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOULDER'S Best Kodiak Cakes: pinto bean delight!",
-        "BOULDER'S Best: Pinto Bean Kodiak Cakes!",
-        "COLORADO pinto-powered Kodiak Cakes!",
-        "BOULDER'S best Kodiak Cakes pinto bean cake!",
-        "BOULDER'S Best: Kodiak Cakes Pinto Bean Delight"
+        "STEAM the cut beans 4 minutes until just tender, then spread on a towel and pat completely dry.",
+        "WHISK the mix, eggs, parmesan, salt, and pepper with the dry beans into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "DRAIN briefly on a rack and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Boulder's Best: Colorado Pinto Beans on Kodiak Cakes"
+      "title": "Green Bean Parmesan Fritters"
     },
     "2026-12": {
       "art": {
@@ -124912,14 +125517,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BOULDER'S Honey & Gouda Bites!",
-        "HONEY-INFUSED Protein Bites, Boulder",
-        "HONEY-INFUSED Gouda Bites, Boulder",
-        "HONEY-TOPPED Gouda Waffle Bites",
-        "HONEY-GLAZED Boulder Waffle Bites"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Boulder's Best: Honey & Power Bites"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     }
   },
   "US-W-HONOLULU": {
@@ -125115,13 +125722,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HAWAIIAN-SPICED muffins ready!",
-        "PAPAYA & Banana Muffins, Hawaii",
-        "HAWAIIAN protein muffins, 18-20 min bake",
-        "PAPAYA Banana Muffins, ready!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the papaya, eggs, milk, honey, butter, and lime zest; stir in the mix, coconut, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Hawaiian-grown power muffins"
+      "title": "Papaya Coconut Muffins"
     },
     "2026-02": {
       "art": {
@@ -125315,13 +125922,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HAWAIIAN Papaya Taro Muffins",
-        "PAPAYA Taro Muffins: Hawaiian flavor!",
-        "HAWAIIAN protein muffins, bake 18-20 min",
-        "HAWAIIAN protein muffins ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the papaya, eggs, milk, honey, butter, and lime zest; stir in the mix, coconut, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Papaya Taro Kodiak Cakes"
+      "title": "Papaya Coconut Muffins"
     },
     "2026-03": {
       "art": {
@@ -125515,14 +126122,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HAWAIIAN Power Pancakes: 5-ingred, protein-packed!",
-        "HAWAIIAN Power Pancakes with Protein",
-        "HAWAIIAN Power Pancakes: protein-packed!",
-        "HAWAIIAN Power Pancakes in 20 mins!",
-        "HAWAIIAN Power Pancakes, 20 mins & protein-packed"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Hawaiian Power Pancakes with Protein"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-04": {
       "art": {
@@ -125716,14 +126326,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HAWAIIAN Protein Pancakes",
-        "HAWAIIAN Power Pancakes",
-        "HAWAIIAN Power Pancakes",
-        "HAWAIIAN Protein Pancakes",
-        "HAWAIIAN Protein Pancakes: 2-3 min cook time"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Hawaiian Protein Pancakes"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-05": {
       "art": {
@@ -125917,14 +126530,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HAWAIIAN Power Pancakes: 5-min, 5-ingred",
-        "HAWAIIAN Protein Pancakes: Kodiak Cakes's mango twist!",
-        "HAWAIIAN Protein Pancakes: Mango & Pineapple blend",
-        "HAWAIIAN Protein Pancakes: 5-min, 5-ingred.",
-        "HAWAIIAN Power Pancakes: protein-packed, easy!"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Hawaiian Power Pancakes on Kodiak Cakes"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-06": {
       "art": {
@@ -126118,14 +126734,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HAWAIIAN Protein Pancakes",
-        "HAWAIIAN Protein Pancakes blend",
-        "HAWAIIAN Power Pancakes with Mango",
-        "HAWAIIAN Protein Pancakes: Quick & Mighty!",
-        "HAWAIIAN Protein Pancakes, 2-3 min"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Tropical Protein Pancakes in Honolulu"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-07": {
       "art": {
@@ -126319,14 +126938,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TROPICAL Protein Pancakes in Honolulu",
-        "HAWAIIAN Power Pancakes",
-        "HAWAIIAN Protein Pancakes blend",
-        "TROPICAL Protein Pancakes: Easy, fast, & protein-packed!",
-        "HAWAIIAN Protein Pancakes: lychee & mango"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Hawaiian Lychee Mango Pancakes"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-08": {
       "art": {
@@ -126520,14 +127142,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TROPICAL Protein Pancakes blend",
-        "HAWAIIAN Protein Pancakes",
-        "HAWAIIAN Power Pancakes: protein-packed & tropical!",
-        "TROPICAL Protein Pancakes: Power up your morning!",
-        "HAWAIIAN Protein Pancakes: 3-4 min, 5-ingred"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Tropical Protein Pancakes in Honolulu"
+      "title": "Tropical Protein Pancakes"
     },
     "2026-09": {
       "art": {
@@ -126721,13 +127346,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HAWAIIAN Breadfruit Muffins, Waialua",
-        "HAWAIIAN breadfruit & taro muffins",
-        "HAWAIIAN breadfruit muffins, bake 20-22 min",
-        "HAWAIIAN breadfruit & taro muffins."
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "WHISK the taro, coconut milk, eggs, honey, butter, and vanilla until as smooth as possible; stir in the mix and salt just until combined.",
+        "DIVIDE among the cups and bake 20-22 minutes, until a tester comes out clean.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Hawaiian breadfruit & taro Kodiak Cakes"
+      "title": "Taro Morning Muffins"
     },
     "2026-10": {
       "art": {
@@ -126921,13 +127546,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WAIALUA coffee muffins, ready!",
-        "WAIALUA'S coffee & papaya muffins",
-        "WAIALUA'S coffee & papaya muffins, 18-20 min",
-        "WAIALUA Harvest Coffee & Papaya Muffins"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the papaya, eggs, milk, honey, butter, and lime zest; stir in the mix, coconut, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Waialua Coffee & Papaya Kodiak Cakes"
+      "title": "Papaya Coconut Muffins"
     },
     "2026-11": {
       "art": {
@@ -127121,13 +127746,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HAWAIIAN coffee & cacao muffins ready!",
-        "LOCAL flavors: coffee, cacao, taro!",
-        "HAWAIIAN Kona brew, cacao & taro muffins",
-        "HAWAIIAN coffee, cacao, taro muffins ready!"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "WHISK the taro, coconut milk, eggs, honey, butter, and vanilla until as smooth as possible; stir in the mix and salt just until combined.",
+        "DIVIDE among the cups and bake 20-22 minutes, until a tester comes out clean.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Coffee, Cacao & Taro Kodiak Cakes"
+      "title": "Taro Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -127321,13 +127946,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HAWAIIAN-SPICED muffins, ready in 400F!",
-        "HAWAIIAN-INSPIRED Taro Treats",
-        "HAWAIIAN-SPICED muffins, baked 18-20 min.",
-        "FRESH taro, banana, and papaya muffins ready!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the papaya, eggs, milk, honey, butter, and lime zest; stir in the mix, coconut, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Hawaiian Power Cakes: Papaya, Banana, Taro"
+      "title": "Papaya Coconut Muffins"
     }
   },
   "US-W-LA": {
@@ -127500,14 +128125,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUGGED navel orange muffins, 7g protein!",
-        "RUGGED Orange Protein Muffins!",
-        "RUGGED navel orange muffins, 7g protein!",
-        "POWER up with protein muffins!",
-        "RUGGED navel orange muffins, 7g protein!"
+        "PREHEAT oven to 350°F and line a muffin tin with liners or grease well.",
+        "IN a large bowl, whisk together eggs, Greek yogurt, orange juice and zest, maple syrup, vanilla, and milk until smooth.",
+        "ADD Kodiak Cakes mix and salt; stir until just combined. Fold in the dried cranberries.",
+        "DIVIDE batter evenly into 24 muffin tins, filling each about ¾ full.",
+        "BAKE for 16-21 minutes, or until the tops are set and a toothpick inserted in the center comes out clean.",
+        "LET cool in the pan for 5 minutes, then transfer to a wire rack to cool completely. Reheat Instructions: From the fridge, reheat in a 350° F oven or toaster oven for 6–10 minutes until warmed through."
       ],
       "substrate": "kraft",
-      "title": "Rugged Orange Muffins with Kodiak Cakes Protein"
+      "title": "Cranberry Orange Yogurt Muffins"
     },
     "2026-02": {
       "art": {
@@ -127678,14 +128304,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH lemon flapjacks for LA!",
-        "MORNING lemon power boost!",
-        "FRESH lemon pancakes, no rush!",
-        "MORNING lemon power boost!",
-        "FRESH lemon pancakes, protein-packed!"
+        "FOR the pancakes:",
+        "COMBINE all ingredients in large bowl and mix well.",
+        "COOK pancakes on a hot griddle.",
+        "GREASE a 9x9\" baking pan.",
+        "CUT cooked pancakes in half and place vertically in pan. For the custard:",
+        "MIX all ingredients together and pour over pancakes.",
+        "COVER with plastic wrap and refrigerate several hours or overnight.",
+        "HEAT oven to 350° F.",
+        "BAKE casserole 15-20 minutes.",
+        "SERVE warm with desired toppings."
       ],
       "substrate": "kraft",
-      "title": "Fresh lemon Kodiak Cakes, LA"
+      "title": "Overnight Lemon Poppy Seed Casserole"
     },
     "2026-03": {
       "art": {
@@ -127702,10 +128333,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-LA",
       "meta": {
-        "cook": "35",
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": "15 mins",
+        "serves": "8 flapjacks"
       },
       "month": "2026-03",
       "provenance": {
@@ -127721,8 +128352,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "mandarin-citrus-flapjacks-draft",
+        "name": "Mandarin Citrus Flapjacks"
       },
       "seasonal_moment": [
         {
@@ -127856,14 +128487,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes's Kumquat Cakes, LA's Frontier Delight!",
-        "KODIAK Cakes kumquat cakes, LA!",
-        "KODIAK Cakes Protein Kumquat Cakes LA",
-        "KODIAK Cakes Protein Kumquat Cakes LA",
-        "KODIAK Cakes's Kumquat Cakes, LA-style!"
+        "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
+        "REST the batter 5 minutes.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE hot with extra segments and honey."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Kumquats"
+      "title": "Mandarin Citrus Flapjacks"
     },
     "2026-04": {
       "art": {
@@ -128034,14 +128664,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SHEET pan pancakes: easy, fast, protein-packed!",
-        "POWER-PACKED LA strawberry pancakes!",
-        "HIGH-PROTEIN LA strawberry pancakes!",
-        "HIGH-PROTEIN LA strawberry pancakes!",
-        "PROTEIN-PACKED LA strawberry pancakes!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: LA's Protein-Packed Berry Delight"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-05": {
       "art": {
@@ -128212,14 +128842,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EASY pancakes in 20 mins, protein-packed!",
-        "PROTEIN-PACKED pancakes in 20 mins!",
-        "EASY, protein-packed pancakes!",
-        "LA'S Power Pancakes: 20 mins, 27g protein!",
-        "PROTEIN pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Ventura Blueberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -128236,10 +128866,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-LA",
       "meta": {
-        "cook": "35",
+        "cook": "10 mins",
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": "10 mins",
+        "serves": "2"
       },
       "month": "2026-06",
       "provenance": {
@@ -128255,8 +128885,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "avocado-pancakes",
+        "name": "Avocado Pancakes"
       },
       "seasonal_moment": [
         {
@@ -128390,14 +129020,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Avocado Cakes LA 2026-06",
-        "KODIAK Cakes Avocado Brownies LA 2026-06",
-        "KODIAK Cakes Avocado Cakes LA 2026",
-        "KODIAK Cakes Avocado Brownies LA 2026-06",
-        "KODIAK Cakes Avocado Cakes LA 2026-06"
+        "PLACE the avocado, milk, and spirulina in a blender and process until smooth.",
+        "PLACE the Kodiak Cakes mix in a bowl. Add the avocado mixture and whisk together to form a smooth batter. Let rest for 5 minutes.",
+        "HEAT a frying pan to medium-high and grease.",
+        "PLACE 1/4-cup scoops of batter on the hot pan and cook until bubbles form on top. Flip and cook for an additional 30 seconds. Repeat with the remaining batter.",
+        "SERVE pancakes topped with blueberries and maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Avocado Kodiak Cakes Power Cakes LA"
+      "title": "Avocado Pancakes"
     },
     "2026-07": {
       "art": {
@@ -128568,14 +129198,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUGGED Orange Protein Muffins 7g per serve",
-        "PROTEIN-PACKED Valencia orange muffins!",
-        "KODIAK Cakes Protein Valencia Orange Muffins",
-        "KODIAK Cakes Protein Orange Muffins, 7g per bite!",
-        "RUGGED Valencia orange muffins, 7g protein!"
+        "PREHEAT oven to 350°F and line a muffin tin with liners or grease well.",
+        "IN a large bowl, whisk together eggs, Greek yogurt, orange juice and zest, maple syrup, vanilla, and milk until smooth.",
+        "ADD Kodiak Cakes mix and salt; stir until just combined. Fold in the dried cranberries.",
+        "DIVIDE batter evenly into 24 muffin tins, filling each about ¾ full.",
+        "BAKE for 16-21 minutes, or until the tops are set and a toothpick inserted in the center comes out clean.",
+        "LET cool in the pan for 5 minutes, then transfer to a wire rack to cool completely. Reheat Instructions: From the fridge, reheat in a 350° F oven or toaster oven for 6–10 minutes until warmed through."
       ],
       "substrate": "kraft",
-      "title": "Early Valencia Oranges on Kodiak Cakes"
+      "title": "Cranberry Orange Yogurt Muffins"
     },
     "2026-08": {
       "art": {
@@ -128746,14 +129377,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUGGED Valencia Orange Muffins, 7g protein!",
-        "PROTEIN-PACKED Valencia orange muffins!",
-        "PROTEIN-PACKED Valencia orange muffins!",
-        "PROTEIN-PACKED Valencia orange muffins!",
-        "PROTEIN-PACKED Valencia muffins bake to perfection!"
+        "PREHEAT oven to 350°F and line a muffin tin with liners or grease well.",
+        "IN a large bowl, whisk together eggs, Greek yogurt, orange juice and zest, maple syrup, vanilla, and milk until smooth.",
+        "ADD Kodiak Cakes mix and salt; stir until just combined. Fold in the dried cranberries.",
+        "DIVIDE batter evenly into 24 muffin tins, filling each about ¾ full.",
+        "BAKE for 16-21 minutes, or until the tops are set and a toothpick inserted in the center comes out clean.",
+        "LET cool in the pan for 5 minutes, then transfer to a wire rack to cool completely. Reheat Instructions: From the fridge, reheat in a 350° F oven or toaster oven for 6–10 minutes until warmed through."
       ],
       "substrate": "kraft",
-      "title": "Rugged Valencia muffins with Kodiak Cakes protein"
+      "title": "Cranberry Orange Yogurt Muffins"
     },
     "2026-09": {
       "art": {
@@ -128770,10 +129402,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-LA",
       "meta": {
-        "cook": "30 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "8 flapjacks plus topper"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-09",
       "provenance": {
@@ -128784,13 +129416,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "roasted-grape-flapjack-topper-draft",
-        "name": "Roasted Grape Flapjack Topper"
+        "id": "fig-honey-muffins-draft",
+        "name": "Fig Honey Muffins"
       },
       "seasonal_moment": [
         {
@@ -128924,13 +129558,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FIGS & Honey Roast, LA style!",
-        "MISSION Figs & Protein Oatmeal, LA",
-        "FIG-STUFFED flapjacks, golden & hearty!",
-        "FLAPJACKS with roasted Mission figs atop."
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "WHISK the eggs, milk, honey, oil, and vanilla; stir in the mix just until combined, then fold in the figs.",
+        "DIVIDE among the cups and bake 18-20 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Figs (Mission) Kodiak Cakes Power Cakes"
+      "title": "Fig Honey Muffins"
     },
     "2026-10": {
       "art": {
@@ -128947,10 +129580,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-LA",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-10",
       "provenance": {
@@ -128961,13 +129594,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "persimmon-spice-muffins-draft",
+        "name": "Persimmon Spice Muffins"
       },
       "seasonal_moment": [
         {
@@ -129101,14 +129736,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FUYU Persimmon Kodiak Cakes, LA",
-        "FUYU Persimmon Kodiak Cake LA",
-        "FUYU Persimmon Cakes, LA-style",
-        "FUYU Persimmon Cakes, LA-style!",
-        "FUYU Persimmon Kodiak Cakes LA 2026"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "WHISK the persimmon pulp, eggs, honey, butter, cinnamon, and cloves until smooth.",
+        "STIR in the mix just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until set and golden."
       ],
       "substrate": "kraft",
-      "title": "Fuyu Persimmon Kodiak Cakes LA"
+      "title": "Persimmon Spice Muffins"
     },
     "2026-11": {
       "art": {
@@ -129279,13 +129913,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SATSUMAS & Spices Pancakes!",
-        "POWER up with Satsuma Pancakes!",
-        "SATSUMAS & Flapjacks: 2 mins, golden!",
-        "SATSUMAS & Honey Pancakes, LA"
+        "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
+        "REST the batter 5 minutes.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE hot with extra segments and honey."
       ],
       "substrate": "kraft",
-      "title": "Satsuma Mandarins Power Cakes"
+      "title": "Mandarin Citrus Flapjacks"
     },
     "2026-12": {
       "art": {
@@ -129302,10 +129936,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-LA",
       "meta": {
-        "cook": "5 mins",
+        "cook": "30 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "5"
+        "serves": "8 flapjacks plus topper"
       },
       "month": "2026-12",
       "provenance": {
@@ -129321,8 +129955,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "smoked-gouda-and-honey-waffle-bites",
-        "name": "Smoked Gouda & Honey Waffle Bites"
+        "id": "roasted-grape-flapjack-topper-draft",
+        "name": "Roasted Grape Flapjack Topper"
       },
       "seasonal_moment": [
         {
@@ -129456,14 +130090,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RIO Red Grapefruit Protein Bites",
-        "RIO Red Grapefruit & Honey Bites",
-        "RIO Red Grapefruit & Honey Bites",
-        "RIO Red Grapefruit & Gouda Bites",
-        "RIO Red Grapefruit Protein Bites"
+        "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with the warm roasted grapes spooned over."
       ],
       "substrate": "kraft",
-      "title": "Rio Red Grapefruit Power Cakes"
+      "title": "Roasted Grape Flapjack Topper"
     }
   },
   "US-W-PDX": {
@@ -129638,14 +130271,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STORAGE Apple Breakfast Bake",
-        "FRONTIER'S Storage Apple Waffles: hearty & local!",
-        "FRONTIER storage apple pancakes",
-        "STORAGE Apple Pancakes, PDX",
-        "FRONTIER Apple Waffles 2026"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Storage Apples & Kodiak Cakes Power"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -129818,13 +130454,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KALE Power Scramble 2026-02",
-        "KALE-PACKED pancakes, Oregon style",
-        "KALE Power Scramble Pancakes",
-        "PROTEIN-PACKED kale pancakes, fresh & bold!"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Kale-fueled Kodiak Cakes Power Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-03": {
       "art": {
@@ -129997,13 +130633,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "LEEKS & Kodiak Cakes Power Pancakes",
-        "LEEKS & Power Cakes: Frontier Flavor!",
-        "LEEKS & Power Cakes, ready in 3 min!",
-        "KODIAK Cakes Leeks Power Cakes: Oregon's protein boost"
+        "SOFTEN the leeks in the butter over medium heat, 6-8 minutes, until tender; cool slightly.",
+        "WHISK the mix, eggs, milk, parmesan, salt, and pepper into a batter and fold in the leeks.",
+        "COOK 1/4-cup scoops in butter, 2-3 minutes per side, until golden.",
+        "SERVE hot."
       ],
       "substrate": "kraft",
-      "title": "Leeks & Kodiak Cakes Protein Boost"
+      "title": "Leek and Cheese Pancakes"
     },
     "2026-04": {
       "art": {
@@ -130176,13 +130812,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FALL rhubarb pancakes power up your breakfast!",
-        "KODIAK Cakes Rhubarb Power Cakes, PDX",
-        "KODIAK Cakes Flapjacks: Golden in 4 min!",
-        "KODIAK Cakes Rhubarb Power Flaps"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Fall Power Cakes in PDX"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-05": {
       "art": {
@@ -130355,10 +130991,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asp & goat fritta, power your day!"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fresh asp, Kodiak Cakes Power Cakes"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-06": {
       "art": {
@@ -130531,14 +131167,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO flapjacks, ready in 20!",
-        "POWER-PACKED PDX pancakes!",
-        "POWER-PACKED PDX pancakes with local berries",
-        "OREGON Power Pancakes, 20 min!",
-        "HIGH-PRO flapjacks, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with local strawberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -130711,14 +131347,20 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Raspberry Cakes, Oregon 2026",
-        "KODIAK Cakes Raspberry Cakes, Portland 2026",
-        "KODIAK Cakes Raspberry Cakes: Oregon's best!",
-        "KODIAK Cakes Raspberry Cakes: Oregon's frontier treat!",
-        "KODIAK Cakes Raspberry Cakes, Oregon's frontier treat!"
+        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper.",
+        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine.",
+        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
+        "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries.",
+        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean.",
+        "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling.",
+        "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside.",
+        "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
+        "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between.",
+        "TOP cake with fresh raspberries.",
+        "STORE cake in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes: Wild Raspberry Power"
+      "title": "White Chocolate Raspberry Cake"
     },
     "2026-08": {
       "art": {
@@ -130891,14 +131533,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PROTEIN blueberry pancakes ready in 20 mins!",
-        "PROTEIN-PACKED PDX blueberry pancakes!",
-        "WILD Blueberry Power Pancakes (2026-08)",
-        "WILD Blueberry Power Pancakes, PDX",
-        "WILD Blueberry Power Pancakes (2026)"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Wild Blueberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-09": {
       "art": {
@@ -131071,13 +131713,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks, frontier style!",
-        "SWEET corn flapjacks, frontier style!",
-        "SWEET corn flapjacks, frontier style!",
-        "SWEET corn flapjacks, frontier style!"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet Corn Griddle Cakes, PDX"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-10": {
       "art": {
@@ -131250,14 +131892,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER Pumpkin Oat Muffins: Protein-packed, local!",
-        "FRONTIER Pumpkin Oats: protein-packed muffins!",
-        "FRONTIER Pumpkin Power Muffins",
-        "FRONTIER Pumpkin Oats, protein-packed!",
-        "FRONTIER Pumpkin Oat Muffins: Protein-packed, local delight!"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Pumpkin Muffins"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -131430,14 +132073,20 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Hazelnut Cakes, PDX 2026",
-        "KODIAK Cakes Hazelnut Delight, PDX",
-        "HAZELNUT Kodiak Cakes, Portland 2026",
-        "HAZELNUT Kodiak Cakes, PDX frontier",
-        "KODIAK Cakes Hazelnut Cakes, Portland 2026"
+        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper.",
+        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine.",
+        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
+        "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries.",
+        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean.",
+        "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling.",
+        "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside.",
+        "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
+        "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between.",
+        "TOP cake with fresh raspberries.",
+        "STORE cake in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Hazelnut Kodiak Cakes, Portland"
+      "title": "White Chocolate Raspberry Cake"
     },
     "2026-12": {
       "art": {
@@ -131610,13 +132259,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins ready!",
-        "WINTER squash muffins, hearty & bright!",
-        "WINTER squash muffins, ready!",
-        "WINTER squash muffins, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     }
   },
   "US-W-RENO": {
@@ -131789,13 +132438,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RENO'S protein-packed breakfast muffins!",
-        "PROTEIN-PACKED Reno onion muffins",
-        "PROTEIN-PACKED Reno onion muffins, ready in 20!",
-        "QUICK 5-min protein boost, Reno!"
+        "HEAT the oven to 350F and grease a 12-cup muffin tin.",
+        "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+        "DIVIDE among the cups and bake 18-20 minutes, until puffed and set.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Reno-Tahoe Protein Power Cakes"
+      "title": "Spring Onion Egg Muffins"
     },
     "2026-02": {
       "art": {
@@ -131966,14 +132615,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STORAGE Garlic & Pea Fiesta",
-        "STORAGE Garlic Tacos",
-        "GRILLED Garlic Power Waffles",
-        "STORAGE Garlic Power Waffles",
-        "STORAGE Garlic Tostada Base"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Reno Storage Garlic over Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-03": {
       "art": {
@@ -132144,10 +132793,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asp & goat fritta, power your day!"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fresh asp, power frittata"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-04": {
       "art": {
@@ -132318,13 +132967,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER spring greens scramble, 2026",
-        "FRONTIER Spring Greens Scramble",
-        "FRONTIER spring greens scrambles",
-        "FRONTIER spring greens scramble."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Spring Greens Power Cakes in Reno"
+      "title": "Savory Greens Fritters"
     },
     "2026-05": {
       "art": {
@@ -132495,14 +133144,20 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Raspberry Cakes: Reno’s Best",
-        "KODIAK Cakes Raspberry Cakes, Tahoe-style!",
-        "KODIAK Cakes Raspberry Cakes: Reno's local treat!",
-        "KODIAK Cakes Raspberry Cakes: Savory, local, & bold!",
-        "RUGGED Raspberry Cakes, Tahoe Style"
+        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper.",
+        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine.",
+        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
+        "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries.",
+        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean.",
+        "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling.",
+        "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside.",
+        "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
+        "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between.",
+        "TOP cake with fresh raspberries.",
+        "STORE cake in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes: Wild Raspberry Power"
+      "title": "White Chocolate Raspberry Cake"
     },
     "2026-06": {
       "art": {
@@ -132673,13 +133328,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CORN-FILLED flapjacks, savory-sweet!",
-        "SAVORY sweet corn griddle cake stack",
-        "GRIDDLE corn pancakes, golden & bold!",
-        "GRIDDLE cakes with sweet corn, bacon."
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet Corn Griddle Cakes, Reno"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-07": {
       "art": {
@@ -132850,13 +133505,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER squash power pasta",
-        "SUMMER squash tostada base",
-        "SUMMER squash bites, Bear Brown style",
-        "SUMMER squash bites, hot & hearty!"
+        "TOSS the shredded squash with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, parmesan, remaining salt, and pepper into a batter and fold in the squash.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3 minutes per side, until golden and crisp.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Summer squash atop Kodiak Cakes"
+      "title": "Summer Squash Fritters"
     },
     "2026-08": {
       "art": {
@@ -133027,13 +133682,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEARTY Hearts of Gold pasta recipe!",
-        "HEARTY cantaloupe pancakes, protein-packed!",
-        "HEARTY breakfast in Tahoe, 2 mins!",
-        "HEARTS of Gold pancakes, fresh cantaloupe!"
+        "TOSS the cubed melon with the honey and lime juice; rest 10 minutes.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks topped with the fresh melon and its juices."
       ],
       "substrate": "kraft",
-      "title": "Power Cakes fuel cantaloupe harvest"
+      "title": "Fresh Melon Flapjack Topper"
     },
     "2026-09": {
       "art": {
@@ -133204,14 +133859,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER tomato taco base",
-        "SUMMER tomatoes & Kodiak Cakes power!",
-        "SUMMER tomato power tostadas",
-        "SUMMER tomato tostada base",
-        "SUMMER tomato tostadas with waffles"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Summer tomatoes on Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-10": {
       "art": {
@@ -133382,14 +134037,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER Pumpkin Oat Muffins",
-        "FRONTIER Pumpkin Oat Muffins",
-        "FRONTIER Pumpkin Oat Muffins",
-        "FRONTIER Pumpkin Oats Muffins",
-        "FRONTIER Pumpkin Oat Muffins: Protein-packed treat!"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Frontier Pumpkin Power Muffins"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -133560,13 +134216,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, ready for baking!",
-        "WINTER squash muffins, ready!",
-        "WINTER squash muffins, baked 18-20 min.",
-        "WINTER squash muffins, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter squash Kodiak Cakes, Nevada"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -133737,13 +134393,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RENO Potatoes: Fresh, rugged, & hearty!",
-        "RENO Potatoes: Protein-Packed Treats",
-        "CRISPY potatoes, Tahoe style!",
-        "FRESH potatoes, hot & hearty!"
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Reno Potatoes Power Cakes"
+      "title": "Storage Root Fritters"
     }
   },
   "US-W-SACRAMENTO": {
@@ -133915,13 +134571,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MANDARIN Flapjacks: Protein-Packed Start",
-        "SAVORY Mandarin Flapjacks, 5-min rest!",
-        "SAVORY Mandarin Flapjacks, 2 min golden!",
-        "FRESH Mandarin Flapjacks, honey-top!"
+        "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
+        "REST the batter 5 minutes.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE hot with extra segments and honey."
       ],
       "substrate": "kraft",
-      "title": "Mandarin Power Cakes: Boost Your Breakfast!"
+      "title": "Mandarin Citrus Flapjacks"
     },
     "2026-02": {
       "art": {
@@ -134091,13 +134747,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH greens scramble, frontier style",
-        "CRUNCHY greens scramble pancakes",
-        "RUGGED leafy greens scrambles",
-        "FRESH greens atop hearty pancakes."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Fresh Greens"
+      "title": "Savory Greens Fritters"
     },
     "2026-03": {
       "art": {
@@ -134267,10 +134923,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ASPARAGUS & Goat Frittata Power-Up!"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Spicy Goat Frittata on the Rise"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-04": {
       "art": {
@@ -134440,14 +135096,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Flapjacks, ready in 20!",
-        "POWER-PACKED pancakes, 5-min mix!",
-        "HIGH-PRO Sacramento Pancakes (2026-04)",
-        "HIGH-PRO Sacramento Flapjacks 2026",
-        "POWER-PACKED pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with local strawberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-05": {
       "art": {
@@ -134617,14 +135273,22 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "LOCAL cherries, fiber-packed snack!",
-        "CHERRY Pie Bars: whole grain, protein power!",
-        "SAVORY cherry power bars, whole grain!",
-        "SAVORY cherry pie bites, protein-packed!",
-        "FRESH cherries, power-packed snack!"
+        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
+        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+        "BEAT in the eggs, one at a time.",
+        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
+        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
+        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
+        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
+        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
+        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
+        "REMOVE from oven and let cool.",
+        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
+        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
+        "STORE in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Cherries & Kodiak Cakes Power Bars"
+      "title": "Cherry Pie Bars"
     },
     "2026-06": {
       "art": {
@@ -134794,13 +135458,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SAVORY apricot muffins from local farms!",
-        "LOCAL apricot muffins, Bear Brown & Blaze Orange",
-        "APRICOT muffins from Sacramento, 2026",
-        "FRESH apricots in every bite!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the eggs, milk, honey, and butter; stir in the mix, cinnamon, and salt just until combined, then fold in the apricots.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Apricot Power Cakes in Sacramento"
+      "title": "Apricot Morning Muffins"
     },
     "2026-07": {
       "art": {
@@ -134970,14 +135634,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER tomato tacos with power base",
-        "SUMMER tomatoes on Kodiak Cakes waffle base",
-        "SUMMER tomato power waffles",
-        "SUMMER tomatillo tacos on Kodiak Cakes waffles",
-        "SUMMER tostadas with fresh tomatoes & waffles"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Summer tomatoes on Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-08": {
       "art": {
@@ -135147,13 +135811,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks, frontier style!",
-        "SAVORY sweet corn griddle cakes, 2026-08!",
-        "SAVORY sweet corn griddle cakes, 2-3 min each side",
-        "SAVORY sweet corn griddle cakes."
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet Corn Griddle Cakes, Bear Brown flavor"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-09": {
       "art": {
@@ -135323,14 +135987,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PROTEIN-PACKED muffins, ready in minutes!",
-        "LATE harvest pepper power muffins",
-        "PROTEIN-PACKED egg muffins, 17g!",
-        "PROTEIN-PACKED egg muffins, ready in minutes!",
-        "PROTEIN-PACKED muffins, ready in minutes!"
+        "PREHEAT the oven to 350° Fahrenheit. Grease a 12-cup muffin pan with the olive oil.",
+        "PLACE the eggs, garlic, salt, and Kodiak Cakes mix in a high-speed blender and process until smooth. Set aside.",
+        "DIVIDE the peppers, green onions, and feta cheese evenly between the greased muffin tins.",
+        "POUR the egg mixture into the muffin tins, evenly dividing between them.",
+        "BAKE for 20-22 minutes or until golden brown puffed on top.",
+        "LET cool slightly and remove from the pan using a rubber spatula or butter knife.",
+        "STORE in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Late Harvest Peppers on Kodiak Cakes"
+      "title": "Breakfast Egg Muffins"
     },
     "2026-10": {
       "art": {
@@ -135500,13 +136166,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SAVORY winter squash muffins, ready!",
-        "WINTER squash muffins, hearty & pure",
-        "HARVEST squash muffins, baked 18-20 min.",
-        "WINTER squash muffins, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Kodiak Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-11": {
       "art": {
@@ -135676,14 +136342,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SAVORY Walnut Crunch Protein Bites",
-        "CRUNCHY Walnut Power Bites, 15g protein",
-        "WALNUT-PACKED Crunchy Protein Bites",
-        "RUGGED Walnut Power Cakes mix, oats, & fiber",
-        "CRUNCHY Walnut Power Bites"
+        "PREHEAT oven to 350°F and line a baking sheet with parchment paper.",
+        "IN a large bowl, mash bananas until mostly smooth.",
+        "ADD eggs, maple syrup, nut butter, and milk. Whisk until fully combined.",
+        "STIR in Kodiak Cakes Power Cakes mix, Kodiak Cakes rolled oats, chia seeds, and ground flaxseed until a thick dough forms.",
+        "FOLD in chopped walnuts. If the dough feels too thick, add an additional tablespoon of milk as needed. Let the dough rest for 2–3 minutes to hydrate.",
+        "SCOOP dough with a cookie scoop onto the prepared baking sheet and lightly press to shape. Bake for 9 - 14 mins , until set and lightly golden. Cool before serving.",
+        "STORE in an airtight container in the refrigerator for up to 4–5 days or freeze for longer storage."
       ],
       "substrate": "kraft",
-      "title": "Walnut-Packed Kodiak Cakes"
+      "title": "Fiber-Packed Banana Oat Breakfast Cookies"
     },
     "2026-12": {
       "art": {
@@ -135853,13 +136521,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SAVORY Mandarin Pancakes, protein-packed!",
-        "SAVORY Mandarin Flapjacks, 5-min rest!",
-        "SAVORY Mandarin Flapjacks, 2 mins each side!",
-        "SAVORY Mandarin Flapjacks, protein boost!"
+        "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
+        "REST the batter 5 minutes.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE hot with extra segments and honey."
       ],
       "substrate": "kraft",
-      "title": "Mandarin Power Cakes, Sacramento!"
+      "title": "Mandarin Citrus Flapjacks"
     }
   },
   "US-W-SANJOSE": {
@@ -135878,10 +136546,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-SANJOSE",
       "meta": {
-        "cook": "10 mins",
+        "cook": "1.5 mins",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "10"
+        "prep": "2 mins",
+        "serves": "1"
       },
       "month": "2026-01",
       "provenance": {
@@ -135897,8 +136565,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "waffle-pickles",
-        "name": "Waffle Pickles"
+        "id": "single-serve-lemon-ricotta-flapjack-cup",
+        "name": "Single-serve Lemon Ricotta Flapjack Cup"
       },
       "seasonal_moment": [
         {
@@ -136035,14 +136703,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Pickles: Crunchy, juicy, protein-packed!",
-        "KODIAK Cakes Pickles: Protein-packed, fluffy & zesty!",
-        "PROTEIN-PACKED waffle pickles, 2026!",
-        "KODIAK Cakes Pickles: protein-packed, fluffy!",
-        "KODIAK Cakes Protein Waffle Pickles!"
+        "REMOVE the lid to the Kodiak Cakes cup.",
+        "ADD the milk, ricotta, and lemon zest to the flapjack cup and stir with a fork until combined.",
+        "MICROWAVE on high for 90 seconds.",
+        "TOP with honey and a dollop of ricotta, if desired."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Meyer Lemon"
+      "title": "Single-serve Lemon Ricotta Flapjack Cup"
     },
     "2026-02": {
       "art": {
@@ -136216,13 +136883,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KALE scramble pancakes, San Jose frontier",
-        "KALE-PACKED pancakes, frontier style!",
-        "RUGGED kale pancakes, San Jose style",
-        "FRONTIER kale pancakes, fresh microgreens."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Kale-boosted Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-03": {
       "art": {
@@ -136396,13 +137063,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUGGED herb & chard scrambles",
-        "SAN Jose's Chard Scramble Pancakes",
-        "FRONTIER'S Chard Scramble Pancakes, 2026",
-        "KODIAK Cakes Chard Scrambles: frontier taste"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Chard Pancakes 2026"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -136576,10 +137243,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "POWER-PACKED frittata with Harley Farms goat cheese"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Harley Goat Frittata Power Boost"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-05": {
       "art": {
@@ -136596,10 +137263,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-SANJOSE",
       "meta": {
-        "cook": "5",
+        "cook": null,
         "est_cost": null,
-        "prep": "15",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-05",
       "provenance": {
@@ -136610,13 +137277,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "summer-vegetable-tostada",
-        "name": "Summer Vegetable Tostada"
+        "id": "snap-pea-herb-fritters-draft",
+        "name": "Snap Pea Herb Fritters"
       },
       "seasonal_moment": [
         {
@@ -136753,14 +137422,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPRING Pea Power Tostada Base",
-        "FRESH spring peas atop Kodiak Cakes waffles!",
-        "CRISPY Kodiak Cakes Spring Pea Cakes",
-        "SPRING Pea Tostada atop Kodiak Cakes Waffles",
-        "FRESH spring peas atop Kodiak Cakes waffle tostada."
+        "BLANCH the sliced peas 1 minute in salted boiling water, chill in ice water, then pat completely dry.",
+        "WHISK the mix, eggs, parmesan, dill, salt, and pepper with the dry peas into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3 minutes per side until crisp and golden.",
+        "DRAIN briefly on a rack and serve warm with lemon."
       ],
       "substrate": "kraft",
-      "title": "Spring peas atop Kodiak Cakes"
+      "title": "Snap Pea Herb Fritters"
     },
     "2026-06": {
       "art": {
@@ -136934,13 +137602,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER squash power tostada!",
-        "SUMMER squash tostada base, Kodiak Cakes style",
-        "SUMMER squash tostada bites",
-        "SUMMER squash tostada base, hot & ready!"
+        "TOSS the shredded squash with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, parmesan, remaining salt, and pepper into a batter and fold in the squash.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3 minutes per side, until golden and crisp.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Summer squash on Kodiak Cakes Power Cakes"
+      "title": "Summer Squash Fritters"
     },
     "2026-07": {
       "art": {
@@ -137114,14 +137782,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "POWER Sheet Pancakes for San Jose",
-        "HIGH-PRO San Jose sheet pancakes!",
-        "HIGH-PRO Blackberries Sheet Pan Pancakes",
-        "SAN Jose Power Pancakes, 20 mins!",
-        "POWER-PACKED pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power Pancakes with Blackberries, San Jose"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-08": {
       "art": {
@@ -137138,10 +137806,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-SANJOSE",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-08",
       "provenance": {
@@ -137152,13 +137820,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "green-bean-parmesan-fritters-draft",
+        "name": "Green Bean Parmesan Fritters"
       },
       "seasonal_moment": [
         {
@@ -137295,14 +137965,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RUGGED romano bean cakes, San Jose!",
-        "RUGGED romano bean cakes, San Jose!",
-        "RUGGED romano bean cakes, San Jose!",
-        "RUGGED romano bean cakes, San Jose!",
-        "RUGGED romano bean cakes, San Jose!"
+        "STEAM the cut beans 4 minutes until just tender, then spread on a towel and pat completely dry.",
+        "WHISK the mix, eggs, parmesan, salt, and pepper with the dry beans into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "DRAIN briefly on a rack and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Rugged romano bean cakes in San Jose"
+      "title": "Green Bean Parmesan Fritters"
     },
     "2026-09": {
       "art": {
@@ -137476,14 +138145,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Sheet Pan Pancakes, 20 mins!",
-        "POWER Sheet Pan Pancakes, San Jose",
-        "HIGH-PRO San Jose Sheet Pan Pancakes",
-        "POWER Sheet Pan Pancakes, 20 mins!",
-        "HIGH-PRO San Jose Sheet Pan Pancakes"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power-packed strawberry pancakes!"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-10": {
       "art": {
@@ -137657,14 +138326,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SAN Jose's Pumpkin Power Muffins",
-        "SAN Jose's Pumpkin Power Muffins!",
-        "HALF Moon Pumpkin Power Muffins",
-        "FRONTIER Pumpkin Oats Power Muffins",
-        "HALF Moon Pumpkin Power Muffins"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Half Moon Bay Pumpkin Cakes"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -137838,14 +138508,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "GARDEN-FRESH summer crunch tostadas!",
-        "FALL olive oil-crusted veggies",
-        "KODIAK Cakes Fall Oil Tostadas",
-        "FALL Olive Oil Tostada Base",
-        "KODIAK Cakes Summer Veggie Tostadas"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Fall olive oil atop Kodiak Cakes Power Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-12": {
       "art": {
@@ -138019,13 +138689,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SAN Jose's spicy Brussels waffle!",
-        "SAN Jose's spicy Brussels cheese waffles!",
-        "SAN Jose's crispy Brussels cake, 2026!",
-        "SAN Jose's hot Brussels waffle!"
+        "TOSS the shredded sprouts with the salt and rest 10 minutes, then squeeze lightly.",
+        "WHISK the mix and eggs into a batter; fold in the sprouts, cheddar, and pepper.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until deep golden with crisp edges.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Rugged Brussels Sprout Cakes"
+      "title": "Shredded Sprout Fritters"
     }
   },
   "US-W-SD": {
@@ -138203,14 +138873,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STORED apple breakfast bake, SD frontier style",
-        "RUGGED protein waffles with local apples!",
-        "STORED apple power breakfast blend.",
-        "STORED apple waffles: frontier flavor, no sugar tops!",
-        "RUGGED San Diego waffles with stored apples"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Stored Apples & Kodiak Cakes Power Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -138386,14 +139059,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CITRUS-SPICED pancakes, beta-carotene boost!",
-        "CITRUS-PACKED Pancakes from Lowlands",
-        "CITRUS-SPICED Pancakes from local groves",
-        "CITRUS Power Pancakes: Beta-Carotene & Antioxidants",
-        "CITRUS-STUFFED Pancakes, SD"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Citrus Power Cakes from SD"
+      "title": "Sweet Potato Pancakes"
     },
     "2026-03": {
       "art": {
@@ -138569,13 +139243,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH greens scramble, 2-min boil, chill",
-        "FRESH greens scramble, hearty & bold",
-        "SAN Diego's Protein-Packed Greens Delight",
-        "FRESH greens atop hearty pancakes."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Greens Pancakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-04": {
       "art": {
@@ -138751,10 +139425,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ASPARAGUS Frittata: Power & Protein"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fresh asp & goat frittata power"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-05": {
       "art": {
@@ -138930,14 +139604,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO SD Flapjacks ready in 20!",
-        "HIGH-PRO SD Pancakes 2026-05",
-        "HIGH-PRO SD Pancakes with Local Berries",
-        "HIGH-PRO SD Pancakes, 20 mins!",
-        "HIGH-PROTEIN pancakes, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power-packed SD strawberry pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -139113,14 +139787,22 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SAN Diego Cherry Pie Bars, 2026",
-        "SD Cherry Power Bars 2026-06",
-        "SAN Diego's Wild Cherry Power Bars",
-        "SAN Diego Cherry Pie Bars",
-        "SAN Diego Cherry Pie Bars"
+        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
+        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+        "BEAT in the eggs, one at a time.",
+        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
+        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
+        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
+        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
+        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
+        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
+        "REMOVE from oven and let cool.",
+        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
+        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
+        "STORE in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "San Diego Cherries Kodiak Cakes Bars"
+      "title": "Cherry Pie Bars"
     },
     "2026-07": {
       "art": {
@@ -139298,10 +139980,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Peaches Power Cakes SD 2026-07"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Peach Sunrise"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-08": {
       "art": {
@@ -139318,10 +140000,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-SD",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-08",
       "provenance": {
@@ -139332,13 +140014,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "pear-spice-muffins-draft",
+        "name": "Pear Spice Muffins"
       },
       "seasonal_moment": [
         {
@@ -139477,14 +140161,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Pear Delight, SD 2026-08",
-        "KODIAK Cakes Pear Cakes, SD 2026-08",
-        "KODIAK Cakes Protein Pear Cakes SD 2026-08",
-        "KODIAK Cakes: Pear Power in SD!",
-        "KODIAK Cakes Pear Power in SD!"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg.",
+        "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
+        "DIVIDE among the cups and bake 18-20 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Local Pears"
+      "title": "Pear Spice Muffins"
     },
     "2026-09": {
       "art": {
@@ -139660,14 +140343,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SAN Diego's Apple Waffle Delight!",
-        "SAN Diego's Power-Packed Apple Waffles",
-        "SAN Diego's Best Protein Apple Waffles!",
-        "SAN Diego's Best Apple Waffles!",
-        "SAN Diego's Best Protein-Packed Apple Bake!"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with local apples"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -139843,14 +140529,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER Pumpkin Oats, protein-packed!",
-        "FRONTIER Pumpkin Oats: protein-packed!",
-        "FRONTIER Pumpkin Oats, protein-packed!",
-        "FRONTIER Pumpkin Oats, protein-packed!",
-        "FRONTIER Pumpkin Oat Muffins, protein-packed!"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Julian pumpkins power Kodiak Cakes"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -139867,10 +140554,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-SD",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-11",
       "provenance": {
@@ -139881,13 +140568,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "pear-spice-muffins-draft",
+        "name": "Pear Spice Muffins"
       },
       "seasonal_moment": [
         {
@@ -140026,14 +140715,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes: San Diego’s Late Pear Delight!",
-        "KODIAK Cakes: Late Pear Delight in SD!",
-        "KODIAK Cakes: Late Pear Power in SD!",
-        "KODIAK Cakes: Late Pear Power Blend!",
-        "KODIAK Cakes: Late Pear Power Cake SD"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg.",
+        "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
+        "DIVIDE among the cups and bake 18-20 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Late pears over Kodiak Cakes"
+      "title": "Pear Spice Muffins"
     },
     "2026-12": {
       "art": {
@@ -140209,10 +140897,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes’s Whole Grain Apple Cider Donuts, SD"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with local apple cider"
+      "title": "Apple Cider Donuts"
     }
   },
   "US-W-SEA": {
@@ -140387,14 +141075,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Apple Waffles: Frontier breakfast delight!",
-        "STORAGE Apple Kodiak Cakes, WA",
-        "LOCAL apple waffles, frontier flavor!",
-        "SWEET, savory waffle stack with local apples!",
-        "SEATTLE'S Sweet Storage Apple Waffle"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Storage Apples"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -140567,13 +141258,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KALE Power Scramble 2026",
-        "KALE-PACKED scrambles, hearty & bold!",
-        "KALE Power Scramble 2026",
-        "KALE Power Scramble Cakes"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Kale-infused Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-03": {
       "art": {
@@ -140746,13 +141437,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "LEEKS & Kodiak Cakes: Protein Power Pancakes",
-        "LEEKS Power Cakes: Frontier flavor!",
-        "KODIAK Cakes Leeks Power Cakes, Seattle",
-        "KODIAK Cakes Leeks Power Cakes: Protein-Packed Frontier"
+        "SOFTEN the leeks in the butter over medium heat, 6-8 minutes, until tender; cool slightly.",
+        "WHISK the mix, eggs, milk, parmesan, salt, and pepper into a batter and fold in the leeks.",
+        "COOK 1/4-cup scoops in butter, 2-3 minutes per side, until golden.",
+        "SERVE hot."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with leeks"
+      "title": "Leek and Cheese Pancakes"
     },
     "2026-04": {
       "art": {
@@ -140925,13 +141616,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RHUBARB Power Cakes, fall flavor!",
-        "RUGGED rhubarb pancakes power breakfast",
-        "GOLDEN rhubarb flapjacks, 2 mins!",
-        "RHUBARB-SPICED flapjacks, hearty & bold!"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Rhubarb Power Cakes Frontier Spin"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-05": {
       "art": {
@@ -141104,10 +141795,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asp & goat frittata, 6.8%"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with fresh asparagus"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-06": {
       "art": {
@@ -141280,14 +141971,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO flapjacks, ready in 20!",
-        "POWER-PACKED pancakes, 5-ingred, 20 mins!",
-        "HIGH-PRO Seattle Pancakes with Fresh Berries",
-        "PROTEIN-PACKED Seattle pancakes, ready in 20!",
-        "HIGH-PROTEIN flapjacks, fresh strawberries!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Local Strawberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-07": {
       "art": {
@@ -141460,14 +142151,20 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Raspberry Cakes: Warm, rugged treats!",
-        "KODIAK Cakes Raspberry Delight!",
-        "KODIAK Cakes Raspberry Cakes: US-W-SEA",
-        "KODIAK Cakes Raspberry Cakes in Seattle!",
-        "KODIAK Cakes Raspberry Cakes: Wild & Sweet"
+        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper.",
+        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine.",
+        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
+        "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries.",
+        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean.",
+        "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling.",
+        "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside.",
+        "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
+        "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between.",
+        "TOP cake with fresh raspberries.",
+        "STORE cake in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes: Raspberry Power!"
+      "title": "White Chocolate Raspberry Cake"
     },
     "2026-08": {
       "art": {
@@ -141640,14 +142337,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Blueberry Sheet Pan Pancakes!",
-        "HIGH-PRO Blueberry Sheet Pan Pancakes",
-        "HIGH-PRO Blueberry Sheet Pan Pancakes",
-        "HIGH-PRO Blueberry Sheet Pan Cakes",
-        "POWER-PACKED blueberry pancakes, ready in 20!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with local blueberries"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-09": {
       "art": {
@@ -141820,13 +142517,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks, frontier style!",
-        "SWEET corn griddle cakes, protein-packed!",
-        "KODIAK Cakes Sweet Corn Griddle Cakes, 2026",
-        "KODIAK Cakes Sweet Corn Griddle Cakes"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet corn griddle cakes, Kodiak Cakes style"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-10": {
       "art": {
@@ -141999,14 +142696,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRONTIER Pumpkin Muffins: Protein-packed fall treat",
-        "FRONTIER Pumpkin Oat Muffins",
-        "FRONTIER Pumpkin Oat Muffins",
-        "FRONTIER Pumpkin Oats, protein-packed!",
-        "FRONTIER Pumpkin Muffins: 15-min gold!"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Pumpkin Muffins"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -142179,13 +142877,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, ready!",
-        "WINTER squash muffins, hearty & sweet!",
-        "WINTER squash muffins, 60 min bake, frontier style!",
-        "WINTER squash muffins, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter squash Kodiak Cakes Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -142358,14 +143056,20 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Dairy Delight Cake Recipe!",
-        "KODIAK Cakes Dairy Delight: Protein-packed cake for you!",
-        "KODIAK Cakes Dairy Delight: Protein-packed cake!",
-        "KODIAK Cakes Dairy Delight: Protein-Packed Treats!",
-        "KODIAK Cakes Dairy Delight: Savory Sea Treats!"
+        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper.",
+        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine.",
+        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
+        "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries.",
+        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean.",
+        "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling.",
+        "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside.",
+        "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
+        "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between.",
+        "TOP cake with fresh raspberries.",
+        "STORE cake in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Dairy Power Cakes in Seattle"
+      "title": "White Chocolate Raspberry Cake"
     }
   },
   "US-W-SF": {
@@ -142537,13 +143241,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH sprouts, crispy & bold!",
-        "FRONTIER Brussels Sprouts Delight",
-        "CRISPY golden Brussels sprouts, 2026-01!",
-        "FRESH sprouts, hot & hearty!"
+        "TOSS the shredded sprouts with the salt and rest 10 minutes, then squeeze lightly.",
+        "WHISK the mix and eggs into a batter; fold in the sprouts, cheddar, and pepper.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until deep golden with crisp edges.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Rugged Brussels Sprouts Power Cakes"
+      "title": "Shredded Sprout Fritters"
     },
     "2026-02": {
       "art": {
@@ -142560,10 +143264,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-SF",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-02",
       "provenance": {
@@ -142574,13 +143278,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "broccoli-cauliflower-cheddar-fritters-draft",
+        "name": "Broccoli Cauliflower Cheddar Fritters"
       },
       "seasonal_moment": [
         {
@@ -142713,14 +143419,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Cauliflower Cake, SF Bay Area",
-        "KODIAK Cakes Cauliflower Cake, SF Bay Area!",
-        "KODIAK Cakes Cauliflower Power Cake SF 2026-02",
-        "KODIAK Cakes Cauliflower Cake SF 2026-02",
-        "KODIAK Cakes Cauliflower Cake SF 2026-02"
+        "STEAM the chopped florets 3 minutes until just tender, then spread on a towel and pat completely dry.",
+        "WHISK the mix, eggs, cheddar, salt, and pepper with the dry florets into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "DRAIN briefly on a rack and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Cauliflower Power Cakes"
+      "title": "Broccoli Cauliflower Cheddar Fritters"
     },
     "2026-03": {
       "art": {
@@ -142737,10 +143442,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-SF",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-03",
       "provenance": {
@@ -142751,13 +143456,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "broccoli-cauliflower-cheddar-fritters-draft",
+        "name": "Broccoli Cauliflower Cheddar Fritters"
       },
       "seasonal_moment": [
         {
@@ -142890,14 +143597,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Broccoli Power Cake SF 2026-03",
-        "KODIAK Cakes Broccoli Power Cake, SF 2026-03",
-        "KODIAK Cakes Protein Broccoli Power Cake SF 2026-03",
-        "KODIAK Cakes Protein Broccoli Power Cake SF 2026-03",
-        "KODIAK Cakes Broccoli Power Cake SF 2026-03"
+        "STEAM the chopped florets 3 minutes until just tender, then spread on a towel and pat completely dry.",
+        "WHISK the mix, eggs, cheddar, salt, and pepper with the dry florets into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "DRAIN briefly on a rack and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Fresh Broccoli"
+      "title": "Broccoli Cauliflower Cheddar Fritters"
     },
     "2026-04": {
       "art": {
@@ -143067,13 +143773,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ARTICHOKES in oven, ready for warmth!",
-        "FRESH artichokes: SF's protein frontier",
-        "SAN Francisco Artichokes Bake, 2026",
-        "FRESH artichokes, savor warm!"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the artichokes and parmesan.",
+        "DIVIDE among the cups and bake 20-22 minutes, until golden and set.",
+        "COOL 5 minutes before turning out; serve warm."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Fresh SF Artichokes"
+      "title": "Artichoke Parmesan Muffins"
     },
     "2026-05": {
       "art": {
@@ -143243,14 +143949,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO flapjacks, ready in 20 mins!",
-        "POWER-PACKED SF strawberry pancakes!",
-        "POWER-PACKED strawberry pancakes!",
-        "PROTEIN-PACKED SF strawberry pancakes!",
-        "POWER-PACKED strawberry pancakes, ready in 20!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power-packed strawberry pancakes SF 2026-05"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -143420,14 +144126,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PROTEIN-PACKED SF Salmon Patties",
-        "PROTEIN-PACKED leaf lettuce rest 10 min for flavor.",
-        "KODIAK Cakes Power Patties, SF 2026-06",
-        "KODIAK Cakes Protein-Packed Leaf Lettuce Wraps",
-        "WILDLY protein-packed leaf lettuce patties!"
+        "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+        "LET the mixture rest for 10 minutes so the grains can absorb the moisture.",
+        "FORM the mixture into 4–5 evenly sized patties.",
+        "HEAT the olive oil in a large skillet over medium heat.",
+        "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp.",
+        "TRANSFER the patties to a plate lined with paper towels.",
+        "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth.",
+        "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
       ],
       "substrate": "kraft",
-      "title": "Leafy Power Cakes over local lettuce"
+      "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce"
     },
     "2026-07": {
       "art": {
@@ -143597,13 +144306,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SWEET corn flapjacks, frontier style!",
-        "SWEET corn flapjacks, San Fran style!",
-        "GRIDDLE corn pancakes, golden & bold!",
-        "SWEET corn flapjacks, frontier style!"
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Sweet corn Kodiak Cakes griddle bites"
+      "title": "Sweet Corn Griddle Cakes"
     },
     "2026-08": {
       "art": {
@@ -143620,10 +144329,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-SF",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-08",
       "provenance": {
@@ -143634,13 +144343,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "celery-parmesan-pancakes-draft",
+        "name": "Celery Parmesan Pancakes"
       },
       "seasonal_moment": [
         {
@@ -143773,14 +144484,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Celery Power Cake SF 2026-08",
-        "KODIAK Cakes Celery Cake, SF Bay Area",
-        "KODIAK Cakes Celery Power Cake SF 2026",
-        "KODIAK Cakes Celery Cake SF 2026-08",
-        "KODIAK Cakes Celery Cake SF Bay 2026-08"
+        "SWEAT the diced celery in half the butter 5 minutes until softened, then cool slightly.",
+        "WHISK the mix, eggs, milk, salt, and parmesan with the celery into a thick batter.",
+        "HEAT the remaining butter on a griddle; ladle 1/4-cup cakes and cook 3 minutes per side until golden.",
+        "SERVE warm."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Celery Power Cakes"
+      "title": "Celery Parmesan Pancakes"
     },
     "2026-09": {
       "art": {
@@ -143950,14 +144660,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "POWER-PACKED bell pepper muffins, 17g protein!",
-        "PROTEIN-PACKED bell pepper blend",
-        "PROTEIN-PACKED bell pepper muffins!",
-        "POWER-PACKED bell pepper muffins, ready in minutes!",
-        "SPICY Bell Pepper Protein Muffins"
+        "PREHEAT the oven to 350° Fahrenheit. Grease a 12-cup muffin pan with the olive oil.",
+        "PLACE the eggs, garlic, salt, and Kodiak Cakes mix in a high-speed blender and process until smooth. Set aside.",
+        "DIVIDE the peppers, green onions, and feta cheese evenly between the greased muffin tins.",
+        "POUR the egg mixture into the muffin tins, evenly dividing between them.",
+        "BAKE for 20-22 minutes or until golden brown puffed on top.",
+        "LET cool slightly and remove from the pan using a rubber spatula or butter knife.",
+        "STORE in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Bell Peppers & Kodiak Cakes Power"
+      "title": "Breakfast Egg Muffins"
     },
     "2026-10": {
       "art": {
@@ -144127,13 +144839,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH spinach scramble, San Francisco Bay",
-        "FRESH spinach scramble, hearty & bold",
-        "PROTEIN-PACKED spinach scramble pancakes SF",
-        "FRESH spinach pancakes, protein-packed!"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Spinach Pancakes SF"
+      "title": "Savory Greens Fritters"
     },
     "2026-11": {
       "art": {
@@ -144303,13 +145015,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KALE crunch scramble pancakes, SF",
-        "KALE scramble pancakes, SF Bay Area",
-        "KALE Power Scramble 2026-11",
-        "KALE Power Scramble 2026"
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Kale-boosted Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-12": {
       "art": {
@@ -144479,14 +145191,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH lemon pancakes, SF style!",
-        "FRESH lemon power for your morning!",
-        "FRESH lemon pancakes on griddle.",
-        "OVERNIGHT lemon power breakfast!",
-        "MORNING lemon power boost!"
+        "FOR the pancakes:",
+        "COMBINE all ingredients in large bowl and mix well.",
+        "COOK pancakes on a hot griddle.",
+        "GREASE a 9x9\" baking pan.",
+        "CUT cooked pancakes in half and place vertically in pan. For the custard:",
+        "MIX all ingredients together and pour over pancakes.",
+        "COVER with plastic wrap and refrigerate several hours or overnight.",
+        "HEAT oven to 350° F.",
+        "BAKE casserole 15-20 minutes.",
+        "SERVE warm with desired toppings."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Lemon Power Cakes"
+      "title": "Overnight Lemon Poppy Seed Casserole"
     }
   },
   "US-W-SPOKANE": {
@@ -144663,14 +145380,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPOKANE'S storage apple waffles, hearty & warm!",
-        "SPOKANE'S best storage apple waffles!",
-        "SPOKANE'S storage apple breakfast delight!",
-        "SPOKANE'S Storage Apple Delight Bake",
-        "SPOKANE'S Storage Apple Waffles"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Spokane Power Cakes with Storage Apples"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -144687,10 +145407,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-SPOKANE",
       "meta": {
-        "cook": "15 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "25 mins",
-        "serves": "10 fritters"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-02",
       "provenance": {
@@ -144701,13 +145421,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "storage-root-fritters-draft",
-        "name": "Storage Root Fritters"
+        "id": "pear-spice-muffins-draft",
+        "name": "Pear Spice Muffins"
       },
       "seasonal_moment": [
         {
@@ -144845,13 +145567,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STORAGE Pear Pie from Spokane",
-        "SPOKANE'S best: local pears in every bite!",
-        "CRISPY pear waffles, Spokane's frontier treat",
-        "HOT storage pears from Spokane!"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg.",
+        "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
+        "DIVIDE among the cups and bake 18-20 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Spokane's Best Pear Power Cakes"
+      "title": "Pear Spice Muffins"
     },
     "2026-03": {
       "art": {
@@ -145026,13 +145748,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "RHUBARB Power Cakes, Spokane 2026-03",
-        "KODIAK Cakes Power Cakes: Fall rhubarb twist!",
-        "KODIAK Cakes rhubarb flapjacks, 2 mins golden!",
-        "RHUBARB-TOPPED flapjacks, frontier style"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Rhubarb-spiced Kodiak Cakes Power Cakes"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-04": {
       "art": {
@@ -145207,10 +145929,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPOKANE'S Protein-Packed Asparagus Frittata"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Spokane's Protein Frittata Boost"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-05": {
       "art": {
@@ -145385,14 +146107,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HIGH-PRO Spokane Flapjacks 2026-05",
-        "SPOKANE'S High-Pro Pancakes (2026-05)",
-        "HIGH-PRO Spokane Strawberry Pancakes",
-        "HIGH-PROTEIN flapjacks, ready in 20!",
-        "PROTEIN-PACKED flapjacks, ready in 20 mins!"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Power-packed Spokane strawberry pancakes"
+      "title": "Sheet Pan Pancakes"
     },
     "2026-06": {
       "art": {
@@ -145567,14 +146289,22 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPOKANE Cherry Pie Bars: whole grain, protein-packed",
-        "SPOKANE Cherry Pie Bars 2026-06",
-        "SPOKANE'S Cherry Power Bars!",
-        "SPOKANE'S Cherry Pie Bars: protein-packed!",
-        "SPOKANE Cherry Pie Bars (2026-06)"
+        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
+        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+        "BEAT in the eggs, one at a time.",
+        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
+        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
+        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
+        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
+        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
+        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
+        "REMOVE from oven and let cool.",
+        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
+        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
+        "STORE in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Spokane Cherry Power Cakes"
+      "title": "Cherry Pie Bars"
     },
     "2026-07": {
       "art": {
@@ -145749,13 +146479,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPOKANE'S Apricot Muffins: Warm & Wild!",
-        "SPOKANE'S Apricot Power Muffins",
-        "SPOKANE'S apricot muffins, bake 18-20 min.",
-        "FRESH apricot muffins, ready in 5!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the eggs, milk, honey, and butter; stir in the mix, cinnamon, and salt just until combined, then fold in the apricots.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Spokane's Apricot Power Cakes"
+      "title": "Apricot Morning Muffins"
     },
     "2026-08": {
       "art": {
@@ -145932,10 +146662,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Peaches Power Cakes, WA"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Peachy Spokane!"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-09": {
       "art": {
@@ -146110,14 +146840,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SPOKANE'S Apple Waffle French Toast Bake",
-        "SPOKANE'S Apple Power Breakfast Bake",
-        "SPOKANE'S Best Apple Waffles!",
-        "SPOKANE'S Apple Waffle Delight",
-        "SPOKANE Apple Protein Pancakes"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Spokane's Kodiak Cakes Power Apple Cakes"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -146292,14 +147025,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PUMPKIN Power Muffins: Fall's frontier treat",
-        "FRONTIER Pumpkin Power Muffins",
-        "PUMPKIN Power Muffins Spokane 2026",
-        "FRONTIER Pumpkin Oats Power",
-        "PUMPKIN Power Muffins: Frontier’s Harvest"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Pumpkin Muffins"
+      "title": "Pumpkin Oat Muffins"
     },
     "2026-11": {
       "art": {
@@ -146474,13 +147208,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WINTER squash muffins, Spokane!",
-        "WINTER squash muffins, hearty & warm!",
-        "WINTER squash muffins, bake 18-20 mins!",
-        "RUSTIC winter squash muffins, 5 min cool."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Power Muffins Spokane"
+      "title": "Winter Squash Morning Muffins"
     },
     "2026-12": {
       "art": {
@@ -146655,14 +147389,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HONEY-WAFFLE Bites, Spokane style",
-        "HONEY-WAFFLE Bites, Spokane's new treat!",
-        "HONEY-INFUSED Gouda Bites",
-        "HONEY-GLAZED Local Waffle Bites",
-        "HONEY-GLAZED Smoked Gouda Bites (US-W)"
+        "PREHEAT the oven to 375° F. Line a baking sheet with parchment paper.",
+        "CUT each waffle into four pieces and place on the prepared baking sheet, evenly spaced.",
+        "CUT each piece of Gouda into four triangular-shaped pieces.",
+        "TOP each waffle piece with a triangle of cheese.",
+        "BAKE in the preheated oven for 5-7 minutes, or until cheese is melted over the tops of the waffles and waffles are toasted.",
+        "REMOVE from the oven and transfer the bites to a serving platter.",
+        "DRIZZLE the bites with the honey, sprinkle evenly with the thyme and red pepper flakes, and serve!"
       ],
       "substrate": "kraft",
-      "title": "Honey-Infused Kodiak Cakes"
+      "title": "Smoked Gouda & Honey Waffle Bites"
     }
   },
   "US-W-VEGAS": {
@@ -146834,13 +147570,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DESERT Citrus Power Flapjack Cup",
-        "DESERT Lemon Ricotta Flapjack Cup: 17g protein!",
-        "DESERT Citrus Power Flapjacks, 17g protein",
-        "DESERT Citrus Flapjacks, 17g protein"
+        "REMOVE the lid to the Kodiak Cakes cup.",
+        "ADD the milk, ricotta, and lemon zest to the flapjack cup and stir with a fork until combined.",
+        "MICROWAVE on high for 90 seconds.",
+        "TOP with honey and a dollop of ricotta, if desired."
       ],
       "substrate": "kraft",
-      "title": "Vegas Lemon Ricotta Flapjacks"
+      "title": "Single-serve Lemon Ricotta Flapjack Cup"
     },
     "2026-02": {
       "art": {
@@ -147010,13 +147746,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "EARLY spring greens scramble, hearty & fresh",
-        "EARLY spring greens scramble, protein-packed!",
-        "EARLY spring greens scrambles",
-        "FRONTIER spring greens scramble."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Early spring greens on Kodiak Cakes Power"
+      "title": "Savory Greens Fritters"
     },
     "2026-03": {
       "art": {
@@ -147186,10 +147922,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "VEGAS Veggie Frittata"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Vegas Veggie Power Frittata"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-04": {
       "art": {
@@ -147359,13 +148095,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "VEGAS: Early spring melons, 17g protein muffins!",
-        "EARLY spring protein muffins ready!",
-        "VEGAS: Protein-Packed Spring Melon Muffins",
-        "EARLY spring protein muffins, ready in 15!"
+        "HEAT the oven to 350F and grease a 12-cup muffin tin.",
+        "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+        "DIVIDE among the cups and bake 18-20 minutes, until puffed and set.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Early melons with Kodiak Cakes protein!"
+      "title": "Spring Onion Egg Muffins"
     },
     "2026-05": {
       "art": {
@@ -147535,13 +148271,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER squash power tostada",
-        "SUMMER squash power bowl",
-        "SUMMER squash bites, frontier style",
-        "SUMMER squash bites, hot & hearty!"
+        "TOSS the shredded squash with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, parmesan, remaining salt, and pepper into a batter and fold in the squash.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3 minutes per side, until golden and crisp.",
+        "DRAIN on a rack and serve hot."
       ],
       "substrate": "kraft",
-      "title": "Summer Squash Kodiak Cakes Power"
+      "title": "Summer Squash Fritters"
     },
     "2026-06": {
       "art": {
@@ -147711,13 +148447,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "SUMMER melon salad, protein-packed!",
-        "POWER up your breakfast with Kodiak Cakes mix!",
-        "VEGAS: Power up your breakfast with Kodiak Cakes!",
-        "POWER up with melon-topped Kodiak cakes!"
+        "TOSS the cubed melon with the honey and lime juice; rest 10 minutes.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks topped with the fresh melon and its juices."
       ],
       "substrate": "kraft",
-      "title": "Vegas melons fuel Kodiak Cakes Power"
+      "title": "Fresh Melon Flapjack Topper"
     },
     "2026-07": {
       "art": {
@@ -147736,8 +148472,8 @@ window.KODIAK_RECIPE_CARDS = {
       "meta": {
         "cook": null,
         "est_cost": null,
-        "prep": "60+",
-        "serves": "10"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-07",
       "provenance": {
@@ -147748,13 +148484,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "yogurt-pie",
-        "name": "Yogurt Pie"
+        "id": "date-oat-breakfast-cookies-draft",
+        "name": "Date Oat Breakfast Cookies"
       },
       "seasonal_moment": [
         {
@@ -147887,14 +148625,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DATE Power Bites, Vegas",
-        "DATE Power Bites for Vegas",
-        "DATE Crunch Granola Trail Mix (2026-07)",
-        "DATE Power Bites, Vegas",
-        "DATE Pies: Vegas Frontier Flavor"
+        "HEAT the oven to 350F and line a baking sheet with parchment.",
+        "STIR the oatmeal, dates, banana, egg, and pecans into a stiff dough; rest 10 minutes.",
+        "SCOOP 8 mounds onto the sheet and flatten slightly.",
+        "BAKE 12-14 minutes, until set and lightly golden."
       ],
       "substrate": "kraft",
-      "title": "Vegas Power Cakes with Dates"
+      "title": "Date Oat Breakfast Cookies"
     },
     "2026-08": {
       "art": {
@@ -148064,14 +148801,20 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Okra Cakes, Vegas 2026",
-        "OKRA-INFUSED Kodiak Cakes, Vegas",
-        "OKRA-SPICED Kodiak Cakes, Vegas!",
-        "RUGGED okra brownies for Vegas",
-        "OKRA-INFUSED Kodiak Cakes, Vegas"
+        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper.",
+        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine.",
+        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
+        "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries.",
+        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean.",
+        "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling.",
+        "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside.",
+        "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
+        "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between.",
+        "TOP cake with fresh raspberries.",
+        "STORE cake in an airtight container in the refrigerator."
       ],
       "substrate": "kraft",
-      "title": "Okra Power Cakes, Vegas-style"
+      "title": "White Chocolate Raspberry Cake"
     },
     "2026-09": {
       "art": {
@@ -148241,14 +148984,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FALL Tomato Power Bowl",
-        "FALL Tomato Fiesta in Vegas!",
-        "FALL Tomato Power Waffles",
-        "FALL Tomato Power Waffles",
-        "FALL Tomato Power Tostadas"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Fall tomatoes on Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-10": {
       "art": {
@@ -148267,8 +149010,8 @@ window.KODIAK_RECIPE_CARDS = {
       "meta": {
         "cook": null,
         "est_cost": null,
-        "prep": "60+",
-        "serves": "10"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-10",
       "provenance": {
@@ -148279,13 +149022,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "yogurt-pie",
-        "name": "Yogurt Pie"
+        "id": "date-oat-breakfast-cookies-draft",
+        "name": "Date Oat Breakfast Cookies"
       },
       "seasonal_moment": [
         {
@@ -148418,14 +149163,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "VEGAS-STYLE date dip, ready in 10!",
-        "HARVEST dates, power-packed flavor!",
-        "VEGAS-STYLE date power bites!",
-        "DATE Harvest Power Bites",
-        "DATE Pies from Vegas"
+        "HEAT the oven to 350F and line a baking sheet with parchment.",
+        "STIR the oatmeal, dates, banana, egg, and pecans into a stiff dough; rest 10 minutes.",
+        "SCOOP 8 mounds onto the sheet and flatten slightly.",
+        "BAKE 12-14 minutes, until set and lightly golden."
       ],
       "substrate": "kraft",
-      "title": "Dates Harvest Power Cakes"
+      "title": "Date Oat Breakfast Cookies"
     },
     "2026-11": {
       "art": {
@@ -148595,13 +149339,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH cool-season greens, rugged & hearty!",
-        "FRESH greens scramble, hearty & bold!",
-        "FRONTIER greens scramble pancakes, 2026",
-        "FRESH greens atop hearty scrambles."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Frontier Greens on Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-12": {
       "art": {
@@ -148620,8 +149364,8 @@ window.KODIAK_RECIPE_CARDS = {
       "meta": {
         "cook": null,
         "est_cost": null,
-        "prep": "60+",
-        "serves": "10"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-12",
       "provenance": {
@@ -148632,13 +149376,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "yogurt-pie",
-        "name": "Yogurt Pie"
+        "id": "date-oat-breakfast-cookies-draft",
+        "name": "Date Oat Breakfast Cookies"
       },
       "seasonal_moment": [
         {
@@ -148771,14 +149517,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "DATE Power Bites, Vegas",
-        "DATE Pies from Vegas, power & flavor!",
-        "DATE Power: Crunchy, Frontier-Style!",
-        "DATE Power Patties, Vegas style",
-        "DATE Pies from Vegas"
+        "HEAT the oven to 350F and line a baking sheet with parchment.",
+        "STIR the oatmeal, dates, banana, egg, and pecans into a stiff dough; rest 10 minutes.",
+        "SCOOP 8 mounds onto the sheet and flatten slightly.",
+        "BAKE 12-14 minutes, until set and lightly golden."
       ],
       "substrate": "kraft",
-      "title": "Date Power Cakes in Vegas"
+      "title": "Date Oat Breakfast Cookies"
     }
   },
   "US-W-YAKIMA": {
@@ -148954,14 +149699,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "YAKIMA'S storage apple breakfast bake!",
-        "YAKIMA'S Protein Power Breakfast Bake",
-        "YAKIMA'S Protein Power Apple Waffles",
-        "YAKIMA'S Protein Power Apple Bake",
-        "YAKIMA'S Protein Power Waffle Bake"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Yakima Power Cakes with Storage Apples"
+      "title": "Breakfast Cake"
     },
     "2026-02": {
       "art": {
@@ -148978,10 +149726,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-YAKIMA",
       "meta": {
-        "cook": "15 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "25 mins",
-        "serves": "10 fritters"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-02",
       "provenance": {
@@ -148992,13 +149740,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "storage-root-fritters-draft",
-        "name": "Storage Root Fritters"
+        "id": "pear-spice-muffins-draft",
+        "name": "Pear Spice Muffins"
       },
       "seasonal_moment": [
         {
@@ -149135,13 +149885,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "YAKIMA'S storage pears, grilled to perfection!",
-        "YAKIMA'S Local Pear Cakes",
-        "YAKIMA'S crisp storage pear waffles!",
-        "YAKIMA'S Hot Storage Pear Delight"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg.",
+        "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
+        "DIVIDE among the cups and bake 18-20 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Yakima Pears on Kodiak Cakes"
+      "title": "Pear Spice Muffins"
     },
     "2026-03": {
       "art": {
@@ -149315,13 +150065,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FALL rhubarb power bowl",
-        "KODIAK Cakes Rhubarb Power Cakes: Fall breakfast!",
-        "GOLDEN rhubarb flapjacks, 2 mins each side.",
-        "KODIAK Cakes Flapjacks with stewed rhubarb"
+        "SIMMER the rhubarb, sugar, and orange juice 10-12 minutes, until soft but holding shape; keep warm.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with warm stewed rhubarb spooned over."
       ],
       "substrate": "kraft",
-      "title": "Fall rhubarb on Kodiak Cakes Power Cakes"
+      "title": "Stewed Rhubarb Flapjacks"
     },
     "2026-04": {
       "art": {
@@ -149495,10 +150245,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH asp & goat fritta, power your day!"
+        "1 cup mix + 1 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Fresh asp over Kodiak Cakes Power Cakes"
+      "title": "Asparagus And Goat Cheese Frittata"
     },
     "2026-05": {
       "art": {
@@ -149672,13 +150422,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH spring greens scramble, protein-packed!",
-        "SPRING greens scramble with protein",
-        "SPRING Greens Scramble: Yakima's frontier flavor",
-        "FRESH spring greens atop hearty pancakes."
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
       ],
       "substrate": "kraft",
-      "title": "Spring greens on Bear Brown Kodiak Cakes"
+      "title": "Savory Greens Fritters"
     },
     "2026-06": {
       "art": {
@@ -149852,14 +150602,22 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "YAKIMA'S Cherry Pie Bars, whole grain & protein!",
-        "YAKIMA'S Cherry Pie Bars: protein-packed, whole grain delight!",
-        "YAKIMA Cherry Pie Bars, protein-packed!",
-        "YAKIMA'S Cherry Pie Power Bars!",
-        "YAKIMA Cherry Pie Bars 2026-06"
+        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
+        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+        "BEAT in the eggs, one at a time.",
+        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
+        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
+        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
+        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
+        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
+        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
+        "REMOVE from oven and let cool.",
+        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
+        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
+        "STORE in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Yakima Cherries Kodiak Cakes Power Bars"
+      "title": "Cherry Pie Bars"
     },
     "2026-07": {
       "art": {
@@ -150033,13 +150791,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "YAKIMA'S Apricot Muffins: Warm & Wild!",
-        "YAKIMA'S Apricot Power Muffins 2026",
-        "YAKIMA'S Apricot Treats, 18-20 min bake",
-        "YAKIMA'S Apricot Power Muffins"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the eggs, milk, honey, and butter; stir in the mix, cinnamon, and salt just until combined, then fold in the apricots.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Yakima's Apricot Kodiak Cakes Power Cakes"
+      "title": "Apricot Morning Muffins"
     },
     "2026-08": {
       "art": {
@@ -150215,10 +150973,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Power Cakes: Peach + milk"
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes: Yakima Peach Season"
+      "title": "Flapjacks — Buttermilk Power Cakes"
     },
     "2026-09": {
       "art": {
@@ -150392,14 +151150,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "YAKIMA'S Apple Waffle Power Breakfast Bake",
-        "YAKIMA'S Best Apple Power Waffles",
-        "YAKIMA'S Best Apple Power Waffles",
-        "YAKIMA'S Apple Waffle Delight",
-        "YAKIMA'S Apple Power Waffles"
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Yakima's Power Cakes with local apples"
+      "title": "Breakfast Cake"
     },
     "2026-10": {
       "art": {
@@ -150573,13 +151334,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "YAKIMA'S Concord grape roast, honey-kissed & fiery!",
-        "YAKIMA'S Concord Grape Power Bowl",
-        "YAKIMA'S Concord Grape Bacon Skillet, 2 min golden!",
-        "YAKIMA'S hearty Concord flapjacks with roasted grape topping"
+        "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with the warm roasted grapes spooned over."
       ],
       "substrate": "kraft",
-      "title": "Yakima Concord Power Cakes"
+      "title": "Roasted Grape Flapjack Topper"
     },
     "2026-11": {
       "art": {
@@ -150596,10 +151357,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-YAKIMA",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-11",
       "provenance": {
@@ -150610,13 +151371,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "pear-spice-muffins-draft",
+        "name": "Pear Spice Muffins"
       },
       "seasonal_moment": [
         {
@@ -150753,14 +151516,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes: Yakima Pear Delight",
-        "KODIAK Cakes Pear Cakes, Yakima style!",
-        "KODIAK Cakes: Pear Power in Yakima!",
-        "KODIAK Cakes Pear Cakes: Yakima's protein-rich treat!",
-        "KODIAK Cakes Pear Cakes, Yakima style"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg.",
+        "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
+        "DIVIDE among the cups and bake 18-20 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes with Yakima Pears"
+      "title": "Pear Spice Muffins"
     },
     "2026-12": {
       "art": {
@@ -150777,10 +151539,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-W-YAKIMA",
       "meta": {
-        "cook": "15 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "25 mins",
-        "serves": "10 fritters"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-12",
       "provenance": {
@@ -150791,13 +151553,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "storage-root-fritters-draft",
-        "name": "Storage Root Fritters"
+        "id": "pear-spice-muffins-draft",
+        "name": "Pear Spice Muffins"
       },
       "seasonal_moment": [
         {
@@ -150934,13 +151698,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "YAKIMA Pear Power Bites",
-        "YAKIMA Pear Pies — local, rugged, real",
-        "CRISPY Pear Cakes from Yakima",
-        "YAKIMA'S Best Pears, fresh & hot!"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg.",
+        "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
+        "DIVIDE among the cups and bake 18-20 minutes, until golden and set."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes: Pear Power in Yakima"
+      "title": "Pear Spice Muffins"
     }
   },
   "US-WA-NEAHBAY": {
@@ -151110,14 +151874,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NEAH Bay Smoked Salmon Delight",
-        "SMOKED salmon & Kodiak Cakes, Neah Bay style",
-        "SMOKED salmon waffles, Neah Bay style",
-        "SMOKED salmon atop Kodiak Cakes waffles",
-        "SMOKED salmon tostada with Kodiak Cakes waffles"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Smoked Salmon on Kodiak Cakes"
+      "title": "Summer Vegetable Tostada"
     },
     "2026-02": {
       "art": {
@@ -151285,13 +152049,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HALIBUT pancakes, Neah Bay style!",
-        "HALIBUT scrambles with herbs, lemon, and zest",
-        "HALIBUT Cakes from Neah Bay",
-        "GRILLED halibut with Bear Brown spice."
+        "PICK over the seafood for shell; if using raw halibut or clams, cook through first and chop.",
+        "FOLD the seafood with the mix, egg, herbs, lemon juice, salt, and pepper; rest 10 minutes so the mix hydrates and binds.",
+        "FORM 8 small cakes and pan-fry in hot oil, 3 minutes per side, until golden and hot through.",
+        "SERVE hot with lemon."
       ],
       "substrate": "kraft",
-      "title": "Neah Bay Halibut Power Cakes"
+      "title": "Savory Seafood Cakes"
     },
     "2026-03": {
       "art": {
@@ -151459,13 +152223,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WILD razor clams, cook through for best flavor",
-        "RAZOR clams scramble, frontier style",
-        "RAZOR Clam Cakes Neah Bay",
-        "RAZOR clams with Bear Brown spice."
+        "PICK over the seafood for shell; if using raw halibut or clams, cook through first and chop.",
+        "FOLD the seafood with the mix, egg, herbs, lemon juice, salt, and pepper; rest 10 minutes so the mix hydrates and binds.",
+        "FORM 8 small cakes and pan-fry in hot oil, 3 minutes per side, until golden and hot through.",
+        "SERVE hot with lemon."
       ],
       "substrate": "kraft",
-      "title": "Razor Clams on Bear Brown Cakes"
+      "title": "Savory Seafood Cakes"
     },
     "2026-04": {
       "art": {
@@ -151633,13 +152397,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NEAH Bay Chinook Power Muffins",
-        "NEAH Bay's Early Chinook Power Muffins",
-        "NEAH Bay Chinook Power Muffins",
-        "NEAH Bay Chinook Protein Muffins"
+        "HEAT the oven to 350F and grease a 12-cup muffin tin.",
+        "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+        "DIVIDE among the cups and bake 18-20 minutes, until puffed and set.",
+        "COOL 5 minutes before turning out."
       ],
       "substrate": "kraft",
-      "title": "Early Chinook Salmon with Kodiak Cakes"
+      "title": "Spring Onion Egg Muffins"
     },
     "2026-05": {
       "art": {
@@ -151656,10 +152420,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-WA-NEAHBAY",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-05",
       "provenance": {
@@ -151670,13 +152434,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "huckleberry-flapjack-topper-draft",
+        "name": "Huckleberry Flapjack Topper"
       },
       "seasonal_moment": [
         {
@@ -151807,14 +152573,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KODIAK Cakes Salmonberry Cakes Neah Bay 2026",
-        "KODIAK Cakes Salmonberry Cakes Neah Bay",
-        "SALMONBERRY Kodiak Cakes, Neah Bay",
-        "KODIAK Cakes Salmonberry Cakes Neah Bay",
-        "KODIAK Cakes Salmonberry Cakes Neah Bay"
+        "RINSE the berries and toss with the honey and lemon juice; rest 15 minutes to macerate.",
+        "COOK the flapjack batter on a buttered griddle until bubbles form, then flip and cook until golden.",
+        "SPOON the macerated berries over the warm flapjacks and serve."
       ],
       "substrate": "kraft",
-      "title": "Kodiak Cakes Power Cakes with Wild Salmonberries"
+      "title": "Huckleberry Flapjack Topper"
     },
     "2026-06": {
       "art": {
@@ -151982,14 +152746,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NEAH Bay Salmon Patties: 51g protein!",
-        "NEAH Bay Salmon Patties: 51g protein, wild flavor!",
-        "NEAH Bay Salmon Patties, 51g protein",
-        "NEAH Bay Salmon Patties with Power Cakes",
-        "NEAH Bay Salmon Patties, 51g protein"
+        "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+        "LET the mixture rest for 10 minutes so the grains can absorb the moisture.",
+        "FORM the mixture into 4–5 evenly sized patties.",
+        "HEAT the olive oil in a large skillet over medium heat.",
+        "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp.",
+        "TRANSFER the patties to a plate lined with paper towels.",
+        "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth.",
+        "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
       ],
       "substrate": "kraft",
-      "title": "Neah Bay Salmon Power Cakes"
+      "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce"
     },
     "2026-07": {
       "art": {
@@ -152157,14 +152924,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NEAH Bay Coho Salmon Patties with Dill",
-        "NEAH Bay Coho Salmon Patties",
-        "NEAH Bay Coho Salmon Patties",
-        "NEAH Bay Coho Salmon Patties",
-        "NEAH Bay Coho Salmon Patties with Power Cake"
+        "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+        "LET the mixture rest for 10 minutes so the grains can absorb the moisture.",
+        "FORM the mixture into 4–5 evenly sized patties.",
+        "HEAT the olive oil in a large skillet over medium heat.",
+        "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp.",
+        "TRANSFER the patties to a plate lined with paper towels.",
+        "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth.",
+        "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
       ],
       "substrate": "kraft",
-      "title": "Neah Bay Coho Salmon Power Cakes"
+      "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce"
     },
     "2026-08": {
       "art": {
@@ -152181,10 +152951,10 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "market": "US-WA-NEAHBAY",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-08",
       "provenance": {
@@ -152195,13 +152965,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "huckleberry-flapjack-topper-draft",
+        "name": "Huckleberry Flapjack Topper"
       },
       "seasonal_moment": [
         {
@@ -152332,14 +153104,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NEAH Bay Huckleberry Cakes",
-        "NEAH Bay Huckleberry Cakes 2026",
-        "NEAH Bay huckleberry cakes!",
-        "NEAH Bay Huckleberry Cakes",
-        "NEAH Bay's Huckleberry Kodiak Cakes"
+        "RINSE the berries and toss with the honey and lemon juice; rest 15 minutes to macerate.",
+        "COOK the flapjack batter on a buttered griddle until bubbles form, then flip and cook until golden.",
+        "SPOON the macerated berries over the warm flapjacks and serve."
       ],
       "substrate": "kraft",
-      "title": "Neah Bay's huckleberry Kodiak Cakes"
+      "title": "Huckleberry Flapjack Topper"
     },
     "2026-09": {
       "art": {
@@ -152507,14 +153277,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NEAH Bay Coho Salmon Patties, 51g protein",
-        "NEAH Bay Coho Salmon Power Cake",
-        "NEAH Bay Coho Patties with Power Cake",
-        "NEAH Bay Salmon Patties, 51g protein",
-        "NEAH Bay Coho Patties, 51g Protein"
+        "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+        "LET the mixture rest for 10 minutes so the grains can absorb the moisture.",
+        "FORM the mixture into 4–5 evenly sized patties.",
+        "HEAT the olive oil in a large skillet over medium heat.",
+        "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp.",
+        "TRANSFER the patties to a plate lined with paper towels.",
+        "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth.",
+        "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
       ],
       "substrate": "kraft",
-      "title": "Neah Bay Coho Salmon Power Cakes"
+      "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce"
     },
     "2026-10": {
       "art": {
@@ -152682,13 +153455,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "FRESH Dungeness crab, cook to perfection!",
-        "NEAH Bay's Dungeness Crab Delight",
-        "GOLDEN Dungeness crab cakes, Neah Bay",
-        "NEAH Bay Crab Delight"
+        "PICK over the seafood for shell; if using raw halibut or clams, cook through first and chop.",
+        "FOLD the seafood with the mix, egg, herbs, lemon juice, salt, and pepper; rest 10 minutes so the mix hydrates and binds.",
+        "FORM 8 small cakes and pan-fry in hot oil, 3 minutes per side, until golden and hot through.",
+        "SERVE hot with lemon."
       ],
       "substrate": "kraft",
-      "title": "Neah Bay Crab Power Cakes"
+      "title": "Savory Seafood Cakes"
     },
     "2026-11": {
       "art": {
@@ -152856,13 +153629,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NEAH Bay Crab Scrambles",
-        "LATE Dungeness crab scrambles, frontier style",
-        "GOLDEN Dungeness Crab Cakes, Neah Bay",
-        "HOT Dungeness crab feast!"
+        "PICK over the seafood for shell; if using raw halibut or clams, cook through first and chop.",
+        "FOLD the seafood with the mix, egg, herbs, lemon juice, salt, and pepper; rest 10 minutes so the mix hydrates and binds.",
+        "FORM 8 small cakes and pan-fry in hot oil, 3 minutes per side, until golden and hot through.",
+        "SERVE hot with lemon."
       ],
       "substrate": "kraft",
-      "title": "Neah Bay Crab Power Cakes"
+      "title": "Savory Seafood Cakes"
     },
     "2026-12": {
       "art": {
@@ -153030,13 +153803,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "NEAH Bay Lingcod Muffins, ready!",
-        "NEAH Bay Lingcod Cakes, winter's catch!",
-        "NEAH Bay's Lingcod Muffins, 18-20 min",
-        "NEAH Bay Lingcod Cakes, ready!"
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
       ],
       "substrate": "kraft",
-      "title": "Neah Bay Lingcod Power Cakes"
+      "title": "Winter Squash Morning Muffins"
     }
   }
 };

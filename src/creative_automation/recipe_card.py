@@ -769,28 +769,21 @@ def build_recipe_card_data(
             ingredient=ingredient,
         )
 
-    subject = {"name": product, "description": recipe.get("name", "")}
-    title = rewrite_headline(
-        f"{ingredient.title()} over Kodiak Power Cakes",
-        market,
-        product=subject,
-        lang=lang,
-        month=resolved_month,
-    )
-    title_text = clean_brand_copy(title["text"])
+    # title is the recipe's real catalog name — never a rewritten marketing
+    # variant. Market + month ride as their own factual fields on the card,
+    # so the title cannot disagree with the recipe it names.
+    title_text = clean_brand_copy(str(recipe.get("name", "") or "recipe"))
 
-    # steps derive from real recipe instructions (fall back to ingredients like
-    # build_recipe_card). Only a real leading word is bolded — no verb invented.
+    # steps are the recipe's real instructions, cleaned and verb-bolded only.
+    # No rewrite pass: the rewriter turns instructions into exclamatory ad
+    # copy ("CASTROVILLE'S ... Delight!") that reads as fabricated content.
     raw_steps = recipe.get("instructions") or recipe.get("ingredients") or []
     steps: list[str] = []
-    for raw in raw_steps[:5]:
+    for raw in raw_steps:
         cleaned = _clean_step(raw)
         if not cleaned:
             continue
-        res = rewrite_headline(
-            cleaned[:80], market, product=subject, lang=lang, month=resolved_month
-        )
-        step = clean_brand_copy(res["text"])
+        step = clean_brand_copy(cleaned)
         if step:
             steps.append(_bold_action_step(step))
 

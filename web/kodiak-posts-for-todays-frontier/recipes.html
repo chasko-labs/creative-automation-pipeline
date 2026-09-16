@@ -22,6 +22,14 @@
   --ink:#1A1110CC;
 }
 *{box-sizing:border-box}
+/* document layout: plain scrolling page, NOT the index app shell — override
+   the sticky-footer flex (components.css #footer-fill) so body/.wrap stay
+   block. As flex columns, every band became a min-width:auto flex item and
+   the matrix table's min-content stretched the whole page past the viewport,
+   breaking the gallery grid at every width. Block layout lets the matrix
+   scrollbox and the gallery size against the viewport instead. */
+body{display:block;min-height:auto}
+.wrap{display:block}
 html{background:var(--parchment)}
 body{margin:0;background:var(--parchment);color:var(--chocolate);font-family:"museo-sans",system-ui,sans-serif;font-size:15px;line-height:1.55}
 h1,h2,h3{font-family:"gin",Rockwell,Georgia,serif;font-weight:800;text-transform:uppercase;letter-spacing:.05em;line-height:1.1;color:var(--chocolate)}
@@ -30,6 +38,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 .kodiak-header{background:var(--brown-kodiak);color:#FFF8F0;padding:10px 18px}
 .header__inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .backlink{color:#FFF8F0}
+.kodiak-header .badge{background:#FFF8F0;color:var(--chocolate);border-color:#FFF8F0}
 .header__inner h1{margin:0;font-size:clamp(18px,3.2vw,26px);color:#FFF8F0}
 .wrap{max-width:1280px;margin:0 auto;padding:18px}
 .lede{max-width:72ch}
@@ -41,11 +50,11 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 .band>.hd p{margin:0 0 8px;color:#6B5A53;font-size:13px}
 .band>.body{padding:0 18px 16px}
 .badge{display:inline-block;background:var(--oat);border:1px solid var(--stone);border-radius:999px;padding:1px 10px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-family:"museo-sans",sans-serif}
-/* poc cards: real drawings fill the art zones (same box, no new skin) */
+/* sample cards: real drawings fill the art zones (same box, no new skin) */
 .rc-artimg{object-fit:cover;background:#fff}
 .kbd{font-family:ui-monospace,monospace;background:var(--oat);border:1px solid var(--stone);border-radius:6px;padding:0 6px;font-size:12.5px}
 .count{font-size:12.5px;color:#6B5A53}
-/* band 1: market x month matrix */
+/* section 1: market x month matrix */
 .rx-matrix-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:6px 0 10px}
 .rx-matrix-tools input{font:inherit;padding:7px 12px;border:1px solid var(--stone);border-radius:999px;background:var(--colors-neutral-0);color:var(--chocolate);min-width:min(280px,100%)}
 .rx-scroll{overflow-x:auto;border:1px solid var(--stone);border-radius:6px}
@@ -64,7 +73,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 .season-cell--fall{background:color-mix(in srgb, var(--colors-brand-bear-brown) 7%, transparent)}
 .season-cell--winter{background:color-mix(in srgb, var(--colors-brand-signal-red) 5%, transparent)}
 .rx-matrix__season{text-align:center}
-/* band 2: metro -> frontier pairing panels */
+/* section 2: metro -> frontier pairing panels */
 .rx-pairs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:12px}
 .rx-pair{background:#FFFDF9;border:1px solid var(--stone);border-radius:16px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
 .rx-pair__kicker{margin:0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#6B5A53}
@@ -77,14 +86,14 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 .rx-produce{list-style:none;margin:4px 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2px 10px;font-size:12.5px}
 .rx-produce__month{display:inline-block;width:32px;color:#6B5A53;font-size:11px;letter-spacing:.04em;text-transform:uppercase}
 .rx-pair__moment{margin:4px 0 0;font-size:12.5px;color:#6B5A53}
-/* band 3: PoC cards reuse .rc-card verbatim; only the gallery mount is local */
-/* art-thumb: shared sketch-pending thumb — currentColor so substrate ink applies */
+/* section 3: sample cards reuse .rc-card verbatim; only the gallery mount is local */
+/* art-thumb: shared stand-in sketch — currentColor so substrate ink applies */
 .art-thumb{color:var(--chocolate)}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head><body>
 <header class="kodiak-header"><div class="header__inner">
 <a class="backlink" href="index.html">&larr; Back to campaign</a>
-<h1>Recipes Brainstorm</h1><span class="badge">brainstorm — not a pipeline step</span>
+<h1>Recipes Brainstorm</h1><span class="badge">frontier recipe lab — internal working session</span>
 </div></header>
 <div class="wrap">
 <p class="lede">Everything at once: the full market-by-month ingredient book, every metro-to-frontier pairing with its farm-stand and monthly-produce references, and sample ingredient-to-recipe cards. Months are the source of truth; seasons (spring Mar–May, summer Jun–Aug, fall Sep–Nov, winter Dec–Feb) are the reading aid.</p>
@@ -95,8 +104,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 <a href="recipes.html" aria-current="page">Recipes Brainstorm</a>
 </div>
 
-<section class="band" aria-labelledby="band1h"><div class="hd"><h2 id="band1h">Market × season matrix <span class="badge">band 1</span></h2>
-<p>Every market × all 12 months from <span class="kbd">js/recipe-cards-data.js</span> — each cell names its distinct in-season ingredient. Same card-data shape as the main page.</p></div><div class="body">
+<section class="band" aria-labelledby="band1h"><div class="hd"><h2 id="band1h">What&apos;s in season, everywhere we cook</h2>
+<p>Every frontier market × all 12 months, drawn from <span class="kbd">js/recipe-cards-data.js</span> — each cell names the distinct in-season ingredient behind that month&apos;s card. Type below to narrow the table to the markets you care about.</p></div><div class="body">
 <div class="rx-matrix-tools">
 <label for="rxMatrixFilter">Filter markets</label>
 <input id="rxMatrixFilter" type="search" placeholder="e.g. castroville or US-CA" autocomplete="off">
@@ -105,14 +114,14 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 <div class="rx-scroll"><div id="rxMatrix"></div></div>
 </div></section>
 
-<section class="band" aria-labelledby="band2h"><div class="hd"><h2 id="band2h">Frontier pairings <span class="badge">band 2</span></h2>
-<p>Metro → frontier sisters from <span class="kbd">data/localization/retailer-frontier-pairs.json</span>: retailer store on the metro side, farm-stand link plus the 12-month produce run and seasonal moments on the frontier side. <span class="count" id="rxPairsCount" role="status"></span></p></div><div class="body">
+<section class="band" aria-labelledby="band2h"><div class="hd"><h2 id="band2h">From the city store to the country farm stand</h2>
+<p>Each metro market paired with its frontier sister, from <span class="kbd">data/localization/retailer-frontier-pairs.json</span> — the retailer store on the metro side, the farm-stand link with the full 12-month produce run and seasonal moments on the frontier side. <span class="count" id="rxPairsCount" role="status"></span></p></div><div class="body">
 <div class="rx-pairs" id="rxPairs"></div>
 </div></section>
 
-<section class="band" aria-labelledby="band3h"><div class="hd"><h2 id="band3h">Ingredient → recipe PoC <span class="badge">band 3</span></h2>
-<p>Sample cards in the existing <span class="kbd">.rc-card</span> component and card tokens from the <a href="details.html#recipe-card-standard" target="_blank" rel="noopener">recipe card standard</a> — two picks per season, distinct ingredients. Art zones show the shared sketch-pending thumb; this page never fetches remote art.</p></div><div class="body">
-<div id="rxPoc"></div>
+<section class="band" aria-labelledby="band3h"><div class="hd"><h2 id="band3h">From harvest to flapjack: this season&apos;s cards</h2>
+<p>Finished recipe cards in the shared <span class="kbd">.rc-card</span> format from the <a href="details.html#recipe-card-standard" target="_blank" rel="noopener">recipe card standard</a> — two picks per season, every ingredient distinct. Art zones carry each card&apos;s finished drawing where one is ready, and a light stand-in sketch until it lands.</p></div><div class="body">
+<div id="rxSamples"></div>
 </div></section>
 </div>
 <script defer src="js/recipe-cards-data.js"></script>

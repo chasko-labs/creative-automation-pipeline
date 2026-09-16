@@ -98,3 +98,57 @@ def test_featured_for_beats_overlap_lottery():
     # uncurated months keep overlap behavior (no silent reshuffle)
     assert _pick_recipe("strawberries", None)["id"] == "yogurt-pie"
     assert _pick_recipe("muscadine grapes", None)["id"] == "roasted-grape-flapjack-topper-draft"
+
+
+def test_curated_pairings_route_to_honest_recipes():
+    from creative_automation.recipe_card import _pick_recipe
+
+    assert _pick_recipe("sweet cherries", None)["id"] == "cherry-pie-bars"
+    assert _pick_recipe("avocado (florida)", None)["id"] == "avocado-pancakes"
+    assert _pick_recipe("meyer lemon", None)["id"] == "single-serve-lemon-ricotta-flapjack-cup"
+    assert _pick_recipe("green and red chile", None)["id"] == "red-chile-cornbread-muffins-draft"
+    assert _pick_recipe("boiled peanuts", None)["id"] == "boiled-peanut-oat-bites-draft"
+    assert _pick_recipe("huckleberries", None)["id"] == "huckleberry-flapjack-topper-draft"
+    assert _pick_recipe("celery", None)["id"] == "celery-parmesan-pancakes-draft"
+    assert _pick_recipe("cremini mushrooms", None)["id"] == "mushroom-cheddar-muffins-draft"
+    assert _pick_recipe("pears (storage)", None)["id"] == "pear-spice-muffins-draft"
+
+
+def test_new_drafts_have_honest_nulls_and_verb_first_steps():
+    from creative_automation.recipe_card import build_recipe_card_data
+
+    c = build_recipe_card_data("US-SE-ATL", month="2026-09")
+    assert c.get("title") == "Roasted Grape Flapjack Topper"
+    c2 = build_recipe_card_data("US-CA-CASTROVILLE", month="2026-03")
+    assert c2["meta"]["est_cost"] is None
+    import json
+    from pathlib import Path as _P
+
+    catalog = json.loads(_P("data/recipes/kodiak-recipes.json").read_text())
+    wanted = {
+        "snap-pea-herb-fritters-draft", "mushroom-cheddar-muffins-draft",
+        "huckleberry-flapjack-topper-draft", "fig-honey-muffins-draft",
+        "pear-spice-muffins-draft", "wild-rice-cheddar-pancakes-draft",
+        "persimmon-spice-muffins-draft", "green-bean-parmesan-fritters-draft",
+        "celery-parmesan-pancakes-draft", "date-oat-breakfast-cookies-draft",
+        "boiled-peanut-oat-bites-draft"}
+    drafts = [r for r in catalog if r["id"] in wanted]
+    assert len(drafts) == 11
+    for r in drafts:
+        assert r.get("prepTime") in (None, ""), r["id"]
+        assert r.get("cookTime") in (None, ""), r["id"]
+        assert r.get("yield") in (None, ""), r["id"]
+        assert r["instructions"], r["id"]
+        for step in r["instructions"]:
+            assert not step.rstrip().endswith("!"), (r["id"], step)
+
+
+def test_card_title_and_steps_are_real_content():
+    from creative_automation.recipe_card import build_recipe_card_data
+
+    c = build_recipe_card_data("US-CA-CASTROVILLE", month="2026-03")
+    assert c.get("title") == "Broccoli Cauliflower Cheddar Fritters"
+    assert c.get("recipe", {}).get("name") == c.get("title")
+    assert c.get("steps"), "no exclamatory ad copy: steps are the real instructions"
+    assert not any(s.rstrip().endswith("!") for s in c["steps"])
+    assert c["steps"][0].startswith("STEAM")

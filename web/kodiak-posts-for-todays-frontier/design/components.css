@@ -1508,10 +1508,20 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .rc-gallery-group + .rc-gallery-group{border-top:1px solid var(--stone);padding-top:var(--spacing-lg,16px)}
 .rc-gallery-market{margin:0 0 var(--spacing-md,12px);color:var(--chocolate);
   font-family:"gin",Rockwell,Georgia,serif;font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:15px}
-/* the shells are fixed-width per --rc-scale; auto-fill lets the row hold as many as fit and wraps
-   the rest, so the gallery reads legibly from phone (1 per row) to ultrawide (many per row). */
-.rc-gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:var(--spacing-lg,18px);align-items:start}
+/* the card shell is ~505px wide at the desktop --rc-scale (8.5in x 0.62), so
+   the track floor stays well under the shell and the gallery reads 2-up on
+   desktop, narrowing to a single column on phones via the min(100%,...) guard.
+   the #rxSamples shell scale steps below shrink the card with the track, so a
+   scaled card never spills past its cell edge at any width. */
+.rc-gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,380px),1fr));gap:var(--spacing-lg,18px);align-items:start}
 .rc-gallery-cell{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
+/* sample-gallery card scale: the 380px floor yields 3-up tracks (~386px) on
+   desktop, so the whole card steps down to a 0.46 shell (~375px) and always
+   fits its track unclipped; phones step down further. scoped to #rxSamples
+   so the main-page gallery and print sizes are untouched. */
+#rxSamples .rc-card-shell{--rc-scale:0.46}
+@media(max-width:480px){#rxSamples .rc-card-shell{--rc-scale:0.36}}
+@media(max-width:380px){#rxSamples .rc-card-shell{--rc-scale:0.32}}
 .rc-gallery-month{align-self:flex-start;font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;
   letter-spacing:.08em;text-transform:uppercase;color:#8C7A70}
 .rc-gallery-empty{color:#8C7A70;font:500 13px/1.5 "museo-sans",sans-serif;margin:0;padding:8px 0}

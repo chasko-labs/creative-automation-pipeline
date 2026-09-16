@@ -2,14 +2,15 @@
 // Reads window.KODIAK_RECIPE_CARDS (same card-data shape as the main page,
 // loaded by js/recipe-cards-data.js) + window.KODIAK_FRONTIER_PAIRS /
 // window.KODIAK_MARKET_PLACES (js/recipes-frontier-pairs.js) and builds three
-// bands: (1) full market x 12-month ingredient matrix, (2) metro -> frontier
-// pairing panels, (3) ingredient -> recipe PoC cards.
+// sections: (1) full market x 12-month ingredient matrix, (2) metro ->
+// frontier pairing panels, (3) ingredient -> recipe sample cards.
 //
-// The PoC cards reuse the .rc-card component class structure from the Design
-// System Inventory specimen (details.html #recipe-card-standard) and the
-// main-page renderer (js/recipe-cards.js) verbatim, so they share looks AND
-// data shapes. Art zones always render the neutral inline "sketch pending"
-// thumb — this page never fetches remote art. Never throws when data is absent.
+// The sample cards reuse the .rc-card component class structure from the
+// Design System Inventory specimen (details.html #recipe-card-standard) and
+// the main-page renderer (js/recipe-cards.js) verbatim, so they share looks
+// AND data shapes. Art zones show the card's finished drawing where one
+// exists, otherwise a neutral inline stand-in sketch — this page never
+// fetches remote art. Never throws when data is absent.
 (function () {
   'use strict';
 
@@ -79,9 +80,9 @@
     return map[market] || market;
   }
 
-  // ---- shared art-thumb: neutral inline "sketch pending" line-art mark ----
-  // Deliberately generic so a PoC card never shows an empty box or a remote
-  // fetch. Drawn with currentColor so the card substrate ink applies.
+  // ---- shared art-thumb: neutral inline stand-in line-art mark ----
+  // Deliberately generic so a sample card never shows an empty box or a
+  // remote fetch. Drawn with currentColor so the card substrate ink applies.
   function makeArtThumb() {
     var svg = svgEl('svg', {
       class: 'rc-artzone__art art-thumb', viewBox: '0 0 300 150',
@@ -151,19 +152,24 @@
     return li;
   }
 
-  function seasonalLine(seasonalMoment) {
+  function seasonalLine(seasonalMoment, monthKey) {
     if (!Array.isArray(seasonalMoment) || !seasonalMoment.length) return null;
-    var pick = null;
-    for (var i = 0; i < seasonalMoment.length; i++) {
-      var mm = seasonalMoment[i];
-      if (mm && mm.status === 'confirmed') { pick = mm; break; }
+    var monthNum = monthKey ? parseInt(String(monthKey).slice(5, 7), 10) : 0;
+    // Prefer a moment covering THIS month; a March card must never show an
+    // October festival. Fall back to confirmed, then first.
+    var pick = null, confirmed = null, i, mm;
+    for (i = 0; i < seasonalMoment.length; i++) {
+      mm = seasonalMoment[i];
+      if (!mm) continue;
+      if (!confirmed && mm.status === 'confirmed') confirmed = mm;
+      if (monthNum && Array.isArray(mm.months) && mm.months.indexOf(monthNum) !== -1) { pick = mm; break; }
     }
-    if (!pick) pick = seasonalMoment[0];
+    if (!pick) pick = confirmed || seasonalMoment[0];
     if (!pick || !pick.moment) return null;
     return String(pick.moment).trim() || null;
   }
 
-  // ---- band 1: full market x 12-month matrix ----
+  // ---- section 1: full market x 12-month matrix ----
   function buildMatrix() {
     var mount = document.getElementById('rxMatrix');
     if (!mount) return;
@@ -233,7 +239,8 @@
 
   function bindMatrixFilter() {
     var input = document.getElementById('rxMatrixFilter');
-    if (!input) return;
+    if (!input || input.dataset.bound) return;
+    input.dataset.bound = '1';
     input.addEventListener('input', function () {
       var q = String(input.value || '').trim().toLowerCase();
       var rows = document.querySelectorAll('#rxMatrix tbody tr');
@@ -249,7 +256,7 @@
     });
   }
 
-  // ---- band 2: metro -> frontier pairing panels ----
+  // ---- section 2: metro -> frontier pairing panels ----
   function buildPairs() {
     var mount = document.getElementById('rxPairs');
     if (!mount) return;
@@ -320,11 +327,11 @@
     if (count) count.textContent = pairs.length + ' metro → frontier pairs';
   }
 
-  // ---- band 3: ingredient -> recipe PoC cards (same .rc-card structure) ----
-  function pickPocCards() {
+  // ---- section 3: ingredient -> recipe sample cards (same .rc-card structure) ----
+  function pickSampleCards() {
     var data = window.KODIAK_RECIPE_CARDS;
     if (!data || typeof data !== 'object') return [];
-    // Deterministic sweep: two PoC cards per season band with real titles and
+    // Deterministic sweep: two sample cards per season with real titles and
     // steps, distinct ingredients, spread across markets.
     var seasons = ['spring', 'summer', 'fall', 'winter'];
     var bySeason = { spring: [], summer: [], fall: [], winter: [] };
@@ -360,7 +367,7 @@
     return picks;
   }
 
-  function buildPocCard(card) {
+  function buildSampleCard(card) {
     var rc = el('div', 'rc-card');
     rc.setAttribute('data-substrate', card.substrate || 'kraft');
     rc.setAttribute('role', 'img');
@@ -397,7 +404,7 @@
     left.appendChild(ul);
     var art = card.art || {};
     left.appendChild(makeArtZone(ART_ZONES[0], art.raw_ingredient || null));
-    var moment = seasonalLine(card.seasonal_moment);
+    var moment = seasonalLine(card.seasonal_moment, card.month);
     if (moment) {
       var tip = el('p', 'rc-tip');
       tip.appendChild(el('span', 'rc-tip__label', 'in season'));
@@ -425,13 +432,13 @@
     return null;
   }
 
-  function buildPoc() {
-    var mount = document.getElementById('rxPoc');
+  function buildSamples() {
+    var mount = document.getElementById('rxSamples');
     if (!mount) return;
     mount.innerHTML = '';
-    var picks = pickPocCards();
+    var picks = pickSampleCards();
     if (!picks.length) {
-      mount.appendChild(el('p', 'rc-gallery-empty', 'PoC cards will appear once card data loads.'));
+      mount.appendChild(el('p', 'rc-gallery-empty', 'Sample cards will appear once card data loads.'));
       return;
     }
     var grid = el('div', 'rc-gallery-grid');
@@ -441,7 +448,7 @@
       cell.appendChild(el('div', 'rc-gallery-month',
         (card.ingredient || '') + ' · ' + (mo ? mo.name + ' (' + mo.season + ')' : (card.month || ''))));
       var shell = el('div', 'rc-card-shell');
-      shell.appendChild(buildPocCard(card));
+      shell.appendChild(buildSampleCard(card));
       cell.appendChild(shell);
       grid.appendChild(cell);
     });
@@ -450,8 +457,9 @@
 
   function render() {
     buildMatrix();
+    bindMatrixFilter();
     buildPairs();
-    buildPoc();
+    buildSamples();
   }
 
   if (document.readyState === 'loading') {
