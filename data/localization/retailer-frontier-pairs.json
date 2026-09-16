@@ -327,7 +327,6 @@
     },
     {
       "market": "US-CA-PESCADERO",
-      "legacy_market": "US-W-SF",
       "metro_location": {
         "market": "US-W-SANJOSE",
         "retailer": "Costco",

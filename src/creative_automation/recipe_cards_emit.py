@@ -30,9 +30,10 @@ RECIPE_CARDS_JS_PATH = (
     / "recipe-cards-data.js"
 )
 
-# The three probe markets and the full 2026 calendar. US-W-SF is the legacy alias
-# resolve_this_month maps to the Pescadero pair. PROBE_MARKETS stays a named constant
-# for targeted probe runs; the full universe comes from all_seeded_markets().
+# The three probe markets and the full 2026 calendar. US-W-SF is its own market
+# since the 2026-09-15 reassignment (frontier sister Castroville), not a Pescadero
+# alias. PROBE_MARKETS stays a named constant for targeted probe runs; the full
+# universe comes from all_seeded_markets().
 PROBE_MARKETS = ("US-SE-ATL", "US-W-SF", "US-MW-PARKCITY-84098")
 MONTHS_2026 = tuple(f"2026-{m:02d}" for m in range(1, 13))
 
@@ -43,8 +44,9 @@ def all_seeded_markets() -> tuple[str, ...]:
     locales loader (never a hardcoded market list, never re-opening the JSON with a
     hardcoded path), so it grows as seeding continues.
 
-    Dedup via canonical .market: locales.load_pairs indexes both `market` and
-    `legacy_market` to the same FrontierPair, so iterating keys would double-count.
+    Dedup via canonical .market: locales.load_pairs may index a `legacy_market`
+    key to the same FrontierPair as `market`, so iterating keys would
+    double-count.
     We iterate pair.market values instead, emitting one entry per distinct pair that
     has at least one filled month. Sorted for deterministic output.
     """

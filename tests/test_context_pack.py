@@ -48,9 +48,11 @@ def test_atlanta_september_ingredient_not_fabricated():
 
 
 def test_atlanta_unfilled_month_says_none_not_a_guess():
-    pack = build_context_pack(_atlanta_brief(), month="2026-10")
+    # October 2026 was backfilled to pecans; 2027 has no authored months, so the
+    # honest-empty path must say None, not a guess
+    pack = build_context_pack(_atlanta_brief(), month="2027-10")
     assert pack["ingredient"]["ingredient"] is None
-    assert "no in-season ingredient on file for 2026-10" in pack["prompt_text"]
+    assert "no in-season ingredient on file for 2027-10" in pack["prompt_text"]
 
 
 def test_atlanta_has_dialect_consideration_for_non_english_langs():

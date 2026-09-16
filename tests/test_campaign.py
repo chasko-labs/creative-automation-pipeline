@@ -3,7 +3,7 @@
 Two PO prompts, encoded end to end over run_campaign (D1):
 
   A) SF BAY — power-cakes for bay-area retailers + a frontier subscription variant.
-     Market US-CA-PESCADERO (legacy US-W-SF). September in-season pick is strawberries;
+     Market US-CA-PESCADERO. September in-season pick is strawberries;
      retailers include Costco. Asserts multi-platform + multi-language fan-out, recipe
      cards referencing the Pescadero September ingredient, and a subscription variant.
 
@@ -21,8 +21,7 @@ cards, the lockup step is pure resolution. No network, no credentials.
 """
 from pathlib import Path
 
-from creative_automation.campaign import run_campaign
-from creative_automation.campaign import STANDARD_PLATFORMS
+from creative_automation.campaign import STANDARD_PLATFORMS, run_campaign
 from creative_automation.naming import ISO_NAME_RE
 
 
@@ -136,7 +135,8 @@ def test_sf_costco_lockup_plan_carries_bay_area_address(tmp_path):
     costco = [lk for lk in result["lockups"] if lk["retailer"] == "costco"]
     assert costco, "expected a Costco retailer-lockup plan entry"
     assert costco[0]["store_address"] is not None
-    assert "San Francisco" in costco[0]["store_address"]
+    # San Jose halo for the Pescadero frontier gap (registry metro anchor), not SF
+    assert "San Jose" in costco[0]["store_address"]
     # it is a PLAN, not a render — the executor is the D2 compositor
     assert costco[0]["generated"] is False
     assert costco[0]["executor"] == "lockup.compose_retailer_lockup"
@@ -423,7 +423,7 @@ def test_render_true_cohesion_check_skipped_offline_not_faked(tmp_path):
         cohesion = a["cohesion"]
         assert cohesion["checked"] is False
         assert cohesion["skipped"] is True
-        assert "reason" in cohesion and cohesion["reason"]
+        assert cohesion.get("reason")
         # no faked score
         assert "embed_norm" not in cohesion
 

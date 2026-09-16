@@ -311,8 +311,9 @@ def _hero_panel(recipe: dict, target: tuple[int, int]) -> Image.Image:
                 left = (img.width - w) // 2
                 top = (img.height - h) // 2
                 return img.crop((left, top, left + w, top + h))
-            except Exception:
-                pass
+            except (OSError, ValueError):
+                # unreadable/corrupt local image: fall through to the brand block
+                print(f"[recipe-card] hero image unusable, using brand block: {p}")
     # clean, text-free brand-color hero block with a subtle accent band
     panel = Image.new("RGB", (w, h), BEAR_BROWN)
     draw = ImageDraw.Draw(panel)
@@ -327,7 +328,9 @@ def _load_font(size: int):
     ):
         try:
             return ImageFont.truetype(cand, size)
-        except Exception:
+        except OSError:
+            # missing host font: try the next candidate, bitmap default last
+            print(f"[recipe-card] host font missing, trying next: {cand}")
             continue
     return ImageFont.load_default()
 
@@ -381,7 +384,7 @@ def publish_card(card_path: str | Path) -> str | None:
         if _dam.s3_upload_and_presign(str(card_path), rel) is None:
             return None
         return full
-    except Exception:
+    except Exception:  # noqa: BLE001 — any DAM/network/import failure degrades to None by contract
         return None
 
 

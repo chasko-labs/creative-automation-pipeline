@@ -28,19 +28,24 @@ def test_atlanta_september_ingredient():
 
 def test_unfilled_month_is_none_not_fabricated():
     pair = resolve_pair("US-SE-ATL")
-    # October is a research-dispatch placeholder — must resolve to None, not a guess
-    assert pair.ingredient_for("2026-10") is None
+    # October 2026 was backfilled to pecans; 2027 has no authored months, so an
+    # unfilled month must resolve to None, not a guess
+    assert pair.ingredient_for("2027-10") is None
 
 
-def test_sf_pescadero_pair_present_and_mapped():
-    # SF/bay-area pair confirmed present in repo; indexed by both keys
-    by_new = resolve_pair("US-CA-PESCADERO")
-    by_legacy = resolve_pair("US-W-SF")
-    assert by_new is not None
-    assert by_legacy is by_new
-    assert by_new.frontier_sister["place"] == "Pescadero, CA 94060"
-    # mapped from existing confirmed seasonal_matrix, not fabricated
-    assert by_new.ingredient_for("2027-04") == "artichokes"
+def test_sf_and_pescadero_pairs_present_and_mapped():
+    # Both pairs confirmed present in repo. US-W-SF has been its own market
+    # since the 2026-09-15 reassignment (frontier sister Castroville) — it is
+    # no longer an alias of the Pescadero pair.
+    pescadero = resolve_pair("US-CA-PESCADERO")
+    sf = resolve_pair("US-W-SF")
+    assert pescadero is not None and sf is not None
+    assert sf is not pescadero
+    assert sf.market == "US-W-SF"
+    assert sf.frontier_sister["place"] == "Castroville, CA"
+    assert pescadero.frontier_sister["place"] == "Pescadero, CA 94060"
+    # mapped from the confirmed seasonal matrix, not fabricated
+    assert sf.ingredient_for("2026-04") == "artichokes"
 
 
 def test_unknown_market_returns_none():
