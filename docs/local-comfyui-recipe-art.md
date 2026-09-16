@@ -204,7 +204,8 @@ seed 21, scheduler normal, denoise 1.0, 1344x768.
    recipe from notes — read `job["prompt"]` from `/history` and paste
    it verbatim (as done for v4 above).
 
-## locked style guide (approved 2026-09-14, option A)
+## locked style guide (approved 2026-09-14, option A;
+## technique still-life approved 2026-09-15 by eyeball: style-technique-b.png)
 
 Triple bar for any shippable render: monochrome + sparse +
 no-text-artifact, on eyeball review (the gate alone is insufficient —
