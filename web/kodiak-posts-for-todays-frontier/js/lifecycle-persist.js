@@ -293,6 +293,13 @@
           if(want[b.value] && !b.checked){ b.checked = true; b.dispatchEvent(new Event('change', {bubbles:true})); }
         });
       }catch(e){}
+      // tray chips — the combobox change listener re-syncs when attached; call
+      // the exposed sync directly as backup so a restore never leaves stale
+      // chips behind when script order differs. Guarded: missing combobox is
+      // a no-op, never a throw.
+      try{
+        if(typeof window.__kodiakSyncSkuChips === 'function'){ window.__kodiakSyncSkuChips(); }
+      }catch(e){}
 
       // staged DAM picks — rehydrate by key: the request path re-fetches server-side
       // (fetch_dam_key), so no presigned url is needed. Chips rebuild without thumbs;

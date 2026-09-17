@@ -1530,8 +1530,8 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 @media(max-width:480px){#rxSamples .rc-card-shell{--rc-scale:0.36}}
 @media(max-width:380px){#rxSamples .rc-card-shell{--rc-scale:0.32}}
 .rc-gallery-month{align-self:flex-start;font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;
-  letter-spacing:.08em;text-transform:uppercase;color:#8C7A70}
-.rc-gallery-empty{color:#8C7A70;font:500 13px/1.5 "museo-sans",sans-serif;margin:0;padding:8px 0}
+  letter-spacing:.08em;text-transform:uppercase;color:var(--colors-neutral-600)}
+.rc-gallery-empty{color:var(--colors-neutral-600);font:500 13px/1.5 "museo-sans",sans-serif;margin:0;padding:8px 0}
 /* preview language toggle — plain segmented buttons in existing tokens, no new palette */
 .rc-preview-wrap{display:flex;flex-direction:column;align-items:center}
 .rc-lang-toggle{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 8px}
@@ -1540,7 +1540,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   border:1px solid var(--stone);border-radius:var(--radii-md);padding:8px 12px;cursor:pointer}
 .rc-lang-toggle__btn.is-active{color:var(--colors-brand-badge-parchment);
   background:linear-gradient(180deg,var(--colors-brand-bear-brown),var(--chocolate));border-color:var(--chocolate)}
-.rc-lang-badge{margin:0 0 8px;color:#8C7A70;font:500 11px/1.5 "museo-sans",sans-serif}
+.rc-lang-badge{margin:0 0 8px;color:var(--colors-neutral-600);font:500 11px/1.5 "museo-sans",sans-serif}
 
 /* honest empty-state card — reuses the .rc-card shell + substrate, no fabricated recipe content */
 .rc-card--empty .rc-empty-body{display:flex;flex-direction:column;justify-content:center;gap:0.12in;
