@@ -274,40 +274,18 @@ let skuList = [
     const row = platformMatrix[ratio];
     return row ? platformNames(row.platforms) : [];
   }
-  // Render the "when you hit Create we generate these sizes for these platforms" explainer into the preview.
-  // Idempotent: replaces any existing matrix so re-render never stacks.
+  // Platforms now live once on the tile caps (each cap carries its ratio's
+  // shape, dims, and platform chips), so the side matrix is retired: this
+  // keeps the hero grid full-width and removes the duplicated panel.
+  // Idempotent: removes any existing matrix so re-render never stacks.
   function renderPlatformMatrix(){
-    const preview = document.getElementById('preview');
-    if(!preview) return;
     const old = document.getElementById('platformMatrix');
     if(old) old.remove();
-    // ratio display order — square, portrait, vertical, landscape, then blog/open-graph (whatever the matrix provides)
-    const order = ['1x1','4x5','9x16','16x9','blog'];
-    const keys = order.filter(k=>platformMatrix[k]).concat(Object.keys(platformMatrix).filter(k=>order.indexOf(k)<0));
-    const rows = keys.map(k=>{
-      const row = platformMatrix[k];
-      const colon = k.replace('x',':');
-      const plats = platformNames(row.platforms).map(p=>'<span class="pm-plat">'+escapeHtml(p)+'</span>').join('');
-      return '<tr>'+
-        '<td class="pm-ratio"><b>'+escapeHtml(colon)+'</b><span class="pm-role">'+escapeHtml(row.label||'')+'</span></td>'+
-        '<td class="pm-dims">'+escapeHtml((row.w||'')+'\u00D7'+(row.h||''))+'</td>'+
-        '<td class="pm-plats">'+plats+'</td>'+
-        '</tr>';
-    }).join('');
-    const wrap = document.createElement('div');
-    wrap.className = 'platform-matrix';
-    wrap.id = 'platformMatrix';
-    wrap.innerHTML =
-      '<div class="pm-head"><b>Asset pack exports:</b></div>'+
-      '<table><thead><tr><th scope="col">Ratio</th><th scope="col">Dimensions</th><th scope="col">Platforms</th></tr></thead>'+
-      '<tbody>'+rows+'</tbody></table>';
-    // matrix leads the preview (explainer sits above the render tiles)
-    preview.insertBefore(wrap, preview.firstChild);
   }
-  // expose so the offline canvas render() (defined in the earlier script scope) can re-insert
-  // the matrix after it clears #preview, keeping the explainer visible on every redraw.
+  // expose so the offline canvas render() (defined in the earlier script scope) can
+  // clear any matrix after it clears #preview; the explainer panel is retired.
   window.__renderPlatformMatrix = renderPlatformMatrix;
-  // show the matrix as the default preview content on load (before any campaign is generated)
+  // no matrix on load: the hero tile grid is the default preview content.
   try{ renderPlatformMatrix(); }catch(e){}
 
   // Compose layers — independently-selectable, ALL OFF by default. Reads the creative-direction

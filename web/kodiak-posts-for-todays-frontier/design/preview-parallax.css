@@ -1,0 +1,63 @@
+/* Resting preview parallax — #previewHero .render-set tiles only.
+   Inert without JS: every rule below is gated on html.pp-ready, which only
+   js/preview-parallax.js adds. No-JS / reduced-motion readers see the plain
+   static tiles. Token refs only — no new palette, no new fonts. */
+
+html.pp-ready #previewHero .render-set {
+  perspective: 900px;
+}
+
+html.pp-ready #previewHero .render-set .render-tile {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* JS drives --pp-tx/--pp-ty (pointer, px) and --pp-sy (scroll, px) per tile.
+   Defaults are 0 so tiles rest exactly where the static layout puts them. */
+html.pp-ready #previewHero .render-set .render-tile .render-frame {
+  --pp-tx: 0px;
+  --pp-ty: 0px;
+  --pp-sy: 0px;
+  position: relative;
+  overflow: hidden;
+}
+
+html.pp-ready #previewHero .render-set .render-tile .render-frame img {
+  transform: translate3d(var(--pp-tx), calc(var(--pp-ty) + var(--pp-sy)), 0) scale(1.04);
+  will-change: transform;
+}
+
+/* Settle back to rest on pointer leave with a short ease. The class is only
+   present during the settle so pointer tracking stays direct (rAF, no lag). */
+html.pp-ready #previewHero.pp-settling .render-set .render-tile .render-frame img {
+  transition: transform 0.35s ease;
+}
+
+/* Soft warm light sheen following the pointer. Color reuses the parchment
+   highlight tone already used for card top-lights in components.css
+   (rgba(255,248,240,...)); position comes from --pp-sx/--pp-sy-pct per frame. */
+html.pp-ready #previewHero .render-set .render-tile .render-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: var(--pp-sheen, 0);
+  background: radial-gradient(
+    circle at var(--pp-sx, 50%) var(--pp-sy-pct, 50%),
+    rgba(255, 248, 240, 0.28) 0%,
+    rgba(255, 248, 240, 0.08) 45%,
+    transparent 70%
+  );
+  transition: opacity 0.25s ease;
+}
+
+/* Static fallback: no motion, no sheen, no transitions. */
+@media (prefers-reduced-motion: reduce) {
+  html.pp-ready #previewHero .render-set .render-tile .render-frame img {
+    transform: none;
+    transition: none;
+  }
+  html.pp-ready #previewHero .render-set .render-tile .render-frame::after {
+    display: none;
+  }
+}

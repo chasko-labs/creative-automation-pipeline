@@ -357,6 +357,11 @@ section.xl{padding:var(--section-space-xl) 0}
 /* market-language line woven under its tile — small, quiet, same tokens */
 .render-tile .render-cap .loc-line{display:block;margin-top:6px;font-size:11px;line-height:1.45;color:var(--colors-neutral-700)}
 .render-tile .render-cap .loc-langtag{font-weight:700;margin-right:6px;text-transform:uppercase;letter-spacing:.06em;font-size:10px;color:var(--chocolate)}
+/* shape descriptor on resting caps (Square, Vertical / Full-Screen) */
+.render-tile .render-cap .rt-shape{display:block;margin-top:2px;color:var(--colors-neutral-600);font:500 10px/1.4 "museo-sans",sans-serif}
+/* hero grid takes the full preview width now that the side matrix is retired;
+   wider screens fit more tiles per row instead of a narrow single column */
+@media(min-width:1100px){.render-set{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}}
 
 /* === Preview as native <details> — collapsed by default, summary styled as the card header (matches #aboutTool) === */
 .preview-card>summary{list-style:none;cursor:pointer;padding:16px 16px 12px;background-image:var(--gradients-kraft\.sheen),var(--gradients-kraft\.surface);border-bottom:1px solid var(--colors-neutral-200);
