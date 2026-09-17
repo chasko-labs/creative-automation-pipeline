@@ -84,7 +84,7 @@ describe('season flavors — 100% market x season coverage', () => {
 
   it('readout is season-reactive and the engine ships with the page', () => {
     expect(generateJs).toMatch(/window\.seasonFlavorFor\(market, season\)/);
-    expect(generateJs).toMatch(/id==='seasonalSelect'\) updateLocalFlavor/);
+    expect(generateJs).toMatch(/id==='seasonalSelect'\)[^;]*updateLocalFlavor/);
     expect(index).toMatch(/js\/season-flavors\.js\?v=/);
   });
 });

@@ -348,9 +348,12 @@ section.xl{padding:var(--section-space-xl) 0}
 /* lit caption surface — kraft sheen (top-light) composited OVER the kraft fiber, plus an inner shadow so text sits on a lit, shaded surface.
    sheen white highlight rolls off the top; caption text lives in the lower warm-tan band, so bearBrown / neutral-600 hold WCAG AA. */
 .render-tile .render-cap{padding:9px 11px;position:relative;background-image:var(--gradients-kraft\.sheen),var(--gradients-kraft\.surface);box-shadow:var(--shadows-inset-sm)}
-.render-tile .render-cap b{font:700 12px/1.2 "museo-sans",sans-serif;color:var(--chocolate);display:block;position:relative}
+.render-tile .render-cap b{font:700 12px/1.2 "museo-sans",sans-serif;color:var(--chocolate);display:inline;position:relative}
 /* #3B2316 chocolate on the lit kraft-tan lower band = >=7:1 (AA/AAA) */
-.render-tile .render-cap .dims{color:var(--colors-neutral-700);font:600 11px/1.4 "museo-sans",sans-serif;margin-top:3px;position:relative}
+/* headline reads one line — "9:16 Vertical · 1080×1920" — and wraps as a unit
+   on narrow tiles instead of stacking four short lines down the card */
+.render-tile .render-cap .dims{display:inline;margin:0 0 0 6px;color:var(--colors-neutral-700);font:600 11px/1.4 "museo-sans",sans-serif;position:relative}
+.render-tile .render-cap .dims::before{content:"· ";color:var(--colors-neutral-500)}
 /* per-tile platform legend — retired from resting caps (platforms live once in
    the asset-pack exports matrix); the rule stays for generated tiles that keep it */
 .render-tile .render-cap .rt-platforms{display:block;margin-top:4px;color:var(--colors-neutral-600);font:500 10px/1.4 "museo-sans",sans-serif;letter-spacing:.02em;position:relative}
@@ -358,12 +361,17 @@ section.xl{padding:var(--section-space-xl) 0}
 .render-tile .render-cap .loc-line{display:block;margin-top:6px;font-size:11px;line-height:1.45;color:var(--colors-neutral-700)}
 .render-tile .render-cap .loc-langtag{font-weight:700;margin-right:6px;text-transform:uppercase;letter-spacing:.06em;font-size:10px;color:var(--chocolate)}
 /* shape descriptor on resting caps (Square, Vertical / Full-Screen) */
-.render-tile .render-cap .rt-shape{display:block;margin-top:2px;color:var(--colors-neutral-600);font:500 10px/1.4 "museo-sans",sans-serif}
+.render-tile .render-cap .rt-shape{display:inline;margin:0 0 0 6px;color:var(--colors-neutral-600);font:500 10px/1.4 "museo-sans",sans-serif}
+.render-tile .render-cap .rt-shape::before{content:"· ";color:var(--colors-neutral-500)}
 /* hero grid takes the full preview width now that the side matrix is retired;
    wider screens fit more tiles per row instead of a narrow single column.
    the hero must span all implicit tracks: as the only grid item it would
    otherwise sit in a single 240px track and the pictures stay tiny. */
 #previewHero{grid-column:1/-1;max-width:none}
+/* resting hero: one full-bleed row per tile, stacked — every picture spans
+   the body width instead of squeezing into shared tracks. scoped to the hero
+   so generated-campaign tiles keep their own multi-column grid. */
+#previewHero .render-set{grid-template-columns:1fr}
 @media(min-width:1100px){.render-set{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}}
 /* every section gets the hover lighten + lift, not just the brief cards */
 .preview-card:hover,.ff-detail:hover{background:var(--gradients-kraft\.surface-hover);box-shadow:var(--shadows-bear),inset 0 1px 0 rgba(255,248,240,.6)}
@@ -403,11 +411,17 @@ section.xl{padding:var(--section-space-xl) 0}
   font:600 10px/1.5 "museo-sans",sans-serif}
 @media(max-width:640px){.platform-matrix{overflow-x:visible}.platform-matrix thead{display:none}.platform-matrix td{display:block;border-top:none;padding:4px 12px}.platform-matrix tr{border-top:1px solid var(--colors-border-default);padding:6px 0;display:block}}
 
-/* === Output preview: single recipe card centers in the preview column === */
-/* the card is a fixed-width keepsake in a full-width column; centering keeps it
-   aligned with the campaign-copy panel instead of hugging the left edge. scoped
-   to #previewRecipe (index only) so the details.html specimen is untouched. */
-#previewRecipe{display:flex;justify-content:center;margin-top:16px}
+/* === Output preview: single recipe card spans the preview column === */
+/* the card is a fixed 8.5x11in canvas that only transform-scales, so a static
+   --rc-scale caps it at 816px and it sits left instead of filling. the slot is
+   a size container and the shell scale divides the slot width by 816, so the
+   816px card paints exactly edge to edge at any column width, height staying
+   proportional (11in x scale). pre-container-query browsers drop the calc and
+   keep the --rc-scale:1 fallback line above it. scoped to #previewRecipe
+   (index only) so the details.html specimen and the gallery shells keep
+   their own scales. */
+#previewRecipe{display:block;margin-top:16px;container-type:inline-size}
+#previewRecipe .rc-card-shell{--rc-scale:1;--rc-scale:calc(100cqw / 816px)}
 #previewRecipe .rc-card{margin-block:10px}
 
 /* === Per-platform messaging copy — accordion of native <details>, one per platform === */
@@ -1422,6 +1436,10 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 @media(prefers-reduced-motion:reduce){details[open]>*:not(summary){animation:none}.btn:hover{transform:none}}
 /* preview figcaption (was an inline style) */
 .ff-figcap{font:600 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate);margin-top:8px}
+/* the example caption's tail IS the click — same star CTA as #generateCampaign,
+   resized to sit inline in the paragraph and wrap on narrow tiles */
+.ff-figcap .ff-go{height:auto;min-height:44px;padding:10px 22px;white-space:normal;text-align:center;vertical-align:baseline}
+.ff-figcap .ff-go:focus-visible{outline:2px solid var(--orange, #E8530E);outline-offset:2px}
 
 /* 4.4 staging row: same control-box voice as the other rows, tray fills the rest */
 .ff-assetrow{display:flex;align-items:center;gap:var(--spacing-sm);flex-wrap:wrap;background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);padding:10px 12px}

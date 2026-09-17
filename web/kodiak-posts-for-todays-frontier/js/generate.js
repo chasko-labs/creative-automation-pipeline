@@ -1,11 +1,12 @@
 // --- New campaign UI: products up to 3 + random, real employees, local flavor derived, single generate ---
 (function(){
+  /** @type {SkuEntry[]} */
   let skuCatalog=[]; async function loadCatalog(){ const urls=["data/products/kodiak-full-catalog.json","../../data/products/kodiak-full-catalog.json","./data/products/kodiak-full-catalog.json","/data/products/kodiak-full-catalog.json"]; for(const url of urls){ try{ const r=await fetch(url); if(r.ok){ const d=await r.json(); if(d.products?.length) { console.log('[catalog] loaded',d.products.length,'from',url); return d.products; } }}catch(e){} } console.warn('[catalog] failed all urls'); return []; } loadCatalog().then(products=>{ skuCatalog=products||[]; const chooser=document.getElementById("productChooser"); if(!chooser) return;
     // Single owner of #productChooser. If the catalog JSON loaded, render rich checkboxes (image + price).
     // If it failed/empty, DO NOT leave the chooser blank — fall back to the hardcoded skuList so a checkbox
     // always exists. Selection handlers are bound once by the static block below via delegation on the element,
     // so they keep working no matter which branch paints.
-    const preserveChecked=()=>new Set(Array.from(chooser.querySelectorAll('.sku-check:checked')).map(c=>c.value));
+    const preserveChecked=()=>new Set(/** @type {HTMLInputElement[]} */ (Array.from(chooser.querySelectorAll('.sku-check:checked'))).map(c=>c.value));
     if(skuCatalog.length){ window.skuCatalog=skuCatalog; skuList=skuCatalog.map(p=>p.name);
       const render=(filter="")=>{ const kept=preserveChecked(); const q=(filter||"").toLowerCase(); let filtered=skuCatalog.filter(p=>!q||(p.name||"").toLowerCase().includes(q)||(p.handle||"").toLowerCase().includes(q)||(p.category||"").toLowerCase().includes(q)).slice(0,12);
         // never blank the chooser: a no-match filter (e.g. a brief keyword) falls back to the first 12 SKUs
@@ -14,7 +15,7 @@
         // so typing a second product (or brief word) cannot destroy the first pick
         if(kept.size){ const seen=new Set(filtered.map(p=>p.name)); const missing=skuCatalog.filter(p=>kept.has(p.name)&&!seen.has(p.name)); if(missing.length) filtered=missing.concat(filtered).slice(0,12+missing.length); }
         chooser.innerHTML=filtered.map(p=>`<label class="sku-pick"><input type="checkbox" value="${p.name}" class="sku-check"${kept.has(p.name)?" checked":""}> <img src="${p.images?.[0]||""}" onerror="this.classList.add('is-hidden')" crossorigin="anonymous" loading="lazy"><span>${p.name}<br><span class="sku-sub">${p.category} • $${p.price_usd||""}</span></span></label>`).join(""); const hint2=document.getElementById('skuHint'); if(hint2) hint2.textContent=`${skuCatalog.length} SKUs loaded — ${kept.size} / 3 selected`; if(window.KODIAK_SCORECARDS) window.KODIAK_SCORECARDS.render(); try{ if(typeof window.__syncProductPopover==='function') window.__syncProductPopover(); }catch(e){} };
-      render(""); document.getElementById("productSearch")?.addEventListener("input",e=>render(e.target.value)); document.getElementById("campaignBrief")?.addEventListener("input",e=>{ const v=e.target.value.toLowerCase().split(/\s+/).filter(Boolean).pop(); if(v&&v.length>2) render(v); });
+      render(""); document.getElementById("productSearch")?.addEventListener("input",/** @param {Event} e */(e)=>render((/** @type {HTMLInputElement} */ (e.target)).value)); document.getElementById("campaignBrief")?.addEventListener("input",/** @param {Event} e */(e)=>{ const v=(/** @type {HTMLInputElement} */ (e.target)).value.toLowerCase().split(/\s+/).filter(Boolean).pop(); if(v&&v.length>2) render(v); });
     } else { console.warn('[catalog] empty after fetch — falling back to static skuList checkboxes');
       // Guaranteed non-empty fallback. window.skuCatalog is seeded from skuList names so slugify() has a
       // consistent lookup path (no .handle here — slugify's lowercase/hyphenate path yields the real handle,
@@ -53,25 +54,26 @@ let skuList = [
     "Quin Taylor — Field Marketing Specialist — Denver, CO and Austin, TX"
   ];
   const chooser = document.getElementById('productChooser');
-  const hint = document.getElementById('skuHint');
+  const hint = /** @type {HTMLElement} */ (document.getElementById('skuHint')); // page contract: always in markup
   if(chooser){
     // Synchronous baseline: paint skuList checkboxes immediately so #productChooser is never empty before the
     // async catalog resolves. The catalog .then above is the single owner afterward — it upgrades these to rich
     // rows on success or re-affirms skuList on empty. The change/random handlers below bind to the chooser
     // ELEMENT (event delegation), so they keep working across every innerHTML swap regardless of which renderer paints.
     chooser.innerHTML = skuList.slice(0,12).map((n,i)=>`<label class="sku-pick"><input type="checkbox" value="${n}" class="sku-check"> ${n}</label>`).join('');
-    const checks = ()=> Array.from(chooser.querySelectorAll('.sku-check:checked'));
-    chooser.addEventListener('change', (e)=>{
-      if(e.target.classList.contains('sku-check')){
+    const checks = ()=> /** @type {HTMLInputElement[]} */ (Array.from(chooser.querySelectorAll('.sku-check:checked')));
+    chooser.addEventListener('change', /** @param {Event} e */ (e)=>{
+      const t = /** @type {HTMLInputElement|null} */ (e.target);
+      if(t && t.classList.contains('sku-check')){
         const c = checks();
-        if(c.length > 3){ e.target.checked=false; hint.textContent = 'Max 3 — uncheck one first'; hint.style.color='#B51E14'; return; }
+        if(c.length > 3){ t.checked=false; hint.textContent = 'Max 3 — uncheck one first'; hint.style.color='#B51E14'; return; }
         hint.textContent = c.length + ' / 3 selected — empty = random 3 on generate';
         hint.style.color = '';
-        updateLocalFlavor();
+        if(typeof window.updateLocalFlavor==='function') window.updateLocalFlavor();
       }
     });
     document.getElementById('randomProducts')?.addEventListener('click', ()=>{
-      const boxes = Array.from(chooser.querySelectorAll('.sku-check'));
+      const boxes = /** @type {HTMLInputElement[]} */ (Array.from(chooser.querySelectorAll('.sku-check')));
       boxes.forEach(b=>b.checked=false);
       const shuffled = [...boxes].sort(()=>0.5-Math.random()).slice(0,3);
       shuffled.forEach(b=>b.checked=true);
@@ -83,6 +85,7 @@ let skuList = [
     aud.innerHTML = employees.map(e=>`<option>${e}</option>`).join('');
   }
   // Local flavor derived by locale (not selectable) — season & source
+  /** @type {Object<string, string>} */
   const flavorMap = {
     "US-CA-PESCADERO": "Pescadero farm stands — Castroville artichokes <b>Mar–Jun</b> + Marin goat cheese <b>Feb–Jun</b> at Half Moon Bay/Santa Cruz stands",
     "US-WA-NEAHBAY": "Neah Bay harbor — Makah salmon <b>May–Sep</b> + huckleberry <b>Aug</b> at Washburn’s General Store & Makah Days",
@@ -96,7 +99,7 @@ let skuList = [
     // Try to get from location-aware island's selected market (haversine)
     let market = sel;
     try{
-      const loc = document.getElementById('locality')?.value || sel;
+      const loc = (/** @type {HTMLInputElement|null} */ (document.getElementById('locality')))?.value || sel;
       if(loc) market = loc;
     }catch(e){}
     // Season-aware engine first (every market x every season resolves a line).
@@ -104,7 +107,7 @@ let skuList = [
     let txt = null;
     try{
       var season = null;
-      try{ season = (typeof window.__activeSeason !== 'undefined') ? window.__activeSeason : document.getElementById('seasonalSelect')?.value || null; }catch(se){ season = null; }
+      try{ season = (typeof window.__activeSeason !== 'undefined') ? window.__activeSeason : (/** @type {HTMLInputElement|null} */ (document.getElementById('seasonalSelect')))?.value || null; }catch(se){ season = null; }
       if(typeof window.seasonFlavorFor === 'function'){
         var r = window.seasonFlavorFor(market, season);
         if(r && r.text) txt = r.text;
@@ -120,14 +123,22 @@ let skuList = [
     const el = document.getElementById('localFlavorText');
     if(el) el.textContent = txt || flavorMap._default;
   };
-  setTimeout(updateLocalFlavor, 800);
-  document.addEventListener('change', e=>{ if(e.target?.id==='locality' || e.target?.id==='seasonalSelect') updateLocalFlavor(); });
+  setTimeout(function(){ if(typeof window.updateLocalFlavor==='function') window.updateLocalFlavor(); }, 800);
+  document.addEventListener('change', /** @param {Event} e */ (e)=>{ const t = e.target instanceof Element ? e.target : null; if(t && (t.id==='locality' || t.id==='seasonalSelect') && typeof window.updateLocalFlavor==='function') window.updateLocalFlavor(); });
 
   // === Platform -> ratio -> dimension matrix ===
   // Authoritative source: data/platforms/platform-matrix.json (offline-tolerant multi-path fetch,
   // same pattern as market-languages.json). Inline fallback below keeps it working file:// offline.
   // module-scoped escape — used by the matrix + platform-copy renderers (the click-handler has its own local one too)
-  const escapeHtml = (s)=> String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  /** HTML-escape anything — unknown in, string out. */
+  /**
+   * @param {unknown} s
+   * @returns {string}
+   */
+  const escapeHtml = (s)=> String(s==null?'':s).replace(/[&<>"']/g, (c)=>ESCAPES[c] || c);
+  /** @type {Object<string, string>} */
+  const ESCAPES = {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'};
+  /** @type {Object<string, string>} */
   const PLATFORM_LABELS = {
     facebook:'Facebook', instagram:'Instagram', linkedin:'LinkedIn',
     pinterest:'Pinterest', tiktok:'TikTok', x:'X', youtube:'YouTube', homepage:'Homepage', blog:'Blog'
@@ -137,10 +148,12 @@ let skuList = [
   // source (extended, not reinvented). provenanceHeuristics is pure: prov
   // fields in, honest English lines out — absent fields read as
   // "not reported", never a guess, never an invented translation.
+  /** @type {Object<string, string>} */
   const ENGINE_LABELS = {
     'stability-control-structure':'Control-structure restyle (Stability)',
     'pillow-compose':'Pillow compose (brand overlay)'
   };
+  /** @type {Object<string, string>} */
   const RUNG_LABELS = {
     'A':'Rung A · packshot verbatim',
     'B':'Rung B · Stability restyle',
@@ -150,16 +163,22 @@ let skuList = [
   // Human labels for the per-platform slugs the copy narrative names, and for
   // the language codes the backend echoes on prov.languages. Absent codes fall
   // through to the raw value (honest), never a guess.
+  /** @type {Object<string, string>} */
   const PLATFORM_COPY_LABELS = {
     x:'X', linkedin:'LinkedIn', instagram:'Instagram', tiktok:'TikTok',
     facebook:'Facebook', pinterest:'Pinterest', youtube:'YouTube',
     homepage:'homepage', home:'homepage', blog:'Blog', web:'homepage'
   };
+  /** @type {Object<string, string>} */
   const LANGUAGE_LABELS = {
     en:'English', es:'Spanish', ko:'Korean', 'zh':'Chinese', 'zh-cn':'Chinese',
     fr:'French', de:'German', ja:'Japanese', pt:'Portuguese', it:'Italian',
     vi:'Vietnamese', tl:'Tagalog', hi:'Hindi'
   };
+  /**
+   * @param {unknown} owner
+   * @returns {string|null}
+   */
   const humanCopyOwner = (owner)=>{
     var o = String(owner||'').toLowerCase();
     if(!o) return null;
@@ -175,24 +194,31 @@ let skuList = [
   // ALSO narrates how the campaign was built (copy path, who built it, platforms,
   // languages, retailer theme, mode) from fields the backend ALREADY returns.
   // Nothing is invented: an absent field reads "not reported" / is simply skipped.
+  /**
+   * @param {unknown} prov backend provenance envelope
+   * @param {unknown} [platformCopy] platform_copy map (narrative path)
+   * @returns {string[]}
+   */
   const provenanceHeuristics = (prov, platformCopy)=>{
-    prov = (prov && typeof prov==='object') ? prov : {};
+    // fresh const, not reassignment: the narrowed envelope keeps its type
+    // through every branch below.
+    const env = (prov && typeof prov==='object') ? /** @type {Provenance} */ (prov) : /** @type {Provenance} */ ({});
     var lines = [];
-    var rung = prov.rung || '';
+    var rung = env.rung || '';
     lines.push('Rung: ' + (RUNG_LABELS[rung] || 'not reported'));
-    var eng = ENGINE_LABELS[prov.engine] || prov.engine || '';
+    var eng = (env.engine && ENGINE_LABELS[env.engine]) || env.engine || '';
     lines.push('Engine: ' + (eng || 'not reported'));
-    if(prov.seed_selection || prov.seed_source){
-      lines.push('Seed: ' + [prov.seed_selection, prov.seed_source ? 'via ' + prov.seed_source : null].filter(Boolean).join(' '));
+    if(env.seed_selection || env.seed_source){
+      lines.push('Seed: ' + [env.seed_selection, env.seed_source ? 'via ' + env.seed_source : null].filter(Boolean).join(' '));
     } else {
       lines.push('Seed: not reported');
     }
-    lines.push('Fallback: ' + (prov.fallthrough_reason || 'none reported'));
+    lines.push('Fallback: ' + (env.fallthrough_reason || 'none reported'));
     // ---- build narrative (only when the panel passes the second arg) ----
     // Single-arg callers (tests, the exposed hook used bare) get exactly the four
     // lines above. The lines below are additive and plainspoken for a marketer.
     if(arguments.length < 2) return lines;
-    var pc = (platformCopy && typeof platformCopy==='object') ? platformCopy : {};
+    var pc = (platformCopy && typeof platformCopy==='object') ? /** @type {Object<string, {source?: unknown}>} */ (platformCopy) : /** @type {Object<string, {source?: unknown}>} */ ({});
     var pcKeys = Object.keys(pc);
     // Copy path — did a live model write the copy, or did the on-brand template?
     var anyGenerated = pcKeys.some(function(k){ return String((pc[k]||{}).source||'').toLowerCase()==='generated'; });
@@ -205,26 +231,27 @@ let skuList = [
       lines.push('Copy: live Nova Micro rewrite — a model wrote each platform post');
     }
     // Who built it — humanize copy_owner without inventing anything.
-    var owner = humanCopyOwner(prov.copy_owner);
+    var owner = humanCopyOwner(env.copy_owner);
     if(owner) lines.push('Copy path: ' + owner);
-    // Platforms — count + human names, from prov.platforms the backend returns.
-    if(Array.isArray(prov.platforms) && prov.platforms.length){
-      var pnames = prov.platforms.map(function(p){ return PLATFORM_COPY_LABELS[String(p).toLowerCase()] || p; });
-      lines.push('Platforms: ' + prov.platforms.length + ' — ' + pnames.join(', '));
+    // Platforms — count + human names, from env.platforms the backend returns.
+    if(Array.isArray(env.platforms) && env.platforms.length){
+      var pnames = env.platforms.map(function(p){ return PLATFORM_COPY_LABELS[String(p).toLowerCase()] || p; });
+      lines.push('Platforms: ' + env.platforms.length + ' — ' + pnames.join(', '));
     }
-    // Languages — human names, from prov.languages.
-    if(Array.isArray(prov.languages) && prov.languages.length){
-      var lnames = prov.languages.map(function(l){ return LANGUAGE_LABELS[String(l).toLowerCase()] || l; });
+    // Languages — human names, from env.languages.
+    if(Array.isArray(env.languages) && env.languages.length){
+      var lnames = env.languages.map(function(l){ return LANGUAGE_LABELS[String(l).toLowerCase()] || l; });
       lines.push('Localized: ' + lnames.join(', '));
     }
     // Retailer theme / recipe / mode — surfaced only when the backend names them.
-    if(prov.retailer) lines.push('Retailer theme: ' + prov.retailer);
-    if(prov.recipe) lines.push('Recipe: ' + prov.recipe);
-    if(prov.mode) lines.push('Mode: ' + prov.mode);
+    if(env.retailer) lines.push('Retailer theme: ' + env.retailer);
+    if(env.recipe) lines.push('Recipe: ' + env.recipe);
+    if(env.mode) lines.push('Mode: ' + env.mode);
     return lines;
   };
   try{ window.KODIAK_provenanceHeuristics = provenanceHeuristics; }catch(e){}
   // Inline fallback — ratio order matches the summary copy (1x1, then portrait, then vertical, then landscape).
+  /** @type {PlatformMatrix} */
   const PLATFORM_MATRIX_FALLBACK = {
     '1x1':  {label:'Square',    w:1080, h:1080, platforms:['facebook','instagram','x','linkedin','pinterest']},
     '4x5':  {label:'Portrait',  w:1080, h:1350, platforms:['instagram','facebook']},
@@ -233,7 +260,12 @@ let skuList = [
     'blog': {label:'Blog', w:1200, h:630, platforms:['blog']}
   };
   // live matrix — starts as the fallback, upgraded by the fetched JSON when reachable.
+  /** @type {PlatformMatrix} */
   let platformMatrix = PLATFORM_MATRIX_FALLBACK;
+  /**
+   * @param {string[]|null|undefined} slugs
+   * @returns {string[]}
+   */
   const platformNames = (slugs)=> (slugs||[]).map(s=>PLATFORM_LABELS[s] || s);
   (async ()=>{
     let matrixLoaded = false;
@@ -243,9 +275,13 @@ let skuList = [
         if(r.ok){
           // isolate the parse: a 200 with a malformed body must not abort the loop or throw uncaught
           let d = null;
-          try{ d = await r.json(); }catch(pe){ console.warn('[platform-matrix] malformed JSON at', url, pe && pe.message); continue; }
+          try{ d = await r.json(); }catch(pe){ console.warn('[platform-matrix] malformed JSON at', url, pe instanceof Error ? pe.message : pe); continue; }
           if(d && d.ratios && Object.keys(d.ratios).length){
-            platformMatrix = d.ratios;
+            // external code: adopt the fetched matrix only when every key is
+            // a known TileSize carrying a platforms array, else keep fallback.
+            platformMatrix = (typeof window.KODIAK_adoptPlatformMatrix === 'function')
+              ? window.KODIAK_adoptPlatformMatrix(d.ratios, PLATFORM_MATRIX_FALLBACK)
+              : d.ratios;
             matrixLoaded = true;
             console.log('[platform-matrix] loaded', Object.keys(d.ratios).length, 'ratios from', url);
             // if the matrix explainer is already on-screen, refresh it in place
@@ -269,9 +305,18 @@ let skuList = [
       }catch(e){}
     }
   })();
-  // clean per-tile platform legend for a ratio slug (e.g. "1x1" -> "Facebook · Instagram · X · LinkedIn · Pinterest")
+  // clean per-tile platform legend for a ratio slug (e.g. "1x1" -> "Facebook · Instagram · X · LinkedIn · Pinterest").
+  // the slug arrives from backend JSON, so it crosses the boundary validator first.
+  /**
+   * @param {unknown} ratio backend ratio slug
+   * @returns {string[]}
+   */
   function platformsForRatio(ratio){
-    const row = platformMatrix[ratio];
+    const size = (typeof window.KODIAK_tileSizeFromString === 'function')
+      ? window.KODIAK_tileSizeFromString(ratio)
+      : (typeof ratio === 'string' ? /** @type {TileSize} */ (ratio) : null);
+    if (size === null) return [];
+    const row = platformMatrix[size];
     return row ? platformNames(row.platforms) : [];
   }
   // Platforms now live once on the tile caps (each cap carries its ratio's
@@ -294,12 +339,13 @@ let skuList = [
   // directly — no standalone mark flags. Retailer composes iff a SPECIFIC retailer is checked
   // (window.__activeRetailerValue, most-recent checked wins; All alone -> brief only, no mark).
   window.__selectedLayers = function(){
+    /** @type {Record<string, unknown>} */
     const layers = {};
     try{
-      if(document.getElementById('layerProduct')?.checked) layers.product_image = true;
+      if((/** @type {HTMLInputElement|null} */ (document.getElementById('layerProduct')))?.checked) layers.product_image = true;
       const retailerVal = (typeof window.__activeRetailerValue === 'function' && window.__activeRetailerValue()) || null;
       if(retailerVal) layers.retailer = retailerVal;
-      if(document.querySelector('#promptChips .ff-check-card__input[data-theme="us-ski-snowboard"]')?.checked) layers.partner_logo = true;
+      if((/** @type {HTMLInputElement|null} */ (document.querySelector('#promptChips .ff-check-card__input[data-theme="us-ski-snowboard"]')))?.checked) layers.partner_logo = true;
     }catch(e){}
     return layers;
   };
@@ -336,7 +382,7 @@ let skuList = [
 
   // Open the collapsible Preview card so freshly-generated output is visible immediately.
   function openPreviewCard(){
-    const card = document.getElementById('previewCard');
+    const card = /** @type {HTMLDetailsElement|null} */ (document.getElementById('previewCard'));
     if(card && !card.open){ card.open = true; }
   }
 
@@ -345,15 +391,26 @@ let skuList = [
   // platform-specific fields such as X post or YouTube title/description.
   const PLATFORM_COPY_ORDER = ['homepage','blog','instagram','facebook','tiktok','youtube','pinterest','x','linkedin'];
   let platformCopyGeneration = 0;
+  /** @type {Object<string, unknown>} */
   let renderedPlatformCopy = {};
+  /**
+   * @param {Object<string, unknown>} platformCopy
+   * @returns {string[]}
+   */
   function orderedPlatformCopyKeys(platformCopy){
     return PLATFORM_COPY_ORDER.filter(k=>platformCopy[k]).concat(
       Object.keys(platformCopy).filter(k=>PLATFORM_COPY_ORDER.indexOf(k)<0)
     );
   }
+  /**
+   * @param {string} k
+   * @param {unknown} entry backend copy entry
+   * @returns {string}
+   */
   function platformCopyEntryHtml(k, entry){
-    const c = (entry && typeof entry==='object') ? entry : {};
-    const clean = (typeof window.KODIAK_brandClean==='function') ? window.KODIAK_brandClean : function(x){ return x; };
+    const c = (entry && typeof entry==='object') ? /** @type {PlatformCopyEntry} */ (entry) : /** @type {PlatformCopyEntry} */ ({});
+    // one signature, not a union: unknown in, unknown out — escapeHtml stringifies downstream.
+    const clean = /** @type {(x: unknown) => unknown} */ ((typeof window.KODIAK_brandClean==='function') ? window.KODIAK_brandClean : function(x){ return x; });
     const name = c.label || PLATFORM_LABELS[k] || k;
     const title = clean(c.headline!=null ? c.headline : (c.title!=null ? c.title : ''));
     const bodyTxt = clean(c.body!=null ? c.body : (c.description!=null ? c.description : ''));
@@ -375,12 +432,19 @@ let skuList = [
       (tags? '<p class="pc-tags">'+escapeHtml(tags)+'</p>':'')+
       '</div>';
   }
+  /**
+   * @param {string} text
+   * @param {boolean} visible
+   */
   function setPlatformCopyStatus(text, visible){
     const status = document.getElementById('platformCopyStatus');
     if(!status) return;
     status.textContent = text || '';
     status.hidden = !visible;
   }
+  /**
+   * @param {Object<string, unknown>} nextCopy
+   */
   function updatePlatformCopyPanel(nextCopy){
     const panel = document.getElementById('platformCopyPanel');
     if(!panel || !nextCopy || typeof nextCopy!=='object') return false;
@@ -400,6 +464,10 @@ let skuList = [
     });
     return true;
   }
+  /**
+   * @param {unknown} platformCopy
+   * @returns {number}
+   */
   function renderPlatformCopy(platformCopy){
     const preview = document.getElementById('preview');
     if(!preview) return 0;
@@ -408,29 +476,39 @@ let skuList = [
     const old = document.getElementById('platformCopyPanel');
     if(old) old.remove();
     if(!platformCopy || typeof platformCopy!=='object') return platformCopyGeneration;
-    const keys = orderedPlatformCopyKeys(platformCopy);
+    const keys = orderedPlatformCopyKeys(/** @type {Object<string, unknown>} */ (platformCopy));
     if(!keys.length) return platformCopyGeneration;
-    renderedPlatformCopy = Object.assign({}, platformCopy);
+    renderedPlatformCopy = /** @type {Object<string, unknown>} */ (Object.assign({}, platformCopy));
     const panel = document.createElement('div');
     panel.className = 'platform-copy';
     panel.id = 'platformCopyPanel';
     panel.innerHTML = '<div class="pc-head">Per-platform messaging <span id="platformCopyStatus" class="pc-status" role="status" aria-live="polite" hidden></span></div>';
     const anchor = document.getElementById('provenancePanel') || document.getElementById('previewDownloadRow') || preview;
     anchor.parentNode?.insertBefore(panel, anchor.nextSibling);
-    updatePlatformCopyPanel(platformCopy);
+    updatePlatformCopyPanel(/** @type {Object<string, unknown>} */ (platformCopy));
     return platformCopyGeneration;
   }
 
+  /**
+   * @param {unknown} market
+   * @param {unknown} provenance
+   * @returns {string[]}
+   */
   function platformCopyLanguages(market, provenance){
-    const raw = Array.isArray(provenance && provenance.languages) && provenance.languages.length
-      ? provenance.languages
-      : (typeof marketLangsFor==='function' ? marketLangsFor(market) : []);
+    const provLangs = (provenance && typeof provenance === 'object') ? /** @type {{languages?: unknown}} */ (provenance).languages : undefined;
+    const raw = Array.isArray(provLangs) && provLangs.length
+      ? provLangs
+      : (typeof marketLangsFor==='function' ? marketLangsFor(typeof market === 'string' ? market : '') : []);
     const codes = raw.map(l=>{
       if(typeof l==='string') return l;
       return l && (l.translate_code || l.lang_code || l.code);
     }).filter(Boolean).map(code=>String(code).toLowerCase());
     return Array.from(new Set(['en'].concat(codes)));
   }
+  /**
+   * @param {{baseMessage?: unknown, productName?: unknown, market?: unknown, provenance?: unknown}} [options]
+   * @returns {Promise<boolean>}
+   */
   async function sharpenPlatformCopy(options){
     options = options || {};
     if((location.protocol==='file:') || ['127.0.0.1','localhost'].includes(location.hostname)) return false;
@@ -462,6 +540,7 @@ let skuList = [
       return true;
     }catch(err){
       if(generation !== platformCopyGeneration) return false;
+      /** @type {Object<string, unknown>} */
       const fallback = {};
       Object.keys(renderedPlatformCopy).forEach(k=>{ fallback[k] = Object.assign({}, renderedPlatformCopy[k], {source:'fallback'}); });
       updatePlatformCopyPanel(fallback);
@@ -479,6 +558,10 @@ let skuList = [
   // (phase 'used'). It never invents marketing copy: driving shows only what the
   // user supplied + selected; used shows only what the backend returned, plus
   // request/response divergence flags computed from real echoed fields.
+  /**
+   * @param {CopyPanelArg} arg
+   * @returns {void}
+   */
   function paintCopyPanel(arg){
     const preview = document.getElementById('preview');
     if(!preview || !arg) return;
@@ -502,9 +585,9 @@ let skuList = [
     }
     // phase 'used' — upgrade the driving panel; never fabricate one post-hoc.
     if(!panel) return;
-    const driving = (arg.driving || window.__lastCopyDriving) || {};
-    const json = arg.json || {};
-    const prov = (json.provenance && typeof json.provenance==='object') ? json.provenance : {};
+    const driving = /** @type {{theme?: unknown}} */ ((arg.driving || window.__lastCopyDriving) || {});
+    const json = /** @type {{provenance?: unknown, theme?: unknown, source?: unknown, platform_copy?: unknown}} */ (arg.json || {});
+    const prov = /** @type {{art_headline?: unknown, deferred?: unknown, theme?: unknown}} */ ((json.provenance && typeof json.provenance==='object') ? json.provenance : {});
     const flags = [];
     const reqTheme = driving.theme || null;
     const gotTheme = json.theme || prov.theme || null;
@@ -513,7 +596,7 @@ let skuList = [
     const src = String(json.source||'');
     const isFallback = /^brand-floor/i.test(src);
     if(isFallback) flags.push('render miss — fallback pixels ('+src+'), not the campaign; no copy was used');
-    const pc = (json.platform_copy && typeof json.platform_copy==='object') ? json.platform_copy : {};
+    const pc = /** @type {Object<string, {headline?: unknown, title?: unknown}>} */ ((json.platform_copy && typeof json.platform_copy==='object') ? json.platform_copy : {});
     const pcKeys = Object.keys(pc);
     const deferred = Array.isArray(prov.deferred) ? prov.deferred : [];
     let usedHtml;
@@ -521,7 +604,8 @@ let skuList = [
       usedHtml = '<p class="pc-text">No copy was used — the backend returned fallback pixels.</p>';
     } else if(prov.art_headline || pcKeys.length){
       // KODIAK-forbidden-in-copy law: backend copy predates the law — clean at paint time.
-      var cleanUsed = (typeof window.KODIAK_brandClean==='function') ? window.KODIAK_brandClean : function(x){ return x; };
+      // one signature, not a union: unknown in, unknown out — escapeHtml stringifies downstream.
+      var cleanUsed = /** @type {(x: unknown) => unknown} */ ((typeof window.KODIAK_brandClean==='function') ? window.KODIAK_brandClean : function(x){ return x; });
       usedHtml = (prov.art_headline ? '<p class="pc-title">'+escapeHtml(cleanUsed(prov.art_headline))+'</p>' : '')+
         (pcKeys.length ? '<p class="pc-text">'+pcKeys.map(k=>escapeHtml(k+': '+cleanUsed(((pc[k]||{}).headline||(pc[k]||{}).title)||''))).join('<br>')+'</p>' : '<p class="pc-text">Full platform copy deferred — ships with Generate Campaign.</p>');
     } else if(deferred.indexOf('platform_copy')!==-1){
@@ -538,10 +622,11 @@ let skuList = [
 
   // Single generate: fans to ALL formats/platforms/locals, returns sample + nearest Frontier + newsletter variant
   // Dev: try GlimmerProxy (127.0.0.1:8181) for brief→SKU intelligence + diagnose, then Nova unlimited (hosted) — go ham on embeddings
-  const btn = document.getElementById('generateCampaign');
+  // page contract: the generate button always ships with this markup.
+  const btn = /** @type {HTMLButtonElement} */ (document.getElementById('generateCampaign'));
   if(btn){
     btn.addEventListener('click', async ()=>{
-      let brief = document.getElementById('campaignBrief')?.value.trim();
+      let brief = (/** @type {HTMLInputElement|null} */ (document.getElementById('campaignBrief')))?.value.trim();
       if(!brief){ brief = 'Keep It Wild — Feeding Epic Days & Wilder Lives • Nourishment for Today\'s Frontier — 100% whole grains, 14g protein — quick-test'; }
       // D. seasonal context — optional. If a season/month/holiday is chosen, fold a hint into the brief
       // that /generate receives (empty selection adds nothing). Matches how activeTheme threads context.
@@ -560,11 +645,12 @@ let skuList = [
           brief = brief + ' — user assets: ' + userAssets.map(function(a){return a.name;}).join(', ');
         }
       }catch(e){}
-      let selectedProducts = Array.from(document.querySelectorAll('#productChooser .sku-check:checked')).map(c=>c.value);
+      /** @type {string[]} */
+      let selectedProducts = /** @type {HTMLInputElement[]} */ (Array.from(document.querySelectorAll('#productChooser .sku-check:checked'))).map(c=>c.value);
       const hadExplicitSelection = selectedProducts.length > 0;
       // If local and glimmer up, let it rank SKUs intelligently (not random)
       if(!selectedProducts.length && window.GlimmerProxy?.isLocal){
-        try{ const ranked = await window.GlimmerProxy.pickSkus(brief, skuList, 3); if(ranked) selectedProducts = ranked; }catch(e){}
+        try{ const ranked = window.GlimmerProxy && window.GlimmerProxy.pickSkus ? await window.GlimmerProxy.pickSkus(brief, skuList, 3) : null; if(Array.isArray(ranked)) selectedProducts = /** @type {string[]} */ (ranked); }catch(e){}
       }
       const products = selectedProducts.length ? selectedProducts : [...skuList].sort(()=>0.5-Math.random()).slice(0,3);
       const audience = 'KODIAK design guide audience — see UX Profiles (23 cards)';
@@ -572,7 +658,7 @@ let skuList = [
       // (#257: featuredFrontierFor in data-core.js, canonical — the backend JSON
       // is generated from it) — no hardcoded market checks.
       let selectedLoc = null;
-      try{ const locVal=document.getElementById('locality')?.value || 'US-MW-PARKCITY-84098'; selectedLoc = places.find(p=>p.market===locVal) || places.find(p=>p.market==='US-MW-PARKCITY-84098') || places[0]; }catch(e){ selectedLoc = {place:'Park City, Utah 84098', market:'US-MW-PARKCITY-84098'}; }
+      try{ const locVal=(/** @type {HTMLInputElement|null} */ (document.getElementById('locality')))?.value || 'US-MW-PARKCITY-84098'; selectedLoc = places.find(p=>p.market===locVal) || places.find(p=>p.market==='US-MW-PARKCITY-84098') || places[0]; }catch(e){ selectedLoc = {place:'Park City, Utah 84098', market:'US-MW-PARKCITY-84098'}; }
       const frontierLink = (typeof featuredFrontierFor==='function') ? featuredFrontierFor(selectedLoc.market) : null;
       const frontierHint = frontierLink ? frontierLink.text : 'Nearest Frontier via haversine — same pipeline fans to all 75';
       const status = document.getElementById('sampleStatus');
@@ -594,12 +680,15 @@ let skuList = [
       // catalog handles, so the authoritative .handle lookup serves them correctly and the fallback
       // below never has to guess. The fallback mirrors how Kodiak actually mints the dominant handle
       // style — drop the standalone connector — which resolves every flagship baking-mix / flapjack SKU.
+      /** @param {unknown} s @returns {string} */
       const norm = (s)=>String(s||'').toLowerCase().trim();
+      /** @param {string} name @returns {string} */
       const slugFallback = (name)=>{
         // drop standalone "and" / "&" the way the map keys do, then hyphenate
         const s = norm(name).replace(/&/g,' ').replace(/\band\b/g,' ');
         return s.replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
       };
+      /** @param {string} name @returns {string} */
       const slugify = (name)=>{
         try{
           const cat = (window.skuCatalog || (typeof skuCatalog!=='undefined' ? skuCatalog : [])) || [];
@@ -625,6 +714,7 @@ let skuList = [
       // Theme is active only when a card is the starting point (set on window by the prompt-chips IIFE).
       // A manual brief edit or product selection clears window.__activeTheme.
       const activeTheme = window.__activeTheme || null;
+      /** @type {Object<string, string>} */
       const THEME_LABELS = {
         'recipe-cards':'Recipe cards','localized-costco':'Localized Costco',
         'localized-publix':'Localized Publix','localized-all':'All retailers',
@@ -636,9 +726,13 @@ let skuList = [
       const themeLabel = activeTheme ? (THEME_LABELS[activeTheme] || activeTheme) : null;
       // Copy sidecars (#199) — campaign copy as text/CSV downloads, never baked into
       // pixels. Remembers the backend copy_sidecar (or platform_copy) per response.
+      /**
+       * @param {string} kind
+       * @returns {void}
+       */
       const downloadSidecar = (kind)=>{
-        const sc = window.__lastSidecar || null;
-        const text = (sc && sc[kind]) ? sc[kind] : 'Kodiak Cakes campaign copy — hit Create first for this campaign\u2019s sidecar.\n';
+        const sc = /** @type {Object<string, unknown>} */ (window.__lastSidecar || {});
+        const text = sc[kind] ? String(sc[kind]) : 'Kodiak Cakes campaign copy — hit Create first for this campaign\u2019s sidecar.\n';
         const blob = new Blob([text], {type: kind==='csv' ? 'text/csv' : 'text/plain'});
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
@@ -646,11 +740,13 @@ let skuList = [
         document.body.appendChild(a); a.click();
         setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 500);
       };
+      /** @param {unknown} j @returns {void} */
       const rememberSidecar = (j)=>{
         try{
-          window.__lastSidecar = (j && j.copy_sidecar) || null;
-          window.__lastPlatformCopy = (j && j.platform_copy) || {};
-          window.__lastLayers = (j && j.layers) || {};
+          const jj = /** @type {{copy_sidecar?: unknown, platform_copy?: unknown, layers?: unknown}} */ ((j && typeof j === 'object') ? j : {});
+          window.__lastSidecar = jj.copy_sidecar || null;
+          window.__lastPlatformCopy = jj.platform_copy || {};
+          window.__lastLayers = jj.layers || {};
         }catch(e){}
       };
       // Reveal the primary "Download image" action directly under the preview.
@@ -672,7 +768,7 @@ let skuList = [
           primary.style.cssText = 'justify-content:center;padding:12px 18px;font-size:13px';
           primary.textContent = 'Download image';
           primary.setAttribute('aria-label', 'Download the composed campaign image');
-          primary.addEventListener('click', function(){ window.downloadAssetPack(); });
+          primary.addEventListener('click', function(){ if(typeof window.downloadAssetPack==='function') window.downloadAssetPack(); });
           row.appendChild(primary);
           // SECONDARY — the localized campaign asset pack (all ratios x platform x retailer x localized languages).
           // Real primary action tied to #downloadPack's handler (window.downloadAssetPack). No coming-soon gate.
@@ -683,7 +779,7 @@ let skuList = [
           pack.style.cssText = 'justify-content:center;padding:12px 18px;font-size:13px';
           pack.textContent = 'Download asset pack';
           pack.setAttribute('aria-label', 'Download the full localized campaign asset pack — all ratios, platforms, retailers, languages');
-          pack.addEventListener('click', function(){ window.downloadAssetPack({pack:true}); });
+          pack.addEventListener('click', function(){ if(typeof window.downloadAssetPack==='function') window.downloadAssetPack({pack:true}); });
           row.appendChild(pack);
           // SIDECARS (#199) — campaign copy as text/CSV, never baked into pixels.
           const txtBtn = document.createElement('button');
@@ -711,6 +807,12 @@ let skuList = [
       // Show the real generation result(s). For a single image, one prominent hero tile.
       // For multi-product fan-out, a grid of tiles (one per product). window.__lastHeroUrl is
       // the FIRST returned so the "Download image" button targets the hero.
+      /**
+       * @param {string} imageUrl
+       * @param {unknown} source engine label or '';
+       * @param {ShowOpts} [opts]
+       * @returns {void}
+       */
       const showRealImage = (imageUrl, source, opts)=>{
         opts = opts || {};
         // In grid/append mode the caller owns __lastHeroUrl (first-returned wins); single mode records here.
@@ -745,6 +847,11 @@ let skuList = [
         try{ if(typeof window.__kodiakRevealCampaign==='function') window.__kodiakRevealCampaign(); }catch(e){}
       };
       // Human labels for the render ratios and the engine.
+      // teaching note (frontier totality: keyed by the whole TileSize union — add a
+      // size and the checker lists every table you must extend; exhaustiveness by keys).
+      // decision: Object<TileSize,...>, not Object<string,...> — string keys would
+      // silently accept a missing size.
+      /** @type {Object<TileSize, {name: string, cls: string}>} */
       const RATIO_LABELS = {
         '1x1': {name:'Feed', cls:'r-1x1'},
         '4x5': {name:'Portrait', cls:'r-4x5'},
@@ -755,20 +862,36 @@ let skuList = [
       // Unit 2 (#173) — honest rung badge. Provenance drives the label; any
       // fallback rung (C/D or a fallthrough_reason) gets flagged, never silently
       // relabeled "Nova Pro". Fallback sightings become counted facts.
+      /**
+       * @param {unknown} source
+       * @param {unknown} prov backend provenance envelope
+       * @returns {{text: string, fallback: boolean}}
+       */
       const rungBadge = (source, prov)=>{
-        prov = prov || {};
-        const rung = prov.rung || '';
-        const fallback = !!prov.fallthrough_reason || rung==='C' || rung==='D';
-        const base = RUNG_LABELS[rung] || ((source && String(source).toLowerCase().includes('bedrock')) ? 'Nova Pro' : (source || 'Nova Pro'));
-        const text = (fallback ? 'Fallback — ' : '') + base + (prov.fallthrough_reason ? ' (' + prov.fallthrough_reason + ')' : '');
+        const p = (prov && typeof prov==='object') ? /** @type {Provenance} */ (prov) : /** @type {Provenance} */ ({});
+        const rung = p.rung || '';
+        const fallback = !!p.fallthrough_reason || rung==='C' || rung==='D';
+        const base = RUNG_LABELS[rung] || ((source && String(source).toLowerCase().includes('bedrock')) ? 'Nova Pro' : String(source || 'Nova Pro'));
+        const text = (fallback ? 'Fallback — ' : '') + base + (p.fallthrough_reason ? ' (' + p.fallthrough_reason + ')' : '');
         return {text:text, fallback:fallback};
       };
+      /**
+       * @param {HTMLElement} badge
+       * @param {{text: string, fallback: boolean}} rb
+       * @returns {void}
+       */
       const paintRungBadge = (badge, rb)=>{
         badge.textContent = rb.text;
         badge.style.cssText = 'display:inline-block;margin:0 0 8px;padding:2px 8px;border-radius:6px;font-size:11px;color:#FFF8F0;background:' + (rb.fallback ? '#B51E14' : '#1A3C34');
       };
-      const escapeHtml = (s)=> String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      /** @param {unknown} s @returns {string} */
+      const escapeHtml = (s)=> String(s==null?'':s).replace(/[&<>"']/g, (c)=>ESCAPES[c] || c);
       // TASK 1 — render THREE labeled tiles (one per ratio) at real aspect ratio; records the 1x1 as the hero.
+      /**
+       * @param {RenderItem[]} renders
+       * @param {ShowOpts} [opts]
+       * @returns {void}
+       */
       const showRenderSet = (renders, opts)=>{
         opts = opts || {};
         const preview = document.getElementById('preview');
@@ -780,7 +903,9 @@ let skuList = [
         set.className = 'render-set';
         const themeBit = opts.themeLabel ? (', ' + opts.themeLabel + ' theme') : '';
         renders.forEach((r, i)=>{
-          const meta = RATIO_LABELS[r.ratio] || {name:r.ratio, cls:'r-'+String(r.ratio||'').replace(/[^0-9x]/g,'')};
+          // backend slug validated to TileSize; unknown slugs keep their name and a derived class.
+          const size = (typeof window.KODIAK_tileSizeFromString==='function') ? window.KODIAK_tileSizeFromString(r.ratio) : null;
+          const meta = (size && RATIO_LABELS[size]) || {name:r.ratio, cls:'r-'+String(r.ratio||'').replace(/[^0-9x]/g,'')};
           const tile = document.createElement('div');
           tile.className = 'render-tile ' + meta.cls;
           const frame = document.createElement('div');
@@ -801,7 +926,7 @@ let skuList = [
           // community-review never machine, offline pending). Driven by the selected market at render time.
           let locCap = '';
           try{
-            const _m = document.getElementById('locality')?.value || (selectedLoc && selectedLoc.market);
+            const _m = (/** @type {HTMLInputElement|null} */ (document.getElementById('locality')))?.value || (selectedLoc && selectedLoc.market);
             if(_m && typeof window.KODIAK_locCaption==='function') locCap = window.KODIAK_locCaption(_m);
           }catch(e){}
           cap.innerHTML = '<b>' + escapeHtml(ratioColon + ' ' + meta.name) + '</b>' +
@@ -833,8 +958,15 @@ let skuList = [
       // expose the hosted multi-ratio renderer so the Generate Campaign section can reuse it for full-campaign results
       try{ window.KODIAK_showRenderSet = showRenderSet; }catch(e){}
       // TASK 2 — collapsible provenance panel: what you provided vs what we did.
+      /**
+       * @param {unknown} prov backend response envelope
+       * @param {ProvCtx} [ctx] request inputs
+       * @returns {void}
+       */
       const renderProvenancePanel = (prov, ctx)=>{
-        ctx = ctx || {};
+        // fresh consts, not reassignment: narrowed shapes keep their types below.
+        const penv = /** @type {Provenance} */ ((prov && typeof prov==='object') ? prov : {});
+        const cctx = /** @type {ProvCtx} */ (ctx || {});
         const preview = document.getElementById('preview');
         if(!preview) return;
         // build-tracing is ALWAYS shown: an absent/empty provenance still renders
@@ -843,32 +975,34 @@ let skuList = [
         // remove a prior panel so re-generate replaces cleanly
         const old = document.getElementById('provenancePanel');
         if(old) old.remove();
-        const engineLabel = ENGINE_LABELS[prov.engine] || prov.engine || '—';
-        const ratios = prov.ratios || {};
+        const engineLabel = String((typeof penv.engine === 'string' && ENGINE_LABELS[penv.engine]) || penv.engine || '—');
+        const ratios = /** @type {Object<string, unknown>} */ (penv.ratios || {});
         const ratioPills = Object.keys(ratios).map(k=>{
           const role = ratios[k];
-          const cls = /primary/i.test(role) ? 'primary' : 'outpaint';
+          const cls = /primary/i.test(String(role)) ? 'primary' : 'outpaint';
           return '<span class="prov-pill ' + cls + '">' + escapeHtml(k.replace('x',':')) + ' ' + escapeHtml(role) + '</span>';
         }).join(' ');
+        /** @param {unknown} v @returns {string} */
         const onoff = (v)=> v ? '<span class="prov-pill on">applied</span>' : '<span class="prov-pill off">not applied</span>';
-        const rows = (pairs)=> pairs.filter(p=>p[1]!=null && p[1]!=='').map(p=>'<dt>' + escapeHtml(p[0]) + '</dt><dd>' + p[1] + '</dd>').join('');
+        /** @param {Array<[string, (string|null)]>} pairs @returns {string} */
+        const rows = (pairs)=> pairs.filter(p=>p[1]!=null && p[1]!=='').map(p=>'<dt>' + escapeHtml(p[0]) + '</dt><dd>' + String(p[1]) + '</dd>').join('');
         const provided = rows([
-          ['Prompt', escapeHtml(prov.incoming_prompt || ctx.brief || '—')],
-          ['Headline', escapeHtml(prov.headline)],
-          ['Theme', escapeHtml(ctx.themeLabel || ctx.theme)],
-          ['Market', escapeHtml(ctx.market)],
-          ['Product', escapeHtml(ctx.product)]
+          ['Prompt', escapeHtml(penv.incoming_prompt || cctx.brief || '—')],
+          ['Headline', escapeHtml(penv.headline)],
+          ['Theme', escapeHtml(cctx.themeLabel || cctx.theme)],
+          ['Market', escapeHtml(cctx.market)],
+          ['Product', escapeHtml(cctx.product)]
         ]);
         const did = rows([
           ['Engine', escapeHtml(engineLabel)],
-          ['Model', escapeHtml(prov.model)],
-          ['Seed source', escapeHtml(prov.seed_source)],
-          ['Seed selection', escapeHtml(prov.seed_selection)],
-          ['Art-director scene', escapeHtml(prov.scene_prompt)],
-          ['Control strength', prov.control_strength!=null ? escapeHtml(prov.control_strength) : null],
+          ['Model', escapeHtml(penv.model)],
+          ['Seed source', escapeHtml(penv.seed_source)],
+          ['Seed selection', escapeHtml(penv.seed_selection)],
+          ['Art-director scene', escapeHtml(penv.scene_prompt)],
+          ['Control strength', penv.control_strength!=null ? escapeHtml(penv.control_strength) : null],
           ['Ratios', ratioPills || null],
-          ['Brand overlay', onoff(prov.overlay_applied)],
-          ['Paper texture', onoff(prov.paper_overlay)]
+          ['Brand overlay', onoff(penv.overlay_applied)],
+          ['Paper texture', onoff(penv.paper_overlay)]
         ]);
         const panel = document.createElement('details');
         panel.className = 'provenance';
@@ -879,10 +1013,10 @@ let skuList = [
         // (rung/engine/seed/fallback); the panel then re-runs with the
         // platform_copy map to append the plainspoken build narrative so a
         // marketer reads WHAT the machine did, not just decision labels.
-        var decisionLines = [], buildLines = [];
+        var decisionLines = /** @type {string[]} */ ([]), buildLines = /** @type {string[]} */ ([]);
         try{
           decisionLines = provenanceHeuristics(prov);
-          var allLines = provenanceHeuristics(prov, ctx.platformCopy || {});
+          var allLines = provenanceHeuristics(prov, cctx.platformCopy || {});
           buildLines = allLines.slice(decisionLines.length);
         }catch(e){ decisionLines = []; buildLines = []; }
         var heurHtml = decisionLines.map(function(h){
@@ -930,11 +1064,15 @@ let skuList = [
       // Lock competing controls during generation so nothing changes mid-request; restore after.
       // Class-driven dimming on #promptChips (no inline styles): .is-locked paints it in components.css.
       const lockIds = ['generateCampaign','productSearch','randomProducts','downloadPack','promptUpload'];
+      /**
+       * @param {boolean} locked
+       * @returns {void}
+       */
       const lockControls = (locked)=>{
-        lockIds.forEach(id=>{ const el=document.getElementById(id); if(el) el.disabled=locked; });
-        document.querySelectorAll('#promptChips .ff-check-card__input').forEach(c=>{ c.disabled=locked; });
+        lockIds.forEach(id=>{ const el=document.getElementById(id); if(el) /** @type {HTMLButtonElement|HTMLInputElement} */ (el).disabled=locked; });
+        /** @type {NodeListOf<HTMLInputElement>} */ (document.querySelectorAll('#promptChips .ff-check-card__input')).forEach(c=>{ c.disabled=locked; });
         document.getElementById('promptChips')?.classList.toggle('is-locked', locked);
-        document.querySelectorAll('#productChooser .sku-check').forEach(c=>{ c.disabled=locked; });
+        /** @type {NodeListOf<HTMLInputElement>} */ (document.querySelectorAll('#productChooser .sku-check')).forEach(c=>{ c.disabled=locked; });
       };
       // Preserve local/offline behavior: file:// or localhost has no /generate — go straight to canvas.
       const isLocal = (location.protocol==='file:') || ['127.0.0.1','localhost'].includes(location.hostname);
@@ -966,6 +1104,16 @@ let skuList = [
       //  - 2+ products explicitly selected AND no theme -> one request PER product, render a grid
       //  - otherwise -> one default request (single hero)
       const doThemedOrSingle = activeTheme || !(hadExplicitSelection && products.length > 1);
+      /**
+       * @param {string} productSlug
+       * @param {unknown} wantTheme
+       * @returns {Promise<void>}
+       */
+      /**
+       * @param {string} productSlug
+       * @param {unknown} wantTheme
+       * @returns {Promise<BackendResponse>}
+       */
       const oneGenerate = async (productSlug, wantTheme)=>{
         // scope-first: Create reads the segmented control's selection (window.__campaignScope, default local)
         const scope = window.__campaignScope || 'local';
@@ -992,6 +1140,11 @@ let skuList = [
       // is NOT the fake-output path: it does not set window.__lastHeroUrl (so the download
       // button will not treat it as a real generated hero) and carries no "source: Nova Pro"
       // badge — it visibly reads as an offline preview of the requested product, not a result.
+      /**
+       * @param {string} requestedSku
+       * @param {string} briefText
+       * @returns {void}
+       */
       const drawNetworkLossNotice = (requestedSku, briefText)=>{
         const p = document.getElementById('preview');
         if(!p) return;
@@ -1007,14 +1160,18 @@ let skuList = [
           const cat = (window.skuCatalog || (typeof skuCatalog!=='undefined' ? skuCatalog : [])) || [];
           const hit = cat.find(x=>x && (x.handle===sku || x.name===sku));
           if(hit && hit.img) heroSrc = hit.img;
-          else if(typeof products!=='undefined'){ const pr = products.find && products.find(x=>x && (x.id===sku)); if(pr && pr.img) heroSrc = pr.img; }
+          // historical shape: the local products here is string[], so this lookup always
+        // misses (the id/img list lives in data-core). flagged, not changed — see README.
+        else if(typeof products!=='undefined'){ const damList = /** @type {Array<{id?: string, img?: string}>} */ (/** @type {unknown} */ (products)); const pr = damList.find && damList.find(x=>x && (x.id===sku)); if(pr && pr.img) heroSrc = pr.img; }
         }catch(e){}
         const isRealHero = typeof heroSrc==='string' && /^https?:\/\//.test(heroSrc) && heroSrc.indexOf('input_assets/')===-1;
         const tile = document.createElement('div');
         tile.className = 'tile';
         tile.style.cssText = 'grid-column:1/-1;max-width:640px;margin:0 auto;border:1px dashed #B51E14';
         const c = document.createElement('canvas'); c.width=1080; c.height=1080; c.style.maxWidth='100%'; c.style.height='auto';
-        const ctx = c.getContext('2d');
+        // page contract: 2d contexts are universally available — null only for unknown ids.
+        const ctx = /** @type {CanvasRenderingContext2D} */ (c.getContext('2d'));
+        /** @param {HTMLImageElement|null} heroImg @returns {void} */
         const paint = (heroImg)=>{
           try{ drawAd(ctx, 1080, 1080, (briefText||'Keep It Wild'), {id:sku}, heroImg||null); }catch(e){}
           // explicit offline watermark band — makes clear this is NOT the generated result.
@@ -1022,14 +1179,15 @@ let skuList = [
           ctx.fillStyle='#FFF8F0'; ctx.textAlign='center'; ctx.font='700 26px Inter,sans-serif';
           ctx.fillText('OFFLINE PREVIEW — not the generated campaign', 540, 42);
         };
-        // leak-teardown: null the handlers after they fire so the closure + Image release.
+        // leak-teardown: detach the handlers after they fire so the closure + Image release.
         let img = new Image(); img.crossOrigin='anonymous';
-        img.onload = ()=>{ paint(img); img.onload=img.onerror=null; img=null; };
-        img.onerror = ()=>{ paint(null); img.onload=img.onerror=null; img=null; };
+        const release = ()=>{ img.onload=null; img.onerror=null; };
+        img.onload = ()=>{ paint(img); release(); };
+        img.onerror = ()=>{ paint(null); release(); };
         // only fire a network load for a real resolvable url; otherwise paint with no photo
         // (NO Image(), NO 404). offline preview still renders with its OFFLINE watermark.
         if(isRealHero){ img.src = heroSrc; }
-        else { paint(null); img.onload=img.onerror=null; img=null; }
+        else { paint(null); release(); }
         tile.appendChild(c);
         const meta = document.createElement('div'); meta.className='meta';
         meta.innerHTML = `<b>Offline preview — ${sku}</b><div class="small flag-err">No server response. This is a local stand-in of the requested product, not a generated campaign. Reconnect and try Create again.</div>`;
@@ -1086,7 +1244,7 @@ let skuList = [
           // sharpens it through the separate bounded endpoint without hiding it.
           renderPlatformCopy(json.platform_copy);
           try{
-            const previewProv = (json.provenance && typeof json.provenance==='object') ? json.provenance : {};
+            const previewProv = /** @type {{copy_headline?: unknown, incoming_prompt?: unknown}} */ ((json.provenance && typeof json.provenance==='object') ? json.provenance : {});
             const previewBaseMessage = previewProv.copy_headline || previewProv.incoming_prompt || json.headline || json.message || brief;
             void sharpenPlatformCopy({
               baseMessage: previewBaseMessage,
@@ -1112,7 +1270,7 @@ let skuList = [
               okCount++;
               if(!firstDone){ firstDone = true; window.__lastHeroUrl = json.image_url; rememberSidecar(json); try{ window.__lastCopyJson = json; }catch(_){} }
             }catch(e){
-              console.warn('generate: product variant failed for', name, e && e.message ? e.message : e);
+              console.warn('generate: product variant failed for', name, e instanceof Error ? e.message : e);
               // render a small failed-tile so the grid shows what did not compose
               const p = document.getElementById('preview');
               if(p){ const t=document.createElement('div'); t.className='tile'; t.innerHTML=`<div class="meta"><b>${name}</b><div class="small flag-err">variant failed — try again</div></div>`; p.appendChild(t); }
@@ -1135,16 +1293,16 @@ let skuList = [
         // that misrepresented a real generated result. Defense-in-depth for total network loss
         // ONLY: composite the REAL requested SKU offline and label it explicitly as an offline
         // stand-in — never styled or badged as the real generated campaign.
-        console.warn('generate: no response from backend (total network loss) —', err && err.message ? err.message : err);
-        const timedOut = err && (err.name==='AbortError');
+        console.warn('generate: no response from backend (total network loss) —', err instanceof Error ? err.message : err);
+        const timedOut = err instanceof Error && err.name==='AbortError';
         try{
-          drawNetworkLossNotice(window.__requestedSku || primarySlug, brief);
+          drawNetworkLossNotice(String(window.__requestedSku || primarySlug), brief);
         }catch(e){ console.warn('offline notice render failed', e); }
         if(status) status.textContent = timedOut
           ? 'No response from the server (timed out) — offline preview shown; reconnect and try again'
           : 'Could not reach the server — offline preview shown; reconnect and try again';
       }finally{
-        clearTimeout(timeoutId);
+        if(timeoutId) clearTimeout(timeoutId);
         if(stageT1) clearTimeout(stageT1);
         if(stageT2) clearTimeout(stageT2);
         if(tick) clearInterval(tick);
@@ -1158,6 +1316,6 @@ let skuList = [
   }
 
   // Programmatic layers: expose masks/fonts as geometric levers via data-mcp-layer (tooling, not GenAI pixels)
-  document.querySelectorAll('[data-mcp-layer]').forEach(el=>{ el.title = 'WebMCP layer: ' + el.getAttribute('data-mcp-layer'); });
+  /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll('[data-mcp-layer]')).forEach(el=>{ el.title = 'WebMCP layer: ' + el.getAttribute('data-mcp-layer'); });
   console.log('KODIAK campaign UI — single brief + up to 3 SKUs + real team + local flavor derived + single generate (fans to ALL)');
 })();

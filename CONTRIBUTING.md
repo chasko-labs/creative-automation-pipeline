@@ -94,6 +94,10 @@ A named development branch deploys to the shared development hostname, where the
 
 The deploy script rejects a dirty worktree, derives the expected target from the local branch, requires an explicit `AWS_PROFILE`, uses the selected target for storage, distribution, version source, and verification output, and keeps development identifiers fail-closed through environment variables
 
+### Types as documentation
+
+The frontier page scripts carry their shapes in plain comments so the checker can verify them. Values from outside — backend responses, page elements — arrive unchecked and pass through a named check before use. Fixed sets like tile sizes stay closed: only the listed values are valid. Whenever a type annotation does something subtle, the reason sits on the line next to it, not in a separate doc.
+
 ### Reviewer zip
 
 Clean `origin/main` export + rendered docs + auto-unlocking file:// copy + the required 2:55 walkthrough video:

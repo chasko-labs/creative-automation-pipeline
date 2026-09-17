@@ -1,4 +1,5 @@
 // Market languages — top 2 outside English per market (ACS 2022), auto-produced as EN + localized variants. Proven via Nova (unlimited budget) (Amazon Translate + Nova Micro)
+/** @type {Object<string, MarketLang[]>} */
 const marketLangsOffline = {
   "US-SW-EL PASO": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":62},{"lang_code":"de","lang_name":"German","translate_code":"de","pct_home":0.6}],
   "US-NE-BURLINGTON": [{"lang_code":"fr","lang_name":"French","translate_code":"fr","pct_home":3.2},{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":2.1}],
@@ -31,16 +32,16 @@ if(!window.KODIAK_LOCALIZED_COPY["US-MW-PARKCITY-84098"]){
 }
 /** @param {string} code @returns {Array<{lang_code:string,lang_name:string,translate_code:string,pct_home:number,machine_translate?:boolean,review?:string,review_note?:string}>} */
 function marketLangsFor(code){ return (marketLangsOffline[code] || marketLangsOffline._default || []).filter(Boolean); }
-/** @param {void} @returns {void} */
+/** @returns {void} */
 function renderLangChips(){
   // declutter — lang-chips removed from the app page (non-interactive, hardcoded markets).
   // kept as a safe no-op so fillSelects/change-listener/setTimeout/async-fetch callers never throw.
   const el=document.getElementById('lang-chips');
   if(el && el.parentNode) el.parentNode.removeChild(el);
 }
-document.addEventListener('change', e=>{ if(e.target && e.target.id==='locality') renderLangChips(); });
+document.addEventListener('change', /** @param {Event} e */ (e)=>{ const t = e.target instanceof Element ? e.target : null; if(t && t.id==='locality') renderLangChips(); });
 // also fetch full 75-market file when online to upgrade offline seed — try multiple paths for local http.server 8099 vs S3
-(async()=>{ for(const url of ['data/localization/market-languages.json','../../data/localization/market-languages.json','./data/localization/market-languages.json']){ try{ const r=await fetch(url); if(r.ok){ const d=await r.json(); if(d.markets){ d.markets.forEach(m=>{ if(m.top_languages) marketLangsOffline[m.market]=m.top_languages.map(t=>({...t, translate_code: t.translate_code||t.lang_code, pct_home: (t.pct_home!=null?t.pct_home:t.pct)})); }); console.log('[langs] loaded',d.markets.length,'from',url); renderLangChips(); break; } } }catch(e){} }})();
+(async()=>{ for(const url of ['data/localization/market-languages.json','../../data/localization/market-languages.json','./data/localization/market-languages.json']){ try{ const r=await fetch(url); if(r.ok){ const d=await r.json(); if(d.markets){ d.markets.forEach(/** @param {{market?: unknown, top_languages?: Array<{translate_code?: string, lang_code: string, lang_name?: string, pct_home?: number, pct?: number}>}} m */ (m)=>{ if(m.top_languages) marketLangsOffline[String(m.market)]=m.top_languages.map(t=>/** @type {MarketLang} */ ({...t, translate_code: t.translate_code||t.lang_code, pct_home: (t.pct_home!=null?t.pct_home:t.pct)})); }); console.log('[langs] loaded',d.markets.length,'from',url); renderLangChips(); break; } } }catch(e){} }})();
 // Inline data — so this page is truly offline (no fetch to a server). Keep a small seed of hundreds-scale places and recipes here; full tables live at ../../data/
 const places = [
   {market:"US-MW-PARKCITY-84098", place:"Park City, Utah 84098", retailer:"Target (Kimball Junction), Walmart (Kimball Junction), Smith's Food & Drug (Park City)", zip:"84098", audience:"Mountain families, Wasatch trail households, resort staff — Aaron", message:"Keep It Wild — protein-packed whole grains for your Wasatch frontier. Nourishment for Today's Frontier", peppers:"—", cheeses:"—", cue:"Farmers Market at Park City Mountain Resort Wed 11-5 — Jensen Farms peaches, Copper Moose rhubarb, Tagges preserves, Bal"},
@@ -126,6 +127,7 @@ try{ window.places = places; }catch(e){}
 // data/localization/market-featured-frontiers.json is generated from here via
 // scripts/build-frontier-mapping.py `--check` pins the agreement. Inline so
 // this page stays offline-first.
+/** @type {Object<string, {place: string, items: string[], seasons: string, farmersMarket: string}>} */
 const featuredFrontierDetail = {
   "US-CA-PESCADERO": {place:"Pescadero, California 94060 — San Mateo Coast", items:["Castroville artichokes","Marin goat cheese","strawberries","Brussels sprouts","olive oil (fall press)"], seasons:"Castroville artichokes Mar-Jun (peak April); Marin goat cheese Feb-Jun; strawberries May-Sep; Brussels sprouts Sep-Feb; olive oil November press", farmersMarket:"Half Moon Bay Farmers Market (Saturdays) + Harley Farms Goat Dairy farm stand, Pescadero"},
   "US-CA-JULIAN": {place:"Julian, California 92036 — Cuyamaca mountain apple country", items:["Julian apples","pear cider","gold-rush main street"], seasons:"Apple season late Aug–Oct (peak September)", farmersMarket:"Julian farm stands + mountain orchards (standalone market URL unconfirmed — research dispatch)"},
@@ -204,6 +206,8 @@ const featuredFrontierDetail = {
   "US-CT-SUFFIELD": {place:"Suffield, Connecticut 06078 — river-valley farm town", items:["valley produce","sweet corn"], seasons:"Corn season Jul-Sep", farmersMarket:"Suffield Farmers Market https://sokoapp.co/market/suffield-farmers-market"},
   "US-RI-SCITUATE": {place:"Scituate, Rhode Island 02857 — rural farm town", items:["Scituate produce","sweet corn"], seasons:"Summer produce Jul-Sep", farmersMarket:"Scituate farm stands (standalone URL unconfirmed — research dispatch)"}
 };
+/** @type {Object<string, string>} */
+/** @type {Object<string,string>} */
 const marketFeaturedFrontier = {
   "US-CA-PESCADERO": "US-CA-PESCADERO",
   "US-CA-CASTROVILLE": "US-CA-CASTROVILLE",
@@ -282,6 +286,7 @@ const marketFeaturedFrontier = {
   "US-W-YAKIMA": "US-WA-TIETON",
   "US-WA-NEAHBAY": "US-WA-NEAHBAY"
 };
+/** @param {string} market */
 function featuredFrontierFor(market){
   try{
     const fk = marketFeaturedFrontier[market]; if(!fk) return null;
@@ -301,18 +306,27 @@ try{ window.featuredFrontierFor = featuredFrontierFor; }catch(e){}
 // when the pairs file is absent or the market/month has no entry. Only a
 // moment whose months include the target month is named; confirmed moments
 // win over proposed ones.
+/** @type {Object<string, number>} */
+/** @type {Object<string,number>} */
 var FRONTIER_MONTH_NAMES = {january:1,february:2,march:3,april:4,may:5,june:6,
   july:7,august:8,september:9,october:10,november:11,december:12};
+/**
+ * @param {string} market
+ * @param {string} monthKey
+ * @returns {{place: string, ingredient: (string|null), moment: (string|null), momentStatus: (string|null), text: string}|null}
+ */
 function frontierSeasonLine(market, monthKey){
   try{
     var pairs = window.KODIAK_FRONTIER_PAIRS;
     if(!pairs || !pairs.length || !market || !monthKey) return null;
+    /** @type {FrontierPair|null} */
     var entry = null;
     for(var i = 0; i < pairs.length; i++){
       if(pairs[i] && pairs[i].market === market){ entry = pairs[i]; break; }
     }
     if(!entry || !entry.frontier) return null;
-    var monthNum = null;
+    /** @type {number|null} */
+    let monthNum = null;
     var m = String(monthKey).match(/(\d{4})-(\d{1,2})/);
     if(m){ monthNum = parseInt(m[2], 10); }
     else{
@@ -320,18 +334,25 @@ function frontierSeasonLine(market, monthKey){
       if(FRONTIER_MONTH_NAMES[name]) monthNum = FRONTIER_MONTH_NAMES[name];
     }
     if(!monthNum) return null;
-    var monthly = entry.monthly || {};
+    const month = monthNum;
+    var monthly = /** @type {Object<string, string>} */ (entry.monthly || {});
     var ingredient = null;
     Object.keys(monthly).forEach(function(k){
       var km = String(k).match(/-(\d{1,2})$/);
-      if(km && parseInt(km[1], 10) === monthNum) ingredient = monthly[k];
+      if(km && parseInt(km[1], 10) === month) ingredient = monthly[k];
     });
     var moments = entry.moments || [];
-    var pick = null;
-    moments.forEach(function(mo){
-      if(!mo || !mo.months || mo.months.indexOf(monthNum) === -1) return;
+    // teaching note (frontier assignments: assignment is what widens a read —
+    // pick is null until the loop body below assigns it).
+    /** @type {MomentEntry|null} */
+    let pick = null;
+    // for..of (not forEach): the pick assignment must sit in this function
+    // body so control-flow sees it at the reads below — a forEach closure
+    // assignment stays invisible and the reads narrow to null (never).
+    for(const mo of moments){
+      if(!mo || !mo.months || mo.months.indexOf(month) === -1) continue;
       if(!pick || (pick.status !== 'confirmed' && mo.status === 'confirmed')) pick = mo;
-    });
+    }
     var place = (entry.frontier && entry.frontier.place) || '';
     if(!place && !ingredient) return null;
     var text = place;
@@ -355,21 +376,22 @@ const products = [
 const peppersList = ["Hatch green chile roasted, diced","Red chile","Jalapeño","Chipotle","Poblano","—"];
 const cheesesList = ["Oaxaca crumble","Sharp cheddar","Pepper jack","Cotija","Oaxaca","Gruyère","Queso fresco","—"];
 
-let localitySel = document.getElementById('locality'); // declared in markup (#213), present before scripts run
-const productSel = document.getElementById('product'); // deprecated — now productChooser checkboxes
-const peppersSel = document.getElementById('peppers'); // deprecated — now localFlavor derived
-const cheesesSel = document.getElementById('cheeses');
-const audienceEl = document.getElementById('audience'); // deprecated — now audienceSelect
-const headlineEl = document.getElementById('headline'); // deprecated — now campaignBrief
-const channelSel = document.getElementById('channel');
-const campaignBriefEl = document.getElementById('campaignBrief');
-const previewEl = document.getElementById('preview');
-const fileNamesEl = document.getElementById('fileNames');
+// page contract: #locality ships in markup before scripts run.
+let localitySel = /** @type {HTMLSelectElement} */ (document.getElementById('locality'));
+const productSel = /** @type {HTMLSelectElement|null} */ (document.getElementById('product')); // deprecated — now productChooser checkboxes
+const peppersSel = /** @type {HTMLSelectElement|null} */ (document.getElementById('peppers')); // deprecated — now localFlavor derived
+const cheesesSel = /** @type {HTMLSelectElement|null} */ (document.getElementById('cheeses'));
+const audienceEl = /** @type {HTMLInputElement|null} */ (document.getElementById('audience')); // deprecated — now audienceSelect
+const headlineEl = /** @type {HTMLInputElement|null} */ (document.getElementById('headline')); // deprecated — now campaignBrief
+const channelSel = /** @type {HTMLSelectElement|null} */ (document.getElementById('channel'));
+const campaignBriefEl = /** @type {HTMLTextAreaElement|null} */ (document.getElementById('campaignBrief'));
+const previewEl = /** @type {HTMLElement} */ (document.getElementById('preview')); // page contract: #preview ships in markup
+const fileNamesEl = /** @type {HTMLElement} */ (document.getElementById('fileNames')); // page contract: #fileNames ships in markup
 
-/** @param {void} @returns {void} */
+/** @returns {void} */
 function fillSelects(){
   // #213: #locality is declared in markup and present before this runs — no fallback path.
-  localitySel = document.getElementById('locality');
+  localitySel = /** @type {HTMLSelectElement} */ (document.getElementById('locality'));
   const ls=localitySel;
   if(ls) {
     ls.innerHTML='';
@@ -386,7 +408,20 @@ function fillSelects(){
   try{ if(window.updateLocalFlavor) window.updateLocalFlavor(); }catch(e){}
   try{ if(typeof renderLangChips==='function') renderLangChips(); }catch(e){}
 }
-function onLocality(){
+// teaching note (frontier calling conventions: one handler, two call shapes —
+// the DOM passes an event, direct callers pass nothing).
+// decision: two @overload lines, not one optional param — the listener shape
+// accepts the Event the DOM always passes; the bare shape is ours.
+/**
+ * @overload
+ * @returns {void}
+ * @overload
+ * @param {Event} _ev
+ * @returns {void}
+ * @param {Event} [_ev]
+ * @returns {void}
+ */
+function onLocality(_ev){
   try{
     const cur = localitySel && localitySel.value ? localitySel.value : "US-MW-PARKCITY-84098";
     const p = places.find(x=>x.market===cur);
@@ -401,16 +436,18 @@ function onLocality(){
 }
 try{ const _ls=document.getElementById('locality'); if(_ls) _ls.addEventListener('change', onLocality); else if(localitySel) localitySel.addEventListener('change', onLocality); }catch(e){}
 // also re-bind localitySel after fillSelects for auto-preview
-try{ localitySel = document.getElementById('locality') || localitySel; }catch(e){}
+try{ localitySel = /** @type {HTMLSelectElement} */ (document.getElementById('locality')) || localitySel; }catch(e){}
+/** @type {Array<{canvas: HTMLCanvasElement, ratio: string, product: string}>} */
 let canvases=[];
 /** @returns {void} */
 function render(){
   // robust defaults for prototype — Park City 84098 Keep It Wild, fallback if selects missing (fixes hidden #locality bug)
+  /** @type {FarmEntry|null} */
   let prod = null;
-  try{ prod = productSel && productSel.value ? products.find(x=>x.id===productSel.value) : null; }catch(e){}
+  try{ prod = (productSel && productSel.value ? products.find(x=>x.id===productSel.value) : null) || null; }catch(e){}
   if(!prod) prod = products.find(x=>x.id==="savory-waffles") || products[0];
   let headline = "";
-  try{ const _b = document.getElementById('campaignBrief'); const _src = (_b && _b.value.trim()) ? _b : headlineEl; headline = _src && _src.value ? _src.value.trim() : ""; }catch(e){}
+  try{ const _b = /** @type {HTMLTextAreaElement|null} */ (document.getElementById('campaignBrief')); const _src = (_b && _b.value.trim()) ? _b : headlineEl; headline = _src && _src.value ? _src.value.trim() : ""; }catch(e){}
   if(!headline){
     try{ const p = localitySel && localitySel.value ? places.find(x=>x.market===localitySel.value) : places.find(x=>x.market==="US-MW-PARKCITY-84098"); headline = p ? p.message : "Keep It Wild — protein-packed whole grains for your Wasatch frontier. Nourishment for Today\u0027s Frontier"; }catch(e){ headline = "Keep It Wild — protein-packed whole grains for your Wasatch frontier. Nourishment for Today\u0027s Frontier"; }
   }
@@ -425,20 +462,22 @@ function render(){
   if(!_loc) _loc = places.find(x=>x.market==="US-MW-PARKCITY-84098") || places[0];
   const localitySlug = _loc.place.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,28);
   let channel = "retailers"; try{ channel = channelSel && channelSel.value ? channelSel.value : "retailers"; }catch(e){} 
+  /** @type {string[]} */
   const files=[];
   ratios.forEach(r=>{
     const tile=document.createElement('div'); tile.className='tile';
     const c=document.createElement('canvas'); c.width=r.w; c.height=r.h; c.style.maxWidth='100%'; c.style.height='auto';
-    const ctx=c.getContext('2d');
+    const ctx=/** @type {CanvasRenderingContext2D} */ (c.getContext('2d'));
     // parchment bg then brown box proxy hero (real image if loads)
     ctx.fillStyle=__kodiak.brand().parchment; ctx.fillRect(0,0,r.w,r.h);
     // Try to draw real hero image (offline file) - if fails, fallback to brown kraft with bear proxy
+    /** @type {HTMLImageElement|null} */
     let img = new Image();
     // leak-teardown: #preview innerHTML is cleared on every re-render (~line 1048); null the handlers
     // after they fire so the closure (and the retained Image) releases when the old node is dropped.
     // #221: each draw is followed by a fonts-ready re-paint so brand webfonts swap in once loaded.
-    img.onload = ()=>{ try{ drawAd(ctx, r.w, r.h, headline, prod, img); __kodiak.redrawOnFontsReady(ctx, r.w, r.h, headline, prod, img); }catch(e){} img.onload=img.onerror=null; img=null; };
-    img.onerror = ()=>{ try{ drawAd(ctx, r.w, r.h, headline, prod, null); __kodiak.redrawOnFontsReady(ctx, r.w, r.h, headline, prod, null); }catch(e){} img.onload=img.onerror=null; img=null; };
+    img.onload = ()=>{ try{ drawAd(ctx, r.w, r.h, headline, prod, img); __kodiak.redrawOnFontsReady(ctx, r.w, r.h, headline, prod, img); }catch(e){} if(img){ img.onload=img.onerror=null; } img=null; };
+    img.onerror = ()=>{ try{ drawAd(ctx, r.w, r.h, headline, prod, null); __kodiak.redrawOnFontsReady(ctx, r.w, r.h, headline, prod, null); }catch(e){} if(img){ img.onload=img.onerror=null; img=null; } };
     img.src = prod.img;
     tile.appendChild(c);
     const meta=document.createElement('div'); meta.className='meta';
@@ -467,6 +506,7 @@ function render(){
 // instead of those two tokens; the stacks keep Rockwell/Georgia and system sans as
 // canvas-safe fallbacks because canvas cannot synthesize the webfont before it loads.
 const __kodiak = (()=>{
+/** @type {Object<string,string>} */
   const FALLBACK = {
     parchment:'#FFF8F0',   // --colors-neutral-50
     kraftCover:'#3B2316',  // --colors-brand-bear-brown
@@ -477,6 +517,7 @@ const __kodiak = (()=>{
     blaze:'#E8530E',       // --colors-brand-blaze-orange
     scrim:'rgba(26,17,16,0.80)', // --colors-overlay-scrim (#1A1110CC == alpha .8)
   };
+/** @type {Object<string,string>} */
   const VAR = {
     parchment:'--colors-neutral-50',
     kraftCover:'--colors-brand-bear-brown',
@@ -487,6 +528,7 @@ const __kodiak = (()=>{
     blaze:'--colors-brand-blaze-orange',
     scrim:'--colors-overlay-scrim',
   };
+  /** @param {string} name @param {string} fallback @returns {string} */
   function cssVar(name, fallback){
     try{
       const v = getComputedStyle(document.documentElement).getPropertyValue(name);
@@ -497,7 +539,10 @@ const __kodiak = (()=>{
   // Brand type stacks (design/components.css): Gin slab + museo-sans body.
   const HEADLINE_STACK = '"gin",Rockwell,Clarendon,Georgia,serif';
   const BODY_STACK = '"museo-sans",system-ui,Helvetica,Arial,sans-serif';
+  /** @returns {Object<string,string>} */
+  /** @returns {Object<string,string>} */
   function brand(){
+    /** @type {Object<string,string>} */
     const out = {};
     for(const k of Object.keys(FALLBACK)) out[k] = cssVar(VAR[k], FALLBACK[k]);
     return out;
@@ -506,6 +551,15 @@ const __kodiak = (()=>{
   // the first paint may measure/draw with the fallback stack; this swaps in
   // Gin/museo-sans when document.fonts is ready. Guarded no-op without the
   // Font Loading API; harmless if a later render already cleared the tile.
+  /**
+   * @param {CanvasRenderingContext2D} ctx
+   * @param {number} W
+   * @param {number} H
+   * @param {string} headline
+   * @param {FarmEntry|{id: string}|null} prod
+   * @param {HTMLImageElement|null} heroImg
+   * @returns {void}
+   */
   function redrawOnFontsReady(ctx,W,H,headline,prod,heroImg){
     try{
       if(!document.fonts || !document.fonts.ready) return;
@@ -520,6 +574,15 @@ const __kodiak = (()=>{
   }
   return { brand, redrawOnFontsReady, HEADLINE_STACK, BODY_STACK };
 })();
+/**
+ * @param {CanvasRenderingContext2D} ctx
+ * @param {number} W
+ * @param {number} H
+ * @param {string} headline
+ * @param {FarmEntry|{id: string}|null} prod
+ * @param {HTMLImageElement|null} heroImg
+ * @returns {void}
+ */
 function drawAd(ctx,W,H,headline,prod,heroImg){
   const BC = __kodiak.brand();
   const HEAD = __kodiak.HEADLINE_STACK, BODY = __kodiak.BODY_STACK;
@@ -581,26 +644,42 @@ function drawAd(ctx,W,H,headline,prod,heroImg){
 
 document.getElementById('renderBtn')?.addEventListener('click', render);
 document.getElementById('downloadBrief')?.addEventListener('click', ()=>{
-  const prod = products.find(x=>x.id===productSel.value);
-  const place = places.find(x=>x.market===localitySel.value);
-  const yaml = `campaign_name: "KODIAK® ${place.place} — ${prod.name}"\nbrand: "KODIAK®"\ntarget_region: "${place.market.split('-')[0]}"\ntarget_market: "${place.market}"\ntarget_audience: "${audienceEl.value}"\ncampaign_message: "${headlineEl.value.replace(/"/g,'\\"')}"\nlanguage: "en-US"\nbrand_colors: ["#3B2316", "#E8530E", "#1A3C34"]\nproducts:\n  - {id: ${prod.id}, name: "${prod.name}", description: "${prod.base}"}\n`;
+  const _pid = productSel && productSel.value ? productSel.value : "savory-waffles";
+  const prod = products.find(x=>x.id===_pid) || products[0];
+  const _mk = localitySel && localitySel.value ? localitySel.value : "US-MW-PARKCITY-84098";
+  const place = places.find(x=>x.market===_mk) || places[0];
+  const _aud = (audienceEl && audienceEl.value) || "";
+  const _cb = campaignBriefEl && campaignBriefEl.value ? campaignBriefEl.value : "";
+  const _head = _cb || ((headlineEl && headlineEl.value) || "");
+  const yaml = `campaign_name: "KODIAK® ${place.place} — ${prod.name}"\nbrand: "KODIAK®"\ntarget_region: "${place.market.split('-')[0]}"\ntarget_market: "${place.market}"\ntarget_audience: "${_aud}"\ncampaign_message: "${_head.replace(/"/g,'\\"')}"\nlanguage: "en-US"\nbrand_colors: ["#3B2316", "#E8530E", "#1A3C34"]\nproducts:\n  - {id: ${prod.id}, name: "${prod.name}", description: "${prod.base}"}\n`;
   const blob=new Blob([yaml],{type:'text/yaml'}); const a=document.createElement('a'); const _u=URL.createObjectURL(blob); a.href=_u; a.download=`KODIAK-CAKES-${prod.id}-${place.market.toLowerCase()}-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-v01.yaml`; a.click(); setTimeout(()=>{ try{ URL.revokeObjectURL(_u); }catch(e){} }, 0);
 });
 document.getElementById('downloadAll')?.addEventListener('click', ()=>{
   canvases.forEach(({canvas,ratio,product})=>{
-    const place = places.find(x=>x.market===localitySel.value);
+    const _mk2 = localitySel && localitySel.value ? localitySel.value : "US-MW-PARKCITY-84098";
+    const place = places.find(x=>x.market===_mk2) || places[0];
+    const _ch = channelSel && channelSel.value ? channelSel.value : "retailers";
     const localitySlug = place.place.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,28);
     const date = new Date().toISOString().slice(0,10).replace(/-/g,"");
-    const name=`KODIAK-CAKES-${product}-US-NM-${localitySlug}-${channelSel.value}-${ratio}-${date}-v01.png`;
+    const name=`KODIAK-CAKES-${product}-US-NM-${localitySlug}-${_ch}-${ratio}-${date}-v01.png`;
     const a=document.createElement('a'); a.href=canvas.toDataURL('image/png'); a.download=name; a.click();
   });
 });
 
 // Location-aware: nearest market via haversine across all 72 markets (with coords) — fixes Tularosa NM bug where crude bbox defaulted to Park City
+// teaching note (frontier coords: an intersection says AND, not OR — every
+// row must be identifiable and located at once).
+/** @typedef {Pick<PlaceEntry,'market'> & {lat: number, lon: number}} MarketCoord */
+// decision: & not a union — a union would let a row drop its coords and
+// nearestMarketForCoords would crash on m.lat.
+/** @type {MarketCoord[]} */
 const marketCoords = places.map(p=>({market:p.market, lat: (p.market.includes('SANJOSE')?37.3382 : p.market.includes('CASTROVILLE')?36.7656 : p.market==='US-W-SF'?37.7749 : p.market.includes('PESCADERO')?37.2534 : p.market.includes('NEAHBAY')?48.3647 : p.market.includes('PARKCITY')?40.6461 : p.market.includes('TULAROSA')?33.0581 : p.market.includes('LASCRUCES')?32.3199 : p.market.includes('TIMBERON')?32.6376 : p.market.includes('ALBQ')?35.0844 : p.market.includes('AUSTIN')?30.2672 : p.market.includes('MIAMI')?25.7617 : p.market.includes('CHI')?41.8781 : p.market.includes('BK')?40.6782 : 39.0), lon: (p.market.includes('SANJOSE')?-121.8863 : p.market.includes('CASTROVILLE')?-121.7588 : p.market==='US-W-SF'?-122.4194 : p.market.includes('PESCADERO')?-122.3806 : p.market.includes('NEAHBAY')?-124.6249 : p.market.includes('PARKCITY')?-111.4980 : p.market.includes('TULAROSA')?-106.0228 : p.market.includes('LASCRUCES')?-106.7637 : p.market.includes('TIMBERON')?-105.6947 : p.market.includes('ALBQ')?-106.6504 : p.market.includes('AUSTIN')?-97.7431 : p.market.includes('MIAMI')?-80.1918 : p.market.includes('CHI')?-87.6298 : p.market.includes('BK')?-73.9442 : -98.0)}));
-function haversine(lat1,lon1,lat2,lon2){ const R=6371, toRad=x=>x*Math.PI/180, dLat=toRad(lat2-lat1), dLon=toRad(lon2-lon1), a=Math.sin(dLat/2)**2+Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2; return 2*R*Math.asin(Math.sqrt(a)); }
+/** @param {number} lat1 @param {number} lon1 @param {number} lat2 @param {number} lon2 @returns {number} */
+function haversine(lat1,lon1,lat2,lon2){ const R=6371, toRad=/** @param {number} x @returns {number} */ (x)=>x*Math.PI/180, dLat=toRad(lat2-lat1), dLon=toRad(lon2-lon1), a=Math.sin(dLat/2)**2+Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2; return 2*R*Math.asin(Math.sqrt(a)); }
+/** @param {number} lat @param {number} lon @returns {string} */
 function nearestMarketForCoords(lat, lon){
-  let best=null, bestD=1e9;
+  /** @type {string|null} */
+  let best=null; let bestD=1e9;
   for(const m of marketCoords){
     const d=haversine(lat,lon,m.lat,m.lon);
     if(d<bestD){ bestD=d; best=m.market; }
@@ -620,7 +699,7 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
     const preview = document.getElementById('preview');
     if(preview && preview.children.length===0){
       // Trigger render for Park City
-      const sel=document.getElementById('locality');
+      const sel=/** @type {HTMLSelectElement|null} */ (document.getElementById('locality'));
       if(sel){
         // First render Park City
         sel.value='US-MW-PARKCITY-84098';
@@ -651,20 +730,21 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
               // http(s) url; the input_assets/*.png stubs do not exist and would 404 to console.
               const cdnFallback="https://kodiakcakes.com/cdn/shop/files/Buttermilk_Power_Cakes_24oz_Front.png";
               const rawHero = (kamasProd && kamasProd.img) ? kamasProd.img : "";
-              const isRealUrl = (u)=> typeof u==='string' && /^https?:\/\//.test(u) && u.indexOf('input_assets/')===-1;
+              const isRealUrl = /** @param {unknown} u @returns {boolean} */ (u)=> typeof u==='string' && /^https?:\/\//.test(u) && u.indexOf('input_assets/')===-1;
               const heroSrc = isRealUrl(rawHero) ? rawHero : "";
               ratios.forEach(r=>{
                 const tile=document.createElement('div'); tile.className='tile';
                 const c=document.createElement('canvas'); c.width=r.w; c.height=r.h; c.style.maxWidth='100%'; c.style.height='auto';
-                const ctx=c.getContext('2d');
+                const ctx=/** @type {CanvasRenderingContext2D} */ (c.getContext('2d'));
                 // no resolvable hero -> draw with no photo (paint null), NO Image(), NO 404.
                 if(!heroSrc){
                   try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e){}
                 } else {
+                  /** @type {HTMLImageElement|null} */
                   let img=new Image(); img.crossOrigin='anonymous';
                   // leak-teardown: null handlers after they fire so the closure + Image release on the next #preview clear.
-                  img.onload=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,img); }catch(e){} img.onload=img.onerror=null; img=null; };
-                  img.onerror=()=>{ let fb=new Image(); fb.crossOrigin='anonymous'; fb.onload=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,fb); }catch(e){ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e2){} } fb.onload=fb.onerror=null; fb=null; }; fb.onerror=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e){} fb.onload=fb.onerror=null; fb=null; }; fb.src=cdnFallback; img.onload=img.onerror=null; img=null; };
+                  img.onload=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,img); }catch(e){} if(img){ img.onload=img.onerror=null; img=null; } };
+                  img.onerror=()=>{ let fb=new Image(); fb.crossOrigin='anonymous'; fb.onload=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,fb); }catch(e){ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e2){} } fb.onload=fb.onerror=null; }; fb.onerror=()=>{ try{ drawAd(ctx,r.w,r.h,kamasMsg,kamasProd,null); }catch(e){} fb.onload=fb.onerror=null; }; fb.src=cdnFallback; if(img){ img.onload=img.onerror=null; } img=null; };
                   img.src=heroSrc;
                 }
                 tile.appendChild(c);
@@ -694,7 +774,7 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
   try{
     const params=new URLSearchParams(location.search);
     if(params.has('mockLat') && params.has('mockLon')){
-      const lat=parseFloat(params.get('mockLat')), lon=parseFloat(params.get('mockLon'));
+      const lat=parseFloat(params.get('mockLat') || ''), lon=parseFloat(params.get('mockLon') || '');
       if(Number.isFinite(lat) && Number.isFinite(lon)){
         window.__mockGeo={lat, lon};
         const status=document.getElementById('locationStatus');
@@ -710,17 +790,19 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
 // markup (never populated by any JS); this wires it as the real surface and mirrors selection into
 // #locality so all downstream plumbing (onLocality/render/updateLocalFlavor) keeps working unchanged.
 (function(){
-  const listbox   = document.getElementById('marketListbox');
-  const disclosure= document.getElementById('marketDisclosure');
-  const btnLabel  = document.getElementById('marketButtonLabel');
-  const langLine  = document.getElementById('marketLangLine');
-  const featured  = document.getElementById('featuredFrontier');
+  // page contract: #marketListbox ships in markup; callbacks below lose narrowing, so cast once here.
+  const listbox = /** @type {HTMLElement} */ (document.getElementById('marketListbox'));
+  const disclosure = /** @type {HTMLDetailsElement|null} */ (document.getElementById('marketDisclosure'));
+  const btnLabel = /** @type {HTMLElement|null} */ (document.getElementById('marketButtonLabel'));
+  const langLine = /** @type {HTMLElement|null} */ (document.getElementById('marketLangLine'));
+  const featured = /** @type {HTMLElement|null} */ (document.getElementById('featuredFrontier'));
   const summary   = disclosure ? disclosure.querySelector('summary') : null;
-  const filter    = document.getElementById('marketFilter');
+  const filter = /** @type {HTMLInputElement|null} */ (document.getElementById('marketFilter'));
   if(!listbox || typeof places==='undefined') return;
   // #278 — type-ahead filter text; build() reads it from the closure so the
   // async frontier-gaps rebuild (no args) keeps the current filter.
   let filterText = '';
+  /** @type {HTMLElement|null} */
   let activeOpt = null;
 
   // === S12 — live /localize gate ===
@@ -738,7 +820,7 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
   const frontierMarkets = new Set();
   (async ()=>{
     for(const url of ['data/localization/frontier-gaps.json','../../data/localization/frontier-gaps.json','./data/localization/frontier-gaps.json']){
-      try{ const r=await fetch(url); if(r.ok){ const d=await r.json(); (d.gaps||[]).forEach(g=>{ if(g.frontier) frontierMarkets.add(g.market); }); build(); break; } }catch(e){}
+      try{ const r=await fetch(url); if(r.ok){ const d=await r.json(); (d.gaps||[]).forEach(/** @param {{frontier?: unknown, market?: unknown}} g */ (g)=>{ if(g.frontier) frontierMarkets.add(g.market); }); build(); break; } }catch(e){}
     }
   })();
 
@@ -747,6 +829,7 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
   // (retail gap / general-store or farmers-market only / frontier:true from frontier-gaps).
   const CHAIN_GROCERS = /\b(target|walmart|smith'?s|costco|publix|h-?e-?b|keb|kroger|safeway|albertsons|whole foods|fred meyer|meijer|jewel-?osco|king soopers|hy-?vee|giant eagle|giant|stop & shop|hannaford|market basket|winco|raley'?s|vons|harris teeter|ingles|fry'?s|schnucks|piggly wiggly|rouses|acme|cub foods|pick 'n save|homeland|hornbacher'?s|winn-?dixie)\b/i;
   const GAP_ONLY = /general store|mercantile|farmers market|no commercial retail|no grocery|limited sku/i;
+  /** @param {PlaceEntry} p @returns {'market'|'featured-frontier'} */
   function locationClass(p){
     if(frontierMarkets.has(p.market)) return 'featured-frontier';
     const r = p.retailer||'';
@@ -756,8 +839,10 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
   }
 
   // --- derive a US state abbreviation for the sublabel + sort key ---
+  /** @type {Object<string,string>} */
   const STATE_ABBR = {alabama:'AL',alaska:'AK',arizona:'AZ',arkansas:'AR',california:'CA',colorado:'CO',connecticut:'CT',delaware:'DE',florida:'FL',georgia:'GA',hawaii:'HI',idaho:'ID',illinois:'IL',indiana:'IN',iowa:'IA',kansas:'KS',kentucky:'KY',louisiana:'LA',maine:'ME',maryland:'MD',massachusetts:'MA',michigan:'MI',minnesota:'MN',mississippi:'MS',missouri:'MO',montana:'MT',nebraska:'NE',nevada:'NV','new hampshire':'NH','new jersey':'NJ','new mexico':'NM','new york':'NY','north carolina':'NC','north dakota':'ND',ohio:'OH',oklahoma:'OK',oregon:'OR',pennsylvania:'PA','rhode island':'RI','south carolina':'SC','south dakota':'SD',tennessee:'TN',texas:'TX',utah:'UT',vermont:'VT',virginia:'VA',washington:'WA','west virginia':'WV',wisconsin:'WI',wyoming:'WY'};
   const ABBR_SET = new Set(Object.values(STATE_ABBR));
+  /** @param {PlaceEntry} p @returns {string} */
   function stateOf(p){
     const place = p.place||'';
     // explicit "City, ST" two-letter token
@@ -770,12 +855,15 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
     return '';
   }
   // short display name for the button + option label
+  /** @param {PlaceEntry} p @returns {string} */
   function shortName(p){ return (p.place||p.market).split(/\s+—\s+/)[0].replace(/\s*\(.*/,'').trim() || p.market; }
 
   // --- build the two-group listbox (Axis 2) ---
+  /** @type {Object<string,string>} */
   const CLASS_LABEL = {'market':'Market','featured-frontier':'Featured Frontier'};
   // #278 — substring match over short name + place + market id + zip + state.
   // Every whitespace-separated token must match somewhere ("san 94060" works).
+  /** @param {PlaceEntry} p @returns {boolean} */
   function matchesFilter(p){
     const q = (filterText||'').trim().toLowerCase();
     if(!q) return true;
@@ -783,10 +871,13 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
     return q.split(/\s+/).every(tok=>hay.indexOf(tok)!==-1);
   }
   function build(){
+    // teaching note (frontier never: [] infers never[] — the empty literal means
+    // no value possible until the annotation widens it; push proved it).
+    /** @type {Object<string, PlaceEntry[]>} */
     const groups = {'market':[], 'featured-frontier':[]};
-    places.forEach(p=>{ if(matchesFilter(p)) groups[locationClass(p)].push(p); });
+    places.forEach(/** @param {PlaceEntry} p */ (p)=>{ if(matchesFilter(p)) groups[locationClass(p)].push(p); });
     activeOpt = null; listbox.removeAttribute('aria-activedescendant');
-    const cmp = (a,b)=>{ const sa=stateOf(a), sb=stateOf(b); if(sa!==sb) return sa<sb?-1:1; const na=shortName(a).toLowerCase(), nb=shortName(b).toLowerCase(); return na<nb?-1:na>nb?1:0; };
+    const cmp = /** @param {PlaceEntry} a @param {PlaceEntry} b @returns {number} */ (a,b)=>{ const sa=stateOf(a), sb=stateOf(b); if(sa!==sb) return sa<sb?-1:1; const na=shortName(a).toLowerCase(), nb=shortName(b).toLowerCase(); return na<nb?-1:na>nb?1:0; };
     groups.market.sort(cmp); groups['featured-frontier'].sort(cmp);
     listbox.innerHTML='';
     ['market','featured-frontier'].forEach(cls=>{
@@ -797,7 +888,7 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
       head.textContent = CLASS_LABEL[cls]+'s';
       listbox.appendChild(head);
       const grp = document.createElement('div'); grp.setAttribute('role','group'); grp.setAttribute('aria-labelledby',gid);
-      rows.forEach(p=>{
+      rows.forEach(/** @param {PlaceEntry} p */ (p)=>{
         const opt=document.createElement('div');
         opt.setAttribute('role','option'); opt.id='ffopt-'+p.market; opt.dataset.market=p.market;
         opt.setAttribute('aria-selected','false'); opt.tabIndex=-1;
@@ -816,48 +907,71 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
       listbox.appendChild(empty);
     }
     // reflect whatever #locality currently holds
-    const cur = document.getElementById('locality')?.value; if(cur) markSelected(cur);
+    const cur = /** @type {HTMLSelectElement|null} */ (document.getElementById('locality'))?.value; if(cur) markSelected(cur);
   }
 
   // #278 — filter wiring + keyboard nav. Selection still flows through select()
   // so snapshot/persist/brief plumbing is untouched.
+  /** @returns {HTMLElement[]} */
   function visibleOpts(){ return Array.prototype.slice.call(listbox.querySelectorAll('[role="option"]')); }
+  /** @param {HTMLElement|null} el @returns {void} */
   function setActive(el){
     visibleOpts().forEach(o=>o.classList.remove('is-active'));
     activeOpt = el || null;
     if(activeOpt){ activeOpt.classList.add('is-active'); listbox.setAttribute('aria-activedescendant', activeOpt.id); }
     else listbox.removeAttribute('aria-activedescendant');
   }
+  /** @param {number} dir @returns {void} */
   function moveActive(dir){
     const opts = visibleOpts(); if(!opts.length) return;
-    let i = opts.indexOf(activeOpt);
+    let i = activeOpt ? opts.indexOf(activeOpt) : -1;
     i = (i===-1) ? (dir>0 ? 0 : opts.length-1) : (i+dir+opts.length)%opts.length;
     setActive(opts[i]);
     try{ opts[i].scrollIntoView({block:'nearest'}); }catch(e){}
   }
   if(filter){
     filter.addEventListener('input', ()=>{ filterText = filter.value; build(); });
-    filter.addEventListener('keydown', (e)=>{
+    // teaching note (frontier handlers: this is the element the listener was
+    // bound to — rebind it elsewhere and this.value reads the wrong control).
+    // decision: @this {HTMLInputElement} lets the handler read this.value
+    // instead of the closed-over filter; the Escape branch proves it.
+    filter.addEventListener('keydown', /** @this {HTMLInputElement} @param {KeyboardEvent} e @returns {void} */ function(e){
       if(e.key==='ArrowDown'){ e.preventDefault(); moveActive(1); }
       else if(e.key==='ArrowUp'){ e.preventDefault(); moveActive(-1); }
       else if(e.key==='Enter'){ if(activeOpt){ e.preventDefault(); activeOpt.click(); } }
-      else if(e.key==='Escape'){ filter.value=''; filterText=''; build(); if(disclosure) disclosure.open=false; }
+      else if(e.key==='Escape'){ this.value=''; filterText=''; build(); if(disclosure) disclosure.open=false; }
     });
     // option clicks keep mouse behavior; hover claims the active slot.
-    listbox.addEventListener('mouseover', (e)=>{ const o=e.target&&e.target.closest?e.target.closest('[role="option"]'):null; if(o) setActive(o); });
+    // teaching note (frontier instanceof: the check replaces the cast — e.target
+    // is EventTarget|null until instanceof proves Element; a non-element target
+    // now yields null instead of a lying cast).
+    // decision: instanceof Element, not HTMLElement — closest lives on Element,
+    // so SVG option content keeps working; the HTMLElement cast stays only where
+    // setActive demands it.
+    listbox.addEventListener('mouseover', (e)=>{ const t=e.target instanceof Element ? e.target : null; const o=(t && t.closest) ? /** @type {HTMLElement} */ (t.closest('[role="option"]')) : null; if(o) setActive(o); });
   }
   // opening the disclosure lands focus in the filter so typing filters immediately.
   if(disclosure) disclosure.addEventListener('toggle', ()=>{ if(disclosure.open && filter){ try{ filter.focus(); }catch(e){} } });
-  function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+  /** @param {unknown} s @returns {string} */
+  /** @param {unknown} s @returns {string} */
+  function esc(s){
+    /** @type {Record<string,string>} */
+    const ENT = {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'};
+    return String(s==null?'':s).replace(/[&<>"']/g, (c)=>ENT[c]);
+  }
 
+  /** @param {string} market @returns {void} */
   function markSelected(market){
-    listbox.querySelectorAll('[role="option"]').forEach(o=>o.setAttribute('aria-selected', o.dataset.market===market?'true':'false'));
+    listbox.querySelectorAll('[role="option"]').forEach(o=>o.setAttribute('aria-selected', /** @type {HTMLElement} */ (o).dataset.market===market?'true':'false'));
   }
 
   // --- selection: mirror into the declared #locality select (the existing source of truth) ---
+  /** @param {string} market @returns {void} */
   function select(market){
+    // teaching note (frontier control flow: the early return is the narrowing —
+    // past this line p is PlaceEntry, no guards needed below).
     const p = places.find(x=>x.market===market); if(!p) return;
-    const loc = document.getElementById('locality');
+    const loc = /** @type {HTMLSelectElement|null} */ (document.getElementById('locality'));
     // bubbles:true — the document-level change listeners (market-disclosure
     // reflectMarket + brief footer + market source line, autocomplete suffix)
     // observe listbox-driven changes through this event. Without bubbles the
@@ -897,6 +1011,7 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
 
   // primary source of truth: the market-languages.json entry says machine_translate:false.
   // returns true if this language must not be machine-translated (data flag OR fallback set).
+  /** @param {MarketLang} l @param {string} code @returns {boolean} */
   function isCommunityReview(l, code){
     if(l && l.machine_translate === false) return true;   // DATA is authoritative
     return HUMAN_REQUIRED.has(code);                        // defense-in-depth fallback
@@ -908,6 +1023,7 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
   // when this returns null — translated text is NEVER fabricated. 6s AbortController timeout is the safety net.
   // NEVER call this for community-review languages (nv/zip machine_translate:false) — that path stays human-only.
   const _locCache = new Map(); // key: market|code|text  -> translated string (dedupe repeat renders)
+  /** @param {string} text @param {string} market @param {string} code @returns {Promise<string|null>} */
   function localizeText(text, market, code){
     const ep = window.KODIAK_LOCALIZE_ENDPOINT;
     if(!ep) return Promise.resolve(null);                   // offline / file:// / localhost — honest degrade
@@ -929,6 +1045,7 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
   // Standalone #locPreview headlines retired 2026-09-08 (cleanup order): translated copy
   // lives only in the preview tile captions. renderMarketLangs now updates the language-names
   // line + the featured framing only — no headline rows, no host, no live jobs.
+  /** @param {string} market @returns {void} */
   function renderMarketLangs(market){
     const p = places.find(x=>x.market===market);
     const langs = (typeof marketLangsFor==='function') ? marketLangsFor(market) : [];
@@ -969,6 +1086,7 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
   // uniqueId row + a microtask), community-review stays human-only, offline shows a single honest pending note.
   // Exposed globally so showRenderSet (hosted) and the offline canvas render() can both call it.
   let _capSeq = 0;
+  /** @param {string} market @returns {string} */
   function locCaptionHtml(market){
     const p = places.find(x=>x.market===market);
     let source = (p && p.message) ? p.message : "Kodiak Cakes — Nourishment for Today's Frontier";
@@ -976,6 +1094,7 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
     try{ if(typeof window.KODIAK_brandClean==='function') source = window.KODIAK_brandClean(source); }catch(e){}
     const langs = (typeof marketLangsFor==='function') ? marketLangsFor(market) : [];
     const seq = ++_capSeq;
+    /** @type {Array<{rowId: string, code: string, source: string, market: string}>} */
     const jobs = [];
     const rows = ['<span class="loc-line" lang="en" data-provider="source"><span class="loc-langtag">EN</span><span class="loc-txt">'+esc(source)+'</span></span>'];
     langs.forEach((l,i)=>{
@@ -983,7 +1102,9 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
       const community = isCommunityReview(l, code);
       const note = l.review_note || 'Community-authorized translation required — not machine-generated (language sovereignty).';
       const rowId = 'loccap-'+seq+'-'+code+'-'+i;
-      let provider, fill, badge='';
+      /** @type {CaptionProvider} */
+      let provider;
+      let fill, badge='';
       if(community){
         provider='community-review'; fill=source;          // never machine-translated — EN source + badge, full-strength
         badge='<span class="loc-review" title="'+esc(note)+'">community review</span>';
@@ -1014,12 +1135,12 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
   // now repaints the localized surface for the current market instead of deleting #lang-chips.
   try{
     window.renderLangChips = function(){
-      const cur = document.getElementById('locality')?.value || 'US-MW-PARKCITY-84098';
+      const cur = /** @type {HTMLSelectElement|null} */ (document.getElementById('locality'))?.value || 'US-MW-PARKCITY-84098';
       renderMarketLangs(cur);
     };
   }catch(e){}
 
   // initial build + paint for the default market
   build();
-  renderMarketLangs(document.getElementById('locality')?.value || 'US-MW-PARKCITY-84098');
+  renderMarketLangs(/** @type {HTMLSelectElement|null} */ (document.getElementById('locality'))?.value || 'US-MW-PARKCITY-84098');
 })();

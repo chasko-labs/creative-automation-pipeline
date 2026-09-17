@@ -20,16 +20,22 @@
   var CORNER_STEM_RIGHT = 'M80 94 C72 66 68 44 58 14';
   var CORNER_AWNS_LEFT = 'M42 14 L35 1 M42 14 L43 0 M42 14 L49 2';
   var CORNER_AWNS_RIGHT = 'M58 14 L65 1 M58 14 L57 0 M58 14 L51 2';
+  // kernel triples are [x, y, rotation] — a tuple, not number[]: positions 0-1
+  // are coordinates, position 2 is degrees, and mixing them up is a type error.
+  /** @type {Array<[number, number, number]>} */
   var CORNER_KERNELS_LEFT = [[33,24,-25],[46,28,25],[30,36,-25],[43,40,25],[28,48,-22],[40,52,22],[26,60,-20],[37,64,20],[25,72,-15],[34,74,15]];
+  /** @type {Array<[number, number, number]>} */
   var CORNER_KERNELS_RIGHT = [[67,24,25],[54,28,-25],[70,36,25],[57,40,-25],[72,48,22],[60,52,-22],[74,60,20],[63,64,-20],[75,72,15],[66,74,-15]];
 
   // the three artzone divs, in render order, each mapped to its data key + css modifier + data-zone.
+  /** @type {{css: string, dataZone: string, artKey: 'raw_ingredient'|'technique'|'finished_plate'}[]} */
   var ART_ZONES = [
     { css: 'rc-artzone--raw', dataZone: 'raw_ingredient_sketch', artKey: 'raw_ingredient' },
     { css: 'rc-artzone--technique', dataZone: 'technique_sketch', artKey: 'technique' },
     { css: 'rc-artzone--plate', dataZone: 'finished_plate_sketch', artKey: 'finished_plate' }
   ];
 
+  /** @type {{key: string, label: string}[]} */
   var META_CELLS = [
     { key: 'prep', label: 'Prep' },
     { key: 'cook', label: 'Cook' },
@@ -39,6 +45,12 @@
 
   var EM_DASH = '\u2014';
 
+  /**
+   * @param {string} tag
+   * @param {string} [cls]
+   * @param {string} [text]
+   * @returns {HTMLElement}
+   */
   function el(tag, cls, text) {
     var node = document.createElement(tag);
     if (cls) node.className = cls;
@@ -46,15 +58,24 @@
     return node;
   }
 
+  /**
+   * @param {string} tag
+   * @param {Object<string, (string|number)>} [attrs]
+   * @returns {Element}
+   */
   function svgEl(tag, attrs) {
     var node = document.createElementNS(SVGNS, tag);
     if (attrs) {
-      Object.keys(attrs).forEach(function (k) { node.setAttribute(k, attrs[k]); });
+      Object.keys(attrs).forEach(function (k) { node.setAttribute(k, String(attrs[k])); });
     }
     return node;
   }
 
   // present a value or an honest em-dash when null/empty. never fabricates.
+  /**
+   * @param {unknown} v
+   * @returns {string}
+   */
   function orDash(v) {
     if (v == null) return EM_DASH;
     var s = String(v).trim();
@@ -62,6 +83,10 @@
   }
 
   // corner accent svg — identical for every card (static flourish, matches specimen).
+  /**
+   * @param {string} side
+   * @returns {HTMLElement}
+   */
   function makeCorner(side) {
     var wrap = el('div', 'rc-corner rc-corner--' + side);
     wrap.setAttribute('data-zone', side === 'left' ? 'corner_accent_left' : 'corner_accent_right');
@@ -89,6 +114,7 @@
   // neutral inline "sketch pending" line-art mark — used when art[zone] url is null.
   // deliberately generic (a loose framed contour), so a missing generation never leaves the
   // zone empty and never shows a broken <img>. drawn with currentColor so substrate ink applies.
+  /** @returns {Element} */
   function makePlaceholderArt() {
     var svg = svgEl('svg', {
       class: 'rc-artzone__art', viewBox: '0 0 300 150',
@@ -112,11 +138,17 @@
   }
 
   // one art zone: white base coat + (real image OR placeholder svg). never empty.
+  /**
+   * @param {{css: string, dataZone: string}} zone
+   * @param {string|null} artUrl
+   * @returns {HTMLElement}
+   */
   function makeArtZone(zone, artUrl) {
     var wrap = el('div', 'rc-artzone ' + zone.css);
     wrap.setAttribute('data-zone', zone.dataZone);
-    wrap.appendChild(el('div', 'rc-artzone__base'));           // white base coat behind the art
-    wrap.lastChild.setAttribute('aria-hidden', 'true');
+    var base = el('div', 'rc-artzone__base');                  // white base coat behind the art
+    base.setAttribute('aria-hidden', 'true');
+    wrap.appendChild(base);
     if (artUrl != null && String(artUrl).trim().length) {
       var img = el('img', 'rc-artzone__art');
       img.setAttribute('src', String(artUrl));
@@ -136,6 +168,10 @@
 
   // wrap the leading verb of a step in <b class="rc-step-verb">. if the step already starts with
   // an ALLCAPS token, wrap that token as-is; otherwise wrap the first word, uppercased.
+  /**
+   * @param {unknown} step
+   * @returns {HTMLLIElement}
+   */
   function makeStepLi(step) {
     var li = document.createElement('li');
     var text = String(step == null ? '' : step).trim();
@@ -155,6 +191,10 @@
   }
 
   // a full recipe card node built to the exact design-standard structure.
+  /**
+   * @param {MonthCard} card
+   * @returns {HTMLElement}
+   */
   function buildRecipeCard(card) {
     var rc = el('div', 'rc-card');
     rc.setAttribute('data-substrate', card.substrate || 'kraft');
@@ -171,7 +211,8 @@
     // meta bar: 4 cells, null -> em-dash
     var meta = el('div', 'rc-meta');
     meta.setAttribute('data-zone', 'metadata_strip');
-    var m = card.meta || {};
+    // missing meta is an empty map, not a guess — every field stays optional.
+    var m = card.meta || /** @type {Object<string, string>} */ ({});
     META_CELLS.forEach(function (cell) {
       var c = el('div', 'rc-meta__cell');
       c.appendChild(el('span', 'rc-meta__value', orDash(m[cell.key])));
@@ -189,6 +230,8 @@
     left.appendChild(el('h4', 'rc-col-heading',
       (card.colLabels && card.colLabels.ingredients) || 'ingredients'));
     var ul = el('ul', 'rc-ingredients');
+    // missing art is an empty RecipeArt — all three zones optional, so the cast is total.
+    var art = card.art || /** @type {RecipeArt} */ ({});
     (card.ingredients || []).forEach(function (ing) {
       var li = el('li', 'rc-ing');
       li.appendChild(el('span', 'rc-ing__name', (ing && ing.qty_name) ? String(ing.qty_name) : ''));
@@ -198,19 +241,19 @@
       ul.appendChild(li);
     });
     left.appendChild(ul);
-    left.appendChild(makeArtZone(ART_ZONES[0], (card.art || {})[ART_ZONES[0].artKey]));
+    left.appendChild(makeArtZone(ART_ZONES[0], art[ART_ZONES[0].artKey] || null));
     cols.appendChild(left);
 
     // right: technique drawing first, then the steps heading + list, then
     // the finished drawing: the column reads top-to-bottom as see-make-plate.
     var right = el('section', 'recipe-card-column recipe-card-execution');
-    right.appendChild(makeArtZone(ART_ZONES[1], (card.art || {})[ART_ZONES[1].artKey]));
+    right.appendChild(makeArtZone(ART_ZONES[1], art[ART_ZONES[1].artKey] || null));
     right.appendChild(el('h4', 'rc-col-heading',
       (card.colLabels && card.colLabels.steps) || 'steps'));
     var ol = el('ol', 'rc-steps');
     (card.steps || []).forEach(function (step) { ol.appendChild(makeStepLi(step)); });
     right.appendChild(ol);
-    right.appendChild(makeArtZone(ART_ZONES[2], (card.art || {})[ART_ZONES[2].artKey]));
+    right.appendChild(makeArtZone(ART_ZONES[2], art[ART_ZONES[2].artKey] || null));
     cols.appendChild(right);
 
     rc.appendChild(cols);
@@ -219,6 +262,10 @@
 
   // honest empty-state card for months with no in-season local pick (ingredient null / reason set).
   // never fabricates a recipe. reuses the card shell + substrate so it sits cleanly in the gallery.
+  /**
+   * @param {MonthCard} card
+   * @returns {HTMLElement}
+   */
   function buildEmptyStateCard(card) {
     var rc = el('div', 'rc-card rc-card--empty');
     rc.setAttribute('data-substrate', card.substrate || 'kraft');
@@ -238,11 +285,20 @@
     return rc;
   }
 
+  /**
+   * @param {MonthCard} card
+   * @returns {boolean}
+   */
   function isEmptyState(card) {
     return !card || card.ingredient == null || card.reason != null;
   }
 
   // build one market's group: heading + a shell-wrapped card per month (sorted).
+  /**
+   * @param {string} market
+   * @param {Object<string, MonthCard>} monthsObj
+   * @returns {HTMLElement}
+   */
   function buildMarketGroup(market, monthsObj) {
     var group = el('section', 'rc-gallery-group');
     group.setAttribute('aria-label', market);
@@ -266,6 +322,7 @@
   // month name ("September") -> card month key ("2026-09"). seasons and
   // holidays have no card keys in the dataset (12 month keys only), so they
   // resolve to null and the gallery says so honestly instead of guessing.
+  /** @type {Object<string, string>} */
   var MONTH_TO_KEY = {january: '2026-01', february: '2026-02',
     march: '2026-03', april: '2026-04', may: '2026-05', june: '2026-06',
     july: '2026-07', august: '2026-08', september: '2026-09',
@@ -274,11 +331,14 @@
   // the gallery shows ONE market group for the pipeline's selected market,
   // not the whole book: market code (#locality) -> frontier card key via
   // the marketFeaturedFrontier map owned by data-core.js.
+  /**
+   * @returns {string|null}
+   */
   function selectedCardMarket() {
     var data = window.KODIAK_RECIPE_CARDS;
     if (!data || typeof data !== 'object') return null;
     var sel = null;
-    try { sel = document.getElementById('locality'); } catch (e) { sel = null; }
+    try { sel = /** @type {HTMLInputElement|null} */ (document.getElementById('locality')); } catch (e) { sel = null; }
     var code = (sel && sel.value) ? String(sel.value) : '';
     if (code && data[code]) return code;   // select already holds a card key
     var map = (typeof marketFeaturedFrontier !== 'undefined') ? marketFeaturedFrontier : {};
@@ -287,9 +347,12 @@
     return null;
   }
 
+  /**
+   * @returns {string|null}
+   */
   function selectedMonthKey() {
     var s = null;
-    try { s = document.getElementById('seasonalSelect'); } catch (e) { s = null; }
+    try { s = /** @type {HTMLInputElement|null} */ (document.getElementById('seasonalSelect')); } catch (e) { s = null; }
     var v = (s && s.value) ? String(s.value).trim().toLowerCase() : '';
     if (!v) return '';   // "Season: any" — no month filter
     return MONTH_TO_KEY[v] || null;   // seasons/holidays -> null (no such cards)
@@ -314,6 +377,7 @@
         'No recipe cards for the selected market yet — pick a market with a frontier card.'));
       return;
     }
+    /** @type {Object<string, MonthCard>} */
     var monthsObj = data[market] || {};
     var monthKey = selectedMonthKey();
     if (monthKey === null) {
@@ -321,6 +385,7 @@
         'Holiday and season cards are not built yet — pick a month to see its card.'));
       return;
     }
+    /** @type {Object<string, MonthCard>} */
     var filtered = {};
     if (!monthKey) {
       filtered = monthsObj;   // "Season: any" — this market's full year
@@ -339,7 +404,9 @@
     // #locality changes fire from the select, the listbox picker, and
     // restores — listen at document level so all of them re-render.
     document.addEventListener('change', function (e) {
-      if (e && e.target && (e.target.id === 'locality' || e.target.id === 'seasonalSelect')) {
+      // EventTarget carries no id — narrow to Element before reading it.
+      var t = /** @type {Element|null} */ (e.target);
+      if (t && (t.id === 'locality' || t.id === 'seasonalSelect')) {
         previewLang = 'en';   // new market/month starts in English
         renderPreviewCard();
       }
@@ -351,13 +418,23 @@
   // names, and steps from the baked per-language entry and badges the card as
   // machine-translated. Prices, art, and meta never translate.
   var previewLang = 'en';
+  /** @type {Object<string, string>} */
   var LANG_NAMES = { es: 'Español', pt: 'Português', fr: 'Français', ar: 'العربية',
     de: 'Deutsch', zh: '中文', vi: 'Tiếng Việt', ko: '한국어', ht: 'Kreyòl',
     tl: 'Tagalog', ja: '日本語', so: 'Soomaali', pl: 'polski', ru: 'русский',
     am: 'አማርኛ', ilo: 'Ilocano', hmn: 'Hmoob', bs: 'bosanski', nv: 'Diné',
     ne: 'नेपाली', my: 'မြန်မာ' };
+  /**
+   * @param {string} code
+   * @returns {string}
+   */
   function langName(code) { return LANG_NAMES[code] || code; }
 
+  /**
+   * @param {string} market
+   * @param {string} monthKey
+   * @returns {Object<string, I18nEntry>}
+   */
   function previewLangsFor(market, monthKey) {
     var book = window.KODIAK_RECIPE_I18N;
     if (!book || typeof book !== 'object') return {};
@@ -366,10 +443,16 @@
     return (byMonth && typeof byMonth === 'object') ? byMonth : {};
   }
 
+  /**
+   * @param {MonthCard} card
+   * @param {string} lang
+   * @param {I18nEntry|null|undefined} entry
+   * @returns {{card: MonthCard, translated: TranslationProvenance|null}}
+   */
   function withPreviewLang(card, lang, entry) {
     if (!lang || lang === 'en' || !entry) return { card: card, translated: null };
-    var c = {};
-    Object.keys(card).forEach(function (k) { c[k] = card[k]; });
+    // shallow copy, same runtime shape as Object.assign — card keeps its type.
+    var c = /** @type {MonthCard} */ (Object.assign({}, card));
     if (entry.title) c.title = entry.title;
     if (entry.ingredients) c.ingredients = entry.ingredients;
     if (entry.steps) c.steps = entry.steps;
@@ -377,13 +460,17 @@
     // est_cost is a universal figure and stays. Labels come from the baked
     // per-language table; missing labels fall back to English in the render.
     if (entry.meta) {
+      /** @type {Object<string, string>} */
       var m = {};
-      Object.keys(card.meta || {}).forEach(function (k) { m[k] = card.meta[k]; });
+      var srcMeta = card.meta || /** @type {Object<string, string>} */ ({});
+      Object.keys(srcMeta).forEach(function (k) { m[k] = srcMeta[k]; });
       ['prep', 'cook', 'serves'].forEach(function (k) {
-        if (entry.meta[k]) m[k] = entry.meta[k];
+        var mv = entry.meta ? entry.meta[k] : undefined;
+        if (mv) m[k] = mv;
       });
       c.meta = m;
-      var labelTable = window.KODIAK_RECIPE_META_LABELS || {};
+      var labelTable = /** @type {Object<string, Object<string, string>>} */ (
+        window.KODIAK_RECIPE_META_LABELS || {});
       if (labelTable[lang]) {
         c.metaLabels = labelTable[lang];
         c.colLabels = labelTable[lang];
@@ -392,6 +479,12 @@
     return { card: c, translated: entry.translation || null };
   }
 
+  /**
+   * @param {string[]} codes
+   * @param {string} active
+   * @param {(code: string) => void} onPick
+   * @returns {HTMLElement}
+   */
   function buildLangToggle(codes, active, onPick) {
     var row = el('div', 'rc-lang-toggle');
     row.setAttribute('role', 'group');
@@ -408,6 +501,10 @@
     return row;
   }
 
+  /**
+   * @param {TranslationProvenance|null} prov
+   * @returns {HTMLElement}
+   */
   function buildTranslationBadge(prov) {
     var text = 'machine translated · not human reviewed';
     if (prov && prov.allergen_fallback_lines && prov.allergen_fallback_lines.length) {
@@ -422,6 +519,7 @@
   // month. "Season: any" and missing months fall back to the current
   // calendar month so the preview always shows exactly one card.
   // seasons/holidays have no card keys — honest empty state, never a guess.
+  /** @returns {string} */
   function currentMonthKey() {
     return MONTH_TO_KEY[['january', 'february', 'march', 'april', 'may', 'june',
       'july', 'august', 'september', 'october', 'november',
@@ -445,6 +543,7 @@
         'No recipe card for the selected market yet.'));
       return;
     }
+    /** @type {Object<string, MonthCard>} */
     var monthsObj = data[market] || {};
     var monthKey = selectedMonthKey();
     if (!monthKey) monthKey = currentMonthKey();   // "any" or holiday -> this month
@@ -454,9 +553,8 @@
         'No card for this market and month yet.'));
       return;
     }
-    // column wrap: #previewRecipe itself is a centering flex ROW, so the
-    // toggle, badge, and shell stack in their own column and keep the card
-    // centered exactly as before.
+    // column wrap: #previewRecipe is a full-width block, so the toggle,
+    // badge, and shell stack in their own column inside it.
     var wrap = el('div', 'rc-preview-wrap');
     var shell = el('div', 'rc-card-shell');
     if (isEmptyState(card)) {
@@ -484,7 +582,9 @@
     // #locality changes fire from the select, the listbox picker, and
     // restores — listen at document level so all of them re-render.
     document.addEventListener('change', function (e) {
-      if (e && e.target && (e.target.id === 'locality' || e.target.id === 'seasonalSelect')) {
+      // EventTarget carries no id — narrow to Element before reading it.
+      var t = /** @type {Element|null} */ (e.target);
+      if (t && (t.id === 'locality' || t.id === 'seasonalSelect')) {
         renderPreviewCard();
       }
     });

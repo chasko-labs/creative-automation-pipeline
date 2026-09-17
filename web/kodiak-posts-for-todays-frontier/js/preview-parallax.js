@@ -14,6 +14,7 @@
   var SCROLL_MAX = 8; // px of scroll drift for the deepest tile
   var SETTLE_MS = 380;
 
+  /** @returns {boolean} */
   function reducedMotion() {
     try {
       return window.matchMedia &&
@@ -21,23 +22,26 @@
     } catch (e) { return false; }
   }
 
-  var hero = document.getElementById(HERO_ID);
+  // Query once, narrow once: the const binding below carries the non-null
+  // type into the event closures (a var binding would forget it there).
+  const heroQuery = document.getElementById(HERO_ID);
   // Static fallback: no hero, no animation support, or motion-sensitive reader.
-  if (!hero || reducedMotion()) return;
+  if (!heroQuery || reducedMotion()) return;
+  const hero = heroQuery;
   if (!('requestAnimationFrame' in window)) return;
 
   var tiles = Array.prototype.slice.call(document.querySelectorAll(TILE_SEL));
   if (!tiles.length) return;
 
   // Per-tile depth: slightly different rates so the set reads as layered.
-  // Rates cycle 0.4 / 0.6 / 0.8 / 1.0 across the tiles in DOM order.
-  var rates = tiles.map(function (tile, i) {
-    return {
-      node: tile,
-      frame: tile.querySelector('.render-frame'),
-      rate: 0.4 + 0.2 * (i % 4)
-    };
-  }).filter(function (r) { return r.frame; });
+  // Rates cycle 0.4 / 0.6 / 0.8 / 1.0 across the tiles in DOM order. Frames
+  // are cast once here so every later use knows they are set, not queried.
+  /** @type {{node: Element, frame: HTMLElement, rate: number}[]} */
+  var rates = [];
+  tiles.forEach(function (tile, i) {
+    var frame = /** @type {HTMLElement|null} */ (tile.querySelector('.render-frame'));
+    if (frame) rates.push({ node: tile, frame: frame, rate: 0.4 + 0.2 * (i % 4) });
+  });
   if (!rates.length) return;
 
   var rafId = 0;
@@ -46,6 +50,9 @@
   var active = true;
   var settleTimer = 0;
 
+  /**
+   * @param {(r: {node: Element, frame: HTMLElement, rate: number}) => void} fn
+   */
   function eachFrame(fn) {
     rates.forEach(fn);
   }
@@ -67,6 +74,7 @@
     if (!rafId) rafId = window.requestAnimationFrame(paint);
   }
 
+  /** @param {PointerEvent} ev */
   function onPointerMove(ev) {
     if (!active) return;
     var box = hero.getBoundingClientRect();
@@ -125,9 +133,11 @@
     try {
       hero.removeEventListener('pointermove', onPointerMove);
       hero.removeEventListener('pointerleave', onPointerLeave);
-      window.removeEventListener('scroll', onScroll, { passive: true });
+      // no options object: it was registered without capture, so bare removal
+      // matches (the old {passive:true} never narrowed the match anyway).
+      window.removeEventListener('scroll', onScroll);
     } catch (e) { /* listener removal is best-effort */ }
-    try { observer.disconnect(); } catch (e) { /* never attached */ }
+    if (observer) { try { observer.disconnect(); } catch (e) { /* never attached */ } }
     try {
       document.documentElement.classList.remove('pp-ready');
       hero.classList.remove('pp-settling');
@@ -136,6 +146,7 @@
 
   // Generated campaign output replaces #preview.innerHTML, removing #previewHero.
   // Watch for that and unload the effect layers for generated content.
+  /** @type {MutationObserver|null} */
   var observer = null;
   try {
     var preview = document.getElementById('preview');

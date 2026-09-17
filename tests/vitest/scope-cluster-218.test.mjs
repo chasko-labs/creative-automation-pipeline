@@ -100,7 +100,7 @@ describe('scope cluster (#218, #236, #237, #223)', () => {
     expect(html).not.toMatch(/id="layerPartner"/);
     // layers still read by id in generate.js — the __selectedLayers contract is unchanged
     expect(generate).toMatch(/window\.__selectedLayers\s*=\s*function/);
-    expect(generate).toMatch(/getElementById\('layerProduct'\)\?\.checked/);
+    expect(generate).toMatch(/getElementById\('layerProduct'\)+\)\?\.checked/);
     expect(generate).not.toMatch(/getElementById\('layerRetailer'\)/);
     expect(generate).not.toMatch(/getElementById\('layerPartner'\)/);
     // product flag drops when nothing is staged (no stale compose flag)
