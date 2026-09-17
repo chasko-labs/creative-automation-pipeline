@@ -360,8 +360,14 @@ section.xl{padding:var(--section-space-xl) 0}
 /* shape descriptor on resting caps (Square, Vertical / Full-Screen) */
 .render-tile .render-cap .rt-shape{display:block;margin-top:2px;color:var(--colors-neutral-600);font:500 10px/1.4 "museo-sans",sans-serif}
 /* hero grid takes the full preview width now that the side matrix is retired;
-   wider screens fit more tiles per row instead of a narrow single column */
+   wider screens fit more tiles per row instead of a narrow single column.
+   the hero must span all implicit tracks: as the only grid item it would
+   otherwise sit in a single 240px track and the pictures stay tiny. */
+#previewHero{grid-column:1/-1;max-width:none}
 @media(min-width:1100px){.render-set{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}}
+/* every section gets the hover lighten + lift, not just the brief cards */
+.preview-card:hover,.ff-detail:hover{background:var(--gradients-kraft\.surface-hover);box-shadow:var(--shadows-bear),inset 0 1px 0 rgba(255,248,240,.6)}
+@media(prefers-reduced-motion:reduce){.preview-card:hover,.ff-detail:hover{box-shadow:none}}
 
 /* === Preview as native <details> — collapsed by default, summary styled as the card header (matches #aboutTool) === */
 .preview-card>summary{list-style:none;cursor:pointer;padding:16px 16px 12px;background-image:var(--gradients-kraft\.sheen),var(--gradients-kraft\.surface);border-bottom:1px solid var(--colors-neutral-200);

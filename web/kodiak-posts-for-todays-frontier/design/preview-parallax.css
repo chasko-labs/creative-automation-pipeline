@@ -33,22 +33,10 @@ html.pp-ready #previewHero.pp-settling .render-set .render-tile .render-frame im
   transition: transform 0.35s ease;
 }
 
-/* Soft warm light sheen following the pointer. Color reuses the parchment
-   highlight tone already used for card top-lights in components.css
-   (rgba(255,248,240,...)); position comes from --pp-sx/--pp-sy-pct per frame. */
+/* Pointer sheen retired: the wash masked the photography. Motion (per-tile
+   drift at different rates) carries the depth effect alone. */
 html.pp-ready #previewHero .render-set .render-tile .render-frame::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: var(--pp-sheen, 0);
-  background: radial-gradient(
-    circle at var(--pp-sx, 50%) var(--pp-sy-pct, 50%),
-    rgba(255, 248, 240, 0.28) 0%,
-    rgba(255, 248, 240, 0.08) 45%,
-    transparent 70%
-  );
-  transition: opacity 0.25s ease;
+  display: none;
 }
 
 /* Static fallback: no motion, no sheen, no transitions. */
