@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Secure Hosting and Delivery — Kodiak Creative Automation Pipeline</title>
-<meta name="kodiak-version" content="0.1.047-7308813-20260908">
+<meta name="kodiak-version" content="0.1.012-a9539b9-20260917">
 <style>
 :root{--brown-kodiak:#3B2316;--frontier:#1A3C34;--blaze:#E8530E;--stone:#D9CFC6;--cream:#FFF8F0;--parch:#F4EDE6}
 body{margin:0;background:var(--cream);color:var(--brown-kodiak);font-family:"museo-sans",system-ui,sans-serif}
@@ -45,14 +45,14 @@ a{color:var(--frontier)}
 <a href="infrastructure.html" aria-current="page" target="_blank" rel="noopener">Secure Hosting and Delivery</a>
 </div>
 
-<div class="card"><div class="hd"><h2>How the three card sketches get drawn <span class="badge">contract</span></h2><p>Each printed card carries three hand-drawn sketches (raw ingredient, kitchen technique, finished plate). They all render through one bulk path: Bedrock Stable Image Core, driven as a batch from a prompts file against the Bedrock data plane. Same model, region, and request contract as <span class="kbd">generate_recipe_art</span> in <span class="kbd">src/creative_automation/recipe_art.py</span>. Finished drawings are stored in the DAM and embedded into the offline card data by the emit step, so the page never waits on generation at view time.</p></div><div class="body">
+<div class="card"><div class="hd"><h2>How the three card sketches get drawn <span class="badge">contract</span></h2><p>Each printed card carries three hand-drawn sketches (raw ingredient, kitchen technique, finished plate). They render through two bulk paths with the same style contract: the Bedrock batch (Stable Image Core from a prompts file, same model, region, and request contract as <span class="kbd">generate_recipe_art</span> in <span class="kbd">src/creative_automation/recipe_art.py</span>) and the local-graphics-card batch for seeding volume. Finished drawings are cut to transparent, stored in the DAM, and embedded into the offline card data by the emit step, so the page never waits on generation at view time.</p></div><div class="body">
 <table class="matrix">
 <tr><th scope="col">Slot</th><th scope="col">Value</th></tr>
 <tr><td>Model</td><td><span class="kbd">stability.stable-image-core-v1:1</span>, on-demand</td></tr>
 <tr><td>Region</td><td><span class="kbd">us-west-2</span>, forced regardless of the DAM path region</td></tr>
 <tr><td>Call</td><td><span class="kbd">bedrock-runtime</span> InvokeModel, one JSONL line per art object (prompt + negative + aspect + seed + png)</td></tr>
 <tr><td>Aspects</td><td><span class="kbd">raw_ingredient</span> 16:9, <span class="kbd">technique</span> 16:9, <span class="kbd">finished_plate</span> 3:2</td></tr>
-<tr><td>Cost frame</td><td>about $0.04/image; ~$11 ideal for the 271-object backlog (~$15 at 1.4x retry)</td></tr>
+<tr><td>Cost frame</td><td>about $0.04/image; ~$12 ideal for the 291-object library (~$16 at 1.4x retry)</td></tr>
 <tr><td>Time frame</td><td>about 20-60s per call, parallelizable to under an hour for the book</td></tr>
 </table>
 </div></div>
@@ -82,7 +82,7 @@ then the paren-stripped slug (one drawing serves every qualifier).</div>
 
 <div class="card"><div class="hd"><h2>Protected storage <span class="badge">live</span></h2><p>Approved images, campaign files, market guidance, and service records are stored with protection appropriate to their role.</p></div><div class="body">
 <ul class="tree">
-<li><span class="node"><b>Approved asset library (DAM)</b></span> <span class="role">— version history, encryption, blocked public access, and secure delivery links help protect approved product images and campaign references, including the recipe-card art objects reused idempotently by the emit step.</span></li>
+<li><span class="node"><b>Approved asset library (DAM)</b></span> <span class="role">— version history, encryption, blocked public access, and secure delivery links help protect approved product images and campaign references. Recipe-card art is reused idempotently by the emit step and mirrored into the site tree at deploy as permanent paths, never session-bound links.</span></li>
 <li><span class="node"><b>Campaign files</b></span> <span class="role">— generated previews and downloadable packages stay organized by campaign so teams can review and reuse them.</span></li>
 <li><span class="node"><b>Localization memory</b></span> <span class="role">— approved market-specific corrections can be retained for consistency without exposing unrelated campaign data.</span></li>
 <li><span class="node"><b>Protected operational records</b></span> <span class="role">— service activity and quality signals support monitoring without making private infrastructure details part of the client workflow.</span></li>

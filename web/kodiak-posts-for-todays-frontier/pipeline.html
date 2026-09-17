@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Creative Generation, Localization &amp; Artificial Intelligence — Kodiak Creative Automation Pipeline</title>
-<meta name="kodiak-version" content="0.1.030-2dba172-20260907">
+<meta name="kodiak-version" content="0.1.012-a9539b9-20260917">
 <style>
 :root{--brown-kodiak:#3B2316;--frontier:#1A3C34;--blaze:#E8530E;--stone:#D9CFC6;--cream:#FFF8F0;--parch:#F4EDE6}
 body{margin:0;background:var(--cream);color:var(--brown-kodiak);font-family:"museo-sans",system-ui,sans-serif}
@@ -45,7 +45,7 @@ a{color:var(--frontier)}
 <a href="infrastructure.html" target="_blank" rel="noopener">Secure hosting and delivery</a>
 </div>
 
-<div class="card"><div class="hd"><h2>Recipe-card generation contract <span class="badge">contract</span></h2><p>One card per market x season-month x featured-frontier-ingredient. The market and month pick the ingredient; the ingredient fans out to procedurally-built Kodiak recipes; the card layout and its governing ruleset come from the <a href="details.html#recipe-card-standard" target="_blank" rel="noopener">recipe card standard</a>.</p></div><div class="body">
+<div class="card"><div class="hd"><h2>Recipe-card generation contract <span class="badge">contract</span></h2><p>One card per market x season-month x featured-frontier-ingredient. The market and month pick the ingredient; markets sharing an ingredient rotate deterministically (market + month digest over recipes that genuinely name the ingredient) so neighboring markets show different cards instead of identical keepsakes; the card layout and its governing ruleset come from the <a href="details.html#recipe-card-standard" target="_blank" rel="noopener">recipe card standard</a>.</p></div><div class="body">
 <div class="schema">market (data/localization/local-flavor.json)
   x month (1-12, inclusive windows, may wrap year boundary)
   -> featured ingredient (in-season produce name, parens kept for display)
@@ -75,13 +75,12 @@ family shape: { family_id, base_recipe, primary_product_mapping,
   cook_method options + validation_needed flags, mood }</div>
 </div></div>
 
-<div class="card"><div class="hd"><h2>Recipe card: fixed frame, changing contents <span class="badge">contract</span></h2><p>Every card shares one fixed frame; only the per-card contents change. Fixed chrome: corner flourishes (1.0 x 1.0in accents, 0.25in clear of the title), a kraft-paper substrate (20-point brown kraft board by default; white cardstock and cream parchment also work), and an opaque white base coat under every art zone so drawings stay legible on kraft. The printable specimen and its governing ruleset live under the <a href="details.html#recipe-card-standard" target="_blank" rel="noopener">recipe card standard</a>.</p></div><div class="body">
+<div class="card"><div class="hd"><h2>Recipe card: fixed frame, changing contents <span class="badge">contract</span></h2><p>Every card shares one fixed frame; only the per-card contents change. Fixed chrome: corner flourishes (1.0 x 1.0in accents, 0.25in clear of the title) and a kraft-paper substrate (20-point brown kraft board by default; white cardstock and cream parchment also work). Art zones are transparent with no box outline — cutout drawings sit straight on the paper tone so the card reads drawn-on, not pasted-on. The printable specimen and its governing ruleset live under the <a href="details.html#recipe-card-standard" target="_blank" rel="noopener">recipe card standard</a>.</p></div><div class="body">
 <table class="matrix">
 <tr><th scope="col">Per-card variable</th><th scope="col">What it shows</th><th scope="col">When unknown</th></tr>
 <tr><td>Title</td><td>featured ingredient over the Kodiak base (e.g. ingredient over Kodiak Power Cakes); falls back to the recipe catalog name, then the word recipe</td><td>empty-state card (no ingredient) carries no title</td></tr>
-<tr><td>Meta strip: prep / cook / serves / est-cost</td><td>prep from the recipe prepTime, cook from cookTime, serves from yield</td><td>honest em-dash per missing column; est-cost is always a dash (no verified price source)</td></tr>
-<tr><td>Ingredients</td><td>the in-season pick as the source-backed line</td><td>price column always an em-dash — never $0.00, never guessed</td></tr>
-<tr><td>Seasonal tip</td><td>one context line from the market seasonal moments: first confirmed moment, else the first moment</td><td>omitted when the market has no moments</td></tr>
+<tr><td>Meta strip: prep / cook / serves / est-cost</td><td>prep from the recipe prepTime, cook from cookTime, serves from yield; est-cost from a verified recipe-level cost record</td><td>honest em-dash per missing column; est-cost is a dash unless a complete verified cost record exists</td></tr>
+<tr><td>Ingredients</td><td>the matched recipe's full ingredient lines with quantities, verbatim from the catalog record; per-line prices attach only from a complete verified cost record</td><td>price column an em-dash unless verified — never $0.00, never guessed</td></tr>
 <tr><td>Steps</td><td>up to 5 steps from the recipe instructions, real leading word uppercased as the bold action verb</td><td>a step that opens with a quantity keeps its wording — no verb invented</td></tr>
 <tr><td>Market + month</td><td>the market and the resolved season-month travel on every card, including empty states</td><td>empty states carry the reason (no pair seeded / nothing in season / no recipe on file)</td></tr>
 <tr><td>Provenance</td><td>kept in the card data (source-backed vs proposed vs unknown), never printed on the card face</td><td>no markers on the face by design decision</td></tr>
@@ -97,18 +96,18 @@ family shape: { family_id, base_recipe, primary_product_mapping,
 </table>
 </div></div>
 
-<div class="card"><div class="hd"><h2>Concept rule: ingredient first, Kodiak as binder <span class="badge">contract</span></h2><p>The market and month pick the ingredient; the ingredient picks the recipe family; Kodiak binds it. Recipe names stay neutral — the title pattern is always the featured ingredient over the Kodiak base, never an invented dish name.</p></div><div class="body">
+<div class="card"><div class="hd"><h2>Concept rule: ingredient first, Kodiak as binder <span class="badge">contract</span></h2><p>The market and month pick the ingredient; the ingredient picks the recipe (with deterministic rotation for variety); Kodiak binds it. The card title is the matched catalog recipe's own name — never an invented dish name. The picked recipe's own published drawings win per art zone over shared ingredient art.</p></div><div class="body">
 <div class="schema">market x month -> ingredient first (never fabricated)
-  -> Kodiak base as binder ("over Kodiak Power Cakes", flagged proposed)
-  -> neutral title only: "{Ingredient} over Kodiak Power Cakes"</div>
+  -> matched catalog recipe (rotation across recipes naming the ingredient)
+  -> title is the recipe name; per-zone art prefers the recipe's own drawings</div>
 </div></div>
 
 <div class="card"><div class="hd"><h2>Art zones + style rule <span class="badge">contract</span></h2><p>Three sketch zones per card under one triple-bar style rule: monochrome + sparse + no-text-artifact. Ink coverage ceiling 0.35 dark-area fraction per zone (±0.02 template tolerance). A null art url keeps the inline SVG "sketch pending" placeholder — never an empty box, never a broken image. Bulk rendering path lives on the <a href="infrastructure.html" target="_blank" rel="noopener">infrastructure page</a>.</p></div><div class="body">
 <table class="matrix">
 <tr><th scope="col">Zone</th><th scope="col">Print box</th><th scope="col">Render aspect</th><th scope="col">Prompt role</th></tr>
 <tr><td><span class="kbd">raw_ingredient</span></td><td>3.0 x 1.5in, left column</td><td>16:9</td><td>single sparse specimen of the featured ingredient; leafy/clustered subjects get a sparsity clause</td></tr>
-<tr><td><span class="kbd">technique</span></td><td>3.0 x 1.5in, right column mid</td><td>16:9</td><td>kitchen action sketch for the recipe</td></tr>
-<tr><td><span class="kbd">finished_plate</span></td><td>3.0 x 2.0in, right column bottom</td><td>3:2</td><td>plated dish featuring the ingredient over pancakes</td></tr>
+<tr><td><span class="kbd">technique</span></td><td>3.0 x 1.5in, right column above the steps</td><td>16:9</td><td>kitchen action sketch for the recipe</td></tr>
+<tr><td><span class="kbd">finished_plate</span></td><td>3.0 x 2.0in, right column below the steps</td><td>3:2</td><td>plated dish featuring the recipe</td></tr>
 </table>
 </div></div>
 
@@ -126,7 +125,7 @@ family shape: { family_id, base_recipe, primary_product_mapping,
 <li><span class="node"><b>Grounded brand knowledge</b> <span class="kbd">live</span></span> <span class="role">— keeps creative direction connected to approved brand guidance, product language, and past approved examples.</span></li>
 <li><span class="node"><b>Nova Pro art director</b> <span class="kbd">live</span></span> <span class="role">— turns the campaign idea into visual direction and headline options that fit the selected market.</span></li>
 <li><span class="node"><b>Stable Diffusion image generation</b> <span class="kbd">live</span></span> <span class="role">— develops photographic variations from the art direction. Final text, product imagery, and approved brand elements are composed afterward for accuracy.</span></li>
-<li><span class="node"><b>Nova Micro language support</b> <span class="kbd">live</span></span> <span class="role">— helps prepare localized market copy while leaving room for human review where a language or cultural context needs it.</span></li>
+<li><span class="node"><b>Machine translation with allergen fail-safe</b> <span class="kbd">live</span></span> <span class="role">— card title, ingredients, steps, and meta values travel the provider chain with no human review loop; every translated line runs an allergen-glossary check and falls back to English per line, and machine output is badged as not human reviewed.</span></li>
 <li><span class="node"><b>Multimodal image matching</b> <span class="kbd">live</span></span> <span class="role">— helps find relevant approved product images and past campaign references. A secondary matching method supports continuity when the primary service is unavailable.</span></li>
 </ul>
 </div></div>
@@ -134,7 +133,7 @@ family shape: { family_id, base_recipe, primary_product_mapping,
 <div class="card"><div class="hd"><h2>Localization <span class="badge">live</span></h2><p>Market and language guidance helps each campaign feel relevant to its audience. English source copy stays available when a localized service cannot answer.</p></div><div class="body">
 <ul class="tree">
 <li><span class="node"><b>Market guidance</b> <span class="kbd">live</span></span> <span class="role">— selected places contribute local context, seasonal cues, retailer choices, and language preferences.</span></li>
-<li><span class="node"><b>Localized copy</b> <span class="kbd">live</span></span> <span class="role">— English, Spanish, Portuguese, and other market languages can appear with the campaign imagery. Person-reviewed language remains available where automatic translation is not appropriate.</span></li>
+<li><span class="node"><b>Localized copy</b> <span class="kbd">live</span></span> <span class="role">— English plus each market's own top languages appear with the campaign imagery and on a baked offline preview toggle. Machine translations carry a not-human-reviewed badge with a count of allergen lines kept in English; prices, art, and meta figures never translate.</span></li>
 <li><span class="node"><b>Reusable corrections</b> <span class="kbd">live</span></span> <span class="role">— approved market-specific wording can be reused so future campaigns become more consistent over time.</span></li>
 </ul>
 </div></div>
@@ -158,7 +157,7 @@ family shape: { family_id, base_recipe, primary_product_mapping,
 <div class="card"><div class="hd"><h2>Brand updates <span class="badge">guide</span></h2><p>Client teams can keep the workflow current by maintaining approved products, recipes, images, market wording, and examples.</p></div><div class="body">
 <ul class="tree">
 <li><span class="node"><b>Add an approved product, recipe, or image</b></span> <span class="role">— provide the product information, approved image, and usage guidance so the creative workflow can reuse it safely.</span></li>
-<li><span class="node"><b>Review a market translation</b></span> <span class="role">— approve or correct localized copy when local voice, cultural context, or legal review calls for a person to make the final decision.</span></li>
+<li><span class="node"><b>Review a market translation</b></span> <span class="role">— machine output ships badged with per-line English fallbacks recorded in provenance; correct the source recipe or the allergen glossary when a translation misses.</span></li>
 <li><span class="node"><b>Reuse an approved asset</b></span> <span class="role">— select a trusted product image or past campaign reference to guide a new campaign while keeping the new brief distinct.</span></li>
 <li><span class="node"><b>Promote a prepared improvement</b></span> <span class="role">— review the change with the client team, confirm the expected behavior, then include it in the next repeatable release.</span></li>
 </ul>

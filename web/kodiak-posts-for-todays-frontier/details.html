@@ -748,10 +748,9 @@ graph TD
 <tr><td>finished_plate</td><td>3.0 x 2.0in, right column below the steps</td><td>3:2</td></tr>
 </tbody></table>
 <table class="inv-table"><thead><tr><th>Per-card variable</th><th>Shows</th><th>Unknown</th><th>Supplied by</th></tr></thead><tbody>
-<tr><td>Title</td><td>featured ingredient over the Kodiak base; else catalog recipe name; else the word recipe</td><td>empty-state cards carry no title</td><td>market-month localization, then recipe registry</td></tr>
-<tr><td>Meta strip prep / cook / serves / est-cost</td><td>prepTime / cookTime / yield from the matched recipe</td><td>honest em-dash per missing column; est-cost always a dash</td><td>recipe registry (est-cost has no source field)</td></tr>
-<tr><td>Ingredients + prices</td><td>the in-season pick as the source-backed line</td><td>price always an em-dash, never $0.00</td><td>market-month localization (line); no price source exists</td></tr>
-<tr><td>Seasonal tip</td><td>first confirmed seasonal moment, else the first moment</td><td>omitted when none seeded</td><td>market-month localization (seasonal moments)</td></tr>
+<tr><td>Title</td><td>matched catalog recipe's own name; else the featured ingredient over the Kodiak base; else the word recipe</td><td>empty-state cards carry no title</td><td>recipe registry, then market-month localization</td></tr>
+<tr><td>Meta strip prep / cook / serves / est-cost</td><td>prepTime / cookTime / yield from the matched recipe; est-cost from a verified recipe-level cost record</td><td>honest em-dash per missing column; est-cost a dash unless a complete verified cost record exists</td><td>recipe registry + verified cost record</td></tr>
+<tr><td>Ingredients + prices</td><td>full ingredient lines with quantities, verbatim from the catalog record; per-line prices only from a complete verified cost record</td><td>price an em-dash unless verified, never $0.00</td><td>recipe registry (lines + costs)</td></tr>
 <tr><td>Steps</td><td>up to 5 recipe instructions, real leading word uppercased as the bold verb</td><td>quantity-led steps keep wording; no verb invented</td><td>recipe registry</td></tr>
 <tr><td>Market + month</td><td>market and resolved month on every card</td><td>empty states carry the reason</td><td>market-month localization</td></tr>
 <tr><td>Artwork urls</td><td>one drawing per zone, deduped by ingredient slug, reused when already published</td><td>null url renders the placeholder</td><td>DAM-via-emit (seed step embeds urls into the offline data file)</td></tr>
@@ -799,7 +798,7 @@ graph TD
         </div>
       </header>
 
-      <!-- meta bar: four equal columns, value dominant, single accent rule -->
+      <!-- meta bar: four equal columns, value dominant, archival double rule -->
       <div class="rc-meta" data-zone="metadata_strip">
         <div class="rc-meta__cell"><span class="rc-meta__value">15 min</span><span class="rc-meta__label">Prep</span></div>
         <div class="rc-meta__cell"><span class="rc-meta__value">40 min</span><span class="rc-meta__label">Cook</span></div>
@@ -816,7 +815,7 @@ graph TD
             <li class="rc-ing"><span class="rc-ing__name">1 package Kodiak power-cakes mix</span><span class="rc-ing__price">$4.99</span></li>
             <li class="rc-ing"><span class="rc-ing__name">1 small lemon gelatin</span><span class="rc-ing__price">$1.29</span></li>
             <li class="rc-ing"><span class="rc-ing__name">3/4 cup oil</span><span class="rc-ing__price">$0.48</span></li>
-            <li class="rc-ing"><span class="rc-ing__name">3/4 cup water</span><span class="rc-ing__price">$0.00</span></li>
+            <li class="rc-ing"><span class="rc-ing__name">3/4 cup water</span><span class="rc-ing__price">—</span></li>
             <li class="rc-ing"><span class="rc-ing__name">4 eggs</span><span class="rc-ing__price">$1.20</span></li>
             <li class="rc-ing"><span class="rc-ing__name">1 lemon</span><span class="rc-ing__price">$0.79</span></li>
           </ul>
@@ -826,7 +825,6 @@ graph TD
             <svg class="rc-artzone__art" viewBox="0 0 300 150" role="presentation" focusable="false" aria-hidden="true"><!-- whole lemon, loose organic contour --><path d="M58 96 C46 78 54 54 78 46 C104 38 130 50 132 74 C134 96 116 112 90 112 C76 112 65 106 58 96 Z" fill="none" stroke="currentColor" stroke-width="2.4"/><!-- little nib at the blossom end --><path d="M126 66 C134 62 138 66 137 72" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><!-- parallel hatching on the shadow (lower-left) side --><path d="M60 92 L74 100 M58 84 L76 94 M60 76 L82 89 M66 70 L86 82" fill="none" stroke="currentColor" stroke-width="1.1"/><!-- a few stipple dots for peel texture --><circle cx="96" cy="66" r=".9" fill="currentColor"/><circle cx="104" cy="74" r=".9" fill="currentColor"/><circle cx="92" cy="80" r=".9" fill="currentColor"/><!-- cut lemon half, three-quarter, showing segments --><path d="M158 108 C150 88 166 68 194 66 C222 64 240 82 236 104 C214 112 180 114 158 108 Z" fill="none" stroke="currentColor" stroke-width="2.2"/><!-- inner pith ring --><path d="M170 102 C166 88 180 76 198 76 C216 76 228 88 224 102 C206 108 186 108 170 102 Z" fill="none" stroke="currentColor" stroke-width="1.3"/><!-- segment dividers radiating from center --><path d="M197 89 L197 76 M197 89 L178 80 M197 89 L216 80 M197 89 L176 98 M197 89 L218 98 M197 89 L197 104" fill="none" stroke="currentColor" stroke-width="1"/><!-- warm glaze-toned highlight glint on the cut face --><path d="M188 84 C192 82 202 82 206 85" fill="none" stroke="var(--rc-accent)" stroke-width="1.6" stroke-linecap="round"/><!-- leaf sprig arching over the cluster, frontier-green accent --><path d="M112 44 C138 26 172 24 202 34" fill="none" stroke="var(--rc-accent-2)" stroke-width="1.8" stroke-linecap="round"/><path d="M150 33 C158 20 172 18 182 22 C176 34 162 38 150 33 Z" fill="none" stroke="var(--rc-accent-2)" stroke-width="1.6"/><path d="M167 26 L175 30" fill="none" stroke="var(--rc-accent-2)" stroke-width="1"/><!-- leaf-vein hatching --><path d="M155 30 L160 26 M160 33 L166 28" fill="none" stroke="var(--rc-accent-2)" stroke-width=".9"/></svg>
           </div>
 
-          <p class="rc-tip"><span class="rc-tip__label">tip</span> poke the warm cake before adding the glaze so the citrus settles into every slice</p>
         </section>
 
         <section class="recipe-card-column recipe-card-execution">
