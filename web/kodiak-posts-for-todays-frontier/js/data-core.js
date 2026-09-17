@@ -842,6 +842,8 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
   /** @type {Object<string,string>} */
   const STATE_ABBR = {alabama:'AL',alaska:'AK',arizona:'AZ',arkansas:'AR',california:'CA',colorado:'CO',connecticut:'CT',delaware:'DE',florida:'FL',georgia:'GA',hawaii:'HI',idaho:'ID',illinois:'IL',indiana:'IN',iowa:'IA',kansas:'KS',kentucky:'KY',louisiana:'LA',maine:'ME',maryland:'MD',massachusetts:'MA',michigan:'MI',minnesota:'MN',mississippi:'MS',missouri:'MO',montana:'MT',nebraska:'NE',nevada:'NV','new hampshire':'NH','new jersey':'NJ','new mexico':'NM','new york':'NY','north carolina':'NC','north dakota':'ND',ohio:'OH',oklahoma:'OK',oregon:'OR',pennsylvania:'PA','rhode island':'RI','south carolina':'SC','south dakota':'SD',tennessee:'TN',texas:'TX',utah:'UT',vermont:'VT',virginia:'VA',washington:'WA','west virginia':'WV',wisconsin:'WI',wyoming:'WY'};
   const ABBR_SET = new Set(Object.values(STATE_ABBR));
+  // teaching note (frontier every-path returns: the contract says string, so the
+  // fallthrough return '' is the missing else — without it the fallthrough is undefined).
   /** @param {PlaceEntry} p @returns {string} */
   function stateOf(p){
     const place = p.place||'';
@@ -914,6 +916,8 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
   // so snapshot/persist/brief plumbing is untouched.
   /** @returns {HTMLElement[]} */
   function visibleOpts(){ return Array.prototype.slice.call(listbox.querySelectorAll('[role="option"]')); }
+  // teaching note (frontier signatures: names are positional, never nominal —
+  // the signature says el, callers pass o and opts[i], and only count/order/types must line up).
   /** @param {HTMLElement|null} el @returns {void} */
   function setActive(el){
     visibleOpts().forEach(o=>o.classList.remove('is-active'));
@@ -1022,13 +1026,16 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
   // or null on ANY failure (endpoint off, 403, timeout, malformed response). Callers degrade to EN-source
   // when this returns null — translated text is NEVER fabricated. 6s AbortController timeout is the safety net.
   // NEVER call this for community-review languages (nv/zip machine_translate:false) — that path stays human-only.
+  // teaching note (frontier generics: Map<string,string> instantiates both slots —
+  // set() rejects non-strings, get() returns string|undefined, so the hit path coalesces to null).
+  /** @type {Map<string,string>} */
   const _locCache = new Map(); // key: market|code|text  -> translated string (dedupe repeat renders)
   /** @param {string} text @param {string} market @param {string} code @returns {Promise<string|null>} */
   function localizeText(text, market, code){
     const ep = window.KODIAK_LOCALIZE_ENDPOINT;
     if(!ep) return Promise.resolve(null);                   // offline / file:// / localhost — honest degrade
     const key = market+'|'+code+'|'+text;
-    if(_locCache.has(key)) return Promise.resolve(_locCache.get(key));
+    if(_locCache.has(key)) return Promise.resolve(_locCache.get(key) ?? null);
     const controller = new AbortController();
     const timer = setTimeout(()=>controller.abort(), 6000); // 6s timeout — degrade if backend is slow/unreachable
     return fetch(ep, {method:'POST', headers:{'Content-Type':'application/json'},

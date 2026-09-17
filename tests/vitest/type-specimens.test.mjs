@@ -16,6 +16,10 @@ const generate = readFileSync(
   resolve(root, 'web/kodiak-posts-for-todays-frontier/js/generate.js'),
   'utf8',
 );
+const globals = readFileSync(
+  resolve(root, 'web/kodiak-posts-for-todays-frontier/js/globals.d.ts'),
+  'utf8',
+);
 
 // The three type specimens cited on slides: each asserts the teaching marker
 // sits next to the construct it documents, so a cleanup cannot silently
@@ -86,5 +90,26 @@ describe('type specimens', () => {
   it('totality: RATIO_LABELS is keyed by the whole TileSize union', () => {
     expect(generate).toMatch(/teaching note \(frontier totality/);
     expect(generate).toMatch(/Object<TileSize,/);
+  });
+
+  it('generics: the localize cache instantiates both Map slots', () => {
+    expect(core).toMatch(/teaching note \(frontier generics/);
+    expect(core).toMatch(/@type \{Map<string,string>\}/);
+    expect(core).toMatch(/_locCache\.get\(key\) \?\? null/);
+  });
+
+  it('signatures: parameter names are positional, never nominal', () => {
+    expect(core).toMatch(/teaching note \(frontier signatures/);
+    expect(core).toMatch(/callers pass o and opts\[i\]/);
+  });
+
+  it('every-path returns: the fallthrough is the missing else', () => {
+    expect(core).toMatch(/teaching note \(frontier every-path returns/);
+    expect(core).toMatch(/fallthrough return ''/);
+  });
+
+  it('aliases: PlaceEntry names the shape once for many signatures', () => {
+    expect(globals).toMatch(/teaching note \(frontier aliases/);
+    expect(globals).toMatch(/six\n\/\/ signatures reuse it/);
   });
 });

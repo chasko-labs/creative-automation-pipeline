@@ -81,6 +81,8 @@ interface FarmEntry {
 }
 /* Metro catalog entries (data-core.js const places): the market panel reads
  * these nine fields; anything richer flows through structurally. */
+// teaching note (frontier aliases: PlaceEntry names the shape once; six
+// signatures reuse it instead of spelling the object inline — the 010 composition rule).
 interface PlaceEntry {
   market: string;
   place: string;
