@@ -293,6 +293,57 @@ function featuredFrontierFor(market){
 }
 try{ window.featuredFrontierFor = featuredFrontierFor; }catch(e){}
 // #257 mapping end
+
+// #frontier-season start
+// Month-aware frontier line: place + that month's in-season ingredient +
+// a month-matching local moment, all from KODIAK_FRONTIER_PAIRS (curated pair
+// data, never fabricated). Returns {place, ingredient, moment, text} or null
+// when the pairs file is absent or the market/month has no entry. Only a
+// moment whose months include the target month is named; confirmed moments
+// win over proposed ones.
+var FRONTIER_MONTH_NAMES = {january:1,february:2,march:3,april:4,may:5,june:6,
+  july:7,august:8,september:9,october:10,november:11,december:12};
+function frontierSeasonLine(market, monthKey){
+  try{
+    var pairs = window.KODIAK_FRONTIER_PAIRS;
+    if(!pairs || !pairs.length || !market || !monthKey) return null;
+    var entry = null;
+    for(var i = 0; i < pairs.length; i++){
+      if(pairs[i] && pairs[i].market === market){ entry = pairs[i]; break; }
+    }
+    if(!entry || !entry.frontier) return null;
+    var monthNum = null;
+    var m = String(monthKey).match(/(\d{4})-(\d{1,2})/);
+    if(m){ monthNum = parseInt(m[2], 10); }
+    else{
+      var name = String(monthKey).replace(/^Season:\s*/i, '').trim().toLowerCase();
+      if(FRONTIER_MONTH_NAMES[name]) monthNum = FRONTIER_MONTH_NAMES[name];
+    }
+    if(!monthNum) return null;
+    var monthly = entry.monthly || {};
+    var ingredient = null;
+    Object.keys(monthly).forEach(function(k){
+      var km = String(k).match(/-(\d{1,2})$/);
+      if(km && parseInt(km[1], 10) === monthNum) ingredient = monthly[k];
+    });
+    var moments = entry.moments || [];
+    var pick = null;
+    moments.forEach(function(mo){
+      if(!mo || !mo.months || mo.months.indexOf(monthNum) === -1) return;
+      if(!pick || (pick.status !== 'confirmed' && mo.status === 'confirmed')) pick = mo;
+    });
+    var place = (entry.frontier && entry.frontier.place) || '';
+    if(!place && !ingredient) return null;
+    var text = place;
+    if(ingredient) text += ' — ' + ingredient + ' in season';
+    if(pick && pick.moment) text += '; ' + pick.moment;
+    return {place: place, ingredient: ingredient,
+      moment: (pick && pick.moment) || null,
+      momentStatus: (pick && pick.status) || null, text: text};
+  }catch(e){ return null; }
+}
+try{ window.frontierSeasonLine = frontierSeasonLine; }catch(e){}
+// #frontier-season end
 const products = [
   {id:"power-cakes", name:"Kodiak Cakes Buttermilk Power Cakes", img:"", base:"1 cup mix + 2/3 cup milk + 1 egg"},
   {id:"protein-biscuits", name:"Kodiak Cakes Cheddar Jalapeno Drop Biscuits", img:"", base:"2 cups mix + cold butter + cheddar + jalapeno, drop bake 14 min"},

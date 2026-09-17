@@ -18027,6 +18027,80 @@
     "example_localization": {}
   },
   {
+    "id": "winter-squash-griddle-cakes-draft",
+    "name": "Winter Squash Griddle Cakes",
+    "category": "flapjacks",
+    "course": "breakfast & brunch",
+    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
+    "base": "1 cup mix + 3/4 cup mashed roasted winter squash",
+    "kodiak_page": "",
+    "image": "",
+    "ingredients": [
+      "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "3/4 cup mashed roasted winter squash (butternut or acorn)",
+      "1 large egg",
+      "1/2 cup milk",
+      "1 tablespoon melted butter, plus more for the griddle",
+      "1 tablespoon honey or sugar",
+      "1/2 teaspoon cinnamon",
+      "1/4 teaspoon salt"
+    ],
+    "ingredient_costs": [
+      "$1.40",
+      "$1.50",
+      "$0.35",
+      "$0.30",
+      "$0.25",
+      "$0.30",
+      "$0.10",
+      "$0.05"
+    ],
+    "est_cost": "$4.25",
+    "cost_sources": [
+      "Whole Foods",
+      "Amazon"
+    ],
+    "cost_checked": "2026-09-16",
+    "cost_basis": "Rough pantry-share estimates from Whole Foods/Amazon list prices: 20 oz mix about $6.25 with 1 cup about 22% of the box; small butternut share for 3/4 cup mashed; dozen eggs $4.19; half-gallon milk $4.29; 1 lb butter about $5.99 with 1 tablespoon plus griddle share; 24 oz honey $9.99 (1 tablespoon about 3/4 oz); 1.9 oz cinnamon $4.49; 24.7 oz sea salt $3.29. Honey is priced; sugar is cheaper. No links.",
+    "instructions": [
+      "Whisk the squash, egg, milk, butter, and honey until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+      "Heat a buttered griddle over medium heat until a drop of water dances.",
+      "Pour 1/4-cup mounds and cook 2-3 minutes per side, until deep golden and set.",
+      "Serve warm with butter and honey."
+    ],
+    "description": "[DRAFT - UNTESTED] Untested draft; kitchen-test before publishing. Roasted winter squash whisked into Power Cakes batter and griddled as thick cakes; butternut or acorn mashed the same way works cup for cup.",
+    "dietary": [],
+    "tags": [
+      "winter squash",
+      "butternut",
+      "acorn",
+      "squash",
+      "griddle cakes",
+      "flapjacks",
+      "course-breakfast-brunch",
+      "draft-untested"
+    ],
+    "yield": "8 griddle cakes",
+    "prepTime": "10 mins",
+    "cookTime": "15 mins",
+    "author": "recipe-developer hand draft (untested)",
+    "datePublished": "2026-09-16",
+    "nutrition": {},
+    "localize": {},
+    "art": "",
+    "art_slug": "winter-squash-griddle-cakes",
+    "localization_slots": [
+      "region",
+      "retailer",
+      "peppers",
+      "cheeses",
+      "fruit",
+      "photo_cue",
+      "audience"
+    ],
+    "example_localization": {}
+  },
+  {
     "id": "winter-squash-morning-muffins-draft",
     "name": "Winter Squash Morning Muffins",
     "category": "muffins",
@@ -18056,7 +18130,10 @@
       "$0.05"
     ],
     "est_cost": "$8.40",
-    "cost_sources": ["Whole Foods", "Amazon"],
+    "cost_sources": [
+      "Whole Foods",
+      "Amazon"
+    ],
     "cost_checked": "2026-09-16",
     "cost_basis": "Rough pantry-share estimates from Whole Foods/Amazon list prices: 20 oz mix about $6.25 with 2 cups about 44% of the box; small butternut share for 1 cup mashed; dozen eggs $4.19; half-gallon milk $4.29; 24 oz honey $9.99 with 1/3 cup about 4 oz; 1 lb butter about $5.99 with 1/4 cup as 1/2 stick; 1.9 oz cinnamon $4.49; 24.7 oz sea salt $3.29. Honey is priced; sugar is cheaper. No links.",
     "instructions": [
@@ -18093,7 +18170,8 @@
       "photo_cue",
       "audience"
     ],
-    "example_localization": {}
+    "example_localization": {},
+    "art_slug": "winter-squash-muffins"
   },
   {
     "id": "summer-squash-fritters-draft",

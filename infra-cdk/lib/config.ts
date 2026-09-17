@@ -75,6 +75,10 @@ export const FRONTIER_ALIASES = [
   "adobechallenge.bryanchasko.com",
 ];
 export const FRONTIER_CERT_ARN = `arn:aws:acm:${PRIMARY_REGION}:${ACCOUNT}:certificate/5da84625-8072-4923-9e9e-b0907419419f`;
+// Development site hostname (separate bucket + distribution + Route 53 alias;
+// deploy-frontier.sh dev). Allowed on DAM CORS so dev previews can canvas-load
+// presigned DAM renders; never added to FRONTIER_ALIASES (prod distribution).
+export const KODIAK_DEV_DOMAIN = "kodiak-dev.bryanchasko.com";
 // Live distribution comment, verbatim (includes the pending-cert note).
 // IMPORT NOTE (#268): CFN IMPORT change sets validate in-stack resources
 // against LIVE state (not the stored template) -- this comment must match the

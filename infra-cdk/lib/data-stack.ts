@@ -6,6 +6,7 @@ import * as s3vectors from "aws-cdk-lib/aws-s3vectors";
 import {
   FRONTIER_ALIASES,
   FRONTIER_DOMAIN_NAME,
+  KODIAK_DEV_DOMAIN,
   KODIAK_VECTOR_BUCKET_NAME,
   KODIAK_VECTOR_INDEX_NAME,
   KODIAK_VECTOR_DIMENSION,
@@ -139,12 +140,13 @@ export class DataStack extends cdk.Stack {
       bucketName: damBucketName,
       // #285 — the canvas + DAM tiles load presigned GETs with
       // crossOrigin='anonymous', which fails without an ACAO header. Allow
-      // GET/HEAD from the site aliases + the distribution domain only.
+      // GET/HEAD from the site aliases + the distribution domain + the dev
+      // hostname (KODIAK_DEV_DOMAIN) only.
       corsConfiguration: {
         corsRules: [
           {
             allowedMethods: ["GET", "HEAD"],
-            allowedOrigins: [...FRONTIER_ALIASES.map((a) => `https://${a}`), `https://${FRONTIER_DOMAIN_NAME}`],
+            allowedOrigins: [...FRONTIER_ALIASES.map((a) => `https://${a}`), `https://${FRONTIER_DOMAIN_NAME}`, `https://${KODIAK_DEV_DOMAIN}`],
             allowedHeaders: ["Authorization", "Range"],
             exposedHeaders: ["ETag", "Content-Length", "x-amz-meta-platforms"],
             maxAge: 3000,

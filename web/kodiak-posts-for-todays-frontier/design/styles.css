@@ -692,38 +692,38 @@
 
 /* meta bar: four equal columns, value dominant, archival double rule.
    frontier-poster double rule in bear-brown ink — no red on the card face. */
-.rc-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:0.1in;margin:0.14in 0 0;
+.rc-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:0.1in;margin:0.12in 0 0;
   padding-bottom:0.1in;border-bottom:3px double var(--rc-ink)}
-.rc-meta__cell{display:flex;flex-direction:column;align-items:center;text-align:center}
-.rc-meta__value{font:800 18pt/1 "gin",Rockwell,Georgia,serif;color:var(--rc-ink)}
-.rc-meta__label{margin-top:2pt;font:700 9pt/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--rc-meta-muted)}
+.rc-meta__cell{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
+.rc-meta__value{font:800 20pt/1.05 "gin",Rockwell,Georgia,serif;color:var(--rc-ink)}
+.rc-meta__label{margin-top:3pt;font:700 10pt/1.3 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--rc-meta-muted);text-wrap:balance}
 
 /* two-column body with 0.3mm center hairline divider */
-.rc-columns{display:grid;grid-template-columns:3.6in 3.6in;column-gap:0;margin-top:0.2in;position:relative}
+.rc-columns{display:grid;grid-template-columns:3.6in 3.6in;column-gap:0;margin-top:0.16in;position:relative}
 .rc-columns::before{content:"";position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:0.3mm;background:var(--rc-ink)}  /* center hairline */
 .recipe-card-column{padding:0 0.25in;min-width:0}                 /* 0.25in text clearance */
 .rc-col-heading{margin:0 0 0.08in;color:var(--rc-ink);
-  font-family:"gin",Rockwell,Georgia,serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:14pt}
+  font-family:"gin",Rockwell,Georgia,serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:15pt}
 
 /* ingredients: qty+name left, de-emphasized price right, dotted leaders */
 .rc-ingredients{list-style:none;margin:0 0 0.15in;padding:0}
-.rc-ing{display:flex;align-items:baseline;gap:6px;padding:2.5pt 0;font:500 10.5pt/1.3 "museo-sans",sans-serif;color:var(--rc-ink)}
+.rc-ing{display:flex;align-items:baseline;gap:8px;padding:3.5pt 0;font:500 12pt/1.5 "museo-sans",sans-serif;color:var(--rc-ink)}
 .rc-ing__name{flex:0 1 auto}
-.rc-ing::after{content:"";flex:1 1 auto;align-self:end;margin-bottom:3pt;border-bottom:1px dotted var(--rc-ink-2)}  /* dotted leaders */
-.rc-ing__price{flex:0 0 auto;color:var(--rc-meta-muted);font-size:9.5pt}   /* de-emphasized */
+.rc-ing::after{content:"";flex:1 1 auto;align-self:end;margin-bottom:4pt;border-bottom:1px dotted var(--rc-ink-2)}  /* dotted leaders */
+.rc-ing__price{flex:0 0 auto;color:var(--rc-meta-muted);font-size:10.5pt;white-space:nowrap}   /* scannable, never wraps under the name */
 
 /* steps: numbered, bold all-caps action verb */
 .rc-steps{margin:0 0 0.15in;padding-left:1.3em}
-.rc-steps li{padding:3pt 0;font:500 12pt/1.45 "museo-sans",sans-serif;color:var(--rc-ink)}
+.rc-steps li{padding:4pt 0;font:500 13pt/1.55 "museo-sans",sans-serif;color:var(--rc-ink)}
 .rc-step-verb{font-family:"kodiak_sans","museo-sans",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--rc-ink)}
 
 /* art zones — physical dims, no box outline: drawings sit on the paper tone */
 .rc-artzone{position:relative;margin:0.1in 0;border:none}
-.rc-artzone--raw{width:3.0in;height:1.5in}
-.rc-artzone--technique{width:3.0in;height:1.5in}
-.rc-artzone--plate{width:3.0in;height:2.0in}
+.rc-artzone--raw{width:3.0in;height:1.4in}
+.rc-artzone--technique{width:3.0in;height:1.3in}
+.rc-artzone--plate{width:3.0in;height:1.65in}
 .rc-artzone__base{position:absolute;inset:0;background:transparent}    /* no base coat: art and sketches sit on the paper tone */
-.rc-artzone__art{position:absolute;inset:0;width:100%;height:100%;color:var(--rc-ink);display:block}
+.rc-artzone__art{position:absolute;inset:0;width:100%;height:100%;color:var(--rc-ink);display:block;object-fit:contain;object-position:center}   /* contain, never stretch: cutout art keeps its drawn proportions, paper tone fills the rest */
 
 /* tip note — thin archival line, body text */
 .rc-tip{margin:0.1in 0 0;padding:0.06in 0.08in;border-left:1px solid var(--rc-ink-2);

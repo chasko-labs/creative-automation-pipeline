@@ -37,7 +37,7 @@ describe('coach about Q&A', () => {
 
   it('about copy is the exact brainstorm line; coach button carries the exact label', () => {
     expect(index).toContain(
-      '<p class="ff-about__copy">Here to brainstorm with you through creation of a Kodiak Cakes campaign. Here&#39;s how things work behind the scenes:</p>'
+      '<p class="ff-about__copy">This campaign tool helps turn one idea into reviewable Kodiak Cakes creative for each market.'
     );
     // reference links survive the copy swap
     expect(index).toMatch(/ff-doclinks/);

@@ -29,6 +29,27 @@ RECIPE_CARDS_JS_PATH = (
     / "js"
     / "recipe-cards-data.js"
 )
+RECIPE_I18N_JS_PATH = (
+    _ROOT
+    / "web"
+    / "kodiak-posts-for-todays-frontier"
+    / "js"
+    / "recipe-i18n-data.js"
+)
+
+# Label sources: the fuller phrases bake into per-language labels
+# (window.KODIAK_RECIPE_META_LABELS) so short English labels never produce
+# clipped verb translations. est_cost's VALUE is a universal figure and never
+# translates; only its label does. Column headings ride the same table.
+_META_LABEL_SOURCE = (
+    ("prep", "Prep time"),
+    ("cook", "Cook time"),
+    ("serves", "Servings"),
+    ("est_cost", "Estimated cost"),
+    ("ingredients", "Ingredients"),
+    ("steps", "Steps"),
+)
+
 
 # The three probe markets and the full 2026 calendar. US-W-SF is its own market
 # since the 2026-09-15 reassignment (frontier sister Castroville), not a Pescadero
@@ -261,6 +282,121 @@ def emit_recipe_cards_js(
         f"window.KODIAK_RECIPE_CARDS = {payload};\n"
     )
     out.write_text(body, encoding="utf-8")
+    return out
+
+
+def bake_recipe_i18n_js(
+    markets: tuple[str, ...] | list[str],
+    months: tuple[str, ...] | list[str],
+    out_path: str | Path | None = None,
+) -> Path:
+    """Bake per-market card translations to a JS file (no live endpoint).
+
+    For every market x month card with a seeded ingredient, renders the card in
+    each of the market's non-English target languages
+    (locales.resolve_target_languages: English + market top-2) and stores only
+    the text the preview toggle swaps: {title, ingredients, steps, translation
+    provenance}. The English matrix stays byte-identical; the toggle reads this
+    companion file (window.KODIAK_RECIPE_I18N) so previews switch language fully
+    offline. Machine output, human_reviewed False, allergen fail-safe per line —
+    same guarantees as a single translated card.
+
+    Provider calls are memoized on (source text, lang) for the run: cards
+    sharing a recipe share translations, so the full 876-cell book costs one
+    distinct-line set per language, not one per cell. Deterministic: sorted
+    markets, given month order, resolve_target_languages order, sorted JSON
+    keys, no timestamps.
+
+    Each per-language entry also carries the translated meta-bar values
+    (prep/cook/serves; est_cost is a universal figure and never translates)
+    plus the entry's translation provenance. The four meta-bar LABELS are
+    baked once per language as window.KODIAK_RECIPE_META_LABELS from the
+    fuller phrases ("Prep time", "Cook time", "Servings", "Estimated cost")
+    so short English labels never produce clipped verb translations.
+    """
+    from . import recipe_i18n as _i18n
+    from .locales import resolve_target_languages
+
+    # wrap whatever translate entry the i18n module currently binds (real
+    # provider chain, or a test stub) so memoization never bypasses it.
+    real_translate = _i18n.translate_with_provenance
+    memo: dict[tuple[str, str], tuple[str, str, bool]] = {}
+
+    def _cached(text: str, target_lang: str, region: str = "US"):
+        key = (text, target_lang)
+        if key not in memo:
+            memo[key] = real_translate(text, target_lang, region)
+        return memo[key]
+
+    from .recipe_i18n import allergen_ok
+
+    def _meta_value(text: str | None, target_lang: str, region: str) -> str | None:
+        """Translate one meta-bar value with the same allergen fail-safe as
+        body lines. est_cost never reaches here (universal figure)."""
+        if not text:
+            return text
+        out, _provider, _proven = _cached(text, target_lang, region)
+        if out != text and not allergen_ok(text, out, target_lang):
+            return text
+        return out
+
+    _i18n.translate_with_provenance = _cached  # type: ignore[method-assign]
+    try:
+        book: dict[str, dict[str, dict[str, dict]]] = {}
+        labels: dict[str, dict[str, str]] = {}
+        for market in sorted(markets):
+            langs = [
+                lang.get("translate_code", "")
+                for lang in resolve_target_languages(market)
+                if lang.get("translate_code", "") and lang.get("translate_code") != "en"
+            ]
+            if not langs:
+                continue
+            by_month: dict[str, dict[str, dict]] = {}
+            for month in months:
+                en_card = build_recipe_card_data(market, month=month)
+                if not en_card.get("ingredient"):
+                    continue  # no seeded ingredient — nothing to translate
+                en_meta = en_card.get("meta") or {}
+                per_lang: dict[str, dict] = {}
+                for lang in langs:
+                    card = build_recipe_card_data(market, month=month, lang=lang)
+                    per_lang[lang] = {
+                        "title": card.get("title"),
+                        "ingredients": card.get("ingredients"),
+                        "steps": card.get("steps"),
+                        "meta": {
+                            key: _meta_value(en_meta.get(key), lang, market)
+                            for key in ("prep", "cook", "serves")
+                        },
+                        "translation": (card.get("provenance") or {}).get("translation"),
+                    }
+                    if lang not in labels:
+                        labels[lang] = {
+                            key: _cached(source, lang, market)[0]
+                            for key, source in _META_LABEL_SOURCE
+                        }
+                if per_lang:
+                    by_month[month] = per_lang
+            if by_month:
+                book[market] = by_month
+    finally:
+        _i18n.translate_with_provenance = real_translate  # type: ignore[method-assign]
+    payload = json.dumps(book, ensure_ascii=False, indent=2, sort_keys=True)
+    label_payload = json.dumps(labels, ensure_ascii=False, indent=2, sort_keys=True)
+    out = Path(out_path) if out_path else RECIPE_I18N_JS_PATH
+    out.parent.mkdir(parents=True, exist_ok=True)
+    body = (
+        "// Baked recipe-card translations for the preview language toggle (offline).\n"
+        "// Generated by creative_automation.recipe_cards_emit — do not edit by hand.\n"
+        "// schema: kodiak/recipe-card-i18n@v1. Machine-translated, human_reviewed false;\n"
+        "// allergen lines fail safe to English per recipe_i18n. Deterministic build.\n"
+        f"window.KODIAK_RECIPE_I18N = {payload};\n"
+        "// Meta-bar labels per language (est_cost value itself is universal).\n"
+        f"window.KODIAK_RECIPE_META_LABELS = {label_payload};\n"
+    )
+    out.write_text(body, encoding="utf-8")
+    print(f"[i18n] baked {len(book)} markets, {len(memo)} distinct (text, lang) calls")
     return out
 
 

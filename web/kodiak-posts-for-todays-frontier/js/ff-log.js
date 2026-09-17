@@ -54,10 +54,31 @@
       return true;
     } catch (e) { return false; }
   }
+  // Dock an "Export log" button at the campaign status line so a session can
+  // be shared instead of copy-pasted. This script loads before the feature
+  // scripts that render the status line, so retry on DOM mutations until
+  // docked. At rest there is no provenancePanel — the status line is the dock.
+  function dockExport(){
+    try{
+      var host = document.getElementById('generateCampaignStatus');
+      var root = document.documentElement || document.body;
+      var done = !!document.getElementById('ffLogExportBtn');
+      if(done || !host || !root) return done;
+      var b = document.createElement('button');
+      b.id = 'ffLogExportBtn'; b.type = 'button'; b.textContent = 'Export log';
+      b.addEventListener('click', function(){ exportLog(); });
+      host.appendChild(b);
+      return true;
+    }catch(e){ return false; }
+  }
   try {
     window.__FF_LOG__ = buf;
     window.ffLog = emit;
     window.ffLogExport = exportLog;
+    if(!dockExport() && typeof MutationObserver !== 'undefined'){
+      var mo = new MutationObserver(function(){ try{ if(dockExport()) mo.disconnect(); }catch(e){} });
+      mo.observe(document.documentElement || document.body, {childList: true, subtree: true});
+    }
     window.addEventListener('error', function(ev){
       try { emit('error', { message: String(ev.message || '').slice(0, 300), file: String(ev.filename || '').slice(-80) }); } catch (e) {}
     });
