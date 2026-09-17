@@ -343,6 +343,7 @@ section.xl{padding:var(--section-space-xl) 0}
 .render-tile.r-2x3 .render-frame{aspect-ratio:2/3}
 .render-tile.r-9x16 .render-frame{aspect-ratio:9/16}
 .render-tile.r-16x9 .render-frame{aspect-ratio:16/9}
+.render-tile.r-blog .render-frame{aspect-ratio:1200/630}
 .render-tile .render-frame img{width:100%;height:100%;object-fit:cover;display:block}
 /* lit caption surface — kraft sheen (top-light) composited OVER the kraft fiber, plus an inner shadow so text sits on a lit, shaded surface.
    sheen white highlight rolls off the top; caption text lives in the lower warm-tan band, so bearBrown / neutral-600 hold WCAG AA. */
@@ -350,8 +351,12 @@ section.xl{padding:var(--section-space-xl) 0}
 .render-tile .render-cap b{font:700 12px/1.2 "museo-sans",sans-serif;color:var(--chocolate);display:block;position:relative}
 /* #3B2316 chocolate on the lit kraft-tan lower band = >=7:1 (AA/AAA) */
 .render-tile .render-cap .dims{color:var(--colors-neutral-700);font:600 11px/1.4 "museo-sans",sans-serif;margin-top:3px;position:relative}
-/* per-tile platform legend — which social platforms this ratio serves */
+/* per-tile platform legend — retired from resting caps (platforms live once in
+   the asset-pack exports matrix); the rule stays for generated tiles that keep it */
 .render-tile .render-cap .rt-platforms{display:block;margin-top:4px;color:var(--colors-neutral-600);font:500 10px/1.4 "museo-sans",sans-serif;letter-spacing:.02em;position:relative}
+/* market-language line woven under its tile — small, quiet, same tokens */
+.render-tile .render-cap .loc-line{display:block;margin-top:6px;font-size:11px;line-height:1.45;color:var(--colors-neutral-700)}
+.render-tile .render-cap .loc-langtag{font-weight:700;margin-right:6px;text-transform:uppercase;letter-spacing:.06em;font-size:10px;color:var(--chocolate)}
 
 /* === Preview as native <details> — collapsed by default, summary styled as the card header (matches #aboutTool) === */
 .preview-card>summary{list-style:none;cursor:pointer;padding:16px 16px 12px;background-image:var(--gradients-kraft\.sheen),var(--gradients-kraft\.surface);border-bottom:1px solid var(--colors-neutral-200);
