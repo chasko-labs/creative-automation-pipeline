@@ -47,7 +47,7 @@ def build_parser() -> argparse.ArgumentParser:
     camp_src.add_argument("--brief", help="path to brief YAML or JSON")
     camp_src.add_argument("--market", help="bare market key e.g. US-SE-ATL")
     camp.add_argument("--month", default=None, help="ISO YYYY-MM for the in-season ingredient")
-    camp.add_argument("--render", action="store_true", help="render planned assets to real PNGs (Nova Canvas + mock fallback)")
+    camp.add_argument("--render", action="store_true", help="render planned assets to real PNGs (brand-floor placeholder where assets are missing)")
     camp.add_argument("--out", default=None, help="output dir for rendered assets + recipe cards")
 
     nl = sub.add_parser("newsletter", help="render the Real Breakfast Club newsletter")

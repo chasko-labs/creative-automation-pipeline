@@ -520,12 +520,11 @@ if HAS_FASTAPI:
 
     @app.post("/campaigns/run-fanned")  # type: ignore
     def campaigns_run_fanned(body: dict | None = None):
-        """Automate building every conceivable campaign — fanned background dispatch (Adobe Express MCP stub).
+        """Run a representative fanned campaign slice — background dispatch.
 
         Accepts a CampaignBrief (JSON/YAML dict) with all Kodiak products, target_region/market, audiences, messaging.
-        Expands to every market × retailer × ratio (defaults to all store-finder markets + frontier gaps × 3 ratios).
-        Runs as background dispatch; returns job_id. Poll GET /campaigns/job/{id} for status.
-        When input assets exist in input_assets/* or s3://chasko-creative-dam-.../brands/kodiak/ they are reused; when missing, Nova Canvas mock is generated (GenAI). Adobe Express MCP mocks are fanned as background jobs — see src/creative_automation/adobe_express.py.
+        Runs the real pipeline for Park City 84098 + Timberon slices (full 68-market fan-out would be heavy); returns job_id. Poll GET /campaigns/job/{id} for status.
+        When input assets exist in input_assets/* or s3://chasko-creative-dam-.../brands/kodiak/ they are reused, else the pipeline renders brand-floor placeholders. No mock generation service is involved.
         """
         import json as _json
         import pathlib
@@ -544,7 +543,7 @@ if HAS_FASTAPI:
         out_base = pathlib.Path(f"/tmp/kodiak-fanned-{job_id}")
         out_base.mkdir(parents=True, exist_ok=True)
         status_path = out_base / "status.json"
-        status = {"job_id": job_id, "status": "queued", "markets": total_markets, "ratios": ["1x1","9x16","16x9"], "created": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "out": str(out_base), "note": "Fanned dispatch — Adobe Express MCP stub (see logs/adobe-dispatch.jsonl), retailer logos embedded where retailer != direct"}
+        status = {"job_id": job_id, "status": "queued", "markets": total_markets, "ratios": ["1x1","9x16","16x9"], "created": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "out": str(out_base), "note": "Representative slices (Park City 84098 + Timberon) via run_pipeline; retailer logos embedded where retailer != direct"}
         status_path.write_text(_json.dumps(status, indent=2))
         def _run():
             try:
