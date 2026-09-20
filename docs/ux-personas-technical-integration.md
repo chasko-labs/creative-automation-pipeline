@@ -68,7 +68,7 @@ Shared power-user role — one owns storefront bundles, the other owns lifecycle
 
 ---
 
-### Ryan Street — Senior Forward Deployed AI Engineer — Remote
+### Ryan Street — Senior Forward Deployed AI Engineer — Lebanon, Ohio
 
 **Who he is:** Pairs with Adam on field deployments, leaning toward evaluation: does the output hold up in the market it claims? He runs the generated assets past the persona bars — spelling, marks, locality, provenance — and treats every miss as a pipeline defect with a market tag.
 
