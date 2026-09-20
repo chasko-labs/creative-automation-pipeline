@@ -185,14 +185,26 @@
   });
 
   // ---- D. seasonal menu ----
+  // gh #313: every option here must resolve through the backend pairing table
+  // (src/creative_automation/season_pairing.py — months map to season keys,
+  // holidays carry dedicated pairings). PAIRED_VALUES mirrors that contract:
+  // optGroup prunes anything outside it so no option can land on
+  // static-default, and an unknown selection degrades to null (quiet, never a
+  // fabricated pairing). Audit: tests/test_season_26.py parses these arrays
+  // and asserts all 26 resolve to season-table.
   var seasonSel = document.getElementById('seasonalSelect');
   if(seasonSel){
     var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
     var seasons = ['Spring','Summer','Fall','Winter'];
     var holidays = ['New Year','Valentine\u2019s Day','Easter','Memorial Day','Fourth of July','Labor Day','Halloween','Thanksgiving','Christmas','Holiday season'];
+    var PAIRED_VALUES = {};
+    months.concat(seasons, holidays).forEach(function(v){ PAIRED_VALUES[v] = true; });
     function optGroup(labelTxt, items){
       var g=document.createElement('optgroup'); g.label=labelTxt;
-      items.forEach(function(v){ var o=document.createElement('option'); o.value=v; o.textContent=v; g.appendChild(o); });
+      items.forEach(function(v){
+        if(!PAIRED_VALUES[v]) return; // prune: unpairable option never ships
+        var o=document.createElement('option'); o.value=v; o.textContent=v; g.appendChild(o);
+      });
       return g;
     }
     seasonSel.appendChild(optGroup('Months', months));
@@ -208,7 +220,8 @@
       }catch(e){}
     }
     seasonSel.addEventListener('change', function(){
-      window.__activeSeason = seasonSel.value || null;
+      // prune at read time too: an unpairable value degrades to null (quiet).
+      window.__activeSeason = (seasonSel.value && PAIRED_VALUES[seasonSel.value]) ? seasonSel.value : null;
       paintSeasonLabel();
     });
     paintSeasonLabel();
@@ -217,7 +230,7 @@
     try{
       var cm = months[new Date().getMonth()];
       seasonSel.value = cm;
-      window.__activeSeason = seasonSel.value || null;
+      window.__activeSeason = (seasonSel.value && PAIRED_VALUES[seasonSel.value]) ? seasonSel.value : null;
       paintSeasonLabel();
     }catch(e){}
   }
