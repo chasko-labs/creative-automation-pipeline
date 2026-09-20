@@ -1,9 +1,9 @@
 {
   "$schema": "https://kodiakcakes.com/schema/market-featured-frontiers-v1.json",
   "metadata": {
-    "generated": "2026-09-20T19:55:25Z",
+    "generated": "2026-09-20T23:33:14Z",
     "source": "generated from web/kodiak-posts-for-todays-frontier/js/data-core.js via scripts/build-frontier-mapping.py — do not hand-edit",
-    "markets": 76,
+    "markets": 80,
     "frontier_self_entries": 69,
     "model": "1:1 — every market resolves its own nearby frontier; no shared frontiers"
   },
@@ -231,6 +231,190 @@
       "farmers_market": "Geauga Fresh Farmers Market https://www.mpneoh.com/burton-sugar-camp",
       "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
       "link_note": "Nearby rural counterpart to Cleveland, Ohio; subscription-credible."
+    },
+    "US-OH-CINCINNATI": {
+      "market": "US-OH-CINCINNATI",
+      "frontier_market": "US-OH-CINCINNATI",
+      "place": "Cincinnati, Ohio 45202 — Findlay Market river city",
+      "ingredients": [
+        {
+          "name": "ramps",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "morel mushrooms",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "strawberries",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "sweet corn",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "pawpaws",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "black walnuts",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        }
+      ],
+      "seasons": "Ramps Mar; morels Apr; strawberries May; corn Jul; pawpaws Sep; black walnuts Dec",
+      "farmers_market": "Findlay Market, year-round",
+      "farmers_market_url": null,
+      "link_note": "Self-frontier market; no-retail gap served by subscription.",
+      "farms": [
+        "Ohio River Valley orchards"
+      ]
+    },
+    "US-OH-DAYTON": {
+      "market": "US-OH-DAYTON",
+      "frontier_market": "US-OH-DAYTON",
+      "place": "Dayton, Ohio 45402 — Miami Valley maple corridor",
+      "ingredients": [
+        {
+          "name": "maple syrup",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "strawberries",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "sweet corn",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "tomatoes",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "apples",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        }
+      ],
+      "seasons": "Maple Feb; strawberries May; corn Jul; tomatoes Aug; apples Oct",
+      "farmers_market": "2nd Street Market (Saturdays)",
+      "farmers_market_url": null,
+      "link_note": "Self-frontier market; no-retail gap served by subscription.",
+      "farms": [
+        "Downing Fruit Farm",
+        "Dohner Maple Products",
+        "Fulton Farms",
+        "Patchwork Gardens",
+        "Mile Creek Farm"
+      ]
+    },
+    "US-OH-LEBANON": {
+      "market": "US-OH-LEBANON",
+      "frontier_market": "US-OH-LEBANON",
+      "place": "Lebanon, Ohio 45036 — Warren County orchard belt",
+      "ingredients": [
+        {
+          "name": "maple syrup",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "strawberries",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "sweet corn",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "peaches",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "apples",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "pumpkins",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "black walnuts",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        }
+      ],
+      "seasons": "Maple Feb; strawberries May; corn Jul; peaches Aug; apples Oct; pumpkins Nov; black walnuts Dec",
+      "farmers_market": "Lebanon Farmers Market",
+      "farmers_market_url": null,
+      "link_note": "Self-frontier market; no-retail gap served by subscription.",
+      "farms": [
+        "Irons Fruit Farm",
+        "Hidden Valley Orchards"
+      ]
+    },
+    "US-CA-OCEANSIDE": {
+      "market": "US-CA-OCEANSIDE",
+      "frontier_market": "US-CA-OCEANSIDE",
+      "place": "Oceanside, California 92054 — San Diego North County coast",
+      "ingredients": [
+        {
+          "name": "Satsuma mandarins",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "strawberries",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "sweet corn",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "heirloom tomatoes",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "persimmons",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        },
+        {
+          "name": "Dungeness crab",
+          "months": null,
+          "note": "seasons unconfirmed — research dispatch"
+        }
+      ],
+      "seasons": "Mandarins Jan; strawberries Jun; corn Jul; tomatoes Aug; persimmons Oct; crab Nov; pomegranates Dec",
+      "farmers_market": "Oceanside Morning Farmers Market (Thu 9-1, Pier View Way) + Sunset Market (Thu 5-9, five blocks)",
+      "farmers_market_url": null,
+      "link_note": "Self-frontier market; no-retail gap served by subscription.",
+      "farms": [
+        "Cyclops Farms",
+        "Chino Farm",
+        "Temecula citrus growers",
+        "Valley Center orchards"
+      ]
     },
     "US-MW-DEN": {
       "market": "US-MW-DEN",
@@ -1185,7 +1369,7 @@
     "US-SE-ATL": {
       "market": "US-SE-ATL",
       "frontier_market": "US-GA-SENOIA",
-      "place": "Senoia, Georgia 30276 — Coweta farm country",
+      "place": "Senoia, Georgia 30276 — Coweta farm country, brick main street and farm compounds",
       "ingredients": [
         {
           "name": "Coweta peaches",
@@ -1219,10 +1403,16 @@
           "note": "post-frost; frost timing unconfirmed — research dispatch"
         }
       ],
-      "seasons": "Coweta peaches May-Aug (peak July); pecans Oct-Nov; butterbeans May-Aug; collards post-frost (frost timing unconfirmed — research dispatch)",
+      "seasons": "Strawberries May; corn Jul; peaches May-Aug (peak Jul-Aug); muscadines Sep; pecans Oct-Nov; squash Nov; collards post-frost",
       "farmers_market": "Senoia Farmers Market https://explorenewnancoweta.com/things-to-do/events/senoia-farmers-market/2025-08-23/",
       "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-      "link_note": "Nearby rural counterpart to Atlanta, Georgia; subscription-credible."
+      "link_note": "Nearby rural counterpart to Atlanta, Georgia; subscription-credible.",
+      "farms": [
+        "Thompson Produce (Senoia)",
+        "Dickey Farms (Musella)",
+        "Pearson Farm (Fort Valley)",
+        "Durham's Produce (Newnan)"
+      ]
     },
     "US-SE-BIRMINGHAM": {
       "market": "US-SE-BIRMINGHAM",
@@ -3444,7 +3634,7 @@
     "US-GA-SENOIA": {
       "market": "US-GA-SENOIA",
       "frontier_market": "US-GA-SENOIA",
-      "place": "Senoia, Georgia 30276 — Coweta farm country",
+      "place": "Senoia, Georgia 30276 — Coweta farm country, brick main street and farm compounds",
       "ingredients": [
         {
           "name": "Coweta peaches",
@@ -3478,10 +3668,16 @@
           "note": "post-frost; frost timing unconfirmed — research dispatch"
         }
       ],
-      "seasons": "Coweta peaches May-Aug (peak July); pecans Oct-Nov; butterbeans May-Aug; collards post-frost (frost timing unconfirmed — research dispatch)",
+      "seasons": "Strawberries May; corn Jul; peaches May-Aug (peak Jul-Aug); muscadines Sep; pecans Oct-Nov; squash Nov; collards post-frost",
       "farmers_market": "Senoia Farmers Market https://explorenewnancoweta.com/things-to-do/events/senoia-farmers-market/2025-08-23/",
       "farmers_market_url": null,
-      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+      "link_note": "Frontier self-entry; no-retail gap served by subscription.",
+      "farms": [
+        "Thompson Produce (Senoia)",
+        "Dickey Farms (Musella)",
+        "Pearson Farm (Fort Valley)",
+        "Durham's Produce (Newnan)"
+      ]
     },
     "US-TN-LEIPERSFORK": {
       "market": "US-TN-LEIPERSFORK",
