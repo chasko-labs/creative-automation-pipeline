@@ -139,6 +139,7 @@
     var low = String(retailer).toLowerCase();
     if(low.indexOf('publix') !== -1) want = 'localized-publix';
     else if(low.indexOf('costco') !== -1) want = 'localized-costco';
+    else if(low.indexOf('target') !== -1) want = 'localized-target';
     if(!want) return null;
     if(!document.querySelector('#promptChips .ff-check-card__input[data-theme="' + want + '"]')) return null;
     var first = String(retailer).split(',')[0].trim();

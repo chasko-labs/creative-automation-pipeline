@@ -214,7 +214,7 @@
   // ---- retailer mark: composed iff a SPECIFIC retailer card is checked ----
   // localized-all sets brief text only (never a mark). Most-recently checked specific wins —
   // tracked explicitly so unchecking All never steals the mark from a still-checked retailer.
-  var RETAILER_CARD_VALUES = {'localized-costco':'costco','localized-publix':'publix'};
+  var RETAILER_CARD_VALUES = {'localized-costco':'costco','localized-publix':'publix','localized-target':'target'};
   var __retailerCheckOrder = [];
   function trackRetailerCheck(slug){
     if(!RETAILER_CARD_VALUES[slug]) return;
