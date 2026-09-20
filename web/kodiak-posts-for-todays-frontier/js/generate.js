@@ -160,6 +160,7 @@ let skuList = [
     'pillow-compose':'Pillow compose (brand overlay)',
     'pillow-outpaint-fallback':'Pillow pad (placeholder)',
     'stability-outpaint':'Stability outpaint (GenAI)',
+    'bedrock:nova-pro-fallback':'Pillow placeholder (image backend unreachable)',
     'brand-floor':'Brand floor (offline fallback)'
   };
   // Origin contract: "backend" marks an envelope the API rendered;

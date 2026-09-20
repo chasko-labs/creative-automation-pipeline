@@ -127,3 +127,35 @@ def get_precomputed(text: str, market: str, lang_code: str) -> dict | None:
         "provider": item.get("provider", {}).get("S", "precomputed"),
         "source": item.get("source", {}).get("S", "dynamodb"),
     }
+
+
+def record_nielsen_event(market: str, zip_code: str, payload: dict) -> dict | None:
+    """Persist one Nielsen/CDP event to the memory table.
+
+    Returns {"persisted": True, "key": {...}} on a write, None when the table
+    is disabled (no creds — documented path). Transport failures RAISE so the
+    caller reports 500, never ok:true for an event that landed nowhere.
+    """
+    import datetime as _dt
+    import json as _json
+
+    client = _client()
+    if client is None:
+        return None
+    key = {
+        "pk": f"MARKET#{market}",
+        "sk": f"NIELSEN#{zip_code}#{message_key(_json.dumps(payload, sort_keys=True, default=str))}",
+    }
+    client.put_item(
+        TableName=LOCALIZATION_MEMORY_TABLE,
+        Item={
+            "pk": {"S": key["pk"]},
+            "sk": {"S": key["sk"]},
+            "market": {"S": market},
+            "zip": {"S": zip_code},
+            "received_at": {"S": _dt.datetime.now(_dt.timezone.utc).isoformat()},
+            "event": {"S": _json.dumps(payload, default=str)[:4000]},
+            "source": {"S": "nielsen-ingest"},
+        },
+    )
+    return {"persisted": True, "key": key}

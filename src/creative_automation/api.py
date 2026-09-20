@@ -27,7 +27,7 @@ try:
 except ImportError:
     HAS_FASTAPI = False  # fallback still allows import for tests without FastAPI
 
-from . import dam, dam_library
+from . import dam, dam_library, localize_memory
 from .asset_api import library as asset_library_instance
 from .asset_api import mount_library_routes
 from .asset_pack import (
@@ -161,7 +161,7 @@ if HAS_FASTAPI:
             return {"product": product, "local": str(p), "s3": f"s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/heroes/{product}/hero.png", "canto": "via Canto Adobe CC connector → Shopify files"}
         # also check raw-ingest hero
         cands = list(pathlib.Path("data/raw-ingest/kodiakcakes/images").glob(f"*{product}*"))
-        return {"product": product, "candidates": [str(c) for c in cands[:5]], "fallback": "mock via Nova Canvas if missing"}
+        return {"product": product, "candidates": [str(c) for c in cands[:5]], "fallback": "input_assets hero if present, else brand-floor placeholder (no mock generation)"}
 
     @app.post("/assets/sync")  # type: ignore
     def asset_sync():
@@ -182,8 +182,21 @@ if HAS_FASTAPI:
 
     @app.post("/retail/ingest/nielsen")  # type: ignore
     def ingest_nielsen(body: dict):
-        """Landon/Micah route NielsenIQ + CDP events — same zip as Google Search Console reconciles here."""
-        return {"ok": True, "received": list(body.keys())[:5], "sink": "kodiak-creatives-localization-memory DynamoDB + S3 Vectors", "join_key": "zip + market US-SW-LASCRUCES"}
+        """Landon/Micah route NielsenIQ + CDP events — same zip as Google Search Console reconciles here.
+
+        Persists to the localization-memory table; ok:true means written.
+        Table disabled → 503-style ok:false, write failure → 500-style
+        ok:false. Never ok:true for an event that landed nowhere.
+        """
+        market = str(body.get("market") or "unknown")
+        zip_code = str(body.get("zip") or body.get("zip_code") or "unknown")
+        try:
+            saved = localize_memory.record_nielsen_event(market, zip_code, body)
+        except Exception as e:  # noqa: BLE001 — loud 500, never false ok
+            return {"ok": False, "error": f"write-failed: {type(e).__name__}"}
+        if saved is None:
+            return {"ok": False, "error": "table-unavailable"}
+        return {"ok": True, "received": list(body.keys())[:5], "key": saved["key"]}
 
     @app.post("/enhance/hero")  # type: ignore
     def enhance_api(body: dict):
