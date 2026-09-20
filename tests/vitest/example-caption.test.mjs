@@ -32,9 +32,10 @@ describe('example tile captions', () => {
   it('the figcaption tail IS the click — same star CTA, wired to generate', () => {
     const cap = html.match(/<figcaption class="ff-figcap">([\s\S]*?)<\/figcaption>/);
     expect(cap, 'missing .ff-figcap').not.toBeNull();
-    expect(cap[1]).toMatch(/<button class="ff-go"[^>]*>/);
-    expect(cap[1]).toMatch(/Create Campaign Preview/);
+    expect(cap[1]).toMatch(/<button class="ff-go ff-figcap-cta"[^>]*>/);
+    expect(cap[1]).toMatch(/>Create Campaign Preview</);
     expect(cap[1]).toMatch(/getElementById\('generateCampaign'\)\.click\(\)/);
+    expect(cap[1]).toMatch(/Click the button below to generate these five sizes/);
     expect(html).toMatch(/id="generateCampaign"/);
   });
 });

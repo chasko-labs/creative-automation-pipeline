@@ -1435,11 +1435,19 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-scope-opt{transition:background .15s,border-color .15s,box-shadow .15s}
 @media(prefers-reduced-motion:reduce){details[open]>*:not(summary){animation:none}.btn:hover{transform:none}}
 /* preview figcaption (was an inline style) */
-.ff-figcap{font:600 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate);margin-top:8px}
-/* the example caption's tail IS the click — same star CTA as #generateCampaign,
-   resized to sit inline in the paragraph and wrap on narrow tiles */
-.ff-figcap .ff-go{height:auto;min-height:44px;padding:10px 22px;white-space:normal;text-align:center;vertical-align:baseline}
-.ff-figcap .ff-go:focus-visible{outline:2px solid var(--orange, #E8530E);outline-offset:2px}
+/* === Example caption: lede sets the scene, hint hands off, CTA closes === */
+/* one voice, three jobs — lede carries the market story at a readable measure,
+   hint drops smaller and quieter, and the CTA is the identical star button
+   (same .ff-go, same hand) stretched full-bleed so it reads as the section's
+   front door, not an afterthought. */
+.ff-figcap{font:600 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate);margin-top:12px}
+.ff-figcap-lede{margin:0 0 8px;max-width:68ch}
+.ff-figcap-hint{margin:0 0 12px;max-width:68ch;font-size:12.5px;font-weight:500;color:var(--colors-foreground-muted)}
+.ff-figcap .ff-figcap-cta{width:100%}
+.ff-figcap .ff-figcap-cta:focus-visible{outline:2px solid var(--orange, #E8530E);outline-offset:2px}
+/* below 400px the identical 52px bar can't fit its label — tighten tracking and
+   padding instead of wrapping, so it stays one bar, not two */
+@media(max-width:400px){.ff-figcap .ff-figcap-cta{padding:0 16px;font-size:12.5px;letter-spacing:.05em}}
 
 /* 4.4 staging row: same control-box voice as the other rows, tray fills the rest */
 .ff-assetrow{display:flex;align-items:center;gap:var(--spacing-sm);flex-wrap:wrap;background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);padding:10px 12px}

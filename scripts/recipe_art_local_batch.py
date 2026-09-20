@@ -113,10 +113,11 @@ def _valkey(*args: str) -> str:
         s.close()
 
 
-def gpu_acquire(wait_s: int = 600) -> None:
-    deadline = time.time() + wait_s
+def gpu_acquire(wait_s: int = 0) -> None:
+    window = wait_s or int(os.environ.get("GPU_WAIT_S", "7200"))
+    deadline = time.time() + window
     while time.time() < deadline:
-        if _valkey("SET", GPU_LOCK_KEY, "recipe-art", "NX", "EX", "600").startswith(
+        if _valkey("SET", GPU_LOCK_KEY, "recipe-art", "NX", "EX", "3600").startswith(
             "+OK"
         ):
             return
@@ -184,12 +185,16 @@ def render_one(item: dict) -> Path:
 
     pid = _api("/prompt", {"prompt": _workflow(item["display"], item["zone"],
                                                 item["seed"] + item["attempts"])})["prompt_id"]
+    deadline = time.time() + 900
     while True:
         hist = _api(f"/history/{pid}", timeout=60)
-        if pid in hist:
+        node7 = ((hist.get(pid) or {}).get("outputs", {}) or {}).get("7", {}) or {}
+        if node7.get("images"):
             break
+        if time.time() > deadline:
+            raise RuntimeError(f"save node produced no images for {pid}")
         time.sleep(15)
-    info = hist[pid]["outputs"]["7"]["images"][0]
+    info = node7["images"][0]
     url = (f"{COMFY}/view?filename={info['filename']}"
            f"&subfolder={info['subfolder']}&type={info['type']}")
     with urllib.request.urlopen(url, timeout=300) as r:
@@ -210,31 +215,39 @@ def main() -> None:
         print(f"queue: {len(q)} items, {pend} pending -> {QUEUE_PATH}")
         return
     q = json.loads(QUEUE_PATH.read_text())
-    for key, item in q.items():
-        if item.get("status") == "done":
-            continue
-        item.setdefault("seed", _seed(item["subject"], item["zone"]))
-        item.setdefault("display", item["subject"])
-        item.setdefault("attempts", 0)
-        try:
-            gpu_acquire()
+    max_passes = int(os.environ.get("RECIPE_PASSES", "5"))
+    for _ in range(max_passes):
+        done_before = sum(1 for v in q.values() if v.get("status") == "done")
+        for key, item in q.items():
+            if item.get("status") == "done":
+                continue
+            item.setdefault("seed", _seed(item["subject"], item["zone"]))
+            item.setdefault("display", item["subject"])
+            item.setdefault("attempts", 0)
             try:
-                out = render_one(item)
-            finally:
+                gpu_acquire()
                 try:
-                    _api("/free", {}, timeout=60)
-                except Exception as e:  # noqa: BLE001 — best-effort GPU free probe; release follows regardless
-                    print(f"[{key}] ComfyUI /free probe skipped: {e}", flush=True)
-                gpu_release()
-        except Exception as e:  # noqa: BLE001 — record and continue to next item
-            item["attempts"] = item.get("attempts", 0) + 1
-            item["status"] = f"failed: {e}"
-            print(f"[{key}] FAILED ({item['status']})", flush=True)
-        else:
-            item["status"] = "done"
-            item["path"] = str(out)
-            print(f"[{key}] done -> {out}", flush=True)
-        QUEUE_PATH.write_text(json.dumps(q, indent=1))
+                    out = render_one(item)
+                finally:
+                    try:
+                        _api("/free", {}, timeout=60)
+                    except Exception as e:  # noqa: BLE001 — best-effort GPU free probe; release follows regardless
+                        print(f"[{key}] ComfyUI /free probe skipped: {e}", flush=True)
+                    gpu_release()
+            except Exception as e:  # noqa: BLE001 — record and continue to next item
+                item["attempts"] = item.get("attempts", 0) + 1
+                item["status"] = f"failed: {e}"
+                print(f"[{key}] FAILED ({item['status']})", flush=True)
+            else:
+                item["status"] = "done"
+                item["path"] = str(out)
+                print(f"[{key}] done -> {out}", flush=True)
+            QUEUE_PATH.write_text(json.dumps(q, indent=1))
+            time.sleep(float(os.environ.get("RECIPE_PAUSE_S", "45")))
+        done_after = sum(1 for v in q.values() if v.get("status") == "done")
+        print(f"pass complete: {done_before} -> {done_after} done", flush=True)
+        if done_after == done_before:
+            break
 
 
 if __name__ == "__main__":
