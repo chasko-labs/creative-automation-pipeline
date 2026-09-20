@@ -1,7 +1,7 @@
 {
   "$schema": "https://kodiakcakes.com/schema/market-featured-frontiers-v1.json",
   "metadata": {
-    "generated": "2026-09-09T23:08:28Z",
+    "generated": "2026-09-20T19:55:25Z",
     "source": "generated from web/kodiak-posts-for-todays-frontier/js/data-core.js via scripts/build-frontier-mapping.py — do not hand-edit",
     "markets": 76,
     "frontier_self_entries": 69,
@@ -547,21 +547,44 @@
       "place": "Oakley, Utah 84055 — Wasatch Back ranch country",
       "ingredients": [
         {
-          "name": "Splendor Valley Farms produce",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "name": "tart cherries",
+          "months": [
+            7
+          ],
+          "peak": 7
         },
         {
-          "name": "Oakley Rodeo Grounds farm stands",
+          "name": "peaches",
           "months": [
-            6,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "tomatoes",
+          "months": [
             7,
             8,
             9
           ]
         }
       ],
-      "seasons": "Oakley Farmers Market Jun-Sep (2023 season, City of Oakley newsletter); Splendor Valley Farms produce (months unverified)",
+      "seasons": "tart cherries Jul (peak July); peaches Aug-Sep; apples Sep-Oct; sweet corn Jul-Sep; tomatoes Jul-Sep",
       "farmers_market": "Oakley Farmers Market at Oakley Rodeo Grounds, Jun-Sep (2023 season per City of Oakley newsletter; standalone URL unconfirmed — research dispatch)",
       "farmers_market_url": null,
       "link_note": "Nearby rural counterpart to Park City, Utah 84098; subscription-credible."
@@ -1171,6 +1194,14 @@
             6,
             7,
             8
+          ],
+          "peak": 7
+        },
+        {
+          "name": "pecans",
+          "months": [
+            10,
+            11
           ]
         },
         {
@@ -1181,9 +1212,14 @@
             7,
             8
           ]
+        },
+        {
+          "name": "collards",
+          "months": null,
+          "note": "post-frost; frost timing unconfirmed — research dispatch"
         }
       ],
-      "seasons": "Peach season May-Aug",
+      "seasons": "Coweta peaches May-Aug (peak July); pecans Oct-Nov; butterbeans May-Aug; collards post-frost (frost timing unconfirmed — research dispatch)",
       "farmers_market": "Senoia Farmers Market https://explorenewnancoweta.com/things-to-do/events/senoia-farmers-market/2025-08-23/",
       "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
       "link_note": "Nearby rural counterpart to Atlanta, Georgia; subscription-credible."
@@ -2120,9 +2156,13 @@
         }
       ],
       "seasons": "Apple season late Aug–Oct (peak September)",
-      "farmers_market": "Julian farm stands + mountain orchards (standalone market URL unconfirmed — research dispatch)",
+      "farmers_market": "Julian Certified Farmers Market, Sundays 11-4 year-round, 4470 Julian Rd Hwy 78",
       "farmers_market_url": "https://www.harleyfarms.com",
-      "link_note": "Nearby rural counterpart to San Diego, California; subscription-credible."
+      "link_note": "Nearby rural counterpart to San Diego, California; subscription-credible.",
+      "farms": [
+        "Julian Farm and Orchard",
+        "Volcan Valley Apple Farm"
+      ]
     },
     "US-W-SEA": {
       "market": "US-W-SEA",
@@ -2167,25 +2207,29 @@
           ]
         },
         {
-          "name": "coastal produce",
+          "name": "apples",
           "months": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
+            9
+          ],
+          "peak": 9
+        },
+        {
+          "name": "pears",
+          "months": [
+            9
+          ],
+          "peak": 9
+        },
+        {
+          "name": "squash",
+          "months": [
             10,
-            11,
-            12
+            11
           ]
         }
       ],
-      "seasons": "Marin goat cheese (months unverified); coastal produce May-Oct",
-      "farmers_market": "Bolinas Farmers Market (Saturdays) https://www.marincountyvisitor.com/things-to-do/family-fun/farmers-markets/",
+      "seasons": "Marin goat cheese Feb-Jun; apples Sep (peak September); pears Sep (peak September); squash Oct-Nov",
+      "farmers_market": "Bolinas Farmers Market (Saturdays, year-round) https://www.marincountyvisitor.com/things-to-do/family-fun/farmers-markets/",
       "farmers_market_url": "https://www.harleyfarms.com",
       "link_note": "Nearby rural counterpart to San Francisco Bay Area, California; subscription-credible."
     },
@@ -2328,9 +2372,13 @@
         }
       ],
       "seasons": "Apple season late Aug–Oct (peak September)",
-      "farmers_market": "Julian farm stands + mountain orchards (standalone market URL unconfirmed — research dispatch)",
+      "farmers_market": "Julian Certified Farmers Market, Sundays 11-4 year-round, 4470 Julian Rd Hwy 78",
       "farmers_market_url": null,
-      "link_note": "Frontier self-entry; no-retail gap served by subscription."
+      "link_note": "Frontier self-entry; no-retail gap served by subscription.",
+      "farms": [
+        "Julian Farm and Orchard",
+        "Volcan Valley Apple Farm"
+      ]
     },
     "US-UT-OAKLEY": {
       "market": "US-UT-OAKLEY",
@@ -2338,21 +2386,44 @@
       "place": "Oakley, Utah 84055 — Wasatch Back ranch country",
       "ingredients": [
         {
-          "name": "Splendor Valley Farms produce",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "name": "tart cherries",
+          "months": [
+            7
+          ],
+          "peak": 7
         },
         {
-          "name": "Oakley Rodeo Grounds farm stands",
+          "name": "peaches",
           "months": [
-            6,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "tomatoes",
+          "months": [
             7,
             8,
             9
           ]
         }
       ],
-      "seasons": "Oakley Farmers Market Jun-Sep (2023 season, City of Oakley newsletter); Splendor Valley Farms produce (months unverified)",
+      "seasons": "tart cherries Jul (peak July); peaches Aug-Sep; apples Sep-Oct; sweet corn Jul-Sep; tomatoes Jul-Sep",
       "farmers_market": "Oakley Farmers Market at Oakley Rodeo Grounds, Jun-Sep (2023 season per City of Oakley newsletter; standalone URL unconfirmed — research dispatch)",
       "farmers_market_url": null,
       "link_note": "Frontier self-entry; no-retail gap served by subscription."
@@ -3182,25 +3253,29 @@
           ]
         },
         {
-          "name": "coastal produce",
+          "name": "apples",
           "months": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
+            9
+          ],
+          "peak": 9
+        },
+        {
+          "name": "pears",
+          "months": [
+            9
+          ],
+          "peak": 9
+        },
+        {
+          "name": "squash",
+          "months": [
             10,
-            11,
-            12
+            11
           ]
         }
       ],
-      "seasons": "Marin goat cheese (months unverified); coastal produce May-Oct",
-      "farmers_market": "Bolinas Farmers Market (Saturdays) https://www.marincountyvisitor.com/things-to-do/family-fun/farmers-markets/",
+      "seasons": "Marin goat cheese Feb-Jun; apples Sep (peak September); pears Sep (peak September); squash Oct-Nov",
+      "farmers_market": "Bolinas Farmers Market (Saturdays, year-round) https://www.marincountyvisitor.com/things-to-do/family-fun/farmers-markets/",
       "farmers_market_url": null,
       "link_note": "Frontier self-entry; no-retail gap served by subscription."
     },
@@ -3378,6 +3453,14 @@
             6,
             7,
             8
+          ],
+          "peak": 7
+        },
+        {
+          "name": "pecans",
+          "months": [
+            10,
+            11
           ]
         },
         {
@@ -3388,9 +3471,14 @@
             7,
             8
           ]
+        },
+        {
+          "name": "collards",
+          "months": null,
+          "note": "post-frost; frost timing unconfirmed — research dispatch"
         }
       ],
-      "seasons": "Peach season May-Aug",
+      "seasons": "Coweta peaches May-Aug (peak July); pecans Oct-Nov; butterbeans May-Aug; collards post-frost (frost timing unconfirmed — research dispatch)",
       "farmers_market": "Senoia Farmers Market https://explorenewnancoweta.com/things-to-do/events/senoia-farmers-market/2025-08-23/",
       "farmers_market_url": null,
       "link_note": "Frontier self-entry; no-retail gap served by subscription."
