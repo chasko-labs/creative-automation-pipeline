@@ -244,6 +244,102 @@ def test_market_seeded_rotation_spreads_shared_ingredients():
     }
 
 
+def test_recipe_card_v1_schema_doc_matches_module_contract():
+    # gh #304: the committed JSON Schema doc is the versioned contract; the
+    # module's markers must agree with it (variant enum single-sourced here
+    # until gh #303 lands the full taxonomy).
+    import json
+    from pathlib import Path as _P
+
+    from creative_automation import recipe_card as _rc
+
+    schema = json.loads(
+        _P("data/recipes/recipe-card-v1.schema.json").read_text()
+    )
+    assert schema["$id"] == "https://kodiakcakes.com/schema/recipe-card-v1.json"
+    assert _rc.RECIPE_CARD_DATA_SCHEMA == "recipe-card@v1"
+    assert schema["properties"]["schema"]["const"] == _rc.RECIPE_CARD_DATA_SCHEMA
+    assert schema["properties"]["variant"]["enum"] == list(_rc.RECIPE_CARD_VARIANTS)
+    assert _rc.RECIPE_CARD_VARIANTS == ("hero-plus-layout",)
+    assert _rc.RECIPE_CARD_V1_SCHEMA_PATH.exists()
+
+
+def test_card_data_emits_v1_contract_fields():
+    from creative_automation.recipe_card import build_recipe_card_data
+
+    c = build_recipe_card_data("US-SE-ATL", month="2026-09")
+    assert c["schema"] == "recipe-card@v1"
+    assert c["variant"] == "hero-plus-layout"
+    assert c["market"] == "US-SE-ATL"
+    assert c["frontier_market"] == "US-GA-SENOIA"
+    assert c["month"] == "2026-09"
+    assert c["lang"] == "en"
+    assert c["render"]["canvas"] == {"width": 1080, "height": 1080, "unit": "px"}
+    assert c["render"]["hero_region"] == {"height": 560, "text_free": True}
+    assert "hero" in c["render"]["text_free_regions"]
+
+
+def test_card_data_objects_validate_against_v1():
+    from creative_automation.recipe_card import (
+        build_recipe_card_data,
+        validate_recipe_card_v1,
+    )
+
+    filled = build_recipe_card_data("US-SE-ATL", month="2026-09")
+    assert validate_recipe_card_v1(filled) == []
+    empty = build_recipe_card_data("US-SE-ATL", month="2027-01")
+    assert empty["ingredient"] is None
+    assert empty["reason"]
+    assert validate_recipe_card_v1(empty) == []
+
+
+def test_validator_rejects_fabricated_and_malformed_cards():
+    from creative_automation.recipe_card import (
+        build_recipe_card_data,
+        validate_recipe_card_v1,
+    )
+
+    good = build_recipe_card_data("US-SE-ATL", month="2026-09")
+    bad_variant = dict(good, variant="pop-up-book")
+    assert any("variant" in p for p in validate_recipe_card_v1(bad_variant))
+    # no-ingredient result must not smuggle a recipe or title
+    bad_empty = dict(good, ingredient=None, reason="no pick")
+    assert any("recipe" in p for p in validate_recipe_card_v1(bad_empty))
+    bad_lang = dict(good, lang="fr")
+    assert any("lang" in p for p in validate_recipe_card_v1(bad_lang))
+    assert validate_recipe_card_v1({}) != []
+
+
+def test_card_data_round_trips_object_to_render(tmp_path):
+    # gh #304 acceptance: build -> object -> render with no fabrication.
+    from pathlib import Path
+
+    from creative_automation import naming
+    from creative_automation.recipe_card import (
+        build_recipe_card_data,
+        render_recipe_card_data,
+        validate_recipe_card_v1,
+    )
+
+    card = build_recipe_card_data("US-SE-ATL", month="2026-09")
+    assert validate_recipe_card_v1(card) == []
+    path = Path(render_recipe_card_data(card, out_dir=tmp_path))
+    assert path.exists()
+    assert naming.ISO_NAME_RE.match(path.name)
+    assert "recipe-card" in path.name
+    # the honest empty state renders nothing, explicitly
+    empty = build_recipe_card_data("US-SE-ATL", month="2027-01")
+    assert render_recipe_card_data(empty, out_dir=tmp_path) is None
+
+
+def test_build_recipe_card_marks_v1_contract(tmp_path):
+    from creative_automation.recipe_card import build_recipe_card
+
+    result = build_recipe_card("US-SE-ATL", month="2026-09", out_dir=tmp_path)
+    assert result["schema"] == "recipe-card@v1"
+    assert result["variant"] == "hero-plus-layout"
+
+
 def test_recipe_art_overlay_prefers_published_zones(monkeypatch):
     import creative_automation.dam as dam
     from creative_automation.recipe_card import _overlay_recipe_art

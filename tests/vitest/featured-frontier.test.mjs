@@ -54,7 +54,8 @@ describe('market-to-featured-frontier mapping (#257)', () => {
     const for_ = loadMapping();
     expect(for_('US-MW-PARKCITY-84098').frontier).toBe('US-UT-OAKLEY');
     expect(for_('US-MW-PARKCITY-84098').place).toContain('Oakley, Utah 84055');
-    expect(for_('US-MW-PARKCITY-84098').text).toContain('Splendor Valley Farms');
+    // #305 replaced the Splendor Valley placeholder with the researched calendar
+    expect(for_('US-MW-PARKCITY-84098').text).toContain('tart cherries');
     expect(for_('US-MW-WASATCH').frontier).toBe('US-UT-MIDWAY');
     expect(for_('US-MW-WASATCH-SLC').frontier).toBe('US-UT-GRANTSVILLE');
     expect(for_('US-UT-KAMASVALLEY').frontier).toBe('US-UT-KAMASVALLEY');

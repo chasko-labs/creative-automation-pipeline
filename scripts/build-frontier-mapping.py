@@ -8,7 +8,9 @@ nearby frontier (1:1, no shared frontiers), every frontier target self-resolves.
 Ingredient months are integers 1-12 parsed from each entry's own seasons text;
 entries whose seasons are unconfirmed keep months:null + a research-dispatch
 note (never a guess). Entries that already carry researched months in the
-committed JSON keep them verbatim.
+committed JSON keep them verbatim. Optional farms[]/coops[] string arrays on a
+detail entry (#280 granularity) ride into the JSON row verbatim; entries
+without them carry no such keys.
 
 Usage:
   python3 scripts/build-frontier-mapping.py           # rewrite the JSON
@@ -102,13 +104,21 @@ def clause_months(item: str, seasons: str) -> list[int] | None:
     return parse_months(seasons)
 
 
+def _quoted_list(raw: str | None) -> list[str] | None:
+    """Quoted-string array body -> names, or None when the group is absent."""
+    if raw is None:
+        return None
+    return re.findall(r'"((?:[^"\\]|\\.)*)"', raw)
+
+
 def parse_detail_block(src: str) -> dict:
     body = src[src.index("const featuredFrontierDetail = {"):]
     body = body[: body.index("};") + 1]
     out: dict = {}
     for m in re.finditer(
         r'"(US-[A-Z0-9\-]+)": \{place:"((?:[^"\\]|\\.)*)", items:\[(.*?)\], '
-        r'seasons:"((?:[^"\\]|\\.)*)", farmersMarket:"((?:[^"\\]|\\.)*)"\}',
+        r'seasons:"((?:[^"\\]|\\.)*)", farmersMarket:"((?:[^"\\]|\\.)*)"'
+        r"(?:, farms:\[(.*?)\])?(?:, coops:\[(.*?)\])?\}",
         body,
     ):
         key = m.group(1)
@@ -118,6 +128,8 @@ def parse_detail_block(src: str) -> dict:
             "items": items,
             "seasons": m.group(4),
             "farmersMarket": m.group(5),
+            "farms": _quoted_list(m.group(6)),
+            "coops": _quoted_list(m.group(7)),
         }
     return out
 
@@ -187,7 +199,7 @@ def build() -> dict:
                 f"{short_place(places.get(market, market))}; "
                 f"subscription-credible."
             )
-        markets[market] = {
+        row: dict = {
             "market": market,
             "frontier_market": fk,
             "place": d["place"],
@@ -199,6 +211,13 @@ def build() -> dict:
             ),
             "link_note": link,
         }
+        # #280 granularity: farms/coops ride through only when the detail
+        # entry carries them — absent stays absent (unconfirmed, never shown).
+        if d.get("farms") is not None:
+            row["farms"] = d["farms"]
+        if d.get("coops") is not None:
+            row["coops"] = d["coops"]
+        markets[market] = row
 
     # frontier self-entries for targets that are not markets themselves
     for fk, d in detail.items():
@@ -214,7 +233,7 @@ def build() -> dict:
                 if months is None:
                     ing["note"] = "seasons unconfirmed \u2014 research dispatch"
                 ingredients.append(ing)
-        markets[fk] = {
+        self_row: dict = {
             "market": fk,
             "frontier_market": fk,
             "place": d["place"],
@@ -226,6 +245,11 @@ def build() -> dict:
             ),
             "link_note": "Frontier self-entry; no-retail gap served by subscription.",
         }
+        if d.get("farms") is not None:
+            self_row["farms"] = d["farms"]
+        if d.get("coops") is not None:
+            self_row["coops"] = d["coops"]
+        markets[fk] = self_row
 
     shared = {}
     for code, entry in markets.items():

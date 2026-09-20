@@ -112,6 +112,14 @@ def test_recipe_card_plan_metadata_only_no_render():
     assert json.loads(json.dumps(resp))
 
 
+def test_recipe_card_plan_returns_v1_markers():
+    # gh #304: the gateway plan carries the recipe-card@v1 contract markers.
+    resp = dispatch_tool("recipe_card_plan", {"market": "US-SE-ATL", "month": "2026-09"})
+    assert resp["ok"] is True
+    assert resp["result"]["schema"] == "recipe-card@v1"
+    assert resp["result"]["variant"] == "hero-plus-layout"
+
+
 def test_unknown_tool_name_returns_not_ok_without_raising():
     resp = dispatch_tool("no_such_tool", {"market": "US-SE-ATL"})
     assert resp["ok"] is False

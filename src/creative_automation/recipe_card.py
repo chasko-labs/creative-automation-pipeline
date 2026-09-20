@@ -23,6 +23,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+from functools import lru_cache
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -50,6 +51,18 @@ DEFAULT_OUT_DIR = _ROOT / "output" / "recipe-cards"
 # in the template is {"value": N, "unit": "in|mm|pt|fraction"}; geometry is read
 # from the template, never duplicated as Python literals.
 RECIPE_CARD_SCHEMA = "kodiak/recipe-card@v1"
+
+# recipe-card@v1 DATA contract (gh #304): the versioned object that flows
+# LLM-authoring hop -> renderer -> validation -> asset pack, documented at
+# data/recipes/recipe-card-v1.schema.json. Distinct from RECIPE_CARD_SCHEMA
+# above, which describes print-geometry zones, not card data.
+RECIPE_CARD_DATA_SCHEMA = "recipe-card@v1"
+RECIPE_CARD_V1_SCHEMA_PATH = data_path("recipes", "recipe-card-v1.schema.json")
+# Variant enum. Provisional single value (the implemented two-layer
+# hero-plus-layout composition); gh #303 owns the full taxonomy and may
+# extend this tuple — the schema enum must stay in sync (test-pinned).
+RECIPE_CARD_VARIANTS = ("hero-plus-layout",)
+FRONTIERS_PATH = data_path("localization", "market-featured-frontiers.json")
 _REQUIRED_TEMPLATE_SECTIONS = (
     "schema",
     "tokens_ref",
@@ -239,6 +252,197 @@ def resolve_geometry(tmpl: dict) -> dict:
         },
         "zones": zones_by_id,
     }
+
+
+# --------------------------------------------------------------------------- #
+# recipe-card@v1 contract: frontier lookup, render metadata, validation,
+# and object -> render. Every value traces to a real source (mapping file,
+# module canvas constants, template zone ids); unknowns are None, never
+# guessed.
+# --------------------------------------------------------------------------- #
+
+
+@lru_cache(maxsize=1)
+def _frontier_mapping() -> dict:
+    """market -> frontier_market from the generated mapping mirror. Empty on
+    any read failure so a missing file degrades to frontier_market None."""
+    try:
+        return json.loads(FRONTIERS_PATH.read_text(encoding="utf-8")).get(
+            "markets", {}
+        )
+    except (OSError, ValueError):
+        return {}
+
+
+def frontier_market_for(market: str) -> str | None:
+    """Featured-frontier code for a market, or None when unmapped. Never
+    raises, never fabricates."""
+    try:
+        entry = _frontier_mapping().get(market) or {}
+        code = entry.get("frontier_market")
+        return str(code) if code else None
+    except AttributeError:
+        return None
+
+
+def render_block() -> dict:
+    """Render target metadata for the v1 contract: canvas dimensions and the
+    text vs text-free region split. Dimensions come from the module canvas
+    constants (the values _compose_card actually renders); zone ids from the
+    template art-zone ids. No geometry is duplicated as a new literal."""
+    return {
+        "variant": RECIPE_CARD_VARIANTS[0],
+        "canvas": {"width": CARD_W, "height": CARD_H, "unit": "px"},
+        "hero_region": {"height": HERO_H, "text_free": True},
+        "layout_region": {"carries_text": True},
+        "text_regions": ["title", "ingredient_line", "steps"],
+        "text_free_regions": ["hero"],
+    }
+
+
+_PAIRING_SOURCES = frozenset(
+    {
+        "none",
+        "ingredient-featured",
+        "ingredient-overlap",
+        "ingredient-rotation",
+        "season-table",
+        "static-default",
+        "legacy-image-fallback",
+    }
+)
+_CARD_LANGS = frozenset({"en", "es", "pt"})
+_CARD_SEASONS = frozenset({"spring", "summer", "fall", "winter"})
+_MONTH_RE = re.compile(r"^[0-9]{4}-[0-9]{2}$")
+
+
+def validate_recipe_card_v1(card: dict) -> list[str]:
+    """Check a build_recipe_card_data object against the recipe-card@v1
+    contract (data/recipes/recipe-card-v1.schema.json). Returns problems
+    (empty = valid). Structural only: required keys, the schema/variant/lang
+    markers, recipe-ref shape, month/season formats, and the no-ingredient
+    rule (ingredient null requires an explicit reason with null recipe and
+    title — never an invented pick)."""
+    problems: list[str] = []
+    if not isinstance(card, dict):
+        return ["card is not a JSON object"]
+    if card.get("schema") != RECIPE_CARD_DATA_SCHEMA:
+        problems.append(
+            f"schema is {card.get('schema')!r}, expected {RECIPE_CARD_DATA_SCHEMA!r}"
+        )
+    if card.get("variant") not in RECIPE_CARD_VARIANTS:
+        problems.append(
+            f"variant {card.get('variant')!r} not in {list(RECIPE_CARD_VARIANTS)}"
+        )
+    market = card.get("market")
+    if not market or not isinstance(market, str):
+        problems.append("market must be a non-empty string")
+    month = card.get("month")
+    if month is not None and (
+        not isinstance(month, str) or not _MONTH_RE.match(month)
+    ):
+        problems.append(f"month {month!r} is not ISO YYYY-MM")
+    if card.get("lang") not in _CARD_LANGS:
+        problems.append(f"lang {card.get('lang')!r} not in {sorted(_CARD_LANGS)}")
+    season = card.get("season")
+    if season is not None and season not in _CARD_SEASONS:
+        problems.append(f"season {season!r} not in {sorted(_CARD_SEASONS)}")
+    fm = card.get("frontier_market")
+    if fm is not None and not isinstance(fm, str):
+        problems.append("frontier_market must be a string or null")
+
+    recipe = card.get("recipe")
+    if recipe is not None:
+        if not isinstance(recipe, dict):
+            problems.append("recipe must be an object or null")
+        else:
+            if not recipe.get("id") or not isinstance(recipe.get("id"), str):
+                problems.append("recipe.id must be a non-empty string")
+            if not recipe.get("name") or not isinstance(
+                recipe.get("name"), str
+            ):
+                problems.append("recipe.name must be a non-empty string")
+
+    ingredient = card.get("ingredient")
+    if ingredient is not None and (
+        not isinstance(ingredient, str) or not ingredient.strip()
+    ):
+        problems.append("ingredient must be a non-empty string or null")
+    if ingredient is None:
+        if not card.get("reason") or not isinstance(card.get("reason"), str):
+            problems.append("no-ingredient result must carry an explicit reason")
+        if recipe is not None:
+            problems.append("no-ingredient result must not carry a recipe")
+        if card.get("title") is not None:
+            problems.append("no-ingredient result must not carry a title")
+    else:
+        if recipe is not None and not card.get("title"):
+            problems.append("card with a recipe must carry a title")
+        steps = card.get("steps")
+        if recipe is not None and (
+            not isinstance(steps, list)
+            or not steps
+            or not all(isinstance(s, str) and s.strip() for s in steps)
+        ):
+            problems.append("card with a recipe must carry non-empty steps")
+
+    for key in ("meta", "provenance", "art", "render"):
+        if not isinstance(card.get(key), dict):
+            problems.append(f"{key} must be an object")
+    pairing = (card.get("provenance") or {}).get("pairing")
+    if pairing is not None:
+        if not isinstance(pairing, dict):
+            problems.append("provenance.pairing must be an object")
+        elif pairing.get("source") not in _PAIRING_SOURCES:
+            problems.append(
+                f"pairing.source {pairing.get('source')!r} not in "
+                f"{sorted(_PAIRING_SOURCES)}"
+            )
+    return problems
+
+
+def render_recipe_card_data(
+    card: dict, out_dir: str | Path | None = None
+) -> str | None:
+    """Render a recipe-card@v1 DATA object to a PNG (object -> render).
+
+    Consumes exactly what build_recipe_card_data emits: validates the
+    contract first (ValueError with the problems on violation), resolves the
+    recipe ref against the catalog (ValueError when the id is not on file —
+    a dangling ref is never rendered), then composes the text-free hero plus
+    text-only layout layer via the same helpers build_recipe_card uses.
+    A valid no-ingredient object returns None (explicit empty state, never an
+    invented card). Returns the PNG path as a string.
+    """
+    problems = validate_recipe_card_v1(card)
+    if problems:
+        raise ValueError(f"not a recipe-card@v1 object: {'; '.join(problems)}")
+    recipe_ref = card.get("recipe") or {}
+    if card.get("ingredient") is None or not recipe_ref:
+        return None
+    recipe = _recipe_by_id(str(recipe_ref.get("id") or ""))
+    if recipe is None:
+        raise ValueError(
+            f"recipe ref {recipe_ref.get('id')!r} is not in the catalog"
+        )
+    market = str(card.get("market") or "")
+    text_blocks = {
+        "title": str(card.get("title") or recipe.get("name") or "recipe"),
+        "ingredient_line": f"Local pick: {card.get('ingredient')}",
+        "steps": [str(s) for s in (card.get("steps") or [])],
+    }
+    hero = _hero_panel(recipe, (CARD_W, HERO_H))
+    iso_name = naming.build_iso_name(
+        product="power-cakes",
+        region=market,
+        locality=naming.slugify(
+            str(card.get("frontier_market") or market)
+        ),
+        channel="recipe-card",
+        ratio="1x1",
+    )
+    out_root = Path(out_dir) if out_dir else DEFAULT_OUT_DIR
+    return str(_compose_card(hero, text_blocks, out_root / iso_name))
 
 
 def _names_ingredient(recipe: dict, ingredient: str) -> bool:
@@ -709,6 +913,8 @@ def build_recipe_card(
     resolved = resolve_this_month(market, ym=month)
     if resolved is None:
         return {
+            "schema": RECIPE_CARD_DATA_SCHEMA,
+            "variant": RECIPE_CARD_VARIANTS[0],
             "card_path": None,
             "ingredient": None,
             "recipe": None,
@@ -729,6 +935,8 @@ def build_recipe_card(
     resolved_month = resolved["month"]
     if not ingredient:
         return {
+            "schema": RECIPE_CARD_DATA_SCHEMA,
+            "variant": RECIPE_CARD_VARIANTS[0],
             "card_path": None,
             "ingredient": None,
             "recipe": None,
@@ -751,6 +959,8 @@ def build_recipe_card(
     )
     if recipe is None:
         return {
+            "schema": RECIPE_CARD_DATA_SCHEMA,
+            "variant": RECIPE_CARD_VARIANTS[0],
             "card_path": None,
             "ingredient": ingredient,
             "recipe": None,
@@ -816,6 +1026,8 @@ def build_recipe_card(
 
     dam_key = publish_card(card_path) if publish else None
     return {
+        "schema": RECIPE_CARD_DATA_SCHEMA,
+        "variant": RECIPE_CARD_VARIANTS[0],
         "card_path": str(card_path),
         "ingredient": ingredient,
         "recipe": {"id": recipe.get("id"), "name": recipe.get("name")},
@@ -1018,9 +1230,15 @@ def build_recipe_card_data(
     seasonal = resolve_seasonal_moments(market)
 
     def _empty(reason: str, *, resolved_month: str | None, ingredient: str | None) -> dict:
+        pairing = _no_pairing(reason, season, resolved_month)
         return {
+            "schema": RECIPE_CARD_DATA_SCHEMA,
+            "variant": RECIPE_CARD_VARIANTS[0],
             "market": market,
+            "frontier_market": frontier_market_for(market),
             "month": resolved_month,
+            "season": pairing["season"],
+            "lang": lang,
             "substrate": substrate_key,
             "title": None,
             "meta": {"prep": None, "cook": None, "serves": None, "est_cost": None},
@@ -1032,12 +1250,13 @@ def build_recipe_card_data(
                 "values_from_source": [ingredient] if ingredient else [],
                 "values_proposed": [],
                 "values_unknown": ["times", "temperatures", "prices", "serves"],
-                "pairing": _no_pairing(reason, season, resolved_month),
+                "pairing": pairing,
             },
             "ingredient": ingredient,
             "recipe": None,
             "reason": reason,
             "art": art_block,
+            "render": render_block(),
         }
 
     resolved = resolve_this_month(market, ym=month)
@@ -1135,8 +1354,13 @@ def build_recipe_card_data(
         provenance["translation"] = i18n["provenance"]
 
     return {
+        "schema": RECIPE_CARD_DATA_SCHEMA,
+        "variant": RECIPE_CARD_VARIANTS[0],
         "market": market,
+        "frontier_market": frontier_market_for(market),
         "month": resolved_month,
+        "season": pairing["season"],
+        "lang": lang,
         "substrate": substrate_key,
         "title": i18n["title"],
         "meta": meta,
@@ -1148,4 +1372,5 @@ def build_recipe_card_data(
         "ingredient": ingredient,
         "recipe": {"id": recipe.get("id"), "name": recipe.get("name")},
         "art": art_block,
+        "render": render_block(),
     }

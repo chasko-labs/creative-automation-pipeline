@@ -1,0 +1,230 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kodiakcakes.com/schema/recipe-card-v1.json",
+  "title": "Kodiak recipe-card@v1 data contract",
+  "description": "Versioned data contract for one monthly local-ingredient recipe card (gh #304). The object flows LLM-authoring hop -> renderer -> validation -> asset pack. Every field maps to a real source named below; no field permits fabrication — unknown values are explicit null plus a values_unknown entry, never a guess. The variant enum is provisional: gh #303 (variant taxonomy from the three dogfood images) is the future single source of truth; until it lands, the only implemented variant is hero-plus-layout, which is what src/creative_automation/recipe_card.py composes (text-free hero panel over a text-only layout panel, cr-1). The gateway recipe_card_plan tool returns a metadata projection of this contract carrying the same schema+variant markers. Distinct from the print-geometry template schema kodiak/recipe-card@v1 (references/templates/recipe-card.json), which describes physical page zones, not card data.",
+  "type": "object",
+  "required": [
+    "schema",
+    "variant",
+    "market",
+    "frontier_market",
+    "ingredient",
+    "recipe",
+    "month",
+    "season",
+    "lang",
+    "title",
+    "meta",
+    "ingredients",
+    "steps",
+    "sketch_zones",
+    "seasonal_moment",
+    "provenance",
+    "art",
+    "substrate",
+    "render"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "recipe-card@v1",
+      "description": "Contract id. Emitted by build_recipe_card_data; the gateway plan carries the same marker."
+    },
+    "variant": {
+      "type": "string",
+      "enum": ["hero-plus-layout"],
+      "description": "Card archetype. Provisional single value (the implemented two-layer hero-plus-layout composition); gh #303 owns the full taxonomy and may extend this enum — no orphan variants."
+    },
+    "market": {
+      "type": "string",
+      "description": "Registry market key the card was built for (e.g. US-SE-ATL). Source: caller request, must resolve in retailer-frontier-pairs.json.",
+      "pattern": "^US-[A-Z]{1,3}-[A-Z0-9 -]+$"
+    },
+    "frontier_market": {
+      "type": ["string", "null"],
+      "description": "Featured-frontier code the market resolves to (e.g. US-GA-SENOIA). Source: data/localization/market-featured-frontiers.json mapping; null when the market has no mapped frontier — never guessed."
+    },
+    "ingredient": {
+      "type": ["string", "null"],
+      "description": "In-season local ingredient. Source: locales.resolve_this_month (single source of truth). Null marks the explicit no-ingredient result, which must also carry a non-empty reason."
+    },
+    "recipe": {
+      "type": ["object", "null"],
+      "description": "Reference into data/recipes/kodiak-recipes.json by id — never inline-fabricated. Null only on the no-ingredient / no-catalog path.",
+      "required": ["id", "name"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Catalog record id (e.g. roasted-grape-flapjack-topper-draft)."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The catalog record's real name, verbatim. The card title must equal this name."
+        }
+      }
+    },
+    "month": {
+      "type": ["string", "null"],
+      "description": "Resolved ISO month the card was built for (YYYY-MM). Source: locales.resolve_this_month; null only when no pair is seeded.",
+      "pattern": "^[0-9]{4}-[0-9]{2}$"
+    },
+    "season": {
+      "type": ["string", "null"],
+      "description": "Structured season the pairing resolved (spring|summer|fall|winter). Source: season_pairing.resolve_season via provenance.pairing; null when unresolvable.",
+      "enum": ["spring", "summer", "fall", "winter", null]
+    },
+    "lang": {
+      "type": "string",
+      "enum": ["en", "es", "pt"],
+      "description": "Language tag applying to every text block (title, ingredients, steps). Non-English blocks travel recipe_i18n machine translation with an allergen fail-safe; provenance.translation records providers and fallback lines."
+    },
+    "title": {
+      "type": ["string", "null"],
+      "description": "Card title: the recipe's real catalog name (clean_brand_copy only). Null only on the no-ingredient path."
+    },
+    "meta": {
+      "type": "object",
+      "description": "Four-column meta bar. Each column comes ONLY from a real recipe field (prepTime/cookTime/yield/est_cost); missing backing fields are null and reported under provenance.values_unknown. est_cost and per-line prices appear only with a complete verified cost record.",
+      "required": ["prep", "cook", "serves", "est_cost"],
+      "properties": {
+        "prep": { "type": ["string", "null"] },
+        "cook": { "type": ["string", "null"] },
+        "serves": { "type": ["string", "null"] },
+        "est_cost": { "type": ["string", "null"] }
+      }
+    },
+    "ingredients": {
+      "type": "array",
+      "description": "The matched recipe's real ingredient lines, verbatim from the catalog record (quantities included). price attaches only from a complete verified ingredient_costs record, else null.",
+      "items": {
+        "type": "object",
+        "required": ["qty_name", "price"],
+        "properties": {
+          "qty_name": { "type": "string" },
+          "price": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "description": "The recipe's real instructions, cleaned with the leading action word uppercased only — no cooking action is invented. Falls back to the recipe's ingredient lines like the PNG path.",
+      "items": { "type": "string" }
+    },
+    "sketch_zones": {
+      "type": "array",
+      "description": "Art zones the renderer draws hand-drawn line-art into (raw_ingredient, technique, finished_plate). Source: recipe-card.json template zone ids.",
+      "items": { "type": "string" }
+    },
+    "seasonal_moment": {
+      "type": "array",
+      "description": "Seeded seasonal moments attached as creative context (raw blocks from retailer-frontier-pairs.json: moment, available_ingredients, favorite_flavors, source, confidence, status, note). Never fabricated; [] when none seeded.",
+      "items": { "type": "object" }
+    },
+    "provenance": {
+      "type": "object",
+      "description": "Source map for every fact on the card.",
+      "required": ["values_from_source", "values_proposed", "values_unknown", "pairing"],
+      "properties": {
+        "values_from_source": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Facts confirmed via locales (e.g. the in-season ingredient)."
+        },
+        "values_proposed": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Adaptations proposed by the generator (e.g. 'over Kodiak Power Cakes' framing)."
+        },
+        "values_unknown": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Logical groups with no verified source (times, prices, nutrition, temperatures, serves) — rendered as absent/unknown, never guessed."
+        },
+        "pairing": {
+          "type": "object",
+          "description": "Why this recipe: season-indexed pairing provenance from pick_recipe_with_provenance.",
+          "required": ["season", "source", "recipe_id", "reason"],
+          "properties": {
+            "season": { "type": ["string", "null"] },
+            "source": {
+              "type": "string",
+              "enum": ["none", "ingredient-featured", "ingredient-overlap", "ingredient-rotation", "season-table", "static-default", "legacy-image-fallback"]
+            },
+            "recipe_id": { "type": ["string", "null"] },
+            "reason": { "type": "string" }
+          }
+        },
+        "translation": {
+          "type": "object",
+          "description": "Present only on non-English cards: recipe_i18n providers, machine_translated/human_reviewed flags, allergen fallback lines."
+        }
+      }
+    },
+    "art": {
+      "type": "object",
+      "description": "Hand-drawn line-art URLs per sketch zone (Nova-Canvas seeded). Null per zone means fall back to the SVG placeholder — never a broken link.",
+      "required": ["raw_ingredient", "technique", "finished_plate"],
+      "properties": {
+        "raw_ingredient": { "type": ["string", "null"] },
+        "technique": { "type": ["string", "null"] },
+        "finished_plate": { "type": ["string", "null"] }
+      }
+    },
+    "substrate": {
+      "type": "string",
+      "description": "Paper substrate key resolved from the template (default kraft). Source: references/templates/recipe-card.json substrates."
+    },
+    "render": {
+      "type": "object",
+      "description": "Render target metadata: canvas dimensions and which regions carry text vs stay text-free (image layer never carries baked-in words, cr-1). Dimensions source: recipe_card CARD_W/CARD_H/HERO_H constants.",
+      "required": ["variant", "canvas", "hero_region", "layout_region", "text_regions", "text_free_regions"],
+      "properties": {
+        "variant": {
+          "type": "string",
+          "enum": ["hero-plus-layout"]
+        },
+        "canvas": {
+          "type": "object",
+          "required": ["width", "height", "unit"],
+          "properties": {
+            "width": { "type": "integer" },
+            "height": { "type": "integer" },
+            "unit": { "type": "string", "const": "px" }
+          }
+        },
+        "hero_region": {
+          "type": "object",
+          "required": ["height", "text_free"],
+          "properties": {
+            "height": { "type": "integer" },
+            "text_free": { "type": "boolean", "const": true }
+          }
+        },
+        "layout_region": {
+          "type": "object",
+          "required": ["carries_text"],
+          "properties": {
+            "carries_text": { "type": "boolean", "const": true }
+          }
+        },
+        "text_regions": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["title", "ingredient_line", "steps"] }
+        },
+        "text_free_regions": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["hero"] }
+        }
+      }
+    },
+    "reason": {
+      "type": "string",
+      "description": "Present ONLY on the explicit no-ingredient / no-pair result (ingredient null, recipe null): the honest empty-state message. Never present alongside a picked recipe."
+    }
+  }
+}
