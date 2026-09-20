@@ -865,19 +865,50 @@ _THEME_RETAILER = {
 _PUBLIX_DEFAULT_MARKETS = {"US-SE-ATL"}
 
 
-def _seasonal_recipe_default(season: object, product_name: str) -> dict | None:
-    """Season-paired recipe default: the season table's record when the request
-    names a season and the record validates, else None (caller keeps the static
-    default). Never raises, never fabricates — season stops being ignored
-    without ever breaking the preview."""
+def _season_pairing(season: object) -> tuple[dict | None, dict]:
+    """(record, meta) for a request season; (None, {}) when unpaired.
+
+    One chain: the season table resolves the record (static default as last
+    resort); meta names the season key, the record id/name, and whether the
+    pairing came from the season table or the static default. Guarded: an
+    absent season, an unknown value, or any error means no pairing — never
+    raises, never fabricates."""
     try:
+        from . import season_pairing as _seasons
+        from .recipe_card import _season_fallback_recipe
         season_name = season if isinstance(season, str) and season.strip() else None
         if season_name is None:
-            return None
-        from .recipe_card import _season_fallback_recipe
-        return _validate_recipe_fields(
-            _season_fallback_recipe(season_name), product_name
-        )
+            return None, {}
+        rec = _season_fallback_recipe(season_name)
+        if not isinstance(rec, dict):
+            return None, {}
+        resolved = _seasons.resolve_season(season_name)
+        pairing = _seasons.pairing_for_season(resolved.get("season"))
+        meta = {
+            "season": resolved.get("season"),
+            "recipe_id": rec.get("id"),
+            "name": rec.get("name"),
+            "source": pairing.get("source")
+            if pairing.get("recipe_id") == rec.get("id")
+            else "static-default",
+            "reason": pairing.get("reason"),
+        }
+        return rec, meta
+    except Exception:  # noqa: BLE001 — season never breaks the preview
+        return None, {}
+
+
+def _seasonal_recipe_default(season: object, product_name: str) -> dict | None:
+    """Season-paired recipe default: the season table's record when the request
+    names a season and the record fits the tease shape, else None (caller keeps
+    the static default). Full catalog records carry 10 ingredients and long
+    steps — those stay on the pairing display, never truncated into the tease.
+    Never raises, never fabricates."""
+    rec, _meta = _season_pairing(season)
+    if rec is None:
+        return None
+    try:
+        return _validate_recipe_fields(rec, product_name)
     except Exception:  # noqa: BLE001 — season never breaks the preview
         return None
 
@@ -902,7 +933,9 @@ def _preview_campaign_data(
     product_name = str(product).replace("-", " ").title()
     theme = data.get("theme")
     market = data.get("market") or data.get("region") or "us"
-    prov = provenance or {}
+    # Identity matters: an empty-but-real dict still receives the pairing, so
+    # `or {}` (which silently drops writes on falsy input) is wrong here.
+    prov = provenance if isinstance(provenance, dict) else {}
     base = clean_brand_copy(
         str(prov.get("copy_headline") or prov.get("headline") or prompt or "")[:80]
     ) or clean_brand_copy(str(prompt or ""))
@@ -946,6 +979,20 @@ def _preview_campaign_data(
         recipe_fields = _seasonal_recipe_default(data.get("season"), product_name)
         if recipe_fields is None:
             recipe_fields = _recipe_card_defaults(product_name)
+    # Season pairing display: a season that resolves through the season table
+    # pairs the campaign with the real catalog record (name + traceability on
+    # provenance). Static-default landings stay quiet — they add nothing over
+    # the tease title. The tease shape above stays intact: full records are
+    # never truncated into it.
+    rec, meta = _season_pairing(data.get("season"))
+    if (
+        rec is not None
+        and meta.get("source") == "season-table"
+        and isinstance(meta.get("name"), str)
+        and meta["name"].strip()
+    ):
+        prov["recipe"] = meta["name"].strip()
+        prov["recipe_pairing"] = meta
 
     retailer = data.get("retailer")
     if not isinstance(retailer, str) or not retailer.strip():
@@ -1325,7 +1372,9 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         provenance["languages"] = campaign["languages"]
         provenance["retailer"] = campaign["retailer"]
         recipe = campaign["recipe_fields"] or {}
-        if recipe.get("title"):
+        # A season pairing already named the campaign recipe inside the
+        # campaign builder — the tease title never overwrites it.
+        if recipe.get("title") and "recipe_pairing" not in provenance:
             provenance["recipe"] = recipe.get("title")
         provenance["platforms"] = sorted(campaign["platform_copy"].keys())
         provenance["copy_owner"] = "backend-preview-fallback"
@@ -1437,7 +1486,9 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         provenance["languages"] = campaign["languages"]
         provenance["retailer"] = campaign["retailer"]
         recipe = campaign["recipe_fields"] or {}
-        if recipe.get("title"):
+        # A season pairing already named the campaign recipe inside the
+        # campaign builder — the tease title never overwrites it.
+        if recipe.get("title") and "recipe_pairing" not in provenance:
             provenance["recipe"] = recipe.get("title")
         provenance["platforms"] = sorted(platform_copy.keys())
         provenance["copy_owner"] = "backend-pack-fallback"

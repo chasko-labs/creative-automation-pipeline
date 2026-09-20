@@ -270,6 +270,12 @@ let skuList = [
     // Retailer theme / recipe / mode — surfaced only when the backend names them.
     if(env.retailer) lines.push('Retailer theme: ' + env.retailer);
     if(env.recipe) lines.push('Recipe: ' + env.recipe);
+    // Season pairing — the catalog record the request season resolved to, with
+    // the table's reason. Surfaced only when the backend names it.
+    if(env.recipe_pairing && typeof env.recipe_pairing==='object'){
+      const rp = /** @type {{name?: unknown, recipe_id?: unknown, reason?: unknown}} */ (env.recipe_pairing);
+      if(rp.name || rp.recipe_id) lines.push('Season pairing: ' + (rp.name || rp.recipe_id) + (rp.reason ? ' — ' + rp.reason : ''));
+    }
     if(env.mode) lines.push('Mode: ' + env.mode);
     return lines;
   };

@@ -84,6 +84,18 @@ describe('provenance heuristics readout', () => {
       window.KODIAK_provenanceHeuristics({}));
   });
 
+  it('surfaces the season pairing only when the backend names it', () => {
+    const withPairing = window.KODIAK_provenanceHeuristics({
+      recipe: 'Pumpkin Oat Muffins',
+      recipe_pairing: { name: 'Pumpkin Oat Muffins', recipe_id: 'pumpkin-oat-muffins', reason: 'fall harvest' },
+    }, {});
+    expect(withPairing).toContain('Recipe: Pumpkin Oat Muffins');
+    expect(withPairing).toContain('Season pairing: Pumpkin Oat Muffins — fall harvest');
+    const without = window.KODIAK_provenanceHeuristics({ recipe: 'Trail Stack' }, {});
+    expect(without).toContain('Recipe: Trail Stack');
+    expect(without.some((l) => l.indexOf('Season pairing') === 0)).toBe(false);
+  });
+
   it('readout styling is token var()s only', () => {
     const css = readFileSync(resolve(APP, 'design/components.css'), 'utf8');
     expect(css).toMatch(/\.provenance \.prov-heur\{[^}]*border-left:3px solid var\(--colors-brand-frontier-green\)/);

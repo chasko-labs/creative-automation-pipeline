@@ -64,3 +64,30 @@ def test_preview_campaign_data_no_season_keeps_static_default() -> None:
         campaign["recipe_fields"]["title"]
         == gl._recipe_card_defaults("Power Cakes")["title"]
     )
+
+
+def test_preview_campaign_data_names_real_season_pairing() -> None:
+    prov: dict = {}
+    data = {"product": "power-cakes", "market": "us", "season": "Fall"}
+    campaign = gl._preview_campaign_data(data, "fall brief", prov)
+    # Full catalog record never truncates into the tease shape ...
+    assert (
+        campaign["recipe_fields"]["title"]
+        == gl._recipe_card_defaults("Power Cakes")["title"]
+    )
+    # ... but the panel names the real pairing with table traceability.
+    assert prov["recipe"] == "Pumpkin Oat Muffins"
+    pairing = prov["recipe_pairing"]
+    assert pairing["recipe_id"] == "pumpkin-oat-muffins"
+    assert pairing["source"] == "season-table"
+
+
+def test_preview_campaign_data_garbage_season_names_nothing() -> None:
+    prov: dict = {}
+    data = {"product": "power-cakes", "market": "us", "season": "not-a-season"}
+    campaign = gl._preview_campaign_data(data, "brief", prov)
+    assert "recipe_pairing" not in prov
+    assert (
+        campaign["recipe_fields"]["title"]
+        == gl._recipe_card_defaults("Power Cakes")["title"]
+    )
