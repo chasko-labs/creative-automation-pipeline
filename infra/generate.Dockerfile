@@ -44,6 +44,11 @@ COPY data/prompts/blog-sample-prompts.jsonl /var/task/data/prompts/blog-sample-p
 # without this COPY every /localize degrades to error-fallback. CAP_DATA_ROOT already
 # points at /var/task/data (set below), so this lands where safety.py resolves it.
 COPY data/safety/blocklist.json /var/task/data/safety/blocklist.json
+# Ship the recipe catalog (688K single file) — recipe_card._load_recipes() reads
+# data/recipes/kodiak-recipes.json via _datapaths.data_path(); without this COPY
+# the season table has no records in the image and every season pairing quietly
+# resolves to nothing. Shipped as a single file (never data/ wholesale).
+COPY data/recipes/kodiak-recipes.json /var/task/data/recipes/kodiak-recipes.json
 ENV CAP_DATA_ROOT=/var/task/data
 RUN pip install --no-cache-dir --only-binary=:all: "pillow==10.4.0" && pip install --no-cache-dir . boto3
 CMD ["creative_automation.generate_lambda.handler"]

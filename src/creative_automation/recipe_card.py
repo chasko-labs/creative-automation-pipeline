@@ -29,6 +29,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 from . import naming, safety
 from . import season_pairing as _seasons
+from ._datapaths import data_path
 from .locales import resolve_seasonal_moments, resolve_this_month
 from .platform_copy import clean_brand_copy
 from .recipe_i18n import translate_recipe_texts
@@ -38,8 +39,10 @@ from .text_rewriter import rewrite_headline
 # them up among past assets. Publish is opt-in and never fails a card.
 DAM_RECIPES_PREFIX = "brands/kodiak/recipes/"
 
+# Repo checkout and Lambda image resolve data/ differently (pip install . does
+# not bundle data/); data_path picks the layout that actually exists.
 _ROOT = Path(__file__).parents[2]
-RECIPES_PATH = _ROOT / "data" / "recipes" / "kodiak-recipes.json"
+RECIPES_PATH = data_path("recipes", "kodiak-recipes.json")
 RECIPE_CARD_TEMPLATE_PATH = _ROOT / "references" / "templates" / "recipe-card.json"
 DEFAULT_OUT_DIR = _ROOT / "output" / "recipe-cards"
 
