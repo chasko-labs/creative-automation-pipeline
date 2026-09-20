@@ -265,12 +265,21 @@ def _recipe_by_id(recipe_id: str) -> dict | None:
 def _season_fallback_recipe(season: str | None, month: str = "") -> dict | None:
     """Season-indexed pairing table with static default as last resort.
 
-    Resolves the effective season (explicit structured request wins, else the
-    month) and returns the table's recipe; an unresolvable season lands on the
-    static default. Returns None only when the catalog itself lacks the paired
+    A dropdown-style request (season key, month name, or holiday) that hits
+    the pairing table serves its record directly; otherwise resolves the
+    effective season (explicit structured request wins, else the month) and
+    returns that table's recipe; an unresolvable season lands on the static
+    default. Returns None only when the catalog itself lacks the paired
     record (caller keeps the legacy image-bearing fallback then). Free brief
     text is never consulted — it is display-only for pairing.
     """
+    direct = _seasons.pairing_for_season(season)
+    if direct["source"] == "season-table":
+        recipe = _recipe_by_id(direct["recipe_id"])
+        if recipe is not None:
+            return recipe
+        # Paired record missing from the catalog: fall through to the
+        # resolve/default chain below (ends on the static default).
     resolved = _seasons.resolve_season(season, month or None)
     pairing = _seasons.pairing_for_season(resolved["season"])
     recipe = _recipe_by_id(pairing["recipe_id"])
@@ -279,6 +288,23 @@ def _season_fallback_recipe(season: str | None, month: str = "") -> dict | None:
     if pairing["source"] != "static-default":
         return _recipe_by_id(_seasons.DEFAULT_PAIRING["recipe_id"])
     return None
+
+
+def _table_pairing_for(table_recipe: dict, table_pairing: dict) -> dict:
+    """Honest pairing label for a served fallback recipe.
+
+    When the served recipe IS the paired record, the table pairing stands. When
+    the paired record is missing from the catalog and the static default was
+    served instead, the label says static-default rather than claiming a table
+    hit for a record that never shipped.
+    """
+    if table_recipe.get("id") == table_pairing.get("recipe_id"):
+        return table_pairing
+    return {
+        "recipe_id": table_recipe.get("id"),
+        "reason": _seasons.DEFAULT_PAIRING["reason"],
+        "source": "static-default",
+    }
 
 
 def _pick_recipe_detail(
@@ -303,6 +329,18 @@ def _pick_recipe_detail(
     """
     recipes = _load_recipes()
     resolved = _seasons.resolve_season(season, month or None)
+    # Dropdown-style request (season key, month name, holiday) that hits the
+    # pairing table directly (gh #313); otherwise the month/ISO-derived season.
+    # table_season is the label downstream surfaces; table_pairing names the
+    # record + reason. A direct table hit wins over the resolved season so
+    # holidays (which resolve to no meteorological season) still pair.
+    direct = _seasons.pairing_for_season(season)
+    if direct["source"] == "season-table":
+        table_pairing: dict = direct
+        table_season: str | None = _seasons.pairing_season_label(season)
+    else:
+        table_pairing = _seasons.pairing_for_season(resolved["season"])
+        table_season = resolved["season"]
     if not recipes:
         return None, {
             "season": resolved["season"],
@@ -333,17 +371,18 @@ def _pick_recipe_detail(
     if product:
         subject |= _tokens(product)
     if not subject:
-        # DECISION (sprint-2 items 8+9): an empty ingredient+product still serves
-        # the season-table pick when a season resolves (explicit request or
-        # month, including full YYYY-MM-DD dates) instead of (None, "none").
-        # With no resolvable season there is nothing to pair, so the honest
-        # (None, "none") stands rather than inventing a pick.
-        if resolved["season"] is not None:
+        # DECISION (sprint-2 items 8+9; gh #313): an empty ingredient+product
+        # still serves the season-table pick when a season resolves (explicit
+        # request, month name, holiday, or month, including full YYYY-MM-DD
+        # dates) instead of (None, "none"). With no resolvable season there is
+        # nothing to pair, so the honest (None, "none") stands rather than
+        # inventing a pick.
+        if table_season is not None:
             table_recipe = _season_fallback_recipe(season, month)
             if table_recipe is not None:
-                pairing = _seasons.pairing_for_season(resolved["season"])
+                pairing = _table_pairing_for(table_recipe, table_pairing)
                 return table_recipe, {
-                    "season": resolved["season"],
+                    "season": table_season,
                     "source": pairing["source"],
                     "recipe_id": table_recipe.get("id"),
                     "reason": pairing["reason"],
@@ -376,9 +415,9 @@ def _pick_recipe_detail(
         # last resort. Never fabricated: both point at real catalog records.
         table_recipe = _season_fallback_recipe(season, month)
         if table_recipe is not None:
-            pairing = _seasons.pairing_for_season(resolved["season"])
+            pairing = _table_pairing_for(table_recipe, table_pairing)
             return table_recipe, {
-                "season": resolved["season"],
+                "season": table_season,
                 "source": pairing["source"],
                 "recipe_id": table_recipe.get("id"),
                 "reason": pairing["reason"],

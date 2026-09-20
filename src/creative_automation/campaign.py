@@ -123,8 +123,10 @@ def _brief_season(brief) -> str | None:
 
     Free brief text (campaign_message) is display-only for pairing and is never
     parsed here, so a season word leaking into marketing copy cannot steer the
-    recipe pairing. Returns the canonical key or None. Never raises: an
-    unparsable value degrades to None (static-default pairing downstream).
+    recipe pairing. Returns the canonical key or None: season keys pass
+    through, month names map to their season key, holidays pass through as
+    their holiday key (gh #313). Never raises: an unparsable value degrades
+    to None (static-default pairing downstream).
     """
     from . import season_pairing as _seasons
 
@@ -132,7 +134,17 @@ def _brief_season(brief) -> str | None:
         raw = brief.get("season")
     else:
         raw = getattr(brief, "season", None)
-    return _seasons.normalize_season(raw)
+    try:
+        req = _seasons.resolve_request(raw)
+    except Exception:  # noqa: BLE001 — season never breaks the campaign
+        return None
+    if req["kind"] == "season":
+        return req["key"]
+    if req["kind"] == "month":
+        return req["season"]
+    if req["kind"] == "holiday":
+        return req["key"]
+    return None
 
 
 def _brief_retailers(brief, pack: dict) -> list[str]:

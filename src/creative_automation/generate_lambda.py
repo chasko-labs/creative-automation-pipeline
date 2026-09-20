@@ -870,9 +870,11 @@ def _season_pairing(season: object) -> tuple[dict | None, dict]:
 
     One chain: the season table resolves the record (static default as last
     resort); meta names the season key, the record id/name, and whether the
-    pairing came from the season table or the static default. Guarded: an
-    absent season, an unknown value, or any error means no pairing — never
-    raises, never fabricates."""
+    pairing came from the season table or the static default. Dropdown-style
+    requests (season key, month name, holiday — gh #313) resolve through the
+    same pairing table the recipe card uses. Guarded: an absent season, an
+    unknown value, or any error means no pairing — never raises, never
+    fabricates."""
     try:
         from . import season_pairing as _seasons
         from .recipe_card import _season_fallback_recipe
@@ -882,10 +884,15 @@ def _season_pairing(season: object) -> tuple[dict | None, dict]:
         rec = _season_fallback_recipe(season_name)
         if not isinstance(rec, dict):
             return None, {}
-        resolved = _seasons.resolve_season(season_name)
-        pairing = _seasons.pairing_for_season(resolved.get("season"))
+        pairing = _seasons.pairing_for_season(season_name)
+        if pairing.get("source") == "season-table":
+            label = _seasons.pairing_season_label(season_name)
+        else:
+            resolved = _seasons.resolve_season(season_name)
+            pairing = _seasons.pairing_for_season(resolved.get("season"))
+            label = resolved.get("season")
         meta = {
-            "season": resolved.get("season"),
+            "season": label,
             "recipe_id": rec.get("id"),
             "name": rec.get("name"),
             "source": pairing.get("source")
