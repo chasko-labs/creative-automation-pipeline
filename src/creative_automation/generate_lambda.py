@@ -1029,6 +1029,75 @@ def _upload_render(
     return {"ratio": ratio, "image_url": url, "s3_uri": s3_uri, "w": r["w"], "h": r["h"], "platforms": tags}
 
 
+# Ratios eligible for a standalone extend call. 4x5/blog stay server-side
+# pads (mirrors the preview gate); only tall/wide tiles extend.
+_EXTEND_RATIOS = ("9x16", "16x9")
+
+
+def _handle_extend(data: dict[str, Any], prompt: str) -> dict[str, Any]:
+    """Compose ONE tall/wide tile from an already-rendered 1x1 hero.
+
+    Request fields: hero_s3_uri (the 1x1 entry from a preview response),
+    ratio ("9x16" or "16x9"), subject (extend prompt text, optional — falls
+    back to the request prompt). One Stability outpaint extend, well inside
+    the wall on its own. Any failure degrades to a Pillow pad of the same
+    hero — the response always carries a tile, never an error beyond a 400
+    for a malformed request (ratio unknown, hero unreadable).
+    """
+    ratio = str(data.get("ratio") or "").strip()
+    if ratio not in _EXTEND_RATIOS:
+        return {"ok": False, "error": f"unknown extend ratio: {ratio!r} (want 9x16 or 16x9)"}
+    hero_uri = str(data.get("hero_s3_uri") or "")
+    prefix = f"s3://{DAM_S3_BUCKET}/"
+    if not hero_uri.startswith(prefix):
+        return {"ok": False, "error": "hero_s3_uri must be a render from this DAM bucket"}
+    key = hero_uri[len(prefix):]
+    if not key or ".." in key:
+        return {"ok": False, "error": "unreadable hero_s3_uri"}
+    out_dir = Path(f"/tmp/{uuid4().hex}")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    hero_path = out_dir / "hero-1x1.png"
+    try:
+        body = _s3_client().get_object(Bucket=DAM_S3_BUCKET, Key=key)["Body"].read()
+    except Exception as e:  # noqa: BLE001 — missing key, creds, network
+        return {"ok": False, "error": f"hero download failed: {type(e).__name__}"}
+    try:
+        hero_path.write_bytes(body)
+        with Image.open(hero_path) as im:
+            im.verify()
+        with Image.open(hero_path) as im:
+            im.load()
+    except Exception:
+        return {"ok": False, "error": "hero is not a readable image"}
+    target_w, target_h = RATIO_DIMS[ratio]
+    out_path = out_dir / f"hero-{ratio}.png"
+    subject = str(data.get("subject") or "").strip() or prompt
+    engine = "pillow-outpaint-fallback"
+    try:
+        extended = _stability_outpaint(hero_path, target_w, target_h, subject, out_path)
+    except Exception as e:  # noqa: BLE001 — timeout/throttle degrades to pad
+        print(f"[generate] extend {ratio} outpaint failed, padding: {e}", file=sys.stderr)
+        extended = None
+    if extended is None or not out_path.exists():
+        _pillow_outpaint_fallback(hero_path, target_w, target_h, out_path)
+    else:
+        engine = "stability-outpaint"
+    with Image.open(out_path) as im:
+        w, h = im.size
+    entry = _upload_render(
+        _s3_client(),
+        {"ratio": ratio, "path": out_path, "w": w, "h": h},
+        _download_filename(
+            str(data.get("product") or "power-cakes"),
+            str(data.get("region") or "us"),
+            data.get("theme"),
+        ),
+    )
+    entry["engine"] = engine
+    entry["ok"] = True
+    return entry
+
+
 def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     """Fast interactive path (default): ONE 1x1 control-structure hero, under 30s.
 
@@ -1518,6 +1587,10 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
         prompt = _safe_prompt_text(prompt)
 
         mode = (data.get("mode") or PREVIEW_MODE).strip().lower()
+        if mode == "extend":
+            # Standalone tall/wide extend of an already-rendered hero. One
+            # outpaint call fits the wall alone — no worker thread needed.
+            return _response(200, _handle_extend(data, prompt))
 
         # OUTER WALL: run the entire generate ladder in a worker thread and WAIT only
         # GENERATE_WALL_TIMEOUT_S. The per-rung budget gates inside generate_hero handle

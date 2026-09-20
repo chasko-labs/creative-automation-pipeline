@@ -272,6 +272,24 @@ let skuList = [
     return lines;
   };
   try{ window.KODIAK_provenanceHeuristics = provenanceHeuristics; }catch(e){}
+  // Preview extend polling (top level so tests share it): which tall/wide
+  // tiles upgrade, which render is the 1x1 hero, and the mode=extend body.
+  // Pure: renders + fields in, no DOM. Tested in preview-extend.test.mjs.
+  const extendTargets = (renders)=>{
+    if(!Array.isArray(renders)) return [];
+    return renders.filter(r=>r && (r.ratio==='9x16' || r.ratio==='16x9') && r.s3_uri);
+  };
+  const extendHero = (renders)=>{
+    if(!Array.isArray(renders)) return null;
+    return renders.find(r=>r && r.ratio==='1x1' && r.s3_uri) || null;
+  };
+  const extendBody = (ratio, hero, fields)=>{
+    const f = fields || {};
+    return {mode:'extend', ratio, hero_s3_uri: hero.s3_uri,
+      subject: f.subject || '', product: f.product || 'power-cakes',
+      region: f.region || 'us', theme: f.theme || null};
+  };
+  try{ window.KODIAK_extendTargets = extendTargets; window.KODIAK_extendHero = extendHero; window.KODIAK_extendBody = extendBody; }catch(e){}
   // Hoisted to IIFE top-level alongside provenanceHeuristics so the
   // click-handler badge, the render-set badge, and tests share one source.
   // Pure: prov fields in, {text, fallback} out. "Rung X" stays verbatim —
@@ -995,6 +1013,63 @@ let skuList = [
       };
       // expose the hosted multi-ratio renderer so the Generate Campaign section can reuse it for full-campaign results
       try{ window.KODIAK_showRenderSet = showRenderSet; }catch(e){}
+      // Tall/wide tiles start as server-side pads. Each one then attempts a
+      // live extend (mode=extend fits the wall alone) and swaps to composed
+      // pixels when they land. Pads are the loading state, never the final
+      // state while an extend is still possible.
+      // extendTargets/extendHero/extendBody live at IIFE top level (shared
+      // with tests); used directly here.
+      const extendTallTiles = async (renders, fields)=>{
+        try{
+          const hero = extendHero(renders);
+          if(!hero) return;
+          const targets = extendTargets(renders);
+          if(!targets.length) return;
+          const markComposing = (ratio, on)=>{
+            try{
+              document.querySelectorAll('#preview .render-tile').forEach(t=>{
+                const b = t.querySelector('b');
+                if(b && b.textContent.indexOf(ratio.replace('x',':'))===0){
+                  let s = t.querySelector('.rt-extend');
+                  if(on && !s){ s=document.createElement('span'); s.className='rt-extend'; s.textContent=' · composing'; t.querySelector('.render-cap')?.appendChild(s); }
+                  if(!on && s) s.remove();
+                }
+              });
+            }catch(e){}
+          };
+          const swapTile = (ratio, url, engine)=>{
+            try{
+              document.querySelectorAll('#preview .render-tile').forEach(t=>{
+                const b = t.querySelector('b');
+                if(b && b.textContent.indexOf(ratio.replace('x',':'))===0){
+                  const img = t.querySelector('img');
+                  if(img && url) img.src = url;
+                  markComposing(ratio, false);
+                  if(engine==='stability-outpaint'){
+                    let s = t.querySelector('.rt-extend');
+                    if(!s){ s=document.createElement('span'); s.className='rt-extend'; t.querySelector('.render-cap')?.appendChild(s); }
+                    if(s) s.textContent = ' · composed';
+                  }
+                }
+              });
+            }catch(e){}
+          };
+          await Promise.all(targets.map(async (r)=>{
+            const ratio = r.ratio;
+            markComposing(ratio, true);
+            for(let attempt=0; attempt<2; attempt++){
+              try{
+                const resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(extendBody(ratio, hero, fields))});
+                if(!resp.ok) break;
+                const tile = await resp.json();
+                if(tile && tile.ok && tile.image_url){ swapTile(ratio, tile.image_url, tile.engine); return; }
+                break;
+              }catch(e){ if(attempt===1) markComposing(ratio, false); }
+            }
+          }));
+        }catch(e){}
+      };
+      try{ window.KODIAK_extendTallTiles = extendTallTiles; }catch(e){}
       // TASK 2 — collapsible provenance panel: what you provided vs what we did.
       /**
        * @param {unknown} prov backend response envelope
@@ -1268,6 +1343,8 @@ let skuList = [
           if(Array.isArray(json.renders) && json.renders.length){
             // backend renders[] carries all five sizes (1x1 + pillow pads) — render every labeled tile.
             showRenderSet(json.renders, {source: json.source, themeLabel: readyThemeLabel, provenance: json.provenance});
+            // tall/wide tiles upgrade from pads to composed pixels as extends land.
+            try{ (window.KODIAK_extendTallTiles || extendTallTiles)(json.renders, {subject: brief, product: primarySlug, region: selectedLoc.market, theme: json.theme || activeTheme || null}); }catch(e){}
             const n = json.renders.length;
             if(status) status.textContent = 'Campaign preview ready — ' + n + ' sizes composed from ' + (json.source || 'Nova Pro') + readyTheme;
           } else {
