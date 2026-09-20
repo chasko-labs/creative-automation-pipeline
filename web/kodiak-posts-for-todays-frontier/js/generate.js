@@ -292,6 +292,18 @@ let skuList = [
       region: f.region || 'us', theme: f.theme || null};
   };
   try{ window.KODIAK_extendTargets = extendTargets; window.KODIAK_extendHero = extendHero; window.KODIAK_extendBody = extendBody; }catch(e){}
+  // Request theme order (top level so tests share it): the primary theme
+  // first — backend seed/scene behavior unchanged — then every other checked
+  // card in DOM order, deduped. Extras ride as data.themes instead of
+  // collapsing silently. Pure: primary + list in, ordered list out.
+  // Tested in preview-extend.test.mjs.
+  const orderThemes = (primary, list)=>{
+    const out = [];
+    if(primary) out.push(primary);
+    (Array.isArray(list) ? list : []).forEach(t=>{ if(t && t !== primary && out.indexOf(t) < 0) out.push(t); });
+    return out;
+  };
+  try{ window.KODIAK_orderThemes = orderThemes; }catch(e){}
   // Per-tile engine mark (top level so tile render, extend swap, and tests
   // share it): the preview ships per-ratio engines in provenance.ratios, and
   // every tile must show which state it is in — a pillow pad and a live
@@ -1295,7 +1307,13 @@ let skuList = [
         // object means a clean standalone image + copy sidecars from the backend.
         let reqLayers = {};
         try{ reqLayers = (typeof window.__selectedLayers==='function') ? window.__selectedLayers() : {}; }catch(e){ reqLayers = {}; }
-        const body = {prompt: brief, market: selectedLoc.market, product: productSlug, scope, layers: reqLayers, ...(wantTheme ? {theme: wantTheme} : {}), ...(stagedKey ? {seed_key: stagedKey} : {})};
+        // Every checked theme card rides along (primary first): the backend
+        // drives seed/scene from the first known slug and folds extras into
+        // overlay/copy lines. Season rides as its own field so the preview
+        // recipe pairing reads it structurally, not from brief-text parsing.
+        let themeList = wantTheme ? [wantTheme] : [];
+        try{ themeList = orderThemes(wantTheme || null, (typeof window.__activeThemes==='function') ? window.__activeThemes() : []); }catch(e){}
+        const body = {prompt: brief, market: selectedLoc.market, product: productSlug, scope, layers: reqLayers, ...(wantTheme ? {theme: wantTheme} : {}), ...(themeList.length ? {themes: themeList} : {}), ...(activeSeason ? {season: activeSeason} : {}), ...(stagedKey ? {seed_key: stagedKey} : {})};
         const resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: controller.signal});
         if(!resp.ok) throw new Error('backend returned HTTP ' + resp.status);
         // isolate the parse so a malformed 200 body surfaces as a clear error (outer catch -> visible status)

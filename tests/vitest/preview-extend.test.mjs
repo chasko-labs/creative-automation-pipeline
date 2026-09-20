@@ -64,6 +64,13 @@ describe('preview extend helpers', () => {
     expect(window.KODIAK_tileEngineMark(null)).toEqual({ text: '', cls: '' });
   });
 
+  it('orders request themes primary-first, extras never dropped silently', () => {
+    expect(window.KODIAK_orderThemes('b', ['a', 'b', 'c'])).toEqual(['b', 'a', 'c']);
+    expect(window.KODIAK_orderThemes(null, ['a', 'b'])).toEqual(['a', 'b']);
+    expect(window.KODIAK_orderThemes('b', ['b', 'b'])).toEqual(['b']);
+    expect(window.KODIAK_orderThemes(null, null)).toEqual([]);
+  });
+
   it('builds a mode=extend body with sane defaults', () => {
     const b = window.KODIAK_extendBody('9x16', hero, { subject: 's', product: 'p', region: 'r', theme: 't' });
     expect(b).toEqual({ mode: 'extend', ratio: '9x16', hero_s3_uri: 's3://b/hero.png', subject: 's', product: 'p', region: 'r', theme: 't' });

@@ -201,6 +201,16 @@
     return true;
   }
 
+  // All checked theme cards in DOM order. __activeTheme names only the most
+  // recent check; the full list rides as data.themes so extra checked cards
+  // never collapse silently on the way to the backend.
+  function activeThemeList(){
+    if(!chipWrap) return [];
+    return Array.prototype.slice.call(chipWrap.querySelectorAll('.ff-check-card__input[data-theme]'))
+      .map(function(el){ return el.getAttribute('data-theme'); })
+      .filter(function(slug){ return activeDirections.has(slug); });
+  }
+  window.__activeThemes = activeThemeList;
   // ---- retailer mark: composed iff a SPECIFIC retailer card is checked ----
   // localized-all sets brief text only (never a mark). Most-recently checked specific wins —
   // tracked explicitly so unchecking All never steals the mark from a still-checked retailer.

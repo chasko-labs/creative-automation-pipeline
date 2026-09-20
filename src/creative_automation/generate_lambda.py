@@ -865,6 +865,23 @@ _THEME_RETAILER = {
 _PUBLIX_DEFAULT_MARKETS = {"US-SE-ATL"}
 
 
+def _seasonal_recipe_default(season: object, product_name: str) -> dict | None:
+    """Season-paired recipe default: the season table's record when the request
+    names a season and the record validates, else None (caller keeps the static
+    default). Never raises, never fabricates — season stops being ignored
+    without ever breaking the preview."""
+    try:
+        season_name = season if isinstance(season, str) and season.strip() else None
+        if season_name is None:
+            return None
+        from .recipe_card import _season_fallback_recipe
+        return _validate_recipe_fields(
+            _season_fallback_recipe(season_name), product_name
+        )
+    except Exception:  # noqa: BLE001 — season never breaks the preview
+        return None
+
+
 def _preview_campaign_data(
     data: dict[str, Any], prompt: str, provenance: dict[str, Any] | None
 ) -> dict[str, Any]:
@@ -926,7 +943,9 @@ def _preview_campaign_data(
     raw_recipe = data.get("recipe_fields")
     recipe_fields = _validate_recipe_fields(raw_recipe, product_name)
     if recipe_fields is None:
-        recipe_fields = _recipe_card_defaults(product_name)
+        recipe_fields = _seasonal_recipe_default(data.get("season"), product_name)
+        if recipe_fields is None:
+            recipe_fields = _recipe_card_defaults(product_name)
 
     retailer = data.get("retailer")
     if not isinstance(retailer, str) or not retailer.strip():
