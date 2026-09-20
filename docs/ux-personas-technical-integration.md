@@ -54,7 +54,7 @@ Shared power-user role — one owns storefront bundles, the other owns lifecycle
 
 ---
 
-### Adam Berberich — Senior Forward Deployed AI Engineer — Remote
+### Adam Berberich — Senior Forward Deployed AI Engineer — Dayton, Ohio
 
 **Who he is:** Embedded with market teams where the pipeline meets real users. He takes the living Swagger and the managed control plane tools into the field — wiring `kodiak_pipeline_run` and `kodiak_reference_search` into whatever the local team already uses — and reports back what breaks outside Park City.
 
@@ -82,7 +82,7 @@ Shared power-user role — one owns storefront bundles, the other owns lifecycle
 
 ---
 
-### Drew Robinson — Forward Deployed AI Architect — Remote
+### Drew Robinson — Forward Deployed AI Architect — Oceanside, California
 
 **Who he is:** Designs how the pipeline lands inside customer systems — where the Lambda ends and their stack begins, what the data contracts guarantee, how the factory library and the live path stay decoupled. He draws the boxes the deploy engineers stand inside.
 
