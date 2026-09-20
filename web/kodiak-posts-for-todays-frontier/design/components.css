@@ -1193,6 +1193,8 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
   background:var(--brown-kodiak,#3B2316);color:var(--parchment,#FFF8F0);font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em}
 .ff-dam-thumb-label{font:500 10px/1.25 "museo-sans",sans-serif;color:var(--colors-foreground-default,#1A2F29);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ff-dam-flash{font:600 11px/1.4 "museo-sans",sans-serif;color:var(--colors-brand-bear-brown,#3B2316);padding:2px 0;min-height:16px}
+.ff-riff-cue{margin:var(--spacing-xs) 0 0;padding:var(--spacing-xs) var(--spacing-sm);font:600 11px/1.5 "museo-sans",sans-serif;color:var(--colors-brand-bear-brown,#3B2316);background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-strong);border-radius:var(--radii-md)}
+.ff-riff-cue[hidden]{display:none}
 /* PART D (rebuild) — tabs + filter shell and the role=option tile grid that replaced the old .ff-dam-thumb button */
 .ff-dam-controls{display:flex;flex-wrap:wrap;align-items:center;gap:var(--spacing-sm,8px);margin-bottom:var(--spacing-sm,8px)}
 .ff-dam-tabs{display:flex;flex-wrap:wrap;gap:4px;flex:1 1 auto}

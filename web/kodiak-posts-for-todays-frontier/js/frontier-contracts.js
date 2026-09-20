@@ -188,6 +188,7 @@
  * @typedef {object} Provenance
  * @property {string} [rung]
  * @property {string} [engine]
+ * @property {string} [origin]
  * @property {string} [seed_selection]
  * @property {string} [seed_source]
  * @property {string} [fallthrough_reason]

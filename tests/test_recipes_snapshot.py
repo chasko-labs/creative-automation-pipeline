@@ -40,5 +40,5 @@ def test_halo_anchors_have_metro_market():
 
 def test_js_header_uses_market_not_store_name():
     js = (ROOT / "web" / "kodiak-posts-for-todays-frontier" / "js" / "recipes.js").read_text()
-    assert "placeFor(metro.market || pair.market)" in js
+    assert "function placeFor(market)" in js
     assert "metro.name || metro.retailer || pair.market" not in js

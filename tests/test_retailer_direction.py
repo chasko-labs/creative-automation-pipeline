@@ -1,10 +1,14 @@
-"""Retailer direction (#245) — OFFLINE, cred-free.
+"""Retailer direction — OFFLINE, cred-free.
 
-Selecting a retailer direction (Localized Costco chip -> theme=localized-costco)
-must visibly change both the image direction and the copy. Image direction flows
-through _THEME_SCENE_HINT (folded into the Nova Pro scene prompt AND the
-deterministic fallback prompt); copy flows through _THEME_COPY_HINT into the
-copy sidecar txt+csv. No theme = generic output on both legs.
+Retailer direction ships as TWO legs, never via the generated pixels:
+
+- image leg: the composited logo mark (retailer layer, DAM
+  brands/retailers/logos/ for costco/publix/target/walmart). Per the overlay
+  spec defect 1, _THEME_SCENE_HINT carries NO retailer entries — retailer
+  themes fall through to the generic prompt so no aisle/pack pseudo-text is
+  ever baked into the scene.
+- copy leg: _THEME_COPY_HINT framing in the copy sidecar txt+csv, for EVERY
+  retailer theme including copy-only kroger/heb/whole-foods (no mark).
 """
 from __future__ import annotations
 
@@ -12,22 +16,38 @@ import pytest
 
 from creative_automation import generate
 
-_RETAILERS = sorted(generate._THEME_COPY_HINT)
+_RETAILER_THEMES = sorted(generate._THEME_COPY_HINT)
 
 
-def test_every_retailer_has_scene_and_copy_guidance():
-    # equivalents per retailer: no retailer ships copy without image direction
-    # or vice versa.
-    assert set(generate._THEME_SCENE_HINT) >= set(generate._THEME_COPY_HINT)
-    for slug, framing in generate._THEME_COPY_HINT.items():
+def test_no_retailer_scene_hints():
+    # defect 1: retailer direction must not steer the generated pixels.
+    for slug in _RETAILER_THEMES:
+        assert slug not in generate._THEME_SCENE_HINT, slug
+    # only non-retailer scene dispatches remain.
+    assert set(generate._THEME_SCENE_HINT) == {"wild-grizzly-bears", "us-ski-snowboard"}
+
+
+def test_copy_hints_cover_all_retailers_including_copy_only():
+    for slug in (
+        "localized-costco",
+        "localized-publix",
+        "localized-target",
+        "kodiak-subscription",
+        "target",
+        "walmart",
+        "whole-foods",
+        "publix",
+        "kroger",
+        "heb",
+    ):
+        framing = generate._THEME_COPY_HINT.get(slug)
         assert framing and len(framing) > 10, slug
-        assert generate._THEME_SCENE_HINT[slug].strip(), slug
 
 
-@pytest.mark.parametrize("slug", _RETAILERS)
-def test_scene_prompt_carries_retailer_direction_offline(slug, tmp_path, monkeypatch):
-    # boto3 absent -> deterministic default_prompt, which must carry the scene
-    # hint so the direction lands even with no live Nova Pro.
+@pytest.mark.parametrize("slug", _RETAILER_THEMES)
+def test_scene_prompt_is_generic_for_retailer_themes_offline(slug, tmp_path, monkeypatch):
+    # boto3 absent -> deterministic default_prompt, which must NOT carry any
+    # retailer aisle/pack dispatch — the mark + sidecar carry the direction.
     monkeypatch.setattr(generate, "boto3", None)
     src = tmp_path / "seed.png"
     src.write_bytes(b"\x89PNG\r\n\x1a\n" + b"\x00" * 64)
@@ -35,8 +55,8 @@ def test_scene_prompt_carries_retailer_direction_offline(slug, tmp_path, monkeyp
         src, "Power Cakes", "weekday breakfast", "US-WA", "bulk shoppers",
         theme=slug,
     )
-    hint_words = [w for w in generate._THEME_SCENE_HINT[slug].lower().split() if len(w) > 4]
-    assert any(w.strip(",") in prompt.lower() for w in hint_words[:6]), prompt
+    for banned in ("aisle", "pallet", "warehouse", "deli-fresh", "doorstep", "pantry"):
+        assert banned not in prompt.lower(), (slug, prompt)
 
 
 def test_sidecar_carries_retailer_framing_with_theme():
@@ -57,3 +77,18 @@ def test_same_brief_differs_by_retailer():
     with_retailer = generate.build_copy_sidecar({}, "same brief", {}, theme="localized-costco")
     without = generate.build_copy_sidecar({}, "same brief", {}, theme=None)
     assert with_retailer["txt"] != without["txt"]
+
+
+@pytest.mark.parametrize(
+    "slug,framing",
+    [
+        ("kroger", "family grocery run"),
+        ("heb", "texas family table"),
+        ("whole-foods", "whole-ingredient shelf"),
+        ("walmart", "everyday low price"),
+    ],
+)
+def test_copy_only_and_walmart_framing_in_sidecar(slug, framing):
+    sc = generate.build_copy_sidecar({}, "weekday breakfast", {}, theme=slug)
+    assert framing in sc["txt"]
+    assert framing in sc["csv"]

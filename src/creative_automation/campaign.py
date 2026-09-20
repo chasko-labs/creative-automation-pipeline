@@ -118,6 +118,23 @@ def _brief_message(brief) -> str:
     return getattr(brief, "campaign_message", None) or _DEFAULT_MESSAGE
 
 
+def _brief_season(brief) -> str | None:
+    """Structured season request from the brief — the `season` field ONLY.
+
+    Free brief text (campaign_message) is display-only for pairing and is never
+    parsed here, so a season word leaking into marketing copy cannot steer the
+    recipe pairing. Returns the canonical key or None. Never raises: an
+    unparsable value degrades to None (static-default pairing downstream).
+    """
+    from . import season_pairing as _seasons
+
+    if isinstance(brief, dict):
+        raw = brief.get("season")
+    else:
+        raw = getattr(brief, "season", None)
+    return _seasons.normalize_season(raw)
+
+
 def _brief_retailers(brief, pack: dict) -> list[str]:
     """Retailers named on the brief, else the market's paired retailer set (A2 pack)."""
     named: list[str] = []
@@ -255,16 +272,18 @@ def _plan_recipe_cards(
     languages: list[str],
     month: str | None,
     out_dir: Path,
+    season: str | None = None,
 ) -> tuple[list[dict], list[str]]:
     """One recipe card per requested language via B4. Cards are GENERATED (real PNG).
 
     A month with no seeded ingredient yields B4's honest no-ingredient result, recorded
-    as a warning rather than a fabricated card.
+    as a warning rather than a fabricated card. season is the brief's structured
+    season request (never parsed from free text) for the pairing fallback.
     """
     cards: list[dict] = []
     warnings: list[str] = []
     for lang in languages:
-        res = build_recipe_card(market, month=month, lang=lang, out_dir=out_dir)
+        res = build_recipe_card(market, month=month, lang=lang, out_dir=out_dir, season=season)
         if res.get("card_path"):
             cards.append(
                 {
@@ -276,6 +295,7 @@ def _plan_recipe_cards(
                     "text_blocks": res["text_blocks"],
                     "safety": res["safety"],
                     "month": res.get("month"),
+                    "pairing": ((res.get("meta") or {}).get("provenance") or {}).get("pairing"),
                     "generated": True,
                 }
             )
@@ -607,6 +627,7 @@ def run_campaign(
 
     products = _brief_products(brief)
     base_message = _brief_message(brief)
+    brief_season = _brief_season(brief)
     out_root = Path(out_dir) if out_dir else DEFAULT_OUT_DIR / naming.slugify(market)
 
     # A2 — the RAG context pack for the market (drives languages, retailers, ingredient)
@@ -621,7 +642,7 @@ def run_campaign(
         products, resolved_platforms, resolved_langs, market, base_message, pack, month
     )
     recipe_cards, card_warnings = _plan_recipe_cards(
-        market, resolved_langs, month, out_root
+        market, resolved_langs, month, out_root, season=brief_season
     )
     lockups, lockup_warnings = _plan_lockups(brief_retailers, market, pack)
 
@@ -673,6 +694,7 @@ def run_campaign(
         "place": pack.get("place"),
         "audience": pack.get("audience"),
         "message": base_message,
+        "season": brief_season,
         "month": pack["ingredient"].get("month") or month,
         "languages": resolved_langs,
         "platforms": resolved_platforms,

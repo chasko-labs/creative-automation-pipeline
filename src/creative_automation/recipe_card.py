@@ -28,6 +28,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 from . import naming, safety
+from . import season_pairing as _seasons
 from .locales import resolve_seasonal_moments, resolve_this_month
 from .platform_copy import clean_brand_copy
 from .recipe_i18n import translate_recipe_texts
@@ -250,8 +251,175 @@ def _names_ingredient(recipe: dict, ingredient: str) -> bool:
     return low in " ".join(fields).lower()
 
 
+def _recipe_by_id(recipe_id: str) -> dict | None:
+    """Catalog record by id, or None when the id is not on file. Never raises."""
+    for r in _load_recipes():
+        if r.get("id") == recipe_id:
+            return r
+    return None
+
+
+def _season_fallback_recipe(season: str | None, month: str = "") -> dict | None:
+    """Season-indexed pairing table with static default as last resort.
+
+    Resolves the effective season (explicit structured request wins, else the
+    month) and returns the table's recipe; an unresolvable season lands on the
+    static default. Returns None only when the catalog itself lacks the paired
+    record (caller keeps the legacy image-bearing fallback then). Free brief
+    text is never consulted — it is display-only for pairing.
+    """
+    resolved = _seasons.resolve_season(season, month or None)
+    pairing = _seasons.pairing_for_season(resolved["season"])
+    recipe = _recipe_by_id(pairing["recipe_id"])
+    if recipe is not None:
+        return recipe
+    if pairing["source"] != "static-default":
+        return _recipe_by_id(_seasons.DEFAULT_PAIRING["recipe_id"])
+    return None
+
+
+def _pick_recipe_detail(
+    ingredient: str,
+    product: str | None,
+    market: str = "",
+    month: str = "",
+    season: str | None = None,
+) -> tuple[dict | None, dict]:
+    """Single source of truth for recipe picking + pairing provenance.
+
+    Same mechanics as the legacy _pick_recipe (featured_for curation, overlap
+    scoring, deterministic market+month rotation), except the no-token-match
+    fallback is now the season-indexed pairing table with the static default as
+    last resort (legacy image-bearing fallback only when the paired record is
+    missing from the catalog). Returns (recipe|None, pairing) where pairing is
+    {"season", "source", "recipe_id", "reason"} — the reason is surfaced in card
+    provenance. Free brief text is never an input (display-only for pairing).
+
+    Pairing source values: none | ingredient-featured | ingredient-overlap |
+    ingredient-rotation | season-table | static-default | legacy-image-fallback.
+    """
+    recipes = _load_recipes()
+    resolved = _seasons.resolve_season(season, month or None)
+    if not recipes:
+        return None, {
+            "season": resolved["season"],
+            "source": "none",
+            "recipe_id": None,
+            "reason": "no recipe catalog available — no pairing attempted",
+        }
+    if ingredient:
+        low = ingredient.lower()
+        pinned = sorted(
+            (r.get("id", ""), r)
+            for r in recipes
+            for f in (r.get("featured_for") or [])
+            if f and str(f).lower() in low
+        )
+        if pinned:
+            recipe = pinned[0][1]
+            return recipe, {
+                "season": resolved["season"],
+                "source": "ingredient-featured",
+                "recipe_id": recipe.get("id"),
+                "reason": (
+                    f"ingredient-curated: {recipe.get('id')} lists the "
+                    "in-season ingredient in featured_for"
+                ),
+            }
+    subject = _tokens(ingredient)
+    if product:
+        subject |= _tokens(product)
+    if not subject:
+        return None, {
+            "season": resolved["season"],
+            "source": "none",
+            "recipe_id": None,
+            "reason": "empty ingredient and product — no pairing attempted",
+        }
+
+    scored: list[tuple[int, int, str, dict]] = []
+    for r in recipes:
+        hay = " ".join(
+            str(r.get(k, "") or "")
+            for k in ("name", "product", "base", "category", "course", "description")
+        )
+        loc = r.get("localize", {}) or {}
+        hay += " " + " ".join(str(v) for v in loc.values())
+        hay += " " + " ".join(str(x) for x in r.get("ingredients", []) or [])
+        hay += " " + " ".join(str(x) for x in r.get("tags", []) or [])
+        overlap = len(subject & _tokens(hay))
+        has_image = 1 if r.get("image") else 0
+        scored.append((overlap, has_image, r.get("id", ""), r))
+
+    scored.sort(key=lambda x: (x[0], x[1], x[2]), reverse=True)
+    best_overlap, _hi, _id, best = scored[0]
+    if best_overlap == 0:
+        # no token match — season-indexed pairing table first, static default as
+        # last resort. Never fabricated: both point at real catalog records.
+        table_recipe = _season_fallback_recipe(season, month)
+        if table_recipe is not None:
+            pairing = _seasons.pairing_for_season(resolved["season"])
+            return table_recipe, {
+                "season": resolved["season"],
+                "source": pairing["source"],
+                "recipe_id": table_recipe.get("id"),
+                "reason": pairing["reason"],
+            }
+        # paired record missing from the catalog: keep the legacy image-bearing
+        # fallback rather than returning nothing.
+        with_image = [r for r in recipes if r.get("image")]
+        legacy = with_image[0] if with_image else recipes[0]
+        return legacy, {
+            "season": resolved["season"],
+            "source": "legacy-image-fallback",
+            "recipe_id": legacy.get("id"),
+            "reason": "season-paired record missing from catalog; kept legacy image-bearing fallback",
+        }
+    if market or month:
+        strong = sorted(
+            (r for (_ov, _hh, _ii, r) in scored if _ov > 0 and _names_ingredient(r, ingredient)),
+            key=lambda r: r.get("id", ""),
+        )
+        if len(strong) > 1:
+            digest = hashlib.sha256(
+                f"{market}|{month}|{ingredient}".encode("utf-8")
+            ).hexdigest()
+            winner = strong[int(digest, 16) % len(strong)]
+            return winner, {
+                "season": resolved["season"],
+                "source": "ingredient-rotation",
+                "recipe_id": winner.get("id"),
+                "reason": (
+                    f"ingredient rotation: {winner.get('id')} chosen deterministically "
+                    f"for {market}|{month} among recipes naming the ingredient"
+                ),
+            }
+    return best, {
+        "season": resolved["season"],
+        "source": "ingredient-overlap",
+        "recipe_id": best.get("id"),
+        "reason": (
+            f"ingredient overlap: {best.get('id')} has the best token overlap "
+            "with the in-season ingredient"
+        ),
+    }
+
+
+def pick_recipe_with_provenance(
+    ingredient: str,
+    product: str | None,
+    market: str = "",
+    month: str = "",
+    season: str | None = None,
+) -> tuple[dict | None, dict]:
+    """Pick the recipe and report WHY: (recipe|None, {"season", "source",
+    "recipe_id", "reason"}). Thin delegate of _pick_recipe_detail; the reason
+    is surfaced in card provenance. Free brief text is never an input."""
+    return _pick_recipe_detail(ingredient, product, market, month, season)
+
+
 def _pick_recipe(
-    ingredient: str, product: str | None, market: str = "", month: str = ""
+    ingredient: str, product: str | None, market: str = "", month: str = "", *, season: str | None = None
 ) -> dict | None:
     """Best recipe for the in-season ingredient, nearest by token overlap.
 
@@ -272,58 +440,14 @@ def _pick_recipe(
     sharing an in-season ingredient do not all show the same card. Single
     strong match, weak-only matches, or no market context keep the legacy
     best-overlap winner exactly.
+
+    season: optional structured season request (spring|summer|fall|winter). Only
+    consulted when nothing matches the ingredient (zero token overlap): the
+    season-indexed pairing table serves the pick, with the static default as
+    last resort. Free brief text is never consulted (display-only for pairing).
     """
-    recipes = _load_recipes()
-    if not recipes:
-        return None
-    if ingredient:
-        low = ingredient.lower()
-        pinned = sorted(
-            (r.get("id", ""), r)
-            for r in recipes
-            for f in (r.get("featured_for") or [])
-            if f and str(f).lower() in low
-        )
-        if pinned:
-            return pinned[0][1]
-    subject = _tokens(ingredient)
-    if product:
-        subject |= _tokens(product)
-    if not subject:
-        return None
-
-    scored: list[tuple[int, int, str, dict]] = []
-    for r in recipes:
-        hay = " ".join(
-            str(r.get(k, "") or "")
-            for k in ("name", "product", "base", "category", "course", "description")
-        )
-        loc = r.get("localize", {}) or {}
-        hay += " " + " ".join(str(v) for v in loc.values())
-        hay += " " + " ".join(str(x) for x in r.get("ingredients", []) or [])
-        hay += " " + " ".join(str(x) for x in r.get("tags", []) or [])
-        overlap = len(subject & _tokens(hay))
-        has_image = 1 if r.get("image") else 0
-        scored.append((overlap, has_image, r.get("id", ""), r))
-
-    scored.sort(key=lambda x: (x[0], x[1], x[2]), reverse=True)
-    best_overlap, _hi, _id, best = scored[0]
-    if best_overlap == 0:
-        # no token match — fall back to a recipe that at least has a hero image,
-        # preferring a compote/fruit style, else the first recipe. Never fabricate.
-        with_image = [r for r in recipes if r.get("image")]
-        return with_image[0] if with_image else recipes[0]
-    if market or month:
-        strong = sorted(
-            (r for (_ov, _hh, _ii, r) in scored if _ov > 0 and _names_ingredient(r, ingredient)),
-            key=lambda r: r.get("id", ""),
-        )
-        if len(strong) > 1:
-            digest = hashlib.sha256(
-                f"{market}|{month}|{ingredient}".encode("utf-8")
-            ).hexdigest()
-            return strong[int(digest, 16) % len(strong)]
-    return best
+    recipe, _pairing = _pick_recipe_detail(ingredient, product, market, month, season)
+    return recipe
 
 
 def _hero_panel(recipe: dict, target: tuple[int, int]) -> Image.Image:
@@ -450,10 +574,17 @@ def _recipe_card_meta(
     *,
     substrate: str,
     ingredient: str | None,
+    pairing: dict | None = None,
 ) -> dict:
     """Build the deterministic recipe-card metadata block. No timestamps: same
     input + template yields identical metadata. When the template is missing or
     invalid, meta degrades to safe defaults rather than fabricating geometry."""
+    pairing_block = dict(pairing) if isinstance(pairing, dict) else {
+        "season": None,
+        "source": "none",
+        "recipe_id": None,
+        "reason": "no pairing attempted",
+    }
     if not isinstance(tmpl, dict):
         return {
             "template_schema_version": None,
@@ -466,6 +597,7 @@ def _recipe_card_meta(
                 "values_from_source": [],
                 "values_proposed": [],
                 "values_unknown": ["prices", "nutrition", "times", "temperatures"],
+                "pairing": pairing_block,
             },
             "passed_physical_zone_validation": False,
         }
@@ -499,8 +631,20 @@ def _recipe_card_meta(
             "values_from_source": values_from_source,
             "values_proposed": ["over Kodiak Power Cakes"],
             "values_unknown": ["prices", "nutrition", "times", "temperatures"],
+            "pairing": pairing_block,
         },
         "passed_physical_zone_validation": not problems,
+    }
+
+
+def _no_pairing(reason: str, season: str | None, month: str | None) -> dict:
+    """Honest pairing block for card paths that never pick a recipe."""
+    resolved = _seasons.resolve_season(season, month)
+    return {
+        "season": resolved["season"],
+        "source": "none",
+        "recipe_id": None,
+        "reason": reason,
     }
 
 
@@ -512,6 +656,7 @@ def build_recipe_card(
     out_dir: str | Path | None = None,
     publish: bool = False,
     substrate: str = "kraft",
+    season: str | None = None,
 ) -> dict:
     """Generate a recipe card for a market + month.
 
@@ -529,6 +674,10 @@ def build_recipe_card(
     validation result. substrate defaults to "kraft" so existing callers are
     unaffected; an unknown substrate falls back to the template default.
     Geometry does not change with substrate.
+    season: optional structured season request (spring|summer|fall|winter) for
+    the pairing fallback; free brief text is display-only and never steers the
+    pick. meta.provenance carries the pairing {season, source, recipe_id,
+    reason} block.
     """
     # Load the template best-effort so metadata resolves from the source of
     # truth; a missing/broken template degrades meta to safe defaults rather
@@ -547,7 +696,14 @@ def build_recipe_card(
             "text_blocks": {},
             "safety": {"clean": True, "flagged": []},
             "reason": f"no retailer-frontier pair seeded for {market}",
-            "meta": _recipe_card_meta(_tmpl, substrate=substrate, ingredient=None),
+            "meta": _recipe_card_meta(
+                _tmpl,
+                substrate=substrate,
+                ingredient=None,
+                pairing=_no_pairing(
+                    "no retailer-frontier pair seeded — no pairing attempted", season, month
+                ),
+            ),
         }
 
     ingredient = resolved["ingredient"]
@@ -560,11 +716,20 @@ def build_recipe_card(
             "text_blocks": {},
             "safety": {"clean": True, "flagged": []},
             "reason": f"no in-season ingredient on file for {market} {resolved_month}",
-            "meta": _recipe_card_meta(_tmpl, substrate=substrate, ingredient=None),
+            "meta": _recipe_card_meta(
+                _tmpl,
+                substrate=substrate,
+                ingredient=None,
+                pairing=_no_pairing(
+                    "no in-season ingredient on file — no pairing attempted", season, resolved_month
+                ),
+            ),
         }
 
     product = "Buttermilk Power Cakes"
-    recipe = _pick_recipe(ingredient, product, market=market, month=resolved_month)
+    recipe, pairing = pick_recipe_with_provenance(
+        ingredient, product, market=market, month=resolved_month, season=season
+    )
     if recipe is None:
         return {
             "card_path": None,
@@ -573,7 +738,9 @@ def build_recipe_card(
             "text_blocks": {},
             "safety": {"clean": True, "flagged": []},
             "reason": "no recipe catalog available",
-            "meta": _recipe_card_meta(_tmpl, substrate=substrate, ingredient=ingredient),
+            "meta": _recipe_card_meta(
+                _tmpl, substrate=substrate, ingredient=ingredient, pairing=pairing
+            ),
         }
 
     # ---- text blocks via B1: on-brand + safety-gated + dialect-correct ---- #
@@ -638,7 +805,9 @@ def build_recipe_card(
         "month": resolved_month,
         "step_results": step_results,
         "dam_key": dam_key,
-        "meta": _recipe_card_meta(_tmpl, substrate=substrate, ingredient=ingredient),
+        "meta": _recipe_card_meta(
+            _tmpl, substrate=substrate, ingredient=ingredient, pairing=pairing
+        ),
     }
 
 
@@ -646,9 +815,9 @@ def build_recipe_card(
 # --------------------------------------------------------------------------- #
 # card-DATA builder (no image): structured object matching recipe-card.json
 # zones, for an offline frontend to render into existing HTML/CSS. Reuses the
-# same helpers build_recipe_card uses (resolve_this_month, _pick_recipe,
-# _clean_step, rewrite_headline, clean_brand_copy, load_recipe_card_template,
-# _resolve_substrate). Non-fabrication is strict: times/serves/cost come ONLY
+# same helpers build_recipe_card uses (resolve_this_month,
+# pick_recipe_with_provenance, _clean_step, rewrite_headline, clean_brand_copy,
+# load_recipe_card_template, _resolve_substrate). Non-fabrication is strict: times/serves/cost come ONLY
 # from real recipe fields, else null; prices attach only from a verified
 # recipe-level cost record, else null.
 # --------------------------------------------------------------------------- #
@@ -781,6 +950,7 @@ def build_recipe_card_data(
     lang: str = "en",
     substrate: str = "kraft",
     art: dict[str, str | None] | None = None,
+    season: str | None = None,
 ) -> dict:
     """Build a structured recipe-card DATA object (no image composed).
 
@@ -810,6 +980,12 @@ def build_recipe_card_data(
     No-pair / no-ingredient months return an honest shape carrying `reason` and
     ingredient:null rather than crashing, mirroring build_recipe_card's early
     returns.
+
+    season (optional): structured season request (spring|summer|fall|winter).
+    Only consulted when nothing matches the in-season ingredient — the
+    season-indexed pairing table serves the pick, with the static default as
+    last resort. Free brief text is display-only and never steers the pick.
+    provenance carries the pairing {season, source, recipe_id, reason} block.
     """
     art_block = _normalize_art(art)
     try:
@@ -837,6 +1013,7 @@ def build_recipe_card_data(
                 "values_from_source": [ingredient] if ingredient else [],
                 "values_proposed": [],
                 "values_unknown": ["times", "temperatures", "prices", "serves"],
+                "pairing": _no_pairing(reason, season, resolved_month),
             },
             "ingredient": ingredient,
             "recipe": None,
@@ -862,7 +1039,9 @@ def build_recipe_card_data(
         )
 
     product = "Buttermilk Power Cakes"
-    recipe = _pick_recipe(ingredient, product, market=market, month=resolved_month)
+    recipe, pairing = pick_recipe_with_provenance(
+        ingredient, product, market=market, month=resolved_month, season=season
+    )
     if recipe is None:
         return _empty(
             "no recipe catalog available",
@@ -929,6 +1108,7 @@ def build_recipe_card_data(
         "values_from_source": [ingredient],
         "values_proposed": ["over Kodiak Power Cakes"],
         "values_unknown": unknown,
+        "pairing": pairing,
     }
     # the emitted matrix is English throughout: only non-English cards carry
     # a translation block, so today's payload stays byte-identical.

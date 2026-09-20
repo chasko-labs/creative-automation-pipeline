@@ -26,6 +26,26 @@ class CampaignBrief(BaseModel):
     localized_messages: dict[str, str] | None = Field(default=None, description="region -> message")
     brand_colors: list[str] | None = Field(default=None, description="hex colors e.g. #0A2540")
     language: str = Field(default="en")
+    season: str | None = Field(
+        default=None,
+        description="structured season request: spring|summer|fall|winter (autumn normalizes to fall)",
+    )
+
+    @field_validator("season")
+    @classmethod
+    def _normalize_season(cls, v):
+        # Structured request wins over any season word leaking in free brief text
+        # (campaign_message is display-only for pairing — see season_pairing).
+        # Case-insensitive; "autumn" maps to "fall"; None/blank stays None.
+        if v is None:
+            return None
+        text = str(v).strip().lower()
+        if not text:
+            return None
+        text = {"autumn": "fall"}.get(text, text)
+        if text not in ("spring", "summer", "fall", "winter"):
+            raise ValueError(f"season must be spring|summer|fall|winter, got {v!r}")
+        return text
 
     @field_validator("products")
     @classmethod

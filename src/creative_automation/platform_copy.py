@@ -28,18 +28,33 @@ import re
 import sys
 import time
 
-from . import text_rewriter
+from . import brand_copy, text_rewriter
+from .brand_copy import (
+    BRAND_NAME,
+    FALLBACK_BODY_FRAMES,
+    FALLBACK_HEADLINE_FRAMES,
+    HASHTAG_POOL,
+    TAGLINE_EPIC,
+    TAGLINE_FRONTIER,
+)
 from .platforms import platform_label
 
-# The two approved external taglines (docs/iso-naming-conventions.md section 2). Fixed
-# words, fixed punctuation — no paraphrase. Ampersand form is the packaging tagline.
-TAGLINE_EPIC = "Feeding Epic Days & Wilder Lives"
-TAGLINE_FRONTIER = "Nourishment for Today's Frontier"
+# Re-exported so existing importers keep working after the brand_copy split.
+__all__ = [
+    "BRAND_NAME",
+    "BRAND_MARK",
+    "FALLBACK_BODY_FRAMES",
+    "FALLBACK_HEADLINE_FRAMES",
+    "HASHTAG_POOL",
+    "TAGLINE_EPIC",
+    "TAGLINE_FRONTIER",
+]
 
 # Allowed brand naming in generated copy (standing law: bare KODIAK never ships;
 # logo lockups only). BRAND_MARK is kept as an alias so older callers/tests that
 # import the name keep working — it now resolves to the allowed naming.
-BRAND_NAME = "Kodiak Cakes"
+# DECISION 2026-09-20: ascii "Kodiak Cakes" for generated/social copy (models
+# garble registered glyphs); registered forms reserved for locked surfaces.
 BRAND_MARK = BRAND_NAME
 
 # X hard character ceiling (headline + body + hashtags, one post).
@@ -143,8 +158,8 @@ def normalize_platform_copy_request(body: object) -> dict[str, object]:
     }
 
 
-# Deterministic hashtag pool per platform, keyed to Kodiak voice. Kept ascii, no emoji.
-_BASE_HASHTAGS = ("KeepItWild", "KodiakCakes", "ProteinPacked", "WholeGrain", "FuelYourFrontier")
+# Deterministic hashtag pool per platform, sourced from brand_copy (ascii, no emoji).
+_BASE_HASHTAGS = HASHTAG_POOL
 
 
 # Bare-brand matcher: the standalone word Kodiak/KODIAK in any case, except inside
@@ -218,74 +233,16 @@ def _hashtags_for(platform: str, product_name: str, market: str | None, count: i
 def _fallback_headline(base_message: str, product_name: str, kind: str) -> str:
     """Deterministic on-brand headline per platform tone when no live rewrite is available.
 
-    The base message leads; each tone prepends/adjusts a short frame so the offline copy
-    still reads platform-appropriate rather than identical across networks. Always ascii.
+    Frames come from brand_copy.FALLBACK_HEADLINE_FRAMES (structured source authored
+    from voice-tone.json + iso-naming taglines); this stays a thin injection seam.
+    Always ascii.
     """
-    base = base_message.strip()
-    name = product_name.strip()
-    if kind == "short":
-        return f"{BRAND_MARK} {name}: {base}"
-    if kind == "professional":
-        return f"{BRAND_MARK} {name} — {base}. 100% whole grains, protein-packed."
-    if kind == "hooky":
-        return f"Fuel your frontier. {BRAND_MARK} {name} — {base}"
-    if kind == "trend":
-        return f"POV: your breakfast actually fuels the day. {BRAND_MARK} {name}."
-    if kind == "community":
-        return f"Gather the family around {BRAND_MARK} {name} — {base}"
-    if kind == "seo":
-        return f"{name} protein pancake and waffle mix — {base}, whole grain breakfast"
-    if kind == "video":
-        return f"{BRAND_NAME} {name}: {base}"
-    if kind == "homepage":
-        return f"{BRAND_MARK} {name} — {base}"
-    if kind == "article":
-        return f"{name}: a photographic-editorial Kodiak Cakes breakfast — {base}"
-    return f"{BRAND_NAME} {name} — {base}"
+    return brand_copy.fallback_headline(kind, base_message, product_name)
 
 
 def _body_for(kind: str, headline: str, product_name: str, market: str | None) -> str:
-    """Deterministic body/description per tone. YouTube gets a full description paragraph."""
-    place = f" in {market}" if market else ""
-    if kind == "professional":
-        return (
-            f"{product_name} delivers 100% whole grains and protein in every serving. "
-            f"Built for teams and families who want real food that keeps up. {TAGLINE_FRONTIER}."
-        )
-    if kind == "community":
-        return (
-            f"Weekend mornings just got better{place}. {product_name} brings the whole "
-            f"family to the table with protein-packed whole grains. {TAGLINE_EPIC}."
-        )
-    if kind == "seo":
-        return (
-            f"{product_name} protein pancake mix made with 100% whole grains. High-protein "
-            f"breakfast recipe idea for busy mornings, meal prep, and family brunch. "
-            f"{TAGLINE_FRONTIER}."
-        )
-    if kind == "video":
-        return (
-            f"{product_name} is protein-packed whole-grain fuel for whatever your day holds"
-            f"{place}. Watch how a real Kodiak Cakes breakfast comes together in minutes. "
-            f"{TAGLINE_EPIC}."
-        )
-    if kind == "hooky":
-        return f"Protein-packed whole grains, ready fast. {TAGLINE_EPIC}."
-    if kind == "trend":
-        return f"14g protein. 100% whole grain. No cap. {TAGLINE_EPIC}."
-    if kind == "homepage":
-        return (
-            f"{product_name} — protein-packed 100% whole grains for the whole "
-            f"family{place}. {TAGLINE_FRONTIER}."
-        )
-    if kind == "article":
-        return (
-            f"A photographic-editorial Kodiak Cakes breakfast{place}: {product_name} "
-            f"in-scene, lifestyle, product-in-use. Whole-grain protein for slow "
-            f"mornings and big days. {TAGLINE_EPIC}."
-        )
-    # x / short: keep body empty — the single line carries the whole post.
-    return ""
+    """Deterministic body/description per tone, sourced from brand_copy frames."""
+    return brand_copy.fallback_body(kind, product_name, market)
 
 
 def _assemble_x(headline: str, hashtags: list[str]) -> str:

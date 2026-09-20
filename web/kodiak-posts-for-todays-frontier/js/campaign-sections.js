@@ -42,7 +42,7 @@
       '<section id="campaignAssetsSection" class="ff-output ff-campaign-assets" aria-labelledby="campaignAssetsHeading" hidden>'+
         '<h2 id="campaignAssetsHeading" class="ff-output-heading"><span class="ff-stepnum" aria-hidden="true">8</span> Campaign Assets Created</h2>'+
         '<div class="row"><button type="button" class="btn orange" id="downloadCampaignPackTop" data-mcp="download-campaign-pack">Download Campaign Pack</button></div>'+
-        '<div class="ff-product-carousel" id="campaignAssetsCarousel" role="group" aria-label="Generated campaign assets" class="ff-product-carousel mt-sm"></div>'+
+        <!-- #campaignAssetsCarousel mounts here only once campaign renders exist (renderCampaignCarousel) -->'+
         '<div class="row mt-sm"><button type="button" class="btn orange" id="downloadCampaignPackBottom" data-mcp="download-campaign-pack">Download Campaign Pack</button></div>'+
       '</section>';
     // insert right after the forest divider (the placeholder comment sits there); fallback to body append
@@ -157,15 +157,32 @@
     status.parentNode.insertBefore(box, status.nextSibling);
   }
 
+  // Carousel container exists only when renders exist: no empty shell at rest.
+  // Mounts on demand with the first render set; removed again when a run yields
+  // nothing renderable, so an empty carousel never sits in the DOM.
   function renderCampaignCarousel(renders, source){
+    var valid = (renders||[]).filter(function(r){ return r && r.image_url; });
     var car = document.getElementById('campaignAssetsCarousel');
-    if(!car) return;
+    if(!valid.length){ if(car && car.parentNode) car.parentNode.removeChild(car); return; }
+    if(!car){
+      var assets = document.getElementById('campaignAssetsSection');
+      if(!assets) return;
+      car = document.createElement('div');
+      car.id = 'campaignAssetsCarousel';
+      car.className = 'ff-product-carousel';
+      car.setAttribute('role', 'group');
+      car.setAttribute('aria-label', 'Generated campaign assets');
+      var bottomBtn = document.getElementById('downloadCampaignPackBottom');
+      var bottomRow = (bottomBtn && bottomBtn.parentNode) || null;
+      if(bottomRow && bottomRow.parentNode === assets) assets.insertBefore(car, bottomRow);
+      else assets.appendChild(car);
+    }
     car.innerHTML = '';
     // #284 — fallback pixels are labeled ON the tile, never presented as the campaign.
     var isFallback = /^brand-floor/i.test(String(source||''));
     var date = new Date().toISOString().slice(0,10).replace(/-/g,'');
     var product = selectedProductSlug();
-    (renders||[]).forEach(function(r, i){
+    valid.forEach(function(r, i){
       if(!r || !r.image_url) return;
       var slot = document.createElement('div');
       slot.className = 'ff-carousel-slot';
@@ -344,7 +361,7 @@
     try{ campaignRenders = []; }catch(e){}
     try{ window.__lastCampaignSidecar = null; }catch(e){}
     try{ window.__lastCampaignHeadline = null; }catch(e){}
-    try{ var car = document.getElementById('campaignAssetsCarousel'); if(car) car.innerHTML = ''; }catch(e){}
+    try{ var car = document.getElementById('campaignAssetsCarousel'); if(car && car.parentNode) car.parentNode.removeChild(car); }catch(e){}
     try{ var cp = document.getElementById('campaignCopyPanel'); if(cp && cp.parentNode) cp.parentNode.removeChild(cp); }catch(e){}
     try{ var assets = document.getElementById('campaignAssetsSection'); if(assets) assets.hidden = true; }catch(e){}
     try{ var st = document.getElementById('generateCampaignStatus'); if(st) st.textContent = ''; }catch(e){}

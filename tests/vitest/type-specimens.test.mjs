@@ -92,6 +92,15 @@ describe('type specimens', () => {
     expect(generate).toMatch(/Object<TileSize,/);
   });
 
+  it('totality: RATIO_LABELS carries every TileSize incl blog (5-tile preview)', () => {
+    const m = generate.match(/const RATIO_LABELS = \{([\s\S]*?)\};/);
+    expect(m, 'missing RATIO_LABELS literal').not.toBeNull();
+    for (const size of ['1x1', '4x5', '9x16', '16x9', '2x3', 'blog']) {
+      expect(m[1]).toContain(`'${size}':`);
+    }
+    expect(m[1]).toMatch(/'blog':\s*\{name:'Blog',\s*cls:'r-blog'\}/);
+  });
+
   it('generics: the localize cache instantiates both Map slots', () => {
     expect(core).toMatch(/teaching note \(frontier generics/);
     expect(core).toMatch(/@type \{Map<string,string>\}/);

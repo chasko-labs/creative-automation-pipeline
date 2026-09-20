@@ -19,7 +19,10 @@ from PIL import Image
 
 from . import dam_library, text_rewriter
 from .generate import (
+    _apply_brand_overlay,
     _brand_floor,
+    _finalize_render,
+    _pillow_outpaint_fallback,
     _recipe_card_defaults,
     _safe_prompt_text,
     _validate_recipe_fields,
@@ -38,18 +41,29 @@ from .platform_copy import (
 
 # NOTE: full mode no longer calls platform_copy/localize in-request (frontend owns
 # both — see _handle_full). The modules stay imported by tests directly.
-from .platforms import PLATFORMS
+from .platforms import PLATFORMS, RATIO_DIMS
 
 # NEVER-503 CONTRACT: a well-formed POST /generate returns 200 with REAL Kodiak pixels
 # 100% of the time. generate_hero runs a never-fail degradation ladder A->B->C->D whose
 # floor (rung D, brand-floor) does zero network I/O and cannot fail, so the old "38s then
 # 503" path is gone — a slow/absent Bedrock is a fall-through to rung C (pillow-compose),
-# not an error. The interactive PREVIEW mode runs ONE 1x1 hero under the 24s internal soft
-# budget (well inside API Gateway's hard 30s cap); FULL mode keeps the complete 3-size set
+# not an error. The interactive PREVIEW mode runs ONE 1x1 hero (plus four server-side
+# Pillow pads: 4x5, 9x16, 16x9, blog) under the 24s internal soft budget (well inside
+# API Gateway's hard 30s cap); FULL mode keeps the complete GenAI-composed set
 # + localization + platform copy for the async pack builder. Default is preview so the
 # interactive endpoint stays fast. The ONLY non-200 is a 400 for a malformed request body.
+# PREVIEW mode returns FIVE tiles: the ONE 1x1 hero plus server-side Pillow
+# cover-pads (4x5, 9x16, 16x9, blog) — still one model call, still well inside the
+# soft budget; only the composed GenAI outpaints stay deferred to FULL mode.
 PREVIEW_MODE = "preview"
 FULL_MODE = "full"
+
+# Preview tile set: the 1x1 primary first (top-level image_url back-compat +
+# eager-load order unchanged) plus the four cover-pads. Every non-1x1 tile is a
+# server-side Pillow cover-pad of the finished 1x1 — zero extra model calls —
+# so the preview matches the resting five sizes. Dims come from the platform
+# matrix SoT (platforms.RATIO_DIMS, issue #201 item 3), never a second table.
+_PREVIEW_PAD_RATIOS = ("4x5", "9x16", "16x9", "blog")
 
 # STRUCTURAL OUTER-DEADLINE WALL (#118): the never-503 contract above relies on the
 # per-rung remaining_ms() budget gates inside generate_hero to abandon a stalled rung
@@ -816,6 +830,12 @@ _THEME_RETAILER = {
     "publix": "Publix",
     "costco": "Costco",
     "target": "Target",
+    # overlay wiring: walmart composites the DAM mark; kroger/heb/whole-foods
+    # are copy-only (no mark) but still ship the explicit retailer proof row.
+    "walmart": "Walmart",
+    "kroger": "Kroger",
+    "heb": "HEB",
+    "whole-foods": "Whole Foods",
 }
 
 # Markets whose preview defaults to Publix proof when the request names no
@@ -1012,6 +1032,9 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     voice_fut = _kick_voice(data, prompt)
     product = data.get("product", "power-cakes")
     theme = data.get("theme")
+    # Multi-theme combo: optional "themes" list (or comma-separated string).
+    # First known slug drives seed + scene; extras become overlay/copy lines.
+    themes = data.get("themes")
     seed_key = data.get("seed_key")
     # Render contract (#199/#200): default {} = clean standalone image, every layer
     # OFF. Only an explicit overlay_text layer re-enables the baked message bar.
@@ -1035,22 +1058,67 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         paper_overlay=True,
         seed_key=seed_key,
         layers=layers,
+        themes=themes,
     )
 
     with Image.open(result_path) as im:
         w, h = im.size
     render = {"ratio": "1x1", "path": result_path, "w": w, "h": h}
 
+    # Five-tile parity: pad the finished 1x1 to every other size server-side.
+    # Pads derive from the FINALIZED 1x1; per-ratio marks re-seat via
+    # _finalize_render with paper_overlay=False. A pad never fails the
+    # preview: any per-ratio error keeps the 1x1 and is recorded, never raised.
+    brand_overlay = bool(layers.get("overlay_text"))
+    headline = provenance.get("headline") if isinstance(provenance, dict) else ""
+    pad_renders: list[dict[str, Any]] = []
+    pad_engines: dict[str, str] = {}
+    for pad_ratio in _PREVIEW_PAD_RATIOS:
+        pad_w, pad_h = RATIO_DIMS[pad_ratio]
+        pad_path = out_dir / f"hero-{pad_ratio}.png"
+        try:
+            _pillow_outpaint_fallback(result_path, pad_w, pad_h, pad_path)
+            if brand_overlay and headline:
+                try:
+                    _apply_brand_overlay(pad_path, headline, pad_ratio, pad_path)
+                except Exception as e:  # noqa: BLE001 — never lose the tile over the bar
+                    print(f"[generate] preview brand overlay on {pad_ratio} failed: {e}",
+                          file=sys.stderr)
+            _finalize_render(pad_path, False, provenance if isinstance(provenance, dict) else {}, layers)
+            with Image.open(pad_path) as im:
+                pw, ph = im.size
+            pad_renders.append({"ratio": pad_ratio, "path": pad_path, "w": pw, "h": ph})
+            pad_engines[pad_ratio] = "pillow-outpaint-fallback"
+        except Exception as e:  # noqa: BLE001 — a lost pad degrades to fewer tiles
+            print(f"[generate] preview pad {pad_ratio} failed, shipping without it: {e}",
+                  file=sys.stderr)
+            if isinstance(provenance, dict):
+                fallthrough = provenance.setdefault("pad_degraded", {})
+                if isinstance(fallthrough, dict):
+                    fallthrough[pad_ratio] = type(e).__name__
+
     s3 = _s3_client()
-    download_name = _download_filename(product, data.get("region", "us"), theme)
+    eff_theme = provenance.get("theme", theme) if isinstance(provenance, dict) else theme
+    download_name = _download_filename(product, data.get("region", "us"), eff_theme)
     entry = _upload_render(s3, render, download_name)
+    entries = [entry]
+    for pad in pad_renders:
+        try:
+            entries.append(_upload_render(s3, pad, download_name))
+        except Exception as e:  # noqa: BLE001 — a lost upload degrades to fewer tiles
+            print(f"[generate] preview upload {pad['ratio']} failed, shipping without it: {e}",
+                  file=sys.stderr)
+            if isinstance(provenance, dict):
+                fallthrough = provenance.setdefault("pad_degraded", {})
+                if isinstance(fallthrough, dict):
+                    fallthrough[pad["ratio"]] = f"upload-{type(e).__name__}"
 
     if isinstance(provenance, dict):
-        # the preview only ships the 1x1; the taller-ratio composed outpaints are
-        # the download-pack (FULL mode) concern, deferred off the sync path.
-        provenance["ratios"] = {"1x1": "primary"}
+        # the preview ships all five tiles; only the composed GenAI outpaints stay
+        # a download-pack (FULL mode) concern, deferred off the sync path.
+        provenance["ratios"] = {"1x1": "primary", **pad_engines}
         provenance["mode"] = PREVIEW_MODE
-        provenance["deferred"] = ["4x5", "9x16", "16x9"]
+        provenance.pop("deferred", None)
     # Collect the voice kicked at handler entry (overlapped pixels, ~0s wall);
     # recorded as provenance + sidecar, never swaps the brief.
     _apply_art_upgrade_future(voice_fut, data, prompt, provenance)
@@ -1075,8 +1143,9 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         "source": source,
         "prompt": prompt,
         "theme": theme,
+        "themes": themes,
         "mode": PREVIEW_MODE,
-        "renders": [entry],
+        "renders": entries,
         "provenance": provenance,
         "localizations": campaign["localizations"],
         "platform_copy": campaign["platform_copy"],
@@ -1108,6 +1177,7 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     voice_fut = _kick_voice(data, prompt)
     product = data.get("product", "power-cakes")
     theme = data.get("theme")
+    themes = data.get("themes")
     seed_key = data.get("seed_key")
     # Render contract (#199/#200): default {} = clean standalone set, every layer OFF.
     layers = _request_layers(data)
@@ -1128,10 +1198,12 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         brand_overlay=bool(layers.get("overlay_text")),
         seed_key=seed_key,
         layers=layers,
+        themes=themes,
     )
 
     s3 = _s3_client()
-    download_name = _download_filename(product, data.get("region", "us"), theme)
+    eff_theme = provenance.get("theme", theme) if isinstance(provenance, dict) else theme
+    download_name = _download_filename(product, data.get("region", "us"), eff_theme)
 
     # The requested platform set doubles as the publish tag: every render is
     # stamped x-amz-meta-platforms at upload so the DAM browser can filter by
@@ -1183,6 +1255,7 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         "source": source,
         "prompt": prompt,
         "theme": theme,
+        "themes": themes,
         "mode": FULL_MODE,
         "renders": response_renders,
         "provenance": provenance,
@@ -1242,6 +1315,7 @@ def _post_wall_brand_floor(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         "seed_selection": "none",
         "engine": "brand-floor",
         "rung": "D",
+        "origin": "backend",
         "fallthrough_reason": "wall-timeout",
         "mode": PREVIEW_MODE,
         "incoming_prompt": prompt,

@@ -489,62 +489,14 @@ _THEME_SCENE_HINT: dict[str, str] = {
         "in the lower third, cold blue-shadow light warming to gold at the ridge, "
         "generic active winter athletes only with no faces and no real person, no text"
     ),
-    # retailer directions (#245): warehouse-club bulk/value cues land in the pixels
-    # via the same scene-hint fold. Surfaces stay blank (no text, signage, logos) —
-    # the framing is pack presence + aisle mood, never rendered glyphs.
-    "localized-costco": (
-        "warehouse-club aisle in bright flat morning light, pallet-stacked abundance "
-        "receding to a vanishing point, one oversized Family Size pack dominant in "
-        "the right third, kraft and bear-brown packaging tones, concrete floor sheen, "
-        "stock-up-trip scale, no text"
-    ),
-    # input-side retailer chips (#217): same aisle mood as the bare-retailer keys,
-    # namespaced to the chip theme slugs so each direction threads end to end.
-    "localized-publix": (
-        "southern porch morning, family table spread in the lower third, warm white "
-        "light through slats, cream and kraft tones with frontier-green foliage "
-        "beyond the rail, steam rising off the stack, welcoming deli-fresh calm, no text"
-    ),
-    "localized-target": (
-        "bright modern kitchen aisle of morning light, one-trip basket abundance on "
-        "a clean counter in the right third, white and cream surfaces with bear-brown "
-        "timber accents, soft window key from frame left, tidy everyday value, no text"
-    ),
-    "kodiak-subscription": (
-        "front doorstep at sunrise, kraft subscription box centered with its flaps "
-        "open, warm low sun raking across bear-brown timber, frontier-green doormat "
-        "pine sprig beside it, pantry continuity and always-stocked calm, no text"
-    ),
-    "target": (
-        "bright modern kitchen aisle of morning light, one-trip basket abundance on "
-        "a clean counter in the right third, white and cream surfaces with bear-brown "
-        "timber accents, soft window key from frame left, tidy everyday value, no text"
-    ),
-    "walmart": (
-        "family pantry shelves stocked deep in warm morning light, rows of kraft and "
-        "cream abundance receding symmetrically, bear-brown timber shelf edges, "
-        "everyday low-price fullness, bright welcoming value, no text"
-    ),
-    "whole-foods": (
-        "premium natural-foods shelf in soft market-morning light, whole ingredients "
-        "styled in cream ceramic against frontier-green foliage, visible grain and "
-        "honey texture, quiet ingredient-aware calm, no text"
-    ),
-    "publix": (
-        "southern porch morning, family table spread in the lower third, warm white "
-        "light through slats, cream and kraft tones with frontier-green foliage "
-        "beyond the rail, steam rising off the stack, welcoming deli-fresh calm, no text"
-    ),
-    "kroger": (
-        "friendly grocery run at morning opening, fresh cart abundance center frame, "
-        "bright clean market light, cream and kraft tones with produce green, "
-        "everyday family value in motion, no text"
-    ),
-    "heb": (
-        "bold texas family-table spread in vibrant morning color, local-market "
-        "produce reds and greens against cream linen, warm direct sun from frame "
-        "left, bear-brown timber table, festive local flavor, no text"
-    ),
+    # NOTE (retailer overlay wiring): retailer scene-hint entries were REMOVED
+    # here on purpose. Retailer direction no longer steers the generated pixels
+    # (aisle/pack cues risk baked pseudo-text and off-brand scenes); it ships as
+    # the composited logo mark (costco/publix/target/walmart via the retailer
+    # layer, DAM brands/retailers/logos/) + the copy-sidecar retailer-framing
+    # line (_THEME_COPY_HINT, which keeps every retailer incl. copy-only
+    # kroger/heb/whole-foods). Retailer themes fall through to the generic
+    # persona/brief prompt below.
 }
 
 # Per-retailer copy framing (#245): appended to the copy sidecar (txt + csv) when
@@ -777,6 +729,103 @@ def _resolve_theme_photo(theme_slug: str) -> str | None:
         if isinstance(p, str) and p.strip():
             return p
     return None
+
+
+# Panel flag raised when a request names a theme the map cannot honor.
+PANEL_FLAG_THEME_MISMATCH = "theme-mismatch"
+
+
+def _normalize_theme_slugs(themes) -> list[str]:
+    """Normalize a themes input (list/tuple or comma-separated string) to slugs."""
+    if themes is None:
+        return []
+    if isinstance(themes, str):
+        raw = themes.split(",")
+    else:
+        try:
+            raw = list(themes)
+        except TypeError:
+            return []
+    out: list[str] = []
+    for item in raw:
+        slug = str(item or "").strip().lower()
+        if slug and slug not in out:
+            out.append(slug)
+    return out
+
+
+# Theme slugs whose direction ships as a logo-mark overlay + copy line, never as
+# pixel-prompt scene text (retailer-aisle decision 2026-09-20).
+_OVERLAY_MARK_THEMES: frozenset[str] = frozenset({
+    "localized-costco", "localized-publix", "localized-target",
+    "target", "walmart", "whole-foods", "publix", "kroger", "heb",
+    "kodiak-subscription",
+})
+
+
+def combine_themes(themes) -> dict:
+    """Multi-theme combination rule (deterministic, offline).
+
+    One primary theme drives seed + scene: the FIRST requested slug that
+    resolves in the theme-asset-map. Every other KNOWN slug maps to an
+    overlay layer (its scene hint folded into the scene prompt) plus a copy
+    line (its copy framing folded into the copy sidecar). UNKNOWN slugs map
+    to nothing renderable — they raise a panel flag on the mismatch path
+    (provenance["panel_flag"]) instead of raising or silently dropping.
+
+    Returns {"themes", "primary", "extras", "overlay_layers", "copy_lines",
+    "unknown", "panel_flag"} — panel_flag is None when every slug resolved.
+    """
+    slugs = _normalize_theme_slugs(themes)
+    known = [s for s in slugs if _load_theme_asset_map().get(s) is not None]
+    unknown = [s for s in slugs if s not in known]
+    primary = known[0] if known else None
+    extras = known[1:]
+    overlay_layers = []
+    for slug in extras:
+        # Retailer/mark themes never steer pixels — their direction ships as a
+        # logo-mark overlay layer + copy-sidecar framing line, never scene text.
+        if slug in _OVERLAY_MARK_THEMES:
+            overlay_layers.append({"theme": slug, "scene": "", "mark": True})
+            continue
+        hint = _THEME_SCENE_HINT.get(slug, "")
+        overlay_layers.append(
+            {"theme": slug, "scene": hint or _safe_theme_text(slug)}
+        )
+    copy_lines = []
+    for slug in extras:
+        framing = _THEME_COPY_HINT.get(slug)
+        copy_lines.append(
+            {"theme": slug, "framing": framing or f"theme direction: {_safe_theme_text(slug)}"}
+        )
+    panel_flag = (
+        f"{PANEL_FLAG_THEME_MISMATCH}: unknown theme(s): {', '.join(unknown)}"
+        if unknown
+        else None
+    )
+    return {
+        "themes": slugs,
+        "primary": primary,
+        "extras": extras,
+        "overlay_layers": overlay_layers,
+        "copy_lines": copy_lines,
+        "unknown": unknown,
+        "panel_flag": panel_flag,
+    }
+
+
+def _combo_scene_suffix(combo: dict | None) -> str:
+    """Scene-prompt suffix layering the combo extras over the primary scene."""
+    if not combo:
+        return ""
+    parts = []
+    for layer in combo.get("overlay_layers", []) or []:
+        # mark-only layers carry no scene text — their direction ships via the
+        # logo overlay + copy sidecar, never the pixel prompt.
+        if not (layer.get("scene") or "").strip():
+            continue
+        parts.append(f"Also layering {layer['theme']}: {layer['scene']}.")
+    return (" " + " ".join(parts)) if parts else ""
 
 
 def _mock_hero(product_name: str, brief_msg: str, region: str, out_path: Path, idx: int = 0) -> Path:
@@ -1022,13 +1071,15 @@ def _caption_with_budget(src, product_name, brief_msg, region, audience, remaini
 
 
 def _default_scene_prompt(
-    product_name: str, brief_msg: str, region: str, audience: str, theme: str | None
+    product_name: str, brief_msg: str, region: str, audience: str, theme: str | None,
+    extra_themes: list[str] | None = None,
 ) -> str:
     """Deterministic restyle direction for a photo seed — no network.
 
     Used as the Nova scene-prompt fallback AND as the whole scene-prompt step
     for theme-photo seeds (the photo already carries the theme, so a second
-    vision call buys nothing and burns rung C's budget).
+    vision call buys nothing and burns rung C's budget). Combo extras
+    (extra_themes) fold in as overlay layers behind the primary theme scene.
     """
     scene_hint = _THEME_SCENE_HINT.get(theme or "", "")
     # Who + where: the filter-safe persona names the person (never the raw
@@ -1039,15 +1090,20 @@ def _default_scene_prompt(
         direction = f"{scene_hint} Featuring {who}." if scene_hint else who
     else:
         direction = brief_msg
-    return (
+    base = (
         f"{product_name} product photo restyled for "
         f"{direction}, "
         f"{region} {audience}, frontier morning light, natural grain texture, high detail"
     ).strip()
+    if extra_themes:
+        combo = combine_themes([theme or "", *(extra_themes or [])])
+        base += _combo_scene_suffix(combo)
+    return base
 
 
 def _nova_pro_scene_prompt(
-    src: Path, product_name: str, brief_msg: str, region: str, audience: str, theme: str | None
+    src: Path, product_name: str, brief_msg: str, region: str, audience: str, theme: str | None,
+    extra_themes: list[str] | None = None,
 ) -> str:
     """Ask Nova Pro (Converse) for the control-structure restyle prompt.
 
@@ -1055,12 +1111,16 @@ def _nova_pro_scene_prompt(
     caption). Returns a scene/theme description string that drives Stability's
     control-structure conditioning. Falls back to a deterministic brief/theme-derived
     prompt on any Nova Pro failure so the Stability call always has a usable prompt.
+    Combo extras fold in as overlay layers behind the primary theme scene.
     """
     theme_hint = f" Theme: {_safe_theme_text(theme)}." if theme else ""
     scene_hint = _THEME_SCENE_HINT.get(theme or "", "")
     if scene_hint:
         theme_hint += f" Scene direction: {scene_hint}."
-    default_prompt = _default_scene_prompt(product_name, brief_msg, region, audience, theme)
+    if extra_themes:
+        combo = combine_themes([theme or "", *(extra_themes or [])])
+        theme_hint += _combo_scene_suffix(combo)
+    default_prompt = _default_scene_prompt(product_name, brief_msg, region, audience, theme, extra_themes)
     if boto3 is None:
         return default_prompt
     try:
@@ -1122,6 +1182,67 @@ def _seed_b64_for_stability(src: Path) -> str:
     img.save(buf, "PNG")
     return base64.b64encode(buf.getvalue()).decode("ascii")
 
+
+# ------------------------------------------------------- similarity gate (B -> C)
+# dHash-64 gate on rung B: a control-structure restyle preserves the seed's
+# composition, so the Hamming distance between the seed and the pre-overlay restyle
+# is small for a healthy restyle and large when the model drifted (wrong scene,
+# dropped product, noise). When the distance exceeds the threshold the B pixels are
+# rejected and the ladder falls to rung C (guaranteed-real Pillow compose) with
+# fallthrough_reason="similarity-gate" — same never-503 contract as every other B
+# failure, one more named reason. The comparison runs on the PRE-OVERLAY restyle:
+# the message bar alone shifts dHash by ~12, so a post-overlay read would
+# false-reject every good B. Pillow-only, no numpy, ~ms on 1080px frames.
+# Calibrated 2026-09-20 on staged renders (input_assets/power-cakes/hero.png):
+# identical 0, scrim/compose-like + mild-restyle proxies 0-1, message-barred 12-13,
+# different-photo / solid-canvas / noise 30-34. Threshold 8 sits in the clean gap.
+SIMILARITY_GATE_THRESHOLD = int(os.getenv("KODIAK_SIMILARITY_THRESHOLD", "8"))
+
+
+def _similarity_gate_enabled() -> bool:
+    """Kill-switch for the dHash B-to-C gate. ON unless opted out (no redeploy)."""
+    return os.getenv("KODIAK_SIMILARITY_GATE", "1").strip().lower() in (
+        "1", "true", "yes", "on",
+    )
+
+
+def dhash64(src: Path | Image.Image) -> int:
+    """Classic 64-bit difference hash: 9x8 gray, horizontal neighbor bits."""
+    img = Image.open(src).convert("L") if isinstance(src, Path) else src.convert("L")
+    small = img.resize((9, 8), Image.BICUBIC)
+    px = list(small.tobytes())
+    h = 0
+    for r in range(8):
+        for c in range(8):
+            h = (h << 1) | (1 if px[r * 9 + c] > px[r * 9 + c + 1] else 0)
+    return h
+
+
+def hamming_distance(a: int, b: int) -> int:
+    """Hamming distance between two dHash ints (0..64)."""
+    return bin(a ^ b).count("1")
+
+
+def _similarity_distance(seed: Path, candidate: Path) -> int | None:
+    """dHash-64 distance seed-vs-candidate. None when either image is unreadable."""
+    try:
+        return hamming_distance(dhash64(seed), dhash64(candidate))
+    except (OSError, ValueError) as e:
+        print(f"[generate] similarity hash skipped (unreadable image): {e}", file=sys.stderr)
+        return None
+
+
+def _scene_prompt_source(scene_prompt: str, product_name: str, brief_msg: str,
+                         region: str, audience: str, theme: str | None) -> str:
+    """Name which branch wrote a rung scene prompt: live Nova vs deterministic default.
+
+    _nova_pro_scene_prompt degrades to the deterministic default on ANY Nova failure,
+    so equality with the default is the honest discriminator on both branches — no
+    new plumbing through the Converse call, and the theme-photo fast path (which never
+    calls Nova) classifies as default through the same comparison.
+    """
+    default = _default_scene_prompt(product_name, brief_msg, region, audience, theme)
+    return "default" if (scene_prompt or "") == default else "nova"
 
 def _bedrock_failfast_client(read_timeout: int | None = None):
     """Fail-fast bedrock-runtime client for EVERY Bedrock invoke in the request path.
@@ -1953,23 +2074,24 @@ def normalize_layers(layers: dict | None) -> dict | None:
 def _resolve_retailer_mark(slug: str) -> Path | None:
     """Best-effort raster retailer mark for a slug. None when missing/unusable.
 
-    Never raises and never fabricates: an unknown slug, a missing file, or an
-    SVG-only lockup (Pillow cannot rasterize SVG here) all resolve to None so the
-    caller records the layer unresolved and ships the clean image.
+    DAM-first via retailers.resolve_retailer_logo
+    (brands/retailers/logos/<slug>.png, local raster fallback). Copy-only
+    retailers (kroger/heb/whole-foods), subscription, unknown slugs, missing
+    files, and SVG-only lockups (Pillow cannot rasterize SVG here) all resolve
+    to None so the caller records the layer unresolved and ships the clean
+    image — the copy sidecar still carries the retailer framing line.
+
+    Lockup geometry (decided here, single place): the mark composites at
+    _paste_mark, bottom-right, ~16% canvas width on a white backing plate —
+    clear of the centered product layer and above the message-bar zone, so it
+    reads as a channel badge, never as in-scene signage.
     """
     try:
-        from .retailers import resolve_retailer  # local import — keeps offline path light
+        from .retailers import resolve_retailer_logo  # local import — keeps offline path light
 
-        res = resolve_retailer(slug)
-        asset = res.asset_path
-        if asset is None:
-            return None
-        asset = Path(asset)
-        if asset.suffix.lower() in (".png", ".jpg", ".jpeg", ".webp") and asset.exists():
-            return asset
-        sibling = asset.with_suffix(".png")
-        if sibling.exists():
-            return sibling
+        hit = resolve_retailer_logo(slug)
+        if hit is not None and Path(hit).exists():
+            return Path(hit)
         return None
     except Exception:  # noqa: BLE001 — unresolved mark resolves to None, ship clean
         return None
@@ -2088,6 +2210,22 @@ def build_copy_sidecar(
         txt_lines.append(f"retailer: {retailer}")
     if retailer_framing:
         txt_lines.append(f"retailer framing: {retailer_framing}")
+    # multi-theme combo extras (primary already drove theme/copy above): each
+    # extra ships as its own copy line so the combo is visible in the sidecar.
+    combo = provenance.get("theme_combo") if isinstance(provenance, dict) else None
+    combo_lines: list[dict] = []
+    if isinstance(combo, dict):
+        combo_lines = combo.get("copy_lines") or []
+        if combo.get("extras"):
+            txt_lines.append(
+                f"theme combo: {combo.get('primary')} + {', '.join(combo['extras'])}"
+            )
+    for line in combo_lines:
+        if isinstance(line, dict) and line.get("framing"):
+            txt_lines.append(f"extra framing ({line.get('theme')}): {line['framing']}")
+    panel_flag = provenance.get("panel_flag") if isinstance(provenance, dict) else None
+    if panel_flag:
+        txt_lines.append(f"panel flag: {panel_flag}")
     # recipe tease (Atlanta E/H): the local recipe card ships in the sidecar.
     recipe_fields = recipe_fields or {}
     recipe_title = recipe_fields.get("title") if isinstance(recipe_fields, dict) else None
@@ -2132,6 +2270,13 @@ def build_copy_sidecar(
         writer.writerow(["retailer", retailer])
     if retailer_framing:
         writer.writerow(["retailer_framing", retailer_framing])
+    if isinstance(combo, dict) and combo.get("extras"):
+        writer.writerow(["theme_combo", f"{combo.get('primary')}+{','.join(combo['extras'])}"])
+    for line in combo_lines:
+        if isinstance(line, dict) and line.get("framing"):
+            writer.writerow([f"extra_framing.{line.get('theme')}", line["framing"]])
+    if panel_flag:
+        writer.writerow(["panel_flag", panel_flag])
     if recipe_title:
         writer.writerow(["recipe.title", clean_brand_copy(str(recipe_title))])
         ingredients = recipe_fields.get("ingredients") if isinstance(recipe_fields, dict) else None
@@ -2177,6 +2322,7 @@ def generate_hero(
     bare_base: bool = False,
     seed_key: str | None = None,
     layers: dict | None = None,
+    themes: list[str] | str | None = None,
 ) -> tuple[Path, str, dict]:
     """Generate a real Kodiak-social-style hero. Returns (path, source, provenance).
 
@@ -2234,6 +2380,15 @@ def generate_hero(
 
     if ratio not in _CANVAS:
         ratio = "1x1"
+
+    # Multi-theme combination: the first KNOWN slug drives seed + scene
+    # (overriding the single theme); remaining known slugs become overlay
+    # layers + copy lines; unknown slugs raise a panel flag, never raise.
+    # themes=None preserves the legacy single-theme path exactly.
+    theme_combo: dict | None = combine_themes(themes) if themes is not None else None
+    if theme_combo is not None and theme_combo["primary"] is not None:
+        theme = theme_combo["primary"]
+    combo_extras: list[str] = list(theme_combo["extras"]) if theme_combo else []
 
     # Director kicked once at ladder start so the voice overlaps seed
     # resolution + rung composition instead of serializing after them.
@@ -2303,11 +2458,16 @@ def generate_hero(
 
     # PART A — provenance accumulator. Populated as the seed + engine paths resolve so
     # the response can explain "what was provided vs what was done to make this image".
+    # Engine-key contract (pinned): engine is one of packshot-composite (rung A),
+    # stability-restyle (rung B), pillow-compose (rung C), brand-floor (rung D).
+    # origin marks which side rendered the envelope: "backend" here. The frontend
+    # surfaces both via the rung badge + provenance panel, never relabelling them.
     provenance: dict = {
         "seed_source": None,
         "seed_selection": "none",
         "engine": None,
         "rung": None,
+        "origin": "backend",
         "fallthrough_reason": None,
         "elapsed_ms": None,
         "scene_prompt": None,
@@ -2315,6 +2475,19 @@ def generate_hero(
         "model": None,
         "incoming_prompt": brief_msg,
         "theme": theme,
+        "themes": theme_combo["themes"] if theme_combo else None,
+        "theme_combo": (
+            {
+                "primary": theme_combo["primary"],
+                "extras": theme_combo["extras"],
+                "overlay_layers": theme_combo["overlay_layers"],
+                "copy_lines": theme_combo["copy_lines"],
+                "unknown": theme_combo["unknown"],
+            }
+            if theme_combo
+            else None
+        ),
+        "panel_flag": theme_combo["panel_flag"] if theme_combo else None,
         "headline": None,
         "overlay_applied": False,
         "paper_overlay": False,
@@ -2470,9 +2643,13 @@ def generate_hero(
                     and remaining_ms() >= _B_BUDGET_MS + _C_RESERVATION_MS):
                 try:
                     a_scene = _nova_pro_scene_prompt(
-                        seed, product_name, brief_msg, region, audience, theme
+                        seed, product_name, brief_msg, region, audience, theme,
+                        combo_extras or None,
                     )
                     provenance["scene_prompt"] = a_scene
+                    provenance["scene_prompt_source"] = _scene_prompt_source(
+                        a_scene, product_name, brief_msg, region, audience, theme
+                    )
                     # _STABILITY_RUNG_ON gate: dev skips the packshot background restyle
                     # and falls to the deterministic packshot composite (unrestyled seed).
                     if _STABILITY_RUNG_ON and remaining_ms() >= _B_STABILITY_MS + _C_RESERVATION_MS:
@@ -2564,7 +2741,8 @@ def generate_hero(
                     # theme, so the Nova scene vision call buys nothing — skip
                     # it outright (up to ~12s) and protect rung C's reservation.
                     scene_prompt = _default_scene_prompt(
-                        product_name, brief_msg, region, audience, theme
+                        product_name, brief_msg, region, audience, theme,
+                        combo_extras or None,
                     )
                     print(
                         "[generate] rung B scene-prompt fast-pathed "
@@ -2581,9 +2759,13 @@ def generate_hero(
                         provenance["fallthrough_reason"] = "budget-exhausted"
                         raise _RungBBudgetSkip
                     scene_prompt = _nova_pro_scene_prompt(
-                        seed, product_name, brief_msg, region, audience, theme
+                        seed, product_name, brief_msg, region, audience, theme,
+                        combo_extras or None,
                     )
                 provenance["scene_prompt"] = scene_prompt
+                provenance["scene_prompt_source"] = _scene_prompt_source(
+                    scene_prompt, product_name, brief_msg, region, audience, theme
+                )
                 # Per-subcall budget gate 2 — the Stability invoke (fail-fast, capped at
                 # BEDROCK_READ_TIMEOUT_S). Re-check AFTER the scene call actually spent its
                 # time; if the remaining clock can no longer cover stability + the C
@@ -2597,6 +2779,33 @@ def generate_hero(
                     provenance["fallthrough_reason"] = "budget-exhausted"
                     raise _RungBBudgetSkip
                 stylized = _stability_control_hero(seed, scene_prompt, out_path)
+                if stylized is not None and stylized.exists():
+                    # Similarity gate (B -> C): reject a drifted restyle BEFORE the
+                    # overlay lands — the message bar alone shifts dHash by ~12, so
+                    # this MUST read the pre-overlay pixels. A reject falls to rung
+                    # C with fallthrough_reason="similarity-gate"; an unreadable
+                    # image fails OPEN (never lose a GenAI hero over a hash read).
+                    if _similarity_gate_enabled():
+                        _sim_dist = _similarity_distance(seed, stylized)
+                        provenance["similarity_threshold"] = SIMILARITY_GATE_THRESHOLD
+                        if _sim_dist is None:
+                            provenance["similarity_gate"] = "error"
+                        else:
+                            provenance["similarity_distance"] = _sim_dist
+                            if _sim_dist > SIMILARITY_GATE_THRESHOLD:
+                                print(
+                                    f"[generate] rung B similarity-gate reject "
+                                    f"(distance {_sim_dist} > {SIMILARITY_GATE_THRESHOLD}) "
+                                    f"-> fall to C",
+                                    file=sys.stderr,
+                                )
+                                provenance["similarity_gate"] = "fail"
+                                provenance["fallthrough_reason"] = "similarity-gate"
+                                stylized = None
+                            else:
+                                provenance["similarity_gate"] = "pass"
+                    else:
+                        provenance["similarity_gate"] = "disabled"
                 if stylized is not None and stylized.exists():
                     provenance["engine"] = "stability-restyle"
                     provenance["rung"] = "B"
@@ -2623,7 +2832,9 @@ def generate_hero(
                     return stylized, STABILITY_SOURCE, provenance
                 # helper returned None — timeout/throttle/model-error already logged to
                 # stderr with its exact code. Fall to rung C with a model-error reason.
-                provenance["fallthrough_reason"] = "model-error"
+                # A similarity-gate reject already set its own reason above — keep it.
+                if provenance.get("fallthrough_reason") != "similarity-gate":
+                    provenance["fallthrough_reason"] = "model-error"
             except _RungBBudgetSkip:
                 # a per-subcall budget gate abandoned B (reason already set to
                 # budget-exhausted) — fall cleanly to rung C, NOT a model error.
@@ -2736,6 +2947,7 @@ def generate_hero_set(
     paper_overlay: bool = True,
     seed_key: str | None = None,
     layers: dict | None = None,
+    themes: list[str] | str | None = None,
 ) -> tuple[list[dict], str, dict]:
     """Deliver all four sizes from ONE call. Returns (renders, source, provenance).
 
@@ -2783,6 +2995,7 @@ def generate_hero_set(
         bare_base=True,
         seed_key=seed_key,
         layers=layers,
+        themes=themes,
     )
     provenance["layers"] = provenance_layers
     provenance["clean"] = provenance_layers is not None
@@ -2821,7 +3034,8 @@ def generate_hero_set(
     # the lower region becomes a token-brand card. Other themes keep the plain brand
     # overlay path unchanged. recipe_fields default from the product name (no brief seam
     # into this function), so the card copy is deterministic and on-brand.
-    is_recipe_card = theme == "recipe-cards"
+    eff_theme = provenance.get("theme", theme)
+    is_recipe_card = eff_theme == "recipe-cards"
     recipe_fields = None
     if is_recipe_card:
         provenance["card_template"] = True

@@ -148,10 +148,25 @@ let skuList = [
   // source (extended, not reinvented). provenanceHeuristics is pure: prov
   // fields in, honest English lines out — absent fields read as
   // "not reported", never a guess, never an invented translation.
+  // Engine-key contract (pinned, mirrors the backend ladder): packshot-composite
+  // (rung A), stability-restyle (rung B), pillow-compose (rung C), brand-floor
+  // (rung D). stability-control-structure is the legacy alias for rung B —
+  // kept so older cached responses still read honestly.
   /** @type {Object<string, string>} */
   const ENGINE_LABELS = {
+    'packshot-composite':'Packshot composite (DAM verbatim)',
+    'stability-restyle':'Stability restyle (GenAI)',
     'stability-control-structure':'Control-structure restyle (Stability)',
-    'pillow-compose':'Pillow compose (brand overlay)'
+    'pillow-compose':'Pillow compose (brand overlay)',
+    'brand-floor':'Brand floor (offline fallback)'
+  };
+  // Origin contract: "backend" marks an envelope the API rendered;
+  // "frontend-preview-fallback" marks one the preview synthesized locally.
+  // Unknown values fall through to the raw string — never a guess.
+  /** @type {Object<string, string>} */
+  const ORIGIN_LABELS = {
+    'backend':'backend (API render)',
+    'frontend-preview-fallback':'frontend (local preview)'
   };
   /** @type {Object<string, string>} */
   const RUNG_LABELS = {
@@ -217,7 +232,14 @@ let skuList = [
     // ---- build narrative (only when the panel passes the second arg) ----
     // Single-arg callers (tests, the exposed hook used bare) get exactly the four
     // lines above. The lines below are additive and plainspoken for a marketer.
-    if(arguments.length < 2) return lines;
+    // NOTE: dispatch is on platformCopy, not arguments.length — this is an arrow
+    // function inside a classic IIFE, so arguments would read the IIFE's (always
+    // 0) and the two-arg path would be dead. platformCopy===undefined preserves
+    // the pinned single-arg contract exactly.
+    if(platformCopy === undefined) return lines;
+    // Origin leads the panel path: which side rendered this envelope.
+    var origin = (env.origin && ORIGIN_LABELS[env.origin]) || env.origin || '';
+    lines.push('Origin: ' + (origin || 'not reported'));
     var pc = (platformCopy && typeof platformCopy==='object') ? /** @type {Object<string, {source?: unknown}>} */ (platformCopy) : /** @type {Object<string, {source?: unknown}>} */ ({});
     var pcKeys = Object.keys(pc);
     // Copy path — did a live model write the copy, or did the on-brand template?
@@ -250,6 +272,29 @@ let skuList = [
     return lines;
   };
   try{ window.KODIAK_provenanceHeuristics = provenanceHeuristics; }catch(e){}
+  // Hoisted to IIFE top-level alongside provenanceHeuristics so the
+  // click-handler badge, the render-set badge, and tests share one source.
+  // Pure: prov fields in, {text, fallback} out. "Rung X" stays verbatim —
+  // pollers match on it.
+  /**
+   * @param {unknown} source engine label or ''
+   * @param {unknown} prov backend provenance envelope
+   * @returns {{text: string, fallback: boolean}}
+   */
+  const rungBadge = (source, prov)=>{
+    const p = (prov && typeof prov==='object') ? /** @type {Provenance} */ (prov) : /** @type {Provenance} */ ({});
+    const rung = p.rung || '';
+    const fallback = !!p.fallthrough_reason || rung==='C' || rung==='D';
+    const base = RUNG_LABELS[rung] || ((source && String(source).toLowerCase().includes('bedrock')) ? 'Nova Pro' : String(source || 'Nova Pro'));
+    const engLabel = (typeof p.engine === 'string' && (ENGINE_LABELS[p.engine] || p.engine)) || '';
+    const originLabel = (typeof p.origin === 'string' && (ORIGIN_LABELS[p.origin] || p.origin)) || '';
+    var text = (fallback ? 'Fallback — ' : '') + base;
+    if(engLabel) text += ' · ' + engLabel;
+    if(originLabel) text += ' · ' + originLabel;
+    if(p.fallthrough_reason) text += ' (' + p.fallthrough_reason + ')';
+    return {text:text, fallback:fallback};
+  };
+  try{ window.KODIAK_rungBadge = rungBadge; }catch(e){}
   // Inline fallback — ratio order matches the summary copy (1x1, then portrait, then vertical, then landscape).
   /** @type {PlatformMatrix} */
   const PLATFORM_MATRIX_FALLBACK = {
@@ -857,7 +902,8 @@ let skuList = [
         '4x5': {name:'Portrait', cls:'r-4x5'},
         '9x16': {name:'Vertical', cls:'r-9x16'},
         '16x9': {name:'Landscape', cls:'r-16x9'},
-        '2x3': {name:'Story', cls:'r-2x3'}
+        '2x3': {name:'Story', cls:'r-2x3'},
+        'blog': {name:'Blog', cls:'r-blog'}
       };
       // Unit 2 (#173) — honest rung badge. Provenance drives the label; any
       // fallback rung (C/D or a fallthrough_reason) gets flagged, never silently
@@ -867,14 +913,6 @@ let skuList = [
        * @param {unknown} prov backend provenance envelope
        * @returns {{text: string, fallback: boolean}}
        */
-      const rungBadge = (source, prov)=>{
-        const p = (prov && typeof prov==='object') ? /** @type {Provenance} */ (prov) : /** @type {Provenance} */ ({});
-        const rung = p.rung || '';
-        const fallback = !!p.fallthrough_reason || rung==='C' || rung==='D';
-        const base = RUNG_LABELS[rung] || ((source && String(source).toLowerCase().includes('bedrock')) ? 'Nova Pro' : String(source || 'Nova Pro'));
-        const text = (fallback ? 'Fallback — ' : '') + base + (p.fallthrough_reason ? ' (' + p.fallthrough_reason + ')' : '');
-        return {text:text, fallback:fallback};
-      };
       /**
        * @param {HTMLElement} badge
        * @param {{text: string, fallback: boolean}} rb
@@ -886,7 +924,7 @@ let skuList = [
       };
       /** @param {unknown} s @returns {string} */
       const escapeHtml = (s)=> String(s==null?'':s).replace(/[&<>"']/g, (c)=>ESCAPES[c] || c);
-      // TASK 1 — render THREE labeled tiles (one per ratio) at real aspect ratio; records the 1x1 as the hero.
+      // render one labeled tile per ratio at real aspect ratio; records the 1x1 as the hero.
       /**
        * @param {RenderItem[]} renders
        * @param {ShowOpts} [opts]
@@ -993,8 +1031,10 @@ let skuList = [
           ['Market', escapeHtml(cctx.market)],
           ['Product', escapeHtml(cctx.product)]
         ]);
+        const originLabel = (typeof penv.origin === 'string' && (ORIGIN_LABELS[penv.origin] || penv.origin)) || null;
         const did = rows([
           ['Engine', escapeHtml(engineLabel)],
+          ['Origin', originLabel ? escapeHtml(originLabel) : null],
           ['Model', escapeHtml(penv.model)],
           ['Seed source', escapeHtml(penv.seed_source)],
           ['Seed selection', escapeHtml(penv.seed_selection)],
@@ -1226,7 +1266,7 @@ let skuList = [
           const readyThemeLabel = json.theme ? (THEME_LABELS[json.theme] || themeLabel) : (activeTheme ? themeLabel : null);
           const readyTheme = (json.theme || activeTheme) ? (' · theme: ' + readyThemeLabel) : '';
           if(Array.isArray(json.renders) && json.renders.length){
-            // NEW backend: three real sizes — render all three labeled tiles.
+            // backend renders[] carries all five sizes (1x1 + pillow pads) — render every labeled tile.
             showRenderSet(json.renders, {source: json.source, themeLabel: readyThemeLabel, provenance: json.provenance});
             const n = json.renders.length;
             if(status) status.textContent = 'Campaign preview ready — ' + n + ' sizes composed from ' + (json.source || 'Nova Pro') + readyTheme;

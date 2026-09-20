@@ -220,8 +220,8 @@ def test_unresolved_retailer_ships_clean(tmp_path):
     Image.new("RGB", (1080, 1080), (30, 40, 50)).save(base, "PNG")
     before = base.read_bytes()
     prov: dict = {}
-    generate_mod._apply_layer_marks(base, {"retailer": "costco"}, prov)
-    assert prov.get("retailer_layer") == "unresolved:costco"
+    generate_mod._apply_layer_marks(base, {"retailer": "kroger"}, prov)
+    assert prov.get("retailer_layer") == "unresolved:kroger"
     assert "layer_marks" not in prov
     assert base.read_bytes() == before  # clean image untouched
 

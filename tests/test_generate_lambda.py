@@ -223,8 +223,10 @@ def test_download_filename_sanitizes_and_falls_back() -> None:
 # timeout. The full generate_hero_set chain (control-structure hero + 2 serial outpaint
 # extends + 3 localization rewrites + platform copy) runs ~35s and trips a 503, so the
 # frontend falls back to the local Pillow placeholder. PREVIEW mode (the new default)
-# returns ONE 1x1 control-structure hero, no outpaint, no localization, well under 30s.
-# FULL mode preserves the complete set for the async download-pack builder.
+# returns the ONE 1x1 control-structure hero plus four server-side Pillow pads
+# (4x5, 9x16, 16x9, blog) — one model call, no GenAI outpaint, no live
+# localization, well under 30s. FULL mode preserves the composed set for the
+# async download-pack builder.
 # --------------------------------------------------------------------------- #
 
 
@@ -260,11 +262,12 @@ def _stub_generate_hero(source: str, provenance: dict | None = None):
     return _stub
 
 
-def test_preview_mode_is_default_single_1x1_no_outpaint_no_localization(
+def test_preview_mode_is_default_five_tiles_no_outpaint_no_localization(
     monkeypatch, tmp_path: Path
 ) -> None:
-    # default (no "mode") is preview: exactly ONE render (the 1x1), top-level image_url
-    # set, source + provenance present, and NEITHER the outpaint path NOR the localization
+    # default (no "mode") is preview: FIVE renders (the 1x1 hero + four server-side
+    # Pillow pads: 4x5, 9x16, 16x9, blog), top-level image_url set, source +
+    # provenance present, and NEITHER the GenAI outpaint path NOR the localization
     # rewrite chain is invoked (those are the >30s killers deferred to the async pack).
     monkeypatch.setattr(
         generate_lambda, "generate_hero", _stub_generate_hero("bedrock:stability-control-structure")
@@ -291,26 +294,42 @@ def test_preview_mode_is_default_single_1x1_no_outpaint_no_localization(
 
     assert body["ok"] is True
     assert body["mode"] == "preview"
-    # exactly one render, the 1x1
-    assert len(body["renders"]) == 1
-    assert body["renders"][0]["ratio"] == "1x1"
-    # top-level image_url set and == the single render url
+    # five tiles: the 1x1 primary first, then the server-side pillow pads
+    assert [r["ratio"] for r in body["renders"]] == ["1x1", "4x5", "9x16", "16x9", "blog"]
+    # pad dims match the platform-matrix export table (blog is the 1200x630 OG hero);
+    # the 1x1 keeps the hero's native size (the stub writes 16x16, prod 1080x1080)
+    from creative_automation.platforms import RATIO_DIMS
+
+    for r in body["renders"]:
+        if r["ratio"] != "1x1":
+            assert (r["w"], r["h"]) == RATIO_DIMS[r["ratio"]]
+        assert r["image_url"].startswith("https://presigned.example/")
+        assert r["s3_uri"].startswith("s3://")
+    # top-level image_url set and == the 1x1 primary url (front-end back-compat)
     assert body["image_url"].startswith("https://presigned.example/")
     assert body["image_url"] == body["renders"][0]["image_url"]
     assert body["s3_uri"] == body["renders"][0]["s3_uri"]
     # real GenAI source preserved, provenance present + flagged preview
     assert body["source"] == "bedrock:stability-control-structure"
     assert body["provenance"]["engine"] == "stability-control-structure"
-    assert body["provenance"]["ratios"] == {"1x1": "primary"}
+    assert body["provenance"]["ratios"] == {
+        "1x1": "primary",
+        "4x5": "pillow-outpaint-fallback",
+        "9x16": "pillow-outpaint-fallback",
+        "16x9": "pillow-outpaint-fallback",
+        "blog": "pillow-outpaint-fallback",
+    }
+    # nothing deferred anymore: the preview ships every tile, only the composed
+    # GenAI outpaints stay a FULL-mode concern
+    assert "deferred" not in body["provenance"]
     assert body["provenance"]["mode"] == "preview"
     # Atlanta D/E/H: deterministic campaign messaging ships IN the preview —
     # full platform copy + top-3 localizations + recipe tease (offline chain,
-    # zero model calls). Only the taller-ratio outpaints stay deferred.
+    # zero model calls) alongside all five tiles.
     assert [loc["lang_code"] for loc in body["localizations"]] == ["en", "es", "pt"]
     from creative_automation.platform_copy import PUBLISH_TARGETS
     assert set(body["platform_copy"].keys()) == set(PUBLISH_TARGETS)
     assert body["provenance"]["copy_owner"] == "backend-preview-fallback"
-    assert body["provenance"]["deferred"] == ["4x5", "9x16", "16x9"]
     assert body["retailer"] is None
     assert body["recipe_fields"]["title"]
     assert "recipe.title" in body["copy_sidecar"]["csv"]
@@ -318,6 +337,47 @@ def test_preview_mode_is_default_single_1x1_no_outpaint_no_localization(
     # localization chain — the preview rows come from the offline chain)
     assert outpaint_calls == []
     assert localize_calls == []
+
+
+def test_preview_pads_upload_real_pngs_at_matrix_dims(monkeypatch, tmp_path: Path) -> None:
+    # Independent pixel oracle: decode the actual bytes the handler PUT to S3 and
+    # assert each tile's real dims equal the platform-matrix export table. The
+    # handler's w/h claims are not trusted here — PIL re-opens the uploaded bytes.
+    import io
+
+    from PIL import Image
+
+    from creative_automation.platforms import RATIO_DIMS
+
+    monkeypatch.setattr(
+        generate_lambda, "generate_hero", _stub_generate_hero("bedrock:stability-control-structure")
+    )
+    fake_s3 = _FakeS3()
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: fake_s3)
+
+    event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
+    resp = generate_lambda.handler(event, None)
+    assert resp["statusCode"] == 200
+
+    assert len(fake_s3.puts) == 5
+    keys = [p["Key"] for p in fake_s3.puts]
+    assert len(set(keys)) == 5  # every tile persists under its own DAM key
+    for put in fake_s3.puts:
+        assert put["ContentType"] == "image/png"
+        with Image.open(io.BytesIO(put["Body"])) as im:
+            real_w, real_h = im.size
+    body = json.loads(resp["body"])
+    by_ratio = {r["ratio"]: r for r in body["renders"]}
+    assert set(by_ratio) == set(RATIO_DIMS)
+    # each response entry's claimed dims match the uploaded bytes; pads match the
+    # matrix (the stubbed 1x1 is 16x16 native, prod 1080x1080)
+    png_by_size = sorted(Image.open(io.BytesIO(p["Body"])).size for p in fake_s3.puts)
+    claimed = sorted((r["w"], r["h"]) for r in body["renders"])
+    assert png_by_size == claimed
+    for ratio, dims in RATIO_DIMS.items():
+        if ratio == "1x1":
+            continue
+        assert (by_ratio[ratio]["w"], by_ratio[ratio]["h"]) == dims
 
 
 def test_preview_mode_sanitizes_celebrity_name_before_brief_msg(monkeypatch, tmp_path: Path) -> None:

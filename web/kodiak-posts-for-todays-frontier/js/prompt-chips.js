@@ -38,6 +38,25 @@
     else{ mark.classList.remove('is-on'); }
   }
 
+  // Honest riff cue: the "Riff on past content" card directs a STAGED pick, it is
+  // not retrieval. The cue is a VISIBLE non-blocking note beside the cards
+  // (#riffCue, static markup next to #promptChips) — never the #damFlash line
+  // hidden inside the unopened DAM dialog. It never gates Create: generate.js
+  // threads seed_key only when a pick is staged and generates fresh otherwise.
+  var RIFF_CUE_TEXT = 'Riff on past content riffs on your staged pick — Browse past assets and stage one, or Create generates fresh.';
+  function hasStagedDamAsset(){
+    try{ return (window.__userAssets||[]).some(function(a){ return a && a.source==='dam' && a.key; }); }catch(e){ return false; }
+  }
+  function refreshRiffCue(){
+    var cue = document.getElementById('riffCue');
+    if(!cue) return;
+    var input = cardInputFor('riff-on-past-content');
+    var show = !!(input && input.checked) && !hasStagedDamAsset();
+    cue.textContent = show ? RIFF_CUE_TEXT : '';
+    cue.hidden = !show;
+  }
+  window.__kodiakRefreshRiffCue = refreshRiffCue;
+
   // active direction clauses in DOM order (stable no matter what order cards were checked).
   function currentClauses(){
     var out = [];
@@ -237,6 +256,7 @@
     __retailerCheckOrder = [];
     if(chipWrap) chipWrap.querySelectorAll('.ff-check-card__input[data-theme]').forEach(function(el){ el.checked = false; });
     togglePartnerMark();
+    try{ refreshRiffCue(); }catch(e){}
     rebuildBrief();
   };
 
@@ -251,16 +271,10 @@
       input.addEventListener('change', function(){
         setChip(slug, !!input.checked);
         rebuildBrief();
-        // honest riff: the card directs a STAGED pick, it is not retrieval. Tell the
-        // customer what to do instead of letting the default masquerade as a remix.
-        // Non-blocking — Create still generates normally with no pick staged.
-        if(input.checked && slug === 'riff-on-past-content'){
-          try{
-            var hasStaged = (window.__userAssets||[]).some(function(a){ return a && a.source==='dam' && a.key; });
-            // NOTE: flash() lives in the DAM-browse IIFE below — not visible here.
-            // Write the status node directly (it is static markup, always present).
-            if(!hasStaged){ var cueEl = document.getElementById('damFlash'); if(cueEl) cueEl.textContent = 'Riff on past content riffs on your staged pick — Browse past assets and stage one, or Create generates fresh.'; }
-          }catch(e){}
+        // honest riff: refresh the visible non-blocking cue (check AND uncheck —
+        // an unchecked card must clear it). Create still generates normally.
+        if(slug === 'riff-on-past-content'){
+          try{ refreshRiffCue(); }catch(e){}
         }
         briefEl.focus();
       });
@@ -1119,6 +1133,9 @@
       var rec = { id:id, name:label, kind:kind, source:'dam', key:key, url:it.url, category:cat };
       window.__userAssets.push(rec);
       try{ if(typeof window.__kodiakMarkDirty === 'function') window.__kodiakMarkDirty(); }catch(e){}
+      // a staged DAM pick satisfies the riff cue — clear the visible note (it reappears
+      // only if the riff card is re-checked with no pick staged).
+      try{ if(typeof window.__kodiakRefreshRiffCue === 'function') window.__kodiakRefreshRiffCue(); }catch(e){}
 
       var thumbNode;
       if(kind === 'image'){

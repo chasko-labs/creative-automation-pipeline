@@ -190,7 +190,7 @@ def test_atlanta_preview_scenario_es_ko_publix_recipe_no_spend(monkeypatch, tmp_
     assert resp["statusCode"] == 200
     body = json.loads(resp["body"])
     assert body["mode"] == "preview"
-    assert len(body["renders"]) == 1
+    assert [r["ratio"] for r in body["renders"]] == ["1x1", "4x5", "9x16", "16x9", "blog"]
 
     # Spanish + market second language (Korean for Atlanta) IN the preview.
     assert [loc["lang_code"] for loc in body["localizations"]] == ["en", "es", "ko"]

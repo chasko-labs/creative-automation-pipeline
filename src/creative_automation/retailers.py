@@ -50,6 +50,115 @@ _CHAIN_ORDER: tuple[str, ...] = ("costco", "publix", "target")
 # frontier-gap fulfillment copy in api.py — one canonical string).
 SUBSCRIPTION_FULFILLMENT = "DTC subscription — free shipping $45+"
 
+# ------------------------------------------------------- retailer overlay wiring
+# DAM-backed retailer-mark overlay. Canonical mark source of truth is the DAM
+# (transparent PNGs, lossless, >=512px longest edge); the repo-local
+# input_assets/retailer-logos/ dir is the offline-dev fallback. Marks are NEVER
+# fabricated — a missing mark resolves to None and the render ships clean while
+# the copy sidecar still carries the retailer framing line.
+DAM_RETAILER_LOGO_PREFIX = "brands/retailers/logos/"
+
+# Local cache for DAM-fetched marks (mirrors the packshot cache layout).
+RETAILER_LOGO_CACHE_DIR = Path("/tmp/kodiak-assets/retailer-logos")
+
+# Retailers with a composable logo mark (DAM brands/retailers/logos/<slug>.png).
+OVERLAY_RETAILERS: tuple[str, ...] = ("costco", "publix", "target", "walmart")
+
+# Retailers with NO composable mark: direction ships as the copy-sidecar
+# retailer-framing line only (generate._THEME_COPY_HINT), never as pixels.
+COPY_ONLY_RETAILERS: tuple[str, ...] = ("kroger", "heb", "whole-foods")
+
+# Overlay-path aliases. Deliberately SEPARATE from _RETAILER_ALIASES: the
+# chooser contract (surface_retailers, _CHAIN_ORDER, issue #198) only knows
+# costco/publix/target/subscription, and normalize_retailer must keep
+# returning None for walmart/kroger/heb/whole-foods so that contract —
+# and its tests — do not shift. Overlay/copy code uses
+# normalize_overlay_retailer instead.
+_OVERLAY_ALIASES: dict[str, str] = {
+    "walmart": "walmart",
+    "wal-mart": "walmart",
+    "wal mart supercenter": "walmart",
+    "walmart supercenter": "walmart",
+    "kroger": "kroger",
+    "the kroger co": "kroger",
+    "heb": "heb",
+    "h-e-b": "heb",
+    "h e b": "heb",
+    "whole-foods": "whole-foods",
+    "whole foods": "whole-foods",
+    "whole foods market": "whole-foods",
+}
+
+
+def normalize_overlay_retailer(name: str) -> str | None:
+    """Map a free-form retailer name to the overlay/copy canonical key.
+
+    Covers the chooser keys (costco/publix/target) plus walmart (mark) and
+    kroger/heb/whole-foods (copy-only). Returns None for unknown names AND
+    for the subscription retailer-equivalent (fulfillment, never a mark).
+    """
+    key = normalize_retailer(name)
+    if key is not None:
+        return None if key == "subscription" else key
+    cleaned = str(name).strip().lower()
+    hit = _OVERLAY_ALIASES.get(cleaned)
+    if hit is None:
+        hit = _OVERLAY_ALIASES.get(cleaned.replace("-", " "))
+    return hit
+
+
+def dam_key_for_retailer(key: str, *, variant: str = "color") -> str:
+    """Full verbatim DAM key for a retailer mark.
+
+    Full color: brands/retailers/logos/<slug>.png; monochrome (dark-lockup
+    placement): brands/retailers/logos/<slug>-mono.png.
+    """
+    stem = key if variant == "color" else f"{key}-mono"
+    return f"{DAM_RETAILER_LOGO_PREFIX}{stem}.png"
+
+
+def resolve_retailer_logo(
+    name: str,
+    *,
+    variant: str = "color",
+    logo_dir: Path | None = None,
+) -> Path | None:
+    """Resolve a retailer name to a local raster mark path, or None.
+
+    Order: DAM fetch (brands/retailers/logos/<slug>[-mono].png via
+    dam.fetch_dam_key into the tmp cache) -> repo-local
+    input_assets/retailer-logos/<slug>[-mono].png fallback. Copy-only
+    retailers (kroger/heb/whole-foods), subscription, and unknown names all
+    resolve to None — their direction ships as the copy-sidecar line only.
+
+    Offline-safe and never fatal: S3-disabled, missing objects, and unreadable
+    files all fall through to None so the render ships clean. Never raises,
+    never fabricates a mark. SVG locals are intentionally NOT returned —
+    Pillow cannot rasterize SVG (see lockup.py for the SVG-aware path).
+    """
+    key = normalize_overlay_retailer(name)
+    if key is None or key in COPY_ONLY_RETAILERS or key not in OVERLAY_RETAILERS:
+        return None
+    filename = f"{key}.png" if variant == "color" else f"{key}-mono.png"
+    # 1) DAM-first: verbatim-key fetch into the tmp cache.
+    try:
+        from . import dam as _dam
+
+        dest = RETAILER_LOGO_CACHE_DIR / filename
+        hit = _dam.fetch_dam_key(dam_key_for_retailer(key, variant=variant), dest)
+        if hit is not None and hit.exists() and hit.stat().st_size > 0:
+            return hit
+    except Exception:  # noqa: BLE001 — DAM miss falls through to local, then None
+        pass
+    # 2) repo-local offline fallback (raster only).
+    local = (Path(logo_dir) if logo_dir else LOGO_DIR) / filename
+    try:
+        if local.exists() and local.stat().st_size > 0:
+            return local
+    except OSError:
+        pass
+    return None
+
 # preferred vector filename per retailer; png is a raster fallback only
 _LOGO_STEMS: dict[str, str] = {
     "costco": "costco",
