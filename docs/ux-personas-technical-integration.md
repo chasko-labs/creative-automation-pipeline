@@ -54,6 +54,48 @@ Shared power-user role — one owns storefront bundles, the other owns lifecycle
 
 ---
 
+### Adam Berberich — Senior Forward Deployed AI Engineer — Remote
+
+**Who he is:** Embedded with market teams where the pipeline meets real users. He takes the living Swagger and the managed control plane tools into the field — wiring `kodiak_pipeline_run` and `kodiak_reference_search` into whatever the local team already uses — and reports back what breaks outside Park City.
+
+**What that means for this pipeline:** Adam's interface is the same `POST /pipeline/run` plus the MCP tool surface at `.agents/mcp-kodiak-reference.json`. His test is deployment-shaped: a new market onboards with a brief YAML and a place row, no code changes, first preview inside one working session. When onboarding needs an engineer instead of a document, that gap is his finding, filed with the market name attached.
+
+**Pain he protects against:** A pipeline that only its authors can deploy. Every hardcoded market, every undocumented env var, every step that works on one laptop is a deployment failure he catches before a customer does.
+
+**How we show him we care:** The deploy runbooks (`docs/plans/`, `scripts/deploy-frontier.sh`) are tested paths, not folklore — he runs them verbatim on a fresh checkout. Failures get fixed in the script, not explained in chat.
+
+**Sprint anchor:** Own the localized-market onboarding path his findings define; sign off that a new persona city onboards without author intervention.
+
+---
+
+### Ryan Street — Senior Forward Deployed AI Engineer — Remote
+
+**Who he is:** Pairs with Adam on field deployments, leaning toward evaluation: does the output hold up in the market it claims? He runs the generated assets past the persona bars — spelling, marks, locality, provenance — and treats every miss as a pipeline defect with a market tag.
+
+**What that means for this pipeline:** Ryan lives in the receipts: `report.json`, `preview.html`, `nova-act-report.json`, the provenance panel. His loop is generate → verify against the card → file or close. The not-nova-act localized suite (`test_r5_kodiak_localized.py`) is his standing army — city × frontier assertions that run without him watching.
+
+**Pain he protects against:** Demos that pass and deployments that fail. A tile that renders in Park City and breaks in Las Cruces is his catch, and the suite carries it after he moves on.
+
+**How we show him we care:** Every preview carries its provenance on its face — engine per tile, seed, season pairing, copy path — so verification never needs a maintainer on call. Silence is never the delivered state.
+
+**Sprint anchor:** Hold the adversarial bar for the diamond sprint: nothing merges that his checks would flag, or it ships with his filed follow-up attached.
+
+---
+
+### Drew Robinson — Forward Deployed AI Architect — Remote
+
+**Who he is:** Designs how the pipeline lands inside customer systems — where the Lambda ends and their stack begins, what the data contracts guarantee, how the factory library and the live path stay decoupled. He draws the boxes the deploy engineers stand inside.
+
+**What that means for this pipeline:** Drew's artifacts are the architecture docs (`docs/bedrock-agentcore-architecture.md`, the SPEC-reference-library pattern): lever matrix, interface contracts, the rule that the factory never pushes into a live request. His review question for any change is what it does to the contract — new fields, new failure modes, new couplings — and the answer ships in the diff.
+
+**Pain he protects against:** Architecture by accretion: five seasons of special cases nobody can draw. When the season table grows from 4 to 26, he checks the growth is table-shaped (data + reasons) rather than branch-shaped (ifs per holiday).
+
+**How we show him we care:** Contracts are versioned and written down before code lands (`recipe-card@v1` pattern) — the schema exists before the implementation references it, and the plan names the shape before the sprint starts.
+
+**Sprint anchor:** Approve the season-26 table shape and the farms/coops schema before builders land them; own the contract review on every diamond-sprint merge.
+
+---
+
 ### External Agency Partners — Contracted Software Engineers and Solutions Architects (Shopify Plus Agency or Integration Consultancy)
 
 **Who they are:** Because Kodiak keeps heavy engineering outside the house, a third-party Shopify Plus agency or integration shop writes the actual webhooks, handles the `Authorization: Bearer ...` and `X-Shopify-Hmac-SHA256` proof, and keeps the interface endpoints breathing at 3 a.m. They never keep credentials on disk — they read from `aws secretsmanager GetSecretValue` at ` /heraldstack/shared/...` never from a file.

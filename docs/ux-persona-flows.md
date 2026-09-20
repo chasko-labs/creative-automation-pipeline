@@ -55,10 +55,13 @@ market-chain-ratio; works offline on a field phone.
 Fails today: four marks ingested, three missing; overlay wiring merged but
 not dev-verified; offline path untested this sprint.
 
-## 6. Technical Integration (John, Landon/Micah, Arnoldo, agency partners)
+## 6. Technical Integration (John, Landon/Micah, Arnoldo, agency partners, Adam, Ryan, Drew)
 
 Flow: drive the tool or the API (`POST /pipeline/run`, MCP tools) → read
 Swagger/report/preview as the contract → integrate downstream.
+Adam deploys it into a new market with a brief YAML and a place row, no code;
+Ryan verifies the output against the persona bars and files misses with market
+tags; Drew approves the contract shape before it lands.
 Bar: if a line isn't callable it isn't shippable; same JSON in CLI, API,
 and MCP; no mock reported as success.
 Fails today: 16 skips on system python (fixed: project venv runs 787/0/0);
