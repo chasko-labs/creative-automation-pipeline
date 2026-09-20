@@ -1133,8 +1133,8 @@
       var rec = { id:id, name:label, kind:kind, source:'dam', key:key, url:it.url, category:cat };
       window.__userAssets.push(rec);
       try{ if(typeof window.__kodiakMarkDirty === 'function') window.__kodiakMarkDirty(); }catch(e){}
-      // a staged DAM pick satisfies the riff cue — clear the visible note (it reappears
-      // only if the riff card is re-checked with no pick staged).
+      // a staged DAM pick satisfies the riff cue — clear the visible note (it re-shows
+      // when the staged pick is removed with riff still checked, or on re-check with no pick staged).
       try{ if(typeof window.__kodiakRefreshRiffCue === 'function') window.__kodiakRefreshRiffCue(); }catch(e){}
 
       var thumbNode;

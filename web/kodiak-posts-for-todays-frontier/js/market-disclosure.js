@@ -496,6 +496,7 @@
       if(chip.parentNode) chip.parentNode.removeChild(chip);
       refreshUserAssetMarker();
       try{ if(typeof window.__kodiakMarkDirty === 'function') window.__kodiakMarkDirty(); }catch(e){}
+      try{ if(typeof window.__kodiakRefreshRiffCue === 'function') window.__kodiakRefreshRiffCue(); }catch(e){}
     });
     if(thumbNode) chip.appendChild(thumbNode);
     chip.appendChild(nm); chip.appendChild(rm);

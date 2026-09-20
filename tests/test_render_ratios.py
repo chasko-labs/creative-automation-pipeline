@@ -64,6 +64,72 @@ def _stub_base_hero(**kwargs):
     return out, "stub:base", prov
 
 
+def _stub_preview_hero(**kwargs):
+    out = Path(kwargs["out_path"])
+    out.parent.mkdir(parents=True, exist_ok=True)
+    Image.new("RGB", (1080, 1080), (10, 20, 30)).save(out, "PNG")
+    return out, "stub:primary", {"headline": "", "theme": None}
+
+
+def _stub_upload_factory(fail_ratio=None, fail_exc=RuntimeError("boom")):
+    def _stub_upload(s3, r, download_name, platforms=None):
+        if r["ratio"] == fail_ratio:
+            raise fail_exc
+        return {
+            "ratio": r["ratio"],
+            "image_url": f"https://example.test/{r['ratio']}.png",
+            "s3_uri": f"s3://test-bucket/{r['ratio']}.png",
+            "w": r["w"],
+            "h": r["h"],
+            "platforms": [],
+        }
+
+    return _stub_upload
+
+
+def test_preview_skips_pad_on_missing_ratio_dims_key(monkeypatch):
+    # Sprint-2 backend item 1: a RATIO_DIMS miss degrades the pad to
+    # pad_degraded["blog"] == "KeyError" and the 1x1 preview still ships.
+    from creative_automation import generate_lambda as lambda_mod
+    from creative_automation.platforms import RATIO_DIMS
+
+    monkeypatch.setattr(lambda_mod, "generate_hero", _stub_preview_hero)
+    monkeypatch.setattr(lambda_mod, "_s3_client", lambda: object())
+    monkeypatch.setattr(lambda_mod, "_upload_render", _stub_upload_factory())
+    dims = dict(RATIO_DIMS)
+    dims.pop("blog", None)
+    monkeypatch.setattr(lambda_mod, "RATIO_DIMS", dims)
+
+    payload = lambda_mod._handle_preview({"product": "power-cakes", "region": "us"}, "test brief")
+
+    assert payload["ok"] is True
+    shipped = [e["ratio"] for e in payload["renders"]]
+    assert "1x1" in shipped
+    assert "blog" not in shipped
+    assert payload["provenance"]["pad_degraded"]["blog"] == "KeyError"
+
+
+def test_preview_partial_upload_ships_partial_renders(monkeypatch):
+    # Sprint-2 backend item 2: a failed tile upload yields partial renders[]
+    # with provenance ratios matching exactly the shipped tiles + an upload entry.
+    from creative_automation import generate_lambda as lambda_mod
+
+    monkeypatch.setattr(lambda_mod, "generate_hero", _stub_preview_hero)
+    monkeypatch.setattr(lambda_mod, "_s3_client", lambda: object())
+    monkeypatch.setattr(
+        lambda_mod, "_upload_render", _stub_upload_factory(fail_ratio="9x16")
+    )
+
+    payload = lambda_mod._handle_preview({"product": "power-cakes", "region": "us"}, "test brief")
+
+    assert payload["ok"] is True
+    shipped = [e["ratio"] for e in payload["renders"]]
+    assert "1x1" in shipped
+    assert "9x16" not in shipped
+    assert set(payload["provenance"]["ratios"]) == set(shipped)
+    assert payload["provenance"]["pad_degraded"]["9x16"].startswith("upload-")
+
+
 def test_hero_set_returns_four_ratios_in_order_on_canvas(tmp_path, monkeypatch):
     # Offline: stubbed base hero + headline, stability rung off so talls/wides
     # take the deterministic Pillow pad — the ratio loop itself is real.

@@ -221,7 +221,7 @@ let skuList = [
     var lines = [];
     var rung = env.rung || '';
     lines.push('Rung: ' + (RUNG_LABELS[rung] || 'not reported'));
-    var eng = (env.engine && ENGINE_LABELS[env.engine]) || env.engine || '';
+    var eng = (typeof env.engine === 'string' && (ENGINE_LABELS[env.engine] || env.engine)) || '';
     lines.push('Engine: ' + (eng || 'not reported'));
     if(env.seed_selection || env.seed_source){
       lines.push('Seed: ' + [env.seed_selection, env.seed_source ? 'via ' + env.seed_source : null].filter(Boolean).join(' '));

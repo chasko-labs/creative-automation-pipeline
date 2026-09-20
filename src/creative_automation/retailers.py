@@ -107,6 +107,27 @@ def normalize_overlay_retailer(name: str) -> str | None:
     return hit
 
 
+def _pillow_verified(path: Path) -> bool:
+    """True when path decodes as a real image via Pillow. False otherwise.
+
+    Guards BOTH mark sources (the DAM /tmp cache and the repo-local logo_dir):
+    a cache entry or local file that is missing, empty, truncated, or plain
+    garbage bytes resolves to None downstream so the render ships clean and
+    the defect surfaces as an unresolved layer, never a paste-time blowup.
+    Never raises.
+    """
+    try:
+        from PIL import Image as _Image
+
+        with _Image.open(path) as im:
+            im.verify()
+        with _Image.open(path) as im:
+            im.load()
+        return True
+    except Exception:  # noqa: BLE001 — garbage bytes resolve None, never raise
+        return False
+
+
 def dam_key_for_retailer(key: str, *, variant: str = "color") -> str:
     """Full verbatim DAM key for a retailer mark.
 
@@ -131,8 +152,9 @@ def resolve_retailer_logo(
     retailers (kroger/heb/whole-foods), subscription, and unknown names all
     resolve to None — their direction ships as the copy-sidecar line only.
 
-    Offline-safe and never fatal: S3-disabled, missing objects, and unreadable
-    files all fall through to None so the render ships clean. Never raises,
+    Offline-safe and never fatal: S3-disabled, missing objects, unreadable files,
+    and garbage bytes (Pillow-verified on BOTH the tmp-cache hit and the local
+    file) all fall through to None so the render ships clean. Never raises,
     never fabricates a mark. SVG locals are intentionally NOT returned —
     Pillow cannot rasterize SVG (see lockup.py for the SVG-aware path).
     """
@@ -146,14 +168,14 @@ def resolve_retailer_logo(
 
         dest = RETAILER_LOGO_CACHE_DIR / filename
         hit = _dam.fetch_dam_key(dam_key_for_retailer(key, variant=variant), dest)
-        if hit is not None and hit.exists() and hit.stat().st_size > 0:
+        if hit is not None and hit.exists() and hit.stat().st_size > 0 and _pillow_verified(hit):
             return hit
     except Exception:  # noqa: BLE001 — DAM miss falls through to local, then None
         pass
     # 2) repo-local offline fallback (raster only).
     local = (Path(logo_dir) if logo_dir else LOGO_DIR) / filename
     try:
-        if local.exists() and local.stat().st_size > 0:
+        if local.exists() and local.stat().st_size > 0 and _pillow_verified(local):
             return local
     except OSError:
         pass

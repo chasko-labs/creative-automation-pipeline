@@ -2071,6 +2071,34 @@ def normalize_layers(layers: dict | None) -> dict | None:
     return norm
 
 
+def _ensure_writable_out_path(out_path: Path, provenance: dict) -> Path:
+    """Redirect an unwritable render target to a tmp fallback. Never raises.
+
+    Ladder contract: an unwritable out_dir degrades to a recorded tmp fallback
+    (provenance["out_dir_degrade"] names requested vs actual + reason) and the
+    ladder still lands on a real-pixel rung — never an uncaught OSError/500.
+    A writable target is returned unchanged with no provenance touched.
+    """
+    candidate = Path(out_path)
+    try:
+        candidate.parent.mkdir(parents=True, exist_ok=True)
+        return candidate
+    except OSError as e:  # noqa: BLE001 — degrade to tmp, never raise
+        import tempfile
+
+        print(
+            f"[generate] out_dir unwritable ({candidate.parent}): {e} -> tmp fallback",
+            file=sys.stderr,
+        )
+        fallback = Path(tempfile.mkdtemp(prefix="kodiak-hero-")) / candidate.name
+        provenance["out_dir_degrade"] = {
+            "requested": str(candidate),
+            "actual": str(fallback),
+            "reason": f"{type(e).__name__}: {e}",
+        }
+        return fallback
+
+
 def _resolve_retailer_mark(slug: str) -> Path | None:
     """Best-effort raster retailer mark for a slug. None when missing/unusable.
 
@@ -2496,6 +2524,10 @@ def generate_hero(
         "clean": layers is not None,
         "copy_headline": None,
     }
+    # Unwritable out_dir degrades to a recorded tmp fallback HERE so every rung
+    # below (A bg composite, B restyle, C compose, D floor) writes the usable
+    # path — the ladder still lands on real pixels, never an uncaught OSError.
+    out_path = _ensure_writable_out_path(out_path, provenance)
 
     def _seal(reason: str | None = None) -> None:
         """Record the elapsed clock (and an optional fallthrough reason) into provenance."""
@@ -2897,7 +2929,28 @@ def generate_hero(
     # fail, no fallthrough. This is why 503 is unreachable from a well-formed POST.
     if provenance["fallthrough_reason"] is None:
         provenance["fallthrough_reason"] = "no-seed"
-    floor = _brand_floor(product_name, ratio, out_path)
+    try:
+        floor = _brand_floor(product_name, ratio, out_path)
+    except OSError as e:
+        # Late write failure (read-only dir: the top-of-ladder mkdir probe
+        # passed because the dir exists, but the save is denied) — one recorded
+        # tmp retry so rung D still lands, never an uncaught 500.
+        import tempfile
+
+        print(
+            f"[generate] rung D save failed ({out_path}): {e} -> tmp fallback",
+            file=sys.stderr,
+        )
+        out_path = Path(out_path)
+        prior = provenance.get("out_dir_degrade")
+        requested = str(prior.get("requested")) if isinstance(prior, dict) else str(out_path)
+        out_path = Path(tempfile.mkdtemp(prefix="kodiak-hero-")) / out_path.name
+        provenance["out_dir_degrade"] = {
+            "requested": requested,
+            "actual": str(out_path),
+            "reason": f"{type(e).__name__}: {e}",
+        }
+        floor = _brand_floor(product_name, ratio, out_path)
     provenance["engine"] = "brand-floor"
     provenance["rung"] = "D"
     provenance["model"] = "pillow:brand-floor"
@@ -2974,6 +3027,35 @@ def generate_hero_set(
     def _set_remaining_ms() -> float:
         return GENERATE_SOFT_BUDGET_MS - (time.monotonic() - _request_start) * 1000.0
 
+    # Unwritable out_dir degrades to a recorded tmp fallback (same ladder contract
+    # as generate_hero) — the set still ships every ratio, never an uncaught 500.
+    # Real write probe (not just mkdir): a read-only existing dir passes mkdir
+    # but denies saves, so write + delete a sentinel to prove writability.
+    _set_out_requested = Path(out_dir)
+    _set_probe: dict = {}
+    _set_probed = _ensure_writable_out_path(_set_out_requested / ".keep", _set_probe)
+    out_dir = _set_probed.parent
+    try:
+        out_dir.mkdir(parents=True, exist_ok=True)
+        _sentinel = out_dir / ".writability-probe"
+        _sentinel.write_bytes(b"ok")
+        _sentinel.unlink()
+    except OSError as e:  # noqa: BLE001 — read-only dir: degrade to tmp, never raise
+        import tempfile
+
+        print(
+            f"[generate] set out_dir not writable ({out_dir}): {e} -> tmp fallback",
+            file=sys.stderr,
+        )
+        out_dir = Path(tempfile.mkdtemp(prefix="kodiak-set-"))
+        _set_probe["out_dir_degrade"] = {
+            "requested": str(_set_out_requested),
+            "actual": str(out_dir),
+            "reason": f"{type(e).__name__}: {e}",
+        }
+    if "out_dir_degrade" in _set_probe:
+        _set_probe["out_dir_degrade"]["requested"] = str(_set_out_requested)
+        _set_probe["out_dir_degrade"]["actual"] = str(out_dir)
     # Clean 1x1 base: engine runs once, overlays OFF, so the base is a pristine hero to
     # outpaint from (overlays are applied per-ratio below, after sizing).
     base_path = out_dir / "hero-1x1-base.png"
@@ -2999,6 +3081,8 @@ def generate_hero_set(
     )
     provenance["layers"] = provenance_layers
     provenance["clean"] = provenance_layers is not None
+    if "out_dir_degrade" in _set_probe:
+        provenance.setdefault("out_dir_degrade", _set_probe["out_dir_degrade"])
 
     # The set headline re-runs the full pipeline (grounded director first, stock
     # Nova normalized second) on the clean base — the base hero call above ran

@@ -80,15 +80,31 @@ def normalize_season(value: object) -> str | None:
 
 
 def season_for_month(ym: str | None) -> str | None:
-    """Meteorological season for an ISO 'YYYY-MM' month, or None when unparseable.
+    """Meteorological season for an ISO 'YYYY-MM' month or full 'YYYY-MM-DD'
+    date, or None when unparseable.
 
     12/01/02 winter, 03-05 spring, 06-08 summer, 09-11 fall. Never raises: a bad
-    month string yields None (caller falls back to the static default).
+    month string yields None (caller falls back to the static default). A day
+    part, when present, must be 1-31 (calendar-validity beyond that is the
+    caller's business); anything else yields None.
     """
     if not ym or not isinstance(ym, str):
         return None
+    parts = ym.strip().split("-")
     try:
-        month = int(ym.strip().split("-")[-1])
+        if len(parts) == 1:
+            month = int(parts[0])
+        elif len(parts) == 2:
+            int(parts[0])  # year must be numeric, like the YYYY-MM contract
+            month = int(parts[1])
+        elif len(parts) == 3:
+            int(parts[0])  # year must be numeric, like the YYYY-MM-DD contract
+            month = int(parts[1])
+            day = int(parts[2])
+            if not 1 <= day <= 31:
+                return None
+        else:
+            return None
     except (ValueError, IndexError):
         return None
     if month in (12, 1, 2):

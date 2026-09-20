@@ -16,6 +16,10 @@ const generate = readFileSync(
   resolve(root, 'web/kodiak-posts-for-todays-frontier/js/generate.js'),
   'utf8',
 );
+const market = readFileSync(
+  resolve(root, 'web/kodiak-posts-for-todays-frontier/js/market-disclosure.js'),
+  'utf8',
+);
 const css = readFileSync(
   resolve(root, 'web/kodiak-posts-for-todays-frontier/design/components.css'),
   'utf8',
@@ -73,6 +77,18 @@ describe('riff-without-asset visible cue', () => {
   it('cue clears on uncheck, on clear-all, and once a DAM pick is staged', () => {
     expect(chips).toMatch(/if\(slug === 'riff-on-past-content'\)/);
     expect(chips).toMatch(/__clearActiveTheme[^]*refreshRiffCue\(\)/);
+    expect(chips).toMatch(/__kodiakRefreshRiffCue/);
+  });
+
+  it('removing the staged pick re-shows the cue when riff is still checked', () => {
+    // the shared tray-chip remove handler (market-disclosure buildChip, used by DAM
+    // staging too) refreshes the cue right after filtering __userAssets.
+    expect(market).toMatch(/window\.__userAssets = window\.__userAssets\.filter\(function\(a\)\{ return a\.id!==rec\.id; \}\)/);
+    const rmAt = market.indexOf('window.__userAssets = window.__userAssets.filter(function(a){ return a.id!==rec.id; })');
+    expect(rmAt).toBeGreaterThan(-1);
+    const rmBlock = market.slice(rmAt, rmAt + 600);
+    expect(rmBlock).toMatch(/__kodiakRefreshRiffCue/);
+    // staging a DAM pick still clears the cue via the same hook.
     expect(chips).toMatch(/__kodiakRefreshRiffCue/);
   });
 

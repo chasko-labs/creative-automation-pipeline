@@ -75,6 +75,22 @@ describe('engine-key contract and origin', () => {
     expect(absent).toContain('Origin: not reported');
   });
 
+  it('non-string engine values read as not reported, matching the badge guard', () => {
+    for (const bad of [42, 0, true, {}, [], null, undefined]) {
+      const lines = window.KODIAK_provenanceHeuristics({ rung: 'B', engine: bad, fallthrough_reason: '' });
+      expect(lines[1]).toBe('Engine: not reported');
+    }
+    // string engines still pass through (known label or honest raw value).
+    expect(window.KODIAK_provenanceHeuristics({ rung: 'B', engine: 'stability-restyle' })[1])
+      .toBe('Engine: Stability restyle (GenAI)');
+    expect(window.KODIAK_provenanceHeuristics({ rung: 'B', engine: 'custom-engine' })[1])
+      .toBe('Engine: custom-engine');
+    // badge guard parity: non-string engine contributes no engine segment.
+    const rb = window.KODIAK_rungBadge('src', { rung: 'B', engine: 42, origin: 'backend', fallthrough_reason: '' });
+    expect(rb.text).not.toMatch(/42/);
+    expect(rb.text).toMatch(/backend/);
+  });
+
   it('rung badge surfaces rung, engine, and origin', () => {
     const rb = window.KODIAK_rungBadge(
       'bedrock:stability-control-structure',

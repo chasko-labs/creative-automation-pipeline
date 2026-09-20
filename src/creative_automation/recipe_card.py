@@ -330,6 +330,21 @@ def _pick_recipe_detail(
     if product:
         subject |= _tokens(product)
     if not subject:
+        # DECISION (sprint-2 items 8+9): an empty ingredient+product still serves
+        # the season-table pick when a season resolves (explicit request or
+        # month, including full YYYY-MM-DD dates) instead of (None, "none").
+        # With no resolvable season there is nothing to pair, so the honest
+        # (None, "none") stands rather than inventing a pick.
+        if resolved["season"] is not None:
+            table_recipe = _season_fallback_recipe(season, month)
+            if table_recipe is not None:
+                pairing = _seasons.pairing_for_season(resolved["season"])
+                return table_recipe, {
+                    "season": resolved["season"],
+                    "source": pairing["source"],
+                    "recipe_id": table_recipe.get("id"),
+                    "reason": pairing["reason"],
+                }
         return None, {
             "season": resolved["season"],
             "source": "none",
@@ -442,9 +457,10 @@ def _pick_recipe(
     best-overlap winner exactly.
 
     season: optional structured season request (spring|summer|fall|winter). Only
-    consulted when nothing matches the ingredient (zero token overlap): the
-    season-indexed pairing table serves the pick, with the static default as
-    last resort. Free brief text is never consulted (display-only for pairing).
+    consulted when nothing matches the ingredient (zero token overlap, or an
+    empty ingredient+product with a resolvable season): the season-indexed
+    pairing table serves the pick, with the static default as last resort.
+    Free brief text is never consulted (display-only for pairing).
     """
     recipe, _pairing = _pick_recipe_detail(ingredient, product, market, month, season)
     return recipe

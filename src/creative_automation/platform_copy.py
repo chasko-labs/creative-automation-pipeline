@@ -171,17 +171,42 @@ _BARE_BRAND_RE = re.compile(
     r"(?!\s+(Cakes?|Park\s+City))",
     re.IGNORECASE,
 )
-_LEGACY_MARK_RE = re.compile(r"\s*(\(R\)|®)")
+# DECISION 2026-09-20 (sprint-2 item 5): clean_brand_copy strips ALL registered
+# forms to the clean ascii name — "Kodiak Cakes(R)"/"KODIAK CAKES(R)"/"Kodiak
+# Cakes (R)"/"Kodiak Cakes(R)"-with-glyph, bare "KODIAK(R)"/"KODIAK(R)". All-caps
+# multiword marks ("KODIAK CAKES", "KODIAK PARK CITY") title-case to the allowed
+# namings (standing law: the word KODIAK never ships in copy outside hashtags);
+# a trailing mark after an allowed naming is dropped, never kept. Hashtag
+# tokens (#KodiakCakes) pass through untouched — hashtags contain no spaces so
+# the multiword patterns below can never match inside one.
+_ALLOWED_CAKES_RE = re.compile(
+    r"(?<![#\w])[Kk][Oo][Dd][Ii][Aa][Kk]\s+[Cc][Aa][Kk][Ee][Ss]\b",
+    re.IGNORECASE,
+)
+_ALLOWED_PARK_CITY_RE = re.compile(
+    r"(?<![#\w])[Kk][Oo][Dd][Ii][Aa][Kk]\s+[Pp][Aa][Rr][Kk]\s+[Cc][Ii][Tt][Yy]\b",
+    re.IGNORECASE,
+)
+_LEGACY_MARK_RE = re.compile(r"\s*(\(R\)|\(TM\)|®|™)", re.IGNORECASE)
+_ALLOWED_WITH_MARK_RE = re.compile(
+    r"Kodiak\s+Cakes?\s*(\(R\)|\(TM\)|®|™)|Kodiak\s+Park\s+City\s*(\(R\)|\(TM\)|®|™)",
+    re.IGNORECASE,
+)
 
 
 def clean_brand_copy(text: str) -> str:
-    """Rewrite every bare Kodiak/KODIAK to the allowed "Kodiak Cakes" naming.
+    """Normalize every registered brand form to the clean ascii naming.
 
-    Hashtag tokens (#KodiakCakes), "Kodiak Cakes", and "Kodiak Park City" pass
-    through untouched; surrounding words are never reworded. Idempotent.
+    "Kodiak Cakes(R)", "KODIAK CAKES(R)", "Kodiak Cakes(R)", bare "KODIAK(R)" /
+    "KODIAK(R)" all become "Kodiak Cakes"; "Kodiak Park City(R)"/"KODIAK PARK
+    CITY(R)" keep the allowed naming with the mark dropped. Hashtag tokens
+    (#KodiakCakes), the clean namings, and surrounding words pass through
+    untouched. Idempotent.
     """
     if not text:
         return text
+    text = _ALLOWED_CAKES_RE.sub(BRAND_NAME, text)
+    text = _ALLOWED_PARK_CITY_RE.sub("Kodiak Park City", text)
     out: list[str] = []
     pos = 0
     for m in _BARE_BRAND_RE.finditer(text):
@@ -192,7 +217,11 @@ def clean_brand_copy(text: str) -> str:
         if mark:
             pos = mark.end()
     out.append(text[pos:])
-    return "".join(out)
+    text = "".join(out)
+    text = _ALLOWED_WITH_MARK_RE.sub(
+        lambda m: "Kodiak Park City" if m.group(2) else BRAND_NAME, text
+    )
+    return text
 
 
 def _enforce_brand_mark(text: str) -> str:

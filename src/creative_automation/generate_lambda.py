@@ -7,6 +7,7 @@ import json
 import os
 import re
 import sys
+import time
 import zipfile
 from datetime import UTC, datetime
 from pathlib import Path
@@ -15,14 +16,20 @@ from uuid import uuid4
 
 import boto3
 from botocore.config import Config
+from botocore.exceptions import ConnectTimeoutError, ReadTimeoutError
 from PIL import Image
 
 from . import dam_library, text_rewriter
 from .generate import (
+    GENERATE_SOFT_BUDGET_MS,
     _apply_brand_overlay,
     _brand_floor,
     _finalize_render,
+    _OUTPAINT_BUDGET_MS,
+    _OUTPAINT_RESERVE_MS,
     _pillow_outpaint_fallback,
+    _STABILITY_RUNG_ON,
+    _stability_outpaint,
     _recipe_card_defaults,
     _safe_prompt_text,
     _validate_recipe_fields,
@@ -47,23 +54,37 @@ from .platforms import PLATFORMS, RATIO_DIMS
 # 100% of the time. generate_hero runs a never-fail degradation ladder A->B->C->D whose
 # floor (rung D, brand-floor) does zero network I/O and cannot fail, so the old "38s then
 # 503" path is gone — a slow/absent Bedrock is a fall-through to rung C (pillow-compose),
-# not an error. The interactive PREVIEW mode runs ONE 1x1 hero (plus four server-side
-# Pillow pads: 4x5, 9x16, 16x9, blog) under the 24s internal soft budget (well inside
-# API Gateway's hard 30s cap); FULL mode keeps the complete GenAI-composed set
-# + localization + platform copy for the async pack builder. Default is preview so the
-# interactive endpoint stays fast. The ONLY non-200 is a 400 for a malformed request body.
-# PREVIEW mode returns FIVE tiles: the ONE 1x1 hero plus server-side Pillow
-# cover-pads (4x5, 9x16, 16x9, blog) — still one model call, still well inside the
-# soft budget; only the composed GenAI outpaints stay deferred to FULL mode.
+# not an error. The interactive PREVIEW mode runs ONE 1x1 hero plus four derived
+# tiles (9x16/16x9 attempt a live outpaint behind the preview budget gate, every
+# gated-out tile ships its Pillow pad) under the 24s internal soft budget (well
+# inside API Gateway's hard 30s cap); FULL mode keeps the complete GenAI-composed
+# set + localization + platform copy for the async pack builder. Default is
+# preview so the interactive endpoint stays fast. The ONLY non-200 is a 400 for
+# a malformed request body.
+# PREVIEW mode returns FIVE tiles: the ONE 1x1 hero plus the derived tiles —
+# still well inside the soft budget; pads stay the fallback for every gated-out
+# ratio, so the wall guarantee holds with or without a live extend.
 PREVIEW_MODE = "preview"
 FULL_MODE = "full"
 
 # Preview tile set: the 1x1 primary first (top-level image_url back-compat +
-# eager-load order unchanged) plus the four cover-pads. Every non-1x1 tile is a
-# server-side Pillow cover-pad of the finished 1x1 — zero extra model calls —
-# so the preview matches the resting five sizes. Dims come from the platform
-# matrix SoT (platforms.RATIO_DIMS, issue #201 item 3), never a second table.
+# eager-load order unchanged) plus the four derived tiles. 4x5/blog are always
+# server-side Pillow cover-pads of the finished 1x1 — zero extra model calls.
+# 9x16/16x9 attempt a live Stability outpaint extend of the finished 1x1 when
+# the preview budget gate passes (sprint-2 item 11), else the same Pillow pad —
+# pads stay the fallback on every path, never an error. Dims come from the
+# platform matrix SoT (platforms.RATIO_DIMS, issue #201 item 3), never a second
+# table.
 _PREVIEW_PAD_RATIOS = ("4x5", "9x16", "16x9", "blog")
+# Preview tiles eligible for a live outpaint extend. 4x5 stays a deterministic
+# pad (mirrors generate_hero_set: at most the two tall/wide extends ever run);
+# blog (1200x630 OG hero) is a downscale of the 1x1, never an extend.
+_PREVIEW_OUTPAINT_RATIOS = ("9x16", "16x9")
+
+
+def _preview_now() -> float:
+    """Preview wall-clock seam (time.monotonic). Monkeypatched in tests to move the clock."""
+    return time.monotonic()
 
 # STRUCTURAL OUTER-DEADLINE WALL (#118): the never-503 contract above relies on the
 # per-rung remaining_ms() budget gates inside generate_hero to abandon a stalled rung
@@ -1012,11 +1033,13 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     """Fast interactive path (default): ONE 1x1 control-structure hero, under 30s.
 
     Runs the single-ratio generate_hero (ratio=1x1, clean by default per the render
-    contract — copy ships as sidecars, kraft texture still baked) and SKIPS the two
-    serial Stability outpaint extends — those are the >30s killers and are deferred
-    to the async pack (FULL mode), which is the real multi-ratio image path
-    (generate_hero_set: 1x1 + 4x5 + 9x16 + 16x9 composed imagery). The preview keeps
-    ONE model call (the 1x1 hero); ratios beyond 1x1 stay deferred (see "deferred").
+    contract — copy ships as sidecars, kraft texture still baked) then derives the
+    other tiles server-side: 9x16/16x9 attempt ONE Stability outpaint extend each
+    behind the preview budget gate (sprint-2 item 11), 4x5/blog stay Pillow pads,
+    and every gated-out ratio falls back to its pad — pads stay the fallback, so
+    the preview keeps its wall guarantee while taking a live extend whenever one
+    provably fits alongside finalize/uploads. FULL mode remains the complete
+    multi-ratio image path (generate_hero_set: 1x1 + 4x5 + 9x16 + 16x9).
     Returns the SAME response shape the frontend expects (renders[] with the 1x1 entry,
     top-level image_url = the 1x1, source + provenance), so showRenderSet keeps working
     with a single-entry renders[].
@@ -1030,6 +1053,12 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     # Voice kicked FIRST so it overlaps the whole pixel ladder (~0s of wall —
     # see _VOICE_POOL contract above). Never serial after pixels.
     voice_fut = _kick_voice(data, prompt)
+    # Request-epoch clock for the preview outpaint gates below: the 1x1 hero
+    # spends most of the soft budget, so gates MUST measure from HERE (preview
+    # entry), not after the hero — same lesson as generate_hero_set
+    # (2026-09-08): a reset clock passes a doomed extend and the wall fires
+    # during finalize/uploads.
+    _preview_start = _preview_now()
     product = data.get("product", "power-cakes")
     theme = data.get("theme")
     # Multi-theme combo: optional "themes" list (or comma-separated string).
@@ -1065,19 +1094,90 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         w, h = im.size
     render = {"ratio": "1x1", "path": result_path, "w": w, "h": h}
 
-    # Five-tile parity: pad the finished 1x1 to every other size server-side.
-    # Pads derive from the FINALIZED 1x1; per-ratio marks re-seat via
-    # _finalize_render with paper_overlay=False. A pad never fails the
-    # preview: any per-ratio error keeps the 1x1 and is recorded, never raised.
+    # Five-tile parity: derive every other size server-side from the finished 1x1.
+    # 9x16/16x9 attempt a live Stability outpaint extend when the preview budget
+    # gate passes (sprint-2 item 11); every other outcome — gate fail, rung off,
+    # timeout, error, empty response — falls back to the Pillow cover-pad, same
+    # as 4x5/blog always do. Pads derive from the FINALIZED 1x1; per-ratio marks
+    # re-seat via _finalize_render with paper_overlay=False. A tile never fails
+    # the preview: any per-ratio error keeps the 1x1 and is recorded, never raised.
+    # The per-ratio gates below reuse the request-epoch _preview_start taken at
+    # preview entry, so remaining covers one outpaint PLUS the reserve for
+    # pads/overlays against the TRUE wall-clock remainder.
+    def _preview_remaining_ms() -> float:
+        return GENERATE_SOFT_BUDGET_MS - (_preview_now() - _preview_start) * 1000.0
+
     brand_overlay = bool(layers.get("overlay_text"))
     headline = provenance.get("headline") if isinstance(provenance, dict) else ""
+    # Raw subject for the outpaint extend prompt (_stability_outpaint wraps it in
+    # the frozen style sandwich). Reuses the hero's scene prompt so NO extra
+    # Bedrock call burns the wall; falls back to the brief when absent.
+    _preview_outpaint_subject = ""
+    if isinstance(provenance, dict):
+        _preview_outpaint_subject = str(provenance.get("scene_prompt") or "").strip()
+    if not _preview_outpaint_subject:
+        _preview_outpaint_subject = prompt
+    if isinstance(provenance, dict):
+        # Per-ratio outpaint books (measurement): gate-time remaining + extend
+        # latency + degrade reasons, all JSON-serializable. A slow ratio degrades
+        # to the pad — never blows the wall.
+        provenance.setdefault("outpaint_latency_ms", {})
+        provenance.setdefault("outpaint_degraded", {})
+        provenance.setdefault("outpaint_remaining_ms", {})
     pad_renders: list[dict[str, Any]] = []
     pad_engines: dict[str, str] = {}
     for pad_ratio in _PREVIEW_PAD_RATIOS:
-        pad_w, pad_h = RATIO_DIMS[pad_ratio]
-        pad_path = out_dir / f"hero-{pad_ratio}.png"
         try:
-            _pillow_outpaint_fallback(result_path, pad_w, pad_h, pad_path)
+            # DECISION: RATIO_DIMS lookup stays INSIDE the per-pad guard so an
+            # unknown ratio degrades to pad_degraded[pad_ratio]="KeyError" and
+            # the 1x1 preview still returns 200 — never a second dims table.
+            pad_w, pad_h = RATIO_DIMS[pad_ratio]
+            pad_path = out_dir / f"hero-{pad_ratio}.png"
+            pad_engine = "pillow-outpaint-fallback"
+            if pad_ratio in _PREVIEW_OUTPAINT_RATIOS:
+                _remaining = _preview_remaining_ms()
+                if isinstance(provenance, dict):
+                    provenance["outpaint_remaining_ms"][pad_ratio] = round(_remaining, 1)
+                if not _STABILITY_RUNG_ON:
+                    if isinstance(provenance, dict):
+                        provenance["outpaint_degraded"][pad_ratio] = "stability-rung-disabled"
+                    _pillow_outpaint_fallback(result_path, pad_w, pad_h, pad_path)
+                elif _remaining < _OUTPAINT_BUDGET_MS + _OUTPAINT_RESERVE_MS:
+                    if isinstance(provenance, dict):
+                        provenance["outpaint_degraded"][pad_ratio] = "budget-exhausted"
+                    _pillow_outpaint_fallback(result_path, pad_w, pad_h, pad_path)
+                else:
+                    _t0 = _preview_now()
+                    try:
+                        extended = _stability_outpaint(
+                            result_path, pad_w, pad_h,
+                            _preview_outpaint_subject, pad_path,
+                        )
+                    except (ReadTimeoutError, ConnectTimeoutError):
+                        extended = None
+                        if isinstance(provenance, dict):
+                            provenance["outpaint_degraded"][pad_ratio] = "bedrock-timeout"
+                    except Exception as e:  # noqa: BLE001 — throttle/sabotage degrades
+                        extended = None
+                        if isinstance(provenance, dict):
+                            provenance["outpaint_degraded"][pad_ratio] = (
+                                f"outpaint-error: {type(e).__name__}"
+                            )
+                    finally:
+                        if isinstance(provenance, dict):
+                            provenance["outpaint_latency_ms"][pad_ratio] = round(
+                                (_preview_now() - _t0) * 1000.0, 1
+                            )
+                    if extended is not None and pad_path.exists():
+                        pad_engine = "stability-outpaint"
+                    else:
+                        if isinstance(provenance, dict):
+                            provenance["outpaint_degraded"].setdefault(
+                                pad_ratio, "outpaint-unavailable"
+                            )
+                        _pillow_outpaint_fallback(result_path, pad_w, pad_h, pad_path)
+            else:
+                _pillow_outpaint_fallback(result_path, pad_w, pad_h, pad_path)
             if brand_overlay and headline:
                 try:
                     _apply_brand_overlay(pad_path, headline, pad_ratio, pad_path)
@@ -1088,7 +1188,7 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
             with Image.open(pad_path) as im:
                 pw, ph = im.size
             pad_renders.append({"ratio": pad_ratio, "path": pad_path, "w": pw, "h": ph})
-            pad_engines[pad_ratio] = "pillow-outpaint-fallback"
+            pad_engines[pad_ratio] = pad_engine
         except Exception as e:  # noqa: BLE001 — a lost pad degrades to fewer tiles
             print(f"[generate] preview pad {pad_ratio} failed, shipping without it: {e}",
                   file=sys.stderr)
@@ -1108,14 +1208,18 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         except Exception as e:  # noqa: BLE001 — a lost upload degrades to fewer tiles
             print(f"[generate] preview upload {pad['ratio']} failed, shipping without it: {e}",
                   file=sys.stderr)
+            # DECISION: a failed upload evicts the pad from pad_engines so
+            # provenance["ratios"] names exactly the shipped renders[] tiles.
+            pad_engines.pop(pad["ratio"], None)
             if isinstance(provenance, dict):
                 fallthrough = provenance.setdefault("pad_degraded", {})
                 if isinstance(fallthrough, dict):
                     fallthrough[pad["ratio"]] = f"upload-{type(e).__name__}"
 
     if isinstance(provenance, dict):
-        # the preview ships all five tiles; only the composed GenAI outpaints stay
-        # a download-pack (FULL mode) concern, deferred off the sync path.
+        # the preview ships all five tiles; per-ratio engines say which tiles are
+        # live outpaints vs pillow pads (pads stay the fallback for every gated-out
+        # ratio). FULL mode remains the complete composed-set path for the pack.
         provenance["ratios"] = {"1x1": "primary", **pad_engines}
         provenance["mode"] = PREVIEW_MODE
         provenance.pop("deferred", None)
@@ -1397,8 +1501,12 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
     if not isinstance(data, dict):
         return _response(400, {"ok": False, "error": "malformed request body: expected a JSON object"})
     # Pre-warm ping (EventBridge Scheduler, Unit 1): never touches the ladder.
-    if data.get("warm") == "art-director":
-        return _handle_warm(data)
+    # The Scheduler target input is the RAW payload {"warm": "art-director"} (no
+    # Function-URL body wrapper), so match the raw event shape too — _parse_body
+    # drops a body-less event without a "prompt" key to {}, which used to send
+    # every 4-minute ping down the full hero ladder instead of the warm path.
+    if data.get("warm") == "art-director" or event.get("warm") == "art-director":
+        return _handle_warm(data if data.get("warm") == "art-director" else event)
     try:
         prompt = (data.get("prompt") or "").strip()
         if not prompt:

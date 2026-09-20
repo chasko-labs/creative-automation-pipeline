@@ -288,3 +288,95 @@ def test_message_season_word_does_not_reroute_campaign_pairing(tmp_path):
     # ...while the structured season rides the pairing label
     assert card["pairing"]["season"] == "summer"
     assert card["pairing"]["reason"]
+
+
+# --------------------------------------------------------------------------- #
+# sprint-2 items 8+9: full ISO dates; empty product+season serves season table
+# --------------------------------------------------------------------------- #
+
+def test_season_for_month_accepts_full_iso_dates():
+    assert sp.season_for_month("2026-01-15") == "winter"
+    assert sp.season_for_month("2026-02-28") == "winter"
+    assert sp.season_for_month("2026-03-01") == "spring"
+    assert sp.season_for_month("2026-05-31") == "spring"
+    assert sp.season_for_month("2026-07-04") == "summer"
+    assert sp.season_for_month("2026-08-31") == "summer"
+    assert sp.season_for_month("2026-09-15") == "fall"
+    assert sp.season_for_month("2026-11-30") == "fall"
+    assert sp.season_for_month("2026-12-25") == "winter"
+    # YYYY-MM keeps working alongside the full date
+    assert sp.season_for_month("2026-09") == "fall"
+
+
+def test_season_for_month_rejects_bad_full_dates():
+    assert sp.season_for_month("2026-13-01") is None
+    assert sp.season_for_month("2026-01-00") is None
+    assert sp.season_for_month("2026-01-32") is None
+    assert sp.season_for_month("2026-01-15-extra") is None
+    assert sp.season_for_month("not-a-month") is None
+    assert sp.season_for_month("") is None
+    assert sp.season_for_month(202609) is None
+
+
+def test_resolve_season_accepts_full_iso_month():
+    assert sp.resolve_season(None, "2026-09-15") == {"season": "fall", "source": "month"}
+    assert sp.resolve_season(None, "2026-01-20") == {"season": "winter", "source": "month"}
+    assert sp.resolve_season("summer", "2026-01-20") == {"season": "summer", "source": "brief"}
+    assert sp.resolve_season(None, "2026-13-01") == {"season": None, "source": None}
+
+
+def test_empty_subject_with_season_serves_season_table():
+    from creative_automation.recipe_card import pick_recipe_with_provenance
+
+    recipe, pairing = pick_recipe_with_provenance("", None, season="fall")
+    assert recipe["id"] == "pumpkin-oat-muffins"
+    assert pairing == {
+        "season": "fall",
+        "source": "season-table",
+        "recipe_id": "pumpkin-oat-muffins",
+        "reason": sp.SEASON_RECIPE_PAIRINGS["fall"]["reason"],
+    }
+
+
+def test_empty_subject_with_full_date_month_serves_season_table():
+    from creative_automation.recipe_card import pick_recipe_with_provenance
+
+    recipe, pairing = pick_recipe_with_provenance("", "", month="2026-01-20")
+    assert recipe["id"] == "pear-spice-muffins-draft"
+    assert pairing["season"] == "winter"
+    assert pairing["source"] == "season-table"
+    assert pairing["recipe_id"] == recipe["id"]
+    assert pairing["reason"]
+
+
+def test_empty_subject_explicit_season_beats_month():
+    from creative_automation.recipe_card import pick_recipe_with_provenance
+
+    recipe, pairing = pick_recipe_with_provenance(
+        "", None, month="2026-01-20", season="summer"
+    )
+    assert recipe["id"] == "cherry-pie-bars"
+    assert pairing["season"] == "summer"
+    assert pairing["source"] == "season-table"
+
+
+def test_empty_subject_without_season_stays_none():
+    from creative_automation.recipe_card import pick_recipe_with_provenance
+
+    recipe, pairing = pick_recipe_with_provenance("", None)
+    assert recipe is None
+    assert pairing["source"] == "none"
+    assert pairing["recipe_id"] is None
+    assert pairing["season"] is None
+
+    # stop-words-only input has no pairing subject either
+    recipe, pairing = pick_recipe_with_provenance("the and", "mix")
+    assert recipe is None
+    assert pairing["source"] == "none"
+
+
+def test_empty_subject_legacy_picker_serves_season_table():
+    from creative_automation.recipe_card import _pick_recipe
+
+    assert _pick_recipe("", None, season="fall")["id"] == "pumpkin-oat-muffins"
+    assert _pick_recipe("", None) is None
