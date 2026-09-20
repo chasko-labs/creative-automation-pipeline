@@ -223,10 +223,11 @@ def test_download_filename_sanitizes_and_falls_back() -> None:
 # timeout. The full generate_hero_set chain (control-structure hero + 2 serial outpaint
 # extends + 3 localization rewrites + platform copy) runs ~35s and trips a 503, so the
 # frontend falls back to the local Pillow placeholder. PREVIEW mode (the new default)
-# returns the ONE 1x1 control-structure hero plus four server-side Pillow pads
-# (4x5, 9x16, 16x9, blog) — one model call, no GenAI outpaint, no live
-# localization, well under 30s. FULL mode preserves the composed set for the
-# async download-pack builder.
+# returns the ONE 1x1 control-structure hero plus four server-side derived tiles
+# (4x5, 9x16, 16x9, blog) — one model call for the hero, 9x16/16x9 attempt ONE live
+# outpaint extend each behind the preview budget gate (item 11) with Pillow pads as
+# the fallback, no live localization, well under 30s. FULL mode preserves the
+# composed set for the async download-pack builder.
 # --------------------------------------------------------------------------- #
 
 
@@ -262,25 +263,32 @@ def _stub_generate_hero(source: str, provenance: dict | None = None):
     return _stub
 
 
-def test_preview_mode_is_default_five_tiles_no_outpaint_no_localization(
+def test_preview_mode_is_default_five_tiles_gated_outpaint_pads_fallback(
     monkeypatch, tmp_path: Path
 ) -> None:
     # default (no "mode") is preview: FIVE renders (the 1x1 hero + four server-side
-    # Pillow pads: 4x5, 9x16, 16x9, blog), top-level image_url set, source +
-    # provenance present, and NEITHER the GenAI outpaint path NOR the localization
-    # rewrite chain is invoked (those are the >30s killers deferred to the async pack).
+    # derived tiles: 4x5, 9x16, 16x9, blog), top-level image_url set, source +
+    # provenance present. 9x16/16x9 attempt ONE live outpaint extend each behind the
+    # preview budget gate (item 11) — here the extend helper reports unavailable,
+    # so both tiles ship their Pillow pads with honest degrade reasons — while the
+    # LIVE localization rewrite chain is never invoked (those rows come from the
+    # offline chain). The spy patches generate_lambda's own outpaint binding (the
+    # name _handle_preview actually calls), not generate's module attribute.
     monkeypatch.setattr(
         generate_lambda, "generate_hero", _stub_generate_hero("bedrock:stability-control-structure")
     )
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
 
-    # spy the outpaint fn (imported in generate.py) — it must NOT be called in preview
-    from creative_automation import generate as gen_mod
-
+    # the outpaint gate runs on the preview path (item 11): the instant stub hero
+    # leaves budget, so both extends are attempted and degrade honestly when the
+    # helper reports unavailable — pads stay the fallback, never an error.
     outpaint_calls: list = []
-    monkeypatch.setattr(
-        gen_mod, "_stability_outpaint", lambda *a, **k: outpaint_calls.append(a) or None
-    )
+
+    def _unavailable(*a, **k):
+        outpaint_calls.append(a)
+        return None
+
+    monkeypatch.setattr(generate_lambda, "_stability_outpaint", _unavailable)
     # spy the localization seam — it must NOT be called on the sync preview path
     localize_calls: list = []
     monkeypatch.setattr(
@@ -319,8 +327,8 @@ def test_preview_mode_is_default_five_tiles_no_outpaint_no_localization(
         "16x9": "pillow-outpaint-fallback",
         "blog": "pillow-outpaint-fallback",
     }
-    # nothing deferred anymore: the preview ships every tile, only the composed
-    # GenAI outpaints stay a FULL-mode concern
+    # nothing deferred anymore: the preview ships every tile; 9x16/16x9 attempted
+    # the live extend behind the gate and fell back to pads on unavailability.
     assert "deferred" not in body["provenance"]
     assert body["provenance"]["mode"] == "preview"
     # Atlanta D/E/H: deterministic campaign messaging ships IN the preview —
@@ -333,9 +341,16 @@ def test_preview_mode_is_default_five_tiles_no_outpaint_no_localization(
     assert body["retailer"] is None
     assert body["recipe_fields"]["title"]
     assert "recipe.title" in body["copy_sidecar"]["csv"]
-    # the two >30s killers never ran on the preview path (outpaint + LIVE
-    # localization chain — the preview rows come from the offline chain)
-    assert outpaint_calls == []
+    # the gate was exercised, not skipped: both extends attempted exactly once,
+    # both degraded honestly to pads with per-ratio measurement recorded; the
+    # LIVE localization chain never ran (preview rows come from the offline chain).
+    assert len(outpaint_calls) == 2
+    assert body["provenance"]["outpaint_degraded"] == {
+        "9x16": "outpaint-unavailable",
+        "16x9": "outpaint-unavailable",
+    }
+    assert set(body["provenance"]["outpaint_latency_ms"]) == {"9x16", "16x9"}
+    assert set(body["provenance"]["outpaint_remaining_ms"]) == {"9x16", "16x9"}
     assert localize_calls == []
 
 

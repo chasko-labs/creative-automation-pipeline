@@ -1,15 +1,26 @@
 """Co-flag discipline + wall-budget composition for the voice enablement track.
 
-Pins the runtime halves (module-default dark voice; ENABLED prewarm is
-CDK-side in infra-cdk/lib/generate-stack.ts alongside KODIAK_ARTDIRECTOR_ENABLED)
-and proves the nested timeouts compose: the inner voice bound sits inside the
-outer wall, and the art-director retry loop's worst-case sleep sits inside the
-inner bound. Also proves the Scheduler raw-shape ping reaches the warm path
-(pre-warm wired) and that a scale-to-zero cold start warms inside the budget.
+Pins the runtime halves (module-default dark voice; the ON flip +
+ENABLED prewarm are CDK-side in infra-cdk/lib/generate-stack.ts alongside
+KODIAK_ARTDIRECTOR_ENABLED) and proves the nested timeouts compose: the
+inner voice bound sits inside the outer wall, and the art-director retry
+loop's worst-case sleep sits inside the inner bound. Also proves the
+Scheduler raw-shape ping reaches the warm path (pre-warm wired), that a
+scale-to-zero cold start warms inside the budget, and that the async voice
+upgrade (kicked concurrent voice + grace collect) upgrades provenance on a
+live line but never gates or breaks pixels on a slow/faulty voice.
 No AWS, no network. If anyone widens a retry or flips a default, this fails loudly.
+
+DECISION (carry-10): the flip stays deploy-scoped (CDK env true + Scheduler
+ENABLED); the module default stays dark (false). A module-ON default would
+run mock-voice in every offline/CI context and widen the blast radius, while
+the CDK flip keeps rollback at flag-off with pixels unaffected. No other
+defaults change here.
 """
 import json
 import os
+import threading
+from pathlib import Path
 
 from creative_automation import art_director, generate, generate_lambda
 
@@ -128,3 +139,110 @@ def test_cold_start_warms_inside_wall_budget(monkeypatch):
         + generate_lambda._VOICE_COLLECT_TIMEOUT_S
     )
     assert cold_cost < generate_lambda.GENERATE_WALL_TIMEOUT_S
+
+
+def test_fast_probe_shape():
+    # Fast probe, not the old long loop: exactly one warming retry (2 attempts
+    # x 2s sleep). Widening attempts would keep worst_sleep <= inner bound for
+    # a while but stop being a probe — pin the shape, not just the product.
+    assert art_director.RETRY_ATTEMPTS == 2
+    assert art_director.RETRY_SLEEP_SECONDS == 2
+
+
+def test_cdk_voice_flip_and_prewarm_on():
+    # Deploy-scoped flip (carry-10): the CDK stack ships the voice flag ON and
+    # the 4-minute pre-warm Scheduler rule ENABLED by default (opt-out only
+    # via `-c artDirectorPrewarm=off`). If either is silenced in IaC, the
+    # deploy loses voice + warm model while the runtime tests stay green —
+    # so pin the IaC text here.
+    root = Path(__file__).resolve().parent.parent
+    stack = (root / "infra-cdk" / "lib" / "generate-stack.ts").read_text()
+    assert 'KODIAK_ARTDIRECTOR_ENABLED: "true"' in stack
+    assert "rate(4 minutes)" in stack
+    assert ': "ENABLED"' in stack  # prewarm default arm of the off-context ternary
+
+
+def test_async_upgrade_records_live_line(monkeypatch):
+    # Flag on + live voice: the kicked concurrent voice resolves to a real
+    # line and the post-render collect records art_headline in provenance.
+    # This is the async-upgrade payoff — pixels already exist, voice upgrades.
+    monkeypatch.setattr(generate_lambda, "ART_DIRECTOR_ENABLED", True)
+    from creative_automation import art_director as _ad
+
+    monkeypatch.setattr(
+        _ad,
+        "art_direct",
+        lambda ask, voice="adventurous", **k: {
+            "text": "Lace up. Keep it wild.",
+            "source": "bedrock:kodiak-artdirector",
+        },
+    )
+    prompt = "morning fuel"
+    provenance: dict = {}
+    fut = generate_lambda._kick_voice({"voice": "adventurous"}, prompt)
+    assert fut is not None
+    generate_lambda._apply_art_upgrade_future(fut, {"voice": "adventurous"}, prompt, provenance)
+    assert provenance == {"art_headline": "Lace up. Keep it wild."}
+
+
+def test_async_upgrade_slow_voice_ships_pixels_voice_off(monkeypatch):
+    # A slow voice must never gate the render: the grace collect gives up fast
+    # and records nothing — pixels ship voice-off, no raise.
+    release = threading.Event()
+    from creative_automation import art_director as _ad
+
+    def _slow(ask, voice="adventurous", **k):
+        release.wait(30)
+        return {"text": "too late", "source": "bedrock:kodiak-artdirector"}
+
+    monkeypatch.setattr(_ad, "art_direct", _slow)
+    monkeypatch.setattr(generate_lambda, "ART_DIRECTOR_ENABLED", True)
+    provenance: dict = {}
+    try:
+        fut = generate_lambda._kick_voice({}, "morning fuel")
+        generate_lambda._apply_art_upgrade_future(
+            fut, {}, "morning fuel", provenance, timeout_s=0.05
+        )
+    finally:
+        release.set()
+    assert provenance == {}
+
+
+def test_voice_fault_falls_back_to_prompt_never_raises(monkeypatch):
+    # Faulty voice (Bedrock down, bad shape, anything) degrades to the
+    # original headline — never raises, never an empty headline — and the
+    # collect records nothing since the line equals the prompt.
+    monkeypatch.setattr(generate_lambda, "ART_DIRECTOR_ENABLED", True)
+    from creative_automation import art_director as _ad
+
+    def _fault(ask, voice="adventurous", **k):
+        raise RuntimeError("bedrock down")
+
+    monkeypatch.setattr(_ad, "art_direct", _fault)
+    prompt = "morning fuel"
+    assert generate_lambda._maybe_art_direct({}, prompt) == prompt
+    provenance: dict = {}
+    fut = generate_lambda._kick_voice({}, prompt)
+    generate_lambda._apply_art_upgrade_future(fut, {}, prompt, provenance)
+    assert provenance == {}
+
+
+def test_unknown_voice_falls_back_to_default(monkeypatch):
+    # A request voice outside the trained set never passes through raw — it
+    # rides the default voice, while a known voice passes through verbatim.
+    monkeypatch.setattr(generate_lambda, "ART_DIRECTOR_ENABLED", True)
+    from creative_automation import art_director as _ad
+
+    seen: list[str] = []
+
+    def _capture(ask, voice="adventurous", **k):
+        seen.append(voice)
+        return {"text": "Lace up. Keep it wild.", "source": "bedrock:kodiak-artdirector"}
+
+    monkeypatch.setattr(_ad, "art_direct", _capture)
+    generate_lambda._maybe_art_direct({"voice": "feral"}, "morning fuel")
+    generate_lambda._maybe_art_direct({"voice": "nourishing"}, "morning fuel")
+    assert seen == [
+        generate_lambda._ART_DIRECTOR_DEFAULT_VOICE,
+        "nourishing",
+    ]

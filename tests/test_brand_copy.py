@@ -92,6 +92,19 @@ def test_clean_brand_copy_strips_bare_registered_form():
     assert clean_brand_copy("Kodiak flapjacks") == "Kodiak Cakes flapjacks"
 
 
+def test_clean_brand_copy_strips_lowercase_tm_and_glyph_forms():
+    assert clean_brand_copy("Kodiak Cakes(r) flapjacks") == "Kodiak Cakes flapjacks"
+    assert clean_brand_copy("Kodiak Cakes(TM) flapjacks") == "Kodiak Cakes flapjacks"
+    assert clean_brand_copy("Kodiak Cakes™ flapjacks") == "Kodiak Cakes flapjacks"
+    assert clean_brand_copy("KODIAK CAKES(TM) flapjacks") == "Kodiak Cakes flapjacks"
+    assert clean_brand_copy("KODIAK CAKES™ flapjacks") == "Kodiak Cakes flapjacks"
+    assert clean_brand_copy("KODIAK(r) flapjacks") == "Kodiak Cakes flapjacks"
+    assert clean_brand_copy("KODIAK(TM) flapjacks") == "Kodiak Cakes flapjacks"
+    assert clean_brand_copy("KODIAK™ flapjacks") == "Kodiak Cakes flapjacks"
+    assert clean_brand_copy("Kodiak Park City™ morning") == "Kodiak Park City morning"
+    assert clean_brand_copy("KODIAK PARK CITY(TM) morning") == "Kodiak Park City morning"
+
+
 def test_clean_brand_copy_strips_mark_after_park_city_but_keeps_naming():
     assert clean_brand_copy("Kodiak Park City(R) morning") == "Kodiak Park City morning"
     assert clean_brand_copy("Kodiak Park City® morning") == "Kodiak Park City morning"

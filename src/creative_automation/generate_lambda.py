@@ -1073,7 +1073,9 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     hero_path.parent.mkdir(parents=True, exist_ok=True)
 
     # ONE control-structure hero at 1x1 (clean by default — copy ships as sidecars).
-    # No outpaint call is made on this path — that is the whole point of preview mode.
+    # The 9x16/16x9 tiles below attempt ONE live outpaint extend each behind the
+    # preview budget gate (item 11); pads stay the fallback, so preview mode keeps
+    # its single-hero speed guarantee with or without a live extend.
     result_path, source, provenance = generate_hero(
         product_id=product,
         product_name=product.replace("-", " ").title(),

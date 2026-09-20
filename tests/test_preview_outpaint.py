@@ -82,6 +82,8 @@ def test_preview_outpaint_success_marks_live_engines(monkeypatch) -> None:
     }
     assert body["provenance"]["outpaint_degraded"] == {}
     assert set(body["provenance"]["outpaint_latency_ms"]) == {"9x16", "16x9"}
+    # gate-time measurement recorded per attempted ratio alongside latency
+    assert set(body["provenance"]["outpaint_remaining_ms"]) == {"9x16", "16x9"}
     # the extend prompt reuses the hero scene prompt, never an extra model call
     assert all(subject == "wild frontier restyle" for _, _, subject in calls)
     # live tiles upload at true matrix dims
@@ -153,3 +155,28 @@ def test_preview_outpaint_timeout_degrades_to_pads(monkeypatch) -> None:
     assert body["provenance"]["ratios"]["9x16"] == "pillow-outpaint-fallback"
     assert body["provenance"]["ratios"]["16x9"] == "pillow-outpaint-fallback"
     assert set(body["provenance"]["outpaint_latency_ms"]) == {"9x16", "16x9"}
+
+
+def test_preview_outpaint_generic_error_degrades_to_pads(monkeypatch) -> None:
+    # A poisoned extend (throttle/validation, not a timeout) degrades to the pad
+    # with the error type recorded — still 200, pads stay the fallback.
+    monkeypatch.setattr(generate_lambda, "_preview_now", lambda: 1000.0)
+
+    def _poisoned(*a, **k):
+        raise RuntimeError("throttled")
+
+    monkeypatch.setattr(generate_lambda, "_stability_outpaint", _poisoned)
+    body = _run_preview(monkeypatch)
+    assert body["ok"] is True
+    assert body["provenance"]["outpaint_degraded"] == {
+        "9x16": "outpaint-error: RuntimeError",
+        "16x9": "outpaint-error: RuntimeError",
+    }
+    assert body["provenance"]["ratios"]["9x16"] == "pillow-outpaint-fallback"
+    assert body["provenance"]["ratios"]["16x9"] == "pillow-outpaint-fallback"
+    assert set(body["provenance"]["outpaint_latency_ms"]) == {"9x16", "16x9"}
+    # 4x5/blog never attempt an extend: no degrade entries, always pads.
+    assert body["provenance"]["ratios"]["4x5"] == "pillow-outpaint-fallback"
+    assert body["provenance"]["ratios"]["blog"] == "pillow-outpaint-fallback"
+    assert "4x5" not in body["provenance"]["outpaint_degraded"]
+    assert "blog" not in body["provenance"]["outpaint_degraded"]
