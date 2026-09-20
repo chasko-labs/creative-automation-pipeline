@@ -1,8 +1,9 @@
 """Retailer-lockup compositor tests — OFFLINE, Pillow-only.
 
-Covers the cr-1 carve-out: the one sanctioned text-in-image path. All logos are
-currently MISSING (input_assets/retailer-logos/ empty), so these exercise the
-graceful text-only degradation band. No AWS creds, no cairosvg required.
+Covers the cr-1 carve-out: the one sanctioned text-in-image path. These use an
+empty tmp logo_dir so they exercise the graceful text-only degradation band
+(the committed input_assets/retailer-logos/ PNGs are covered end-to-end in
+test_retailer_overlay_local.py). No AWS creds, no cairosvg required.
 """
 from pathlib import Path
 

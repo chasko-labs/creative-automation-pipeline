@@ -108,15 +108,18 @@ describe('scope cluster (#218, #236, #237, #223)', () => {
   });
 
   it('concept rows: cards carry data-theme + data-brief, retailer mark iff specific', () => {
-    // retailer cards: two specifics + All (brief only); Target retired
+    // retailer cards: three specifics (Costco/Publix/Target, #198) + All (brief only);
+    // Walmart is never a chooser card — it stays in market data strings only.
     expect(html).toMatch(/ff-check-card__input" data-theme="localized-costco"/);
     expect(html).toMatch(/ff-check-card__input" data-theme="localized-publix"/);
+    expect(html).toMatch(/ff-check-card__input" data-theme="localized-target"/);
     expect(html).toMatch(/ff-check-card__input" data-theme="localized-all"/);
-    expect(html).not.toMatch(/localized-target/);
+    expect(html).not.toMatch(/localized-walmart/);
+    expect(chips).toMatch(/'localized-target':'target'/);
     // partner: ONE card carries data-theme + data-brief, mark preview inline in the same cluster
     expect(html).toMatch(/ff-chipcluster ff-concept" role="group" aria-labelledby="chipClusterPartner"[\s\S]*?ff-check-card" data-theme="us-ski-snowboard"[\s\S]*?id="ussPartnerMark"/);
     // every card keeps its slug + brief contract
-    for (const slug of ['recipe-cards', 'kodiak-subscription', 'wild-grizzly-bears', 'riff-on-past-content', 'us-ski-snowboard']) {
+    for (const slug of ['recipe-cards', 'kodiak-subscription', 'localized-target', 'wild-grizzly-bears', 'riff-on-past-content', 'us-ski-snowboard']) {
       expect(html).toMatch(new RegExp('ff-check-card" data-theme="' + slug + '"[^>]*data-brief="[^"]+'));
     }
     // retailer mark composes iff a SPECIFIC retailer is checked, most-recent wins

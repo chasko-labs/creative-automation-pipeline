@@ -815,7 +815,8 @@ let skuList = [
       /** @type {Object<string, string>} */
       const THEME_LABELS = {
         'recipe-cards':'Recipe cards','localized-costco':'Localized Costco',
-        'localized-publix':'Localized Publix','localized-all':'All retailers',
+        'localized-publix':'Localized Publix','localized-target':'Localized Target',
+        'localized-all':'All retailers',
         'kodiak-subscription':'Kodiak Cakes subscription',
         'riff-on-past-content':'Riff on past content',
         'wild-grizzly-bears':'Wild Grizzly Bears',
