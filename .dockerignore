@@ -1,0 +1,14 @@
+# keep lambda build context lean: Dockerfile COPYs only pyproject/src/data/docs-fragments
+.muse/
+.git/
+infra-cdk/node_modules/
+**/node_modules/
+.venv/
+__pycache__/
+*.pyc
+/target/
+web/
+scripts/
+tests/
+.mypy_cache/
+.pytest_cache/

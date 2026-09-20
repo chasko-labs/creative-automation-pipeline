@@ -56,6 +56,14 @@ describe('preview extend helpers', () => {
     expect(window.KODIAK_extendHero([{ ratio: '9x16' }])).toBe(null);
   });
 
+  it('marks pad vs live engines so tiles never render identically', () => {
+    expect(window.KODIAK_tileEngineMark('stability-outpaint')).toEqual({ text: ' · composed', cls: 'rt-live' });
+    expect(window.KODIAK_tileEngineMark('pillow-outpaint-fallback')).toEqual({ text: ' · placeholder', cls: 'rt-pad' });
+    expect(window.KODIAK_tileEngineMark('primary')).toEqual({ text: '', cls: '' });
+    expect(window.KODIAK_tileEngineMark('unknown-engine')).toEqual({ text: '', cls: '' });
+    expect(window.KODIAK_tileEngineMark(null)).toEqual({ text: '', cls: '' });
+  });
+
   it('builds a mode=extend body with sane defaults', () => {
     const b = window.KODIAK_extendBody('9x16', hero, { subject: 's', product: 'p', region: 'r', theme: 't' });
     expect(b).toEqual({ mode: 'extend', ratio: '9x16', hero_s3_uri: 's3://b/hero.png', subject: 's', product: 'p', region: 'r', theme: 't' });

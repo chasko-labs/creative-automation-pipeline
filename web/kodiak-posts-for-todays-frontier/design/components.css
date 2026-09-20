@@ -363,6 +363,11 @@ section.xl{padding:var(--section-space-xl) 0}
 /* shape descriptor on resting caps (Square, Vertical / Full-Screen) */
 .render-tile .render-cap .rt-shape{display:inline;margin:0 0 0 6px;color:var(--colors-neutral-600);font:500 10px/1.4 "museo-sans",sans-serif}
 .render-tile .render-cap .rt-shape::before{content:"· ";color:var(--colors-neutral-500)}
+/* per-tile engine mark: placeholder pads read quiet italic, composed tiles read
+   forest — a pad never renders identically to a live outpaint */
+.render-tile .render-cap .rt-eng,.render-tile .render-cap .rt-extend{display:inline;margin:0 0 0 6px;font:600 11px/1.4 "museo-sans",sans-serif;position:relative}
+.render-tile .render-cap .rt-eng.rt-pad,.render-tile .render-cap .rt-extend.rt-pad{color:var(--colors-neutral-600);font-style:italic}
+.render-tile .render-cap .rt-eng.rt-live,.render-tile .render-cap .rt-extend.rt-live{color:#1A3C34}
 /* hero grid takes the full preview width now that the side matrix is retired;
    wider screens fit more tiles per row instead of a narrow single column.
    the hero must span all implicit tracks: as the only grid item it would
@@ -465,6 +470,8 @@ section.xl{padding:var(--section-space-xl) 0}
 .provenance .prov-pill{display:inline-block;padding:1px 7px;border-radius:999px;font:700 10px/1.6 "museo-sans",sans-serif;letter-spacing:.03em}
 .provenance .prov-pill.primary{background:var(--brown-kodiak);color:var(--parchment)}
 .provenance .prov-pill.outpaint{background:var(--oat);color:var(--brown-kodiak);border:1px solid var(--stone)}
+.provenance .prov-pill.live{background:#1A3C34;color:#EAF5F0}
+.provenance .prov-pill.pad{background:var(--oat);color:#6B5A53;border:1px dashed var(--stone)}
 .provenance .prov-heur{margin:0 0 var(--spacing-xs);padding-left:var(--spacing-sm);border-left:3px solid var(--colors-brand-frontier-green);font:500 12px/1.5 "museo-sans",sans-serif;color:var(--brown-kodiak)}
 .provenance .prov-heur:last-child{margin-bottom:0}
 /* build-narrative lines — same real estate + token styling as the decision

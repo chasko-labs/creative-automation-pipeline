@@ -158,6 +158,8 @@ let skuList = [
     'stability-restyle':'Stability restyle (GenAI)',
     'stability-control-structure':'Control-structure restyle (Stability)',
     'pillow-compose':'Pillow compose (brand overlay)',
+    'pillow-outpaint-fallback':'Pillow pad (placeholder)',
+    'stability-outpaint':'Stability outpaint (GenAI)',
     'brand-floor':'Brand floor (offline fallback)'
   };
   // Origin contract: "backend" marks an envelope the API rendered;
@@ -290,6 +292,21 @@ let skuList = [
       region: f.region || 'us', theme: f.theme || null};
   };
   try{ window.KODIAK_extendTargets = extendTargets; window.KODIAK_extendHero = extendHero; window.KODIAK_extendBody = extendBody; }catch(e){}
+  // Per-tile engine mark (top level so tile render, extend swap, and tests
+  // share it): the preview ships per-ratio engines in provenance.ratios, and
+  // every tile must show which state it is in — a pillow pad and a live
+  // stability outpaint never render identically. Pure: engine in, mark out.
+  // Tested in preview-extend.test.mjs.
+  /**
+   * @param {unknown} engine per-ratio engine slug from provenance.ratios
+   * @returns {{text: string, cls: string}}
+   */
+  const tileEngineMark = (engine)=>{
+    if(engine==='stability-outpaint') return {text:' · composed', cls:'rt-live'};
+    if(engine==='pillow-outpaint-fallback') return {text:' · placeholder', cls:'rt-pad'};
+    return {text:'', cls:''};
+  };
+  try{ window.KODIAK_tileEngineMark = tileEngineMark; }catch(e){}
   // Hoisted to IIFE top-level alongside provenanceHeuristics so the
   // click-handler badge, the render-set badge, and tests share one source.
   // Pure: prov fields in, {text, fallback} out. "Rung X" stays verbatim —
@@ -985,8 +1002,18 @@ let skuList = [
             const _m = (/** @type {HTMLInputElement|null} */ (document.getElementById('locality')))?.value || (selectedLoc && selectedLoc.market);
             if(_m && typeof window.KODIAK_locCaption==='function') locCap = window.KODIAK_locCaption(_m);
           }catch(e){}
+          // Per-tile engine mark: provenance.ratios names each tile's engine, so a
+          // pillow pad never renders identically to a live outpaint. The 1x1
+          // primary carries no mark — it is the real hero, not a derived tile.
+          let engMark = '';
+          try{
+            const _penv = (opts.provenance && typeof opts.provenance==='object') ? opts.provenance : {};
+            const _engines = (_penv.ratios && typeof _penv.ratios==='object') ? _penv.ratios : {};
+            const _mark = tileEngineMark(_engines[r.ratio]);
+            if(_mark.text) engMark = '<span class="rt-eng ' + _mark.cls + '">' + escapeHtml(_mark.text) + '</span>';
+          }catch(e){}
           cap.innerHTML = '<b>' + escapeHtml(ratioColon + ' ' + meta.name) + '</b>' +
-            '<span class="dims">' + escapeHtml((r.w||'') + '\u00D7' + (r.h||'')) + '</span>' + platLine + locCap;
+            '<span class="dims">' + escapeHtml((r.w||'') + '\u00D7' + (r.h||'')) + '</span>' + platLine + locCap + engMark;
           tile.appendChild(cap);
           set.appendChild(tile);
         });
@@ -1037,6 +1064,29 @@ let skuList = [
               });
             }catch(e){}
           };
+          // Every delivered state gets a mark: a live outpaint says composed, a
+          // server-side pad says placeholder, and a failed extend (the
+          // server-side pad stays in place) says placeholder too — a pad is
+          // never left bare. Supersedes the initial rt-eng mark, never dupes it.
+          const setTileMark = (ratio, text, cls)=>{
+            try{
+              document.querySelectorAll('#preview .render-tile').forEach(t=>{
+                const b = t.querySelector('b');
+                if(b && b.textContent.indexOf(ratio.replace('x',':'))===0){
+                  markComposing(ratio, false);
+                  const cap = t.querySelector('.render-cap');
+                  const old = cap && cap.querySelector('.rt-eng');
+                  if(old) old.remove();
+                  if(!cap) return;
+                  let s = cap.querySelector('.rt-extend');
+                  if(!s){ s=document.createElement('span'); s.className='rt-extend'; cap.appendChild(s); }
+                  s.textContent = text;
+                  s.classList.remove('rt-live', 'rt-pad');
+                  if(cls) s.classList.add(cls);
+                }
+              });
+            }catch(e){}
+          };
           const swapTile = (ratio, url, engine)=>{
             try{
               document.querySelectorAll('#preview .render-tile').forEach(t=>{
@@ -1044,15 +1094,11 @@ let skuList = [
                 if(b && b.textContent.indexOf(ratio.replace('x',':'))===0){
                   const img = t.querySelector('img');
                   if(img && url) img.src = url;
-                  markComposing(ratio, false);
-                  if(engine==='stability-outpaint'){
-                    let s = t.querySelector('.rt-extend');
-                    if(!s){ s=document.createElement('span'); s.className='rt-extend'; t.querySelector('.render-cap')?.appendChild(s); }
-                    if(s) s.textContent = ' · composed';
-                  }
                 }
               });
             }catch(e){}
+            const mark = tileEngineMark(engine);
+            setTileMark(ratio, mark.text || ' · placeholder', mark.cls || 'rt-pad');
           };
           await Promise.all(targets.map(async (r)=>{
             const ratio = r.ratio;
@@ -1064,8 +1110,12 @@ let skuList = [
                 const tile = await resp.json();
                 if(tile && tile.ok && tile.image_url){ swapTile(ratio, tile.image_url, tile.engine); return; }
                 break;
-              }catch(e){ if(attempt===1) markComposing(ratio, false); }
+              }catch(e){}
             }
+            // Retries exhausted or a bad response: the server-side pad is the
+            // delivered tile — label it instead of leaving it bare or stuck
+            // on "composing".
+            setTileMark(ratio, ' · placeholder', 'rt-pad');
           }));
         }catch(e){}
       };
@@ -1090,9 +1140,13 @@ let skuList = [
         if(old) old.remove();
         const engineLabel = String((typeof penv.engine === 'string' && ENGINE_LABELS[penv.engine]) || penv.engine || '—');
         const ratios = /** @type {Object<string, unknown>} */ (penv.ratios || {});
+        // Pill class names the engine state: a pillow pad never shares a pill
+        // with a live stability outpaint.
         const ratioPills = Object.keys(ratios).map(k=>{
-          const role = ratios[k];
-          const cls = /primary/i.test(String(role)) ? 'primary' : 'outpaint';
+          const role = String(ratios[k]);
+          const cls = /primary/i.test(role) ? 'primary'
+            : role === 'stability-outpaint' ? 'live'
+            : role === 'pillow-outpaint-fallback' ? 'pad' : 'outpaint';
           return '<span class="prov-pill ' + cls + '">' + escapeHtml(k.replace('x',':')) + ' ' + escapeHtml(role) + '</span>';
         }).join(' ');
         /** @param {unknown} v @returns {string} */
