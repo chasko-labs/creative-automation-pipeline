@@ -1657,11 +1657,17 @@ def _sanitize_military_headline(text: str) -> str | None:
         # e.g. "Alright, Listen Up, Kid. Summer In San Diego..." -> "Summer In San Diego..."
         stripped = re.sub(r"(?i)\b(listen up|recruit|attention|muster|enlist)\b[,\s]*", "", text)
         stripped = re.sub(r"(?i)^\s*(alright|okay|hey|listen)[,\s]+", "", stripped)
-        stripped = re.sub(r"(?i)\b(kid|partner|recruit)\b[,\.\s]*", "", stripped) if "listen up" in low else stripped
-        stripped = stripped.strip(" ,.-\t\n")
-        # Collapse double spaces
+        stripped = re.sub(r"(?i)\b(kid|partner|recruit)\b[,\.\s!]*", "", stripped) if "listen up" in low else stripped
+        stripped = stripped.strip(" ,.-!\t\n\"'")
+        # Collapse double spaces and strip leading punctuation left from the cut
         stripped = re.sub(r"\s{2,}", " ", stripped)
+        stripped = stripped.lstrip(" !,.-\"'")
         if stripped and len(stripped.split()) >= 2 and not any(b in stripped.lower() for b in banned):
+            # If the salvage starts with punctuation or is still a sentence fragment
+            # starting with "You're" from a conversational ramble, quarantine it
+            # and let the caller fall back to the warm frontier brief headline
+            if stripped[:1] in "!?,." or stripped.lower().startswith("you're"):
+                return None
             return _title_case_headline(stripped)
         return None
     return text
