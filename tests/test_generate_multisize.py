@@ -34,6 +34,9 @@ def _make_seed(path: Path, size: tuple[int, int] = (1080, 1080)) -> Path:
 def test_provenance_shape_and_json_serializable(tmp_path: Path, monkeypatch) -> None:
     # a stability run yields a provenance dict with every required key, all values
     # JSON-serializable (no Path objects).
+    # deterministic mode: the recorded strength must equal a fresh computation
+    # (dynamic mode jitters per call, so equality is only meaningful pinned).
+    monkeypatch.setenv("KODIAK_DETERMINISTIC", "1")
     seed = _make_seed(tmp_path / "seed.png")
     canned = base64.b64encode(_png_bytes(color=(10, 200, 120))).decode("ascii")
 

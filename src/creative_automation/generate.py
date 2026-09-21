@@ -2990,10 +2990,14 @@ def generate_hero(
                     )
                     provenance["fallthrough_reason"] = "budget-exhausted"
                     raise _RungBBudgetSkip
+                # Compute once: the recorded strength must equal the strength
+                # actually sent (dynamic mode jitters per call).
+                rung_b_strength = _control_for_brief(brief_msg)
                 try:
-                    stylized = _stability_control_hero(seed, scene_prompt, out_path, control_strength=_control_for_brief(brief_msg))
+                    stylized = _stability_control_hero(seed, scene_prompt, out_path, control_strength=rung_b_strength)
                 except TypeError:
                     stylized = _stability_control_hero(seed, scene_prompt, out_path)
+                    rung_b_strength = None  # unparametrized fallback: record no strength
                 if stylized is not None and stylized.exists():
                     # Similarity gate (B -> C): reject a drifted restyle BEFORE the
                     # overlay lands — the message bar alone shifts dHash by ~12, so
@@ -3024,7 +3028,8 @@ def generate_hero(
                 if stylized is not None and stylized.exists():
                     provenance["engine"] = "stability-restyle"
                     provenance["rung"] = "B"
-                    provenance["control_strength"] = _control_for_brief(brief_msg)
+                    if rung_b_strength is not None:
+                        provenance["control_strength"] = rung_b_strength
                     provenance["seed"] = STABILITY_SEED
                     provenance["style"] = "sandwich-locked"
                     provenance["mascot_lock"] = _mascot_lock_on()

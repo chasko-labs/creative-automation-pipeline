@@ -1,5 +1,5 @@
 """Military language quarantine — warm agricultural frontier only."""
-import src.creative_automation.generate as g
+from creative_automation import generate as g
 
 def test_sanitize_strips_listen_up():
     out = g._sanitize_military_headline("Listen Up, Kid. Summer In San Diego Peaches")
