@@ -1,4 +1,4 @@
-# DAM S3 Sync + Fallback Runbook
+# Asset Library S3 Sync + Fallback Runbook
 
 Local mock remains default so pipeline works with zero AWS creds (reviewer ergonomics). S3 is opt-in via env.
 

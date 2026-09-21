@@ -5,7 +5,7 @@ Priority:
 2. S3 dam (if DAM_S3_BUCKET / DAM_S3_URI env set and boto3/creds available) — fetch to local cache
 3. local dam_root fallback (input_assets/<product_id>/...)
 
-Runbook sync (see docs/dam-runbook.md):
+Runbook sync (see docs/asset-library-runbook.md):
   # pull S3 -> local (preferred for offline / CI)
   aws s3 sync s3://$DAM_S3_BUCKET/dam input_assets --delete --only-show-errors
   # push local -> S3 (publish new assets)

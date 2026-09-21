@@ -242,7 +242,7 @@ flowchart TB
 Deployment surfaces:
 
 - Local (live today): `uv run python -m creative_automation.cli --brief briefs/kodiak.yaml --assets input_assets --out output_kodiak`
-- Cloud DAM mirror: `scripts/sync-dam.sh` to `brands/kodiak/` — see [DAM runbook](../dam-runbook.md)
+- Cloud asset library mirror: `scripts/sync-dam.sh` to `brands/kodiak/` — see [Asset library runbook](../asset-library-runbook.md)
 - Planned: wrap `run_pipeline()` as a Bedrock AgentCore Runtime — see [AgentCore promotion path](../agentcore.md). The `ObservabilityWritePolicy` exists now for that future runtime role to attach; the runtime role itself is not defined in the template yet.
 
 ---
@@ -381,5 +381,5 @@ The maturity view a CIO wants up front. The local pipeline is the always-present
 - [Asset library + observability design](asset-library-and-observability.md) — AssetRef contract, Observer substrate
 - [Team lanes](team-lanes.md) — path ownership and seams
 - [Dispatch guideline](dispatch-guideline.md) — agent roster, tooling standards, CI gate
-- [DAM runbook](../dam-runbook.md) · [Observability runbook](../observability-runbook.md)
+- [Asset library runbook](../asset-library-runbook.md) · [Observability runbook](../observability-runbook.md)
 - [ISO naming conventions](../iso-naming-conventions.md) · [Kodiak image standards](../kodiak-image-standards.md)

@@ -58,6 +58,10 @@ AWS_PROFILE=bryanchasko-kiro uv run python scripts/embed-social-corpus.py --out 
 
 Do not add generation or synchronization commands to the pre-push hook or full local gate
 
+### reproducible image graphs
+
+Campaign visuals reproduce from frozen graphs in `comfyui-workflows/` (see its README). Blog scenes via `scripts/comfy_blog_scene.py` write to `input_assets/blog/`, never `/tmp`. Check `scripts/check-ingredient-art.py` before any new ingredient render so covered subjects are skipped, not regenerated.
+
 ### infrastructure review
 
 Run infrastructure lint locally before an infrastructure change:

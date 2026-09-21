@@ -283,3 +283,77 @@ cards; shipped DAM art covers all but one raw_ingredient
 (US-W-HONOLULU 2026-10, "Waialua coffee (harvest) and papaya")
 and zero finished_plate / technique (all null) — so plate and
 technique styles gate all bulk work in those zones.
+
+## run log — photographic blog scenes (2026-09-21, Turbo rung)
+
+Blog scenes are photographic, never ink (`docs/kodiak-image-standards.md`:
+blog rows are food-styling photos). Engine: DreamShaperXL Turbo, euler,
+8 steps, cfg 2.0, 1344x768, ~90 s warm. Driver:
+`scripts/comfy_blog_scene.py` (7-node graph, pool output to
+`input_assets/blog/`, never /tmp — every render is a pool asset).
+
+Principle: the dispatch carries the local knowledge because the model has
+none. "Sandersville" means nothing to SDXL; "white kaolin clay banks with
+vertical rain flutes" does. Generic prompts produce generic tropes. The
+market personalization (kaolin, Toyon, Torrey pine) is load-bearing
+conditioning, not decoration. Trim unenforceable numeric tables (no HSV —
+no rung accepts them), never the local specificity.
+
+- **atl-sep-muscadine v1** (seed 713001,
+  `input_assets/blog/atl-sep-muscadine-v1.png`): vine + two stacks + table,
+  no people/text. FAIL: kaolin anchor dropped (treeline instead), prop drift
+  (bowl, cutlery, jar, pitcher).
+- **atl-sep-muscadine v2** (seed 713002,
+  `input_assets/blog/atl-sep-muscadine-v2.png`): prompt forces WHITE clay
+  cliffs over the left half + ONE plate; negatives add two plates/stacks,
+  bowl, cutlery, jar, pitcher. SHIPPABLE: white bluffs read as the
+  Sandersville anchor, single stack, clean sky corridor, no people/text.
+  Residual drift: side glass + cutlery persist; clusters read table-grape
+  tight (same "grapes glue to piles" finding as the ink rung).
+- Finding 6: signature-mass forcing works ("dominating the left half
+  background" brought the cliffs back). Prop drift needs per-prop
+  negatives — each unnamed prop survives; name it to kill it.
+
+## run log — morel local experiment (2026-09-21, base rung)
+
+Goal: one monochrome single-specimen true morel (hollow conical
+honeycomb-pitted cap fused to stem, no gills, no separate umbrella
+cap). Cloud Core failed twice on agaric/shaggy-mane archetypes
+(batch-b manifest: 712001 cov 0.351, 712002 cov 0.263, parked).
+Frozen recipe throughout: `sd_xl_base_1.0`, euler, 25 steps, cfg 7.0,
+scheduler normal, denoise 1.0, 1344x768, NEG_MONO frozen — only the
+compositional positive varied (3-attempt cap). Queue checked empty
+before each submit, one job at a time. All three `status: success`;
+coverage ceiling for this run 0.35. Renders in `/tmp`
+(`kodiak-morel-a{1,2,3}-s{41,42,43}.png`) — none shipped, so none
+copied into `input_assets/`; `morel-mushrooms.png` keeps the v1 file.
+
+- **morel-a1** (seed 41, 352 s cold, coverage 0.116 PASS): zone prompt
+  (subject "morel mushroom") + side-profile fused-cap/stem positive +
+  POS_MONO. FAIL: two specimens, both gilled umbrella agarics with
+  separate caps — the Cloud Core failure mode reproduces locally.
+  Monochrome holds, no text artifact.
+- **morel-a2** (seed 42, 45 s warm, coverage 0.116 PASS): halved
+  lengthwise showing the hollow channel (per the Cincinnati dispatch
+  "halve morels lengthwise" method). FAIL and worse: four specimens,
+  all gilled agarics; the cut-face/hollow instruction ignored
+  outright.
+- **morel-a3** (seed 43, 45 s warm, coverage 0.144 PASS): subject
+  reworded to bare "morel" (drop the "mushroom" glue), upright
+  thimble-sponge positive with "one continuous hollow cavity" and
+  explicit no-gill/no-umbrella denials. FAIL: five specimens, caps
+  unfused (acorn/glass-dome separators), heavy gray shaded fills in
+  the caps (POS_MONO "no shading" violated). Honeycomb cap texture
+  closest of the three, but not a true morel and not single-specimen.
+- Finding 7: the agaric archetype is glued to mushroom-like subjects
+  the way piles are glued to "grapes" — geometry denials in the
+  positive ("no gills, no umbrella") are ignored, and each attempt
+  ADDED specimens (2, 4, 5) despite "one specimen / exactly one"
+  pressure. "Halved lengthwise" does not force a cutaway. The word
+  "mushroom" may be part of the glue (a3 without it got gill-free
+  but still unfused). Next rungs if ever revisited: cross-section /
+  botanical-diagram framing, or hand art — the manifest now points
+  at hand art. No fourth shot taken.
+
+## reproducible graphs (2026-09-21)
+Frozen API graphs live in `comfyui-workflows/` with a README. `kodiak-blog-scene-turbo.json` is the blog-scene graph used for atl-sep-muscadine v1/v2; `kodiak-ink-plate-base.json` is the ink-plate graph. `scripts/comfy_blog_scene.py` now loads the blog graph file directly, so the file is the single source. placeholders: `__POSITIVE__`, `__NEGATIVE__`, seed, prefix.
