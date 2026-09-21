@@ -114,6 +114,15 @@ def test_any_market_any_season_brief_is_rich_and_distinct():
     # Every market must have a September ingredient (the north-star month after seeding)
     missingSeptember = [frontierPair["market"] for frontierPair in frontierPairs if not frontierPair["monthly_ingredients"].get("2026-09")]
     assert not missingSeptember, f"September ingredient missing for markets (would force vague fallback): {missingSeptember}"
+    # Every market × every month must have an in-season ingredient (912 cells) — honest gaps would be null, but after seeding all are filled so any campaign idea works
+    allMonths = [f"2026-{monthIndex:02d}" for monthIndex in range(1, 13)]
+    missingAnyMonth = [
+        f"{frontierPair['market']}:{monthKey}"
+        for frontierPair in frontierPairs
+        for monthKey in allMonths
+        if not frontierPair["monthly_ingredients"].get(monthKey)
+    ]
+    assert not missingAnyMonth, f"Missing ingredient for market-months (would break any-season handling): {missingAnyMonth[:5]}"
     # Spot-check that September moments where they exist do carry favorite_flavors
     # so the image prompt has taste detail — not every market has a September moment
     # (those fallback to monthly_ingredients + climate windows, which is still rich via the ingredient itself)
