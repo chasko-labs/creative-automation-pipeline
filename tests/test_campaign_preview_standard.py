@@ -129,28 +129,28 @@ def test_any_market_any_season_brief_is_rich_and_distinct():
     # Count distinct season inputs the UI handles — the file documents 26 (MONTHS + SEASON_NAMES + HOLIDAY_MONTH)
     assert "26" in seasonFlavorSource or "MONTHS" in seasonFlavorSource, "season-flavors.js must handle 26 season inputs (12 months + 4 season names + 10 holidays)"
     assert len(frontierPairs) * 26 == 1976, f"expected 76×26=1976 campaign variants, got {len(frontierPairs)}×26"
-    # Every market must have 26 distinct hero ingredients/themings (12 months + 14 named seasons/holidays) so no two seasons collapse to same generic
+    # Every market must have 26 distinct seasonal ingredients (monthly_ingredients for 12 months + seasonal_moments.available_ingredients[0] for 14 named seasons/holidays) so no two seasons collapse to same generic
     allSeasonInputs = [f"2026-{monthIndex:02d}" for monthIndex in range(1, 13)] + ["Spring","Summer","Fall","Winter","New Year's Day","Valentine's Day","Easter","Memorial Day","Fourth of July","Labor Day","Halloween","Thanksgiving","Christmas","Holiday season"]
     for frontierPairForDistinctCheck in frontierPairs:
-        heroesForMarket = []
+        seasonalIngredientsForMarket = []
         for seasonInput in allSeasonInputs:
-            heroIngredient = frontierPairForDistinctCheck["monthly_ingredients"].get(seasonInput)
-            if not heroIngredient:
+            seasonalIngredient = frontierPairForDistinctCheck["monthly_ingredients"].get(seasonInput)
+            if not seasonalIngredient:
                 # Prefer exact header match (e.g., "Winter" should match "Winter — ..." not "Winter holidays") so holidays stay distinct
                 for seasonalMomentForSeason in frontierPairForDistinctCheck["seasonal_moments"]:
                     header = seasonalMomentForSeason["moment"].split(" —")[0].lower().strip()
                     if header == seasonInput.lower():
-                        heroIngredient = seasonalMomentForSeason["available_ingredients"][0] if seasonalMomentForSeason.get("available_ingredients") else None
+                        seasonalIngredient = seasonalMomentForSeason["available_ingredients"][0] if seasonalMomentForSeason.get("available_ingredients") else None
                         break
-                if not heroIngredient:
+                if not seasonalIngredient:
                     for seasonalMomentForSeason in frontierPairForDistinctCheck["seasonal_moments"]:
                         header = seasonalMomentForSeason["moment"].split(" —")[0].lower().strip()
                         if header.startswith(seasonInput.lower() + " ") or header.startswith(seasonInput.lower() + "/") or seasonInput.lower() in [part.strip().lower() for part in header.split("/")]:
-                            heroIngredient = seasonalMomentForSeason["available_ingredients"][0] if seasonalMomentForSeason.get("available_ingredients") else None
+                            seasonalIngredient = seasonalMomentForSeason["available_ingredients"][0] if seasonalMomentForSeason.get("available_ingredients") else None
                             break
-            assert heroIngredient, f"{frontierPairForDistinctCheck['market']}:{seasonInput} missing hero ingredient (would be vague)"
-            heroesForMarket.append(heroIngredient)
-        assert len(set(heroesForMarket)) == 26, f"{frontierPairForDistinctCheck['market']} should have 26 distinct heroes, got {len(set(heroesForMarket))} distinct: {heroesForMarket}"
+            assert seasonalIngredient, f"{frontierPairForDistinctCheck['market']}:{seasonInput} missing seasonal ingredient (monthly_ingredients or seasonal_moments.available_ingredients[0] would be vague)"
+            seasonalIngredientsForMarket.append(seasonalIngredient)
+        assert len(set(seasonalIngredientsForMarket)) == 26, f"{frontierPairForDistinctCheck['market']} should have 26 distinct seasonal ingredients (monthly_ingredients + seasonal_moments.available_ingredients[0]), got {len(set(seasonalIngredientsForMarket))} distinct: {seasonalIngredientsForMarket}"
     # Every September moment that exists should carry favorite_flavors so the brief has taste/plant detail;
     # markets without a September moment still have a rich brief via monthly_ingredients + climate windows
     # (seasonal moments supplement the ingredient, they do not override it — the ingredient comes from monthly_ingredients)
