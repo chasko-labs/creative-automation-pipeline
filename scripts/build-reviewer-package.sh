@@ -142,7 +142,7 @@ cat >"$STAGE/START-HERE.html" <<HTML
         <li><strong>Amazon-first agentic pipeline</strong> &mdash; one brief fans out to hundreds of localized, on-brand ads. Every model call is Amazon Bedrock (no third-party), enforced at the IAM layer.</li>
         <li><strong>Nova Pro vision composition</strong> &mdash; the hero step reads your real product pack shots with Nova Pro (Converse, vision) and composes headline + layout from the actual asset, not a text-to-image guess. Real assets in, on-brand creative out.</li>
         <li><strong>Nova multimodal embeddings + S3 Vectors</strong> &mdash; 3,000+ real assets embedded (<code>nova-2-multimodal-embeddings</code>, 1024-dim) into managed S3 Vectors, so each market retrieves what already worked there.</li>
-        <li><strong>76-market localization</strong> &mdash; per-market top-2 languages (21 total), Nova Micro &rarr; dialect swap &rarr; Amazon Translate, BCP-47 tagged. Data-driven, not hardcoded.</li>
+        <li><strong>74-market localization</strong> &mdash; per-market top-2 languages (21 total), Nova Micro &rarr; dialect swap &rarr; Amazon Translate, BCP-47 tagged. Data-driven, not hardcoded.</li>
         <li><strong>Panda CSS design tokens</strong> &mdash; brand palette, spacing, and aspect ratios live as W3C design tokens (<code>design/tokens/kodiak.json</code>) generated into type-safe CSS; the compose step is deterministic from those same tokens (bear at 24,24, 68% message bar, 8px Blaze border).</li>
         <li><strong>Full AWS backbone</strong> &mdash; S3 DAM (KMS, versioned), DynamoDB market memory, CloudFront delivery, local quality checks, X-Ray + CloudWatch observability, Bedrock model-invocation logging.</li>
       </ul>
@@ -151,9 +151,9 @@ cat >"$STAGE/START-HERE.html" <<HTML
         <li><a href="web/kodiak-posts-for-todays-frontier/details.html" target="_blank" rel="noopener">Design System Inventory</a> &mdash; tokens, type, logo law, Spectrum bridge</li>
         <li><a href="web/kodiak-posts-for-todays-frontier/pipeline.html" target="_blank" rel="noopener">Creative generation, localization, and AI</a> &mdash; briefs, contracts, Pillow compose</li>
         <li><a href="web/kodiak-posts-for-todays-frontier/infrastructure.html" target="_blank" rel="noopener">Secure hosting and delivery</a> &mdash; Bedrock batch, local dialing to AWS transfer, S3 + CloudFront</li>
-        <li>Layout is code: <code>src/creative_automation/compose.py</code> pastes cutouts verbatim with Pillow; the model never touches logo or type.</li>
-        <li>Looks dial free, then transfer: the frozen SDXL ComfyUI recipe (<code>docs/local-comfyui-recipe-art.md</code>) moves to Bedrock Stable Image Core with the same prompt tails (<code>src/creative_automation/recipe_art.py</code>).</li>
-        <li>Logo default is <code>input_assets/brand/logo.png</code>; the header bear crossfades to the alt logo past 40px scroll (<code>web/kodiak-posts-for-todays-frontier/js/scroll-swap.js</code>).</li>
+        <li><strong>Deterministic compose</strong> &mdash; <code>src/creative_automation/compose.py</code> pastes PNG cutouts verbatim with Pillow; generation models never touch logo or type.</li>
+        <li><strong>Local-to-Bedrock art transfer</strong> &mdash; the frozen SDXL ComfyUI recipe (<code>docs/local-comfyui-recipe-art.md</code>) moves to Bedrock Stable Image Core with the same prompt tails (<code>scripts/recipe_art_local_batch.py</code>, applied on AWS by <code>src/creative_automation/recipe_art.py</code>).</li>
+        <li><strong>Logo and scroll behavior</strong> &mdash; default <code>input_assets/brand/logo.png</code>; the header bear crossfades to the alt logo past 40px scroll (<code>web/kodiak-posts-for-todays-frontier/js/scroll-swap.js</code>).</li>
       </ul>
       <h2>What's in this package</h2>
       <ul>
