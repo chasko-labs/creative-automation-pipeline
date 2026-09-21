@@ -46830,88 +46830,29 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2-1/2 tazas de mezcla para flapjack y waffle Kodiak Buttermilk Power Cakes"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cucharadita de polvo de hornear"
-          },
-          {
-            "price": null,
-            "qty_name": "1 taza de azúcar granulada"
-          },
-          {
-            "price": null,
-            "qty_name": "3 huevos grandes, a temperatura ambiente"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cucharadita de extracto de vainilla"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 de taza de mantequilla derretida"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 de taza de crema agria a temperatura ambiente"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 de taza de suero de leche, temperatura ambiente"
-          },
-          {
-            "price": null,
-            "qty_name": "1 taza de frambuesas, ligeramente trituradas\r\n\r\n\r\n \r\n\r\nPara el glaseado:"
-          },
-          {
-            "price": null,
-            "qty_name": "1 taza (2 barras) de mantequilla a temperatura ambiente"
-          },
-          {
-            "price": null,
-            "qty_name": "1 libra de azúcar en polvo"
-          },
-          {
-            "price": null,
-            "qty_name": "1 taza de chispas de chocolate blanco"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 taza de crema espesa"
-          },
-          {
-            "price": null,
-            "qty_name": "1 taza de frambuesas, por encima"
+            "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
           }
         ],
         "meta": {
-          "cook": "35",
-          "prep": "30",
-          "serves": "16"
+          "cook": null,
+          "prep": null,
+          "serves": null
         },
         "steps": [
-          "PRECALIENTA el horno a 350 °F. Engrasa los lados de tres moldes redondos para pasteles de 6 pulgadas y cubre cada uno con papel pergamino.",
-          "AGREGA la mezcla de Kodiak Cakes, el polvo de hornear y el azúcar a un tazón y bate para combinar.",
-          "EN otro tazón, agregue los huevos, la vainilla, la mantequilla, la crema agria y el suero de leche y mezcle hasta que quede suave.",
-          "AGREGUE los ingredientes húmedos a los ingredientes secos y mezcle para formar una masa suave. Incorpora las frambuesas machacadas.",
-          "DIVIDA la masa de manera uniforme entre los moldes para pasteles preparados y hornee en el horno precalentado durante 25-30 minutos, o hasta que al insertar un probador en el centro salga limpio.",
-          "DEJE que los pasteles se enfríen durante 10 minutos, luego pase un cuchillo por los bordes e invierta cada ronda sobre una rejilla para terminar de enfriarse.",
-          "MIENTRAS las capas del pastel se enfrían, prepara el glaseado: coloca las chispas de chocolate blanco en un recipiente apto para microondas y vierte la crema espesa por encima. Cocine en el microondas durante 45 segundos, retírelo y déjelo reposar durante 30 segundos. Bate hasta que todo el chocolate se derrita y se forme una ganache suave. Ponga a un lado.",
-          "COLOCA la mantequilla y la mitad del azúcar en polvo en un bol. Bátelos hasta formar un glaseado espeso. Agregue la mitad de la mezcla de ganache. Agrega el azúcar en polvo restante y luego la mezcla de ganache restante hasta que se forme un glaseado suave.",
-          "ESCARCHA el bizcocho con el glaseado de chocolate blanco, apilando cada capa con el glaseado en el medio.",
-          "TORTA TOP con frambuesas frescas.",
-          "GUARDE el pastel en un recipiente hermético en el refrigerador."
+          "1 cup mix + 2/3 cup milk + 1 egg"
         ],
-        "title": "Tarta de chocolate blanco y frambuesa",
+        "title": "Flapjacks — Buttermilk Power Cakes — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:1",
+            "step:1"
+          ],
           "human_reviewed": false,
           "lang": "es",
           "machine_translated": true,
           "providers": [
-            "aws_translate"
+            "mock:passthrough:nova_glossary"
           ]
         }
       },
@@ -46919,88 +46860,29 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2-1/2 xícaras Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
-          },
-          {
-            "price": null,
-            "qty_name": "1 colher de chá de fermento em pó"
-          },
-          {
-            "price": null,
-            "qty_name": "1 xícara de açúcar granulado"
-          },
-          {
-            "price": null,
-            "qty_name": "3 ovos grandes, temperatura ambiente"
-          },
-          {
-            "price": null,
-            "qty_name": "1 colher de chá extrato de baunilha"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 xícara de manteiga derretida"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 xícara de creme de leite, temperatura ambiente"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 xícara de leitelho, temperatura ambiente"
-          },
-          {
-            "price": null,
-            "qty_name": "1 xícara de framboesas, levemente amassadas\r\n\r\n\r\n \r\n\r\nPara a cobertura:"
-          },
-          {
-            "price": null,
-            "qty_name": "1 xícara (2 palitos) de manteiga, temperatura ambiente"
-          },
-          {
-            "price": null,
-            "qty_name": "1 kg de açúcar em pó"
-          },
-          {
-            "price": null,
-            "qty_name": "1 xícara de chocolate branco"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 xícara de creme de leite"
-          },
-          {
-            "price": null,
-            "qty_name": "1 xícara de framboesas, por cima"
+            "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
           }
         ],
         "meta": {
-          "cook": "35",
-          "prep": "30",
-          "serves": "16"
+          "cook": null,
+          "prep": null,
+          "serves": null
         },
         "steps": [
-          "PRÉ-AQUEÇA o forno a 350° F. Unte as laterais de três formas redondas de 6” e forre cada uma com papel vegetal.",
-          "ADICIONE a mistura de bolos Kodiak, o fermento em pó e o açúcar em uma tigela e bata bem.",
-          "Em outra tigela, adicione os ovos, a baunilha, a manteiga, o creme de leite e o leitelho e misture até ficar homogêneo.",
-          "ADICIONE os ingredientes úmidos aos secos e bata até formar uma massa lisa. Junte as framboesas esmagadas.",
-          "DIVIDA a massa uniformemente entre as formas de bolo preparadas e leve ao forno pré-aquecido por 25-30 minutos ou até que um testador inserido no centro saia limpo.",
-          "DEIXE os bolos esfriarem por 10 minutos, depois passe uma faca nas bordas e inverta cada rodada em uma gradinha para terminar de esfriar.",
-          "ENQUANTO as camadas do bolo esfriam, faça a cobertura: coloque as gotas de chocolate branco em uma tigela própria para micro-ondas e despeje o creme de leite por cima. Microondas por 45 segundos, retire e deixe descansar por 30 segundos. Bata até que todo o chocolate derreta e forme um ganache homogêneo. Separe.",
-          "COLOQUE a manteiga e metade do açúcar de confeiteiro em uma tigela. Bata até formar uma cobertura grossa. Junte a metade da mistura de ganache. Junte o açúcar de confeiteiro restante e, em seguida, a mistura de ganache restante até formar uma cobertura lisa.",
-          "CONGELE o bolo com a cobertura de chocolate branco, empilhando cada camada com a cobertura no meio.",
-          "Bolo TOP com framboesas frescas.",
-          "GUARDE o bolo em um recipiente hermético na geladeira."
+          "1 cup mix + 2/3 cup milk + 1 egg"
         ],
-        "title": "Bolo de chocolate branco com framboesa",
+        "title": "Flapjacks — Buttermilk Power Cakes — proteína para sua fronteira",
         "translation": {
           "allergen_check": "glossary",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:1",
+            "step:1"
+          ],
           "human_reviewed": false,
           "lang": "pt",
           "machine_translated": true,
           "providers": [
-            "aws_translate"
+            "mock:passthrough:nova_glossary"
           ]
         }
       }
@@ -48399,66 +48281,66 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "4 waffles poderosos de mantequilla y vainilla de Kodiak"
+            "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cucharada de aceite de oliva"
+            "qty_name": "1 tablespoon olive oil — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 calabacín pequeño, cortado en trozos de 1 pulgada"
+            "qty_name": "1 small zucchini, cut into 1” pieces — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 mazorca de maíz, con los granos cortados"
+            "qty_name": "1 ear corn, kernels cut from cob — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cucharadita de pimentón ahumado"
+            "qty_name": "1/2 teaspoon smoked paprika — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 taza de tomates cherry cortados por la mitad"
+            "qty_name": "1/2 cup cherry tomatoes, halved — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 cebollas verdes en rodajas"
+            "qty_name": "2 green onions, sliced — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 taza de arvejas congeladas (descongeladas)"
+            "qty_name": "1 cup frozen peas(defrosted) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 diente de ajo"
+            "qty_name": "1 garlic clove — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 taza de cilantro"
+            "qty_name": "1/4 cup cilantro — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 limones, uno cortado en 4 trozos"
+            "qty_name": "2 limes, one cut into 4 wedges — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 taza de yogur natural"
+            "qty_name": "1/4 cup plain yogurt — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "5",
-          "prep": "15",
-          "serves": "4"
+          "cook": "5 — proteína para tu frontera",
+          "prep": "15 — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
         },
         "steps": [
-          "COLOCA los guisantes, el ajo, el cilantro y el jugo de una lima en un procesador de alimentos. Pulse hasta que se mezcle y forme una pasta espesa. Agregue sal al gusto. Vuelva a pulsar y reserve.",
-          "AGREGA el aceite de oliva a una sartén grande y calienta a fuego medio/alto. Agregue el calabacín, el maíz y el pimentón ahumado a la sartén y saltee hasta que estén dorados y suaves. Retira del fuego y agrega los tomates cherry y la cebolla verde. Agrega sal al gusto.",
-          "TUESTA los waffles según las instrucciones del paquete.",
-          "CUBRE cada gofre con 1/4 de taza de la mezcla de guisantes y 1/4 de la mezcla de verduras. Repite el procedimiento con el resto de los waffles.",
-          "SIRVE cada tostada de gofres con una cucharada de yogur y una rodaja de lima."
+          "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside. — proteína para tu frontera",
+          "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste. — proteína para tu frontera",
+          "TOAST the waffles according to package directions. — proteína para tu frontera",
+          "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles. — proteína para tu frontera",
+          "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge. — proteína para tu frontera"
         ],
-        "title": "Tostada de verduras de verano",
+        "title": "Summer Vegetable Tostada — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [],
@@ -48466,7 +48348,7 @@ window.KODIAK_RECIPE_I18N = {
           "lang": "es",
           "machine_translated": true,
           "providers": [
-            "aws_translate"
+            "mock:passthrough:nova_glossary"
           ]
         }
       },
@@ -48474,66 +48356,66 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "4 waffles Kodiak Buttermilk e Vanilla Power"
+            "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1 colher de sopa de azeite"
+            "qty_name": "1 tablespoon olive oil — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1 abobrinha pequena, cortada em pedaços de 1”"
+            "qty_name": "1 small zucchini, cut into 1” pieces — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1 espiga de milho, grãos cortados de espiga"
+            "qty_name": "1 ear corn, kernels cut from cob — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/2 colher de chá de páprica defumada"
+            "qty_name": "1/2 teaspoon smoked paprika — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/2 xícara de tomate cereja, cortado pela metade"
+            "qty_name": "1/2 cup cherry tomatoes, halved — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "2 cebolinhas, fatiadas"
+            "qty_name": "2 green onions, sliced — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1 xícara de ervilhas congeladas (descongeladas)"
+            "qty_name": "1 cup frozen peas(defrosted) — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1 dente de alho"
+            "qty_name": "1 garlic clove — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/4 xícara de coentro"
+            "qty_name": "1/4 cup cilantro — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "2 limas, uma cortada em 4 fatias"
+            "qty_name": "2 limes, one cut into 4 wedges — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/4 xícara de iogurte natural"
+            "qty_name": "1/4 cup plain yogurt — proteína para sua fronteira"
           }
         ],
         "meta": {
-          "cook": "5",
-          "prep": "15",
-          "serves": "4"
+          "cook": "5 — proteína para sua fronteira",
+          "prep": "15 — proteína para sua fronteira",
+          "serves": "4 — proteína para sua fronteira"
         },
         "steps": [
-          "COLOQUE as ervilhas, o alho, o coentro e o suco de um limão no processador de alimentos. Pulsar até formar uma pasta grossa. Adicione sal a gosto. Pulse novamente e reserve.",
-          "ADICIONE o azeite em uma frigideira grande e aqueça em médio/alto. Adicione a abobrinha, o milho e a páprica defumada na frigideira e refogue até dourar e ficar macio. Retire do fogo e acrescente o tomate cereja e a cebolinha. Adicione sal a gosto.",
-          "TORRE os waffles de acordo com as instruções da embalagem.",
-          "Cubra cada waffle com 1/4 de xícara da mistura de ervilha e 1/4 da mistura de vegetais. Repita com os waffles restantes.",
-          "SIRVA cada waffle tostada com uma colher de sopa de iogurte e uma rodela de limão."
+          "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside. — proteína para sua fronteira",
+          "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste. — proteína para sua fronteira",
+          "TOAST the waffles according to package directions. — proteína para sua fronteira",
+          "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles. — proteína para sua fronteira",
+          "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge. — proteína para sua fronteira"
         ],
-        "title": "Tostada de vegetais de verão",
+        "title": "Summer Vegetable Tostada — proteína para sua fronteira",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [],
@@ -48541,7 +48423,7 @@ window.KODIAK_RECIPE_I18N = {
           "lang": "pt",
           "machine_translated": true,
           "providers": [
-            "aws_translate"
+            "mock:passthrough:nova_glossary"
           ]
         }
       }

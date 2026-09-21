@@ -92,6 +92,14 @@
 /** @typedef {Object<string, Object<string, MonthCard>>} CardBook */
 
 /**
+ * Researched frontier calendar window for `season-flavors.js`.
+ * @typedef {object} FrontierCalendarEntry
+ * @property {Array<{m: number[], t: string}>} items
+ * @property {string} off
+ * @property {string} market
+ */
+
+/**
  * Metro -> frontier pairing panel data (loose: curated by hand, so every
  * field is optional and renderers fall back honestly).
  * @typedef {object} FrontierPair

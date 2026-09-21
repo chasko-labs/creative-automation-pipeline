@@ -90306,7 +90306,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -90628,7 +90628,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -90908,7 +90908,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/ramps/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -91490,7 +91490,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -91769,7 +91769,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -92048,7 +92048,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -92334,7 +92334,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -92612,76 +92612,24 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon baking powder"
-        },
-        {
-          "price": null,
-          "qty_name": "1 cup granulated sugar"
-        },
-        {
-          "price": null,
-          "qty_name": "3 large eggs, room temperature"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
-        },
-        {
-          "price": null,
-          "qty_name": "3/4 cup butter, melted"
-        },
-        {
-          "price": null,
-          "qty_name": "3/4 cup sour cream, room temperature"
-        },
-        {
-          "price": null,
-          "qty_name": "3/4 cup buttermilk, room temperature"
-        },
-        {
-          "price": null,
-          "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting:"
-        },
-        {
-          "price": null,
-          "qty_name": "1 cup (2 sticks) butter, room temperature"
-        },
-        {
-          "price": null,
-          "qty_name": "1 lb powdered sugar"
-        },
-        {
-          "price": null,
-          "qty_name": "1 cup white chocolate chips"
-        },
-        {
-          "price": null,
-          "qty_name": "1/4 cup heavy cream"
-        },
-        {
-          "price": null,
-          "qty_name": "1 cup raspberries, to top"
+          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
         }
       ],
       "lang": "en",
       "market": "US-OH-CINCINNATI",
       "meta": {
-        "cook": "35",
+        "cook": null,
         "est_cost": null,
-        "prep": "30",
-        "serves": "16"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: white-chocolate-raspberry-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "white-chocolate-raspberry-cake",
+          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
+          "recipe_id": "flapjacks-buttermilk",
           "season": "fall",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "pawpaws"
@@ -92690,13 +92638,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "white-chocolate-raspberry-cake",
-        "name": "White Chocolate Raspberry Cake"
+        "id": "flapjacks-buttermilk",
+        "name": "Flapjacks — Buttermilk Power Cakes"
       },
       "render": {
         "canvas": {
@@ -92906,26 +92856,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper.",
-        "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine.",
-        "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
-        "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries.",
-        "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean.",
-        "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling.",
-        "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside.",
-        "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
-        "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between.",
-        "TOP cake with fresh raspberries.",
-        "STORE cake in an airtight container in the refrigerator."
+        "1 cup mix + 2/3 cup milk + 1 egg"
       ],
       "substrate": "kraft",
-      "title": "White Chocolate Raspberry Cake",
+      "title": "Flapjacks — Buttermilk Power Cakes",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -93191,7 +93131,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -93789,7 +93729,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -94111,7 +94051,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -94419,7 +94359,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -94729,7 +94669,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -95019,7 +94959,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -95299,7 +95239,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -95578,7 +95518,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -95864,7 +95804,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -96160,7 +96100,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -96467,7 +96407,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",
@@ -96738,7 +96678,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-LEBANON",

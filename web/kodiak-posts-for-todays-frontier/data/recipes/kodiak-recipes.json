@@ -44,7 +44,8 @@
     "image": null,
     "ingredients": ["1 cup mix + 2/3 cup milk + 1 egg"],
     "dietary": [],
-    "tags": []
+    "tags": [],
+  "featured_for": ["pawpaws"]
   },
   {
     "id": "muffins",

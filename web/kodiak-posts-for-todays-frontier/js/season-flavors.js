@@ -31,6 +31,7 @@
 
   // Frontier harvest windows — mirrors featuredFrontierDetail seasons in data-core.js.
   // m = month indices with real items; off = honest shoulder line (no invented farms).
+  /** @type {Record<string, import('./frontier-contracts.js').FrontierCalendarEntry>} */
   var FRONTIER_CAL = {
     'US-CA-PESCADERO': {
       items:[{m:[2,3,4,5],t:'Castroville artichokes'},{m:[1,2,3,4,5],t:'Marin goat cheese'},{m:[4,5,6,7,8],t:'strawberries'},{m:[8,9,10,11,0,1],t:'Brussels sprouts'},{m:[10],t:'fall olive-oil press'}],
@@ -59,7 +60,13 @@
     'US-UT-OAKLEY': {
       items:[{m:[5,6,7,8],t:'Oakley Farmers Market at Rodeo Grounds (Jun-Sep, 2023 season)'},{m:[],t:'Splendor Valley Farms produce (exact months unconfirmed \u2014 research dispatch)'},{m:[0,1,2,3,4,5,6,7,8,9,10,11],t:'Oakley grass-fed beef + ranch butter, year-round'}],
       off:'ranch beef + butter, year-round (market dormant)',
-      market:'Oakley Farmers Market at Oakley Rodeo Grounds'}
+      market:'Oakley Farmers Market at Oakley Rodeo Grounds'},
+    // Data-driven from data/localization/retailer-frontier-pairs.json (US-OH-LEBANON, 2026-09: pawpaws).
+    // Typed via frontier-contracts.js (FrontierCalendarEntry); keep in sync with emit_frontier_pairs check.
+    'US-OH-LEBANON': {
+      items:[{m:[1,2],t:'maple syrup (peak March)'},{m:[4,5],t:'strawberries'},{m:[6],t:'sweet corn (peak July)'},{m:[8],t:'pawpaws (peak September)'},{m:[11],t:'black walnuts'}],
+      off:'orchard belt dormant — stored walnuts + holiday baking',
+      market:'Findlay Market + Warren County orchard stands (Lebanon)'}
   };
 
   function frontierDetail(market){
