@@ -2491,6 +2491,26 @@
             11,
             12
           ]
+        },
+        {
+          "moment": "March \u2014 cold-hardy greens (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "cold-hardy greens (March)"
+          ],
+          "favorite_flavors": [
+            "cold-hardy",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
         }
       ],
       "research_todo": false
@@ -2973,6 +2993,26 @@
             10,
             11,
             12
+          ]
+        },
+        {
+          "moment": "August \u2014 blackberries (late) (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "blackberries (late) (August)"
+          ],
+          "favorite_flavors": [
+            "blackberries",
+            "august"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 8 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            8
           ]
         }
       ],
@@ -3943,6 +3983,46 @@
             2,
             11,
             12
+          ]
+        },
+        {
+          "moment": "March \u2014 strawberries (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "strawberries (March)"
+          ],
+          "favorite_flavors": [
+            "strawberries",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
+        },
+        {
+          "moment": "August \u2014 field peas (cowpeas) (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "field peas (cowpeas) (August)"
+          ],
+          "favorite_flavors": [
+            "field",
+            "august"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 8 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            8
           ]
         }
       ],
@@ -7421,6 +7501,26 @@
             10,
             11
           ]
+        },
+        {
+          "moment": "March \u2014 mirlitons (spring) (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "mirlitons (spring) (March)"
+          ],
+          "favorite_flavors": [
+            "mirlitons",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
         }
       ],
       "research_todo": false
@@ -7906,6 +8006,26 @@
             12,
             4
           ]
+        },
+        {
+          "moment": "August \u2014 avocado (Florida) (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "avocado (Florida) (August)"
+          ],
+          "favorite_flavors": [
+            "avocado",
+            "august"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 8 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            8
+          ]
         }
       ],
       "research_todo": false
@@ -8378,6 +8498,26 @@
           ],
           "months": [
             1
+          ]
+        },
+        {
+          "moment": "August \u2014 tomatoes (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "tomatoes (August)"
+          ],
+          "favorite_flavors": [
+            "tomatoes",
+            "august"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 8 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            8
           ]
         }
       ],
@@ -9369,6 +9509,46 @@
           "months": [
             1
           ]
+        },
+        {
+          "moment": "March \u2014 maple syrup (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "maple syrup (March)"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
+        },
+        {
+          "moment": "June \u2014 strawberries (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "strawberries (June)"
+          ],
+          "favorite_flavors": [
+            "strawberries",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
+          ]
         }
       ],
       "research_todo": false
@@ -9839,6 +10019,46 @@
           ],
           "months": [
             1
+          ]
+        },
+        {
+          "moment": "March \u2014 maple syrup (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "maple syrup (March)"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
+        },
+        {
+          "moment": "June \u2014 strawberries (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "strawberries (June)"
+          ],
+          "favorite_flavors": [
+            "strawberries",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
           ]
         }
       ],
@@ -10774,6 +10994,46 @@
           "months": [
             1
           ]
+        },
+        {
+          "moment": "March \u2014 maple syrup (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "maple syrup (March)"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
+        },
+        {
+          "moment": "June \u2014 strawberries (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "strawberries (June)"
+          ],
+          "favorite_flavors": [
+            "strawberries",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
+          ]
         }
       ],
       "research_todo": false
@@ -11228,6 +11488,26 @@
           ],
           "months": [
             1
+          ]
+        },
+        {
+          "moment": "March \u2014 maple syrup (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "maple syrup (March)"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
           ]
         }
       ],
@@ -11703,6 +11983,26 @@
           ],
           "months": [
             1
+          ]
+        },
+        {
+          "moment": "March \u2014 maple syrup (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "maple syrup (March)"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
           ]
         }
       ],
@@ -12641,6 +12941,46 @@
           "months": [
             1
           ]
+        },
+        {
+          "moment": "March \u2014 maple syrup (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "maple syrup (March)"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
+        },
+        {
+          "moment": "June \u2014 strawberries (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "strawberries (June)"
+          ],
+          "favorite_flavors": [
+            "strawberries",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
+          ]
         }
       ],
       "research_todo": false
@@ -13124,6 +13464,26 @@
           "months": [
             1
           ]
+        },
+        {
+          "moment": "March \u2014 maple syrup (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "maple syrup (March)"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
         }
       ],
       "research_todo": false
@@ -13601,6 +13961,26 @@
           ],
           "months": [
             9
+          ]
+        },
+        {
+          "moment": "June \u2014 strawberries (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "strawberries (June)"
+          ],
+          "favorite_flavors": [
+            "strawberries",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
           ]
         }
       ],
@@ -14567,6 +14947,26 @@
             4,
             5
           ]
+        },
+        {
+          "moment": "March \u2014 storage apples (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "storage apples (March)"
+          ],
+          "favorite_flavors": [
+            "storage",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
         }
       ],
       "research_todo": false
@@ -15532,6 +15932,26 @@
           "months": [
             9,
             10
+          ]
+        },
+        {
+          "moment": "March \u2014 local honey (storage) (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "local honey (storage) (March)"
+          ],
+          "favorite_flavors": [
+            "local",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
           ]
         }
       ],
@@ -16506,6 +16926,26 @@
             6,
             8
           ]
+        },
+        {
+          "moment": "March \u2014 local honey (storage) (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "local honey (storage) (March)"
+          ],
+          "favorite_flavors": [
+            "local",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
         }
       ],
       "research_todo": false
@@ -17473,6 +17913,46 @@
           "months": [
             4,
             5
+          ]
+        },
+        {
+          "moment": "March \u2014 local honey (storage) (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "local honey (storage) (March)"
+          ],
+          "favorite_flavors": [
+            "local",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
+        },
+        {
+          "moment": "June \u2014 cherries (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "cherries (June)"
+          ],
+          "favorite_flavors": [
+            "cherries",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
           ]
         }
       ],
@@ -18891,6 +19371,46 @@
           "months": [
             12
           ]
+        },
+        {
+          "moment": "March \u2014 spring greens (high tunnel) (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "spring greens (high tunnel) (March)"
+          ],
+          "favorite_flavors": [
+            "spring",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
+        },
+        {
+          "moment": "June \u2014 sweet cherries (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "sweet cherries (June)"
+          ],
+          "favorite_flavors": [
+            "sweet",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
+          ]
         }
       ],
       "research_todo": false
@@ -19344,6 +19864,46 @@
           ],
           "months": [
             11
+          ]
+        },
+        {
+          "moment": "June \u2014 strawberries (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "strawberries (June)"
+          ],
+          "favorite_flavors": [
+            "strawberries",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
+          ]
+        },
+        {
+          "moment": "August \u2014 peaches (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "peaches (August)"
+          ],
+          "favorite_flavors": [
+            "peaches",
+            "august"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 8 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            8
           ]
         }
       ],
@@ -19825,6 +20385,26 @@
             9,
             10
           ]
+        },
+        {
+          "moment": "June \u2014 strawberries (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "strawberries (June)"
+          ],
+          "favorite_flavors": [
+            "strawberries",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
+          ]
         }
       ],
       "research_todo": false
@@ -20288,6 +20868,26 @@
             11,
             12
           ]
+        },
+        {
+          "moment": "March \u2014 maple syrup (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "maple syrup (March)"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
         }
       ],
       "research_todo": false
@@ -20740,6 +21340,26 @@
             11,
             12
           ]
+        },
+        {
+          "moment": "June \u2014 strawberries (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "strawberries (June)"
+          ],
+          "favorite_flavors": [
+            "strawberries",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
+          ]
         }
       ],
       "research_todo": false
@@ -21191,6 +21811,46 @@
           "months": [
             11,
             12
+          ]
+        },
+        {
+          "moment": "June \u2014 sweet cherries (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "sweet cherries (June)"
+          ],
+          "favorite_flavors": [
+            "sweet",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
+          ]
+        },
+        {
+          "moment": "August \u2014 peaches (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "peaches (August)"
+          ],
+          "favorite_flavors": [
+            "peaches",
+            "august"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 8 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            8
           ]
         }
       ],
@@ -21687,6 +22347,26 @@
           "months": [
             10,
             11
+          ]
+        },
+        {
+          "moment": "March \u2014 shiitake mushrooms (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "shiitake mushrooms (March)"
+          ],
+          "favorite_flavors": [
+            "shiitake",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
           ]
         }
       ],
@@ -22615,6 +23295,26 @@
             12,
             2
           ]
+        },
+        {
+          "moment": "March \u2014 spring greens and snap peas (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "spring greens and snap peas (March)"
+          ],
+          "favorite_flavors": [
+            "spring",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
         }
       ],
       "research_todo": false
@@ -23078,6 +23778,46 @@
             1,
             11,
             12
+          ]
+        },
+        {
+          "moment": "March \u2014 asparagus and spring greens (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "asparagus and spring greens (March)"
+          ],
+          "favorite_flavors": [
+            "asparagus",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
+        },
+        {
+          "moment": "June \u2014 sweet corn and summer squash (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "sweet corn and summer squash (June)"
+          ],
+          "favorite_flavors": [
+            "sweet",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
           ]
         }
       ],
@@ -23558,6 +24298,66 @@
             1,
             11,
             12
+          ]
+        },
+        {
+          "moment": "March \u2014 spring onions and greens (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "spring onions and greens (March)"
+          ],
+          "favorite_flavors": [
+            "spring",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
+        },
+        {
+          "moment": "June \u2014 sweet onions and melons (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "sweet onions and melons (June)"
+          ],
+          "favorite_flavors": [
+            "sweet",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
+          ]
+        },
+        {
+          "moment": "August \u2014 green chile (peak roasting) and melons (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "green chile (peak roasting) and melons (August)"
+          ],
+          "favorite_flavors": [
+            "green",
+            "august"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 8 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            8
           ]
         }
       ],
@@ -24101,6 +24901,26 @@
             11,
             12
           ]
+        },
+        {
+          "moment": "March \u2014 asparagus and spring greens (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "asparagus and spring greens (March)"
+          ],
+          "favorite_flavors": [
+            "asparagus",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
         }
       ],
       "research_todo": false
@@ -24571,6 +25391,66 @@
             12,
             2
           ]
+        },
+        {
+          "moment": "March \u2014 citrus and spring greens (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "citrus and spring greens (March)"
+          ],
+          "favorite_flavors": [
+            "citrus",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
+        },
+        {
+          "moment": "June \u2014 melons and early dates (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "melons and early dates (June)"
+          ],
+          "favorite_flavors": [
+            "melons",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
+          ]
+        },
+        {
+          "moment": "August \u2014 dates and melons (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "dates and melons (August)"
+          ],
+          "favorite_flavors": [
+            "dates",
+            "august"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 8 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            8
+          ]
         }
       ],
       "research_todo": false
@@ -25001,6 +25881,46 @@
           "months": [
             1,
             12
+          ]
+        },
+        {
+          "moment": "March \u2014 spring greens and onions (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "spring greens and onions (March)"
+          ],
+          "favorite_flavors": [
+            "spring",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
+        },
+        {
+          "moment": "June \u2014 squash and melons (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "squash and melons (June)"
+          ],
+          "favorite_flavors": [
+            "squash",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
           ]
         }
       ],
@@ -25483,6 +26403,26 @@
           "months": [
             11
           ]
+        },
+        {
+          "moment": "March \u2014 spring greens (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "spring greens (March)"
+          ],
+          "favorite_flavors": [
+            "spring",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
         }
       ],
       "research_todo": false
@@ -25920,6 +26860,66 @@
           "months": [
             9,
             10
+          ]
+        },
+        {
+          "moment": "June \u2014 lettuce, radishes, herbs (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "lettuce, radishes, herbs (June)"
+          ],
+          "favorite_flavors": [
+            "lettuce,",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
+          ]
+        },
+        {
+          "moment": "August \u2014 u-pick berries and squash (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "u-pick berries and squash (August)"
+          ],
+          "favorite_flavors": [
+            "u-pick",
+            "august"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 8 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            8
+          ]
+        },
+        {
+          "moment": "November \u2014 pinon nuts (harvest) (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "pinon nuts (harvest) (November)"
+          ],
+          "favorite_flavors": [
+            "pinon",
+            "november"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 11 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            11
           ]
         }
       ],
@@ -26376,6 +27376,26 @@
           "months": [
             11,
             3
+          ]
+        },
+        {
+          "moment": "August \u2014 apples (early) and honey (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "apples (early) and honey (August)"
+          ],
+          "favorite_flavors": [
+            "apples",
+            "august"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 8 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            8
           ]
         }
       ],
@@ -26872,6 +27892,26 @@
           "months": [
             1,
             4
+          ]
+        },
+        {
+          "moment": "November \u2014 kale (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "kale (November)"
+          ],
+          "favorite_flavors": [
+            "kale",
+            "november"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 11 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            11
           ]
         }
       ],
@@ -27414,6 +28454,26 @@
             11,
             2
           ]
+        },
+        {
+          "moment": "March \u2014 kumquats (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "kumquats (March)"
+          ],
+          "favorite_flavors": [
+            "kumquats",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
         }
       ],
       "research_todo": false
@@ -27898,6 +28958,46 @@
           "months": [
             10,
             11
+          ]
+        },
+        {
+          "moment": "March \u2014 asparagus (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "asparagus (March)"
+          ],
+          "favorite_flavors": [
+            "asparagus",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
+        },
+        {
+          "moment": "August \u2014 sweet corn (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "sweet corn (August)"
+          ],
+          "favorite_flavors": [
+            "sweet",
+            "august"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 8 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            8
           ]
         }
       ],
@@ -29481,6 +30581,26 @@
             1,
             4
           ]
+        },
+        {
+          "moment": "November \u2014 kale (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "kale (November)"
+          ],
+          "favorite_flavors": [
+            "kale",
+            "november"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 11 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            11
+          ]
         }
       ],
       "research_todo": false,
@@ -30035,6 +31155,26 @@
             1,
             2,
             12
+          ]
+        },
+        {
+          "moment": "March \u2014 microgreens (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "microgreens (March)"
+          ],
+          "favorite_flavors": [
+            "microgreens",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
           ]
         }
       ],
@@ -30980,6 +32120,26 @@
             2,
             12
           ]
+        },
+        {
+          "moment": "August \u2014 blueberries (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "blueberries (August)"
+          ],
+          "favorite_flavors": [
+            "blueberries",
+            "august"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 8 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            8
+          ]
         }
       ],
       "research_todo": false
@@ -31444,6 +32604,26 @@
             9,
             11
           ]
+        },
+        {
+          "moment": "March \u2014 rhubarb (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "rhubarb (March)"
+          ],
+          "favorite_flavors": [
+            "rhubarb",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
         }
       ],
       "research_todo": false
@@ -31905,6 +33085,26 @@
             2,
             9,
             11
+          ]
+        },
+        {
+          "moment": "March \u2014 rhubarb (forced) (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "rhubarb (forced) (March)"
+          ],
+          "favorite_flavors": [
+            "rhubarb",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
           ]
         }
       ],
@@ -32381,6 +33581,26 @@
           ],
           "months": [
             10
+          ]
+        },
+        {
+          "moment": "March \u2014 razor clams (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "razor clams (March)"
+          ],
+          "favorite_flavors": [
+            "razor",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
           ]
         }
       ],
@@ -33327,6 +34547,26 @@
             11,
             12
           ]
+        },
+        {
+          "moment": "March \u2014 spring greens and radishes (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "spring greens and radishes (March)"
+          ],
+          "favorite_flavors": [
+            "spring",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
+          ]
         }
       ],
       "research_todo": false
@@ -33787,6 +35027,26 @@
             10,
             11,
             12
+          ]
+        },
+        {
+          "moment": "March \u2014 spring greens (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "spring greens (March)"
+          ],
+          "favorite_flavors": [
+            "spring",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
           ]
         }
       ],
@@ -34269,6 +35529,26 @@
             10,
             11,
             12
+          ]
+        },
+        {
+          "moment": "March \u2014 strawberries (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "strawberries (March)"
+          ],
+          "favorite_flavors": [
+            "strawberries",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
           ]
         }
       ],
@@ -34758,6 +36038,26 @@
           "months": [
             4,
             5
+          ]
+        },
+        {
+          "moment": "March \u2014 storage cabbage and root vegetables (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "storage cabbage and root vegetables (March)"
+          ],
+          "favorite_flavors": [
+            "storage",
+            "march"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 3 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            3
           ]
         }
       ],
