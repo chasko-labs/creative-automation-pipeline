@@ -74,28 +74,59 @@ def test_all_options_resolve_ingredient_and_moment() -> None:
 
 
 def test_all_76_markets_cover_all_months_and_moments() -> None:
-    """Durable full-matrix check: every of the 76 pairs × 26 seasons resolves.
+    """Durable full-matrix check: every of the 76 pairs × 26 seasons has distinct hero.
 
-    Extends test_all_options_resolve_ingredient_and_moment (7 spot markets) to
-    the full frontier file so a future ATL-March-style hole in any of the other
-    69 markets fails locally. Data-driven: loops the live JSON, no hardwired
-    market list beyond the file itself.
+    26 = 12 months + 4 seasons (Winter/Spring/Summer/Fall/Autumn alias) + 10
+    holidays. Months resolve to monthly_ingredients[2026-MM]; holidays/seasons
+    resolve to seasonal_moments[].available_ingredients[0] distinct per season.
+    This is the 76×26=1976 distinct hero contract, not a 12-month check.
     """
     pairs = _pairs()
     assert len(pairs) == 76, f"frontier pairs count drift: {len(pairs)} != 76"
     failures: list[str] = []
     for code, entry in pairs.items():
         monthly = entry.get("monthly_ingredients") or {}
-        covered: set[int] = set()
-        for mo in entry.get("seasonal_moments") or []:
-            covered.update(mo.get("months", []))
+        moments = entry.get("seasonal_moments") or []
+        # Build hero per OPTIONS: months -> monthly, holidays/seasons -> moment hero
+        heroes: list[str] = []
         for opt in OPTIONS:
-            month = _month_of(opt)
-            if not monthly.get(f"2026-{month:02d}"):
-                failures.append(f"{code} {opt}: no monthly ingredient")
-            if month not in covered:
-                failures.append(f"{code} {opt}: no covering moment")
-    assert not failures, "season gaps (full 76):\n" + "\n".join(failures[:50])
+            if opt in MONTHS:
+                month = MONTHS.index(opt) + 1
+                hero = monthly.get(f"2026-{month:02d}")
+                if not hero:
+                    failures.append(f"{code} {opt}: no monthly ingredient")
+                    continue
+                heroes.append(hero.strip().lower())
+            else:
+                # holiday/season: find moment whose header matches opt (case-insensitive)
+                # e.g., "Halloween — pumpkins + caramel (Halloween)" header "Halloween"
+                want = opt.lower()
+                found = None
+                for mo in moments:
+                    header = str(mo.get("moment") or "").split(" —")[0].strip().lower()
+                    if header == want or header.startswith(want + " "):
+                        found = mo
+                        break
+                if not found:
+                    # fallback to available_ingredients[0] search
+                    for mo in moments:
+                        ing = str((mo.get("available_ingredients") or [""])[0]).lower()
+                        if want in ing:
+                            found = mo
+                            break
+                if not found:
+                    failures.append(f"{code} {opt}: no seasonal moment for {opt}")
+                    continue
+                ing0 = str((found.get("available_ingredients") or [""])[0]).strip().lower()
+                if not ing0:
+                    failures.append(f"{code} {opt}: moment has no available_ingredients")
+                    continue
+                heroes.append(ing0)
+        # Distinctness: 26 seasons must map to 26 distinct hero strings per market
+        if len(heroes) == 26 and len(set(heroes)) != 26:
+            dup = [h for h in set(heroes) if heroes.count(h) > 1]
+            failures.append(f"{code}: not 26 distinct heroes — dups {dup[:3]}")
+    assert not failures, "season gaps (full 76 distinct 26):\n" + "\n".join(failures[:50])
 
 
 def test_target_markets_have_baked_preview_translations() -> None:
