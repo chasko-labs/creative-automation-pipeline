@@ -1031,7 +1031,9 @@ def _nova_pro_caption(
             "(max 6 words) on the first line, then one line 'LAYOUT: <left|right|center>' "
             "naming which side to leave as negative space for the product. No other text. "
             "Brand law: never write the bare words KODIAK or Kodiak — the only allowed "
-            "brand namings are 'Kodiak Cakes' and 'Kodiak Park City'."
+            "brand namings are 'Kodiak Cakes' and 'Kodiak Park City'. Never use military, "
+            "recruitment, or 'LISTEN UP' language — warm agricultural frontier marketplace "
+            "vibe only. Headline must be warm and inviting, not commanding."
         )
         resp = client.converse(
             modelId=NOVA_TEXT_MODEL,
