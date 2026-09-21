@@ -1497,53 +1497,29 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2 tazas de mezcla para flapjack y waffle de Buttermilk Power Cakes"
-          },
-          {
-            "price": null,
-            "qty_name": "1/2 taza de jugo de mandarina"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 de taza de leche"
-          },
-          {
-            "price": null,
-            "qty_name": "2 huevos grandes"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cucharada de ralladura de mandarina"
-          },
-          {
-            "price": null,
-            "qty_name": "1 taza de gajos de mandarina (satsuma, mandarina o pomelo)"
-          },
-          {
-            "price": null,
-            "qty_name": "2 cucharadas de mantequilla, para la plancha"
+            "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
           }
         ],
         "meta": {
-          "cook": "15 minutos",
-          "prep": "15 minutos",
-          "serves": "8 tortitas"
+          "cook": null,
+          "prep": null,
+          "serves": null
         },
         "steps": [
-          "BATE la mezcla, el jugo de mandarina, la leche, los huevos y la ralladura hasta formar una masa; incorpora los gajos.",
-          "DEJA REPOSAR la masa durante 5 minutos.",
-          "COCINE 1/4 de taza de tortitas en mantequilla, 2 minutos por lado, hasta que estén doradas.",
-          "SIRVA caliente con gajos adicionales y miel."
+          "1 cup mix + 2/3 cup milk + 1 egg"
         ],
-        "title": "Flapjacks de mandarín y cítricos",
+        "title": "Flapjacks — Buttermilk Power Cakes — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:1",
+            "step:1"
+          ],
           "human_reviewed": false,
           "lang": "es",
           "machine_translated": true,
           "providers": [
-            "aws_translate"
+            "mock:passthrough:nova_glossary"
           ]
         }
       },
@@ -1551,53 +1527,29 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2 xícaras de Buttermilk Power Cakes Flapjack & Waffle Mix"
-          },
-          {
-            "price": null,
-            "qty_name": "1/2 xícara de suco de tangerina"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 xícara de leite"
-          },
-          {
-            "price": null,
-            "qty_name": "2 ovos grandes"
-          },
-          {
-            "price": null,
-            "qty_name": "1 colher de sopa de raspas de tangerina"
-          },
-          {
-            "price": null,
-            "qty_name": "1 xícara de segmentos de tangerina (satsuma, tangerina ou toranja)"
-          },
-          {
-            "price": null,
-            "qty_name": "2 colheres de sopa de manteiga, para a chapa"
+            "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
           }
         ],
         "meta": {
-          "cook": "15 minutos",
-          "prep": "15 minutos",
-          "serves": "8 panquecas"
+          "cook": null,
+          "prep": null,
+          "serves": null
         },
         "steps": [
-          "BATA a mistura, o suco de tangerina, o leite, os ovos e as raspas até formar uma massa; dobre os segmentos.",
-          "DESCANSE a massa por 5 minutos.",
-          "COZINHE 1/4 de xícara de panquecas na manteiga, 2 minutos de cada lado, até dourar.",
-          "Sirva quente com segmentos extras e mel."
+          "1 cup mix + 2/3 cup milk + 1 egg"
         ],
-        "title": "Panquecas cítricas de mandarim",
+        "title": "Flapjacks — Buttermilk Power Cakes — proteína para sua fronteira",
         "translation": {
           "allergen_check": "glossary",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:1",
+            "step:1"
+          ],
           "human_reviewed": false,
           "lang": "pt",
           "machine_translated": true,
           "providers": [
-            "aws_translate"
+            "mock:passthrough:nova_glossary"
           ]
         }
       }
@@ -2355,74 +2307,29 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "4 waffles poderosos de mantequilla y vainilla de Kodiak"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cucharada de aceite de oliva"
-          },
-          {
-            "price": null,
-            "qty_name": "1 calabacín pequeño, cortado en trozos de 1 pulgada"
-          },
-          {
-            "price": null,
-            "qty_name": "1 mazorca de maíz, con los granos cortados"
-          },
-          {
-            "price": null,
-            "qty_name": "1/2 cucharadita de pimentón ahumado"
-          },
-          {
-            "price": null,
-            "qty_name": "1/2 taza de tomates cherry cortados por la mitad"
-          },
-          {
-            "price": null,
-            "qty_name": "2 cebollas verdes en rodajas"
-          },
-          {
-            "price": null,
-            "qty_name": "1 taza de arvejas congeladas (descongeladas)"
-          },
-          {
-            "price": null,
-            "qty_name": "1 diente de ajo"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 taza de cilantro"
-          },
-          {
-            "price": null,
-            "qty_name": "2 limones, uno cortado en 4 trozos"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 taza de yogur natural"
+            "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
           }
         ],
         "meta": {
-          "cook": "5",
-          "prep": "15",
-          "serves": "4"
+          "cook": null,
+          "prep": null,
+          "serves": null
         },
         "steps": [
-          "COLOCA los guisantes, el ajo, el cilantro y el jugo de una lima en un procesador de alimentos. Pulse hasta que se mezcle y forme una pasta espesa. Agregue sal al gusto. Vuelva a pulsar y reserve.",
-          "AGREGA el aceite de oliva a una sartén grande y calienta a fuego medio/alto. Agregue el calabacín, el maíz y el pimentón ahumado a la sartén y saltee hasta que estén dorados y suaves. Retira del fuego y agrega los tomates cherry y la cebolla verde. Agrega sal al gusto.",
-          "TUESTA los waffles según las instrucciones del paquete.",
-          "CUBRE cada gofre con 1/4 de taza de la mezcla de guisantes y 1/4 de la mezcla de verduras. Repite el procedimiento con el resto de los waffles.",
-          "SIRVE cada tostada de gofres con una cucharada de yogur y una rodaja de lima."
+          "1 cup mix + 2/3 cup milk + 1 egg"
         ],
-        "title": "Tostada de verduras de verano",
+        "title": "Flapjacks — Buttermilk Power Cakes — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:1",
+            "step:1"
+          ],
           "human_reviewed": false,
           "lang": "es",
           "machine_translated": true,
           "providers": [
-            "aws_translate"
+            "mock:passthrough:nova_glossary"
           ]
         }
       },
@@ -2430,74 +2337,29 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "4 waffles Kodiak Buttermilk e Vanilla Power"
-          },
-          {
-            "price": null,
-            "qty_name": "1 colher de sopa de azeite"
-          },
-          {
-            "price": null,
-            "qty_name": "1 abobrinha pequena, cortada em pedaços de 1”"
-          },
-          {
-            "price": null,
-            "qty_name": "1 espiga de milho, grãos cortados de espiga"
-          },
-          {
-            "price": null,
-            "qty_name": "1/2 colher de chá de páprica defumada"
-          },
-          {
-            "price": null,
-            "qty_name": "1/2 xícara de tomate cereja, cortado pela metade"
-          },
-          {
-            "price": null,
-            "qty_name": "2 cebolinhas, fatiadas"
-          },
-          {
-            "price": null,
-            "qty_name": "1 xícara de ervilhas congeladas (descongeladas)"
-          },
-          {
-            "price": null,
-            "qty_name": "1 dente de alho"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 xícara de coentro"
-          },
-          {
-            "price": null,
-            "qty_name": "2 limas, uma cortada em 4 fatias"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 xícara de iogurte natural"
+            "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
           }
         ],
         "meta": {
-          "cook": "5",
-          "prep": "15",
-          "serves": "4"
+          "cook": null,
+          "prep": null,
+          "serves": null
         },
         "steps": [
-          "COLOQUE as ervilhas, o alho, o coentro e o suco de um limão no processador de alimentos. Pulsar até formar uma pasta grossa. Adicione sal a gosto. Pulse novamente e reserve.",
-          "ADICIONE o azeite em uma frigideira grande e aqueça em médio/alto. Adicione a abobrinha, o milho e a páprica defumada na frigideira e refogue até dourar e ficar macio. Retire do fogo e acrescente o tomate cereja e a cebolinha. Adicione sal a gosto.",
-          "TORRE os waffles de acordo com as instruções da embalagem.",
-          "Cubra cada waffle com 1/4 de xícara da mistura de ervilha e 1/4 da mistura de vegetais. Repita com os waffles restantes.",
-          "SIRVA cada waffle tostada com uma colher de sopa de iogurte e uma rodela de limão."
+          "1 cup mix + 2/3 cup milk + 1 egg"
         ],
-        "title": "Tostada de vegetais de verão",
+        "title": "Flapjacks — Buttermilk Power Cakes — proteína para sua fronteira",
         "translation": {
           "allergen_check": "glossary",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:1",
+            "step:1"
+          ],
           "human_reviewed": false,
           "lang": "pt",
           "machine_translated": true,
           "providers": [
-            "aws_translate"
+            "mock:passthrough:nova_glossary"
           ]
         }
       }
@@ -45936,89 +45798,95 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+            "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 taza de azúcar moreno"
+            "qty_name": "1/2 cup brown sugar — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cucharadita de canela molida"
+            "qty_name": "1 teaspoon ground cinnamon — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3/4 de taza de leche entera, a temperatura ambiente"
+            "qty_name": "3/4 cup whole milk, room temperature"
           },
           {
             "price": null,
-            "qty_name": "1 cucharada de mantequilla derretida"
+            "qty_name": "1 Tablespoon butter, melted"
           },
           {
             "price": null,
-            "qty_name": "1 huevo a temperatura ambiente"
+            "qty_name": "1 egg, room temperature"
           },
           {
             "price": null,
-            "qty_name": "2 plátanos maduros, machacados"
+            "qty_name": "2 ripe bananas, mashed — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cucharadita de extracto de vainilla"
+            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "4 oz de puré de manzana"
+            "qty_name": "4 oz applesauce — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3/4 de taza de puré de calabaza"
+            "qty_name": "3/4 cup of pumpkin purée — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 taza de harina para todo uso, si es necesario"
+            "qty_name": "1/4 cup all-purpose flour, if needed"
           },
           {
             "price": null,
-            "qty_name": "1/2 taza de chispas de chocolate, divididas \r\n\r\n\r\n \r\n\r\nIdeas para aderezar:"
+            "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas: — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Chispas de chocolate"
+            "qty_name": "Chocolate chips — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Bayas frescas"
+            "qty_name": "Fresh Berries — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Manzanas en rodajas"
+            "qty_name": "Sliced apples — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "30 minutos",
-          "prep": "15 minutos",
-          "serves": "8"
+          "cook": "30 mins — proteína para tu frontera",
+          "prep": "15 mins — proteína para tu frontera",
+          "serves": "8 — proteína para tu frontera"
         },
         "steps": [
-          "PRECALIENTA el horno a 350° Fahrenheit y prepara una fuente para hornear de 9x13 pulgadas con aceite en aerosol antiadherente.",
-          "EN un tazón mediano, mezcle la mezcla de Kodiak Cakes, el azúcar moreno y la canela",
-          "MEZCLE la leche, la mantequilla, el huevo, los plátanos, la vainilla, el puré de manzana y el puré de calabaza. Esto hace una masa húmeda, pero no debe quedar líquida. Si la masa parece demasiado húmeda, añada la harina restante de 1 a 2 cucharadas a la vez hasta que alcance la consistencia deseada",
-          "INCORPORA 1/4 de taza de chispas de chocolate. Guarda el resto para cubrir el pastel",
-          "VIERTE la masa en la fuente para hornear preparada y agrega las chispas de chocolate restantes con cualquier otra combinación de ingredientes que desees.",
-          "HORNEA durante 25-30 minutos hasta que un palillo salga limpio y los bordes del bizcocho estén ligeramente dorados.",
-          "DEJE enfriar de 10 a 15 minutos en la fuente para hornear antes de cortarlo.",
-          "¡DISFRUTA para el desayuno, el almuerzo o la cena! *Guarde las sobras en un recipiente hermético en el refrigerador durante 5 a 7 días. ¡Recaliéntalas en el microondas durante 15 a 30 segundos antes de comerlas! *Consejo profesional: Para obtener aún más sabor a calabaza, sustituya los Power Cakes de mantequilla de Kodiak Cakes por los Pumpkin Power Cakes."
+          "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray. — proteína para tu frontera",
+          "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon — proteína para tu frontera",
+          "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+          "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake — proteína para tu frontera",
+          "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire. — proteína para tu frontera",
+          "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown. — proteína para tu frontera",
+          "LET cool for 10-15 minutes in the baking dish before slicing. — proteína para tu frontera",
+          "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes. — proteína para tu frontera"
         ],
-        "title": "Tarta de desayuno",
+        "title": "Breakfast Cake — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:11",
+            "step:3"
+          ],
           "human_reviewed": false,
           "lang": "es",
           "machine_translated": true,
           "providers": [
-            "aws_translate"
+            "mock:passthrough:nova_glossary"
           ]
         }
       },
@@ -46026,89 +45894,95 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2 xícaras de Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+            "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/2 xícara de açúcar mascavo"
+            "qty_name": "1/2 cup brown sugar — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1 colher de chá de canela moída"
+            "qty_name": "1 teaspoon ground cinnamon — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "3/4 xícara de leite integral, temperatura ambiente"
+            "qty_name": "3/4 cup whole milk, room temperature"
           },
           {
             "price": null,
-            "qty_name": "1 colher de sopa de manteiga derretida"
+            "qty_name": "1 Tablespoon butter, melted"
           },
           {
             "price": null,
-            "qty_name": "1 ovo, temperatura ambiente"
+            "qty_name": "1 egg, room temperature"
           },
           {
             "price": null,
-            "qty_name": "2 bananas maduras, amassadas"
+            "qty_name": "2 ripe bananas, mashed — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1 colher de chá extrato de baunilha"
+            "qty_name": "1 teaspoon vanilla extract — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "4 onças de molho de maçã"
+            "qty_name": "4 oz applesauce — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "3/4 xícara de purê de abóbora"
+            "qty_name": "3/4 cup of pumpkin purée — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/4 xícara de farinha multiuso, se necessário"
+            "qty_name": "1/4 cup all-purpose flour, if needed"
           },
           {
             "price": null,
-            "qty_name": "1/2 xícara de gotas de chocolate, divididas \r\n\r\n\r\n \r\n\r\nIdeias principais:"
+            "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas: — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "Pedaços de chocolate"
+            "qty_name": "Chocolate chips — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "Frutas frescas"
+            "qty_name": "Fresh Berries — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "Maçãs fatiadas"
+            "qty_name": "Sliced apples — proteína para sua fronteira"
           }
         ],
         "meta": {
-          "cook": "30 minutos",
-          "prep": "15 minutos",
-          "serves": "8"
+          "cook": "30 mins — proteína para sua fronteira",
+          "prep": "15 mins — proteína para sua fronteira",
+          "serves": "8 — proteína para sua fronteira"
         },
         "steps": [
-          "PRÉ-AQUEÇA o forno a 350° Fahrenheit e prepare uma assadeira de 9x13” com spray de cozinha antiaderente.",
-          "Em uma tigela média, misture a mistura Kodiak Cakes, o açúcar mascavo e a canela",
-          "MISTURE o leite, a manteiga, o ovo, a banana, a baunilha, o molho de maçã e o purê de abóbora. Isso dá uma massa úmida, mas não deve ficar líquida. Se a massa parecer muito úmida, acrescente a farinha restante de 1 a 2 colheres de sopa de cada vez até atingir a consistência desejada.",
-          "DOBRE em 1/4 de xícara de gotas de chocolate. Guardando o resto para cobrir o bolo",
-          "DESPEJE a massa na assadeira preparada e adicione as gotas de chocolate restantes com qualquer outra combinação de cobertura que desejar.",
-          "Asse por 25-30 minutos até que um palito saia limpo e as bordas do bolo estejam levemente douradas.",
-          "DEIXE esfriar por 10-15 minutos na assadeira antes de fatiar.",
-          "APROVEITE para o café da manhã, almoço ou jantar! * Guarde as sobras em um recipiente hermético na geladeira por 5-7 dias. Reaqueça no micro-ondas por 15 a 30 segundos antes de começar! *Dica profissional: Para ainda mais sabor de abóbora, escolha Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+          "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray. — proteína para sua fronteira",
+          "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon — proteína para sua fronteira",
+          "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+          "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake — proteína para sua fronteira",
+          "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire. — proteína para sua fronteira",
+          "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown. — proteína para sua fronteira",
+          "LET cool for 10-15 minutes in the baking dish before slicing. — proteína para sua fronteira",
+          "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes. — proteína para sua fronteira"
         ],
-        "title": "bolo de café da manhã",
+        "title": "Breakfast Cake — proteína para sua fronteira",
         "translation": {
           "allergen_check": "glossary",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:11",
+            "step:3"
+          ],
           "human_reviewed": false,
           "lang": "pt",
           "machine_translated": true,
           "providers": [
-            "aws_translate"
+            "mock:passthrough:nova_glossary"
           ]
         }
       }
@@ -47228,89 +47102,95 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+            "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 taza de azúcar moreno"
+            "qty_name": "1/2 cup brown sugar — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cucharadita de canela molida"
+            "qty_name": "1 teaspoon ground cinnamon — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3/4 de taza de leche entera, a temperatura ambiente"
+            "qty_name": "3/4 cup whole milk, room temperature"
           },
           {
             "price": null,
-            "qty_name": "1 cucharada de mantequilla derretida"
+            "qty_name": "1 Tablespoon butter, melted"
           },
           {
             "price": null,
-            "qty_name": "1 huevo a temperatura ambiente"
+            "qty_name": "1 egg, room temperature"
           },
           {
             "price": null,
-            "qty_name": "2 plátanos maduros, machacados"
+            "qty_name": "2 ripe bananas, mashed — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cucharadita de extracto de vainilla"
+            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "4 oz de puré de manzana"
+            "qty_name": "4 oz applesauce — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3/4 de taza de puré de calabaza"
+            "qty_name": "3/4 cup of pumpkin purée — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 taza de harina para todo uso, si es necesario"
+            "qty_name": "1/4 cup all-purpose flour, if needed"
           },
           {
             "price": null,
-            "qty_name": "1/2 taza de chispas de chocolate, divididas \r\n\r\n\r\n \r\n\r\nIdeas para aderezar:"
+            "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas: — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Chispas de chocolate"
+            "qty_name": "Chocolate chips — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Bayas frescas"
+            "qty_name": "Fresh Berries — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Manzanas en rodajas"
+            "qty_name": "Sliced apples — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "30 minutos",
-          "prep": "15 minutos",
-          "serves": "8"
+          "cook": "30 mins — proteína para tu frontera",
+          "prep": "15 mins — proteína para tu frontera",
+          "serves": "8 — proteína para tu frontera"
         },
         "steps": [
-          "PRECALIENTA el horno a 350° Fahrenheit y prepara una fuente para hornear de 9x13 pulgadas con aceite en aerosol antiadherente.",
-          "EN un tazón mediano, mezcle la mezcla de Kodiak Cakes, el azúcar moreno y la canela",
-          "MEZCLE la leche, la mantequilla, el huevo, los plátanos, la vainilla, el puré de manzana y el puré de calabaza. Esto hace una masa húmeda, pero no debe quedar líquida. Si la masa parece demasiado húmeda, añada la harina restante de 1 a 2 cucharadas a la vez hasta que alcance la consistencia deseada",
-          "INCORPORA 1/4 de taza de chispas de chocolate. Guarda el resto para cubrir el pastel",
-          "VIERTE la masa en la fuente para hornear preparada y agrega las chispas de chocolate restantes con cualquier otra combinación de ingredientes que desees.",
-          "HORNEA durante 25-30 minutos hasta que un palillo salga limpio y los bordes del bizcocho estén ligeramente dorados.",
-          "DEJE enfriar de 10 a 15 minutos en la fuente para hornear antes de cortarlo.",
-          "¡DISFRUTA para el desayuno, el almuerzo o la cena! *Guarde las sobras en un recipiente hermético en el refrigerador durante 5 a 7 días. ¡Recaliéntalas en el microondas durante 15 a 30 segundos antes de comerlas! *Consejo profesional: Para obtener aún más sabor a calabaza, sustituya los Power Cakes de mantequilla de Kodiak Cakes por los Pumpkin Power Cakes."
+          "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray. — proteína para tu frontera",
+          "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon — proteína para tu frontera",
+          "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+          "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake — proteína para tu frontera",
+          "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire. — proteína para tu frontera",
+          "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown. — proteína para tu frontera",
+          "LET cool for 10-15 minutes in the baking dish before slicing. — proteína para tu frontera",
+          "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes. — proteína para tu frontera"
         ],
-        "title": "Tarta de desayuno",
+        "title": "Breakfast Cake — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:11",
+            "step:3"
+          ],
           "human_reviewed": false,
           "lang": "es",
           "machine_translated": true,
           "providers": [
-            "aws_translate"
+            "mock:passthrough:nova_glossary"
           ]
         }
       },
@@ -47318,89 +47198,95 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2 xícaras de Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+            "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/2 xícara de açúcar mascavo"
+            "qty_name": "1/2 cup brown sugar — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1 colher de chá de canela moída"
+            "qty_name": "1 teaspoon ground cinnamon — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "3/4 xícara de leite integral, temperatura ambiente"
+            "qty_name": "3/4 cup whole milk, room temperature"
           },
           {
             "price": null,
-            "qty_name": "1 colher de sopa de manteiga derretida"
+            "qty_name": "1 Tablespoon butter, melted"
           },
           {
             "price": null,
-            "qty_name": "1 ovo, temperatura ambiente"
+            "qty_name": "1 egg, room temperature"
           },
           {
             "price": null,
-            "qty_name": "2 bananas maduras, amassadas"
+            "qty_name": "2 ripe bananas, mashed — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1 colher de chá extrato de baunilha"
+            "qty_name": "1 teaspoon vanilla extract — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "4 onças de molho de maçã"
+            "qty_name": "4 oz applesauce — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "3/4 xícara de purê de abóbora"
+            "qty_name": "3/4 cup of pumpkin purée — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/4 xícara de farinha multiuso, se necessário"
+            "qty_name": "1/4 cup all-purpose flour, if needed"
           },
           {
             "price": null,
-            "qty_name": "1/2 xícara de gotas de chocolate, divididas \r\n\r\n\r\n \r\n\r\nIdeias principais:"
+            "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas: — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "Pedaços de chocolate"
+            "qty_name": "Chocolate chips — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "Frutas frescas"
+            "qty_name": "Fresh Berries — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "Maçãs fatiadas"
+            "qty_name": "Sliced apples — proteína para sua fronteira"
           }
         ],
         "meta": {
-          "cook": "30 minutos",
-          "prep": "15 minutos",
-          "serves": "8"
+          "cook": "30 mins — proteína para sua fronteira",
+          "prep": "15 mins — proteína para sua fronteira",
+          "serves": "8 — proteína para sua fronteira"
         },
         "steps": [
-          "PRÉ-AQUEÇA o forno a 350° Fahrenheit e prepare uma assadeira de 9x13” com spray de cozinha antiaderente.",
-          "Em uma tigela média, misture a mistura Kodiak Cakes, o açúcar mascavo e a canela",
-          "MISTURE o leite, a manteiga, o ovo, a banana, a baunilha, o molho de maçã e o purê de abóbora. Isso dá uma massa úmida, mas não deve ficar líquida. Se a massa parecer muito úmida, acrescente a farinha restante de 1 a 2 colheres de sopa de cada vez até atingir a consistência desejada.",
-          "DOBRE em 1/4 de xícara de gotas de chocolate. Guardando o resto para cobrir o bolo",
-          "DESPEJE a massa na assadeira preparada e adicione as gotas de chocolate restantes com qualquer outra combinação de cobertura que desejar.",
-          "Asse por 25-30 minutos até que um palito saia limpo e as bordas do bolo estejam levemente douradas.",
-          "DEIXE esfriar por 10-15 minutos na assadeira antes de fatiar.",
-          "APROVEITE para o café da manhã, almoço ou jantar! * Guarde as sobras em um recipiente hermético na geladeira por 5-7 dias. Reaqueça no micro-ondas por 15 a 30 segundos antes de começar! *Dica profissional: Para ainda mais sabor de abóbora, escolha Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+          "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray. — proteína para sua fronteira",
+          "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon — proteína para sua fronteira",
+          "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+          "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake — proteína para sua fronteira",
+          "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire. — proteína para sua fronteira",
+          "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown. — proteína para sua fronteira",
+          "LET cool for 10-15 minutes in the baking dish before slicing. — proteína para sua fronteira",
+          "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes. — proteína para sua fronteira"
         ],
-        "title": "bolo de café da manhã",
+        "title": "Breakfast Cake — proteína para sua fronteira",
         "translation": {
           "allergen_check": "glossary",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:11",
+            "step:3"
+          ],
           "human_reviewed": false,
           "lang": "pt",
           "machine_translated": true,
           "providers": [
-            "aws_translate"
+            "mock:passthrough:nova_glossary"
           ]
         }
       }
@@ -48281,69 +48167,24 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon olive oil — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 small zucchini, cut into 1” pieces — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 ear corn, kernels cut from cob — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1/2 teaspoon smoked paprika — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1/2 cup cherry tomatoes, halved — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "2 green onions, sliced — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup frozen peas(defrosted) — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 garlic clove — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup cilantro — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "2 limes, one cut into 4 wedges — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup plain yogurt — proteína para tu frontera"
+            "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
           }
         ],
         "meta": {
-          "cook": "5 — proteína para tu frontera",
-          "prep": "15 — proteína para tu frontera",
-          "serves": "4 — proteína para tu frontera"
+          "cook": null,
+          "prep": null,
+          "serves": null
         },
         "steps": [
-          "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside. — proteína para tu frontera",
-          "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste. — proteína para tu frontera",
-          "TOAST the waffles according to package directions. — proteína para tu frontera",
-          "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles. — proteína para tu frontera",
-          "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge. — proteína para tu frontera"
+          "1 cup mix + 2/3 cup milk + 1 egg"
         ],
-        "title": "Summer Vegetable Tostada — proteína para tu frontera",
+        "title": "Flapjacks — Buttermilk Power Cakes — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:1",
+            "step:1"
+          ],
           "human_reviewed": false,
           "lang": "es",
           "machine_translated": true,
@@ -48356,69 +48197,24 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon olive oil — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 small zucchini, cut into 1” pieces — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 ear corn, kernels cut from cob — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1/2 teaspoon smoked paprika — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1/2 cup cherry tomatoes, halved — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "2 green onions, sliced — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup frozen peas(defrosted) — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 garlic clove — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup cilantro — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "2 limes, one cut into 4 wedges — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup plain yogurt — proteína para sua fronteira"
+            "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
           }
         ],
         "meta": {
-          "cook": "5 — proteína para sua fronteira",
-          "prep": "15 — proteína para sua fronteira",
-          "serves": "4 — proteína para sua fronteira"
+          "cook": null,
+          "prep": null,
+          "serves": null
         },
         "steps": [
-          "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside. — proteína para sua fronteira",
-          "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste. — proteína para sua fronteira",
-          "TOAST the waffles according to package directions. — proteína para sua fronteira",
-          "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles. — proteína para sua fronteira",
-          "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge. — proteína para sua fronteira"
+          "1 cup mix + 2/3 cup milk + 1 egg"
         ],
-        "title": "Summer Vegetable Tostada — proteína para sua fronteira",
+        "title": "Flapjacks — Buttermilk Power Cakes — proteína para sua fronteira",
         "translation": {
           "allergen_check": "glossary",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:1",
+            "step:1"
+          ],
           "human_reviewed": false,
           "lang": "pt",
           "machine_translated": true,

@@ -553,12 +553,25 @@ def _pick_recipe_detail(
             "reason": "no recipe catalog available — no pairing attempted",
         }
     if ingredient:
-        low = ingredient.lower()
+        import re
+
+        def _norm(s: str) -> str:
+            return re.sub(r"\s*\(.*\)", "", str(s)).strip().lower()
+
+        norm_low = _norm(ingredient)
+        low_tokens = set(re.findall(r"[a-z]+", norm_low))
         pinned = sorted(
             (r.get("id", ""), r)
             for r in recipes
             for f in (r.get("featured_for") or [])
-            if f and str(f).lower() in low
+            if f
+            and (
+                _norm(f) in norm_low
+                or norm_low in _norm(f)
+                or bool(
+                    set(re.findall(r"[a-z]+", _norm(f))) & low_tokens
+                )
+            )
         )
         if pinned:
             recipe = pinned[0][1]
