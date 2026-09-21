@@ -16,7 +16,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 BOX_OUT = Path("/home/hs-shannon/ComfyUI/output")
 POOL_DIRS = [ROOT / "input_assets" / "blog",
-             ROOT / "input_assets" / "sprint2-ingredients"]
+             ROOT / "input_assets" / "sprint2-ingredients",
+             ROOT / "input_assets" / "campaign"]
 
 DISHES = ["pancake", "flapjack", "waffle", "muffin", "oatmeal", "brownie",
           "cookie", "granola", "quick bread", "bars", "sandwich"]
@@ -52,13 +53,21 @@ def axis_ingredients() -> list[str]:
 
 
 def prompts_in(png: Path) -> str:
+    parts = [p.lower() for p in png.parts]
+    if "campaign" in parts:
+        # driver-saved pool renders carry no embedded prompt; the
+        # market dir + season-dish filename is the record
+        return " ".join(parts[-3:]).replace("-", " ").replace("_", " ").replace(".png", "")
     try:
         from PIL import Image
         im = Image.open(png)
         pr = im.info.get("prompt")
         if not pr:
             return ""
-        d = json.loads(pr)
+        try:
+            d = json.loads(pr)
+        except ValueError:
+            return pr.lower()  # plain-text prompt (pool driver format)
         out = []
         for v in d.values():
             if isinstance(v, dict) and v.get("class_type") == "CLIPTextEncode":
@@ -74,7 +83,7 @@ def main() -> None:
         files += sorted(BOX_OUT.glob("*.png"))
     for d in POOL_DIRS:
         if d.is_dir():
-            files += sorted(d.glob("*.png"))
+            files += sorted(d.rglob("*.png"))
     print(f"scanning {len(files)} pngs", flush=True)
 
     dish_hits: Counter = Counter()
@@ -105,7 +114,12 @@ def main() -> None:
     market_names = {}
     for m in markets:
         parts = m.replace("US-", "").replace("-", " ").lower().split()
-        market_names[m] = parts[-1]  # last token: wasatch, oceanside, atl ...
+        market_names[m] = [parts[-1]]  # last token: wasatch, atl ...
+    # prompts carry locale cues, not id tokens — alias the seeded markets
+    market_names["US-OH-CINCINNATI"] += ["findlay"]
+    market_names["US-OH-DAYTON"] += ["miami valley", "2nd street"]
+    market_names["US-OH-LEBANON"] += ["warren county", "hidden valley", "irons"]
+    market_names["US-CA-OCEANSIDE"] += ["oceanside", "mission-revival", "lagoon"]
 
     for f in files:
         p = prompts_in(f)
@@ -115,8 +129,8 @@ def main() -> None:
         for dish in DISHES:
             if _hit(dish, p):
                 dish_hits[dish] += 1
-        for m, name in market_names.items():
-            if _hit(name, p) or _hit(m.lower(), p):
+        for m, names in market_names.items():
+            if any(_hit(n, p) for n in names) or _hit(m.lower(), p):
                 market_hits[m] += 1
         for s in seasons:
             if _hit(s.lower(), p):

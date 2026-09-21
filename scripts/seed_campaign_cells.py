@@ -105,9 +105,13 @@ def render_one(br_client, cell: dict, out_root: Path) -> dict:
         return {"cell": cell, "status": "blocked",
                 "reason": payload.get("finish_reasons")}
     from PIL import Image
+    from PIL.PngImagePlugin import PngInfo
     img = Image.open(io.BytesIO(base64.b64decode(payload["images"][0]))).convert("RGB")
+    meta = PngInfo()
+    meta.add_text("prompt", prompt_for(cell))
+    meta.add_text("cell", json.dumps(cell))
     dest.parent.mkdir(parents=True, exist_ok=True)
-    img.save(dest)
+    img.save(dest, pnginfo=meta)
     return {"cell": cell, "status": "seeded", "path": str(dest)}
 
 
