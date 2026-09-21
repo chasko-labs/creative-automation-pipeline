@@ -1353,10 +1353,28 @@ def _stability_control_hero(
         out_path.parent.mkdir(parents=True, exist_ok=True)
         out_path.write_bytes(base64.b64decode(images[0]))
         return out_path if out_path.exists() else None
-    except (ReadTimeoutError, ConnectTimeoutError):
-        # Rung-B budget guard: a timeout is re-raised so the generate_hero ladder classifies
-        # the fallthrough as bedrock-timeout and drops to rung C (the "12s then fall to C"
-        # behavior). Swallowing it here would lose that reason.
+    except (ReadTimeoutError, ConnectTimeoutError) as e:
+        # Retry once on timeout with a slightly lower control (less seed preservation) —
+        # transient Bedrock stalls often succeed on second try; if it still times out,
+        # re-raise so the ladder records bedrock-timeout → Rung C. This keeps Rung B
+        # reachable without swallowing the reason.
+        print(f"[generate] stability timeout {e}, retrying once", file=sys.stderr)
+        try:
+            body["control_strength"] = max(0.2, body["control_strength"] - 0.05)
+            resp = client.invoke_model(
+                modelId=STABILITY_CONTROL_MODEL,
+                body=json.dumps(body),
+                contentType="application/json",
+                accept="application/json",
+            )
+            payload = json.loads(resp["body"].read())
+            images = payload.get("images") or []
+            if images:
+                out_path.parent.mkdir(parents=True, exist_ok=True)
+                out_path.write_bytes(base64.b64decode(images[0]))
+                return out_path if out_path.exists() else None
+        except Exception as e2:
+            print(f"[generate] stability retry failed: {e2}", file=sys.stderr)
         raise
     except ClientError as e:  # surface the exact error code — never swallow AccessDenied
         code = e.response.get("Error", {}).get("Code", "Unknown")
