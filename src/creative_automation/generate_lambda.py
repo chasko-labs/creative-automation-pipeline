@@ -174,6 +174,11 @@ def _apply_art_upgrade_future(fut, data: dict[str, Any], prompt: str, provenance
         except Exception:  # noqa: BLE001 — slow/faulty voice degrades to voice-off; pixels ship
             return  # slow voice -> voice-off, pixels ship
         if line and line.strip() and line.strip() != prompt.strip():
+            # Military quarantine — warm agricultural frontier only
+            low = line.lower()
+            if any(b in low for b in ("listen up", "recruit", "muster", "enlist")):
+                print(f"[generate_lambda] art_headline military filtered ({line[:60]!r})", file=sys.stderr)
+                return
             provenance["art_headline"] = line.strip()
     except Exception as e:  # noqa: BLE001 — completed pixels always ship
         print(f"[generate_lambda] art upgrade skipped: {e}", file=sys.stderr)
