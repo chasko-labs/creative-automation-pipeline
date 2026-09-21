@@ -5,6 +5,10 @@ degrees cooler inland. Retailer: Kroger. Audience: Warren County orchard
 families, market regulars. Message: "Orchard belt frontier — protein for
 harvest mornings."
 
+Lebanon is the shared featured frontier for Cincinnati (US-OH-CINCINNATI)
+and Dayton (US-OH-DAYTON) — not a selectable market. This calendar serves
+both metros.
+
 ## sourcing (family farms first)
 
 - Lebanon Farmers Market — strawberries in May, sweet corn in July,

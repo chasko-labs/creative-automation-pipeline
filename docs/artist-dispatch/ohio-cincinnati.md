@@ -10,6 +10,9 @@ mornings."
 - Findlay Market, year-round — ramps and morels in spring, strawberries in
   May, sweet corn in July, pawpaws in September, black walnuts in December.
 - Ohio River Valley orchards (family farm stands + u-pick where posted).
+- Shared frontier calendar: Warren County orchard belt (Lebanon, see
+  ohio-lebanon.md) serves Cincinnati — maple February, peaches August,
+  apples October, pumpkins November.
 - Subscription: the Kodiak Cakes subscription service for rural
   communities — never a third-party CSA.
 

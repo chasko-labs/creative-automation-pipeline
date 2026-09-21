@@ -12,6 +12,9 @@ market mornings."
 - Downing Fruit Farm (family orchard); Dohner Maple Products (family
   sugarbush); Fulton Farms (family produce + u-pick); Patchwork Gardens;
   Mile Creek Farm (family farm stand).
+- Shared frontier calendar: Warren County orchard belt (Lebanon, see
+  ohio-lebanon.md) serves Dayton — maple February, peaches August, apples
+  October, pumpkins November.
 - Farm stands and u-pick welcome wherever the farm posts them.
 - Subscription: the Kodiak Cakes subscription service for rural
   communities — never a third-party CSA.
@@ -21,7 +24,7 @@ market mornings."
 Brick downtown blocks and open market sheds; the Great Miami River and its
 wooded banks; flat valley fields breaking to low wooded ridges. February
 sugaring steam, May berry flats, July corn stacked high, crisp low-angle
-fall over the sheds. Humid 15-hour summer evenings; gray short winter
+fall over the sheds. Warm humid summer nights; gray short winter
 days; volatile spring.
 
 ## animals (year-round base)
@@ -78,7 +81,7 @@ chalkboard; maple steam still in memory from February.
 
 ## summer (Jun–Aug)
 
-Place look: humid 15-hour evenings; corn walls along the valley roads;
+Place look: warm humid summer nights; corn walls along the valley roads;
 coneflower and black-eyed Susan in the shed beds; market sheds at peak
 crowd; haze over the Miami at dawn.
 Animals: fireflies thick in July; swallows slicing the shed air; herons on
