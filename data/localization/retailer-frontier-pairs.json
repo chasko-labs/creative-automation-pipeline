@@ -5,7 +5,7 @@
     "purpose": "Each retail metro location pairs with a frontier sister location. Every pair carries a retailer list and a monthly local ingredient sourced from a local farmers market. Drives seasonal recipe-card localization and retailer logo lockups.",
     "monthly_ingredient_mechanism": "monthly_ingredients maps ISO month (YYYY-MM) -> in-season local ingredient for the frontier sister's farmers market. Populate the current month at seed time; the other 11 months are filled by a research dispatch (ghost research task) that resolves each frontier market's seasonal produce calendar from the linked farmers_market_url + regional extension-service crop calendars. Entries marked research_todo=true are placeholders awaiting that dispatch.",
     "seasonal_moments_mechanism": "seasonal_moments is an array of holiday/season entries per pair. Each entry captures the fresh local ingredients available at that moment (available_ingredients) plus the favorite bake flavors people reach for then (favorite_flavors), for the creative bank. Every entry carries a source, confidence (high|medium|low), and status (confirmed|proposed). Notes flag storage/value-added vs fresh-harvest and imported flavor-culture vs local-grown so the creative bank stays non-fabricated.",
-    "confirmed_pairs": 73
+    "confirmed_pairs": 76
   },
   "pairs": [
     {
