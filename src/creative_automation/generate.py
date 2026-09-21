@@ -1098,7 +1098,10 @@ def _default_scene_prompt(
     # autocomplete.js buildSuffix), so direction preserves it.
     if theme:
         who = _safe_theme_text(theme)
-        direction = f"{scene_hint} Featuring {who}." if scene_hint else who
+        hint = f"{scene_hint} Featuring {who}." if scene_hint else who
+        # Keep frontier ecology + ingredient even when themed — themed previews
+        # otherwise lose the locality that makes September pawpaws ≠ Halloween
+        direction = f"{hint} Campaign vibe: {brief_msg}." if brief_msg else hint
     else:
         direction = brief_msg
     base = (
