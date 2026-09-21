@@ -346,9 +346,9 @@ ever produced client-side. translation is entirely missing as rendered output.
 
 **the data is present and abundant — the gap is purely render.** `data/localization/` carries:
 
-- `market-languages.json` — 73 markets, top-2 non-English language per market with real ACS
-  S1601 percentages, `translate_code` per language, 219 total localized variants
-  (73 markets x 3 variants EN + top2). metadata declares `auto_produce:true`, `nova_proven:true`.
+- `market-languages.json` — 74 markets, top-2 non-English language per market with real ACS
+  S1601 percentages, `translate_code` per language, 222 total localized variants
+  (74 markets x 3 variants EN + top2). metadata declares `auto_produce:true`, `nova_proven:true`.
 - `localization-training-data.jsonl` + `localization-table-seed.json` — seeded localized copy.
 - `local-flavor.json`, `dialect/`, regional dirs — per-market cue/message localization.
 - the manifest (L10-12) advertises a `localize` mcp tool and `"languages":"EN + top2 per market
@@ -380,7 +380,7 @@ violation of S12.
 update `#marketLangLine` + `#featuredFrontier` to the selected market's real languages. replace
 `renderLangChips()` from a delete-stub to a real per-market chip renderer, or fold its job into
 the market-disclosure selection handler. this is the highest-value gap because the entire
-data + provenance layer already exists (219 variants, Nova-proven) and only the render path is
+data + provenance layer already exists (222 variants, Nova-proven) and only the render path is
 stubbed out.
 
 ---
@@ -390,7 +390,7 @@ stubbed out.
 > appended 2026-09-05 by ghost-stratia-ux-research. reclassifies the location control under the
 > two-bucket product vocabulary the prep spec named, derived from live data shape.
 
-**the two buckets, grounded in the two data files that back the 73 markets:**
+**the two buckets, grounded in the two data files that back the 74 markets:**
 
 - **market** = has a commercial retail footprint. in `store-finder-markets.json` every record
   carries a `retailer` field naming chain grocers (e.g. Park City: `Target (Kimball Junction),
@@ -428,7 +428,7 @@ featured-frontier) -> state alpha -> place alpha within a state.
 
 | control                    | selector             | today                                                              | should                                                                 | verdict                        |
 | -------------------------- | -------------------- | ----------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------ |
-| Market disclosure listbox  | `#marketListbox` `.ff-market-panel` L634 | accessible `role=listbox` of 73 markets, flat        | grouped into Markets / Featured Frontier headers, alpha-by-state each   | RIGHT HOME — apply S13 + S14   |
+| Market disclosure listbox  | `#marketListbox` `.ff-market-panel` L634 | accessible `role=listbox` of 78 places, flat        | grouped into Markets / Featured Frontier headers, alpha-by-state each   | RIGHT HOME — apply S13 + S14   |
 | Market option row          | `[role=option]` + `.ff-opt-sub` | option with sublabel slot (`.ff-opt-sub`) available    | sublabel shows class + state ("Market — UT" / "Featured Frontier — NM") | RIGHT HOME — sublabel is built for this |
 | Selected option state      | `[role=option][aria-selected=true]` | frontier-green fill on selected                     | plus class-aware summary label on the button                           | apply                          |
 | Market button label        | `#marketButtonLabel` `.ff-market-name` L630 | shows place name (`Park City, Utah`)               | may prefix/annotate with class when useful                             | apply                          |
