@@ -578,7 +578,7 @@
         {
           "moment": "Winter holidays",
           "available_ingredients": [
-            "local honey",
+            "local honey (Winter)",
             "dairy butter"
           ],
           "favorite_flavors": [
@@ -1903,7 +1903,7 @@
         {
           "moment": "Easter \u2014 Easter spring (Easter)",
           "available_ingredients": [
-            "asparagus + lamb (Easter)"
+            "asparagus + lamb (Easter) (Easter)"
           ],
           "favorite_flavors": [
             "asparagus",
@@ -3417,7 +3417,7 @@
         {
           "moment": "Easter \u2014 Easter spring (Easter)",
           "available_ingredients": [
-            "asparagus + lamb (Easter)"
+            "asparagus + lamb (Easter) (Easter)"
           ],
           "favorite_flavors": [
             "asparagus",
@@ -4447,7 +4447,7 @@
         {
           "moment": "Easter \u2014 Easter spring (Easter)",
           "available_ingredients": [
-            "asparagus + lamb (Easter)"
+            "asparagus + lamb (Easter) (Easter)"
           ],
           "favorite_flavors": [
             "asparagus",
@@ -5183,7 +5183,7 @@
         {
           "moment": "Winter holidays",
           "available_ingredients": [
-            "strawberries",
+            "strawberries (Winter)",
             "tomatoes",
             "citrus"
           ],
@@ -7676,7 +7676,7 @@
         {
           "moment": "Winter holidays",
           "available_ingredients": [
-            "strawberries",
+            "strawberries (Winter)",
             "citrus",
             "tomatoes"
           ],
@@ -15384,7 +15384,7 @@
         {
           "moment": "Thanksgiving \u2014 Thanksgiving feast (Thanksgiving)",
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving)"
+            "cranberries + sage (Thanksgiving) (Thanksgiving)"
           ],
           "favorite_flavors": [
             "cranberry",
@@ -17380,7 +17380,7 @@
         {
           "moment": "Thanksgiving \u2014 Thanksgiving feast (Thanksgiving)",
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving)"
+            "cranberries + sage (Thanksgiving) (Thanksgiving)"
           ],
           "favorite_flavors": [
             "cranberry",
@@ -22271,7 +22271,7 @@
         {
           "moment": "Thanksgiving \u2014 Thanksgiving feast (Thanksgiving)",
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving)"
+            "cranberries + sage (Thanksgiving) (Thanksgiving)"
           ],
           "favorite_flavors": [
             "cranberry",
@@ -30830,7 +30830,7 @@
         {
           "moment": "Winter holidays",
           "available_ingredients": [
-            "root vegetables",
+            "root vegetables (Winter)",
             "storage onions",
             "grass-fed beef"
           ],
@@ -32546,7 +32546,7 @@
         {
           "moment": "Christmas \u2014 Christmas cheer (Christmas)",
           "available_ingredients": [
-            "peppermint + chocolate (Christmas)"
+            "peppermint + chocolate (Christmas) (Christmas)"
           ],
           "favorite_flavors": [
             "peppermint",
@@ -33259,7 +33259,7 @@
         {
           "moment": "Winter holidays",
           "available_ingredients": [
-            "smoked salmon"
+            "smoked salmon (Winter)"
           ],
           "favorite_flavors": [
             "gingerbread",
