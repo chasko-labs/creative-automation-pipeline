@@ -73,6 +73,31 @@ def test_all_options_resolve_ingredient_and_moment() -> None:
     assert not failures, "season gaps:\n" + "\n".join(failures)
 
 
+def test_all_76_markets_cover_all_months_and_moments() -> None:
+    """Durable full-matrix check: every of the 76 pairs × 26 seasons resolves.
+
+    Extends test_all_options_resolve_ingredient_and_moment (7 spot markets) to
+    the full frontier file so a future ATL-March-style hole in any of the other
+    69 markets fails locally. Data-driven: loops the live JSON, no hardwired
+    market list beyond the file itself.
+    """
+    pairs = _pairs()
+    assert len(pairs) == 76, f"frontier pairs count drift: {len(pairs)} != 76"
+    failures: list[str] = []
+    for code, entry in pairs.items():
+        monthly = entry.get("monthly_ingredients") or {}
+        covered: set[int] = set()
+        for mo in entry.get("seasonal_moments") or []:
+            covered.update(mo.get("months", []))
+        for opt in OPTIONS:
+            month = _month_of(opt)
+            if not monthly.get(f"2026-{month:02d}"):
+                failures.append(f"{code} {opt}: no monthly ingredient")
+            if month not in covered:
+                failures.append(f"{code} {opt}: no covering moment")
+    assert not failures, "season gaps (full 76):\n" + "\n".join(failures[:50])
+
+
 def test_target_markets_have_baked_preview_translations() -> None:
     text = (
         REPO_ROOT / "web" / "kodiak-posts-for-todays-frontier" / "js"
