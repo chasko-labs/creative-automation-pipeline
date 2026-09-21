@@ -1,22 +1,101 @@
 """Recipe-card generator — monthly local ingredient -> on-brand card (agentcore B4).
 
-Given a market + month, produce a recipe card whose TEXT layer is safety-gated and
-dialect-correct (via B1's rewriter) and whose IMAGE layer stays text-free (cr-1). The
-card is a two-layer composition: a text-free hero panel on top, an overlay/layout panel
-with the title + ingredient line + steps underneath. Text lives only in the layout
-layer — the image never carries baked-in words.
+Two-layer composition (cr-1): a text-FREE hero image on top and a text-ONLY layout
+panel underneath (title + ingredient line + steps). Text never ships baked into pixels;
+layout owns all type so the hero stays deterministic/offline-safe.
 
-The ingredient is never fabricated: locales.resolve_this_month is the single source of
-truth. A month with no seeded ingredient returns a clear no-ingredient result rather
-than inventing one, matching the honesty contract the context pack already holds.
+Ingredient source — never fabricated
+-------------------------------------
+``data/localization/retailer-frontier-pairs.json`` is the single source of truth.
+Each entry pairs a metro retailer location with a ``frontier_sister`` and a
+``monthly_ingredients: {YYYY-MM: ingredient}`` map. ``locales.resolve_this_month``
+reads that file (via ``_datapaths.data_path`` so it works in a repo checkout and
+inside the Lambda image) and returns ``{ingredient, month, frontier_sister}`` or
+``None`` when the market has no seeded pair / the month has no seeded ingredient.
+Callers return an honest ``{ingredient: None, reason}`` rather than inventing one,
+matching the context-pack honesty contract.
 
-Chain per text block:
+AgentCore hop — why every text block flows through B1
+-------------------------------------------------------
+``build_recipe_card`` rewrites *each* block (title, ingredient line, every step)
+through ``text_rewriter.rewrite_headline`` (B1). B1 is the AgentCore transport
+boundary: it builds a RAG context pack (retailer, frontier sister, in-season
+ingredient, nearest visual cluster, dialect traps, brand rules), makes exactly one
+Bedrock Converse call to Nova Micro (``amazon.nova-micro-v1:0``), applies the
+regional dialect swap when ``lang != "en"``, then gates on ``safety.check_text``
+and redacts if needed. Offline / no-creds degrades to ``source="mock"`` (base
+message unchanged) so CI stays green. Because every block rides B1, every block
+is on-brand, dialect-correct, and safety-gated; ``build_recipe_card`` re-asserts
+``safety.check_text`` over the joined output and carries the verdict in ``safety``.
 
-    build_recipe_card -> resolve_this_month -> pick recipe -> B1 rewrite (each block)
-                       -> compose text-free-image card -> iso name
+Recipe selection — graceful degradation chain
+---------------------------------------------
+``pick_recipe_with_provenance`` / ``_pick_recipe_detail`` (single source of truth;
+``_pick_recipe`` is the legacy thin wrapper) picks against ``data/recipes/
+kodiak-recipes.json`` in this order — each step only runs when the previous
+produced no winner, and every step cites a real catalog record or returns None:
 
-Every emitted text block passes safety.check_text because it flows through B1, which
-gates on safety as its last hop.
+1. ``featured_for`` curation — when the ingredient appears (case-insensitive
+   substring) in a recipe's ``featured_for`` list, the lowest ``id`` among those
+   curated matches wins. This is the auditable lever for pairings where token
+   overlap ties badly (e.g. pumpkin pinwheels). Source ``ingredient-featured``.
+
+2. Token-overlap scoring — ``_tokens(ingredient) ∪ _tokens(product="Buttermilk
+   Power Cakes")`` vs ``_tokens(name+product+base+category+course+description
+   + localize.* + ingredients + tags)``. Highest overlap wins; ties break by
+   ``has_image`` (image-bearing recipes sort ahead so the hero has a real asset)
+   then lexicographically lowest ``id`` — fully deterministic. Source
+   ``ingredient-overlap``.
+
+3. Variety rotation — when several recipes *genuinely name* the ingredient
+   (``_names_ingredient`` substring across name/ingredients/tags) and both
+   ``market`` and ``month`` are present, the winner rotates deterministically
+   via ``sha256("market|month|ingredient") % len(strong)`` over id-sorted
+   strong matches so co-seasonal markets do not all show the same card. Single
+   strong match or no market context keeps the overlap winner.
+
+4. Season pairing — when overlap is zero or ``ingredient+product`` yielded no
+   tokens, the season-indexed table in ``season_pairing`` serves the pick:
+   explicit season/month-name/holiday requests hit ``season-table`` directly
+   (10 holidays + 4 seasons + 12 month names → 26 options, gh #313); otherwise
+   the month-derived meteorological season is used. Failing that, the
+   ``static-default`` (``apple-cinnamon-compote``) serves as last resort. Both
+   point at real catalog records; a missing paired record falls through to the
+   static default, and only a catalog missing that record keeps the legacy
+   image-bearing fallback. Sources ``season-table`` / ``static-default`` /
+   ``legacy-image-fallback``. Free brief text (``campaign_message``) is never
+   consulted — it is display-only; season words are stripped only for display
+   helpers.
+
+Why layout is AgentCore's job
+------------------------------
+Geometry lives in ``references/templates/recipe-card.json`` (schema
+``kodiak/recipe-card@v1``) as ``{"value": N, "unit": "in|mm|pt|fraction"}``; the
+module *reads* every physical value via ``_read_dim``/``resolve_geometry`` and
+never duplicates a literal. The ``recipe-card@v1`` *data* contract
+(``data/recipes/recipe-card-v1.schema.json``) flows LLM hop → renderer →
+validation → asset pack. Keeping layout inside this AgentCore-owned module
+(``_compose_card`` / ``_hero_panel`` / ``render_block``) enforces cr-1
+(text lives ONLY in the layout layer), keeps the DAM upload opt-in, honors
+``substrates``/``white_base_coat``/``printer_safe`` without callers guessing
+dimensions, and preserves the non-fabrication guarantee (prices/meta/temps only
+when a real recipe field backs them).
+
+Chain per text block (B4):
+
+    build_recipe_card -> locales.resolve_this_month  (retailer-frontier-pairs.json)
+                       -> pick_recipe_with_provenance (featured_for → overlap
+                          → rotation → season-table/static-default)
+                       -> text_rewriter.rewrite_headline per block (context pack
+                          → Nova Micro → dialect → safety)
+                       -> _hero_panel (text-free, no remote fetch)
+                       -> _compose_card (text-only layout layer, cr-1)
+                       -> naming.build_iso_name
+                       -> publish_card (opt-in DAM upload)
+
+``build_recipe_card_data`` reuses the same pick + non-fabrication logic but
+emits no image — structured data for an offline frontend that renders into the
+existing HTML/CSS zones.
 """
 from __future__ import annotations
 
@@ -37,32 +116,41 @@ from .recipe_i18n import translate_recipe_texts
 from .text_rewriter import rewrite_headline
 
 # Composed cards publish here so the recipes DAM tab (extra_prefixes) picks
-# them up among past assets. Publish is opt-in and never fails a card.
+# them up among past assets. Publish is opt-in and never fails a card — the
+# AgentCore B4 hop owns the DAM side-effect; callers pass publish=True to opt
+# in and a failure degrades to dam_key=None without throwing.
 DAM_RECIPES_PREFIX = "brands/kodiak/recipes/"
 
 # Repo checkout and Lambda image resolve data/ differently (pip install . does
-# not bundle data/); data_path picks the layout that actually exists.
+# not bundle data/); data_path picks the layout that actually exists. Every
+# file that derives from data/localization/retailer-frontier-pairs.json (via
+# locales.resolve_this_month) or data/recipes/kodiak-recipes.json goes through
+# this helper so the single source of truth survives packaging.
 _ROOT = Path(__file__).parents[2]
-RECIPES_PATH = data_path("recipes", "kodiak-recipes.json")
-RECIPE_CARD_TEMPLATE_PATH = _ROOT / "references" / "templates" / "recipe-card.json"
-DEFAULT_OUT_DIR = _ROOT / "output" / "recipe-cards"
+RECIPES_PATH = data_path("recipes", "kodiak-recipes.json")  # recipe corpus for token-overlap / featured_for / season pairing
+RECIPE_CARD_TEMPLATE_PATH = _ROOT / "references" / "templates" / "recipe-card.json"  # print-geometry master — read, never duplicated
+DEFAULT_OUT_DIR = _ROOT / "output" / "recipe-cards"  # local compose output; iso name is appended per card
 
 # recipe-card.json schema this module reads geometry from. Every physical value
 # in the template is {"value": N, "unit": "in|mm|pt|fraction"}; geometry is read
-# from the template, never duplicated as Python literals.
+# from the template, never duplicated as Python literals. Layout is AgentCore's
+# job precisely so this file stays the one place dimensions are authored.
 RECIPE_CARD_SCHEMA = "kodiak/recipe-card@v1"
 
 # recipe-card@v1 DATA contract (gh #304): the versioned object that flows
 # LLM-authoring hop -> renderer -> validation -> asset pack, documented at
 # data/recipes/recipe-card-v1.schema.json. Distinct from RECIPE_CARD_SCHEMA
-# above, which describes print-geometry zones, not card data.
+# above, which describes print-geometry zones, not card data. Both schemas are
+# read/validated, never re-authored in Python.
 RECIPE_CARD_DATA_SCHEMA = "recipe-card@v1"
-RECIPE_CARD_V1_SCHEMA_PATH = data_path("recipes", "recipe-card-v1.schema.json")
+RECIPE_CARD_V1_SCHEMA_PATH = data_path("recipes", "recipe-card-v1.schema.json")  # JSON Schema for the data contract (validate_recipe_card_v1 checks it structurally)
 # Variant enum. Provisional single value (the implemented two-layer
 # hero-plus-layout composition); gh #303 owns the full taxonomy and may
 # extend this tuple — the schema enum must stay in sync (test-pinned).
+# Single value today because AgentCore only ships the hero-plus-layout; more
+# variants would be new layout branches inside _compose_card/render_block.
 RECIPE_CARD_VARIANTS = ("hero-plus-layout",)
-FRONTIERS_PATH = data_path("localization", "market-featured-frontiers.json")
+FRONTIERS_PATH = data_path("localization", "market-featured-frontiers.json")  # market -> frontier_market mirror (generated from retailer-frontier-pairs.json)
 _REQUIRED_TEMPLATE_SECTIONS = (
     "schema",
     "tokens_ref",
@@ -92,12 +180,17 @@ _ART_ZONE_IDS = (
 )
 _VALID_UNITS = frozenset({"in", "mm", "pt", "fraction"})
 
-# Bear Brown / Blaze Orange / Frontier Green — same anchors the context pack carries
-BEAR_BROWN = (0x3B, 0x23, 0x16)
-BLAZE_ORANGE = (0xE8, 0x53, 0x0E)
-CARD_W, CARD_H = 1080, 1080  # 1x1 social card
-HERO_H = 560  # top region is the text-free image layer
+# Bear Brown / Blaze Orange / Frontier Green — same anchors the context pack carries;
+# kept here because _hero_panel/_compose_card paint the actual PNG bytes (AgentCore
+# owns layout, so these are the only color literals). Values match the brand tokens.
+BEAR_BROWN = (0x3B, 0x23, 0x16)  # Kodiak Bear Brown — hero fallback + title ink
+BLAZE_ORANGE = (0xE8, 0x53, 0x0E)  # Kodiak Blaze Orange — accent band + ingredient line ink
+CARD_W, CARD_H = 1080, 1080  # 1x1 social card canvas (PX) — mirrors render_block() canvas contract
+HERO_H = 560  # top region is the text-free image layer (cr-1); remainder is the text-only layout
 
+# Stopwords stripped by _tokens() before overlap scoring. Brand/product generics
+# (kodiak, cakes, mix, flapjack, waffle, power, cup/box/pouch) are excluded so the
+# local ingredient drives the match, not the product name. Length ≤2 also dropped.
 _STOP = frozenset(
     {"the", "and", "for", "with", "your", "kodiak", "cakes", "mix", "a", "of", "to",
      "in", "on", "power", "cup", "cups", "box", "pouch", "flapjack", "waffle"}
@@ -105,11 +198,18 @@ _STOP = frozenset(
 
 
 def _tokens(text: str) -> set[str]:
+    """Tokenize for overlap scoring: lowercase, split on non-alphanum, drop
+    stopwords and short tokens. Used to compare ingredient+product against every
+    recipe's searchable haystack (name/product/base/category/course/description +
+    localize.* + ingredients + tags). Deterministic, no stemming, no embedding."""
     raw = re.split(r"[^a-z0-9]+", str(text).lower())
     return {t for t in raw if len(t) > 2 and t not in _STOP}
 
 
 def _load_recipes() -> list[dict]:
+    """Load ``data/recipes/kodiak-recipes.json`` (via ``data_path``) or ``[]`` when
+    absent. Every recipe is a candidate for the degradation chain: ``featured_for``
+    curation → token overlap → season pairing → static default. Never raises."""
     if not RECIPES_PATH.exists():
         return []
     return json.loads(RECIPES_PATH.read_text(encoding="utf-8"))
@@ -123,18 +223,27 @@ def _load_recipes() -> list[dict]:
 
 
 def load_recipe_card_template(path: str | Path | None = None) -> dict:
-    """Load the recipe-card template JSON. Defaults to the repo template
-    (references/templates/recipe-card.json), mirroring how RECIPES_PATH anchors
-    off _ROOT. Raises FileNotFoundError if the path is missing so callers get a
-    clear signal rather than a silent empty dict."""
+    """Load the print-geometry template (``references/templates/recipe-card.json``).
+
+    This is the *layout* source of truth that AgentCore owns: every physical
+    dimension (page, printer_safe, columns, zones) is authored here as
+    ``{"value": N, "unit": "in|mm|pt|fraction"}`` and read via ``_read_dim`` /
+    ``resolve_geometry`` — never duplicated as a Python literal. Defaults to the
+    repo template (anchored off ``_ROOT`` like ``RECIPES_PATH``). Raises
+    ``FileNotFoundError`` if the path is missing so callers get a clear signal
+    rather than a silent empty dict that would fabricate geometry.
+    """
     p = Path(path) if path is not None else RECIPE_CARD_TEMPLATE_PATH
     return json.loads(p.read_text(encoding="utf-8"))
 
 
 def _read_dim(node: object) -> tuple[float, str] | None:
-    """Unit-aware accessor: {"value": N, "unit": U} -> (N, U). Returns None for
-    anything that is not a value+unit pair. Never coerces a bare number into a
-    dimension — a missing unit is a validation problem, not a default."""
+    """Unit-aware accessor: ``{"value": N, "unit": U}`` → ``(N, U)``. Returns
+    ``None`` for anything that is not a value+unit pair. Never coerces a bare
+    number into a dimension — a missing unit is a validation problem (reported by
+    ``validate_recipe_card_template``), not a silent default. This is how layout
+    stays AgentCore-owned: geometry is *read* from the template, never assumed.
+    """
     if isinstance(node, dict) and "value" in node and "unit" in node:
         value = node["value"]
         unit = node["unit"]
@@ -144,11 +253,14 @@ def _read_dim(node: object) -> tuple[float, str] | None:
 
 
 def validate_recipe_card_template(tmpl: dict) -> list[str]:
-    """Return a list of problems with the template (empty list = valid).
+    """Return a list of problems with the print-geometry template (empty = valid).
 
-    Checks: schema id, all required top-level sections present, zone ids unique,
-    required zones present, and that every physical dimension it inspects carries
-    a unit. Numbers are read from the template, never assumed."""
+    Checks: ``schema == RECIPE_CARD_SCHEMA``, all required top-level sections
+    (``_REQUIRED_TEMPLATE_SECTIONS``), zone ids unique, required art/accent zones
+    (``_REQUIRED_ZONE_IDS``) present, and that every physical dimension inspected
+    carries a ``value+unit`` pair via ``_read_dim``. Numbers are *read* from the
+    template, never assumed — AgentCore layout correctness depends on this gate.
+    """
     problems: list[str] = []
     if not isinstance(tmpl, dict):
         return ["template is not a JSON object"]
@@ -199,12 +311,15 @@ def validate_recipe_card_template(tmpl: dict) -> list[str]:
 
 
 def resolve_geometry(tmpl: dict) -> dict:
-    """Resolve template geometry into a compact structure: page, printer_safe,
-    columns, and zones keyed by id. Every physical value is exposed as (value,
-    unit) via the unit-aware accessor — bare numbers are never fabricated.
+    """Resolve the print-geometry template into ``{page, printer_safe, columns,
+    zones}`` keyed by id. Every physical value is exposed as ``(value, unit)``
+    via ``_read_dim`` — bare numbers are never fabricated.
 
-    The accessor is attached under "read_dim" so callers can pull additional
-    dimensions with the same unit-safe semantics."""
+    The accessor is attached under ``"read_dim"`` so callers can pull additional
+    dimensions with the same unit-safe semantics. This is the only place physical
+    geometry is materialized; callers that need a dimension must go through this
+    resolver rather than hard-coding a literal.
+    """
     page = tmpl.get("page") or {}
     printer_safe = tmpl.get("printer_safe") or {}
     columns = tmpl.get("columns") or {}
@@ -264,8 +379,14 @@ def resolve_geometry(tmpl: dict) -> dict:
 
 @lru_cache(maxsize=1)
 def _frontier_mapping() -> dict:
-    """market -> frontier_market from the generated mapping mirror. Empty on
-    any read failure so a missing file degrades to frontier_market None."""
+    """Cached ``market -> {frontier_market, ...}`` from the generated mirror
+    ``data/localization/market-featured-frontiers.json`` (itself derived from
+    ``data/localization/retailer-frontier-pairs.json``). Empty on any read failure
+    so a missing file degrades gracefully to ``frontier_market=None`` rather than
+    raising. The upstream single source of truth remains retailer-frontier-pairs.json
+    via ``locales.resolve_this_month``; this mirror only enriches ``frontier_market``
+    codes on the emitted card.
+    """
     try:
         return json.loads(FRONTIERS_PATH.read_text(encoding="utf-8")).get(
             "markets", {}
@@ -275,8 +396,11 @@ def _frontier_mapping() -> dict:
 
 
 def frontier_market_for(market: str) -> str | None:
-    """Featured-frontier code for a market, or None when unmapped. Never
-    raises, never fabricates."""
+    """Featured-frontier code (e.g. ``US-GA-SENOIA``) for a market, or ``None``
+    when unmapped. Reads ``_frontier_mapping()`` (which mirrors
+    retailer-frontier-pairs.json). Never raises, never fabricates — unmapped
+    markets surface ``frontier_market=None`` on the card.
+    """
     try:
         entry = _frontier_mapping().get(market) or {}
         code = entry.get("frontier_market")
@@ -286,10 +410,15 @@ def frontier_market_for(market: str) -> str | None:
 
 
 def render_block() -> dict:
-    """Render target metadata for the v1 contract: canvas dimensions and the
-    text vs text-free region split. Dimensions come from the module canvas
-    constants (the values _compose_card actually renders); zone ids from the
-    template art-zone ids. No geometry is duplicated as a new literal."""
+    """Render-target metadata for the ``recipe-card@v1`` data contract: canvas
+    dimensions and the text vs text-free region split.
+
+    Dimensions come from the module canvas constants (``CARD_W``/``CARD_H``/
+    ``HERO_H``) — the values ``_compose_card`` / ``_hero_panel`` actually render —
+    and zone ids from ``_ART_ZONE_IDS``. No geometry is duplicated as a new
+    literal; layout stays AgentCore-owned and this block merely describes it for
+    the data contract / frontend renderer.
+    """
     return {
         "variant": RECIPE_CARD_VARIANTS[0],
         "canvas": {"width": CARD_W, "height": CARD_H, "unit": "px"},
@@ -300,6 +429,10 @@ def render_block() -> dict:
     }
 
 
+# Pairing provenance sources — every card's ``provenance.pairing.source`` must be
+# one of these. They narrate the degradation chain: featured_for curation → token
+# overlap → deterministic rotation → season-table → static-default → legacy fallback.
+# ``none`` means no pairing was attempted (no catalog or no resolvable season).
 _PAIRING_SOURCES = frozenset(
     {
         "none",
@@ -311,18 +444,23 @@ _PAIRING_SOURCES = frozenset(
         "legacy-image-fallback",
     }
 )
-_CARD_LANGS = frozenset({"en", "es", "pt"})
-_CARD_SEASONS = frozenset({"spring", "summer", "fall", "winter"})
-_MONTH_RE = re.compile(r"^[0-9]{4}-[0-9]{2}$")
+_CARD_LANGS = frozenset({"en", "es", "pt"})  # card ``lang`` enum — keep in sync with recipe-card-v1.schema.json
+_CARD_SEASONS = frozenset({"spring", "summer", "fall", "winter"})  # meteorological seasons for pairing display
+_MONTH_RE = re.compile(r"^[0-9]{4}-[0-9]{2}$")  # ISO YYYY-MM for ``month`` fields
 
 
 def validate_recipe_card_v1(card: dict) -> list[str]:
-    """Check a build_recipe_card_data object against the recipe-card@v1
-    contract (data/recipes/recipe-card-v1.schema.json). Returns problems
-    (empty = valid). Structural only: required keys, the schema/variant/lang
-    markers, recipe-ref shape, month/season formats, and the no-ingredient
-    rule (ingredient null requires an explicit reason with null recipe and
-    title — never an invented pick)."""
+    """Check a ``build_recipe_card_data`` object against the ``recipe-card@v1``
+    data contract (``data/recipes/recipe-card-v1.schema.json``).
+
+    Returns ``problems`` (empty = valid). Structural only — no I/O, no LLM call:
+    required keys, ``schema == RECIPE_CARD_DATA_SCHEMA``, ``variant`` in
+    ``RECIPE_CARD_VARIANTS``, ``market``/``lang``/``month``/``season`` formats,
+    ``recipe`` ref shape, and the no-ingredient rule (``ingredient is None``
+    requires an explicit ``reason`` with ``recipe is None`` and ``title is None``
+    — never an invented pick). This is the AgentCore validation gate before
+    ``render_recipe_card_data`` composes pixels.
+    """
     problems: list[str] = []
     if not isinstance(card, dict):
         return ["card is not a JSON object"]
@@ -404,15 +542,18 @@ def validate_recipe_card_v1(card: dict) -> list[str]:
 def render_recipe_card_data(
     card: dict, out_dir: str | Path | None = None
 ) -> str | None:
-    """Render a recipe-card@v1 DATA object to a PNG (object -> render).
+    """Render a ``recipe-card@v1`` DATA object to a PNG (object → render).
 
-    Consumes exactly what build_recipe_card_data emits: validates the
-    contract first (ValueError with the problems on violation), resolves the
-    recipe ref against the catalog (ValueError when the id is not on file —
-    a dangling ref is never rendered), then composes the text-free hero plus
-    text-only layout layer via the same helpers build_recipe_card uses.
-    A valid no-ingredient object returns None (explicit empty state, never an
-    invented card). Returns the PNG path as a string.
+    AgentCore's image boundary: consumes exactly what ``build_recipe_card_data``
+    emits (which itself derived the ingredient from
+    ``data/localization/retailer-frontier-pairs.json`` via
+    ``locales.resolve_this_month``). Validates the data contract first
+    (``ValueError`` with joined problems on violation), resolves the recipe ref
+    against the catalog (``ValueError`` when the id is not on file — a dangling
+    ref is never rendered), then composes the text-free hero (``_hero_panel``)
+    plus text-only layout layer (``_compose_card``, cr-1) via the same helpers
+    ``build_recipe_card`` uses. A valid no-ingredient object returns ``None``
+    (explicit empty state, never an invented card). Returns the PNG path string.
     """
     problems = validate_recipe_card_v1(card)
     if problems:
@@ -446,9 +587,14 @@ def render_recipe_card_data(
 
 
 def _names_ingredient(recipe: dict, ingredient: str) -> bool:
-    """True when the recipe genuinely names the ingredient (substring,
-    case-insensitive) in its name, ingredient lines, or tags — the strong
-    matches a variety rotation may choose between."""
+    """True when the recipe *genuinely names* the ingredient (case-insensitive
+    substring) in its ``name``, ``ingredients`` lines, or ``tags``.
+
+    Used to separate *strong* matches (eligible for deterministic
+    ``ingredient-rotation``) from weak overlap-only matches. A recipe that
+    merely shares a token via overlap but does not name the ingredient is not
+    strong and never enters the rotation lottery.
+    """
     low = (ingredient or "").lower().strip()
     if not low:
         return False
@@ -459,7 +605,11 @@ def _names_ingredient(recipe: dict, ingredient: str) -> bool:
 
 
 def _recipe_by_id(recipe_id: str) -> dict | None:
-    """Catalog record by id, or None when the id is not on file. Never raises."""
+    """Catalog record by ``id`` from ``data/recipes/kodiak-recipes.json``, or
+    ``None`` when the id is not on file. Lookup is linear scan via
+    ``_load_recipes()`` — catalog is small. Never raises; missing ids degrade to
+    ``None`` so callers can fall through to ``static-default`` / legacy fallback.
+    """
     for r in _load_recipes():
         if r.get("id") == recipe_id:
             return r
@@ -467,15 +617,17 @@ def _recipe_by_id(recipe_id: str) -> dict | None:
 
 
 def _season_fallback_recipe(season: str | None, month: str = "") -> dict | None:
-    """Season-indexed pairing table with static default as last resort.
+    """Season-indexed pairing table with ``static-default`` as last resort.
 
-    A dropdown-style request (season key, month name, or holiday) that hits
-    the pairing table serves its record directly; otherwise resolves the
-    effective season (explicit structured request wins, else the month) and
-    returns that table's recipe; an unresolvable season lands on the static
-    default. Returns None only when the catalog itself lacks the paired
-    record (caller keeps the legacy image-bearing fallback then). Free brief
-    text is never consulted — it is display-only for pairing.
+    The tail of the degradation chain (after ``featured_for`` → overlap → rotation
+    have failed). A dropdown-style request (season key, month name, or holiday)
+    that hits ``season_pairing.pairing_for_season`` serves its record directly;
+    otherwise resolves the effective season via ``season_pairing.resolve_season``
+    (explicit structured request wins, else the month's meteorological season)
+    and returns that table's recipe; an unresolvable season lands on the static
+    default (``apple-cinnamon-compote``). Returns ``None`` only when the catalog
+    itself lacks the paired record — caller then keeps the legacy image-bearing
+    fallback. Free brief text is never consulted (display-only for pairing).
     """
     direct = _seasons.pairing_for_season(season)
     if direct["source"] == "season-table":
@@ -497,7 +649,7 @@ def _season_fallback_recipe(season: str | None, month: str = "") -> dict | None:
 def _table_pairing_for(table_recipe: dict, table_pairing: dict) -> dict:
     """Honest pairing label for a served fallback recipe.
 
-    When the served recipe IS the paired record, the table pairing stands. When
+    When the served recipe *is* the paired record, the table pairing stands. When
     the paired record is missing from the catalog and the static default was
     served instead, the label says static-default rather than claiming a table
     hit for a record that never shipped.
@@ -520,16 +672,31 @@ def _pick_recipe_detail(
 ) -> tuple[dict | None, dict]:
     """Single source of truth for recipe picking + pairing provenance.
 
-    Same mechanics as the legacy _pick_recipe (featured_for curation, overlap
-    scoring, deterministic market+month rotation), except the no-token-match
-    fallback is now the season-indexed pairing table with the static default as
-    last resort (legacy image-bearing fallback only when the paired record is
-    missing from the catalog). Returns (recipe|None, pairing) where pairing is
-    {"season", "source", "recipe_id", "reason"} — the reason is surfaced in card
-    provenance. Free brief text is never an input (display-only for pairing).
+    Implements the full graceful-degradation chain against
+    ``data/recipes/kodiak-recipes.json``. The ingredient itself comes from
+    ``data/localization/retailer-frontier-pairs.json`` via
+    ``locales.resolve_this_month`` — this function never invents one.
 
-    Pairing source values: none | ingredient-featured | ingredient-overlap |
-    ingredient-rotation | season-table | static-default | legacy-image-fallback.
+    Order (each step only when the previous yielded no winner):
+
+    1. ``featured_for`` curation (``ingredient-featured``) — ingredient substring
+       in a recipe's ``featured_for`` list; lowest ``id`` wins.
+    2. Token overlap (``ingredient-overlap``) — ``_tokens(ingredient ∪ product)``
+       vs recipe haystack; best overlap wins with ``has_image`` then ``id`` tie-break.
+    3. Variety rotation (``ingredient-rotation``) — when multiple *strong*
+       (``_names_ingredient``) matches exist and ``market+month`` are present,
+       deterministic ``sha256(market|month|ingredient)`` rotation.
+    4. Season pairing — on zero overlap or empty ``ingredient+product``, the
+       season-indexed table (``season_pairing``: 4 seasons + 12 months + 10
+       holidays, gh #313) serves the pick; ``static-default`` as last resort;
+       only a catalog missing that record keeps ``legacy-image-fallback``.
+
+    Returns ``(recipe|None, pairing)`` where ``pairing`` is
+    ``{"season", "source", "recipe_id", "reason"}`` — ``reason`` is surfaced
+    in ``meta.provenance`` / ``provenance`` so the card narrates *why* it paired.
+    ``pairing["source"]`` is one of ``_PAIRING_SOURCES``. Free brief text is never
+    an input (display-only for pairing); ``season`` is the only structured season
+    signal (spring|summer|fall|winter, month names, holidays).
     """
     recipes = _load_recipes()
     resolved = _seasons.resolve_season(season, month or None)
@@ -686,16 +853,35 @@ def pick_recipe_with_provenance(
     month: str = "",
     season: str | None = None,
 ) -> tuple[dict | None, dict]:
-    """Pick the recipe and report WHY: (recipe|None, {"season", "source",
-    "recipe_id", "reason"}). Thin delegate of _pick_recipe_detail; the reason
-    is surfaced in card provenance. Free brief text is never an input."""
+    """Pick the recipe and report *why*: ``(recipe|None, {"season", "source",
+    "recipe_id", "reason"})``. Thin public delegate of ``_pick_recipe_detail``
+    (which documents the full degradation chain).
+
+    The ingredient is the in-season value from
+    ``data/localization/retailer-frontier-pairs.json`` via
+    ``locales.resolve_this_month`` — never fabricated. ``product`` is typically
+    ``"Buttermilk Power Cakes"`` (so "power cakes" tokens do not swamp the
+    ingredient). ``market``/``month`` enable deterministic rotation; ``season``
+    (season key / month name / holiday) steers the season-table fallback. Free
+    brief text is never an input; ``reason`` is surfaced in card provenance.
+    """
     return _pick_recipe_detail(ingredient, product, market, month, season)
 
 
 def _pick_recipe(
     ingredient: str, product: str | None, market: str = "", month: str = "", *, season: str | None = None
 ) -> dict | None:
-    """Best recipe for the in-season ingredient, nearest by token overlap.
+    """Best recipe for the in-season ingredient — legacy thin wrapper.
+
+    Delegates to ``_pick_recipe_detail`` and returns only the recipe (provenance
+    discarded). Kept for callers that need just the pick. The degradation chain
+    (``featured_for`` → overlap → rotation → season-table/static-default) is
+    documented on ``_pick_recipe_detail`` / ``pick_recipe_with_provenance``.
+    Ingredient comes from ``data/localization/retailer-frontier-pairs.json`` via
+    ``locales.resolve_this_month`` — never fabricated. Free brief text is never
+    consulted; ``season`` is the only structured season signal.
+
+    Best recipe for the in-season ingredient, nearest by token overlap.
 
     Overlap is scored across name/localize/ingredients/tags. Recipes that carry a real
     hero image field sort ahead of image-less ones on a tie so the card gets a usable
@@ -726,9 +912,15 @@ def _pick_recipe(
 
 
 def _hero_panel(recipe: dict, target: tuple[int, int]) -> Image.Image:
-    """Text-free hero panel (cr-1). Uses a local recipe image if present, else a clean
-    brand-color block. Remote URLs are not fetched here (no network boundary); a remote
-    image field degrades to the clean block so the card stays deterministic offline."""
+    """Text-free hero panel (cr-1) — the *image* half of the AgentCore two-layer card.
+
+    Uses a local ``recipe["image"]`` file if present (cover-fit, center-cropped,
+    no text drawn); otherwise a clean brand-color block (``BEAR_BROWN`` with a
+    ``BLAZE_ORANGE`` accent band). Remote URLs are *never* fetched here (no network
+    boundary) — a remote ``image`` field degrades to the clean block so the card
+    stays deterministic offline. Text lives ONLY in ``_compose_card``'s layout layer;
+    this panel never carries words, satisfying cr-1.
+    """
     w, h = target
     src = recipe.get("image")
     if src and not str(src).startswith(("http://", "https://")):
@@ -755,6 +947,12 @@ def _hero_panel(recipe: dict, target: tuple[int, int]) -> Image.Image:
 
 
 def _load_font(size: int):
+    """Load a host TTF for the layout layer, falling back to PIL's bitmap default.
+
+    Tries DejaVuSans-Bold then DejaVuSans; missing fonts degrade silently so card
+    composition never throws for a font. All type lives in the layout layer
+    (AgentCore owns placement), never in ``_hero_panel``.
+    """
     for cand in (
         "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
         "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
@@ -769,8 +967,15 @@ def _load_font(size: int):
 
 
 def _compose_card(hero: Image.Image, text_blocks: dict, out_path: Path) -> Path:
-    """Lay out the card: text-free hero on top, text panel below. Text is ONLY in the
-    layout layer, never composited into the hero image (cr-1)."""
+    """Lay out the two-layer card: text-free hero on top, text panel below.
+
+    AgentCore owns layout: the hero (from ``_hero_panel``) is pasted at ``(0,0)``
+    with height ``HERO_H`` (``CARD_W × HERO_H``), then title / ingredient line /
+    steps are drawn *only* in the layout layer below it (``BEAR_BROWN`` title,
+    ``BLAZE_ORANGE`` ingredient line, neutral steps). This enforces cr-1 — text
+    is never composited into the hero image. The canvas (``CARD_W × CARD_H``)
+    and regions are described for the data contract by ``render_block()``.
+    """
     card = Image.new("RGB", (CARD_W, CARD_H), "white")
     card.paste(hero, (0, 0))
 
@@ -795,18 +1000,24 @@ def _compose_card(hero: Image.Image, text_blocks: dict, out_path: Path) -> Path:
 
 
 def _clean_step(raw: str) -> str:
-    """Collapse whitespace/newlines in a raw recipe instruction to a single tidy line."""
+    """Collapse whitespace/newlines in a raw recipe instruction to a single tidy
+    line. Used before B1 rewriting (``build_recipe_card``) and before verb-bolding
+    (``build_recipe_card_data``) so multi-line catalog instructions become one
+    layout-ready line. No content invented.
+    """
     return re.sub(r"\s+", " ", str(raw).replace("\r", " ").replace("\t", " ")).strip()
 
 
 def publish_card(card_path: str | Path) -> str | None:
-    """Upload a composed card PNG so the recipes DAM tab lists it. Returns the
-    full DAM key, or None when DAM is unconfigured or the upload fails. Never
-    throws — publishing must never fail a campaign.
+    """Upload a composed card PNG so the recipes DAM tab lists it (opt-in side-effect).
 
-    s3_upload_and_presign joins keys to the configured DAM prefix, so the key
-    is relativized against it (brands/kodiak/recipes/x.jpg under the standard
-    brands/kodiak/ prefix uploads as recipes/x.jpg and reads back verbatim).
+    Returns the full DAM key (``DAM_RECIPES_PREFIX + filename``) or ``None`` when
+    DAM is unconfigured or the upload fails. Never throws — publishing must never
+    fail a campaign or card. ``dam.s3_upload_and_presign`` joins keys to the
+    configured DAM prefix, so the key is relativized against it
+    (``brands/kodiak/recipes/x.jpg`` under the standard ``brands/kodiak/`` prefix
+    uploads as ``recipes/x.jpg`` and reads back verbatim). Only
+    ``build_recipe_card`` calls this, gated on ``publish=True``.
     """
     try:
         from . import dam as _dam
@@ -822,13 +1033,17 @@ def publish_card(card_path: str | Path) -> str | None:
 
 
 def _resolve_substrate(tmpl: dict, requested: str) -> tuple[str, bool]:
-    """Pick a valid substrate key, falling back to the template default on an
-    unknown request. Returns (substrate_key, white_base_coat_applied).
+    """Pick a valid substrate key for the print-geometry template.
 
-    white_base_coat_applied reflects whether the art zones carry an opaque white
-    base coat under the chosen substrate — read from the substrate definition,
-    not assumed. Geometry does NOT change with substrate; only surface treatment
-    does."""
+    Falls back to ``template["default_substrate"]`` (``"kraft"``) on an unknown
+    request. Returns ``(substrate_key, white_base_coat_applied)`` where
+    ``white_base_coat_applied`` reflects whether the art zones carry an opaque
+    white base coat under the chosen substrate — *read* from
+    ``substrates[key].art_zone_base_coat`` *and* the ``base_coat`` flag on
+    ``_ART_ZONE_IDS``, not assumed. Geometry does NOT change with substrate;
+    only surface treatment does — layout stays AgentCore-owned and
+    substrate-agnostic.
+    """
     substrates = tmpl.get("substrates") or {}
     default = tmpl.get("default_substrate") or "kraft"
     key = requested if requested in substrates else default
@@ -851,9 +1066,17 @@ def _recipe_card_meta(
     ingredient: str | None,
     pairing: dict | None = None,
 ) -> dict:
-    """Build the deterministic recipe-card metadata block. No timestamps: same
-    input + template yields identical metadata. When the template is missing or
-    invalid, meta degrades to safe defaults rather than fabricating geometry."""
+    """Build the deterministic ``meta`` block for ``build_recipe_card`` / data cards.
+
+    No timestamps: same input + template yields identical metadata (reproducible
+    AgentCore output). When the template is missing or invalid, meta degrades to
+    safe defaults (``white_base_coat_applied=False``, ``passed_physical_zone_…=False``)
+    rather than fabricating geometry. ``pairing`` (``{"season", "source",
+    "recipe_id", "reason"}`` from ``_pick_recipe_detail``) is surfaced under
+    ``provenance.pairing`` so the card narrates *why* it paired; ``ingredient``
+    (from ``data/localization/retailer-frontier-pairs.json`` via
+    ``locales.resolve_this_month``) goes in ``values_from_source``.
+    """
     pairing_block = dict(pairing) if isinstance(pairing, dict) else {
         "season": None,
         "source": "none",
@@ -913,7 +1136,11 @@ def _recipe_card_meta(
 
 
 def _no_pairing(reason: str, season: str | None, month: str | None) -> dict:
-    """Honest pairing block for card paths that never pick a recipe."""
+    """Honest ``{"season", "source": "none", "recipe_id": None, "reason"}`` for
+    card paths that never pick a recipe (no pair seeded / no ingredient on file /
+    no catalog). Resolves the display ``season`` via ``season_pairing.resolve_season``
+    so the empty card still carries the season it *would* have used.
+    """
     resolved = _seasons.resolve_season(season, month)
     return {
         "season": resolved["season"],
@@ -933,26 +1160,54 @@ def build_recipe_card(
     substrate: str = "kraft",
     season: str | None = None,
 ) -> dict:
-    """Generate a recipe card for a market + month.
+    """Generate a recipe card PNG for a market + month (AgentCore B4 entrypoint).
+
+    Ingredient source: ``data/localization/retailer-frontier-pairs.json`` via
+    ``locales.resolve_this_month(market, ym=month)`` — the single source of truth.
+    A market with no seeded pair or a month with no seeded ingredient returns an
+    honest ``{ingredient: None, reason, ...}`` (never fabricated) with
+    ``provenance.pairing.source == "none"``.
+
+    Recipe selection: ``pick_recipe_with_provenance`` — the full degradation
+    chain ``featured_for`` curation → token overlap (``_tokens``) → deterministic
+    ``market|month|ingredient`` rotation → season-table / ``static-default``
+    (``season_pairing``) → legacy image-bearing fallback. See
+    ``_pick_recipe_detail`` for the order and provenance ``source`` values.
+
+    AgentCore hop: every emitted text block (title, ingredient line, each step)
+    flows through ``text_rewriter.rewrite_headline`` (B1) — RAG context pack →
+    one Bedrock Nova Micro call → dialect swap when ``lang != "en"`` →
+    ``safety.check_text`` gate + redaction. ``clean_brand_copy`` enforces the
+    standing copy law (bare ``KODIAK`` never ships). Safety is re-asserted over
+    the joined output and returned as ``safety``.
+
+    Layout (why AgentCore owns it): the two-layer composition keeps the hero
+    image text-free (``_hero_panel``, cr-1) and draws all type only in the
+    layout layer (``_compose_card``). Geometry is *read* from
+    ``references/templates/recipe-card.json`` via ``resolve_geometry`` / ``_read_dim``
+    and never duplicated. The deterministic ``meta`` block carries that geometry
+    (substrate, zones, ``white_base_coat``, ``provenance``, validation) for the
+    asset pack.
+
+    Args:
+        market: market key (e.g. ``"US-SE-ATL"``) — looked up in retailer-frontier-pairs.json.
+        month: ISO ``"YYYY-MM"``; defaults to current UTC month when ``None``.
+        lang: ``"en"`` (passthrough) or ``"es"``/``"pt"`` (B1 dialect swap).
+        out_dir: override output dir; defaults to ``output/recipe-cards/``.
+        publish: when ``True``, opt-in DAM upload via ``publish_card`` (best-effort,
+            ``dam_key`` is ``None`` on failure; never throws).
+        substrate: print substrate key (e.g. ``"kraft"``); unknown falls back to
+            the template default. Geometry does not change with substrate.
+        season: optional structured season request (season key, month name, or
+            holiday — the 26 seasonal dropdown options, gh #313); only consulted
+            on the season-pairing fallback path. Free brief text is display-only
+            and never steers the pick.
 
     Returns:
-        {card_path, ingredient, recipe, text_blocks, safety[, dam_key]} on
-        success, or a no-ingredient result {ingredient: None, reason, ...} when
-        the month has no seeded local ingredient (never fabricated).
-        publish=True also uploads the PNG to the DAM recipes prefix (best
-        effort — dam_key None when DAM is unavailable).
-
-    Also carries a deterministic `meta` block resolved from the recipe-card
-    template (schema kodiak/recipe-card@v1): template_schema_version, the
-    selected substrate, emitted/empty zones, art assets used, white-base-coat
-    flag, a source/proposed/unknown provenance map, and the physical-zone
-    validation result. substrate defaults to "kraft" so existing callers are
-    unaffected; an unknown substrate falls back to the template default.
-    Geometry does not change with substrate.
-    season: optional structured season request (spring|summer|fall|winter) for
-    the pairing fallback; free brief text is display-only and never steers the
-    pick. meta.provenance carries the pairing {season, source, recipe_id,
-    reason} block.
+        On success: ``{schema, variant, card_path, ingredient, recipe, text_blocks,
+        safety, month, step_results, dam_key, meta}`` where ``meta.provenance``
+        carries ``pairing {season, source, recipe_id, reason}``. On no-ingredient
+        / no-catalog: ``{ingredient: None, reason, ...}`` with ``card_path is None``.
     """
     # Load the template best-effort so metadata resolves from the source of
     # truth; a missing/broken template degrades meta to safe defaults rather
@@ -1107,23 +1362,29 @@ def build_recipe_card(
 
 # real recipe fields that back the meta bar. est_cost appears only with a
 # verified recipe-level cost record, else null and listed under values_unknown.
+# Real recipe fields that back the meta bar. ``est_cost`` appears only with a
+# verified recipe-level cost record, else ``None`` and listed under values_unknown.
+# Non-fabrication is strict: times/serves come ONLY from these fields, else null.
 _META_SOURCE_FIELDS = {
-    "prep": "prepTime",
-    "cook": "cookTime",
-    "serves": "yield",
+    "prep": "prepTime",   # recipe.prepTime → meta.prep (else null, "times" unknown)
+    "cook": "cookTime",   # recipe.cookTime → meta.cook (else null, "times" unknown)
+    "serves": "yield",    # recipe.yield    → meta.serves (else null, "serves" unknown)
 }
 
-# leading-verb detection: uppercase a real leading action word only. No verb is
-# fabricated — if the step opens with a non-word token, it is left untouched.
+# Leading-verb detection for _bold_action_step: uppercase a *real* leading action
+# word only. No verb is fabricated — if the step opens with a non-word token
+# (quantity, number), it is left untouched so the card never invents a cooking action.
 _LEADING_WORD_RE = re.compile(r"^([A-Za-z][A-Za-z'-]*)(.*)$", re.DOTALL)
 
 
 def _bold_action_step(text: str) -> str:
     """Uppercase the step's real leading word so it reads as a bold action verb.
 
-    Only the first genuine word is uppercased; nothing is added. A step that does
-    not start with a word (e.g. a quantity) is returned unchanged — no cooking
-    action is invented.
+    Only the first genuine word is uppercased; nothing is added or invented. A
+    step that does not start with a word (e.g. a quantity like "2 cups …") is
+    returned unchanged — no cooking action is fabricated. Used by
+    ``build_recipe_card_data`` after ``clean_brand_copy`` so the frontend can
+    style the verb without the data inventing one.
     """
     m = _LEADING_WORD_RE.match(text.strip())
     if not m:
@@ -1133,11 +1394,14 @@ def _bold_action_step(text: str) -> str:
 
 
 def _recipe_costs(recipe: dict | None, lines: list[str]) -> list[str] | None:
-    """Return verified per-line prices aligned to ingredient lines, else None.
+    """Return verified per-line prices aligned to ingredient lines, else ``None``.
 
-    A cost record counts only when recipe.ingredient_costs is a complete,
-    same-length, non-blank parallel list. Partial cost data degrades to null
-    rather than guessing which line a price belongs to.
+    A cost record counts only when ``recipe.ingredient_costs`` is a complete,
+    same-length, non-blank parallel list to ``lines`` (the recipe's real
+    ``ingredients``). Partial or mismatched cost data degrades to ``None`` rather
+    than guessing which line a price belongs to — non-fabrication for the
+    price-carrying card path. Both ``_recipe_meta_bar`` and
+    ``build_recipe_card_data`` use this gate.
     """
     r = recipe or {}
     costs = r.get("ingredient_costs")
@@ -1157,12 +1421,16 @@ def _recipe_costs(recipe: dict | None, lines: list[str]) -> list[str] | None:
 def _recipe_meta_bar(
     recipe: dict | None, lines: list[str] | None = None
 ) -> tuple[dict, list[str]]:
-    """Build the four-column meta bar from real recipe fields only.
+    """Build the four-column meta bar from *real* recipe fields only (non-fabrication).
 
-    Returns (meta, unknown_keys). Any column with no backing recipe field is
-    null and its logical group is reported unknown. est_cost and prices stay
-    unknown unless the recipe carries a verified est_cost plus a complete
-    ingredient_costs record.
+    Returns ``(meta, unknown_keys)`` where ``meta`` is
+    ``{prep, cook, serves, est_cost}``. Any column with no backing recipe field
+    is ``None`` and its logical group (``"times"`` / ``"serves"`` / ``"prices"`` /
+    ``"temperatures"``) is reported in ``unknown_keys`` / ``provenance.values_unknown``.
+    ``est_cost`` and per-line ``prices`` appear only when the recipe carries both
+    a verified ``est_cost`` *and* a complete ``ingredient_costs`` record
+    (``_recipe_costs`` gate); otherwise they stay ``None`` and ``"prices"`` is
+    listed unknown. Temperatures are always unknown (not authored on recipes).
     """
     meta: dict = {"prep": None, "cook": None, "serves": None, "est_cost": None}
     unknown: list[str] = []
@@ -1186,15 +1454,21 @@ def _recipe_meta_bar(
     return meta, unknown
 
 
-# the three art zones the recipe card renders hand-drawn line-art into. Keyed
-# short-names (no _sketch suffix) match recipe_art.ZONES and the seed art map.
+# The three art zones the recipe card renders hand-drawn line-art into. Keyed
+# by short-names (no ``_sketch`` suffix) matching ``recipe_art.ZONES`` and the
+# seed art map. Every ``build_recipe_card_data`` card carries all three keys
+# (via ``_normalize_art``) so the frontend never KeyErrors — ``None`` means
+# fall back to the SVG placeholder. Layout stays AgentCore-owned; art is optional.
 _ART_KEYS = ("raw_ingredient", "technique", "finished_plate")
 
 
 def _normalize_art(art: dict[str, str | None] | None) -> dict[str, str | None]:
-    """Return a {raw_ingredient, technique, finished_plate} url map with all three
-    keys present. Missing/None input degrades to all-null so the frontend never
-    KeyErrors — a null url signals fall-back to the existing SVG placeholder."""
+    """Return a ``{raw_ingredient, technique, finished_plate}`` URL map with all three
+    keys present. Missing/``None`` input degrades to all-``None`` so the frontend
+    never ``KeyError``s — a ``None`` URL signals fall-back to the existing SVG
+    placeholder. Every card carries this normalized block; art is optional and
+    layout never depends on it.
+    """
     src = art or {}
     return {k: (src.get(k) or None) for k in _ART_KEYS}
 
@@ -1204,12 +1478,14 @@ def _overlay_recipe_art(
 ) -> dict[str, str | None]:
     """Prefer the picked recipe's own published art over shared ingredient art.
 
-    A recipe carrying art_slug (e.g. winter-squash-griddle-cakes) wins per zone
-    wherever that slug has a published drawing; unpublished zones keep the
-    ingredient-level url. Markets sharing an ingredient but rotating to
-    different recipes therefore render different drawings instead of identical
-    cards. Offline / no-creds: exists checks read False and the block passes
-    through untouched. Never throws.
+    A recipe carrying ``art_slug`` (e.g. ``winter-squash-griddle-cakes``) wins
+    per zone wherever that slug has a published drawing (checked via
+    ``dam.recipe_art_exists``); unpublished zones keep the ingredient-level URL.
+    Markets sharing an in-season ingredient but rotating (``ingredient-rotation``)
+    to different recipes therefore render *different* drawings instead of
+    identical cards. Offline / no-creds: exists checks read ``False`` and the
+    block passes through untouched. Never throws — art is best-effort and layout
+    never depends on it.
     """
     slug = str(recipe.get("art_slug") or "").strip()
     if not slug:
@@ -1235,40 +1511,53 @@ def build_recipe_card_data(
     art: dict[str, str | None] | None = None,
     season: str | None = None,
 ) -> dict:
-    """Build a structured recipe-card DATA object (no image composed).
+    """Build a structured ``recipe-card@v1`` DATA object (no image composed).
 
-    The shape mirrors the recipe-card.json zones so an offline frontend can render
-    it into existing HTML/CSS. Ingredient comes from locales.resolve_this_month
-    (single source of truth, never fabricated). Non-fabrication is strict:
-    prep/cook/serves come only from a matched recipe's real prepTime/cookTime/yield
-    fields; est_cost and ingredient prices appear only from a verified
-    recipe-level cost record, else null and listed in
-    provenance.values_unknown. Steps derive from the recipe instructions
-    (falling back to ingredients like build_recipe_card) with the real leading word
-    uppercased as a bold action verb — no cooking action is invented.
+    The shape mirrors the ``recipe-card.json`` zones so an offline frontend can
+    render it into existing HTML/CSS — layout stays AgentCore-owned but this
+    path emits *data only* (no ``_hero_panel`` / ``_compose_card`` call).
 
-    lang: "en" passes through untouched; other languages machine-translate the
-    title, ingredient lines, and steps (recipe_i18n) with an allergen fail-safe
-    that falls back to English per line. Prices, meta, and recipe identity stay
-    put; provenance.translation records providers and fallback lines.
+    Ingredient source: ``data/localization/retailer-frontier-pairs.json`` via
+    ``locales.resolve_this_month`` — single source of truth, never fabricated.
+    No-pair / no-ingredient months return an honest shape carrying ``reason``
+    and ``ingredient: None`` rather than crashing, mirroring
+    ``build_recipe_card``'s early returns.
 
-    art (optional): a {"raw_ingredient": url|None, "technique": url|None,
-    "finished_plate": url|None} map of Nova-Canvas-generated hand-drawn line-art
-    URLs (from recipe_cards_emit.seed_recipe_art). When a zone url is present the
-    frontend renders the drawing; when None (offline, no art seeded, or a rejected
-    render) the frontend falls back to its existing SVG placeholder. Every card
-    carries a normalized `art` block with all three keys so the frontend never
-    KeyErrors — missing input degrades to all-null, never crashes.
+    Recipe selection: same degradation chain as ``build_recipe_card`` —
+    ``pick_recipe_with_provenance`` (``featured_for`` curation → token overlap →
+    deterministic rotation → season-table / ``static-default``). See
+    ``_pick_recipe_detail`` for the order and ``provenance.pairing.source``
+    values. Free brief text is display-only; ``season`` (season key / month
+    name / holiday) is the only structured season signal.
 
-    No-pair / no-ingredient months return an honest shape carrying `reason` and
-    ingredient:null rather than crashing, mirroring build_recipe_card's early
-    returns.
+    Non-fabrication is strict: ``prep``/``cook``/``serves`` come only from a
+    matched recipe's real ``prepTime``/``cookTime``/``yield`` fields (via
+    ``_recipe_meta_bar``); ``est_cost`` and per-line ``price`` appear only from
+    a verified recipe-level cost record (``_recipe_costs`` gate), else ``None``
+    and listed in ``provenance.values_unknown``. Steps derive from the recipe's
+    real ``instructions`` (falling back to ``ingredients`` like ``build_recipe_card``)
+    with the real leading word uppercased as a bold action verb
+    (``_bold_action_step``) — no cooking action is invented.
 
-    season (optional): structured season request (spring|summer|fall|winter).
-    Only consulted when nothing matches the in-season ingredient — the
-    season-indexed pairing table serves the pick, with the static default as
-    last resort. Free brief text is display-only and never steers the pick.
-    provenance carries the pairing {season, source, recipe_id, reason} block.
+    i18n: ``lang == "en"`` passes through untouched; other languages
+    machine-translate the title, ingredient lines, and steps via
+    ``recipe_i18n.translate_recipe_texts`` with an allergen fail-safe that falls
+    back to English per line. Prices, meta, and recipe identity stay put;
+    ``provenance.translation`` records providers and fallback lines.
+
+    Art (optional): a ``{"raw_ingredient": url|None, "technique": url|None,
+    "finished_plate": url|None}`` map of Nova-Canvas hand-drawn line-art URLs
+    (from ``recipe_cards_emit.seed_recipe_art``). When a zone URL is present the
+    frontend renders the drawing; when ``None`` (offline, no art seeded, or a
+    rejected render) it falls back to its SVG placeholder. Every card carries a
+    normalized ``art`` block with all three keys (``_normalize_art``) so the
+    frontend never ``KeyError``s; ``_overlay_recipe_art`` prefers the picked
+    recipe's own published art (``art_slug``) over shared ingredient art.
+
+    Returns a ``recipe-card@v1`` object (validate with ``validate_recipe_card_v1``)
+    carrying ``render`` (``render_block()``), ``provenance`` (including
+    ``pairing {season, source, recipe_id, reason}``), ``seasonal_moment``
+    (``locales.resolve_seasonal_moments``), and ``art``.
     """
     art_block = _normalize_art(art)
     try:
