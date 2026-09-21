@@ -1,0 +1,722 @@
+[
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Fall",
+  "dish": "waffle",
+  "seed": 910001
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Fall",
+  "dish": "muffin",
+  "seed": 910002
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Fall",
+  "dish": "oatmeal-cup",
+  "seed": 910003
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Fall",
+  "dish": "brownie",
+  "seed": 910004
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Fall",
+  "dish": "bars",
+  "seed": 910005
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Halloween",
+  "dish": "waffle",
+  "seed": 910006
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Halloween",
+  "dish": "muffin",
+  "seed": 910007
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Halloween",
+  "dish": "oatmeal-cup",
+  "seed": 910008
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Halloween",
+  "dish": "brownie",
+  "seed": 910009
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Halloween",
+  "dish": "bars",
+  "seed": 910010
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Thanksgiving",
+  "dish": "waffle",
+  "seed": 910011
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Thanksgiving",
+  "dish": "muffin",
+  "seed": 910012
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Thanksgiving",
+  "dish": "oatmeal-cup",
+  "seed": 910013
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Thanksgiving",
+  "dish": "brownie",
+  "seed": 910014
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Thanksgiving",
+  "dish": "bars",
+  "seed": 910015
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Christmas",
+  "dish": "waffle",
+  "seed": 910016
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Christmas",
+  "dish": "muffin",
+  "seed": 910017
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Christmas",
+  "dish": "oatmeal-cup",
+  "seed": 910018
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Christmas",
+  "dish": "brownie",
+  "seed": 910019
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Christmas",
+  "dish": "bars",
+  "seed": 910020
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Easter",
+  "dish": "waffle",
+  "seed": 910021
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Easter",
+  "dish": "muffin",
+  "seed": 910022
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Easter",
+  "dish": "oatmeal-cup",
+  "seed": 910023
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Easter",
+  "dish": "brownie",
+  "seed": 910024
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Easter",
+  "dish": "bars",
+  "seed": 910025
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Fourth of July",
+  "dish": "waffle",
+  "seed": 910026
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Fourth of July",
+  "dish": "muffin",
+  "seed": 910027
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Fourth of July",
+  "dish": "oatmeal-cup",
+  "seed": 910028
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Fourth of July",
+  "dish": "brownie",
+  "seed": 910029
+ },
+ {
+  "market": "US-OH-CINCINNATI",
+  "season": "Fourth of July",
+  "dish": "bars",
+  "seed": 910030
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Fall",
+  "dish": "waffle",
+  "seed": 910031
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Fall",
+  "dish": "muffin",
+  "seed": 910032
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Fall",
+  "dish": "oatmeal-cup",
+  "seed": 910033
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Fall",
+  "dish": "brownie",
+  "seed": 910034
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Fall",
+  "dish": "bars",
+  "seed": 910035
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Halloween",
+  "dish": "waffle",
+  "seed": 910036
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Halloween",
+  "dish": "muffin",
+  "seed": 910037
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Halloween",
+  "dish": "oatmeal-cup",
+  "seed": 910038
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Halloween",
+  "dish": "brownie",
+  "seed": 910039
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Halloween",
+  "dish": "bars",
+  "seed": 910040
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Thanksgiving",
+  "dish": "waffle",
+  "seed": 910041
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Thanksgiving",
+  "dish": "muffin",
+  "seed": 910042
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Thanksgiving",
+  "dish": "oatmeal-cup",
+  "seed": 910043
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Thanksgiving",
+  "dish": "brownie",
+  "seed": 910044
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Thanksgiving",
+  "dish": "bars",
+  "seed": 910045
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Christmas",
+  "dish": "waffle",
+  "seed": 910046
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Christmas",
+  "dish": "muffin",
+  "seed": 910047
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Christmas",
+  "dish": "oatmeal-cup",
+  "seed": 910048
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Christmas",
+  "dish": "brownie",
+  "seed": 910049
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Christmas",
+  "dish": "bars",
+  "seed": 910050
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Easter",
+  "dish": "waffle",
+  "seed": 910051
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Easter",
+  "dish": "muffin",
+  "seed": 910052
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Easter",
+  "dish": "oatmeal-cup",
+  "seed": 910053
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Easter",
+  "dish": "brownie",
+  "seed": 910054
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Easter",
+  "dish": "bars",
+  "seed": 910055
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Fourth of July",
+  "dish": "waffle",
+  "seed": 910056
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Fourth of July",
+  "dish": "muffin",
+  "seed": 910057
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Fourth of July",
+  "dish": "oatmeal-cup",
+  "seed": 910058
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Fourth of July",
+  "dish": "brownie",
+  "seed": 910059
+ },
+ {
+  "market": "US-OH-DAYTON",
+  "season": "Fourth of July",
+  "dish": "bars",
+  "seed": 910060
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Fall",
+  "dish": "waffle",
+  "seed": 910061
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Fall",
+  "dish": "muffin",
+  "seed": 910062
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Fall",
+  "dish": "oatmeal-cup",
+  "seed": 910063
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Fall",
+  "dish": "brownie",
+  "seed": 910064
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Fall",
+  "dish": "bars",
+  "seed": 910065
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Halloween",
+  "dish": "waffle",
+  "seed": 910066
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Halloween",
+  "dish": "muffin",
+  "seed": 910067
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Halloween",
+  "dish": "oatmeal-cup",
+  "seed": 910068
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Halloween",
+  "dish": "brownie",
+  "seed": 910069
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Halloween",
+  "dish": "bars",
+  "seed": 910070
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Thanksgiving",
+  "dish": "waffle",
+  "seed": 910071
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Thanksgiving",
+  "dish": "muffin",
+  "seed": 910072
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Thanksgiving",
+  "dish": "oatmeal-cup",
+  "seed": 910073
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Thanksgiving",
+  "dish": "brownie",
+  "seed": 910074
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Thanksgiving",
+  "dish": "bars",
+  "seed": 910075
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Christmas",
+  "dish": "waffle",
+  "seed": 910076
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Christmas",
+  "dish": "muffin",
+  "seed": 910077
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Christmas",
+  "dish": "oatmeal-cup",
+  "seed": 910078
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Christmas",
+  "dish": "brownie",
+  "seed": 910079
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Christmas",
+  "dish": "bars",
+  "seed": 910080
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Easter",
+  "dish": "waffle",
+  "seed": 910081
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Easter",
+  "dish": "muffin",
+  "seed": 910082
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Easter",
+  "dish": "oatmeal-cup",
+  "seed": 910083
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Easter",
+  "dish": "brownie",
+  "seed": 910084
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Easter",
+  "dish": "bars",
+  "seed": 910085
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Fourth of July",
+  "dish": "waffle",
+  "seed": 910086
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Fourth of July",
+  "dish": "muffin",
+  "seed": 910087
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Fourth of July",
+  "dish": "oatmeal-cup",
+  "seed": 910088
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Fourth of July",
+  "dish": "brownie",
+  "seed": 910089
+ },
+ {
+  "market": "US-OH-LEBANON",
+  "season": "Fourth of July",
+  "dish": "bars",
+  "seed": 910090
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Fall",
+  "dish": "waffle",
+  "seed": 910091
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Fall",
+  "dish": "muffin",
+  "seed": 910092
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Fall",
+  "dish": "oatmeal-cup",
+  "seed": 910093
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Fall",
+  "dish": "brownie",
+  "seed": 910094
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Fall",
+  "dish": "bars",
+  "seed": 910095
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Halloween",
+  "dish": "waffle",
+  "seed": 910096
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Halloween",
+  "dish": "muffin",
+  "seed": 910097
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Halloween",
+  "dish": "oatmeal-cup",
+  "seed": 910098
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Halloween",
+  "dish": "brownie",
+  "seed": 910099
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Halloween",
+  "dish": "bars",
+  "seed": 910100
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Thanksgiving",
+  "dish": "waffle",
+  "seed": 910101
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Thanksgiving",
+  "dish": "muffin",
+  "seed": 910102
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Thanksgiving",
+  "dish": "oatmeal-cup",
+  "seed": 910103
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Thanksgiving",
+  "dish": "brownie",
+  "seed": 910104
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Thanksgiving",
+  "dish": "bars",
+  "seed": 910105
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Christmas",
+  "dish": "waffle",
+  "seed": 910106
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Christmas",
+  "dish": "muffin",
+  "seed": 910107
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Christmas",
+  "dish": "oatmeal-cup",
+  "seed": 910108
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Christmas",
+  "dish": "brownie",
+  "seed": 910109
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Christmas",
+  "dish": "bars",
+  "seed": 910110
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Easter",
+  "dish": "waffle",
+  "seed": 910111
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Easter",
+  "dish": "muffin",
+  "seed": 910112
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Easter",
+  "dish": "oatmeal-cup",
+  "seed": 910113
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Easter",
+  "dish": "brownie",
+  "seed": 910114
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Easter",
+  "dish": "bars",
+  "seed": 910115
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Fourth of July",
+  "dish": "waffle",
+  "seed": 910116
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Fourth of July",
+  "dish": "muffin",
+  "seed": 910117
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Fourth of July",
+  "dish": "oatmeal-cup",
+  "seed": 910118
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Fourth of July",
+  "dish": "brownie",
+  "seed": 910119
+ },
+ {
+  "market": "US-CA-OCEANSIDE",
+  "season": "Fourth of July",
+  "dish": "bars",
+  "seed": 910120
+ }
+]
