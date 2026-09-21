@@ -13451,7 +13451,7 @@
   },
   "US-OH-DAYTON": {
     "aliases": [],
-    "audience": "Cleveland metro families + Ohio City and east/west-side households; Lake Erie shore food culture; Eastern European heritage (Slovenian, Polish, Hungarian); Giant Eagle, Heinen's, and Meijer shoppers",
+    "audience": "Dayton metro families + Miami Valley households; Gem City industrial heritage; Kroger, Dorothy Lane Market, and Meijer shoppers",
     "campaign_type_fit": {
       "bears": {
         "angle": "eastern Ohio has a small returning black bear population; keep conservation-toned, no metro hook",
@@ -13484,9 +13484,9 @@
       }
     },
     "city_center": {
-      "landmark": "Second Street Market, Dayton historic public market; Miami Valley produce corridor to Lebanon",
-      "name": "Second Street Market + Miami Valley farmland",
-      "notes": "The West Side Market in Ohio City is Cleveland's historic public market with a landmark 1912 market hall and clock tower. East of the city, the Grand River Valley and Lake Erie shore are Ohio's grape and wine country. sources: en.wikipedia.org West Side Market; westsidemarket.org."
+      "landmark": "Second Street Market (Dayton), public market hall; Miami Valley farmland to the south (Lebanon orchard belt)",
+      "name": "Second Street Market — Dayton's historic public market (1830s)",
+      "notes": "Second Street Market is Dayton's historic public market, open year-round in a restored freight depot. The Lebanon orchard belt (Warren County) south supplies tomatoes (late harvest Sep), apples Oct, pumpkins Oct-Nov. sources: Dayton Second Street Market."
     },
     "classification": "metro",
     "coordinates": {
@@ -13495,10 +13495,9 @@
     },
     "county": "Montgomery County",
     "cultural_notes": [
-      "the West Side Market (1912) in Ohio City is Cleveland's landmark public market -- a brick-and-tile hall with a clock tower and produce arcade, a civic food anchor (source: en.wikipedia.org West Side Market; westsidemarket.org)",
-      "Cleveland has deep Eastern European roots (Slovenian, Polish, Hungarian, Slovak) shaping its food culture, alongside a Puerto Rican community on the near west side (source: general demographic framing, publicly documented)",
-      "the Grand River Valley and Lake Erie shore east of the city are Ohio's grape and wine country; Concord grapes are a signature fall crop (source: Ohio wine / grape region framing, publicly documented)",
-      "Giant Eagle (a Pittsburgh/Cleveland regional chain), Heinen's (a Cleveland grocer), and Meijer are the metro grocers; Berea sandstone is a characteristic local building stone (source: chain regional footprint; Berea sandstone)"
+      "Second Street Market in Dayton is a historic public market in a restored 19th-century freight depot, a civic food anchor for the Miami Valley (source: Five Rivers MetroParks)",
+      "The Lebanon orchard belt supplies late-harvest tomatoes (Sep) and apples (Oct) to Dayton markets (source: retailer-frontier-pairs monthly_ingredients)",
+      "Kroger (Cincinnati/Dayton) and Dorothy Lane Market (Dayton specialty) are the dominant grocers (source: regional footprint)"
     ],
     "design_palette": {
       "_provenance_note": "Cleveland brick + Berea sandstone grounded in the city's building fabric (Berea sandstone is a characteristic regional stone). market terra-cotta from the West Side Market hall. Concord-grape purple from the Grand River Valley wine country. Lake Erie blue-gray from the Great Lakes shore. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette.",
@@ -13555,14 +13554,14 @@
     },
     "featured_frontier": {
       "cross_promo": {
-        "activation": "Concord grape + apple compote card, Giant Eagle / Heinen's / Meijer retailer lockup",
+        "activation": "tomato-cider card, Kroger / Dorothy Lane retailer lockup",
         "consent_status": "n/a",
-        "partner": "West Side Market / Grand River Valley growers",
-        "url": "https://westsidemarket.org"
+        "partner": "Second Street Market / Lebanon orchards (Irons Fruit Farm)",
+        "url": "https://www.metroparks.org/places-to-go/second-street-market/"
       },
-      "hook": "Ohio Concord grape + apple compote over Power Cakes at the West Side Market, brick-and-sandstone city behind -- Lake Erie shore breakfast",
-      "photo_cue": "cast-iron flapjack stack under the West Side Market clock tower, Concord grapes and autumn apples, Berea sandstone, Lake Erie light",
-      "signature_ingredient": "Ohio Concord grapes (Sep) + Ohio apples (Sep-Oct); Lake Erie shore berries (summer)"
+      "hook": "Late-harvest tomatoes + apple cider over Power Cakes at Second Street Market — Miami Valley orchard belt, peak September",
+      "photo_cue": "cast-iron flapjack stack at Second Street Market, late-harvest heirloom tomatoes, apple cider, Miami Valley farmland in September light",
+      "signature_ingredient": "Lebanon tomatoes (late harvest, Sep) + apples (Oct); Second Street ramps (Mar) + morels (Apr)"
     },
     "languages": [
       {
@@ -13636,13 +13635,13 @@
       {
         "in_season_produce": [
           {
-            "name": "Ohio Concord grapes",
-            "pancake_tie": "Concord-grape compote over Power Cakes -- Grand River Valley fall signature",
+            "name": "Lebanon tomatoes (late harvest)",
+            "pancake_tie": "late-harvest tomato savory Power Cakes — Miami Valley Sep peak",
             "peak_month": 9
           },
           {
-            "name": "Ohio apples",
-            "pancake_tie": "Ohio apple-cinnamon compote over Power Cakes -- orchard-country staple",
+            "name": "Lebanon apples",
+            "pancake_tie": "apple-cider compote over Power Cakes — Irons Fruit Farm Oct",
             "peak_month": 10
           }
         ],
