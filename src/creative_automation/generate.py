@@ -1745,7 +1745,22 @@ def _director_headline_text(
     memo_key = (product_name, brief_msg, region, audience)
     if memo_key in _DIRECTOR_MEMO:
         _dnote("memo hit")
-        return _DIRECTOR_MEMO[memo_key]
+        cached = _DIRECTOR_MEMO[memo_key]
+        # Sanitize even memo hits — a warm container may hold a pre-fix military line
+        sanitized = _sanitize_military_headline(cached)
+        if sanitized is None:
+            _dnote(f"memo military filtered ({cached[:60]!r}) — miss")
+            # bust the poisoned memo entry so the next call re-derives a clean line
+            try:
+                del _DIRECTOR_MEMO[memo_key]
+            except KeyError:
+                pass
+            return None
+        if sanitized != cached:
+            _dnote(f"memo military stripped: {cached[:60]!r} -> {sanitized[:60]!r}")
+            _DIRECTOR_MEMO[memo_key] = sanitized
+            return sanitized
+        return cached
     try:
         from . import art_director, director_memory
     except ImportError as e:
