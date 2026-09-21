@@ -2603,17 +2603,6 @@ def generate_hero(
             print(f"[generate] staged seed fetch failed: {e}", file=sys.stderr)
     if seed is None:
         photo_key = _resolve_dam_photo(product_id)
-        # Taco-closeup guard: a food-closeup seed (taco/waffle close-up) preserves
-        # the wrong composition for a market/season brief (pawpaws, market hall).
-        # When the brief carries frontier/seasonal ingredient cues, skip the sku-mapped
-        # food close-up and fall through to the neutral scene seed so the restyle
-        # can actually show the local ingredient instead of repainting tacos.
-        _food_closeup_needles = ("taco", "waffle_breakfast", "pickles")
-        if photo_key and any(n in photo_key.lower() for n in _food_closeup_needles):
-            brief_lower = (brief_msg or "").lower()
-            if any(kw in brief_lower for kw in ("pawpaw", "market", "frontier", "season:", "ecology:")):
-                print("[generate] sku-mapped taco/close-up skipped for market/season brief -> disk asset", file=sys.stderr)
-                photo_key = None
         if photo_key:
             try:
                 from .dam import fetch_dam_key
