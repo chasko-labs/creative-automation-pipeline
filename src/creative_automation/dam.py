@@ -835,11 +835,25 @@ def upload_recipe_art(local_png: Path, subject_slug: str, zone: str) -> str | No
     if not local_png.exists():
         print(f"[dam] recipe-art upload skipped — local png absent: {local_png}")
         return None
-    full = recipe_art_key(subject_slug, zone)
-    _, prefix = _s3_bucket_and_prefix()
-    rel = full[len(prefix):] if prefix and full.startswith(prefix) else full.lstrip("/")
-    if s3_upload_and_presign(str(local_png), rel, expires=604800) is None:
+    # Write the bare brands/ key verbatim — the same key recipe_art_exists
+    # HEADs. Routing through s3_upload_and_presign would re-join the default
+    # dam/ prefix and land the object where exists() never looks (plus the
+    # presigned url it returns is discarded here anyway).
+    from botocore.exceptions import BotoCoreError, ClientError
+
+    if not _s3_enabled():
         return None
+    bucket, _ = _s3_bucket_and_prefix()
+    client = _s3_client()
+    if not bucket or client is None:
+        return None
+    full = recipe_art_key(subject_slug, zone)
+    try:
+        client.upload_file(str(local_png), bucket, full)
+    except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — upload failure returns None
+        print(f"[dam] recipe-art upload failed s3://{bucket}/{full}: {e}")
+        return None
+    print(f"[dam] recipe-art uploaded s3://{bucket}/{full}")
     return recipe_art_site_url(subject_slug, zone)
 
 
