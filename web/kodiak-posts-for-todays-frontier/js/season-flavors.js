@@ -109,7 +109,7 @@
    * Degrades: unknown season strings fall through to year-round sentinel.
    * @type {string[]}
    */
-  var SEASON_NAMES = ['Winter','Spring','Summer','Fall'];
+  var SEASON_NAMES = ['Winter','Spring','Summer','Fall','Autumn'];
 
   /**
    * Holiday label → representative month index.
@@ -164,7 +164,7 @@
     var mi = MONTHS.indexOf(s);
     if(mi !== -1) return {month:mi, label:s};
     var si = SEASON_NAMES.indexOf(s);
-    if(si !== -1) return {month:[0,3,6,9][si], label:s};
+    if(si !== -1) return {month:[0,3,6,9,9][si], label:s};
     if(Object.prototype.hasOwnProperty.call(HOLIDAY_MONTH, s)){
       var hm = HOLIDAY_MONTH[s];
       return {month:hm, label:s};
