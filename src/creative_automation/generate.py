@@ -3270,9 +3270,20 @@ def generate_hero_set(
     # Raw subject for the outpaint extend prompt (_stability_outpaint wraps it in
     # the frozen style sandwich). Reuse the base hero's scene prompt so NO extra
     # Bedrock call burns the wall; fall back to the brief when it is absent.
-    _outpaint_subject = (
-        str(provenance.get("scene_prompt") or "").strip() or brief_msg
-    )
+    # Sync the in-season ingredient so apples briefs show apples, not pears/pumpkins.
+    _season_ingredient = None
+    try:
+        from .locales import resolve_this_month as _rtm  # single source of truth for seasonal ingredient
+
+        _resolved = _rtm(region, ym=None)
+        if _resolved and _resolved.get("ingredient"):
+            _season_ingredient = str(_resolved["ingredient"]).strip()
+    except Exception:
+        _season_ingredient = None
+    _base_subject = str(provenance.get("scene_prompt") or "").strip() or brief_msg
+    if _season_ingredient and _season_ingredient.lower() not in _base_subject.lower():
+        _base_subject = f"{_base_subject}, featuring {_season_ingredient}"
+    _outpaint_subject = _base_subject
 
     # recipe-cards theme routes each sized hero through the deterministic Pillow card
     # template (_compose_recipe_card): the GenAI hero drops into a fixed image slot and
@@ -3327,6 +3338,14 @@ def generate_hero_set(
             # attempted ONLY while the set clock still covers one outpaint PLUS
             # the reserve — a slow ratio degrades to the pad, never blows the
             # immovable 22s wall. Latency is measured per ratio for the report.
+            # Variety: each outpaint gets a ratio-specific composition suffix so the
+            # 5-size set is not 5 crops of one frame — 9x16 vertical trail/lifestyle,
+            # 16x9 wide farmstand/aspen-gold, each still anchored to the same hero subject.
+            _ratio_suffix = {
+                "9x16": ", vertical composition, lifestyle trail moment, foreground detail",
+                "16x9": ", wide panoramic farmstand, aspen gold horizon, open sky negative space",
+            }.get(ratio, "")
+            _ratio_subject = _outpaint_subject + _ratio_suffix
             ratio_engine = "pillow-outpaint-fallback"
             if not _STABILITY_RUNG_ON:
                 # dev opts out of the generative rung: use the deterministic Pillow
@@ -3340,7 +3359,7 @@ def generate_hero_set(
                 _t0 = time.monotonic()
                 try:
                     extended = _stability_outpaint(
-                        clean_base, target_w, target_h, _outpaint_subject, ratio_path
+                        clean_base, target_w, target_h, _ratio_subject, ratio_path
                     )
                 except (ReadTimeoutError, ConnectTimeoutError):
                     extended = None
