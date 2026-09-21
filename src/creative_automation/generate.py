@@ -1100,8 +1100,11 @@ def _default_scene_prompt(
         who = _safe_theme_text(theme)
         hint = f"{scene_hint} Featuring {who}." if scene_hint else who
         # Keep frontier ecology + ingredient even when themed — themed previews
-        # otherwise lose the locality that makes September pawpaws ≠ Halloween
-        direction = f"{hint} Campaign vibe: {brief_msg}." if brief_msg else hint
+        # otherwise lose the locality that makes September pawpaws ≠ Halloween.
+        # Scrub free-text celebrity names so a typed "Zac Efron" never reaches
+        # Stability (test_path_adversary).
+        safe_brief = _safe_prompt_text(brief_msg) if brief_msg else ""
+        direction = f"{hint} Campaign vibe: {safe_brief}." if safe_brief else hint
     else:
         direction = brief_msg
     base = (
