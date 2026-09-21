@@ -21,7 +21,7 @@ def _places():
 def test_metro_header_resolves_to_place():
     places = _places()
     pairs = json.loads(PAIRS.read_text())["pairs"]
-    assert len(pairs) == 73
+    assert len(pairs) == 76
     for p in pairs:
         metro = p.get("metro_location") or {}
         code = metro.get("market") or p["market"]

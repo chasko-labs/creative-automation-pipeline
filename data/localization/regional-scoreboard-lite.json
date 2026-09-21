@@ -70,6 +70,77 @@
       }
     ]
   },
+  "US-CA-OCEANSIDE": {
+    "campaign_type_fit": {
+      "bears": {
+        "angle": "black bear lives in the SoCal mountains east of the metro; California grizzly extinct (state symbol only). Keep conservation-toned and historically honest",
+        "fit": "weak"
+      },
+      "keep-it-wild": {
+        "angle": "coastal metro; Keep It Wild lands better on the backcountry (Anza-Borrego, Cleveland National Forest) edge than downtown",
+        "fit": "weak"
+      },
+      "localized-costco": {
+        "angle": "San Diego is a strong Costco + Vons/Ralphs bulk-and-value market; retailer lockup works across the metro chains",
+        "fit": "strong"
+      },
+      "recipe-cards": {
+        "angle": "avocado savory card (spring/summer) + SoCal citrus card (winter) + pomegranate card (fall) -- real San Diego County produce",
+        "fit": "strong"
+      },
+      "riff-on-past-content": {
+        "angle": "no produced San Diego content corpus yet; strong Balboa Park + avocado cue but thin prior material",
+        "fit": "weak"
+      },
+      "us-ski-and-snowboard": {
+        "angle": "coastal SoCal; no ski identity (Big Bear is a distant drive)",
+        "fit": "na"
+      },
+      "zac-efron": {
+        "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness",
+        "fit": "na"
+      }
+    },
+    "city_center": {
+      "landmark": "Oceanside Harbor and pier; Mission San Luis Rey; coastal San Diego County avocado + strawberry belt",
+      "name": "Oceanside Harbor + Mission San Luis Rey foothills"
+    },
+    "design_palette": {
+      "colors": [
+        {
+          "hex": "#EFE7D6",
+          "name": "Spanish-Colonial stucco white"
+        },
+        {
+          "hex": "#B15A34",
+          "name": "Saltillo terracotta"
+        },
+        {
+          "hex": "#B23A6B",
+          "name": "bougainvillea magenta"
+        }
+      ],
+      "textures": [
+        "Spanish-Colonial stucco",
+        "Saltillo terracotta tile",
+        "bougainvillea bloom"
+      ]
+    },
+    "featured_frontier": {
+      "hook": "San Diego avocado + citrus over Power Cakes on a Spanish-tile patio, Pacific and palms behind -- year-round Southern California breakfast",
+      "photo_cue": "cast-iron flapjack stack on a Saltillo-tile patio, avocado and citrus, bougainvillea and palm, Balboa Park Spanish-Colonial arch, Pacific light"
+    },
+    "languages": [
+      {
+        "lang_code": "es",
+        "lang_name": "Spanish"
+      },
+      {
+        "lang_code": "tl",
+        "lang_name": "Tagalog"
+      }
+    ]
+  },
   "US-CA-PESCADERO": {
     "campaign_type_fit": {
       "bears": {
@@ -3112,6 +3183,148 @@
       {
         "lang_code": "es",
         "lang_name": "Spanish"
+      }
+    ]
+  },
+  "US-OH-CINCINNATI": {
+    "campaign_type_fit": {
+      "bears": {
+        "angle": "eastern Ohio has a small returning black bear population; keep conservation-toned, no metro hook",
+        "fit": "weak"
+      },
+      "keep-it-wild": {
+        "angle": "metro market; Keep It Wild lands better on the Lake Erie shore / Cuyahoga Valley National Park edge than downtown",
+        "fit": "weak"
+      },
+      "localized-costco": {
+        "angle": "Cleveland is a Costco + Giant Eagle/Meijer bulk-and-value market; retailer lockup works with the regional-grocer story",
+        "fit": "strong"
+      },
+      "recipe-cards": {
+        "angle": "Concord-grape card + Ohio apple card (fall) + Lake Erie sweet-corn savory card (summer) -- real Grand River Valley + Ohio produce",
+        "fit": "strong"
+      },
+      "riff-on-past-content": {
+        "angle": "no produced Cleveland content corpus yet; strong West Side Market cue but thin prior material",
+        "fit": "weak"
+      },
+      "us-ski-and-snowboard": {
+        "angle": "small Ohio ski areas (Boston Mills) exist but no ski-town identity",
+        "fit": "na"
+      },
+      "zac-efron": {
+        "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness",
+        "fit": "na"
+      }
+    },
+    "city_center": {
+      "landmark": "Findlay Market (opened 1855), historic Ohio River market hall; Miami Valley frontier to the north",
+      "name": "Findlay Market (Over-the-Rhine) + Ohio River lakefront"
+    },
+    "design_palette": {
+      "colors": [
+        {
+          "hex": "#8B4535",
+          "name": "Cleveland brick red"
+        },
+        {
+          "hex": "#B7A582",
+          "name": "Berea sandstone buff"
+        },
+        {
+          "hex": "#3F2A4A",
+          "name": "Concord-grape purple"
+        }
+      ],
+      "textures": [
+        "Cleveland red brick",
+        "Berea sandstone block",
+        "West Side Market glazed tile and terra-cotta"
+      ]
+    },
+    "featured_frontier": {
+      "hook": "Ohio Concord grape + apple compote over Power Cakes at the West Side Market, brick-and-sandstone city behind -- Lake Erie shore breakfast",
+      "photo_cue": "cast-iron flapjack stack under the West Side Market clock tower, Concord grapes and autumn apples, Berea sandstone, Lake Erie light"
+    },
+    "languages": [
+      {
+        "lang_code": "es",
+        "lang_name": "Spanish"
+      },
+      {
+        "lang_code": "pl",
+        "lang_name": "Polish"
+      }
+    ]
+  },
+  "US-OH-DAYTON": {
+    "campaign_type_fit": {
+      "bears": {
+        "angle": "eastern Ohio has a small returning black bear population; keep conservation-toned, no metro hook",
+        "fit": "weak"
+      },
+      "keep-it-wild": {
+        "angle": "metro market; Keep It Wild lands better on the Lake Erie shore / Cuyahoga Valley National Park edge than downtown",
+        "fit": "weak"
+      },
+      "localized-costco": {
+        "angle": "Cleveland is a Costco + Giant Eagle/Meijer bulk-and-value market; retailer lockup works with the regional-grocer story",
+        "fit": "strong"
+      },
+      "recipe-cards": {
+        "angle": "Concord-grape card + Ohio apple card (fall) + Lake Erie sweet-corn savory card (summer) -- real Grand River Valley + Ohio produce",
+        "fit": "strong"
+      },
+      "riff-on-past-content": {
+        "angle": "no produced Cleveland content corpus yet; strong West Side Market cue but thin prior material",
+        "fit": "weak"
+      },
+      "us-ski-and-snowboard": {
+        "angle": "small Ohio ski areas (Boston Mills) exist but no ski-town identity",
+        "fit": "na"
+      },
+      "zac-efron": {
+        "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness",
+        "fit": "na"
+      }
+    },
+    "city_center": {
+      "landmark": "Second Street Market, Dayton historic public market; Miami Valley produce corridor to Lebanon",
+      "name": "Second Street Market + Miami Valley farmland"
+    },
+    "design_palette": {
+      "colors": [
+        {
+          "hex": "#8B4535",
+          "name": "Cleveland brick red"
+        },
+        {
+          "hex": "#B7A582",
+          "name": "Berea sandstone buff"
+        },
+        {
+          "hex": "#3F2A4A",
+          "name": "Concord-grape purple"
+        }
+      ],
+      "textures": [
+        "Cleveland red brick",
+        "Berea sandstone block",
+        "West Side Market glazed tile and terra-cotta"
+      ]
+    },
+    "featured_frontier": {
+      "hook": "Ohio Concord grape + apple compote over Power Cakes at the West Side Market, brick-and-sandstone city behind -- Lake Erie shore breakfast",
+      "photo_cue": "cast-iron flapjack stack under the West Side Market clock tower, Concord grapes and autumn apples, Berea sandstone, Lake Erie light"
+    },
+    "languages": [
+      {
+        "lang_code": "es",
+        "lang_name": "Spanish"
+      },
+      {
+        "lang_code": "pl",
+        "lang_name": "Polish"
       }
     ]
   },

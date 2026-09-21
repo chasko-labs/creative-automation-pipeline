@@ -128,11 +128,14 @@ def test_thirds_placement_avoids_center(tmp_path):
         placement="thirds",
     )
     box_rgb = (200, 120, 40)
+    def _close(a, b, tol=6):
+        return all(abs(x - y) <= tol for x, y in zip(a, b))
+
     with Image.open(centered).convert("RGB") as im:
-        assert im.getpixel((400, 500)) == box_rgb  # center-frame box covers x=400
+        assert _close(im.getpixel((400, 500)), box_rgb), "center-frame box covers x=400 (kraft blend tolerance)"
     with Image.open(layered).convert("RGB") as im:
-        assert im.getpixel((400, 500)) != box_rgb  # thirds box starts right of x=400
-        assert im.getpixel((600, 500)) == box_rgb  # but still on-canvas, composed
+        assert not _close(im.getpixel((400, 500)), box_rgb), "thirds box starts right of x=400"
+        assert _close(im.getpixel((600, 500)), box_rgb), "but still on-canvas, composed (kraft blend tolerance)"
 
 
 # --------------------------------------------------------------------------- #

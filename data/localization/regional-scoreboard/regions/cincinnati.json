@@ -1,0 +1,301 @@
+{
+  "region_id": "cincinnati",
+  "market_code": "US-OH-CINCINNATI",
+  "aliases": [],
+  "place": "Cincinnati, Ohio",
+  "zip": "45202",
+  "county": "Hamilton County",
+  "state": "OH",
+  "coordinates": {
+    "lat": 39.1031,
+    "lon": -84.512
+  },
+  "classification": "metro",
+  "city_center": {
+    "name": "Findlay Market (Over-the-Rhine) + Ohio River lakefront",
+    "landmark": "Findlay Market (opened 1855), historic Ohio River market hall; Miami Valley frontier to the north",
+    "notes": "The West Side Market in Ohio City is Cleveland's historic public market with a landmark 1912 market hall and clock tower. East of the city, the Grand River Valley and Lake Erie shore are Ohio's grape and wine country. sources: en.wikipedia.org West Side Market; westsidemarket.org."
+  },
+  "featured_frontier": {
+    "hook": "Ohio Concord grape + apple compote over Power Cakes at the West Side Market, brick-and-sandstone city behind -- Lake Erie shore breakfast",
+    "photo_cue": "cast-iron flapjack stack under the West Side Market clock tower, Concord grapes and autumn apples, Berea sandstone, Lake Erie light",
+    "signature_ingredient": "Ohio Concord grapes (Sep) + Ohio apples (Sep-Oct); Lake Erie shore berries (summer)",
+    "cross_promo": {
+      "partner": "West Side Market / Grand River Valley growers",
+      "url": "https://westsidemarket.org",
+      "activation": "Concord grape + apple compote card, Giant Eagle / Heinen's / Meijer retailer lockup",
+      "consent_status": "n/a"
+    }
+  },
+  "audience": "Cleveland metro families + Ohio City and east/west-side households; Lake Erie shore food culture; Eastern European heritage (Slovenian, Polish, Hungarian); Giant Eagle, Heinen's, and Meijer shoppers",
+  "languages": [
+    {
+      "lang_code": "es",
+      "lang_name": "Spanish",
+      "pct_home": 5.0,
+      "translate_code": "es",
+      "reason": "INFERRED (ACS source file absent): Puerto Rican and broader Latino community on Cleveland's near west side; pct is a web-informed estimate, not exact ACS"
+    },
+    {
+      "lang_code": "pl",
+      "lang_name": "Polish",
+      "pct_home": 1.0,
+      "translate_code": "pl",
+      "reason": "INFERRED (ACS source file absent): historic Polish and broader Eastern European heritage (Slavic Village); pct estimated"
+    }
+  ],
+  "cultural_notes": [
+    "the West Side Market (1912) in Ohio City is Cleveland's landmark public market -- a brick-and-tile hall with a clock tower and produce arcade, a civic food anchor (source: en.wikipedia.org West Side Market; westsidemarket.org)",
+    "Cleveland has deep Eastern European roots (Slovenian, Polish, Hungarian, Slovak) shaping its food culture, alongside a Puerto Rican community on the near west side (source: general demographic framing, publicly documented)",
+    "the Grand River Valley and Lake Erie shore east of the city are Ohio's grape and wine country; Concord grapes are a signature fall crop (source: Ohio wine / grape region framing, publicly documented)",
+    "Giant Eagle (a Pittsburgh/Cleveland regional chain), Heinen's (a Cleveland grocer), and Meijer are the metro grocers; Berea sandstone is a characteristic local building stone (source: chain regional footprint; Berea sandstone)"
+  ],
+  "design_palette": {
+    "textures": [
+      "Cleveland red brick",
+      "Berea sandstone block",
+      "West Side Market glazed tile and terra-cotta",
+      "Lake Erie wave sheen",
+      "Concord-grape bloom",
+      "Grand River Valley vineyard row",
+      "cast-iron griddle char"
+    ],
+    "colors": [
+      {
+        "name": "Cleveland brick red",
+        "hex": "#8B4535",
+        "use": "structure / facade"
+      },
+      {
+        "name": "Berea sandstone buff",
+        "hex": "#B7A582",
+        "use": "stone structure / trim"
+      },
+      {
+        "name": "Concord-grape purple",
+        "hex": "#3F2A4A",
+        "use": "produce hero / accent"
+      },
+      {
+        "name": "Lake Erie blue-gray",
+        "hex": "#4E6470",
+        "use": "water / sky"
+      },
+      {
+        "name": "market terra-cotta gold",
+        "hex": "#C08A3E",
+        "use": "tile accent / warm pop"
+      }
+    ],
+    "building_materials": [
+      "fired red brick",
+      "Berea sandstone (local building stone)",
+      "glazed tile and terra-cotta (West Side Market)",
+      "steel (bridges, industrial)",
+      "clapboard vineyard farmhouse (rural)"
+    ],
+    "landscape_motifs": [
+      "West Side Market clock tower and hall",
+      "Lake Erie lakefront",
+      "Grand River Valley vineyard rows",
+      "brick-and-sandstone city street",
+      "downtown skyline over the Cuyahoga"
+    ],
+    "_provenance_note": "Cleveland brick + Berea sandstone grounded in the city's building fabric (Berea sandstone is a characteristic regional stone). market terra-cotta from the West Side Market hall. Concord-grape purple from the Grand River Valley wine country. Lake Erie blue-gray from the Great Lakes shore. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+  },
+  "seasonal": [
+    {
+      "season": "harvest-fall",
+      "months": [
+        9,
+        10
+      ],
+      "in_season_produce": [
+        {
+          "name": "Ohio Concord grapes",
+          "peak_month": 9,
+          "pancake_tie": "Concord-grape compote over Power Cakes -- Grand River Valley fall signature"
+        },
+        {
+          "name": "Ohio apples",
+          "peak_month": 10,
+          "pancake_tie": "Ohio apple-cinnamon compote over Power Cakes -- orchard-country staple"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "West Side Market",
+          "type": "farmers-market",
+          "url": "https://westsidemarket.org",
+          "notes": "Concord grapes + apples in fall"
+        },
+        {
+          "name": "Giant Eagle",
+          "type": "chain-grocer"
+        }
+      ]
+    },
+    {
+      "season": "winter-holidays",
+      "months": [
+        11,
+        12,
+        1,
+        2
+      ],
+      "in_season_produce": [
+        {
+          "name": "stored Ohio apples + winter squash",
+          "pancake_tie": "spiced apple-squash Power Cakes for a lake-effect snow morning"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "Giant Eagle",
+          "type": "chain-grocer"
+        },
+        {
+          "name": "Heinen's",
+          "type": "chain-grocer",
+          "notes": "Cleveland regional grocer"
+        },
+        {
+          "name": "Costco",
+          "type": "chain-grocer",
+          "notes": "metro bulk channel"
+        }
+      ]
+    },
+    {
+      "season": "spring-easter",
+      "months": [
+        4,
+        5
+      ],
+      "in_season_produce": [
+        {
+          "name": "Ohio asparagus + rhubarb",
+          "peak_month": 5,
+          "pancake_tie": "rhubarb compote over Power Waffles -- Ohio spring pick"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "West Side Market",
+          "type": "farmers-market",
+          "notes": "spring asparagus + rhubarb"
+        }
+      ]
+    },
+    {
+      "season": "summer-fourth",
+      "months": [
+        7,
+        8
+      ],
+      "in_season_produce": [
+        {
+          "name": "Ohio sweet corn",
+          "peak_month": 8,
+          "pancake_tie": "sweet-corn savory Power Cakes for a Lake Erie July Fourth griddle"
+        },
+        {
+          "name": "Lake Erie shore blueberries + peaches",
+          "peak_month": 7,
+          "pancake_tie": "blueberry or peach compote over Power Cakes"
+        }
+      ],
+      "where_to_buy": [
+        {
+          "name": "West Side Market",
+          "type": "farmers-market",
+          "notes": "sweet corn + berries at summer peak"
+        },
+        {
+          "name": "Meijer",
+          "type": "chain-grocer"
+        }
+      ]
+    }
+  ],
+  "retailers": [
+    {
+      "name": "Giant Eagle",
+      "role": "home",
+      "distance_mi": 0,
+      "notes": "dominant Cleveland-metro grocer; home channel"
+    },
+    {
+      "name": "Heinen's",
+      "role": "primary",
+      "notes": "Cleveland regional grocer"
+    },
+    {
+      "name": "Meijer",
+      "role": "primary",
+      "notes": "Midwest supercenter"
+    },
+    {
+      "name": "Costco",
+      "role": "secondary",
+      "notes": "metro bulk channel"
+    }
+  ],
+  "campaign_type_fit": {
+    "recipe-cards": {
+      "fit": "strong",
+      "angle": "Concord-grape card + Ohio apple card (fall) + Lake Erie sweet-corn savory card (summer) -- real Grand River Valley + Ohio produce"
+    },
+    "localized-costco": {
+      "fit": "strong",
+      "angle": "Cleveland is a Costco + Giant Eagle/Meijer bulk-and-value market; retailer lockup works with the regional-grocer story",
+      "existing_brief": "briefs/kodiak-costco.yaml"
+    },
+    "riff-on-past-content": {
+      "fit": "weak",
+      "angle": "no produced Cleveland content corpus yet; strong West Side Market cue but thin prior material"
+    },
+    "keep-it-wild": {
+      "fit": "weak",
+      "angle": "metro market; Keep It Wild lands better on the Lake Erie shore / Cuyahoga Valley National Park edge than downtown"
+    },
+    "bears": {
+      "fit": "weak",
+      "angle": "eastern Ohio has a small returning black bear population; keep conservation-toned, no metro hook"
+    },
+    "zac-efron": {
+      "fit": "na",
+      "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness"
+    },
+    "us-ski-and-snowboard": {
+      "fit": "na",
+      "angle": "small Ohio ski areas (Boston Mills) exist but no ski-town identity"
+    }
+  },
+  "readiness": {
+    "fields": {
+      "city_center": "ready",
+      "featured_frontier": "ready",
+      "audience": "ready",
+      "languages": "thin",
+      "cultural_notes": "ready",
+      "design_palette": "ready",
+      "seasonal": "ready",
+      "retailers": "ready",
+      "campaign_type_fit": "ready"
+    },
+    "score": 0.85,
+    "ready_to_rock": true,
+    "notes": "Palette grounded in Cleveland brick + Berea sandstone + Concord-grape purple + Lake Erie + market terra-cotta. Four seasonal windows from real Ohio / Grand River Valley produce with West Side Market + chain sourcing. Retailers mapped to Giant Eagle/Heinen's/Meijer. languages THIN -- percentages INFERRED because ACS source file is absent; no exact ACS numbers fabricated. Palette hex pending brand-fit review."
+  },
+  "provenance": {
+    "sourced_from": [
+      "web: West Side Market -- en.wikipedia.org (1912 landmark public market, Ohio City); westsidemarket.org",
+      "web: Grand River Valley / Lake Erie Ohio wine + grape region framing -- publicly documented",
+      "web: Cleveland Eastern European + Puerto Rican community framing -- publicly documented",
+      "web: Berea sandstone + Giant Eagle/Heinen's regional footprint -- publicly documented",
+      "note: language percentages INFERRED -- ACS/market-languages source file absent in checkout; no exact ACS numbers used"
+    ],
+    "generated": "2026-09-04T00:00:00Z"
+  }
+}

@@ -59,4 +59,4 @@ def test_knowledge_fuses_context_pack() -> None:
     assert "- brand rules: no text or logo inside the image (cr-1)" in text
     assert "image topics (12 clusters)" in text
     assert "sample voice 1" in text
-    assert "74 markets" in text
+    assert "79 markets" in text

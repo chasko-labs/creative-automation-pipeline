@@ -6,7 +6,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/brussels-sprouts/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-CASTROVILLE",
@@ -240,7 +240,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cauliflower/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-CASTROVILLE",
@@ -476,7 +476,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/broccoli/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-CASTROVILLE",
@@ -712,7 +712,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/artichokes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-CASTROVILLE",
@@ -950,7 +950,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-CASTROVILLE",
@@ -1178,7 +1178,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/leaf-lettuce/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-CASTROVILLE",
@@ -1452,7 +1452,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-CASTROVILLE",
@@ -1686,7 +1686,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/celery/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-CASTROVILLE",
@@ -1922,7 +1922,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/bell-peppers/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-CASTROVILLE",
@@ -2163,7 +2163,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spinach/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-CASTROVILLE",
@@ -2401,7 +2401,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/kale/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-CASTROVILLE",
@@ -2639,7 +2639,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/lemons/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-CASTROVILLE",
@@ -2913,22 +2913,46 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup mandarin juice"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon mandarin zest"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "lang": "en",
       "market": "US-CA-OCEANSIDE",
       "meta": {
-        "cook": null,
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "15 mins",
+        "serves": "8 flapjacks"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient-curated: mandarin-citrus-flapjacks-draft lists the in-season ingredient in featured_for",
+          "recipe_id": "mandarin-citrus-flapjacks-draft",
           "season": "winter",
           "source": "ingredient-featured"
         },
@@ -2939,15 +2963,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "mandarin-citrus-flapjacks-draft",
+        "name": "Mandarin Citrus Flapjacks"
       },
       "render": {
         "canvas": {
@@ -3132,10 +3154,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
+        "REST the batter 5 minutes.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE hot with extra segments and honey."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Mandarin Citrus Flapjacks",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -3402,24 +3427,40 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "lang": "en",
       "market": "US-CA-OCEANSIDE",
       "meta": {
-        "cook": null,
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5 mins",
+        "serves": "12"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient overlap: sheet-pan-pancakes has the best token overlap with the in-season ingredient",
+          "recipe_id": "sheet-pan-pancakes",
           "season": "spring",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "strawberries (early)"
@@ -3428,15 +3469,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "sheet-pan-pancakes",
+        "name": "Sheet Pan Pancakes"
       },
       "render": {
         "canvas": {
@@ -3621,10 +3660,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Sheet Pan Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -3638,24 +3681,40 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "lang": "en",
       "market": "US-CA-OCEANSIDE",
       "meta": {
-        "cook": null,
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5 mins",
+        "serves": "12"
       },
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient overlap: sheet-pan-pancakes has the best token overlap with the in-season ingredient",
+          "recipe_id": "sheet-pan-pancakes",
           "season": "spring",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "strawberries (peak)"
@@ -3664,15 +3723,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "sheet-pan-pancakes",
+        "name": "Sheet Pan Pancakes"
       },
       "render": {
         "canvas": {
@@ -3857,10 +3914,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Sheet Pan Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-05": {
@@ -3874,24 +3935,40 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "lang": "en",
       "market": "US-CA-OCEANSIDE",
       "meta": {
-        "cook": null,
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5 mins",
+        "serves": "12"
       },
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient overlap: sheet-pan-pancakes has the best token overlap with the in-season ingredient",
+          "recipe_id": "sheet-pan-pancakes",
           "season": "spring",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "strawberries (late spring)"
@@ -3900,15 +3977,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "sheet-pan-pancakes",
+        "name": "Sheet Pan Pancakes"
       },
       "render": {
         "canvas": {
@@ -4093,10 +4168,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Sheet Pan Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -4110,24 +4189,44 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "2 Kodiak Homestyle Power Waffles (or Power Waffle flavor of choice)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 frozen banana"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 date"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "3 frozen strawberries"
         }
       ],
       "lang": "en",
       "market": "US-CA-OCEANSIDE",
       "meta": {
-        "cook": null,
+        "cook": "5 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5 mins",
+        "serves": "1"
       },
       "month": "2026-06",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient rotation: breakfast-ice-cream-sandwich chosen deterministically for US-CA-OCEANSIDE|2026-06 among recipes naming the ingredient",
+          "recipe_id": "breakfast-ice-cream-sandwich",
           "season": "summer",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "strawberries"
@@ -4136,15 +4235,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "breakfast-ice-cream-sandwich",
+        "name": "Breakfast Ice Cream Sandwich"
       },
       "render": {
         "canvas": {
@@ -4329,10 +4426,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "TOAST two Kodiak Cakes Power Waffles until golden and crisp.",
+        "IN a high-powered blender, blend frozen banana, strawberries, milk, date, and vanilla until smooth and creamy.",
+        "SCOOP the banana-strawberry mixture between the toasted waffles. Enjoy! *Pro Tip: Prefer your ice cream on the \"thick\" side? We recommend starting with step 2 and freezing your ice cream for 30 minutes to an hour before toasting your waffles."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Breakfast Ice Cream Sandwich",
       "variant": "hero-plus-layout"
     },
     "2026-07": {
@@ -4346,72 +4445,48 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 cup brown sugar"
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
         },
         {
           "price": null,
-          "qty_name": "3 eggs"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon almond extract"
+          "qty_name": "2/3 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1-1/2 teaspoons vanilla, divided"
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
         },
         {
           "price": null,
-          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "3 cups frozen cherries, halved"
-        },
-        {
-          "price": null,
-          "qty_name": "2 tablespoons cornstarch"
-        },
-        {
-          "price": null,
-          "qty_name": "Juice of 1/2 lemon"
-        },
-        {
-          "price": null,
-          "qty_name": "1/4 cup maple syrup"
-        },
-        {
-          "price": null,
-          "qty_name": "1 cup powdered sugar"
-        },
-        {
-          "price": null,
-          "qty_name": "1/4 teaspoon vanilla extract"
-        },
-        {
-          "price": null,
-          "qty_name": "2-3 tablespoons water"
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "lang": "en",
       "market": "US-CA-OCEANSIDE",
       "meta": {
-        "cook": "35 mins",
+        "cook": "12 mins",
         "est_cost": null,
-        "prep": "20 mins",
-        "serves": "15"
+        "prep": "15 mins",
+        "serves": "8 cakes"
       },
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: cherry-pie-bars lists the in-season ingredient in featured_for",
-          "recipe_id": "cherry-pie-bars",
+          "reason": "ingredient overlap: sweet-corn-griddle-cakes-draft has the best token overlap with the in-season ingredient",
+          "recipe_id": "sweet-corn-griddle-cakes-draft",
           "season": "summer",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "sweet corn"
@@ -4425,8 +4500,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "cherry-pie-bars",
-        "name": "Cherry Pie Bars"
+        "id": "sweet-corn-griddle-cakes-draft",
+        "name": "Sweet Corn Griddle Cakes"
       },
       "render": {
         "canvas": {
@@ -4611,22 +4686,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
-        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
-        "BEAT in the eggs, one at a time.",
-        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
-        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
-        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
-        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
-        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
-        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
-        "REMOVE from oven and let cool.",
-        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
-        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
-        "STORE in an airtight container."
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Cherry Pie Bars",
+      "title": "Sweet Corn Griddle Cakes",
       "variant": "hero-plus-layout"
     },
     "2026-08": {
@@ -4640,24 +4706,68 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "lang": "en",
       "market": "US-CA-OCEANSIDE",
       "meta": {
-        "cook": null,
+        "cook": "5",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "15",
+        "serves": "4"
       },
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient overlap: summer-vegetable-tostada has the best token overlap with the in-season ingredient",
+          "recipe_id": "summer-vegetable-tostada",
           "season": "summer",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "heirloom tomatoes"
@@ -4666,15 +4776,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "summer-vegetable-tostada",
+        "name": "Summer Vegetable Tostada"
       },
       "render": {
         "canvas": {
@@ -4859,10 +4967,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Summer Vegetable Tostada",
       "variant": "hero-plus-layout"
     },
     "2026-09": {
@@ -4876,24 +4988,68 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "lang": "en",
       "market": "US-CA-OCEANSIDE",
       "meta": {
-        "cook": null,
+        "cook": "5",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "15",
+        "serves": "4"
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient overlap: summer-vegetable-tostada has the best token overlap with the in-season ingredient",
+          "recipe_id": "summer-vegetable-tostada",
           "season": "fall",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "heirloom tomatoes (late harvest)"
@@ -4902,15 +5058,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "summer-vegetable-tostada",
+        "name": "Summer Vegetable Tostada"
       },
       "render": {
         "canvas": {
@@ -5095,10 +5249,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Summer Vegetable Tostada",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -5112,7 +5270,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup ripe fuyu persimmon pulp"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cloves"
         }
       ],
       "lang": "en",
@@ -5126,8 +5308,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-10",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient-curated: persimmon-spice-muffins-draft lists the in-season ingredient in featured_for",
+          "recipe_id": "persimmon-spice-muffins-draft",
           "season": "fall",
           "source": "ingredient-featured"
         },
@@ -5145,8 +5327,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "persimmon-spice-muffins-draft",
+        "name": "Persimmon Spice Muffins"
       },
       "render": {
         "canvas": {
@@ -5331,10 +5513,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "HEAT the oven to 375F and line a 12-cup muffin tin.",
+        "WHISK the persimmon pulp, eggs, honey, butter, cinnamon, and cloves until smooth.",
+        "STIR in the mix just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until set and golden."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Persimmon Spice Muffins",
       "variant": "hero-plus-layout"
     },
     "2026-11": {
@@ -5903,7 +6088,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/meyer-lemon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-PESCADERO",
@@ -6133,7 +6318,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/kale/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-PESCADERO",
@@ -6375,7 +6560,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rainbow-chard/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-PESCADERO",
@@ -6617,7 +6802,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/harley-farms-goat-cheese/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-PESCADERO",
@@ -6828,7 +7013,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-peas/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-PESCADERO",
@@ -7072,7 +7257,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/summer-squash/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-PESCADERO",
@@ -7310,7 +7495,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blackberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-PESCADERO",
@@ -7542,7 +7727,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/romano-beans/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-PESCADERO",
@@ -7782,7 +7967,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-PESCADERO",
@@ -8014,7 +8199,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/half-moon-bay-pumpkin/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-PESCADERO",
@@ -8266,7 +8451,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/olive-oil-fall-press/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-PESCADERO",
@@ -8525,7 +8710,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/brussels-sprouts/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-PESCADERO",
@@ -8765,7 +8950,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/idaho-potatoes-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-ID-KUNA",
@@ -8996,7 +9181,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-onions/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-ID-KUNA",
@@ -9231,7 +9416,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-ID-KUNA",
@@ -9502,7 +9687,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-ID-KUNA",
@@ -9710,7 +9895,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-ID-KUNA",
@@ -9945,7 +10130,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cherries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-ID-KUNA",
@@ -10213,7 +10398,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apricots/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-ID-KUNA",
@@ -10452,7 +10637,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-ID-KUNA",
@@ -10667,7 +10852,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-ID-KUNA",
@@ -10901,9 +11086,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-griddle-cakes/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-griddle-cakes/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-griddle-cakes/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-ID-KUNA",
       "ingredient": "winter squash",
@@ -11140,7 +11325,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/idaho-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-ID-KUNA",
@@ -11381,7 +11566,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-ID-KUNA",
@@ -11613,7 +11798,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-HARVARD",
@@ -11880,7 +12065,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cold-storage-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-HARVARD",
@@ -12107,7 +12292,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-HARVARD",
@@ -12349,7 +12534,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-HARVARD",
@@ -12580,7 +12765,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-HARVARD",
@@ -12784,7 +12969,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-HARVARD",
@@ -13025,7 +13210,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-HARVARD",
@@ -13256,7 +13441,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-HARVARD",
@@ -13508,7 +13693,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-HARVARD",
@@ -13741,7 +13926,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-HARVARD",
@@ -13985,9 +14170,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-IL-HARVARD",
       "ingredient": "winter squash",
@@ -14220,7 +14405,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cranberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-HARVARD",
@@ -14463,7 +14648,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-BURTON",
@@ -14772,7 +14957,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-BURTON",
@@ -15029,7 +15214,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-BURTON",
@@ -15306,7 +15491,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/mushrooms/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-BURTON",
@@ -15585,7 +15770,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-BURTON",
@@ -15831,7 +16016,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-BURTON",
@@ -16103,7 +16288,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-BURTON",
@@ -16376,7 +16561,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/heirloom-tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-BURTON",
@@ -16670,7 +16855,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-BURTON",
@@ -16979,7 +17164,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pears/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-BURTON",
@@ -17257,9 +17442,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-griddle-cakes/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-griddle-cakes/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-griddle-cakes/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-OH-BURTON",
       "ingredient": "winter squash",
@@ -17534,7 +17719,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OH-BURTON",
@@ -17804,7 +17989,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-ELIZABETH",
@@ -18032,7 +18217,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-onions/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-ELIZABETH",
@@ -18264,7 +18449,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-ELIZABETH",
@@ -18532,7 +18717,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/greens-cold-frame/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-ELIZABETH",
@@ -18768,7 +18953,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-ELIZABETH",
@@ -19000,7 +19185,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cherries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-ELIZABETH",
@@ -19265,7 +19450,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/palisade-peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-ELIZABETH",
@@ -19472,7 +19657,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/olathe-sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-ELIZABETH",
@@ -19704,7 +19889,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rocky-ford-melon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-ELIZABETH",
@@ -19935,9 +20120,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-griddle-cakes/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-griddle-cakes/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-griddle-cakes/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-CO-ELIZABETH",
       "ingredient": "winter squash",
@@ -20170,9 +20355,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-CO-ELIZABETH",
       "ingredient": "winter squash (storage)",
@@ -20406,7 +20591,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-ELIZABETH",
@@ -20635,7 +20820,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IA-PELLA",
@@ -20903,7 +21088,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cold-storage-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IA-PELLA",
@@ -21131,7 +21316,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IA-PELLA",
@@ -21375,7 +21560,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IA-PELLA",
@@ -21607,7 +21792,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IA-PELLA",
@@ -21812,7 +21997,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IA-PELLA",
@@ -22033,7 +22218,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IA-PELLA",
@@ -22265,7 +22450,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IA-PELLA",
@@ -22507,7 +22692,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IA-PELLA",
@@ -22728,7 +22913,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IA-PELLA",
@@ -22973,9 +23158,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-IA-PELLA",
       "ingredient": "winter squash",
@@ -23209,7 +23394,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IA-PELLA",
@@ -23438,7 +23623,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MI-ARMADA",
@@ -23703,7 +23888,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cold-storage-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MI-ARMADA",
@@ -23928,7 +24113,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MI-ARMADA",
@@ -24167,7 +24352,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MI-ARMADA",
@@ -24369,7 +24554,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MI-ARMADA",
@@ -24598,7 +24783,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MI-ARMADA",
@@ -24822,7 +25007,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MI-ARMADA",
@@ -25035,7 +25220,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MI-ARMADA",
@@ -25264,7 +25449,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MI-ARMADA",
@@ -25482,7 +25667,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pears/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MI-ARMADA",
@@ -25716,9 +25901,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-MI-ARMADA",
       "ingredient": "winter squash",
@@ -26190,7 +26375,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-BARNESVILLE",
@@ -26400,7 +26585,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cold-storage-carrots/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-BARNESVILLE",
@@ -26610,7 +26795,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-BARNESVILLE",
@@ -26834,7 +27019,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-BARNESVILLE",
@@ -27048,7 +27233,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-BARNESVILLE",
@@ -27235,7 +27420,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-BARNESVILLE",
@@ -27468,7 +27653,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-BARNESVILLE",
@@ -27682,7 +27867,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-BARNESVILLE",
@@ -27902,7 +28087,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/squash/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-BARNESVILLE",
@@ -28089,7 +28274,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-BARNESVILLE",
@@ -28317,7 +28502,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-BARNESVILLE",
@@ -28526,7 +28711,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-carrots/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-BARNESVILLE",
@@ -28738,7 +28923,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IN-DANVILLE",
@@ -29004,7 +29189,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cold-storage-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IN-DANVILLE",
@@ -29230,7 +29415,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IN-DANVILLE",
@@ -29468,7 +29653,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IN-DANVILLE",
@@ -29698,7 +29883,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IN-DANVILLE",
@@ -29901,7 +30086,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IN-DANVILLE",
@@ -30115,7 +30300,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IN-DANVILLE",
@@ -30345,7 +30530,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IN-DANVILLE",
@@ -30601,7 +30786,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IN-DANVILLE",
@@ -30830,7 +31015,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IN-DANVILLE",
@@ -31073,9 +31258,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-griddle-cakes/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-griddle-cakes/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-griddle-cakes/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-IN-DANVILLE",
       "ingredient": "winter squash",
@@ -31551,7 +31736,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/ranch-beef-value-added/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WY-ALPINE",
@@ -31808,7 +31993,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/root-vegetables-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WY-ALPINE",
@@ -32042,7 +32227,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WY-ALPINE",
@@ -32275,7 +32460,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/ranch-dairy-butter-value-added/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WY-ALPINE",
@@ -32519,7 +32704,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WY-ALPINE",
@@ -32757,7 +32942,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WY-ALPINE",
@@ -32999,7 +33184,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sugar-snap-peas/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WY-ALPINE",
@@ -33243,7 +33428,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/raspberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WY-ALPINE",
@@ -33461,7 +33646,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/root-vegetables/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WY-ALPINE",
@@ -33694,9 +33879,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-griddle-cakes/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-griddle-cakes/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-griddle-cakes/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-WY-ALPINE",
       "ingredient": "winter squash",
@@ -33935,9 +34120,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-WY-ALPINE",
       "ingredient": "winter squash (storage)",
@@ -34177,7 +34362,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/ranch-lamb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WY-ALPINE",
@@ -34436,7 +34621,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MO-WESTON",
@@ -34684,7 +34869,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cold-storage-sweet-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MO-WESTON",
@@ -34902,7 +35087,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MO-WESTON",
@@ -35144,7 +35329,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MO-WESTON",
@@ -35329,7 +35514,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MO-WESTON",
@@ -35539,7 +35724,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blackberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MO-WESTON",
@@ -35780,7 +35965,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MO-WESTON",
@@ -35992,7 +36177,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MO-WESTON",
@@ -36188,7 +36373,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MO-WESTON",
@@ -36380,7 +36565,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pears/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MO-WESTON",
@@ -36598,7 +36783,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MO-WESTON",
@@ -36816,7 +37001,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pecans/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MO-WESTON",
@@ -37036,7 +37221,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WI-CEDARBURG",
@@ -37305,7 +37490,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cold-storage-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WI-CEDARBURG",
@@ -37534,7 +37719,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WI-CEDARBURG",
@@ -37764,7 +37949,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WI-CEDARBURG",
@@ -37997,7 +38182,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WI-CEDARBURG",
@@ -38203,7 +38388,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WI-CEDARBURG",
@@ -38429,7 +38614,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WI-CEDARBURG",
@@ -38662,7 +38847,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WI-CEDARBURG",
@@ -38916,7 +39101,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WI-CEDARBURG",
@@ -39185,7 +39370,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cranberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WI-CEDARBURG",
@@ -39427,9 +39612,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-griddle-cakes/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-griddle-cakes/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-griddle-cakes/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-WI-CEDARBURG",
       "ingredient": "winter squash",
@@ -39887,7 +40072,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-CLOQUET",
@@ -40096,7 +40281,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cold-storage-carrots/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-CLOQUET",
@@ -40305,7 +40490,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-CLOQUET",
@@ -40526,7 +40711,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-CLOQUET",
@@ -40743,7 +40928,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-CLOQUET",
@@ -40956,7 +41141,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-CLOQUET",
@@ -41168,7 +41353,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/wild-blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-CLOQUET",
@@ -41367,7 +41552,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-CLOQUET",
@@ -41580,7 +41765,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/squash/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-CLOQUET",
@@ -41766,7 +41951,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-CLOQUET",
@@ -41993,7 +42178,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-carrots/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-CLOQUET",
@@ -42202,7 +42387,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/wild-rice/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-CLOQUET",
@@ -42422,7 +42607,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/root-vegetables-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MT-FRENCHTOWN",
@@ -42643,7 +42828,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MT-FRENCHTOWN",
@@ -42904,7 +43089,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MT-FRENCHTOWN",
@@ -43124,7 +43309,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MT-FRENCHTOWN",
@@ -43353,7 +43538,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MT-FRENCHTOWN",
@@ -43551,7 +43736,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MT-FRENCHTOWN",
@@ -43776,7 +43961,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/flathead-cherries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MT-FRENCHTOWN",
@@ -44034,7 +44219,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/huckleberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MT-FRENCHTOWN",
@@ -44248,7 +44433,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MT-FRENCHTOWN",
@@ -44456,9 +44641,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-MT-FRENCHTOWN",
       "ingredient": "winter squash",
@@ -44685,7 +44870,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MT-FRENCHTOWN",
@@ -44946,7 +45131,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MT-FRENCHTOWN",
@@ -45168,7 +45353,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NE-WAHOO",
@@ -45441,7 +45626,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cold-storage-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NE-WAHOO",
@@ -45674,7 +45859,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NE-WAHOO",
@@ -45941,7 +46126,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NE-WAHOO",
@@ -46151,7 +46336,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NE-WAHOO",
@@ -46388,7 +46573,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NE-WAHOO",
@@ -46635,7 +46820,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NE-WAHOO",
@@ -46872,7 +47057,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NE-WAHOO",
@@ -47121,7 +47306,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NE-WAHOO",
@@ -47375,7 +47560,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NE-WAHOO",
@@ -47625,9 +47810,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-NE-WAHOO",
       "ingredient": "winter squash",
@@ -48140,7 +48325,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/root-vegetables-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-OAKLEY",
@@ -48378,7 +48563,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-OAKLEY",
@@ -48656,7 +48841,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/honey-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-OAKLEY",
@@ -48893,7 +49078,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/dairy-butter-value-added/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-OAKLEY",
@@ -49141,7 +49326,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-OAKLEY",
@@ -49383,7 +49568,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/raspberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-OAKLEY",
@@ -49638,7 +49823,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-OAKLEY",
@@ -49853,7 +50038,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/summer-squash/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-OAKLEY",
@@ -50094,9 +50279,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-09": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-griddle-cakes/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-griddle-cakes/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-griddle-cakes/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-UT-OAKLEY",
       "ingredient": "winter squash",
@@ -50340,7 +50525,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-OAKLEY",
@@ -50565,9 +50750,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-UT-OAKLEY",
       "ingredient": "winter squash (storage)",
@@ -50811,7 +50996,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-OAKLEY",
@@ -51050,7 +51235,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/citrus-oranges-grapefruit/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-MARANA",
@@ -51062,7 +51247,11 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "price": null,
-          "qty_name": "1-1/3 cups milk"
+          "qty_name": "1/2 cup mandarin juice"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup milk"
         },
         {
           "price": null,
@@ -51070,19 +51259,11 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "price": null,
-          "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes)"
+          "qty_name": "1 tablespoon mandarin zest"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons honey"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon olive oil"
-        },
-        {
-          "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit)"
         },
         {
           "price": null,
@@ -51092,18 +51273,18 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-PHX2",
       "meta": {
-        "cook": "30 mins",
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "8 flapjacks plus topper"
+        "prep": "15 mins",
+        "serves": "8 flapjacks"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: roasted-grape-flapjack-topper-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "roasted-grape-flapjack-topper-draft",
+          "reason": "ingredient overlap: mandarin-citrus-flapjacks-draft has the best token overlap with the in-season ingredient",
+          "recipe_id": "mandarin-citrus-flapjacks-draft",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "citrus (oranges, grapefruit)"
@@ -51117,8 +51298,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "roasted-grape-flapjack-topper-draft",
-        "name": "Roasted Grape Flapjack Topper"
+        "id": "mandarin-citrus-flapjacks-draft",
+        "name": "Mandarin Citrus Flapjacks"
       },
       "render": {
         "canvas": {
@@ -51263,19 +51444,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
-        "WHISK the mix, milk, and eggs into a batter.",
+        "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
+        "REST the batter 5 minutes.",
         "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
-        "SERVE the flapjacks with the warm roasted grapes spooned over."
+        "SERVE hot with extra segments and honey."
       ],
       "substrate": "kraft",
-      "title": "Roasted Grape Flapjack Topper",
+      "title": "Mandarin Citrus Flapjacks",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/citrus-and-leafy-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-MARANA",
@@ -51500,7 +51681,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens-and-snap-peas/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-MARANA",
@@ -51725,7 +51906,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-onions-and-carrots/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-MARANA",
@@ -51946,7 +52127,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-wheat-berries-and-early-melons/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-MARANA",
@@ -52174,7 +52355,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cantaloupe/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-MARANA",
@@ -52395,7 +52576,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/watermelon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-MARANA",
@@ -52616,7 +52797,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/melons-and-okra/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-MARANA",
@@ -52841,7 +53022,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/melons-and-heat-set-peppers/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-MARANA",
@@ -53093,7 +53274,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/fall-cool-season-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-MARANA",
@@ -53317,9 +53498,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-AZ-MARANA",
       "ingredient": "pecans and winter squash",
@@ -53542,7 +53723,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/citrus-mandarins-grapefruit/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-MARANA",
@@ -53588,10 +53769,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-12",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: mandarin-citrus-flapjacks-draft lists the in-season ingredient in featured_for",
+          "reason": "ingredient overlap: mandarin-citrus-flapjacks-draft has the best token overlap with the in-season ingredient",
           "recipe_id": "mandarin-citrus-flapjacks-draft",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "citrus (mandarins, grapefruit)"
@@ -53765,7 +53946,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-WATERLOO",
@@ -54041,7 +54222,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cold-storage-sweet-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-WATERLOO",
@@ -54287,7 +54468,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-WATERLOO",
@@ -54542,7 +54723,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-WATERLOO",
@@ -54755,7 +54936,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-WATERLOO",
@@ -54979,7 +55160,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blackberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-WATERLOO",
@@ -55248,7 +55429,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-WATERLOO",
@@ -55488,7 +55669,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-WATERLOO",
@@ -55701,7 +55882,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-WATERLOO",
@@ -55943,7 +56124,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-WATERLOO",
@@ -56196,9 +56377,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-IL-WATERLOO",
       "ingredient": "winter squash",
@@ -56440,7 +56621,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-IL-WATERLOO",
@@ -56677,7 +56858,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-STILLWATER",
@@ -56946,7 +57127,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cold-storage-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-STILLWATER",
@@ -57175,7 +57356,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-STILLWATER",
@@ -57418,7 +57599,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-STILLWATER",
@@ -57651,7 +57832,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-STILLWATER",
@@ -57857,7 +58038,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-STILLWATER",
@@ -58079,7 +58260,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/raspberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-STILLWATER",
@@ -58312,7 +58493,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-STILLWATER",
@@ -58545,7 +58726,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-STILLWATER",
@@ -58763,7 +58944,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cranberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-STILLWATER",
@@ -58970,9 +59151,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-griddle-cakes/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-griddle-cakes/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-griddle-cakes/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-MN-STILLWATER",
       "ingredient": "winter squash",
@@ -59207,7 +59388,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/wild-rice/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MN-STILLWATER",
@@ -59447,7 +59628,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/root-vegetables-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-MIDWAY",
@@ -59677,7 +59858,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-MIDWAY",
@@ -59947,7 +60128,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-MIDWAY",
@@ -60176,7 +60357,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/ranch-dairy-butter-value-added/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-MIDWAY",
@@ -60416,7 +60597,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-MIDWAY",
@@ -60650,7 +60831,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/raspberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-MIDWAY",
@@ -60877,7 +61058,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-MIDWAY",
@@ -61091,7 +61272,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/summer-squash/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-MIDWAY",
@@ -61325,7 +61506,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-MIDWAY",
@@ -61594,9 +61775,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-griddle-cakes/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-griddle-cakes/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-griddle-cakes/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-UT-MIDWAY",
       "ingredient": "winter squash",
@@ -61831,9 +62012,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-UT-MIDWAY",
       "ingredient": "winter squash (storage)",
@@ -62069,7 +62250,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-MIDWAY",
@@ -62300,7 +62481,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-GRANTSVILLE",
@@ -62572,7 +62753,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/root-vegetables-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-GRANTSVILLE",
@@ -62804,7 +62985,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-GRANTSVILLE",
@@ -63035,7 +63216,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-GRANTSVILLE",
@@ -63244,7 +63425,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-GRANTSVILLE",
@@ -63480,7 +63661,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cherries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-GRANTSVILLE",
@@ -63749,7 +63930,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-GRANTSVILLE",
@@ -63965,7 +64146,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-GRANTSVILLE",
@@ -64201,7 +64382,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-GRANTSVILLE",
@@ -64451,9 +64632,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-griddle-cakes/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-griddle-cakes/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-griddle-cakes/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-UT-GRANTSVILLE",
       "ingredient": "winter squash",
@@ -64690,9 +64871,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-UT-GRANTSVILLE",
       "ingredient": "winter squash (storage)",
@@ -64930,7 +65111,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-GRANTSVILLE",
@@ -65163,7 +65344,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MD-WESTMINSTER",
@@ -65421,7 +65602,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MD-WESTMINSTER",
@@ -65648,7 +65829,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MD-WESTMINSTER",
@@ -65874,7 +66055,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MD-WESTMINSTER",
@@ -66069,7 +66250,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MD-WESTMINSTER",
@@ -66285,7 +66466,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-cherries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MD-WESTMINSTER",
@@ -66540,7 +66721,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MD-WESTMINSTER",
@@ -66762,7 +66943,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/heirloom-tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MD-WESTMINSTER",
@@ -67005,7 +67186,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MD-WESTMINSTER",
@@ -67207,7 +67388,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MD-WESTMINSTER",
@@ -67413,7 +67594,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MD-WESTMINSTER",
@@ -67640,9 +67821,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-12": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-griddle-cakes/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-griddle-cakes/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-griddle-cakes/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-MD-WESTMINSTER",
       "ingredient": "winter squash",
@@ -67868,7 +68049,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MA-BOLTON",
@@ -68117,7 +68298,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MA-BOLTON",
@@ -68593,7 +68774,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MA-BOLTON",
@@ -68806,7 +68987,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MA-BOLTON",
@@ -68992,7 +69173,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MA-BOLTON",
@@ -69204,7 +69385,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MA-BOLTON",
@@ -69427,7 +69608,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MA-BOLTON",
@@ -69624,7 +69805,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MA-BOLTON",
@@ -69854,7 +70035,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/fresh-cider/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MA-BOLTON",
@@ -70088,7 +70269,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cranberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MA-BOLTON",
@@ -70275,9 +70456,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-12": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-griddle-cakes/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-griddle-cakes/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-griddle-cakes/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-MA-BOLTON",
       "ingredient": "winter squash",
@@ -70494,7 +70675,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VT-SHELBURNE",
@@ -70755,7 +70936,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VT-SHELBURNE",
@@ -71029,7 +71210,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/winter-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VT-SHELBURNE",
@@ -71271,7 +71452,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cheddar-cheese/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VT-SHELBURNE",
@@ -71495,7 +71676,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VT-SHELBURNE",
@@ -71706,7 +71887,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VT-SHELBURNE",
@@ -71939,7 +72120,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VT-SHELBURNE",
@@ -72171,7 +72352,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VT-SHELBURNE",
@@ -72409,7 +72590,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VT-SHELBURNE",
@@ -72885,9 +73066,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-VT-SHELBURNE",
       "ingredient": "winter squash",
@@ -73373,7 +73554,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VA-PURCELLVILLE",
@@ -73626,7 +73807,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VA-PURCELLVILLE",
@@ -73849,7 +74030,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VA-PURCELLVILLE",
@@ -74077,7 +74258,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VA-PURCELLVILLE",
@@ -74267,7 +74448,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VA-PURCELLVILLE",
@@ -74482,7 +74663,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-cherries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VA-PURCELLVILLE",
@@ -74732,7 +74913,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VA-PURCELLVILLE",
@@ -74933,7 +75114,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blackberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VA-PURCELLVILLE",
@@ -75144,7 +75325,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VA-PURCELLVILLE",
@@ -75620,7 +75801,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-VA-PURCELLVILLE",
@@ -75850,9 +76031,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-12": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-griddle-cakes/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-griddle-cakes/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-griddle-cakes/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-VA-PURCELLVILLE",
       "ingredient": "winter squash",
@@ -76073,7 +76254,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CT-SUFFIELD",
@@ -76321,7 +76502,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CT-SUFFIELD",
@@ -76520,7 +76701,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CT-SUFFIELD",
@@ -76736,7 +76917,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CT-SUFFIELD",
@@ -76948,7 +77129,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CT-SUFFIELD",
@@ -77133,7 +77314,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CT-SUFFIELD",
@@ -77349,7 +77530,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CT-SUFFIELD",
@@ -77561,7 +77742,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CT-SUFFIELD",
@@ -77799,7 +77980,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CT-SUFFIELD",
@@ -77995,7 +78176,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CT-SUFFIELD",
@@ -78220,9 +78401,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-CT-SUFFIELD",
       "ingredient": "winter squash",
@@ -78436,7 +78617,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CT-SUFFIELD",
@@ -78625,7 +78806,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NY-WARWICK",
@@ -78872,7 +79053,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NY-WARWICK",
@@ -79089,7 +79270,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NY-WARWICK",
@@ -79304,7 +79485,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NY-WARWICK",
@@ -79488,7 +79669,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NY-WARWICK",
@@ -79697,7 +79878,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-cherries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NY-WARWICK",
@@ -79941,7 +80122,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/black-dirt-onions/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NY-WARWICK",
@@ -80152,7 +80333,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NY-WARWICK",
@@ -80347,7 +80528,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NY-WARWICK",
@@ -80557,7 +80738,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/fresh-cider/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NY-WARWICK",
@@ -80788,9 +80969,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-NY-WARWICK",
       "ingredient": "winter squash",
@@ -81003,7 +81184,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-onions/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NY-WARWICK",
@@ -81216,7 +81397,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/mushrooms/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-PA-KENNETT",
@@ -81966,7 +82147,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-PA-KENNETT",
@@ -82183,7 +82364,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-PA-KENNETT",
@@ -82446,7 +82627,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-cherries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-PA-KENNETT",
@@ -82723,7 +82904,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-PA-KENNETT",
@@ -82967,7 +83148,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-PA-KENNETT",
@@ -83476,7 +83657,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-PA-KENNETT",
@@ -84239,7 +84420,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-RI-SCITUATE",
@@ -84515,7 +84696,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/maple-syrup/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-RI-SCITUATE",
@@ -84769,7 +84950,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-RI-SCITUATE",
@@ -85013,7 +85194,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-RI-SCITUATE",
@@ -85253,7 +85434,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-RI-SCITUATE",
@@ -85466,7 +85647,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-RI-SCITUATE",
@@ -85701,7 +85882,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-RI-SCITUATE",
@@ -85943,7 +86124,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-RI-SCITUATE",
@@ -86183,7 +86364,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-RI-SCITUATE",
@@ -86422,7 +86603,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/fresh-cider/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-RI-SCITUATE",
@@ -86683,7 +86864,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cranberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-RI-SCITUATE",
@@ -86906,9 +87087,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-12": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-RI-SCITUATE",
       "ingredient": "winter squash",
@@ -87152,7 +87333,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/collards/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-PITTSBORO",
@@ -87402,7 +87583,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-PITTSBORO",
@@ -87654,7 +87835,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-PITTSBORO",
@@ -87904,7 +88085,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-PITTSBORO",
@@ -88143,7 +88324,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-PITTSBORO",
@@ -88382,7 +88563,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-PITTSBORO",
@@ -88637,7 +88818,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-PITTSBORO",
@@ -88895,7 +89076,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-PITTSBORO",
@@ -89121,7 +89302,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/muscadine-grapes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-PITTSBORO",
@@ -89371,7 +89552,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-PITTSBORO",
@@ -89597,7 +89778,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-PITTSBORO",
@@ -89849,7 +90030,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pecans/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-PITTSBORO",
@@ -90451,24 +90632,40 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "Kodiak Cookie Butter Crunchy Granola Bars"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon instant coffee"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon cookie butter"
         }
       ],
       "lang": "en",
       "market": "US-OH-CINCINNATI",
       "meta": {
-        "cook": null,
+        "cook": "60+ mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5 mins",
+        "serves": "1"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient rotation: japanese-cheesecake chosen deterministically for US-OH-CINCINNATI|2026-02 among recipes naming the ingredient",
+          "recipe_id": "japanese-cheesecake",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "maple syrup"
@@ -90477,15 +90674,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "japanese-cheesecake",
+        "name": "Japanese Cheesecake"
       },
       "render": {
         "canvas": {
@@ -90695,10 +90890,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "IN a small bowl, mix together the instant coffee, Greek yogurt, and maple syrup until smooth. Set aside.",
+        "REMOVE one Kodiak Cakes Crunchy Bar from the package and crumble it into the bottom of a small dish.",
+        "SPOON the coffee yogurt mixture over the crumble and smooth evenly.",
+        "BREAK the second crunchy bar into four equal pieces and gently press them into the yogurt until fully covered.",
+        "MICROWAVE the cookie butter for 20–30 seconds, or until melted and pourable. Drizzle evenly over the top.",
+        "COVER and refrigerate for at least 1 hour to set. Enjoy."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Japanese Cheesecake",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -91294,24 +91494,40 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "lang": "en",
       "market": "US-OH-CINCINNATI",
       "meta": {
-        "cook": null,
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5 mins",
+        "serves": "12"
       },
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient rotation: sheet-pan-pancakes chosen deterministically for US-OH-CINCINNATI|2026-05 among recipes naming the ingredient",
+          "recipe_id": "sheet-pan-pancakes",
           "season": "spring",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "strawberries"
@@ -91320,15 +91536,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "sheet-pan-pancakes",
+        "name": "Sheet Pan Pancakes"
       },
       "render": {
         "canvas": {
@@ -91538,10 +91752,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Sheet Pan Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -91555,24 +91773,40 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "lang": "en",
       "market": "US-OH-CINCINNATI",
       "meta": {
-        "cook": null,
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5 mins",
+        "serves": "12"
       },
       "month": "2026-06",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient overlap: sheet-pan-pancakes has the best token overlap with the in-season ingredient",
+          "recipe_id": "sheet-pan-pancakes",
           "season": "summer",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "strawberries (late)"
@@ -91581,15 +91815,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "sheet-pan-pancakes",
+        "name": "Sheet Pan Pancakes"
       },
       "render": {
         "canvas": {
@@ -91799,10 +92031,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Sheet Pan Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-07": {
@@ -91816,72 +92052,48 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 cup brown sugar"
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
         },
         {
           "price": null,
-          "qty_name": "3 eggs"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon almond extract"
+          "qty_name": "2/3 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1-1/2 teaspoons vanilla, divided"
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
         },
         {
           "price": null,
-          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "3 cups frozen cherries, halved"
-        },
-        {
-          "price": null,
-          "qty_name": "2 tablespoons cornstarch"
-        },
-        {
-          "price": null,
-          "qty_name": "Juice of 1/2 lemon"
-        },
-        {
-          "price": null,
-          "qty_name": "1/4 cup maple syrup"
-        },
-        {
-          "price": null,
-          "qty_name": "1 cup powdered sugar"
-        },
-        {
-          "price": null,
-          "qty_name": "1/4 teaspoon vanilla extract"
-        },
-        {
-          "price": null,
-          "qty_name": "2-3 tablespoons water"
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "lang": "en",
       "market": "US-OH-CINCINNATI",
       "meta": {
-        "cook": "35 mins",
+        "cook": "12 mins",
         "est_cost": null,
-        "prep": "20 mins",
-        "serves": "15"
+        "prep": "15 mins",
+        "serves": "8 cakes"
       },
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: cherry-pie-bars lists the in-season ingredient in featured_for",
-          "recipe_id": "cherry-pie-bars",
+          "reason": "ingredient overlap: sweet-corn-griddle-cakes-draft has the best token overlap with the in-season ingredient",
+          "recipe_id": "sweet-corn-griddle-cakes-draft",
           "season": "summer",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "sweet corn"
@@ -91895,8 +92107,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "cherry-pie-bars",
-        "name": "Cherry Pie Bars"
+        "id": "sweet-corn-griddle-cakes-draft",
+        "name": "Sweet Corn Griddle Cakes"
       },
       "render": {
         "canvas": {
@@ -92106,22 +92318,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
-        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
-        "BEAT in the eggs, one at a time.",
-        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
-        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
-        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
-        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
-        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
-        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
-        "REMOVE from oven and let cool.",
-        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
-        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
-        "STORE in an airtight container."
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Cherry Pie Bars",
+      "title": "Sweet Corn Griddle Cakes",
       "variant": "hero-plus-layout"
     },
     "2026-08": {
@@ -93232,24 +93435,56 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "3 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 teaspoons garlic powder"
+        },
+        {
+          "price": null,
+          "qty_name": "Red pepper flakes, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "Black pepper, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 teaspoons dry mustard powder"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs, slightly beaten"
+        },
+        {
+          "price": null,
+          "qty_name": "16 ounces sharp cheddar cheese, freshly grated"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 lbs of ground turkey sausage (can substitute with pork or chicken sausage)"
         }
       ],
       "lang": "en",
       "market": "US-OH-CINCINNATI",
       "meta": {
-        "cook": null,
+        "cook": "20 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "10 mins",
+        "serves": "10"
       },
       "month": "2026-12",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient overlap: sausage-balls has the best token overlap with the in-season ingredient",
+          "recipe_id": "sausage-balls",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "black walnuts"
@@ -93258,15 +93493,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "sausage-balls",
+        "name": "Sausage Balls"
       },
       "render": {
         "canvas": {
@@ -93476,10 +93709,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "PREHEAT your oven to 350° F and line two baking sheets with parchment paper.",
+        "IN a large mixing bowl, whisk together the Kodiak Cakes mix and spices (garlic, red pepper flakes, black pepper, salt and mustard powder).",
+        "ADD the eggs, cheddar, and ground sausage and throughly mix together with your hands or a spatula. The mixture should be slightly sticky but firm enough to roll into balls.",
+        "ROLL the mixture into 1-inch balls and place them on the prepared baking sheets about 1-inch apart (about 40-45 sausage balls total).",
+        "BAKE in the preheated oven for 20-25 minutes, or until the sausage balls are golden brown and cooked through (internal temperature of 165°F for pork or chicken sausage).",
+        "REMOVE from the oven and let cool slightly before serving."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Sausage Balls",
       "variant": "hero-plus-layout"
     }
   },
@@ -93817,24 +94055,68 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "1 cup Kodiak Classic Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch of salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 banana"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons milk\r\n\r\n\r\n \r\n\r\nOptional Toppings:"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple Syrup"
         }
       ],
       "lang": "en",
       "market": "US-OH-DAYTON",
       "meta": {
-        "cook": null,
+        "cook": "10 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "10 mins",
+        "serves": "2"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient rotation: oatmeal-cottage-cheese-pancakes chosen deterministically for US-OH-DAYTON|2026-02 among recipes naming the ingredient",
+          "recipe_id": "oatmeal-cottage-cheese-pancakes",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "maple syrup"
@@ -93843,15 +94125,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "oatmeal-cottage-cheese-pancakes",
+        "name": "Oatmeal Cottage Cheese Pancakes"
       },
       "render": {
         "canvas": {
@@ -94061,10 +94341,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "ADD the Kodiak Cakes oats, baking powder, cinnamon, and salt to a blender. Mix until it resembles a coarse flour. Pour into a bowl and set aside.",
+        "ADD the banana, eggs, cottage cheese, vanilla, and milk to the same blender. Blend until smooth.",
+        "ADD the dry ingredients back into the blender and mix until combined.",
+        "PREHEAT a skillet or griddle to medium-high heat. Grease when ready to start cooking.",
+        "SCOOP about 1/4 cup of batter at a time onto the skillet and cook until bubbles start to form on top before flipping. Repeat with the remainder of the batter.",
+        "ADD your favorite toppings and enjoy!"
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Oatmeal Cottage Cheese Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -94078,24 +94363,68 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup blended cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced mango"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced pineapple"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon toasted coconut chips"
+        },
+        {
+          "price": null,
+          "qty_name": "1 passion fruit, halved (optional, but recommended)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "lang": "en",
       "market": "US-OH-DAYTON",
       "meta": {
-        "cook": null,
+        "cook": "10",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "10",
+        "serves": "1"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient overlap: tropical-protein-pancakes has the best token overlap with the in-season ingredient",
+          "recipe_id": "tropical-protein-pancakes",
           "season": "spring",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "maple syrup (late run)"
@@ -94104,15 +94433,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "tropical-protein-pancakes",
+        "name": "Tropical Protein Pancakes"
       },
       "render": {
         "canvas": {
@@ -94322,10 +94649,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "PLACE the Kodiak Cakes mix in a medium bowl.",
+        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
+        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
+        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
+        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
+        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
+        "DRIZZLE with maple syrup, if desired. Serve immediately."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Tropical Protein Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -94629,24 +94963,40 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "2 Kodiak Berries & Cream Peak Oatmeal packets"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ripe banana"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup berries (sliced strawberries, blueberries, raspberries, blackberries), to top"
         }
       ],
       "lang": "en",
       "market": "US-OH-DAYTON",
       "meta": {
-        "cook": null,
+        "cook": "4 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "13 mins",
+        "serves": "2"
       },
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient rotation: berry-oatmeal-waffles chosen deterministically for US-OH-DAYTON|2026-05 among recipes naming the ingredient",
+          "recipe_id": "berry-oatmeal-waffles",
           "season": "spring",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "strawberries"
@@ -94655,15 +95005,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "berry-oatmeal-waffles",
+        "name": "Berry Oatmeal Waffles"
       },
       "render": {
         "canvas": {
@@ -94873,10 +95221,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "PLACE the contents of the oatmeal packets in a high-speed blender along with the banana and milk.",
+        "BLEND at high speed until smooth. Let the batter rest for 10 minutes.",
+        "PREHEAT a waffle iron.",
+        "GREASE the waffle iron and pour 1/3 cup of batter into each waffle section.",
+        "CLOSE the waffle iron and cook for 1 to 1-½ minutes, or until golden brown. Repeat with remaining batter.",
+        "SERVE waffles topped with maple syrup and berries."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Berry Oatmeal Waffles",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -94890,24 +95243,40 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
         }
       ],
       "lang": "en",
       "market": "US-OH-DAYTON",
       "meta": {
-        "cook": null,
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5 mins",
+        "serves": "12"
       },
       "month": "2026-06",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient overlap: sheet-pan-pancakes has the best token overlap with the in-season ingredient",
+          "recipe_id": "sheet-pan-pancakes",
           "season": "summer",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "strawberries (late)"
@@ -94916,15 +95285,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "sheet-pan-pancakes",
+        "name": "Sheet Pan Pancakes"
       },
       "render": {
         "canvas": {
@@ -95134,10 +95501,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Sheet Pan Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-07": {
@@ -95151,72 +95522,48 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 cup brown sugar"
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
         },
         {
           "price": null,
-          "qty_name": "3 eggs"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon almond extract"
+          "qty_name": "2/3 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1-1/2 teaspoons vanilla, divided"
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
         },
         {
           "price": null,
-          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "3 cups frozen cherries, halved"
-        },
-        {
-          "price": null,
-          "qty_name": "2 tablespoons cornstarch"
-        },
-        {
-          "price": null,
-          "qty_name": "Juice of 1/2 lemon"
-        },
-        {
-          "price": null,
-          "qty_name": "1/4 cup maple syrup"
-        },
-        {
-          "price": null,
-          "qty_name": "1 cup powdered sugar"
-        },
-        {
-          "price": null,
-          "qty_name": "1/4 teaspoon vanilla extract"
-        },
-        {
-          "price": null,
-          "qty_name": "2-3 tablespoons water"
+          "qty_name": "2 tablespoons butter, for the griddle"
         }
       ],
       "lang": "en",
       "market": "US-OH-DAYTON",
       "meta": {
-        "cook": "35 mins",
+        "cook": "12 mins",
         "est_cost": null,
-        "prep": "20 mins",
-        "serves": "15"
+        "prep": "15 mins",
+        "serves": "8 cakes"
       },
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: cherry-pie-bars lists the in-season ingredient in featured_for",
-          "recipe_id": "cherry-pie-bars",
+          "reason": "ingredient overlap: sweet-corn-griddle-cakes-draft has the best token overlap with the in-season ingredient",
+          "recipe_id": "sweet-corn-griddle-cakes-draft",
           "season": "summer",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "sweet corn"
@@ -95230,8 +95577,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "cherry-pie-bars",
-        "name": "Cherry Pie Bars"
+        "id": "sweet-corn-griddle-cakes-draft",
+        "name": "Sweet Corn Griddle Cakes"
       },
       "render": {
         "canvas": {
@@ -95441,22 +95788,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
-        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
-        "BEAT in the eggs, one at a time.",
-        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
-        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
-        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
-        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
-        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
-        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
-        "REMOVE from oven and let cool.",
-        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
-        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
-        "STORE in an airtight container."
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
       ],
       "substrate": "kraft",
-      "title": "Cherry Pie Bars",
+      "title": "Sweet Corn Griddle Cakes",
       "variant": "hero-plus-layout"
     },
     "2026-08": {
@@ -95470,24 +95808,52 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons extra virgin olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cloves garlic, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cherry tomatoes"
+        },
+        {
+          "price": null,
+          "qty_name": "Salt and pepper, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup basil, roughly chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup parmesan cheese, grated"
         }
       ],
       "lang": "en",
       "market": "US-OH-DAYTON",
       "meta": {
-        "cook": null,
+        "cook": "10",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "40",
+        "serves": "2"
       },
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient rotation: simple-summer-pasta chosen deterministically for US-OH-DAYTON|2026-08 among recipes naming the ingredient",
+          "recipe_id": "simple-summer-pasta",
           "season": "summer",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "tomatoes"
@@ -95496,15 +95862,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "simple-summer-pasta",
+        "name": "Simple Summer Pasta"
       },
       "render": {
         "canvas": {
@@ -95714,10 +96078,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "MAKE the Noodles:",
+        "PLACE the Kodiak Cakes mix on a clean work surface and make a well in the center.",
+        "CRACK the two eggs into the Kodiak Cakes mix well and use a fork to slowly blend the egg into the mix.",
+        "ONCE a shaggy dough forms, use your hands to work the mixture into a firm dough ball. Knead the dough ball for five minutes, until smooth and pliable. Cover with plastic wrap and let rest for 20 minutes.",
+        "ROLL the dough out as thin as you can and use a pizza cutter or knife to cut into 1/8” wide strips. Toss the noodles with a little Kodiak Cakes mix so that they don’t stick together. Cover until ready to use. Simple Summer Pasta:",
+        "FILL a pot with 6 cups water and a large pinch of salt. Bring to a boil.",
+        "WHILE water is coming to a boil, heat the olive oil in a wide skillet over medium/high heat. Add the cherry tomatoes and sauté until they start to blister, 3-4 minutes. Add the garlic and cook for 30 seconds. Add salt and pepper to taste. Remove from heat and set aside.",
+        "ADD the pasta to the boiling water and cook for 3-4 minutes, or until noodles float and are fully cooked.",
+        "DRAIN the pasta and add the noodles to the tomato mixture. Toss with tongs until the pasta is covered evenly in the oil.",
+        "SERVE the pasta topped with fresh basil and Parmesan cheese. *Note: Fresh noodles should be cooked within 24 hours. Store in the fridge, covered, if not using immediately."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Simple Summer Pasta",
       "variant": "hero-plus-layout"
     },
     "2026-09": {
@@ -95731,24 +96104,68 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
         }
       ],
       "lang": "en",
       "market": "US-OH-DAYTON",
       "meta": {
-        "cook": null,
+        "cook": "5",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "15",
+        "serves": "4"
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient overlap: summer-vegetable-tostada has the best token overlap with the in-season ingredient",
+          "recipe_id": "summer-vegetable-tostada",
           "season": "fall",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "tomatoes (late harvest)"
@@ -95757,15 +96174,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "summer-vegetable-tostada",
+        "name": "Summer Vegetable Tostada"
       },
       "render": {
         "canvas": {
@@ -95975,10 +96390,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Summer Vegetable Tostada",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -96563,24 +96982,56 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "3 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 teaspoons garlic powder"
+        },
+        {
+          "price": null,
+          "qty_name": "Red pepper flakes, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "Black pepper, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 teaspoons dry mustard powder"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs, slightly beaten"
+        },
+        {
+          "price": null,
+          "qty_name": "16 ounces sharp cheddar cheese, freshly grated"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 lbs of ground turkey sausage (can substitute with pork or chicken sausage)"
         }
       ],
       "lang": "en",
       "market": "US-OH-DAYTON",
       "meta": {
-        "cook": null,
+        "cook": "20 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "10 mins",
+        "serves": "10"
       },
       "month": "2026-12",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: flapjacks-buttermilk lists the in-season ingredient in featured_for",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient overlap: sausage-balls has the best token overlap with the in-season ingredient",
+          "recipe_id": "sausage-balls",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "black walnuts"
@@ -96589,15 +97040,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "sausage-balls",
+        "name": "Sausage Balls"
       },
       "render": {
         "canvas": {
@@ -96807,10 +97256,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "PREHEAT your oven to 350° F and line two baking sheets with parchment paper.",
+        "IN a large mixing bowl, whisk together the Kodiak Cakes mix and spices (garlic, red pepper flakes, black pepper, salt and mustard powder).",
+        "ADD the eggs, cheddar, and ground sausage and throughly mix together with your hands or a spatula. The mixture should be slightly sticky but firm enough to roll into balls.",
+        "ROLL the mixture into 1-inch balls and place them on the prepared baking sheets about 1-inch apart (about 40-45 sausage balls total).",
+        "BAKE in the preheated oven for 20-25 minutes, or until the sausage balls are golden brown and cooked through (internal temperature of 165°F for pork or chicken sausage).",
+        "REMOVE from the oven and let cool slightly before serving."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Sausage Balls",
       "variant": "hero-plus-layout"
     }
   },
@@ -96818,7 +97272,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/kale-and-winter-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-FREDERICKSBURG",
@@ -97054,7 +97508,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cabbage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-FREDERICKSBURG",
@@ -97287,7 +97741,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-onions/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-FREDERICKSBURG",
@@ -97519,7 +97973,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-FREDERICKSBURG",
@@ -97761,7 +98215,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches-early-varieties/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-FREDERICKSBURG",
@@ -97968,7 +98422,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-FREDERICKSBURG",
@@ -98180,7 +98634,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blackberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-FREDERICKSBURG",
@@ -98406,7 +98860,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches-late-varieties-and-tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-FREDERICKSBURG",
@@ -98659,7 +99113,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/wine-grapes-and-figs/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-FREDERICKSBURG",
@@ -98892,7 +99346,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pecans/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-FREDERICKSBURG",
@@ -99135,7 +99589,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pecans-and-sweet-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-FREDERICKSBURG",
@@ -99373,7 +99827,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/winter-greens-and-citrus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-FREDERICKSBURG",
@@ -99611,7 +100065,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/collard-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-WAXAHACHIE",
@@ -99830,7 +100284,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/kale/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-WAXAHACHIE",
@@ -100049,7 +100503,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens-and-radishes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-WAXAHACHIE",
@@ -100268,7 +100722,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-WAXAHACHIE",
@@ -100493,7 +100947,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/squash-and-new-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-WAXAHACHIE",
@@ -100714,7 +101168,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn-and-tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-WAXAHACHIE",
@@ -100950,7 +101404,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes-and-peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-WAXAHACHIE",
@@ -101186,7 +101640,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/watermelon-and-okra/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-WAXAHACHIE",
@@ -101405,7 +101859,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peppers-and-okra/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-WAXAHACHIE",
@@ -101627,7 +102081,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes-and-pecans/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-WAXAHACHIE",
@@ -101848,7 +102302,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pecans-and-pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-WAXAHACHIE",
@@ -102077,7 +102531,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/winter-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-WAXAHACHIE",
@@ -102298,7 +102752,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/mustard-and-collard-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-CHAPPELLHILL",
@@ -102517,7 +102971,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cabbage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-CHAPPELLHILL",
@@ -102733,7 +103187,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-CHAPPELLHILL",
@@ -102952,7 +103406,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries-and-spring-onions/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-CHAPPELLHILL",
@@ -103167,7 +103621,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/squash-and-tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-CHAPPELLHILL",
@@ -103403,7 +103857,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes-and-southern-peas/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-CHAPPELLHILL",
@@ -103639,7 +104093,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/okra-and-watermelon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-CHAPPELLHILL",
@@ -103858,7 +104312,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/okra-and-peppers/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-CHAPPELLHILL",
@@ -104080,7 +104534,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes-and-southern-peas/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-CHAPPELLHILL",
@@ -104301,7 +104755,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes-and-pecans/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-CHAPPELLHILL",
@@ -104522,7 +104976,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pecans-and-satsuma-citrus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-CHAPPELLHILL",
@@ -104737,7 +105191,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/winter-greens-and-satsuma-citrus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-CHAPPELLHILL",
@@ -104954,7 +105408,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/winter-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-POTEET",
@@ -105193,7 +105647,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cabbage-and-early-strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-POTEET",
@@ -105421,7 +105875,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-POTEET",
@@ -105926,7 +106380,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/squash-and-tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-POTEET",
@@ -106182,7 +106636,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes-and-watermelon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-POTEET",
@@ -106438,7 +106892,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/watermelon-and-okra/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-POTEET",
@@ -106677,7 +107131,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peppers-and-okra/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-POTEET",
@@ -106919,7 +107373,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/southern-peas-and-peppers/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-POTEET",
@@ -107175,7 +107629,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pecans-and-sweet-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-POTEET",
@@ -107416,7 +107870,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pecans-and-citrus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-POTEET",
@@ -107657,7 +108111,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/citrus-and-winter-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TX-POTEET",
@@ -107898,7 +108352,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sourwood-honey-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-MARSHALL",
@@ -108144,7 +108598,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-MARSHALL",
@@ -108431,7 +108885,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cold-hardy-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-MARSHALL",
@@ -108686,7 +109140,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/ramps/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-MARSHALL",
@@ -108941,7 +109395,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-MARSHALL",
@@ -109196,7 +109650,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-MARSHALL",
@@ -109451,7 +109905,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sourwood-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-MARSHALL",
@@ -109697,7 +110151,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-MARSHALL",
@@ -109960,7 +110414,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/mountain-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-MARSHALL",
@@ -110247,7 +110701,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-MARSHALL",
@@ -110533,9 +110987,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-griddle-cakes/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-griddle-cakes/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-griddle-cakes/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-NC-MARSHALL",
       "ingredient": "winter squash",
@@ -110787,9 +111241,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-12": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-NC-MARSHALL",
       "ingredient": "winter squash (storage)",
@@ -111044,7 +111498,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/turnips/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-GA-SENOIA",
@@ -111278,7 +111732,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/winter-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-GA-SENOIA",
@@ -111520,7 +111974,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-GA-SENOIA",
@@ -111787,7 +112241,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/vidalia-onions/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-GA-SENOIA",
@@ -112046,7 +112500,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/vidalia-onions/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-GA-SENOIA",
@@ -112305,7 +112759,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-GA-SENOIA",
@@ -112527,7 +112981,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-GA-SENOIA",
@@ -112745,7 +113199,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/watermelon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-GA-SENOIA",
@@ -112983,7 +113437,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/muscadine-grapes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-GA-SENOIA",
@@ -113225,7 +113679,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pecans/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-GA-SENOIA",
@@ -113474,7 +113928,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-GA-SENOIA",
@@ -113718,7 +114172,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/collards/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-GA-SENOIA",
@@ -113962,7 +114416,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/collards/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AL-CLANTON",
@@ -114196,7 +114650,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/turnips/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AL-CLANTON",
@@ -114422,7 +114876,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AL-CLANTON",
@@ -114650,7 +115104,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AL-CLANTON",
@@ -114853,7 +115307,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches-clingstone/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AL-CLANTON",
@@ -115058,7 +115512,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches-freestone/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AL-CLANTON",
@@ -115263,7 +115717,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AL-CLANTON",
@@ -115468,7 +115922,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blackberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AL-CLANTON",
@@ -115691,7 +116145,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/muscadine-grapes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AL-CLANTON",
@@ -115925,7 +116379,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pecans/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AL-CLANTON",
@@ -116166,7 +116620,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AL-CLANTON",
@@ -116402,7 +116856,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AL-CLANTON",
@@ -116640,7 +117094,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/collards/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-DALLAS",
@@ -116889,7 +117343,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-DALLAS",
@@ -117140,7 +117594,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-DALLAS",
@@ -117389,7 +117843,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-DALLAS",
@@ -117663,7 +118117,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-DALLAS",
@@ -117901,7 +118355,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-DALLAS",
@@ -118161,7 +118615,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-DALLAS",
@@ -118421,7 +118875,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-DALLAS",
@@ -118639,7 +119093,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/muscadine-grapes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-DALLAS",
@@ -118888,7 +119342,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-DALLAS",
@@ -119113,7 +119567,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NC-DALLAS",
@@ -119363,9 +119817,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-12": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-NC-DALLAS",
       "ingredient": "butternut squash (storage)",
@@ -119614,7 +120068,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/collards/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SC-RIDGELAND",
@@ -119856,7 +120310,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/winter-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SC-RIDGELAND",
@@ -120098,7 +120552,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SC-RIDGELAND",
@@ -120340,7 +120794,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SC-RIDGELAND",
@@ -120551,7 +121005,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SC-RIDGELAND",
@@ -120762,7 +121216,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/watermelon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SC-RIDGELAND",
@@ -121000,7 +121454,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/okra/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SC-RIDGELAND",
@@ -121242,7 +121696,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/field-peas/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SC-RIDGELAND",
@@ -121501,7 +121955,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/muscadine-grapes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SC-RIDGELAND",
@@ -121743,7 +122197,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/boiled-peanuts/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SC-RIDGELAND",
@@ -121978,7 +122432,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SC-RIDGELAND",
@@ -122222,7 +122676,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SC-RIDGELAND",
@@ -122468,7 +122922,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-HOMESTEAD",
@@ -122711,7 +123165,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-HOMESTEAD",
@@ -122986,7 +123440,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-HOMESTEAD",
@@ -123235,7 +123689,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/carambola-starfruit/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-HOMESTEAD",
@@ -123488,7 +123942,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/mango/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-HOMESTEAD",
@@ -123761,7 +124215,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/passionfruit/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-HOMESTEAD",
@@ -124045,7 +124499,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/lychee/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-HOMESTEAD",
@@ -124298,7 +124752,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/guava/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-HOMESTEAD",
@@ -124551,7 +125005,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/avocado-florida/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-HOMESTEAD",
@@ -124797,7 +125251,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/carambola/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-HOMESTEAD",
@@ -125329,7 +125783,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/green-beans/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-HOMESTEAD",
@@ -125582,7 +126036,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/collards/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-FLORA",
@@ -125827,7 +126281,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-FLORA",
@@ -126074,7 +126528,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-FLORA",
@@ -126319,7 +126773,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-FLORA",
@@ -126553,7 +127007,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-FLORA",
@@ -126787,7 +127241,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-FLORA",
@@ -127026,7 +127480,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-FLORA",
@@ -127293,7 +127747,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/watermelon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-FLORA",
@@ -127534,7 +127988,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/muscadine-grapes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-FLORA",
@@ -127779,7 +128233,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-FLORA",
@@ -128026,7 +128480,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pecans/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-FLORA",
@@ -128277,9 +128731,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-12": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-MS-FLORA",
       "ingredient": "butternut squash (storage)",
@@ -128524,7 +128978,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-STARKE",
@@ -128758,9 +129212,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-02": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-FL-STARKE",
       "ingredient": "cabbage (winter)",
@@ -128998,7 +129452,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries-bradford/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-STARKE",
@@ -129227,7 +129681,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-STARKE",
@@ -129456,7 +129910,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-STARKE",
@@ -129689,7 +130143,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/watermelon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-STARKE",
@@ -129925,7 +130379,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peanuts-green/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-STARKE",
@@ -130141,7 +130595,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-STARKE",
@@ -130377,7 +130831,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peppers/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-STARKE",
@@ -130804,7 +131258,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-STARKE",
@@ -131288,7 +131742,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-KY-SHELBYVILLE",
@@ -131563,7 +132017,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-KY-SHELBYVILLE",
@@ -131797,7 +132251,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-KY-SHELBYVILLE",
@@ -132009,7 +132463,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-KY-SHELBYVILLE",
@@ -132252,7 +132706,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-KY-SHELBYVILLE",
@@ -132484,7 +132938,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-KY-SHELBYVILLE",
@@ -132723,7 +133177,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-KY-SHELBYVILLE",
@@ -132974,7 +133428,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/heirloom-tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-KY-SHELBYVILLE",
@@ -133234,7 +133688,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-KY-SHELBYVILLE",
@@ -133453,7 +133907,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-KY-SHELBYVILLE",
@@ -133706,7 +134160,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-KY-SHELBYVILLE",
@@ -134198,7 +134652,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/collards/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-HERNANDO",
@@ -134443,7 +134897,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-HERNANDO",
@@ -134690,7 +135144,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-HERNANDO",
@@ -134935,7 +135389,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-HERNANDO",
@@ -135171,7 +135625,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-HERNANDO",
@@ -135405,7 +135859,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-HERNANDO",
@@ -135675,7 +136129,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-HERNANDO",
@@ -135926,7 +136380,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/watermelon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-HERNANDO",
@@ -136167,7 +136621,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/muscadine-grapes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-HERNANDO",
@@ -136412,7 +136866,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-HERNANDO",
@@ -136659,7 +137113,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pecans/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-MS-HERNANDO",
@@ -136909,9 +137363,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-12": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-MS-HERNANDO",
       "ingredient": "butternut squash (storage)",
@@ -137156,7 +137610,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/collards/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TN-LEIPERSFORK",
@@ -137403,7 +137857,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TN-LEIPERSFORK",
@@ -137652,7 +138106,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TN-LEIPERSFORK",
@@ -137899,7 +138353,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TN-LEIPERSFORK",
@@ -138161,7 +138615,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TN-LEIPERSFORK",
@@ -138397,7 +138851,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TN-LEIPERSFORK",
@@ -138629,7 +139083,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TN-LEIPERSFORK",
@@ -138893,7 +139347,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TN-LEIPERSFORK",
@@ -139136,7 +139590,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TN-LEIPERSFORK",
@@ -139415,7 +139869,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TN-LEIPERSFORK",
@@ -139672,7 +140126,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-TN-LEIPERSFORK",
@@ -140190,7 +140644,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/citrus-satsuma-navel/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-LA-COVINGTON",
@@ -140236,10 +140690,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: mandarin-citrus-flapjacks-draft lists the in-season ingredient in featured_for",
+          "reason": "ingredient overlap: mandarin-citrus-flapjacks-draft has the best token overlap with the in-season ingredient",
           "recipe_id": "mandarin-citrus-flapjacks-draft",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "citrus (satsuma/navel)"
@@ -140442,7 +140896,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/crawfish/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-LA-COVINGTON",
@@ -140698,7 +141152,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/mirlitons/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-LA-COVINGTON",
@@ -140950,7 +141404,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries-ponchatoula/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-LA-COVINGTON",
@@ -141195,7 +141649,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/creole-tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-LA-COVINGTON",
@@ -141468,7 +141922,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/creole-tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-LA-COVINGTON",
@@ -141741,7 +142195,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/watermelon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-LA-COVINGTON",
@@ -141993,7 +142447,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/okra/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-LA-COVINGTON",
@@ -142249,7 +142703,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/mirlitons/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-LA-COVINGTON",
@@ -142536,7 +142990,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-LA-COVINGTON",
@@ -142794,7 +143248,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/satsuma/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-LA-COVINGTON",
@@ -143046,7 +143500,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/navel-oranges/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-LA-COVINGTON",
@@ -143310,7 +143764,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-PLANTCTY",
@@ -143543,7 +143997,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/green-beans/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-PLANTCTY",
@@ -143779,7 +144233,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries-festival-peak/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-PLANTCTY",
@@ -144006,7 +144460,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-PLANTCTY",
@@ -144233,7 +144687,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-PLANTCTY",
@@ -144496,7 +144950,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/watermelon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-PLANTCTY",
@@ -144730,7 +145184,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/mango/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-PLANTCTY",
@@ -144988,7 +145442,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/avocado-florida/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-PLANTCTY",
@@ -145219,7 +145673,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-PLANTCTY",
@@ -145453,7 +145907,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-PLANTCTY",
@@ -145667,7 +146121,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries-new-crop/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-FL-PLANTCTY",
@@ -145902,48 +146356,40 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 Kodiak Buttermilk & Maple Flapjack Power Cup"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup mandarin juice"
+          "qty_name": "1/4 cup whole milk"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup milk"
+          "qty_name": "3 tablespoons whole milk ricotta"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1/2 teaspoon fresh lemon zest"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon mandarin zest"
-        },
-        {
-          "price": null,
-          "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit)"
-        },
-        {
-          "price": null,
-          "qty_name": "2 tablespoons butter, for the griddle"
+          "qty_name": "Honey, to top"
         }
       ],
       "lang": "en",
       "market": "US-SE-TAMPA",
       "meta": {
-        "cook": "15 mins",
+        "cook": "1.5 mins",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8 flapjacks"
+        "prep": "2 mins",
+        "serves": "1"
       },
       "month": "2026-12",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: mandarin-citrus-flapjacks-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "mandarin-citrus-flapjacks-draft",
+          "reason": "ingredient overlap: single-serve-lemon-ricotta-flapjack-cup has the best token overlap with the in-season ingredient",
+          "recipe_id": "single-serve-lemon-ricotta-flapjack-cup",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "citrus (tangerines)"
@@ -145957,8 +146403,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "mandarin-citrus-flapjacks-draft",
-        "name": "Mandarin Citrus Flapjacks"
+        "id": "single-serve-lemon-ricotta-flapjack-cup",
+        "name": "Single-serve Lemon Ricotta Flapjack Cup"
       },
       "render": {
         "canvas": {
@@ -146116,22 +146562,22 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
-        "REST the batter 5 minutes.",
-        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
-        "SERVE hot with extra segments and honey."
+        "REMOVE the lid to the Kodiak Cakes cup.",
+        "ADD the milk, ricotta, and lemon zest to the flapjack cup and stir with a fork until combined.",
+        "MICROWAVE on high for 90 seconds.",
+        "TOP with honey and a dollop of ricotta, if desired."
       ],
       "substrate": "kraft",
-      "title": "Mandarin Citrus Flapjacks",
+      "title": "Single-serve Lemon Ricotta Flapjack Cup",
       "variant": "hero-plus-layout"
     }
   },
   "US-SW-ALBQ": {
     "2026-01": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-NM-CORRALES",
       "ingredient": "stored apples and winter squash",
@@ -146374,7 +146820,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cool-season-greens-spinach-kale/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-CORRALES",
@@ -146619,7 +147065,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus-and-spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-CORRALES",
@@ -146864,7 +147310,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/radishes-and-lettuce/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-CORRALES",
@@ -147145,7 +147591,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-onions-and-strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-CORRALES",
@@ -147386,7 +147832,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn-and-summer-squash/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-CORRALES",
@@ -147648,7 +148094,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes-and-sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-CORRALES",
@@ -147910,7 +148356,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/green-chile-and-melons/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-CORRALES",
@@ -148156,7 +148602,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/green-chile-and-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-CORRALES",
@@ -148401,9 +148847,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-NM-CORRALES",
       "ingredient": "apples and winter squash",
@@ -148646,7 +149092,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pecans-and-pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-CORRALES",
@@ -148901,7 +149347,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/stored-apples-and-pecans/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-CORRALES",
@@ -149150,7 +149596,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples-and-preserves/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SW-CLOUDCROFT",
@@ -149608,7 +150054,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples-and-maple-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SW-CLOUDCROFT",
@@ -149838,7 +150284,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/greenhouse-greens-late-frost/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SW-CLOUDCROFT",
@@ -150055,7 +150501,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/early-greens-season-begins-mid-may/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SW-CLOUDCROFT",
@@ -150272,7 +150718,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/lettuce-radishes-herbs/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SW-CLOUDCROFT",
@@ -150525,7 +150971,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/summer-squash-and-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SW-CLOUDCROFT",
@@ -150742,7 +151188,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/u-pick-berries-and-squash/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SW-CLOUDCROFT",
@@ -150962,7 +151408,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples-cadwallader-mountain-farms-u-pick/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SW-CLOUDCROFT",
@@ -151190,9 +151636,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-SW-CLOUDCROFT",
       "ingredient": "apples and winter squash",
@@ -151815,7 +152261,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/stored-onions-and-pecans/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-HATCH",
@@ -152055,7 +152501,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cool-season-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-HATCH",
@@ -152293,7 +152739,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-onions-and-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-HATCH",
@@ -152531,7 +152977,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/onions-and-early-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-HATCH",
@@ -152769,7 +153215,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-onions-and-squash/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-HATCH",
@@ -153009,7 +153455,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-onions-and-melons/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-HATCH",
@@ -153249,7 +153695,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/early-green-chile-and-melons/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-HATCH",
@@ -153488,7 +153934,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/green-chile-peak-roasting-and-melons/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-HATCH",
@@ -153727,7 +154173,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/green-and-red-chile/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-HATCH",
@@ -153966,7 +154412,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/red-chile-and-pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-HATCH",
@@ -154214,7 +154660,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pecans-and-red-chile-ristras/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-HATCH",
@@ -154453,7 +154899,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/dried-red-chile-and-pecans/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-HATCH",
@@ -154694,7 +155140,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/stored-pecans-and-winter-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OK-GUTHRIE",
@@ -154910,7 +155356,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cool-season-greens-kale-spinach/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OK-GUTHRIE",
@@ -155126,7 +155572,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus-and-spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OK-GUTHRIE",
@@ -155342,7 +155788,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries-and-lettuce/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OK-GUTHRIE",
@@ -155547,7 +155993,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries-and-spring-onions/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OK-GUTHRIE",
@@ -155759,7 +156205,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches-and-sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OK-GUTHRIE",
@@ -155971,7 +156417,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches-sweet-corn-and-watermelon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OK-GUTHRIE",
@@ -156183,7 +156629,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/watermelon-and-tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OK-GUTHRIE",
@@ -156416,7 +156862,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn-and-okra/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OK-GUTHRIE",
@@ -156628,7 +157074,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins-and-winter-squash/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OK-GUTHRIE",
@@ -156854,7 +157300,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pecans-and-sweet-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OK-GUTHRIE",
@@ -157072,7 +157518,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/stored-pecans-and-sweet-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OK-GUTHRIE",
@@ -157292,7 +157738,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/citrus-oranges-grapefruit/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-QUEENCREEK",
@@ -157304,7 +157750,11 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "price": null,
-          "qty_name": "1-1/3 cups milk"
+          "qty_name": "1/2 cup mandarin juice"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup milk"
         },
         {
           "price": null,
@@ -157312,19 +157762,11 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "price": null,
-          "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes)"
+          "qty_name": "1 tablespoon mandarin zest"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons honey"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon olive oil"
-        },
-        {
-          "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit)"
         },
         {
           "price": null,
@@ -157334,18 +157776,18 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-SW-PHX",
       "meta": {
-        "cook": "30 mins",
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "8 flapjacks plus topper"
+        "prep": "15 mins",
+        "serves": "8 flapjacks"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: roasted-grape-flapjack-topper-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "roasted-grape-flapjack-topper-draft",
+          "reason": "ingredient overlap: mandarin-citrus-flapjacks-draft has the best token overlap with the in-season ingredient",
+          "recipe_id": "mandarin-citrus-flapjacks-draft",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "citrus (oranges, grapefruit)"
@@ -157359,8 +157801,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "roasted-grape-flapjack-topper-draft",
-        "name": "Roasted Grape Flapjack Topper"
+        "id": "mandarin-citrus-flapjacks-draft",
+        "name": "Mandarin Citrus Flapjacks"
       },
       "render": {
         "canvas": {
@@ -157516,19 +157958,19 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
-        "WHISK the mix, milk, and eggs into a batter.",
+        "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
+        "REST the batter 5 minutes.",
         "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
-        "SERVE the flapjacks with the warm roasted grapes spooned over."
+        "SERVE hot with extra segments and honey."
       ],
       "substrate": "kraft",
-      "title": "Roasted Grape Flapjack Topper",
+      "title": "Mandarin Citrus Flapjacks",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/citrus-and-peach-blossoms/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-QUEENCREEK",
@@ -157763,7 +158205,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/citrus-and-spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-QUEENCREEK",
@@ -157999,7 +158441,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches-schnepf-farms-u-pick/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-QUEENCREEK",
@@ -158247,7 +158689,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apricots/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-QUEENCREEK",
@@ -158483,7 +158925,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/melons-and-early-dates/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-QUEENCREEK",
@@ -158709,7 +159151,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/melons-and-dates/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-QUEENCREEK",
@@ -158935,7 +159377,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/dates-and-melons/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-QUEENCREEK",
@@ -159161,7 +159603,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/dates-and-heat-set-peppers/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-QUEENCREEK",
@@ -159387,7 +159829,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/olives-queen-creek-olive-mill-and-pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-QUEENCREEK",
@@ -159632,9 +160074,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-AZ-QUEENCREEK",
       "ingredient": "olives, pecans, and winter squash",
@@ -159868,7 +160310,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/citrus-mandarins-grapefruit/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AZ-QUEENCREEK",
@@ -159914,10 +160356,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-12",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: mandarin-citrus-flapjacks-draft lists the in-season ingredient in featured_for",
+          "reason": "ingredient overlap: mandarin-citrus-flapjacks-draft has the best token overlap with the in-season ingredient",
           "recipe_id": "mandarin-citrus-flapjacks-draft",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "citrus (mandarins, grapefruit)"
@@ -160102,7 +160544,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/stored-pecans-and-winter-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-ARTESIA",
@@ -160317,7 +160759,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cool-season-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-ARTESIA",
@@ -160532,7 +160974,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens-and-onions/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-ARTESIA",
@@ -160747,7 +161189,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/onions-and-lettuce/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-ARTESIA",
@@ -160979,7 +161421,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/onions-and-squash/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-ARTESIA",
@@ -161210,9 +161652,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-06": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-NM-ARTESIA",
       "ingredient": "squash and melons",
@@ -161425,7 +161867,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/green-chile-and-melons/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-ARTESIA",
@@ -161641,7 +162083,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/green-chile-and-tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-ARTESIA",
@@ -161857,7 +162299,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/green-and-red-chile/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-ARTESIA",
@@ -162073,7 +162515,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/red-chile-and-pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-ARTESIA",
@@ -162297,9 +162739,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-NM-ARTESIA",
       "ingredient": "pecans and winter squash",
@@ -162512,7 +162954,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/stored-pecans-and-dried-red-chile/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-ARTESIA",
@@ -162730,7 +163172,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples-and-local-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SW-TIMBERON",
@@ -162961,7 +163403,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples-and-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SW-TIMBERON",
@@ -163412,7 +163854,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/honey-limited-fresh-late-frost/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SW-TIMBERON",
@@ -163621,7 +164063,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/early-greens-and-honey-season-begins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SW-TIMBERON",
@@ -163839,7 +164281,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/greens-herbs-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SW-TIMBERON",
@@ -164057,7 +164499,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/summer-squash-and-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SW-TIMBERON",
@@ -164285,7 +164727,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples-early-and-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SW-TIMBERON",
@@ -164516,7 +164958,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples-and-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-SW-TIMBERON",
@@ -164746,9 +165188,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-SW-TIMBERON",
       "ingredient": "apples and winter squash",
@@ -165394,7 +165836,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/stored-pecans-and-pistachios/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-LALUZ",
@@ -165637,7 +166079,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/stored-apples-and-pistachios/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-LALUZ",
@@ -165870,7 +166312,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-LALUZ",
@@ -166111,7 +166553,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cherry-blossoms-and-early-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-LALUZ",
@@ -166352,7 +166794,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cherries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-LALUZ",
@@ -166622,7 +167064,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cherries-and-apricots/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-LALUZ",
@@ -166892,7 +167334,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples-early-and-melons/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-LALUZ",
@@ -167165,7 +167607,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples-and-green-chile/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-LALUZ",
@@ -167407,7 +167849,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pistachios-harvest-and-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-LALUZ",
@@ -167640,7 +168082,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples-and-wine-grapes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-LALUZ",
@@ -167881,7 +168323,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pecans-and-pistachios/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-LALUZ",
@@ -168124,7 +168566,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pistachios-and-stored-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NM-LALUZ",
@@ -168359,7 +168801,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/grass-fed-beef-value-added/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-KAMASVALLEY",
@@ -168600,7 +169042,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/root-vegetables-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-KAMASVALLEY",
@@ -168831,7 +169273,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-KAMASVALLEY",
@@ -169061,7 +169503,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/ranch-dairy-butter-value-added/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-KAMASVALLEY",
@@ -169302,7 +169744,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-KAMASVALLEY",
@@ -169537,7 +169979,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-KAMASVALLEY",
@@ -169776,7 +170218,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sugar-snap-peas/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-KAMASVALLEY",
@@ -170017,7 +170459,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/raspberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-KAMASVALLEY",
@@ -170287,7 +170729,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/root-vegetables/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-KAMASVALLEY",
@@ -170517,9 +170959,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-UT-KAMASVALLEY",
       "ingredient": "winter squash",
@@ -170755,9 +171197,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-UT-KAMASVALLEY",
       "ingredient": "winter squash (storage)",
@@ -170994,7 +171436,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/ranch-lamb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-UT-KAMASVALLEY",
@@ -171250,7 +171692,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-potatoes-and-salmon-frozen-smoked/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AK-PALMER",
@@ -171512,7 +171954,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-carrots-and-salmon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AK-PALMER",
@@ -171749,7 +172191,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-cabbage-and-root-vegetables/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AK-PALMER",
@@ -171986,7 +172428,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-root-vegetables-imported-produce-dominant/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AK-PALMER",
@@ -172223,7 +172665,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb-early-and-greenhouse-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AK-PALMER",
@@ -172468,7 +172910,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb-and-salad-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AK-PALMER",
@@ -172713,7 +173155,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/summer-berries-and-salmon-fresh-run/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AK-PALMER",
@@ -172975,7 +173417,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/giant-cabbage-carrots-potatoes-and-salmon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AK-PALMER",
@@ -173212,7 +173654,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/potatoes-giant-brassicas-and-root-harvest/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AK-PALMER",
@@ -173449,7 +173891,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-potatoes-and-carrots-harvest-cellared/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AK-PALMER",
@@ -173686,7 +174128,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-root-vegetables-and-salmon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-AK-PALMER",
@@ -174190,7 +174632,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SISTERS",
@@ -174422,7 +174864,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-onions/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SISTERS",
@@ -174658,7 +175100,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/microgreens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SISTERS",
@@ -174898,7 +175340,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SISTERS",
@@ -175138,7 +175580,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SISTERS",
@@ -175347,7 +175789,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/salad-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SISTERS",
@@ -175587,7 +176029,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/snap-peas/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SISTERS",
@@ -175829,7 +176271,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SISTERS",
@@ -176064,9 +176506,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-09": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-OR-SISTERS",
       "ingredient": "winter squash",
@@ -176304,7 +176746,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SISTERS",
@@ -176576,7 +177018,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/root-vegetables/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SISTERS",
@@ -176808,7 +177250,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/grass-fed-beef/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SISTERS",
@@ -177028,7 +177470,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-LYONS",
@@ -177294,7 +177736,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-onions/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-LYONS",
@@ -177524,7 +177966,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey-storage/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-LYONS",
@@ -177749,7 +178191,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/greens-cold-frame/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-LYONS",
@@ -177983,7 +178425,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-LYONS",
@@ -178213,7 +178655,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cherries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-LYONS",
@@ -178476,7 +178918,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/palisade-peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-LYONS",
@@ -178681,7 +179123,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/olathe-sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-LYONS",
@@ -178911,7 +179353,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rocky-ford-melon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-LYONS",
@@ -179140,9 +179582,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-CO-LYONS",
       "ingredient": "winter squash",
@@ -179606,7 +180048,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CO-LYONS",
@@ -179833,7 +180275,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/papaya-and-banana/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-HI-WAIALUA",
@@ -180099,7 +180541,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/papaya-and-taro/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-HI-WAIALUA",
@@ -180365,7 +180807,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pineapple-and-banana/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-HI-WAIALUA",
@@ -180647,7 +181089,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pineapple-and-papaya/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-HI-WAIALUA",
@@ -180929,7 +181371,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pineapple-and-mango-early/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-HI-WAIALUA",
@@ -181211,7 +181653,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/mango-and-pineapple/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-HI-WAIALUA",
@@ -181775,7 +182217,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/mango-and-banana/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-HI-WAIALUA",
@@ -182585,7 +183027,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/coffee-cacao-and-taro/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-HI-WAIALUA",
@@ -182847,7 +183289,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/papaya-banana-and-taro/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-HI-WAIALUA",
@@ -183115,7 +183557,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/navel-oranges/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-FILLMORE",
@@ -183360,7 +183802,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/lemons/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-FILLMORE",
@@ -183860,7 +184302,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-FILLMORE",
@@ -184090,7 +184532,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-FILLMORE",
@@ -184318,7 +184760,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/avocados/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-FILLMORE",
@@ -184550,7 +184992,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/valencia-oranges/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-FILLMORE",
@@ -184795,7 +185237,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/valencia-oranges/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-FILLMORE",
@@ -185513,7 +185955,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/mandarins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-FILLMORE",
@@ -185989,7 +186431,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SAUVIE",
@@ -186262,7 +186704,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/kale/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SAUVIE",
@@ -186503,7 +186945,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/leeks/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SAUVIE",
@@ -186744,7 +187186,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SAUVIE",
@@ -186981,7 +187423,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SAUVIE",
@@ -187191,7 +187633,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SAUVIE",
@@ -187427,7 +187869,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/raspberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SAUVIE",
@@ -187658,7 +188100,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SAUVIE",
@@ -187904,7 +188346,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SAUVIE",
@@ -188141,7 +188583,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SAUVIE",
@@ -188392,7 +188834,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/hazelnuts/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-OR-SAUVIE",
@@ -188663,9 +189105,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-12": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-OR-SAUVIE",
       "ingredient": "winter squash",
@@ -188906,7 +189348,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-onions/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-FALLON",
@@ -189141,7 +189583,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-garlic/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-FALLON",
@@ -189397,7 +189839,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-FALLON",
@@ -189605,7 +190047,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-FALLON",
@@ -189844,7 +190286,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/raspberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-FALLON",
@@ -190076,7 +190518,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-FALLON",
@@ -190311,7 +190753,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/summer-squash/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-FALLON",
@@ -190546,7 +190988,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/hearts-of-gold-cantaloupe/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-FALLON",
@@ -190781,7 +191223,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-FALLON",
@@ -191028,7 +191470,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-FALLON",
@@ -191276,9 +191718,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-NV-FALLON",
       "ingredient": "winter squash (storage)",
@@ -191515,7 +191957,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/potatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-FALLON",
@@ -191748,7 +192190,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/citrus-mandarins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-DIXON",
@@ -191794,10 +192236,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: mandarin-citrus-flapjacks-draft lists the in-season ingredient in featured_for",
+          "reason": "ingredient overlap: mandarin-citrus-flapjacks-draft has the best token overlap with the in-season ingredient",
           "recipe_id": "mandarin-citrus-flapjacks-draft",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-overlap"
         },
         "values_from_source": [
           "citrus (mandarins)"
@@ -191982,7 +192424,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/leafy-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-DIXON",
@@ -192220,7 +192662,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-DIXON",
@@ -192427,7 +192869,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-DIXON",
@@ -192660,7 +193102,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cherries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-DIXON",
@@ -192927,7 +193369,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apricots/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-DIXON",
@@ -193165,7 +193607,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-DIXON",
@@ -193409,7 +193851,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-DIXON",
@@ -193643,7 +194085,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peppers/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-DIXON",
@@ -193883,9 +194325,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-10": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-griddle-cakes/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-griddle-cakes/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-griddle-cakes/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-CA-DIXON",
       "ingredient": "winter squash",
@@ -194121,7 +194563,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/walnuts/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-DIXON",
@@ -194370,7 +194812,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/mandarins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-DIXON",
@@ -194606,7 +195048,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/meyer-lemon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BRENTWOOD",
@@ -194836,7 +195278,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/kale/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BRENTWOOD",
@@ -195078,7 +195520,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rainbow-chard/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BRENTWOOD",
@@ -195320,7 +195762,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/harley-farms-goat-cheese/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BRENTWOOD",
@@ -195531,7 +195973,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-peas/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BRENTWOOD",
@@ -195775,7 +196217,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/summer-squash/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BRENTWOOD",
@@ -196013,7 +196455,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blackberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BRENTWOOD",
@@ -196280,7 +196722,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/romano-beans/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BRENTWOOD",
@@ -196520,7 +196962,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BRENTWOOD",
@@ -196747,7 +197189,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/half-moon-bay-pumpkin/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BRENTWOOD",
@@ -196999,7 +197441,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/olive-oil-fall-press/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BRENTWOOD",
@@ -197258,7 +197700,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/brussels-sprouts/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BRENTWOOD",
@@ -197498,7 +197940,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/stored-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-JULIAN",
@@ -197799,7 +198241,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/citrus-from-lowland-san-diego-county/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-JULIAN",
@@ -198070,7 +198512,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/leafy-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-JULIAN",
@@ -198339,7 +198781,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-JULIAN",
@@ -198577,7 +199019,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-JULIAN",
@@ -198826,7 +199268,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cherries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-JULIAN",
@@ -199124,7 +199566,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-JULIAN",
@@ -199369,7 +199811,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pears/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-JULIAN",
@@ -199640,7 +200082,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-JULIAN",
@@ -199885,7 +200327,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-JULIAN",
@@ -200164,7 +200606,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pears/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-JULIAN",
@@ -200435,7 +200877,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apple-cider/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-JULIAN",
@@ -200675,7 +201117,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-CARNATION",
@@ -200948,7 +201390,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/kale/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-CARNATION",
@@ -201189,7 +201631,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/leeks/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-CARNATION",
@@ -201430,7 +201872,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-CARNATION",
@@ -201667,7 +202109,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-CARNATION",
@@ -201877,7 +202319,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-CARNATION",
@@ -202143,7 +202585,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/raspberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-CARNATION",
@@ -202391,7 +202833,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/blueberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-CARNATION",
@@ -202612,7 +203054,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-CARNATION",
@@ -202849,7 +203291,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-CARNATION",
@@ -203099,9 +203541,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-WA-CARNATION",
       "ingredient": "winter squash",
@@ -203340,7 +203782,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/dairy/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-CARNATION",
@@ -203614,7 +204056,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/brussels-sprouts/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BOLINAS",
@@ -203848,7 +204290,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cauliflower/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BOLINAS",
@@ -204084,7 +204526,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/broccoli/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BOLINAS",
@@ -204320,7 +204762,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/artichokes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BOLINAS",
@@ -204558,7 +205000,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BOLINAS",
@@ -204781,7 +205223,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/leaf-lettuce/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BOLINAS",
@@ -205055,7 +205497,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/sweet-corn/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BOLINAS",
@@ -205289,7 +205731,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/celery/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BOLINAS",
@@ -205525,7 +205967,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/bell-peppers/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BOLINAS",
@@ -205766,7 +206208,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spinach/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BOLINAS",
@@ -206004,7 +206446,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/kale/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BOLINAS",
@@ -206242,7 +206684,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/lemons/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-CA-BOLINAS",
@@ -206508,7 +206950,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-GREENBLUFF",
@@ -206783,7 +207225,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-pears/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-GREENBLUFF",
@@ -207028,7 +207470,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-GREENBLUFF",
@@ -207267,7 +207709,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-GREENBLUFF",
@@ -207479,7 +207921,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/strawberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-GREENBLUFF",
@@ -207707,7 +208149,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cherries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-GREENBLUFF",
@@ -207979,7 +208421,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apricots/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-GREENBLUFF",
@@ -208222,7 +208664,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-GREENBLUFF",
@@ -208450,7 +208892,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-GREENBLUFF",
@@ -208673,7 +209115,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pumpkins/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-GREENBLUFF",
@@ -208925,9 +209367,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-11": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-WA-GREENBLUFF",
       "ingredient": "winter squash (storage)",
@@ -209168,7 +209610,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/local-honey/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-GREENBLUFF",
@@ -209404,7 +209846,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/citrus-desert/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-MOAPA",
@@ -209630,7 +210072,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens-early/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-MOAPA",
@@ -209868,7 +210310,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-MOAPA",
@@ -210075,7 +210517,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-melons-early/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-MOAPA",
@@ -210309,7 +210751,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/summer-squash/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-MOAPA",
@@ -210543,7 +210985,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/melons/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-MOAPA",
@@ -210777,7 +211219,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/dates-setting/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-MOAPA",
@@ -211005,7 +211447,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/okra-heat-loving/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-MOAPA",
@@ -211274,7 +211716,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/fall-tomatoes/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-MOAPA",
@@ -211529,7 +211971,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/dates-harvest/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-MOAPA",
@@ -211757,7 +212199,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cool-season-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-NV-MOAPA",
@@ -212225,7 +212667,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-TIETON",
@@ -212499,7 +212941,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/storage-pears/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-TIETON",
@@ -212743,7 +213185,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/rhubarb/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-TIETON",
@@ -212981,7 +213423,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-04": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/asparagus/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-TIETON",
@@ -213192,7 +213634,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/spring-greens/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-TIETON",
@@ -213434,7 +213876,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/cherries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-TIETON",
@@ -213705,7 +214147,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-07": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apricots/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-TIETON",
@@ -213947,7 +214389,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/peaches/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-TIETON",
@@ -214165,7 +214607,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-09": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/apples/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-TIETON",
@@ -214625,7 +215067,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pears/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-TIETON",
@@ -214869,7 +215311,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-12": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/pears/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-TIETON",
@@ -215115,7 +215557,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-01": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/smoked-salmon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-NEAHBAY",
@@ -215368,7 +215810,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-02": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/halibut/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-NEAHBAY",
@@ -215604,7 +216046,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-03": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/razor-clams/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-NEAHBAY",
@@ -216072,7 +216514,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-05": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/salmonberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-NEAHBAY",
@@ -216293,7 +216735,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-06": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/salmon/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-NEAHBAY",
@@ -216837,7 +217279,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-08": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/huckleberries/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-NEAHBAY",
@@ -217330,7 +217772,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-10": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/dungeness-crab/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-NEAHBAY",
@@ -217566,7 +218008,7 @@ window.KODIAK_RECIPE_CARDS = {
     "2026-11": {
       "art": {
         "finished_plate": null,
-        "raw_ingredient": "/recipe-art/dungeness-crab/raw_ingredient.png",
+        "raw_ingredient": null,
         "technique": null
       },
       "frontier_market": "US-WA-NEAHBAY",
@@ -217801,9 +218243,9 @@ window.KODIAK_RECIPE_CARDS = {
     },
     "2026-12": {
       "art": {
-        "finished_plate": "/recipe-art/winter-squash-muffins/finished_plate.png",
-        "raw_ingredient": "/recipe-art/winter-squash-muffins/raw_ingredient.png",
-        "technique": "/recipe-art/winter-squash-muffins/technique.png"
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
       },
       "frontier_market": "US-WA-NEAHBAY",
       "ingredient": "lingcod (winter)",
