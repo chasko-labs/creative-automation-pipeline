@@ -175,8 +175,71 @@ let skuList = [
     }catch(e){}
   }
   try{ window.KODIAK_repaintRestingShowcase = repaintRestingShowcase; }catch(e){}
-  document.addEventListener('change', /** @param {Event} e */ (e)=>{ const t = e.target instanceof Element ? e.target : null; if(t && t.id==='locality'){ try{ repaintRestingShowcase(); }catch(_e){} } });
-  setTimeout(function(){ try{ repaintRestingShowcase(); }catch(e){} }, 900);
+  // Market-driven resting images: on locality change each hero tile swaps to
+  // that market's season-aware pick from the baked campaign-art index
+  // (js/campaign-art-index.js, built by scripts/build-campaign-web-art.py) —
+  // no fetch('/generate'), so the offline page stays offline. Tile i takes
+  // dish i so the five sizes stay distinct; markets without campaign art
+  // keep the Park City resting example (null picks = keep). DOM order follows
+  // window.KODIAK_TILE_ORDER per the frontier-contracts tile contract.
+  const HERO_DISHES = ['waffle', 'muffin', 'oatmeal-cup', 'bars', 'brownie'];
+  const SEASON_PRIORITY = ['christmas', 'easter', 'fourth-of-july', 'fall', 'halloween', 'thanksgiving'];
+  const seasonKeyForMonth = (idx, month)=>{
+    try{
+      const months = (idx && idx.season_months) || {};
+      for(const key of SEASON_PRIORITY){ if((months[key] || []).indexOf(month) >= 0) return key; }
+    }catch(e){}
+    return null;
+  };
+  const marketHeroPicks = (marketId, month)=>{
+    const out = {};
+    try{
+      const idx = (typeof window !== 'undefined' && window.KODIAK_CAMPAIGN_ART) || null;
+      const entry = (idx && idx.markets && idx.markets[marketId]) || null;
+      if(!entry) return out;
+      const order = (typeof window !== 'undefined' && Array.isArray(window.KODIAK_TILE_ORDER) && window.KODIAK_TILE_ORDER.length)
+        ? window.KODIAK_TILE_ORDER : ['blog', '1x1', '16x9', '4x5', '9x16'];
+      const seasons = entry.seasons || {};
+      let season = (month && seasons && seasonKeyForMonth(idx, month) && seasons[seasonKeyForMonth(idx, month)])
+        ? seasonKeyForMonth(idx, month) : null;
+      if(!season){
+        for(const key of SEASON_PRIORITY){ if(seasons[key]){ season = key; break; } }
+      }
+      if(!season) return out;
+      const dishes = seasons[season] || {};
+      order.forEach((size, i)=>{
+        const dish = HERO_DISHES[i % HERO_DISHES.length];
+        if(dishes[dish]) out[size] = dishes[dish];
+      });
+    }catch(e){}
+    return out;
+  };
+  try{ window.KODIAK_marketHeroPicks = marketHeroPicks; }catch(e){}
+  const currentMonth = ()=>{ try{ return new Date().getMonth() + 1; }catch(e){ return 0; } };
+  function repaintRestingImages(){
+    try{
+      const sel = document.getElementById('locality');
+      const hero = document.getElementById('previewHero');
+      if(!sel || !hero) return;
+      const picks = marketHeroPicks(sel.value, currentMonth());
+      const sizes = Object.keys(picks);
+      if(!sizes.length) return;
+      const copy = restingCopyFor(sel.value);
+      const place = copy ? copy.place : sel.value;
+      sizes.forEach((size)=>{
+        hero.querySelectorAll('.render-tile.r-' + size + ' img').forEach(img=>{
+          img.setAttribute('src', picks[size]);
+          const alt = img.getAttribute('alt') || '';
+          const base = alt.replace(/ — .*?(example|preview)$/, '');
+          img.setAttribute('alt', (base || 'Market preview') + ' — ' + place + ' preview');
+          img.style.display = '';
+        });
+      });
+    }catch(e){}
+  }
+  try{ window.KODIAK_repaintRestingImages = repaintRestingImages; }catch(e){}
+  document.addEventListener('change', /** @param {Event} e */ (e)=>{ const t = e.target instanceof Element ? e.target : null; if(t && t.id==='locality'){ try{ repaintRestingShowcase(); }catch(_e){} try{ repaintRestingImages(); }catch(_e){} } });
+  setTimeout(function(){ try{ repaintRestingShowcase(); }catch(e){} try{ repaintRestingImages(); }catch(e){} }, 900);
 
   // === Platform -> ratio -> dimension matrix ===
   // Authoritative source: data/platforms/platform-matrix.json (offline-tolerant multi-path fetch,

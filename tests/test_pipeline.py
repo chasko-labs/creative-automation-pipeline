@@ -41,6 +41,18 @@ def test_dam_reuse_vs_generate(tmp_path):
     assert rm["hero_source"] == "brand-floor"
     assert "mock" not in rm["hero_source"]
 
+def test_artifacts_carry_seed_provenance(tmp_path):
+    brief = load_brief("briefs/example.yaml")
+    report = run_pipeline(brief, Path("input_assets"), tmp_path / "out-prov")
+    assert report["artifacts"], "expected artifacts in report"
+    for a in report["artifacts"]:
+        prov = a.get("provenance")
+        assert isinstance(prov, dict) and prov, f"missing provenance on {a.get('human_name')}"
+        # brand-floor rung D has no seed by design (seed_selection "none");
+        # every seeded path must name its seed so dynamic picks stay reproducible.
+        if prov.get("seed_selection", "none") != "none":
+            assert prov.get("seed_source"), f"missing seed_source on {a.get('human_name')}"
+
 def test_legal_flag(tmp_path):
     from creative_automation.compliance import check_legal
     assert check_legal("This miracle cure is guaranteed")["passed"] is False

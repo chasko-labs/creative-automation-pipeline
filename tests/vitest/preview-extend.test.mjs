@@ -58,7 +58,7 @@ describe('preview extend helpers', () => {
 
   it('marks pad vs live engines so tiles never render identically', () => {
     expect(window.KODIAK_tileEngineMark('stability-outpaint')).toEqual({ text: ' · composed', cls: 'rt-live' });
-    expect(window.KODIAK_tileEngineMark('pillow-outpaint-fallback')).toEqual({ text: ' · placeholder', cls: 'rt-pad' });
+    expect(window.KODIAK_tileEngineMark('pillow-outpaint-fallback')).toEqual({ text: ' · cover-pad', cls: 'rt-pad' });
     expect(window.KODIAK_tileEngineMark('primary')).toEqual({ text: '', cls: '' });
     expect(window.KODIAK_tileEngineMark('unknown-engine')).toEqual({ text: '', cls: '' });
     expect(window.KODIAK_tileEngineMark(null)).toEqual({ text: '', cls: '' });
@@ -77,6 +77,29 @@ describe('preview extend helpers', () => {
     const d = window.KODIAK_extendBody('16x9', hero, {});
     expect(d.product).toBe('power-cakes');
     expect(d.theme).toBe(null);
+  });
+
+  it('picks season-aware market hero images offline, distinct per tile', () => {
+    globalThis.KODIAK_TILE_ORDER = ['blog', '1x1', '16x9', '4x5', '9x16'];
+    globalThis.KODIAK_CAMPAIGN_ART = {
+      season_months: { christmas: [12, 1, 2], fall: [9, 10, 11] },
+      markets: {
+        'US-OH-LEBANON': {
+          seasons: {
+            fall: { waffle: 'input_assets/campaign-web/US-OH-LEBANON/fall-waffle.jpg', muffin: 'input_assets/campaign-web/US-OH-LEBANON/fall-muffin.jpg', 'oatmeal-cup': 'input_assets/campaign-web/US-OH-LEBANON/fall-oatmeal-cup.jpg', bars: 'input_assets/campaign-web/US-OH-LEBANON/fall-bars.jpg', brownie: 'input_assets/campaign-web/US-OH-LEBANON/fall-brownie.jpg' },
+            christmas: { waffle: 'input_assets/campaign-web/US-OH-LEBANON/christmas-waffle.jpg', muffin: 'input_assets/campaign-web/US-OH-LEBANON/christmas-muffin.jpg', 'oatmeal-cup': 'input_assets/campaign-web/US-OH-LEBANON/christmas-oatmeal-cup.jpg', bars: 'input_assets/campaign-web/US-OH-LEBANON/christmas-bars.jpg', brownie: 'input_assets/campaign-web/US-OH-LEBANON/christmas-brownie.jpg' },
+          },
+          extras: {},
+        },
+      },
+    };
+    const oct = window.KODIAK_marketHeroPicks('US-OH-LEBANON', 10);
+    expect(Object.keys(oct).sort()).toEqual(['16x9', '1x1', '4x5', '9x16', 'blog']);
+    expect(new Set(Object.values(oct)).size).toBe(5);
+    expect(oct.blog).toContain('fall-waffle.jpg');
+    expect(window.KODIAK_marketHeroPicks('US-OH-LEBANON', 1).blog).toContain('christmas-waffle.jpg');
+    expect(window.KODIAK_marketHeroPicks('US-XX-NOWHERE', 10)).toEqual({});
+    expect(window.KODIAK_marketHeroPicks(null, 10)).toEqual({});
   });
 
   it('repaints resting copy from the market row, never Utah under Ohio', () => {

@@ -128,6 +128,7 @@ def run_pipeline(
     for idx, product in enumerate(brief.products):
         hero = find_hero_asset(product.id, dam_root, product.hero_asset)
         hero_source = "dam"
+        hero_prov: dict = {}
         # stage hero to a working path if reused, or generate
         work_hero = out_root / "_work" / f"{product.id}_hero.png"
         work_hero.parent.mkdir(parents=True, exist_ok=True)
@@ -135,15 +136,23 @@ def run_pipeline(
         if hero and hero.exists():
             # copy to work then optionally enhance (contrast/texture/framing/watermark)
             shutil.copy2(hero, work_hero)
+            hero_prov = {
+                "seed_selection": "staged-dam-asset",
+                "seed_source": hero.stem,
+                "engine": "dam",
+            }
             if enhance:
                 try:
                     enhance_hero(work_hero, work_hero, contrast=1.08, brightness=1.02, sharpness=1.12, texture=True, frame=False, watermark=False, vignette=True)
                     hero_source = f"{hero_source}+enhanced"
+                    hero_prov["engine"] = "dam+enhanced"
+                    hero_prov["enhance_applied"] = True
                 except Exception as e:  # noqa: BLE001 — enhance is best-effort; skip on any failure
                     print(f"[pipeline] enhance skip {product.id}: {e}")
+                    hero_prov["enhance_applied"] = False
         else:
             # generate
-            _, hero_source, _hero_prov = generate_hero(
+            _, hero_source, hero_prov = generate_hero(
                 product_id=product.id,
                 product_name=product.name,
                 brief_msg=brief.campaign_message,
@@ -173,6 +182,7 @@ def run_pipeline(
             "name": product.name,
             "hero_asset": str(hero),
             "hero_source": hero_source,
+            "provenance": hero_prov,
             "localized_message": lang_variants[0][1] if lang_variants else brief.campaign_message,
             "localization_source": lang_variants[0][2] if lang_variants else "original",
             "variants": [
@@ -250,6 +260,7 @@ def run_pipeline(
                         "machine_path": str(machine_path.relative_to(out_root)),
                         "message": msg,
                         "hero_source": hero_source,
+                        "provenance": hero_prov,
                         "localization_source": loc_source,
                         "compliance_passed": checks["overall_passed"],
                     }

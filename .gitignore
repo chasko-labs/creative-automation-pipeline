@@ -55,7 +55,11 @@ rust/**/target/
 
 # large binaries hosted in S3 DAM (chasko-creative-dam-946179428633-us-east-1), not git
 input_assets/power-cakes/hero-real.png
-web/kodiak-posts-for-todays-frontier/input_assets/
+web/kodiak-posts-for-todays-frontier/input_assets/*
+# exception: campaign-web derivatives ship with the offline page (built by
+# scripts/build-campaign-web-art.py, ~70KB each) — the resting hero swaps to
+# them with zero fetch, so they must exist on fresh checkouts.
+!web/kodiak-posts-for-todays-frontier/input_assets/campaign-web/
 
 
 # derived data hosted in S3 (brands/kodiak/vectors/), regenerable, not git

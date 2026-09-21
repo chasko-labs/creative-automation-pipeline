@@ -759,12 +759,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   border:1px dashed var(--colors-border-default);border-radius:var(--radii-sm);background:var(--colors-neutral-100);
   display:flex;align-items:center;justify-content:center;overflow:hidden}
 .ff-carousel-slot>img{width:100%;height:100%;object-fit:cover;display:block}
-/* Layout law — campaign assets ride the main page scroll: no inner scrollbar.
-   Three slots share the row exactly (flex-basis 0, no min-width floor), so the
-   shell never overflows at 390px or 1600px; download buttons above/below stay
-   in normal flow. Token var() only; no motion touched (epilepsy-safe). */
+/* Campaign-asset carousel keeps its own horizontal scroll: slot minimums plus
+   nowrap pushed pixels past the shell with overflow visible, so narrow
+   viewports clipped images with no way to reach them. overflow-x auto restores
+   the scroll the base .ff-product-carousel rule already provides; page-level
+   vertical scroll is untouched. Token var() only; no motion touched. */
 .ff-output.ff-campaign-assets,.ff-output.ff-generate-campaign{overflow:visible;max-height:none}
-.ff-campaign-assets .ff-product-carousel{overflow-x:visible;flex-wrap:nowrap}
+.ff-campaign-assets .ff-product-carousel{overflow-x:auto;flex-wrap:nowrap}
 @media(max-width:520px){
   .ff-carousel-slot{flex:1 1 0;min-width:0}
 }
