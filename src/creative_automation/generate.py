@@ -240,10 +240,16 @@ STABILITY_CONTROL_MODEL = os.getenv(
 STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.35"))
 # Brief-aware jitter so the same market/product/brief doesn't produce pixel-identical
 # oranges every time — small ±0.06 range on top of the 0.35 base, keyed by brief hash.
+def _stable_hash_int(text: str, nbytes: int = 4) -> int:
+    """Stable integer digest for deterministic mode. Builtin hash() is salted per
+    process (PYTHONHASHSEED), so it must never back KODIAK_DETERMINISTIC."""
+    return int.from_bytes(hashlib.sha256(text.encode("utf-8")).digest()[:nbytes], "big")
+
+
 def _control_for_brief(brief_msg: str | None) -> float:
     base = STABILITY_CONTROL_STRENGTH
     if os.getenv("KODIAK_DETERMINISTIC") == "1":
-        h = hash(brief_msg or "") & 0xFF
+        h = _stable_hash_int(brief_msg or "", 1)
         jitter = (h / 255.0 - 0.5) * 0.12  # -0.06 .. +0.06 deterministic for tests
         return max(0.2, min(0.6, base + jitter))
     import random
@@ -2736,7 +2742,7 @@ def generate_hero(
         photo_key = None
         if candidates:
             if os.getenv("KODIAK_DETERMINISTIC") == "1":
-                h = hash((brief_msg or "") + product_id) & 0xFFFFFFFF
+                h = _stable_hash_int((brief_msg or "") + product_id)
                 photo_key = candidates[h % len(candidates)]
                 print(f"[generate] brief-aware seed pick {photo_key} from {len(candidates)} candidates (deterministic)", file=sys.stderr)
             else:

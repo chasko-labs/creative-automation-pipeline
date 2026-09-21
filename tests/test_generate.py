@@ -413,6 +413,32 @@ def test_style_sandwich_mascot_lock_pins_frozen_block(monkeypatch) -> None:
     assert twice == once
 
 
+def test_deterministic_mode_stable_across_hash_seeds(monkeypatch) -> None:
+    # builtin hash() is salted per process, so KODIAK_DETERMINISTIC must rest
+    # on a stable digest — same brief gives the same control strength under
+    # different PYTHONHASHSEED values in fresh interpreters.
+    import os
+    import subprocess
+    import sys
+
+    monkeypatch.setenv("KODIAK_DETERMINISTIC", "1")
+    in_process = generate._control_for_brief("Green chile meets grizzly")
+    probe = (
+        "import os; os.environ['KODIAK_DETERMINISTIC']='1';"
+        "from creative_automation.generate import _control_for_brief;"
+        "print(_control_for_brief('Green chile meets grizzly'))"
+    )
+    seen = set()
+    for seed in ("1", "2"):
+        env = dict(os.environ, PYTHONHASHSEED=seed)
+        out = subprocess.run(
+            [sys.executable, "-c", probe], capture_output=True, text=True, env=env, timeout=120
+        )
+        assert out.returncode == 0, out.stderr
+        seen.add(out.stdout.strip())
+    assert seen == {str(in_process)}, seen
+
+
 def test_style_sandwich_scrubs_brand_token() -> None:
     # proven 2026-09-10: any brand word in the stability prompt renders as
     # hallucinated pack copy ("KODA CAKTS"). the scrub removes the token and
