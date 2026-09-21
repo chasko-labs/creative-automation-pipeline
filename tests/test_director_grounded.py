@@ -523,6 +523,11 @@ def test_concurrent_director_headline_lands_through_ladder(monkeypatch, tmp_path
 
 
 def test_concurrent_director_slow_voice_bounded_wait(monkeypatch, tmp_path):
+    # Pin budgets to the pre-seasonal calibration so the 24s/16s wall logic is
+    # exercised, not the new 28s/25s 5×Bedrock raise.
+    monkeypatch.setattr(generate_mod, "GENERATE_SOFT_BUDGET_MS", 24000)
+    monkeypatch.setattr(generate_mod, "_B_BUDGET_MS", 16000)
+    monkeypatch.setattr(generate_mod, "_C_RESERVATION_MS", 3000)
     # A stalled voice (30s — longer than any ladder cascade, so the done()
     # poll can never pick it up mid-run) must not stall the ladder: the first
     # budget-shaped collect gives up at ~10s grace, the slow-voice latch holds

@@ -384,6 +384,10 @@ def test_slow_nova_scene_prompt_abandons_rung_b_to_c_failfast(tmp_path, monkeypa
         lambda s, p, o: stability_calls.__setitem__("n", stability_calls["n"] + 1) or seed,
     )
 
+    # Pin B/C budgets to the pre-seasonal calibration so the 19s B gate + 7+13+3
+    # scene gate math is exercised, not the new 25s/28s.
+    monkeypatch.setattr(generate_mod, "_B_BUDGET_MS", 16000)
+    monkeypatch.setattr(generate_mod, "_C_RESERVATION_MS", 3000)
     # fake monotonic clock: start at 0; the outer B gate + scene gate pass at t=0, then the
     # slow scene advances t so the stability gate (t2) fails -> abandon B to C.
     clock = {"t": 0.0}
@@ -448,6 +452,11 @@ def _copy_stability(calls: dict):
 
 
 def test_mapped_sku_with_seed_restyles_bg_before_verbatim_paste(tmp_path, monkeypatch):
+    # Pin budgets to the original 24s/16s calibration so this rung-A restyle gate
+    # is not affected by the seasonal 28s/25s raise for 5×Bedrock.
+    monkeypatch.setattr(generate_mod, "GENERATE_SOFT_BUDGET_MS", 24000)
+    monkeypatch.setattr(generate_mod, "_B_BUDGET_MS", 16000)
+    monkeypatch.setattr(generate_mod, "_C_RESERVATION_MS", 3000)
     seed_src = tmp_path / "seed-src.png"
     Image.new("RGB", (1024, 1024), (30, 90, 160)).save(seed_src, "PNG")
     monkeypatch.setattr(dam, "fetch_dam_key", _seed_and_box_fetch(seed_src))
