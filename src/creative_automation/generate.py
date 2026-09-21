@@ -238,6 +238,13 @@ STABILITY_CONTROL_MODEL = os.getenv(
 # photographic gloss). Product identity is safe: the packshot composites via
 # Pillow from the real DAM asset, never from restyled pixels.
 STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.35"))
+# Brief-aware jitter so the same market/product/brief doesn't produce pixel-identical
+# oranges every time — small ±0.06 range on top of the 0.35 base, keyed by brief hash.
+def _control_for_brief(brief_msg: str | None) -> float:
+    base = STABILITY_CONTROL_STRENGTH
+    h = hash(brief_msg or "") & 0xFF
+    jitter = (h / 255.0 - 0.5) * 0.12  # -0.06 .. +0.06
+    return max(0.2, min(0.6, base + jitter))
 # Style sandwich (character-consistency pattern): frozen style head + varying subject
 # + frozen detail tail. Nova (or the brief fallback) supplies ONLY the subject; the
 # frozen ends keep every restyle/outpaint on-brand no matter what the subject says.
@@ -263,8 +270,7 @@ KODIAK_PALETTE = os.getenv(
     "warm natural daylight with soft cream and parchment highlights, gentle bear-brown "
     "shadows, and a single small warm amber highlight detail; muted, photographic and "
     "understated, no oversaturated color, no large green or brown flat color blocks, "
-    "no camouflage pattern, no citrus fruit, no oranges, no clementines, no tangerines "
-    "unless the ingredient explicitly is citrus",
+    "no camouflage pattern",
 )
 STYLE_HEAD = os.getenv(
     "KODIAK_STYLE_HEAD",
@@ -282,16 +288,9 @@ STYLE_TAIL = os.getenv(
     # explicit anti-gibberish: control-structure preserves seed structure, so
     # text-shaped regions in the seed photo restyle into fake lettering unless
     # told otherwise. every surface blank and unmarked, no exceptions.
-    # also fruit-accuracy guard: SDXL defaults to citrus (oranges) whenever the
-    # prompt has warm orange/palette tokens — we must explicitly exclude unless
-    # the brief says citrus.
     ". Absolutely no text of any kind — no words, no letters, no numbers, no "
     "logos, no labels, no signage, no packaging copy, no readable or garbled "
-    "lettering. All packaging, paper, tags, and surfaces blank and unmarked. "
-    "Fruit accuracy: only the ingredient named in the brief — if the brief says "
-    "peaches, show peaches (fuzzy stone fruit, not oranges); if pumpkins, show "
-    "pumpkins; if apples, show apples; never substitute citrus oranges/clementines "
-    "for another fruit.",
+    "lettering. All packaging, paper, tags, and surfaces blank and unmarked.",
 )
 # Brand tokens scrubbed out of every stability-bound prompt (proven 2026-09-10:
 # the word in the prompt renders as hallucinated pack copy). Applied to the
@@ -2615,7 +2614,33 @@ def generate_hero(
         except Exception as e:  # noqa: BLE001 — falls through to sku-mapped lookup
             print(f"[generate] staged seed fetch failed: {e}", file=sys.stderr)
     if seed is None:
-        photo_key = _resolve_dam_photo(product_id)
+        # Non-deterministic but brief-aware: the brief (your campaign idea) picks the seed
+        # among the SKU's DAM pool, so peaches vs pumpkins vs a custom idea don't all get
+        # the same deterministic Community Kitchen frame — we rotate through the fallbacks.
+        candidates: list[str] = []
+        primary = _resolve_dam_photo(product_id)
+        if primary:
+            candidates.append(primary)
+            # Pull fallbacks from sku-photo-map for this SKU so the same product can
+            # still look different when the brief changes (peaches → tacos → kitchen).
+            try:
+                import json as _json
+
+                _map = _json.load(open("data/products/sku-photo-map.json"))
+                _entry = _map.get("map", {}).get(product_id, {})
+                for _fb in _entry.get("fallbacks", []) or []:
+                    if _fb not in candidates:
+                        candidates.append(_fb)
+            except Exception:
+                pass
+        # Hash the actual brief (your campaign idea + market/season) so the same brief
+        # repeats predictably but a different brief (pumpkins vs peaches vs your free-text)
+        # actually changes the seed — fixes "same thing each time, ignoring brief".
+        photo_key = None
+        if candidates:
+            h = hash((brief_msg or "") + product_id) & 0xFFFFFFFF
+            photo_key = candidates[h % len(candidates)]
+            print(f"[generate] brief-aware seed pick {photo_key} from {len(candidates)} candidates", file=sys.stderr)
         if photo_key:
             try:
                 from .dam import fetch_dam_key
@@ -2856,7 +2881,7 @@ def generate_hero(
                     )
                     provenance["fallthrough_reason"] = "budget-exhausted"
                     raise _RungBBudgetSkip
-                stylized = _stability_control_hero(seed, scene_prompt, out_path)
+                stylized = _stability_control_hero(seed, scene_prompt, out_path, control_strength=_control_for_brief(brief_msg))
                 if stylized is not None and stylized.exists():
                     # Similarity gate (B -> C): reject a drifted restyle BEFORE the
                     # overlay lands — the message bar alone shifts dHash by ~12, so
@@ -2887,7 +2912,7 @@ def generate_hero(
                 if stylized is not None and stylized.exists():
                     provenance["engine"] = "stability-restyle"
                     provenance["rung"] = "B"
-                    provenance["control_strength"] = STABILITY_CONTROL_STRENGTH
+                    provenance["control_strength"] = _control_for_brief(brief_msg)
                     provenance["seed"] = STABILITY_SEED
                     provenance["style"] = "sandwich-locked"
                     provenance["mascot_lock"] = _mascot_lock_on()
