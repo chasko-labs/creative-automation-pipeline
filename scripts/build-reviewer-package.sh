@@ -167,7 +167,7 @@ cat >"$STAGE/START-HERE.html" <<HTML
         <strong>North star:</strong> a prompt in &rarr; a customized, on-brand campaign out &mdash; localized,
         compliance-checked, in all three ratios. The full pipeline is live and proven today: retrieve brand
         context (S3 Vectors) &rarr; Amazon Nova Pro vision composes the hero from your real product photography
-        &rarr; localize across 73 markets &rarr; deterministic Panda-token compose &rarr; brand + legal gate,
+        &rarr; localize across 74 markets &rarr; deterministic Panda-token compose &rarr; brand + legal gate,
         all exercised by the test suite and running Amazon-first on Bedrock end to end. Heroes are grounded in
         your 3,000+ real brand assets and composed by Nova Pro &mdash; on-brand and rights-clean by design,
         not hallucinated pixels. The hosted one-button demo at

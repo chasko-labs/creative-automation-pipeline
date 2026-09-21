@@ -1125,7 +1125,7 @@ graph TD
         if(sizeKB>=20&&sizeKB<=100){s++; subs.push('✓ '+sizeKB+'k tight');} else subs.push('✗ size '+sizeKB+'k');
         return {score:s,max:m,detail:subs.join(' • '),pass:s===m,subs};
       }},
-    { id:'localization', title:'Localization Coverage', weight:2, desc:'APP 75 places + 76 language markets + Burlington FR + localized surface renders', check: function(){
+    { id:'localization', title:'Localization Coverage', weight:2, desc:'APP 78 places + 74 language markets + Burlington FR + localized surface renders', check: function(){
         if(!appReady) return noApp();
         const subs=[]; let s=0,m=4;
         let placesLen=0, mlKeys=[], mlStr='{}';
