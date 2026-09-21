@@ -76,7 +76,7 @@ cfn-guard validate --template infra/template.yaml --rules cfn-guard-rules/
 The hosted demo at `https://kodiak.bryanchasko.com` serves `web/kodiak-posts-for-todays-frontier/` as static files — no build step. Every frontend change must pass these before it ships:
 
 ```
-npx vitest run                                        # 29 files / 127 tests
+npx vitest run --dir tests/vitest                     # 42 files / 255 tests
 python3 scripts/build-frontier-mapping.py --check    # backend JSON mirrors agree with data-core.js
 python3 scripts/check-panda-tokens.py                # panda-parity PASS
 node scripts/check-brand-render.mjs                  # pixel baselines guard the real app UI

@@ -117,6 +117,7 @@ family shape: { family_id, base_recipe, primary_product_mapping,
 <li><span class="node"><b>Nova Pro + Stable Diffusion</b> <span class="kbd">live</span></span> <span class="role">— Nova Pro creates the art direction and Stable Diffusion develops a photographic scene. Approved brand elements and final text receive controlled composition after image generation so the finished creative stays accurate.</span></li>
 <li><span class="node"><b>Nova Pro + composed scene</b> <span class="kbd">live</span></span> <span class="role">— Nova Pro guides the concept while the system composes approved images and copy into a finished layout when a photographic route is unavailable or slower.</span></li>
 <li><span class="node"><b>Brand-safe fallback</b> <span class="kbd">live</span></span> <span class="role">— a dependable on-brand layout keeps the campaign usable when a generation service cannot complete in time.</span></li>
+<li><span class="node"><b>Deterministic Pillow compose</b> <span class="kbd">live</span></span> <span class="role">— layout is code (<code>src/creative_automation/compose.py</code>): cutouts paste verbatim with a soft shadow, tokens arrive S3-first via <code>token_loader</code>. The model never touches logo or type.</span></li>
 </ul>
 </div></div>
 

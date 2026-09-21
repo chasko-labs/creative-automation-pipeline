@@ -72,6 +72,13 @@ then the paren-stripped slug (one drawing serves every qualifier).</div>
 </table>
 </div></div>
 
+<div class="card"><div class="hd"><h2>Local dialing → AWS transfer <span class="badge">live</span></h2><p>Looks are dialed free on the local box, then transferred to Bedrock with the same frozen prompt tails.</p></div><div class="body">
+<ul class="tree">
+<li><span class="node"><b>Frozen ComfyUI recipe</b></span> <span class="role">— SDXL base, euler, 25 steps, cfg 7.0 (<code>docs/local-comfyui-recipe-art.md</code>, <code>scripts/recipe_art_local_batch.py</code>). Same sampler settings every run; the <code>gpu_lock</code> serializes box GPU use.</span></li>
+<li><span class="node"><b>Same tails on Bedrock</b></span> <span class="role">— <code>POS_MONO</code>/<code>NEG_MONO</code> in <code>src/creative_automation/recipe_art.py</code> carry the monochrome, sparse-props, no-text rules to Stable Image Core. Iterate free locally; pay per shot only for keepers.</span></li>
+</ul>
+</div></div>
+
 <div class="card"><div class="hd"><h2>Secure cloud hosting <span class="badge">live</span></h2><p>Separate managed services handle the campaign workspace, creative generation, protected data, and public website delivery.</p></div><div class="body">
 <ul class="tree">
 <li><span class="node"><b>Creative generation</b></span> <span class="role">— managed artificial-intelligence services develop imagery and language from the campaign brief while approved brand content remains under controlled composition.</span></li>
