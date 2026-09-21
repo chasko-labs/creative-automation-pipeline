@@ -1080,11 +1080,22 @@ def _default_scene_prompt(
     for theme-photo seeds (the photo already carries the theme, so a second
     vision call buys nothing and burns rung C's budget). Combo extras
     (extra_themes) fold in as overlay layers behind the primary theme scene.
+
+    Frontier-aware: brief_msg now carries the rich autocomplete suffix
+    (frontier: Lebanon, OH — Pawpaw season (Sep) · in-season: pawpaws
+    (pawpaw, tropical custard) · market: Cincinnati...). That suffix is the
+    in-season ingredient + favorite_flavors + frontier place that makes
+    Cincinnati September look nothing like Halloween apples/cider — without
+    it every preview collapses to the same generic pumpkin-patch background
+    and [Image #1][2][3] repeat. We keep brief_msg verbatim so the frontier
+    context threads to Stability even when Nova is down.
     """
     scene_hint = _THEME_SCENE_HINT.get(theme or "", "")
     # Who + where: the filter-safe persona names the person (never the raw
     # celebrity token), the hint dispatches the scene. Theme without a hint
     # falls back to the persona alone; no theme falls back to the brief.
+    # Frontier/ingredient note: brief_msg is already frontier-aware (see
+    # autocomplete.js buildSuffix), so direction preserves it.
     if theme:
         who = _safe_theme_text(theme)
         direction = f"{scene_hint} Featuring {who}." if scene_hint else who

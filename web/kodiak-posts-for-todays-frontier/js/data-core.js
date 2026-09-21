@@ -395,9 +395,13 @@ function frontierSeasonLine(market, monthKey){
     var text = place;
     if(ingredient) text += ' — ' + ingredient + ' in season';
     if(pick && pick.moment) text += '; ' + pick.moment;
+    // Surface favorite_flavors so the brief can be stunning, not vague (pawpaw -> tropical custard etc.)
+    var fav = (pick && pick.favorite_flavors) ? pick.favorite_flavors : null;
     return {place: place, ingredient: ingredient,
       moment: (pick && pick.moment) || null,
-      momentStatus: (pick && pick.status) || null, text: text};
+      momentStatus: (pick && pick.status) || null,
+      favorite_flavors: fav,
+      text: text};
   }catch(e){ return null; }
 }
 try{ window.frontierSeasonLine = frontierSeasonLine; }catch(e){}

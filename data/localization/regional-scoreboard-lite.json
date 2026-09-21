@@ -3218,33 +3218,33 @@
       }
     },
     "city_center": {
-      "landmark": "Findlay Market (opened 1855), historic Ohio River market hall; Miami Valley frontier to the north",
-      "name": "Findlay Market (Over-the-Rhine) + Ohio River lakefront"
+      "landmark": "Findlay Market, Ohio's oldest continuously operated public market; Ohio River lakefront; Miami Valley orchard belt to the north (Lebanon)",
+      "name": "Findlay Market (Over-the-Rhine) — historic Ohio River market hall (1855)"
     },
     "design_palette": {
       "colors": [
         {
           "hex": "#8B4535",
-          "name": "Cleveland brick red"
+          "name": "Findlay brick red"
         },
         {
           "hex": "#B7A582",
-          "name": "Berea sandstone buff"
+          "name": "Ohio limestone buff"
         },
         {
-          "hex": "#3F2A4A",
-          "name": "Concord-grape purple"
+          "hex": "#D9A441",
+          "name": "pawpaw custard gold"
         }
       ],
       "textures": [
-        "Cleveland red brick",
-        "Berea sandstone block",
-        "West Side Market glazed tile and terra-cotta"
+        "Findlay Market red brick",
+        "Ohio River limestone",
+        "Findlay ironwork and glazed tile"
       ]
     },
     "featured_frontier": {
-      "hook": "Ohio Concord grape + apple compote over Power Cakes at the West Side Market, brick-and-sandstone city behind -- Lake Erie shore breakfast",
-      "photo_cue": "cast-iron flapjack stack under the West Side Market clock tower, Concord grapes and autumn apples, Berea sandstone, Lake Erie light"
+      "hook": "Pawpaw custard + spice over Power Cakes at Findlay Market — Ohio River Valley orchard belt in September, Lebanon orchards",
+      "photo_cue": "cast-iron flapjack stack under Findlay Market ironwork, pawpaw halves with tropical custard, black walnuts, Ohio River brick and hills in September light"
     },
     "languages": [
       {

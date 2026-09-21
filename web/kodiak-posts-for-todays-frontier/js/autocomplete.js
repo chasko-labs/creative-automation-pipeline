@@ -62,7 +62,11 @@
         ? frontierSeasonLine(code, s) : null;
       if(rich){
         if(rich.place) parts.push('frontier: ' + rich.place + (rich.moment ? ' — ' + rich.moment : ''));
-        if(rich.ingredient) parts.push('in-season: ' + rich.ingredient);
+        if(rich.ingredient){
+          var flav = (rich.favorite_flavors && rich.favorite_flavors.length) ? ' (' + rich.favorite_flavors.join(', ') + ')' : '';
+          parts.push('in-season: ' + rich.ingredient + flav);
+        }
+        // Stunning prompt needs plant/ingredient flavor, not just zip/month — ensures September brings pawpaws with tropical custard detail
       }
     }catch(e){}
     var prods = currentProducts(); if(prods.length) parts.push('products: ' + prods.join(', '));

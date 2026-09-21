@@ -12,22 +12,22 @@
   },
   "classification": "metro",
   "city_center": {
-    "name": "Findlay Market (Over-the-Rhine) + Ohio River lakefront",
-    "landmark": "Findlay Market (opened 1855), historic Ohio River market hall; Miami Valley frontier to the north",
-    "notes": "The West Side Market in Ohio City is Cleveland's historic public market with a landmark 1912 market hall and clock tower. East of the city, the Grand River Valley and Lake Erie shore are Ohio's grape and wine country. sources: en.wikipedia.org West Side Market; westsidemarket.org."
+    "name": "Findlay Market (Over-the-Rhine) \u2014 historic Ohio River market hall (1855)",
+    "landmark": "Findlay Market, Ohio's oldest continuously operated public market; Ohio River lakefront; Miami Valley orchard belt to the north (Lebanon)",
+    "notes": "Findlay Market in Over-the-Rhine (1855) is Cincinnati's historic public market hall with brick arcade and farm sheds. The Lebanon orchard belt (Warren County, 30 mi NE) supplies pawpaws, apples, pumpkins via Irons Fruit Farm / Hidden Valley Orchards. sources: findlaymarket.org; Irons Fruit Farm."
   },
   "featured_frontier": {
-    "hook": "Ohio Concord grape + apple compote over Power Cakes at the West Side Market, brick-and-sandstone city behind -- Lake Erie shore breakfast",
-    "photo_cue": "cast-iron flapjack stack under the West Side Market clock tower, Concord grapes and autumn apples, Berea sandstone, Lake Erie light",
-    "signature_ingredient": "Ohio Concord grapes (Sep) + Ohio apples (Sep-Oct); Lake Erie shore berries (summer)",
+    "hook": "Pawpaw custard + spice over Power Cakes at Findlay Market \u2014 Ohio River Valley orchard belt in September, Lebanon orchards",
+    "photo_cue": "cast-iron flapjack stack under Findlay Market ironwork, pawpaw halves with tropical custard, black walnuts, Ohio River brick and hills in September light",
+    "signature_ingredient": "Lebanon pawpaws (Sep, peak) + black walnuts (Dec); Findlay Market ramps (Mar) + morels (Apr); sweet corn (Jul) + peaches (Aug)",
     "cross_promo": {
-      "partner": "West Side Market / Grand River Valley growers",
-      "url": "https://westsidemarket.org",
-      "activation": "Concord grape + apple compote card, Giant Eagle / Heinen's / Meijer retailer lockup",
+      "partner": "Findlay Market / Irons Fruit Farm + Hidden Valley Orchards (Lebanon)",
+      "url": "https://findlaymarket.org",
+      "activation": "pawpaw custard card + black-walnut card, Kroger / Meijer retailer lockup",
       "consent_status": "n/a"
     }
   },
-  "audience": "Cleveland metro families + Ohio City and east/west-side households; Lake Erie shore food culture; Eastern European heritage (Slovenian, Polish, Hungarian); Giant Eagle, Heinen's, and Meijer shoppers",
+  "audience": "Cincinnati metro families + Over-the-Rhine and Ohio River valley households; Appalachian foothills food culture; Kroger, Meijer, and Costco shoppers",
   "languages": [
     {
       "lang_code": "es",
@@ -45,63 +45,61 @@
     }
   ],
   "cultural_notes": [
-    "the West Side Market (1912) in Ohio City is Cleveland's landmark public market -- a brick-and-tile hall with a clock tower and produce arcade, a civic food anchor (source: en.wikipedia.org West Side Market; westsidemarket.org)",
-    "Cleveland has deep Eastern European roots (Slovenian, Polish, Hungarian, Slovak) shaping its food culture, alongside a Puerto Rican community on the near west side (source: general demographic framing, publicly documented)",
-    "the Grand River Valley and Lake Erie shore east of the city are Ohio's grape and wine country; Concord grapes are a signature fall crop (source: Ohio wine / grape region framing, publicly documented)",
-    "Giant Eagle (a Pittsburgh/Cleveland regional chain), Heinen's (a Cleveland grocer), and Meijer are the metro grocers; Berea sandstone is a characteristic local building stone (source: chain regional footprint; Berea sandstone)"
+    "Findlay Market (1855) in Over-the-Rhine is Cincinnati's historic public market \u2014 a brick hall with outdoor farm sheds, a civic food anchor for the Ohio River city (source: findlaymarket.org)",
+    "The Lebanon orchard belt (Warren County, ~30 mi NE of Cincinnati) is the featured frontier \u2014 Irons Fruit Farm (Lebanon) and Hidden Valley Orchards supply pawpaws (Sep), apples (Oct), pumpkins (Oct-Nov) and cider (source: Irons Fruit Farm; Hidden Valley Orchards)",
+    "Pawpaws (Asimina triloba) are Ohio's native custard fruit, peak mid-September in Ohio River bottomlands \u2014 tropical banana-mango flavor, short season, foraged + orchard grown (source: Ohio State Extension pawpaw notes; USDA)",
+    "Kroger (Cincinnati-founded, HQ) is the dominant grocer; Meijer is the Midwest supercenter; Findlay Market is the public-market anchor (source: Kroger footprint)"
   ],
   "design_palette": {
     "textures": [
-      "Cleveland red brick",
-      "Berea sandstone block",
-      "West Side Market glazed tile and terra-cotta",
-      "Lake Erie wave sheen",
-      "Concord-grape bloom",
-      "Grand River Valley vineyard row",
+      "Findlay Market red brick",
+      "Ohio River limestone",
+      "Findlay ironwork and glazed tile",
+      "Lebanon orchard pawpaw leaf",
+      "Ohio pawpaw custard",
+      "black-walnut hull",
       "cast-iron griddle char"
     ],
     "colors": [
       {
-        "name": "Cleveland brick red",
+        "name": "Findlay brick red",
         "hex": "#8B4535",
         "use": "structure / facade"
       },
       {
-        "name": "Berea sandstone buff",
+        "name": "Ohio limestone buff",
         "hex": "#B7A582",
-        "use": "stone structure / trim"
+        "use": "stone trim"
       },
       {
-        "name": "Concord-grape purple",
-        "hex": "#3F2A4A",
+        "name": "pawpaw custard gold",
+        "hex": "#D9A441",
         "use": "produce hero / accent"
       },
       {
-        "name": "Lake Erie blue-gray",
+        "name": "Ohio River blue-gray",
         "hex": "#4E6470",
         "use": "water / sky"
       },
       {
-        "name": "market terra-cotta gold",
+        "name": "market tile ochre",
         "hex": "#C08A3E",
-        "use": "tile accent / warm pop"
+        "use": "tile accent"
       }
     ],
     "building_materials": [
       "fired red brick",
-      "Berea sandstone (local building stone)",
-      "glazed tile and terra-cotta (West Side Market)",
-      "steel (bridges, industrial)",
-      "clapboard vineyard farmhouse (rural)"
+      "Ohio River limestone",
+      "ironwork and glazed tile (Findlay Market)",
+      "orchard wood (pawpaw)"
     ],
     "landscape_motifs": [
-      "West Side Market clock tower and hall",
-      "Lake Erie lakefront",
-      "Grand River Valley vineyard rows",
-      "brick-and-sandstone city street",
-      "downtown skyline over the Cuyahoga"
+      "Findlay Market hall and farm sheds",
+      "Ohio River lakefront and hills",
+      "Lebanon orchard rows (pawpaw trees)",
+      "brick Over-the-Rhine row houses"
     ],
-    "_provenance_note": "Cleveland brick + Berea sandstone grounded in the city's building fabric (Berea sandstone is a characteristic regional stone). market terra-cotta from the West Side Market hall. Concord-grape purple from the Grand River Valley wine country. Lake Erie blue-gray from the Great Lakes shore. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette."
+    "_provenance_note": "Pawpaw custard gold from Asimina triloba pulp; Findlay brick from Over-the-Rhine market hall; Ohio limestone from river valley. Hook names pawpaws peak Sep per retailer-frontier-pairs."
   },
   "seasonal": [
     {
@@ -112,26 +110,28 @@
       ],
       "in_season_produce": [
         {
-          "name": "Ohio Concord grapes",
+          "name": "Lebanon pawpaws",
           "peak_month": 9,
-          "pancake_tie": "Concord-grape compote over Power Cakes -- Grand River Valley fall signature"
+          "pancake_tie": "pawpaw custard over Power Cakes \u2014 Ohio River Valley native fruit, Lebanon orchards Sep peak"
         },
         {
-          "name": "Ohio apples",
+          "name": "Lebanon apples",
           "peak_month": 10,
-          "pancake_tie": "Ohio apple-cinnamon compote over Power Cakes -- orchard-country staple"
+          "pancake_tie": "apple-cider compote over Power Cakes \u2014 Irons Fruit Farm Oct"
         }
       ],
       "where_to_buy": [
         {
-          "name": "West Side Market",
+          "name": "Findlay Market",
           "type": "farmers-market",
-          "url": "https://westsidemarket.org",
-          "notes": "Concord grapes + apples in fall"
+          "url": "https://findlaymarket.org",
+          "notes": "pawpaws Sep, apples Oct"
         },
         {
-          "name": "Giant Eagle",
-          "type": "chain-grocer"
+          "name": "Irons Fruit Farm",
+          "type": "farm-stand",
+          "url": "https://ironsfruitfarm.com",
+          "notes": "Lebanon orchard belt"
         }
       ]
     },
@@ -145,45 +145,40 @@
       ],
       "in_season_produce": [
         {
-          "name": "stored Ohio apples + winter squash",
-          "pancake_tie": "spiced apple-squash Power Cakes for a lake-effect snow morning"
+          "name": "black walnuts + stored apples",
+          "pancake_tie": "black-walnut pawpaw Power Cakes for Ohio River winter"
         }
       ],
       "where_to_buy": [
         {
-          "name": "Giant Eagle",
+          "name": "Kroger",
           "type": "chain-grocer"
         },
         {
-          "name": "Heinen's",
-          "type": "chain-grocer",
-          "notes": "Cleveland regional grocer"
-        },
-        {
-          "name": "Costco",
-          "type": "chain-grocer",
-          "notes": "metro bulk channel"
+          "name": "Findlay Market",
+          "type": "farmers-market"
         }
       ]
     },
     {
       "season": "spring-easter",
       "months": [
+        3,
         4,
         5
       ],
       "in_season_produce": [
         {
-          "name": "Ohio asparagus + rhubarb",
-          "peak_month": 5,
-          "pancake_tie": "rhubarb compote over Power Waffles -- Ohio spring pick"
+          "name": "Findlay ramps + morels",
+          "peak_month": 4,
+          "pancake_tie": "ramp-morel savory Power Cakes \u2014 Findlay spring foraged pair"
         }
       ],
       "where_to_buy": [
         {
-          "name": "West Side Market",
+          "name": "Findlay Market",
           "type": "farmers-market",
-          "notes": "spring asparagus + rhubarb"
+          "notes": "ramps Mar, morels Apr"
         }
       ]
     },
@@ -195,21 +190,20 @@
       ],
       "in_season_produce": [
         {
-          "name": "Ohio sweet corn",
-          "peak_month": 8,
-          "pancake_tie": "sweet-corn savory Power Cakes for a Lake Erie July Fourth griddle"
+          "name": "sweet corn",
+          "peak_month": 7,
+          "pancake_tie": "sweet-corn Power Cakes for Ohio River July"
         },
         {
-          "name": "Lake Erie shore blueberries + peaches",
-          "peak_month": 7,
-          "pancake_tie": "blueberry or peach compote over Power Cakes"
+          "name": "peaches",
+          "peak_month": 8,
+          "pancake_tie": "Hidden Valley peach compote over Power Cakes"
         }
       ],
       "where_to_buy": [
         {
-          "name": "West Side Market",
-          "type": "farmers-market",
-          "notes": "sweet corn + berries at summer peak"
+          "name": "Findlay Market",
+          "type": "farmers-market"
         },
         {
           "name": "Meijer",
