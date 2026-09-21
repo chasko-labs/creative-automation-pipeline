@@ -1639,6 +1639,34 @@ def _title_case_headline(text: str) -> str:
     )
 
 
+def _sanitize_military_headline(text: str) -> str | None:
+    """Strip military/recruitment language; return None if unrecoverable.
+
+    The grounded director and stock Nova both occasionally emit 'LISTEN UP'
+    style commanding language despite prompt bans. Quarantine here so no
+    military headline reaches provenance or pixels. Warm agricultural frontier
+    only.
+    """
+    if not text:
+        return None
+    low = text.lower()
+    # Any military/recruitment trigger quarantines the line for resample/fallback
+    banned = ("listen up", "recruit", "attention ", "muster", "enlist")
+    if any(b in low for b in banned):
+        # Try to salvage by stripping the banned prefix phrase and leading interjections
+        # e.g. "Alright, Listen Up, Kid. Summer In San Diego..." -> "Summer In San Diego..."
+        stripped = re.sub(r"(?i)\b(listen up|recruit|attention|muster|enlist)\b[,\s]*", "", text)
+        stripped = re.sub(r"(?i)^\s*(alright|okay|hey|listen)[,\s]+", "", stripped)
+        stripped = re.sub(r"(?i)\b(kid|partner|recruit)\b[,\.\s]*", "", stripped) if "listen up" in low else stripped
+        stripped = stripped.strip(" ,.-\t\n")
+        # Collapse double spaces
+        stripped = re.sub(r"\s{2,}", " ", stripped)
+        if stripped and len(stripped.split()) >= 2 and not any(b in stripped.lower() for b in banned):
+            return _title_case_headline(stripped)
+        return None
+    return text
+
+
 def _scrub_director_line(text: str, examples: list[dict]) -> str | None:
     """Extract one render-safe line from raw voice-model output.
 
@@ -1753,8 +1781,12 @@ def _director_headline_text(
                 continue
             headline, _side = _parse_layout(line)
             normed = _title_case_headline(headline)
-            if normed:
-                return normed
+            sanitized = _sanitize_military_headline(normed)
+            if sanitized is None:
+                _dnote(f"voice military filtered ({normed[:60]!r}) — resampling")
+                continue
+            if sanitized:
+                return sanitized
         return None
 
     # Leak-and-drain on timeout (same contract generate_lambda documents for its own
@@ -2525,9 +2557,18 @@ def generate_hero(
                         directed = None
                         _voice_state["dead"] = True
             if directed:
-                provenance["headline_source"] = _DIRECTOR_LIVE_SOURCE
-                print(f"[director] grounded headline: {directed}", file=sys.stderr)
-                return directed
+                # Military quarantine even on the memoized/director path — warm frontier only
+                sanitized = _sanitize_military_headline(directed)
+                if sanitized is None:
+                    print(f"[director] military headline filtered ({directed[:60]!r}) -> caption fallback", file=sys.stderr)
+                    provenance["headline_source"] = "filtered:military"
+                else:
+                    if sanitized != directed:
+                        print(f"[director] military stripped: {directed[:60]!r} -> {sanitized[:60]!r}", file=sys.stderr)
+                        directed = sanitized
+                    provenance["headline_source"] = _DIRECTOR_LIVE_SOURCE
+                    print(f"[director] grounded headline: {directed}", file=sys.stderr)
+                    return directed
         else:
             print(
                 f"[director] skip: budget {remaining_ms():.0f}ms < "
@@ -2539,8 +2580,13 @@ def generate_hero(
         )
         headline, _side = _parse_layout(caption)
         if headline:
-            provenance["headline_source"] = "bedrock:nova-pro-caption"
-            return _title_case_headline(headline)
+            normed = _title_case_headline(headline)
+            sanitized = _sanitize_military_headline(normed)
+            if sanitized is not None:
+                provenance["headline_source"] = "bedrock:nova-pro-caption"
+                return sanitized
+            print(f"[director] caption military filtered ({normed[:60]!r}) -> brief fallback", file=sys.stderr)
+            provenance["headline_source"] = "filtered:military"
         return brief_msg[:48]
 
     # Render-contract layers (#199/#200): normalize once; None = legacy ladder,
@@ -2901,7 +2947,10 @@ def generate_hero(
                     )
                     provenance["fallthrough_reason"] = "budget-exhausted"
                     raise _RungBBudgetSkip
-                stylized = _stability_control_hero(seed, scene_prompt, out_path, control_strength=_control_for_brief(brief_msg))
+                try:
+                    stylized = _stability_control_hero(seed, scene_prompt, out_path, control_strength=_control_for_brief(brief_msg))
+                except TypeError:
+                    stylized = _stability_control_hero(seed, scene_prompt, out_path)
                 if stylized is not None and stylized.exists():
                     # Similarity gate (B -> C): reject a drifted restyle BEFORE the
                     # overlay lands — the message bar alone shifts dHash by ~12, so
@@ -3355,13 +3404,22 @@ def _headline_for(
             except (OSError, ValueError):
                 print("[director] set-headline skip (budget log unavailable)", file=sys.stderr)
     if directed:
-        # Standing copy law: the voice model may echo a bare brand word from its
-        # examples — normalize on the way out (idempotent on compliant lines).
-        return clean_brand_copy(directed), _DIRECTOR_LIVE_SOURCE
+        sanitized = _sanitize_military_headline(directed)
+        if sanitized is None:
+            print(f"[director] set-headline military filtered ({directed[:60]!r})", file=sys.stderr)
+        else:
+            if sanitized != directed:
+                print(f"[director] set-headline military stripped: {directed[:60]!r} -> {sanitized[:60]!r}", file=sys.stderr)
+                directed = sanitized
+            return clean_brand_copy(directed), _DIRECTOR_LIVE_SOURCE
     caption = _caption_with_budget(
         src, product_name, brief_msg, region, audience, remaining_ms=remaining_ms
     )
     headline, _side = _parse_layout(caption)
     if headline:
-        return clean_brand_copy(_title_case_headline(headline)), "bedrock:nova-pro-caption"
+        normed = _title_case_headline(headline)
+        sanitized = _sanitize_military_headline(normed)
+        if sanitized is not None:
+            return clean_brand_copy(sanitized), "bedrock:nova-pro-caption"
+        print(f"[director] set-caption military filtered ({normed[:60]!r})", file=sys.stderr)
     return clean_brand_copy(brief_msg[:48]), None

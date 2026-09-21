@@ -77,7 +77,7 @@ def test_provenance_shape_and_json_serializable(tmp_path: Path, monkeypatch) -> 
     assert prov["seed_selection"] == "disk-asset"
     assert prov["seed_source"] == "seed"  # readable label (stem), not a /tmp path
     assert prov["engine"] == "stability-restyle"
-    assert prov["control_strength"] == generate.STABILITY_CONTROL_STRENGTH
+    assert prov["control_strength"] == generate._control_for_brief("wild mornings on the frontier")
     assert prov["model"] == generate.STABILITY_CONTROL_MODEL
     assert prov["incoming_prompt"] == "wild mornings on the frontier"
     assert prov["overlay_applied"] is True
