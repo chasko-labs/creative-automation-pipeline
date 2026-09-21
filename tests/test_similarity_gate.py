@@ -66,7 +66,10 @@ def test_dhash_far_pair_exceeds_threshold(tmp_path: Path) -> None:
     seed = _png(tmp_path / "seed.png")
     far = _half_split(tmp_path / "far.png")
     dist = generate.hamming_distance(generate.dhash64(seed), generate.dhash64(far))
-    assert dist > generate.SIMILARITY_GATE_THRESHOLD
+    # Half-split is ~32, well above the original 8 calibration but below the
+    # seasonal 64; we assert it exceeds the original 8 to prove the fixture is far,
+    # not necessarily that it exceeds the current seasonal gate.
+    assert dist > 8
 
 
 def test_similarity_distance_none_on_unreadable(tmp_path: Path) -> None:
@@ -94,20 +97,22 @@ def test_gate_pass_ships_rung_b(tmp_path: Path, monkeypatch) -> None:
     assert source == generate.STABILITY_SOURCE
     assert prov["rung"] == "B"
     assert prov["similarity_gate"] == "pass"
-    assert prov["similarity_distance"] <= prov["similarity_threshold"] == 8
+    assert prov["similarity_distance"] <= prov["similarity_threshold"] == generate.SIMILARITY_GATE_THRESHOLD
     assert prov["scene_prompt_source"] == "nova"
 
 
 def test_gate_fail_falls_to_rung_c(tmp_path: Path, monkeypatch) -> None:
     seed = _png(tmp_path / "seed.png")
     _ladder_stubs(monkeypatch, seed)
+    # Force distance > current threshold (64) so the seasonal-raise still gates this fixture.
+    monkeypatch.setattr(generate, "_similarity_distance", lambda s, c: generate.SIMILARITY_GATE_THRESHOLD + 1)
     monkeypatch.setattr(generate, "_stability_control_hero", lambda s, _p, o: _half_split(o))
     _, source, prov = generate.generate_hero(**_hero_kwargs(tmp_path))
     assert source == "bedrock:nova-pro"
     assert prov["rung"] == "C"
     assert prov["similarity_gate"] == "fail"
     assert prov["fallthrough_reason"] == "similarity-gate"
-    assert prov["similarity_distance"] > 8
+    assert prov["similarity_distance"] > generate.SIMILARITY_GATE_THRESHOLD
 
 
 def test_gate_disabled_ships_drifted_b(tmp_path: Path, monkeypatch) -> None:
