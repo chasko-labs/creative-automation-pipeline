@@ -237,7 +237,7 @@ STABILITY_CONTROL_MODEL = os.getenv(
 # painterly style head dominate the seed photo's texture (0.7 kept too much
 # photographic gloss). Product identity is safe: the packshot composites via
 # Pillow from the real DAM asset, never from restyled pixels.
-STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.45"))
+STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.35"))
 # Style sandwich (character-consistency pattern): frozen style head + varying subject
 # + frozen detail tail. Nova (or the brief fallback) supplies ONLY the subject; the
 # frozen ends keep every restyle/outpaint on-brand no matter what the subject says.
@@ -1107,10 +1107,15 @@ def _default_scene_prompt(
         direction = f"{hint} Campaign vibe: {safe_brief}." if safe_brief else hint
     else:
         direction = brief_msg
+        # Quick win: ensure September ecological depth (trillium/bluebells/walnuts/brick halls)
+        # threads even if Nova truncates — append canonical ecology when market is Cincy
+        if "Cincinnati" in (brief_msg or "") and "pawpaws" in (brief_msg or "").lower():
+            if "trillium" not in direction.lower():
+                direction += " — humid river valley with brick market halls, trillium and bluebells spring, coneflower summer, aster and goldenrod fall, black walnuts in December."
     base = (
         f"{product_name} product photo restyled for "
         f"{direction}, "
-        f"{region} {audience}, frontier morning light, natural grain texture, high detail"
+        f"{region} {audience}, frontier morning light, natural grain texture, high detail, lifestyle and natural world visible"
     ).strip()
     if extra_themes:
         combo = combine_themes([theme or "", *(extra_themes or [])])

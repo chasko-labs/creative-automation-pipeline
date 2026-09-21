@@ -228,15 +228,15 @@
       "score": 139.5
     },
     "buttermilk-power-cakes-flapjack-waffle-mix": {
-      "caption": "Power Waffle Breakfast Tacos",
+      "caption": "Protein Supreme Waffle — Community Kitchen lifestyle",
       "channel": "blog",
       "fallbacks": [
-        "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Community_Kitchen_Protein_Supreme_Kodiak_Waffle_1025_0061_7ddc0574-0de5-42b4-aae8-70e9f1a0fa7b.jpg",
+        "brands/kodiak/raw-ingest/kodiakcakes/images/Power_Waffle_Breakfast_Tacos_Frozen_Recipe_Reshoot_0526_0038.jpg",
         "brands/kodiak/raw-ingest/kodiakcakes/images/Web_Recipes_from_Social_Waffle_Pickles_0226_0070_7f43e113-dc84-4b5d-bf7c-ad588ad98c15.jpg"
       ],
-      "image_file": "Power_Waffle_Breakfast_Tacos_Frozen_Recipe_Reshoot_0526_0038.jpg",
+      "image_file": "Kodiak_Community_Kitchen_Protein_Supreme_Kodiak_Waffle_1025_0061_7ddc0574-0de5-42b4-aae8-70e9f1a0fa7b.jpg",
       "matched": true,
-      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Power_Waffle_Breakfast_Tacos_Frozen_Recipe_Reshoot_0526_0038.jpg",
+      "photo_key": "brands/kodiak/raw-ingest/kodiakcakes/images/Kodiak_Community_Kitchen_Protein_Supreme_Kodiak_Waffle_1025_0061_7ddc0574-0de5-42b4-aae8-70e9f1a0fa7b.jpg",
       "score": 115.5
     },
     "buttermilk-power-flapjacks": {
